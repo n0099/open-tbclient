@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.data.PersonChangeData;
 import com.baidu.tieba.person.PersonPostListData;
-import com.baidu.tieba.person.bx;
+import com.baidu.tieba.person.bz;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -13,10 +13,10 @@ public final class av extends com.baidu.adp.a.e {
     private String h;
     private PersonPostListData l;
     private AntiData o;
-    private com.baidu.tbadk.editortool.aa p;
+    private com.baidu.tbadk.editortool.ab p;
     private com.baidu.tbadk.coreExtra.b.a r;
     private Context s;
-    private bx t;
+    private bz t;
     private int m = 1;
     private boolean n = false;
     private ax q = null;
@@ -47,15 +47,15 @@ public final class av extends com.baidu.adp.a.e {
     public av(Context context) {
         this.s = null;
         this.s = context;
-        this.p = new com.baidu.tbadk.editortool.aa(context);
+        this.p = new com.baidu.tbadk.editortool.ab(context);
     }
 
     public final void c() {
         registerListener(this.u);
     }
 
-    public final void a(bx bxVar) {
-        this.t = bxVar;
+    public final void a(bz bzVar) {
+        this.t = bzVar;
     }
 
     public final AntiData d() {
@@ -152,7 +152,7 @@ public final class av extends com.baidu.adp.a.e {
         }
     }
 
-    public final com.baidu.tbadk.editortool.aa i() {
+    public final com.baidu.tbadk.editortool.ab i() {
         return this.p;
     }
 

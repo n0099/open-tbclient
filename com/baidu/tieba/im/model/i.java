@@ -1,10 +1,9 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.chat.by;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i implements by {
+public final class i implements com.baidu.tieba.im.chat.bu {
     final /* synthetic */ CommonPersonalMsglistModel a;
 
     private i(CommonPersonalMsglistModel commonPersonalMsglistModel) {
@@ -16,7 +15,7 @@ public final class i implements by {
         this(commonPersonalMsglistModel);
     }
 
-    @Override // com.baidu.tieba.im.chat.by
+    @Override // com.baidu.tieba.im.chat.bu
     public final void a(com.baidu.adp.framework.message.f<?> fVar) {
         if (fVar != null && fVar.g() == 205001 && (fVar instanceof ResponseCommitPersonalMessage)) {
             ResponseCommitPersonalMessage responseCommitPersonalMessage = (ResponseCommitPersonalMessage) fVar;

@@ -19,14 +19,14 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.data.SearchPostModel;
-import com.baidu.tieba.data.am;
+import com.baidu.tieba.data.al;
 import com.baidu.tieba.model.BarSuggestModel;
 import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class SquareSearchActivity extends com.baidu.tbadk.a {
-    private FragmentTabWidget D;
+    private FragmentTabWidget E;
     private NavigationBar i;
     private EditText c = null;
     private Button d = null;
@@ -52,12 +52,13 @@ public class SquareSearchActivity extends com.baidu.tbadk.a {
     private ac x = null;
     private String y = null;
     private int z = 0;
+    private String A = null;
     final View.OnClickListener b = new s(this);
-    private final Handler A = new Handler();
-    private final Runnable B = new u(this);
-    private boolean C = true;
-    private com.baidu.adp.framework.c.a E = new v(this, 2009002);
-    private com.baidu.adp.framework.c.a F = new w(this, 2009001);
+    private final Handler B = new Handler();
+    private final Runnable C = new u(this);
+    private boolean D = true;
+    private com.baidu.adp.framework.c.a F = new v(this, 2009002);
+    private com.baidu.adp.framework.c.a G = new w(this, 2009001);
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2009002, new x());
@@ -75,7 +76,7 @@ public class SquareSearchActivity extends com.baidu.tbadk.a {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(com.baidu.tieba.a.i.home_dialog_search);
-        this.D = (FragmentTabWidget) findViewById(com.baidu.tieba.a.h.square_search_tab_widget);
+        this.E = (FragmentTabWidget) findViewById(com.baidu.tieba.a.h.square_search_tab_widget);
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this);
         fragmentTabIndicator.a(0, getResources().getDimension(com.baidu.tieba.a.f.ds32));
         fragmentTabIndicator.setGravity(17);
@@ -94,11 +95,11 @@ public class SquareSearchActivity extends com.baidu.tbadk.a {
         fragmentTabIndicator3.a(0, getResources().getDimension(com.baidu.tieba.a.f.ds32));
         fragmentTabIndicator3.setGravity(17);
         fragmentTabIndicator3.setText(getResources().getString(com.baidu.tieba.a.k.search_in_baidu_text));
-        this.D.addView(fragmentTabIndicator);
-        this.D.addView(fragmentTabIndicator2);
-        this.D.addView(fragmentTabIndicator3);
-        this.D.a(0, true);
-        this.D.setTabSelectionListener(new t(this));
+        this.E.addView(fragmentTabIndicator);
+        this.E.addView(fragmentTabIndicator2);
+        this.E.addView(fragmentTabIndicator3);
+        this.E.a(0, true);
+        this.E.setTabSelectionListener(new t(this));
         this.i = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
         this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new r(this));
         View a = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_CENTER, com.baidu.tieba.a.i.square_search_navigation_view, (View.OnClickListener) null);
@@ -142,22 +143,22 @@ public class SquareSearchActivity extends com.baidu.tbadk.a {
         this.c.requestFocus();
         c();
         ShowSoftKeyPadDelay(this.c, 150);
-        if (com.baidu.tieba.r.c().i()) {
+        if (com.baidu.tieba.p.c().i()) {
             a(0);
         } else {
             a(1);
         }
         getWindow().setSoftInputMode(1);
-        com.baidu.adp.framework.c.a().a(this.E);
         com.baidu.adp.framework.c.a().a(this.F);
+        com.baidu.adp.framework.c.a().a(this.G);
     }
 
     @Override // com.baidu.tbadk.a, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (this.C) {
+        if (this.D) {
             com.baidu.adp.lib.util.f.e("simon", "onResume", "show keyboard");
-            this.A.post(new z(this));
+            this.B.post(new z(this));
         }
     }
 
@@ -171,9 +172,9 @@ public class SquareSearchActivity extends com.baidu.tbadk.a {
         super.onDestroy();
         this.z = 0;
         if (this.z == 0) {
-            com.baidu.tieba.r.c().b(true);
+            com.baidu.tieba.p.c().b(true);
         } else {
-            com.baidu.tieba.r.c().b(false);
+            com.baidu.tieba.p.c().b(false);
         }
         if (this.q != null) {
             this.q.setVisibility(8);
@@ -182,12 +183,12 @@ public class SquareSearchActivity extends com.baidu.tbadk.a {
             this.p.a();
         }
         a();
-        com.baidu.adp.framework.c.a().b(this.E);
         com.baidu.adp.framework.c.a().b(this.F);
+        com.baidu.adp.framework.c.a().b(this.G);
     }
 
     public final void a() {
-        this.A.removeCallbacks(this.B);
+        this.B.removeCallbacks(this.C);
         if (this.w != null) {
             this.w.cancel();
             this.w = null;
@@ -236,11 +237,7 @@ public class SquareSearchActivity extends com.baidu.tbadk.a {
     }
 
     public final void b() {
-        String trim = this.c.getText().toString().trim();
-        sendMessage(new com.baidu.adp.framework.message.a(2003000, new com.baidu.tbadk.core.b.l(this).a(trim, "tb_searchlist", 1)));
-        if (trim != null && trim.length() != 0) {
-            finish();
-        }
+        sendMessage(new com.baidu.adp.framework.message.a(2003000, new com.baidu.tbadk.core.b.l(this).a(this.c.getText().toString().trim(), "tb_searchlist", 1)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -277,8 +274,8 @@ public class SquareSearchActivity extends com.baidu.tbadk.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         this.j.setVisibility(8);
-        this.A.removeCallbacks(this.B);
-        this.A.postDelayed(this.B, 500L);
+        this.B.removeCallbacks(this.C);
+        this.B.postDelayed(this.C, 500L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -307,7 +304,7 @@ public class SquareSearchActivity extends com.baidu.tbadk.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void g(SquareSearchActivity squareSearchActivity) {
+    public static /* synthetic */ void h(SquareSearchActivity squareSearchActivity) {
         try {
             if (squareSearchActivity.z == 0) {
                 if (squareSearchActivity.u != null) {
@@ -325,7 +322,7 @@ public class SquareSearchActivity extends com.baidu.tbadk.a {
                     }
                 }
             } else if (squareSearchActivity.v != null) {
-                ArrayList<am> data = squareSearchActivity.v.getData();
+                ArrayList<al> data = squareSearchActivity.v.getData();
                 if (data == null || data.size() <= 0) {
                     squareSearchActivity.j.setVisibility(8);
                     squareSearchActivity.t.setVisibility(0);
@@ -351,7 +348,7 @@ public class SquareSearchActivity extends com.baidu.tbadk.a {
     protected void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.i.b(i);
-        this.D.a(i);
+        this.E.a(i);
         getLayoutMode().a(i == 1);
         getLayoutMode().a(this.h);
         ba.a(this.h, i);
@@ -361,10 +358,10 @@ public class SquareSearchActivity extends com.baidu.tbadk.a {
             this.c.setTextColor(-6574132);
             this.c.setHintTextColor(-11643034);
             this.r.setTextColor(getResources().getColor(com.baidu.tieba.a.e.no_data_search_text_content_night));
-            this.a.setImageResource(com.baidu.tieba.a.g.icon_search_ba);
+            this.a.setImageResource(com.baidu.tieba.a.g.icon_search_ba_1);
             ba.e((View) this.r, com.baidu.tieba.a.g.clear_search_btn_drawable_1);
             ba.e(this.f, com.baidu.tieba.a.g.inputbox_top_1);
-            this.e.setTextColor(getResources().getColor(com.baidu.tieba.a.e.square_search_no_text_color_1));
+            this.e.setTextColor(getResources().getColor(com.baidu.tieba.a.e.common_new_page_title_1));
             this.t.setTextColor(-11446171);
             this.t.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.a.g.pic_search_fruitless_1, 0, 0);
             return;
@@ -372,7 +369,7 @@ public class SquareSearchActivity extends com.baidu.tbadk.a {
         this.g.setBackgroundResource(com.baidu.tieba.a.e.square_listview_bg);
         this.s.setBackgroundResource(com.baidu.tieba.a.e.square_listview_bg);
         this.a.setImageResource(com.baidu.tieba.a.g.icon_search_ba);
-        this.e.setTextColor(getResources().getColor(com.baidu.tieba.a.e.square_search_no_text_color));
+        this.e.setTextColor(getResources().getColor(com.baidu.tieba.a.e.white));
         this.c.setTextColor(-2300171);
         this.c.setHintTextColor(-10195067);
         this.r.setTextColor(getResources().getColor(com.baidu.tieba.a.e.no_data_search_text_content));

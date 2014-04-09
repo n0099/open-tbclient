@@ -21,7 +21,7 @@ final class aj implements com.baidu.adp.lib.d.c<GifView> {
     @Override // com.baidu.adp.lib.d.c
     public final /* synthetic */ void a(GifView gifView) {
         com.baidu.adp.lib.util.f.e("PbActivity", "GifViewPool", "destroyObject");
-        gifView.c();
+        gifView.b();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */

@@ -44,9 +44,10 @@ public final class ak extends BdAsyncTask<String, Integer, String> {
     private String a() {
         new DatabaseManager(DatabaseManager.DatabaseLocation.SDCARD);
         DatabaseManager.b();
-        com.baidu.tbadk.core.voice.cache.e.a();
+        com.baidu.tbadk.core.voice.a.e.a();
         try {
             bb.a().b();
+            bb.a().c();
             return null;
         } catch (Exception e) {
             com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());

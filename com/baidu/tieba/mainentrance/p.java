@@ -5,7 +5,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.data.SearchPostModel;
-import com.baidu.tieba.data.am;
+import com.baidu.tieba.data.al;
 import com.baidu.tieba.model.BarSuggestModel;
 /* loaded from: classes.dex */
 final class p implements AdapterView.OnItemClickListener {
@@ -40,13 +40,13 @@ final class p implements AdapterView.OnItemClickListener {
                 cVar2 = this.a.p;
                 if (cVar2.getItemId(i) != -2) {
                     cVar3 = this.a.p;
-                    am amVar = (am) cVar3.getItem(i);
-                    if (amVar != null) {
-                        if (amVar.a()) {
-                            this.a.sendMessage(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(this.a).a(amVar.c(), null, "search_post")));
+                    al alVar = (al) cVar3.getItem(i);
+                    if (alVar != null) {
+                        if (alVar.a()) {
+                            this.a.sendMessage(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(this.a).a(alVar.c(), null, "search_post")));
                             return;
                         } else {
-                            this.a.sendMessage(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(this.a).a(amVar.c(), amVar.b(), "search_post")));
+                            this.a.sendMessage(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(this.a).a(alVar.c(), alVar.b(), "search_post")));
                             return;
                         }
                     }
@@ -87,6 +87,5 @@ final class p implements AdapterView.OnItemClickListener {
         String str3 = ((BarSuggestModel.Forum) ((ListView) adapterView).getAdapter().getItem(i)).forum_name;
         TiebaStatic.a(this.a, "search_bar_result_click", "click", 1, new Object[0]);
         this.a.sendMessage(new com.baidu.adp.framework.message.a(2003000, new com.baidu.tbadk.core.b.l(this.a).a(str3, "tb_searchlist", 1)));
-        this.a.finish();
     }
 }

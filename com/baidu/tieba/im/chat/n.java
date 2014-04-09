@@ -14,7 +14,7 @@ public final class n implements View.OnTouchListener {
 
     @Override // android.view.View.OnTouchListener
     public final boolean onTouch(View view, MotionEvent motionEvent) {
-        r0.a(this.a.G);
+        r0.a(this.a.H);
         this.a.R();
         this.a.S();
         return false;

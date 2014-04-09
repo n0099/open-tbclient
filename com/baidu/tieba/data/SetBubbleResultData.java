@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class SetBubbleResultData implements Serializable {
     private static final long serialVersionUID = -4612117445868668894L;
     private ResultInfo b_info = new ResultInfo();
-    private int error_code;
+    private String error_code;
     private String error_msg;
 
     public ResultInfo getB_info() {
@@ -16,12 +16,12 @@ public class SetBubbleResultData implements Serializable {
         this.b_info = resultInfo;
     }
 
-    public int getError_code() {
+    public String getError_code() {
         return this.error_code;
     }
 
-    public void setError_code(int i) {
-        this.error_code = i;
+    public void setError_code(String str) {
+        this.error_code = str;
     }
 
     public String getError_msg() {

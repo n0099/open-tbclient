@@ -18,9 +18,7 @@ public class ResponseBubbleListMessage extends JsonHttpResponsedMessage {
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public final void a(JSONObject jSONObject) {
-        int d = d();
-        int e = e();
-        if (d == 200 && e == 0 && jSONObject != null) {
+        if (d() == 200 && jSONObject != null) {
             this.a = (BubbleListData) new Gson().fromJson(jSONObject.toString(), (Class<Object>) BubbleListData.class);
         }
     }

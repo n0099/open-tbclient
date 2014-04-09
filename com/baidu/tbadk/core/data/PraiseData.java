@@ -8,9 +8,22 @@ import org.json.JSONObject;
 public class PraiseData implements Serializable {
     private static final long serialVersionUID = 2658065756886586666L;
     private String title = "";
+    private String postId = "";
     private long num = 0;
     private ArrayList<MetaData> users = new ArrayList<>();
     private int isLike = 0;
+
+    public boolean isPriaseDataValid() {
+        return this.num > 0 && this.users != null && this.users.size() > 0;
+    }
+
+    public void setPostId(String str) {
+        this.postId = str;
+    }
+
+    public String getPostId() {
+        return this.postId;
+    }
 
     public String getTitle() {
         return this.title;

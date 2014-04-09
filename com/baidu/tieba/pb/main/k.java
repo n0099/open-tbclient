@@ -15,51 +15,51 @@ final class k implements com.baidu.tieba.model.as {
 
     @Override // com.baidu.tieba.model.as
     public final void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.f fVar, WriteData writeData, AntiData antiData) {
-        bk bkVar;
-        bk bkVar2;
+        bm bmVar;
+        bm bmVar2;
         WriteImagesInfo writeImagesInfo;
-        bk bkVar3;
+        bm bmVar3;
         com.baidu.tieba.model.ar arVar;
         com.baidu.tieba.model.ar arVar2;
         com.baidu.tieba.model.ar arVar3;
-        bd bdVar;
-        bd bdVar2;
-        bd bdVar3;
-        bk bkVar4;
+        bf bfVar;
+        bf bfVar2;
+        bf bfVar3;
+        bm bmVar4;
         com.baidu.tieba.pb.sub.f fVar2;
-        bd bdVar4;
-        bk bkVar5;
-        bd bdVar5;
+        bf bfVar4;
+        bm bmVar5;
+        bf bfVar5;
         this.a.v();
-        bkVar = this.a.D;
-        bkVar.a(z);
-        bkVar2 = this.a.D;
+        bmVar = this.a.D;
+        bmVar.a(z);
+        bmVar2 = this.a.D;
         writeImagesInfo = this.a.n;
-        bkVar2.a(writeImagesInfo, true);
+        bmVar2.a(writeImagesInfo, true);
         if (z) {
-            bkVar3 = this.a.D;
-            bkVar3.ab();
+            bmVar3 = this.a.D;
+            bmVar3.ab();
             arVar = this.a.z;
             WriteData a = arVar.a();
             arVar2 = this.a.z;
             arVar2.a((WriteData) null);
             arVar3 = this.a.z;
             arVar3.a(false);
-            bdVar = this.a.x;
-            bdVar.y();
+            bfVar = this.a.x;
+            bfVar.y();
             PbActivity.a(this.a, antiData, str);
-            bdVar2 = this.a.x;
-            if (!bdVar2.m()) {
-                bdVar5 = this.a.x;
-                com.baidu.tieba.util.m.b(bdVar5.f(), (WriteData) null);
+            bfVar2 = this.a.x;
+            if (!bfVar2.m()) {
+                bfVar5 = this.a.x;
+                com.baidu.tieba.util.m.b(bfVar5.f(), (WriteData) null);
             }
             if (a != null) {
                 String floor = a.getFloor();
                 if (a == null || a.getType() != 2) {
-                    bdVar3 = this.a.x;
-                    if (bdVar3.r()) {
-                        bkVar4 = this.a.D;
-                        bkVar4.t();
+                    bfVar3 = this.a.x;
+                    if (bfVar3.r()) {
+                        bmVar4 = this.a.D;
+                        bmVar4.t();
                         return;
                     }
                     return;
@@ -67,10 +67,10 @@ final class k implements com.baidu.tieba.model.as {
                 fVar2 = this.a.B;
                 fVar2.i();
                 if (floor != null) {
-                    bdVar4 = this.a.x;
-                    com.baidu.tieba.data.ae p = bdVar4.p();
-                    bkVar5 = this.a.D;
-                    bkVar5.a(p);
+                    bfVar4 = this.a.x;
+                    com.baidu.tieba.data.ae p = bfVar4.p();
+                    bmVar5 = this.a.D;
+                    bmVar5.a(p);
                 }
                 com.baidu.tieba.util.m.a(a.getThreadId(), this.a);
             }

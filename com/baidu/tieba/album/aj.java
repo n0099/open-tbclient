@@ -17,12 +17,12 @@ final class aj implements z {
         List<ImageFileInfo> list;
         p pVar2;
         AlbumActivity albumActivity;
-        pVar = this.a.b;
-        list = this.a.m;
+        pVar = this.a.c;
+        list = this.a.n;
         pVar.a(list);
-        pVar2 = this.a.b;
+        pVar2 = this.a.c;
         pVar2.a(i);
-        albumActivity = this.a.a;
-        albumActivity.e(2);
+        albumActivity = this.a.b;
+        albumActivity.d(2);
     }
 }

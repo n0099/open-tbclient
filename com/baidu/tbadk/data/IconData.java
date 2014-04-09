@@ -1,7 +1,6 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.util.f;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -52,7 +51,7 @@ public class IconData implements Serializable {
         if (jSONObject != null) {
             try {
                 this.icon = jSONObject.optString("icon");
-                this.name = jSONObject.optString(PersonInfoActivity.TAG_NAME);
+                this.name = jSONObject.optString("name");
                 this.url = jSONObject.optString("url");
             } catch (Exception e) {
                 f.b(getClass().getName(), "parserJson", "error=" + e.toString());

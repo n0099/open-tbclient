@@ -257,6 +257,10 @@ public class UserData extends MetaData {
         return this.bimg_url;
     }
 
+    public void setBimg_url(String str) {
+        this.bimg_url = str;
+    }
+
     @Override // com.baidu.tbadk.data.MetaData
     public String toString() {
         return "UserData [ip=" + this.ip + ", BDUSS=" + this.BDUSS + ", fans_num=" + this.fans_num + ", concern_num=" + this.concern_num + ", like_bars=" + this.like_bars + ", sex=" + this.sex + ", intro=" + this.intro + ", have_attention=" + this.have_attention + ", password=" + this.password + ", posts_num=" + this.posts_num + ", isManager=" + this.isManager + ", position=" + this.position + ", lng=" + this.lng + ", lat=" + this.lat + ", inTime=" + this.inTime + ", loginTime=" + this.loginTime + ", lastReplyTime=" + this.lastReplyTime + ", userType=" + this.userType + ", permission=" + this.permission + ", tb_age=" + this.tb_age + "]";

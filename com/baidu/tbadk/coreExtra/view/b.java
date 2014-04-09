@@ -11,6 +11,9 @@ public final class b implements com.baidu.tbadk.imageManager.d {
 
     @Override // com.baidu.tbadk.imageManager.d
     public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        if (bVar == null) {
+            return;
+        }
         this.a.setImg(bVar);
         this.a.setVisibility(0);
     }

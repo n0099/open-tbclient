@@ -1,39 +1,26 @@
 package com.baidu.tieba.faceshop;
+
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-final class aw extends com.baidu.adp.a.h {
-    final /* synthetic */ FacePurchaseRecordsActivity a;
+final class aw implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ av a;
+    private final /* synthetic */ ViewGroup b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(FacePurchaseRecordsActivity facePurchaseRecordsActivity) {
-        this.a = facePurchaseRecordsActivity;
+    public aw(av avVar, ViewGroup viewGroup) {
+        this.a = avVar;
+        this.b = viewGroup;
     }
 
-    @Override // com.baidu.adp.a.h
-    public final void a(Object obj) {
-        bd bdVar;
-        bd bdVar2;
-        bd bdVar3;
-        this.a.hideProgressBar();
-        if (obj != null && (obj instanceof FacePurchaseRecordsData)) {
-            bdVar = this.a.a;
-            if (bdVar != null) {
-                FacePurchaseRecordsData facePurchaseRecordsData = (FacePurchaseRecordsData) obj;
-                if (facePurchaseRecordsData.errno == 0 && facePurchaseRecordsData.usermsg != null) {
-                    bdVar3 = this.a.a;
-                    bdVar3.a(facePurchaseRecordsData);
-                    return;
-                } else if (facePurchaseRecordsData.usermsg != null) {
-                    this.a.showToast(facePurchaseRecordsData.usermsg);
-                    bdVar2 = this.a.a;
-                    bdVar2.c();
-                    return;
-                } else {
-                    this.a.showToast(com.baidu.tieba.a.k.neterror);
-                    return;
-                }
-            }
-            return;
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        View findViewWithTag = this.b.findViewWithTag(str);
+        if (bVar != null && findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
+            TbImageView tbImageView = (TbImageView) findViewWithTag;
+            bVar.a(tbImageView);
+            tbImageView.setTag(null);
         }
-        this.a.showToast(com.baidu.tieba.a.k.neterror);
     }
 }

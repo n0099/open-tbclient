@@ -28,10 +28,10 @@ final class f extends com.baidu.adp.framework.c.a {
         EnterGuideCenterView enterGuideCenterView;
         EnterGuideCenterView enterGuideCenterView2;
         CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (this.a.getActivity() == null || this.a.a == null) {
+        if (this.a.getActivity() == null || this.a.b == null) {
             return;
         }
-        jVar = this.a.c;
+        jVar = this.a.d;
         if (jVar == null) {
             return;
         }
@@ -40,27 +40,27 @@ final class f extends com.baidu.adp.framework.c.a {
             if (responseGroupsByUidLocalMessage.e() == 0 || TextUtils.isEmpty(responseGroupsByUidLocalMessage.f())) {
                 return;
             }
-            this.a.showToast(responseGroupsByUidLocalMessage.f());
+            this.a.a(responseGroupsByUidLocalMessage.f());
             return;
         }
         List<GroupInfoData> b = responseGroupsByUidLocalMessage.b();
         if (b != null) {
-            aVar = this.a.e;
+            aVar = this.a.f;
             aVar.a(b);
-            aVar2 = this.a.e;
+            aVar2 = this.a.f;
             aVar2.notifyDataSetChanged();
             if (b.size() > 0) {
-                enterGuideCenterView2 = this.a.f;
+                enterGuideCenterView2 = this.a.g;
                 enterGuideCenterView2.setVisibility(8);
                 this.a.a();
             } else {
-                enterGuideCenterView = this.a.f;
+                enterGuideCenterView = this.a.g;
                 enterGuideCenterView.setVisibility(0);
             }
         }
-        jVar2 = this.a.c;
+        jVar2 = this.a.d;
         if (jVar2 != null) {
-            jVar3 = this.a.c;
+            jVar3 = this.a.d;
             jVar3.a();
         }
     }

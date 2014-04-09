@@ -92,10 +92,6 @@ public final class j extends com.baidu.adp.a.f {
         this.e.b(i);
         this.f.a(i);
         this.g.a(i);
-        this.h.a(i);
-        this.i.a(i);
-        this.j.a(i);
-        this.k.a(i);
         this.c.getLayoutMode().a(i == 1);
         this.c.getLayoutMode().a(this.d);
     }
@@ -182,7 +178,7 @@ public final class j extends com.baidu.adp.a.f {
     public final void b(int i) {
         if (i == 1) {
             if (TbadkApplication.j().l() != 1) {
-                com.baidu.tieba.r.c().c(i);
+                com.baidu.tieba.p.c().c(i);
                 a(i);
                 new ax("eyeshield").start();
             } else {
@@ -190,7 +186,7 @@ public final class j extends com.baidu.adp.a.f {
             }
         } else if (i == 0) {
             if (TbadkApplication.j().l() != 0) {
-                com.baidu.tieba.r.c().c(i);
+                com.baidu.tieba.p.c().c(i);
                 a(i);
             } else {
                 return;

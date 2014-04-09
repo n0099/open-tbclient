@@ -1,7 +1,6 @@
 package protobuf.QueryUserInfos;
 
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import com.baidu.tieba.person.PersonInfoActivity;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
@@ -424,7 +423,7 @@ public final class QueryUserInfosRes {
                                 this.bitField0_ |= 2048;
                                 this.isCoreuser_ = codedInputStream.readInt32();
                                 break;
-                            case PersonInfoActivity.REQUSET_MY_MENTION /* 104 */:
+                            case 104:
                                 this.bitField0_ |= 4096;
                                 this.superboy_ = codedInputStream.readInt32();
                                 break;

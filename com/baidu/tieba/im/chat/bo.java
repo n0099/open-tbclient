@@ -1,34 +1,87 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-final class bo implements DialogInterface.OnClickListener {
-    final /* synthetic */ GroupSettingActivity a;
+public final class bo extends com.baidu.adp.a.e {
+    private String a;
+    private String b;
+    private int c;
+    private com.baidu.tieba.im.message.av d;
+    private com.baidu.tieba.im.message.ad e;
+    private com.baidu.tbadk.a f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(GroupSettingActivity groupSettingActivity) {
-        this.a = groupSettingActivity;
+    public bo(com.baidu.tbadk.a aVar) {
+        this.f = null;
+        this.f = aVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        bs bsVar;
-        bs bsVar2;
-        com.baidu.tbadk.core.g.a(this.a, "clear_group_msg_at_gsetting");
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.im.j.deleting));
-        bsVar = this.a.b;
-        ImMessageCenterPojo a = com.baidu.tieba.im.b.e.a(bsVar.b());
-        if (a != null) {
-            a.setLast_content(" ");
-            a.setLast_user_name(" ");
-            a.setLast_rid(0L);
+    @Override // com.baidu.adp.a.e
+    protected final boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public final boolean cancelLoadData() {
+        return false;
+    }
+
+    public final String a() {
+        return this.b;
+    }
+
+    public final void a(String str) {
+        this.b = str;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public final void cancelMessage() {
+        if (this.d != null) {
+            this.d = null;
         }
-        com.baidu.tieba.im.s.a(new bp(this), new bq(this));
-        com.baidu.adp.framework.e.c.a();
-        StringBuilder sb = new StringBuilder("clear cache by group:");
-        bsVar2 = this.a.b;
-        com.baidu.adp.framework.e.c.a(true, sb.append(bsVar2.a()).toString());
-        dialogInterface.cancel();
+    }
+
+    public final void a(boolean z) {
+        new bp(this, z).execute(new Void[0]);
+    }
+
+    public final void a(long j) {
+        this.d = new com.baidu.tieba.im.message.av();
+        this.d.b(j);
+        this.d.a(TbadkApplication.N().getID());
+        if (this.f != null) {
+            this.f.sendMessage(this.d);
+        } else {
+            sendMessage(this.d);
+        }
+    }
+
+    public final void a(int i) {
+        this.e = new com.baidu.tieba.im.message.ad();
+        this.e.d(i);
+        if (this.f != null) {
+            this.f.sendMessage(this.e);
+        } else {
+            sendMessage(this.e);
+        }
+    }
+
+    public final String b() {
+        return this.a;
+    }
+
+    public final int c() {
+        return com.baidu.adp.lib.f.b.a(this.a, 0);
+    }
+
+    public final void b(String str) {
+        this.a = str;
+    }
+
+    public final int d() {
+        return this.c;
+    }
+
+    public final void b(int i) {
+        this.c = i;
     }
 }

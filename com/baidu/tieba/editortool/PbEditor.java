@@ -82,6 +82,9 @@ public class PbEditor extends LinearLayout {
 
     public void setContent(String str) {
         this.b.getEditText().setText(str);
+        if (!TextUtils.isEmpty(str)) {
+            this.b.getEditText().setSelection(str.length());
+        }
     }
 
     public final void d() {
@@ -269,7 +272,7 @@ public class PbEditor extends LinearLayout {
         if (str != null && str.length() != 0) {
             Matcher matcher = i.matcher(str);
             while (matcher.find()) {
-                if (com.baidu.tbadk.editortool.ab.a().a(matcher.group())) {
+                if (com.baidu.tbadk.editortool.ac.a().a(matcher.group())) {
                     i2++;
                 }
             }
@@ -282,7 +285,7 @@ public class PbEditor extends LinearLayout {
             this.b.i();
             return;
         }
-        if (TextUtils.isEmpty(TbadkApplication.j().aA()) && !this.h) {
+        if (TextUtils.isEmpty(TbadkApplication.j().aC()) && !this.h) {
             if (!this.c.i()) {
                 this.b.i();
             }

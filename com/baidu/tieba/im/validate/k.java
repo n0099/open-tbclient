@@ -2,7 +2,6 @@ package com.baidu.tieba.im.validate;
 
 import android.view.View;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class k implements View.OnClickListener {
@@ -21,6 +20,6 @@ public final class k implements View.OnClickListener {
         validateActivity = this.a.i;
         unused = this.a.d;
         validateItemData = this.a.j;
-        validateActivity.a(PersonInfoActivity.REQUSET_CHANGE, validateItemData);
+        validateActivity.a(101, validateItemData);
     }
 }

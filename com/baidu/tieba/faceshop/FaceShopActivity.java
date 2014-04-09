@@ -11,13 +11,13 @@ import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class FaceShopActivity extends com.baidu.tbadk.a {
-    private bu a;
-    private bs b;
-    private x c;
+    private bw a;
+    private bu b;
+    private z c;
     private final HashMap<String, com.baidu.tieba.download.a> d = new HashMap<>();
-    private final com.baidu.tbadk.core.view.m e = new bg(this);
-    private final com.baidu.adp.a.h f = new bh(this);
-    private final com.baidu.adp.framework.c.a g = new bi(this, 0);
+    private final com.baidu.tbadk.core.view.m e = new bi(this);
+    private final com.baidu.adp.a.h f = new bj(this);
+    private final com.baidu.adp.framework.c.a g = new bk(this, 0);
 
     static {
         TbadkApplication.j().a(com.baidu.tbadk.core.b.j.class, FaceShopActivity.class);
@@ -28,15 +28,15 @@ public class FaceShopActivity extends com.baidu.tbadk.a {
     public void onCreate(Bundle bundle) {
         String a;
         super.onCreate(bundle);
-        this.a = new bu(this);
-        this.a.a(new bj(this));
-        this.a.a(new bk(this));
+        this.a = new bw(this);
+        this.a.a(new bl(this));
+        this.a.a(new bm(this));
         this.a.a(this);
         this.a.a(this.e);
         registerListener(2001122, this.g);
         registerListener(2001120, this.g);
-        f.a();
-        this.b = new bs();
+        g.a();
+        this.b = new bu();
         if (bundle != null) {
             a = com.baidu.tbadk.core.b.j.a(bundle);
         } else {
@@ -45,19 +45,16 @@ public class FaceShopActivity extends com.baidu.tbadk.a {
         }
         this.b.a(a);
         this.b.setLoadDataCallBack(this.f);
-        a(true);
+        this.a.c();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(FaceShopActivity faceShopActivity, boolean z) {
         if (UtilHelper.a()) {
-            if (z) {
-                showProgressBar();
-            }
-            this.b.a(1);
-            return;
+            faceShopActivity.b.a(1);
+        } else {
+            faceShopActivity.a.b();
         }
-        this.a.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -65,13 +62,13 @@ public class FaceShopActivity extends com.baidu.tbadk.a {
         if (faceShopActivity.b == null || faceShopActivity.a == null || !faceShopActivity.b.b()) {
             return;
         }
-        faceShopActivity.a.c();
+        faceShopActivity.a.d();
         faceShopActivity.b.a(2);
     }
 
     @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        bm a;
+        bo a;
         FacePackageData facePackageData;
         if (this.b != null && this.a != null && (a = this.a.a()) != null) {
             if (i < a.getCount() && i >= 0 && (facePackageData = (FacePackageData) a.getItem(i)) != null) {
@@ -84,7 +81,7 @@ public class FaceShopActivity extends com.baidu.tbadk.a {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.a != null) {
-            if (view == this.a.k()) {
+            if (view == this.a.l()) {
                 if (!TbadkApplication.F()) {
                     LoginActivity.a((Activity) this, (String) null, true, 11037);
                     return;
@@ -103,7 +100,7 @@ public class FaceShopActivity extends com.baidu.tbadk.a {
             this.b.cancelLoadData();
         }
         if (this.a != null) {
-            this.a.g();
+            this.a.h();
             this.a.a().c();
         }
         if (this.c != null) {
@@ -116,7 +113,7 @@ public class FaceShopActivity extends com.baidu.tbadk.a {
     @Override // com.baidu.tbadk.a, android.app.Activity
     public void onStop() {
         if (this.a != null) {
-            this.a.g();
+            this.a.h();
         }
         super.onStop();
     }
@@ -126,7 +123,7 @@ public class FaceShopActivity extends com.baidu.tbadk.a {
     public void onResume() {
         super.onResume();
         if (this.a != null) {
-            this.a.f();
+            this.a.g();
         }
     }
 
@@ -142,7 +139,7 @@ public class FaceShopActivity extends com.baidu.tbadk.a {
     public final void a(int i) {
         FacePackageData facePackageData;
         if (this.a != null && this.a.a() != null && (facePackageData = (FacePackageData) this.a.a().getItem(i)) != null) {
-            this.a.j();
+            this.a.k();
             facePackageData.buyStatus = 1;
             facePackageData.canDownload = 1;
             this.a.a().notifyDataSetChanged();
@@ -151,7 +148,7 @@ public class FaceShopActivity extends com.baidu.tbadk.a {
     }
 
     public final void a() {
-        this.a.i();
+        this.a.j();
     }
 
     @Override // android.app.Activity
@@ -164,13 +161,13 @@ public class FaceShopActivity extends com.baidu.tbadk.a {
                 FacePackageData facePackageData = (FacePackageData) this.a.a().getItem(intExtra);
                 if (facePackageData != null) {
                     String str = com.baidu.tbadk.core.util.bc.c(stringExtra) ? facePackageData.orderId : stringExtra;
-                    this.a.h();
-                    this.c = new x();
-                    this.c.setLoadDataCallBack(new bl(this, intExtra));
+                    this.a.i();
+                    this.c = new z();
+                    this.c.setLoadDataCallBack(new bn(this, intExtra));
                     this.c.b(str);
                 }
             } else if (i == 11003) {
-                bm a = this.a.a();
+                bo a = this.a.a();
                 int a2 = a.a();
                 if (a2 >= 0) {
                     if (((FacePackageData) a.getItem(a2)).canDownload == 1) {

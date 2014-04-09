@@ -37,28 +37,28 @@ final class b implements TextWatcher {
         TextView textView4;
         EditText editText2;
         RelativeLayout relativeLayout2;
-        editText = this.a.g;
+        editText = this.a.h;
         int length = editText.getText().toString().trim().length();
         if (length > 0 && length < 32) {
-            editText2 = this.a.h;
+            editText2 = this.a.i;
             if (editText2.getText().toString().trim().length() > 0) {
-                relativeLayout2 = this.a.i;
+                relativeLayout2 = this.a.j;
                 relativeLayout2.setEnabled(true);
                 if (length < 32) {
-                    textView3 = this.a.s;
+                    textView3 = this.a.t;
                     textView3.setText(this.a.getString(com.baidu.tieba.a.k.bar_name_long));
-                    textView4 = this.a.s;
+                    textView4 = this.a.t;
                     textView4.setTextColor(-65536);
                     return;
                 }
-                textView = this.a.s;
+                textView = this.a.t;
                 textView.setText(this.a.getString(com.baidu.tieba.a.k.bar_name_rule));
-                textView2 = this.a.s;
+                textView2 = this.a.t;
                 textView2.setTextColor(-6250336);
                 return;
             }
         }
-        relativeLayout = this.a.i;
+        relativeLayout = this.a.j;
         relativeLayout.setEnabled(false);
         if (length < 32) {
         }

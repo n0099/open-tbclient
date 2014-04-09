@@ -41,10 +41,9 @@ public final class a implements com.baidu.tieba.download.b {
             this.a = b.a().b();
         }
         this.a.cancel(aVar.o());
-        b.a();
-        String a = b.a(aVar.e());
-        com.baidu.tieba.r.c();
-        UtilHelper.b(com.baidu.tieba.r.d(), a);
+        String replace = aVar.a().replace(".", "_");
+        com.baidu.tieba.p.c();
+        UtilHelper.b(com.baidu.tieba.p.d(), replace);
     }
 
     @Override // com.baidu.tieba.download.b

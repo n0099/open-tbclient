@@ -9,8 +9,8 @@ import com.baidu.tieba.im.message.ResponseChatRoomInfoMessage;
 import com.baidu.tieba.im.message.ResponseEnterChatRoomMessage;
 import com.baidu.tieba.im.message.ResponseQuitChatRoomMessage;
 import com.baidu.tieba.im.message.ResponseUpdateChatroomTopicMessage;
-import com.baidu.tieba.im.message.av;
-import com.baidu.tieba.im.model.bu;
+import com.baidu.tieba.im.message.au;
+import com.baidu.tieba.im.model.bv;
 import com.baidu.tieba.im.randchat.WaitingTipView;
 import java.util.ArrayList;
 import protobuf.Im;
@@ -28,24 +28,24 @@ final class p extends com.baidu.adp.framework.c.g {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
     @Override // com.baidu.adp.framework.c.c
     public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
-        bu buVar;
+        bv bvVar;
         ArrayList arrayList;
         f fVar;
-        bu buVar2;
-        bu buVar3;
+        bv bvVar2;
+        bv bvVar3;
         WaitingTipView.Type type;
         f fVar2;
-        bu buVar4;
+        bv bvVar4;
         f fVar3;
         f fVar4;
-        bu unused;
+        bv unused;
         SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
         this.a.closeLoadingDialog();
         if (socketResponsedMessage2 == null) {
             this.a.showToast(com.baidu.tieba.im.j.neterror);
         } else if (socketResponsedMessage2.g() == 106103) {
             if ((socketResponsedMessage2 instanceof ResponseUpdateChatroomTopicMessage) && ((ResponseUpdateChatroomTopicMessage) socketResponsedMessage2).e() == 0) {
-                type = this.a.h;
+                type = this.a.i;
                 if (type == WaitingTipView.Type.PERSONS_READY) {
                     fVar4 = this.a.a;
                     fVar4.d().getLoadingView().setVisibility(0);
@@ -53,8 +53,8 @@ final class p extends com.baidu.adp.framework.c.g {
                 }
                 fVar2 = this.a.a;
                 com.baidu.tieba.im.view.h chatterboxView = fVar2.d().getChatterboxView();
-                buVar4 = this.a.b;
-                chatterboxView.setTitle(buVar4.h());
+                bvVar4 = this.a.b;
+                chatterboxView.setTitle(bvVar4.h());
                 fVar3 = this.a.a;
                 fVar3.d().getLoadingView().setVisibility(8);
             }
@@ -64,7 +64,7 @@ final class p extends com.baidu.adp.framework.c.g {
             }
             ResponseQuitChatRoomMessage responseQuitChatRoomMessage = (ResponseQuitChatRoomMessage) socketResponsedMessage2;
             com.baidu.adp.framework.message.d<?> h = responseQuitChatRoomMessage.h();
-            if (!(h instanceof av) || ((av) h).i() == 0) {
+            if (!(h instanceof au) || ((au) h).i() == 0) {
                 if (responseQuitChatRoomMessage.e() != 0) {
                     if (responseQuitChatRoomMessage.e() <= 0) {
                         this.a.showToast(com.baidu.tieba.im.j.neterror);
@@ -72,8 +72,8 @@ final class p extends com.baidu.adp.framework.c.g {
                         this.a.showToast(responseQuitChatRoomMessage.f());
                     }
                 }
-                buVar3 = this.a.b;
-                com.baidu.tieba.im.f.h.a(String.valueOf(buVar3.f().d()));
+                bvVar3 = this.a.b;
+                com.baidu.tieba.im.f.h.a(String.valueOf(bvVar3.f().d()));
                 this.a.finish();
             }
         } else if (socketResponsedMessage2 != null && socketResponsedMessage2.g() == 106101) {
@@ -103,14 +103,14 @@ final class p extends com.baidu.adp.framework.c.g {
             imMessageCenterPojo.setIs_hidden(1);
             com.baidu.tieba.im.f.h.a(imMessageCenterPojo);
             this.a.a(d, false);
-            buVar2 = this.a.b;
-            buVar2.b(d);
+            bvVar2 = this.a.b;
+            bvVar2.b(d);
             this.a.b();
             this.a.c();
         } else if (socketResponsedMessage2.g() == 106001 && (socketResponsedMessage2 instanceof ResponseChatRoomInfoMessage)) {
             ResponseChatRoomInfoMessage responseChatRoomInfoMessage = (ResponseChatRoomInfoMessage) socketResponsedMessage2;
-            buVar = this.a.b;
-            RandChatRoomData f = buVar.f();
+            bvVar = this.a.b;
+            RandChatRoomData f = bvVar.f();
             unused = this.a.b;
             if (responseChatRoomInfoMessage == null || responseChatRoomInfoMessage.d() == null) {
                 arrayList = null;

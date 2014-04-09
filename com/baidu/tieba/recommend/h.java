@@ -1,6 +1,6 @@
 package com.baidu.tieba.recommend;
 /* loaded from: classes.dex */
-final class h implements Runnable {
+final class h implements q {
     final /* synthetic */ DailyRecommendActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,16 +8,34 @@ final class h implements Runnable {
         this.a = dailyRecommendActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        String str;
-        ab abVar;
-        try {
-            abVar = this.a.c;
-            abVar.g();
-        } catch (Exception e) {
-            str = this.a.b;
-            com.baidu.adp.lib.util.f.b(str, "mLoadImageRunnable.run", "error = " + e.getMessage());
+    @Override // com.baidu.tieba.recommend.q
+    public final void a(boolean z, String str, com.baidu.tieba.data.k kVar, int i) {
+        r rVar;
+        r rVar2;
+        r rVar3;
+        r rVar4;
+        rVar = this.a.b;
+        rVar.a(true, "");
+        if (z) {
+            rVar3 = this.a.b;
+            rVar3.a(kVar);
+            if (i == 0) {
+                rVar4 = this.a.b;
+                rVar4.f();
+            }
+        } else {
+            rVar2 = this.a.b;
+            rVar2.a((com.baidu.tieba.data.k) null);
+            if (i != 1) {
+                if (str.equals("70000")) {
+                    this.a.showToast("已经无新数据了");
+                } else {
+                    this.a.showToast("获取数据失败");
+                }
+            }
+        }
+        if (i == 1) {
+            this.a.a(true, (String) null);
         }
     }
 }

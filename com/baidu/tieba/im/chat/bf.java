@@ -1,21 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.GroupData;
+import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes.dex */
-final class bf extends com.baidu.tieba.im.m<Boolean> {
-    final /* synthetic */ GroupChatActivity b;
-    private final /* synthetic */ GroupData c;
+final class bf implements w {
+    final /* synthetic */ GroupChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(GroupChatActivity groupChatActivity, GroupData groupData) {
-        this.b = groupChatActivity;
-        this.c = groupData;
+    public bf(GroupChatActivity groupChatActivity) {
+        this.a = groupChatActivity;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.aa.a().d(TbadkApplication.E(), String.valueOf(this.c.getGroupId())));
+    @Override // com.baidu.tieba.im.chat.w
+    public final void a(VoiceData.VoiceModel voiceModel) {
+        if (voiceModel != null) {
+            this.a.e.a(voiceModel.voiceId, voiceModel.duration);
+        }
     }
 }

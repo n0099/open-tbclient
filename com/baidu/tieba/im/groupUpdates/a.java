@@ -42,7 +42,7 @@ final class a extends com.baidu.adp.framework.c.g {
                 updatesItemData2 = this.a.i;
                 aVar3 = this.a.e;
                 if (updatesItemData2 != null) {
-                    com.baidu.tieba.im.s.a(new q(updatesItemData2), aVar3);
+                    com.baidu.tieba.im.r.a(new q(updatesItemData2), aVar3);
                 }
                 this.a.i = null;
             }
@@ -52,7 +52,7 @@ final class a extends com.baidu.adp.framework.c.g {
                 if (pVar2.c() > 0) {
                     pVar3 = this.a.j;
                     aVar2 = this.a.e;
-                    com.baidu.tieba.im.s.a(new r(pVar3), aVar2);
+                    com.baidu.tieba.im.r.a(new r(pVar3), aVar2);
                 }
             }
             aVar = this.a.d;

@@ -105,8 +105,8 @@ public final class b implements View.OnClickListener {
         }
         this.a.g = true;
         this.a.setVisibility(8);
-        com.baidu.tieba.r.c();
-        com.baidu.tieba.r.c(System.currentTimeMillis());
+        com.baidu.tieba.p.c();
+        com.baidu.tieba.p.a(System.currentTimeMillis());
         dVar = this.a.h;
         if (dVar != null) {
             dVar2 = this.a.h;

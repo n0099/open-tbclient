@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ab implements com.baidu.adp.framework.task.a<Intent> {
-    final /* synthetic */ r a;
+public final class ab implements Runnable {
+    final /* synthetic */ p a;
+    private final /* synthetic */ int[] b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(r rVar) {
-        this.a = rVar;
+    public ab(p pVar, int[] iArr) {
+        this.a = pVar;
+        this.b = iArr;
     }
 
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<Intent> aVar) {
-        UtilHelper.a(TbadkApplication.j(), aVar.a());
-        return null;
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2005004, new com.baidu.tbadk.core.b.x(TbadkApplication.j(), this.b)));
     }
 }

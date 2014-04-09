@@ -3,7 +3,6 @@ package com.baidu.tbadk.coreExtra.view;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class v extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.data.a> {
@@ -72,7 +71,7 @@ public final class v extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreEx
 
     private com.baidu.tbadk.coreExtra.data.a a() {
         this.b = new com.baidu.tbadk.core.util.ak(this.c);
-        this.b.a(PersonInfoActivity.TAG_ID, this.d);
+        this.b.a("un", this.d);
         String i = this.b.i();
         if (!this.b.c() || this.b.d() != 36) {
             return null;

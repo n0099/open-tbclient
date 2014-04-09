@@ -1,6 +1,7 @@
 package com.baidu.tieba.service;
 
 import android.app.Application;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -9,7 +10,6 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.data.VersionData;
 import com.baidu.tieba.model.bb;
-import com.baidu.tieba.util.UtilHelper;
 import java.util.Date;
 import java.util.Random;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,7 +37,7 @@ public final class o extends BdAsyncTask<String, Integer, bb> {
         Handler handler2;
         Runnable runnable2;
         bb bbVar2;
-        int w;
+        int t;
         bb bbVar3;
         bb bbVar4;
         bb bbVar5;
@@ -68,25 +68,25 @@ public final class o extends BdAsyncTask<String, Integer, bb> {
         this.b.d = bbVar10;
         bbVar2 = this.b.d;
         if (bbVar2.c().getHas_new_ver() == 1) {
-            com.baidu.tieba.r c = com.baidu.tieba.r.c();
+            com.baidu.tieba.p c = com.baidu.tieba.p.c();
             bbVar3 = this.b.d;
             c.a(bbVar3.c());
             TiebaSyncService.c(this.b);
             bbVar4 = this.b.d;
             if (bbVar4.c().getForce_update() == 1) {
-                com.baidu.tieba.r.c();
-                Application d = com.baidu.tieba.r.d();
+                com.baidu.tieba.p.c();
+                Application d = com.baidu.tieba.p.d();
                 bbVar8 = this.b.d;
                 VersionData c2 = bbVar8.c();
                 bbVar9 = this.b.d;
                 UpdateDialog.a(d, c2, bbVar9.b());
             } else {
                 TbadkApplication.j();
-                if (Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(TbadkApplication.ay()).longValue() > 86400000) {
+                if (Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(TbadkApplication.aA()).longValue() > 86400000) {
                     bbVar5 = this.b.d;
                     if (bbVar5.c().getStrategy() == 0) {
-                        com.baidu.tieba.r.c();
-                        Application d2 = com.baidu.tieba.r.d();
+                        com.baidu.tieba.p.c();
+                        Application d2 = com.baidu.tieba.p.d();
                         bbVar6 = this.b.d;
                         VersionData c3 = bbVar6.c();
                         bbVar7 = this.b.d;
@@ -95,13 +95,14 @@ public final class o extends BdAsyncTask<String, Integer, bb> {
                 }
             }
         }
-        com.baidu.tieba.r.c();
-        com.baidu.tieba.r.I();
+        com.baidu.tieba.p.c();
+        com.baidu.tieba.p.E();
         int nextInt = new Random().nextInt(10000) + 1;
         int a = bbVar10.a().a();
-        if (a > 0 && nextInt % a == 0 && (w = com.baidu.tieba.r.c().w()) < 10) {
-            com.baidu.tieba.r.c().e(w + 1);
-            UtilHelper.takePerformanceSample(this.b);
+        if (a > 0 && nextInt % a == 0 && (t = com.baidu.tieba.p.c().t()) < 10) {
+            com.baidu.tieba.p.c().d(t + 1);
+            TiebaSyncService tiebaSyncService2 = this.b;
+            tiebaSyncService2.startService(new Intent(tiebaSyncService2, PerformMonitorService.class));
         }
         this.b.stopSelf();
     }
@@ -125,35 +126,35 @@ public final class o extends BdAsyncTask<String, Integer, bb> {
             this.a = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/s/sync");
             this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            com.baidu.tieba.r.c();
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.i.b(com.baidu.tieba.r.d())));
+            com.baidu.tieba.p.c();
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.i.b(com.baidu.tieba.p.d())));
             stringBuffer.append(",");
-            com.baidu.tieba.r.c();
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.i.c(com.baidu.tieba.r.d())));
+            com.baidu.tieba.p.c();
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.i.c(com.baidu.tieba.p.d())));
             this.a.a("_phone_screen", stringBuffer.toString());
             ak akVar = this.a;
-            com.baidu.tieba.r.c();
-            akVar.a("scr_w", String.valueOf(com.baidu.adp.lib.util.i.b(com.baidu.tieba.r.d())));
+            com.baidu.tieba.p.c();
+            akVar.a("scr_w", String.valueOf(com.baidu.adp.lib.util.i.b(com.baidu.tieba.p.d())));
             ak akVar2 = this.a;
-            com.baidu.tieba.r.c();
-            akVar2.a("scr_h", String.valueOf(com.baidu.adp.lib.util.i.c(com.baidu.tieba.r.d())));
+            com.baidu.tieba.p.c();
+            akVar2.a("scr_h", String.valueOf(com.baidu.adp.lib.util.i.c(com.baidu.tieba.p.d())));
             ak akVar3 = this.a;
-            com.baidu.tieba.r.c();
-            akVar3.a("scr_dip", String.valueOf(com.baidu.adp.lib.util.i.d(com.baidu.tieba.r.d())));
-            if (TbadkApplication.j().ag() > 0) {
+            com.baidu.tieba.p.c();
+            akVar3.a("scr_dip", String.valueOf(com.baidu.adp.lib.util.i.d(com.baidu.tieba.p.d())));
+            if (TbadkApplication.j().ai() > 0) {
                 this.a.a("_msg_status", "0");
             } else {
                 this.a.a("_msg_status", "1");
             }
-            com.baidu.tieba.r.c();
-            String D = com.baidu.tieba.r.D();
-            if (D != null) {
-                if (D.length() <= 0) {
-                    D = "0";
+            com.baidu.tieba.p.c();
+            String A = com.baidu.tieba.p.A();
+            if (A != null) {
+                if (A.length() <= 0) {
+                    A = "0";
                 }
-                this.a.a("_active", D);
+                this.a.a("_active", A);
             }
-            this.a.a("_pic_quality", String.valueOf(TbadkApplication.j().al()));
+            this.a.a("_pic_quality", String.valueOf(TbadkApplication.j().an()));
             str = TiebaSyncService.a;
             if (str != null) {
                 ak akVar4 = this.a;
@@ -162,8 +163,8 @@ public final class o extends BdAsyncTask<String, Integer, bb> {
             }
             String i = this.a.i();
             if (this.a.c()) {
-                com.baidu.tieba.r.c();
-                com.baidu.tieba.r.G();
+                com.baidu.tieba.p.c();
+                com.baidu.tieba.p.D();
             }
             if (this.a.a().b().b()) {
                 bbVar = new bb();

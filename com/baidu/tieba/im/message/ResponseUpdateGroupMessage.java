@@ -12,7 +12,7 @@ public class ResponseUpdateGroupMessage extends SocketResponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         UpdateGroupRes.UpdateGroupResIdl parseFrom = UpdateGroupRes.UpdateGroupResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             UpdateGroupInfoData updateGroupInfoData = new UpdateGroupInfoData();
             Im.GroupInfo group = parseFrom.getData().getGroup();

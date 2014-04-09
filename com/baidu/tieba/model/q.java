@@ -27,8 +27,8 @@ public final class q extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.n
             if (i != 1) {
                 return nVar;
             }
-            com.baidu.tieba.r.c();
-            if (UtilHelper.d(com.baidu.tieba.r.d().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
+            com.baidu.tieba.p.c();
+            if (UtilHelper.d(com.baidu.tieba.p.d().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
                 com.baidu.tieba.data.n nVar2 = new com.baidu.tieba.data.n();
                 this.a.e = System.currentTimeMillis();
                 String g = this.b.g();

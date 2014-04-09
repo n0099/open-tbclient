@@ -1,13 +1,16 @@
 package com.baidu.adp.framework.a;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.network.websocket.k;
+import com.baidu.adp.lib.network.websocket.CoderException;
 import com.baidu.adp.lib.network.websocket.l;
+import com.baidu.adp.lib.network.websocket.m;
 /* loaded from: classes.dex */
 final class h extends BdAsyncTask<byte[], String, SocketResponsedMessage> {
     final /* synthetic */ g a;
     private byte[] b;
+    private com.baidu.adp.lib.network.websocket.g c = null;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -19,9 +22,15 @@ final class h extends BdAsyncTask<byte[], String, SocketResponsedMessage> {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
         SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
         if (socketResponsedMessage2 != null) {
+            if (socketResponsedMessage2.e() != 0 && com.baidu.adp.framework.e.c.a().i() != null) {
+                com.baidu.adp.framework.e.c.a().i().a("dispatchMessage", socketResponsedMessage2.f(), socketResponsedMessage2.e(), socketResponsedMessage2);
+            }
+            if (this.c != null) {
+                this.a.c(this.c);
+            }
             this.a.a.a(socketResponsedMessage2);
         }
     }
@@ -36,35 +45,40 @@ final class h extends BdAsyncTask<byte[], String, SocketResponsedMessage> {
 
     private SocketResponsedMessage a() {
         long currentTimeMillis = System.currentTimeMillis();
-        k b = com.baidu.adp.framework.e.c.a().b();
+        l b = com.baidu.adp.framework.e.c.a().b();
         if (b == null) {
             com.baidu.adp.lib.util.f.b("WebSocketUnPacker not defined");
         }
-        l b2 = b.b(this.b);
-        this.b = b.a(this.b);
+        m b2 = b.b(this.b);
+        try {
+            this.b = b.a(this.b);
+        } catch (CoderException e) {
+            com.baidu.adp.lib.util.f.b("WebSocketUnPacker UnPack Fail" + e.toString());
+        }
         if (b2 == null) {
             com.baidu.adp.lib.util.f.b("WebSocketUnPacker UnPack Fail");
             return null;
         }
         int a = b2.a();
         try {
-            SocketResponsedMessage newInstance = ((com.baidu.adp.framework.task.c) this.a.a.d(a)).d().newInstance();
+            SocketResponsedMessage newInstance = ((SocketMessageTask) this.a.a.d(a)).d().newInstance();
             newInstance.b(this.b.length);
-            com.baidu.adp.framework.message.g a2 = this.a.a(b2);
-            if (a2 != null) {
-                newInstance.a(a2);
-                newInstance.a(currentTimeMillis - a2.c());
-                newInstance.c(a2.d());
+            this.c = this.a.a(b2);
+            com.baidu.adp.framework.message.g f = this.c != null ? this.c.f() : null;
+            if (f != null) {
+                newInstance.a(f);
+                newInstance.a(currentTimeMillis - f.c());
+                newInstance.c(f.d());
             }
             try {
                 newInstance.a(a, this.b);
                 newInstance.b(a, this.b);
                 return newInstance;
-            } catch (Exception e) {
+            } catch (Exception e2) {
                 com.baidu.adp.lib.util.f.b("Can't parser WebSocketResponseMessage!cmd:" + a);
                 return null;
             }
-        } catch (Exception e2) {
+        } catch (Exception e3) {
             com.baidu.adp.lib.util.f.b("Can't instantiate WebSocketResponseMessage!cmd:" + a);
             return null;
         }

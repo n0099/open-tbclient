@@ -67,8 +67,4 @@ public final class k {
         this.b.setVisibility(0);
         a(TbadkApplication.j().l());
     }
-
-    public final boolean c() {
-        return this.a.getVisibility() != 8;
-    }
 }

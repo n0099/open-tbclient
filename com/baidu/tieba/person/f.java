@@ -52,7 +52,7 @@ public final class f extends BdAsyncTask<ForumData, Integer, String> {
                     if (i3 < b.size()) {
                         i4 = this.a.l;
                         b.remove(i4);
-                        com.baidu.tieba.r c = com.baidu.tieba.r.c();
+                        com.baidu.tieba.p c = com.baidu.tieba.p.c();
                         str2 = this.a.m;
                         c.f(str2);
                         gVar = this.a.i;

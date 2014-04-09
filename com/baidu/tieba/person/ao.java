@@ -1,56 +1,79 @@
 package com.baidu.tieba.person;
 
-import android.app.Dialog;
-import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ao implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+public final class ao extends com.baidu.adp.widget.ListView.e {
+    final /* synthetic */ ak a;
+    private com.baidu.tbadk.core.e b;
+    private TextView c = null;
+    private ProgressBar d = null;
+    private View.OnClickListener e = null;
+    private View f = null;
+    private View g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public ao(ak akVar, com.baidu.tbadk.core.e eVar) {
+        this.a = akVar;
+        this.b = null;
+        this.b = eVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        com.baidu.tieba.model.au auVar;
-        int i;
-        boolean z;
-        com.baidu.tieba.model.au auVar2;
-        com.baidu.tieba.model.au auVar3;
-        Boolean bool;
-        com.baidu.tieba.model.au auVar4;
-        com.baidu.tieba.model.au auVar5;
-        Dialog dialog;
-        auVar = this.a.u;
-        int sex = auVar.a().getSex();
-        i = this.a.E;
-        if (sex != i) {
-            this.a.D = true;
+    @Override // com.baidu.adp.widget.ListView.e
+    public final View a() {
+        this.f = LayoutInflater.from(this.b).inflate(com.baidu.tieba.a.i.new_pb_list_more, (ViewGroup) null);
+        this.f.setPadding(0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.listview_item_margin));
+        this.c = (TextView) this.f.findViewById(com.baidu.tieba.a.h.pb_more_text);
+        this.g = this.f.findViewById(com.baidu.tieba.a.h.pb_more_view);
+        this.g.setVisibility(8);
+        this.d = (ProgressBar) this.f.findViewById(com.baidu.tieba.a.h.progress);
+        TbadkApplication.j().l();
+        c();
+        this.g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        return this.f;
+    }
+
+    public final void c() {
+        this.b.b().a(this.g);
+    }
+
+    public final void a(View.OnClickListener onClickListener) {
+        this.e = onClickListener;
+    }
+
+    public final void d() {
+        this.f.setVisibility(0);
+    }
+
+    public final void e() {
+        this.d.setVisibility(0);
+        this.c.setText(this.b.getText(com.baidu.tieba.a.k.loading));
+        this.g.setVisibility(0);
+    }
+
+    public final void f() {
+        if (this.d != null) {
+            this.d.setVisibility(8);
         }
-        z = this.a.D;
-        if (!z) {
-            auVar2 = this.a.u;
-            if (auVar2 != null) {
-                auVar3 = this.a.u;
-                if (auVar3.a().getPhotoChanged()) {
-                    Intent intent = new Intent();
-                    bool = this.a.b;
-                    if (bool.booleanValue()) {
-                        auVar5 = this.a.u;
-                        intent.putExtra("person_change_data", auVar5.a());
-                    } else {
-                        auVar4 = this.a.u;
-                        intent.putExtra("data", auVar4.a());
-                    }
-                    this.a.setResult(-1, intent);
-                }
-            }
-            this.a.finish();
-            return;
+        if (this.c != null) {
+            this.c.setText(com.baidu.tieba.a.k.no_more_to_load);
         }
-        dialog = this.a.B;
-        dialog.show();
+    }
+
+    public final void g() {
+        this.d.setVisibility(8);
+        this.c.setText(com.baidu.tieba.a.k.load_more);
+    }
+
+    @Override // com.baidu.adp.widget.ListView.e
+    public final void onClick() {
+        if (this.e != null) {
+            this.e.onClick(this.f);
+        }
     }
 }

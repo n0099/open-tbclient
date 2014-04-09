@@ -13,12 +13,12 @@ import org.json.JSONObject;
 public final class n {
     public static void a(com.baidu.tieba.im.a<Boolean> aVar, ValidateItemData validateItemData) {
         if (validateItemData != null) {
-            com.baidu.tieba.im.s.a(new o(validateItemData), aVar);
+            com.baidu.tieba.im.r.a(new o(validateItemData), aVar);
         }
     }
 
     public static void a(int i, int i2, com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {
-        com.baidu.tieba.im.s.a(new r(i, i2), aVar);
+        com.baidu.tieba.im.r.a(new r(i, i2), aVar);
     }
 
     public static List<ValidateItemData> a(LinkedList<GroupNewsPojo> linkedList) {

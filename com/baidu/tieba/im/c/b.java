@@ -73,7 +73,7 @@ public final class b {
 
     public final void c() {
         this.e = false;
-        com.baidu.adp.lib.stats.g.a().a("lc_con", null, null, com.baidu.adp.lib.webSocket.l.a().l(), 0, null, "dns", Long.valueOf(com.baidu.adp.lib.webSocket.l.a().j()), "ip", com.baidu.adp.lib.webSocket.l.a().k(), com.baidu.loginshare.e.e, com.baidu.adp.lib.stats.g.a().b());
+        com.baidu.adp.lib.stats.g.a().a("lc_con", (String) null, (String) null, com.baidu.adp.lib.webSocket.l.a().l(), 0, (String) null, "dns", Long.valueOf(com.baidu.adp.lib.webSocket.l.a().j()), "ip", com.baidu.adp.lib.webSocket.l.a().k(), com.baidu.loginshare.e.e, com.baidu.adp.lib.stats.g.a().b());
     }
 
     public final void d() {

@@ -35,11 +35,11 @@ public class FileDownloader extends Service {
     public void onCreate() {
         super.onCreate();
         this.a = (NotificationManager) getSystemService("notification");
-        r.c();
-        PendingIntent activity = PendingIntent.getActivity(r.d(), 0, new Intent(), 0);
+        p.c();
+        PendingIntent activity = PendingIntent.getActivity(p.d(), 0, new Intent(), 0);
         Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-        r.c();
-        notification.contentView = new RemoteViews(r.d().getPackageName(), com.baidu.tieba.a.i.notify_item);
+        p.c();
+        notification.contentView = new RemoteViews(p.d().getPackageName(), com.baidu.tieba.a.i.notify_item);
         notification.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, 0, false);
         notification.contentIntent = activity;
         notification.flags = 32;

@@ -1,106 +1,25 @@
 package com.baidu.tieba.faceshop;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public final class r extends BaseAdapter {
+final class r extends com.baidu.adp.framework.c.a {
     final /* synthetic */ EmotionManageActivity a;
 
-    private r(EmotionManageActivity emotionManageActivity) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r(EmotionManageActivity emotionManageActivity, int i) {
+        super(0);
         this.a = emotionManageActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ r(EmotionManageActivity emotionManageActivity, byte b) {
-        this(emotionManageActivity);
-    }
-
-    @Override // android.widget.Adapter
-    public final int getCount() {
-        List list;
-        List list2;
-        list = this.a.a;
-        if (list != null) {
-            list2 = this.a.a;
-            return list2.size();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        v vVar;
+        if (customResponsedMessage.g() == 2001120) {
+            this.a.c = new v(this.a, (byte) 0);
+            vVar = this.a.c;
+            vVar.execute(new String[0]);
         }
-        return 0;
-    }
-
-    @Override // android.widget.Adapter
-    public final Object getItem(int i) {
-        List list;
-        List list2;
-        List list3;
-        list = this.a.a;
-        if (list != null) {
-            list2 = this.a.a;
-            if (i <= list2.size()) {
-                list3 = this.a.a;
-                return list3.get(i);
-            }
-        }
-        return null;
-    }
-
-    @Override // android.widget.Adapter
-    public final long getItemId(int i) {
-        List list;
-        List list2;
-        list = this.a.a;
-        if (list != null) {
-            list2 = this.a.a;
-            if (i <= list2.size()) {
-                return i;
-            }
-        }
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
-        List list;
-        boolean z;
-        List list2;
-        List list3;
-        if (view == null) {
-            view = View.inflate(this.a, com.baidu.tieba.a.i.emotion_manage_list_item, null);
-            u uVar = new u((byte) 0);
-            uVar.a = (ImageView) view.findViewById(com.baidu.tieba.a.h.emotion_group_select);
-            uVar.b = (ImageView) view.findViewById(com.baidu.tieba.a.h.emotion_group_photo);
-            uVar.c = (TextView) view.findViewById(com.baidu.tieba.a.h.emotion_group_name);
-            view.setTag(uVar);
-        }
-        u uVar2 = (u) view.getTag();
-        list = this.a.a;
-        Bitmap bitmap = ((s) list.get(i)).d;
-        if (bitmap != null) {
-            uVar2.b.setImageBitmap(bitmap);
-        } else {
-            com.baidu.tbadk.core.util.ba.c(uVar2.b, com.baidu.tieba.a.g.pic_image_h_not);
-        }
-        z = this.a.p;
-        if (z) {
-            list3 = this.a.a;
-            if (((s) list3.get(i)).c) {
-                com.baidu.tbadk.core.util.ba.c(uVar2.a, com.baidu.tieba.a.g.btn_expression_choose_s);
-            } else {
-                com.baidu.tbadk.core.util.ba.c(uVar2.a, com.baidu.tieba.a.g.btn_expression_choose_n);
-            }
-            uVar2.a.setVisibility(0);
-        } else {
-            uVar2.a.setVisibility(8);
-        }
-        TextView textView = uVar2.c;
-        list2 = this.a.a;
-        textView.setText(((s) list2.get(i)).b);
-        this.a.getLayoutMode().a(view);
-        return view;
     }
 }

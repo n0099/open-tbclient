@@ -13,7 +13,7 @@ import com.baidu.tieba.im.model.PersonalMsglistModel;
 /* loaded from: classes.dex */
 public class PersonalChatActivity extends CommonPersonalChatActivity {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001005, new cx());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001005, new ct());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         com.baidu.adp.framework.c.a().a(customMessageTask);
     }
@@ -24,19 +24,19 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
         UserData c;
         super.c();
         if ((this.e instanceof CommonPersonalMsglistModel) && (c = ((CommonPersonalMsglistModel) this.e).c()) != null) {
-            com.baidu.tieba.im.s.a(new da(this, c), new db(this));
+            com.baidu.tieba.im.r.a(new cw(this, c), new cx(this));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, android.app.Activity
     public void onPause() {
         super.onPause();
         a = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         a = true;
@@ -51,7 +51,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
 
     @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity
     protected final void a(UserData userData) {
-        com.baidu.tieba.im.s.a(new dc(this, userData), null);
+        com.baidu.tieba.im.r.a(new cy(this, userData), null);
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
@@ -63,11 +63,11 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
         if ((this.e instanceof PersonalMsglistModel) && (c = ((PersonalMsglistModel) this.e).c()) != null) {
             this.d.a(c.getUserName());
             this.d.a(this.e.g(), i);
-            this.d.a(new dd(this));
+            this.d.a(new cz(this));
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         UserData c;
         super.onClick(view);
@@ -99,11 +99,11 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
     @Override // com.baidu.tieba.im.chat.MsglistActivity
     protected final boolean p() {
         ((PersonalMsglistModel) this.e).b();
-        this.e.d_();
+        this.e.f_();
         return true;
     }
 
-    @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.dn, com.baidu.adp.lib.b.a
+    @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.dj, com.baidu.adp.lib.b.a
     public final void a(View view, int i, int i2, long j) {
         com.baidu.tieba.im.message.a.a a;
         String a2;

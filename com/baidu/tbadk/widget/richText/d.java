@@ -4,9 +4,10 @@ public final class d {
     public int a = 0;
     public int b = 0;
     public int c = 0;
-    final /* synthetic */ c d;
+    public boolean d;
+    final /* synthetic */ c e;
 
     public d(c cVar) {
-        this.d = cVar;
+        this.e = cVar;
     }
 }

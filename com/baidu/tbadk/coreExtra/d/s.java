@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class s extends com.baidu.adp.framework.b.j {
+public final class s extends com.baidu.adp.framework.b.m {
     final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ public final class s extends com.baidu.adp.framework.b.j {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.f' to match base method */
-    @Override // com.baidu.adp.framework.b.g
+    @Override // com.baidu.adp.framework.b.i
     public final /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
         if (!(socketResponsedMessage2 instanceof ResponseOnlineMessage)) {

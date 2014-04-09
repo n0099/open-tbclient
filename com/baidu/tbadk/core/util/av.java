@@ -35,7 +35,7 @@ public final class av {
                             try {
                                 Bitmap a3 = a(a2, z2, z3, f);
                                 if (a3 != null) {
-                                    com.baidu.tbadk.imageManager.e.a().c(str, new com.baidu.adp.widget.ImageView.b(a3, b));
+                                    com.baidu.tbadk.imageManager.e.a().d(str, new com.baidu.adp.widget.ImageView.b(a3, b));
                                 }
                             } catch (Exception e) {
                                 TiebaStatic.a("", -1006, "addPicMemoryCache error: " + e.toString(), str);

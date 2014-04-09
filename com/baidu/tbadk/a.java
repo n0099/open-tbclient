@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
@@ -117,6 +118,14 @@ public class a extends com.baidu.adp.a.a {
 
     public void showProgressBar() {
         showProgressBarWithOffset(0, 0);
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        if (this.mProgressBar == null || !this.mProgressBar.isShown()) {
+            return super.dispatchTouchEvent(motionEvent);
+        }
+        return true;
     }
 
     public void showProgressBarWithOffset(int i, int i2) {

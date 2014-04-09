@@ -2,7 +2,7 @@ package com.baidu.tieba.im.validate;
 
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.util.ac;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class g implements Runnable {
@@ -16,10 +16,10 @@ public final class g implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         t tVar;
-        aa aaVar;
+        ab abVar;
         tVar = this.a.b;
         BdListView d = tVar.d();
-        aaVar = this.a.h;
-        ac.a(d, aaVar, 0, 1);
+        abVar = this.a.h;
+        ac.a(d, abVar, 0, 1);
     }
 }

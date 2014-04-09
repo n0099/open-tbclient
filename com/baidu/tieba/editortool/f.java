@@ -20,18 +20,17 @@ final class f implements ah {
         com.baidu.tieba.view.a aVar;
         View.OnClickListener onClickListener;
         if (view == null) {
-            com.baidu.tieba.view.a aVar2 = new com.baidu.tieba.view.a(this.b);
-            aVar = aVar2;
-            view = aVar2;
+            aVar = new com.baidu.tieba.view.a(this.b);
+            view = aVar;
         } else {
             aVar = (com.baidu.tieba.view.a) view;
         }
-        BubbleListData.BubbleData bubbleData = this.a.b.getB_info().get(i);
-        if (bubbleData != null) {
-            aVar.a(bubbleData, this.a.c, com.baidu.tieba.model.f.a(this.a.b.getB_info()));
+        BubbleListData.BubbleData a = a.a(this.a, i);
+        if (a != null) {
+            aVar.a(a, this.a.c, com.baidu.tieba.model.f.a(this.a.b.getB_info()));
             aVar.setGravity(17);
             aVar.setTag(Integer.valueOf(i));
-            onClickListener = this.a.j;
+            onClickListener = this.a.k;
             aVar.setOnClickListener(onClickListener);
         }
         int l = TbadkApplication.j().l();

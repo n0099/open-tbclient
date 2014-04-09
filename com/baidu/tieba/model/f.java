@@ -51,7 +51,7 @@ public final class f extends com.baidu.adp.a.e {
     public static boolean a(List<BubbleListData.BubbleData> list) {
         if (list != null && list.size() > 0) {
             for (BubbleListData.BubbleData bubbleData : list) {
-                if (bubbleData.isDef()) {
+                if (bubbleData.getBcode() != 0 && bubbleData.isDef()) {
                     return false;
                 }
             }

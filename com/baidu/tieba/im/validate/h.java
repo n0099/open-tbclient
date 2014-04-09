@@ -3,19 +3,19 @@ package com.baidu.tieba.im.validate;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class h extends BaseAdapter {
     ValidateActivity a;
-    aa b;
+    ab b;
     List<ValidateItemData> c = new ArrayList();
 
     public h(ValidateActivity validateActivity) {
         this.b = null;
         this.a = validateActivity;
-        this.b = new aa(this.a);
+        this.b = new ab(this.a);
     }
 
     public final void a() {

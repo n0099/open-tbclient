@@ -1,52 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class cg extends com.baidu.adp.a.d<com.baidu.tieba.im.message.a.a> {
-    private TextView c;
-    private TextView d;
-    private LinearLayout e;
-    private Context f;
+public final class cg implements View.OnLongClickListener {
+    final /* synthetic */ cd a;
 
-    public cg(Context context) {
-        super(context, com.baidu.tieba.im.i.msg_msgtopic_view);
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.f = context;
-        this.d = (TextView) a(com.baidu.tieba.im.h.tex_content);
-        this.c = (TextView) a(com.baidu.tieba.im.h.tex_title);
-        this.d.setMovementMethod(LinkMovementMethod.getInstance());
-        this.c.setMovementMethod(LinkMovementMethod.getInstance());
-        this.e = (LinearLayout) a(com.baidu.tieba.im.h.topic_title_layout);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cg(cd cdVar) {
+        this.a = cdVar;
     }
 
-    public final void a(com.baidu.tieba.im.message.a.a aVar) {
-        if (aVar != null && (aVar instanceof com.baidu.tieba.im.message.bo)) {
-            com.baidu.tieba.im.message.bo boVar = (com.baidu.tieba.im.message.bo) aVar;
-            if (!TextUtils.isEmpty(boVar.a)) {
-                this.c.setText(boVar.a);
-            } else {
-                this.c.setText("");
-            }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
-            if (!TextUtils.isEmpty(boVar.b)) {
-                this.d.setVisibility(0);
-                this.d.setText(boVar.b);
-                layoutParams.topMargin = this.f.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.ds24);
-                this.e.setLayoutParams(layoutParams);
-                return;
-            }
-            this.d.setText("");
-            this.d.setVisibility(8);
-            layoutParams.topMargin = 0;
-            this.e.setLayoutParams(layoutParams);
-        }
+    @Override // android.view.View.OnLongClickListener
+    public final boolean onLongClick(View view) {
+        this.a.d.b(view, 4, this.a.f, 0L);
+        return true;
     }
 }

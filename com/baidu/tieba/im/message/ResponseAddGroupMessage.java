@@ -12,7 +12,7 @@ public class ResponseAddGroupMessage extends SocketResponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         AddGroupRes.AddGroupResIdl parseFrom = AddGroupRes.AddGroupResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             AddGroupInfoData addGroupInfoData = new AddGroupInfoData();
             Im.GroupInfo group = parseFrom.getData().getGroup();

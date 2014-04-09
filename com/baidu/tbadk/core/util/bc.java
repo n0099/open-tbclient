@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbadkApplication;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.lang.Character;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -248,7 +247,7 @@ public final class bc {
     public static String e(String str) {
         try {
             return URLDecoder.decode(str, "utf-8");
-        } catch (UnsupportedEncodingException e2) {
+        } catch (Exception e2) {
             e2.printStackTrace();
             return null;
         }

@@ -27,12 +27,12 @@ public final class g implements View.OnClickListener {
             if (TextUtils.isEmpty(userName2)) {
                 if (userId != null && userId.length() > 0) {
                     com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
-                    activity2 = this.a.c;
+                    activity2 = this.a.d;
                     a.a(new com.baidu.adp.framework.message.a(2001003, new ag(activity2, userId, userName)));
                 }
             } else if (!userName2.equals("1") && !userName2.equals("2") && !userName2.equals("3") && userId != null && userId.length() > 0) {
                 com.baidu.adp.framework.c a2 = com.baidu.adp.framework.c.a();
-                activity = this.a.c;
+                activity = this.a.d;
                 a2.a(new com.baidu.adp.framework.message.a(2001003, new ag(activity, userId, userName)));
             }
         }

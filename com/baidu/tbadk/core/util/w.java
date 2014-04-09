@@ -277,6 +277,39 @@ public final class w {
         }
     }
 
+    public static String a(String str, Bitmap bitmap, int i) {
+        File dataDirectory;
+        if (bitmap == null) {
+            return null;
+        }
+        if (a()) {
+            dataDirectory = new File(a + "/" + com.baidu.tbadk.core.data.n.f());
+        } else {
+            dataDirectory = Environment.getDataDirectory();
+        }
+        if (dataDirectory.exists() && !dataDirectory.isDirectory()) {
+            dataDirectory.delete();
+        }
+        if (!dataDirectory.exists()) {
+            dataDirectory.mkdirs();
+        }
+        File file = new File(dataDirectory, str);
+        try {
+            if ((!file.exists() || file.delete()) && file.createNewFile()) {
+                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 80, fileOutputStream);
+                fileOutputStream.flush();
+                fileOutputStream.close();
+                return file.getAbsolutePath();
+            }
+            return null;
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b("FileHelper", "saveFileToSDOrMemory", e.getMessage());
+            TiebaStatic.a(e, "FileHelper.saveFileToSDOrMemory " + file.getAbsolutePath());
+            return null;
+        }
+    }
+
     public static String a(String str, String str2, String str3, String str4) {
         String str5;
         String str6;
@@ -325,7 +358,7 @@ public final class w {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [569=4, 572=4, 573=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [625=4, 628=4, 629=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x00d7 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00d9 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x00db */
@@ -420,7 +453,7 @@ public final class w {
         return a() ? a((String) null, a(str, 1, false), bArr) : a(1, str, bArr);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [635=5, 638=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [691=5, 694=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x0179 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x017b */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x008e */
@@ -445,7 +478,7 @@ public final class w {
         }
         File file = new File(String.valueOf(str3) + str2);
         String parent = file.getParent();
-        boolean a2 = com.baidu.adp.lib.util.n.a(parent);
+        boolean a2 = com.baidu.adp.lib.util.o.a(parent);
         FileOutputStream fileOutputStream2 = a2;
         if (!a2) {
             ?? file2 = new File(parent);
@@ -513,7 +546,7 @@ public final class w {
         return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [694=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [750=5] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x010e */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v10, types: [java.io.OutputStream] */
@@ -530,7 +563,7 @@ public final class w {
         }
         File file = new File(String.valueOf(str3) + str2);
         String parent = file.getParent();
-        boolean a2 = com.baidu.adp.lib.util.n.a(parent);
+        boolean a2 = com.baidu.adp.lib.util.o.a(parent);
         ?? r2 = a2;
         if (!a2) {
             File file2 = new File(parent);
@@ -864,7 +897,7 @@ public final class w {
         File file = new File(str);
         File file2 = new File(str2);
         String parent = file2.getParent();
-        if (!com.baidu.adp.lib.util.n.a(parent)) {
+        if (!com.baidu.adp.lib.util.o.a(parent)) {
             File file3 = new File(parent);
             if (!file3.exists()) {
                 file3.mkdirs();
@@ -922,7 +955,7 @@ public final class w {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1024=4, 1027=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1080=4, 1083=4] */
     /* JADX WARN: Removed duplicated region for block: B:43:0x0085 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

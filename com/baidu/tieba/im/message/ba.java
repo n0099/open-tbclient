@@ -1,33 +1,13 @@
 package com.baidu.tieba.im.message;
 
-import com.google.protobuf.MessageLite;
-import java.util.HashMap;
-import org.json.JSONObject;
-import protobuf.LogStat.LogStatReq;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public final class ba extends com.baidu.tbadk.message.websockt.d {
-    private String a;
-    private String b;
-
-    public ba() {
-        super(104001);
-    }
-
-    private ba(String str, String str2) {
-        super(104001);
-        this.a = str;
-        this.b = str2;
-    }
-
-    @Override // com.baidu.tbadk.message.websockt.d
-    public final MessageLite h() {
-        return LogStatReq.LogStatReqIdl.newBuilder().a(LogStatReq.DataReq.newBuilder().a(this.a).b(this.b).build()).build();
-    }
-
-    public static void a(String str, String str2) {
-        HashMap hashMap = new HashMap();
-        hashMap.put("st_param", str2);
-        hashMap.put("jobid", "0");
-        com.baidu.adp.framework.c.a().a(new ba(str, new JSONObject(hashMap).toString()));
+final class ba implements com.baidu.adp.framework.task.a<String> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<String> a(com.baidu.adp.framework.message.a<String> aVar) {
+        if (aVar != null && aVar.a() != null) {
+            az.a("kd_mread", aVar.a());
+        }
+        return null;
     }
 }

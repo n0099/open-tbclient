@@ -57,6 +57,7 @@ public final class n implements com.baidu.tbadk.imageManager.d {
     private final bj am;
     private final ImageView an;
     private UserIconBox ap;
+    private boolean at;
     private TextView d;
     private TextView e;
     private TextView f;
@@ -398,7 +399,7 @@ public final class n implements com.baidu.tbadk.imageManager.d {
             return;
         }
         if (z) {
-            this.q.setText(com.baidu.tieba.a.k.level_up);
+            this.q.setText(com.baidu.tieba.a.k.star_bar_level_up);
             this.r.setText(String.valueOf(this.W + 1));
         } else {
             this.q.setText(this.V);
@@ -433,7 +434,7 @@ public final class n implements com.baidu.tbadk.imageManager.d {
             this.K.setHeight(this.y.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.frs_header_exp_height));
             this.M = (TextView) this.L.findViewById(com.baidu.tieba.a.h.cur_experience);
             this.N = (TextView) this.L.findViewById(com.baidu.tieba.a.h.levelup_experience);
-            k();
+            l();
         }
         if (this.K.isShowing()) {
             this.K.dismiss();
@@ -441,13 +442,18 @@ public final class n implements com.baidu.tbadk.imageManager.d {
         }
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);
-        k();
-        this.K.showAtLocation(this.t, 0, iArr[0], iArr[1] - this.K.getHeight());
+        l();
+        int height = iArr[1] - this.K.getHeight();
+        if (height <= 50) {
+            this.K.dismiss();
+            return;
+        }
+        this.K.showAtLocation(this.t, 0, iArr[0], height);
         this.K.update();
         this.al.postDelayed(this.b, 2000L);
     }
 
-    private void k() {
+    private void l() {
         this.M.setText(String.valueOf(this.ac));
         if (this.aa) {
             this.N.setVisibility(8);
@@ -572,5 +578,9 @@ public final class n implements com.baidu.tbadk.imageManager.d {
 
     public final ProgressBar j() {
         return this.m;
+    }
+
+    public final void k() {
+        this.at = true;
     }
 }

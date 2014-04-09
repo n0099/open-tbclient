@@ -104,7 +104,7 @@ public final class aj extends BdAsyncTask<String, Integer, ak> {
                 }
             }
             if (a == null) {
-                if (!(TbadkApplication.j().au() && com.baidu.adp.lib.a.f.a().b("webp_enable") == 1) || str.indexOf("hiphotos.baidu.com") <= 0 || (lastIndexOf = str.lastIndexOf(".jpg")) <= 0) {
+                if (!(TbadkApplication.j().aw() && com.baidu.adp.lib.a.f.a().b("webp_enable") == 1) || str.indexOf("hiphotos.baidu.com") <= 0 || (lastIndexOf = str.lastIndexOf(".jpg")) <= 0) {
                     z3 = false;
                     str2 = str;
                 } else {
@@ -132,7 +132,7 @@ public final class aj extends BdAsyncTask<String, Integer, ak> {
                     if (z3 && a == null) {
                         com.baidu.adp.lib.util.f.b("Webp decoding failed: " + str2);
                         TiebaStatic.a(this.b.a().a().f, -1012, "Webp decoding failed.", str2);
-                        TbadkApplication.j().av();
+                        TbadkApplication.j().ax();
                         this.b.a(str);
                         h = this.b.h();
                         if (this.b.a().b().b()) {

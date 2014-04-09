@@ -8,14 +8,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.editortool.aa;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.topRec.TRForumListData;
 /* loaded from: classes.dex */
 public final class e extends BaseAdapter implements View.OnClickListener {
     private TRForumListData a;
     private TopRecActivity c;
-    private aa d;
+    private ab d;
     private boolean b = false;
     private int e = 0;
     private int f = 0;
@@ -24,7 +23,7 @@ public final class e extends BaseAdapter implements View.OnClickListener {
 
     public e(TopRecActivity topRecActivity) {
         this.c = topRecActivity;
-        this.d = new aa(this.c);
+        this.d = new ab(this.c);
         this.d.a(400, 400);
     }
 
@@ -159,7 +158,7 @@ public final class e extends BaseAdapter implements View.OnClickListener {
         }
         int i = 0;
         for (int i2 = 0; i2 < this.a.forum_list.length; i2++) {
-            int d = r.c().d(this.a.forum_list[i2].forum_name);
+            int d = com.baidu.tieba.p.c().d(this.a.forum_list[i2].forum_name);
             if (d == 1) {
                 if (this.a.forum_list[i2].is_like == 0) {
                     this.a.forum_list[i2].is_like = 1;

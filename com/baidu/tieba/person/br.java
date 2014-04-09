@@ -1,36 +1,25 @@
 package com.baidu.tieba.person;
+
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class br implements com.baidu.adp.widget.ListView.a {
-    final /* synthetic */ PersonInfoActivity a;
+public final class br extends com.baidu.adp.framework.c.g {
+    final /* synthetic */ bn a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(PersonInfoActivity personInfoActivity) {
-        this.a = personInfoActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public br(bn bnVar, int i) {
+        super(2001124);
+        this.a = bnVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.a
-    public final void b() {
-        af afVar;
-        if (!this.a.isIsloading()) {
-            afVar = this.a.mHeadView;
-            afVar.d();
-            this.a.setIsloading(true);
-            this.a.refresh();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        if (socketResponsedMessage2 == null || socketResponsedMessage2.g() != 2001124) {
+            return;
         }
-    }
-
-    @Override // com.baidu.adp.widget.ListView.a
-    public final void a(float f) {
-        af afVar;
-        afVar = this.a.mHeadView;
-        afVar.a(f);
-    }
-
-    @Override // com.baidu.adp.widget.ListView.a
-    public final void a() {
-        af afVar;
-        afVar = this.a.mHeadView;
-        afVar.b();
+        bn.a(this.a, socketResponsedMessage2);
     }
 }

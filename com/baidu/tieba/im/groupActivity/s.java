@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.data.GroupActivityData;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -21,7 +21,7 @@ public final class s extends com.baidu.adp.a.f {
     private static TextView v;
     private GroupActivityActivity a;
     private HeadImageView c;
-    private aa d;
+    private ab d;
     private NavigationBar e;
     private View f;
     private TextView g;
@@ -46,7 +46,7 @@ public final class s extends com.baidu.adp.a.f {
         this.w = new v((byte) 0);
         this.a = groupActivityActivity;
         groupActivityActivity.setContentView(com.baidu.tieba.im.i.im_group_activity_activity);
-        this.d = new aa(groupActivityActivity);
+        this.d = new ab(groupActivityActivity);
         this.e = (NavigationBar) groupActivityActivity.findViewById(com.baidu.tieba.im.h.view_navigation_bar);
         this.e.a(groupActivityActivity.getResources().getString(com.baidu.tieba.im.j.group_activity));
         this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, groupActivityActivity);

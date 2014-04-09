@@ -1,8 +1,8 @@
 package com.baidu.tieba.mainentrance;
 
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 final class t implements com.baidu.tbadk.core.tabHost.c {
     final /* synthetic */ SquareSearchActivity a;
@@ -19,17 +19,18 @@ final class t implements com.baidu.tbadk.core.tabHost.c {
         FragmentTabWidget fragmentTabWidget2;
         if (i == 0) {
             this.a.a(0);
-            fragmentTabWidget2 = this.a.D;
+            fragmentTabWidget2 = this.a.E;
             fragmentTabWidget2.a(i, true);
         }
         if (i == 1) {
+            ((InputMethodManager) this.a.getSystemService("input_method")).hideSoftInputFromWindow(this.a.getCurrentFocus().getWindowToken(), 2);
             this.a.a(1);
-            fragmentTabWidget = this.a.D;
+            fragmentTabWidget = this.a.E;
             fragmentTabWidget.a(i, true);
         }
         if (i == 2) {
             editText = this.a.c;
-            UtilHelper.startBaiDuBar(this.a, editText.getText().toString().trim());
+            com.baidu.tieba.util.r.b(this.a, editText.getText().toString().trim());
         }
     }
 }

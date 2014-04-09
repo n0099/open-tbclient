@@ -15,7 +15,7 @@ public final class x extends BaseAdapter {
     private PersonPostListData a;
     private com.baidu.tbadk.core.e b;
     private y c;
-    private com.baidu.tbadk.editortool.aa e;
+    private com.baidu.tbadk.editortool.ab e;
     private int f;
     private com.baidu.tieba.model.av k;
     private LinearLayout l;
@@ -41,7 +41,7 @@ public final class x extends BaseAdapter {
     public x(com.baidu.tbadk.core.e eVar) {
         this.f = 200;
         this.b = eVar;
-        this.e = new com.baidu.tbadk.editortool.aa(eVar);
+        this.e = new com.baidu.tbadk.editortool.ab(eVar);
         this.f = com.baidu.adp.lib.util.i.b(eVar);
         a(com.baidu.tbadk.core.util.bd.a().b());
     }
@@ -186,7 +186,7 @@ public final class x extends BaseAdapter {
         this.e.a(this.g, this.g);
     }
 
-    public final com.baidu.tbadk.editortool.aa a() {
+    public final com.baidu.tbadk.editortool.ab a() {
         return this.e;
     }
 }

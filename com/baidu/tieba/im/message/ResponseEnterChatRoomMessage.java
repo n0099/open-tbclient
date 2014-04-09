@@ -16,7 +16,7 @@ public class ResponseEnterChatRoomMessage extends SocketResponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         EnterChatroomRes.EnterChatroomResIdl parseFrom = EnterChatroomRes.EnterChatroomResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             this.a = new RandChatRoomData();
             EnterChatroomRes.DataRes data = parseFrom.getData();

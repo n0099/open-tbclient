@@ -30,7 +30,6 @@ public final class b extends f {
         this.g.getLayoutMode().a(i == 1);
         this.g.getLayoutMode().a(this.c);
         this.a.b(i);
-        this.f.a(i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

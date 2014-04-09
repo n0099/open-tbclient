@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.tieba.im.model.br;
+import com.baidu.tieba.im.model.bs;
 /* loaded from: classes.dex */
 public class UpdateGroupActivity extends com.baidu.tbadk.a {
-    private br d;
+    private bs d;
     private a c = null;
     private int e = 1;
     DialogInterface.OnClickListener a = new b(this);
@@ -50,7 +50,7 @@ public class UpdateGroupActivity extends com.baidu.tbadk.a {
         }
         this.e = intExtra;
         this.c.a(intExtra2);
-        this.d = new br();
+        this.d = new bs();
         this.c.a(stringExtra);
         this.c.a(this.b);
         this.c.b(this.a);
@@ -67,7 +67,7 @@ public class UpdateGroupActivity extends com.baidu.tbadk.a {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.c.e_()) {
+        if (view == this.c.g_()) {
             if (this.c.l() && this.c.i()) {
                 b();
             } else {
@@ -89,7 +89,7 @@ public class UpdateGroupActivity extends com.baidu.tbadk.a {
     }
 
     private boolean a() {
-        if (TextUtils.isEmpty(this.c.k()) || !this.c.i() || this.c.k().equals(this.c.f_())) {
+        if (TextUtils.isEmpty(this.c.k()) || !this.c.i() || this.c.k().equals(this.c.h_())) {
             return false;
         }
         this.c.a();

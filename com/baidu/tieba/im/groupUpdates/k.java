@@ -2,7 +2,6 @@ package com.baidu.tieba.im.groupUpdates;
 
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class k implements View.OnClickListener {
@@ -29,6 +28,6 @@ public final class k implements View.OnClickListener {
         updatesActivity2 = this.a.l;
         unused = this.a.c;
         updatesItemData = this.a.m;
-        updatesActivity2.a(PersonInfoActivity.REQUSET_CHANGE, updatesItemData);
+        updatesActivity2.a(101, updatesItemData);
     }
 }

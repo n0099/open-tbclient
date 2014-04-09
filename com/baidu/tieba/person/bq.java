@@ -1,30 +1,23 @@
 package com.baidu.tieba.person;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public final class bq implements com.baidu.adp.widget.ListView.t {
-    final /* synthetic */ PersonInfoActivity a;
+final class bq implements DialogInterface.OnClickListener {
+    final /* synthetic */ bn a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(PersonInfoActivity personInfoActivity) {
-        this.a = personInfoActivity;
+    public bq(bn bnVar) {
+        this.a = bnVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.t
-    public final void b() {
-        com.baidu.tieba.model.av avVar;
-        aj ajVar;
-        aj ajVar2;
-        if (!this.a.isIsloading()) {
-            avVar = this.a.mModel;
-            if (avVar.b()) {
-                ajVar2 = this.a.mPersonCenterView;
-                ajVar2.a();
-                return;
-            }
-            this.a.setIsloading(true);
-            ajVar = this.a.mPersonCenterView;
-            ajVar.d();
-            this.a.refresh();
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        if (i == 0) {
+            this.a.j();
+        } else if (i == 1) {
+            com.baidu.tbadk.core.util.az.a(this.a.getActivity());
+        } else if (i == 2) {
+            com.baidu.tbadk.core.util.az.b(this.a.getActivity());
         }
     }
 }

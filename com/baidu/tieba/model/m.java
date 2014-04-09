@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public final class m extends BdAsyncTask<Boolean, String, k> {
     final /* synthetic */ k b;
     private int e;
-    private com.baidu.tieba.data.aq f;
+    private com.baidu.tieba.data.ap f;
     private com.baidu.tbadk.core.util.ak c = null;
     private String d = null;
     Boolean a = false;
@@ -72,7 +72,7 @@ public final class m extends BdAsyncTask<Boolean, String, k> {
         this.e = 0;
         this.f = null;
         this.e = i;
-        this.f = new com.baidu.tieba.data.aq();
+        this.f = new com.baidu.tieba.data.ap();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

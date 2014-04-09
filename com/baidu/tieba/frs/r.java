@@ -75,23 +75,23 @@ final class r implements View.OnClickListener {
         cm cmVar32;
         UtilHelper.NetworkStateInfo d = UtilHelper.d(this.a);
         cmVar = this.a.r;
-        if (view != cmVar.i()) {
+        if (view != cmVar.j()) {
             cmVar2 = this.a.r;
-            if (view != cmVar2.c()) {
+            if (view != cmVar2.d()) {
                 cmVar3 = this.a.r;
-                if (view != cmVar3.h()) {
+                if (view != cmVar3.i()) {
                     cmVar4 = this.a.r;
-                    if (view != cmVar4.k()) {
+                    if (view != cmVar4.l()) {
                         cmVar5 = this.a.r;
-                        if (view != cmVar5.j()) {
+                        if (view != cmVar5.k()) {
                             cmVar6 = this.a.r;
-                            if (view == cmVar6.d()) {
+                            if (view == cmVar6.e()) {
                                 cmVar17 = this.a.r;
                                 cmVar17.b();
                                 cmVar18 = this.a.r;
-                                if (cmVar18.n().isMenuShowing()) {
+                                if (cmVar18.o().isMenuShowing()) {
                                     cmVar19 = this.a.r;
-                                    cmVar19.n().toggle(true);
+                                    cmVar19.o().toggle(true);
                                 }
                                 z2 = this.a.z;
                                 if (z2) {
@@ -100,16 +100,16 @@ final class r implements View.OnClickListener {
                                 }
                             } else {
                                 cmVar7 = this.a.r;
-                                if (view != cmVar7.e()) {
+                                if (view != cmVar7.f()) {
                                     cmVar8 = this.a.r;
-                                    if (view != cmVar8.f()) {
+                                    if (view != cmVar8.g()) {
                                         cmVar9 = this.a.r;
-                                        if (view != cmVar9.g()) {
+                                        if (view != cmVar9.h()) {
                                             cmVar10 = this.a.r;
-                                            FrsHeaderView u = cmVar10.u();
+                                            FrsHeaderView v = cmVar10.v();
                                             cmVar11 = this.a.r;
-                                            com.baidu.tieba.frs.view.n v = cmVar11.v();
-                                            if ((u != null && u.b(view)) || (v != null && v.b(view))) {
+                                            com.baidu.tieba.frs.view.n w = cmVar11.w();
+                                            if ((v != null && v.b(view)) || (w != null && w.b(view))) {
                                                 com.baidu.tbadk.core.g.a(this.a.getParent(), "forum_fortune_click");
                                                 if (!TbadkApplication.F()) {
                                                     LoginActivity.a((Activity) this.a, (String) null, true, 18004);
@@ -148,9 +148,9 @@ final class r implements View.OnClickListener {
                                     cmVar14 = this.a.r;
                                     cmVar14.b();
                                     cmVar15 = this.a.r;
-                                    if (cmVar15.n().isMenuShowing()) {
+                                    if (cmVar15.o().isMenuShowing()) {
                                         cmVar16 = this.a.r;
-                                        cmVar16.n().toggle(true);
+                                        cmVar16.o().toggle(true);
                                     }
                                     z = this.a.z;
                                     if (!z) {
@@ -183,20 +183,20 @@ final class r implements View.OnClickListener {
             this.a.m();
         } else if (id == com.baidu.tieba.a.h.btn_love) {
             cmVar32 = this.a.r;
-            if (!cmVar32.s() && d != UtilHelper.NetworkStateInfo.UNAVAIL) {
+            if (!cmVar32.t() && d != UtilHelper.NetworkStateInfo.UNAVAIL) {
                 this.a.j();
             }
         } else if (id == com.baidu.tieba.a.h.btn_sign) {
             cmVar30 = this.a.r;
-            if (!cmVar30.s() && d != UtilHelper.NetworkStateInfo.UNAVAIL) {
+            if (!cmVar30.t() && d != UtilHelper.NetworkStateInfo.UNAVAIL) {
                 cmVar31 = this.a.r;
-                if (!cmVar31.E()) {
+                if (!cmVar31.F()) {
                     this.a.k();
                 }
             }
         } else if (id == com.baidu.tieba.a.h.add_fan) {
             cmVar29 = this.a.r;
-            if (!cmVar29.s() && d != UtilHelper.NetworkStateInfo.UNAVAIL) {
+            if (!cmVar29.t() && d != UtilHelper.NetworkStateInfo.UNAVAIL) {
                 f a = f.a();
                 str7 = this.a.i;
                 a.b(str7);
@@ -205,7 +205,7 @@ final class r implements View.OnClickListener {
         } else if (id == com.baidu.tieba.a.h.refresh_layout) {
             TiebaStatic.a(this.a, "frs_refresh", "frsclick", 1, new Object[0]);
             cmVar28 = this.a.r;
-            cmVar28.O();
+            cmVar28.P();
         } else if (id == com.baidu.tieba.a.h.message_layout) {
             String E = TbadkApplication.E();
             if (E != null && E.length() > 0) {
@@ -226,22 +226,22 @@ final class r implements View.OnClickListener {
             str6 = this.a.i;
             com.baidu.tbadk.browser.a.a(this.a, sb.append(str6).append("&fid=").append(str8).toString());
         } else if (id == com.baidu.tieba.a.h.recommend_forum_item_layout) {
-            di diVar = (di) view.getTag();
-            if (diVar != null) {
-                String str9 = diVar.a;
-                TiebaStatic.a(this.a, "sidebar_show", "sidebar_click", 1, "st_param", diVar.b);
+            dk dkVar = (dk) view.getTag();
+            if (dkVar != null) {
+                String str9 = dkVar.a;
+                TiebaStatic.a(this.a, "sidebar_show", "sidebar_click", 1, "st_param", dkVar.b);
                 str5 = this.a.i;
                 if (str9.equals(str5)) {
                     cmVar26 = this.a.r;
-                    if (cmVar26.n().isMenuShowing()) {
+                    if (cmVar26.o().isMenuShowing()) {
                         cmVar27 = this.a.r;
-                        cmVar27.n().toggle(true);
+                        cmVar27.o().toggle(true);
                         return;
                     }
                     return;
                 }
                 this.a.s = "sidebar";
-                this.a.t = diVar.b;
+                this.a.t = dkVar.b;
                 FrsActivity.g(this.a, str9);
             }
         } else if (id == com.baidu.tieba.a.h.frs_header_groups) {
@@ -265,7 +265,7 @@ final class r implements View.OnClickListener {
             }
         } else if (id == com.baidu.tieba.a.h.btn_love_content) {
             cmVar22 = this.a.r;
-            if (!cmVar22.s()) {
+            if (!cmVar22.t()) {
                 z3 = this.a.N;
                 if (!z3) {
                     cmVar23 = this.a.r;
@@ -289,7 +289,7 @@ final class r implements View.OnClickListener {
             edit.putBoolean(FrsActivity.a, true);
             edit.commit();
             cmVar21 = this.a.r;
-            cmVar21.N();
+            cmVar21.O();
         }
     }
 }

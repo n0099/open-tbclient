@@ -24,13 +24,15 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
     private IndicatorView e;
     private final Point f;
     private com.baidu.tbadk.editortool.x g;
-    private LayoutInflater h;
+    private int h;
+    private LayoutInflater i;
 
     public PrivilegeTabContentView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.d = -1;
         this.f = new Point();
         this.g = null;
+        this.h = 0;
         a(context);
     }
 
@@ -39,13 +41,14 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
         this.d = -1;
         this.f = new Point();
         this.g = null;
+        this.h = 0;
         a(context);
     }
 
     private void a(Context context) {
         setOrientation(1);
-        this.h = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.h.inflate(com.baidu.tieba.a.i.privilege_tab_content, (ViewGroup) this, true);
+        this.i = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.i.inflate(com.baidu.tieba.a.i.privilege_tab_content, (ViewGroup) this, true);
         this.a = (ViewPager) findViewById(com.baidu.tieba.a.h.privilege_tab_viewpager);
         this.a.setFadingEdgeLength(0);
         this.a.setOnPageChangeListener(this);
@@ -56,8 +59,10 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
         int i;
         int i2 = 0;
         if (agVar != null) {
-            if (this.a.getChildCount() <= 0) {
-                int a = agVar.a();
+            int a = agVar.a();
+            if (this.a.getChildCount() <= 0 || this.h != a) {
+                this.a.setAdapter(null);
+                this.h = a;
                 int e = agVar.e();
                 int f = agVar.f();
                 if (a != 0 && e != 0 && f != 0) {

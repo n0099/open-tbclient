@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class EmotionTabHorizonScrollView extends HorizontalScrollView {
     private g a;
     private int b;
-    private ArrayList<af> c;
+    private ArrayList<ag> c;
     private u d;
     private int e;
     private int f;
@@ -71,7 +71,7 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         this.l = i;
     }
 
-    public void setDatas(ArrayList<af> arrayList) {
+    public void setDatas(ArrayList<ag> arrayList) {
         this.c = arrayList;
     }
 
@@ -92,7 +92,7 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         this.j.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
         this.a.addView(this.h, new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(com.baidu.tbadk.h.face_tab_widget_width), -1));
         this.a.setNewView(this.j);
-        if (TbadkApplication.j().ac()) {
+        if (TbadkApplication.j().ae()) {
             this.a.setNewViewVisible(true);
         } else {
             this.a.setNewViewVisible(false);
@@ -106,7 +106,7 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         this.a.addView(this.n);
     }
 
-    public final void a(af afVar) {
+    public final void a(ag agVar) {
         LinearLayout linearLayout = new LinearLayout(getContext());
         BDImageView bDImageView = new BDImageView(getContext());
         linearLayout.addView(bDImageView, new LinearLayout.LayoutParams(-1, -1));
@@ -119,27 +119,27 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
             linearLayout.setBackgroundResource(com.baidu.tbadk.i.bg_expression_bar);
         }
         this.a.addView(linearLayout, this.a.getChildCount() - 1, this.k);
-        EmotionGroupType c = afVar.c();
+        EmotionGroupType c = agVar.c();
         if (c == EmotionGroupType.LOCAL) {
-            if (afVar.i() != null) {
-                afVar.i().a(bDImageView);
+            if (agVar.i() != null) {
+                agVar.i().a(bDImageView);
             }
             linearLayout.setOnClickListener(new q(this, this.a.getChildCount() - 3, (byte) 0));
         } else if (c == EmotionGroupType.PROMOTION) {
-            if (afVar.a() != null) {
-                afVar.a().a(bDImageView);
+            if (agVar.a() != null) {
+                agVar.a().a(bDImageView);
             }
-            linearLayout.setOnClickListener(new r(this, afVar.e(), (byte) 0));
+            linearLayout.setOnClickListener(new r(this, agVar.e(), (byte) 0));
         } else if (c == EmotionGroupType.BIG_EMOTION) {
             if (this.m) {
-                if (afVar.i() != null) {
-                    afVar.i().a(bDImageView);
+                if (agVar.i() != null) {
+                    agVar.i().a(bDImageView);
                 }
                 linearLayout.setOnClickListener(new q(this, this.a.getChildCount() - 3, (byte) 0));
                 return;
             }
-            if (afVar.a() != null) {
-                afVar.a().a(bDImageView);
+            if (agVar.a() != null) {
+                agVar.a().a(bDImageView);
             }
             linearLayout.setOnClickListener(new n(this));
         }
@@ -149,21 +149,21 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         this.m = z;
         int i2 = i + 1;
         int childCount = this.a.getChildCount();
-        af afVar = this.c.get(i2 - 1);
-        if (i2 < childCount && afVar.c() == EmotionGroupType.BIG_EMOTION) {
+        ag agVar = this.c.get(i2 - 1);
+        if (i2 < childCount && agVar.c() == EmotionGroupType.BIG_EMOTION) {
             LinearLayout linearLayout = (LinearLayout) this.a.getChildAt(i2);
             BDImageView bDImageView = (BDImageView) linearLayout.getChildAt(0);
             if (!this.m) {
                 linearLayout.setOnClickListener(new p(this));
-                if (afVar.a() != null) {
-                    afVar.a().a(bDImageView);
+                if (agVar.a() != null) {
+                    agVar.a().a(bDImageView);
                     return;
                 }
                 return;
             }
             linearLayout.setOnClickListener(new q(this, i2 - 1, (byte) 0));
-            if (afVar.i() != null) {
-                afVar.i().a(bDImageView);
+            if (agVar.i() != null) {
+                agVar.i().a(bDImageView);
             }
         }
     }
@@ -177,9 +177,9 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
             LinearLayout linearLayout = (LinearLayout) this.a.getChildAt(this.b + 1);
             linearLayout.setSelected(true);
             BDImageView bDImageView = (BDImageView) linearLayout.getChildAt(0);
-            af afVar = this.c.get(this.b);
-            if (afVar.i() != null) {
-                afVar.i().a(bDImageView);
+            ag agVar = this.c.get(this.b);
+            if (agVar.i() != null) {
+                agVar.i().a(bDImageView);
             }
         }
     }

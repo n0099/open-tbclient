@@ -39,7 +39,7 @@ final class p {
 
     public final void a(boolean z, boolean z2) {
         this.c.setVisibility(8);
-        this.d.setVisibility(0);
+        this.d.setVisibility(8);
     }
 
     public final void b() {

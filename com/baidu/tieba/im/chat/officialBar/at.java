@@ -15,10 +15,10 @@ final class at extends com.baidu.adp.framework.c.a {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
     @Override // com.baidu.adp.framework.c.c
     public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.im.model.bc bcVar;
+        com.baidu.tieba.im.model.bd bdVar;
         com.baidu.tieba.im.a<Void> aVar;
-        bcVar = this.a.a;
+        bdVar = this.a.a;
         aVar = this.a.d;
-        bcVar.a(aVar);
+        bdVar.a(aVar);
     }
 }

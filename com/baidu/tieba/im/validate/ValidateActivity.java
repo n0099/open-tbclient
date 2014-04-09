@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import com.baidu.tbadk.core.b.ag;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupInfo.ak;
@@ -25,7 +25,7 @@ public class ValidateActivity extends com.baidu.tbadk.a implements AbsListView.O
     private AlertDialog e;
     private ValidateItemData f;
     private Runnable g;
-    private aa h;
+    private ab h;
     private int j;
     private int l;
     private boolean m;
@@ -45,7 +45,7 @@ public class ValidateActivity extends com.baidu.tbadk.a implements AbsListView.O
     @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.h = new aa(this);
+        this.h = new ab(this);
         this.h.a(false);
         this.b = new t(this);
         this.d = new c(this);
@@ -55,7 +55,7 @@ public class ValidateActivity extends com.baidu.tbadk.a implements AbsListView.O
         com.baidu.adp.framework.c.a().a(202004, this.o);
         com.baidu.adp.framework.c.a().a(this.p);
         this.b.a(true);
-        com.baidu.tieba.im.s.a(new s(), this.n);
+        com.baidu.tieba.im.r.a(new s(), this.n);
     }
 
     @Override // android.app.Activity
@@ -242,7 +242,7 @@ public class ValidateActivity extends com.baidu.tbadk.a implements AbsListView.O
         }
     }
 
-    public final aa a() {
+    public final ab a() {
         return this.h;
     }
 

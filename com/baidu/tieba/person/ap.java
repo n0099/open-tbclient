@@ -1,9 +1,10 @@
 package com.baidu.tieba.person;
 
-import android.view.MotionEvent;
+import android.app.Dialog;
+import android.content.Intent;
 import android.view.View;
 /* loaded from: classes.dex */
-final class ap implements View.OnTouchListener {
+final class ap implements View.OnClickListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,12 +12,45 @@ final class ap implements View.OnTouchListener {
         this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public final boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1) {
-            this.a.t = true;
-            return false;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        com.baidu.tieba.model.au auVar;
+        int i;
+        boolean z;
+        com.baidu.tieba.model.au auVar2;
+        com.baidu.tieba.model.au auVar3;
+        Boolean bool;
+        com.baidu.tieba.model.au auVar4;
+        com.baidu.tieba.model.au auVar5;
+        Dialog dialog;
+        auVar = this.a.u;
+        int sex = auVar.a().getSex();
+        i = this.a.E;
+        if (sex != i) {
+            this.a.D = true;
         }
-        return false;
+        z = this.a.D;
+        if (!z) {
+            auVar2 = this.a.u;
+            if (auVar2 != null) {
+                auVar3 = this.a.u;
+                if (auVar3.a().getPhotoChanged()) {
+                    Intent intent = new Intent();
+                    bool = this.a.b;
+                    if (bool.booleanValue()) {
+                        auVar5 = this.a.u;
+                        intent.putExtra("person_change_data", auVar5.a());
+                    } else {
+                        auVar4 = this.a.u;
+                        intent.putExtra("data", auVar4.a());
+                    }
+                    this.a.setResult(-1, intent);
+                }
+            }
+            this.a.finish();
+            return;
+        }
+        dialog = this.a.B;
+        dialog.show();
     }
 }

@@ -1,29 +1,24 @@
 package com.baidu.tbadk.editortool;
-
-import java.util.List;
 /* loaded from: classes.dex */
 public abstract class e implements Comparable<e> {
-    public abstract void getEmotions(f fVar);
+    public abstract int a();
 
-    public abstract List<af> getGroups();
+    public abstract void a(f fVar);
 
-    public abstract int getIndex();
+    protected abstract void b();
 
-    public abstract boolean isEmpty();
-
-    protected abstract void register();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // java.lang.Comparable
+    public /* synthetic */ int compareTo(e eVar) {
+        e eVar2 = eVar;
+        if (eVar2 == null) {
+            return 1;
+        }
+        return a() - eVar2.a();
+    }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e() {
-        register();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    public int compareTo(e eVar) {
-        if (eVar == null) {
-            return 1;
-        }
-        return getIndex() - eVar.getIndex();
+        b();
     }
 }

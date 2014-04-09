@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class UserPhotoLayout extends LinearLayout implements AbsListView.RecyclerListener {
-    private ae a;
+    private ac a;
     private Context b;
     private ArrayList<MetaData> c;
     private com.baidu.tbadk.core.util.b d;
@@ -20,14 +20,13 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     private int f;
     private int g;
     private int h;
-    private int i;
 
     public int getNormalShowCount() {
-        return this.i;
+        return this.h;
     }
 
     public void setNormalShowCount(int i) {
-        this.i = i;
+        this.h = i;
     }
 
     public int getItemSize() {
@@ -46,23 +45,22 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         super(context, attributeSet);
         this.e = 0;
         this.g = 5;
-        this.h = 30;
-        this.i = 6;
+        this.h = 6;
         this.b = context;
         this.g = com.baidu.adp.lib.util.i.a(this.b, this.g);
-        this.e = com.baidu.adp.lib.util.i.a(this.b, this.h);
+        this.e = (int) this.b.getResources().getDimension(com.baidu.tieba.a.f.ds60);
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        view.setOnClickListener(new ad(this, getChildCount() - 1, (byte) 0));
+        view.setOnClickListener(new ab(this, getChildCount() - 1, (byte) 0));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         super.addView(view, i);
-        view.setOnClickListener(new ad(this, getChildCount() - 1, (byte) 0));
+        view.setOnClickListener(new ab(this, getChildCount() - 1, (byte) 0));
     }
 
     public final void a(ArrayList<MetaData> arrayList, boolean z) {
@@ -74,8 +72,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
             return;
         }
         this.f = this.c.size();
-        if (this.f > this.i) {
-            this.f = this.i;
+        if (this.f > this.h) {
+            this.f = this.h;
         }
         int i = 0;
         while (true) {
@@ -92,7 +90,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                         headImageView.setTag(null);
                         b.a(headImageView);
                     } else if (z) {
-                        this.d.c(portrait, new ac(this, headImageView, portrait));
+                        this.d.c(portrait, new aa(this, headImageView, portrait));
                     } else {
                         headImageView.setTag(portrait);
                         headImageView.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.a.g.photo));
@@ -110,17 +108,20 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        if (this.f != 0) {
-            int i3 = 0;
-            while (true) {
-                int i4 = i3;
-                if (i4 < this.f) {
-                    measureChild((HeadImageView) getChildAt(i4), this.e, this.e);
-                    i3 = i4 + 1;
-                } else {
-                    return;
-                }
+        int i3 = 0;
+        int i4 = 1073741823 & i2;
+        if (this.f == 0) {
+            setMeasuredDimension(0, 0);
+            return;
+        }
+        setMeasuredDimension((this.f * this.e) + ((this.f - 1) * this.g), i4);
+        while (true) {
+            int i5 = i3;
+            if (i5 < this.f) {
+                measureChild((HeadImageView) getChildAt(i5), this.e, this.e);
+                i3 = i5 + 1;
+            } else {
+                return;
             }
         }
     }
@@ -130,7 +131,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         super.onLayout(z, i, i2, i3, i4);
         if (this.f != 0) {
             for (int i5 = 0; i5 < this.f; i5++) {
-                ((HeadImageView) getChildAt(i5)).layout((this.g * i5) + (this.e * i5), 0, (this.g * i5) + (this.e * (i5 + 1)), i4 - i2);
+                ((HeadImageView) getChildAt(i5)).layout((this.g * i5) + (this.e * i5), 0, (this.g * i5) + (this.e * (i5 + 1)), this.e);
             }
         }
     }
@@ -159,8 +160,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.d = bVar;
     }
 
-    public void setOnChildClickListener(ae aeVar) {
-        this.a = aeVar;
+    public void setOnChildClickListener(ac acVar) {
+        this.a = acVar;
     }
 
     public final void a() {

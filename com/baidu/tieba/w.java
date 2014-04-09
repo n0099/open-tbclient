@@ -1,14 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public final class w implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.u> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<com.baidu.tbadk.core.b.u> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.u> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            r.c().f();
-        }
-        return null;
+final class w implements Runnable {
+    final /* synthetic */ v a;
+    private final /* synthetic */ com.baidu.adp.framework.message.a b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(v vVar, com.baidu.adp.framework.message.a aVar) {
+        this.a = vVar;
+        this.b = aVar;
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        TbadkApplication.j();
+        p.a((AccountData) this.b.a());
     }
 }

@@ -1,24 +1,36 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.GroupData;
 /* loaded from: classes.dex */
-final class be extends com.baidu.adp.framework.c.a {
+final class be implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ GroupChatActivity a;
+    private final /* synthetic */ GroupData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public be(GroupChatActivity groupChatActivity, int i) {
-        super(2001125);
+    public be(GroupChatActivity groupChatActivity, GroupData groupData) {
         this.a = groupChatActivity;
+        this.b = groupData;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.im.p.a();
-        if (com.baidu.tieba.im.p.f()) {
-            this.a.d.Q().setVisibility(0);
-            this.a.d.Q().d();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(Boolean bool) {
+        Boolean bool2 = bool;
+        if (bool2 != null) {
+            if (bool2.booleanValue()) {
+                this.a.d.K();
+            } else {
+                this.a.d.L();
+            }
+            if (this.a.e == null || this.b == null) {
+                return;
+            }
+            String name = this.b.getName();
+            if (TextUtils.isEmpty(name)) {
+                return;
+            }
+            this.a.d.a(name);
         }
     }
 }

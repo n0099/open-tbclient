@@ -13,7 +13,7 @@ final class e extends com.baidu.tieba.im.m<Boolean> {
     public final /* synthetic */ Boolean a() {
         PersonalTalkSettingActivity personalTalkSettingActivity;
         long j;
-        com.baidu.tieba.im.db.n d = com.baidu.tieba.im.db.n.d();
+        com.baidu.tieba.im.db.o d = com.baidu.tieba.im.db.o.d();
         personalTalkSettingActivity = this.b.a;
         j = personalTalkSettingActivity.c;
         return Boolean.valueOf(d.e(String.valueOf(j)));

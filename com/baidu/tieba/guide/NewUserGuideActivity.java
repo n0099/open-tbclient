@@ -6,7 +6,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.core.b.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.model.ao;
 import com.baidu.tieba.model.aq;
 import com.baidu.tieba.view.RightSlideViewPager;
@@ -14,7 +15,7 @@ import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class NewUserGuideActivity extends com.baidu.tbadk.core.e {
     private ao c;
-    private aa d;
+    private ab d;
     private boolean f;
     private RightSlideViewPager h;
     private boolean e = false;
@@ -70,9 +71,9 @@ public class NewUserGuideActivity extends com.baidu.tbadk.core.e {
         this.e = true;
     }
 
-    public final aa h() {
+    public final ab h() {
         if (this.d == null) {
-            this.d = new aa(this);
+            this.d = new ab(this);
         }
         return this.d;
     }
@@ -100,11 +101,11 @@ public class NewUserGuideActivity extends com.baidu.tbadk.core.e {
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void c(int i) {
+    protected final void b(int i) {
     }
 
     public final void j() {
-        a(new com.baidu.adp.framework.message.a(2015001, new com.baidu.tbadk.core.b.aa(this).a(1, this.f)));
+        a(new com.baidu.adp.framework.message.a(2015001, new aa(this).a(1, this.f)));
         finish();
     }
 }

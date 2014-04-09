@@ -19,9 +19,9 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class EmotionManageActivity extends com.baidu.tbadk.a {
-    private List<s> a;
-    private t c;
-    private q d;
+    private List<u> a;
+    private v c;
+    private s d;
     private LinearLayout e;
     private NavigationBar f;
     private View g;
@@ -32,12 +32,12 @@ public class EmotionManageActivity extends com.baidu.tbadk.a {
     private BdListView l;
     private TextView m;
     private View n;
-    private r o;
+    private t o;
     private final List<String> b = new LinkedList();
     private boolean p = false;
-    private final View.OnClickListener q = new n(this);
-    private final AdapterView.OnItemClickListener r = new o(this);
-    private final com.baidu.adp.framework.c.a s = new p(this, 0);
+    private final View.OnClickListener q = new p(this);
+    private final AdapterView.OnItemClickListener r = new q(this);
+    private final com.baidu.adp.framework.c.a s = new r(this, 0);
 
     public static void a(Context context) {
         context.startActivity(new Intent(context, EmotionManageActivity.class));
@@ -68,9 +68,9 @@ public class EmotionManageActivity extends com.baidu.tbadk.a {
         getLayoutMode().a(this.n);
         b();
         registerListener(2001120, this.s);
-        this.c = new t(this, (byte) 0);
+        this.c = new v(this, (byte) 0);
         this.c.execute(new String[0]);
-        this.o = new r(this, (byte) 0);
+        this.o = new t(this, (byte) 0);
         this.l.setAdapter((ListAdapter) this.o);
         a(true);
     }
@@ -100,7 +100,7 @@ public class EmotionManageActivity extends com.baidu.tbadk.a {
             this.b.clear();
         } else {
             for (String str : this.b) {
-                Iterator<s> it = this.a.iterator();
+                Iterator<u> it = this.a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z2 = false;
@@ -194,7 +194,7 @@ public class EmotionManageActivity extends com.baidu.tbadk.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void b(EmotionManageActivity emotionManageActivity) {
-        emotionManageActivity.d = new q(emotionManageActivity, (byte) 0);
+        emotionManageActivity.d = new s(emotionManageActivity, (byte) 0);
         emotionManageActivity.d.execute(emotionManageActivity.b);
     }
 

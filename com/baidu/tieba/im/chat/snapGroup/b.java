@@ -93,6 +93,7 @@ final class b extends com.baidu.adp.framework.c.g {
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                 imMessageCenterPojo.setGid(String.valueOf(d2.d()));
                 imMessageCenterPojo.setPulled_msgId(d2.k() * 100);
+                imMessageCenterPojo.setCustomGroupType(3);
                 imMessageCenterPojo.setGroup_name("聊天室");
                 imMessageCenterPojo.setIs_delete(0);
                 imMessageCenterPojo.setIs_hidden(1);
@@ -114,7 +115,7 @@ final class b extends com.baidu.adp.framework.c.g {
             case 106102:
                 if (socketResponsedMessage2 instanceof ResponseQuitChatRoomMessage) {
                     hVar = this.a.d;
-                    hVar.P();
+                    hVar.Q();
                     return;
                 }
                 return;

@@ -44,7 +44,7 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
         }
         a((Bundle) null, intent);
         a(intent != null ? intent.getExtras() : null);
-        c(TbadkApplication.j().l());
+        b(TbadkApplication.j().l());
         a(true);
     }
 
@@ -52,7 +52,7 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
     @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        c(TbadkApplication.j().l());
+        b(TbadkApplication.j().l());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -102,7 +102,7 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void c(int i) {
+    protected final void b(int i) {
         this.c.c(i);
     }
 

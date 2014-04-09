@@ -24,8 +24,8 @@ public final class o implements View.OnClickListener {
             gVar = this.a.a;
             gVar.setNewViewVisible(false);
         }
-        TbadkApplication.j().g(TbadkApplication.j().at());
-        TbadkApplication.j().f(false);
+        TbadkApplication.j().g(TbadkApplication.j().av());
+        TbadkApplication.j().h(false);
         i = this.a.l;
         switch (i) {
             case 1:

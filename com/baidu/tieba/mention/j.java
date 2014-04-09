@@ -1,5 +1,6 @@
 package com.baidu.tieba.mention;
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -13,14 +14,15 @@ final class j {
     TextView e;
     TextView f;
     TextView g;
-    TextView h;
+    View h;
     TextView i;
     TextView j;
-    LinearLayout k;
-    final /* synthetic */ g l;
+    TextView k;
+    LinearLayout l;
+    final /* synthetic */ g m;
 
     private j(g gVar) {
-        this.l = gVar;
+        this.m = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

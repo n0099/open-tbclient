@@ -46,9 +46,9 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
                 }
             }
             if (this.d == null || TextUtils.isEmpty(this.d.c())) {
-                e(0);
+                d(0);
             } else {
-                e(1);
+                d(1);
             }
             if (this.e != null && this.d != null) {
                 this.e.a(this.d.d());
@@ -79,7 +79,7 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void c(int i) {
+    protected final void b(int i) {
         this.e.d(i);
     }
 
@@ -105,12 +105,12 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
         }
         Fragment b2 = this.e.b(1);
         if (view == ((b2 == null || !(b2 instanceof ah)) ? null : ((ah) b2).a())) {
-            e(0);
+            d(0);
             return;
         }
         Fragment b3 = this.e.b(2);
         if (view == ((b3 == null || !(b3 instanceof b)) ? null : ((b) b3).a())) {
-            e(1);
+            d(1);
             return;
         }
         Fragment b4 = this.e.b(1);
@@ -133,7 +133,7 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void e(int i) {
+    public final void d(int i) {
         if (!this.g) {
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
             Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.e.c(this.f));
@@ -197,10 +197,10 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
                 i();
                 return true;
             } else if (this.f == 1) {
-                e(0);
+                d(0);
                 return true;
             } else if (this.f == 2) {
-                e(1);
+                d(1);
                 return true;
             } else {
                 return true;

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.voice.service;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 /* loaded from: classes.dex */
-public final class MyAudioRecorder implements e {
+public final class MyAudioRecorder implements d {
     private static final int[] a = {44100, 22050, 11025, 8000};
     private static Object b = new Object();
     private static AudioRecord c = null;

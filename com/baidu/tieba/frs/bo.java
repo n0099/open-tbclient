@@ -13,22 +13,22 @@ final class bo implements ci {
     }
 
     @Override // com.baidu.tieba.frs.ci
-    public final void a(int i, JSONObject jSONObject, db dbVar) {
+    public final void a(int i, JSONObject jSONObject, dd ddVar) {
         cj cjVar;
         cj cjVar2;
-        cy cyVar;
-        cy cyVar2;
+        da daVar;
+        da daVar2;
         cj cjVar3;
         int i2;
         int i3;
-        cy cyVar3;
+        da daVar3;
         int i4;
-        cy cyVar4;
-        cy cyVar5;
-        cy cyVar6;
+        da daVar4;
+        da daVar5;
+        da daVar6;
         cj cjVar4;
-        cy cyVar7;
-        cy cyVar8;
+        da daVar7;
+        da daVar8;
         cj cjVar5;
         String str;
         FrsImageActivity.b(this.a);
@@ -36,33 +36,33 @@ final class bo implements ci {
         cjVar.a(false);
         this.a.a();
         if (jSONObject == null) {
-            if (dbVar.a) {
-                this.a.showToast(dbVar.d);
-                if (dbVar.b && dbVar.c == 2000) {
+            if (ddVar.a) {
+                this.a.showToast(ddVar.d);
+                if (ddVar.b && ddVar.c == 2000) {
                     TbadkApplication j = TbadkApplication.j();
                     str = this.a.b;
                     j.o(str);
                 }
             }
         } else {
-            if (dbVar != null && dbVar.b) {
+            if (ddVar != null && ddVar.b) {
                 i4 = this.a.k;
                 if (i4 == 1) {
-                    cyVar4 = this.a.q;
-                    com.baidu.tieba.util.k.f(cyVar4.b().getName());
+                    daVar4 = this.a.q;
+                    com.baidu.tieba.util.k.f(daVar4.b().getName());
                 }
             }
             cjVar2 = this.a.l;
             cjVar2.k().c();
             FrsImageActivity frsImageActivity = this.a;
-            cyVar = this.a.q;
-            FrsImageActivity.a(frsImageActivity, cyVar.c());
+            daVar = this.a.q;
+            FrsImageActivity.a(frsImageActivity, daVar.c());
             this.a.h = 30;
-            cyVar2 = this.a.q;
-            if (cyVar2.d().size() <= 30) {
+            daVar2 = this.a.q;
+            if (daVar2.d().size() <= 30) {
                 if (i == 1) {
-                    cyVar3 = this.a.q;
-                    if (cyVar3.d().size() == 0) {
+                    daVar3 = this.a.q;
+                    if (daVar3.d().size() == 0) {
                         this.a.a(FrsImageActivity.FooterType.NO_ITEM);
                     }
                 }
@@ -86,14 +86,14 @@ final class bo implements ci {
             }
         }
         TbadkApplication j2 = TbadkApplication.j();
-        cyVar5 = this.a.q;
-        j2.q(cyVar5.a().b());
-        cyVar6 = this.a.q;
-        if (cyVar6 != null) {
-            cyVar7 = this.a.q;
-            if (cyVar7.a() != null) {
-                cyVar8 = this.a.q;
-                if (cyVar8.a().a()) {
+        daVar5 = this.a.q;
+        j2.q(daVar5.a().b());
+        daVar6 = this.a.q;
+        if (daVar6 != null) {
+            daVar7 = this.a.q;
+            if (daVar7.a() != null) {
+                daVar8 = this.a.q;
+                if (daVar8.a().a()) {
                     cjVar5 = this.a.l;
                     cjVar5.c(true);
                     return;

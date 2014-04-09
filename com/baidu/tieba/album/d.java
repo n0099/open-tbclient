@@ -22,26 +22,26 @@ final class d implements ViewPager.OnPageChangeListener {
         p pVar2;
         ImageView imageView;
         ImageView imageView2;
-        this.a.i = i;
+        this.a.j = i;
         b bVar = this.a;
-        i2 = this.a.i;
-        bVar.a(i2 + 1);
-        hVar = this.a.h;
+        i2 = this.a.j;
+        bVar.d(i2 + 1);
+        hVar = this.a.i;
         if (hVar != null) {
-            pVar = this.a.b;
+            pVar = this.a.c;
             if (pVar != null) {
-                hVar2 = this.a.h;
-                i3 = this.a.i;
+                hVar2 = this.a.i;
+                i3 = this.a.j;
                 ImageFileInfo a = hVar2.a(i3);
-                pVar2 = this.a.b;
+                pVar2 = this.a.c;
                 if (pVar2.c(a)) {
                     b bVar2 = this.a;
-                    imageView2 = this.a.k;
+                    imageView2 = this.a.l;
                     b.a(imageView2, true);
                     return;
                 }
                 b bVar3 = this.a;
-                imageView = this.a.k;
+                imageView = this.a.l;
                 b.a(imageView, false);
             }
         }

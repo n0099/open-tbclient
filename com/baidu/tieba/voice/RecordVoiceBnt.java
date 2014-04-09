@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.n;
+import com.baidu.adp.lib.util.o;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.VoiceData;
@@ -29,7 +29,7 @@ import com.baidu.tieba.a.g;
 import com.baidu.tieba.a.h;
 import com.baidu.tieba.a.i;
 import com.baidu.tieba.a.k;
-import com.baidu.tieba.r;
+import com.baidu.tieba.p;
 /* loaded from: classes.dex */
 public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x, y {
     private float A;
@@ -116,18 +116,18 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x
         e();
         if (TbadkApplication.j().l() == -1) {
             int[] iArr = this.F;
-            r.c();
-            iArr[0] = r.d().getResources().getColor(com.baidu.tieba.a.e.record_voice_progress_start_1);
+            p.c();
+            iArr[0] = p.d().getResources().getColor(com.baidu.tieba.a.e.record_voice_progress_start_1);
             int[] iArr2 = this.F;
-            r.c();
-            iArr2[1] = r.d().getResources().getColor(com.baidu.tieba.a.e.record_voice_progress_end_1);
+            p.c();
+            iArr2[1] = p.d().getResources().getColor(com.baidu.tieba.a.e.record_voice_progress_end_1);
         } else {
             int[] iArr3 = this.F;
-            r.c();
-            iArr3[0] = r.d().getResources().getColor(com.baidu.tieba.a.e.record_voice_progress_start);
+            p.c();
+            iArr3[0] = p.d().getResources().getColor(com.baidu.tieba.a.e.record_voice_progress_start);
             int[] iArr4 = this.F;
-            r.c();
-            iArr4[1] = r.d().getResources().getColor(com.baidu.tieba.a.e.record_voice_progress_end);
+            p.c();
+            iArr4[1] = p.d().getResources().getColor(com.baidu.tieba.a.e.record_voice_progress_end);
         }
         VoiceManager voiceManager = getVoiceManager();
         if (voiceManager != null) {
@@ -283,7 +283,7 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x
         ba.a(this.s, com.baidu.tieba.a.e.record_voice_tip_up_text, 1);
         ba.a(this.q, com.baidu.tieba.a.e.record_voice_tip_up_text, 1);
         ba.a(this.r, com.baidu.tieba.a.e.record_voice_tip_down_text, 1);
-        if (!n.a(str)) {
+        if (!o.a(str)) {
             if (i == 3) {
                 postDelayed(new c(this, str), 300L);
             } else if (i == 2) {

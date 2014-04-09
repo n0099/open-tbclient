@@ -9,16 +9,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class e extends BaseAdapter {
     private Activity a;
-    private aa b;
+    private ab b;
     private List<BaseGroupData> c = new ArrayList();
 
-    public final aa a() {
+    public final ab a() {
         return this.b;
     }
 
@@ -29,7 +29,7 @@ public final class e extends BaseAdapter {
 
     public e(Activity activity) {
         this.a = activity;
-        this.b = new aa(activity);
+        this.b = new ab(activity);
         this.b.a(true);
     }
 

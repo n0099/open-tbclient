@@ -38,12 +38,12 @@ public class EmotionTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setDatas(ArrayList<af> arrayList) {
+    public void setDatas(ArrayList<ag> arrayList) {
         this.a.setDatas(arrayList);
     }
 
-    public final void a(af afVar) {
-        this.a.a(afVar);
+    public final void a(ag agVar) {
+        this.a.a(agVar);
     }
 
     public void setCurrentTab(int i) {

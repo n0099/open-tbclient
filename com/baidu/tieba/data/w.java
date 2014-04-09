@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.person.PersonInfoActivity;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class w {
@@ -17,7 +16,7 @@ public final class w {
                 this.a = jSONObject.optString("id");
                 this.e = jSONObject.optInt("user_type");
                 this.f = jSONObject.optInt("is_verify");
-                this.b = jSONObject.optString(PersonInfoActivity.TAG_NAME);
+                this.b = jSONObject.optString("name");
                 this.c = jSONObject.optString("name_show");
                 this.d = jSONObject.optString("portrait");
             } catch (Exception e) {

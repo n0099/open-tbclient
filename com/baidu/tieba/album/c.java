@@ -34,43 +34,43 @@ final class c implements View.OnClickListener {
         ImageView imageView3;
         AlbumActivity albumActivity6;
         int i4;
-        hVar = this.a.h;
+        hVar = this.a.i;
         if (hVar != null) {
-            hVar2 = this.a.h;
-            i = this.a.i;
+            hVar2 = this.a.i;
+            i = this.a.j;
             ImageFileInfo a = hVar2.a(i);
-            pVar = this.a.b;
+            pVar = this.a.c;
             if (pVar != null) {
-                albumActivity = this.a.a;
+                albumActivity = this.a.b;
                 if (albumActivity != null) {
-                    hVar3 = this.a.h;
-                    i2 = this.a.i;
+                    hVar3 = this.a.i;
+                    i2 = this.a.j;
                     if (hVar3.b(i2)) {
-                        pVar2 = this.a.b;
+                        pVar2 = this.a.c;
                         if (pVar2.c(a)) {
-                            albumActivity5 = this.a.a;
+                            albumActivity5 = this.a.b;
                             if (albumActivity5.b(a)) {
                                 b bVar = this.a;
-                                imageView3 = this.a.k;
+                                imageView3 = this.a.l;
                                 b.a(imageView3, false);
-                                albumActivity6 = this.a.a;
-                                i4 = this.a.i;
+                                albumActivity6 = this.a.b;
+                                i4 = this.a.j;
                                 albumActivity6.a(i4, false);
                                 return;
                             }
                             return;
                         }
-                        albumActivity2 = this.a.a;
+                        albumActivity2 = this.a.b;
                         if (albumActivity2.a(a)) {
                             b bVar2 = this.a;
-                            imageView = this.a.k;
+                            imageView = this.a.l;
                             b.a(imageView, true);
-                            albumActivity3 = this.a.a;
-                            i3 = this.a.i;
+                            albumActivity3 = this.a.b;
+                            i3 = this.a.j;
                             albumActivity3.a(i3, true);
-                            albumActivity4 = this.a.a;
+                            albumActivity4 = this.a.b;
                             Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4, com.baidu.tieba.a.b.album_choose_icon);
-                            imageView2 = this.a.k;
+                            imageView2 = this.a.l;
                             imageView2.startAnimation(loadAnimation);
                         }
                     }

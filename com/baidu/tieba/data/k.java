@@ -9,11 +9,7 @@ public final class k {
     private ArrayList<j> a = new ArrayList<>();
     private ArrayList<m> b = new ArrayList<>();
 
-    public final ArrayList<j> a() {
-        return this.a;
-    }
-
-    public final ArrayList<m> b() {
+    public final ArrayList<m> a() {
         return this.b;
     }
 

@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.data.CombineDownload;
+import android.content.DialogInterface;
+import com.baidu.tieba.data.VersionData;
 /* loaded from: classes.dex */
-final class af implements q {
+final class af implements DialogInterface.OnDismissListener {
     final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,35 +11,15 @@ final class af implements q {
         this.a = updateDialog;
     }
 
-    @Override // com.baidu.tieba.q
-    public final void a(boolean z) {
-        CombineDownload combineDownload;
-        this.a.f = z;
-        if (z) {
-            UpdateDialog updateDialog = this.a;
-            combineDownload = this.a.b;
-            UpdateDialog.a(updateDialog, combineDownload.getAppUrl());
-        } else {
-            UpdateDialog.d(this.a);
+    @Override // android.content.DialogInterface.OnDismissListener
+    public final void onDismiss(DialogInterface dialogInterface) {
+        k kVar;
+        VersionData versionData;
+        kVar = this.a.c;
+        kVar.dismiss();
+        versionData = this.a.a;
+        if (versionData.getForce_update() == 1) {
+            com.baidu.tbadk.core.d.b.a(this.a, 200);
         }
-        this.a.e = true;
-    }
-
-    @Override // com.baidu.tieba.q
-    public final void b() {
-        m mVar;
-        mVar = this.a.c;
-        mVar.dismiss();
-        this.a.finish();
-    }
-
-    @Override // com.baidu.tieba.q
-    public final void c() {
-        this.a.a();
-    }
-
-    @Override // com.baidu.tieba.q
-    public final void a() {
-        this.a.finish();
     }
 }

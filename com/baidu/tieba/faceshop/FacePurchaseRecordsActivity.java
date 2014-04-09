@@ -8,11 +8,11 @@ import android.widget.AdapterView;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class FacePurchaseRecordsActivity extends com.baidu.tbadk.a {
-    private bd a;
-    private bb b;
+    private bf a;
+    private bd b;
     private String c;
-    private com.baidu.adp.a.h d = new aw(this);
-    private com.baidu.tbadk.core.view.m e = new ax(this);
+    private com.baidu.adp.a.h d = new ay(this);
+    private com.baidu.tbadk.core.view.m e = new az(this);
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, FacePurchaseRecordsActivity.class);
@@ -24,7 +24,7 @@ public class FacePurchaseRecordsActivity extends com.baidu.tbadk.a {
     @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.b = new bb();
+        this.b = new bd();
         if (bundle != null) {
             this.c = bundle.getString("st_type");
         } else {
@@ -32,8 +32,8 @@ public class FacePurchaseRecordsActivity extends com.baidu.tbadk.a {
         }
         this.b.a(this.c);
         this.b.setLoadDataCallBack(this.d);
-        this.a = new bd(this);
-        this.a.a(new ay(this));
+        this.a = new bf(this);
+        this.a.a(new ba(this));
         this.a.a(this);
         this.a.a(this.e);
         a(true);

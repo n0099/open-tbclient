@@ -4,15 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.WindowManager;
 import com.baidu.tieba.data.CombineDownload;
 import com.baidu.tieba.data.VersionData;
 import com.baidu.tieba.service.TiebaUpdateService;
 /* loaded from: classes.dex */
 public class UpdateDialog extends com.baidu.tbadk.a {
-    private m c;
+    private k c;
     private VersionData a = null;
     private CombineDownload b = null;
-    private ak d = null;
+    private ai d = null;
     private boolean e = false;
     private boolean f = false;
 
@@ -23,8 +24,8 @@ public class UpdateDialog extends com.baidu.tbadk.a {
             intent.putExtra("data", versionData);
             intent.putExtra("combineDownload", combineDownload);
             context.startActivity(intent);
-            r.c().p(true);
-            r.c().a(combineDownload);
+            p.c().o(true);
+            p.c().a(combineDownload);
         }
     }
 
@@ -32,6 +33,9 @@ public class UpdateDialog extends com.baidu.tbadk.a {
     @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        WindowManager.LayoutParams attributes = getWindow().getAttributes();
+        attributes.alpha = 0.0f;
+        getWindow().setAttributes(attributes);
         if (bundle != null) {
             this.a = (VersionData) bundle.getSerializable("data");
             this.b = (CombineDownload) bundle.getSerializable("combineDownload");
@@ -46,16 +50,16 @@ public class UpdateDialog extends com.baidu.tbadk.a {
             finish();
         }
         if (this.a.getHas_new_ver() == 1) {
-            this.c = new m(this, com.baidu.tieba.a.l.common_alert_dialog);
+            this.c = new k(this, com.baidu.tieba.a.l.common_alert_dialog);
             this.c.setCancelable(false);
-            this.c.a(this.a, this.b, new af(this));
-            this.c.setOnCancelListener(new ag(this));
-            this.c.setOnDismissListener(new ah(this));
-            this.c.a(new ai(this));
-            this.c.b(new aj(this));
+            this.c.a(this.a, this.b, new ad(this));
+            this.c.setOnCancelListener(new ae(this));
+            this.c.setOnDismissListener(new af(this));
+            this.c.a(new ag(this));
+            this.c.b(new ah(this));
             this.c.show();
         }
-        this.d = new ak(this, (byte) 0);
+        this.d = new ai(this, (byte) 0);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.NewsVersion");
         registerReceiver(this.d, intentFilter);

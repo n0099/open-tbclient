@@ -1,13 +1,9 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.tieba.view.FrsCommonImageLayout;
-import com.baidu.tieba.view.UserPhotoLayout;
-import com.baidu.tieba.voice.PlayVoiceBnt;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class cq implements AbsListView.RecyclerListener {
+public final class cq implements DialogInterface.OnClickListener {
     final /* synthetic */ cm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,18 +11,16 @@ public final class cq implements AbsListView.RecyclerListener {
         this.a = cmVar;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public final void onMovedToScrapHeap(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(com.baidu.tieba.a.h.abstract_voice);
-        if (playVoiceBnt != null) {
-            playVoiceBnt.b();
-        }
-        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(com.baidu.tieba.a.h.abstract_img_layout);
-        if (frsCommonImageLayout != null) {
-            frsCommonImageLayout.a();
-        }
-        if (view != null && (view instanceof UserPhotoLayout)) {
-            ((UserPhotoLayout) view).a();
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tbadk.a aVar;
+        com.baidu.tbadk.a aVar2;
+        if (i == 0) {
+            aVar2 = this.a.g;
+            com.baidu.tbadk.core.util.az.a(aVar2);
+        } else if (i == 1) {
+            aVar = this.a.g;
+            com.baidu.tbadk.core.util.az.b(aVar);
         }
     }
 }

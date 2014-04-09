@@ -1,58 +1,47 @@
 package com.baidu.tieba.faceshop;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.view.View;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bp extends com.baidu.adp.a.h {
-    final /* synthetic */ bm a;
-    private final /* synthetic */ com.baidu.tbadk.a b;
-    private final /* synthetic */ FacePackageData c;
-    private final /* synthetic */ int d;
+public final class bp implements View.OnClickListener {
+    final /* synthetic */ bo a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(bm bmVar, com.baidu.tbadk.a aVar, FacePackageData facePackageData, int i) {
-        this.a = bmVar;
-        this.b = aVar;
-        this.c = facePackageData;
-        this.d = i;
+    public bp(bo boVar) {
+        this.a = boVar;
     }
 
-    @Override // com.baidu.adp.a.h
-    public final void a(Object obj) {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
         Context context;
-        Context context2;
-        Context context3;
-        Context context4;
-        Context context5;
-        this.b.hideProgressBar();
-        if (obj == null || !(obj instanceof FaceBuyData)) {
-            context = this.a.c;
-            UtilHelper.a(context, com.baidu.tieba.a.k.neterror);
-            return;
-        }
-        FaceBuyData faceBuyData = (FaceBuyData) obj;
-        if (faceBuyData.errno == 0 && faceBuyData.usermsg != null) {
-            String str = faceBuyData.buyInfo.buyUrl;
-            String str2 = faceBuyData.buyInfo.returnUrl;
-            if (faceBuyData.buyInfo.buyStatus == 2) {
-                context4 = this.a.c;
-                UtilHelper.a(context4, com.baidu.tieba.a.k.has_buy2);
-                this.c.buyStatus = 1;
-                this.c.canDownload = 1;
-                this.a.notifyDataSetChanged();
-                return;
+        try {
+            bt btVar = (bt) view.getTag();
+            if (btVar != null) {
+                int i = btVar.a;
+                if (!TbadkApplication.F()) {
+                    this.a.j = btVar.a;
+                    context = this.a.c;
+                    LoginActivity.a((Activity) ((com.baidu.adp.a.a) context), (String) null, true, 11003);
+                } else {
+                    switch (btVar.b) {
+                        case 2:
+                            this.a.a(i);
+                            break;
+                        case 3:
+                            this.a.b(i);
+                            break;
+                        case 4:
+                            this.a.c(i);
+                            break;
+                    }
+                }
             }
-            this.c.orderId = faceBuyData.buyInfo.orderId;
-            com.baidu.tbadk.a aVar = this.b;
-            context5 = this.a.c;
-            FaceBuyWebViewActivity.a(aVar, str, str2, context5.getString(com.baidu.tieba.a.k.buy_package), this.d, 10000);
-        } else if (faceBuyData.usermsg != null) {
-            context3 = this.a.c;
-            UtilHelper.a(context3, faceBuyData.usermsg);
-        } else {
-            context2 = this.a.c;
-            UtilHelper.a(context2, com.baidu.tieba.a.k.neterror);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

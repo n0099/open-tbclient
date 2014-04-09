@@ -30,18 +30,14 @@ public final class l {
     }
 
     public final String e() {
-        return this.e;
-    }
-
-    public final String f() {
         return this.g;
     }
 
-    public final String g() {
+    public final String f() {
         return this.f;
     }
 
-    public final String h() {
+    public final String g() {
         return this.h;
     }
 

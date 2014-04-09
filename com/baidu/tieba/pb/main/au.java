@@ -1,31 +1,46 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
+import com.baidu.tieba.frs.de;
+import com.baidu.tieba.frs.dg;
 /* loaded from: classes.dex */
-final class au implements Runnable {
-    final /* synthetic */ at a;
-    private final /* synthetic */ com.baidu.tieba.data.an b;
-    private final /* synthetic */ View c;
+final class au implements dg {
+    final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(at atVar, com.baidu.tieba.data.an anVar, View view) {
-        this.a = atVar;
-        this.b = anVar;
-        this.c = view;
+    public au(PbActivity pbActivity) {
+        this.a = pbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        PbActivity pbActivity;
-        bk bkVar;
-        PbActivity pbActivity2;
-        bd bdVar;
-        pbActivity = this.a.a;
-        bkVar = pbActivity.D;
-        com.baidu.tieba.data.an anVar = this.b;
-        View view = this.c;
-        pbActivity2 = this.a.a;
-        bdVar = pbActivity2.x;
-        bkVar.a(false, anVar, null, null, view, bdVar.p().l());
+    @Override // com.baidu.tieba.frs.dg
+    public final void a() {
+        de deVar;
+        bf bfVar;
+        boolean z;
+        this.a.L = false;
+        deVar = this.a.M;
+        if (deVar != null) {
+            bfVar = this.a.x;
+            if (bfVar.p().d().k().getIsLike() == 1) {
+                PbActivity.a(this.a, 0);
+            } else {
+                PbActivity.a(this.a, 1);
+            }
+            z = this.a.K;
+            if (!z) {
+                this.a.K = true;
+            } else {
+                this.a.K = false;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.dg
+    public final void a(String str) {
+        de deVar;
+        this.a.L = false;
+        deVar = this.a.M;
+        if (deVar != null && str != null) {
+            this.a.showToast(str);
+        }
     }
 }

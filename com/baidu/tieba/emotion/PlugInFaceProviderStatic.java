@@ -2,7 +2,6 @@ package com.baidu.tieba.emotion;
 
 import com.baidu.a.b;
 import com.baidu.tbadk.editortool.w;
-import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
 public class PlugInFaceProviderStatic extends w {
     static {
@@ -625,10 +624,10 @@ public class PlugInFaceProviderStatic extends w {
         c.put("#(蹦蹦跳跳)", b.get(98));
         c.put("#(晃悠)", b.get(99));
         c.put("#(摇摇摆摆)", b.get(100));
-        c.put("#(大撒花)", b.get(PersonInfoActivity.REQUSET_CHANGE));
-        c.put("#(高高兴兴)", b.get(PersonInfoActivity.REQUEST_MARK));
-        c.put("#(弹吉他)", b.get(PersonInfoActivity.REQUSET_MY_BAR));
-        c.put("#(魔法棒)", b.get(PersonInfoActivity.REQUSET_MY_MENTION));
+        c.put("#(大撒花)", b.get(101));
+        c.put("#(高高兴兴)", b.get(102));
+        c.put("#(弹吉他)", b.get(103));
+        c.put("#(魔法棒)", b.get(104));
         c.put("#(扛大旗)", b.get(105));
         c.put("#(点蜡烛)", b.get(106));
         c.put("#(大秧歌)", b.get(107));

@@ -10,7 +10,7 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         CommitPersonalMsgRes.CommitPersonalMsgResIdl parseFrom = CommitPersonalMsgRes.CommitPersonalMsgResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             long msgId = parseFrom.getData().getMsgId();
             this.b = parseFrom.getData().getToUserType();

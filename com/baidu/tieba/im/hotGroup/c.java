@@ -30,28 +30,28 @@ final class c extends com.baidu.adp.framework.c.a {
         BdListView bdListView;
         CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
         if (!(customResponsedMessage2 instanceof ResponseHotGroupsLocalMessage)) {
-            bdListView = this.a.a;
+            bdListView = this.a.b;
             bdListView.b();
             return;
         }
-        dVar = this.a.f;
+        dVar = this.a.g;
         dVar.c(false);
         ResponseHotGroupsLocalMessage responseHotGroupsLocalMessage = (ResponseHotGroupsLocalMessage) customResponsedMessage2;
         if (customResponsedMessage2.g() == 2001116) {
             List<GroupInfoData> b = responseHotGroupsLocalMessage.b();
             if (b != null) {
-                hotGroupAdapter = this.a.e;
+                hotGroupAdapter = this.a.f;
                 hotGroupAdapter.a(b);
-                hotGroupAdapter2 = this.a.e;
+                hotGroupAdapter2 = this.a.f;
                 hotGroupAdapter2.notifyDataSetChanged();
-                hotGroupAdapter3 = this.a.e;
+                hotGroupAdapter3 = this.a.f;
                 hotGroupAdapter3.a(true);
-                hotGroupAdapter4 = this.a.e;
+                hotGroupAdapter4 = this.a.f;
                 hotGroupAdapter4.a(HotGroupAdapter.BOTTOM_TYPE.LINE);
-                dVar3 = this.a.f;
+                dVar3 = this.a.g;
                 dVar3.a(false);
             }
-            dVar2 = this.a.f;
+            dVar2 = this.a.g;
             dVar2.d(false);
         }
     }

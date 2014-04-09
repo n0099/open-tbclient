@@ -28,11 +28,11 @@ public final class d extends BdAsyncTask<String, Integer, Bitmap> {
         ImageView imageView;
         Bitmap bitmap2 = bitmap;
         super.a((d) bitmap2);
-        progressBar = this.a.m;
+        progressBar = this.a.n;
         progressBar.setVisibility(8);
-        this.a.o = null;
+        this.a.p = null;
         if (bitmap2 != null) {
-            imageView = this.a.k;
+            imageView = this.a.l;
             imageView.setImageBitmap(bitmap2);
         }
     }
@@ -56,9 +56,9 @@ public final class d extends BdAsyncTask<String, Integer, Bitmap> {
         if (this.b != null) {
             this.b.g();
         }
-        progressBar = this.a.m;
+        progressBar = this.a.n;
         progressBar.setVisibility(8);
-        this.a.o = null;
+        this.a.p = null;
     }
 
     private Bitmap a() {
@@ -75,7 +75,7 @@ public final class d extends BdAsyncTask<String, Integer, Bitmap> {
                 if (fVar.b() == null || fVar.b().length() <= 0) {
                     return null;
                 }
-                this.a.r = fVar.a();
+                this.a.s = fVar.a();
                 if (this.c) {
                     return null;
                 }
@@ -95,10 +95,10 @@ public final class d extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.c();
-        this.a.r = null;
-        progressBar = this.a.m;
+        this.a.s = null;
+        progressBar = this.a.n;
         progressBar.setVisibility(0);
-        imageView = this.a.k;
+        imageView = this.a.l;
         imageView.setImageBitmap(null);
     }
 }

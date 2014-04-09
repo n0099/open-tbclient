@@ -21,7 +21,7 @@ final class au implements AdapterView.OnItemClickListener {
             ImMessageCenterShowItemData imMessageCenterShowItemData = (ImMessageCenterShowItemData) item;
             try {
                 long parseLong = Long.parseLong(imMessageCenterShowItemData.getFriendId());
-                com.baidu.tieba.im.message.ba.a("v_mread", new StringBuilder(String.valueOf(parseLong)).toString());
+                com.baidu.tieba.im.message.az.a("v_mread", new StringBuilder(String.valueOf(parseLong)).toString());
                 com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001006, new com.baidu.tbadk.core.b.ae(this.a, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
             } catch (Exception e) {
                 e.printStackTrace();

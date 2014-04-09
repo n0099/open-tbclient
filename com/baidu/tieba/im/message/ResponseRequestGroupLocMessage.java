@@ -15,7 +15,7 @@ public class ResponseRequestGroupLocMessage extends SocketResponsedMessage {
         QueryGroupLocationRes.QueryGroupLocationResIdl parseFrom = QueryGroupLocationRes.QueryGroupLocationResIdl.parseFrom((byte[]) obj);
         QueryGroupLocationRes.DataRes data = parseFrom.getData();
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         int businessCount = data.getBusinessCount();
         for (int i2 = 0; i2 < businessCount; i2++) {
             String business = data.getBusiness(i2);

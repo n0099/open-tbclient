@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.h;
 import com.baidu.tieba.a.k;
-import com.baidu.tieba.r;
+import com.baidu.tieba.p;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class d {
@@ -48,7 +48,7 @@ public final class d {
                 com.baidu.tbadk.coreExtra.data.b a4 = a3.a();
                 if (a4 != null) {
                     str = a4.a();
-                    com.baidu.tbadk.core.voice.cache.e.a(writeData.getVoice(), str);
+                    com.baidu.tbadk.core.voice.a.e.a(writeData.getVoice(), str);
                 } else {
                     v vVar = new v();
                     vVar.a("ErrCode", Integer.valueOf(a3.c()));
@@ -75,7 +75,7 @@ public final class d {
         if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
             this.c.a("vcode", writeData.getVcode());
         }
-        if (r.c().x() < 3) {
+        if (p.c().u() < 3) {
             this.c.a("vcode_tag", "11");
         }
         Address b2 = com.baidu.adp.lib.c.a.a().b(false);
@@ -90,7 +90,7 @@ public final class d {
                 if (writeData.isNoTitle()) {
                     this.c.a("st_type", "notitle");
                 }
-                if (b2 != null && r.c().j() && !n.y().equals(writeData.getForumId())) {
+                if (b2 != null && p.c().j() && !n.y().equals(writeData.getForumId())) {
                     this.c.a("lbs", String.valueOf(String.valueOf(b2.getLatitude())) + "," + String.valueOf(b2.getLongitude()));
                     break;
                 }
@@ -100,6 +100,10 @@ public final class d {
                 this.c.a("tid", writeData.getThreadId());
                 this.c.a("kw", writeData.getForumName());
                 this.c.a("is_ad", writeData.getIsAd() ? "1" : "0");
+                if (writeData.isFrsReply()) {
+                    this.c.a("st_type", "frs");
+                    break;
+                }
                 break;
             case 2:
                 this.c.a(b);
@@ -124,8 +128,8 @@ public final class d {
         }
         if (this.d.error_code != 0 && writeData.isHasImages() && com.baidu.adp.lib.util.h.b(String.valueOf(writeData.getContent()) + imagesCodeForPost)) {
             ErrorData errorData = this.d;
-            r.c();
-            errorData.setError_msg(r.d().getString(k.img_upload_error));
+            p.c();
+            errorData.setError_msg(p.d().getString(k.img_upload_error));
         }
         try {
             this.e = new AntiData();

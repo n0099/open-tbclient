@@ -1,26 +1,20 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class q implements com.baidu.tieba.im.a<Boolean> {
-    private final /* synthetic */ GroupMsgData a;
+final class q extends com.baidu.tieba.im.m<Boolean> {
     private final /* synthetic */ String b;
-    private final /* synthetic */ CommonMsgPojo c;
-    private final /* synthetic */ int d;
+    private final /* synthetic */ LinkedList c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(GroupMsgData groupMsgData, String str, CommonMsgPojo commonMsgPojo, int i) {
-        this.a = groupMsgData;
+    public q(String str, LinkedList linkedList) {
         this.b = str;
-        this.c = commonMsgPojo;
-        this.d = i;
+        this.c = linkedList;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* bridge */ /* synthetic */ void a(Boolean bool) {
-        SnapChatMsgHelper.a(this.a, this.b, this.c, this.d);
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(this.b, this.c, true));
     }
 }

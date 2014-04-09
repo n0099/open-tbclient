@@ -2,39 +2,43 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.tbadk.core.b.af;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class k extends View {
-    private int a;
-    private int b;
+public final class k implements View.OnClickListener {
+    final /* synthetic */ j a;
+    private final /* synthetic */ Context b;
 
-    public k(Context context) {
-        super(context);
-        this.a = 0;
-        this.b = 0;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(j jVar, Context context) {
+        this.a = jVar;
+        this.b = context;
     }
 
-    @Override // android.view.View
-    protected final void onMeasure(int i, int i2) {
-        if (this.b == 0) {
-            setMeasuredDimension(i & 1073741823, this.a);
-        } else if (this.a == 0) {
-            setMeasuredDimension(this.b, 1073741823 & i2);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        Context context;
+        Context context2;
+        Context context3;
+        Context context4;
+        if (view.getId() == com.baidu.tieba.a.h.textHomeListFrsName) {
+            String obj = view.getTag().toString();
+            context2 = this.a.a;
+            if (context2 instanceof com.baidu.tbadk.core.e) {
+                context3 = this.a.a;
+                context4 = this.a.a;
+                ((com.baidu.tbadk.core.e) context3).a(new com.baidu.adp.framework.message.a(2003000, new com.baidu.tbadk.core.b.l(context4).a(obj, "")));
+            }
+            TiebaStatic.a(this.b, "forum_feed_frsclick", "frs_click", 1, new Object[0]);
+            return;
         }
-    }
-
-    public final void setHeightPx(int i) {
-        this.a = i;
-    }
-
-    public final void setWidthPx(int i) {
-        this.b = i;
-    }
-
-    public final void setHeightDip(int i) {
-        this.a = com.baidu.adp.lib.util.i.a(getContext(), i);
-    }
-
-    public final void setWidthDip(int i) {
-        this.b = com.baidu.adp.lib.util.i.a(getContext(), i);
+        m mVar = (m) view.getTag();
+        if (mVar != null) {
+            com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
+            context = this.a.a;
+            a.a(new com.baidu.adp.framework.message.a(2004001, new af(context).a(mVar.l, null, null)));
+            TiebaStatic.a(this.b, "forum_feed_pbclick", "pb_click", 1, new Object[0]);
+        }
     }
 }

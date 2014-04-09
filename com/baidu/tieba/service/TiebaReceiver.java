@@ -22,7 +22,7 @@ public class TiebaReceiver extends BroadcastReceiver {
             }
         } else if (action.equals(com.baidu.tieba.data.d.d())) {
             com.baidu.adp.lib.util.f.a(getClass().getName(), "broadcastNewVersion ", "receiveData");
-            TbadkApplication.j().i(true);
+            TbadkApplication.j().k(true);
         }
     }
 }

@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class FrsCommonImageLayout extends LinearLayout {
     private static com.baidu.tbadk.core.util.b k;
-    private q a;
+    private o a;
     private boolean b;
     private com.baidu.tbadk.core.data.j[] c;
     private final Context d;
@@ -70,20 +70,20 @@ public class FrsCommonImageLayout extends LinearLayout {
         this.f = com.baidu.adp.lib.util.i.a(this.d, this.i);
     }
 
-    public void setOnChildClickListener(q qVar) {
-        this.a = qVar;
+    public void setOnChildClickListener(o oVar) {
+        this.a = oVar;
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        view.setOnClickListener(new p(this, getChildCount() - 1, (byte) 0));
+        view.setOnClickListener(new n(this, getChildCount() - 1, (byte) 0));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         super.addView(view, i);
-        view.setOnClickListener(new p(this, getChildCount() - 1, (byte) 0));
+        view.setOnClickListener(new n(this, getChildCount() - 1, (byte) 0));
     }
 
     public final void a(String str, String str2, String str3) {
@@ -111,23 +111,23 @@ public class FrsCommonImageLayout extends LinearLayout {
         while (true) {
             int i3 = i2;
             if (i3 < this.g) {
-                z zVar = new z(this.d);
-                zVar.setSuffix(this.r);
-                zVar.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                x xVar = new x(this.d);
+                xVar.setSuffix(this.r);
+                xVar.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 com.baidu.tbadk.core.data.j jVar = this.c[i3];
-                if (zVar != null) {
+                if (xVar != null) {
                     String c = jVar.c();
                     if (jVar.b() == 5) {
                         c = null;
-                        zVar.setDefaultResource(com.baidu.tieba.a.g.pic_video);
-                        zVar.setNightDefaultResource(com.baidu.tieba.a.g.pic_video_1);
+                        xVar.setDefaultResource(com.baidu.tieba.a.g.pic_video);
+                        xVar.setNightDefaultResource(com.baidu.tieba.a.g.pic_video_1);
                     } else {
-                        zVar.setDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d);
-                        zVar.setNightDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d_1);
+                        xVar.setDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d);
+                        xVar.setNightDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d_1);
                     }
-                    zVar.setTag(c);
+                    xVar.setTag(c);
                 }
-                addView(zVar);
+                addView(xVar);
                 i2 = i3 + 1;
             } else {
                 requestLayout();
@@ -154,7 +154,7 @@ public class FrsCommonImageLayout extends LinearLayout {
         }
         setMeasuredDimension(i3, this.f);
         for (int i5 = 0; i5 < this.g; i5++) {
-            measureChild((z) getChildAt(i5), this.f, this.f);
+            measureChild((x) getChildAt(i5), this.f, this.f);
         }
     }
 
@@ -163,7 +163,7 @@ public class FrsCommonImageLayout extends LinearLayout {
         super.onLayout(z, i, i2, i3, i4);
         if (this.g != 0) {
             for (int i5 = 0; i5 < this.g; i5++) {
-                ((z) getChildAt(i5)).layout((this.h * i5) + (this.f * i5), 0, (this.h * i5) + (this.f * (i5 + 1)), i4 - i2);
+                ((x) getChildAt(i5)).layout((this.h * i5) + (this.f * i5), 0, (this.h * i5) + (this.f * (i5 + 1)), i4 - i2);
             }
         }
     }
@@ -184,7 +184,7 @@ public class FrsCommonImageLayout extends LinearLayout {
             if (this.g != 0) {
                 long drawingTime = getDrawingTime();
                 for (int i = 0; i < this.g; i++) {
-                    drawChild(canvas, (z) getChildAt(i), drawingTime);
+                    drawChild(canvas, (x) getChildAt(i), drawingTime);
                 }
                 if (this.m > 3 && this.n) {
                     int a = com.baidu.adp.lib.util.i.a(this.d, 50.0f);
@@ -214,9 +214,9 @@ public class FrsCommonImageLayout extends LinearLayout {
         int childCount = getChildCount();
         if (childCount > 0) {
             for (int i = 0; i < childCount; i++) {
-                z zVar = (z) getChildAt(i);
-                if (zVar != null) {
-                    zVar.c();
+                x xVar = (x) getChildAt(i);
+                if (xVar != null) {
+                    xVar.c();
                 }
             }
         }

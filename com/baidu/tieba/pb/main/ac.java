@@ -27,23 +27,23 @@ final class ac implements com.baidu.tbadk.editortool.x {
         WriteImagesInfo writeImagesInfo9;
         String str;
         String str2;
-        bk bkVar;
-        bk bkVar2;
+        bm bmVar;
+        bm bmVar2;
         String str3;
-        bk bkVar3;
-        bk bkVar4;
+        bm bmVar3;
+        bm bmVar4;
         String str4;
         boolean a;
-        bk bkVar5;
-        bd bdVar;
+        bm bmVar5;
+        bf bfVar;
         boolean a2;
         boolean a3;
         boolean a4;
         if (i != 0) {
             if (i != 26) {
                 if (i == 10) {
-                    bdVar = this.a.x;
-                    if (bdVar.p() == null) {
+                    bfVar = this.a.x;
+                    if (bfVar.p() == null) {
                         return;
                     }
                     a2 = this.a.a(11001);
@@ -58,20 +58,20 @@ final class ac implements com.baidu.tbadk.editortool.x {
                         if (str2 != null) {
                             str3 = this.a.p;
                             if (str3.length() > 0) {
-                                bkVar3 = this.a.D;
-                                bkVar3.c(false);
-                                bkVar4 = this.a.D;
-                                bkVar4.d(false);
+                                bmVar3 = this.a.D;
+                                bmVar3.c(false);
+                                bmVar4 = this.a.D;
+                                bmVar4.d(false);
                                 PbActivity pbActivity = this.a;
                                 str4 = this.a.p;
                                 pbActivity.showToast(str4);
                                 return;
                             }
                         }
-                        bkVar = this.a.D;
-                        bkVar.c(true);
-                        bkVar2 = this.a.D;
-                        bkVar2.d(true);
+                        bmVar = this.a.D;
+                        bmVar.c(true);
+                        bmVar2 = this.a.D;
+                        bmVar2.d(true);
                         return;
                     } else if (i == 22) {
                         writeImagesInfo8 = this.a.n;
@@ -126,11 +126,11 @@ final class ac implements com.baidu.tbadk.editortool.x {
                             }
                             return;
                         }
-                        alertDialog = this.a.af;
+                        alertDialog = this.a.ah;
                         if (alertDialog == null) {
                             return;
                         }
-                        alertDialog2 = this.a.af;
+                        alertDialog2 = this.a.ah;
                         alertDialog2.show();
                         return;
                     } else {
@@ -139,8 +139,8 @@ final class ac implements com.baidu.tbadk.editortool.x {
                 } else {
                     a = this.a.a(11027);
                     if (a) {
-                        bkVar5 = this.a.D;
-                        this.a.d(bkVar5.O());
+                        bmVar5 = this.a.D;
+                        this.a.d(bmVar5.O());
                         return;
                     }
                     return;

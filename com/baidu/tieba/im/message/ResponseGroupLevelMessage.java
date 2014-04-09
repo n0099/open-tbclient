@@ -13,7 +13,7 @@ public class ResponseGroupLevelMessage extends SocketResponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         QueryGroupGradeRes.QueryGroupGradeResIdl parseFrom = QueryGroupGradeRes.QueryGroupGradeResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             this.a = new GroupLevelInfo();
             this.a.setGroupId(parseFrom.getData().getGroupInfo().getGroupId());

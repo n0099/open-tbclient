@@ -1,34 +1,25 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import android.text.TextUtils;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class w {
-    private static w a;
+final class w implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
+    final /* synthetic */ u a;
+    private final /* synthetic */ GroupMsgData b;
 
-    private w() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(u uVar, GroupMsgData groupMsgData) {
+        this.a = uVar;
+        this.b = groupMsgData;
     }
 
-    public static synchronized w a() {
-        w wVar;
-        synchronized (w.class) {
-            if (a == null) {
-                a = new w();
-            }
-            wVar = a;
-        }
-        return wVar;
-    }
-
-    public static void a(String str, long j) {
-        if (!TextUtils.isEmpty(str) && j > 0) {
-            com.baidu.tbadk.coreExtra.messageCenter.d.a().a(com.baidu.adp.lib.f.b.a(str, -1), j);
-            com.baidu.tbadk.s.a();
-            com.baidu.tbadk.s.b("tb_group_msg_" + str, j);
-        }
-    }
-
-    public static long a(int i) {
-        com.baidu.tbadk.s.a();
-        return com.baidu.tbadk.s.a("tb_group_msg_" + i, -1L);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(LinkedList<GroupNewsPojo> linkedList) {
+        LinkedList<GroupNewsPojo> linkedList2 = linkedList;
+        b.a(this.b, false);
+        u.a(this.a, linkedList2);
+        u.b(this.a, linkedList2);
     }
 }

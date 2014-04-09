@@ -246,9 +246,9 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         this.i.a(new o(this, writeImagesInfo), z);
         int maxItemNum = this.i.getMaxItemNum();
         int size = writeImagesInfo.size();
-        if (!com.baidu.tieba.r.c().R() && size > 1) {
+        if (!com.baidu.tieba.p.c().N() && size > 1) {
             this.j.setText(com.baidu.tieba.a.k.editor_mutiiamge_drag_tip);
-            com.baidu.tieba.r.c().q(true);
+            com.baidu.tieba.p.c().p(true);
         } else {
             this.j.setText(getResources().getString(com.baidu.tieba.a.k.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
         }
@@ -281,7 +281,7 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
     public final void q() {
         if (this.o) {
             this.b.c();
-        } else if (TextUtils.isEmpty(TbadkApplication.j().aA()) && !this.o) {
+        } else if (TextUtils.isEmpty(TbadkApplication.j().aC()) && !this.o) {
             this.b.c();
         } else {
             this.b.b();

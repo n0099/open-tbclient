@@ -29,7 +29,7 @@ public class MyGroupActivity extends com.baidu.tbadk.core.e implements View.OnCl
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void c(int i) {
+    protected final void b(int i) {
         this.c.a(i);
     }
 

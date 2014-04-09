@@ -13,6 +13,12 @@ public final class t implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.a.o();
+        boolean z;
+        z = this.a.R;
+        if (z) {
+            this.a.o();
+        } else {
+            this.a.b((String) null);
+        }
     }
 }

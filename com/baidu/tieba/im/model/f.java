@@ -1,11 +1,10 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.chat.by;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
 import com.baidu.tieba.im.message.ResponseCommitMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements by {
+public final class f implements com.baidu.tieba.im.chat.bu {
     final /* synthetic */ CommonGroupMsglistModel a;
 
     private f(CommonGroupMsglistModel commonGroupMsglistModel) {
@@ -17,7 +16,7 @@ public final class f implements by {
         this(commonGroupMsglistModel);
     }
 
-    @Override // com.baidu.tieba.im.chat.by
+    @Override // com.baidu.tieba.im.chat.bu
     public final void a(com.baidu.adp.framework.message.f<?> fVar) {
         if (fVar != null && fVar.g() == 202001 && (fVar instanceof ResponseCommitGroupMessage)) {
             ResponseCommitGroupMessage responseCommitGroupMessage = (ResponseCommitGroupMessage) fVar;

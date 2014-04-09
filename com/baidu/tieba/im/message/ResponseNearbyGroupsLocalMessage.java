@@ -20,7 +20,7 @@ public class ResponseNearbyGroupsLocalMessage extends CustomResponsedMessage<Obj
     public final void a(byte[] bArr) {
         QueryGroupsByLocationRes.QueryGroupsByLocationResIdl parseFrom = QueryGroupsByLocationRes.QueryGroupsByLocationResIdl.parseFrom(bArr);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             NearbyGroupsData nearbyGroupsData = new NearbyGroupsData();
             nearbyGroupsData.setGeo(parseFrom.getData().getGeo());

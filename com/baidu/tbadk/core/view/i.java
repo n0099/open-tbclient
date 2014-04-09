@@ -56,7 +56,7 @@ public final class i extends PopupWindow {
         if (e != null && e.length > 1 && e[1] > measuredWidth) {
             this.a = e[1] - measuredWidth;
         }
-        this.g = (int) activity.getResources().getDimension(com.baidu.tbadk.h.ds10);
+        this.g = 0;
         this.b = -(measuredWidth + this.g);
     }
 
@@ -76,7 +76,11 @@ public final class i extends PopupWindow {
                 setBackgroundDrawable(drawable);
             }
             cVar.a(i == 1);
-            cVar.a(this.f);
+            try {
+                cVar.a(this.f);
+            } catch (IllegalArgumentException e) {
+                com.baidu.adp.lib.util.f.b(e.toString());
+            }
         }
     }
 
@@ -95,7 +99,9 @@ public final class i extends PopupWindow {
         }
     }
 
-    public final void a(View view) {
+    public final void a(View view, boolean z) {
+        setAnimationStyle(com.baidu.tbadk.m.pop_window_anim);
+        setFocusable(false);
         showAsDropDown(view, this.b, (-this.c) + ((this.c - view.getHeight()) / 2));
     }
 }

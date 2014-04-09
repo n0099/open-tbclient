@@ -1,19 +1,23 @@
 package com.baidu.tieba.im.model;
+
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class at implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ MsglistModel a;
-    private final /* synthetic */ com.baidu.tieba.im.message.a.f b;
+public final class at extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ MsglistModel b;
+    private final /* synthetic */ com.baidu.tieba.im.message.a.f c;
+    private final /* synthetic */ LinkedList d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(MsglistModel msglistModel, com.baidu.tieba.im.message.a.f fVar) {
-        this.a = msglistModel;
-        this.b = fVar;
+    public at(MsglistModel msglistModel, com.baidu.tieba.im.message.a.f fVar, LinkedList linkedList) {
+        this.b = msglistModel;
+        this.c = fVar;
+        this.d = linkedList;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
-        this.a.c(this.b);
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.o.d().a(this.c.x(), this.c.l(), this.d, false));
     }
 }

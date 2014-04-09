@@ -1,6 +1,8 @@
 package com.baidu.tieba.person;
+
+import android.view.View;
 /* loaded from: classes.dex */
-final class cf implements com.baidu.adp.widget.ListView.t {
+final class cf implements View.OnClickListener {
     final /* synthetic */ PersonListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,8 +10,8 @@ final class cf implements com.baidu.adp.widget.ListView.t {
         this.a = personListActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.t
-    public final void b() {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
         PersonListActivity.a(this.a, true);
     }
 }

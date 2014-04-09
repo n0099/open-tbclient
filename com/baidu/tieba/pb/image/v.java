@@ -1,78 +1,127 @@
 package com.baidu.tieba.pb.image;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.b.au;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.util.AntiHelper;
+import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class v extends BroadcastReceiver {
+public final class v extends BdAsyncTask<Integer, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
+    private WriteData b;
+    private ak c = null;
+    private boolean d = false;
 
-    private v(ImagePbActivity imagePbActivity) {
-        this.a = imagePbActivity;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ String a(Integer... numArr) {
+        if (this.d) {
+            return null;
+        }
+        this.c = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/post/add");
+        this.c.a("anonymous", "0");
+        this.c.a("fid", this.b.getForumId());
+        this.c.a("kw", this.b.getForumName());
+        this.c.a("new_vcode", "1");
+        this.c.a("content", this.b.getContent());
+        this.c.a("tid", this.b.getThreadId());
+        if (this.b.getVcode() != null && this.b.getVcode().length() > 0) {
+            this.c.a("vcode", this.b.getVcode());
+        }
+        if (com.baidu.tieba.p.c().u() < 3) {
+            this.c.a("vcode_tag", "11");
+        }
+        this.c.a("quote_id", this.b.getFloor());
+        this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
+        this.c.a().a().a = true;
+        return this.c.i();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ v(ImagePbActivity imagePbActivity, byte b) {
-        this(imagePbActivity);
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
-        int i;
-        int i2;
-        com.baidu.tieba.data.u uVar;
-        com.baidu.tieba.data.u uVar2;
-        com.baidu.tieba.data.u uVar3;
-        com.baidu.tieba.data.u uVar4;
-        com.baidu.tieba.data.u uVar5;
-        com.baidu.tieba.data.u uVar6;
-        com.baidu.tieba.data.u uVar7;
-        s sVar;
-        com.baidu.tieba.data.u uVar8;
-        int intExtra = intent.getIntExtra("index", -1);
-        if (intExtra >= 0) {
-            this.a.J = intExtra;
-            uVar4 = this.a.G;
-            if (uVar4 != null) {
-                int i3 = intExtra + 5;
-                uVar5 = this.a.G;
-                if (i3 >= uVar5.h().size()) {
-                    uVar6 = this.a.G;
-                    int size = uVar6.h().size();
-                    uVar7 = this.a.G;
-                    if (size != uVar7.k()) {
-                        sVar = this.a.b;
-                        if (sVar == null) {
-                            ImagePbActivity imagePbActivity = this.a;
-                            uVar8 = this.a.G;
-                            imagePbActivity.a(uVar8.l(), 0, 10, false);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(String str) {
+        AntiData antiData;
+        String str2 = str;
+        super.a((v) str2);
+        this.a.closeLoadingDialog();
+        this.a.t = null;
+        if (this.c != null) {
+            try {
+                antiData = new AntiData();
+                try {
+                    antiData.parserJson(new JSONObject(str2).optJSONObject("anti_stat"));
+                } catch (Exception e) {
+                }
+            } catch (Exception e2) {
+                antiData = null;
+            }
+            if (this.c.a().b().b()) {
+                this.a.c();
+                return;
+            }
+            int d = this.c.d();
+            String f = this.c.f();
+            if (d == 5 || d == 6) {
+                com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
+                fVar.a(str2);
+                if (!AntiHelper.c(antiData)) {
+                    if (fVar.b() == null) {
+                        a(antiData, f);
+                        return;
+                    }
+                    this.b.setVcodeMD5(fVar.a());
+                    this.b.setVcodeUrl(fVar.b());
+                    if (fVar.c().equals("4")) {
+                        if (this.b != null) {
+                            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.ac(this.a, 12006, this.b, false)));
                             return;
                         }
                         return;
+                    } else if (this.b != null) {
+                        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new au(this.a, this.b, 12006)));
+                        return;
+                    } else {
+                        return;
                     }
-                    return;
                 }
-                return;
             }
+            a(antiData, f);
+        }
+    }
+
+    public v(ImagePbActivity imagePbActivity, WriteData writeData) {
+        this.a = imagePbActivity;
+        this.b = null;
+        this.b = writeData;
+    }
+
+    private void a(AntiData antiData, String str) {
+        if (AntiHelper.a(antiData) || AntiHelper.b(antiData) || AntiHelper.c(antiData) || AntiHelper.d(antiData)) {
+            antiData.setBlock_forum_name(this.b.getForumName());
+            antiData.setBlock_forum_id(this.b.getForumId());
+            antiData.setUser_id(TbadkApplication.E());
+            antiData.setUser_name(TbadkApplication.O());
+            AntiHelper.a(this.a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.IMAGE_PB);
             return;
         }
-        i = this.a.J;
-        if (i != 0) {
-            i2 = this.a.J;
-            uVar = this.a.G;
-            if (i2 >= uVar.k() - 1) {
-                uVar2 = this.a.G;
-                int size2 = uVar2.h().size();
-                uVar3 = this.a.G;
-                if (size2 != uVar3.k()) {
-                    return;
-                }
-            } else {
-                return;
-            }
+        this.a.showToast(str);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        this.a.t = null;
+        this.a.closeLoadingDialog();
+        this.d = true;
+        if (this.c != null) {
+            this.c.g();
         }
-        int intExtra2 = intent.getIntExtra("state", -1);
-        this.a.a(intExtra2);
-        com.baidu.adp.lib.util.f.a(getClass().getName(), "find_bug_onReceive", "state=" + String.valueOf(intExtra2));
+        super.cancel(true);
     }
 }

@@ -1,13 +1,14 @@
 package com.baidu.tieba.home;
+
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class r {
-    private int a = -1;
-
-    public final void a(int i) {
-        this.a = i;
-    }
-
-    public final int a() {
-        return this.a;
-    }
+final class r extends s {
+    LinearLayout a;
+    RelativeLayout b;
+    TextView c;
+    TextView d;
+    TextView e;
+    r f;
 }

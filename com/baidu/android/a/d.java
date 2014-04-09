@@ -2,7 +2,6 @@ package com.baidu.android.a;
 
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -25,7 +24,7 @@ class d extends com.baidu.android.systemmonitor.b.a {
         }
         sQLiteDatabase.delete("server_config_table", "type=" + this.b, null);
         DatabaseUtils.InsertHelper insertHelper = new DatabaseUtils.InsertHelper(sQLiteDatabase, "server_config_table");
-        int columnIndex = insertHelper.getColumnIndex(PersonInfoActivity.TAG_NAME);
+        int columnIndex = insertHelper.getColumnIndex("name");
         int columnIndex2 = insertHelper.getColumnIndex("value");
         int columnIndex3 = insertHelper.getColumnIndex("type");
         Iterator it = this.a.iterator();

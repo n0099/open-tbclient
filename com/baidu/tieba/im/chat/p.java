@@ -17,7 +17,7 @@ public final class p implements View.OnClickListener {
         ImageView imageView;
         this.a.R();
         this.a.T();
-        imageView = this.a.u;
+        imageView = this.a.v;
         imageView.postDelayed(new q(this), 100L);
     }
 }

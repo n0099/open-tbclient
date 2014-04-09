@@ -52,35 +52,43 @@ public final class b extends BdAsyncTask<Void, Integer, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     public final synchronized Void a() {
         i iVar;
-        Void r0;
+        Context context;
         i iVar2;
+        i iVar3;
+        Context context2;
+        i iVar4;
         Class cls;
         com.baidu.tbplugin.a.c cVar;
         Class cls2;
-        Context context;
-        i iVar3;
-        i iVar4;
+        Context context3;
+        i iVar5;
+        i iVar6;
         boolean z;
         Class cls3;
-        Context context2;
-        Context unused;
+        Context context4;
         try {
-            cls = this.a.a;
-            cVar = (com.baidu.tbplugin.a.c) cls.getAnnotation(com.baidu.tbplugin.a.c.class);
-        } catch (InstallException e) {
+            try {
+                cls = this.a.a;
+                cVar = (com.baidu.tbplugin.a.c) cls.getAnnotation(com.baidu.tbplugin.a.c.class);
+            } catch (StackOverflowError e) {
+                iVar3 = this.a.b;
+                if (iVar3 != null) {
+                    iVar4 = this.a.b;
+                    iVar4.a(-1, e.getMessage());
+                }
+                context2 = this.a.c;
+                g.a(context2, "unknown", e.getMessage());
+            }
+        } catch (InstallException e2) {
             iVar = this.a.b;
             if (iVar != null) {
                 iVar2 = this.a.b;
-                iVar2.a(e.getErr(), e.getMessage());
+                iVar2.a(e2.getErr(), e2.getMessage());
             }
-            if (e.getErr() != 9) {
-                unused = this.a.c;
-                String pluginName = e.getPluginName();
-                String message = e.getMessage();
-                com.baidu.adp.lib.stats.g.a().a("plugin", "install", 1, "failed", message, pluginName);
-                com.baidu.adp.lib.util.f.b("Plugin install failed: " + pluginName + ": " + message);
+            if (e2.getErr() != 9) {
+                context = this.a.c;
+                g.a(context, e2.getPluginName(), e2.getMessage());
             }
-            r0 = null;
         }
         if (cVar == null || cVar.a().equals("")) {
             throw new InstallException("", 1);
@@ -94,57 +102,56 @@ public final class b extends BdAsyncTask<Void, Integer, Void> {
                 throw new InstallException(this.b, 9);
             }
             cls3 = this.a.a;
-            context2 = this.a.c;
-            new m(cls3, context2, null).a();
+            context4 = this.a.c;
+            new m(cls3, context4, null).a();
         }
-        File e2 = e();
+        File e3 = e();
         c((Object[]) new Integer[]{2, 0});
         try {
-            context = this.a.c;
-            new d(context.getAssets().open(String.valueOf(this.b) + ".tbplugin"), e2.getAbsolutePath()).a();
+            context3 = this.a.c;
+            new d(context3.getAssets().open(String.valueOf(this.b) + ".tbplugin"), e3.getAbsolutePath()).a();
             c((Object[]) new Integer[]{2, Integer.valueOf((int) MotionEventCompat.ACTION_MASK)});
-            File file = FileUtils.getFile(e2, "plugin.xml");
+            File file = FileUtils.getFile(e3, "plugin.xml");
             c((Object[]) new Integer[]{3, 0});
             l lVar = new l(file);
             c((Object[]) new Integer[]{3, Integer.valueOf((int) MotionEventCompat.ACTION_MASK)});
             if (lVar == null) {
                 throw new InstallException(this.b, 16);
             }
-            a(lVar, e2);
+            a(lVar, e3);
             try {
                 c((Object[]) new Integer[]{5, 0});
                 if (this.c) {
-                    FileUtils.copyFileToDirectory(new File(String.valueOf(e2.getAbsolutePath()) + "/jar/" + lVar.b()), k.a().b());
+                    FileUtils.copyFileToDirectory(new File(String.valueOf(e3.getAbsolutePath()) + "/jar/" + lVar.b()), k.a().b());
                 }
                 c((Object[]) new Integer[]{5, 68});
                 if (this.d) {
-                    FileUtils.copyDirectory(new File(String.format("%s/so/%s/", e2.getAbsolutePath(), k.a)), k.a().d());
+                    FileUtils.copyDirectory(new File(String.format("%s/so/%s/", e3.getAbsolutePath(), k.a)), k.a().d());
                 }
                 c((Object[]) new Integer[]{5, 136});
                 if (this.e) {
-                    FileUtils.copyFileToDirectory(new File(String.valueOf(e2.getAbsolutePath()) + "/res/" + lVar.c()), k.a().c());
+                    FileUtils.copyFileToDirectory(new File(String.valueOf(e3.getAbsolutePath()) + "/res/" + lVar.c()), k.a().c());
                 }
                 c((Object[]) new Integer[]{5, 187});
-                FileUtils.copyFile(new File(String.valueOf(e2.getAbsolutePath()) + "/plugin.xml"), FileUtils.getFile(k.a().e(), String.valueOf(this.b) + ".xml"));
+                FileUtils.copyFile(new File(String.valueOf(e3.getAbsolutePath()) + "/plugin.xml"), FileUtils.getFile(k.a().e(), String.valueOf(this.b) + ".xml"));
                 c((Object[]) new Integer[]{5, Integer.valueOf((int) MotionEventCompat.ACTION_MASK)});
                 try {
-                    FileUtils.deleteDirectory(e2);
-                    iVar3 = this.a.b;
-                    if (iVar3 != null) {
-                        iVar4 = this.a.b;
-                        iVar4.a(0, null);
+                    FileUtils.deleteDirectory(e3);
+                    iVar5 = this.a.b;
+                    if (iVar5 != null) {
+                        iVar6 = this.a.b;
+                        iVar6.a(0, null);
                     }
-                    r0 = null;
-                } catch (Exception e3) {
+                } catch (Exception e4) {
                     throw new InstallException(this.b, 8);
                 }
-            } catch (Exception e4) {
+            } catch (Exception e5) {
                 throw new InstallException(this.b, 7);
             }
-        } catch (Exception e5) {
+        } catch (Exception e6) {
             throw new InstallException(this.b, 3);
         }
-        return r0;
+        return null;
     }
 
     private File e() {

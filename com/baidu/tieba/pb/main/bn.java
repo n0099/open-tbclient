@@ -1,26 +1,26 @@
 package com.baidu.tieba.pb.main;
 
-import android.util.SparseArray;
 import android.view.View;
+import com.baidu.tieba.view.PbListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class bn implements View.OnClickListener {
-    final /* synthetic */ bk a;
+    final /* synthetic */ bm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(bk bkVar) {
-        this.a = bkVar;
+    public bn(bm bmVar) {
+        this.a = bmVar;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            if (!"".equals(sparseArray.get(com.baidu.tieba.a.h.tag_forbid_user_name)) && !"".equals(sparseArray.get(com.baidu.tieba.a.h.tag_del_post_id))) {
-                this.a.a(view);
-            } else {
-                this.a.a(((Integer) sparseArray.get(com.baidu.tieba.a.h.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.a.h.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.a.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.a.h.tag_del_post_is_self)).booleanValue());
-            }
-        }
+        PbListView pbListView;
+        boolean z;
+        pbListView = this.a.aU;
+        pbListView.d();
+        az azVar = this.a.l;
+        z = this.a.aV;
+        azVar.a(z);
+        this.a.ai();
     }
 }

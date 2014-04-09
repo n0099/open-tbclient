@@ -13,8 +13,8 @@ final class h extends m<Void> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.tieba.im.m
     public final /* bridge */ /* synthetic */ Void a() {
-        com.baidu.tieba.im.db.g.a();
-        com.baidu.tieba.im.db.g.a(this.b, false);
+        com.baidu.tieba.im.db.h.a();
+        com.baidu.tieba.im.db.h.a(this.b, false);
         return null;
     }
 }

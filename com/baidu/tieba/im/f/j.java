@@ -13,6 +13,6 @@ final class j implements com.baidu.tieba.im.a<Void> {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
     public final /* synthetic */ void a(Void r3) {
-        com.baidu.tieba.im.db.h.a().b(this.a);
+        com.baidu.tieba.im.db.i.a().b(this.a);
     }
 }

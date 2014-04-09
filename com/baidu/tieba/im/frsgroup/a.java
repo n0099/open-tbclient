@@ -27,13 +27,13 @@ final class a extends com.baidu.adp.framework.c.g {
         kVar2 = this.a.c;
         kVar2.b(true);
         if (socketResponsedMessage2 == null || !(socketResponsedMessage2 instanceof ResponseUserPermissionMessage)) {
-            this.a.d(com.baidu.tieba.im.j.neterror);
+            this.a.c(com.baidu.tieba.im.j.neterror);
             return;
         }
         ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage2;
         if (responseUserPermissionMessage.e() != 0) {
             if (responseUserPermissionMessage.e() <= 0) {
-                this.a.d(com.baidu.tieba.im.j.neterror);
+                this.a.c(com.baidu.tieba.im.j.neterror);
                 return;
             } else if (TextUtils.isEmpty(responseUserPermissionMessage.f())) {
                 return;

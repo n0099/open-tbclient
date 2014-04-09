@@ -10,7 +10,7 @@ final class an extends com.baidu.adp.framework.c.g {
     public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
         ap apVar;
         ap apVar2;
-        com.baidu.tbadk.editortool.aa aaVar;
+        com.baidu.tbadk.editortool.ab abVar;
         SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
         if (socketResponsedMessage2 != null && socketResponsedMessage2.g() == 208001 && (socketResponsedMessage2 instanceof ResponseOfficialBarInfoMessage)) {
             ResponseOfficialBarInfoMessage responseOfficialBarInfoMessage = (ResponseOfficialBarInfoMessage) socketResponsedMessage2;
@@ -19,8 +19,8 @@ final class an extends com.baidu.adp.framework.c.g {
             apVar.a(responseOfficialBarInfoMessage.i());
             apVar2 = this.a.f;
             String d = responseOfficialBarInfoMessage.d();
-            aaVar = this.a.e;
-            aaVar.b(d, new aq(apVar2));
+            abVar = this.a.e;
+            abVar.b(d, new aq(apVar2));
         }
         this.a.hideProgressBar();
     }

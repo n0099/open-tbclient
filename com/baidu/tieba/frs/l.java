@@ -34,8 +34,8 @@ final class l implements com.baidu.tieba.model.as {
         cmVar2.a(writeImagesInfo, true);
         if (z) {
             cmVar3 = this.a.r;
-            cmVar3.P();
-            com.baidu.tieba.pb.main.bh.a().f();
+            cmVar3.Q();
+            com.baidu.tieba.pb.main.bj.a().f();
             arVar = this.a.V;
             arVar.a();
             arVar2 = this.a.V;
@@ -49,7 +49,7 @@ final class l implements com.baidu.tieba.model.as {
             oVar3 = this.a.U;
             oVar2.b(oVar3.o() + 1);
             cmVar4 = this.a.r;
-            cmVar4.x();
+            cmVar4.y();
         } else if (fVar == null || writeData == null || fVar.b() == null) {
             FrsActivity.a(this.a, antiData, str);
         } else if (AntiHelper.c(antiData)) {

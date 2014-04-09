@@ -3,7 +3,7 @@ package com.baidu.tieba.d;
 import com.baidu.adp.lib.a.f;
 import com.baidu.tieba.a.c;
 import com.baidu.tieba.a.k;
-import com.baidu.tieba.r;
+import com.baidu.tieba.p;
 import com.baidu.tieba.switchs.features.VoiceSwitchStatic;
 /* loaded from: classes.dex */
 public final class a {
@@ -11,10 +11,10 @@ public final class a {
         boolean z;
         if (f.a().b(VoiceSwitchStatic.VOICE) == 0) {
             if (str != null) {
-                r.c();
-                String[] stringArray = r.d().getResources().getStringArray(c.voice_black_frs_list);
-                r.c();
-                String string = r.d().getResources().getString(k.forum);
+                p.c();
+                String[] stringArray = p.d().getResources().getStringArray(c.voice_black_frs_list);
+                p.c();
+                String string = p.d().getResources().getString(k.forum);
                 int length = stringArray.length;
                 for (int i = 0; i < length; i++) {
                     if (stringArray[i].equals(str) || str.equals(String.valueOf(stringArray[i]) + string)) {

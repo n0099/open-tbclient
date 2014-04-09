@@ -54,11 +54,11 @@ public final class d {
 
     public final synchronized void a(String str) {
         try {
-            SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
-            if (!TextUtils.isEmpty(str) && imDataBase != null) {
+            SQLiteDatabase a2 = g.a();
+            if (!TextUtils.isEmpty(str) && a2 != null) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("content_status", (Integer) 2);
-                com.baidu.adp.lib.util.f.e("count:" + imDataBase.update("tb_group_news", contentValues, "cmd=?", new String[]{str}) + " cmd:" + str);
+                com.baidu.adp.lib.util.f.e("count:" + a2.update("tb_group_news", contentValues, "cmd=?", new String[]{str}) + " cmd:" + str);
             }
         } catch (Exception e) {
             TiebaStatic.a(e, "GroupNewsDao.markReadByCmd", new Object[0]);
@@ -71,13 +71,13 @@ public final class d {
         Cursor cursor = null;
         int i2 = 0;
         synchronized (this) {
-            SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
-            if (imDataBase != null) {
+            SQLiteDatabase a2 = g.a();
+            if (a2 != null) {
                 try {
                     try {
                         String format = String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, new StringBuilder("1").toString());
                         com.baidu.adp.lib.util.f.e("sql:" + format);
-                        cursor = imDataBase.rawQuery(format, null);
+                        cursor = a2.rawQuery(format, null);
                         i2 = cursor.moveToFirst() ? cursor.getInt(0) : -1;
                         com.baidu.tbadk.core.util.l.a(cursor);
                     } catch (Exception e) {
@@ -100,13 +100,13 @@ public final class d {
         Cursor cursor = null;
         int i = 0;
         synchronized (this) {
-            SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
-            if (imDataBase != null) {
+            SQLiteDatabase a2 = g.a();
+            if (a2 != null) {
                 try {
                     try {
                         String format = String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' )", str);
                         com.baidu.adp.lib.util.f.e("sql:" + format);
-                        cursor = imDataBase.rawQuery(format, null);
+                        cursor = a2.rawQuery(format, null);
                         i = cursor.moveToFirst() ? cursor.getInt(0) : -1;
                         com.baidu.tbadk.core.util.l.a(cursor);
                     } catch (SQLiteException e) {
@@ -160,12 +160,12 @@ public final class d {
 
     public final Boolean a(LinkedList<GroupNewsPojo> linkedList) {
         Boolean bool = false;
-        SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
-        if (imDataBase != null && linkedList != null) {
+        SQLiteDatabase a2 = g.a();
+        if (a2 != null && linkedList != null) {
             try {
                 if (linkedList.size() != 0) {
                     try {
-                        imDataBase.beginTransaction();
+                        a2.beginTransaction();
                         Iterator<GroupNewsPojo> it = linkedList.iterator();
                         while (it.hasNext()) {
                             GroupNewsPojo next = it.next();
@@ -177,23 +177,23 @@ public final class d {
                             contentValues.put("gid", next.getGid());
                             contentValues.put("notice_id", next.getNotice_id());
                             contentValues.put("time", Long.valueOf(next.getTime()));
-                            if (imDataBase.update("tb_group_news", contentValues, "notice_id=?", new String[]{next.getNotice_id()}) == 0) {
+                            if (a2.update("tb_group_news", contentValues, "notice_id=?", new String[]{next.getNotice_id()}) == 0) {
                                 a(next);
                             }
                             bool = Boolean.valueOf(bool.booleanValue() & true);
                         }
-                        imDataBase.setTransactionSuccessful();
-                        imDataBase.endTransaction();
+                        a2.setTransactionSuccessful();
+                        a2.endTransaction();
                         return bool;
                     } catch (Exception e) {
                         TiebaStatic.a(e, "GroupNewsDao.updateData", new Object[0]);
                         e.printStackTrace();
-                        imDataBase.endTransaction();
+                        a2.endTransaction();
                         return false;
                     }
                 }
             } catch (Throwable th) {
-                imDataBase.endTransaction();
+                a2.endTransaction();
                 throw th;
             }
         }
@@ -211,28 +211,28 @@ public final class d {
             if (i <= 0) {
                 i = 20;
             }
-            SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
-            if (imDataBase != null) {
+            SQLiteDatabase a2 = g.a();
+            if (a2 != null) {
                 try {
                     if (0 <= 0) {
                         if (TextUtils.isEmpty(str)) {
                             String str2 = "select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2;
                             com.baidu.adp.lib.util.f.e("sql:" + str2);
-                            cursor = imDataBase.rawQuery(str2, null);
+                            cursor = a2.rawQuery(str2, null);
                         } else {
                             String format = String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str);
                             com.baidu.adp.lib.util.f.e("sql:" + format);
-                            cursor = imDataBase.rawQuery(format, null);
+                            cursor = a2.rawQuery(format, null);
                             com.baidu.adp.lib.util.f.e(" test sql:" + format);
                         }
                     } else if (TextUtils.isEmpty(str)) {
                         String str3 = "select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2;
                         com.baidu.adp.lib.util.f.e("sql:" + str3);
-                        cursor = imDataBase.rawQuery(str3, new String[]{String.valueOf(0L)});
+                        cursor = a2.rawQuery(str3, new String[]{String.valueOf(0L)});
                     } else {
                         String str4 = "select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2;
                         com.baidu.adp.lib.util.f.e("sql:" + str4);
-                        cursor = imDataBase.rawQuery(str4, new String[]{String.valueOf(0L), str});
+                        cursor = a2.rawQuery(str4, new String[]{String.valueOf(0L), str});
                     }
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
@@ -290,9 +290,9 @@ public final class d {
         Boolean bool;
         Boolean.valueOf(false);
         try {
-            SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
-            if (imDataBase != null) {
-                imDataBase.delete("tb_group_news", "notice_id = ?", new String[]{str});
+            SQLiteDatabase a2 = g.a();
+            if (a2 != null) {
+                a2.delete("tb_group_news", "notice_id = ?", new String[]{str});
                 bool = true;
             } else {
                 bool = false;
@@ -310,9 +310,9 @@ public final class d {
         boolean z = true;
         synchronized (this) {
             try {
-                SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
-                if (imDataBase != null) {
-                    imDataBase.delete("tb_group_news", "gid = ? AND cmd = ?", new String[]{str, str2});
+                SQLiteDatabase a2 = g.a();
+                if (a2 != null) {
+                    a2.delete("tb_group_news", "gid = ? AND cmd = ?", new String[]{str, str2});
                 } else {
                     z = false;
                 }
@@ -327,17 +327,17 @@ public final class d {
 
     private synchronized int d(String str) {
         int i;
-        SQLiteDatabase imDataBase;
+        SQLiteDatabase a2;
         try {
-            imDataBase = ImDatabaseManager.getImDataBase();
+            a2 = g.a();
         } catch (Exception e) {
             TiebaStatic.a(e, "GroupNewsDao.hideByNoticeIdSync", new Object[0]);
             e.printStackTrace();
         }
-        if (!TextUtils.isEmpty(str) && imDataBase != null) {
+        if (!TextUtils.isEmpty(str) && a2 != null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("content_status", (Integer) 3);
-            i = imDataBase.update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
+            i = a2.update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
             com.baidu.adp.lib.util.f.e("count:" + i);
         }
         i = 0;
@@ -347,19 +347,19 @@ public final class d {
     public final synchronized boolean a(List<UpdatesItemData> list) {
         boolean booleanValue;
         Boolean bool;
-        SQLiteDatabase imDataBase;
+        SQLiteDatabase a2;
         if (list == null || list.isEmpty()) {
             Boolean bool2 = false;
             booleanValue = bool2.booleanValue();
         } else {
             try {
-                imDataBase = ImDatabaseManager.getImDataBase();
+                a2 = g.a();
             } catch (Exception e) {
                 TiebaStatic.a(e, "GroupNewsDao.deleteByUpdatesData", new Object[0]);
                 e.printStackTrace();
                 bool = false;
             }
-            if (imDataBase == null) {
+            if (a2 == null) {
                 Boolean bool3 = false;
                 booleanValue = bool3.booleanValue();
             } else {
@@ -368,7 +368,7 @@ public final class d {
                 for (int i = 0; i < size; i++) {
                     UpdatesItemData updatesItemData = list.get(i);
                     if (updatesItemData != null) {
-                        imDataBase.delete("tb_group_news", "notice_id=?", new String[]{updatesItemData.getNotice_id()});
+                        a2.delete("tb_group_news", "notice_id=?", new String[]{updatesItemData.getNotice_id()});
                     }
                 }
                 bool = false;
@@ -390,8 +390,8 @@ public final class d {
             if (this.c == null) {
                 this.c = f.a(this.b.toString());
             }
-            SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
-            if (imDataBase == null || !imDataBase.isOpen()) {
+            SQLiteDatabase a2 = g.a();
+            if (a2 == null || !a2.isOpen()) {
                 TiebaStatic.a("GroupNewsDao.insertByStatement", -10, "db is invalid", new Object[0]);
                 b();
             } else {

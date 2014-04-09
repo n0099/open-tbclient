@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.model;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class al extends com.baidu.adp.framework.c.a {
@@ -18,10 +17,16 @@ public final class al extends com.baidu.adp.framework.c.a {
     @Override // com.baidu.adp.framework.c.c
     public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.adp.a.h hVar;
-        if (customResponsedMessage instanceof ResponseUnLoginMessage) {
-            this.a.mLoadDataMode = 11;
-            hVar = this.a.mLoadDataCallBack;
-            hVar.a(null);
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (customResponsedMessage2.g() == 2001113) {
+            this.a.i();
+        } else if (customResponsedMessage2.g() == 501126) {
+            com.baidu.adp.lib.util.f.e("simon", "onMessage", "msg = " + customResponsedMessage2);
+            if (customResponsedMessage2 instanceof com.baidu.adp.framework.message.f) {
+                this.a.b.getChatMessages().add((com.baidu.tieba.im.message.a.a) customResponsedMessage2.h());
+                hVar = this.a.mLoadDataCallBack;
+                hVar.a(this.a.b);
+            }
         }
     }
 }

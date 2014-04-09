@@ -27,7 +27,7 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
     public final void a(byte[] bArr) {
         QueryGroupsByUidRes.QueryGroupsByUidResIdl parseFrom = QueryGroupsByUidRes.QueryGroupsByUidResIdl.parseFrom(bArr);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             this.a = new ArrayList();
             int groupsCount = parseFrom.getData().getGroupsCount();

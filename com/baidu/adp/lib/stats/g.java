@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.HandlerThread;
 import android.text.TextUtils;
-import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.switchs.features.VoiceSwitchStatic;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -180,7 +179,9 @@ public class g {
     }
 
     public final void a(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i, int i2, String str4, Object... objArr) {
-        a("img", str, str2, str3, j, j2, j3, j4, j5, i, i2, str4, objArr);
+        if ((i2 != 0 && i2 != 200) || (j3 > 2000 && "WIFI".equals(this.q))) {
+            a("img", str, str2, str3, j, j2, j3, j4, j5, i, i2, str4, objArr);
+        }
     }
 
     public final void b(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i, int i2, String str4, Object... objArr) {
@@ -240,6 +241,10 @@ public class g {
                 a2.a(pVar);
             }
         }
+    }
+
+    public final void a(String str, String str2, String str3, String str4, int i, String str5, Object... objArr) {
+        a(true, str, str2, str3, str4, 0L, i, str5, objArr);
     }
 
     public final void a(String str, String str2, String str3, int i, String str4, Object... objArr) {
@@ -448,7 +453,7 @@ public class g {
                 } else {
                     arrayList2.add(new BasicNameValuePair("uid", this.g));
                 }
-                arrayList2.add(new BasicNameValuePair(PersonInfoActivity.TAG_ID, this.h));
+                arrayList2.add(new BasicNameValuePair("un", this.h));
                 arrayList2.add(new BasicNameValuePair("BDUSS", this.i));
                 com.baidu.adp.lib.network.willdelete.e.a();
                 com.baidu.adp.lib.network.willdelete.f a3 = com.baidu.adp.lib.network.willdelete.e.a(this.o, false, arrayList2, hashMap, 3, -1, null, null, null);
@@ -496,7 +501,7 @@ public class g {
                 } else {
                     a(sb, "uid", this.g, z);
                 }
-                a(sb, PersonInfoActivity.TAG_ID, this.h, z);
+                a(sb, "un", this.h, z);
                 a(sb, "BDUSS", this.i, z);
                 return sb.toString();
             }
@@ -511,7 +516,7 @@ public class g {
         a(sb, "model", this.m, z);
         if (!TextUtils.isEmpty(this.g)) {
         }
-        a(sb, PersonInfoActivity.TAG_ID, this.h, z);
+        a(sb, "un", this.h, z);
         a(sb, "BDUSS", this.i, z);
         return sb.toString();
     }

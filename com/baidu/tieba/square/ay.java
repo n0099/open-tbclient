@@ -39,9 +39,9 @@ public final class ay extends com.baidu.adp.a.f {
         this.a = new com.baidu.tbadk.core.view.q(eVar);
         this.e.setPullRefresh(this.a);
         this.h = (NoNetworkView) this.d.findViewById(com.baidu.tieba.a.h.view_no_network);
-        com.baidu.tieba.view.k kVar = new com.baidu.tieba.view.k(this.b);
-        kVar.setHeightDip(30);
-        this.e.addFooterView(kVar);
+        com.baidu.tieba.view.i iVar = new com.baidu.tieba.view.i(this.b);
+        iVar.setHeightDip(30);
+        this.e.addFooterView(iVar);
     }
 
     public final void a(aq aqVar) {
@@ -97,7 +97,7 @@ public final class ay extends com.baidu.adp.a.f {
     }
 
     public final void i() {
-        this.i.d();
+        this.i.b();
     }
 
     public final void j() {
@@ -110,7 +110,7 @@ public final class ay extends com.baidu.adp.a.f {
     }
 
     public final void k() {
-        this.i.b();
+        this.i.c();
     }
 
     public final void a(int i) {

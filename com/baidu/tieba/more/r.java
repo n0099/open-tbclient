@@ -43,7 +43,9 @@ final class r implements p {
                                 com.baidu.tieba.util.k.h(E);
                                 TbadkApplication.a((AccountData) null, this.a);
                                 com.baidu.tbadk.core.a.l.a().b(E);
-                                com.baidu.tbadk.core.a.l.a().a(N.getBDUSS());
+                                if (N != null) {
+                                    com.baidu.tbadk.core.a.l.a().a(N.getBDUSS());
+                                }
                                 TbadkApplication.j();
                                 TbadkApplication.M();
                                 com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2006001, "stop"));

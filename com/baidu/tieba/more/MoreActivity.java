@@ -16,19 +16,18 @@ import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.data.PersonChangeData;
 import com.baidu.tieba.model.MoreModel;
 import com.baidu.tieba.person.PersonChangeActivity;
-import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
 public class MoreActivity extends com.baidu.tbadk.a implements com.baidu.adp.widget.BdSwitchView.c {
     private w a;
     private com.baidu.tieba.person.t c;
     private MoreModel b = null;
     private v d = null;
-    private com.baidu.tbadk.editortool.aa e = null;
+    private com.baidu.tbadk.editortool.ab e = null;
 
     public static void a(Activity activity, int i, PersonChangeData personChangeData) {
         Intent intent = new Intent(activity, MoreActivity.class);
         intent.putExtra("person_change_data", personChangeData);
-        activity.startActivityForResult(intent, PersonInfoActivity.REQUSET_CHANGE);
+        activity.startActivityForResult(intent, 101);
     }
 
     static {
@@ -53,7 +52,7 @@ public class MoreActivity extends com.baidu.tbadk.a implements com.baidu.adp.wid
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(com.baidu.tbadk.core.data.n.z());
         registerReceiver(this.d, intentFilter);
-        this.e = new com.baidu.tbadk.editortool.aa(this);
+        this.e = new com.baidu.tbadk.editortool.ab(this);
     }
 
     @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
@@ -103,7 +102,7 @@ public class MoreActivity extends com.baidu.tbadk.a implements com.baidu.adp.wid
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             switch (i) {
-                case PersonInfoActivity.REQUSET_CHANGE /* 101 */:
+                case 101:
                     PersonChangeData personChangeData = (PersonChangeData) intent.getSerializableExtra("data");
                     this.b.a(personChangeData);
                     this.b.a(true);
@@ -112,7 +111,7 @@ public class MoreActivity extends com.baidu.tbadk.a implements com.baidu.adp.wid
                         String portrait = personChangeData.getPortrait();
                         if (portrait != null && portrait.length() > 0 && this.a != null) {
                             this.a.b(portrait);
-                            com.baidu.tbadk.editortool.aa aaVar = this.e;
+                            com.baidu.tbadk.editortool.ab abVar = this.e;
                             com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(portrait);
                             if (b != null) {
                                 this.a.a(b);
@@ -194,7 +193,7 @@ public class MoreActivity extends com.baidu.tbadk.a implements com.baidu.adp.wid
         if (E == null || E.length() <= 0) {
             return;
         }
-        PersonChangeActivity.a(moreActivity, PersonInfoActivity.REQUSET_CHANGE, moreActivity.b.b(), false);
+        PersonChangeActivity.a(moreActivity, 101, moreActivity.b.b(), false);
     }
 
     public static /* synthetic */ void b(MoreActivity moreActivity) {

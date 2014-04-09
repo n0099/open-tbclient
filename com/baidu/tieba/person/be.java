@@ -12,6 +12,6 @@ final class be implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        PersonChangeActivity.o(this.a);
+        PersonChangeActivity.n(this.a);
     }
 }

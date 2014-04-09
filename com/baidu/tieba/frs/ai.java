@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
-final class ai implements cw {
+final class ai implements cy {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ final class ai implements cw {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.cw
+    @Override // com.baidu.tieba.frs.cy
     public final void a(i iVar, j jVar) {
         cm cmVar;
         cm cmVar2;
@@ -32,7 +32,7 @@ final class ai implements cw {
             ForumData f = gVar3.f();
             gVar4 = this.a.D;
             cmVar4.a(1, f, gVar4, false);
-            com.baidu.tieba.r.c().e(true);
+            com.baidu.tieba.p.c().e(true);
             return;
         }
         if (jVar.d == null || jVar.d.length() <= 0) {

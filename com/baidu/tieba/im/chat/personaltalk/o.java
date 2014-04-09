@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import com.baidu.tieba.im.message.au;
+import com.baidu.tieba.im.message.at;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class o implements com.baidu.tieba.im.a<PersonalSettingItemData> {
@@ -22,8 +22,8 @@ public final class o implements com.baidu.tieba.im.a<PersonalSettingItemData> {
         if (personalSettingItemData2 != null) {
             this.a.f = personalSettingItemData2.isAcceptNotify();
         }
-        au auVar = new au();
-        auVar.b(this.b);
-        this.c.sendMessage(auVar);
+        at atVar = new at();
+        atVar.b(this.b);
+        this.c.sendMessage(atVar);
     }
 }

@@ -14,6 +14,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.bdcvf.CertVerifier;
 import com.baidu.tbadk.core.b.u;
@@ -29,7 +30,7 @@ import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.coreExtra.d.x;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tbadk.coreExtra.message.ResponsedPingMessage;
-import com.baidu.tbadk.editortool.ab;
+import com.baidu.tbadk.editortool.ac;
 import com.baidu.tbadk.editortool.w;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import java.io.BufferedReader;
@@ -56,8 +57,8 @@ public class TbadkApplication extends com.baidu.adp.a.b {
     protected static String l = null;
     protected static AccountData n = null;
     protected static String o = null;
-    private static Intent N = null;
-    private static String R = "armcv";
+    private static Intent P = null;
+    private static String V = "armcv";
     protected int a = 0;
     protected int d = 0;
     protected long f = 0;
@@ -86,44 +87,48 @@ public class TbadkApplication extends com.baidu.adp.a.b {
     public String C = "23:00";
     public String D = "09:00";
     private boolean J = false;
-    private long K = -1;
-    private int L = 1;
-    private int M = 0;
-    private Handler O = new Handler();
+    private boolean K = true;
+    private int L = 0;
+    private long M = -1;
+    private int N = 1;
+    private int O = 0;
+    private Handler Q = new Handler();
     protected boolean E = false;
     public Handler F = new Handler(new o(this));
-    private ExecutorService P = null;
-    private boolean Q = false;
-    private int S = -1;
-    private int T = -1;
-    private String U = null;
-    private boolean V = false;
+    private ExecutorService R = null;
+    private boolean S = false;
+    private boolean T = false;
+    private boolean U = false;
+    private int W = -1;
+    private int X = -1;
+    private String Y = null;
+    private boolean Z = false;
 
     public final void f() {
-        this.K = System.currentTimeMillis();
+        this.M = System.currentTimeMillis();
     }
 
     public final void g() {
-        this.K = -1L;
+        this.M = -1L;
     }
 
     public final void h() {
-        if (this.K > 0) {
-            this.K = System.currentTimeMillis() - this.K;
-            if (this.K > 0) {
-                new ax("startup_time", String.valueOf(this.K));
+        if (this.M > 0) {
+            this.M = System.currentTimeMillis() - this.M;
+            if (this.M > 0) {
+                new ax("startup_time", String.valueOf(this.M));
             }
-            com.baidu.adp.lib.util.f.a(getClass().getName(), "sendLaunchTime=", String.valueOf(this.K));
+            com.baidu.adp.lib.util.f.a(getClass().getName(), "sendLaunchTime=", String.valueOf(this.M));
         }
-        this.K = -1L;
+        this.M = -1L;
     }
 
     public static void a(Intent intent) {
-        N = intent;
+        P = intent;
     }
 
     public static Intent i() {
-        return N;
+        return P;
     }
 
     public final void a(a aVar) {
@@ -186,11 +191,11 @@ public class TbadkApplication extends com.baidu.adp.a.b {
         if (b2 != null) {
             int indexOf = b2.indexOf("\t");
             if (indexOf == -1) {
-                aE();
+                aK();
             } else if (com.baidu.tbadk.core.data.n.c().equals(b2.substring(0, indexOf))) {
                 str = b2.substring(indexOf + 1);
             } else {
-                aE();
+                aK();
             }
         } else {
             str = b2;
@@ -204,21 +209,27 @@ public class TbadkApplication extends com.baidu.adp.a.b {
         if (this.p == null) {
             this.p = "000000000000000";
         }
-        aC();
-        aG();
+        aI();
+        aM();
         s.a();
-        this.S = s.a("faceshop_version", -1);
+        this.W = s.a("faceshop_version", -1);
         s.a();
-        this.L = s.a("new_abstract_state", 0);
+        this.N = s.a("new_abstract_state", 0);
         s.a();
-        this.J = s.a("gpu_open", aH());
+        this.J = s.a("gpu_open", aN());
+        s.a();
+        this.K = s.a("permoted_message", true);
+        s.a();
+        this.L = s.a("webview_crash_count", 0);
         com.baidu.tbadk.coreExtra.d.m.a().c();
         com.baidu.tbadk.coreExtra.d.q.a().b();
         com.baidu.tbadk.c.c a = a(1001, (Class<? extends SocketResponsedMessage>) ResponseOnlineMessage.class, false);
         a.c(true);
+        a.a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         a.b(-3);
         com.baidu.tbadk.c.c a2 = a(1003, (Class<? extends SocketResponsedMessage>) ResponsedPingMessage.class, false);
         a2.c(true);
+        a2.a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         a2.b(-3);
         com.baidu.tbadk.message.websockt.c.a().a(1001);
         com.baidu.adp.framework.c.a().a(new com.baidu.tbadk.coreExtra.d.p());
@@ -228,13 +239,14 @@ public class TbadkApplication extends com.baidu.adp.a.b {
         com.baidu.adp.framework.e.c.a().a(x.a);
         com.baidu.adp.framework.e.c.a().b("im_version=2.1");
         com.baidu.adp.framework.e.c.a().a(arrayList);
-        com.baidu.adp.framework.e.c.a().a(new com.baidu.tbadk.a.b());
         com.baidu.adp.framework.e.c.a().a(new com.baidu.tbadk.a.c());
+        com.baidu.adp.framework.e.c.a().a(new com.baidu.tbadk.a.d());
+        com.baidu.adp.framework.e.c.a().a(new com.baidu.tbadk.a.b());
         com.baidu.adp.framework.e.c.a().h();
         com.baidu.adp.framework.e.c.a();
         com.baidu.adp.framework.e.c.a(false, "TiebaImApplication init");
         TbFaceManager.a().a(this, new w());
-        ab.a().b();
+        ac.a().b();
         s.a();
         this.G = s.a("font_size", 2);
         try {
@@ -249,7 +261,7 @@ public class TbadkApplication extends com.baidu.adp.a.b {
                 com.baidu.adp.lib.util.f.b(e2.getMessage());
             }
         }
-        aB();
+        aH();
         com.baidu.tbadk.core.frameworkData.b.a();
         if (m()) {
             try {
@@ -268,13 +280,13 @@ public class TbadkApplication extends com.baidu.adp.a.b {
     }
 
     public final void a(int i) {
-        this.L = i;
+        this.N = i;
         s.a();
         s.b("new_abstract_state", i);
     }
 
     public final int k() {
-        return this.L;
+        return this.N;
     }
 
     @Override // android.app.Application, android.content.ComponentCallbacks
@@ -308,13 +320,13 @@ public class TbadkApplication extends com.baidu.adp.a.b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void aB() {
+    private void aH() {
         boolean z;
         int i;
         AssetManager assets;
         InputStream inputStream;
         s.a();
-        this.M = s.a("voice_headset_mode", 0);
+        this.O = s.a("voice_headset_mode", 0);
         s.a();
         if (s.a("webp_failure_count", -1) == -1) {
             if (Build.VERSION.SDK_INT >= 14 && (assets = b.c().getAssets()) != null) {
@@ -363,7 +375,7 @@ public class TbadkApplication extends com.baidu.adp.a.b {
         this.E = s.a("capable_of_webp_format", false);
     }
 
-    private void aC() {
+    private void aI() {
         ApplicationInfo applicationInfo = null;
         try {
             applicationInfo = getPackageManager().getApplicationInfo(getPackageName(), 128);
@@ -431,15 +443,15 @@ public class TbadkApplication extends com.baidu.adp.a.b {
 
     public final void n() {
         this.d++;
-        aD();
+        aJ();
     }
 
     public final void o() {
         this.d--;
-        aD();
+        aJ();
     }
 
-    private void aD() {
+    private void aJ() {
         if (m()) {
             if (this.d < 0) {
                 this.d = 0;
@@ -583,7 +595,7 @@ public class TbadkApplication extends com.baidu.adp.a.b {
         return o;
     }
 
-    private static void aE() {
+    private static void aK() {
         com.baidu.tbadk.core.sharedPref.b.a().a("client_id");
     }
 
@@ -614,7 +626,7 @@ public class TbadkApplication extends com.baidu.adp.a.b {
         }
     }
 
-    private String aF() {
+    private String aL() {
         String str = null;
         try {
             File d = com.baidu.tbadk.core.util.w.d("from.dat");
@@ -636,7 +648,7 @@ public class TbadkApplication extends com.baidu.adp.a.b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void aG() {
+    private void aM() {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
         try {
@@ -647,10 +659,10 @@ public class TbadkApplication extends com.baidu.adp.a.b {
                     String readLine = bufferedReader.readLine();
                     com.baidu.tbadk.core.data.n.d(readLine);
                     if (b2 == null) {
-                        String aF = aF();
-                        if (aF != null && aF.length() > 0) {
-                            com.baidu.tbadk.core.data.n.c(aF);
-                            r(aF);
+                        String aL = aL();
+                        if (aL != null && aL.length() > 0) {
+                            com.baidu.tbadk.core.data.n.c(aL);
+                            r(aL);
                         } else if (readLine != null && readLine.length() > 0) {
                             com.baidu.tbadk.core.data.n.c(readLine);
                             r(readLine);
@@ -884,23 +896,23 @@ public class TbadkApplication extends com.baidu.adp.a.b {
     }
 
     public final void a(int i, int i2, String str) {
-        if (this.P == null) {
-            this.P = Executors.newSingleThreadExecutor();
+        if (this.R == null) {
+            this.R = Executors.newSingleThreadExecutor();
         }
         com.baidu.adp.lib.util.f.a(getClass().getName(), "pv_addImagePv", "img_num=" + i + " img_total" + i2);
         com.baidu.tbadk.d.b bVar = new com.baidu.tbadk.d.b(i, i2);
         bVar.a(str);
-        this.P.execute(bVar);
+        this.R.execute(bVar);
     }
 
     public final boolean V() {
-        return this.M == 1;
+        return this.O == 1;
     }
 
     public final void d(boolean z) {
         int i = z ? 1 : 0;
-        if (this.M != i) {
-            this.M = i;
+        if (this.O != i) {
+            this.O = i;
             s.a();
             s.b("voice_headset_mode", i);
         }
@@ -997,34 +1009,50 @@ public class TbadkApplication extends com.baidu.adp.a.b {
     }
 
     public final boolean ac() {
-        return this.Q;
+        return this.S;
+    }
+
+    public final boolean ad() {
+        return this.T;
     }
 
     public final void f(boolean z) {
-        this.Q = z;
-        this.O.post(new r(this, z));
+        this.S = z;
     }
 
-    public static boolean ad() {
+    public final void g(boolean z) {
+        this.T = z;
+    }
+
+    public final boolean ae() {
+        return this.U;
+    }
+
+    public final void h(boolean z) {
+        this.U = z;
+        this.Q.post(new r(this, z));
+    }
+
+    public static boolean af() {
         s.a();
         return s.a("group_notify", true);
     }
 
-    public final boolean ae() {
+    public final boolean ag() {
         return this.s;
     }
 
-    public static void g(boolean z) {
+    public static void i(boolean z) {
         s.a();
         s.b("group_notify", z);
     }
 
     public static void l(String str) {
-        R = str;
+        V = str;
     }
 
-    public static String af() {
-        return R;
+    public static String ah() {
+        return V;
     }
 
     public final boolean m(String str) {
@@ -1045,78 +1073,78 @@ public class TbadkApplication extends com.baidu.adp.a.b {
         }
     }
 
-    public final int ag() {
+    public final int ai() {
         return this.t;
     }
 
-    public final boolean ah() {
+    public final boolean aj() {
         return this.v;
     }
 
-    public final boolean ai() {
+    public final boolean ak() {
         return this.w;
     }
 
-    public final boolean aj() {
+    public final boolean al() {
         return this.x;
     }
 
-    public final boolean ak() {
+    public final boolean am() {
         return this.u;
     }
 
-    public final int al() {
+    public final int an() {
         return this.y;
     }
 
-    public final void am() {
+    public final void ao() {
         this.I = new Hashtable<>();
         new com.baidu.tbadk.coreExtra.c.a(this.I).start();
     }
 
-    public final int an() {
-        return this.S;
+    public final int ap() {
+        return this.W;
     }
 
     public final void g(int i) {
-        this.S = i;
+        this.W = i;
         s.a();
-        s.b("faceshop_version", this.S);
+        s.b("faceshop_version", this.W);
     }
 
     public final void h(int i) {
-        this.T = i;
-    }
-
-    public final boolean ao() {
-        return this.z;
-    }
-
-    public final boolean ap() {
-        return this.A;
+        this.X = i;
     }
 
     public final boolean aq() {
+        return this.z;
+    }
+
+    public final boolean ar() {
+        return this.A;
+    }
+
+    public final boolean as() {
         return this.B;
     }
 
-    public final String ar() {
+    public final String at() {
         return this.C;
     }
 
-    public final String as() {
+    public final String au() {
         return this.D;
     }
 
-    public final int at() {
-        return this.T;
+    public final int av() {
+        return this.X;
     }
 
-    public final boolean au() {
+    public final boolean aw() {
         return this.E;
     }
 
-    public final void av() {
+    public final void ax() {
         s.a();
         int a = s.a("webp_failure_count", 0) + 1;
         if (a > 5) {
@@ -1134,22 +1162,22 @@ public class TbadkApplication extends com.baidu.adp.a.b {
         s.a("install_other_app_file_name", str);
     }
 
-    public static String aw() {
+    public static String ay() {
         s.a();
         return s.b("install_other_app_file_name", (String) null);
     }
 
-    public final void h(boolean z) {
+    public final void j(boolean z) {
         s.a();
         s.b("gpu_open", z);
         this.J = z;
     }
 
-    public final boolean ax() {
+    public final boolean az() {
         return this.J;
     }
 
-    private static boolean aH() {
+    private static boolean aN() {
         boolean z = false;
         String trim = Build.MODEL.trim();
         if (trim == null) {
@@ -1180,15 +1208,15 @@ public class TbadkApplication extends com.baidu.adp.a.b {
         s.b("update_notify_time", j);
     }
 
-    public static long ay() {
+    public static long aA() {
         s.a();
         return s.a("update_notify_time", 0L);
     }
 
-    public static boolean az() {
-        if (b.V) {
+    public static boolean aB() {
+        if (b.Z) {
             TbadkApplication tbadkApplication = b;
-            Long valueOf = Long.valueOf(ay());
+            Long valueOf = Long.valueOf(aA());
             Long valueOf2 = Long.valueOf(new Date().getTime());
             TbadkApplication tbadkApplication2 = b;
             a(valueOf2.longValue());
@@ -1198,15 +1226,49 @@ public class TbadkApplication extends com.baidu.adp.a.b {
     }
 
     public final void q(String str) {
-        this.U = str;
+        this.Y = str;
     }
 
-    public final String aA() {
-        return this.U;
+    public final String aC() {
+        return this.Y;
     }
 
-    public final void i(boolean z) {
-        this.V = z;
+    public final void k(boolean z) {
+        this.Z = z;
         b.sendBroadcast(new Intent(com.baidu.tbadk.core.data.n.z()));
+    }
+
+    public static long aD() {
+        s.a();
+        return s.a("last_notify_sound_time", 0L);
+    }
+
+    public static void b(long j) {
+        s.a();
+        s.b("last_notify_sound_time", j);
+    }
+
+    public final void l(boolean z) {
+        this.K = z;
+        s.a();
+        s.b("permoted_message", z);
+    }
+
+    public final boolean aE() {
+        return this.K;
+    }
+
+    public final int aF() {
+        return this.L;
+    }
+
+    public final void i(int i) {
+        this.L = i;
+        s.a();
+        s.b("webview_crash_count", i);
+    }
+
+    public static boolean aG() {
+        return b.t > 0;
     }
 }

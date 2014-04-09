@@ -2,7 +2,7 @@ package com.baidu.tbadk.b;
 
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.adp.framework.b.d;
+import com.baidu.adp.framework.b.f;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.stats.o;
@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.au;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public final class a extends d {
+public final class a extends f {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.d, com.baidu.adp.framework.task.b] */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.d' to match base method */
-    @Override // com.baidu.adp.framework.b.f
+    @Override // com.baidu.adp.framework.b.h
     public final /* synthetic */ HttpMessage a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String D;
         HttpMessage httpMessage2 = httpMessage;

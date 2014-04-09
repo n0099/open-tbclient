@@ -1,30 +1,23 @@
 package com.baidu.tieba.im.model;
 
-import java.util.Comparator;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class av implements Comparator<com.baidu.tieba.im.message.a.a> {
-    final /* synthetic */ MsglistModel a;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
-    @Override // java.util.Comparator
-    public final /* synthetic */ int compare(com.baidu.tieba.im.message.a.a aVar, com.baidu.tieba.im.message.a.a aVar2) {
-        com.baidu.tieba.im.message.a.a aVar3 = aVar;
-        com.baidu.tieba.im.message.a.a aVar4 = aVar2;
-        if (aVar3 == null || aVar4 == null) {
-            return 0;
-        }
-        if (aVar3.u() > aVar4.u()) {
-            return 1;
-        }
-        return aVar3.u() < aVar4.u() ? -1 : 0;
-    }
-
-    private av(MsglistModel msglistModel) {
-        this.a = msglistModel;
-    }
+public final class av extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ MsglistModel b;
+    private final /* synthetic */ com.baidu.tieba.im.message.a.e c;
+    private final /* synthetic */ LinkedList d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ av(MsglistModel msglistModel, byte b) {
-        this(msglistModel);
+    public av(MsglistModel msglistModel, com.baidu.tieba.im.message.a.e eVar, LinkedList linkedList) {
+        this.b = msglistModel;
+        this.c = eVar;
+        this.d = linkedList;
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.c.x(), this.c.l(), this.d, false));
     }
 }

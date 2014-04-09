@@ -1,36 +1,127 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
-public final class ay extends com.baidu.adp.framework.c.a {
-    final /* synthetic */ OfficialBarMsglistModel a;
+public final class ay extends com.baidu.adp.a.e {
+    private String b;
+    private String c;
+    private int d;
+    private boolean g;
+    private com.baidu.tieba.im.message.aq j;
+    private com.baidu.tieba.im.message.bj k;
+    private com.baidu.tieba.im.message.d l;
+    private int a = 0;
+    private boolean h = false;
+    private boolean i = false;
+    private int f = com.baidu.adp.lib.util.i.a(TbadkApplication.j().c(), 70.0f);
+    private int e = com.baidu.adp.lib.util.i.a(TbadkApplication.j().c(), 70.0f);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ay(OfficialBarMsglistModel officialBarMsglistModel, int i) {
-        super(0);
-        this.a = officialBarMsglistModel;
+    public final boolean a() {
+        return this.i;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 != null) {
-            if (customResponsedMessage2.g() == 2013003) {
-                OfficialBarMsglistModel.a(this.a, (CustomResponsedMessage) customResponsedMessage2);
-            } else if (customResponsedMessage2.g() == 2001148) {
-                this.a.b(customResponsedMessage2);
-            } else if (customResponsedMessage2.g() == 2001151) {
-                OfficialBarMsglistModel.b(this.a, customResponsedMessage2);
-            } else if (customResponsedMessage2.g() == 2001155) {
-                String str = (String) customResponsedMessage2.a();
-                if (this.a.a == null || !this.a.a.getUserId().equals(str)) {
-                    return;
-                }
-                this.a.i();
+    public final void a(boolean z) {
+        this.i = false;
+    }
+
+    public final void a(int i) {
+        this.d = i;
+    }
+
+    public final void a(String str) {
+        this.b = str;
+    }
+
+    public final boolean b() {
+        return this.g;
+    }
+
+    public final void b(boolean z) {
+        this.g = z;
+    }
+
+    public final void b(String str) {
+        this.c = str;
+    }
+
+    @Override // com.baidu.adp.a.e
+    protected final boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public final boolean cancelLoadData() {
+        return false;
+    }
+
+    public final boolean c() {
+        return this.h;
+    }
+
+    public final void c(boolean z) {
+        this.h = true;
+    }
+
+    private com.baidu.tieba.im.message.aq b(int i) {
+        com.baidu.tieba.im.message.aq aqVar = new com.baidu.tieba.im.message.aq();
+        aqVar.e(this.e);
+        aqVar.d(this.f);
+        aqVar.b(this.c);
+        aqVar.a(this.b);
+        aqVar.h(i * 30);
+        aqVar.f(30);
+        aqVar.i(this.d);
+        return aqVar;
+    }
+
+    public final void d() {
+        this.a = 0;
+        this.d = 0;
+        this.j = b(this.a);
+        super.sendMessage(this.j);
+    }
+
+    public final void e() {
+        g();
+        this.j = b(this.a);
+        super.sendMessage(this.j);
+    }
+
+    public final void a(long j) {
+        com.baidu.tieba.im.message.bj bjVar = new com.baidu.tieba.im.message.bj();
+        bjVar.b(0L);
+        this.k = bjVar;
+        super.sendMessage(this.k);
+    }
+
+    public final void f() {
+        this.h = true;
+        this.l = new com.baidu.tieba.im.message.d();
+        super.sendMessage(this.l);
+    }
+
+    public final void g() {
+        this.a++;
+    }
+
+    public final boolean h() {
+        if (this.h) {
+            if (UtilHelper.a()) {
+                d();
+                return true;
             }
+            return false;
         }
+        f();
+        return true;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public final void cancelMessage() {
+        super.cancelMessage();
+        this.j = null;
+        this.k = null;
+        this.l = null;
     }
 }

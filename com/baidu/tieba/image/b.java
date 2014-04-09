@@ -59,25 +59,25 @@ public final class b extends BdAsyncTask<Object, Integer, u> {
         super.a((b) uVar2);
         this.a.h = null;
         if (uVar2 != null) {
-            this.a.i = uVar2.k();
-            this.a.c = uVar2.g();
-            this.a.b = uVar2.f();
+            this.a.i = uVar2.j();
+            this.a.c = uVar2.f();
+            this.a.b = uVar2.e();
             if (this.d == null) {
                 arrayList4 = this.a.a;
                 arrayList4.clear();
             }
-            LinkedList<t> h = uVar2.h();
-            int size = h.size();
+            LinkedList<t> g = uVar2.g();
+            int size = g.size();
             if (size > 0) {
                 for (int i5 = 0; i5 < size; i5++) {
-                    String a = a.a(this.a, h.get(i5));
+                    String a = a.a(this.a, g.get(i5));
                     arrayList2 = this.a.a;
                     if (!arrayList2.contains(a)) {
                         arrayList3 = this.a.a;
                         arrayList3.add(a);
                     }
                 }
-                t tVar = h.get(size - 1);
+                t tVar = g.get(size - 1);
                 this.a.f = tVar.c();
                 i3 = this.a.i;
                 if (i3 != tVar.h()) {

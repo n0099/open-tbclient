@@ -15,7 +15,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     public PersonalMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
         this.e = 20;
-        this.f = new bi(this, 0);
+        this.f = new bj(this, 0);
         com.baidu.adp.framework.c.a().a(2013001, this.f);
         com.baidu.adp.framework.c.a().a(2001147, this.f);
         com.baidu.adp.framework.c.a().a(2001150, this.f);
@@ -44,7 +44,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean d_() {
+    public final boolean f_() {
         if (this.a == null) {
             return false;
         }
@@ -91,27 +91,27 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public final boolean a(String str) {
-        com.baidu.tieba.im.message.bn bnVar = new com.baidu.tieba.im.message.bn();
+        com.baidu.tieba.im.message.bm bmVar = new com.baidu.tieba.im.message.bm();
         if (this.a == null) {
             return false;
         }
-        bnVar.b = String.valueOf(String.valueOf(this.a.getUserId()));
-        bnVar.a = str;
-        super.sendMessage(new com.baidu.tieba.im.message.u(bnVar));
+        bmVar.b = String.valueOf(String.valueOf(this.a.getUserId()));
+        bmVar.a = str;
+        super.sendMessage(new com.baidu.tieba.im.message.u(bmVar));
         return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected final void a(com.baidu.tieba.im.message.a.a aVar) {
         if (this.a != null && aVar != null) {
-            com.baidu.tieba.im.s.a(new bj(this, aVar), null);
+            com.baidu.tieba.im.r.a(new bk(this, aVar), null);
         }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected final void b(com.baidu.tieba.im.message.a.a aVar) {
         if (this.a != null && aVar != null) {
-            com.baidu.tieba.im.s.a(new bk(this, aVar), null);
+            com.baidu.tieba.im.r.a(new bl(this, aVar), null);
         }
     }
 
@@ -122,10 +122,10 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public final void a(com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.db.h.a();
-        com.baidu.tieba.im.db.h.c(PersonalChatActivity.b);
+        com.baidu.tieba.im.db.i.a();
+        com.baidu.tieba.im.db.i.c(PersonalChatActivity.b);
         aVar.a(null);
-        com.baidu.tieba.im.s.a(new bl(this), aVar);
+        com.baidu.tieba.im.r.a(new bm(this), aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

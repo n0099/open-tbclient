@@ -9,81 +9,106 @@ import java.util.List;
 public final class f {
     private String a;
     private String b;
-    private int c;
-    private int d;
+    private String c;
+    private boolean d;
     private int e;
-    private List<a> f;
-    private h g;
-    private com.baidu.adp.framework.c.b h;
+    private int f;
+    private int g;
+    private List<a> h;
+    private h i;
+    private com.baidu.adp.framework.c.b j;
 
     public f() {
         this.a = "";
         this.b = "";
-        this.c = 1;
-        this.d = 0;
-        this.e = 0;
-        this.f = new ArrayList(100);
-        this.g = null;
-        this.h = new g(this, 1005000);
-        this.a = "";
-    }
-
-    public f(String str, String str2, h hVar) {
+        this.c = "";
+        this.d = true;
+        this.e = 1;
+        this.f = 0;
+        this.g = 0;
+        this.h = new ArrayList(100);
+        this.i = null;
+        this.j = new g(this, 1005000);
         this.a = "";
         this.b = "";
-        this.c = 1;
-        this.d = 0;
-        this.e = 0;
-        this.f = new ArrayList(100);
-        this.g = null;
-        this.h = new g(this, 1005000);
+    }
+
+    public f(String str, String str2, String str3, boolean z, h hVar) {
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = true;
+        this.e = 1;
+        this.f = 0;
+        this.g = 0;
+        this.h = new ArrayList(100);
+        this.i = null;
+        this.j = new g(this, 1005000);
         this.a = str;
         this.b = str2;
-        this.g = hVar;
+        this.c = str3;
+        this.i = hVar;
+        this.d = z;
         com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
         com.baidu.tbadk.c.b bVar = new com.baidu.tbadk.c.b(1005000, String.valueOf(n.a) + "c/u/zan/getuserlist");
         bVar.a(PraiseListResponsedMessage.class);
         a.a(bVar);
-        a.a(this.h);
+        a.a(this.j);
+    }
+
+    public final String a() {
+        return this.a;
+    }
+
+    public final boolean b() {
+        return this.d;
     }
 
     public final void a(Bundle bundle, String str) {
-        bundle.putString(str, this.a);
+        bundle.putBoolean(str, this.d);
     }
 
     public final void b(Bundle bundle, String str) {
-        bundle.putString(str, this.b);
+        bundle.putString(str, this.a);
     }
 
     public final void c(Bundle bundle, String str) {
-        bundle.putInt(str, this.d);
+        bundle.putString(str, this.b);
     }
 
-    public final void a() {
-        com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
-        a.b(this.h);
-        a.e(1005000);
+    public final void d(Bundle bundle, String str) {
+        bundle.putString(str, this.c);
     }
 
-    public final String b() {
-        return this.b;
-    }
-
-    public final void a(int i) {
-        this.d = i;
-    }
-
-    public final a b(int i) {
-        if (i < 0 || i >= this.f.size()) {
-            return null;
-        }
-        return this.f.get(i);
+    public final void e(Bundle bundle, String str) {
+        bundle.putInt(str, this.f);
     }
 
     public final void c() {
+        com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
+        a.b(this.j);
+        a.e(1005000);
+    }
+
+    public final String d() {
+        return this.c;
+    }
+
+    public final void a(int i) {
+        this.f = i;
+    }
+
+    public final a b(int i) {
+        if (i < 0 || i >= this.h.size()) {
+            return null;
+        }
+        return this.h.get(i);
+    }
+
+    public final void e() {
         HttpMessage httpMessage = new HttpMessage(1005000);
-        httpMessage.a("post_id", new StringBuilder(String.valueOf(this.a)).toString());
-        httpMessage.a("page_num", new StringBuilder(String.valueOf(this.c)).toString());
+        httpMessage.a("post_id", new StringBuilder(String.valueOf(this.b)).toString());
+        httpMessage.a("page_num", new StringBuilder(String.valueOf(this.e)).toString());
         httpMessage.a("res_num", "20");
         httpMessage.b(1005000);
         com.baidu.adp.framework.c.a().a(httpMessage);

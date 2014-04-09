@@ -51,21 +51,21 @@ public abstract class a {
                                     if (optInt < 0 || optInt3 < 0 || optInt4 < 0) {
                                         return;
                                     }
-                                    if (TbadkApplication.j().ag() <= 0) {
+                                    if (TbadkApplication.j().ai() <= 0) {
                                         optInt3 = 0;
                                         optInt = 0;
                                         optInt4 = 0;
                                     }
-                                    if (!TbadkApplication.j().aj()) {
+                                    if (!TbadkApplication.j().al()) {
                                         optInt -= optInt2;
                                     }
-                                    if (!TbadkApplication.j().ai()) {
+                                    if (!TbadkApplication.j().ak()) {
                                         optInt = 0;
                                     }
-                                    if (!TbadkApplication.j().ah()) {
+                                    if (!TbadkApplication.j().aj()) {
                                         optInt4 = 0;
                                     }
-                                    int i = TbadkApplication.j().ak() ? optInt3 : 0;
+                                    int i = TbadkApplication.j().am() ? optInt3 : 0;
                                     if (E == null || E.length() <= 0) {
                                         return;
                                     }

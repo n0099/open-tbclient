@@ -1,13 +1,17 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class by implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.ag> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<com.baidu.tbadk.core.b.ag> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.ag> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            PersonInfoActivityStatic.a(aVar.a().c(), aVar.a().d().getStringExtra("user_id"), aVar.a().d().getStringExtra("user_name"));
-        }
-        return null;
+public final class by implements DialogInterface.OnClickListener {
+    final /* synthetic */ bn a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public by(bn bnVar) {
+        this.a = bnVar;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
     }
 }

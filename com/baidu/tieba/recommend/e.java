@@ -1,6 +1,6 @@
 package com.baidu.tieba.recommend;
 /* loaded from: classes.dex */
-final class e implements r {
+final class e implements l {
     final /* synthetic */ DailyRecommendActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,8 +8,8 @@ final class e implements r {
         this.a = dailyRecommendActivity;
     }
 
-    @Override // com.baidu.tieba.recommend.r
+    @Override // com.baidu.tieba.recommend.l
     public final void a(String str) {
-        this.a.g = str;
+        this.a.d = str;
     }
 }

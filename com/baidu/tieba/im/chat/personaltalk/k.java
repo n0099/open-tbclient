@@ -1,12 +1,11 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import com.baidu.tbadk.editortool.aa;
-import com.baidu.tieba.im.s;
+import com.baidu.tbadk.editortool.ab;
 import protobuf.QueryUserInfos.QueryUserInfosRes;
 /* loaded from: classes.dex */
 public final class k {
     private QueryUserInfosRes.DataRes c;
-    private aa g;
+    private ab g;
     private PersonalTalkSettingActivity h;
     private p i;
     private com.baidu.tbadk.coreExtra.b.a b = new com.baidu.tbadk.coreExtra.b.a(null);
@@ -42,8 +41,8 @@ public final class k {
         this.i = pVar;
         this.a.setUniqueId(personalTalkSettingActivity.getUniqueId());
         personalTalkSettingActivity.showProgressBar();
-        this.g = new aa(personalTalkSettingActivity);
-        s.a(new n(this, j), new o(this, j, personalTalkSettingActivity));
+        this.g = new ab(personalTalkSettingActivity);
+        com.baidu.tieba.im.r.a(new n(this, j), new o(this, j, personalTalkSettingActivity));
     }
 
     public final void e() {
@@ -61,7 +60,7 @@ public final class k {
         }
     }
 
-    public final aa f() {
+    public final ab f() {
         return this.g;
     }
 

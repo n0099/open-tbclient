@@ -13,9 +13,9 @@ final class ad implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         BdListView bdListView;
-        com.baidu.tbadk.editortool.aa aaVar;
+        com.baidu.tbadk.editortool.ab abVar;
         bdListView = this.a.a;
-        aaVar = this.a.f;
-        com.baidu.tbadk.core.util.ac.a(bdListView, aaVar, 0, -1);
+        abVar = this.a.f;
+        com.baidu.tbadk.core.util.ac.a(bdListView, abVar, 0, -1);
     }
 }

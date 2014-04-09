@@ -9,8 +9,23 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class p extends com.baidu.adp.a.e {
+    private static boolean c;
     private final List<ImMessageCenterShowItemData> a = new LinkedList();
     private final List<ImMessageCenterShowItemData> b = new LinkedList();
+
+    public static synchronized boolean a() {
+        boolean z;
+        synchronized (p.class) {
+            z = c;
+        }
+        return z;
+    }
+
+    public static synchronized void a(boolean z) {
+        synchronized (p.class) {
+            c = z;
+        }
+    }
 
     @Override // com.baidu.adp.a.e
     protected final boolean LoadData() {
@@ -46,7 +61,7 @@ public final class p extends com.baidu.adp.a.e {
                     }
                 }
                 com.baidu.tieba.im.pushNotify.a.d().k();
-                com.baidu.tieba.im.s.a(new q(this, h), new r(this, aVar));
+                com.baidu.tieba.im.r.a(new q(this, h), new r(this, aVar));
             } else if (imMessageCenterShowItemData.getOwnerName().equals(String.valueOf(4))) {
                 TbadkApplication.E();
                 a(imMessageCenterShowItemData.getFriendId(), aVar, true);
@@ -64,24 +79,24 @@ public final class p extends com.baidu.adp.a.e {
         if (a != null) {
             a.setIs_hidden(1);
         }
-        com.baidu.tieba.im.s.a(new s(this, z, str), new t(this, str, aVar));
+        com.baidu.tieba.im.r.a(new s(this, z, str), new t(this, str, aVar));
     }
 
-    public final List<ImMessageCenterShowItemData> a() {
+    public final List<ImMessageCenterShowItemData> b() {
         return this.a;
     }
 
-    public final void b() {
+    public final void c() {
         this.a.clear();
         this.b.clear();
     }
 
     public final void a(com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.pushNotify.a.d().b(false, new u(this, aVar));
+        com.baidu.tieba.im.r.a(new u(this), aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void c() {
+    public synchronized void d() {
         this.a.clear();
         if (this.b != null) {
             this.a.addAll(this.b);
@@ -116,6 +131,6 @@ public final class p extends com.baidu.adp.a.e {
         if (j != null) {
             this.a.add(j);
         }
-        Collections.sort(this.a, new v(this));
+        Collections.sort(this.a, new w(this));
     }
 }

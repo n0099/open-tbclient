@@ -13,12 +13,12 @@ public final class a {
         this.b = new ak(a);
         this.b.a().a().a = true;
         this.b.a("kz", str);
-        com.baidu.tieba.r.c();
-        int b = com.baidu.adp.lib.util.i.b(com.baidu.tieba.r.d());
-        com.baidu.tieba.r.c();
-        int c = com.baidu.adp.lib.util.i.c(com.baidu.tieba.r.d());
-        com.baidu.tieba.r.c();
-        float f = com.baidu.tieba.r.d().getResources().getDisplayMetrics().density;
+        com.baidu.tieba.p.c();
+        int b = com.baidu.adp.lib.util.i.b(com.baidu.tieba.p.d());
+        com.baidu.tieba.p.c();
+        int c = com.baidu.adp.lib.util.i.c(com.baidu.tieba.p.d());
+        com.baidu.tieba.p.c();
+        float f = com.baidu.tieba.p.d().getResources().getDisplayMetrics().density;
         this.b.a("scr_w", String.valueOf(b));
         this.b.a("scr_h", String.valueOf(c));
         this.b.a("scr_dip", String.valueOf(f));

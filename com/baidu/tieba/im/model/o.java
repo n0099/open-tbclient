@@ -10,7 +10,7 @@ public class o {
                 com.baidu.tbadk.coreExtra.data.c a3 = new com.baidu.tbadk.coreExtra.service.b("c/c/voice/chunkupload", "c/c/voice/voice_fin_chunk_upload").a(com.baidu.tbadk.core.util.w.a(str, 1));
                 if (a3 != null && a3.b() && (a2 = a3.a()) != null) {
                     String a4 = a2.a();
-                    com.baidu.tbadk.core.voice.cache.e.a(str, a4);
+                    com.baidu.tbadk.core.voice.a.e.a(str, a4);
                     return a4;
                 }
             } catch (Exception e) {

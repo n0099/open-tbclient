@@ -12,9 +12,9 @@ final class v implements com.baidu.adp.widget.ListView.d {
     public final void a(boolean z) {
         r rVar;
         r rVar2;
-        rVar = this.a.b;
+        rVar = this.a.c;
         if (rVar != null) {
-            rVar2 = this.a.b;
+            rVar2 = this.a.c;
             rVar2.a(true);
         }
     }

@@ -44,7 +44,7 @@ public class DiscoverItemView extends LinearLayout {
         this.n = false;
         this.o = false;
         this.p = f;
-        this.r = new g(this);
+        this.r = new h(this);
         a(context);
     }
 
@@ -56,7 +56,7 @@ public class DiscoverItemView extends LinearLayout {
         this.n = false;
         this.o = false;
         this.p = f;
-        this.r = new g(this);
+        this.r = new h(this);
         a(context);
     }
 
@@ -68,8 +68,8 @@ public class DiscoverItemView extends LinearLayout {
         this.i = (HeadImageView) findViewById(com.baidu.tieba.a.h.item_image);
         this.j = (TextView) findViewById(com.baidu.tieba.a.h.title);
         this.k = (ImageView) findViewById(com.baidu.tieba.a.h.newIcon);
-        this.l = (TextView) findViewById(com.baidu.tieba.a.h.dis_divider);
-        this.m = (TextView) findViewById(com.baidu.tieba.a.h.dis_placehoder);
+        this.l = (TextView) findViewById(com.baidu.tieba.a.h.dis_divider_bottom);
+        this.m = (TextView) findViewById(com.baidu.tieba.a.h.dis_divider_top);
     }
 
     public final DiscoverItemView a(int i) {
@@ -85,7 +85,7 @@ public class DiscoverItemView extends LinearLayout {
             this.g.a(a, a);
         }
         this.i.setTag(str);
-        this.g.b(str, new h(this));
+        this.g.b(str, new i(this));
         return this;
     }
 
@@ -121,14 +121,27 @@ public class DiscoverItemView extends LinearLayout {
     }
 
     public final DiscoverItemView a() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.l.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.m.getLayoutParams();
         layoutParams.height = com.baidu.adp.lib.util.i.a(this.h, 1.0f);
-        this.l.setLayoutParams(layoutParams);
+        this.m.setLayoutParams(layoutParams);
+        return this;
+    }
+
+    public final DiscoverItemView c(boolean z) {
+        this.m.setVisibility(8);
+        return this;
+    }
+
+    public final DiscoverItemView d(boolean z) {
+        this.l.setVisibility(z ? 0 : 8);
         return this;
     }
 
     public final DiscoverItemView b() {
-        this.m.setVisibility(0);
+        int paddingLeft = this.a.getPaddingLeft();
+        int paddingRight = this.a.getPaddingRight();
+        int paddingBottom = this.a.getPaddingBottom();
+        this.a.setPadding(paddingLeft, (int) this.h.getResources().getDimension(com.baidu.tieba.a.f.ds40), paddingRight, paddingBottom);
         return this;
     }
 
@@ -155,6 +168,7 @@ public class DiscoverItemView extends LinearLayout {
         if (this.d != 0) {
             ba.c((ImageView) this.i, this.d);
         }
+        this.i.c();
         bn.a((ViewGroup) this, i);
         ba.f(this, com.baidu.tieba.a.g.list_item_selector);
     }

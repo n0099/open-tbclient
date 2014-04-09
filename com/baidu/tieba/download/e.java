@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.a.k;
-import com.baidu.tieba.r;
+import com.baidu.tieba.p;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -71,20 +71,20 @@ public final class e extends BdAsyncTask<a, a, Integer> {
         } else {
             switch (num2.intValue()) {
                 case 1:
-                    r.c();
-                    string = r.d().getString(k.download_fail);
+                    p.c();
+                    string = p.d().getString(k.download_fail);
                     break;
                 case 2:
-                    r.c();
-                    string = r.d().getString(k.download_fail);
+                    p.c();
+                    string = p.d().getString(k.download_fail);
                     break;
                 case 3:
-                    r.c();
-                    string = r.d().getString(k.download_fail_net);
+                    p.c();
+                    string = p.d().getString(k.download_fail_net);
                     break;
                 case 4:
-                    r.c();
-                    string = r.d().getString(k.download_fail);
+                    p.c();
+                    string = p.d().getString(k.download_fail);
                     break;
                 default:
                     string = null;

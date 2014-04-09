@@ -40,8 +40,8 @@ final class c extends Handler {
                 notificationManager.notify(10, notification4);
             }
         } else if (message.what == 1) {
-            r.c();
-            UtilHelper.b(r.d(), (String) message.obj);
+            p.c();
+            UtilHelper.b(p.d(), (String) message.obj);
             this.a.stopSelf();
         }
     }

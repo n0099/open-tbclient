@@ -13,11 +13,11 @@ public final class e {
     }
 
     public final void a(b bVar) {
-        if (bVar != null && bVar.getFragmentTabStructure() != null) {
+        if (bVar != null && bVar.b() != null) {
             Iterator<b> it = this.a.iterator();
             while (it.hasNext()) {
                 b next = it.next();
-                if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().c == bVar.getFragmentTabStructure().c) {
+                if (next != null && next.b() != null && next.b().c == bVar.b().c) {
                     return;
                 }
             }

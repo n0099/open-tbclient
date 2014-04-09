@@ -15,7 +15,7 @@ public final class as extends com.baidu.tieba.im.m<Void> {
     @Override // com.baidu.tieba.im.m
     public final /* synthetic */ Void a() {
         if (TbadkApplication.O() != null) {
-            com.baidu.tieba.im.db.n.d().a(this.b);
+            com.baidu.tieba.im.db.o.d().a(this.b);
             return null;
         }
         return null;

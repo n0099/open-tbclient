@@ -1,26 +1,23 @@
 package com.baidu.tieba.pb.image;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.AdapterView;
 /* loaded from: classes.dex */
-public final class ae implements View.OnClickListener {
-    final /* synthetic */ ad a;
+final class ae implements AdapterView.OnItemClickListener {
+    final /* synthetic */ ac a;
+    private final /* synthetic */ x b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ad adVar) {
-        this.a = adVar;
+    public ae(ac acVar, x xVar) {
+        this.a = acVar;
+        this.b = xVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        int i;
-        Context context;
-        ad adVar = this.a;
-        i = this.a.q;
-        ad.a(adVar, i);
-        context = this.a.b;
-        TiebaStatic.a(context, "pic_pb", "");
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        if (this.b == null || !this.b.b() || j != this.b.getCount() - 1) {
+            return;
+        }
+        this.a.a(this.b.d(), this.b.e().c(), 10, this.b);
     }
 }

@@ -8,11 +8,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.tbadk.core.b.o;
 import com.baidu.tbadk.core.data.BaseGroupData;
-import com.baidu.tieba.im.model.bp;
+import com.baidu.tieba.im.model.bq;
 /* loaded from: classes.dex */
 public class AddGroupActivity extends com.baidu.tbadk.a {
     private b a = null;
-    private bp b = null;
+    private bq b = null;
     private com.baidu.adp.framework.c.g c = new a(this, 103007);
 
     public static void a(Activity activity) {
@@ -25,7 +25,7 @@ public class AddGroupActivity extends com.baidu.tbadk.a {
         super.onCreate(bundle);
         getIntent();
         this.a = new b(this);
-        this.b = new bp();
+        this.b = new bq();
         registerListener(this.c);
     }
 

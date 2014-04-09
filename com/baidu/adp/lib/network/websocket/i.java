@@ -1,72 +1,34 @@
 package com.baidu.adp.lib.network.websocket;
 
-import com.baidu.adp.lib.util.BdNetUtil;
-import java.util.HashMap;
-import java.util.Map;
+import android.app.Application;
 /* loaded from: classes.dex */
-public class i {
-    private static i a = null;
-    private BdNetUtil.NetworkStateInfo b = null;
-    private Map<BdNetUtil.NetworkStateInfo, Integer> c = null;
+public final class i {
+    private static int v = -100000000;
+    public static final int a = -100000200;
+    public static final int b = v - 201;
+    public static final int c = v - 210;
+    public static final int d = v - 211;
+    public static final int e = v - 212;
+    public static final int f = v - 220;
+    public static final int g = v - 221;
+    public static final int h = v - 230;
+    public static final int i = v - 231;
+    public static final int j = v - 232;
+    public static final int k = v - 233;
+    public static final int l = v - 301;
+    public static final int m = v - 302;
+    public static final int n = v - 303;
+    public static final int o = v - 304;
+    public static final int p = v - 305;
+    public static final int q = v - 306;
+    public static final int r = v - 307;
+    public static final int s = v - 308;
+    public static final int t = v - 309;
+    public static final int u = v - 501;
 
-    public static i a() {
-        if (a == null) {
-            synchronized (i.class) {
-                if (a == null) {
-                    i iVar = new i();
-                    a = iVar;
-                    iVar.d();
-                }
-            }
-        }
-        return a;
-    }
-
-    private void d() {
-        int i;
-        int i2;
-        int i3 = 0;
-        this.c = new HashMap();
-        int[] iArr = new int[3];
-        if (iArr == null || iArr.length != 3) {
-            i = 0;
-            i2 = 0;
-        } else {
-            i2 = iArr[0];
-            i = iArr[1];
-            i3 = iArr[2];
-        }
-        if (i2 < 5000) {
-            i2 = 20000;
-        }
-        if (i < 5000) {
-            i = 10000;
-        }
-        int i4 = i3 >= 5000 ? i3 : 5000;
-        this.c.put(BdNetUtil.NetworkStateInfo.TwoG, Integer.valueOf(i2));
-        this.c.put(BdNetUtil.NetworkStateInfo.ThreeG, Integer.valueOf(i));
-        this.c.put(BdNetUtil.NetworkStateInfo.WIFI, Integer.valueOf(i4));
-        this.b = BdNetUtil.NetworkStateInfo.UNAVAIL;
-    }
-
-    public final void b() {
-        this.b = BdNetUtil.a();
-    }
-
-    public final int c() {
-        int i;
-        if (this.c == null) {
-            d();
-        }
-        Integer num = this.c.get(this.b);
-        if (num == null) {
-            i = 0;
-        } else {
-            i = num.intValue();
-        }
-        if (i < 5000) {
-            return 5000;
-        }
-        return i;
+    public static String a(int i2) {
+        int i3 = v - i2;
+        Application b2 = com.baidu.adp.a.b.a().b();
+        return (i3 <= 199 || i3 >= 300) ? b2.getString(com.baidu.adp.f.im_error_default) : b2.getString(com.baidu.adp.f.im_error_codec);
     }
 }

@@ -10,12 +10,12 @@ final class ag implements Runnable {
 
     @Override // java.lang.Runnable
     public final void run() {
-        bd bdVar;
-        bd bdVar2;
-        bdVar = this.a.x;
-        if (bdVar != null) {
-            bdVar2 = this.a.x;
-            bdVar2.s();
+        bf bfVar;
+        bf bfVar2;
+        bfVar = this.a.x;
+        if (bfVar != null) {
+            bfVar2 = this.a.x;
+            bfVar2.s();
         }
     }
 }

@@ -3,7 +3,6 @@ package com.baidu.gson.stream;
 import com.baidu.gson.internal.JsonReaderInternalAccess;
 import com.baidu.gson.internal.bind.JsonTreeReader;
 import com.baidu.location.BDLocation;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
@@ -500,7 +499,7 @@ public class JsonReader implements Closeable {
                         return 0;
                     }
                 case 'E':
-                case PersonInfoActivity.REQUSET_CHANGE /* 101 */:
+                case 'e':
                     if (c2 == 2 || c2 == 4) {
                         c = 5;
                         z = z4;
@@ -1139,7 +1138,7 @@ public class JsonReader implements Closeable {
                 return c;
             case 'b':
                 return '\b';
-            case PersonInfoActivity.REQUEST_MARK /* 102 */:
+            case 'f':
                 return '\f';
             case 'n':
                 return '\n';

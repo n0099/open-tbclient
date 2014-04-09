@@ -1,15 +1,20 @@
 package com.baidu.tieba.recommend;
-/* loaded from: classes.dex */
-public final class s {
-    public int a;
-    public Object b;
-    public String c;
-    final /* synthetic */ j d;
 
-    public s(j jVar, int i, Object obj, String str) {
-        this.d = jVar;
-        this.a = i;
-        this.b = obj;
-        this.c = str;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public final class s implements View.OnClickListener {
+    final /* synthetic */ r a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(r rVar) {
+        this.a = rVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        DailyRecommendActivity dailyRecommendActivity;
+        dailyRecommendActivity = this.a.a;
+        dailyRecommendActivity.a();
     }
 }

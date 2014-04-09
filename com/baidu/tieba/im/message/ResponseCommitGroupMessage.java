@@ -7,7 +7,7 @@ public class ResponseCommitGroupMessage extends ResponseCommitMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         CommitGroupMsgRes.CommitGroupMsgResIdl parseFrom = CommitGroupMsgRes.CommitGroupMsgResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             b(parseFrom.getData().getMsgId() * 100);
             c(parseFrom.getData().getRecordId());

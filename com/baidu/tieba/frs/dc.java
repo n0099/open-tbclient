@@ -1,53 +1,46 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class dc extends com.baidu.adp.a.e {
-    private static final String b = String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/zan/like";
-    private static com.baidu.tbadk.c.b c;
-    private de a;
-    private com.baidu.adp.framework.c.b d = new dd(this, 1014000);
+public final class dc extends com.baidu.adp.framework.c.b {
+    final /* synthetic */ da a;
 
-    static {
-        com.baidu.tbadk.c.b bVar = new com.baidu.tbadk.c.b(1014000, b);
-        c = bVar;
-        bVar.a(PraiseResponseMessage.class);
-        com.baidu.adp.framework.c.a().a(c);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dc(da daVar, int i) {
+        super(1006002);
+        this.a = daVar;
     }
 
-    public dc(de deVar) {
-        this.a = null;
-        this.a = deVar;
-    }
-
-    public final void a() {
-        registerListener(this.d);
-    }
-
-    public static void a(String str, String str2, int i, String str3) {
-        String str4;
-        if (i == 1) {
-            str4 = "unlike";
-        } else {
-            str4 = "like";
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(HttpResponsedMessage httpResponsedMessage) {
+        ci ciVar;
+        ci ciVar2;
+        HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
+        if (httpResponsedMessage2 == null || httpResponsedMessage2.g() != 1006002) {
+            return;
         }
-        HttpMessage httpMessage = new HttpMessage(1014000);
-        httpMessage.a("st_type", str4);
-        httpMessage.a("action", str4);
-        httpMessage.a("post_id", new StringBuilder(String.valueOf(str)).toString());
-        httpMessage.a("thread_id", new StringBuilder(String.valueOf(str2)).toString());
-        httpMessage.a("st_param", str3);
-        httpMessage.b(1014000);
-        com.baidu.adp.framework.c.a().a(httpMessage);
-    }
-
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
-        return false;
+        int d = httpResponsedMessage2.d();
+        int e = httpResponsedMessage2.e();
+        if (d == 200 && e == 0 && (httpResponsedMessage2 instanceof ImageForumListResponsedMessage)) {
+            ciVar = this.a.k;
+            if (ciVar != null) {
+                dd a = da.a(this.a, httpResponsedMessage2, d, e);
+                int a2 = da.a(this.a, httpResponsedMessage2);
+                ImageForumListResponsedMessage imageForumListResponsedMessage = (ImageForumListResponsedMessage) httpResponsedMessage2;
+                this.a.a = imageForumListResponsedMessage.a;
+                this.a.b = imageForumListResponsedMessage.b;
+                this.a.c = imageForumListResponsedMessage.c;
+                this.a.d = imageForumListResponsedMessage.d;
+                this.a.e = imageForumListResponsedMessage.e;
+                this.a.f = imageForumListResponsedMessage.f;
+                this.a.g = imageForumListResponsedMessage.g;
+                this.a.h = imageForumListResponsedMessage.h;
+                ciVar2 = this.a.k;
+                ciVar2.a(a2, imageForumListResponsedMessage.i, a);
+            }
+        }
     }
 }

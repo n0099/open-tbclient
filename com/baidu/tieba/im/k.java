@@ -34,6 +34,7 @@ public final class k {
     public static final int personal_big_button_text = 2131296293;
     public static final int personal_big_button_text_new_number = 2131296295;
     public static final int personal_big_button_text_number = 2131296294;
+    public static final int pop_window_anim = 2131296316;
     public static final int search_dialog = 2131296284;
     public static final int setting_bg_arrow = 2131296260;
     public static final int setting_bg_layout = 2131296259;

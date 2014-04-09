@@ -14,7 +14,7 @@ public class ResponseNearbyGroupsMessage extends TbSocketReponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         QueryGroupsByLocationRes.QueryGroupsByLocationResIdl parseFrom = QueryGroupsByLocationRes.QueryGroupsByLocationResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             NearbyGroupsData nearbyGroupsData = new NearbyGroupsData();
             nearbyGroupsData.setGeo(parseFrom.getData().getGeo());

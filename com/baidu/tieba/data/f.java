@@ -39,19 +39,11 @@ public final class f {
         return this.a;
     }
 
-    public final int b() {
-        return this.d;
-    }
-
-    public final int c() {
-        return this.e;
-    }
-
-    public final String d() {
+    public final String b() {
         return this.b;
     }
 
-    public final String e() {
+    public final String c() {
         return this.c;
     }
 
@@ -59,7 +51,7 @@ public final class f {
         this.i = spannableStringBuilder;
     }
 
-    public final SpannableStringBuilder f() {
+    public final SpannableStringBuilder d() {
         return this.i;
     }
 
@@ -85,7 +77,7 @@ public final class f {
                 return spannableString;
             case 2:
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.b) + " ");
-                com.baidu.adp.widget.ImageView.b g = com.baidu.tieba.r.c().g(this.b);
+                com.baidu.adp.widget.ImageView.b g = com.baidu.tieba.p.c().g(this.b);
                 if (g != null) {
                     BitmapDrawable i = g.i();
                     i.setBounds(0, 0, g.c(), g.d());
@@ -126,7 +118,7 @@ public final class f {
             return null;
         }
         SpannableString spannableString = new SpannableString(String.valueOf(this.b) + " ");
-        com.baidu.adp.widget.ImageView.b g = com.baidu.tieba.r.c().g(this.b);
+        com.baidu.adp.widget.ImageView.b g = com.baidu.tieba.p.c().g(this.b);
         if (g != null) {
             BitmapDrawable i3 = g.i();
             if (i - i2 > 0) {
@@ -140,7 +132,7 @@ public final class f {
         return spannableString;
     }
 
-    public final String g() {
+    public final String e() {
         return this.g;
     }
 

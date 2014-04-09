@@ -4,9 +4,8 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.tbadk.core.b.ai;
 import com.baidu.tbadk.core.data.PraiseData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class k implements View.OnClickListener {
+final class k implements View.OnClickListener {
     final /* synthetic */ FrsPraiseView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,16 +18,20 @@ public final class k implements View.OnClickListener {
         PraiseData praiseData;
         Context context;
         String str;
+        String str2;
+        boolean z;
         PraiseData praiseData2;
-        String str2 = "";
-        praiseData = this.a.f;
+        String str3 = "";
+        praiseData = this.a.e;
         if (praiseData != null) {
-            praiseData2 = this.a.f;
-            str2 = praiseData2.getTitle();
+            praiseData2 = this.a.e;
+            str3 = praiseData2.getTitle();
         }
         com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
         context = this.a.a;
-        str = this.a.i;
-        a.a(new com.baidu.adp.framework.message.a(2001007, new ai(context, str, str2)));
+        str = this.a.g;
+        str2 = this.a.h;
+        z = this.a.i;
+        a.a(new com.baidu.adp.framework.message.a(2001007, new ai(context, str, str2, str3, z)));
     }
 }

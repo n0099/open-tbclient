@@ -19,24 +19,35 @@ final class ak implements al {
         int i;
         int i2;
         ArrayList arrayList3;
+        this.a.d.setVisibility(8);
         privilegeTabWidgetView = this.a.c;
         privilegeTabWidgetView.a();
         privilegeTabWidgetView2 = this.a.c;
-        arrayList = this.a.d;
+        arrayList = this.a.e;
         privilegeTabWidgetView2.setDatas(arrayList);
-        arrayList2 = this.a.d;
+        arrayList2 = this.a.e;
         int size = arrayList2.size();
         for (int i3 = 0; i3 < size; i3++) {
-            arrayList3 = this.a.d;
+            arrayList3 = this.a.e;
             this.a.c.a(((ag) arrayList3.get(i3)).c());
         }
-        i = this.a.e;
+        i = this.a.f;
         if (i < 0) {
             this.a.setCurrentTab(0);
             return;
         }
         PrivilegeTabHost privilegeTabHost = this.a;
-        i2 = this.a.e;
+        i2 = this.a.f;
         privilegeTabHost.setCurrentTab(i2);
+    }
+
+    @Override // com.baidu.tieba.editortool.al
+    public final void b() {
+        this.a.d.setVisibility(0);
+    }
+
+    @Override // com.baidu.tieba.editortool.al
+    public final void c() {
+        this.a.d.setVisibility(8);
     }
 }

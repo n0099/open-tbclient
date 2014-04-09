@@ -36,7 +36,7 @@ public class ResponseQueryGroupCountLocalMessage extends CustomResponsedMessage<
     public final void a(byte[] bArr) {
         QueryGroupCountRes.QueryGroupCountResIdl parseFrom = QueryGroupCountRes.QueryGroupCountResIdl.parseFrom(bArr);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             this.b = parseFrom.getData().getLocalGroupCount();
             this.a = parseFrom.getData().getUserGroupCount();

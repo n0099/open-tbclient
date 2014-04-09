@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.util.bn;
 import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class i extends BaseAdapter implements com.baidu.tieba.view.s {
+public final class i extends BaseAdapter implements com.baidu.tieba.view.q {
     private final Context b;
     private as c;
-    private final com.baidu.tbadk.editortool.aa d;
+    private final com.baidu.tbadk.editortool.ab d;
     private String e = null;
     View.OnClickListener a = new j(this);
 
     public i(Context context) {
         this.b = context;
-        this.d = new com.baidu.tbadk.editortool.aa(context);
+        this.d = new com.baidu.tbadk.editortool.ab(context);
         int a = com.baidu.adp.lib.util.i.a(context, 45.0f);
         this.d.a(a, a);
     }
@@ -171,19 +171,19 @@ public final class i extends BaseAdapter implements com.baidu.tieba.view.s {
         return this.b;
     }
 
-    @Override // com.baidu.tieba.view.s
-    public final void d() {
+    @Override // com.baidu.tieba.view.q
+    public final void b() {
         this.d.c();
     }
 
-    @Override // com.baidu.tieba.view.s
+    @Override // com.baidu.tieba.view.q
     public final void a(View view, int i, int i2) {
         while (i <= i2) {
             if (getItemViewType(i) == 1) {
                 this.d.a();
                 ar arVar = this.c.d().get(i - 1);
                 if (arVar.e != null) {
-                    com.baidu.tbadk.editortool.aa aaVar = this.d;
+                    com.baidu.tbadk.editortool.ab abVar = this.d;
                     if (com.baidu.tbadk.imageManager.e.a().c(arVar.e) == null) {
                         this.d.b(arVar.e, new m(this, view));
                     }

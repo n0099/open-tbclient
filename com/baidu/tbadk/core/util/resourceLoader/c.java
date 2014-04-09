@@ -9,7 +9,6 @@ import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.g;
 import com.baidu.tbadk.core.util.w;
-import com.baidu.tbadk.imageManager.e;
 /* loaded from: classes.dex */
 public final class c extends a {
     static {
@@ -17,8 +16,8 @@ public final class c extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoader.a
-    public final Object doGetFromMemory(String str, com.baidu.tbadk.core.util.b bVar) {
-        com.baidu.adp.widget.ImageView.b c = e.a().c(bVar.a(str));
+    public final Object a(String str, com.baidu.tbadk.core.util.b bVar) {
+        com.baidu.adp.widget.ImageView.b c = com.baidu.tbadk.imageManager.e.a().c(bVar.a(str));
         if (c == null || c.h() == null || c.l() == null) {
             return null;
         }
@@ -29,7 +28,7 @@ public final class c extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoader.a
-    public final Object doGetFromLocal(String str, com.baidu.adp.lib.e.d dVar, com.baidu.tbadk.core.util.b bVar, com.baidu.tbadk.core.util.e eVar) {
+    public final Object a(String str, com.baidu.adp.lib.e.d dVar, com.baidu.tbadk.core.util.b bVar, com.baidu.tbadk.core.util.e eVar) {
         if (eVar.g) {
             String f = bc.f(str);
             if (bVar.f != null) {
@@ -38,9 +37,10 @@ public final class c extends a {
             String a = bVar.a(str);
             synchronized (g.a) {
                 if (f != null) {
-                    int c = bb.a().c(f);
-                    if (c > 0) {
-                        e.a().b(c);
+                    bb.a();
+                    int a2 = TextUtils.isEmpty(f) ? -1 : (int) w.a(w.a(3), f);
+                    if (a2 > 0) {
+                        com.baidu.tbadk.imageManager.e.a().b(a2);
                         bb.a();
                         eVar.i = TextUtils.isEmpty(f) ? null : w.d(f, a);
                         eVar.e = eVar.i.h();
@@ -58,7 +58,7 @@ public final class c extends a {
                 if (eVar.i.h().getNinePatchChunk() == null || !NinePatch.isNinePatchChunk(eVar.i.h().getNinePatchChunk())) {
                     return null;
                 }
-                e.a().c(a, eVar.i);
+                com.baidu.tbadk.imageManager.e.a().d(a, eVar.i);
                 if (dVar.isCancelled()) {
                     return null;
                 }
@@ -73,7 +73,7 @@ public final class c extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoader.a
-    public final Object doGetFromRemote(String str, com.baidu.adp.lib.e.d dVar, com.baidu.tbadk.core.util.b bVar, com.baidu.tbadk.core.util.e eVar) {
+    public final Object b(String str, com.baidu.adp.lib.e.d dVar, com.baidu.tbadk.core.util.b bVar, com.baidu.tbadk.core.util.e eVar) {
         if (str == null || str.length() == 0) {
             TiebaStatic.a("", -1003, "", "");
             return null;
@@ -91,7 +91,7 @@ public final class c extends a {
             return null;
         }
         String a2 = bVar.a(str);
-        e.a().b(n.h() + a.length);
+        com.baidu.tbadk.imageManager.e.a().b(n.h() + a.length);
         Rect rect = new Rect();
         eVar.e = g.a(a, rect);
         eVar.j = a;
@@ -105,7 +105,7 @@ public final class c extends a {
         if (eVar.i == null || eVar.i.h() == null || eVar.i.l() == null) {
             return null;
         }
-        e.a().c(a2, eVar.i);
+        com.baidu.tbadk.imageManager.e.a().d(a2, eVar.i);
         dVar.d(eVar);
         if (eVar.n) {
             return null;

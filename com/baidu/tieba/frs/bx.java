@@ -10,9 +10,9 @@ final class bx implements com.baidu.tieba.model.bd {
 
     @Override // com.baidu.tieba.model.bd
     public final void a(String str, long j) {
-        cy cyVar;
-        cyVar = this.a.q;
-        cyVar.b().setLike(0);
+        da daVar;
+        daVar = this.a.q;
+        daVar.b().setLike(0);
     }
 
     @Override // com.baidu.tieba.model.bd

@@ -1,7 +1,9 @@
 package com.baidu.tieba.pb.main;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 final class ad implements com.baidu.tbadk.core.dialog.g {
     final /* synthetic */ PbActivity a;
@@ -17,11 +19,11 @@ final class ad implements com.baidu.tbadk.core.dialog.g {
         String str2;
         String str3;
         String str4;
-        bd bdVar;
+        bf bfVar;
         String str5;
         String str6;
         String str7;
-        bd bdVar2;
+        bf bfVar2;
         String str8;
         if (i == 0) {
             TiebaStatic.a(this.a, "pb_phone_call", "call");
@@ -30,9 +32,17 @@ final class ad implements com.baidu.tbadk.core.dialog.g {
             pbActivity.I = str6.trim();
             PbActivity pbActivity2 = this.a;
             str7 = this.a.I;
-            UtilHelper.callPhone(pbActivity2, str7);
-            bdVar2 = this.a.x;
-            String f = bdVar2.f();
+            Intent intent = new Intent("android.intent.action.CALL", Uri.parse("tel:" + str7));
+            intent.addFlags(268435456);
+            try {
+                pbActivity2.startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                com.baidu.adp.lib.util.f.b(e.getMessage());
+            } catch (SecurityException e2) {
+                com.baidu.adp.lib.util.f.b(e2.getMessage());
+            }
+            bfVar2 = this.a.x;
+            String f = bfVar2.f();
             str8 = this.a.I;
             new a(f, str8, "1").start();
             dVar.c();
@@ -43,9 +53,18 @@ final class ad implements com.baidu.tbadk.core.dialog.g {
             pbActivity3.I = str3.trim();
             PbActivity pbActivity4 = this.a;
             str4 = this.a.I;
-            UtilHelper.smsPhone(pbActivity4, str4);
-            bdVar = this.a.x;
-            String f2 = bdVar.f();
+            Intent intent2 = new Intent("android.intent.action.SENDTO", Uri.parse("smsto:" + str4));
+            intent2.putExtra("sms_body", "");
+            intent2.addFlags(268435456);
+            try {
+                pbActivity4.startActivity(intent2);
+            } catch (ActivityNotFoundException e3) {
+                com.baidu.adp.lib.util.f.b(e3.getMessage());
+            } catch (SecurityException e4) {
+                com.baidu.adp.lib.util.f.b(e4.getMessage());
+            }
+            bfVar = this.a.x;
+            String f2 = bfVar.f();
             str5 = this.a.I;
             new a(f2, str5, "2").start();
             dVar.c();
@@ -55,7 +74,7 @@ final class ad implements com.baidu.tbadk.core.dialog.g {
             pbActivity5.I = str.trim();
             PbActivity pbActivity6 = this.a;
             str2 = this.a.I;
-            UtilHelper.startBaiDuBar(pbActivity6, str2);
+            com.baidu.tieba.util.r.b(pbActivity6, str2);
             dVar.c();
         }
     }

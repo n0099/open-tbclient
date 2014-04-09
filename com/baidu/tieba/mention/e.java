@@ -19,7 +19,7 @@ final class e implements View.OnClickListener {
         ImageView imageView;
         com.baidu.tbadk.core.e eVar;
         com.baidu.tbadk.core.e eVar2;
-        imageView = this.a.h;
+        imageView = this.a.i;
         if (view == imageView && TbadkApplication.F()) {
             eVar = this.a.n;
             TiebaStatic.a(eVar, "msg_newchat_tab_c", "click", 1, new Object[0]);

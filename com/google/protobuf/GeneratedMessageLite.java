@@ -203,7 +203,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
 
         private void ensureExtensionsIsMutable() {
             if (!this.extensionsIsMutable) {
-                this.extensions = this.extensions.m251clone();
+                this.extensions = this.extensions.m252clone();
                 this.extensionsIsMutable = true;
             }
         }

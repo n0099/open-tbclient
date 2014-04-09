@@ -1,7 +1,7 @@
 package com.baidu.tieba.guide;
 
 import android.view.View;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.data.InterestFrsData;
 /* loaded from: classes.dex */
 public interface a {
@@ -11,7 +11,7 @@ public interface a {
 
     void a(View.OnClickListener onClickListener);
 
-    void a(aa aaVar);
+    void a(ab abVar);
 
     void a(InterestFrsData.Tag tag);
 

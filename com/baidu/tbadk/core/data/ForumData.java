@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -240,7 +239,7 @@ public class ForumData implements Serializable {
         if (jSONObject != null) {
             try {
                 this.id = jSONObject.optString("id");
-                this.name = jSONObject.optString(PersonInfoActivity.TAG_NAME);
+                this.name = jSONObject.optString("name");
                 this.slogan = jSONObject.optString("slogan");
                 this.is_support_local = jSONObject.optInt("is_support_local", 0);
                 this.is_local_effect = jSONObject.optInt("is_local_effect", 0);
@@ -272,7 +271,7 @@ public class ForumData implements Serializable {
                 JSONArray optJSONArray = jSONObject.optJSONArray("managers");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        this.managers.add(((JSONObject) optJSONArray.opt(i)).optString(PersonInfoActivity.TAG_NAME));
+                        this.managers.add(((JSONObject) optJSONArray.opt(i)).optString("name"));
                     }
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("good_classify");
@@ -318,7 +317,7 @@ public class ForumData implements Serializable {
                         m mVar = new m();
                         JSONObject optJSONObject7 = optJSONArray4.optJSONObject(i4);
                         if (optJSONObject7 != null) {
-                            mVar.a = optJSONObject7.optString(PersonInfoActivity.TAG_NAME);
+                            mVar.a = optJSONObject7.optString("name");
                             mVar.b = optJSONObject7.optString("avatar");
                             mVar.c = optJSONObject7.optString("link");
                             mVar.d = optJSONObject7.optString("st_param");

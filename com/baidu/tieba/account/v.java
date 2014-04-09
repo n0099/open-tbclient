@@ -1,34 +1,16 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.Button;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-final class v implements View.OnClickListener {
-    final /* synthetic */ ReLoginShareActivity a;
+final class v implements DialogInterface.OnClickListener {
+    final /* synthetic */ NotLoginGuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(ReLoginShareActivity reLoginShareActivity) {
-        this.a = reLoginShareActivity;
+    public v(NotLoginGuideActivity notLoginGuideActivity) {
+        this.a = notLoginGuideActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        Button button;
-        Button button2;
-        String str;
-        button = this.a.c;
-        if (view != button) {
-            button2 = this.a.b;
-            if (view != button2) {
-                return;
-            }
-            this.a.a();
-            return;
-        }
-        this.a.j = true;
-        com.baidu.tbadk.core.a.l a = com.baidu.tbadk.core.a.l.a();
-        str = this.a.f;
-        a.b(str);
-        ReLoginShareActivity.c(this.a);
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
     }
 }

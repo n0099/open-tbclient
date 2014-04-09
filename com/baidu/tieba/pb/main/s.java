@@ -12,13 +12,13 @@ final class s extends com.baidu.adp.a.h {
 
     @Override // com.baidu.adp.a.h
     public final void a(Object obj) {
-        bk bkVar;
+        bm bmVar;
         com.baidu.tieba.model.ar arVar;
         if (obj instanceof Bitmap) {
             Bitmap bitmap = (Bitmap) obj;
             if (obj != null) {
-                bkVar = this.a.D;
-                bkVar.a(bitmap);
+                bmVar = this.a.D;
+                bmVar.a(bitmap);
                 arVar = this.a.z;
                 arVar.a(true);
             }

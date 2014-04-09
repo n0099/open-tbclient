@@ -81,19 +81,19 @@ public class AboutActivity extends com.baidu.tbadk.a {
             aboutActivity.showToast(aboutActivity.getResources().getString(com.baidu.tieba.a.k.neterror));
             return;
         }
-        com.baidu.tieba.r.c().a(bbVar.c());
-        TbadkApplication.j().i(false);
+        com.baidu.tieba.p.c().a(bbVar.c());
+        TbadkApplication.j().k(false);
         if (bbVar.c().getHas_new_ver() != 1) {
             aboutActivity.showToast(aboutActivity.getResources().getString(com.baidu.tieba.a.k.neednot_update));
         } else if (bbVar.c().getForce_update() == 1) {
-            com.baidu.tieba.r.c();
-            UpdateDialog.a(com.baidu.tieba.r.d(), bbVar.c(), bbVar.b());
+            com.baidu.tieba.p.c();
+            UpdateDialog.a(com.baidu.tieba.p.d(), bbVar.c(), bbVar.b());
         } else {
             Long valueOf = Long.valueOf(new Date().getTime());
             TbadkApplication.j();
             TbadkApplication.a(valueOf.longValue());
-            com.baidu.tieba.r.c();
-            UpdateDialog.a(com.baidu.tieba.r.d(), bbVar.c(), bbVar.b());
+            com.baidu.tieba.p.c();
+            UpdateDialog.a(com.baidu.tieba.p.d(), bbVar.c(), bbVar.b());
         }
         if (aboutActivity.a != null) {
             aboutActivity.a.e();

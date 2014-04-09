@@ -38,7 +38,7 @@ public final class be extends BdAsyncTask<Integer, Integer, Integer> {
             long j2 = this.c;
             bdVar.a();
         } else if (num2.intValue() == 1) {
-            com.baidu.tieba.r.c().f(this.b);
+            com.baidu.tieba.p.c().f(this.b);
             bdVar.a(this.b, this.c);
         } else {
             String str3 = this.b;

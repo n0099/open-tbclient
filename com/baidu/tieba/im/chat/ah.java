@@ -16,6 +16,6 @@ public final class ah extends com.baidu.tieba.im.m<Boolean> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.tieba.im.m
     public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.c.x(), this.c.l(), String.valueOf(this.d.u()), String.valueOf(this.d.w()), 2));
+        return Boolean.valueOf(com.baidu.tieba.im.db.o.d().a(this.c.x(), this.c.l(), String.valueOf(this.d.u()), String.valueOf(this.d.w()), 2));
     }
 }

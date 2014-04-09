@@ -17,9 +17,9 @@ final class z implements View.OnLongClickListener {
         SparseArray sparseArray;
         com.baidu.tieba.model.ai aiVar;
         boolean z;
-        bk bkVar;
+        bm bmVar;
         DialogInterface.OnClickListener onClickListener;
-        bd bdVar;
+        bf bfVar;
         try {
             sparseArray = (SparseArray) view.getTag();
         } catch (ClassCastException e) {
@@ -32,20 +32,20 @@ final class z implements View.OnLongClickListener {
                 aiVar = this.a.y;
                 if (aiVar.a() && this.a.c.d() != null) {
                     String d = this.a.c.d();
-                    bdVar = this.a.x;
-                    if (d.equals(bdVar.o())) {
+                    bfVar = this.a.x;
+                    if (d.equals(bfVar.o())) {
                         z = true;
                         boolean booleanValue = ((Boolean) sparseArray.get(com.baidu.tieba.a.h.tag_is_subpb)).booleanValue();
-                        bkVar = this.a.D;
-                        onClickListener = this.a.al;
-                        bkVar.a(onClickListener, z, booleanValue);
+                        bmVar = this.a.D;
+                        onClickListener = this.a.an;
+                        bmVar.a(onClickListener, z, booleanValue);
                     }
                 }
                 z = false;
                 boolean booleanValue2 = ((Boolean) sparseArray.get(com.baidu.tieba.a.h.tag_is_subpb)).booleanValue();
-                bkVar = this.a.D;
-                onClickListener = this.a.al;
-                bkVar.a(onClickListener, z, booleanValue2);
+                bmVar = this.a.D;
+                onClickListener = this.a.an;
+                bmVar.a(onClickListener, z, booleanValue2);
             }
         }
         return true;

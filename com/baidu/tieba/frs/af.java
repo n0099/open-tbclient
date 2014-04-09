@@ -32,7 +32,7 @@ final class af implements com.baidu.tieba.model.bd {
                 cmVar.h(0);
             }
         }
-        com.baidu.tieba.r.c().f(str);
+        com.baidu.tieba.p.c().f(str);
     }
 
     @Override // com.baidu.tieba.model.bd

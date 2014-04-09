@@ -1,43 +1,19 @@
 package com.baidu.tieba.im.model;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.im.chat.PersonalChatActivity;
 /* loaded from: classes.dex */
-public final class bm {
-    private static bm a;
-    private com.baidu.adp.lib.d.a<String, String> b;
+final class bm extends com.baidu.tieba.im.m<Void> {
+    final /* synthetic */ PersonalMsglistModel b;
 
-    private bm() {
-        this.b = null;
-        this.b = new com.baidu.adp.lib.d.a<>(256);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bm(PersonalMsglistModel personalMsglistModel) {
+        this.b = personalMsglistModel;
     }
 
-    public static synchronized bm a() {
-        bm bmVar;
-        synchronized (bm.class) {
-            if (a == null) {
-                a = new bm();
-            }
-            bmVar = a;
-        }
-        return bmVar;
-    }
-
-    public final void a(String str, Long l) {
-        if (str != null && str.length() > 0) {
-            this.b.a(String.valueOf(TbadkApplication.E()) + str, String.valueOf(l));
-        }
-    }
-
-    public final boolean a(String str) {
-        if (str == null || str.length() <= 0) {
-            return false;
-        }
-        String a2 = this.b.a((com.baidu.adp.lib.d.a<String, String>) (String.valueOf(TbadkApplication.E()) + str));
-        if (TextUtils.isEmpty(a2)) {
-            return false;
-        }
-        return UtilHelper.a(com.baidu.adp.lib.f.b.a(a2, 0L), System.currentTimeMillis());
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Void a() {
+        com.baidu.tieba.im.db.o.d().b(PersonalChatActivity.b);
+        return null;
     }
 }

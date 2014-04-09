@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class PersonInfoActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001003, new by());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001003, new ca());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         com.baidu.adp.framework.c.a().a(customMessageTask);
     }
@@ -21,14 +21,14 @@ public class PersonInfoActivityStatic {
         }
         if (TbadkApplication.E() == null || !TbadkApplication.E().equals(str)) {
             intent = new Intent(context, SinglePersonInfoActivity.class);
-            intent.putExtra(PersonInfoActivity.TAG_SELF, false);
+            intent.putExtra("self", false);
         } else {
             intent = new Intent(context, SingleMyPersonInfoActivity.class);
-            intent.putExtra(PersonInfoActivity.TAG_SELF, true);
+            intent.putExtra("self", true);
         }
-        intent.putExtra(PersonInfoActivity.TAG_ID, str);
-        intent.putExtra(PersonInfoActivity.TAG_NAME, str2);
-        intent.putExtra(PersonInfoActivity.TAG_TAB_PAGE, false);
+        intent.putExtra("un", str);
+        intent.putExtra("name", str2);
+        intent.putExtra("tab_page", false);
         if (!(context instanceof Activity)) {
             intent.setFlags(268435456);
         }

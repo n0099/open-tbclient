@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public abstract class MsglistActivity extends dn {
+public abstract class MsglistActivity extends dj {
     public static boolean a;
     public static String b = "";
 
@@ -15,7 +15,7 @@ public abstract class MsglistActivity extends dn {
     protected abstract boolean p();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
@@ -27,14 +27,14 @@ public abstract class MsglistActivity extends dn {
                 p();
                 this.e.e();
                 m();
-                dg.a = com.baidu.tbadk.core.util.b.b();
+                dc.a = com.baidu.tbadk.core.util.b.b();
             }
         } catch (Exception e) {
             com.baidu.adp.lib.util.f.b(e.getMessage());
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.dn, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.dj, android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         try {
@@ -58,18 +58,18 @@ public abstract class MsglistActivity extends dn {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.d != null) {
-            this.d.N();
+            this.d.O();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.d != null) {
             h hVar = this.d;
             TbadkApplication.j().l();
-            hVar.N();
+            hVar.O();
             c();
         }
     }
@@ -77,14 +77,14 @@ public abstract class MsglistActivity extends dn {
     /* JADX INFO: Access modifiers changed from: protected */
     public void c() {
         if (TbadkApplication.j().V()) {
-            this.d.I();
+            this.d.J();
         } else {
-            this.d.H();
+            this.d.I();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         com.baidu.adp.lib.util.f.e("----ondestroy---");
         super.onDestroy();

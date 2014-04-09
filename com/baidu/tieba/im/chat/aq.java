@@ -20,6 +20,6 @@ public final class aq extends com.baidu.tieba.im.m<Boolean> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.tieba.im.m
     public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.m.d().a(this.c, this.d, String.valueOf(this.e.i()), String.valueOf(this.e.d()), 3));
+        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.c, this.d, String.valueOf(this.e.i()), String.valueOf(this.e.d()), 3));
     }
 }

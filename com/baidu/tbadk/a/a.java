@@ -1,6 +1,7 @@
 package com.baidu.tbadk.a;
 
 import com.baidu.adp.lib.util.f;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.Map;
 import java.util.Random;
 /* loaded from: classes.dex */
@@ -25,6 +26,7 @@ public class a {
                 this.b = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e) {
                 f.b(e.getMessage());
+                TiebaStatic.a(0, 0, "on connected", "SequenceManager: setSequenceId", "Seq-Id = " + map.get("Seq-Id"), 0, null);
                 if (this.b == 0) {
                     this.b = new Random().nextInt();
                 }

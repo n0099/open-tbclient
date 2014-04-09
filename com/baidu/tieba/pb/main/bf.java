@@ -1,464 +1,493 @@
 package com.baidu.tieba.pb.main;
 
 import android.content.Context;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.PraiseData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.data.MarkData;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Date;
 /* loaded from: classes.dex */
-public final class bf extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ae> {
-    final /* synthetic */ bd a;
-    private int c;
-    private b b = null;
+public final class bf extends com.baidu.adp.a.e {
+    private static final int b = com.baidu.tieba.data.d.f() / 30;
+    private static com.baidu.tieba.data.af x = new com.baidu.tieba.data.af();
+    private com.baidu.tieba.data.ae v;
+    private Context y;
+    private String c = null;
     private String d = null;
-    private com.baidu.tieba.data.ae e = null;
+    private String e = null;
+    private boolean f = false;
+    private boolean g = true;
+    private int h = 0;
+    private int i = 0;
+    private long j = 0;
+    private int k = 1;
+    private int l = 1;
+    private int m = 1;
+    private int n = 1;
+    private boolean o = false;
+    private boolean p = false;
+    private boolean q = false;
+    private boolean r = false;
+    private long s = 0;
+    private boolean t = false;
+    private String u = null;
+    private bh w = null;
+    private bg z = null;
+    private long A = 0;
+    private com.baidu.adp.lib.cache.s<String> B = null;
+    private com.baidu.adp.lib.cache.s<String> C = null;
+    protected com.baidu.tbadk.editortool.ab a = null;
+    private long D = 0;
+    private long E = 0;
+    private long F = 0;
+    private long G = 0;
+    private PraiseData H = null;
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ com.baidu.tieba.data.ae a(Object... objArr) {
-        return f();
+    public final long a() {
+        return this.G;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x00b8, code lost:
-        r0 = r14.a.B();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00fa, code lost:
-        r0 = r14.a.B();
-     */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final /* synthetic */ void a(com.baidu.tieba.data.ae aeVar) {
-        int i;
-        com.baidu.tieba.data.ae aeVar2;
-        int size;
-        com.baidu.tieba.data.ae aeVar3;
-        com.baidu.tieba.data.ae aeVar4;
-        String B;
-        com.baidu.adp.lib.cache.s sVar;
-        boolean z;
-        String B2;
-        boolean z2;
-        com.baidu.adp.lib.cache.s sVar2;
-        com.baidu.adp.lib.cache.s sVar3;
-        be beVar;
-        be beVar2;
-        com.baidu.tieba.data.ae aeVar5;
-        String str;
-        be beVar3;
-        be beVar4;
-        String str2;
-        com.baidu.tieba.data.ae aeVar6 = aeVar;
-        this.a.w = null;
-        if (aeVar6 != null) {
-            this.a.t = false;
-            this.a.e(aeVar6.f().d());
-            this.a.n = aeVar6.f().a();
-            bd bdVar = this.a;
-            i = this.a.n;
-            bdVar.n = i <= 0 ? 1 : this.a.n;
-            aeVar2 = this.a.v;
-            ArrayList<com.baidu.tieba.data.ai> e = aeVar2.e();
-            switch (this.c) {
-                case 1:
-                    aeVar4 = this.a.v;
-                    aeVar4.a(aeVar6.f(), 1);
-                    e.addAll(aeVar6.e());
-                    size = 0;
-                    break;
-                case 2:
-                    size = aeVar6.e().size() + 1;
-                    aeVar3 = this.a.v;
-                    aeVar3.a(aeVar6.f(), 2);
-                    e.addAll(0, aeVar6.e());
-                    break;
-                case 3:
-                    z = this.a.g;
-                    if (!z) {
-                        aeVar6.f().c(aeVar6.f().a());
-                    }
-                    b(aeVar6);
-                    if (this.d != null && B2 != null) {
-                        this.a.A();
-                        z2 = this.a.r;
-                        if (z2) {
-                            sVar3 = this.a.B;
-                            sVar3.b(B2, this.d, 604800000L);
-                            size = 0;
-                            break;
-                        } else {
-                            sVar2 = this.a.C;
-                            sVar2.b(B2, this.d, 86400000L);
-                            size = 0;
-                            break;
-                        }
-                    }
-                    size = 0;
-                    break;
-                case 4:
-                    b(aeVar6);
-                    if (this.d != null && B != null) {
-                        this.a.A();
-                        sVar = this.a.B;
-                        sVar.b(B, this.d, 2592000000L);
-                        size = 0;
-                        break;
-                    }
-                    size = 0;
-                    break;
-                case 5:
-                    b(aeVar6);
-                    size = 0;
-                    break;
-                case 6:
-                    b(aeVar6);
-                    size = 0;
-                    break;
-                default:
-                    size = 0;
-                    break;
-            }
-            beVar = this.a.z;
-            if (beVar != null) {
-                beVar2 = this.a.z;
-                int errorCode = this.a.getErrorCode();
-                int i2 = this.c;
-                aeVar5 = this.a.v;
-                str = this.a.mErrorString;
-                beVar2.a(true, errorCode, i2, size, aeVar5, str, 1);
-            }
-        } else {
-            beVar3 = this.a.z;
-            if (beVar3 != null) {
-                beVar4 = this.a.z;
-                int errorCode2 = this.a.getErrorCode();
-                int i3 = this.c;
-                str2 = this.a.mErrorString;
-                beVar4.a(false, errorCode2, i3, 0, null, str2, 1);
-            }
+    public final long b() {
+        return this.E;
+    }
+
+    public final long c() {
+        return this.F;
+    }
+
+    public final long d() {
+        return this.D;
+    }
+
+    public bf(Context context) {
+        this.v = null;
+        this.y = null;
+        this.v = new com.baidu.tieba.data.ae();
+        x.a();
+        this.y = context;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void A() {
+        if (this.B == null) {
+            this.B = com.baidu.tbadk.core.c.b.a().b();
         }
-        this.d = null;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void b(Integer... numArr) {
-        be beVar;
-        be beVar2;
-        String str;
-        beVar = this.a.z;
-        if (beVar == null || this.e == null) {
-            return;
-        }
-        beVar2 = this.a.z;
-        int i = this.c;
-        com.baidu.tieba.data.ae aeVar = this.e;
-        str = this.a.mErrorString;
-        beVar2.a(true, 0, i, 0, aeVar, str, 0);
-    }
-
-    public bf(bd bdVar, int i) {
-        this.a = bdVar;
-        this.c = 3;
-        this.c = i;
-        setSelfExecute(true);
-        bdVar.setErrorString(null);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
-        com.baidu.tieba.data.ae aeVar;
-        com.baidu.tieba.data.ae aeVar2;
-        com.baidu.tieba.data.ae aeVar3;
-        be beVar;
-        be beVar2;
-        com.baidu.tieba.data.ae aeVar4;
-        boolean z = false;
-        super.c();
-        this.a.A = System.nanoTime();
-        aeVar = this.a.v;
-        ArrayList<com.baidu.tieba.data.ai> e = aeVar.e();
-        if (this.c == 1) {
-            boolean z2 = false;
-            while (e.size() + 30 > com.baidu.tieba.data.d.f()) {
-                e.remove(0);
-                z2 = true;
-            }
-            if (z2) {
-                aeVar3 = this.a.v;
-                aeVar3.f().f(1);
-                beVar = this.a.z;
-                if (beVar != null) {
-                    beVar2 = this.a.z;
-                    aeVar4 = this.a.v;
-                    beVar2.a(aeVar4);
-                }
-            }
-        } else if (this.c == 2) {
-            while (e.size() + 30 > com.baidu.tieba.data.d.f()) {
-                e.remove(e.size() - 1);
-                z = true;
-            }
-            if (z) {
-                aeVar2 = this.a.v;
-                aeVar2.f().e(1);
-            }
+        if (this.C == null) {
+            this.C = com.baidu.tbadk.core.c.b.a().c();
         }
     }
 
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    private void a2(com.baidu.tieba.data.ae aeVar) {
-        String str;
-        int i;
-        int i2;
-        long j;
-        Context context;
-        Context context2;
-        if (aeVar != null) {
-            if (aeVar.d() == null || aeVar.d().t() == null) {
-                str = null;
+    public final void a(Intent intent) {
+        this.d = intent.getStringExtra("thread_id");
+        this.e = intent.getStringExtra("post_id");
+        this.f = intent.getBooleanExtra("host_only", false);
+        this.g = intent.getBooleanExtra("squence", true);
+        this.c = intent.getStringExtra("st_type");
+        this.h = intent.getIntExtra("is_good", 0);
+        this.i = intent.getIntExtra("is_top", 0);
+        this.j = intent.getLongExtra("thread_time", 0L);
+        this.q = intent.getBooleanExtra("from_frs", false);
+        this.r = intent.getBooleanExtra("from_mark", false);
+        this.o = intent.getBooleanExtra("is_ad", false);
+        this.p = intent.getBooleanExtra("is_sub_pb", false);
+        this.t = intent.getBooleanExtra("is_pv", false);
+        this.s = intent.getLongExtra("msg_id", 0L);
+        this.u = intent.getStringExtra("forum_name");
+    }
+
+    public final void a(Bundle bundle) {
+        this.d = bundle.getString("thread_id");
+        this.e = bundle.getString("post_id");
+        this.f = bundle.getBoolean("host_only", false);
+        this.g = bundle.getBoolean("squence", true);
+        this.c = bundle.getString("st_type");
+        this.h = bundle.getInt("is_good", 0);
+        this.i = bundle.getInt("is_top", 0);
+        this.j = bundle.getLong("thread_time");
+        this.q = bundle.getBoolean("from_frs", false);
+        this.r = bundle.getBoolean("from_mark", false);
+        this.o = bundle.getBoolean("is_ad", false);
+        this.p = bundle.getBoolean("is_sub_pb", false);
+        this.t = bundle.getBoolean("is_pv", false);
+        this.s = bundle.getLong("msg_id", 0L);
+        this.u = bundle.getString("forum_name");
+    }
+
+    public final void b(Bundle bundle) {
+        bundle.putString("thread_id", this.d);
+        bundle.putString("post_id", this.e);
+        bundle.putBoolean("host_only", this.f);
+        bundle.putBoolean("squence", this.g);
+        bundle.putString("st_type", this.c);
+        bundle.putInt("is_good", this.h);
+        bundle.putInt("is_top", this.i);
+        bundle.putLong("thread_time", this.j);
+        bundle.putBoolean("from_frs", this.q);
+        bundle.putBoolean("from_mark", this.r);
+        bundle.putBoolean("is_sub_pb", this.p);
+        bundle.putBoolean("is_ad", this.o);
+        bundle.putBoolean("is_pv", this.t);
+        bundle.putLong("msg_id", this.s);
+    }
+
+    public final String e() {
+        StringBuilder sb = new StringBuilder(20);
+        sb.append(this.d);
+        sb.append(this.e);
+        sb.append(this.f);
+        sb.append(this.g);
+        sb.append(this.c);
+        sb.append(this.h);
+        sb.append(this.i);
+        sb.append(this.j);
+        sb.append(this.q);
+        sb.append(this.r);
+        sb.append(this.o);
+        sb.append(this.p);
+        sb.append(this.t);
+        sb.append(this.s);
+        sb.append(this.u);
+        return sb.toString();
+    }
+
+    public final String f() {
+        return this.d;
+    }
+
+    public final boolean g() {
+        return this.f;
+    }
+
+    public final boolean h() {
+        return this.g;
+    }
+
+    public final boolean i() {
+        return this.q;
+    }
+
+    public final boolean j() {
+        return this.r;
+    }
+
+    public final int k() {
+        return this.h;
+    }
+
+    public final int l() {
+        return this.i;
+    }
+
+    public final void a(int i) {
+        this.h = i;
+    }
+
+    public final void b(int i) {
+        this.i = i;
+    }
+
+    public final boolean m() {
+        return this.p;
+    }
+
+    public final boolean n() {
+        if (this.v == null) {
+            return false;
+        }
+        return this.v.a();
+    }
+
+    public final String o() {
+        if (this.v == null || !this.v.i()) {
+            return null;
+        }
+        return this.v.j();
+    }
+
+    public final boolean c(int i) {
+        this.k = i;
+        if (this.k > this.v.f().a()) {
+            this.k = this.v.f().a();
+        }
+        if (this.k <= 0) {
+            this.k = 1;
+        }
+        if (this.d == null) {
+            return false;
+        }
+        if (this.w != null) {
+            this.w.cancel();
+        }
+        this.w = new bh(this, 5);
+        this.w.setPriority(3);
+        this.w.execute(new Object[0]);
+        return true;
+    }
+
+    public final void d(int i) {
+        this.k = i;
+        this.l = i;
+        this.m = i;
+    }
+
+    public final void e(int i) {
+        if (this.l < i) {
+            this.l = i;
+            if (this.l - this.m >= b) {
+                this.m = (this.l - b) + 1;
+            }
+        }
+        if (this.m > i) {
+            this.m = i;
+            if (this.l - this.m >= b) {
+                this.l = (this.m + b) - 1;
+            }
+        }
+    }
+
+    public final com.baidu.tieba.data.ae p() {
+        return this.v;
+    }
+
+    public final com.baidu.tbadk.core.data.l q() {
+        if (this.v == null) {
+            return null;
+        }
+        return this.v.f();
+    }
+
+    public final boolean r() {
+        if (this.g) {
+            if (this.v.f().f() == 0) {
+                a(true);
+                return true;
+            }
+        } else if (this.v.f().g() == 0) {
+            b(true);
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.e
+    protected final boolean LoadData() {
+        if (this.d == null) {
+            return false;
+        }
+        if (this.w != null) {
+            this.w.cancel();
+        }
+        this.w = new bh(this, 3);
+        this.w.setPriority(3);
+        this.w.execute(new Object[0]);
+        return true;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public final boolean cancelLoadData() {
+        if (this.w != null) {
+            this.w.cancel();
+        }
+        if (this.a != null) {
+            this.a.c();
+            this.a = null;
+            return true;
+        }
+        return true;
+    }
+
+    public final boolean s() {
+        if (this.e != null && !this.e.equals("0")) {
+            if (this.d == null || this.e == null) {
+                return false;
+            }
+            if (this.w != null) {
+                this.w.cancel();
+            }
+            if (this.r) {
+                this.w = new bh(this, 4);
             } else {
-                str = aeVar.d().t().getUserId();
+                this.w = new bh(this, 6);
             }
-            com.baidu.tbadk.core.data.o d = aeVar.d();
-            i = this.a.h;
-            d.d(i);
-            i2 = this.a.i;
-            d.c(i2);
-            j = this.a.j;
-            d.a(j);
-            for (int i3 = 0; i3 < aeVar.e().size(); i3++) {
-                com.baidu.tieba.data.ai aiVar = aeVar.e().get(i3);
-                for (int i4 = 0; i4 < aiVar.a().size(); i4++) {
-                    boolean equals = str.equals(aiVar.a().get(i4).g().getUserId());
-                    if (this.a.a == null) {
-                        bd bdVar = this.a;
-                        context2 = this.a.y;
-                        bdVar.a = new com.baidu.tbadk.editortool.aa(context2);
-                        this.a.a.a(true);
-                    }
-                    context = this.a.y;
-                    aiVar.a().get(i4).a(context, equals, this.a.a);
-                }
-            }
+            this.w.setPriority(3);
+            this.w.execute(new Object[0]);
+            return true;
         }
+        return LoadData();
     }
 
-    private com.baidu.tieba.data.ae a() {
-        String B;
-        com.baidu.adp.lib.cache.s sVar;
-        com.baidu.adp.lib.cache.t tVar;
-        Context context;
-        com.baidu.adp.lib.cache.s sVar2;
-        B = this.a.B();
-        this.a.A();
-        sVar = this.a.C;
-        if (sVar == null || B == null) {
-            tVar = null;
-        } else {
-            sVar2 = this.a.C;
-            tVar = sVar2.b(B);
+    public final boolean a(boolean z) {
+        if (this.d == null || this.v == null) {
+            return false;
         }
-        if (tVar == null || tVar.b == 0) {
+        if ((z || this.v.f().f() != 0) && this.w == null) {
+            this.w = new bh(this, 1);
+            this.w.setPriority(3);
+            this.w.execute(new Object[0]);
+            return true;
+        }
+        return false;
+    }
+
+    public final boolean b(boolean z) {
+        if (this.d == null || this.v == null || this.v.e() == null || this.v.e().size() <= 0 || this.w != null) {
+            return false;
+        }
+        this.w = new bh(this, 2);
+        this.w.setPriority(3);
+        this.w.execute(new Object[0]);
+        return true;
+    }
+
+    public final boolean t() {
+        this.f = !this.f;
+        if (this.f) {
+            this.g = true;
+        }
+        LoadData();
+        return true;
+    }
+
+    public final boolean u() {
+        this.g = !this.g;
+        if (!this.g) {
+            this.f = false;
+        }
+        LoadData();
+        return true;
+    }
+
+    public final boolean v() {
+        return (this.v == null || this.v.c() == null || this.v.d() == null) ? false : true;
+    }
+
+    public final boolean w() {
+        if (this.v == null) {
+            return false;
+        }
+        return this.v.i();
+    }
+
+    public final WriteData a(String str) {
+        if (this.v == null) {
             return null;
         }
-        com.baidu.tieba.data.ae aeVar = new com.baidu.tieba.data.ae();
-        context = this.a.y;
-        aeVar.a((String) tVar.b, context);
-        if (aeVar.a()) {
-            return aeVar;
+        WriteData writeData = new WriteData();
+        writeData.setForumId(this.v.c().getId());
+        writeData.setForumName(this.v.c().getName());
+        writeData.setThreadId(this.d);
+        writeData.setIsAd(this.o);
+        if (str == null) {
+            writeData.setType(1);
+            return writeData;
         }
-        return null;
+        writeData.setType(2);
+        writeData.setFloor(str);
+        writeData.setFloorNum(0);
+        return writeData;
     }
 
-    private com.baidu.tieba.data.ae e() {
-        String B;
-        com.baidu.adp.lib.cache.s sVar;
-        com.baidu.adp.lib.cache.t tVar;
-        Context context;
-        String str;
-        com.baidu.adp.lib.cache.s sVar2;
-        B = this.a.B();
-        this.a.A();
-        sVar = this.a.B;
-        if (sVar == null || B == null) {
-            tVar = null;
-        } else {
-            sVar2 = this.a.B;
-            tVar = sVar2.b(B);
-        }
-        if (tVar == null || tVar.b == 0) {
+    public final com.baidu.tieba.data.am a(com.baidu.tieba.data.ai aiVar) {
+        if (aiVar == null) {
             return null;
         }
-        com.baidu.tieba.data.ae aeVar = new com.baidu.tieba.data.ae();
-        context = this.a.y;
-        aeVar.a((String) tVar.b, context);
-        if (aeVar.a()) {
-            if (aeVar.j() != null) {
-                String j = aeVar.j();
-                str = this.a.e;
-                if (!j.equals(str)) {
-                    return null;
-                }
+        com.baidu.tieba.data.am amVar = new com.baidu.tieba.data.am();
+        amVar.a(this.v.c());
+        amVar.a(this.v.d());
+        amVar.a(aiVar);
+        amVar.a(aiVar.a());
+        amVar.b(aiVar.k());
+        String j = this.v.j();
+        String d = aiVar.d();
+        if (w() && j != null && d != null && j.equals(d)) {
+            amVar.a(true);
+            return amVar;
+        }
+        amVar.a(false);
+        return amVar;
+    }
+
+    public final MarkData f(int i) {
+        if (i < 0) {
+            i = 0;
+        }
+        if (this.v == null || this.v.e() == null) {
+            return null;
+        }
+        ArrayList<com.baidu.tieba.data.ai> e = this.v.e();
+        if (e.size() > 0 && i == e.size()) {
+            i = e.size() - 1;
+        }
+        if (e.size() <= 0 || i >= e.size()) {
+            return null;
+        }
+        return b(e.get(i));
+    }
+
+    public final MarkData x() {
+        MarkData markData = new MarkData();
+        Date date = new Date();
+        markData.setAccount(TbadkApplication.E());
+        markData.setThreadId(this.d);
+        markData.setPostId(this.v.j());
+        markData.setTime(date.getTime());
+        markData.setHostMode(this.f);
+        markData.setSequence(Boolean.valueOf(this.g));
+        markData.setId(this.d);
+        return markData;
+    }
+
+    public final MarkData b(com.baidu.tieba.data.ai aiVar) {
+        MarkData markData = new MarkData();
+        Date date = new Date();
+        markData.setAccount(TbadkApplication.E());
+        markData.setThreadId(this.d);
+        markData.setPostId(aiVar.d());
+        markData.setTime(date.getTime());
+        markData.setHostMode(this.f);
+        markData.setSequence(Boolean.valueOf(this.g));
+        markData.setId(this.d);
+        markData.setFloor(aiVar.e());
+        return markData;
+    }
+
+    public final void y() {
+        A();
+        String B = B();
+        if (this.r) {
+            if (this.B != null && B != null) {
+                this.B.b(B, "", 0L);
             }
-            return aeVar;
+        } else if (this.C != null && B != null) {
+            this.C.b(B, "", 0L);
         }
-        return null;
     }
 
-    private com.baidu.tieba.data.ae f() {
-        bh bhVar;
-        com.baidu.tieba.data.ae aeVar;
-        boolean z;
-        com.baidu.tieba.data.ae a;
-        String str;
-        String str2;
-        String str3;
-        int i;
-        int i2;
-        boolean z2;
-        boolean z3;
-        int i3;
-        int i4;
-        boolean z4;
-        long j;
-        boolean z5;
-        com.baidu.tieba.data.af afVar;
-        Context context;
-        com.baidu.tieba.data.af afVar2;
-        com.baidu.tieba.data.af afVar3;
-        long j2;
-        com.baidu.tieba.data.af afVar4;
-        com.baidu.tieba.data.af afVar5;
-        bh bhVar2;
-        bh bhVar3;
-        bhVar = bi.a;
-        com.baidu.tieba.data.ae b = bhVar.b();
-        if (b == null) {
-            try {
-                aeVar = this.a.v;
-                ArrayList<com.baidu.tieba.data.ai> e = aeVar.e();
-                switch (this.c) {
-                    case 1:
-                        this.a.e = e.get(e.size() - 1).d();
-                        a = null;
-                        break;
-                    case 2:
-                        this.a.e = e.get(0).d();
-                        a = null;
-                        break;
-                    case 3:
-                        z = this.a.r;
-                        if (z) {
-                            a = e();
-                            break;
-                        } else {
-                            a = a();
-                            break;
-                        }
-                    case 4:
-                        a = e();
-                        break;
-                    default:
-                        a = null;
-                        break;
-                }
-                if (a != null) {
-                    this.e = a;
-                    a2(this.e);
-                    c((Object[]) new Integer[]{0});
-                }
-                this.a.D = System.currentTimeMillis();
-                this.b = new b();
-                b bVar = this.b;
-                str = this.a.d;
-                str2 = this.a.c;
-                str3 = this.a.e;
-                i = this.a.m;
-                i2 = this.a.l;
-                z2 = this.a.g;
-                z3 = this.a.f;
-                int i5 = this.c;
-                i3 = this.a.k;
-                i4 = this.a.n;
-                z4 = this.a.t;
-                j = this.a.s;
-                z5 = this.a.r;
-                afVar = bd.x;
-                this.d = bVar.a(str, str2, str3, i, i2, z2, z3, i5, i3, i4, z4, j, z5, afVar);
-                this.a.E = this.b.g();
-                this.a.F = this.b.h();
-                this.a.G = System.currentTimeMillis();
-                com.baidu.tieba.data.ae aeVar2 = new com.baidu.tieba.data.ae();
-                String str4 = this.d;
-                context = this.a.y;
-                aeVar2.a(str4, context);
-                if (!this.b.b()) {
-                    aeVar2 = null;
-                }
-                if (aeVar2 != null) {
-                    a2(aeVar2);
-                    return aeVar2;
-                } else if (this.b != null) {
-                    this.a.setErrorString(this.b.e());
-                    this.a.setErrorCode(this.b.f());
-                    if (this.b.c()) {
-                        afVar3 = bd.x;
-                        afVar3.a();
-                        long nanoTime = System.nanoTime();
-                        j2 = this.a.A;
-                        afVar4 = bd.x;
-                        afVar4.a((int) ((nanoTime - j2) / 1000000));
-                        afVar5 = bd.x;
-                        afVar5.b(this.b.d());
-                        return aeVar2;
-                    }
-                    afVar2 = bd.x;
-                    afVar2.c(1);
-                    return aeVar2;
-                } else {
-                    return aeVar2;
-                }
-            } catch (Exception e2) {
-                com.baidu.adp.lib.util.f.b("PbAsyncTask", "doInBackground", "error = " + e2.getMessage());
-                return null;
-            }
+    /* JADX INFO: Access modifiers changed from: private */
+    public String B() {
+        String str = this.d;
+        if (this.f) {
+            str = String.valueOf(str) + "_host";
         }
-        bd bdVar = this.a;
-        bhVar2 = bi.a;
-        bdVar.g = bhVar2.d();
-        bd bdVar2 = this.a;
-        bhVar3 = bi.a;
-        bdVar2.f = bhVar3.e();
-        return b;
+        if (!this.g) {
+            str = String.valueOf(str) + "_rev";
+        }
+        if (TbadkApplication.E() != null) {
+            return String.valueOf(str) + TbadkApplication.E();
+        }
+        return str;
     }
 
-    private void b(com.baidu.tieba.data.ae aeVar) {
-        this.a.v = aeVar;
-        this.a.d(aeVar.f().d());
+    public final void c(boolean z) {
+        if (this.v != null) {
+            this.v.a(z);
+        }
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        be beVar;
-        be beVar2;
-        super.cancel(true);
-        this.a.setErrorString(null);
-        if (this.b != null) {
-            this.b.a();
-        }
-        beVar = this.a.z;
-        if (beVar != null) {
-            beVar2 = this.a.z;
-            beVar2.a(false, this.a.getErrorCode(), this.c, 0, null, null, 2);
-        }
-        this.a.w = null;
-        this.d = null;
+    public final void a(bg bgVar) {
+        this.z = bgVar;
     }
 }

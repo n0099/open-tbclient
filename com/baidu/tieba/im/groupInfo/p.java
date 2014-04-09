@@ -11,9 +11,9 @@ import com.baidu.tieba.im.message.ResponseGroupInfoMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
-import com.baidu.tieba.im.message.aw;
-import com.baidu.tieba.im.message.bg;
-import com.baidu.tieba.im.model.br;
+import com.baidu.tieba.im.message.av;
+import com.baidu.tieba.im.message.bf;
+import com.baidu.tieba.im.model.bs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class p extends com.baidu.adp.framework.c.g {
@@ -39,11 +39,11 @@ public final class p extends com.baidu.adp.framework.c.g {
         r rVar5;
         int i;
         com.baidu.tieba.im.model.l lVar9;
-        br brVar;
+        bs bsVar;
         com.baidu.tieba.im.model.l lVar10;
-        br brVar2;
+        bs bsVar2;
         com.baidu.tieba.im.model.l lVar11;
-        br brVar3;
+        bs bsVar3;
         com.baidu.tieba.im.model.l lVar12;
         com.baidu.tieba.im.model.l lVar13;
         com.baidu.tieba.im.model.l lVar14;
@@ -78,7 +78,7 @@ public final class p extends com.baidu.adp.framework.c.g {
         } else if (socketResponsedMessage2.g() == 103004) {
             rVar12 = this.a.f;
             rVar12.r();
-            if (!(socketResponsedMessage2 instanceof ResponseGroupInfoMessage)) {
+            if (socketResponsedMessage2.e() != 0) {
                 this.a.showToast(com.baidu.tieba.im.j.neterror);
                 return;
             }
@@ -122,15 +122,15 @@ public final class p extends com.baidu.adp.framework.c.g {
         } else if (socketResponsedMessage2.g() == 103102) {
             rVar5 = this.a.f;
             rVar5.r();
-            if (!(socketResponsedMessage2 instanceof ResponseUpdateGroupMessage)) {
+            if (socketResponsedMessage2.e() != 0) {
                 this.a.showToast(com.baidu.tieba.im.j.neterror);
                 return;
             }
             ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) socketResponsedMessage2;
             if (responseUpdateGroupMessage.e() != 0) {
                 this.a.showToast(responseUpdateGroupMessage.f());
-            } else if (responseUpdateGroupMessage.h() instanceof bg) {
-                int i2 = ((bg) responseUpdateGroupMessage.h()).i();
+            } else if (responseUpdateGroupMessage.h() instanceof bf) {
+                int i2 = ((bf) responseUpdateGroupMessage.h()).i();
                 i = this.a.e;
                 switch (i) {
                     case 1:
@@ -166,16 +166,16 @@ public final class p extends com.baidu.adp.framework.c.g {
                     case 4:
                         lVar9 = this.a.g;
                         GroupData b = lVar9.f().b();
-                        brVar = this.a.h;
-                        b.setFlag(brVar.c());
+                        bsVar = this.a.h;
+                        b.setFlag(bsVar.c());
                         lVar10 = this.a.g;
                         GroupData b2 = lVar10.f().b();
-                        brVar2 = this.a.h;
-                        b2.setPosition(brVar2.a());
+                        bsVar2 = this.a.h;
+                        b2.setPosition(bsVar2.a());
                         lVar11 = this.a.g;
                         GroupData b3 = lVar11.f().b();
-                        brVar3 = this.a.h;
-                        b3.setBusiness(brVar3.b());
+                        bsVar3 = this.a.h;
+                        b3.setBusiness(bsVar3.b());
                         lVar12 = this.a.g;
                         if ((lVar12.f().b().getFlag() & 1) == 1) {
                             rVar7 = this.a.f;
@@ -230,12 +230,12 @@ public final class p extends com.baidu.adp.framework.c.g {
             }
         } else if (socketResponsedMessage2 instanceof ResponseRemoveMembersMessage) {
             ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) socketResponsedMessage2;
-            if (responseRemoveMembersMessage.e() == 0 && (h = responseRemoveMembersMessage.h()) != null && (h instanceof aw)) {
-                aw awVar = (aw) h;
-                long i3 = awVar.i();
+            if (responseRemoveMembersMessage.e() == 0 && (h = responseRemoveMembersMessage.h()) != null && (h instanceof av)) {
+                av avVar = (av) h;
+                long i3 = avVar.i();
                 lVar2 = this.a.g;
                 if (i3 == lVar2.d()) {
-                    String j = awVar.j();
+                    String j = avVar.j();
                     if (TextUtils.isEmpty(j) || (split = j.split(",")) == null || split.length == 0) {
                         return;
                     }

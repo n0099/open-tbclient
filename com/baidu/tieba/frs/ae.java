@@ -63,7 +63,7 @@ final class ae extends com.baidu.adp.a.h {
         }
         cmVar3 = this.a.r;
         cmVar3.a(this.a.getString(com.baidu.tieba.a.k.like_success));
-        com.baidu.tieba.r c = com.baidu.tieba.r.c();
+        com.baidu.tieba.p c = com.baidu.tieba.p.c();
         str3 = this.a.i;
         c.e(str3);
     }

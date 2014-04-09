@@ -8,7 +8,7 @@ public class ResponseUpdateMaskInfoMessage extends SocketResponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         UpdateMaskInfoRes.UpdateMaskInfoResIdl parseFrom = UpdateMaskInfoRes.UpdateMaskInfoResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
     }
 
     public ResponseUpdateMaskInfoMessage() {

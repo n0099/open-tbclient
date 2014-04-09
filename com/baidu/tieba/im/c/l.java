@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.c;
 
+import com.baidu.adp.framework.b.m;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -7,20 +8,18 @@ import com.baidu.tieba.im.chat.x;
 import com.baidu.tieba.im.data.GroupIdTypeData;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.message.ResponsePullMessage;
-import com.baidu.tieba.im.message.ResponseShowedSpringEggMessage;
 import com.baidu.tieba.im.message.ResponseUnLoginMessage;
-import com.baidu.tieba.im.p;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 /* loaded from: classes.dex */
-public final class l extends com.baidu.adp.framework.b.j {
+public final class l extends m {
     private long a;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.f' to match base method */
-    @Override // com.baidu.adp.framework.b.g
+    @Override // com.baidu.adp.framework.b.i
     public final /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         GroupMsgData next;
         String E;
@@ -35,19 +34,12 @@ public final class l extends com.baidu.adp.framework.b.j {
                 this.a++;
             }
             b.a().h();
-            ResponsePullMessage responsePullMessage = (ResponsePullMessage) socketResponsedMessage2;
-            int i2 = responsePullMessage.i();
-            p.a();
-            p.b(i2 == 1);
-            if (i2 == 1) {
-                com.baidu.adp.framework.c.a().b(new ResponseShowedSpringEggMessage());
-            }
-            Iterator<GroupMsgData> it = responsePullMessage.d().iterator();
+            Iterator<GroupMsgData> it = ((ResponsePullMessage) socketResponsedMessage2).d().iterator();
             while (it.hasNext() && (next = it.next()) != null) {
                 if (next != null && next.b() != null) {
                     int groupId = next.b().getGroupId();
-                    long j = 0;
                     Iterator<com.baidu.tieba.im.message.a.a> it2 = next.c().iterator();
+                    long j = 0;
                     while (it2.hasNext()) {
                         com.baidu.tieba.im.message.a.a next2 = it2.next();
                         if (next2.w() > j) {
@@ -117,7 +109,7 @@ public final class l extends com.baidu.adp.framework.b.j {
                         a(next);
                         break;
                 }
-                b.setCustomType(5);
+                b.setCustomType(6);
                 a(next);
             }
             return null;

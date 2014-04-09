@@ -133,7 +133,7 @@ public class NavigationBar extends RelativeLayout {
 
     public final View a(ControlAlign controlAlign, ControlType controlType, View.OnClickListener onClickListener) {
         LinearLayout linearLayout = null;
-        if (controlType == ControlType.BACK_BUTTON && (linearLayout = (LinearLayout) c(com.baidu.tbadk.k.widget_nb_item_back)) != null) {
+        if (controlType == ControlType.BACK_BUTTON && (linearLayout = (LinearLayout) findViewById(com.baidu.tbadk.j.navigationBarGoBack)) == null && (linearLayout = (LinearLayout) c(com.baidu.tbadk.k.widget_nb_item_back)) != null) {
             a(controlAlign).addView(linearLayout);
             if (onClickListener != null) {
                 linearLayout.setOnClickListener(onClickListener);

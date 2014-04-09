@@ -1,55 +1,58 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbadkApplication;
+import android.view.View;
+import android.widget.AdapterView;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class q extends BdAsyncTask<List<String>, Integer, Boolean> {
+final class q implements AdapterView.OnItemClickListener {
     final /* synthetic */ EmotionManageActivity a;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Boolean a(List<String>... listArr) {
-        List<String> list = listArr[0];
-        if (list == null || list.isEmpty()) {
-            return false;
-        }
-        int i = 0;
-        for (String str : list) {
-            MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
-            myEmotionGroupData.setGroupId(str);
-            myEmotionGroupData.setUid(TbadkApplication.E());
-            c.a();
-            if (c.a(myEmotionGroupData)) {
-                com.baidu.adp.lib.util.f.e("delete my emotion:" + myEmotionGroupData.getId());
-                i++;
-            }
-        }
-        return i > 0;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(Boolean bool) {
-        Boolean bool2 = bool;
-        super.a((q) bool2);
-        if (bool2.booleanValue()) {
-            com.baidu.tbadk.editortool.ab.a().b();
-            this.a.p = true;
-            this.a.a(true);
-        }
-    }
-
-    private q(EmotionManageActivity emotionManageActivity) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(EmotionManageActivity emotionManageActivity) {
         this.a = emotionManageActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ q(EmotionManageActivity emotionManageActivity, byte b) {
-        this(emotionManageActivity);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        boolean z;
+        List list;
+        w wVar;
+        List<u> list2;
+        List list3;
+        List list4;
+        List list5;
+        z = this.a.p;
+        if (z) {
+            list = this.a.a;
+            if (list.get(i) != null && (wVar = (w) view.getTag()) != null) {
+                Object tag = wVar.a.getTag();
+                if (tag instanceof String) {
+                    String str = (String) tag;
+                    list2 = this.a.a;
+                    for (u uVar : list2) {
+                        if (uVar.a.equals(str)) {
+                            list3 = this.a.b;
+                            if (list3.contains(str)) {
+                                com.baidu.tbadk.core.util.ba.c(wVar.a, com.baidu.tieba.a.g.btn_expression_choose_n);
+                                list4 = this.a.b;
+                                list4.remove(str);
+                                EmotionManageActivity.a(this.a, str);
+                                uVar.c = false;
+                            } else {
+                                com.baidu.tbadk.core.util.ba.c(wVar.a, com.baidu.tieba.a.g.btn_expression_choose_s);
+                                EmotionManageActivity.b(this.a, str);
+                                uVar.c = true;
+                            }
+                        }
+                    }
+                    return;
+                }
+                return;
+            }
+            return;
+        }
+        EmotionManageActivity emotionManageActivity = this.a;
+        list5 = this.a.a;
+        this.a.sendMessage(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.i(emotionManageActivity, ((u) list5.get(i)).a, false, "emotion_manage")));
     }
 }

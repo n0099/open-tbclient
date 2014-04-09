@@ -18,13 +18,13 @@ public class GoOnAnimView extends LinearLayout {
 
     public GoOnAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f = new r(this);
+        this.f = new p(this);
         a(context);
     }
 
     public GoOnAnimView(Context context) {
         super(context);
-        this.f = new r(this);
+        this.f = new p(this);
         a(context);
     }
 

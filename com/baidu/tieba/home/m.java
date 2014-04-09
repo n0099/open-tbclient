@@ -1,27 +1,39 @@
 package com.baidu.tieba.home;
 
-import android.os.Bundle;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tieba.data.y;
+import com.baidu.tieba.guide.NewUserGuideActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class m extends com.baidu.adp.framework.c.a {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mainTab.d fragmentTabStructure;
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 == null || customResponsedMessage2.g() != 2007002 || customResponsedMessage2.a() == null) {
-            return;
-        }
-        EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
-        ((com.baidu.tbadk.mainTab.e) customResponsedMessage2.a()).a(enterForumDelegateStatic);
-        if (((com.baidu.tbadk.mainTab.e) customResponsedMessage2.a()).b() == null || (fragmentTabStructure = enterForumDelegateStatic.getFragmentTabStructure()) == null) {
-            return;
-        }
-        fragmentTabStructure.a.setArguments(new Bundle());
-    }
+public final class m implements View.OnClickListener {
+    final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(int i) {
-        super(2007002);
+    public m(l lVar) {
+        this.a = lVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        y yVar;
+        boolean z;
+        com.baidu.tbadk.core.e eVar;
+        y yVar2;
+        y yVar3;
+        yVar = this.a.b;
+        if (yVar != null) {
+            yVar2 = this.a.b;
+            if (yVar2.a() != null) {
+                yVar3 = this.a.b;
+                if (yVar3.a().size() > 0) {
+                    z = true;
+                    eVar = this.a.a;
+                    NewUserGuideActivity.a(eVar, false, z);
+                }
+            }
+        }
+        z = false;
+        eVar = this.a.a;
+        NewUserGuideActivity.a(eVar, false, z);
     }
 }

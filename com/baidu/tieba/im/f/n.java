@@ -13,8 +13,8 @@ final class n extends com.baidu.tieba.im.m<Void> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.tieba.im.m
     public final /* synthetic */ Void a() {
-        com.baidu.tieba.im.db.g.a();
-        com.baidu.tieba.im.db.g.b(this.b, this.c);
+        com.baidu.tieba.im.db.h.a();
+        com.baidu.tieba.im.db.h.b(this.b, this.c);
         return null;
     }
 }

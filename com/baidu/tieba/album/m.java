@@ -12,52 +12,52 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class m extends com.baidu.tbadk.core.d implements AdapterView.OnItemClickListener {
-    private View a;
-    private BdListView b;
-    private NavigationBar c;
-    private View d;
-    private LinearLayout e;
-    private j f;
-    private AlbumActivity g;
-    private e h;
-    private p i;
+    private View b;
+    private BdListView c;
+    private NavigationBar d;
+    private View e;
+    private LinearLayout f;
+    private j g;
+    private AlbumActivity h;
+    private e i;
+    private p j;
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.g = (AlbumActivity) getActivity();
-        this.i = this.g.f();
+        this.h = (AlbumActivity) getActivity();
+        this.j = this.h.f();
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.a = layoutInflater.inflate(com.baidu.tieba.a.i.album_list_view, (ViewGroup) null);
-        this.b = (BdListView) this.a.findViewById(com.baidu.tieba.a.h.album_list);
-        this.c = (NavigationBar) this.a.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.d = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.g);
-        this.c.a(this.g.getString(com.baidu.tieba.a.k.album));
-        this.e = (LinearLayout) this.a.findViewById(com.baidu.tieba.a.h.lay_no_data);
-        this.f = new j(this.g);
-        this.b.setAdapter((ListAdapter) this.f);
-        this.b.setOnScrollListener(this.f);
-        this.b.setOnItemClickListener(this);
-        return this.a;
+        this.b = layoutInflater.inflate(com.baidu.tieba.a.i.album_list_view, (ViewGroup) null);
+        this.c = (BdListView) this.b.findViewById(com.baidu.tieba.a.h.album_list);
+        this.d = (NavigationBar) this.b.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
+        this.e = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.h);
+        this.d.a(this.h.getString(com.baidu.tieba.a.k.album));
+        this.f = (LinearLayout) this.b.findViewById(com.baidu.tieba.a.h.lay_no_data);
+        this.g = new j(this.h);
+        this.c.setAdapter((ListAdapter) this.g);
+        this.c.setOnScrollListener(this.g);
+        this.c.setOnItemClickListener(this);
+        return this.b;
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onStart() {
         super.onStart();
-        this.b.setVisibility(0);
-        this.e.setVisibility(8);
-        if (this.h == null) {
-            this.h = new e(this.g);
+        this.c.setVisibility(0);
+        this.f.setVisibility(8);
+        if (this.i == null) {
+            this.i = new e(this.h);
         }
-        this.h.a(new n(this));
+        this.i.a(new n(this));
     }
 
     public final void a(List<a> list) {
-        if (this.f != null) {
-            this.f.a(list);
+        if (this.g != null) {
+            this.g.a(list);
         }
     }
 
@@ -77,33 +77,33 @@ public final class m extends com.baidu.tbadk.core.d implements AdapterView.OnIte
     }
 
     public final View a() {
-        return this.d;
+        return this.e;
     }
 
     @Override // com.baidu.tbadk.core.d, android.widget.AdapterView.OnItemClickListener
     public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         a item;
         super.onItemClick(adapterView, view, i, j);
-        if (this.f != null && (item = this.f.getItem(i)) != null && this.i != null && this.g != null) {
-            this.i.b(item.a());
-            this.i.a(item.a());
-            this.g.e(1);
+        if (this.g != null && (item = this.g.getItem(i)) != null && this.j != null && this.h != null) {
+            this.j.b(item.a());
+            this.j.a(item.a());
+            this.h.d(1);
         }
     }
 
     @Override // com.baidu.tbadk.core.d
-    public final void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.g.b().a(i == 1);
-        this.g.b().a(this.a);
-        this.c.b(i);
+    public final void c(int i) {
+        super.c(i);
+        this.h.b().a(i == 1);
+        this.h.b().a(this.b);
+        this.d.b(i);
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onDestroy() {
         super.onDestroy();
-        if (this.h != null) {
-            this.h.a();
+        if (this.i != null) {
+            this.i.a();
         }
     }
 }

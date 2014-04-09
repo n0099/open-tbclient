@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.data.InterestFrsData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -94,7 +94,7 @@ public final class u extends Dialog implements a {
     }
 
     @Override // com.baidu.tieba.guide.a
-    public final void a(aa aaVar) {
+    public final void a(ab abVar) {
     }
 
     @Override // android.app.Dialog, com.baidu.tieba.guide.a

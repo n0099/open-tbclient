@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.chat.dg;
+import com.baidu.tieba.im.chat.dc;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.data.MsgPageData;
@@ -37,14 +37,14 @@ public abstract class MsglistModel extends com.baidu.adp.a.e {
     protected MsglistActivity c;
     private String g;
     private final HashMap<String, com.baidu.tbadk.img.a<com.baidu.tieba.im.message.a.a>> h;
-    private final bs i;
+    private final bt i;
     private final com.baidu.tbadk.img.d j;
-    private aw k;
+    private ax k;
     private final int e = 1800;
     private boolean f = true;
-    com.baidu.adp.a.h d = new z(this);
-    private final com.baidu.adp.framework.c.a l = new ak(this, 0);
-    private com.baidu.adp.framework.c.a m = new al(this, 0);
+    com.baidu.adp.a.h d = new aa(this);
+    private final com.baidu.adp.framework.c.a l = new al(this, 0);
+    private com.baidu.adp.framework.c.a m = new am(this, 0);
 
     /* loaded from: classes.dex */
     public class PicMessageData implements Serializable {
@@ -67,11 +67,11 @@ public abstract class MsglistModel extends com.baidu.adp.a.e {
 
     public abstract boolean d();
 
-    public abstract boolean d_();
-
     public abstract boolean e();
 
     protected abstract com.baidu.tieba.im.message.a.a f();
+
+    public abstract boolean f_();
 
     public MsglistModel(MsglistActivity msglistActivity) {
         this.b = null;
@@ -79,8 +79,8 @@ public abstract class MsglistModel extends com.baidu.adp.a.e {
         this.c = msglistActivity;
         this.b = new MsgPageData();
         this.h = new HashMap<>();
-        this.j = new am(this);
-        this.i = new bs();
+        this.j = new an(this);
+        this.i = new bt();
         this.i.setLoadDataCallBack(this.d);
         com.baidu.adp.framework.c.a().a(2001157, this.m);
         com.baidu.adp.framework.c.a().a(2001113, this.l);
@@ -239,21 +239,21 @@ public abstract class MsglistModel extends com.baidu.adp.a.e {
                 CommonMsgPojo commonMsgPojo = new CommonMsgPojo(bVar);
                 commonMsgPojo.setRead_flag(0);
                 linkedList.add(commonMsgPojo);
-                com.baidu.tieba.im.s.a(new aq(this, bVar, linkedList), new ar(this, bVar));
+                com.baidu.tieba.im.r.a(new ar(this, bVar, linkedList), new as(this, bVar));
             } else if (a2 instanceof com.baidu.tieba.im.message.a.f) {
                 com.baidu.tieba.im.message.a.f fVar = (com.baidu.tieba.im.message.a.f) a2;
                 LinkedList linkedList2 = new LinkedList();
                 CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(fVar);
                 commonMsgPojo2.setRead_flag(0);
                 linkedList2.add(commonMsgPojo2);
-                com.baidu.tieba.im.s.a(new as(this, fVar, linkedList2), new at(this, fVar));
+                com.baidu.tieba.im.r.a(new at(this, fVar, linkedList2), new au(this, fVar));
             } else if (a2 instanceof com.baidu.tieba.im.message.a.e) {
                 com.baidu.tieba.im.message.a.e eVar = (com.baidu.tieba.im.message.a.e) a2;
                 LinkedList linkedList3 = new LinkedList();
                 CommonMsgPojo commonMsgPojo3 = new CommonMsgPojo(eVar);
                 commonMsgPojo3.setRead_flag(0);
                 linkedList3.add(commonMsgPojo3);
-                com.baidu.tieba.im.s.a(new au(this, eVar, linkedList3), new ad(this, eVar));
+                com.baidu.tieba.im.r.a(new av(this, eVar, linkedList3), new ae(this, eVar));
             }
         }
     }
@@ -288,21 +288,21 @@ public abstract class MsglistModel extends com.baidu.adp.a.e {
                 CommonMsgPojo commonMsgPojo = new CommonMsgPojo(bVar2);
                 commonMsgPojo.setRead_flag(0);
                 linkedList.add(commonMsgPojo);
-                com.baidu.tieba.im.s.a(new ae(this, bVar2, linkedList), new af(this, bVar2, str, bVar));
+                com.baidu.tieba.im.r.a(new af(this, bVar2, linkedList), new ag(this, bVar2, str, bVar));
             } else if (a2 instanceof com.baidu.tieba.im.message.a.f) {
                 com.baidu.tieba.im.message.a.f fVar = (com.baidu.tieba.im.message.a.f) a2;
                 LinkedList linkedList2 = new LinkedList();
                 CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(fVar);
                 commonMsgPojo2.setRead_flag(0);
                 linkedList2.add(commonMsgPojo2);
-                com.baidu.tieba.im.s.a(new ag(this, fVar, linkedList2), new ah(this, fVar, str, bVar));
+                com.baidu.tieba.im.r.a(new ah(this, fVar, linkedList2), new ai(this, fVar, str, bVar));
             } else if (a2 instanceof com.baidu.tieba.im.message.a.e) {
                 com.baidu.tieba.im.message.a.e eVar = (com.baidu.tieba.im.message.a.e) a2;
                 LinkedList linkedList3 = new LinkedList();
                 CommonMsgPojo commonMsgPojo3 = new CommonMsgPojo(eVar);
                 commonMsgPojo3.setRead_flag(0);
                 linkedList3.add(commonMsgPojo3);
-                com.baidu.tieba.im.s.a(new ai(this, eVar, linkedList3), new aj(this, eVar, str, bVar));
+                com.baidu.tieba.im.r.a(new aj(this, eVar, linkedList3), new ak(this, eVar, str, bVar));
             }
         }
     }
@@ -544,7 +544,7 @@ public abstract class MsglistModel extends com.baidu.adp.a.e {
         if (i2 >= 0 && i < size) {
             loop0: for (com.baidu.tieba.im.message.a.a aVar : list) {
                 if (aVar.t() == 4) {
-                    dg.a = com.baidu.tbadk.core.util.b.b();
+                    dc.a = com.baidu.tbadk.core.util.b.b();
                 }
                 long x = aVar.x();
                 String portrait = aVar.r().getPortrait();
@@ -593,7 +593,7 @@ public abstract class MsglistModel extends com.baidu.adp.a.e {
                 arrayList.clear();
             }
         }
-        Collections.sort(list, new av(this, (byte) 0));
+        Collections.sort(list, new aw(this, (byte) 0));
         int a2 = a(this.b.getChatMessages(), list);
         if (a2 > 0) {
             this.b.setIsNewAdd(true);
@@ -780,7 +780,7 @@ public abstract class MsglistModel extends com.baidu.adp.a.e {
         }
     }
 
-    public final void a(aw awVar) {
-        this.k = awVar;
+    public final void a(ax axVar) {
+        this.k = axVar;
     }
 }

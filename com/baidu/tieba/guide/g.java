@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.data.InterestFrsData;
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
 public final class g extends BaseAdapter {
     private List<InterestFrsData.Card> a;
     private Context b;
-    private aa c;
+    private ab c;
     private View.OnClickListener d;
 
     public g(Context context) {
@@ -28,8 +28,8 @@ public final class g extends BaseAdapter {
         this.d = onClickListener;
     }
 
-    public final void a(aa aaVar) {
-        this.c = aaVar;
+    public final void a(ab abVar) {
+        this.c = abVar;
     }
 
     public final void a(List<InterestFrsData.Card> list) {

@@ -1,26 +1,28 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public final class cb implements View.OnClickListener {
-    final /* synthetic */ MsgActivityView a;
+public final class cb extends com.baidu.adp.a.d<com.baidu.tieba.im.message.a.a> {
+    private TextView c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(MsgActivityView msgActivityView) {
-        this.a = msgActivityView;
+    public cb(Context context) {
+        super(context, com.baidu.tieba.im.i.msg_msgmid_view);
+        this.c = null;
+        this.c = (TextView) a(com.baidu.tieba.im.h.tex_msgcontent);
+        this.c.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        com.baidu.adp.lib.b.a aVar;
-        com.baidu.adp.lib.b.a aVar2;
-        int i;
-        aVar = this.a.v;
+    public final void a(com.baidu.tieba.im.message.a.a aVar) {
         if (aVar != null) {
-            aVar2 = this.a.v;
-            i = this.a.t;
-            aVar2.a(view, 8, i, 0L);
+            String g = com.baidu.tieba.im.f.q.g(aVar);
+            if (!TextUtils.isEmpty(g)) {
+                this.c.setText(g);
+                return;
+            }
         }
+        this.c.setText("");
     }
 }

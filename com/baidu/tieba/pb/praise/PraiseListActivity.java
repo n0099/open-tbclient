@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.b.af;
 import com.baidu.tbadk.core.b.ag;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -22,13 +23,15 @@ public class PraiseListActivity extends com.baidu.tbadk.a implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(Context context, String str, String str2) {
-        if (com.baidu.adp.lib.util.h.b(str)) {
+    public static /* synthetic */ void a(Context context, String str, String str2, String str3, boolean z) {
+        if (com.baidu.adp.lib.util.h.b(str2)) {
             return;
         }
         Intent intent = new Intent(context, PraiseListActivity.class);
-        intent.putExtra("KeyIntentPostId", str);
-        intent.putExtra("KeyIntentPostDesc", str2);
+        intent.putExtra("KeyIntentThreadId", str);
+        intent.putExtra("KeyIntentPostId", str2);
+        intent.putExtra("KeyIntentPostDesc", str3);
+        intent.putExtra("KeyIntentIsFromPb", z);
         if (!(context instanceof Activity)) {
             intent.setFlags(268435456);
         }
@@ -40,29 +43,34 @@ public class PraiseListActivity extends com.baidu.tbadk.a implements View.OnClic
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.b = new f(bundle.getString("KeyIntentPostId"), bundle.getString("KeyIntentPostDesc"), this);
+            this.b = new f(bundle.getString("KeyIntentThreadId"), bundle.getString("KeyIntentPostId"), bundle.getString("KeyIntentPostDesc"), bundle.getBoolean("KeyIntentIsFromPb", true), this);
             this.b.a(bundle.getInt("KeyIntentPraiseId"));
         } else if (getIntent() != null) {
-            this.b = new f(getIntent().getStringExtra("KeyIntentPostId"), getIntent().getStringExtra("KeyIntentPostDesc"), this);
+            this.b = new f(getIntent().getStringExtra("KeyIntentThreadId"), getIntent().getStringExtra("KeyIntentPostId"), getIntent().getStringExtra("KeyIntentPostDesc"), getIntent().getBooleanExtra("KeyIntentIsFromPb", true), this);
         }
         if (this.b == null) {
             this.b = new f();
         }
-        this.a = new i(this, this.b.b());
+        this.a = new i(this, this.b.d());
         this.a.d();
-        this.b.c();
+        this.b.e();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.a.g()) {
             if (this.b != null) {
-                this.b.a();
+                this.b.c();
             }
+            if (this.b.b()) {
+                finish();
+                return;
+            }
+            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2004001, new af(this).a(this.b.a(), null, "praise_list")));
             finish();
         } else if (view == this.a.h() && !this.a.f()) {
             this.a.d();
-            this.b.c();
+            this.b.e();
         }
     }
 
@@ -77,9 +85,11 @@ public class PraiseListActivity extends com.baidu.tbadk.a implements View.OnClic
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.b.a(bundle, "KeyIntentPostId");
-        this.b.b(bundle, "KeyIntentPostDesc");
-        this.b.c(bundle, "KeyIntentPraiseId");
+        this.b.a(bundle, "KeyIntentIsFromPb");
+        this.b.b(bundle, "KeyIntentThreadId");
+        this.b.c(bundle, "KeyIntentPostId");
+        this.b.d(bundle, "KeyIntentPostDesc");
+        this.b.e(bundle, "KeyIntentPraiseId");
     }
 
     @Override // com.baidu.tieba.pb.praise.h

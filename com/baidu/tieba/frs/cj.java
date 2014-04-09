@@ -19,10 +19,10 @@ public final class cj {
     private com.baidu.tbadk.a b;
     private View.OnClickListener c;
     private LinearLayout d;
-    private df e;
+    private dh e;
     private SlidingMenu f;
     private WaterFallView g;
-    private com.baidu.tieba.view.ab h;
+    private com.baidu.tieba.view.z h;
     private ProgressBar i;
     private View j;
     private ImageView k;
@@ -59,7 +59,7 @@ public final class cj {
         this.b = frsImageActivity;
         this.c = onClickListener;
         this.b.setContentView(com.baidu.tieba.a.i.frs_image_activity);
-        this.e = new df(this.b);
+        this.e = new dh(this.b);
         this.d = (LinearLayout) this.b.findViewById(com.baidu.tieba.a.h.container);
         this.f = new SlidingMenu(this.b);
         this.f.setMode(1);
@@ -91,7 +91,7 @@ public final class cj {
         this.l = this.z.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.a.i.nb_item_frs_more, (View.OnClickListener) null).findViewById(com.baidu.tieba.a.h.frs_top_more);
         this.l.setOnClickListener(this.c);
         this.g = (WaterFallView) this.b.findViewById(com.baidu.tieba.a.h.water_fall);
-        this.h = new com.baidu.tieba.view.ab(this.b);
+        this.h = new com.baidu.tieba.view.z(this.b);
         this.g.setCustomHeaderView(this.h);
         this.i = (ProgressBar) this.b.findViewById(com.baidu.tieba.a.h.progress);
         this.e.a(this.c);
@@ -172,7 +172,7 @@ public final class cj {
         this.f.setOnOpenedListener(onOpenedListener);
     }
 
-    public final df l() {
+    public final dh l() {
         return this.e;
     }
 
@@ -207,9 +207,9 @@ public final class cj {
         return create;
     }
 
-    public final void a(cu cuVar) {
-        this.e.a(cuVar);
-        long a = cuVar.a() + cuVar.b();
+    public final void a(cw cwVar) {
+        this.e.a(cwVar);
+        long a = cwVar.a() + cwVar.b();
         boolean z = TbadkApplication.j().l() == 1;
         if (a > 0) {
             this.u.setVisibility(0);

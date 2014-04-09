@@ -13,7 +13,7 @@ public class ResponseQueryGroupCountMessage extends TbSocketReponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         QueryGroupCountRes.QueryGroupCountResIdl parseFrom = QueryGroupCountRes.QueryGroupCountResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             this.b = parseFrom.getData().getLocalGroupCount();
             this.a = parseFrom.getData().getUserGroupCount();

@@ -44,20 +44,20 @@ public final class d {
         try {
             JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
             if (optJSONObject != null) {
-                JSONArray jSONArray = optJSONObject.getJSONArray("gconforum");
-                if (jSONArray != null) {
-                    this.e = jSONArray.length();
-                    for (int i = 0; i < jSONArray.length(); i++) {
+                JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
+                if (optJSONArray != null) {
+                    this.e = optJSONArray.length();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
                         ForumData forumData = new ForumData();
-                        forumData.parserJson(jSONArray.getJSONObject(i));
+                        forumData.parserJson(optJSONArray.getJSONObject(i));
                         this.a.add(forumData);
                     }
                 }
-                JSONArray jSONArray2 = optJSONObject.getJSONArray("non-gconforum");
-                if (jSONArray2 != null) {
-                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         ForumData forumData2 = new ForumData();
-                        forumData2.parserJson(jSONArray2.getJSONObject(i2));
+                        forumData2.parserJson(optJSONArray2.getJSONObject(i2));
                         this.a.add(forumData2);
                     }
                 }

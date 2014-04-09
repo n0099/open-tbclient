@@ -10,10 +10,10 @@ final class bw extends com.baidu.adp.a.h {
 
     @Override // com.baidu.adp.a.h
     public final void a(Object obj) {
-        cy cyVar;
+        da daVar;
         if (obj != null && (obj instanceof com.baidu.tieba.data.z)) {
-            cyVar = this.a.q;
-            cyVar.b().setLike(1);
+            daVar = this.a.q;
+            daVar.b().setLike(1);
             this.a.showToast(this.a.getString(com.baidu.tieba.a.k.like_success));
             return;
         }

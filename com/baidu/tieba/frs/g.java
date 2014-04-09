@@ -19,8 +19,8 @@ public final class g {
     private UserData g;
     private com.baidu.tieba.data.b h;
     private int i = 0;
-    private cx j = null;
-    private cw k = null;
+    private cz j = null;
+    private cy k = null;
     private boolean l = false;
     private k m = null;
     private h n = null;
@@ -184,12 +184,12 @@ public final class g {
         a(zVar);
     }
 
-    public final void a(cx cxVar) {
-        this.j = cxVar;
+    public final void a(cz czVar) {
+        this.j = czVar;
     }
 
-    public final void a(cw cwVar) {
-        this.k = cwVar;
+    public final void a(cy cyVar) {
+        this.k = cyVar;
     }
 
     public final int n() {

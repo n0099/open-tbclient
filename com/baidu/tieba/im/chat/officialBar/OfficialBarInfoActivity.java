@@ -14,7 +14,7 @@ public class OfficialBarInfoActivity extends com.baidu.tbadk.a implements View.O
     ao b;
     private int c = 0;
     private String d = null;
-    private com.baidu.tbadk.editortool.aa e;
+    private com.baidu.tbadk.editortool.ab e;
     private ap f;
 
     public static void a(Context context, int i, String str) {
@@ -44,7 +44,7 @@ public class OfficialBarInfoActivity extends com.baidu.tbadk.a implements View.O
             this.f.b(String.valueOf(com.baidu.tieba.im.f.r.a(this.d, 0, 16)) + "……");
         }
         bb.a().a(TbadkApplication.E(), String.valueOf(this.c), new aj(this));
-        this.e = new com.baidu.tbadk.editortool.aa(this);
+        this.e = new com.baidu.tbadk.editortool.ab(this);
         sendMessage(new be(this.c, this.d));
     }
 

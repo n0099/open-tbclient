@@ -92,7 +92,7 @@ public class PersonPostListData implements Serializable {
         public String text = "";
         @SerializedName("src")
         public String src = "";
-        @SerializedName(PersonInfoActivity.TAG_ID)
+        @SerializedName("un")
         public String un = "";
         @SerializedName("link")
         public String link = "";

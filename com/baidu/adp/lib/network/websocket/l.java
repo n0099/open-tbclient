@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.network.websocket;
 /* loaded from: classes.dex */
-public interface l {
-    int a();
+public abstract class l {
+    public abstract byte[] a(byte[] bArr);
 
-    boolean a(com.baidu.adp.framework.message.g gVar);
+    public abstract m b(byte[] bArr);
 }

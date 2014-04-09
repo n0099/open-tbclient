@@ -12,12 +12,12 @@ final class o implements com.baidu.adp.widget.ListView.d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public final void a(boolean z) {
-        bd bdVar;
-        bk bkVar;
-        bdVar = this.a.x;
-        if (!bdVar.b(true)) {
-            bkVar = this.a.D;
-            bkVar.x();
+        bf bfVar;
+        bm bmVar;
+        bfVar = this.a.x;
+        if (!bfVar.b(true)) {
+            bmVar = this.a.D;
+            bmVar.x();
             return;
         }
         TiebaStatic.a(this.a, "pb_pulldown", "pbclick", 1, new Object[0]);

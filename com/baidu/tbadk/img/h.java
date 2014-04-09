@@ -56,6 +56,7 @@ public final class h {
     public final void a(WriteImagesInfo writeImagesInfo) {
         Bitmap b;
         UploadedImageInfo uploadedPicInfo;
+        String a;
         if (writeImagesInfo != null && writeImagesInfo.size() != 0) {
             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
             int i = 0;
@@ -71,16 +72,16 @@ public final class h {
                             LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
                             imageFileInfo.setPageActionsList(null);
                             e eVar = this.j;
-                            com.baidu.adp.widget.ImageView.b a = e.a(imageFileInfo, true);
-                            if (a != null) {
-                                b = a.h();
+                            com.baidu.adp.widget.ImageView.b a2 = e.a(imageFileInfo, true);
+                            if (a2 != null) {
+                                b = a2.h();
                             } else {
                                 e eVar2 = this.j;
                                 b = e.b(imageFileInfo, true);
                             }
                             imageFileInfo.setPageActionsList(pageActionsList);
-                            ImageUploadResult a2 = (b == null || w.a((String) null, "tieba_resized_image", b, 80) == null) ? null : a(w.c("tieba_resized_image"));
-                            if (a2 != null && (uploadedPicInfo = a2.getUploadedPicInfo()) != null) {
+                            ImageUploadResult a3 = (b == null || (a = w.a("tieba_resized_image", b, 80)) == null) ? null : a(a);
+                            if (a3 != null && (uploadedPicInfo = a3.getUploadedPicInfo()) != null) {
                                 imageFileInfo.setServerImageCode(uploadedPicInfo.toPostString());
                             }
                         } else {

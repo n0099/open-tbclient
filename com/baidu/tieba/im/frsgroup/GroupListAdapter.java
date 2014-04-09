@@ -23,7 +23,7 @@ public final class GroupListAdapter extends BaseAdapter {
     private FrsGroupActivity a;
     private BOTTOM_TYPE b;
     private boolean c;
-    private com.baidu.tbadk.editortool.aa d;
+    private com.baidu.tbadk.editortool.ab d;
     private ArrayList<GroupInfoData> e = new ArrayList<>();
 
     /* loaded from: classes.dex */
@@ -70,7 +70,7 @@ public final class GroupListAdapter extends BaseAdapter {
 
     public GroupListAdapter(FrsGroupActivity frsGroupActivity) {
         this.a = frsGroupActivity;
-        this.d = new com.baidu.tbadk.editortool.aa(frsGroupActivity);
+        this.d = new com.baidu.tbadk.editortool.ab(frsGroupActivity);
         this.d.a(true);
     }
 
@@ -217,7 +217,7 @@ public final class GroupListAdapter extends BaseAdapter {
         }
     }
 
-    public final com.baidu.tbadk.editortool.aa b() {
+    public final com.baidu.tbadk.editortool.ab b() {
         return this.d;
     }
 

@@ -17,11 +17,11 @@ final class aa implements com.baidu.tieba.im.a<Boolean> {
         if (bool2 != null) {
             if (bool2.booleanValue()) {
                 hVar2 = this.a.d;
-                hVar2.J();
+                hVar2.K();
                 return;
             }
             hVar = this.a.d;
-            hVar.K();
+            hVar.L();
         }
     }
 }

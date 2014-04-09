@@ -1,5 +1,6 @@
 package com.baidu.tieba.editortool;
 
+import android.text.TextUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.data.BubbleListData;
@@ -16,13 +17,22 @@ public final class c implements com.baidu.tieba.model.j {
 
     @Override // com.baidu.tieba.model.j
     public final void a(SetBubbleResultData setBubbleResultData) {
+        if (setBubbleResultData == null || setBubbleResultData.getB_info() == null) {
+            this.a.i().c();
+            return;
+        }
         this.a.f = setBubbleResultData.getB_info().getB_url();
         TbadkApplication.j().q(this.a.f);
         int a = this.a.a.a();
         if (a == 0) {
+            TbadkApplication.j().q("");
             for (BubbleListData.BubbleData bubbleData : this.a.b.getB_info()) {
-                if (bubbleData.isDef()) {
-                    bubbleData.setIs_def(0);
+                if (bubbleData.getBcode() != 0) {
+                    if (bubbleData.isDef()) {
+                        bubbleData.setIs_def(0);
+                    }
+                } else {
+                    bubbleData.setIs_def(1);
                 }
             }
         } else if (setBubbleResultData.getB_info().canUser()) {
@@ -44,6 +54,21 @@ public final class c implements com.baidu.tieba.model.j {
 
     @Override // com.baidu.tieba.model.j
     public final void b(SetBubbleResultData setBubbleResultData) {
-        UtilHelper.a(this.a.d, com.baidu.tieba.a.k.neterror);
+        if (setBubbleResultData != null) {
+            if (!setBubbleResultData.getError_code().equals("0")) {
+                if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
+                    UtilHelper.a(this.a.d, setBubbleResultData.getError_msg());
+                } else {
+                    UtilHelper.a(this.a.d, com.baidu.tieba.a.k.neterror);
+                }
+            } else {
+                UtilHelper.a(this.a.d, com.baidu.tieba.a.k.neterror);
+            }
+        } else {
+            UtilHelper.a(this.a.d, com.baidu.tieba.a.k.neterror);
+        }
+        if (this.a.i() != null) {
+            this.a.i().c();
+        }
     }
 }

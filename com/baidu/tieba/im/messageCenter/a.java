@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.messageCenter;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.core.message.ResponseCheckUserMaskMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
@@ -41,7 +42,6 @@ import com.baidu.tieba.im.message.ResponsePeerInfo;
 import com.baidu.tieba.im.message.ResponsePullMessage;
 import com.baidu.tieba.im.message.ResponsePushCountMessage;
 import com.baidu.tieba.im.message.ResponseQueryGroupCountMessage;
-import com.baidu.tieba.im.message.ResponseQueryPrizeMessage;
 import com.baidu.tieba.im.message.ResponseQueryUserInfoMessage;
 import com.baidu.tieba.im.message.ResponseQuitChatRoomMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
@@ -62,12 +62,8 @@ public final class a {
         a(103011, ResponseQueryGroupCountMessage.class, false);
         a(103004, ResponseGroupInfoMessage.class, false);
         a(103003, ResponseGroupsByUidMessage.class, false);
-        a(103008, ResponseUserPermissionMessage.class, false);
         a(103003, ResponseGroupsByUidMessage.class, false);
-        a(103007, ResponseSearchGroupMessage.class, false);
-        a(103102, ResponseUpdateGroupMessage.class, false);
         a(202006, PushNotifyMessageDecoder.class, false);
-        a(202003, ResponsePullMessage.class, false);
         a(103110, ResponseJoinGroupMessage.class, false);
         a(103111, ResponseAddGroupUserMessage.class, false);
         a(202001, ResponseCommitGroupMessage.class, false);
@@ -92,7 +88,6 @@ public final class a {
         a(106101, ResponseEnterChatRoomMessage.class, false);
         a(106102, ResponseQuitChatRoomMessage.class, false);
         a(106001, ResponseChatRoomInfoMessage.class, false);
-        a(103013, ResponseQueryPrizeMessage.class, false);
         a(106103, ResponseUpdateChatroomTopicMessage.class, false);
         a(103105, ResponseUpgradeMemberGroupMessage.class, false);
         a(103120, ResponseCreateGroupActivityMessage.class, false);
@@ -101,6 +96,10 @@ public final class a {
         a(208001, ResponseOfficialBarInfoMessage.class, false);
         a(208002, ResponseHistoryMessage.class, false);
         a(104001, ResponseSendPVTJMessage.class, false);
+        a(202003, ResponsePullMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+        a(103007, ResponseSearchGroupMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+        a(103008, ResponseUserPermissionMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+        a(103102, ResponseUpdateGroupMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         a(2001102, com.baidu.tieba.im.e.a.i.class);
         a(2001106, u.class);
         a(2001202, x.class);

@@ -59,8 +59,8 @@ public final class ap extends BdAsyncTask<Void, Void, InterestFrsData> {
                 com.baidu.adp.lib.util.f.b("NewUserGuideModel", "doInBackground", e.getMessage());
                 InterestFrsData interestFrsData = new InterestFrsData();
                 interestFrsData.setErrno(-1000);
-                com.baidu.tieba.r.c();
-                interestFrsData.setErrmsg(com.baidu.tieba.r.e().getString(com.baidu.tieba.a.k.neterror));
+                com.baidu.tieba.p.c();
+                interestFrsData.setErrmsg(com.baidu.tieba.p.e().getString(com.baidu.tieba.a.k.neterror));
                 return interestFrsData;
             }
         }

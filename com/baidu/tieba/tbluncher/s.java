@@ -1,20 +1,22 @@
 package com.baidu.tieba.tbluncher;
 
-import android.view.View;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-final class s implements View.OnClickListener {
+final class s extends com.baidu.adp.framework.c.a {
     final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(MainTabActivity mainTabActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s(MainTabActivity mainTabActivity, int i) {
+        super(2007006);
         this.a = mainTabActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2 = this.a;
-        mainTabActivity = this.a.D;
-        mainTabActivity2.a(new com.baidu.adp.framework.message.a(2015002, new com.baidu.tbadk.core.frameworkData.a(mainTabActivity)));
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            MainTabActivity.d(2);
+        }
     }
 }

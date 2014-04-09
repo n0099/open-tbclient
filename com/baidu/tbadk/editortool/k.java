@@ -45,13 +45,13 @@ public final class k extends BaseAdapter {
     @Override // android.widget.Adapter
     public final View getView(int i, View view, ViewGroup viewGroup) {
         LinearLayout linearLayout;
-        af afVar;
-        af afVar2;
+        ag agVar;
+        ag agVar2;
         int i2;
-        af afVar3;
-        aa aaVar;
-        af afVar4;
-        af afVar5;
+        ag agVar3;
+        ab abVar;
+        ag agVar4;
+        ag agVar5;
         int i3;
         LayoutInflater layoutInflater;
         int i4;
@@ -71,29 +71,29 @@ public final class k extends BaseAdapter {
         }
         int measuredWidth = viewGroup.getMeasuredWidth();
         int measuredHeight = viewGroup.getMeasuredHeight();
-        afVar = this.a.b;
-        int j = measuredWidth / afVar.j();
-        afVar2 = this.a.b;
+        agVar = this.a.b;
+        int j = measuredWidth / agVar.j();
+        agVar2 = this.a.b;
         LinearLayout linearLayout3 = (LinearLayout) linearLayout;
-        linearLayout3.setLayoutParams(new AbsListView.LayoutParams(j, measuredHeight / afVar2.k()));
+        linearLayout3.setLayoutParams(new AbsListView.LayoutParams(j, measuredHeight / agVar2.k()));
         BDImageView bDImageView = (BDImageView) linearLayout3.findViewById(com.baidu.tbadk.j.emotion_tab_content_img);
         i2 = this.a.q;
         bDImageView.setBackgroundResource(i2 == 1 ? com.baidu.tbadk.i.btn_choose_face_selector_1 : com.baidu.tbadk.i.btn_choose_face_selector);
         bDImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        afVar3 = this.a.b;
-        String a = afVar3.a(i7);
+        agVar3 = this.a.b;
+        String a = agVar3.a(i7);
         bDImageView.setTag(a);
-        aaVar = this.a.r;
-        com.baidu.adp.widget.ImageView.b b = aaVar.b(a, false, new l(this));
+        abVar = this.a.r;
+        com.baidu.adp.widget.ImageView.b b = abVar.b(a, false, new l(this));
         if (b != null) {
             b.a(bDImageView);
             bDImageView.setTag(null);
         }
         TextView textView = (TextView) linearLayout3.findViewById(com.baidu.tbadk.j.emotion_tab_content_tip);
-        afVar4 = this.a.b;
-        if (afVar4.c() == EmotionGroupType.BIG_EMOTION) {
-            afVar5 = this.a.b;
-            String a2 = afVar5.a(i7);
+        agVar4 = this.a.b;
+        if (agVar4.c() == EmotionGroupType.BIG_EMOTION) {
+            agVar5 = this.a.b;
+            String a2 = agVar5.a(i7);
             if (!TextUtils.isEmpty(a2)) {
                 i3 = this.a.q;
                 int color = i3 == 1 ? this.a.getResources().getColor(com.baidu.tbadk.g.pb_emotion_content_1) : this.a.getResources().getColor(com.baidu.tbadk.g.pb_emotion_content);

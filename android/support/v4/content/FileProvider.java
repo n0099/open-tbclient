@@ -161,7 +161,7 @@ public class FileProvider extends ContentProvider {
             if (next != 1) {
                 if (next == 2) {
                     String name = loadXmlMetaData.getName();
-                    String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
+                    String attributeValue = loadXmlMetaData.getAttributeValue(null, ATTR_NAME);
                     String attributeValue2 = loadXmlMetaData.getAttributeValue(null, ATTR_PATH);
                     if (TAG_ROOT_PATH.equals(name)) {
                         buildPath = buildPath(DEVICE_ROOT, attributeValue2);

@@ -10,17 +10,17 @@ final class l extends com.baidu.adp.a.h {
 
     @Override // com.baidu.adp.a.h
     public final void a(Object obj) {
-        bk bkVar;
+        bm bmVar;
         com.baidu.tieba.model.v vVar;
         com.baidu.tieba.model.v vVar2;
         com.baidu.tieba.model.v vVar3;
-        bd bdVar;
+        bf bfVar;
         if (obj != null) {
             vVar2 = this.a.C;
             switch (vVar2.getLoadDataMode()) {
                 case 0:
-                    bdVar = this.a.x;
-                    bdVar.y();
+                    bfVar = this.a.x;
+                    bfVar.y();
                     PbActivity.a(this.a, (com.baidu.tieba.model.x) obj);
                     return;
                 case 1:
@@ -41,9 +41,9 @@ final class l extends com.baidu.adp.a.h {
                     return;
             }
         }
-        bkVar = this.a.D;
+        bmVar = this.a.D;
         vVar = this.a.C;
         vVar.getLoadDataMode();
-        bkVar.a(false, (String) null, false);
+        bmVar.a(false, (String) null, false);
     }
 }

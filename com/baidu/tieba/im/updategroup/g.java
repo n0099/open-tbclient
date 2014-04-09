@@ -46,7 +46,7 @@ public abstract class g extends com.baidu.adp.a.f implements a {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public final View e_() {
+    public final View g_() {
         return this.f;
     }
 
@@ -108,7 +108,7 @@ public abstract class g extends com.baidu.adp.a.f implements a {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public final String f_() {
+    public final String h_() {
         return this.j;
     }
 

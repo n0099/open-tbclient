@@ -2,7 +2,6 @@ package com.baidu.tieba.topRec;
 
 import com.baidu.tieba.data.z;
 import com.baidu.tieba.model.af;
-import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 final class c extends com.baidu.adp.a.h {
     final /* synthetic */ TopRecActivity a;
@@ -34,7 +33,7 @@ final class c extends com.baidu.adp.a.h {
                     afVar2 = this.a.d;
                     if (afVar2.getErrorCode() == 0 && ((z) obj) != null) {
                         this.a.a();
-                        r c = r.c();
+                        com.baidu.tieba.p c = com.baidu.tieba.p.c();
                         tRForumListData3 = this.a.f;
                         c.e(tRForumListData3.forum_list[this.b].forum_name);
                         return;

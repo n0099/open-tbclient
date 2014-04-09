@@ -19,8 +19,8 @@ public final class d implements DialogInterface.OnClickListener {
         com.baidu.tieba.im.model.p pVar;
         switch (i) {
             case 0:
-                this.a.h = 4;
-                pVar = this.a.b;
+                this.a.i = 4;
+                pVar = this.a.c;
                 pVar.a(this.b, new e(this));
                 return;
             default:

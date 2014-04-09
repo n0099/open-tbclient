@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.data.ai;
-import com.baidu.tieba.data.an;
+import com.baidu.tieba.data.am;
 import com.baidu.tieba.editortool.PbEditor;
 /* loaded from: classes.dex */
 public final class j extends m {
@@ -117,8 +117,8 @@ public final class j extends m {
     }
 
     @Override // com.baidu.tieba.pb.sub.m
-    protected final int a(an anVar) {
-        int d = anVar.d() - (anVar.f() * anVar.e());
+    protected final int a(am amVar) {
+        int d = amVar.d() - (amVar.f() * amVar.e());
         if (d < 0) {
             return 0;
         }

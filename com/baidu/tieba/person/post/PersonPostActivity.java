@@ -116,7 +116,7 @@ public class PersonPostActivity extends com.baidu.tbadk.core.e implements ViewPa
     @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        c(TbadkApplication.j().l());
+        b(TbadkApplication.j().l());
     }
 
     public final String f() {
@@ -167,7 +167,7 @@ public class PersonPostActivity extends com.baidu.tbadk.core.e implements ViewPa
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void c(int i) {
+    protected final void b(int i) {
         this.j.b(i);
         this.l.c(i);
         ba.f(this.l, com.baidu.tieba.a.e.cp_bg_line_c);
@@ -176,7 +176,7 @@ public class PersonPostActivity extends com.baidu.tbadk.core.e implements ViewPa
             for (int i2 = 0; i2 < count; i2++) {
                 Fragment item = this.m.getItem(i2);
                 if (item != null && (item instanceof com.baidu.tbadk.core.d)) {
-                    ((com.baidu.tbadk.core.d) item).changeSkinType(i);
+                    ((com.baidu.tbadk.core.d) item).b(i);
                 }
             }
         }

@@ -9,6 +9,6 @@ final class q implements com.baidu.adp.widget.ListView.v {
     }
 
     @Override // com.baidu.adp.widget.ListView.v
-    public final void c_() {
+    public final void e_() {
     }
 }

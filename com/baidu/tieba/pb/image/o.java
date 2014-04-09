@@ -12,6 +12,6 @@ final class o implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        ImagePbActivity.u(this.a);
+        ImagePbActivity.t(this.a);
     }
 }

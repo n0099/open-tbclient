@@ -1,6 +1,7 @@
 package com.baidu.tieba.account;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -73,8 +74,21 @@ public class NotLoginGuideActivity extends com.baidu.tbadk.a {
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
+        boolean z = true;
         super.onClick(view);
         if (view == this.c) {
+            String c = UtilHelper.c("ro.miui.ui.version.name");
+            if (c == null || !"V5".equals(c)) {
+                z = false;
+            }
+            if (z) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(com.baidu.tieba.a.k.register_tip);
+                builder.setPositiveButton(com.baidu.tieba.a.k.text_confirm, new u(this));
+                builder.setNegativeButton(com.baidu.tieba.a.k.text_cancel, new v(this));
+                builder.create().show();
+                return;
+            }
             com.baidu.tbadk.core.g.a(this, "sapi_fast_regist_click");
             SapiFastRegActivity.a(this, 22002);
             return;
@@ -121,7 +135,7 @@ public class NotLoginGuideActivity extends com.baidu.tbadk.a {
                         a();
                     } else if (stringExtra.equals("regist_user")) {
                         if (UtilHelper.a()) {
-                            com.baidu.tieba.r.c().a(true);
+                            com.baidu.tieba.p.c().a(true);
                             NewUserGuideActivity.a(this, true, false);
                         } else {
                             a();

@@ -2,7 +2,7 @@ package com.baidu.tieba.person;
 
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
-final class az implements DialogInterface.OnClickListener {
+final class az implements DialogInterface.OnCancelListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,12 +10,15 @@ final class az implements DialogInterface.OnClickListener {
         this.a = personChangeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        if (i == 0) {
-            com.baidu.tbadk.core.util.az.a(this.a);
-        } else if (i == 1) {
-            com.baidu.tbadk.core.util.az.b(this.a);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public final void onCancel(DialogInterface dialogInterface) {
+        bh bhVar;
+        bh bhVar2;
+        this.a.DeinitWaitingDialog();
+        bhVar = this.a.x;
+        if (bhVar != null) {
+            bhVar2 = this.a.x;
+            bhVar2.cancel();
         }
     }
 }

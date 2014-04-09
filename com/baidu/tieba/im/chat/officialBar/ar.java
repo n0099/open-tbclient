@@ -12,24 +12,24 @@ final class ar implements com.baidu.tieba.im.a<Void> {
     @Override // com.baidu.tieba.im.a
     public final /* synthetic */ void a(Void r3) {
         az azVar;
-        com.baidu.tieba.im.model.bc bcVar;
+        com.baidu.tieba.im.model.bd bdVar;
         az azVar2;
-        com.baidu.tieba.im.model.bc bcVar2;
-        com.baidu.tieba.im.model.bc bcVar3;
+        com.baidu.tieba.im.model.bd bdVar2;
+        com.baidu.tieba.im.model.bd bdVar3;
         this.a.closeLoadingDialog();
         azVar = this.a.b;
         if (azVar.d() != null) {
-            bcVar = this.a.a;
-            if (bcVar == null) {
+            bdVar = this.a.a;
+            if (bdVar == null) {
                 return;
             }
             azVar2 = this.a.b;
             ax d = azVar2.d();
-            bcVar2 = this.a.a;
-            d.a(bcVar2.a());
+            bdVar2 = this.a.a;
+            d.a(bdVar2.a());
             OfficialBarTipActivity.c(this.a);
-            bcVar3 = this.a.a;
-            if (bcVar3.a().size() == 0) {
+            bdVar3 = this.a.a;
+            if (bdVar3.a().size() == 0) {
                 this.a.b.e().b(r3 ? 0 : 8);
             } else {
                 this.a.b.e().b(r3 ? 0 : 8);

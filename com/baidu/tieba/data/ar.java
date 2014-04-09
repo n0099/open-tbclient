@@ -4,44 +4,47 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class ar {
     private String a = null;
-    private String d = null;
-    private String b = null;
+    private int b = 0;
+    private int d = 0;
+    private int e = 0;
     private int c = 0;
-    private as e = new as();
 
-    public final String a() {
+    public final int a() {
         return this.d;
     }
 
-    public final as b() {
+    public final int b() {
         return this.e;
     }
 
     public final String c() {
+        return this.a;
+    }
+
+    public final int d() {
         return this.b;
     }
 
-    public final String d() {
-        return this.a;
+    public final void a(int i) {
+        this.b = i;
     }
 
     public final int e() {
         return this.c;
     }
 
+    public final void b(int i) {
+        this.c = i;
+    }
+
     public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optString("tid");
-                this.b = jSONObject.optString("title");
-                this.c = jSONObject.optInt("reply_amount", 0);
-                JSONObject optJSONObject = jSONObject.optJSONObject("user");
-                if (optJSONObject != null) {
-                    this.d = optJSONObject.optString("name_show");
-                }
-                this.e.a(jSONObject.optJSONObject("photo"));
+                this.a = jSONObject.optString("id");
+                this.d = jSONObject.optInt("width", 0);
+                this.e = jSONObject.optInt("height", 0);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("HotspotData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

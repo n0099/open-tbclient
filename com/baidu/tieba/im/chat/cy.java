@@ -1,20 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.LinkedList;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 final class cy extends com.baidu.tieba.im.m<Void> {
-    final /* synthetic */ cx b;
-    private final /* synthetic */ LinkedList c;
+    final /* synthetic */ PersonalChatActivity b;
+    private final /* synthetic */ UserData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(cx cxVar, LinkedList linkedList) {
-        this.b = cxVar;
-        this.c = linkedList;
+    public cy(PersonalChatActivity personalChatActivity, UserData userData) {
+        this.b = personalChatActivity;
+        this.c = userData;
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.tieba.im.m
     public final /* synthetic */ Void a() {
-        return com.baidu.tieba.im.db.n.d().a(this.c);
+        com.baidu.tieba.im.chat.personaltalk.a.a().a(TbadkApplication.E(), PersonalChatActivity.b, this.c);
+        return null;
     }
 }

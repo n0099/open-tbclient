@@ -28,45 +28,45 @@ final class e extends com.baidu.adp.framework.c.g {
         EnterGuideCenterView enterGuideCenterView;
         EnterGuideCenterView enterGuideCenterView2;
         SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        if (this.a.getActivity() == null || this.a.a == null) {
+        if (this.a.getActivity() == null || this.a.b == null) {
             return;
         }
-        jVar = this.a.c;
+        jVar = this.a.d;
         if (jVar == null) {
             return;
         }
         if (socketResponsedMessage2.g() == 103003) {
-            this.a.a.b();
+            this.a.b.b();
         }
         ResponseGroupsByUidMessage responseGroupsByUidMessage = (ResponseGroupsByUidMessage) socketResponsedMessage2;
         if (responseGroupsByUidMessage.e() != 0) {
             if (responseGroupsByUidMessage.e() == 0 || TextUtils.isEmpty(responseGroupsByUidMessage.f())) {
                 return;
             }
-            this.a.showToast(responseGroupsByUidMessage.f());
+            this.a.a(responseGroupsByUidMessage.f());
             return;
         }
         List<GroupInfoData> d = responseGroupsByUidMessage.d();
         if (d != null) {
-            aVar = this.a.e;
+            aVar = this.a.f;
             aVar.a(d);
-            aVar2 = this.a.e;
+            aVar2 = this.a.f;
             aVar2.notifyDataSetChanged();
             if (d.size() > 0) {
-                enterGuideCenterView2 = this.a.f;
+                enterGuideCenterView2 = this.a.g;
                 enterGuideCenterView2.setVisibility(8);
                 this.a.a();
             } else {
-                enterGuideCenterView = this.a.f;
+                enterGuideCenterView = this.a.g;
                 enterGuideCenterView.setVisibility(0);
             }
         }
         if (socketResponsedMessage2.g() == 103003) {
-            this.a.b = false;
+            this.a.c = false;
         } else if (socketResponsedMessage2.g() == 2001106) {
-            jVar2 = this.a.c;
+            jVar2 = this.a.d;
             if (jVar2 != null) {
-                jVar3 = this.a.c;
+                jVar3 = this.a.d;
                 jVar3.a();
             }
         }

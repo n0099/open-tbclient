@@ -8,7 +8,7 @@ import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.message.ResponseNearbyGroupsMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
-import com.baidu.tieba.im.model.ax;
+import com.baidu.tieba.im.model.ay;
 import com.baidu.tieba.im.p;
 /* loaded from: classes.dex */
 final class e extends com.baidu.adp.framework.c.g {
@@ -24,22 +24,22 @@ final class e extends com.baidu.adp.framework.c.g {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
     @Override // com.baidu.adp.framework.c.c
     public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
-        ax axVar;
+        ay ayVar;
         m mVar;
         m mVar2;
-        ax axVar2;
-        ax axVar3;
+        ay ayVar2;
+        ay ayVar3;
         m mVar3;
         m mVar4;
-        ax axVar4;
+        ay ayVar4;
         SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
         if (socketResponsedMessage2 != null) {
             if (socketResponsedMessage2.g() == 103105) {
                 if (socketResponsedMessage2 instanceof ResponseUpgradeMemberGroupMessage) {
                     ResponseUpgradeMemberGroupMessage responseUpgradeMemberGroupMessage = (ResponseUpgradeMemberGroupMessage) socketResponsedMessage2;
                     if (responseUpgradeMemberGroupMessage.e() == 0 || responseUpgradeMemberGroupMessage.e() == 2230110) {
-                        axVar4 = this.a.c;
-                        axVar4.d();
+                        ayVar4 = this.a.c;
+                        ayVar4.d();
                     }
                 }
             } else if (socketResponsedMessage2.g() != 103009) {
@@ -64,8 +64,8 @@ final class e extends com.baidu.adp.framework.c.g {
                     }
                 }
             } else {
-                axVar = this.a.c;
-                axVar.a(false);
+                ayVar = this.a.c;
+                ayVar.a(false);
                 if (!(socketResponsedMessage2 instanceof ResponseNearbyGroupsMessage)) {
                     mVar4 = this.a.b;
                     mVar4.g();
@@ -79,10 +79,10 @@ final class e extends com.baidu.adp.framework.c.g {
                 } else {
                     NearbyGroupsData d2 = responseNearbyGroupsMessage.d();
                     if (d2 != null) {
-                        axVar2 = this.a.c;
-                        axVar2.b(d2.getHasMore());
-                        axVar3 = this.a.c;
-                        axVar3.a(d2.getGeo());
+                        ayVar2 = this.a.c;
+                        ayVar2.b(d2.getHasMore());
+                        ayVar3 = this.a.c;
+                        ayVar3.a(d2.getGeo());
                     } else {
                         d2 = new NearbyGroupsData();
                     }

@@ -1,30 +1,66 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.AccountData;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ag implements com.baidu.tbadk.core.a.u {
-    final /* synthetic */ SapiFastRegActivity a;
+public final class ag extends BdAsyncTask<String, Integer, Bitmap> {
+    final /* synthetic */ Register2Activity a;
+    private com.baidu.tbadk.core.util.ak b = null;
+    private String c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(SapiFastRegActivity sapiFastRegActivity) {
-        this.a = sapiFastRegActivity;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ Bitmap a(String... strArr) {
+        this.b = new com.baidu.tbadk.core.util.ak(this.c);
+        return com.baidu.tbadk.core.util.g.a(this.b.h());
     }
 
-    @Override // com.baidu.tbadk.core.a.u
-    public final void a(String str) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(Bitmap bitmap) {
+        ProgressBar progressBar;
+        ImageView imageView;
+        Bitmap bitmap2 = bitmap;
+        super.a((ag) bitmap2);
+        this.a.N = null;
+        progressBar = this.a.E;
+        progressBar.setVisibility(8);
+        imageView = this.a.F;
+        imageView.setImageBitmap(bitmap2);
     }
 
-    @Override // com.baidu.tbadk.core.a.u
-    public final void a(AccountData accountData) {
-        TbadkApplication.a(accountData, this.a);
-        new ah(this, accountData).execute(new Void[0]);
+    public ag(Register2Activity register2Activity, String str) {
+        this.a = register2Activity;
+        this.c = null;
+        this.c = str;
     }
 
-    @Override // com.baidu.tbadk.core.a.u
-    public final void a(String str, String str2) {
-        com.baidu.adp.lib.util.f.e("simon", "onFailure", str2);
-        this.a.showToast(com.baidu.tieba.a.k.relogin_fail);
-        this.a.finish();
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        ProgressBar progressBar;
+        this.a.N = null;
+        progressBar = this.a.E;
+        progressBar.setVisibility(8);
+        if (this.b != null) {
+            this.b.g();
+        }
+        super.cancel(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void c() {
+        ImageView imageView;
+        ProgressBar progressBar;
+        imageView = this.a.F;
+        imageView.setImageBitmap(null);
+        progressBar = this.a.E;
+        progressBar.setVisibility(0);
     }
 }

@@ -16,81 +16,81 @@ public final class f implements com.baidu.tieba.model.r {
     @Override // com.baidu.tieba.model.r
     public final void a(com.baidu.tieba.model.p pVar) {
         com.baidu.tbadk.core.e eVar;
-        n nVar;
-        n nVar2;
+        o oVar;
+        o oVar2;
         com.baidu.tbadk.core.e eVar2;
-        com.baidu.tieba.model.o oVar;
+        com.baidu.tieba.model.o oVar3;
         com.baidu.tbadk.core.e eVar3;
         long j;
         long j2;
-        com.baidu.tieba.model.o oVar2;
-        long j3;
-        com.baidu.tieba.model.o oVar3;
         com.baidu.tieba.model.o oVar4;
+        long j3;
         com.baidu.tieba.model.o oVar5;
-        boolean isShow;
-        n nVar3;
         com.baidu.tieba.model.o oVar6;
-        n nVar4;
-        n nVar5;
-        n nVar6;
-        eVar = this.a.g;
+        com.baidu.tieba.model.o oVar7;
+        boolean c_;
+        o oVar8;
+        com.baidu.tieba.model.o oVar9;
+        o oVar10;
+        o oVar11;
+        o oVar12;
+        eVar = this.a.h;
         UtilHelper.NetworkStateInfo d = UtilHelper.d(eVar);
         if (d == UtilHelper.NetworkStateInfo.UNAVAIL) {
-            nVar6 = this.a.a;
-            nVar6.i();
+            oVar12 = this.a.b;
+            oVar12.j();
         }
-        nVar = this.a.a;
-        nVar.a(true, "");
+        oVar = this.a.b;
+        oVar.a(true, "");
         if (!pVar.b) {
-            nVar2 = this.a.a;
-            nVar2.d();
+            oVar2 = this.a.b;
+            oVar2.d();
             if (pVar.a != null && pVar.a.equals("")) {
-                eVar2 = this.a.g;
+                eVar2 = this.a.h;
                 eVar2.a(pVar.a);
             }
         } else {
-            oVar6 = this.a.c;
-            com.baidu.tieba.data.n e = oVar6.e();
-            nVar4 = this.a.a;
-            nVar4.a(e);
-            nVar5 = this.a.a;
-            nVar5.f();
+            oVar9 = this.a.d;
+            com.baidu.tieba.data.n e = oVar9.e();
+            oVar10 = this.a.b;
+            oVar10.a(e);
+            oVar11 = this.a.b;
+            oVar11.g();
         }
         if (pVar.c == 0 && d != UtilHelper.NetworkStateInfo.UNAVAIL) {
             new Handler().postDelayed(new g(this), 600L);
         }
-        if (pVar.c == 1 && com.baidu.tieba.r.c().b()) {
-            isShow = this.a.isShow();
-            if (isShow) {
-                nVar3 = this.a.a;
-                nVar3.e();
-                com.baidu.tieba.r.c().a(false);
+        if (pVar.c == 1 && com.baidu.tieba.p.c().b()) {
+            c_ = this.a.c_();
+            if (c_) {
+                oVar8 = this.a.b;
+                oVar8.f();
+                com.baidu.tieba.p.c().a(false);
             }
         }
         if (pVar.c == 1) {
-            j = this.a.h;
+            j = this.a.i;
             if (j > -1) {
                 long currentTimeMillis = System.currentTimeMillis();
-                j2 = this.a.h;
-                oVar2 = this.a.c;
-                long d2 = oVar2.d();
-                j3 = this.a.h;
+                j2 = this.a.i;
+                oVar4 = this.a.d;
+                long d2 = oVar4.d();
+                j3 = this.a.i;
                 long j4 = d2 - j3;
-                oVar3 = this.a.c;
-                long b = oVar3.b();
-                oVar4 = this.a.c;
-                long c = oVar4.c();
-                oVar5 = this.a.c;
-                TiebaStatic.a("op_forum_enter", currentTimeMillis - j2, j4, b, c, currentTimeMillis - oVar5.a());
-                this.a.h = -1L;
+                oVar5 = this.a.d;
+                long b = oVar5.b();
+                oVar6 = this.a.d;
+                long c = oVar6.c();
+                oVar7 = this.a.d;
+                TiebaStatic.a("op_forum_enter", currentTimeMillis - j2, j4, b, c, currentTimeMillis - oVar7.a());
+                this.a.i = -1L;
             }
         }
-        oVar = this.a.c;
-        com.baidu.tieba.data.n e2 = oVar.e();
+        oVar3 = this.a.d;
+        com.baidu.tieba.data.n e2 = oVar3.e();
         if (e2.b() == 1) {
             if (!e2.i()) {
-                eVar3 = this.a.g;
+                eVar3 = this.a.h;
                 String.format(eVar3.getString(com.baidu.tieba.a.k.signallforum_warning), Integer.valueOf(e2.c()));
                 return;
             }

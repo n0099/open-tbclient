@@ -2,10 +2,10 @@ package com.baidu.tieba.im.e.a;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.im.message.bl;
 import com.baidu.tieba.im.message.bm;
-import com.baidu.tieba.im.message.bn;
 /* loaded from: classes.dex */
-public abstract class b implements com.baidu.adp.framework.task.a<bn> {
+public abstract class b implements com.baidu.adp.framework.task.a<bm> {
     private com.baidu.tieba.im.pushNotify.m a;
     private int b;
 
@@ -15,13 +15,13 @@ public abstract class b implements com.baidu.adp.framework.task.a<bn> {
     }
 
     @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<bn> aVar) {
+    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<bm> aVar) {
         CustomResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(this.b);
-        if (aVar == null || !(aVar instanceof bm)) {
+        if (aVar == null || !(aVar instanceof bl)) {
             com.baidu.adp.lib.util.f.b("message error");
             return null;
         }
-        bn a = aVar.a();
+        bm a = aVar.a();
         String str = "";
         if (TbadkApplication.N() != null) {
             str = TbadkApplication.N().getID();

@@ -1,19 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.core.data.VoiceData;
+import android.view.View;
+import android.view.ViewGroup;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class dd implements w {
-    final /* synthetic */ PersonalChatActivity a;
+public final class dd implements com.baidu.tbadk.imageManager.d {
+    private final /* synthetic */ View a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dd(PersonalChatActivity personalChatActivity) {
-        this.a = personalChatActivity;
+    public dd(View view) {
+        this.a = view;
     }
 
-    @Override // com.baidu.tieba.im.chat.w
-    public final void a(VoiceData.VoiceModel voiceModel) {
-        if (voiceModel != null) {
-            this.a.e.a(voiceModel.voiceId, voiceModel.duration);
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        if (bVar != null && this.a != null && (this.a instanceof ViewGroup)) {
+            com.baidu.tbadk.core.util.bn.a((ViewGroup) this.a, false, (com.baidu.tbadk.core.util.bp) new de(this, str, bVar));
         }
     }
 }

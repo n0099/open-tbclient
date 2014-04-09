@@ -1,11 +1,26 @@
 package com.baidu.tieba.im.pushNotify;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 /* loaded from: classes.dex */
-public final class k extends com.baidu.tieba.im.m<Void> {
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Void a() {
-        a.c();
-        return null;
+final class k extends com.baidu.adp.framework.c.a {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (customResponsedMessage2 == null || customResponsedMessage2.g() != 2008016) {
+            return;
+        }
+        a.d().b();
+        a.d().a((ImMessageCenterShowItemData) null);
+        a.d().b((ImMessageCenterShowItemData) null);
+        a.d().b(false, null);
+        com.baidu.adp.framework.e.c.a();
+        com.baidu.adp.framework.e.c.a(true, "clear cache");
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(int i) {
+        super(2008016);
     }
 }

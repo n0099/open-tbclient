@@ -8,6 +8,7 @@ import android.util.Log;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.voice.service.MediaService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class r extends BroadcastReceiver {
@@ -143,7 +144,7 @@ public final class r extends BroadcastReceiver {
                         }
                     }
                     this.a.o();
-                    com.baidu.tbadk.core.voice.service.a.a(context);
+                    MediaService.a(context);
                     return;
                 }
                 o = this.a.o();

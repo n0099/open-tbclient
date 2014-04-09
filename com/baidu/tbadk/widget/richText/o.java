@@ -19,9 +19,9 @@ public final class o implements View.OnClickListener {
         q qVar2;
         qVar = this.a.C;
         if (qVar != null) {
-            e f = this.b.f();
+            e g = this.b.g();
             qVar2 = this.a.C;
-            qVar2.a(view, f.e, f.h, f.i, f.a, f.b, f.c, f.f, f.g);
+            qVar2.a(view, g.e, g.h, g.i, g.a, g.b, g.c, g.f, g.g);
         }
     }
 }

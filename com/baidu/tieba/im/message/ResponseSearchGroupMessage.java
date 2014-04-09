@@ -16,7 +16,7 @@ public class ResponseSearchGroupMessage extends SocketResponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         SearchGroupRes.SearchGroupResIdl parseFrom = SearchGroupRes.SearchGroupResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             LinkedList linkedList = new LinkedList();
             Im.GroupInfo group = parseFrom.getData().getGroup();

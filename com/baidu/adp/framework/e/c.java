@@ -1,20 +1,21 @@
 package com.baidu.adp.framework.e;
 
 import com.baidu.adp.lib.network.websocket.BdSocketLinkService;
-import com.baidu.adp.lib.network.websocket.j;
 import com.baidu.adp.lib.network.websocket.k;
+import com.baidu.adp.lib.network.websocket.l;
 import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class c extends d {
+public class c extends e {
     private static c c = null;
     private String d = null;
     private String e = null;
     private String[] f = null;
     private List<BasicNameValuePair> g = null;
-    private k h = null;
-    private j i = null;
-    private int[] j = com.baidu.adp.framework.b.a;
+    private l h = null;
+    private k i = null;
+    private d j = null;
+    private int[] k = com.baidu.adp.framework.b.a;
 
     public static c a() {
         if (c == null) {
@@ -28,23 +29,23 @@ public class c extends d {
     }
 
     private c() {
-        this.a = new e(20000, 10000, 5000);
+        this.a = new f(20000, 10000, 5000);
         this.b = 3;
     }
 
-    public final void a(k kVar) {
-        this.h = kVar;
+    public final void a(l lVar) {
+        this.h = lVar;
     }
 
-    public final k b() {
+    public final l b() {
         return this.h;
     }
 
-    public final void a(j jVar) {
-        this.i = jVar;
+    public final void a(k kVar) {
+        this.i = kVar;
     }
 
-    public final j c() {
+    public final k c() {
         return this.i;
     }
 
@@ -94,5 +95,13 @@ public class c extends d {
 
     public static void a(boolean z) {
         com.baidu.adp.framework.c.a().a(z);
+    }
+
+    public final d i() {
+        return this.j;
+    }
+
+    public final void a(d dVar) {
+        this.j = dVar;
     }
 }

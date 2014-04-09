@@ -1,26 +1,13 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-final class ca implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ bz a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(bz bzVar) {
-        this.a = bzVar;
-    }
-
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        PersonListActivity personListActivity;
-        BdListView bdListView;
-        personListActivity = this.a.a;
-        bdListView = personListActivity.b;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        if (imageView != null && bVar != null) {
-            bVar.a(imageView);
-            imageView.setTag(null);
+final class ca implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.ag> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<com.baidu.tbadk.core.b.ag> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.ag> aVar) {
+        if (aVar != null && aVar.a() != null) {
+            PersonInfoActivityStatic.a(aVar.a().c(), aVar.a().d().getStringExtra("user_id"), aVar.a().d().getStringExtra("user_name"));
         }
+        return null;
     }
 }

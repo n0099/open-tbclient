@@ -13,13 +13,13 @@ final class r implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public final void onClick(DialogInterface dialogInterface, int i) {
-        bk bkVar;
+        bm bmVar;
         WriteImagesInfo writeImagesInfo;
         String str;
         WriteImagesInfo writeImagesInfo2;
         WriteImagesInfo writeImagesInfo3;
-        bkVar = this.a.D;
-        bkVar.m();
+        bmVar = this.a.D;
+        bmVar.m();
         if (i == 0) {
             writeImagesInfo = this.a.n;
             if (writeImagesInfo.getChosedFiles() != null) {

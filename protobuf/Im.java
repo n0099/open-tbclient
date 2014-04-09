@@ -4,7 +4,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.location.BDLocation;
-import com.baidu.tieba.person.PersonInfoActivity;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
@@ -2317,7 +2316,7 @@ public final class Im {
                                 this.bitField0_ |= 2048;
                                 this.status_ = codedInputStream.readInt32();
                                 break;
-                            case PersonInfoActivity.REQUSET_MY_MENTION /* 104 */:
+                            case 104:
                                 this.bitField0_ |= 4096;
                                 this.flag_ = codedInputStream.readInt32();
                                 break;

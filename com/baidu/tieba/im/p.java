@@ -22,14 +22,14 @@ public final class p {
     }
 
     public static void a(Context context) {
-        r.a();
+        q.a();
         com.baidu.tieba.im.messageCenter.a.a();
         com.baidu.tieba.im.d.a.a();
         LocalViewSize.a().a(context);
         com.baidu.tieba.im.c.b.a().a(context);
         com.baidu.tieba.im.pushNotify.o.a().b();
         x.b().a();
-        com.baidu.tieba.im.db.h.a().b();
+        com.baidu.tieba.im.db.i.a().b();
         a = Thread.currentThread().getId();
         com.baidu.adp.lib.util.f.e("=====uid:" + TbadkApplication.E() + " cuid:" + TbadkApplication.y());
     }
@@ -67,22 +67,12 @@ public final class p {
         com.baidu.tbadk.s.b("has_showed_del_ga_tip", true);
     }
 
-    public static void b(boolean z) {
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("is_spring_egg", z);
-    }
-
-    public static boolean f() {
-        com.baidu.tbadk.s.a();
-        return com.baidu.tbadk.s.a("is_spring_egg", false);
-    }
-
     public static void a(long j) {
         com.baidu.tbadk.s.a();
         com.baidu.tbadk.s.b("nearbygroup_date", j);
     }
 
-    public static long g() {
+    public static long f() {
         com.baidu.tbadk.s.a();
         return com.baidu.tbadk.s.a("nearbygroup_date", 0L);
     }

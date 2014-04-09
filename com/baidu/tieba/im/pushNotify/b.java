@@ -1,26 +1,32 @@
 package com.baidu.tieba.im.pushNotify;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
+import com.baidu.tieba.im.message.ImSystemShowNotifyMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class b extends com.baidu.adp.framework.c.a {
+public final class b extends com.baidu.adp.framework.c.a {
+    final /* synthetic */ a a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(a aVar, int i) {
+        super(2001128);
+        this.a = aVar;
+    }
+
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
     @Override // com.baidu.adp.framework.c.c
     public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
         CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 == null || customResponsedMessage2.g() != 2008016) {
-            return;
+        switch (customResponsedMessage2.g()) {
+            case 2001128:
+                if (customResponsedMessage2 instanceof ImSystemShowNotifyMessage) {
+                    a.c(((ImSystemShowNotifyMessage) customResponsedMessage2).b());
+                    return;
+                }
+                return;
+            default:
+                return;
         }
-        a.d().b();
-        a.d().a((ImMessageCenterShowItemData) null);
-        a.d().b((ImMessageCenterShowItemData) null);
-        a.d().b(false, null);
-        com.baidu.adp.framework.e.c.a();
-        com.baidu.adp.framework.e.c.a(true, "clear cache");
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(int i) {
-        super(2008016);
     }
 }

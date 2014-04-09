@@ -4,18 +4,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class BubbleListData implements Serializable {
+public class BubbleListData implements Serializable, Cloneable {
     private static final long serialVersionUID = -4612117445868668894L;
     private List<BubbleData> b_info = new ArrayList();
-    private int error_code;
+    private String error_code;
     private String error_msg;
 
-    public int getError_code() {
+    public String getError_code() {
         return this.error_code;
     }
 
-    public void setError_code(int i) {
-        this.error_code = i;
+    public void setError_code(String str) {
+        this.error_code = str;
     }
 
     public String getError_msg() {
@@ -111,6 +111,21 @@ public class BubbleListData implements Serializable {
 
         public void setBname(String str) {
             this.bname = str;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public BubbleListData m250clone() {
+        try {
+            Object clone = super.clone();
+            if (clone instanceof BubbleListData) {
+                return (BubbleListData) clone;
+            }
+            return this;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return this;
         }
     }
 }

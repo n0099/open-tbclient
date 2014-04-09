@@ -69,8 +69,8 @@ public final class j extends BdAsyncTask<String, Integer, String> {
         try {
             this.a = new ak("http://114.113.149.3:8086/partnersService");
             ak akVar = this.a;
-            com.baidu.tieba.r.c();
-            akVar.a("apk", com.baidu.tieba.r.d().getPackageName());
+            com.baidu.tieba.p.c();
+            akVar.a("apk", com.baidu.tieba.p.d().getPackageName());
             this.a.a("imei", TbadkApplication.j().C());
             this.a.a("model", Build.MODEL);
             this.a.a("edition", com.baidu.tbadk.core.data.n.c());

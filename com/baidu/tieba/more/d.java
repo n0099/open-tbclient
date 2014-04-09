@@ -79,9 +79,6 @@ public final class d extends com.baidu.adp.a.f {
         this.e.b(i);
         this.d.getLayoutMode().a(i == 1);
         this.d.getLayoutMode().a(this.f);
-        this.h.a(i);
-        this.j.a(i);
-        this.i.a(i);
         e();
     }
 }

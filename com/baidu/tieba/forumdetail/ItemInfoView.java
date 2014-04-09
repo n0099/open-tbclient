@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tbadk.editortool.w;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.forumdetail.ForumDetailData;
@@ -136,9 +136,9 @@ public class ItemInfoView extends RelativeLayout {
     }
 
     private void a(ForumDetailData forumDetailData) {
-        aa aaVar = new aa(this.a);
+        ab abVar = new ab(this.a);
         int a = com.baidu.adp.lib.util.i.a(this.a, 20.0f);
-        aaVar.a(a, a);
+        abVar.a(a, a);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(a, a);
         layoutParams.rightMargin = com.baidu.adp.lib.util.i.a(this.a, 6.0f);
         int length = forumDetailData.badges.length;
@@ -148,7 +148,7 @@ public class ItemInfoView extends RelativeLayout {
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             headImageView.setTag(forumDetailData.badges[i].badgeURL);
             this.j.addView(headImageView);
-            aaVar.b(forumDetailData.badges[i].badgeURL, new n(this, headImageView));
+            abVar.b(forumDetailData.badges[i].badgeURL, new n(this, headImageView));
         }
         this.j.setVisibility(0);
     }

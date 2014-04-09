@@ -154,7 +154,7 @@ public class GifView extends ImageView implements Runnable {
             bVar.b().a(this.c, null);
             setImageBitmap(this.c);
             if (this.r) {
-                d();
+                c();
             }
         } else {
             bVar.b().a(this.d);
@@ -188,7 +188,7 @@ public class GifView extends ImageView implements Runnable {
         }
     }
 
-    private void d() {
+    private void c() {
         c cVar;
         if (this.b != null && (cVar = this.b.get()) != null) {
             if (this.d != 0) {
@@ -202,11 +202,6 @@ public class GifView extends ImageView implements Runnable {
     }
 
     public final void b() {
-        this.x = true;
-        d();
-    }
-
-    public final void c() {
         this.b = null;
     }
 
@@ -224,7 +219,7 @@ public class GifView extends ImageView implements Runnable {
             if (i == 4 || i == 8) {
                 a();
             } else if (i == 0) {
-                d();
+                c();
             }
         }
     }
@@ -264,7 +259,7 @@ public class GifView extends ImageView implements Runnable {
                 return;
             }
             this.w = true;
-            e();
+            d();
         } else if (a != null && this.w) {
             this.w = false;
             removeCallbacks(this);
@@ -328,7 +323,7 @@ public class GifView extends ImageView implements Runnable {
         f.e("GifView", "onLayout", "width=" + i3 + " height=" + i4);
     }
 
-    private void e() {
+    private void d() {
         removeCallbacks(this);
         postDelayed(this, 150L);
     }
@@ -340,7 +335,7 @@ public class GifView extends ImageView implements Runnable {
             this.l = 0.0f;
         }
         invalidate();
-        e();
+        d();
     }
 
     public void setPlayCallback(b bVar) {

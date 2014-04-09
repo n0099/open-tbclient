@@ -11,7 +11,7 @@ import android.widget.AbsListView;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.bg;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.frsgroup.GroupLevelActivity;
 import com.baidu.tieba.im.groupActivity.GroupActivityActivity;
@@ -25,7 +25,7 @@ public class UpdatesActivity extends com.baidu.tbadk.a implements AbsListView.On
     private com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> d;
     private com.baidu.tieba.im.a<Boolean> e;
     private Runnable f;
-    private aa g;
+    private ab g;
     private UpdatesItemData i;
     private p j;
     private boolean h = false;
@@ -54,7 +54,7 @@ public class UpdatesActivity extends com.baidu.tbadk.a implements AbsListView.On
         this.b = new t(this);
         this.e = new d(this);
         this.d = new e(this);
-        this.g = new aa(this);
+        this.g = new ab(this);
         this.g.a(true);
         registerListener(2001136, this.l);
         registerListener(2001137, this.l);
@@ -286,7 +286,7 @@ public class UpdatesActivity extends com.baidu.tbadk.a implements AbsListView.On
         }
     }
 
-    public final aa a() {
+    public final ab a() {
         return this.g;
     }
 

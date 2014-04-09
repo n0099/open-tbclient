@@ -15,7 +15,7 @@ public class HotGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void c(int i) {
+    protected final void b(int i) {
         if (this.c != null) {
             this.c.a(i);
         }

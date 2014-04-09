@@ -31,8 +31,9 @@ public class TiebaUpdateService extends Service {
     private long q = 0;
     private long r = 0;
     private boolean s = false;
-    private Handler t = new p(this);
-    private Handler u = new q(this);
+    private boolean t = false;
+    private Handler u = new p(this);
+    private Handler v = new q(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(TiebaUpdateService tiebaUpdateService, long j, long j2) {
@@ -71,11 +72,11 @@ public class TiebaUpdateService extends Service {
     public void onCreate() {
         super.onCreate();
         this.b = (NotificationManager) getSystemService("notification");
-        com.baidu.tieba.r.c();
-        PendingIntent activity = PendingIntent.getActivity(com.baidu.tieba.r.d(), 0, new Intent(), 0);
+        com.baidu.tieba.p.c();
+        PendingIntent activity = PendingIntent.getActivity(com.baidu.tieba.p.d(), 0, new Intent(), 0);
         Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-        com.baidu.tieba.r.c();
-        notification.contentView = new RemoteViews(com.baidu.tieba.r.d().getPackageName(), com.baidu.tieba.a.i.notify_item);
+        com.baidu.tieba.p.c();
+        notification.contentView = new RemoteViews(com.baidu.tieba.p.d().getPackageName(), com.baidu.tieba.a.i.notify_item);
         notification.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, 0, false);
         notification.contentIntent = activity;
         notification.flags = 32;
@@ -88,8 +89,9 @@ public class TiebaUpdateService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.t.removeMessages(900002);
-        this.u.removeMessages(900003);
+        this.t = false;
+        this.u.removeMessages(900002);
+        this.v.removeMessages(900003);
         if (this.d != null) {
             this.d.cancel();
         }
@@ -108,6 +110,9 @@ public class TiebaUpdateService extends Service {
         String str;
         boolean z2;
         String[] split;
+        this.t = true;
+        this.q = System.currentTimeMillis();
+        this.r = System.currentTimeMillis();
         com.baidu.adp.lib.util.f.a(getClass().getName(), "onStart", "onStart");
         if (!g) {
             this.h = intent.getStringExtra("other_url");
@@ -143,7 +148,7 @@ public class TiebaUpdateService extends Service {
                     this.c.contentView.setTextViewText(com.baidu.tieba.a.h.schedule, "0/0");
                     a(0);
                     if (w.d(this.e.getNew_file()) != null) {
-                        this.t.sendMessageDelayed(this.t.obtainMessage(1, this.e), 100L);
+                        this.u.sendMessageDelayed(this.u.obtainMessage(1, this.e), 100L);
                     } else if (this.d == null) {
                         this.d = new r(this, this.e);
                         this.d.execute(new String[0]);
@@ -153,7 +158,7 @@ public class TiebaUpdateService extends Service {
                     if (z2) {
                         if (w.d(this.a) != null) {
                             this.n = false;
-                            this.u.sendMessageDelayed(this.u.obtainMessage(2, this.e), 100L);
+                            this.v.sendMessageDelayed(this.v.obtainMessage(2, this.e), 100L);
                         } else if (this.f == null) {
                             this.n = true;
                             this.f = new s(this, this.h);

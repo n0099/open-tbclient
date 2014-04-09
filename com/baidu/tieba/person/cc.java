@@ -1,26 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.act.LoginActivity;
+import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-final class cc implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity a;
+final class cc implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ cb a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cc(PersonListActivity personListActivity) {
-        this.a = personListActivity;
+    public cc(cb cbVar) {
+        this.a = cbVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        this.a.a = ((Integer) view.getTag()).intValue();
-        String E = TbadkApplication.E();
-        if (E == null || E.length() <= 0) {
-            LoginActivity.a((Activity) this.a, this.a.getString(com.baidu.tieba.a.k.login_to_chat), true, 11028);
-        } else {
-            this.a.a();
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        PersonListActivity personListActivity;
+        BdListView bdListView;
+        personListActivity = this.a.a;
+        bdListView = personListActivity.b;
+        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+        if (imageView != null && bVar != null) {
+            bVar.a(imageView);
+            imageView.setTag(null);
         }
     }
 }

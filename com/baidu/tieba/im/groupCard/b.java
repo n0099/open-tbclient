@@ -5,14 +5,14 @@ import android.graphics.Bitmap;
 import com.baidu.adp.a.e;
 import com.baidu.tbadk.core.data.n;
 import com.baidu.tbadk.core.util.LocalViewSize;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 /* loaded from: classes.dex */
 public final class b extends e {
     private static Long f = 0L;
     private static final Long g = 300000L;
     private final long a;
     private final GroupCardActivity b;
-    private aa c = null;
+    private ab c = null;
     private c d = null;
     private String e;
 
@@ -39,7 +39,7 @@ public final class b extends e {
     }
 
     public final com.baidu.adp.widget.ImageView.b a(Activity activity, int i, int i2, com.baidu.tbadk.imageManager.d dVar) {
-        this.c = new aa(activity);
+        this.c = new ab(activity);
         if (System.currentTimeMillis() - f.longValue() > g.longValue()) {
             f = Long.valueOf(System.currentTimeMillis());
         }

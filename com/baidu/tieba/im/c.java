@@ -22,8 +22,10 @@ public final class c {
     public static final int locating_animation = 2130968607;
     public static final int panel_fold_down = 2130968609;
     public static final int panel_fold_up = 2130968610;
-    public static final int share_dialog_enter = 2130968616;
-    public static final int share_dialog_exit = 2130968617;
-    public static final int tb_image_anim = 2130968619;
-    public static final int wobble = 2130968628;
+    public static final int pop_window_close = 2130968612;
+    public static final int pop_window_open = 2130968613;
+    public static final int share_dialog_enter = 2130968618;
+    public static final int share_dialog_exit = 2130968619;
+    public static final int tb_image_anim = 2130968621;
+    public static final int wobble = 2130968630;
 }

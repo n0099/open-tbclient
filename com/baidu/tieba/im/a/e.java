@@ -3,5 +3,5 @@ package com.baidu.tieba.im.a;
 public interface e {
     void a(int i, String str, String str2);
 
-    void a(String str);
+    void b(String str);
 }

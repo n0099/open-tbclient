@@ -6,7 +6,7 @@ import com.google.protobuf.MessageLite;
 import protobuf.GetGroupMsg.GetGroupMsgReq;
 import protobuf.Im;
 /* loaded from: classes.dex */
-public final class s extends com.baidu.tbadk.message.websockt.d {
+public class s extends com.baidu.tbadk.message.websockt.d {
     private SparseArray<Long> a;
     private int b;
     private int c;
@@ -46,20 +46,25 @@ public final class s extends com.baidu.tbadk.message.websockt.d {
 
     @Override // com.baidu.tbadk.message.websockt.d
     public final MessageLite h() {
-        protobuf.GetGroupMsg.b a = GetGroupMsgReq.DataReq.newBuilder().b(this.c).a(this.b).d(this.e).c(this.d).a(this.f);
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < this.a.size()) {
-                int keyAt = this.a.keyAt(i2);
-                Long valueAt = this.a.valueAt(i2);
-                if (valueAt != null) {
-                    a.a(Im.GroupLastId.newBuilder().a(keyAt).a(valueAt.longValue()));
+        try {
+            protobuf.GetGroupMsg.b a = GetGroupMsgReq.DataReq.newBuilder().b(this.c).a(this.b).d(this.e).c(this.d).a(this.f);
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.a.size()) {
+                    int keyAt = this.a.keyAt(i2);
+                    Long valueAt = this.a.valueAt(i2);
+                    if (valueAt != null) {
+                        a.a(Im.GroupLastId.newBuilder().a(keyAt).a(valueAt.longValue()));
+                    }
+                    i = i2 + 1;
+                } else {
+                    return GetGroupMsgReq.GetGroupMsgReqIdl.newBuilder().a(TbadkApplication.y()).a(a.build()).build();
                 }
-                i = i2 + 1;
-            } else {
-                return GetGroupMsgReq.GetGroupMsgReqIdl.newBuilder().a(TbadkApplication.y()).a(a.build()).build();
             }
+        } catch (Throwable th) {
+            com.baidu.adp.lib.util.f.a(s.class, "encode", th);
+            return null;
         }
     }
 

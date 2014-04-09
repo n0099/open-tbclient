@@ -1,98 +1,147 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.download.DownloadMessage;
+import com.baidu.tbadk.editortool.EmotionGroupData;
 import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.FileInputStream;
+import java.io.IOException;
 /* loaded from: classes.dex */
-public final class f {
-    private static f a = new f();
-    private i b;
-    private List<String> c;
-    private int d = 5;
-    private com.baidu.adp.framework.c.a e = new g(this, 2001144);
-    private com.baidu.adp.framework.c.a f = new h(this, 2001123);
-
-    private f() {
-        com.baidu.adp.framework.c.a().a(this.f);
-        com.baidu.adp.framework.c.a().a(this.e);
-    }
-
-    public static f a() {
-        return a;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void b(f fVar, List list) {
-        fVar.b = new i(fVar);
-        fVar.b.execute(list);
-    }
-
-    public final void a(String str, String str2, String str3) {
-        if (!com.baidu.tbadk.core.util.bc.c(str) && !com.baidu.tbadk.core.util.bc.c(str3)) {
-            com.baidu.tieba.download.a aVar = new com.baidu.tieba.download.a(str, str2, str3, new e());
-            aVar.e(TbadkApplication.E());
-            aVar.b(11);
-            String[] split = str3.split("/");
-            if (split.length > 1) {
-                String[] split2 = split[split.length - 1].split("_");
-                if (split2 != null) {
-                    if (split2.length == 5) {
-                        aVar.b(split2[1]);
-                        aVar.d(split2[2]);
-                        aVar.c(com.baidu.adp.lib.f.b.a(split2[3], 200));
-                        aVar.d(com.baidu.adp.lib.f.b.a(split2[4].split(".png")[0], 200));
-                    } else if (split2.length == 3) {
-                        aVar.b(split2[1]);
-                        aVar.d(split2[2].split(".png")[0]);
-                        aVar.c(200);
-                        aVar.d(200);
-                    } else {
-                        com.baidu.tieba.r.c();
-                        aVar.e(com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.download_fail));
-                        aVar.a(2);
-                    }
-                } else {
-                    com.baidu.tieba.r.c();
-                    aVar.e(com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.download_fail));
-                    aVar.a(2);
-                }
-            } else {
-                com.baidu.tieba.r.c();
-                aVar.e(com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.download_fail));
-                aVar.a(2);
+public final class f implements com.baidu.tieba.download.b {
+    @Override // com.baidu.tieba.download.b
+    public final void d(com.baidu.tieba.download.a aVar) {
+        com.baidu.tbadk.editortool.ac.a().b();
+        try {
+            File file = new File(aVar.e());
+            if (file.exists()) {
+                file.delete();
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append(com.baidu.tbadk.core.util.w.d());
-            sb.append(com.baidu.tbadk.core.util.w.a(2));
-            File file = new File(sb.toString());
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            sb.append("/");
-            sb.append(str);
-            aVar.c(sb.toString());
-            com.baidu.adp.lib.util.f.e("download:path:" + aVar.e());
-            com.baidu.tieba.download.c.a().a(aVar, this.d);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public static void a(String str) {
-        com.baidu.tieba.download.c.a().a(str, 11);
+    @Override // com.baidu.tieba.download.b
+    public final void a(com.baidu.tieba.download.a aVar, int i) {
+        if (i != 3) {
+            try {
+                File file = new File(aVar.e());
+                if (file.exists()) {
+                    file.delete();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    public static void b() {
-        com.baidu.tieba.download.c.a().a(11);
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [86=4, 89=4, 90=4] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00e9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.tieba.download.b
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean c(com.baidu.tieba.download.a aVar) {
+        FileInputStream fileInputStream;
+        if (aVar == null) {
+            return false;
+        }
+        try {
+            fileInputStream = new FileInputStream(aVar.e());
+            try {
+                try {
+                    d.a();
+                    int a = d.a(aVar.a(), fileInputStream);
+                    EmotionGroupData a2 = com.baidu.tbadk.editortool.v.a().a(aVar.a());
+                    if (a2 == null) {
+                        if (a == 0) {
+                            try {
+                                fileInputStream.close();
+                                return false;
+                            } catch (IOException e) {
+                                com.baidu.adp.lib.util.f.e("download:after load::error:" + e.getMessage());
+                                return false;
+                            }
+                        }
+                        a2 = new EmotionGroupData();
+                        a2.setBytesLength((int) aVar.i());
+                        a2.setBytesReceived((int) aVar.h());
+                        a2.setDownloadUrl(aVar.d());
+                        a2.setGroupId(aVar.a());
+                        a2.setEmotionsCount(a);
+                        a2.setHeight(aVar.k());
+                        a2.setWidth(aVar.j());
+                        a2.setDownloadTime(System.currentTimeMillis());
+                        a2.setGroupDesc(aVar.c());
+                        a2.setGroupName(aVar.b());
+                        a2.setStatus(1);
+                        com.baidu.tbadk.editortool.v.a();
+                        com.baidu.tbadk.editortool.v.a(a2);
+                    }
+                    com.baidu.tbadk.editortool.v.a();
+                    com.baidu.tbadk.editortool.v.a(aVar.n(), a2);
+                    aVar.e((String) null);
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException e2) {
+                        com.baidu.adp.lib.util.f.e("download:after load::error:" + e2.getMessage());
+                    }
+                    return true;
+                } catch (Exception e3) {
+                    e = e3;
+                    com.baidu.adp.lib.util.f.e("download:after load::error:" + e.getMessage());
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                            return false;
+                        } catch (IOException e4) {
+                            com.baidu.adp.lib.util.f.e("download:after load::error:" + e4.getMessage());
+                            return false;
+                        }
+                    }
+                    return false;
+                }
+            } catch (Throwable th) {
+                th = th;
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException e5) {
+                        com.baidu.adp.lib.util.f.e("download:after load::error:" + e5.getMessage());
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception e6) {
+            e = e6;
+            fileInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            fileInputStream = null;
+            if (fileInputStream != null) {
+            }
+            throw th;
+        }
     }
 
-    public static void a(com.baidu.tieba.download.a aVar) {
-        LinkedList linkedList = new LinkedList();
-        linkedList.add(aVar);
-        com.baidu.adp.framework.c.a().b(new DownloadMessage(linkedList));
+    @Override // com.baidu.tieba.download.b
+    public final void a(com.baidu.tieba.download.a aVar) {
+        if (aVar != null) {
+            g.a();
+            g.a(aVar);
+        }
     }
 
-    public static void a(List<com.baidu.tieba.download.a> list) {
-        com.baidu.adp.framework.c.a().b(new DownloadMessage(list));
+    @Override // com.baidu.tieba.download.b
+    public final boolean b(com.baidu.tieba.download.a aVar) {
+        if (aVar == null) {
+            return false;
+        }
+        EmotionGroupData a = com.baidu.tbadk.editortool.v.a().a(aVar.a());
+        if (a != null && e.a(aVar.a())) {
+            com.baidu.tbadk.editortool.v.a();
+            com.baidu.tbadk.editortool.v.a(aVar.n(), a);
+            aVar.e((String) null);
+            return false;
+        }
+        return true;
     }
 }

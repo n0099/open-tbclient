@@ -1,62 +1,152 @@
 package com.baidu.tieba.pb.image;
 
-import android.app.AlertDialog;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.TextView;
+import android.os.Handler;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.util.ak;
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class r implements View.OnClickListener {
+public final class r extends BdAsyncTask<Object, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
+    private ak b;
+    private ArrayList<BasicNameValuePair> c;
+    private String d;
+    private boolean f;
+    private String e = null;
+    private boolean g = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public r(ImagePbActivity imagePbActivity) {
-        this.a = imagePbActivity;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ String a(Object... objArr) {
+        this.b = new ak(this.d);
+        this.b.a(this.c);
+        this.e = this.b.i();
+        return this.e;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        String str;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(String str) {
+        com.baidu.tieba.data.u uVar;
+        com.baidu.tieba.data.u uVar2;
+        com.baidu.tieba.data.u uVar3;
+        com.baidu.tieba.data.u uVar4;
+        com.baidu.tieba.data.u uVar5;
         String str2;
-        View view2;
-        AlertDialog alertDialog;
-        String str3;
-        AlertDialog alertDialog2;
-        View view3;
-        TextView textView;
-        TextView textView2;
-        AlertDialog alertDialog3;
-        AlertDialog alertDialog4;
-        str = this.a.E;
-        if (str != null) {
-            str2 = this.a.E;
-            if (str2.length() != 0) {
-                ImagePbActivity.w(this.a);
-                view2 = this.a.k;
-                TextView textView3 = (TextView) view2.findViewById(com.baidu.tieba.a.h.text);
-                if (textView3 != null) {
-                    alertDialog = this.a.j;
-                    alertDialog.show();
-                    StringBuilder sb = new StringBuilder(String.valueOf(this.a.getString(com.baidu.tieba.a.k.title)));
-                    str3 = this.a.E;
-                    textView3.setText(sb.append(str3).toString());
-                    alertDialog2 = this.a.j;
-                    view3 = this.a.k;
-                    alertDialog2.setContentView(view3);
-                    textView = this.a.h;
-                    int top = textView.getTop();
-                    textView2 = this.a.h;
-                    alertDialog3 = this.a.j;
-                    WindowManager.LayoutParams attributes = alertDialog3.getWindow().getAttributes();
-                    attributes.gravity = 51;
-                    attributes.x = 0;
-                    attributes.y = (top + textView2.getHeight()) - 5;
-                    attributes.width = -1;
-                    attributes.height = -2;
-                    attributes.alpha = 1.0f;
-                    alertDialog4 = this.a.j;
-                    alertDialog4.getWindow().setAttributes(attributes);
+        ac acVar;
+        com.baidu.tieba.data.u uVar6;
+        ac acVar2;
+        s sVar;
+        int i;
+        boolean z;
+        int i2;
+        com.baidu.tieba.data.u uVar7;
+        int i3;
+        com.baidu.tieba.data.u uVar8;
+        com.baidu.tieba.data.u uVar9;
+        com.baidu.tieba.data.u uVar10;
+        com.baidu.tieba.data.u uVar11;
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        com.baidu.tieba.data.u uVar12;
+        super.a((r) str);
+        if (this.g) {
+            return;
+        }
+        if (this.b != null && this.b.c()) {
+            uVar = this.a.F;
+            if (uVar != null) {
+                if (this.b.a().b().b()) {
+                    uVar3 = this.a.F;
+                    if (!uVar3.a()) {
+                        uVar12 = this.a.F;
+                        uVar12.a(this.e, true);
+                    }
+                    String name = getClass().getName();
+                    StringBuilder sb = new StringBuilder();
+                    uVar4 = this.a.F;
+                    com.baidu.adp.lib.util.f.a(name, "onPostExecute", sb.append(uVar4.g().size()).toString());
+                    uVar5 = this.a.F;
+                    str2 = this.a.B;
+                    uVar5.c(str2);
+                    acVar = this.a.y;
+                    uVar6 = this.a.F;
+                    acVar.a(uVar6);
+                    acVar2 = this.a.y;
+                    acVar2.notifyDataSetChanged();
+                    sVar = this.a.J;
+                    i = this.a.I;
+                    sVar.onPageSelected(i);
+                    z = this.a.A;
+                    if (z) {
+                        handler = this.a.Q;
+                        runnable = this.a.R;
+                        handler.removeCallbacks(runnable);
+                        handler2 = this.a.Q;
+                        runnable2 = this.a.R;
+                        handler2.post(runnable2);
+                    } else if (this.f) {
+                        this.a.b(1);
+                    } else {
+                        this.a.b(2);
+                    }
+                    ImagePbActivity.n(this.a);
+                    i2 = this.a.I;
+                    uVar7 = this.a.F;
+                    if (i2 >= uVar7.g().size()) {
+                        i3 = this.a.I;
+                        uVar8 = this.a.F;
+                        if (i3 < uVar8.j()) {
+                            uVar9 = this.a.F;
+                            int size = uVar9.g().size();
+                            uVar10 = this.a.F;
+                            if (size < uVar10.j()) {
+                                ImagePbActivity imagePbActivity = this.a;
+                                uVar11 = this.a.F;
+                                imagePbActivity.a(uVar11.k(), 0, 10, false);
+                            }
+                        }
+                    }
+                } else {
+                    this.a.showToast(this.a.getString(com.baidu.tieba.a.k.pb_nodata));
+                    if (this.f) {
+                        uVar2 = this.a.G;
+                        if (uVar2 != null) {
+                            this.a.a(0);
+                        }
+                    }
+                    this.a.finish();
                 }
             }
         }
+        this.a.b = null;
+        this.a.a(false);
+    }
+
+    public r(ImagePbActivity imagePbActivity, String str, ArrayList<BasicNameValuePair> arrayList, boolean z) {
+        this.a = imagePbActivity;
+        this.c = null;
+        this.d = null;
+        this.f = false;
+        this.d = str;
+        this.c = arrayList;
+        this.f = z;
+        setSelfExecute(true);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        if (this.b != null) {
+            this.b.g();
+        }
+        this.a.b = null;
+        this.a.a(false);
+        this.g = true;
+        super.cancel(true);
     }
 }

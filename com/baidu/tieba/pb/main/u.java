@@ -14,19 +14,19 @@ final class u implements com.baidu.tbadk.widget.richText.r {
 
     @Override // com.baidu.tbadk.widget.richText.r
     public final void onClick(View view, String str, int i) {
-        bk bkVar;
-        bd bdVar;
+        bm bmVar;
+        bf bfVar;
         int i2;
         String a;
         try {
-            bkVar = this.a.D;
-            if (bkVar.a(view, str) != null) {
+            bmVar = this.a.D;
+            if (bmVar.a(view, str) != null) {
                 TiebaStatic.a(this.a, "pic_pb", "");
-                bdVar = this.a.x;
-                com.baidu.tieba.data.ae p = bdVar.p();
+                bfVar = this.a.x;
+                com.baidu.tieba.data.ae p = bfVar.p();
                 com.baidu.tbadk.widget.richText.a a2 = PbActivity.a(this.a, str, i);
                 ArrayList<com.baidu.tbadk.widget.richText.c> a3 = a2.a();
-                i2 = this.a.ah;
+                i2 = this.a.aj;
                 com.baidu.tbadk.widget.richText.c cVar = a3.get(i2);
                 if (cVar != null) {
                     ArrayList<String> arrayList = new ArrayList<>();

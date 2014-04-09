@@ -3,6 +3,7 @@ package com.baidu.tieba.service;
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.data.VersionData;
@@ -34,8 +35,8 @@ final class r extends BdAsyncTask<String, Integer, Boolean> {
         try {
             if (bool2.booleanValue()) {
                 this.a.s = true;
-                handler = this.a.t;
-                handler2 = this.a.t;
+                handler = this.a.u;
+                handler2 = this.a.u;
                 handler.sendMessageDelayed(handler2.obtainMessage(1, this.b), 100L);
                 return;
             }
@@ -56,13 +57,13 @@ final class r extends BdAsyncTask<String, Integer, Boolean> {
         Exception e;
         File e2;
         Handler handler;
+        boolean z;
         long j;
         Boolean bool2 = false;
-        this.a.q = System.currentTimeMillis();
         while (!this.d) {
             try {
                 this.c = new ak(this.b.getUrl());
-                handler = this.a.t;
+                handler = this.a.u;
                 bool2 = Boolean.valueOf(this.c.a(String.valueOf(this.b.getNew_file()) + ".tmp", handler, 900002));
                 if (bool2.booleanValue() || this.c.d() == -2) {
                     break;
@@ -73,10 +74,11 @@ final class r extends BdAsyncTask<String, Integer, Boolean> {
                     } catch (Exception e3) {
                     }
                 }
-                if (!this.c.a().b().a()) {
+                z = this.a.t;
+                if (z && UtilHelper.a()) {
                     long currentTimeMillis = System.currentTimeMillis();
                     j = this.a.q;
-                    if (currentTimeMillis - j > 10000) {
+                    if (currentTimeMillis - j > 20000) {
                         this.a.a("showToast", "other_error");
                         bool = bool2;
                         break;

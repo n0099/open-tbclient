@@ -16,19 +16,19 @@ final class i implements com.baidu.adp.widget.ListView.d {
         com.baidu.tieba.im.a.a aVar;
         com.baidu.tieba.im.a.a aVar2;
         if (com.baidu.tieba.im.a.a.a) {
-            aVar = this.a.c;
+            aVar = this.a.d;
             if (aVar != null) {
-                aVar2 = this.a.c;
+                aVar2 = this.a.d;
                 aVar2.b();
             }
         }
-        jVar = this.a.d;
+        jVar = this.a.e;
         if (jVar == null) {
-            qVar = this.a.b;
+            qVar = this.a.c;
             qVar.c();
             return;
         }
-        jVar2 = this.a.d;
+        jVar2 = this.a.e;
         jVar2.a();
     }
 }

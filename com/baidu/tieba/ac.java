@@ -1,21 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.util.UtilHelper;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ac implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.data.k> {
-    final /* synthetic */ r a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(r rVar) {
-        this.a = rVar;
+public final class ac extends BdAsyncTask<String, Integer, String> {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* bridge */ /* synthetic */ String a(String... strArr) {
+        return a();
     }
 
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.data.k> aVar) {
-        UtilHelper.showNotification(TbadkApplication.j(), aVar.a(), 13);
+    private ac() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ac(byte b) {
+        this();
+    }
+
+    private static String a() {
+        byte[] bArr;
+        byte[] bArr2;
+        bArr = p.J;
+        synchronized (bArr) {
+            p.K = Boolean.valueOf(com.baidu.tieba.util.r.a());
+            bArr2 = p.J;
+            bArr2.notifyAll();
+        }
         return null;
     }
 }

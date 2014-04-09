@@ -4,19 +4,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.editortool.aa;
-import com.baidu.tieba.data.an;
+import com.baidu.tbadk.editortool.ab;
+import com.baidu.tieba.data.am;
 /* loaded from: classes.dex */
 public final class f extends com.baidu.adp.a.e {
     protected Context e;
-    protected an f;
+    protected am f;
     protected int a = 0;
     protected String b = null;
     protected String c = null;
     protected String d = null;
     protected g g = null;
     protected h h = null;
-    protected aa i = null;
+    protected ab i = null;
 
     public final void a(Intent intent) {
         this.b = intent.getStringExtra("thread_id");
@@ -40,7 +40,7 @@ public final class f extends com.baidu.adp.a.e {
         this.e = null;
         this.f = null;
         this.e = context;
-        this.f = new an();
+        this.f = new am();
     }
 
     public final void a(String str) {
@@ -64,10 +64,10 @@ public final class f extends com.baidu.adp.a.e {
     }
 
     public final void d() {
-        this.f = new an();
+        this.f = new am();
     }
 
-    public final an e() {
+    public final am e() {
         return this.f;
     }
 

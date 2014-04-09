@@ -15,10 +15,10 @@ final class cd implements Runnable {
 
     @Override // java.lang.Runnable
     public final void run() {
-        bk bkVar;
+        bm bmVar;
         FrameLayout frameLayout;
-        bkVar = this.a.a;
-        frameLayout = bkVar.n;
+        bmVar = this.a.a;
+        frameLayout = bmVar.n;
         frameLayout.removeView(this.b);
     }
 }

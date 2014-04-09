@@ -20,7 +20,7 @@ public final class a {
     private ArrayList<b> l = new ArrayList<>();
     private ArrayList<b> m = new ArrayList<>();
     private HashMap<String, b> n = new HashMap<>();
-    private com.baidu.tieba.home.p o = new com.baidu.tieba.home.p();
+    private com.baidu.tieba.home.q o = new com.baidu.tieba.home.q();
     private int p;
 
     public final String a() {
@@ -63,7 +63,7 @@ public final class a {
         return this.k;
     }
 
-    public final com.baidu.tieba.home.p k() {
+    public final com.baidu.tieba.home.q k() {
         return this.o;
     }
 
@@ -97,7 +97,7 @@ public final class a {
                         bVar.e(true);
                     }
                     this.l.add(bVar);
-                    com.baidu.tieba.r.c().a(bVar.b(), bVar.m(), -1);
+                    com.baidu.tieba.p.c().a(bVar.b(), bVar.m(), -1);
                 } else {
                     bVar.a(false);
                     bVar.b(true);
@@ -140,7 +140,7 @@ public final class a {
                                 this.n.put(new StringBuilder(String.valueOf(bVar.a())).toString(), bVar);
                             } else {
                                 this.l.add(bVar);
-                                com.baidu.tieba.r.c().a(bVar.b(), bVar.m(), -1);
+                                com.baidu.tieba.p.c().a(bVar.b(), bVar.m(), -1);
                             }
                             this.k.add(bVar);
                         }

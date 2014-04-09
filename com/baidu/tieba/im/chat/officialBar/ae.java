@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tieba.im.chat.dg;
+import com.baidu.tieba.im.chat.dc;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class ae extends BaseAdapter {
@@ -75,7 +75,7 @@ public final class ae extends BaseAdapter {
                     ag agVar = new ag(this, 501126);
                     agVar.d(bfVar.c);
                     agVar.e(bfVar.b);
-                    dg.a(this.a, aVar2.getRichTextView(), agVar);
+                    dc.a(this.a, aVar2.getRichTextView(), agVar);
                     return aVar;
                 case 1:
                     View aVar3 = view == null ? new a(this.a) : view;
@@ -85,7 +85,7 @@ public final class ae extends BaseAdapter {
                     ah ahVar = new ah(this, 501126);
                     ahVar.d("[" + bfVar.c + "]");
                     ahVar.e(bfVar.b);
-                    dg.a(this.a, aVar3, aVar4.getImageView(), ahVar, "official_history_adapter");
+                    dc.a(this.a, aVar3, aVar4.getImageView(), ahVar, "official_history_adapter");
                     aVar4.getImageView().setTag(Integer.valueOf(i));
                     aVar4.getImageView().setOnClickListener(this.b);
                     return aVar3;

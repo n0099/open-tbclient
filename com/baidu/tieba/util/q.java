@@ -10,7 +10,6 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.r;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileWriter;
@@ -85,8 +84,8 @@ public final class q implements Thread.UncaughtExceptionHandler {
                                 a(fileWriter, "activity", be.b());
                                 a(fileWriter, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
                                 a(fileWriter, "crash_type", th.getClass().getName());
-                                r.c();
-                                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) r.d().getSystemService("activity")).getRunningAppProcesses();
+                                com.baidu.tieba.p.c();
+                                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) com.baidu.tieba.p.d().getSystemService("activity")).getRunningAppProcesses();
                                 int myPid = Process.myPid();
                                 if (runningAppProcesses != null) {
                                     int i = 0;
@@ -170,14 +169,14 @@ public final class q implements Thread.UncaughtExceptionHandler {
                         }
                         try {
                             if (str2.contains("java.lang.SecurityException: No permission to modify given thread")) {
-                                r.c().d(r.c().v() + 1);
+                                TbadkApplication.j().i(TbadkApplication.j().aF() + 1);
                             } else if (str2.contains("com.baidu.location")) {
-                                r.c().y();
+                                com.baidu.tieba.p.c().v();
                             } else if (str2.contains("Couldn't load mtprocessor-jni")) {
                                 com.baidu.adp.lib.a.f.a().a("motu_sdk", 1);
                             }
                             if (be.a() != null && be.a().indexOf("NewVcode") != -1) {
-                                r.c().f(r.c().x() + 1);
+                                com.baidu.tieba.p.c().e(com.baidu.tieba.p.c().u() + 1);
                             }
                             com.baidu.adp.lib.a.f.a().a(str2);
                             if (!TextUtils.isEmpty(str2)) {

@@ -19,9 +19,9 @@ final class q extends com.baidu.tieba.im.m<Void> {
     public final /* synthetic */ Void a() {
         Iterator it = this.c.iterator();
         while (it.hasNext()) {
-            String c = com.baidu.tieba.im.db.g.c(((ImMessageCenterShowItemData) it.next()).getFriendId());
-            com.baidu.tieba.im.db.g.a();
-            com.baidu.tieba.im.db.g.a(c, true);
+            String c = com.baidu.tieba.im.db.h.c(((ImMessageCenterShowItemData) it.next()).getFriendId());
+            com.baidu.tieba.im.db.h.a();
+            com.baidu.tieba.im.db.h.a(c, true);
         }
         return null;
     }

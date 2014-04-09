@@ -1,60 +1,30 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbadkApplication;
-import java.util.LinkedList;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.download.QueryDownloadMessage;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i extends BdAsyncTask<List<String>, List<com.baidu.tieba.download.a>, List<com.baidu.tieba.download.a>> {
-    final /* synthetic */ f a;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ List<com.baidu.tieba.download.a> a(List<String>... listArr) {
-        List<String>[] listArr2 = listArr;
-        LinkedList linkedList = new LinkedList();
-        if (listArr2[0] == null) {
-            return linkedList;
-        }
-        for (int i = 0; i < listArr2[0].size(); i++) {
-            MyEmotionGroupData a = c.a().a(TbadkApplication.E(), listArr2[0].get(i));
-            if (a != null && d.a(a.getGroupId())) {
-                com.baidu.tieba.download.a aVar = new com.baidu.tieba.download.a(a.getGroupId());
-                aVar.a(3);
-                linkedList.add(aVar);
-            }
-        }
-        return linkedList;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(List<com.baidu.tieba.download.a> list) {
-        List<String> list2;
-        List<com.baidu.tieba.download.a> list3 = list;
-        super.a((i) list3);
-        if (list3 == null) {
-            list3 = new LinkedList<>();
-        }
-        com.baidu.tieba.download.c.a();
-        for (com.baidu.tieba.download.a aVar : com.baidu.tieba.download.c.b()) {
-            list2 = this.a.c;
-            for (String str : list2) {
-                if (aVar.g() == 11 && aVar.a().equals(str)) {
-                    list3.add(aVar);
-                }
-            }
-        }
-        f fVar = this.a;
-        f.a(list3);
-    }
+public final class i extends com.baidu.adp.framework.c.a {
+    final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(f fVar) {
-        this.a = fVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i(g gVar, int i) {
+        super(2001123);
+        this.a = gVar;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        List list;
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (customResponsedMessage2.g() == 2001123 && (customResponsedMessage2 instanceof QueryDownloadMessage)) {
+            this.a.c = ((QueryDownloadMessage) customResponsedMessage2).a();
+            g gVar = this.a;
+            list = this.a.c;
+            g.b(gVar, list);
+        }
     }
 }

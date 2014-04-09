@@ -2,7 +2,7 @@ package com.baidu.tieba.forumdetail;
 
 import com.baidu.tieba.data.z;
 import com.baidu.tieba.model.af;
-import com.baidu.tieba.r;
+import com.baidu.tieba.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class h extends com.baidu.adp.a.h {
@@ -30,7 +30,7 @@ public final class h extends com.baidu.adp.a.h {
             this.c.showToast(this.b.getErrorString());
         } else if (((z) obj) != null) {
             this.c.showToast(this.c.getString(com.baidu.tieba.a.k.like_success));
-            r c = r.c();
+            p c = p.c();
             forumDetailData = this.a.f;
             c.e(forumDetailData.forumInfo.forumName);
             this.a.a(true);

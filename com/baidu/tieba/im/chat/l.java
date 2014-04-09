@@ -16,11 +16,11 @@ public final class l implements Runnable {
         EditText editText;
         EditText editText2;
         EditText editText3;
-        editText = this.a.G;
+        editText = this.a.H;
         editText.requestFocus();
-        editText2 = this.a.G;
+        editText2 = this.a.H;
         int length = editText2.getText().toString().length();
-        editText3 = this.a.G;
+        editText3 = this.a.H;
         editText3.setSelection(length);
     }
 }

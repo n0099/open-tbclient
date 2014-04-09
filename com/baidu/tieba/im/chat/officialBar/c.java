@@ -46,9 +46,9 @@ public final class c extends LinearLayout {
             this.b.setNightDefaultResource(com.baidu.tieba.im.g.pic_baidu_logo_d_1);
             if (!TextUtils.isEmpty(tVar.c)) {
                 this.b.setTag(tVar.c);
-                com.baidu.tbadk.editortool.aa aaVar = new com.baidu.tbadk.editortool.aa(this.a);
-                aaVar.a(true);
-                aaVar.b(tVar.c, new f(this, view));
+                com.baidu.tbadk.editortool.ab abVar = new com.baidu.tbadk.editortool.ab(this.a);
+                abVar.a(true);
+                abVar.b(tVar.c, new f(this, view));
             }
         }
     }

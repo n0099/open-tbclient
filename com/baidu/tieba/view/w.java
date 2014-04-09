@@ -1,19 +1,29 @@
 package com.baidu.tieba.view;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public final class w extends BitmapDrawable {
-    public w(Bitmap bitmap) {
-        super(bitmap);
+final class w implements View.OnClickListener {
+    final /* synthetic */ SearchBoxView a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(SearchBoxView searchBoxView) {
+        this.a = searchBoxView;
     }
 
-    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public final void draw(Canvas canvas) {
-        Bitmap bitmap = getBitmap();
-        if (bitmap != null) {
-            canvas.drawBitmap(bitmap, 0.0f, 0.0f, getPaint());
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        Activity activity;
+        String str;
+        Activity activity2;
+        if (view.getId() == com.baidu.tieba.a.h.search_bg_layout) {
+            activity = this.a.a;
+            str = this.a.b;
+            TiebaStatic.a(activity, str, "click", 1, new Object[0]);
+            com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
+            activity2 = this.a.a;
+            a.a(new com.baidu.adp.framework.message.a(2015002, new com.baidu.tbadk.core.frameworkData.a(activity2)));
         }
     }
 }

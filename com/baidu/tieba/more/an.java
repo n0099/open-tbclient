@@ -75,8 +75,6 @@ public final class an extends com.baidu.adp.a.f {
             ba.e(this.e, com.baidu.tieba.a.g.more_all);
             ba.e(this.f, com.baidu.tieba.a.g.more_all);
         }
-        this.f.a(i);
-        this.g.a(i);
         this.a.getLayoutMode().a(i == 1);
         this.a.getLayoutMode().a(this.c);
     }

@@ -26,14 +26,14 @@ public final class f extends com.baidu.adp.framework.c.g {
         q qVar3;
         q qVar4;
         SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        qVar = this.a.b;
+        qVar = this.a.c;
         qVar.c();
         if (!(socketResponsedMessage2 instanceof ResponseGroupsByUidMessage) || this.a.getActivity() == null) {
             return;
         }
-        qVar2 = this.a.b;
+        qVar2 = this.a.c;
         if (qVar2 != null) {
-            jVar = this.a.d;
+            jVar = this.a.e;
             if (jVar == null) {
                 return;
             }
@@ -42,17 +42,17 @@ public final class f extends com.baidu.adp.framework.c.g {
                 if (responseGroupsByUidMessage.e() == 0 || TextUtils.isEmpty(responseGroupsByUidMessage.f())) {
                     return;
                 }
-                this.a.showToast(responseGroupsByUidMessage.f());
+                this.a.a(responseGroupsByUidMessage.f());
                 return;
             }
             List<GroupInfoData> d = responseGroupsByUidMessage.d();
             if (d != null) {
-                qVar3 = this.a.b;
+                qVar3 = this.a.c;
                 qVar3.a().a(d);
-                qVar4 = this.a.b;
+                qVar4 = this.a.c;
                 qVar4.a().notifyDataSetChanged();
             }
-            this.a.a = false;
+            this.a.b = false;
         }
     }
 }

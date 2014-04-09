@@ -17,21 +17,21 @@ final class d extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
-        if (GifView.a(this.a) != null) {
-            while (GifView.a(this.a).b() != 1) {
-                if (!GifView.c(this.a)) {
-                    c d = GifView.a(this.a).d();
+        if (this.a.a != null) {
+            while (this.a.a.b() != 1) {
+                if (!this.a.c) {
+                    c d = this.a.a.d();
                     if (d == null) {
                         SystemClock.sleep(50L);
                     } else {
                         if (d.a != null) {
-                            GifView.a(this.a, d.a);
+                            this.a.b = d.a;
                         } else if (d.c != null) {
-                            GifView.a(this.a, BitmapFactory.decodeFile(d.c));
+                            this.a.b = BitmapFactory.decodeFile(d.c);
                         }
                         long j = d.b;
-                        if (GifView.d(this.a) != null) {
-                            GifView.b(this.a);
+                        if (this.a.g != null) {
+                            this.a.a();
                             SystemClock.sleep(j);
                         } else {
                             return;
@@ -41,9 +41,9 @@ final class d extends Thread {
                     SystemClock.sleep(50L);
                 }
             }
-            GifView.a(this.a, GifView.a(this.a).d().a);
-            GifView.a(this.a).a();
-            GifView.b(this.a);
+            this.a.b = this.a.a.d().a;
+            this.a.a.a();
+            this.a.a();
         }
     }
 }

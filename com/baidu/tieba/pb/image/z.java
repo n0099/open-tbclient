@@ -2,15 +2,16 @@ package com.baidu.tieba.pb.image;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.tbadk.core.b.ag;
 /* loaded from: classes.dex */
 final class z implements View.OnClickListener {
-    final /* synthetic */ y a;
+    final /* synthetic */ x a;
     private final /* synthetic */ String b;
     private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(y yVar, String str, String str2) {
-        this.a = yVar;
+    public z(x xVar, String str, String str2) {
+        this.a = xVar;
         this.b = str;
         this.c = str2;
     }
@@ -20,6 +21,6 @@ final class z implements View.OnClickListener {
         Context context;
         com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
         context = this.a.c;
-        a.a(new com.baidu.adp.framework.message.a(2001003, new com.baidu.tbadk.core.b.ag(context, String.valueOf(this.b), this.c)));
+        a.a(new com.baidu.adp.framework.message.a(2001003, new ag(context, this.b, this.c)));
     }
 }

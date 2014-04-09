@@ -78,7 +78,7 @@ public final class aa extends com.baidu.tieba.im.pushNotify.m {
     }
 
     public final void a(String str, String str2, long j, com.baidu.tieba.im.a<Boolean> aVar) {
-        com.baidu.tieba.im.s.a(new ac(this, str, str2, 60000L), aVar);
+        com.baidu.tieba.im.r.a(new ac(this, str, str2, 60000L), aVar);
     }
 
     @Override // com.baidu.tieba.im.pushNotify.m

@@ -33,10 +33,10 @@ public class SignAlertReceiver extends BroadcastReceiver {
                     notification.defaults &= -2;
                     notification.defaults &= -3;
                 } else {
-                    if (!TbadkApplication.j().ao()) {
+                    if (!TbadkApplication.j().aq()) {
                         notification.defaults &= -3;
                     }
-                    if (!TbadkApplication.j().ap()) {
+                    if (!TbadkApplication.j().ar()) {
                         notification.defaults &= -2;
                     } else {
                         notification.audioStreamType = 5;
@@ -50,7 +50,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                         com.baidu.adp.lib.util.f.b(th.getMessage());
                     }
                 } finally {
-                    com.baidu.tieba.r.c().t();
+                    com.baidu.tieba.p.c().r();
                 }
             }
         }

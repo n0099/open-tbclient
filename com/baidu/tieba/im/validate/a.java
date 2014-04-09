@@ -52,7 +52,7 @@ final class a extends com.baidu.adp.framework.c.g {
                 aVar = this.a.d;
                 if (validateItemData != null) {
                     com.baidu.adp.lib.util.f.e("lastmid:" + validateItemData.getNotice_id());
-                    com.baidu.tieba.im.s.a(new q(validateItemData), aVar);
+                    com.baidu.tieba.im.r.a(new q(validateItemData), aVar);
                 }
                 ValidateActivity validateActivity = this.a;
                 i = validateActivity.l;

@@ -1,11 +1,12 @@
 package com.baidu.adp.framework.d;
 
+import com.baidu.adp.framework.b.f;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class b extends c<HttpMessage, HttpMessageTask, com.baidu.adp.framework.b.d, HttpResponsedMessage> {
+public final class b extends c<HttpMessage, HttpMessageTask, f, HttpResponsedMessage> {
     private com.baidu.adp.framework.a.d c;
 
     @Override // com.baidu.adp.framework.a

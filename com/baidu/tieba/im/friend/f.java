@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class f extends BaseAdapter {
     private IMBlackListActivity a;
-    private com.baidu.tbadk.editortool.aa b;
+    private com.baidu.tbadk.editortool.ab b;
     private ArrayList<com.baidu.tieba.im.data.a> c;
     private View.OnClickListener d = new g(this);
 
@@ -20,7 +20,7 @@ public final class f extends BaseAdapter {
     public f(IMBlackListActivity iMBlackListActivity) {
         this.b = null;
         this.a = iMBlackListActivity;
-        this.b = new com.baidu.tbadk.editortool.aa(this.a);
+        this.b = new com.baidu.tbadk.editortool.ab(this.a);
     }
 
     public final void a(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
@@ -75,7 +75,7 @@ public final class f extends BaseAdapter {
             }
             String c = aVar.c();
             if (c != null) {
-                com.baidu.tbadk.editortool.aa aaVar = this.b;
+                com.baidu.tbadk.editortool.ab abVar = this.b;
                 com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(c);
                 if (b != null) {
                     b.a(hVar.b);
@@ -96,9 +96,9 @@ public final class f extends BaseAdapter {
         return null;
     }
 
-    public final com.baidu.tbadk.editortool.aa a() {
+    public final com.baidu.tbadk.editortool.ab a() {
         if (this.b == null) {
-            this.b = new com.baidu.tbadk.editortool.aa(this.a);
+            this.b = new com.baidu.tbadk.editortool.ab(this.a);
         }
         return this.b;
     }

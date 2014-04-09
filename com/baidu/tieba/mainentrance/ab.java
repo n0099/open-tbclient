@@ -32,7 +32,7 @@ public final class ab extends BdAsyncTask<Object, Integer, BarSuggestModel> {
         progressBar.setVisibility(8);
         if (barSuggestModel2 != null) {
             this.b.u = barSuggestModel2;
-            SquareSearchActivity.g(this.b);
+            SquareSearchActivity.h(this.b);
         }
         this.b.w = null;
     }

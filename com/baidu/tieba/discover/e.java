@@ -1,27 +1,21 @@
 package com.baidu.tieba.discover;
 
-import android.os.Bundle;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 /* loaded from: classes.dex */
-final class e extends com.baidu.adp.framework.c.a {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mainTab.d fragmentTabStructure;
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 == null || customResponsedMessage2.g() != 2007002 || customResponsedMessage2.a() == null) {
-            return;
-        }
-        DiscoverDelegateStatic discoverDelegateStatic = new DiscoverDelegateStatic();
-        ((com.baidu.tbadk.mainTab.e) customResponsedMessage2.a()).a(discoverDelegateStatic);
-        if (((com.baidu.tbadk.mainTab.e) customResponsedMessage2.a()).b() == null || (fragmentTabStructure = discoverDelegateStatic.getFragmentTabStructure()) == null) {
-            return;
-        }
-        fragmentTabStructure.a.setArguments(new Bundle());
-    }
+final class e implements com.baidu.tbadk.core.view.m {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(int i) {
-        super(2007002);
+    public e(a aVar) {
+        this.a = aVar;
+    }
+
+    @Override // com.baidu.tbadk.core.view.m
+    public final void a(boolean z) {
+        BdPullRefreshScrollView bdPullRefreshScrollView;
+        if (z) {
+            bdPullRefreshScrollView = this.a.o;
+            bdPullRefreshScrollView.setRefreshing(1);
+        }
     }
 }

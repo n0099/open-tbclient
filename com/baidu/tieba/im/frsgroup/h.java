@@ -16,15 +16,15 @@ final class h implements com.baidu.adp.widget.ListView.d {
         com.baidu.tieba.im.model.k kVar2;
         int i;
         BdListView bdListView;
-        kVar = this.a.b;
+        kVar = this.a.c;
         if (!kVar.h() || !z) {
-            kVar2 = this.a.b;
+            kVar2 = this.a.c;
             if (kVar2.g() == 2) {
-                i = this.a.j;
+                i = this.a.k;
                 if (i == com.baidu.adp.lib.util.i.a()) {
-                    bdListView = this.a.d;
+                    bdListView = this.a.e;
                     bdListView.b();
-                    this.a.showToast(com.baidu.tieba.im.j.frsgroup_hot_cannot_refresh_tip);
+                    this.a.a(com.baidu.tieba.im.j.frsgroup_hot_cannot_refresh_tip);
                     return;
                 }
             }

@@ -37,9 +37,9 @@ public final class g extends com.baidu.adp.framework.c.b {
         List list3;
         HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
         if (httpResponsedMessage2 == null || httpResponsedMessage2.g() != 1005000) {
-            hVar = this.a.g;
+            hVar = this.a.i;
             if (hVar != null) {
-                hVar2 = this.a.g;
+                hVar2 = this.a.i;
                 hVar2.a(null);
                 return;
             }
@@ -48,9 +48,9 @@ public final class g extends com.baidu.adp.framework.c.b {
         int d = httpResponsedMessage2.d();
         int e = httpResponsedMessage2.e();
         if (d != 200 || e != 0 || !(httpResponsedMessage2 instanceof PraiseListResponsedMessage)) {
-            hVar3 = this.a.g;
+            hVar3 = this.a.i;
             if (hVar3 != null) {
-                hVar4 = this.a.g;
+                hVar4 = this.a.i;
                 hVar4.a(null);
                 return;
             }
@@ -61,39 +61,39 @@ public final class g extends com.baidu.adp.framework.c.b {
             List<a> k = praiseListResponsedMessage.k();
             if (k != null) {
                 for (a aVar : k) {
-                    list3 = this.a.f;
+                    list3 = this.a.h;
                     list3.add(aVar);
                 }
             }
             f fVar = this.a;
-            list = this.a.f;
-            fVar.e = list.size();
-            this.a.d = praiseListResponsedMessage.j();
+            list = this.a.h;
+            fVar.g = list.size();
+            this.a.f = praiseListResponsedMessage.j();
             f fVar2 = this.a;
-            i = fVar2.c;
-            fVar2.c = i + 1;
-            i2 = this.a.c;
+            i = fVar2.e;
+            fVar2.e = i + 1;
+            i2 = this.a.e;
             int i8 = i2 > 5 ? 1003 : 1001;
-            i3 = this.a.e;
-            i4 = this.a.d;
+            i3 = this.a.g;
+            i4 = this.a.f;
             if (i3 >= i4) {
                 i8 = 1002;
             }
-            hVar7 = this.a.g;
+            hVar7 = this.a.i;
             if (hVar7 != null) {
-                hVar8 = this.a.g;
-                i5 = this.a.d;
-                list2 = this.a.f;
-                i6 = this.a.d;
-                i7 = this.a.e;
+                hVar8 = this.a.i;
+                i5 = this.a.f;
+                list2 = this.a.h;
+                i6 = this.a.f;
+                i7 = this.a.g;
                 hVar8.a(i5, list2, i8, i6 - i7);
                 return;
             }
             return;
         }
-        hVar5 = this.a.g;
+        hVar5 = this.a.i;
         if (hVar5 != null) {
-            hVar6 = this.a.g;
+            hVar6 = this.a.i;
             hVar6.a(praiseListResponsedMessage.i());
         }
     }

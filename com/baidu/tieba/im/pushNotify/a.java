@@ -17,7 +17,7 @@ import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
 import com.baidu.tieba.im.groupInfo.aa;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.im.message.ImSystemShowNotifyMessage;
-import com.baidu.tieba.im.s;
+import com.baidu.tieba.im.r;
 import com.baidu.tieba.im.validate.ValidateItemData;
 import java.util.Collections;
 import java.util.HashMap;
@@ -38,14 +38,10 @@ public final class a {
     private LinkedList<ImMessageCenterShowItemData> d = new LinkedList<>();
     private LinkedList<ImMessageCenterShowItemData> e = new LinkedList<>();
     private final com.baidu.tbadk.coreExtra.b.c i = new com.baidu.tbadk.coreExtra.b.c();
-    private com.baidu.adp.framework.c.a k = new d(this, 2001128);
+    private com.baidu.adp.framework.c.a k = new b(this, 2001128);
 
     private a() {
         com.baidu.adp.framework.c.a().a(this.k);
-    }
-
-    static {
-        com.baidu.adp.framework.c.a().a(new b(2008016));
     }
 
     public static void a() {
@@ -90,26 +86,27 @@ public final class a {
                 imMessageCenterPojo.setLast_content(optString3);
                 imMessageCenterPojo.setLast_rid(j * 100);
                 imMessageCenterPojo.setPulled_msgId(j * 100);
+                com.baidu.tbadk.coreExtra.messageCenter.d.a().b(com.baidu.adp.lib.f.b.a(str, 0), j);
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put(imMessageCenterPojo.getGid(), 0L);
-                s.a(new e(linkedHashMap, imMessageCenterPojo), new f(imMessageCenterPojo));
+                r.a(new c(linkedHashMap, imMessageCenterPojo), new d(imMessageCenterPojo));
             } catch (Exception e3) {
                 e = e3;
                 e.printStackTrace();
                 LinkedHashMap linkedHashMap2 = new LinkedHashMap();
                 linkedHashMap2.put(str, Long.valueOf(j));
-                s.a(new g(linkedHashMap2), null);
+                r.a(new e(linkedHashMap2), null);
                 com.baidu.adp.lib.util.f.e("save apply approved data: " + groupNewsPojo.toString());
             }
             LinkedHashMap linkedHashMap22 = new LinkedHashMap();
             linkedHashMap22.put(str, Long.valueOf(j));
-            s.a(new g(linkedHashMap22), null);
+            r.a(new e(linkedHashMap22), null);
             com.baidu.adp.lib.util.f.e("save apply approved data: " + groupNewsPojo.toString());
         }
     }
 
     public static void a(boolean z, com.baidu.tieba.im.a<Void> aVar) {
-        s.a(new h(false), null);
+        r.a(new f(false), null);
     }
 
     public static void a(String str, boolean z) {
@@ -177,12 +174,16 @@ public final class a {
         com.baidu.adp.framework.c.a().b(new ImSystemShowNotifyMessage(updatesItemData.getNotice_id()));
     }
 
-    public final synchronized void b(boolean z, com.baidu.tieba.im.a<Void> aVar) {
+    public final synchronized void a(boolean z, boolean z2, com.baidu.tieba.im.a<Void> aVar) {
         com.baidu.adp.lib.util.f.e(" get recent isNeedShowNotify:" + z);
-        a(z);
+        a(z, z2);
         if (aVar != null) {
             aVar.a(null);
         }
+    }
+
+    public final synchronized void b(boolean z, com.baidu.tieba.im.a<Void> aVar) {
+        a(z, false, aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -212,7 +213,7 @@ public final class a {
                 return;
             }
             if (ownerName.equals(String.valueOf(4))) {
-                HashMap<String, String> u = cVar.u();
+                HashMap<String, String> y = cVar.y();
                 boolean d = com.baidu.tieba.im.chat.personaltalk.a.a().d(TbadkApplication.E(), friendId);
                 com.baidu.adp.lib.util.f.e("isNofity:" + d + " gid:" + friendId + "count:" + imMessageCenterShowItemData.getUnReadCount());
                 if (d) {
@@ -221,12 +222,12 @@ public final class a {
                         cVar.j(imMessageCenterShowItemData.getMsgContent());
                         String friendName = imMessageCenterShowItemData.getFriendName();
                         com.baidu.adp.lib.util.f.e("p.getGid:" + friendId + " gname:" + friendName + " unread_count:" + imMessageCenterShowItemData.getUnReadCount());
-                        u.put(friendId, friendName);
+                        y.put(friendId, friendName);
                     }
-                    cVar.i(cVar.s() + imMessageCenterShowItemData.getUnReadCount());
+                    cVar.l(cVar.w() + imMessageCenterShowItemData.getUnReadCount());
                 }
             } else if (ownerName.equals(String.valueOf(1))) {
-                HashMap<String, String> p = cVar.p();
+                HashMap<String, String> s = cVar.s();
                 boolean d2 = aa.a().d(TbadkApplication.E(), friendId);
                 com.baidu.adp.lib.util.f.e("isNofity:" + d2 + " gid:" + friendId + "count:" + imMessageCenterShowItemData.getUnReadCount());
                 if (d2) {
@@ -234,27 +235,30 @@ public final class a {
                     if (imMessageCenterShowItemData.getUnReadCount() > 0) {
                         cVar.c(imMessageCenterShowItemData.getMsgContent());
                         String friendName2 = imMessageCenterShowItemData.getFriendName();
-                        p.put(friendId, friendName2);
+                        s.put(friendId, friendName2);
                         com.baidu.adp.lib.util.f.e("p.getGid:" + friendId + " gname:" + friendName2 + " unread_count:" + imMessageCenterShowItemData.getUnReadCount());
                     }
                 } else {
-                    cVar.f(cVar.j() + imMessageCenterShowItemData.getUnReadCount());
+                    cVar.g(cVar.l() + imMessageCenterShowItemData.getUnReadCount());
                 }
                 cVar.a(cVar.c() + imMessageCenterShowItemData.getUnReadCount());
             }
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [597=4] */
-    private synchronized void a(boolean z) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [594=4] */
+    private synchronized void a(boolean z, boolean z2) {
         this.d.clear();
         this.e.clear();
         this.h = null;
         com.baidu.tbadk.coreExtra.b.c cVar = new com.baidu.tbadk.coreExtra.b.c();
         cVar.a(z);
-        com.baidu.tieba.im.b.e.a(new i(this, cVar));
+        cVar.b(z2);
+        com.baidu.tieba.im.b.e.a(new g(this, cVar));
         cVar.a();
         cVar.b();
+        cVar.f(com.baidu.tbadk.coreExtra.messageCenter.a.a().p().w());
+        cVar.h(com.baidu.tbadk.coreExtra.messageCenter.a.a().p().i());
         Iterator<ImMessageCenterShowItemData> it = this.d.iterator();
         while (it.hasNext()) {
             c(it.next());
@@ -265,7 +269,7 @@ public final class a {
         }
         d();
         if (l()) {
-            cVar.h(com.baidu.tbadk.coreExtra.messageCenter.a.a().p().f());
+            cVar.j(com.baidu.tbadk.coreExtra.messageCenter.a.a().p().f());
             ImMessageCenterShowItemData imMessageCenterShowItemData = d().f;
             if (imMessageCenterShowItemData != null) {
                 int unReadCount = imMessageCenterShowItemData.getUnReadCount();
@@ -283,7 +287,7 @@ public final class a {
         d();
         if (m()) {
             ImMessageCenterShowItemData imMessageCenterShowItemData2 = d().g;
-            cVar.g(com.baidu.tbadk.coreExtra.messageCenter.a.a().p().d());
+            cVar.i(com.baidu.tbadk.coreExtra.messageCenter.a.a().p().d());
             if (imMessageCenterShowItemData2 != null) {
                 int unReadCount2 = imMessageCenterShowItemData2.getUnReadCount();
                 int unReadCountExtra = imMessageCenterShowItemData2.getUnReadCountExtra();
@@ -307,26 +311,29 @@ public final class a {
         if (this.e != null && this.e.size() > 0) {
             a(cVar);
         }
-        if (((((cVar.s() + cVar.c()) + cVar.d()) + cVar.f()) + cVar.g()) - cVar.j() <= 0) {
+        if (((((cVar.w() + cVar.c()) + cVar.d()) + cVar.f()) + cVar.g()) - cVar.l() <= 0) {
             cVar.a(false);
         }
         TbadkApplication.j();
-        if (!TbadkApplication.ad()) {
+        if (!TbadkApplication.af()) {
             cVar.a(0);
         }
-        if (!TbadkApplication.j().ae()) {
-            cVar.i(0);
+        if (!TbadkApplication.j().ag()) {
+            cVar.l(0);
             cVar.e(0);
         }
-        if (TbadkApplication.j().ag() <= 0) {
+        if (TbadkApplication.j().ai() <= 0) {
             cVar.a(0);
-            cVar.i(0);
+            cVar.l(0);
             cVar.e(0);
             cVar.a(false);
         }
-        if (!TbadkApplication.j().ae() || TbadkApplication.j().ag() <= 0) {
-            cVar.i(0);
+        if (!TbadkApplication.j().ag() || TbadkApplication.j().ai() <= 0) {
+            cVar.l(0);
             cVar.a(false);
+        }
+        if (z2) {
+            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2012111));
         }
         com.baidu.tbadk.coreExtra.messageCenter.a.a().a(cVar);
     }
@@ -356,15 +363,21 @@ public final class a {
     private void a(com.baidu.tbadk.coreExtra.b.c cVar) {
         String[] split;
         if (this.e != null && this.e.size() != 0) {
-            Collections.sort(this.e, new j(this));
+            Collections.sort(this.e, new h(this));
             Iterator<ImMessageCenterShowItemData> it = this.e.iterator();
             int i = 0;
             while (it.hasNext()) {
                 i = it.next().getUnReadCount() + i;
             }
-            cVar.e(i);
-            this.h = this.e.getFirst().m250clone();
-            this.h.setUnReadCount(i);
+            this.h = this.e.getFirst().m251clone();
+            if (com.baidu.tieba.im.model.p.a()) {
+                cVar.k(com.baidu.tbadk.coreExtra.messageCenter.a.a().p().g());
+                cVar.e(i);
+                this.h.setUnReadCount(i);
+            } else {
+                this.h.setUnReadCount(0);
+                cVar.e(0);
+            }
             cVar.a(this.h.getFriendName());
             String msgContent = this.h.getMsgContent();
             if (TextUtils.isEmpty(msgContent)) {
@@ -516,7 +529,7 @@ public final class a {
     }
 
     public static void a(com.baidu.tieba.im.a<Void> aVar) {
-        s.a(new k(), null);
+        r.a(new i(), null);
     }
 
     public static void c() {
@@ -575,7 +588,7 @@ public final class a {
                 z = false;
             }
         }
-        d().b(z, new c());
+        d().b(z, new j());
     }
 
     public static synchronized a d() {

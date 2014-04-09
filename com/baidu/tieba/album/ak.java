@@ -19,16 +19,16 @@ public final class ak implements al {
         AlbumActivity albumActivity;
         TextView textView;
         if (list == null || list.size() == 0) {
-            albumActivity = this.a.a;
-            albumActivity.e(0);
-            this.a.n = false;
+            albumActivity = this.a.b;
+            albumActivity.d(0);
+            this.a.o = false;
             return;
         }
-        this.a.n = true;
-        this.a.m = list;
+        this.a.o = true;
+        this.a.n = list;
         this.a.a(list);
         if (!TextUtils.isEmpty(str)) {
-            textView = this.a.g;
+            textView = this.a.h;
             textView.setText(str);
         }
     }

@@ -12,7 +12,7 @@ public final class u implements com.baidu.adp.framework.task.a<com.baidu.tbadk.c
         if (aVar != null && aVar.a() != null && (b = aVar.a().b()) != null) {
             LinkedList linkedList = new LinkedList();
             linkedList.add(String.valueOf(b.getUserId()));
-            com.baidu.tieba.im.s.a(new v(this, linkedList), new w(this, aVar));
+            com.baidu.tieba.im.r.a(new v(this, linkedList), new w(this, aVar));
         }
         return null;
     }

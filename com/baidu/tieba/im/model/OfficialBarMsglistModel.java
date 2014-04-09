@@ -21,7 +21,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         super(msglistActivity);
         this.e = 10;
         this.f = false;
-        this.g = new ay(this, 0);
+        this.g = new az(this, 0);
         com.baidu.adp.framework.c.a().a(2013003, this.g);
         com.baidu.adp.framework.c.a().a(2001148, this.g);
         com.baidu.adp.framework.c.a().a(2001151, this.g);
@@ -52,7 +52,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean d_() {
+    public final boolean f_() {
         if (this.a == null) {
             return false;
         }
@@ -100,13 +100,13 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public final boolean a(String str) {
-        com.baidu.tieba.im.message.bn bnVar = new com.baidu.tieba.im.message.bn();
+        com.baidu.tieba.im.message.bm bmVar = new com.baidu.tieba.im.message.bm();
         if (this.a == null) {
             return false;
         }
-        bnVar.b = String.valueOf(String.valueOf(this.a.getUserId()));
-        bnVar.a = str;
-        super.sendMessage(new com.baidu.tieba.im.message.t(bnVar));
+        bmVar.b = String.valueOf(String.valueOf(this.a.getUserId()));
+        bmVar.a = str;
+        super.sendMessage(new com.baidu.tieba.im.message.t(bmVar));
         return true;
     }
 
@@ -117,23 +117,23 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public final void a(com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.db.h.a();
-        com.baidu.tieba.im.db.h.c(SnapGroupChatActivity.b);
+        com.baidu.tieba.im.db.i.a();
+        com.baidu.tieba.im.db.i.c(SnapGroupChatActivity.b);
         aVar.a(null);
-        com.baidu.tieba.im.s.a(new az(this), aVar);
+        com.baidu.tieba.im.r.a(new ba(this), aVar);
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected final void a(com.baidu.tieba.im.message.a.a aVar) {
         if (this.a != null && aVar != null) {
-            com.baidu.tieba.im.s.a(new ba(this, aVar), null);
+            com.baidu.tieba.im.r.a(new bb(this, aVar), null);
         }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected final void b(com.baidu.tieba.im.message.a.a aVar) {
         if (this.a != null && aVar != null) {
-            com.baidu.tieba.im.s.a(new bb(this, aVar), null);
+            com.baidu.tieba.im.r.a(new bc(this, aVar), null);
         }
     }
 

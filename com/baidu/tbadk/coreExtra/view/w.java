@@ -5,7 +5,6 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class w extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.data.a> {
@@ -126,7 +125,7 @@ public final class w extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreEx
         str2 = null;
         try {
             this.b = new com.baidu.tbadk.core.util.ak(this.c);
-            this.b.a(PersonInfoActivity.TAG_ID, this.d);
+            this.b.a("un", this.d);
             com.baidu.tbadk.core.util.ak akVar = this.b;
             accountData = this.a.t;
             akVar.a("BDUSS", accountData.getBDUSS());

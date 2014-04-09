@@ -13,7 +13,7 @@ final class c implements com.baidu.adp.lib.d.c<ImageView> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.adp.lib.d.c
     public final /* synthetic */ ImageView a() {
-        return new bb(this.a);
+        return new bd(this.a);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -24,8 +24,8 @@ final class c implements com.baidu.adp.lib.d.c<ImageView> {
         imageView2.setImageDrawable(null);
         imageView2.setTag(null);
         imageView2.setOnClickListener(null);
-        if (imageView2 instanceof bb) {
-            ((bb) imageView2).g();
+        if (imageView2 instanceof bd) {
+            ((bd) imageView2).g();
         }
     }
 
@@ -34,8 +34,8 @@ final class c implements com.baidu.adp.lib.d.c<ImageView> {
     @Override // com.baidu.adp.lib.d.c
     public final /* synthetic */ ImageView b(ImageView imageView) {
         ImageView imageView2 = imageView;
-        if (imageView2 instanceof bb) {
-            ((bb) imageView2).f();
+        if (imageView2 instanceof bd) {
+            ((bd) imageView2).f();
         }
         return imageView2;
     }
@@ -49,8 +49,8 @@ final class c implements com.baidu.adp.lib.d.c<ImageView> {
         imageView2.setImageDrawable(null);
         imageView2.setTag(null);
         imageView2.setOnClickListener(null);
-        if (imageView2 instanceof bb) {
-            ((bb) imageView2).g();
+        if (imageView2 instanceof bd) {
+            ((bd) imageView2).g();
         }
         return imageView2;
     }

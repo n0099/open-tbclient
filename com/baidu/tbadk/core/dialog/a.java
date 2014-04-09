@@ -38,11 +38,6 @@ public final class a {
         return this;
     }
 
-    public final a a(View view) {
-        this.c = view;
-        return this;
-    }
-
     public final a a(int i) {
         if (this.l != null) {
             this.d = this.l.getResources().getString(i);
@@ -63,11 +58,6 @@ public final class a {
             this.f = this.l.getResources().getString(i);
             this.i = cVar;
         }
-        return this;
-    }
-
-    public final a a(boolean z) {
-        this.p = false;
         return this;
     }
 

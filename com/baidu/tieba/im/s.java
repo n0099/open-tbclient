@@ -1,29 +1,25 @@
 package com.baidu.tieba.im;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.ThreadFactory;
 /* loaded from: classes.dex */
-public class s {
-    private static LinkedBlockingQueue<Runnable> a = new LinkedBlockingQueue<>();
-    private static Executor b = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS, a, new t());
-
-    public static <T> void a(m<T> mVar, a<T> aVar) {
-        if (a.size() > 5) {
-            com.baidu.adp.lib.util.f.c("TiebaIMSingleExecutor queue size - " + a.size());
+final class s implements ThreadFactory {
+    @Override // java.util.concurrent.ThreadFactory
+    public final Thread newThread(Runnable runnable) {
+        Thread thread;
+        Exception e;
+        try {
+            thread = new Thread(runnable);
+        } catch (Exception e2) {
+            thread = null;
+            e = e2;
         }
-        if (mVar != null) {
-            mVar.a(aVar);
-            b.execute(mVar);
+        try {
+            thread.setName(r.class.getSimpleName());
+        } catch (Exception e3) {
+            e = e3;
+            e.printStackTrace();
+            return thread;
         }
-    }
-
-    public static int a() {
-        return a.size();
-    }
-
-    public static void b() {
-        a.clear();
+        return thread;
     }
 }

@@ -19,7 +19,7 @@ public final class m implements View.OnClickListener {
     public final void onClick(View view) {
         FrsPostListData frsPostListData;
         Context context;
-        frsPostListData = this.a.g;
+        frsPostListData = this.a.e;
         MetaData author = frsPostListData.getAuthor();
         if (author != null) {
             com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();

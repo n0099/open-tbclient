@@ -1,20 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.data.CombineDownload;
 /* loaded from: classes.dex */
-public final class ad implements Runnable {
-    final /* synthetic */ r a;
-    private final /* synthetic */ int[] b;
+final class ad implements o {
+    final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(r rVar, int[] iArr) {
-        this.a = rVar;
-        this.b = iArr;
+    public ad(UpdateDialog updateDialog) {
+        this.a = updateDialog;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2005004, new com.baidu.tbadk.core.b.x(TbadkApplication.j(), this.b)));
+    @Override // com.baidu.tieba.o
+    public final void a(boolean z) {
+        CombineDownload combineDownload;
+        this.a.f = z;
+        if (z) {
+            UpdateDialog updateDialog = this.a;
+            combineDownload = this.a.b;
+            UpdateDialog.a(updateDialog, combineDownload.getAppUrl());
+        } else {
+            UpdateDialog.d(this.a);
+        }
+        this.a.e = true;
+    }
+
+    @Override // com.baidu.tieba.o
+    public final void b() {
+        k kVar;
+        kVar = this.a.c;
+        kVar.dismiss();
+        this.a.finish();
+    }
+
+    @Override // com.baidu.tieba.o
+    public final void c() {
+        this.a.a();
+    }
+
+    @Override // com.baidu.tieba.o
+    public final void a() {
+        this.a.finish();
     }
 }

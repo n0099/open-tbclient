@@ -24,15 +24,15 @@ public final class t implements Runnable {
         Handler handler3;
         Handler handler4;
         String a = com.baidu.adp.lib.util.c.a(ad.a(this.b));
-        com.baidu.tbadk.core.voice.cache.d dVar = new com.baidu.tbadk.core.voice.cache.d();
+        com.baidu.tbadk.core.voice.a.d dVar = new com.baidu.tbadk.core.voice.a.d();
         if (a == null) {
             dVar.c = 6;
-            dVar.d = com.baidu.tbadk.core.voice.cache.d.a(dVar.c);
+            dVar.d = com.baidu.tbadk.core.voice.a.d.a(dVar.c);
         } else if (com.baidu.tbadk.core.util.w.a(String.valueOf(com.baidu.tbadk.core.util.w.d()) + VoiceSwitchStatic.VOICE)) {
             String a2 = bc.a(com.baidu.tbadk.core.util.w.i(a));
             if (a2 == null) {
                 dVar.c = 5;
-                dVar.d = com.baidu.tbadk.core.voice.cache.d.a(dVar.c);
+                dVar.d = com.baidu.tbadk.core.voice.a.d.a(dVar.c);
             } else {
                 String a3 = com.baidu.tbadk.core.util.w.a(a2, 1, true);
                 if (com.baidu.tbadk.core.util.w.g(a, a3)) {
@@ -40,19 +40,19 @@ public final class t implements Runnable {
                     dVar.a = a2;
                 } else {
                     dVar.c = 1;
-                    dVar.d = com.baidu.tbadk.core.voice.cache.d.a(dVar.c);
+                    dVar.d = com.baidu.tbadk.core.voice.a.d.a(dVar.c);
                 }
             }
         } else {
             dVar.c = 7;
-            dVar.d = com.baidu.tbadk.core.voice.cache.d.a(dVar.c);
+            dVar.d = com.baidu.tbadk.core.voice.a.d.a(dVar.c);
         }
         String str = dVar.a;
         handler = this.a.p;
         if (handler != null) {
             handler2 = this.a.p;
             handler2.removeCallbacks(this.a.c);
-            if (com.baidu.adp.lib.util.n.a(str)) {
+            if (com.baidu.adp.lib.util.o.a(str)) {
                 handler4 = this.a.p;
                 handler4.post(new u(this));
                 return;

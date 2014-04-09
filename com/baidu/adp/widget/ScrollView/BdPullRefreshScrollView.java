@@ -6,14 +6,16 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class BdPullRefreshScrollView extends ScrollView {
-    private static /* synthetic */ int[] v;
-    private static /* synthetic */ int[] w;
+    private static /* synthetic */ int[] A;
+    private static /* synthetic */ int[] z;
     protected View a;
     private State b;
     private Mode c;
@@ -35,9 +37,13 @@ public class BdPullRefreshScrollView extends ScrollView {
     private boolean s;
     private boolean t;
     private boolean u;
+    private boolean v;
+    private float w;
+    private int x;
+    private Scroller y;
 
     private static /* synthetic */ int[] h() {
-        int[] iArr = v;
+        int[] iArr = z;
         if (iArr == null) {
             iArr = new int[Mode.valuesCustom().length];
             try {
@@ -60,13 +66,13 @@ public class BdPullRefreshScrollView extends ScrollView {
                 iArr[Mode.PULL_FROM_START.ordinal()] = 2;
             } catch (NoSuchFieldError e5) {
             }
-            v = iArr;
+            z = iArr;
         }
         return iArr;
     }
 
     private static /* synthetic */ int[] i() {
-        int[] iArr = w;
+        int[] iArr = A;
         if (iArr == null) {
             iArr = new int[State.valuesCustom().length];
             try {
@@ -93,7 +99,7 @@ public class BdPullRefreshScrollView extends ScrollView {
                 iArr[State.RESET.ordinal()] = 1;
             } catch (NoSuchFieldError e6) {
             }
-            w = iArr;
+            A = iArr;
         }
         return iArr;
     }
@@ -108,6 +114,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         this.s = false;
         this.t = false;
         this.u = false;
+        this.v = false;
         a(context, null, new p(context), new a(context));
     }
 
@@ -121,6 +128,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         this.s = false;
         this.t = false;
         this.u = false;
+        this.v = false;
         a(context, attributeSet, new p(context), new a(context));
     }
 
@@ -134,6 +142,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         this.s = false;
         this.t = false;
         this.u = false;
+        this.v = false;
         this.d = mode;
         a(context, null, new p(context), new a(context));
     }
@@ -148,11 +157,14 @@ public class BdPullRefreshScrollView extends ScrollView {
         this.s = false;
         this.t = false;
         this.u = false;
+        this.v = false;
         this.d = mode;
         a(context, null, bVar, bVar2);
     }
 
     private void a(Context context, AttributeSet attributeSet, b bVar, b bVar2) {
+        this.x = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.y = new Scroller(getContext());
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.adp.g.AdpPullToRefreshScrollView);
         if (obtainStyledAttributes.hasValue(0)) {
             this.d = Mode.mapIntToValue(obtainStyledAttributes.getInteger(0, 0));
@@ -381,9 +393,36 @@ public class BdPullRefreshScrollView extends ScrollView {
         a(State.PULL_TO_REFRESH, this.n);
     }
 
+    @Override // android.widget.ScrollView, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        super.onInterceptTouchEvent(motionEvent);
+        int action = motionEvent.getAction();
+        if (action == 2 && this.v) {
+            return true;
+        }
+        float y = motionEvent.getY();
+        switch (action) {
+            case 0:
+                this.w = y;
+                this.v = this.y.isFinished() ? false : true;
+                break;
+            case 1:
+            case 3:
+                this.v = false;
+                break;
+            case 2:
+                if (((int) Math.abs(y - this.w)) > this.x) {
+                    this.v = true;
+                    break;
+                }
+                break;
+        }
+        return this.v;
+    }
+
     @Override // android.widget.ScrollView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        boolean z;
+        boolean z2;
         if (!this.d.permitsPullToRefresh() || this.s) {
             return super.onTouchEvent(motionEvent);
         }
@@ -437,6 +476,7 @@ public class BdPullRefreshScrollView extends ScrollView {
                 this.t = false;
                 this.u = false;
                 this.g = -1000.0f;
+                this.v = false;
                 break;
             case 2:
                 if (this.b == State.REFRESHING) {
@@ -453,22 +493,22 @@ public class BdPullRefreshScrollView extends ScrollView {
                 this.g = y;
                 switch (h()[this.d.ordinal()]) {
                     case 2:
-                        z = d();
+                        z2 = d();
                         break;
                     case 3:
-                        z = e();
+                        z2 = e();
                         break;
                     case 4:
                         if (e() || d()) {
-                            z = true;
+                            z2 = true;
                             break;
                         }
                         break;
                     default:
-                        z = false;
+                        z2 = false;
                         break;
                 }
-                if (z) {
+                if (z2) {
                     if (d() && i < 0 && this.d.showHeaderLoadingLayout() && !this.u) {
                         this.t = true;
                         this.u = false;

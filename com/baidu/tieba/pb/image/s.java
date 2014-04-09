@@ -1,152 +1,112 @@
 package com.baidu.tieba.pb.image;
 
 import android.os.Handler;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.ak;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.support.v4.view.ViewPager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.view.BaseViewPager;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class s extends BdAsyncTask<Object, Integer, String> {
+public final class s implements ViewPager.OnPageChangeListener {
     final /* synthetic */ ImagePbActivity a;
-    private ak b;
-    private ArrayList<BasicNameValuePair> c;
-    private String d;
-    private boolean f;
-    private String e = null;
-    private boolean g = false;
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ String a(Object... objArr) {
-        this.b = new ak(this.d);
-        this.b.a(this.c);
-        this.e = this.b.i();
-        return this.e;
+    public s(ImagePbActivity imagePbActivity) {
+        this.a = imagePbActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(String str) {
-        com.baidu.tieba.data.u uVar;
-        com.baidu.tieba.data.u uVar2;
-        com.baidu.tieba.data.u uVar3;
-        com.baidu.tieba.data.u uVar4;
-        com.baidu.tieba.data.u uVar5;
-        String str2;
-        ad adVar;
-        com.baidu.tieba.data.u uVar6;
-        ad adVar2;
-        t tVar;
-        int i;
-        boolean z;
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public final void onPageScrollStateChanged(int i) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public final void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public final void onPageSelected(int i) {
         int i2;
-        com.baidu.tieba.data.u uVar7;
-        int i3;
-        com.baidu.tieba.data.u uVar8;
-        com.baidu.tieba.data.u uVar9;
-        com.baidu.tieba.data.u uVar10;
-        com.baidu.tieba.data.u uVar11;
+        TextView textView;
+        com.baidu.tieba.data.u uVar;
         Handler handler;
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        com.baidu.tieba.data.u uVar12;
-        super.a((s) str);
-        if (this.g) {
-            return;
-        }
-        if (this.b != null && this.b.c()) {
-            uVar = this.a.G;
-            if (uVar != null) {
-                if (this.b.a().b().b()) {
-                    uVar3 = this.a.G;
-                    if (!uVar3.a()) {
-                        uVar12 = this.a.G;
-                        uVar12.a(this.e, true);
-                    }
-                    String name = getClass().getName();
-                    StringBuilder sb = new StringBuilder();
-                    uVar4 = this.a.G;
-                    com.baidu.adp.lib.util.f.a(name, "onPostExecute", sb.append(uVar4.h().size()).toString());
-                    uVar5 = this.a.G;
-                    str2 = this.a.C;
-                    uVar5.c(str2);
-                    adVar = this.a.z;
-                    uVar6 = this.a.G;
-                    adVar.a(uVar6);
-                    adVar2 = this.a.z;
-                    adVar2.notifyDataSetChanged();
-                    tVar = this.a.K;
-                    i = this.a.J;
-                    tVar.onPageSelected(i);
-                    z = this.a.B;
-                    if (z) {
-                        handler = this.a.R;
-                        runnable = this.a.S;
-                        handler.removeCallbacks(runnable);
-                        handler2 = this.a.R;
-                        runnable2 = this.a.S;
-                        handler2.post(runnable2);
-                    } else if (this.f) {
-                        this.a.b(1);
-                    } else {
-                        this.a.b(2);
-                    }
-                    ImagePbActivity.n(this.a);
-                    i2 = this.a.J;
-                    uVar7 = this.a.G;
-                    if (i2 >= uVar7.h().size()) {
-                        i3 = this.a.J;
-                        uVar8 = this.a.G;
-                        if (i3 < uVar8.k()) {
-                            uVar9 = this.a.G;
-                            int size = uVar9.h().size();
-                            uVar10 = this.a.G;
-                            if (size < uVar10.k()) {
-                                ImagePbActivity imagePbActivity = this.a;
-                                uVar11 = this.a.G;
-                                imagePbActivity.a(uVar11.l(), 0, 10, false);
+        com.baidu.tieba.data.u uVar2;
+        com.baidu.tieba.data.u uVar3;
+        TextView textView2;
+        String str;
+        TextView textView3;
+        LinearLayout linearLayout;
+        TextView textView4;
+        com.baidu.tieba.data.u uVar4;
+        com.baidu.tieba.data.u uVar5;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        TextView textView5;
+        TextView textView6;
+        LinearLayout linearLayout2;
+        BaseViewPager baseViewPager;
+        ImagePbActivity imagePbActivity = this.a;
+        i2 = this.a.I;
+        imagePbActivity.a(i2, i);
+        this.a.I = i;
+        textView = this.a.h;
+        textView.setText((CharSequence) null);
+        uVar = this.a.F;
+        if (uVar != null) {
+            uVar2 = this.a.F;
+            if (uVar2.j() > 0) {
+                uVar3 = this.a.F;
+                if (i != uVar3.j()) {
+                    textView2 = this.a.g;
+                    str = this.a.D;
+                    textView2.setText(str);
+                    textView3 = this.a.h;
+                    textView3.setVisibility(0);
+                    linearLayout = this.a.q;
+                    linearLayout.setVisibility(0);
+                    textView4 = this.a.h;
+                    StringBuilder append = new StringBuilder(String.valueOf(String.valueOf(i + 1))).append("/");
+                    uVar4 = this.a.F;
+                    textView4.setText(append.append(String.valueOf(uVar4.j())).toString());
+                    uVar5 = this.a.F;
+                    LinkedList<com.baidu.tieba.data.t> g = uVar5.g();
+                    if (g != null) {
+                        i3 = this.a.I;
+                        if (i3 < g.size()) {
+                            i4 = this.a.I;
+                            if (g.get(i4) != null) {
+                                ImagePbActivity imagePbActivity2 = this.a;
+                                i5 = this.a.I;
+                                imagePbActivity2.K = g.get(i5).d();
+                                i6 = this.a.I;
+                                g.get(i6).i().equals(TbadkApplication.E());
                             }
                         }
                     }
                 } else {
-                    this.a.showToast(this.a.getString(com.baidu.tieba.a.k.pb_nodata));
-                    if (this.f) {
-                        uVar2 = this.a.H;
-                        if (uVar2 != null) {
-                            this.a.a(0);
-                        }
-                    }
-                    this.a.finish();
+                    textView5 = this.a.h;
+                    textView5.setVisibility(8);
+                    textView6 = this.a.g;
+                    textView6.setText(this.a.getString(com.baidu.tieba.a.k.image_recommend));
+                    linearLayout2 = this.a.q;
+                    linearLayout2.setVisibility(8);
+                    baseViewPager = this.a.x;
+                    ba.a(baseViewPager, TbadkApplication.j().l());
+                    return;
                 }
             }
         }
-        this.a.b = null;
-        this.a.a(false);
-    }
-
-    public s(ImagePbActivity imagePbActivity, String str, ArrayList<BasicNameValuePair> arrayList, boolean z) {
-        this.a = imagePbActivity;
-        this.c = null;
-        this.d = null;
-        this.f = false;
-        this.d = str;
-        this.c = arrayList;
-        this.f = z;
-        setSelfExecute(true);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        if (this.b != null) {
-            this.b.g();
-        }
-        this.a.b = null;
-        this.a.a(false);
-        this.g = true;
-        super.cancel(true);
+        this.a.L = System.nanoTime();
+        handler = this.a.Q;
+        runnable = this.a.R;
+        handler.removeCallbacks(runnable);
+        handler2 = this.a.Q;
+        runnable2 = this.a.R;
+        handler2.postDelayed(runnable2, 300L);
     }
 }

@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class an {
     private Context a;
-    private com.baidu.tieba.data.an b = new com.baidu.tieba.data.an();
+    private com.baidu.tieba.data.am b = new com.baidu.tieba.data.am();
 
     public an(Context context, String str) {
         this.a = context;
@@ -61,7 +61,7 @@ public final class an {
         }
     }
 
-    public final com.baidu.tieba.data.an a() {
+    public final com.baidu.tieba.data.am a() {
         return this.b;
     }
 }

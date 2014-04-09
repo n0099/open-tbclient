@@ -22,15 +22,15 @@ public interface a {
 
     View e();
 
-    View e_();
-
     void f();
-
-    String f_();
 
     void g();
 
+    View g_();
+
     int h();
+
+    String h_();
 
     boolean i();
 

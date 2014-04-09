@@ -16,12 +16,12 @@ public final class c extends BaseAdapter {
     View.OnClickListener a = new d(this);
     private Activity b;
     private ArrayList<ab> c;
-    private com.baidu.tbadk.editortool.aa d;
+    private com.baidu.tbadk.editortool.ab d;
 
     public c(Activity activity, h hVar) {
         this.b = activity;
         this.c = hVar.d();
-        this.d = new com.baidu.tbadk.editortool.aa(activity);
+        this.d = new com.baidu.tbadk.editortool.ab(activity);
         int a = com.baidu.adp.lib.util.i.a((Context) activity, 45.0f);
         this.d.a(a, a);
     }

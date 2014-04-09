@@ -23,14 +23,14 @@ public final class l {
         n nVar = new n(this, (byte) 0);
         nVar.a(3000);
         nVar.b(120000);
-        nVar.c(120);
+        nVar.c(500);
         this.b.put(com.baidu.loginshare.e.e, nVar);
         this.b.put("op", nVar);
         this.b.put("stat", nVar);
         n nVar2 = new n(this, (byte) 0);
         nVar2.a(60000);
         nVar2.b(120000);
-        nVar2.c(10);
+        nVar2.c(100);
         this.b.put("file", nVar2);
         this.b.put("db", nVar2);
         this.b.put("img", nVar2);

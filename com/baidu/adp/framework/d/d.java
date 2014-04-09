@@ -1,23 +1,24 @@
 package com.baidu.adp.framework.d;
 
-import com.baidu.adp.framework.b.k;
+import com.baidu.adp.framework.b.n;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.message.g;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class d extends c<g, com.baidu.adp.framework.task.c, k, SocketResponsedMessage> {
+public final class d extends c<g, SocketMessageTask, n, SocketResponsedMessage> {
     private com.baidu.adp.framework.a.g c;
 
     @Override // com.baidu.adp.framework.a
     public final /* bridge */ /* synthetic */ void a(com.baidu.adp.framework.message.d dVar, com.baidu.adp.framework.task.b bVar) {
-        this.c.a((g) dVar, (com.baidu.adp.framework.task.c) bVar);
+        this.c.a((g) dVar, (SocketMessageTask) bVar);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.d, com.baidu.adp.framework.task.b] */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.d' to match base method */
     @Override // com.baidu.adp.framework.d.c
-    public final /* synthetic */ g b(g gVar, com.baidu.adp.framework.task.c cVar) {
-        return this.a.b().a(gVar, cVar);
+    public final /* synthetic */ g b(g gVar, SocketMessageTask socketMessageTask) {
+        return this.a.b().a(gVar, socketMessageTask);
     }
 
     public d(com.baidu.adp.framework.c cVar) {

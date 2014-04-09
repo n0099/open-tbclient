@@ -17,8 +17,8 @@ public final class t extends BdAsyncTask<String, Integer, p> {
         p pVar2 = null;
         String[] strArr2 = strArr;
         this.b = new f();
-        com.baidu.tieba.r.c();
-        if (UtilHelper.d(com.baidu.tieba.r.d().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
+        com.baidu.tieba.p.c();
+        if (UtilHelper.d(com.baidu.tieba.p.d().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
             r rVar = this.a;
             String a = this.b.a(strArr2[0]);
             if (this.b.b()) {

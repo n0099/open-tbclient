@@ -4,22 +4,22 @@ import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-final class v implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
-    final /* synthetic */ t a;
-    private final /* synthetic */ GroupMsgData b;
+final class v extends com.baidu.tieba.im.m<LinkedList<GroupNewsPojo>> {
+    final /* synthetic */ u b;
+    private final /* synthetic */ GroupMsgData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(t tVar, GroupMsgData groupMsgData) {
-        this.a = tVar;
-        this.b = groupMsgData;
+    public v(u uVar, GroupMsgData groupMsgData) {
+        this.b = uVar;
+        this.c = groupMsgData;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(LinkedList<GroupNewsPojo> linkedList) {
-        LinkedList<GroupNewsPojo> linkedList2 = linkedList;
-        b.a(this.b, false);
-        t.a(this.a, linkedList2);
-        t.b(this.a, linkedList2);
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* bridge */ /* synthetic */ LinkedList<GroupNewsPojo> a() {
+        LinkedList<GroupNewsPojo> a;
+        u uVar = this.b;
+        a = u.a(this.c);
+        return a;
     }
 }

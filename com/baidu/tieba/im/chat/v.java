@@ -28,17 +28,17 @@ public final class v implements TextWatcher {
         Button button2;
         Button button3;
         if (editable == null || editable.length() <= 0) {
-            button = this.a.F;
+            button = this.a.G;
             button.setEnabled(false);
             return;
         }
         X = this.a.X();
         if (X) {
-            button3 = this.a.F;
+            button3 = this.a.G;
             button3.setEnabled(true);
             return;
         }
-        button2 = this.a.F;
+        button2 = this.a.G;
         button2.setEnabled(false);
     }
 }

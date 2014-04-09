@@ -16,9 +16,9 @@ final class a implements View.OnClickListener {
     public final void onClick(View view) {
         RelativeLayout relativeLayout;
         FrameLayout frameLayout;
-        relativeLayout = this.a.i;
+        relativeLayout = this.a.j;
         if (view != relativeLayout) {
-            frameLayout = this.a.j;
+            frameLayout = this.a.k;
             if (view == frameLayout) {
                 CreateBarActivity.c(this.a);
                 return;

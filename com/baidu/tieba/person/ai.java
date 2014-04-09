@@ -1,55 +1,47 @@
 package com.baidu.tieba.person;
 
-import android.os.Parcelable;
-import android.support.v4.view.PagerAdapter;
+import android.content.Context;
 import android.support.v4.view.ViewPager;
-import android.view.View;
-import java.util.List;
 /* loaded from: classes.dex */
-public final class ai extends PagerAdapter {
-    public List<View> a;
-    final /* synthetic */ af b;
+public final class ai implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ ag a;
 
-    public ai(af afVar, List<View> list) {
-        this.b = afVar;
-        this.a = list;
+    public ai(ag agVar) {
+        this.a = agVar;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public final void destroyItem(View view, int i, Object obj) {
-        ((ViewPager) view).removeView(this.a.get(i));
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public final void onPageSelected(int i) {
+        com.baidu.tieba.model.av avVar;
+        com.baidu.tieba.model.av avVar2;
+        Context context;
+        Context context2;
+        switch (i) {
+            case 0:
+                this.a.b(0);
+                break;
+            case 1:
+                this.a.b(1);
+                break;
+        }
+        avVar = this.a.u;
+        if (avVar != null) {
+            avVar2 = this.a.u;
+            if (avVar2.f()) {
+                context2 = this.a.a;
+                com.baidu.tbadk.core.g.a(context2, "person_self_scroll_click");
+                return;
+            }
+            context = this.a.a;
+            com.baidu.tbadk.core.g.a(context, "person_guid_scroll_click");
+        }
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public final void finishUpdate(View view) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public final void onPageScrolled(int i, float f, int i2) {
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public final int getCount() {
-        return this.a.size();
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final Object instantiateItem(View view, int i) {
-        ((ViewPager) view).addView(this.a.get(i), 0);
-        return this.a.get(i);
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final void restoreState(Parcelable parcelable, ClassLoader classLoader) {
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final Parcelable saveState() {
-        return null;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final void startUpdate(View view) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public final void onPageScrollStateChanged(int i) {
     }
 }

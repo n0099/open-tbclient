@@ -5,7 +5,7 @@ import android.os.Handler;
 import com.baidu.adp.lib.util.f;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.a.k;
-import com.baidu.tieba.r;
+import com.baidu.tieba.p;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -36,15 +36,15 @@ public final class c {
         }
         if (i2 >= i) {
             aVar.a(2);
-            r.c();
-            aVar.e(r.d().getString(k.download_fail_over_max));
+            p.c();
+            aVar.e(p.d().getString(k.download_fail_over_max));
             if (aVar.m() != null) {
                 aVar.m().a(aVar);
             }
         } else if (aVar != null) {
             if (!w.a()) {
-                r.c();
-                aVar.e(r.d().getString(k.download_fail_no_sd));
+                p.c();
+                aVar.e(p.d().getString(k.download_fail_no_sd));
                 aVar.a(2);
             }
             if (aVar.f() == 2) {

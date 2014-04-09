@@ -18,11 +18,11 @@ import java.util.List;
 public final class ax extends BaseAdapter {
     private OfficialBarTipActivity a;
     private List<ImMessageCenterShowItemData> b = new ArrayList();
-    private com.baidu.tbadk.editortool.aa c;
+    private com.baidu.tbadk.editortool.ab c;
 
     public ax(OfficialBarTipActivity officialBarTipActivity) {
         this.a = officialBarTipActivity;
-        this.c = new com.baidu.tbadk.editortool.aa(officialBarTipActivity);
+        this.c = new com.baidu.tbadk.editortool.ab(officialBarTipActivity);
         this.c.a(true);
     }
 
@@ -95,10 +95,10 @@ public final class ax extends BaseAdapter {
                 TextView textView2 = ayVar.b;
                 ImageView imageView = ayVar.f;
                 int unReadCount = imMessageCenterShowItemData.getUnReadCount();
-                if (TbadkApplication.j().ag() == 0) {
+                if (TbadkApplication.j().ai() == 0) {
                     unReadCount = 0;
                 }
-                if (!TbadkApplication.j().ae()) {
+                if (!TbadkApplication.j().ag()) {
                     unReadCount = 0;
                 }
                 if (!imMessageCenterShowItemData.getGroupSetting().isAcceptNotify()) {
@@ -151,7 +151,7 @@ public final class ax extends BaseAdapter {
         return view;
     }
 
-    public final com.baidu.tbadk.editortool.aa a() {
+    public final com.baidu.tbadk.editortool.ab a() {
         return this.c;
     }
 }

@@ -18,7 +18,7 @@ final class r implements DialogInterface.OnClickListener {
         ah ahVar;
         ah ahVar2;
         ah ahVar3;
-        com.baidu.tieba.im.model.y yVar;
+        com.baidu.tieba.im.model.z zVar;
         ah ahVar4;
         ahVar = this.a.b;
         ahVar.c(false);
@@ -27,8 +27,8 @@ final class r implements DialogInterface.OnClickListener {
         ahVar3 = this.a.b;
         ahVar3.i();
         MembersActivity membersActivity = this.a;
-        yVar = this.a.c;
-        MembersActivity.a(membersActivity, yVar.f(), this.b);
+        zVar = this.a.c;
+        MembersActivity.a(membersActivity, zVar.f(), this.b);
         ahVar4 = this.a.b;
         ahVar4.d(true);
     }

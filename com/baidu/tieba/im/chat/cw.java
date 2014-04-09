@@ -1,17 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-final class cw implements View.OnClickListener {
-    final /* synthetic */ MsgrightView a;
+final class cw extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ PersonalChatActivity b;
+    private final /* synthetic */ UserData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cw(MsgrightView msgrightView) {
-        this.a = msgrightView;
+    public cw(PersonalChatActivity personalChatActivity, UserData userData) {
+        this.b = personalChatActivity;
+        this.c = userData;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        this.a.c.a(view, 1, this.a.f, 0L);
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.chat.personaltalk.a.a().d(TbadkApplication.E(), String.valueOf(this.c.getUserId())));
     }
 }

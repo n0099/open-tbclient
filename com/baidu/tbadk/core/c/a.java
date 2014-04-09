@@ -6,134 +6,101 @@ import com.baidu.adp.lib.util.f;
 import com.baidu.tbadk.core.util.DatabaseManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.g;
-import com.baidu.tbadk.core.util.resourceLoader.d;
 import java.util.Date;
 /* loaded from: classes.dex */
 public final class a {
-    public static d a(String str, long j) {
-        return a("pb_photo", str, j);
+    public static Bitmap a(String str, long j) {
+        return a("pb_photo", str);
     }
 
-    public static d b(String str, long j) {
-        return a("friend_photo", str, j);
+    public static Bitmap b(String str, long j) {
+        return a("friend_photo", str);
     }
 
-    public static d a(String str) {
-        return a("user_icon", str, 0L);
+    public static Bitmap a(String str) {
+        return a("user_icon", str);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [84=5, 85=5, 87=5, 88=5] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:55:0x0144 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0124 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.tbadk.core.util.DatabaseManager$DatabaseLocation] */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [android.database.Cursor] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00b8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static d a(String str, String str2, long j) {
-        Throwable th;
+    private static Bitmap a(String str, String str2) {
         Cursor cursor;
-        d dVar = null;
+        Throwable th;
+        Bitmap bitmap = null;
         if (str2 != null) {
-            ?? r2 = DatabaseManager.DatabaseLocation.SDCARD;
             try {
-                try {
-                    cursor = new DatabaseManager(r2).a("select * from " + str + " where key = ?", new String[]{str2});
-                    if (cursor != null) {
+                cursor = new DatabaseManager(DatabaseManager.DatabaseLocation.SDCARD).a("select * from " + str + " where key = ?", new String[]{str2});
+                if (cursor != null) {
+                    try {
                         try {
                             if (cursor.moveToFirst()) {
-                                long j2 = cursor.getLong(3);
-                                if (j2 != 0 || j == 0) {
-                                    if (j2 == 0 || j == 0 || j <= j2) {
-                                        d dVar2 = new d();
-                                        try {
-                                            dVar2.a = g.a(cursor.getBlob(1));
-                                            dVar2.b = j2;
-                                            dVar = dVar2;
-                                        } catch (Exception e) {
-                                            dVar = dVar2;
-                                            e = e;
-                                            f.b("DatabaseManager", "getPhoto", "error = " + e.getMessage());
-                                            TiebaStatic.a(e, "DatabaseManager.getPhoto" + str, new Object[0]);
-                                            if (cursor != null) {
-                                                try {
-                                                    cursor.close();
-                                                } catch (Exception e2) {
-                                                    TiebaStatic.a(e2, "DatabaseManager.getPhoto" + str + "close cursor", new Object[0]);
-                                                }
-                                            }
-                                            return dVar;
-                                        }
-                                    } else if (cursor != null) {
-                                        try {
-                                            cursor.close();
-                                        } catch (Exception e3) {
-                                            TiebaStatic.a(e3, "DatabaseManager.getPhoto" + str + "close cursor", new Object[0]);
-                                        }
-                                    }
-                                } else if (cursor != null) {
-                                    try {
-                                        cursor.close();
-                                    } catch (Exception e4) {
-                                        TiebaStatic.a(e4, "DatabaseManager.getPhoto" + str + "close cursor", new Object[0]);
-                                    }
+                                bitmap = g.a(cursor.getBlob(1));
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            f.b("DatabaseManager", "getPhoto", "error = " + e.getMessage());
+                            TiebaStatic.a(e, "DatabaseManager.getPhoto" + str, new Object[0]);
+                            if (cursor != null) {
+                                try {
+                                    cursor.close();
+                                } catch (Exception e2) {
+                                    TiebaStatic.a(e2, "DatabaseManager.getPhoto" + str + "close cursor", new Object[0]);
                                 }
                             }
-                        } catch (Exception e5) {
-                            e = e5;
+                            return bitmap;
                         }
-                    }
-                    if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e6) {
-                            TiebaStatic.a(e6, "DatabaseManager.getPhoto" + str + "close cursor", new Object[0]);
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (cursor != null) {
+                            try {
+                                cursor.close();
+                            } catch (Exception e3) {
+                                TiebaStatic.a(e3, "DatabaseManager.getPhoto" + str + "close cursor", new Object[0]);
+                            }
                         }
+                        throw th;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (r2 != 0) {
-                        try {
-                            r2.close();
-                        } catch (Exception e7) {
-                            TiebaStatic.a(e7, "DatabaseManager.getPhoto" + str + "close cursor", new Object[0]);
-                        }
-                    }
-                    throw th;
                 }
-            } catch (Exception e8) {
-                e = e8;
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e4) {
+                        TiebaStatic.a(e4, "DatabaseManager.getPhoto" + str + "close cursor", new Object[0]);
+                    }
+                }
+            } catch (Exception e5) {
+                e = e5;
                 cursor = null;
             } catch (Throwable th3) {
-                r2 = 0;
+                cursor = null;
                 th = th3;
-                if (r2 != 0) {
+                if (cursor != null) {
                 }
                 throw th;
             }
         }
-        return dVar;
-    }
-
-    public static void a(String str, Bitmap bitmap, long j) {
-        a("pb_photo", 500, str, bitmap, j);
+        return bitmap;
     }
 
     public static void a(String str, Bitmap bitmap) {
-        a("user_icon", 100, str, bitmap, 0L);
+        a("pb_photo", 500, str, bitmap);
     }
 
-    public static void b(String str, Bitmap bitmap, long j) {
-        a("friend_photo", 500, str, bitmap, j);
+    public static void b(String str, Bitmap bitmap) {
+        a("user_icon", 100, str, bitmap);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    public static void c(String str, Bitmap bitmap) {
+        a("friend_photo", 500, str, bitmap);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0159 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static void a(String str, int i, String str2, Bitmap bitmap, long j) {
+    private static void a(String str, int i, String str2, Bitmap bitmap) {
         Cursor cursor;
         int i2;
         Cursor a;
@@ -187,7 +154,7 @@ public final class a {
                     }
                     a3.close();
                 }
-                databaseManager.a("Insert into " + str + "(key,image,date,stamp) values(?,?,?,?)", new Object[]{str2, g.c(bitmap, 80), Long.valueOf(new Date().getTime()), Long.valueOf(j)});
+                databaseManager.a("Insert into " + str + "(key,image,date,stamp) values(?,?,?,?)", new Object[]{str2, g.c(bitmap, 80), Long.valueOf(new Date().getTime()), 0});
             } catch (Exception e4) {
                 e = e4;
                 cursor = null;

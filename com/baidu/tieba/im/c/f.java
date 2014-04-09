@@ -8,7 +8,7 @@ import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tieba.im.chat.x;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.pushNotify.o;
-import com.baidu.tieba.im.s;
+import com.baidu.tieba.im.r;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -62,7 +62,7 @@ public final class f extends com.baidu.adp.framework.c.g {
                                 }
                             }
                         }
-                        s.a(new g(this, linkedHashMap2, linkedHashMap), null);
+                        r.a(new g(this, linkedHashMap2, linkedHashMap), null);
                     }
                     if (responseOnlineMessage.d() != null) {
                         for (GroupUpdateMessage groupUpdateMessage2 : responseOnlineMessage.d()) {
@@ -86,7 +86,7 @@ public final class f extends com.baidu.adp.framework.c.g {
                         }
                     }
                     com.baidu.tieba.im.b.e.a(new h(this, linkedList, linkedList2));
-                    com.baidu.tieba.im.db.h.a().a(linkedList2);
+                    com.baidu.tieba.im.db.i.a().a(linkedList2);
                     handler = this.a.l;
                     handler2 = this.a.l;
                     handler.sendMessage(handler2.obtainMessage(3));

@@ -13,7 +13,6 @@ import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tbadk.i;
 import com.baidu.tbadk.l;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.lang.reflect.Field;
 import java.util.Calendar;
 import java.util.Date;
@@ -108,12 +107,12 @@ public final class a {
             }
             j = date;
         }
-        if (j2.aq()) {
+        if (j2.as()) {
             Calendar calendar = Calendar.getInstance();
             int i = calendar.get(12) + (calendar.get(11) * 60);
-            String[] split = j2.ar().split(":");
+            String[] split = j2.at().split(":");
             int parseInt = Integer.parseInt(split[1]) + (Integer.parseInt(split[0]) * 60);
-            String[] split2 = j2.as().split(":");
+            String[] split2 = j2.au().split(":");
             int parseInt2 = Integer.parseInt(split2[1]) + (Integer.parseInt(split2[0]) * 60);
             if (parseInt >= parseInt2 ? !(parseInt <= parseInt2 || ((i < parseInt || i > 1439) && (i < 0 || i > parseInt2))) : !(i < parseInt || i > parseInt2)) {
                 z = true;
@@ -141,8 +140,8 @@ public final class a {
                         a(11, (String) null, stringBuffer.toString());
                     } else if (i2 != 16) {
                         TbadkApplication.j();
-                        if (TbadkApplication.ad()) {
-                            TbadkApplication.j().ag();
+                        if (TbadkApplication.af()) {
+                            TbadkApplication.j().ai();
                         }
                     }
                 } else if (i == 2) {
@@ -165,8 +164,8 @@ public final class a {
     private void a(int i, int i2, com.baidu.tbadk.coreExtra.b.c cVar) {
         boolean z;
         long j2;
-        String m2;
-        String l2;
+        String o;
+        String n;
         boolean z2 = false;
         boolean z3 = true;
         if (this.a != null && cVar != null) {
@@ -186,11 +185,11 @@ public final class a {
                     a(11, (String) null, stringBuffer.toString());
                 } else if (i2 == 16) {
                     TbadkApplication.j();
-                    int c = (!TbadkApplication.ad() || TbadkApplication.j().ag() <= 0) ? 0 : cVar.c() - cVar.j();
-                    if (!TbadkApplication.j().ae() || TbadkApplication.j().ag() <= 0) {
+                    int c = (!TbadkApplication.af() || TbadkApplication.j().ai() <= 0) ? 0 : cVar.c() - cVar.l();
+                    if (!TbadkApplication.j().ag() || TbadkApplication.j().ai() <= 0) {
                         j2 = 0;
                     } else {
-                        j2 = cVar.s();
+                        j2 = cVar.w();
                     }
                     boolean z4 = j2 > 0;
                     long j3 = c + j2;
@@ -198,21 +197,21 @@ public final class a {
                         stringBuffer.append(String.format(this.b.getString(l.notify_chat), Long.valueOf(j3)));
                         a(16, (String) null, stringBuffer.toString(), z4);
                     } else if (j3 == 1) {
-                        cVar.v();
-                        cVar.t();
+                        cVar.z();
+                        cVar.x();
                         if (j2 == 1) {
-                            m2 = cVar.v();
-                            l2 = cVar.t();
+                            o = cVar.z();
+                            n = cVar.x();
                         } else if (c == 1) {
-                            m2 = cVar.m();
-                            l2 = cVar.l();
+                            o = cVar.o();
+                            n = cVar.n();
                         } else {
                             return;
                         }
-                        if (TextUtils.isEmpty(l2)) {
-                            l2 = stringBuffer.append(String.format(this.b.getString(l.notify_chat), Long.valueOf(j3))).toString();
+                        if (TextUtils.isEmpty(n)) {
+                            n = stringBuffer.append(String.format(this.b.getString(l.notify_chat), Long.valueOf(j3))).toString();
                         }
-                        a(16, m2, l2, z4);
+                        a(16, o, n, z4);
                     }
                 } else if (i2 == 19) {
                     long g = cVar.g();
@@ -220,16 +219,16 @@ public final class a {
                         stringBuffer.append(String.format(this.b.getString(l.notify_official_message), Long.valueOf(g)));
                         a(19, (String) null, stringBuffer.toString());
                     } else if (g == 1) {
-                        String h2 = cVar.h();
-                        String i4 = cVar.i();
-                        if (TextUtils.isEmpty(i4)) {
-                            i4 = stringBuffer.append(String.format(this.b.getString(l.notify_official_message), Long.valueOf(g))).toString();
+                        String j4 = cVar.j();
+                        String k2 = cVar.k();
+                        if (TextUtils.isEmpty(k2)) {
+                            k2 = stringBuffer.append(String.format(this.b.getString(l.notify_official_message), Long.valueOf(g))).toString();
                         }
-                        a(19, h2, i4);
+                        a(19, j4, k2);
                     }
                 } else {
                     TbadkApplication.j();
-                    if (TbadkApplication.ad() && TbadkApplication.j().ag() > 0 && cVar.d() + cVar.f() > 0) {
+                    if (TbadkApplication.af() && TbadkApplication.j().ai() > 0 && cVar.d() + cVar.f() > 0) {
                         if (cVar.d() > 0 && !u()) {
                             long d = cVar.d() - cVar.e();
                             if (d > 0) {
@@ -250,7 +249,7 @@ public final class a {
                                 a(17, (String) null, stringBuffer.toString());
                             }
                             if (!z) {
-                                a(18, cVar.n(), cVar.o());
+                                a(18, cVar.q(), cVar.r());
                                 return;
                             }
                             return;
@@ -293,8 +292,8 @@ public final class a {
             String E = TbadkApplication.E();
             String O = TbadkApplication.O();
             if (!TextUtils.isEmpty(E) && !TextUtils.isEmpty(O)) {
-                intent.putExtra(PersonInfoActivity.TAG_ID, E);
-                intent.putExtra(PersonInfoActivity.TAG_NAME, O);
+                intent.putExtra("un", E);
+                intent.putExtra("name", O);
             }
         } else if (i == 18) {
             intent = r();
@@ -303,7 +302,7 @@ public final class a {
         } else {
             String str3 = "";
             if (z) {
-                Set<String> keySet = this.i.u().keySet();
+                Set<String> keySet = this.i.y().keySet();
                 if (keySet.iterator().hasNext()) {
                     str3 = keySet.iterator().next();
                 }
@@ -315,7 +314,7 @@ public final class a {
             intent2.putExtra("reply_me", this.c);
             intent2.putExtra("fans", this.e);
             intent2.putExtra("chat", this.f);
-            intent2.putExtra("group_msg", this.i.c() - this.i.j());
+            intent2.putExtra("group_msg", this.i.c() - this.i.l());
             intent2.putExtra("group_msg_validate", this.i.f());
             intent2.putExtra("group_msg_updates", this.i.d());
             intent2.putExtra("officialbar_msg", this.i.g());
@@ -360,10 +359,10 @@ public final class a {
             q.defaults &= -2;
             q.defaults &= -3;
         } else {
-            if (!TbadkApplication.j().ao()) {
+            if (!TbadkApplication.j().aq()) {
                 q.defaults &= -3;
             }
-            if (!TbadkApplication.j().ap()) {
+            if (!TbadkApplication.j().ar()) {
                 q.defaults &= -2;
             } else {
                 q.audioStreamType = 5;
@@ -414,10 +413,10 @@ public final class a {
             s();
             return;
         }
-        HashMap<String, String> p = cVar.p();
-        if (p == null || p.isEmpty()) {
+        HashMap<String, String> s = cVar.s();
+        if (s == null || s.isEmpty()) {
             s();
-        } else if (p.containsKey(str)) {
+        } else if (s.containsKey(str)) {
             s();
         }
     }
@@ -504,7 +503,7 @@ public final class a {
     }
 
     public final int m() {
-        return ((this.i.s() + this.i.c()) + this.i.g()) - this.i.j();
+        return ((this.i.w() + this.i.c()) + this.i.g()) - this.i.l();
     }
 
     public final void e(int i) {
@@ -546,43 +545,44 @@ public final class a {
     public final void a(com.baidu.tbadk.coreExtra.b.c cVar) {
         if (cVar != null) {
             this.i = cVar;
-            this.f = (cVar.c() - cVar.j()) + cVar.s() + cVar.g();
-            f.e("groupMsgName" + cVar.m());
-            f.e("privateMsgName" + cVar.v());
+            this.f = (cVar.c() - cVar.l()) + cVar.w() + cVar.g();
+            f.e("groupMsgName" + cVar.o());
+            f.e("privateMsgName" + cVar.z());
             if (cVar != null) {
                 NewsNotifyMessage newsNotifyMessage = new NewsNotifyMessage();
                 newsNotifyMessage.c(this.d);
                 newsNotifyMessage.f(this.g);
-                newsNotifyMessage.e(((cVar.s() + cVar.c()) + cVar.g()) - cVar.j());
+                newsNotifyMessage.e(((cVar.w() + cVar.c()) + cVar.g()) - cVar.l());
                 newsNotifyMessage.d(this.e);
                 newsNotifyMessage.b(this.c);
                 com.baidu.adp.framework.c.a().b(newsNotifyMessage);
             }
-            f.e("result.isShowInNotifyBar():" + cVar.k() + "isShowNotify");
+            f.e("result.isShowInNotifyBar():" + cVar.m() + "isShowNotify");
             long currentTimeMillis = System.currentTimeMillis();
-            if (cVar.k()) {
+            if (cVar.m()) {
                 if (currentTimeMillis - k < 5000) {
                     f.e(" notify limit:" + (currentTimeMillis - k));
                     return;
                 }
                 k = System.currentTimeMillis();
             }
-            if (cVar.k()) {
+            if (cVar.m()) {
                 int i = 0;
                 TbadkApplication.j();
-                if (TbadkApplication.ad() && TbadkApplication.j().ag() > 0) {
-                    i = cVar.c() - cVar.j();
+                if (TbadkApplication.af() && TbadkApplication.j().ai() > 0) {
+                    i = cVar.c() - cVar.l();
                 }
-                long s = (!TbadkApplication.j().ae() || TbadkApplication.j().ag() <= 0) ? 0L : cVar.s();
-                if (i > 0 || s > 0) {
+                long w = (!TbadkApplication.j().ag() || TbadkApplication.j().ai() <= 0) ? 0L : cVar.w();
+                if ((i > 0 || w > 0) && i + w > cVar.p() + cVar.h()) {
                     a(1, 16, cVar);
                 }
-                if (cVar.g() > 0) {
+                int g = cVar.g();
+                if (g > 0 && g > cVar.v()) {
                     a(1, 19, cVar);
                 }
-                if (cVar.d() > cVar.q() || cVar.f() > cVar.r()) {
-                    if (cVar.d() <= cVar.q() || cVar.f() != cVar.r() || !u()) {
-                        if (cVar.d() != cVar.q() || cVar.f() <= cVar.r() || !t()) {
+                if (cVar.d() > cVar.t() || cVar.f() > cVar.u()) {
+                    if (cVar.d() <= cVar.t() || cVar.f() != cVar.u() || !u()) {
+                        if (cVar.d() != cVar.t() || cVar.f() <= cVar.u() || !t()) {
                             a(1, 17, cVar);
                         }
                     }

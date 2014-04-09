@@ -1,63 +1,114 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.gson.Gson;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.VoiceMsgData;
-import org.apache.http.message.BasicNameValuePair;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.os.Bundle;
+import java.util.List;
 /* loaded from: classes.dex */
-public final class z extends com.baidu.adp.a.h {
-    final /* synthetic */ MsglistModel a;
+public final class z extends com.baidu.adp.a.e {
+    private long a;
+    private int b;
+    private int c;
+    private int d;
+    private boolean e;
+    private List<Long> f;
+    private boolean g;
+    private com.baidu.tieba.im.message.ap h;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public z(MsglistModel msglistModel) {
-        this.a = msglistModel;
+    public final void a(com.baidu.tieba.im.message.ap apVar) {
+        this.h = apVar;
     }
 
-    @Override // com.baidu.adp.a.h
-    public final void a(Object obj) {
-        BasicNameValuePair basicNameValuePair;
-        String str;
-        aw awVar;
-        aw awVar2;
-        if (obj != null && (obj instanceof BasicNameValuePair) && (basicNameValuePair = (BasicNameValuePair) obj) != null && basicNameValuePair.getName() != null && basicNameValuePair.getName().length() > 0) {
-            String name = basicNameValuePair.getName();
-            String value = basicNameValuePair.getValue();
-            com.baidu.adp.lib.util.f.d("----send voice suc, vid : " + value);
-            try {
-                com.baidu.tieba.im.message.a.a a = MsglistModel.a(this.a, Long.parseLong(name));
-                if (a != null) {
-                    if (value != null && value.length() > 0) {
-                        VoiceMsgData f = com.baidu.tieba.im.f.q.f(a);
-                        if (f != null) {
-                            f.setVoice_md5(value);
-                            a.d("[" + new Gson().toJson(f) + "]");
-                        }
-                        TiebaStatic.a(a.e(), 0, "", "", "upload voice http suc vid = " + value, 0, "upload voice http success ", System.currentTimeMillis() - a.E());
-                        com.baidu.tieba.im.chat.x.b().a(a);
-                        awVar = this.a.k;
-                        if (awVar != null) {
-                            com.baidu.adp.lib.util.f.e("simon", "send callback", "send voice");
-                            awVar2 = this.a.k;
-                            awVar2.t();
-                            return;
-                        }
-                        return;
-                    }
-                    TiebaStatic.a(a.e(), 0, "", "", "", -1, "upload voice http fail", System.currentTimeMillis() - a.E());
-                    this.a.d(a);
-                    if (a instanceof com.baidu.tieba.im.message.a.b) {
-                        com.baidu.tieba.im.s.a(new aa(this, (com.baidu.tieba.im.message.a.b) a), null);
-                    } else if (a instanceof com.baidu.tieba.im.message.a.f) {
-                        com.baidu.tieba.im.s.a(new ab(this, (com.baidu.tieba.im.message.a.f) a), null);
-                    } else if (a instanceof com.baidu.tieba.im.message.a.e) {
-                        com.baidu.tieba.im.s.a(new ac(this, (com.baidu.tieba.im.message.a.e) a), null);
-                    }
-                }
-            } catch (Exception e) {
-                str = MsglistModel.a;
-                com.baidu.adp.lib.util.f.b(str, "BdLoadDataCallBack", e.getMessage());
-            }
-        }
+    public final int a() {
+        return this.b;
+    }
+
+    public final void a(int i) {
+        this.b = i;
+    }
+
+    public final boolean b() {
+        return this.g;
+    }
+
+    public final void a(boolean z) {
+        this.g = z;
+    }
+
+    public final List<Long> c() {
+        return this.f;
+    }
+
+    public final void a(List<Long> list) {
+        this.f = list;
+    }
+
+    public final void b(boolean z) {
+        this.e = z;
+    }
+
+    public final int d() {
+        return this.c;
+    }
+
+    public final void b(int i) {
+        this.c = 0;
+    }
+
+    public final void c(int i) {
+        this.c += i;
+    }
+
+    public final int e() {
+        return this.d;
+    }
+
+    public final void d(int i) {
+        this.d = i;
+    }
+
+    public final long f() {
+        return this.a;
+    }
+
+    @Override // com.baidu.adp.a.e
+    protected final boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public final boolean cancelLoadData() {
+        return false;
+    }
+
+    public final void a(Intent intent) {
+        this.a = intent.getLongExtra("group_id", 0L);
+    }
+
+    public final void a(Bundle bundle) {
+        this.a = bundle.getLong("group_id", 0L);
+        this.c = bundle.getInt("start_position", 0);
+        this.d = bundle.getInt("len_position", 0);
+    }
+
+    public final void a(long j, int i, int i2, int i3) {
+        com.baidu.tieba.im.message.ap apVar = new com.baidu.tieba.im.message.ap();
+        apVar.b(j);
+        apVar.d(i);
+        apVar.e(i2);
+        apVar.f(i3);
+        super.sendMessage(apVar);
+    }
+
+    public final void a(long j, String str) {
+        com.baidu.tieba.im.message.av avVar = new com.baidu.tieba.im.message.av();
+        avVar.b(j);
+        avVar.a(str);
+        super.sendMessage(avVar);
+    }
+
+    public final void b(Bundle bundle) {
+        bundle.putLong("group_id", this.a);
+        bundle.putInt("start_position", this.c);
+        bundle.putInt("len_position", this.d);
     }
 }

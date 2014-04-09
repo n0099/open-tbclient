@@ -1,9 +1,10 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-final class s implements TextWatcher {
+final class s implements TextView.OnEditorActionListener {
     final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,19 +12,18 @@ final class s implements TextWatcher {
         this.a = loginActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.a.n = true;
-        this.a.g();
-        this.a.h();
-    }
-
-    @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
-        this.a.c();
+    @Override // android.widget.TextView.OnEditorActionListener
+    public final boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+        View view;
+        View view2;
+        view = this.a.B;
+        if (view.getVisibility() != 8 || i != 4) {
+            view2 = this.a.B;
+            if (view2.getVisibility() != 0 || i != 6) {
+                return false;
+            }
+        }
+        LoginActivity.t(this.a);
+        return true;
     }
 }

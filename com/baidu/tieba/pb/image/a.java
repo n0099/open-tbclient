@@ -20,56 +20,56 @@ final class a implements Runnable {
         com.baidu.tieba.data.u uVar2;
         int i4;
         int i5;
-        ad adVar;
+        ac acVar;
         int i6;
         int i7;
-        ad adVar2;
-        ad adVar3;
+        ac acVar2;
+        ac acVar3;
         com.baidu.tieba.data.u uVar3;
         int i8;
         int i9;
         com.baidu.tieba.data.u uVar4;
         int i10;
         try {
-            z = this.a.B;
+            z = this.a.A;
             if (z) {
-                uVar = this.a.G;
+                uVar = this.a.F;
                 if (uVar != null) {
-                    i = this.a.J;
+                    i = this.a.I;
                     if (i > 0) {
-                        i10 = this.a.J;
+                        i10 = this.a.I;
                         i2 = i10 - 1;
                     } else {
                         i2 = 0;
                     }
-                    i3 = this.a.J;
-                    uVar2 = this.a.G;
-                    if (i3 >= uVar2.k() - 1) {
-                        uVar4 = this.a.G;
-                        i5 = uVar4.k() - 1;
+                    i3 = this.a.I;
+                    uVar2 = this.a.F;
+                    if (i3 >= uVar2.j() - 1) {
+                        uVar4 = this.a.F;
+                        i5 = uVar4.j() - 1;
                     } else {
-                        i4 = this.a.J;
+                        i4 = this.a.I;
                         i5 = i4 + 1;
                     }
                     UtilHelper.NetworkStateInfo d = UtilHelper.d(this.a);
-                    adVar = this.a.z;
-                    adVar.d().a();
+                    acVar = this.a.y;
+                    acVar.d().a();
                     if (d == UtilHelper.NetworkStateInfo.WIFI || d == UtilHelper.NetworkStateInfo.ThreeG) {
                         i6 = i5;
                         i7 = i2;
                     } else {
-                        i8 = this.a.J;
-                        i9 = this.a.J;
+                        i8 = this.a.I;
+                        i9 = this.a.I;
                         i6 = i9;
                         i7 = i8;
                     }
-                    adVar2 = this.a.z;
-                    adVar2.d();
+                    acVar2 = this.a.y;
+                    acVar2.d();
                     for (int i11 = i7; i11 <= i6; i11++) {
-                        adVar3 = this.a.z;
-                        com.baidu.tbadk.editortool.aa d2 = adVar3.d();
-                        uVar3 = this.a.G;
-                        d2.b(uVar3.h().get(i11).b(), new b(this));
+                        acVar3 = this.a.y;
+                        com.baidu.tbadk.editortool.ab d2 = acVar3.d();
+                        uVar3 = this.a.F;
+                        d2.b(uVar3.g().get(i11).b(), new b(this));
                     }
                 }
             }

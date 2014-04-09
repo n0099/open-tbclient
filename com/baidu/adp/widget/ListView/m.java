@@ -38,7 +38,7 @@ public final class m implements AbsListView.OnScrollListener {
                 i2 = this.a.l;
                 if (firstVisiblePosition <= i2) {
                     vVar2 = this.a.k;
-                    vVar2.c_();
+                    vVar2.e_();
                 }
             }
         }

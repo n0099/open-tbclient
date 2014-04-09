@@ -1,8 +1,6 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.f;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.Serializable;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -44,7 +42,7 @@ public class MetaData implements Serializable {
     }
 
     public long getUserIdLong() {
-        return b.a(this.userId, 0L);
+        return com.baidu.adp.lib.f.b.a(this.userId, 0L);
     }
 
     public void setType(int i) {
@@ -140,7 +138,7 @@ public class MetaData implements Serializable {
             try {
                 this.userId = jSONObject.optString("id");
                 this.type = jSONObject.optInt("type", 0);
-                this.userName = jSONObject.optString(PersonInfoActivity.TAG_NAME);
+                this.userName = jSONObject.optString("name");
                 this.level_id = jSONObject.optInt("level_id", 0);
                 this.is_like = jSONObject.optInt("is_like", 0);
                 this.is_bawu = jSONObject.optInt("is_bawu", 0);

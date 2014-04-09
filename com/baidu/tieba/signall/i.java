@@ -29,7 +29,7 @@ final class i implements s {
         AlertDialog alertDialog2;
         AlertDialog alertDialog3;
         boolean z2;
-        com.baidu.tieba.home.p c = pVar.c();
+        com.baidu.tieba.home.q c = pVar.c();
         if (c != null && c.a() == 0) {
             yVar = this.a.a;
             a g = yVar.g();

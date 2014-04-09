@@ -7,7 +7,8 @@ import com.baidu.tbadk.core.b.av;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.data.ai;
-import com.baidu.tieba.data.an;
+import com.baidu.tieba.data.am;
+import com.baidu.tieba.model.an;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -71,7 +72,7 @@ public final class v extends BdAsyncTask<Object, Integer, String> {
                 }
                 if (this.f == 2) {
                     activity2 = this.b.c;
-                    an a = new com.baidu.tieba.model.an(activity2, str2).a();
+                    am a = new an(activity2, str2).a();
                     String id = a.g().getId();
                     String name = a.g().getName();
                     String l = a.l().l();

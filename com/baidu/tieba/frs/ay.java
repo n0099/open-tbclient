@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+@SuppressLint({"UseSparseArrays"})
 /* loaded from: classes.dex */
 public final class ay extends BaseAdapter implements View.OnClickListener {
     private final Context a;
@@ -35,7 +37,7 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
     private boolean e;
     private boolean f;
     private boolean g;
-    private final com.baidu.tbadk.editortool.aa h;
+    private final com.baidu.tbadk.editortool.ab h;
     private int i;
     private boolean k;
     private final int o;
@@ -79,7 +81,7 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
         this.i = 200;
         this.k = false;
         this.a = context;
-        this.h = new com.baidu.tbadk.editortool.aa(this.a);
+        this.h = new com.baidu.tbadk.editortool.ab(this.a);
         this.h.b("frs");
         this.i = i;
         this.k = z;
@@ -115,7 +117,7 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
         this.h.a(this.j, this.j);
     }
 
-    public final com.baidu.tbadk.editortool.aa a() {
+    public final com.baidu.tbadk.editortool.ab a() {
         return this.h;
     }
 
@@ -152,16 +154,20 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
             arrayList2 = null;
         } else {
             ArrayList<Integer> arrayList3 = new ArrayList<>();
-            Iterator<com.baidu.tbadk.core.data.o> it = arrayList.iterator();
-            while (it.hasNext()) {
-                com.baidu.tbadk.core.data.o next = it.next();
-                if (next instanceof com.baidu.tbadk.core.data.b) {
-                    int a = (((com.baidu.tbadk.core.data.b) next).a() + this.s) - 1;
-                    arrayList3.add(Integer.valueOf(a));
-                    if (this.u != null && !this.u.containsValue(next)) {
-                        this.u.put(Integer.valueOf(a), next);
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 >= arrayList.size()) {
+                    break;
+                }
+                com.baidu.tbadk.core.data.o oVar = arrayList.get(i2);
+                if (oVar instanceof com.baidu.tbadk.core.data.b) {
+                    arrayList3.add(Integer.valueOf(i2));
+                    if (this.u != null && !this.u.containsValue(oVar)) {
+                        this.u.put(Integer.valueOf(i2), oVar);
                     }
                 }
+                i = i2 + 1;
             }
             arrayList2 = arrayList3;
         }
@@ -227,8 +233,8 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
         return 3;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0683: INVOKE  (r3v111 long A[REMOVE]) = 
-      (wrap: com.baidu.tbadk.core.data.PraiseData : 0x067f: INVOKE  (r3v110 com.baidu.tbadk.core.data.PraiseData A[REMOVE]) = (r9v1 com.baidu.tbadk.core.data.o) type: VIRTUAL call: com.baidu.tbadk.core.data.o.k():com.baidu.tbadk.core.data.PraiseData)
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x069a: INVOKE  (r2v81 long A[REMOVE]) = 
+      (wrap: com.baidu.tbadk.core.data.PraiseData : 0x0696: INVOKE  (r2v80 com.baidu.tbadk.core.data.PraiseData A[REMOVE]) = (r6v1 com.baidu.tbadk.core.data.o) type: VIRTUAL call: com.baidu.tbadk.core.data.o.k():com.baidu.tbadk.core.data.PraiseData)
      type: VIRTUAL call: com.baidu.tbadk.core.data.PraiseData.getNum():long)] */
     @Override // android.widget.Adapter
     public final View getView(int i, View view, ViewGroup viewGroup) {
@@ -328,8 +334,8 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                 ((FrsActivity) this.a).getLayoutMode().a(view3);
                 com.baidu.tbadk.core.data.o oVar = (com.baidu.tbadk.core.data.o) getItem(i);
                 bhVar.b.setText(oVar.n());
-                com.baidu.tieba.util.p C = com.baidu.tieba.r.c().C();
-                if (C != null && C.b(oVar.l())) {
+                com.baidu.tieba.util.p z = com.baidu.tieba.p.c().z();
+                if (z != null && z.b(oVar.l())) {
                     bhVar.b.setTextColor(l == 1 ? this.a.getResources().getColor(com.baidu.tieba.a.e.listview_item_thread_read_1) : this.a.getResources().getColor(com.baidu.tieba.a.e.listview_item_thread_read));
                 }
                 if (l == 1) {
@@ -349,6 +355,7 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                     view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.frs_item, (ViewGroup) null);
                     bi biVar2 = new bi(this, (byte) 0);
                     biVar2.a = (LinearLayout) view.findViewById(com.baidu.tieba.a.h.frs_list);
+                    biVar2.w = (LinearLayout) view.findViewById(com.baidu.tieba.a.h.frs_item_user_info_view);
                     biVar2.b = (LinearLayout) view.findViewById(com.baidu.tieba.a.h.frs_list_item_top_linear_layout);
                     biVar2.j = (HeadImageView) view.findViewById(com.baidu.tieba.a.h.frs_photo);
                     biVar2.i = (UserIconBox) view.findViewById(com.baidu.tieba.a.h.frs_user_tshow_icon_box);
@@ -370,6 +377,8 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                     biVar2.t = (FrsReplyView) view.findViewById(com.baidu.tieba.a.h.frs_item_reply_item2);
                     biVar2.u = (FrsReplyView) view.findViewById(com.baidu.tieba.a.h.frs_item_reply_item3);
                     biVar2.v = (TextView) view.findViewById(com.baidu.tieba.a.h.frs_item_more_reply_text);
+                    biVar2.x = view.findViewById(com.baidu.tieba.a.h.frs_item_praise_divider_line2);
+                    biVar2.y = view.findViewById(com.baidu.tieba.a.h.frs_item_reply_view_di);
                     view.setTag(biVar2);
                     biVar = biVar2;
                 } else {
@@ -380,16 +389,16 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                     biVar.n.setBackgroundResource(com.baidu.tieba.a.g.frs_praise_btn_bg_1);
                     biVar.k.setBackgroundResource(com.baidu.tieba.a.g.frs_praise_btn_bg_1);
                     biVar.q.setBackgroundResource(com.baidu.tieba.a.g.frs_item_abstract_more_text_bg_1);
-                    biVar.v.setBackgroundResource(com.baidu.tieba.a.g.frs_item_abstract_more_text_bg_1);
                 } else {
                     biVar.b.setBackgroundResource(com.baidu.tieba.a.g.frs_item_control_btn_bg);
                     biVar.n.setBackgroundResource(com.baidu.tieba.a.g.frs_praise_btn_bg);
                     biVar.k.setBackgroundResource(com.baidu.tieba.a.g.frs_praise_btn_bg);
                     biVar.q.setBackgroundResource(com.baidu.tieba.a.g.frs_item_abstract_more_text_bg);
-                    biVar.v.setBackgroundResource(com.baidu.tieba.a.g.frs_item_abstract_more_text_bg);
                 }
                 biVar.k.setOnClickListener(this);
+                com.baidu.adp.lib.util.i.a(this.a, biVar.k, 0, 10, 0, 20);
                 biVar.n.setOnClickListener(this);
+                com.baidu.adp.lib.util.i.a(this.a, biVar.n, 0, 10, 0, 20);
                 biVar.q.setOnClickListener(this);
                 biVar.v.setOnClickListener(this);
                 biVar.k.setOnTouchListener(new bg(this, (byte) 0));
@@ -411,7 +420,7 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                 com.baidu.tbadk.core.data.o oVar2 = (com.baidu.tbadk.core.data.o) getItem(i);
                 biVar.f.setText(com.baidu.tbadk.core.util.bc.a(oVar2.p() * 1000));
                 String portrait = oVar2.t().getPortrait();
-                com.baidu.tbadk.editortool.aa aaVar = this.h;
+                com.baidu.tbadk.editortool.ab abVar = this.h;
                 com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(portrait);
                 biVar.j.setUserId(oVar2.t().getUserId());
                 biVar.j.setImageBitmap(null);
@@ -421,7 +430,7 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                     biVar.j.setTag(portrait);
                     biVar.j.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.a.g.photo));
                 }
-                biVar.j.setOnClickListener(new ba(this, oVar2));
+                biVar.w.setOnClickListener(new ba(this, oVar2));
                 oVar2.t().getIconInfo();
                 this.n = oVar2.t().getTShowInfo();
                 if (this.n == null || this.n.size() <= 0) {
@@ -445,8 +454,8 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                 biVar.c.setVisibility(0);
                 oVar2.E();
                 biVar.g.setText(oVar2.D());
-                com.baidu.tieba.util.p C2 = com.baidu.tieba.r.c().C();
-                if (C2 != null && C2.b(oVar2.l())) {
+                com.baidu.tieba.util.p z2 = com.baidu.tieba.p.c().z();
+                if (z2 != null && z2.b(oVar2.l())) {
                     biVar.g.setTextColor(l == 1 ? this.a.getResources().getColor(com.baidu.tieba.a.e.listview_item_thread_read_1) : this.a.getResources().getColor(com.baidu.tieba.a.e.listview_item_thread_read));
                 }
                 if (oVar2.B() == 1) {
@@ -458,28 +467,27 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                 if (oVar2.w() != null && oVar2.w().trim().length() > 0) {
                     stringBuffer.append(oVar2.w());
                 }
-                ArrayList<com.baidu.tbadk.core.data.j> z = oVar2.z();
-                if (z != null) {
+                ArrayList<com.baidu.tbadk.core.data.j> z3 = oVar2.z();
+                if (z3 != null) {
                     StringBuffer stringBuffer2 = new StringBuffer();
                     int i3 = 0;
                     while (true) {
                         int i4 = i3;
-                        if (i4 >= z.size()) {
+                        if (i4 >= z3.size()) {
                             stringBuffer.append(stringBuffer2.toString());
-                            if (stringBuffer.length() > 0) {
-                                if (stringBuffer.length() > 170) {
-                                    biVar.q.setVisibility(0);
-                                } else {
-                                    biVar.q.setVisibility(8);
-                                }
-                                biVar.c.setText(stringBuffer.toString());
-                            } else {
+                            if (stringBuffer.length() <= 0) {
                                 biVar.q.setVisibility(8);
                                 biVar.c.setVisibility(8);
+                            } else if (stringBuffer.length() > 170) {
+                                biVar.q.setVisibility(0);
+                                biVar.c.setText(String.valueOf(stringBuffer.toString().substring(0, 170)) + "...");
+                            } else {
+                                biVar.q.setVisibility(8);
+                                biVar.c.setText(stringBuffer.toString());
                             }
                         } else {
-                            if (z.get(i4).d() != null && z.get(i4).d().endsWith("swf")) {
-                                stringBuffer2.append(z.get(i4).d());
+                            if (z3.get(i4).d() != null && z3.get(i4).d().endsWith("swf")) {
+                                stringBuffer2.append(z3.get(i4).d());
                             }
                             i3 = i4 + 1;
                         }
@@ -487,15 +495,15 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                 }
                 if (!com.baidu.tbadk.core.h.a().f()) {
                     biVar.e.setVisibility(8);
-                } else if (z != null) {
-                    if (z.size() > 0) {
+                } else if (z3 != null) {
+                    if (z3.size() > 0) {
                         int i5 = 0;
                         int i6 = 0;
                         int i7 = 0;
                         while (true) {
                             int i8 = i5;
-                            if (i8 < z.size()) {
-                                if (z.get(i8) != null && (z.get(i8).b() == 3 || z.get(i8).b() == 5)) {
+                            if (i8 < z3.size()) {
+                                if (z3.get(i8) != null && (z3.get(i8).b() == 3 || z3.get(i8).b() == 5)) {
                                     i6++;
                                     i7++;
                                 }
@@ -507,9 +515,9 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                                 while (true) {
                                     int i11 = i9;
                                     int i12 = i10;
-                                    if (i11 < z.size() && i12 < i6) {
-                                        if (z.get(i11).b() == 3 || z.get(i11).b() == 5) {
-                                            jVarArr[i12] = z.get(i11);
+                                    if (i11 < z3.size() && i12 < i6) {
+                                        if (z3.get(i11).b() == 3 || z3.get(i11).b() == 5) {
+                                            jVarArr[i12] = z3.get(i11);
                                             i10 = i12 + 1;
                                         } else {
                                             i10 = i12;
@@ -550,6 +558,7 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                     }
                 } else {
                     biVar.p.setVisibility(0);
+                    biVar.p.setIsFromPb(false);
                     biVar.p.a(l);
                     biVar.r.setVisibility(0);
                     if (oVar2.k().getIsLike() == 1) {
@@ -564,45 +573,59 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                         biVar.l.setImageResource(com.baidu.tieba.a.g.icon_hand_normal);
                     }
                     biVar.p.setImageLoad(this.h);
-                    biVar.p.a(oVar2.k(), oVar2.j(), false);
-                    biVar.m.setText(new StringBuilder().append(oVar2.k().getNum()).toString());
+                    biVar.p.a(oVar2.k(), oVar2.l(), oVar2.j(), false);
+                    if (oVar2.k().getNum() <= 999999) {
+                        biVar.m.setText(new StringBuilder().append(oVar2.k().getNum()).toString());
+                    } else {
+                        biVar.m.setText("999999+");
+                    }
                 }
                 int size = oVar2.h().size() > 3 ? 3 : oVar2.h().size();
                 if (size <= 0) {
                     biVar.s.setVisibility(8);
                     biVar.t.setVisibility(8);
                     biVar.u.setVisibility(8);
+                    biVar.x.setVisibility(8);
                 } else if (size == 1) {
-                    biVar.r.setVisibility(0);
+                    biVar.x.setVisibility(0);
                     biVar.s.setVisibility(0);
                     biVar.t.setVisibility(8);
                     biVar.u.setVisibility(8);
                     biVar.s.a(l);
-                    biVar.s.a(oVar2.h().get(0), oVar2, this.k, this.m, this.c.f().getName(), this.c.f().getId(), new StringBuilder(String.valueOf(oVar2.h().get(0).getId())).toString());
+                    biVar.s.setData(oVar2.h().get(0));
                 } else if (size == 2) {
-                    biVar.r.setVisibility(0);
+                    biVar.x.setVisibility(0);
                     biVar.s.setVisibility(0);
                     biVar.t.setVisibility(0);
                     biVar.u.setVisibility(8);
                     biVar.s.a(l);
-                    biVar.s.a(oVar2.h().get(0), oVar2, this.k, this.m, this.c.f().getName(), this.c.f().getId(), new StringBuilder(String.valueOf(oVar2.h().get(0).getId())).toString());
+                    biVar.s.setData(oVar2.h().get(0));
                     biVar.t.a(l);
-                    biVar.t.a(oVar2.h().get(1), oVar2, this.k, this.m, this.c.f().getName(), this.c.f().getId(), new StringBuilder(String.valueOf(oVar2.h().get(1).getId())).toString());
+                    biVar.t.setData(oVar2.h().get(1));
                 } else if (size == 3) {
-                    biVar.r.setVisibility(0);
+                    biVar.x.setVisibility(0);
                     biVar.s.setVisibility(0);
                     biVar.t.setVisibility(0);
                     biVar.u.setVisibility(0);
                     biVar.s.a(l);
-                    biVar.s.a(oVar2.h().get(0), oVar2, this.k, this.m, this.c.f().getName(), this.c.f().getId(), new StringBuilder(String.valueOf(oVar2.h().get(0).getId())).toString());
+                    biVar.s.setData(oVar2.h().get(0));
                     biVar.t.a(l);
-                    biVar.t.a(oVar2.h().get(1), oVar2, this.k, this.m, this.c.f().getName(), this.c.f().getId(), new StringBuilder(String.valueOf(oVar2.h().get(1).getId())).toString());
+                    biVar.t.setData(oVar2.h().get(1));
                     biVar.u.a(l);
-                    biVar.u.a(oVar2.h().get(2), oVar2, this.k, this.m, this.c.f().getName(), this.c.f().getId(), new StringBuilder(String.valueOf(oVar2.h().get(2).getId())).toString());
+                    biVar.u.setData(oVar2.h().get(2));
                 }
                 int o = oVar2.o();
+                if ((o <= 3 || size <= 0) && size > 0) {
+                    biVar.y.setVisibility(0);
+                } else {
+                    biVar.y.setVisibility(8);
+                }
                 if (o > 999999) {
                     biVar.o.setText("999999+");
+                    if (size <= 0) {
+                        biVar.v.setVisibility(8);
+                        return view;
+                    }
                     biVar.v.setVisibility(0);
                     biVar.v.setText(String.valueOf(this.a.getString(com.baidu.tieba.a.k.frs_item_more_reply_item1)) + "999999+" + this.a.getString(com.baidu.tieba.a.k.frs_item_more_reply_item2));
                     return view;

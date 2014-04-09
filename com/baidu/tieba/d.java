@@ -4,11 +4,12 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.util.ak;
 import java.io.File;
 /* loaded from: classes.dex */
 final class d extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ FileDownloader a;
-    private com.baidu.tbadk.core.util.ak b = null;
+    private ak b = null;
     private volatile boolean c = false;
     private final String d;
     private final String e;
@@ -69,7 +70,7 @@ final class d extends BdAsyncTask<String, Integer, Boolean> {
         Boolean bool = false;
         while (!this.c) {
             try {
-                this.b = new com.baidu.tbadk.core.util.ak(this.d);
+                this.b = new ak(this.d);
                 handler = this.a.d;
                 bool = Boolean.valueOf(this.b.a(String.valueOf(this.e) + ".tmp", handler, 900002));
                 if (bool.booleanValue() || this.b.d() == -2) {

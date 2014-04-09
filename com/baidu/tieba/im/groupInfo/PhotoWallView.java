@@ -24,7 +24,7 @@ public class PhotoWallView extends FrameLayout {
     private LinearLayout g;
     private TextView h;
     private int i;
-    private com.baidu.tbadk.editortool.aa j;
+    private com.baidu.tbadk.editortool.ab j;
     private ae k;
     private af l;
     private boolean m;
@@ -82,7 +82,7 @@ public class PhotoWallView extends FrameLayout {
         this.g = (LinearLayout) findViewById(com.baidu.tieba.im.h.lay_hint_text);
         this.h = (TextView) findViewById(com.baidu.tieba.im.h.hint_text);
         this.i = com.baidu.adp.lib.util.i.b(this.c);
-        this.j = new com.baidu.tbadk.editortool.aa(this.c);
+        this.j = new com.baidu.tbadk.editortool.ab(this.c);
     }
 
     public void setData(List<PhotoUrlData> list) {
@@ -144,7 +144,7 @@ public class PhotoWallView extends FrameLayout {
                 if (photoUrlData2 != null) {
                     String smallurl = photoUrlData2.getSmallurl();
                     if (this.j == null) {
-                        this.j = new com.baidu.tbadk.editortool.aa(this.c);
+                        this.j = new com.baidu.tbadk.editortool.ab(this.c);
                     }
                     this.j.a(true);
                     this.j.b(smallurl, new aj(this, bDImageView));

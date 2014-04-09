@@ -1,26 +1,22 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryPrize.QueryPrizeReq;
+import protobuf.QueryUserInfos.QueryUserInfosReq;
 /* loaded from: classes.dex */
 public final class at extends com.baidu.tbadk.message.websockt.d {
-    private int a;
+    protobuf.QueryUserInfos.b a;
 
     public at() {
-        super(103013);
+        super(205003);
+        this.a = QueryUserInfosReq.DataReq.newBuilder();
     }
 
-    public final void d(int i) {
-        this.a = i;
+    public final void b(long j) {
+        this.a.a(j);
     }
 
     @Override // com.baidu.tbadk.message.websockt.d
     public final MessageLite h() {
-        try {
-            return QueryPrizeReq.QueryPrizeReqIdl.newBuilder().a(QueryPrizeReq.DataReq.newBuilder().a(this.a).build()).build();
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.e("data convert error");
-            return null;
-        }
+        return QueryUserInfosReq.QueryUserInfosReqIdl.newBuilder().a(this.a.build()).build();
     }
 }

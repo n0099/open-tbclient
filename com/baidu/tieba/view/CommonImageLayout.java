@@ -9,9 +9,9 @@ import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class CommonImageLayout extends ViewGroup {
     private static com.baidu.tbadk.core.util.b j;
-    public z b;
-    public z c;
-    public z d;
+    public x b;
+    public x c;
+    public x d;
     private com.baidu.tbadk.core.data.j[] k;
     private int l;
     private boolean m;
@@ -51,9 +51,9 @@ public class CommonImageLayout extends ViewGroup {
         this.p = "other";
         this.o = context;
         a();
-        this.b = new z(context);
-        this.c = new z(context);
-        this.d = new z(context);
+        this.b = new x(context);
+        this.c = new x(context);
+        this.d = new x(context);
         this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -276,7 +276,7 @@ public class CommonImageLayout extends ViewGroup {
                 c = null;
                 tbImageView.setDefaultResource(com.baidu.tieba.a.g.pic_video);
                 tbImageView.setNightDefaultResource(com.baidu.tieba.a.g.pic_video_1);
-                tbImageView.setOnClickListener(new h(this, jVar));
+                tbImageView.setOnClickListener(new f(this, jVar));
             } else {
                 tbImageView.setDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d);
                 tbImageView.setNightDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d_1);

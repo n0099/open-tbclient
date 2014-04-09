@@ -13,6 +13,6 @@ final class j implements DialogInterface.OnCancelListener {
     @Override // android.content.DialogInterface.OnCancelListener
     public final void onCancel(DialogInterface dialogInterface) {
         com.baidu.tieba.im.model.j unused;
-        unused = this.a.e;
+        unused = this.a.f;
     }
 }

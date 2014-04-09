@@ -1,34 +1,24 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseReportGroupMessage;
+import com.baidu.tieba.im.message.GroupDeleteMsgResponsedMessage;
 /* loaded from: classes.dex */
-final class bm extends com.baidu.adp.framework.c.g {
-    final /* synthetic */ GroupSettingActivity a;
+final class bm implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ bk a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bm(GroupSettingActivity groupSettingActivity, int i) {
-        super(0);
-        this.a = groupSettingActivity;
+    public bm(bk bkVar) {
+        this.a = bkVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        if (socketResponsedMessage2 == null || socketResponsedMessage2.g() != 103103) {
-            return;
-        }
-        if (!(socketResponsedMessage2 instanceof ResponseReportGroupMessage)) {
-            this.a.showToast(com.baidu.tieba.im.j.group_report_fail);
-            return;
-        }
-        ResponseReportGroupMessage responseReportGroupMessage = (ResponseReportGroupMessage) socketResponsedMessage2;
-        if (responseReportGroupMessage.e() != 0) {
-            GroupSettingActivity.a(this.a, responseReportGroupMessage.f(), responseReportGroupMessage.e());
-        } else {
-            this.a.showToast(com.baidu.tieba.im.j.group_report_success);
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(Boolean bool) {
+        GroupSettingActivity groupSettingActivity;
+        GroupSettingActivity groupSettingActivity2;
+        groupSettingActivity = this.a.a;
+        groupSettingActivity.closeLoadingDialog();
+        com.baidu.adp.framework.c.a().b(new GroupDeleteMsgResponsedMessage());
+        groupSettingActivity2 = this.a.a;
+        groupSettingActivity2.showToast(com.baidu.tieba.im.j.cash_del_suc, false);
     }
 }

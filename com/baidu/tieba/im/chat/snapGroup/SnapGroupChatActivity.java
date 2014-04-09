@@ -16,14 +16,14 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.chat.CommonGroupChatActiviy;
 import com.baidu.tieba.im.chat.x;
 import com.baidu.tieba.im.data.RandChatRoomData;
-import com.baidu.tieba.im.message.bo;
+import com.baidu.tieba.im.message.bn;
 import com.baidu.tieba.im.model.SnapGroupMsglistModel;
-import com.baidu.tieba.im.model.aw;
-import com.baidu.tieba.im.model.bu;
+import com.baidu.tieba.im.model.ax;
+import com.baidu.tieba.im.model.bv;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class SnapGroupChatActivity extends CommonGroupChatActiviy implements AbsListView.OnScrollListener, aw {
-    private bu l;
+public class SnapGroupChatActivity extends CommonGroupChatActiviy implements AbsListView.OnScrollListener, ax {
+    private bv l;
     private RandChatRoomData m;
     private com.baidu.tieba.im.model.j n;
     private int o;
@@ -78,7 +78,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         try {
         } catch (Exception e) {
@@ -103,7 +103,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
         super.onClick(view);
     }
 
-    @Override // com.baidu.tieba.im.model.aw
+    @Override // com.baidu.tieba.im.model.ax
     public final void t() {
         ((SnapGroupChatView) this.d).U().setVisibility(4);
         if (this.p != null) {
@@ -114,7 +114,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.o = getIntent().getIntExtra("gid", 0);
@@ -165,7 +165,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         this.d.a(getString(com.baidu.tieba.im.j.snap_group_chat_chatting));
@@ -175,7 +175,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, android.app.Activity
     public void onPause() {
         super.onPause();
         this.s = true;
@@ -189,7 +189,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.o != 0) {
@@ -210,7 +210,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
         b = "";
     }
 
-    @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.dn, com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
+    @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.dj, com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         super.onClick(dialogInterface, i);
         if (dialogInterface == ((SnapGroupChatView) this.d).T() && i == -1) {
@@ -220,7 +220,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
     protected final boolean b(Bundle bundle) {
-        this.l = new bu(this);
+        this.l = new bv(this);
         this.l.a(this.m);
         this.l.a(this.y);
         this.l.a(this.x);
@@ -255,7 +255,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (4 == i) {
             try {
@@ -288,13 +288,13 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
         if (TextUtils.isEmpty(str) || snapGroupChatActivity.d == null) {
             return;
         }
-        bo boVar = new bo();
-        boVar.a(String.valueOf(snapGroupChatActivity.o));
-        boVar.a = str;
-        boVar.b = str2;
-        boVar.e(-999L);
-        boVar.f(0L);
-        x.b().a(boVar);
+        bn bnVar = new bn();
+        bnVar.a(String.valueOf(snapGroupChatActivity.o));
+        bnVar.a = str;
+        bnVar.b = str2;
+        bnVar.e(-999L);
+        bnVar.f(0L);
+        x.b().a(bnVar);
         snapGroupChatActivity.d.d().notifyDataSetChanged();
     }
 

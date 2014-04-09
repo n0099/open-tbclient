@@ -18,7 +18,7 @@ public final class g extends BaseAdapter implements AbsListView.OnScrollListener
     private boolean c = false;
     private View.OnClickListener d = null;
     private boolean e = false;
-    private com.baidu.tbadk.editortool.aa f;
+    private com.baidu.tbadk.editortool.ab f;
     private boolean g;
     private volatile boolean h;
     private View.OnClickListener i;
@@ -29,7 +29,7 @@ public final class g extends BaseAdapter implements AbsListView.OnScrollListener
         this.a = aVar;
         this.b = dVar;
         this.g = z;
-        this.f = new com.baidu.tbadk.editortool.aa(aVar);
+        this.f = new com.baidu.tbadk.editortool.ab(aVar);
     }
 
     public final void a(boolean z) {
@@ -150,7 +150,7 @@ public final class g extends BaseAdapter implements AbsListView.OnScrollListener
             } else {
                 String image_url = forumData.getImage_url();
                 iVar.a.setTag(image_url);
-                com.baidu.tbadk.editortool.aa aaVar = this.f;
+                com.baidu.tbadk.editortool.ab abVar = this.f;
                 if (com.baidu.tbadk.imageManager.e.a().c(image_url) != null) {
                     iVar.a.invalidate();
                 } else if (!this.h) {

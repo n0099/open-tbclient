@@ -1,12 +1,12 @@
 package com.baidu.adp.framework.task;
 
 import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.e.e;
+import com.baidu.adp.framework.e.f;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallelType;
 /* loaded from: classes.dex */
 public class HttpMessageTask extends b {
-    private e e;
+    private f e;
     private Class<? extends HttpResponsedMessage> f;
     private String g;
     private HTTP_METHOD h;
@@ -75,12 +75,12 @@ public class HttpMessageTask extends b {
         return FrameHelper.c(this.a) || FrameHelper.b(this.a);
     }
 
-    public final e g() {
+    public final f g() {
         return this.e;
     }
 
-    public final void a(e eVar) {
-        this.e = eVar;
+    public final void a(f fVar) {
+        this.e = fVar;
     }
 
     public final BdAsyncTaskParallelType h() {

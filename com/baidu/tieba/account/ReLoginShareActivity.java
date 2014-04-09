@@ -35,11 +35,11 @@ public class ReLoginShareActivity extends com.baidu.tbadk.a {
     private com.baidu.tbadk.coreExtra.view.p i = null;
     LinearLayout a = null;
     private boolean j = false;
-    private final View.OnClickListener m = new v(this);
-    private final com.baidu.tbadk.core.a.u n = new w(this);
+    private final View.OnClickListener m = new x(this);
+    private final com.baidu.tbadk.core.a.u n = new y(this);
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001002, new u());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001002, new w());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         com.baidu.adp.framework.c.a().a(customMessageTask);
     }
@@ -135,8 +135,8 @@ public class ReLoginShareActivity extends com.baidu.tbadk.a {
             case 2:
                 if (this.i == null) {
                     this.i = new com.baidu.tbadk.coreExtra.view.p(this);
-                    this.i.a(new x(this));
-                    this.i.b(new y(this));
+                    this.i.a(new z(this));
+                    this.i.b(new aa(this));
                 }
                 this.i.e();
                 this.i.a("");
@@ -186,9 +186,9 @@ public class ReLoginShareActivity extends com.baidu.tbadk.a {
             com.baidu.adp.framework.c.a().a(new CustomResponsedMessage(2007005, null));
             com.baidu.tbadk.core.d.b.a(reLoginShareActivity, intExtra, false);
         }
-        if (com.baidu.tieba.r.c().z() && com.baidu.tieba.r.c().B() != null) {
-            com.baidu.tieba.r.c();
-            UpdateDialog.a(com.baidu.tieba.r.d(), com.baidu.tieba.r.c().B(), com.baidu.tieba.r.c().A());
+        if (com.baidu.tieba.p.c().w() && com.baidu.tieba.p.c().y() != null) {
+            com.baidu.tieba.p.c();
+            UpdateDialog.a(com.baidu.tieba.p.d(), com.baidu.tieba.p.c().y(), com.baidu.tieba.p.c().x());
         }
         reLoginShareActivity.finish();
     }

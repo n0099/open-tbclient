@@ -4,13 +4,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import com.baidu.adp.widget.p;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public final class h extends p {
     private NearbyGroupsActivity a;
-    private aa d;
+    private ab d;
     private a f;
     private NearbyGroupsData b = null;
     private boolean c = true;
@@ -20,7 +20,7 @@ public final class h extends p {
         this.a = null;
         this.d = null;
         this.a = nearbyGroupsActivity;
-        this.d = new aa(this.a);
+        this.d = new ab(this.a);
         this.d.a(true);
     }
 
@@ -28,7 +28,7 @@ public final class h extends p {
         return this.b;
     }
 
-    public final aa e() {
+    public final ab e() {
         return this.d;
     }
 

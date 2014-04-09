@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
-import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
 public class WaterFallView extends BdPullRefreshScrollView {
     private int b;
@@ -122,7 +121,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        this.k.removeMessages(PersonInfoActivity.REQUSET_CHANGE);
+        this.k.removeMessages(101);
         boolean z = false;
         if (this.m - this.l == i2) {
             z = true;
@@ -144,7 +143,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
                 this.o.a();
             }
             u uVar = this.o;
-            this.k.sendMessageDelayed(this.k.obtainMessage(PersonInfoActivity.REQUSET_CHANGE), 300L);
+            this.k.sendMessageDelayed(this.k.obtainMessage(101), 300L);
         }
     }
 
@@ -204,8 +203,8 @@ public class WaterFallView extends BdPullRefreshScrollView {
         if (z) {
             this.l = i4 - i2;
         }
-        this.k.removeMessages(PersonInfoActivity.REQUSET_CHANGE);
-        this.k.sendMessageDelayed(this.k.obtainMessage(PersonInfoActivity.REQUSET_CHANGE), 300L);
+        this.k.removeMessages(101);
+        this.k.sendMessageDelayed(this.k.obtainMessage(101), 300L);
     }
 
     public final void d(int i) {

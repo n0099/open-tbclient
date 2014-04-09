@@ -57,19 +57,19 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity {
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
     protected final boolean p() {
-        this.e.d_();
+        this.e.f_();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, android.app.Activity
     public void onPause() {
         super.onPause();
         a = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         a = true;
@@ -84,19 +84,20 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity {
 
     @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity
     protected final void a(UserData userData) {
-        com.baidu.tieba.im.s.a(new y(this, userData), null);
+        com.baidu.tieba.im.r.a(new y(this, userData), null);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity
-    protected final void c() {
+    public final void c() {
         UserData c;
         super.c();
         if ((this.e instanceof CommonPersonalMsglistModel) && (c = ((CommonPersonalMsglistModel) this.e).c()) != null) {
-            com.baidu.tieba.im.s.a(new z(this, c), new aa(this));
+            com.baidu.tieba.im.r.a(new z(this, c), new aa(this));
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         UserData c;
         super.onClick(view);
@@ -105,13 +106,13 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.adp.lib.b.b
+    @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.dj, com.baidu.adp.lib.b.b
     public final void b(View view, int i, int i2, long j) {
         super.b(view, i, i2, j);
         switch (i) {
             case 9:
                 if (this.d instanceof OfficialBarMsglistView) {
-                    ((OfficialBarMsglistView) this.d).g(i2);
+                    ((OfficialBarMsglistView) this.d).h(i2);
                     return;
                 }
                 return;
@@ -120,7 +121,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.dn, com.baidu.adp.lib.b.a
+    @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.dj, com.baidu.adp.lib.b.a
     public final void a(View view, int i, int i2, long j) {
         com.baidu.tieba.im.message.a.a a;
         String a2;
@@ -146,7 +147,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.dn, com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
+    @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.dj, com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         super.onClick(dialogInterface, i);
         if ((this.d instanceof OfficialBarMsglistView) && dialogInterface == ((OfficialBarMsglistView) this.d).R()) {

@@ -1,12 +1,10 @@
 package com.baidu.tieba.im.chat.notify;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.chat.snapGroup.SnapGroupChatActivity;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.PushMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class n extends com.baidu.adp.framework.c.a {
+public final class n extends com.baidu.adp.framework.c.g {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,11 +16,18 @@ public final class n extends com.baidu.adp.framework.c.a {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
     @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        GroupNewsPojo b;
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 == null || !(customResponsedMessage2 instanceof PushMessage) || (b = ((PushMessage) customResponsedMessage2).b()) == null || !b.getGid().equals(SnapGroupChatActivity.b)) {
-            this.a.b();
+    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        if (socketResponsedMessage2 != null && socketResponsedMessage2.g() == 103104 && (socketResponsedMessage2 instanceof ResponseDismissGroupMessage)) {
+            ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage2;
+            if (responseDismissGroupMessage.e() > 0) {
+                this.a.a(responseDismissGroupMessage.f());
+            } else if (responseDismissGroupMessage.e() < 0) {
+                this.a.a(com.baidu.tieba.im.j.neterror);
+            } else {
+                new StringBuilder(String.valueOf(responseDismissGroupMessage.d())).toString();
+                this.a.b();
+            }
         }
     }
 }

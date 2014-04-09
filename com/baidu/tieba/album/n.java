@@ -27,20 +27,20 @@ final class n implements o {
         a aVar2;
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
-        jVar = this.a.f;
+        jVar = this.a.g;
         List<a> a = jVar.a();
-        pVar = this.a.i;
+        pVar = this.a.j;
         if (pVar == null) {
-            albumActivity = this.a.g;
+            albumActivity = this.a.h;
             if (albumActivity != null) {
                 m mVar = this.a;
-                albumActivity2 = this.a.g;
-                mVar.i = albumActivity2.f();
+                albumActivity2 = this.a.h;
+                mVar.j = albumActivity2.f();
             }
         }
-        pVar2 = this.a.i;
+        pVar2 = this.a.j;
         if (pVar2 != null) {
-            pVar3 = this.a.i;
+            pVar3 = this.a.j;
             String e = pVar3.e();
             if (e != null) {
                 if (a != null) {
@@ -67,15 +67,15 @@ final class n implements o {
                 }
             }
             if (list == null || list.size() == 0) {
-                bdListView = this.a.b;
+                bdListView = this.a.c;
                 bdListView.setVisibility(8);
-                linearLayout = this.a.e;
+                linearLayout = this.a.f;
                 linearLayout.setVisibility(0);
                 return;
             }
-            bdListView2 = this.a.b;
+            bdListView2 = this.a.c;
             bdListView2.setVisibility(0);
-            linearLayout2 = this.a.e;
+            linearLayout2 = this.a.f;
             linearLayout2.setVisibility(8);
             this.a.a(list);
         }

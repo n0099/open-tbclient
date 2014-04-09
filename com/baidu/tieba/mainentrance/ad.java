@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class ad extends BaseAdapter {
     private final com.baidu.tbadk.a a;
-    private final com.baidu.tbadk.editortool.aa b;
+    private final com.baidu.tbadk.editortool.ab b;
     private final String c;
     private final boolean d = true;
     private ArrayList<BarSuggestModel.Forum> e = null;
@@ -20,7 +20,7 @@ public final class ad extends BaseAdapter {
     public ad(com.baidu.tbadk.a aVar, ArrayList<BarSuggestModel.Forum> arrayList) {
         this.a = aVar;
         this.c = aVar.getText(com.baidu.tieba.a.k.forum).toString();
-        this.b = new com.baidu.tbadk.editortool.aa(aVar);
+        this.b = new com.baidu.tbadk.editortool.ab(aVar);
     }
 
     public final void a(ArrayList<BarSuggestModel.Forum> arrayList) {

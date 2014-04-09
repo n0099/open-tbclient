@@ -1,31 +1,15 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
-final class bl extends com.baidu.adp.a.h {
+final class bl implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ FaceShopActivity a;
-    private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(FaceShopActivity faceShopActivity, int i) {
+    public bl(FaceShopActivity faceShopActivity) {
         this.a = faceShopActivity;
-        this.b = i;
     }
 
-    @Override // com.baidu.adp.a.h
-    public final void a(Object obj) {
-        if (obj != null && (obj instanceof FaceBuyQueryData)) {
-            FaceBuyQueryData faceBuyQueryData = (FaceBuyQueryData) obj;
-            if (faceBuyQueryData.errno == 0 && faceBuyQueryData.usermsg != null) {
-                if (faceBuyQueryData.buyResult.status == 2) {
-                    this.a.a(this.b);
-                    return;
-                } else {
-                    this.a.a();
-                    return;
-                }
-            }
-            this.a.a();
-            return;
-        }
-        this.a.a();
+    @Override // com.baidu.adp.widget.ListView.d
+    public final void a(boolean z) {
+        FaceShopActivity.a(this.a, false);
     }
 }

@@ -18,7 +18,7 @@ public class AtSelectFriendList extends HorizontalScrollView {
     private int c;
     private int d;
     private int e;
-    private com.baidu.tbadk.editortool.aa f;
+    private com.baidu.tbadk.editortool.ab f;
     private int g;
     private HeadImageView h;
     private r i;
@@ -89,8 +89,8 @@ public class AtSelectFriendList extends HorizontalScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setImageLoader(com.baidu.tbadk.editortool.aa aaVar) {
-        this.f = aaVar;
+    public void setImageLoader(com.baidu.tbadk.editortool.ab abVar) {
+        this.f = abVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -99,7 +99,7 @@ public class AtSelectFriendList extends HorizontalScrollView {
             HeadImageView e = e();
             e.setIsRound(true);
             if (this.f != null) {
-                com.baidu.tbadk.editortool.aa aaVar = this.f;
+                com.baidu.tbadk.editortool.ab abVar = this.f;
                 com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(metaData.getPortrait());
                 if (b != null) {
                     b.a(e);

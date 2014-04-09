@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb.praise;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -44,9 +43,16 @@ public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
             JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
             if (optJSONArray != null) {
                 this.d = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                    this.d.add(new a(jSONObject2.optString("id"), jSONObject2.optString(PersonInfoActivity.TAG_NAME), jSONObject2.optString("portrait"), jSONObject2.optString("name_show")));
+                int i = 0;
+                while (true) {
+                    int i2 = i;
+                    if (i2 < optJSONArray.length()) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                        this.d.add(new a(jSONObject2.optString("id"), jSONObject2.optString("name"), jSONObject2.optString("portrait"), jSONObject2.optString("name_show"), jSONObject2.optLong("zan_time") * 1000));
+                        i = i2 + 1;
+                    } else {
+                        return;
+                    }
                 }
             }
         }

@@ -12,27 +12,27 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.data.GroupInfoData;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a extends BaseAdapter {
     private MyGroupFragment a;
-    private aa b;
+    private ab b;
     private List<GroupInfoData> c = new ArrayList();
 
     public final void a(List<GroupInfoData> list) {
         this.c = list;
     }
 
-    public final aa a() {
+    public final ab a() {
         return this.b;
     }
 
     public a(MyGroupFragment myGroupFragment) {
         this.a = myGroupFragment;
-        this.b = new aa(myGroupFragment.getActivity());
+        this.b = new ab(myGroupFragment.getActivity());
         this.b.a(true);
     }
 

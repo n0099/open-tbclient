@@ -14,7 +14,6 @@ import com.baidu.tieba.im.chat.x;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.f.q;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -36,13 +35,13 @@ public abstract class a {
     public final synchronized int a() {
         int i = 0;
         synchronized (this) {
-            SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
+            SQLiteDatabase a = g.a();
             Cursor cursor = null;
-            if (imDataBase != null) {
+            if (a != null) {
                 try {
                     String str = "select personal_gid from tb_personal_id";
                     com.baidu.adp.lib.util.f.e("sql:" + str);
-                    cursor = imDataBase.rawQuery(str, new String[0]);
+                    cursor = a.rawQuery(str, new String[0]);
                     if (cursor != null && cursor.moveToNext()) {
                         i = cursor.getInt(0);
                     }
@@ -63,16 +62,16 @@ public abstract class a {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [112=4] */
     public final synchronized void a(int i) {
-        SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
+        SQLiteDatabase a = g.a();
         try {
             try {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("personal_gid", Integer.valueOf(i));
-                if (imDataBase != null) {
-                    int update = imDataBase.update("tb_personal_id", contentValues, null, null);
+                if (a != null) {
+                    int update = a.update("tb_personal_id", contentValues, null, null);
                     com.baidu.adp.lib.util.f.e("num:" + update);
                     if (update == 0) {
-                        imDataBase.insert("tb_personal_id", null, contentValues);
+                        a.insert("tb_personal_id", null, contentValues);
                     }
                 }
                 com.baidu.tbadk.core.util.l.a((Cursor) null);
@@ -94,14 +93,14 @@ public abstract class a {
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
                 String str2 = String.valueOf(this.b) + str;
-                SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
+                SQLiteDatabase a = g.a();
                 Cursor cursor = null;
-                if (imDataBase != null) {
+                if (a != null) {
                     try {
                         try {
                             String str3 = "select count(*) from " + str2 + " WHERE read_flag=? AND is_delete=?";
                             com.baidu.adp.lib.util.f.e("sql:" + str3);
-                            cursor = imDataBase.rawQuery(str3, new String[]{String.valueOf(1), String.valueOf(0)});
+                            cursor = a.rawQuery(str3, new String[]{String.valueOf(1), String.valueOf(0)});
                             if (cursor == null || !cursor.moveToNext()) {
                                 com.baidu.tbadk.core.util.l.a(cursor);
                             } else {
@@ -130,10 +129,10 @@ public abstract class a {
             com.baidu.adp.lib.util.f.e("uid:" + str);
             try {
                 String str2 = String.valueOf(this.b) + str;
-                SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
+                SQLiteDatabase a = g.a();
                 new ContentValues().put("read_flag", (Integer) 0);
-                if (imDataBase != null) {
-                    com.baidu.adp.lib.util.f.e("num:" + imDataBase.update(str2, contentValues, null, null));
+                if (a != null) {
+                    com.baidu.adp.lib.util.f.e("num:" + a.update(str2, contentValues, null, null));
                 }
             } catch (Exception e) {
                 TiebaStatic.a(e, "PersonalMsgDao.markAllReaded", new Object[0]);
@@ -150,13 +149,13 @@ public abstract class a {
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
                 String str2 = String.valueOf(this.b) + str;
-                SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
-                if (imDataBase != null) {
+                SQLiteDatabase a = g.a();
+                if (a != null) {
                     try {
                         try {
                             String str3 = "select max(mid) from " + str2;
                             com.baidu.adp.lib.util.f.e("sql:" + str3);
-                            cursor = imDataBase.rawQuery(str3, null);
+                            cursor = a.rawQuery(str3, null);
                             if (cursor == null || !cursor.moveToNext()) {
                                 com.baidu.tbadk.core.util.l.a(cursor);
                             } else {
@@ -187,13 +186,13 @@ public abstract class a {
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
                 String str2 = String.valueOf(this.b) + str;
-                SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
+                SQLiteDatabase a = g.a();
                 try {
-                    if (imDataBase != null) {
+                    if (a != null) {
                         try {
                             String str3 = "select * from " + str2 + " WHERE is_delete=? ORDER BY mid DESC LIMIT 1";
                             com.baidu.adp.lib.util.f.e("sql:" + str3);
-                            cursor = imDataBase.rawQuery(str3, new String[]{String.valueOf(0)});
+                            cursor = a.rawQuery(str3, new String[]{String.valueOf(0)});
                             try {
                                 CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                                 if (cursor == null || !cursor.moveToNext()) {
@@ -269,8 +268,8 @@ public abstract class a {
             if (!TextUtils.isEmpty(str)) {
                 LinkedList<String> linkedList2 = new LinkedList<>();
                 ?? r2 = String.valueOf(this.b) + str;
-                SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
-                if (imDataBase == null) {
+                SQLiteDatabase a = g.a();
+                if (a == null) {
                     linkedList = linkedList2;
                 } else {
                     try {
@@ -278,11 +277,11 @@ public abstract class a {
                             if (TextUtils.isEmpty(null)) {
                                 String str3 = "select * from " + r2 + " WHERE msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT 1000";
                                 com.baidu.adp.lib.util.f.e("sql:" + str3);
-                                cursor = imDataBase.rawQuery(str3, new String[]{String.valueOf(2), String.valueOf(0)});
+                                cursor = a.rawQuery(str3, new String[]{String.valueOf(2), String.valueOf(0)});
                             } else {
                                 String str4 = "select * from " + r2 + " WHERE mid <=? AND msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT 1000";
                                 com.baidu.adp.lib.util.f.e("sql:" + str4);
-                                cursor = imDataBase.rawQuery(str4, new String[]{null, String.valueOf(2), String.valueOf(0)});
+                                cursor = a.rawQuery(str4, new String[]{null, String.valueOf(2), String.valueOf(0)});
                             }
                             if (cursor != null) {
                                 while (cursor.moveToNext()) {
@@ -352,24 +351,24 @@ public abstract class a {
                 }
                 LinkedList<com.baidu.tieba.im.message.a.a> linkedList2 = new LinkedList<>();
                 String str3 = String.valueOf(this.b) + valueOf;
-                ?? imDataBase = ImDatabaseManager.getImDataBase();
+                ?? a = g.a();
                 try {
-                    if (imDataBase == 0) {
+                    if (a == 0) {
                         linkedList = linkedList2;
                     } else {
                         try {
                             if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
                                 String str4 = "select * from " + str3 + " WHERE rid<? AND is_delete=? ORDER BY rid DESC LIMIT " + i;
                                 com.baidu.adp.lib.util.f.e("sql:" + str4);
-                                cursor = imDataBase.rawQuery(str4, new String[]{str2, String.valueOf(0)});
+                                cursor = a.rawQuery(str4, new String[]{str2, String.valueOf(0)});
                             } else if (TextUtils.isEmpty(str)) {
                                 String str5 = "select * from " + str3 + " WHERE is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i;
                                 com.baidu.adp.lib.util.f.e("sql:" + str5);
-                                cursor = imDataBase.rawQuery(str5, new String[]{String.valueOf(0)});
+                                cursor = a.rawQuery(str5, new String[]{String.valueOf(0)});
                             } else {
                                 String str6 = "select * from " + str3 + " WHERE mid<? AND is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i;
                                 com.baidu.adp.lib.util.f.e("sql:" + str6);
-                                cursor = imDataBase.rawQuery(str6, new String[]{str, String.valueOf(0)});
+                                cursor = a.rawQuery(str6, new String[]{str, String.valueOf(0)});
                             }
                             try {
                                 Gson gson = new Gson();
@@ -407,8 +406,8 @@ public abstract class a {
                                     return linkedList;
                                 } catch (Throwable th) {
                                     th = th;
-                                    imDataBase = cursor2;
-                                    com.baidu.tbadk.core.util.l.a((Cursor) imDataBase);
+                                    a = cursor2;
+                                    com.baidu.tbadk.core.util.l.a((Cursor) a);
                                     throw th;
                                 }
                             } catch (Exception e4) {
@@ -426,9 +425,9 @@ public abstract class a {
                             cursor = null;
                             e = e6;
                         } catch (Throwable th2) {
-                            imDataBase = 0;
+                            a = 0;
                             th = th2;
-                            com.baidu.tbadk.core.util.l.a((Cursor) imDataBase);
+                            com.baidu.tbadk.core.util.l.a((Cursor) a);
                             throw th;
                         }
                         linkedList = linkedList2;
@@ -452,14 +451,14 @@ public abstract class a {
                 }
                 String str3 = String.valueOf(this.b) + valueOf;
                 try {
-                    SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
-                    if (imDataBase == null) {
+                    SQLiteDatabase a = g.a();
+                    if (a == null) {
                         bool = false;
                     } else {
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("mid", str2);
                         contentValues.put("msg_status", Integer.valueOf(i));
-                        if (imDataBase.update(str3, contentValues, "mid=?", new String[]{str}) > 0) {
+                        if (a.update(str3, contentValues, "mid=?", new String[]{str}) > 0) {
                             bool = true;
                         } else {
                             bool = false;
@@ -479,11 +478,11 @@ public abstract class a {
     public final synchronized void a(long j, boolean z) {
         String str = String.valueOf(this.b) + j;
         try {
-            SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
-            if (imDataBase != null) {
+            SQLiteDatabase a = g.a();
+            if (a != null) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("is_delete", (Integer) 1);
-                imDataBase.update(str, contentValues, "uid!=?", new String[]{"0"});
+                a.update(str, contentValues, "uid!=?", new String[]{"0"});
             }
         } catch (Exception e) {
             TiebaStatic.a(e, "PersonalMsgDao.updateState", new Object[0]);
@@ -513,32 +512,32 @@ public abstract class a {
                     f(valueOf);
                     this.a.add(valueOf);
                 }
-                SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
+                SQLiteDatabase a = g.a();
                 SQLiteStatement sQLiteStatement = null;
-                if (imDataBase == null) {
+                if (a == null) {
                     bool = false;
                 } else {
                     Cursor cursor = null;
                     try {
-                        imDataBase.beginTransaction();
+                        a.beginTransaction();
                         if (this.d.get() >= 20) {
-                            cursor = imDataBase.rawQuery("select * from " + str + " ORDER BY mid desc limit 1000, 1", null);
+                            cursor = a.rawQuery("select * from " + str + " ORDER BY mid desc limit 1000, 1", null);
                             String str2 = null;
                             if (cursor.moveToNext()) {
                                 str2 = cursor.getString(cursor.getColumnIndex("mid"));
                             }
                             com.baidu.tbadk.core.util.l.a(cursor);
                             if (str2 != null) {
-                                imDataBase.delete(str, "mid<?", new String[]{str2});
+                                a.delete(str, "mid<?", new String[]{str2});
                             }
                             this.d.set(0);
                         }
-                        sQLiteStatement = imDataBase.compileStatement(" INSERT INTO " + str + "(content,create_time,ext,mid,uid,user_info,to_uid,to_user_info,msg_status,msg_type,rid,read_flag,is_delete) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);");
+                        sQLiteStatement = a.compileStatement(" INSERT INTO " + str + "(content,create_time,ext,mid,uid,user_info,to_uid,to_user_info,msg_status,msg_type,rid,read_flag,is_delete) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);");
                         Iterator<CommonMsgPojo> it = linkedList.iterator();
                         while (it.hasNext()) {
                             CommonMsgPojo next = it.next();
                             if (z && next.isSelf() && next.getRid() != 0) {
-                                imDataBase.delete(str, "mid=?", new String[]{String.valueOf(next.getRid())});
+                                a.delete(str, "mid=?", new String[]{String.valueOf(next.getRid())});
                             }
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("content", next.getContent());
@@ -554,7 +553,7 @@ public abstract class a {
                             contentValues.put("rid", Long.valueOf(next.getRid()));
                             contentValues.put("read_flag", Integer.valueOf(next.getRead_flag()));
                             contentValues.put("is_delete", Integer.valueOf(next.getIs_delete()));
-                            if (imDataBase.update(str, contentValues, "mid=?", new String[]{String.valueOf(next.getMid())}) == 0) {
+                            if (a.update(str, contentValues, "mid=?", new String[]{String.valueOf(next.getMid())}) == 0) {
                                 sQLiteStatement.clearBindings();
                                 sQLiteStatement.bindString(1, next.getContent());
                                 sQLiteStatement.bindLong(2, next.getCreate_time());
@@ -572,17 +571,17 @@ public abstract class a {
                                 sQLiteStatement.executeInsert();
                             }
                         }
-                        imDataBase.setTransactionSuccessful();
+                        a.setTransactionSuccessful();
                         com.baidu.tbadk.core.util.l.a(cursor);
                         com.baidu.tbadk.core.util.l.a(sQLiteStatement);
-                        imDataBase.endTransaction();
+                        a.endTransaction();
                     } catch (Exception e) {
                         TiebaStatic.a(e, "PersonalMsgDao.insertOrUpdate", new Object[0]);
                         e.printStackTrace();
                         Boolean.valueOf(false);
                         com.baidu.tbadk.core.util.l.a(cursor);
                         com.baidu.tbadk.core.util.l.a(sQLiteStatement);
-                        imDataBase.endTransaction();
+                        a.endTransaction();
                     }
                     bool = true;
                 }
@@ -601,17 +600,17 @@ public abstract class a {
         Iterator<String> it;
         if (linkedList != null) {
             if (linkedList.size() != 0) {
-                SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
+                SQLiteDatabase a = g.a();
                 LinkedList linkedList2 = new LinkedList();
-                if (imDataBase != null) {
+                if (a != null) {
                     try {
-                        cursor = imDataBase.rawQuery("select * from sqlite_master where type='table'", null);
+                        cursor = a.rawQuery("select * from sqlite_master where type='table'", null);
                         if (cursor != null) {
                             try {
                                 try {
                                     cursor.moveToFirst();
                                     while (cursor.moveToNext()) {
-                                        linkedList2.add(cursor.getString(cursor.getColumnIndex(PersonInfoActivity.TAG_NAME)));
+                                        linkedList2.add(cursor.getString(cursor.getColumnIndex("name")));
                                     }
                                 } catch (Exception e) {
                                     e = e;
@@ -669,12 +668,12 @@ public abstract class a {
         synchronized (this) {
             try {
                 if (!TextUtils.isEmpty(str)) {
-                    SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
+                    SQLiteDatabase a = g.a();
                     String str3 = String.valueOf(this.b) + str;
-                    if (imDataBase != null) {
+                    if (a != null) {
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("is_delete", (Integer) 1);
-                        imDataBase.update(str3, contentValues, "mid=?", new String[]{str2});
+                        a.update(str3, contentValues, "mid=?", new String[]{str2});
                         z = true;
                     }
                 }
@@ -690,10 +689,10 @@ public abstract class a {
         synchronized (this) {
             try {
                 if (!TextUtils.isEmpty(str)) {
-                    SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
+                    SQLiteDatabase a = g.a();
                     String str3 = String.valueOf(this.b) + str;
-                    if (imDataBase != null) {
-                        imDataBase.delete(str3, "mid=?", new String[]{str2});
+                    if (a != null) {
+                        a.delete(str3, "mid=?", new String[]{str2});
                         z = true;
                     }
                 }
@@ -722,11 +721,11 @@ public abstract class a {
         try {
             if (!TextUtils.isEmpty(str)) {
                 String str2 = String.valueOf(this.b) + str;
-                SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
-                if (imDataBase != null) {
+                SQLiteDatabase a = g.a();
+                if (a != null) {
                     String str3 = "CREATE TABLE IF NOT EXISTS " + str2 + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, msg_status int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT);";
                     com.baidu.adp.lib.util.f.e("sql:" + str3);
-                    imDataBase.execSQL(str3);
+                    a.execSQL(str3);
                 }
             }
         } catch (Exception e) {
@@ -737,15 +736,15 @@ public abstract class a {
 
     public final LinkedList<String> b() {
         Cursor cursor = null;
-        SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
+        SQLiteDatabase a = g.a();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (imDataBase != null) {
+        if (a != null) {
             try {
-                cursor = imDataBase.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor = a.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor != null) {
                     cursor.moveToFirst();
                     while (cursor.moveToNext()) {
-                        String string = cursor.getString(cursor.getColumnIndex(PersonInfoActivity.TAG_NAME));
+                        String string = cursor.getString(cursor.getColumnIndex("name"));
                         com.baidu.adp.lib.util.f.e("see table name:" + string);
                         if (string.startsWith(this.b)) {
                             String charSequence = string.subSequence(this.b.length(), string.length()).toString();

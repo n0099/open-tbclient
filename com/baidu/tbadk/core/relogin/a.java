@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.relogin;
 
 import com.baidu.adp.framework.c.b;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
@@ -37,7 +38,9 @@ public final class a extends b {
         AccountData N = TbadkApplication.N();
         ReloginManager reloginManager = this.a;
         ReloginManager.a(N);
-        bgLoginHttpResponsedMessage.f();
+        if (bgLoginHttpResponsedMessage.f() != null) {
+            i.a(TbadkApplication.j().c(), bgLoginHttpResponsedMessage.f());
+        }
         arrayList = this.a.c;
         arrayList.clear();
     }

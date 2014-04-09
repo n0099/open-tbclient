@@ -3,7 +3,7 @@ package com.baidu.tieba.bubble;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.a.f;
 import com.baidu.tieba.data.BubbleListData;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.List;
 public final class d extends BaseAdapter {
     private List<BubbleListData.BubbleData> a = new ArrayList();
     private BubbleChooseActivity b;
-    private aa c;
+    private ab c;
     private int d;
     private int e;
     private boolean f;
@@ -23,7 +23,7 @@ public final class d extends BaseAdapter {
 
     public d(BubbleChooseActivity bubbleChooseActivity) {
         this.b = bubbleChooseActivity;
-        this.c = new aa(this.b);
+        this.c = new ab(this.b);
         this.c.a(true);
         this.d = (int) this.b.getResources().getDimension(f.ds30);
         this.e = (int) this.b.getResources().getDimension(f.ds30);

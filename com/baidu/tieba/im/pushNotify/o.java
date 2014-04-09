@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.b.ar;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.chat.receiveChatMsgHandler.s;
 import com.baidu.tieba.im.chat.receiveChatMsgHandler.t;
-import com.baidu.tieba.im.chat.receiveChatMsgHandler.x;
+import com.baidu.tieba.im.chat.receiveChatMsgHandler.u;
+import com.baidu.tieba.im.chat.receiveChatMsgHandler.y;
 import com.baidu.tieba.im.message.GroupMsgArrivedMessage;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -30,12 +30,12 @@ public final class o {
     public final void b() {
         com.baidu.adp.framework.c.a().a(this.d);
         com.baidu.adp.framework.c.a().a(new com.baidu.tieba.im.chat.receiveChatMsgHandler.f());
-        com.baidu.adp.framework.c.a().a(new com.baidu.tieba.im.chat.receiveChatMsgHandler.n());
+        com.baidu.adp.framework.c.a().a(new com.baidu.tieba.im.chat.receiveChatMsgHandler.o());
         com.baidu.adp.framework.c.a().a(new com.baidu.tieba.im.chat.receiveChatMsgHandler.g());
-        com.baidu.adp.framework.c.a().a(new x());
-        com.baidu.adp.framework.c.a().a(new com.baidu.tieba.im.chat.receiveChatMsgHandler.j());
-        com.baidu.adp.framework.c.a().a(new s());
+        com.baidu.adp.framework.c.a().a(new y());
+        com.baidu.adp.framework.c.a().a(new com.baidu.tieba.im.chat.receiveChatMsgHandler.k());
         com.baidu.adp.framework.c.a().a(new t());
+        com.baidu.adp.framework.c.a().a(new u());
     }
 
     private o() {

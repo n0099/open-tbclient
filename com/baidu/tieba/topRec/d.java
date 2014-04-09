@@ -2,7 +2,6 @@ package com.baidu.tieba.topRec;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.util.ak;
-import com.baidu.tieba.r;
 import com.baidu.tieba.topRec.TRForumListData;
 /* loaded from: classes.dex */
 final class d extends BdAsyncTask<Integer, Integer, String> {
@@ -35,7 +34,7 @@ final class d extends BdAsyncTask<Integer, Integer, String> {
             int i6 = this.c.forum_id;
             topRecActivity3.a(i5);
         } else {
-            r.c().f(this.c.forum_name);
+            com.baidu.tieba.p.c().f(this.c.forum_name);
             this.d.b();
         }
     }

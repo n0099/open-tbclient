@@ -1,34 +1,26 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.DelGroupUsers.DelGroupUsersReq;
+import protobuf.ReportGroup.ReportGroupReq;
 /* loaded from: classes.dex */
 public final class aw extends com.baidu.tbadk.message.websockt.d {
-    private long a;
-    private String b;
+    private int a;
+    private int b;
 
     public aw() {
-        super(103112);
+        super(103103);
     }
 
-    public final long i() {
-        return this.a;
+    public final void d(int i) {
+        this.a = i;
     }
 
-    public final void b(long j) {
-        this.a = j;
-    }
-
-    public final String j() {
-        return this.b;
-    }
-
-    public final void a(String str) {
-        this.b = str;
+    public final void e(int i) {
+        this.b = i;
     }
 
     @Override // com.baidu.tbadk.message.websockt.d
     public final MessageLite h() {
-        return DelGroupUsersReq.DelGroupUsersReqIdl.newBuilder().a(DelGroupUsersReq.DataReq.newBuilder().a((int) this.a).a(this.b).build()).build();
+        return ReportGroupReq.ReportGroupReqIdl.newBuilder().a(ReportGroupReq.DataReq.newBuilder().a(this.a).b(this.b).build()).build();
     }
 }

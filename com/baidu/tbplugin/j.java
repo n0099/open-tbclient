@@ -1,6 +1,7 @@
 package com.baidu.tbplugin;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 import org.apache.commons.io.FileUtils;
 /* loaded from: classes.dex */
@@ -12,15 +13,19 @@ public final class j implements f {
 
     private List<Class<?>> a() {
         ArrayList arrayList = new ArrayList(k.c.size());
-        for (String str : k.c) {
-            try {
-                Class<?> loadClass = k.a().i().b().loadClass(str);
-                if (a(loadClass)) {
-                    arrayList.add(loadClass);
+        try {
+            for (String str : k.c) {
+                try {
+                    Class<?> loadClass = k.a().i().b().loadClass(str);
+                    if (a(loadClass)) {
+                        arrayList.add(loadClass);
+                    }
+                } catch (Exception e) {
+                    g.a(com.baidu.adp.a.b.a().c(), "Discovery installed failed: Nested Exception: " + e.getMessage());
                 }
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
+        } catch (ConcurrentModificationException e2) {
+            g.a(com.baidu.adp.a.b.a().c(), "Discovery installed failed: Nested Exception: " + e2.getMessage());
         }
         return arrayList;
     }

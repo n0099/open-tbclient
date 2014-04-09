@@ -3,6 +3,9 @@ package com.baidu.tbadk.core.util;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,14 +20,21 @@ import android.os.StatFs;
 import android.support.v4.view.MotionEventCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.widget.RemoteViews;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.moplus.MoPlusConstants;
 import com.baidu.android.pushservice.PushManager;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -280,7 +290,7 @@ public class UtilHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [423=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [435=4] */
     public static final boolean h(Context context) {
         SQLiteDatabase openOrCreateDatabase;
         try {
@@ -398,6 +408,7 @@ public class UtilHelper {
                         return false;
                     }
                     com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new com.baidu.tbadk.core.b.ag(context, E, O)));
+                    com.baidu.adp.framework.c.a().a(new CustomResponsedMessage(2001158));
                     return false;
                 case 13:
                     com.baidu.tbadk.core.b.o oVar = new com.baidu.tbadk.core.b.o(context, com.baidu.adp.lib.f.b.a(intent.getStringExtra("groupid"), 0L), 0);
@@ -416,5 +427,141 @@ public class UtilHelper {
             return true;
         }
         return false;
+    }
+
+    public static String c(String str) {
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        BufferedReader bufferedReader3 = null;
+        try {
+            bufferedReader2 = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()), 1024);
+        } catch (IOException e) {
+            bufferedReader = null;
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            String readLine = bufferedReader2.readLine();
+            bufferedReader2.close();
+            try {
+                bufferedReader2.close();
+                return readLine;
+            } catch (IOException e2) {
+                return readLine;
+            }
+        } catch (IOException e3) {
+            bufferedReader = bufferedReader2;
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e4) {
+                }
+            }
+            return null;
+        } catch (Throwable th2) {
+            th = th2;
+            bufferedReader3 = bufferedReader2;
+            if (bufferedReader3 != null) {
+                try {
+                    bufferedReader3.close();
+                } catch (IOException e5) {
+                }
+            }
+            throw th;
+        }
+    }
+
+    public static void a(Context context, com.baidu.tbadk.core.data.k kVar, int i) {
+        boolean z;
+        boolean z2;
+        int hours = new Date(System.currentTimeMillis()).getHours();
+        if ((hours < 0 || hours > 7) && hours < 23) {
+            long time = new Date().getTime();
+            if (com.baidu.tbadk.coreExtra.messageCenter.a.c()) {
+                z = false;
+                z2 = false;
+            } else {
+                TbadkApplication.j();
+                if (time - TbadkApplication.aD() >= 5000) {
+                    boolean z3 = TbadkApplication.j().ar();
+                    z = TbadkApplication.j().aq();
+                    TbadkApplication.j();
+                    TbadkApplication.b(time);
+                    z2 = z3;
+                } else {
+                    z = false;
+                    z2 = false;
+                }
+            }
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+            String d = kVar.d();
+            String c = kVar.c();
+            if (TbadkApplication.j().aE()) {
+                Notification notification = new Notification(com.baidu.tbadk.i.icon, d, System.currentTimeMillis());
+                if (c != null && c.length() > 0) {
+                    Intent intent = new Intent(context, DealIntentService.class);
+                    if (c.startsWith("http:")) {
+                        String substring = c.substring(c.lastIndexOf("/") + 1);
+                        intent.putExtra("class", 1);
+                        intent.putExtra("id", substring);
+                        intent.putExtra("is_message_pv", true);
+                    } else if (c.equals("tab://1")) {
+                        intent.putExtra("class", 3);
+                        intent.putExtra("is_message_pv", true);
+                        intent.putExtra("refresh_all", true);
+                        intent.putExtra("close_dialog", true);
+                        intent.putExtra("locate_type", 0);
+                        intent.setFlags(603979776);
+                        TbadkApplication.j().i(0);
+                    } else if (c.startsWith("opfeature:")) {
+                        try {
+                            intent.putExtra("class", 0);
+                            c = c.replaceFirst("opfeature:", com.baidu.loginshare.e.f);
+                            intent.putExtra("url", c);
+                            intent.putExtra("is_message_pv", true);
+                        } catch (Exception e) {
+                            com.baidu.adp.lib.util.f.a("MessagePullService", "showNotification", e.toString());
+                            return;
+                        }
+                    } else if (c.startsWith("pk_before:")) {
+                        intent.putExtra("class", 6);
+                        intent.putExtra("value", c.substring(c.lastIndexOf(":") + 1));
+                    } else if (c.startsWith("pk_after:")) {
+                        intent.putExtra("class", 7);
+                        intent.putExtra("value", c.substring(c.lastIndexOf(":") + 1));
+                    } else if (c.startsWith("vote")) {
+                        intent.putExtra("class", 8);
+                    } else {
+                        return;
+                    }
+                    intent.putExtra("is_notify", true);
+                    intent.putExtra("link", c);
+                    intent.putExtra("message_id", kVar.b());
+                    if (!TextUtils.isEmpty(kVar.a())) {
+                        intent.putExtra("stat", kVar.a());
+                    }
+                    PendingIntent service = PendingIntent.getService(context, 0, intent, 134217728);
+                    String string = context.getString(com.baidu.tbadk.l.app_name);
+                    notification.icon = com.baidu.tbadk.i.icon_notify;
+                    notification.setLatestEventInfo(context, string, d, service);
+                    RemoteViews remoteViews = new RemoteViews(TbadkApplication.j().b().getPackageName(), com.baidu.tbadk.k.custom_notification);
+                    remoteViews.setImageViewResource(com.baidu.tbadk.j.notification_icon, com.baidu.tbadk.i.icon);
+                    remoteViews.setTextViewText(com.baidu.tbadk.j.notification_content, d);
+                    remoteViews.setTextViewText(com.baidu.tbadk.j.notification_time, bc.b(new Date()));
+                    notification.contentView = remoteViews;
+                    notification.defaults = -1;
+                    if (!z) {
+                        notification.defaults &= -3;
+                    }
+                    if (!z2) {
+                        notification.defaults &= -2;
+                    } else {
+                        notification.audioStreamType = 5;
+                    }
+                    notification.flags |= 16;
+                    notificationManager.notify(i, notification);
+                }
+            }
+        }
     }
 }

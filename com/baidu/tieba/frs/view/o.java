@@ -14,7 +14,19 @@ public final class o implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         PopupWindow popupWindow;
+        PopupWindow popupWindow2;
+        boolean z;
+        PopupWindow popupWindow3;
         popupWindow = this.a.K;
-        popupWindow.dismiss();
+        if (popupWindow != null) {
+            popupWindow2 = this.a.K;
+            if (popupWindow2.isShowing()) {
+                z = this.a.at;
+                if (!z) {
+                    popupWindow3 = this.a.K;
+                    popupWindow3.dismiss();
+                }
+            }
+        }
     }
 }

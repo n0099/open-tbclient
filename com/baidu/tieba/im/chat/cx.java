@@ -1,19 +1,23 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.UserData;
-import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class cx implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.ah> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<com.baidu.tbadk.core.b.ah> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.ah> aVar) {
-        UserData b;
-        if (aVar != null && aVar.a() != null && (b = aVar.a().b()) != null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(String.valueOf(b.getUserId()));
-            com.baidu.tieba.im.s.a(new cy(this, linkedList), new cz(this, aVar));
+final class cx implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ PersonalChatActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cx(PersonalChatActivity personalChatActivity) {
+        this.a = personalChatActivity;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(Boolean bool) {
+        Boolean bool2 = bool;
+        if (bool2 != null) {
+            if (bool2.booleanValue()) {
+                this.a.d.K();
+            } else {
+                this.a.d.L();
+            }
         }
-        return null;
     }
 }

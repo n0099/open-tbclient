@@ -86,4 +86,23 @@ public final class bb {
     public final void b() {
         a(new File(w.a + "/" + com.baidu.tbadk.core.data.n.f() + "/image"));
     }
+
+    public final void c() {
+        b(new File(w.a + "/" + com.baidu.tbadk.core.data.n.f() + "/" + w.a(3)));
+    }
+
+    private void b(File file) {
+        long currentTimeMillis = System.currentTimeMillis();
+        File[] listFiles = file.listFiles();
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    a(file2);
+                    file2.delete();
+                } else if (currentTimeMillis - file2.lastModified() >= -1702967296 && !file2.delete()) {
+                    com.baidu.adp.lib.util.f.b(getClass().getName(), "run", "list[i].delete error");
+                }
+            }
+        }
+    }
 }

@@ -4,6 +4,7 @@ import com.baidu.adp.lib.cache.s;
 import com.baidu.adp.lib.cache.t;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.im.r;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -29,7 +30,7 @@ public abstract class m {
             String str2 = String.valueOf(str) + "@";
             synchronized (this.a) {
                 s<String> c = c();
-                List<t<String>> a2 = com.baidu.adp.lib.util.k.a(c);
+                List<t<String>> a2 = com.baidu.adp.lib.util.l.a(c);
                 if (a2 != null) {
                     for (t<String> tVar : a2) {
                         String str3 = tVar.a;
@@ -59,6 +60,6 @@ public abstract class m {
     }
 
     public final void a(String str, String str2, com.baidu.tieba.im.a<Boolean> aVar) {
-        com.baidu.tieba.im.s.a(new n(this, str, str2), aVar);
+        r.a(new n(this, str, str2), aVar);
     }
 }

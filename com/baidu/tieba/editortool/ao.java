@@ -271,7 +271,7 @@ public class ao extends g {
     }
 
     public final void l() {
-        if (TextUtils.isEmpty(TbadkApplication.j().aA())) {
+        if (TextUtils.isEmpty(TbadkApplication.j().aC())) {
             this.g.f();
         } else {
             j();

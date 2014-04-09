@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -22,20 +23,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageChangeListener {
-    private int[] b;
-    private int d;
-    private NavigationBar f;
-    private FragmentTabHost i;
-    private FragmentManager j;
-    private k k;
-    private boolean m;
+    private int[] c;
+    private int e;
+    private NavigationBar g;
+    private FragmentTabHost j;
+    private FragmentManager k;
+    private k l;
     private com.baidu.tbadk.core.e n;
-    private int c = -1;
-    private View.OnClickListener e = null;
-    private View g = null;
-    private ImageView h = null;
-    protected int a = -1;
-    private boolean l = false;
+    private int d = -1;
+    private View.OnClickListener f = null;
+    private View h = null;
+    private ImageView i = null;
+    protected int b = -1;
+    private boolean m = false;
     private int o = 16;
     private List<FragmentTabIndicator> p = new ArrayList(3);
     private final com.baidu.adp.framework.c.a q = new d(this, 2001124);
@@ -55,7 +55,6 @@ public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageC
     public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getArguments() != null) {
-            this.m = getArguments().getBoolean("showBack", false);
             this.o = getArguments().getInt("NotifiIdKey", this.o);
         }
     }
@@ -64,29 +63,24 @@ public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageC
     public final void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         com.baidu.adp.framework.c.a().a(this.q);
-        this.e = new e(this);
+        this.f = new e(this);
         View view = getView();
-        this.f = (NavigationBar) view.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.h = (ImageView) this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.a.i.widget_nb_item_addchat, this.e);
-        this.f.a(com.baidu.tieba.a.k.mention_title);
-        this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        if (this.m) {
-            this.g.setOnClickListener(new f(this));
-            this.g.setVisibility(0);
-        } else {
-            this.g.setVisibility(8);
-        }
-        this.j = getChildFragmentManager();
-        this.k = new k(this.j);
-        this.i = (FragmentTabHost) view.findViewById(com.baidu.tieba.a.h.tab_host);
-        this.i.setup(getChildFragmentManager());
-        this.i.setTabWidgetBackgroundColor(getResources().getColor(com.baidu.tieba.a.e.maintab_bg));
-        this.i.setOnPageChangeListener(this);
-        if (this.k != null) {
-            int count = this.k.getCount();
+        this.g = (NavigationBar) view.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
+        this.i = (ImageView) this.g.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.a.i.widget_nb_item_addchat, this.f);
+        this.g.a(com.baidu.tieba.a.k.mention_title);
+        this.h = this.g.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.h.setOnClickListener(new f(this));
+        this.k = getChildFragmentManager();
+        this.l = new k(this.k);
+        this.j = (FragmentTabHost) view.findViewById(com.baidu.tieba.a.h.tab_host);
+        this.j.setup(getChildFragmentManager());
+        this.j.setTabWidgetBackgroundColor(getResources().getColor(com.baidu.tieba.a.e.maintab_bg));
+        this.j.setOnPageChangeListener(this);
+        if (this.l != null) {
+            int count = this.l.getCount();
             for (int i = 0; i < count; i++) {
-                Fragment item = this.k.getItem(i);
-                int a = this.k.a(i);
+                Fragment item = this.l.getItem(i);
+                int a = this.l.a(i);
                 if (item != null) {
                     if (a == 0) {
                         a(item, 0, com.baidu.tieba.a.k.mention_chatme);
@@ -97,77 +91,79 @@ public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageC
                     }
                 }
             }
-            this.i.a();
+            this.j.a();
         }
-        if (this.k.getCount() == 3) {
-            this.b = new int[]{0, 1, 2};
+        if (this.l.getCount() == 3) {
+            this.c = new int[]{0, 1, 2};
         } else {
-            this.b = new int[]{1, 2};
+            this.c = new int[]{1, 2};
         }
-        this.d = this.b.length;
-        int i2 = this.b[0];
+        this.e = this.c.length;
+        int i2 = this.c[0];
         if (bundle != null) {
-            i2 = bundle.getInt("type", this.b[0]);
+            i2 = bundle.getInt("type", this.c[0]);
         } else {
             Bundle arguments = getArguments();
             if (arguments != null) {
-                i2 = arguments.getInt("type", this.b[0]);
+                i2 = arguments.getInt("type", this.c[0]);
             }
         }
-        b(i2);
+        e(i2);
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onResume() {
-        this.a = TbadkApplication.j().l();
+        this.b = TbadkApplication.j().l();
         super.onResume();
-        if (isShow()) {
-            if (this.d == 3 && this.c != -1 && this.b[this.c] == 0) {
-                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2008003, new com.baidu.tbadk.core.b.v(this.n, this.k.getItem(this.c))));
+        if (c_()) {
+            a(this.c[this.d], true);
+            com.baidu.adp.framework.c.a().a(new CustomResponsedMessage(2012112));
+            if (this.e == 3 && this.d != -1 && this.c[this.d] == 0) {
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2008003, new com.baidu.tbadk.core.b.v(this.n, this.l.getItem(this.d))));
             }
-            if (this.l) {
-                this.l = false;
-                b(0);
+            if (this.m) {
+                this.m = false;
+                e(0);
                 return;
             }
             if (com.baidu.tbadk.core.b.ab.a) {
                 com.baidu.tbadk.core.b.ab.a = false;
                 if (this.o != 11) {
-                    b(0);
+                    e(0);
                     return;
                 } else if (com.baidu.tbadk.coreExtra.messageCenter.a.a().l() > 0) {
-                    b(0);
+                    e(0);
                     return;
                 } else if (com.baidu.tbadk.coreExtra.messageCenter.a.a().i() > 0) {
-                    b(1);
+                    e(1);
                     return;
                 } else if (com.baidu.tbadk.coreExtra.messageCenter.a.a().j() > 0) {
-                    b(2);
+                    e(2);
                     return;
                 }
             }
-            a(this.c);
+            d(this.d);
         }
     }
 
-    private void a(int i) {
-        if (i >= 0 && i < this.d) {
-            Fragment item = this.k.getItem(this.c);
-            if (this.b[i] == 1) {
+    private void d(int i) {
+        if (i >= 0 && i < this.e) {
+            Fragment item = this.l.getItem(this.d);
+            if (this.c[i] == 1) {
                 if (item instanceof af) {
                     ((af) item).a();
                 } else {
                     com.baidu.adp.lib.util.f.b("ReplyMeFragment selected error, can not update data.");
                 }
-            } else if (this.b[i] == 2) {
+            } else if (this.c[i] == 2) {
                 if (item instanceof a) {
                     ((a) item).a();
                 } else {
                     com.baidu.adp.lib.util.f.b("AtMeFragment selected error, can not update data.");
                 }
             }
-            if (this.k != null) {
-                Fragment item2 = this.k.getItem(i);
+            if (this.l != null) {
+                Fragment item2 = this.l.getItem(i);
                 if (item != null) {
                     be.a(item2.getClass().getName());
                 }
@@ -183,8 +179,8 @@ public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageC
 
     @Override // android.support.v4.app.Fragment
     public final void onSaveInstanceState(Bundle bundle) {
-        if (this.c != -1) {
-            bundle.putInt("type", this.b[this.c]);
+        if (this.d != -1) {
+            bundle.putInt("type", this.c[this.d]);
         } else {
             bundle.putInt("type", 0);
         }
@@ -234,21 +230,21 @@ public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageC
             cVar.h = fragmentTabIndicator;
             fragmentTabIndicator.a("msg_tip_key", cVar);
             this.p.add(fragmentTabIndicator);
-            this.i.a(bVar);
+            this.j.a(bVar);
         }
     }
 
-    private void b(int i) {
-        for (int i2 = 0; i2 < this.b.length; i2++) {
-            if (i == this.b[i2]) {
-                if (i2 < 0 || i2 >= this.d || this.c == i2) {
+    private void e(int i) {
+        for (int i2 = 0; i2 < this.c.length; i2++) {
+            if (i == this.c[i2]) {
+                if (i2 < 0 || i2 >= this.e || this.d == i2) {
                     return;
                 } else {
-                    this.c = i2;
-                    a(i2);
-                    this.i.setCurrentTab(i2);
-                    a(this.b[i2], true);
-                    String str = this.b[i2] == 0 ? "msg_chat_tab_click" : this.b[i2] == 1 ? "msg_reply_tab_click" : this.b[i2] == 2 ? "msg_atme_tab_click" : null;
+                    this.d = i2;
+                    d(i2);
+                    this.j.setCurrentTab(i2);
+                    a(this.c[i2], true);
+                    String str = this.c[i2] == 0 ? "msg_chat_tab_click" : this.c[i2] == 1 ? "msg_reply_tab_click" : this.c[i2] == 2 ? "msg_atme_tab_click" : null;
                     if (str != null) {
                         TiebaStatic.a(this.n, str, "click", 1, new Object[0]);
                         return;
@@ -260,26 +256,26 @@ public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageC
     }
 
     @Override // com.baidu.tbadk.core.d
-    public final void onChangeSkinType(int i) {
+    public final void c(int i) {
         if (i == 1) {
             if (TbadkApplication.F()) {
-                this.i.setBackgroundColor(-14538444);
+                this.j.setBackgroundColor(-14538444);
             } else {
-                this.i.setBackgroundColor(this.n.getResources().getColor(com.baidu.tieba.a.e.bg_page_setting_1));
+                this.j.setBackgroundColor(this.n.getResources().getColor(com.baidu.tieba.a.e.bg_page_setting_1));
             }
         } else if (TbadkApplication.F()) {
-            this.i.setBackgroundColor(this.n.getResources().getColor(com.baidu.tieba.a.e.backgroundcolor));
+            this.j.setBackgroundColor(this.n.getResources().getColor(com.baidu.tieba.a.e.backgroundcolor));
         } else {
-            this.i.setBackgroundColor(this.n.getResources().getColor(com.baidu.tieba.a.e.bg_page_setting));
+            this.j.setBackgroundColor(this.n.getResources().getColor(com.baidu.tieba.a.e.bg_page_setting));
         }
-        this.f.b(i);
-        this.i.c(i);
-        if (this.k != null) {
-            int count = this.k.getCount();
+        this.g.b(i);
+        this.j.c(i);
+        if (this.l != null) {
+            int count = this.l.getCount();
             for (int i2 = 0; i2 < count; i2++) {
-                Fragment item = this.k.getItem(i2);
+                Fragment item = this.l.getItem(i2);
                 if (item != null && (item instanceof com.baidu.tbadk.core.d)) {
-                    ((com.baidu.tbadk.core.d) item).changeSkinType(i);
+                    ((com.baidu.tbadk.core.d) item).b(i);
                 }
             }
         }
@@ -297,10 +293,10 @@ public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageC
         for (int i = 0; i < iArr.length; i++) {
             int i2 = 0;
             while (true) {
-                if (i2 >= this.d) {
+                if (i2 >= this.e) {
                     textView = null;
                     fragmentTabIndicator = null;
-                } else if (i != this.b[i2]) {
+                } else if (i != this.c[i2]) {
                     i2++;
                 } else {
                     FragmentTabIndicator fragmentTabIndicator2 = this.p.get(i2);
@@ -312,13 +308,13 @@ public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageC
                 int i3 = iArr[i];
                 switch (i) {
                     case 0:
-                        if (this.d < 3) {
+                        if (this.e < 3) {
                             z = false;
                             break;
                         } else {
-                            if (!TbadkApplication.j().ae()) {
+                            if (!TbadkApplication.j().ag()) {
                                 TbadkApplication.j();
-                                if (!TbadkApplication.ad()) {
+                                if (!TbadkApplication.af()) {
                                     z = false;
                                     break;
                                 }
@@ -327,18 +323,18 @@ public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageC
                             break;
                         }
                     case 1:
-                        if (!TbadkApplication.j().ai()) {
+                        if (!TbadkApplication.j().ak()) {
                             z = false;
                             break;
                         }
-                        if (!TbadkApplication.j().ah()) {
+                        if (!TbadkApplication.j().aj()) {
                             z = false;
                             break;
                         }
                         z = true;
                         break;
                     case 2:
-                        if (!TbadkApplication.j().ah()) {
+                        if (!TbadkApplication.j().aj()) {
                         }
                         z = true;
                         break;
@@ -352,8 +348,8 @@ public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageC
                     try {
                         textView.setVisibility(0);
                         boolean z2 = TbadkApplication.j().l() == 1;
-                        com.baidu.tieba.r.c();
-                        textView.setTextColor(com.baidu.tieba.r.d().getResources().getColor(z2 ? com.baidu.tieba.a.e.top_msg_num_night : com.baidu.tieba.a.e.top_msg_num_day));
+                        com.baidu.tieba.p.c();
+                        textView.setTextColor(com.baidu.tieba.p.d().getResources().getColor(z2 ? com.baidu.tieba.a.e.top_msg_num_night : com.baidu.tieba.a.e.top_msg_num_day));
                         if (i3 == 0) {
                             textView.setVisibility(8);
                         } else if (i3 < 10) {
@@ -382,7 +378,7 @@ public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageC
         iArr[0] = com.baidu.tbadk.coreExtra.messageCenter.a.a().m();
         iArr[1] = i2;
         iArr[2] = j;
-        if (z && i < iArr.length && i >= 0 && i != 0 && this.b[this.c] != 0) {
+        if (z && i < iArr.length && i >= 0 && i != 0 && this.c[this.d] != 0) {
             iArr[i] = 0;
         }
         a(iArr);
@@ -397,21 +393,21 @@ public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageC
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public final void onPageSelected(int i) {
-        if (i >= 0 && i < this.d && i != this.c) {
-            this.c = i;
-            a(this.c);
+        if (i >= 0 && i < this.e && i != this.d) {
+            this.d = i;
+            d(this.d);
             String str = null;
-            if (this.b[i] == 0) {
+            if (this.c[i] == 0) {
                 str = "msg_chat_tab_click";
-            } else if (this.b[i] == 1) {
+            } else if (this.c[i] == 1) {
                 str = "msg_reply_tab_click";
-            } else if (this.b[i] == 2) {
+            } else if (this.c[i] == 2) {
                 str = "msg_atme_tab_click";
             }
             if (str != null) {
                 TiebaStatic.a(this.n, str, "click", 1, new Object[0]);
             }
-            a(this.b[i], true);
+            a(this.c[i], true);
         }
     }
 

@@ -25,7 +25,7 @@ final class d extends com.baidu.adp.framework.c.g {
             case 103112:
             case 2001109:
                 if (!(socketResponsedMessage2 instanceof com.baidu.adp.framework.message.f) || socketResponsedMessage2.e() == 0 || ((socketResponsedMessage2 instanceof ResponseUpgradeMemberGroupMessage) && socketResponsedMessage2.e() == 2230110)) {
-                    this.a.b = true;
+                    this.a.c = true;
                     return;
                 }
                 return;

@@ -22,7 +22,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean d_() {
+    public final boolean f_() {
         if (this.a == null) {
             return false;
         }
@@ -69,13 +69,13 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public final boolean a(String str) {
-        com.baidu.tieba.im.message.bn bnVar = new com.baidu.tieba.im.message.bn();
+        com.baidu.tieba.im.message.bm bmVar = new com.baidu.tieba.im.message.bm();
         if (this.a == null || this.a.getGroupId() == 0) {
             return false;
         }
-        bnVar.b = String.valueOf(this.a.getGroupId());
-        bnVar.a = str;
-        super.sendMessage(new com.baidu.tieba.im.message.c(bnVar));
+        bmVar.b = String.valueOf(this.a.getGroupId());
+        bmVar.a = str;
+        super.sendMessage(new com.baidu.tieba.im.message.c(bmVar));
         return true;
     }
 

@@ -56,7 +56,7 @@ public final class r extends BaseAdapter implements View.OnClickListener {
 
     public final void b() {
         for (int i = 0; i < this.d; i++) {
-            int d = com.baidu.tieba.r.c().d(this.h[i].forum_name);
+            int d = com.baidu.tieba.p.c().d(this.h[i].forum_name);
             if (d == 1) {
                 this.h[i].is_like = 1;
             } else if (d == -1) {

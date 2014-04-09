@@ -26,7 +26,7 @@ public class EmotionImageActivity extends com.baidu.tbadk.a {
     private int m;
     private int n;
     private int o;
-    private com.baidu.tbadk.editortool.aa p;
+    private com.baidu.tbadk.editortool.ab p;
     private boolean q;
     private int r = 0;
 
@@ -64,30 +64,30 @@ public class EmotionImageActivity extends com.baidu.tbadk.a {
             this.m = intent.getIntExtra("height", this.o);
         }
         this.r = getIntent().getIntExtra("from", 0);
-        this.p = new com.baidu.tbadk.editortool.aa(this);
+        this.p = new com.baidu.tbadk.editortool.ab(this);
         this.a = (NavigationBar) findViewById(com.baidu.tieba.a.h.navigation_bar);
         this.a.a(getString(com.baidu.tieba.a.k.emotion_image_title));
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new j(this));
+        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new k(this));
         this.b = (GifView) findViewById(com.baidu.tieba.a.h.gifview);
         this.b.setLayoutParams((this.l == 0 || this.m == 0) ? new FrameLayout.LayoutParams(this.n, this.o, 17) : new FrameLayout.LayoutParams(this.l, this.m, 17));
-        boolean b = com.baidu.tbadk.editortool.aa.b();
-        com.baidu.adp.widget.ImageView.b a = this.p.a(this.f, this.k, b ? this.i : this.j, b, new k(this), false);
+        boolean b = com.baidu.tbadk.editortool.ab.b();
+        com.baidu.adp.widget.ImageView.b a = this.p.a(this.f, this.k, b ? this.i : this.j, b, new l(this), false);
         if (a != null) {
             this.b.setGif(a);
         }
         this.c = (BDImageView) findViewById(com.baidu.tieba.a.h.emotion_icon);
         if (TextUtils.isEmpty(this.h)) {
-            com.baidu.tbadk.editortool.af c = com.baidu.tbadk.editortool.ab.a().c(this.f);
+            com.baidu.tbadk.editortool.ag c = com.baidu.tbadk.editortool.ac.a().c(this.f);
             if (c != null && (i = c.i()) != null) {
                 i.a(this.c);
             }
         } else {
-            this.p.b(this.h, new l(this));
+            this.p.b(this.h, new m(this));
         }
         this.d = (TextView) findViewById(com.baidu.tieba.a.h.emotion_pname);
         this.d.setText(this.g);
         this.e = (TextView) findViewById(com.baidu.tieba.a.h.emotion_detail);
-        this.e.setOnClickListener(new m(this));
+        this.e.setOnClickListener(new n(this));
     }
 
     @Override // android.app.Activity

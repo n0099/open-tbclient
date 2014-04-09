@@ -22,6 +22,16 @@ public final class a {
         new com.baidu.tbplugin.a(context, BatSdkDelegate.class, z2).a();
         new com.baidu.tbplugin.a(context, MotuPlugin.class, z2).a();
         new com.baidu.tbplugin.a(context, BdSocialShareSdkDelegate.class, z2).a();
+        k.a();
+        k.a("com.baidu.tbadk.plugins.BdBrowserDelegate");
+        k.a();
+        k.a("com.baidu.tbadk.plugins.BdSapiCoreLightDelegate");
+        k.a();
+        k.a("com.baidu.tbadk.plugins.BatSdkDelegate");
+        k.a();
+        k.a("com.baidu.tbadk.plugins.BdSocialShareSdkDelegate");
+        k.a();
+        k.a("com.baidu.tbadk.plugins.MotuPlugin");
         k.a().h();
         if (cVar != null) {
             cVar.a();

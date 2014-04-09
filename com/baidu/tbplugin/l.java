@@ -1,7 +1,6 @@
 package com.baidu.tbplugin;
 
 import android.util.Xml;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -32,7 +31,7 @@ final class l {
                             }
                             this.a.b = newPullParser.nextText();
                             continue;
-                        } else if (name.equals(PersonInfoActivity.TAG_NAME)) {
+                        } else if (name.equals("name")) {
                             if (this.a == null) {
                                 this.a = new com.baidu.tbplugin.b.a();
                             }

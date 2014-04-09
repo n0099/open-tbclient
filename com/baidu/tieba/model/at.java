@@ -31,16 +31,16 @@ public final class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data
         z = this.a.d;
         this.c = dVar.a(writeData, z);
         if (this.c == null) {
-            com.baidu.tieba.r.c();
-            return new com.baidu.tieba.data.ak(-17, com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.neterror), null);
+            com.baidu.tieba.p.c();
+            return new com.baidu.tieba.data.ak(-17, com.baidu.tieba.p.d().getString(com.baidu.tieba.a.k.neterror), null);
         }
         ErrorData d = this.b.d();
         if (this.b.a()) {
             AntiData c = this.b.c();
             String error_msg = d.getError_msg();
             if (com.baidu.adp.lib.util.h.b(error_msg)) {
-                com.baidu.tieba.r.c();
-                error_msg = com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.send_success);
+                com.baidu.tieba.p.c();
+                error_msg = com.baidu.tieba.p.d().getString(com.baidu.tieba.a.k.send_success);
             }
             com.baidu.tieba.data.ak akVar = new com.baidu.tieba.data.ak(d.getError_code(), error_msg, c);
             writeData2 = this.a.b;

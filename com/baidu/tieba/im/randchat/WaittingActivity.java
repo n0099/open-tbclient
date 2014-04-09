@@ -21,28 +21,29 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.data.RandChatRoomData;
-import com.baidu.tieba.im.model.bu;
+import com.baidu.tieba.im.model.bv;
 import com.baidu.tieba.im.randchat.WaitingTipView;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class WaittingActivity extends com.baidu.tbadk.a {
-    private static /* synthetic */ int[] l;
+    private static /* synthetic */ int[] m;
     private f a;
-    private bu b;
+    private bv b;
     private com.baidu.tieba.im.model.j c;
     private com.baidu.tbadk.coreExtra.c.b e;
     private com.baidu.tbadk.coreExtra.c.b f;
+    private boolean h;
     private com.baidu.tieba.im.view.a d = null;
     private boolean g = false;
-    private WaitingTipView.Type h = WaitingTipView.Type.ORIGINAL_ENTER;
-    private com.baidu.adp.framework.c.a i = new h(this, 2001119);
-    private com.baidu.adp.framework.c.g j = new p(this, 0);
-    private BroadcastReceiver k = new q(this);
+    private WaitingTipView.Type i = WaitingTipView.Type.ORIGINAL_ENTER;
+    private com.baidu.adp.framework.c.a j = new h(this, 2001119);
+    private com.baidu.adp.framework.c.g k = new p(this, 0);
+    private BroadcastReceiver l = new q(this);
 
     private static /* synthetic */ int[] e() {
-        int[] iArr = l;
+        int[] iArr = m;
         if (iArr == null) {
             iArr = new int[WaitingTipView.Type.valuesCustom().length];
             try {
@@ -81,7 +82,7 @@ public class WaittingActivity extends com.baidu.tbadk.a {
                 iArr[WaitingTipView.Type.WAIT_TIP_RAND.ordinal()] = 9;
             } catch (NoSuchFieldError e9) {
             }
-            l = iArr;
+            m = iArr;
         }
         return iArr;
     }
@@ -97,7 +98,7 @@ public class WaittingActivity extends com.baidu.tbadk.a {
     @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.b = new bu(this);
+        this.b = new bv(this);
         this.b.a(getIntent());
         this.c = new com.baidu.tieba.im.model.j();
         this.c.setUniqueId(getUniqueId());
@@ -108,9 +109,9 @@ public class WaittingActivity extends com.baidu.tbadk.a {
         this.e.b();
         this.f = new m(this, 100000000L, 1000L);
         c();
+        this.b.a(this.k);
         this.b.a(this.j);
-        this.b.a(this.i);
-        this.c.registerListener(this.j);
+        this.c.registerListener(this.k);
         com.baidu.tbadk.core.g.b(this, "rand_chat_wait_page_start");
     }
 
@@ -119,18 +120,19 @@ public class WaittingActivity extends com.baidu.tbadk.a {
         super.onStart();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-        registerReceiver(this.k, intentFilter);
+        registerReceiver(this.l, intentFilter);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.a, android.app.Activity
     public void onStop() {
         super.onStop();
-        unregisterReceiver(this.k);
+        unregisterReceiver(this.l);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void f(WaittingActivity waittingActivity) {
+        waittingActivity.h = true;
         com.baidu.tbadk.core.g.a(waittingActivity, "rand_chat_wait_page_quit");
         waittingActivity.a.d().a();
         waittingActivity.showLoadingDialog(waittingActivity.getString(com.baidu.tieba.im.j.rand_chat_waiting_quit_loading));
@@ -164,7 +166,7 @@ public class WaittingActivity extends com.baidu.tbadk.a {
     public void a(RandChatRoomData randChatRoomData, boolean z) {
         a loadingView = this.a.d().getLoadingView();
         com.baidu.tieba.im.view.h chatterboxView = this.a.d().getChatterboxView();
-        if (this.h == WaitingTipView.Type.PERSONS_READY) {
+        if (this.i == WaitingTipView.Type.PERSONS_READY) {
             if (loadingView != null) {
                 loadingView.setVisibility(0);
             }
@@ -372,7 +374,7 @@ public class WaittingActivity extends com.baidu.tbadk.a {
         quitButton.setOnClickListener(new u(this));
         waitButton.setOnClickListener(new v(this));
         g.setVisibility(0);
-        this.h = type;
+        this.i = type;
         switch (e()[type.ordinal()]) {
             case 1:
                 tipText.setText(getString(com.baidu.tieba.im.j.rand_chat_waiting_update_topic));
@@ -457,11 +459,11 @@ public class WaittingActivity extends com.baidu.tbadk.a {
                 spannableString2.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.im.e.tip_view_text_name_color)), 0, str3.length(), 34);
                 tipText.setText(spannableString2);
                 com.baidu.adp.widget.ImageView.b b2 = com.baidu.tbadk.imageManager.e.a().b(str4);
-                if (b2 != null) {
-                    tipImageHead.setImageBitmap(b2.h());
-                } else {
+                if (b2 == null) {
                     tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.im.g.icon_choice_date));
                     g.setTag(str4);
+                } else {
+                    tipImageHead.setImageBitmap(b2.h());
                 }
                 tipText.setVisibility(0);
                 circelBgView.setVisibility(0);
@@ -592,14 +594,16 @@ public class WaittingActivity extends com.baidu.tbadk.a {
         if (this.f != null) {
             this.f.a();
         }
-        this.b.a(true);
-        this.a.f().setEnabled(false);
-        this.a.h().setEnabled(false);
-        this.a.g().getQuitButton().setEnabled(false);
-        this.a.d().getLoadingView().setVisibility(0);
-        this.a.d().getChatterboxView().setVisibility(8);
-        b(WaitingTipView.Type.PERSONS_READY, (Object[]) null);
-        this.a.d().a(new o(this, str));
+        if (!this.h) {
+            this.b.a(true);
+            this.a.f().setEnabled(false);
+            this.a.h().setEnabled(false);
+            this.a.g().getQuitButton().setEnabled(false);
+            this.a.d().getLoadingView().setVisibility(0);
+            this.a.d().getChatterboxView().setVisibility(8);
+            b(WaitingTipView.Type.PERSONS_READY, (Object[]) null);
+            this.a.d().a(new o(this, str));
+        }
     }
 
     @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback

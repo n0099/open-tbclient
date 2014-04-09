@@ -1,12 +1,24 @@
 package com.baidu.adp.lib.util;
+
+import dalvik.system.DexFile;
+import java.util.Enumeration;
 /* loaded from: classes.dex */
 public final class n {
-    public static final String a = System.getProperty("line.separator");
+    public static String a = "Static";
 
-    public static boolean a(String str) {
-        if (str != null && str.trim().length() != 0) {
-            return false;
+    public static void a() {
+        try {
+            Enumeration<String> entries = new DexFile(com.baidu.adp.a.b.a().b().getPackageCodePath()).entries();
+            while (entries.hasMoreElements()) {
+                String nextElement = entries.nextElement();
+                try {
+                    if (nextElement.endsWith(a)) {
+                        Class.forName(nextElement);
+                    }
+                } catch (Exception e) {
+                }
+            }
+        } catch (Exception e2) {
         }
-        return true;
     }
 }

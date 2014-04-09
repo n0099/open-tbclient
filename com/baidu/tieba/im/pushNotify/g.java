@@ -1,19 +1,26 @@
 package com.baidu.tieba.im.pushNotify;
 
-import java.util.LinkedHashMap;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class g extends com.baidu.tieba.im.m<Void> {
-    private final /* synthetic */ LinkedHashMap b;
+public final class g implements com.baidu.tieba.im.b.d {
+    final /* synthetic */ a a;
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.b.c b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(LinkedHashMap linkedHashMap) {
-        this.b = linkedHashMap;
+    public g(a aVar, com.baidu.tbadk.coreExtra.b.c cVar) {
+        this.a = aVar;
+        this.b = cVar;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* bridge */ /* synthetic */ Void a() {
-        return com.baidu.tieba.im.db.c.a().a(this.b);
+    @Override // com.baidu.tieba.im.b.d
+    public final void a(ImMessageCenterPojo imMessageCenterPojo) {
+        if (a.a(this.a, imMessageCenterPojo)) {
+            if (imMessageCenterPojo.getCustomGroupType() == 4) {
+                a.a(this.a, imMessageCenterPojo.getGid(), imMessageCenterPojo);
+                return;
+            }
+            a.a(this.a, a.b(this.a, imMessageCenterPojo.getGid(), imMessageCenterPojo), this.b);
+        }
     }
 }

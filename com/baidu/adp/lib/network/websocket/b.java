@@ -43,7 +43,7 @@ final class b extends q {
         Handler handler;
         c cVar;
         c cVar2;
-        i.a().b();
+        j.a().b();
         handler = BdSocketLinkService.d;
         handler.removeMessages(1);
         cVar = BdSocketLinkService.c;
@@ -63,6 +63,12 @@ final class b extends q {
         handler.removeMessages(1);
         cVar = BdSocketLinkService.c;
         if (cVar != null) {
+            if (i != 0) {
+                if (com.baidu.adp.framework.e.c.a().i() != null) {
+                    com.baidu.adp.framework.e.c.a().i().a("TiebaSocketLinkService", "close():" + str, i, (com.baidu.adp.framework.message.d<?>) null);
+                }
+                str = "你的网络状况不大好，请稍后重试";
+            }
             cVar2 = BdSocketLinkService.c;
             cVar2.a(i, str);
         }

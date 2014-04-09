@@ -26,34 +26,34 @@ public final class p implements View.OnClickListener {
         NewUserGuideActivity newUserGuideActivity5;
         View view2;
         if (view.getTag() == null || !(view.getTag() instanceof InterestFrsData.Tag)) {
-            button = this.a.p;
+            button = this.a.q;
             if (view == button) {
-                newUserGuideActivity = this.a.n;
+                newUserGuideActivity = this.a.o;
                 if (newUserGuideActivity.f()) {
-                    com.baidu.tieba.r.c().e(true);
+                    com.baidu.tieba.p.c().e(true);
                 }
                 o oVar = this.a;
-                newUserGuideActivity2 = this.a.n;
+                newUserGuideActivity2 = this.a.o;
                 aa aaVar = new aa(newUserGuideActivity2);
-                z = this.a.q;
-                oVar.sendMessage(new com.baidu.adp.framework.message.a(2015001, aaVar.a(1, z)));
-                newUserGuideActivity3 = this.a.n;
+                z = this.a.r;
+                oVar.a(new com.baidu.adp.framework.message.a(2015001, aaVar.a(1, z)));
+                newUserGuideActivity3 = this.a.o;
                 newUserGuideActivity3.finish();
                 return;
             }
             return;
         }
-        z2 = this.a.s;
+        z2 = this.a.t;
         if (z2) {
-            this.a.s = false;
-            newUserGuideActivity4 = this.a.n;
+            this.a.t = false;
+            newUserGuideActivity4 = this.a.o;
             com.baidu.tbadk.core.g.a(newUserGuideActivity4, "newUserInterestSelect");
-            newUserGuideActivity5 = this.a.n;
+            newUserGuideActivity5 = this.a.o;
             w wVar = new w(newUserGuideActivity5, (InterestFrsData.Tag) view.getTag(), new q(this));
-            view2 = this.a.b;
+            view2 = this.a.c;
             view2.setVisibility(0);
             wVar.a();
-            this.a.s = true;
+            this.a.t = true;
         }
     }
 }

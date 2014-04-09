@@ -26,7 +26,6 @@ import android.util.SparseArray;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.Toast;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -359,7 +358,7 @@ public class b {
         StringBuilder sb = new StringBuilder();
         try {
             for (Object obj : (Object[]) PackageManager.class.getMethod("getSystemAvailableFeatures", null).invoke(context.getPackageManager(), new Object[0])) {
-                String str = (String) obj.getClass().getField(PersonInfoActivity.TAG_NAME).get(obj);
+                String str = (String) obj.getClass().getField("name").get(obj);
                 if (str != null) {
                     sb.append(str);
                 } else {

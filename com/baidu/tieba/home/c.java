@@ -25,9 +25,9 @@ public final class c extends BdAsyncTask<String, Integer, String> {
     public final /* synthetic */ void a(String str) {
         ProgressBar progressBar;
         super.a((c) str);
-        progressBar = this.a.l;
+        progressBar = this.a.m;
         progressBar.setVisibility(8);
-        this.a.n = null;
+        this.a.o = null;
         if (this.d.a().b().b()) {
             CreateBarSuccessActivity.a(this.a, this.b);
             this.a.finish();
@@ -46,9 +46,9 @@ public final class c extends BdAsyncTask<String, Integer, String> {
         if (this.d != null) {
             this.d.g();
         }
-        progressBar = this.a.l;
+        progressBar = this.a.m;
         progressBar.setVisibility(8);
-        this.a.n = null;
+        this.a.o = null;
     }
 
     public c(CreateBarActivity createBarActivity, String str, String str2) {
@@ -67,7 +67,7 @@ public final class c extends BdAsyncTask<String, Integer, String> {
             this.d.a("kw", this.b);
             this.d.a("vcode", this.c);
             ak akVar = this.d;
-            str = this.a.r;
+            str = this.a.s;
             akVar.a("vcode_md5", str);
             this.d.i();
             return null;
@@ -82,7 +82,7 @@ public final class c extends BdAsyncTask<String, Integer, String> {
     public final void c() {
         ProgressBar progressBar;
         super.c();
-        progressBar = this.a.l;
+        progressBar = this.a.m;
         progressBar.setVisibility(0);
     }
 }

@@ -67,13 +67,13 @@ public class Register2Activity extends com.baidu.tbadk.a {
     private String L = null;
     RelativeLayout a = null;
     TextView b = null;
-    private ae N = null;
-    private af O = null;
+    private ag N = null;
+    private ah O = null;
     private com.baidu.tbadk.core.data.h P = null;
-    private final View.OnClickListener Q = new z(this);
-    private final TextWatcher R = new aa(this);
-    private final View.OnFocusChangeListener S = new ab(this);
-    private final RadioGroup.OnCheckedChangeListener T = new ac(this);
+    private final View.OnClickListener Q = new ab(this);
+    private final TextWatcher R = new ac(this);
+    private final View.OnFocusChangeListener S = new ad(this);
+    private final RadioGroup.OnCheckedChangeListener T = new ae(this);
 
     static {
         TbadkApplication.j().a(com.baidu.tbadk.core.b.aj.class, Register2Activity.class);
@@ -179,7 +179,7 @@ public class Register2Activity extends com.baidu.tbadk.a {
         String str = String.valueOf(string) + getString(com.baidu.tieba.a.k.user_server_agreement);
         int length2 = str.length();
         SpannableString spannableString = new SpannableString(str);
-        spannableString.setSpan(new ad(this, this), length, length2, 33);
+        spannableString.setSpan(new af(this, this), length, length2, 33);
         if (this.mSkinType == 1) {
             spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.a.e.skin_1_common_color)), 0, length, 33);
         }
@@ -263,7 +263,7 @@ public class Register2Activity extends com.baidu.tbadk.a {
                 register2Activity.N.cancel();
             }
             if (register2Activity.P != null) {
-                register2Activity.N = new ae(register2Activity, register2Activity.P.b().getVcode_pic_url());
+                register2Activity.N = new ag(register2Activity, register2Activity.P.b().getVcode_pic_url());
                 register2Activity.N.setPriority(3);
                 register2Activity.N.execute(new String[0]);
             }

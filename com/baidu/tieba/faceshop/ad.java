@@ -1,8 +1,8 @@
 package com.baidu.tieba.faceshop;
 
-import android.content.DialogInterface;
+import android.view.View;
 /* loaded from: classes.dex */
-final class ad implements DialogInterface.OnClickListener {
+final class ad implements View.OnClickListener {
     final /* synthetic */ FaceBuyWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,8 +10,8 @@ final class ad implements DialogInterface.OnClickListener {
         this.a = faceBuyWebViewActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        this.a.c();
     }
 }

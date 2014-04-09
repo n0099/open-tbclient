@@ -1,7 +1,6 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class y extends BdAsyncTask<String, Integer, String> {
@@ -20,7 +19,7 @@ public final class y extends BdAsyncTask<String, Integer, String> {
     public final /* synthetic */ String a(String... strArr) {
         this.b = new com.baidu.tbadk.core.util.ak(strArr[0]);
         this.b.a("day", this.g);
-        this.b.a(PersonInfoActivity.TAG_ID, this.f);
+        this.b.a("un", this.f);
         this.b.a("fid", this.c);
         this.b.a("word", this.d);
         this.b.a("z", this.e);

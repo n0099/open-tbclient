@@ -52,13 +52,13 @@ public final class b extends BdAsyncTask<String, Integer, bb> {
             this.a = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/s/sync");
             this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            com.baidu.tieba.r.c();
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.i.b(com.baidu.tieba.r.d())));
+            com.baidu.tieba.p.c();
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.i.b(com.baidu.tieba.p.d())));
             stringBuffer.append(",");
-            com.baidu.tieba.r.c();
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.i.c(com.baidu.tieba.r.d())));
+            com.baidu.tieba.p.c();
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.i.c(com.baidu.tieba.p.d())));
             this.a.a("_phone_screen", stringBuffer.toString());
-            if (TbadkApplication.j().ag() > 0) {
+            if (TbadkApplication.j().ai() > 0) {
                 this.a.a("_msg_status", "0");
             } else {
                 this.a.a("_msg_status", "1");

@@ -1,10 +1,9 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import com.baidu.tbadk.core.util.bc;
+import android.view.View;
+import android.widget.Button;
 /* loaded from: classes.dex */
-final class r implements TextWatcher {
+final class r implements View.OnFocusChangeListener {
     final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,33 +11,40 @@ final class r implements TextWatcher {
         this.a = loginActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        boolean z;
-        z = this.a.m;
+    @Override // android.view.View.OnFocusChangeListener
+    public final void onFocusChange(View view, boolean z) {
+        Button button;
+        Button button2;
+        Button button3;
+        Button button4;
+        Button button5;
+        Button button6;
+        Button button7;
+        Button button8;
+        Button button9;
         if (z) {
-            this.a.f();
-        }
-        this.a.n = true;
-        this.a.g();
-        this.a.h();
-    }
-
-    @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
-        String str;
-        String str2;
-        this.a.c();
-        str = this.a.f;
-        if (!bc.c(str)) {
-            String editable2 = editable.toString();
-            str2 = this.a.f;
-            if (editable2.equals(str2)) {
-                LoginActivity.h(this.a);
+            int id = view.getId();
+            if (id == com.baidu.tbadk.j.edit_vcode) {
+                button7 = this.a.D;
+                button7.setVisibility(8);
+                button8 = this.a.C;
+                button8.setVisibility(8);
+                button9 = this.a.E;
+                button9.setVisibility(0);
+            } else if (id == com.baidu.tbadk.j.login_edit_account) {
+                button4 = this.a.D;
+                button4.setVisibility(8);
+                button5 = this.a.C;
+                button5.setVisibility(0);
+                button6 = this.a.E;
+                button6.setVisibility(8);
+            } else if (id == com.baidu.tbadk.j.login_edit_password) {
+                button = this.a.D;
+                button.setVisibility(0);
+                button2 = this.a.C;
+                button2.setVisibility(8);
+                button3 = this.a.E;
+                button3.setVisibility(8);
             }
         }
     }

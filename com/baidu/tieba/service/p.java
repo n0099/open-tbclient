@@ -82,6 +82,7 @@ final class p extends Handler {
                             j18 = this.a.j;
                             j19 = this.a.k;
                             TiebaUpdateService.a(tiebaUpdateService2, j20, j18 + j19);
+                            this.a.a(i3);
                             return;
                         }
                         return;
@@ -124,8 +125,8 @@ final class p extends Handler {
             this.a.a("closeFlag", "true");
             notificationManager = this.a.b;
             notificationManager.cancel(10);
-            com.baidu.tieba.r.c();
-            UtilHelper.b(com.baidu.tieba.r.d(), versionData.getNew_file());
+            com.baidu.tieba.p.c();
+            UtilHelper.b(com.baidu.tieba.p.d(), versionData.getNew_file());
             if (this.a.a != null && this.a.a.length() > 4) {
                 TbadkApplication.j();
                 TbadkApplication.p(this.a.a);

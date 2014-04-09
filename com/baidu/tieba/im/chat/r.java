@@ -13,7 +13,7 @@ public final class r implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        r0.a(this.a.G);
+        r0.a(this.a.H);
         h.h(this.a);
         this.a.T();
     }

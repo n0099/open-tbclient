@@ -17,14 +17,16 @@ public class i implements com.baidu.adp.framework.task.a<Object> {
             str = TbadkApplication.N().getID();
         }
         byte[] a = com.baidu.tbadk.core.c.b.a().q().a("group_info" + str + ajVar.b());
-        ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = new ResponseGroupInfoLocalMessage();
-        try {
-            responseGroupInfoLocalMessage.a(a);
-            return responseGroupInfoLocalMessage;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return a();
+        if (a != null) {
+            ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = new ResponseGroupInfoLocalMessage();
+            try {
+                responseGroupInfoLocalMessage.a(a);
+                return responseGroupInfoLocalMessage;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+        return a();
     }
 
     private static CustomResponsedMessage<?> a() {

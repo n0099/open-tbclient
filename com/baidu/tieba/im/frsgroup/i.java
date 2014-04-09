@@ -17,12 +17,12 @@ final class i implements AdapterView.OnItemClickListener {
         GroupListAdapter groupListAdapter;
         FrsGroupActivity frsGroupActivity;
         FrsGroupActivity frsGroupActivity2;
-        groupListAdapter = this.a.h;
+        groupListAdapter = this.a.i;
         GroupInfoData groupInfoData = (GroupInfoData) groupListAdapter.getItem(i);
         if (groupInfoData != null) {
-            frsGroupActivity = this.a.a;
+            frsGroupActivity = this.a.b;
             com.baidu.tbadk.core.b.o oVar = new com.baidu.tbadk.core.b.o(frsGroupActivity, groupInfoData.getGroupId(), b.m(this.a));
-            frsGroupActivity2 = this.a.a;
+            frsGroupActivity2 = this.a.b;
             frsGroupActivity2.a(new com.baidu.adp.framework.message.a(2008011, oVar));
         }
     }

@@ -1,8 +1,9 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
+import android.widget.ScrollView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ay implements DialogInterface.OnCancelListener {
+public final class ay implements Runnable {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,15 +11,10 @@ final class ay implements DialogInterface.OnCancelListener {
         this.a = personChangeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public final void onCancel(DialogInterface dialogInterface) {
-        bg bgVar;
-        bg bgVar2;
-        this.a.DeinitWaitingDialog();
-        bgVar = this.a.x;
-        if (bgVar != null) {
-            bgVar2 = this.a.x;
-            bgVar2.cancel();
-        }
+    @Override // java.lang.Runnable
+    public final void run() {
+        ScrollView scrollView;
+        scrollView = this.a.h;
+        scrollView.fullScroll(130);
     }
 }

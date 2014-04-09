@@ -6,7 +6,6 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.DatabaseManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.data.MarkData;
-import com.baidu.tieba.r;
 import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -351,16 +350,16 @@ public final class k {
                 databaseManager.a("delete from setting where account=?", new Object[]{TbadkApplication.E()});
                 Object[] objArr = new Object[10];
                 objArr[0] = TbadkApplication.E();
-                objArr[1] = Integer.valueOf(TbadkApplication.j().ag());
-                objArr[2] = Integer.valueOf(TbadkApplication.j().ak() ? 1 : 0);
-                objArr[3] = Integer.valueOf(TbadkApplication.j().ai() ? 1 : 0);
-                objArr[4] = Integer.valueOf(TbadkApplication.j().ah() ? 1 : 0);
-                r.c();
-                objArr[5] = Integer.valueOf(r.o());
-                objArr[6] = Integer.valueOf(TbadkApplication.j().ae() ? 1 : 0);
-                objArr[7] = Integer.valueOf(TbadkApplication.j().aq() ? 1 : 0);
-                objArr[8] = TbadkApplication.j().ar();
-                objArr[9] = TbadkApplication.j().as();
+                objArr[1] = Integer.valueOf(TbadkApplication.j().ai());
+                objArr[2] = Integer.valueOf(TbadkApplication.j().am() ? 1 : 0);
+                objArr[3] = Integer.valueOf(TbadkApplication.j().ak() ? 1 : 0);
+                objArr[4] = Integer.valueOf(TbadkApplication.j().aj() ? 1 : 0);
+                com.baidu.tieba.p.c();
+                objArr[5] = Integer.valueOf(com.baidu.tieba.p.n());
+                objArr[6] = Integer.valueOf(TbadkApplication.j().ag() ? 1 : 0);
+                objArr[7] = Integer.valueOf(TbadkApplication.j().as() ? 1 : 0);
+                objArr[8] = TbadkApplication.j().at();
+                objArr[9] = TbadkApplication.j().au();
                 databaseManager.a("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time) values(?,?,?,?,?,?,?,?,?,?)", objArr);
             } catch (Exception e) {
                 com.baidu.adp.lib.util.f.b("DatabaseManager", "saveDraftBox", "error = " + e.getMessage());
@@ -372,7 +371,7 @@ public final class k {
     public static void n() {
         com.baidu.adp.lib.util.f.a("DatabaseManager", "getSetting", TbadkApplication.O());
         if (TbadkApplication.E() == null || TbadkApplication.E().length() <= 0 || TbadkApplication.O() == null) {
-            r.c().b(0);
+            com.baidu.tieba.p.c().b(0);
             return;
         }
         Cursor cursor = null;
@@ -380,80 +379,80 @@ public final class k {
             try {
                 Cursor a2 = new DatabaseManager().a("select * from setting where account=?", new String[]{TbadkApplication.E()});
                 if (a2 != null && a2.moveToFirst()) {
-                    r.c().b(a2.getInt(1));
+                    com.baidu.tieba.p.c().b(a2.getInt(1));
                     if (a2.getInt(2) == 0) {
-                        r.c();
-                        r.j(false);
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.i(false);
                     } else {
-                        r.c();
-                        r.j(true);
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.i(true);
                     }
                     if (a2.getInt(3) == 0) {
-                        r.c();
-                        r.m(false);
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.l(false);
                     } else {
-                        r.c();
-                        r.m(true);
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.l(true);
                     }
                     if (a2.getInt(4) == 0) {
-                        r.c();
-                        r.k(false);
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.j(false);
                     } else {
-                        r.c();
-                        r.k(true);
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.j(true);
                     }
-                    r.c();
-                    r.a(a2.getInt(5));
+                    com.baidu.tieba.p.c();
+                    com.baidu.tieba.p.a(a2.getInt(5));
                     if (a2.getInt(6) == 0) {
-                        r.c();
-                        r.n(false);
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.m(false);
                     } else {
-                        r.c();
-                        r.n(true);
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.m(true);
                     }
                     if (a2.getInt(7) == 0) {
-                        r.c();
-                        r.h(false);
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.g(false);
                     } else {
-                        r.c();
-                        r.h(true);
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.g(true);
                     }
                     String string = a2.getString(8);
                     if (TextUtils.isEmpty(string)) {
-                        r.c();
-                        r.h("23:00");
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.h("23:00");
                     } else {
-                        r.c();
-                        r.h(string);
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.h(string);
                     }
                     String string2 = a2.getString(9);
                     if (TextUtils.isEmpty(string2)) {
-                        r.c();
-                        r.i("09:00");
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.i("09:00");
                     } else {
-                        r.c();
-                        r.i(string2);
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.i(string2);
                     }
                 } else {
-                    r.c().b(300);
-                    r.c();
-                    r.j(true);
-                    r.c();
-                    r.m(true);
-                    r.c();
-                    r.k(true);
-                    r.c();
-                    r.g(true);
-                    r.c();
-                    r.i(false);
-                    r.c();
-                    r.n(true);
-                    r.c();
-                    r.h(false);
-                    r.c();
-                    r.h("23:00");
-                    r.c();
-                    r.i("09:00");
+                    com.baidu.tieba.p.c().b(300);
+                    com.baidu.tieba.p.c();
+                    com.baidu.tieba.p.i(true);
+                    com.baidu.tieba.p.c();
+                    com.baidu.tieba.p.l(true);
+                    com.baidu.tieba.p.c();
+                    com.baidu.tieba.p.j(true);
+                    com.baidu.tieba.p.c();
+                    com.baidu.tieba.p.f(true);
+                    com.baidu.tieba.p.c();
+                    com.baidu.tieba.p.h(false);
+                    com.baidu.tieba.p.c();
+                    com.baidu.tieba.p.m(true);
+                    com.baidu.tieba.p.c();
+                    com.baidu.tieba.p.g(false);
+                    com.baidu.tieba.p.c();
+                    com.baidu.tieba.p.h("23:00");
+                    com.baidu.tieba.p.c();
+                    com.baidu.tieba.p.i("09:00");
                 }
                 if (a2 != null) {
                     try {

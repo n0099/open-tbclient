@@ -7,7 +7,7 @@ public class n implements com.baidu.adp.framework.task.a<String> {
     @Override // com.baidu.adp.framework.task.a
     public final CustomResponsedMessage<String> a(com.baidu.adp.framework.message.a<String> aVar) {
         int a = com.baidu.adp.lib.f.b.a(aVar.a(), 0);
-        if (!com.baidu.tieba.im.db.m.d().e(String.valueOf(a))) {
+        if (!com.baidu.tieba.im.db.n.d().e(String.valueOf(a))) {
             return null;
         }
         ImMessageCenterPojo a2 = com.baidu.tieba.im.b.j.a().a(String.valueOf(a));

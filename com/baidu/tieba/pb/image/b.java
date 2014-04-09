@@ -16,7 +16,7 @@ final class b implements com.baidu.tbadk.imageManager.d {
         BaseViewPager baseViewPager;
         if (bVar != null && !z) {
             imagePbActivity = this.a.a;
-            baseViewPager = imagePbActivity.y;
+            baseViewPager = imagePbActivity.x;
             ImagePbImageView imagePbImageView = (ImagePbImageView) baseViewPager.findViewWithTag(str);
             if (imagePbImageView != null) {
                 imagePbImageView.invalidate();

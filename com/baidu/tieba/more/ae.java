@@ -22,7 +22,7 @@ final class ae extends com.baidu.tbadk.d {
                 this.b.closeLoadingDialog();
                 anVar2 = this.b.a;
                 anVar2.e().setTip("");
-                this.b.showToast(com.baidu.tieba.a.k.image_cash_del_suc);
+                this.b.showToast(com.baidu.tieba.a.k.del_mark_success);
             } else if (obj == MoreModel.TaskType.GET_SIZE) {
                 anVar = this.b.a;
                 anVar.e().setTip((String) objArr[1]);

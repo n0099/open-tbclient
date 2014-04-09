@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbplugin.exceptions.UninstallException;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
@@ -87,7 +86,7 @@ public final class o extends BdAsyncTask<Void, Integer, Void> {
                     context5 = this.a.b;
                     FileUtils.forceDelete(FileUtils.getFile(context5.getDir("/plugins/libs/", 0), lVar.b()));
                 }
-                c((Object[]) new Integer[]{3, Integer.valueOf((int) PersonInfoActivity.REQUEST_MARK)});
+                c((Object[]) new Integer[]{3, 102});
                 if (lVar.d() != null) {
                     Iterator<String> it = lVar.d().iterator();
                     while (it.hasNext()) {

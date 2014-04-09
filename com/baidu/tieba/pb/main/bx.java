@@ -1,20 +1,21 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.CompoundButton;
+import android.app.Dialog;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bx implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ bk a;
+public final class bx implements View.OnClickListener {
+    final /* synthetic */ bm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(bk bkVar) {
-        this.a = bkVar;
+    public bx(bm bmVar) {
+        this.a = bmVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (z) {
-            this.a.aB = (String) compoundButton.getTag();
-        }
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        Dialog dialog;
+        dialog = this.a.ag;
+        dialog.dismiss();
     }
 }

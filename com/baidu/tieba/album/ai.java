@@ -15,10 +15,10 @@ final class ai implements aa {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
         if (z) {
-            albumActivity2 = this.a.a;
+            albumActivity2 = this.a.b;
             return albumActivity2.a(imageFileInfo);
         }
-        albumActivity = this.a.a;
+        albumActivity = this.a.b;
         return albumActivity.b(imageFileInfo);
     }
 }

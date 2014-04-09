@@ -22,7 +22,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
         com.baidu.tieba.im.message.a.h iVar;
         GetGroupMsgRes.GetGroupMsgResIdl parseFrom = GetGroupMsgRes.GetGroupMsgResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             this.b = parseFrom.getData().getAllowEggs();
             this.a = new LinkedList();
@@ -180,9 +180,5 @@ public class ResponsePullMessage extends SocketResponsedMessage {
 
     public final List<GroupMsgData> d() {
         return this.a;
-    }
-
-    public final int i() {
-        return this.b;
     }
 }

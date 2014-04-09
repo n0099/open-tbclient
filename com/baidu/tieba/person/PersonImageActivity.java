@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PersonImageActivity extends com.baidu.tbadk.a {
     private ProgressBar a = null;
-    private bl b = null;
+    private bm b = null;
     private MultiImageView c = null;
     private View.OnClickListener d = null;
     private View.OnLongClickListener e = null;
@@ -47,10 +47,10 @@ public class PersonImageActivity extends com.baidu.tbadk.a {
                 this.h = intent.getStringExtra("curImgUrl");
             }
         }
-        this.d = new bh(this);
-        this.e = new bi(this);
-        this.f = new bj(this);
-        this.g = new bk(this);
+        this.d = new bi(this);
+        this.e = new bj(this);
+        this.f = new bk(this);
+        this.g = new bl(this);
         this.a = (ProgressBar) findViewById(com.baidu.tieba.a.h.progress);
         this.c = (MultiImageView) findViewById(com.baidu.tieba.a.h.viewpager);
         this.c.setPageMargin(com.baidu.adp.lib.util.i.a((Context) this, 8.0f));

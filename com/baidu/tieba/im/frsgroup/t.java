@@ -19,7 +19,7 @@ final class t extends com.baidu.adp.framework.c.g {
     public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
         ah ahVar;
         ah ahVar2;
-        com.baidu.tieba.im.model.y yVar;
+        com.baidu.tieba.im.model.z zVar;
         ah ahVar3;
         ah ahVar4;
         SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
@@ -44,8 +44,8 @@ final class t extends com.baidu.adp.framework.c.g {
         this.a.showToast(com.baidu.tieba.im.j.members_delete_success);
         ahVar2 = this.a.b;
         ad h = ahVar2.h();
-        yVar = this.a.c;
-        h.b(yVar.c());
+        zVar = this.a.c;
+        h.b(zVar.c());
         ahVar3 = this.a.b;
         ahVar3.i();
         ahVar4 = this.a.b;

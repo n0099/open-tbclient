@@ -5,8 +5,8 @@ import android.content.Intent;
 /* loaded from: classes.dex */
 public class OfficialMsgImageActivity extends a {
     @Override // com.baidu.tieba.im.chat.a
-    protected final void a(String str, bz bzVar) {
-        x.b().c(str, bzVar);
+    protected final void a(String str, bv bvVar) {
+        x.b().c(str, bvVar);
     }
 
     public static void a(Context context, String str, long j) {

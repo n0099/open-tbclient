@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.randchat;
 
 import android.util.Pair;
-import com.baidu.tieba.im.model.bu;
+import com.baidu.tieba.im.model.bv;
 import com.baidu.tieba.im.randchat.WaitingTipView;
 /* loaded from: classes.dex */
 final class m extends com.baidu.tbadk.coreExtra.c.b {
@@ -16,13 +16,13 @@ final class m extends com.baidu.tbadk.coreExtra.c.b {
 
     @Override // com.baidu.tbadk.coreExtra.c.b
     public final void a(long j) {
-        bu buVar;
+        bv bvVar;
         com.baidu.tbadk.coreExtra.c.b bVar;
-        bu buVar2;
-        buVar = this.a.b;
-        if (!buVar.a().isEmpty()) {
-            buVar2 = this.a.b;
-            Pair<WaitingTipView.Type, Object[]> removeFirst = buVar2.a().removeFirst();
+        bv bvVar2;
+        bvVar = this.a.b;
+        if (!bvVar.a().isEmpty()) {
+            bvVar2 = this.a.b;
+            Pair<WaitingTipView.Type, Object[]> removeFirst = bvVar2.a().removeFirst();
             if (removeFirst != null) {
                 this.a.b((WaitingTipView.Type) removeFirst.first, (Object[]) removeFirst.second);
                 return;

@@ -19,8 +19,8 @@ public final class d extends BdAsyncTask<String, Object, Object> {
         if (a == null) {
             return null;
         }
-        Object fromLocal = a.getFromLocal(this.c, this);
-        return fromLocal == null ? a.getFromRemote(this.c, this) : fromLocal;
+        Object a2 = a.a(this.c, this);
+        return a2 == null ? a.b(this.c, this) : a2;
     }
 
     public d(b bVar, String str, int i, a aVar, e eVar) {

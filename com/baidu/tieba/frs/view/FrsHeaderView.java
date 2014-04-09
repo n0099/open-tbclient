@@ -50,6 +50,7 @@ public final class FrsHeaderView {
     private final ViewGroup ag;
     private ImageView ah;
     private UserIconBox ai;
+    private boolean am;
     private TextView d;
     private TextView e;
     private TextView f;
@@ -156,11 +157,7 @@ public final class FrsHeaderView {
         this.p = (RelativeLayout) this.t.findViewById(com.baidu.tieba.a.h.btn_love_content);
         this.ag = (ViewGroup) this.t.findViewById(com.baidu.tieba.a.h.frs_forum_entry);
         this.ah = (ImageView) this.t.findViewById(com.baidu.tieba.a.h.frs_enter_detail);
-        if (com.baidu.adp.lib.a.f.a().b(BarDetailForFrsSwitchStatic.BAR_DETAIL_FRS) == 0) {
-            this.ag.setVisibility(0);
-        } else {
-            this.ag.setVisibility(8);
-        }
+        this.ag.setVisibility(8);
         this.Q = new e(this.t, this.B);
         this.q = (TextView) this.t.findViewById(com.baidu.tieba.a.h.level_name);
         this.r = (TextView) this.t.findViewById(com.baidu.tieba.a.h.level);
@@ -356,7 +353,7 @@ public final class FrsHeaderView {
             this.x.setHeight(this.B.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.frs_header_exp_height));
             this.z = (TextView) this.y.findViewById(com.baidu.tieba.a.h.cur_experience);
             this.A = (TextView) this.y.findViewById(com.baidu.tieba.a.h.levelup_experience);
-            k();
+            l();
         }
         if (this.x.isShowing()) {
             this.x.dismiss();
@@ -364,13 +361,17 @@ public final class FrsHeaderView {
         }
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);
-        k();
+        l();
+        if (iArr[1] - this.x.getHeight() <= 50) {
+            this.x.dismiss();
+            return;
+        }
         this.x.showAtLocation(this.t, 0, iArr[0], iArr[1] - this.x.getHeight());
         this.x.update();
         this.M.postDelayed(this.b, 2000L);
     }
 
-    private void k() {
+    private void l() {
         this.z.setText(String.valueOf(this.T));
         if (this.Y) {
             this.A.setVisibility(8);
@@ -524,5 +525,9 @@ public final class FrsHeaderView {
 
     public final void j() {
         this.Q.a();
+    }
+
+    public final void k() {
+        this.am = true;
     }
 }

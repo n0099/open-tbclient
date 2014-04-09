@@ -16,5 +16,6 @@ final class j implements View.OnClickListener {
         EditText editText;
         editText = this.a.c;
         editText.setText("");
+        this.a.A = "";
     }
 }

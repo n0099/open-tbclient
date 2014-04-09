@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.message.ResponseNearbyGroupsLocalMessage;
-import com.baidu.tieba.im.model.ax;
+import com.baidu.tieba.im.model.ay;
 import com.baidu.tieba.im.p;
 /* loaded from: classes.dex */
 final class d extends com.baidu.adp.framework.c.a {
@@ -20,31 +20,31 @@ final class d extends com.baidu.adp.framework.c.a {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
     @Override // com.baidu.adp.framework.c.c
     public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        ax axVar;
+        ay ayVar;
         m mVar;
         m mVar2;
         m mVar3;
-        ax axVar2;
-        ax axVar3;
+        ay ayVar2;
+        ay ayVar3;
         boolean a;
-        ax axVar4;
-        ax axVar5;
+        ay ayVar4;
+        ay ayVar5;
         CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        axVar = this.a.c;
-        axVar.a(false);
+        ayVar = this.a.c;
+        ayVar.a(false);
         if (customResponsedMessage2 instanceof ResponseNearbyGroupsLocalMessage) {
             if (customResponsedMessage2.g() == 2001115 && UtilHelper.a()) {
                 p.a();
-                long g = p.g();
+                long f = p.f();
                 NearbyGroupsActivity nearbyGroupsActivity = this.a;
-                a = NearbyGroupsActivity.a(g);
+                a = NearbyGroupsActivity.a(f);
                 if (a) {
-                    axVar5 = this.a.c;
-                    axVar5.h();
+                    ayVar5 = this.a.c;
+                    ayVar5.h();
                     return;
                 }
-                axVar4 = this.a.c;
-                axVar4.g();
+                ayVar4 = this.a.c;
+                ayVar4.g();
             }
             ResponseNearbyGroupsLocalMessage responseNearbyGroupsLocalMessage = (ResponseNearbyGroupsLocalMessage) customResponsedMessage2;
             if (responseNearbyGroupsLocalMessage.e() > 0) {
@@ -52,10 +52,10 @@ final class d extends com.baidu.adp.framework.c.a {
             } else {
                 NearbyGroupsData b = responseNearbyGroupsLocalMessage.b();
                 if (b != null) {
-                    axVar2 = this.a.c;
-                    axVar2.b(b.getHasMore());
-                    axVar3 = this.a.c;
-                    axVar3.a(b.getGeo());
+                    ayVar2 = this.a.c;
+                    ayVar2.b(b.getHasMore());
+                    ayVar3 = this.a.c;
+                    ayVar3.a(b.getGeo());
                 } else {
                     b = new NearbyGroupsData();
                 }

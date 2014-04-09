@@ -8,12 +8,12 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.b.o;
 import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
-import com.baidu.tieba.im.model.ax;
+import com.baidu.tieba.im.model.ay;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class NearbyGroupsActivity extends com.baidu.tbadk.a {
     private m b = null;
-    private ax c = null;
+    private ay c = null;
     private com.baidu.adp.lib.util.d d = null;
     private com.baidu.adp.widget.ListView.d e = new b(this);
     com.baidu.adp.lib.c.d a = new c(this);
@@ -33,7 +33,7 @@ public class NearbyGroupsActivity extends com.baidu.tbadk.a {
         this.b.a(new f(this));
         this.b.a(new g(this));
         this.d = new com.baidu.adp.lib.util.d(this);
-        this.c = new ax();
+        this.c = new ay();
         this.c.setUniqueId(getUniqueId());
         registerListener(103009, this.g);
         registerListener(103008, this.g);

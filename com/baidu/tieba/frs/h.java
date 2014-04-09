@@ -16,18 +16,18 @@ public final class h extends BdAsyncTask<String, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final /* synthetic */ void a(Boolean bool) {
-        cw cwVar;
-        cw cwVar2;
+        cy cyVar;
+        cy cyVar2;
         this.a.n = null;
         this.a.a(false);
         if (this.b != null) {
             j jVar = new j(this.a);
             jVar.d = this.b.f();
             jVar.c = this.b.d();
-            cwVar = this.a.k;
-            if (cwVar != null) {
-                cwVar2 = this.a.k;
-                cwVar2.a(this.f, jVar);
+            cyVar = this.a.k;
+            if (cyVar != null) {
+                cyVar2 = this.a.k;
+                cyVar2.a(this.f, jVar);
             }
         }
     }

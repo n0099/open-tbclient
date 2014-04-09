@@ -99,13 +99,13 @@ public class ap extends Handler {
                 this.f.c();
                 Object obj = message.obj;
                 if (obj instanceof aa) {
-                    byte[] l = ((aa) obj).a.l();
-                    if (l == null) {
+                    byte[] m = ((aa) obj).a.m();
+                    if (m == null) {
                         z = false;
-                    } else if (l.length > this.e.c()) {
+                    } else if (m.length > this.e.c()) {
                         throw new WebSocketException("message payload exceeds payload limit");
                     } else {
-                        a(2, true, l);
+                        a(2, true, m);
                         z = true;
                     }
                 } else {

@@ -1,22 +1,26 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryUserInfos.QueryUserInfosReq;
+import protobuf.QuitChatroom.QuitChatroomReq;
 /* loaded from: classes.dex */
 public final class au extends com.baidu.tbadk.message.websockt.d {
-    protobuf.QueryUserInfos.b a;
+    private int a;
+    private int b;
+    private int c;
 
-    public au() {
-        super(205003);
-        this.a = QueryUserInfosReq.DataReq.newBuilder();
+    public au(int i, int i2, int i3) {
+        super(106102);
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
     }
 
-    public final void b(long j) {
-        this.a.a(j);
+    public final int i() {
+        return this.c;
     }
 
     @Override // com.baidu.tbadk.message.websockt.d
     public final MessageLite h() {
-        return QueryUserInfosReq.QueryUserInfosReqIdl.newBuilder().a(this.a.build()).build();
+        return QuitChatroomReq.QuitChatroomReqIdl.newBuilder().a(QuitChatroomReq.DataReq.newBuilder().a(this.a).b(this.b).build()).build();
     }
 }

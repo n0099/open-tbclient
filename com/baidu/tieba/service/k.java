@@ -10,15 +10,15 @@ final class k implements com.baidu.adp.framework.task.a<String> {
         String a = aVar.a();
         Intent intent = new Intent(TbadkApplication.j(), TiebaMessageService.class);
         if ("start".equals(a)) {
-            com.baidu.tieba.r.c();
-            if (com.baidu.tieba.r.p()) {
+            TbadkApplication.j();
+            if (TbadkApplication.aG()) {
                 TbadkApplication.j().startService(intent);
                 return null;
             }
             return null;
         } else if ("start_once".equals(a)) {
-            com.baidu.tieba.r.c();
-            if (com.baidu.tieba.r.p()) {
+            TbadkApplication.j();
+            if (TbadkApplication.aG()) {
                 intent.putExtra("getMessageAtOnce", true);
                 TbadkApplication.j().startService(intent);
                 return null;

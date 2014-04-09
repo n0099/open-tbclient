@@ -2,7 +2,7 @@ package com.baidu.tieba.im.c;
 
 import android.os.Handler;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.s;
+import com.baidu.tieba.im.r;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -27,7 +27,7 @@ public final class e implements com.baidu.tieba.im.a<com.baidu.tieba.im.db.e> {
         Handler handler2;
         Handler handler3;
         Handler handler4;
-        if (s.a() > 10) {
+        if (r.a() > 10) {
             com.baidu.adp.lib.util.f.d("----pull message, but TiebaIMSingleExecutor.QueueSize too big");
             handler3 = this.a.l;
             handler4 = this.a.l;

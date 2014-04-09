@@ -11,7 +11,7 @@ import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.im.view.HeadImageShaderView;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MsgleftView extends ch {
+public class MsgleftView extends cd {
     private static final String q = MsgleftView.class.getName();
     View.OnLongClickListener p;
     private HeadImageShaderView r;
@@ -24,7 +24,7 @@ public class MsgleftView extends ch {
     public MsgleftView(Context context) {
         super(context, com.baidu.tieba.im.i.msg_msgleft_view);
         this.w = new TouchType();
-        this.p = new co(this);
+        this.p = new ck(this);
         d();
         this.s = (TextView) a(com.baidu.tieba.im.h.tex_msgitem_name);
         this.t = (ImageView) a(com.baidu.tieba.im.h.iv_sex);
@@ -32,13 +32,13 @@ public class MsgleftView extends ch {
         this.r = (HeadImageShaderView) a(com.baidu.tieba.im.h.img_msgitem_photo);
         this.r.setAutoChangeStyle(false);
         this.v = (UserIconBox) a(com.baidu.tieba.im.h.user_tshow_icon_box);
-        this.r.setOnClickListener(new cp(this));
+        this.r.setOnClickListener(new cl(this));
         this.r.setLongClickable(true);
         this.r.setOnLongClickListener(this.p);
-        this.r.setOnTouchListener(new cq(this));
+        this.r.setOnTouchListener(new cm(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.ch
+    @Override // com.baidu.tieba.im.chat.cd
     public final void a(View view, com.baidu.tieba.im.message.a.a aVar) {
         String str = null;
         super.a(view, aVar);
@@ -97,9 +97,9 @@ public class MsgleftView extends ch {
                 str = aVar.r().getPortrait();
             }
             if (aVar.r().getUserType() == 1) {
-                this.e.b(str, new cr(this));
+                this.e.b(str, new cn(this));
             } else {
-                this.e.c(str, new cs(this));
+                this.e.c(str, new co(this));
             }
             this.j.setVisibility(8);
             c(8);

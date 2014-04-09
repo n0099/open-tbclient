@@ -1,24 +1,18 @@
 package com.baidu.tieba.account;
 
-import android.app.Activity;
-import android.content.Intent;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-final class u implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.ak> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<byte[]> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.ak> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            Intent d = aVar.a().d();
-            if (aVar.a().c() instanceof Activity) {
-                ReLoginShareActivity.l = (Activity) aVar.a().c();
-            }
-            d.setClass(aVar.a().c(), ReLoginShareActivity.class);
-            d.putExtra("user_name", aVar.a().a.c);
-            d.putExtra("bduss", aVar.a().a.a);
-            d.putExtra("ptoken", aVar.a().a.b);
-            d.putExtra("locate_type", aVar.a().b);
-            aVar.a().f();
-        }
-        return null;
+final class u implements DialogInterface.OnClickListener {
+    final /* synthetic */ NotLoginGuideActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public u(NotLoginGuideActivity notLoginGuideActivity) {
+        this.a = notLoginGuideActivity;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tbadk.core.g.a(this.a, "sapi_fast_regist_click");
+        SapiFastRegActivity.a(this.a, 22002);
     }
 }

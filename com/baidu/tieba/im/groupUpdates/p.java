@@ -53,7 +53,7 @@ public final class p {
     }
 
     public static void a(com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {
-        com.baidu.tieba.im.s.a(new s(), aVar);
+        com.baidu.tieba.im.r.a(new s(), aVar);
     }
 
     public static List<UpdatesItemData> a(LinkedList<GroupNewsPojo> linkedList) {

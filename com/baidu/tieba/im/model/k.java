@@ -163,16 +163,16 @@ public final class k extends com.baidu.adp.a.e {
         this.k.a(afVar);
     }
 
-    private static com.baidu.tieba.im.message.bk d(String str) {
+    private static com.baidu.tieba.im.message.bj d(String str) {
         long j = 0;
         try {
             j = Long.parseLong(str);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        com.baidu.tieba.im.message.bk bkVar = new com.baidu.tieba.im.message.bk();
-        bkVar.b(j);
-        return bkVar;
+        com.baidu.tieba.im.message.bj bjVar = new com.baidu.tieba.im.message.bj();
+        bjVar.b(j);
+        return bjVar;
     }
 
     public final void c(String str) {

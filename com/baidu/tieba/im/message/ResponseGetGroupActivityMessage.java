@@ -12,7 +12,7 @@ public class ResponseGetGroupActivityMessage extends TbSocketReponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         QueryGroupActivityRes.QueryGroupActivityResIdl parseFrom = QueryGroupActivityRes.QueryGroupActivityResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             QueryGroupActivityRes.DataRes data = parseFrom.getData();
             GroupActivityData groupActivityData = new GroupActivityData();

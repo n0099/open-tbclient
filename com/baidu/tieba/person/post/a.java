@@ -26,7 +26,7 @@ class a implements View.OnClickListener {
     private final LinearLayout i;
     private final ColumnLayout j;
     private c m;
-    private final com.baidu.tbadk.editortool.aa n;
+    private final com.baidu.tbadk.editortool.ab n;
 
     public a(View view) {
         this.a = (LinearLayout) view.findViewById(com.baidu.tieba.a.h.top_line);
@@ -39,7 +39,7 @@ class a implements View.OnClickListener {
         this.j = (ColumnLayout) view.findViewById(com.baidu.tieba.a.h.item_header);
         this.g = (LinearLayout) view.findViewById(com.baidu.tieba.a.h.person_thread);
         this.h = (LinearLayout) view.findViewById(com.baidu.tieba.a.h.person_child);
-        this.n = new com.baidu.tbadk.editortool.aa(view.getContext());
+        this.n = new com.baidu.tbadk.editortool.ab(view.getContext());
         int a = com.baidu.adp.lib.util.i.a(view.getContext(), 42.0f);
         this.n.a(a, a);
         if (this.i != null) {

@@ -1,147 +1,99 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.tbadk.editortool.EmotionGroupData;
+import android.graphics.Bitmap;
+import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public final class e implements com.baidu.tieba.download.b {
-    @Override // com.baidu.tieba.download.b
-    public final void d(com.baidu.tieba.download.a aVar) {
-        com.baidu.tbadk.editortool.ab.a().b();
-        try {
-            File file = new File(aVar.e());
-            if (file.exists()) {
-                file.delete();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+public final class e {
+    public static boolean a(String str, String str2, InputStream inputStream) {
+        return com.baidu.tbadk.core.util.w.a(new StringBuilder(".emotions/").append(str).toString(), str2, inputStream) != null;
     }
 
-    @Override // com.baidu.tieba.download.b
-    public final void a(com.baidu.tieba.download.a aVar, int i) {
-        if (i != 3) {
-            try {
-                File file = new File(aVar.e());
-                if (file.exists()) {
-                    file.delete();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [86=4, 89=4, 90=4] */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00e9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // com.baidu.tieba.download.b
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean c(com.baidu.tieba.download.a aVar) {
-        FileInputStream fileInputStream;
-        if (aVar == null) {
+    public static boolean a(String str) {
+        com.baidu.tbadk.editortool.ac.a();
+        Bitmap c = com.baidu.tbadk.editortool.ac.c(str, "panel.png");
+        if (c == null) {
             return false;
         }
-        try {
-            fileInputStream = new FileInputStream(aVar.e());
-            try {
-                try {
-                    c.a();
-                    int a = c.a(aVar.a(), fileInputStream);
-                    EmotionGroupData a2 = com.baidu.tbadk.editortool.v.a().a(aVar.a());
-                    if (a2 == null) {
-                        if (a == 0) {
-                            try {
-                                fileInputStream.close();
-                                return false;
-                            } catch (IOException e) {
-                                com.baidu.adp.lib.util.f.e("download:after load::error:" + e.getMessage());
-                                return false;
-                            }
-                        }
-                        a2 = new EmotionGroupData();
-                        a2.setBytesLength((int) aVar.i());
-                        a2.setBytesReceived((int) aVar.h());
-                        a2.setDownloadUrl(aVar.d());
-                        a2.setGroupId(aVar.a());
-                        a2.setEmotionsCount(a);
-                        a2.setHeight(aVar.k());
-                        a2.setWidth(aVar.j());
-                        a2.setDownloadTime(System.currentTimeMillis());
-                        a2.setGroupDesc(aVar.c());
-                        a2.setGroupName(aVar.b());
-                        a2.setStatus(1);
-                        com.baidu.tbadk.editortool.v.a();
-                        com.baidu.tbadk.editortool.v.a(a2);
-                    }
-                    com.baidu.tbadk.editortool.v.a();
-                    com.baidu.tbadk.editortool.v.a(aVar.n(), a2);
-                    aVar.e((String) null);
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e2) {
-                        com.baidu.adp.lib.util.f.e("download:after load::error:" + e2.getMessage());
-                    }
-                    return true;
-                } catch (Exception e3) {
-                    e = e3;
-                    com.baidu.adp.lib.util.f.e("download:after load::error:" + e.getMessage());
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                            return false;
-                        } catch (IOException e4) {
-                            com.baidu.adp.lib.util.f.e("download:after load::error:" + e4.getMessage());
-                            return false;
-                        }
-                    }
-                    return false;
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e5) {
-                        com.baidu.adp.lib.util.f.e("download:after load::error:" + e5.getMessage());
-                    }
-                }
-                throw th;
+        c.recycle();
+        return true;
+    }
+
+    public static boolean a(String str, String str2, String str3) {
+        String str4 = com.baidu.tbadk.core.util.w.a + "/" + com.baidu.tbadk.core.data.n.f() + "/.emotions/" + str + "/";
+        File file = new File(str4, str2);
+        if (!file.exists()) {
+            return false;
+        }
+        File file2 = new File(str4, str3);
+        if (file2.exists()) {
+            if (file2.delete() && file.renameTo(file2)) {
+                return true;
             }
-        } catch (Exception e6) {
-            e = e6;
-            fileInputStream = null;
+            return com.baidu.tbadk.core.util.w.f(file.getAbsolutePath(), file2.getAbsolutePath());
+        } else if (file.renameTo(file2)) {
+            return true;
+        } else {
+            return com.baidu.tbadk.core.util.w.f(file.getAbsolutePath(), file2.getAbsolutePath());
+        }
+    }
+
+    public static List<String> a(String str, InputStream inputStream) {
+        ZipInputStream zipInputStream;
+        try {
+            zipInputStream = new ZipInputStream(new BufferedInputStream(inputStream));
+            while (true) {
+                try {
+                    ZipEntry nextEntry = zipInputStream.getNextEntry();
+                    if (nextEntry == null) {
+                        break;
+                    } else if (!nextEntry.isDirectory()) {
+                        String name = nextEntry.getName();
+                        com.baidu.adp.lib.util.f.e("zip file name:" + name);
+                        a(str, name, zipInputStream);
+                    } else {
+                        com.baidu.adp.lib.util.f.e("zip file dir:" + nextEntry.getName());
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    com.baidu.tbadk.core.util.l.a((InputStream) zipInputStream);
+                    throw th;
+                }
+            }
+            zipInputStream.close();
+            com.baidu.tbadk.core.util.l.a((InputStream) zipInputStream);
+            byte[] e = com.baidu.tbadk.core.util.w.e(".emotions/" + str, "map.txt");
+            if (e == null) {
+                throw new FileNotFoundException("map.txt file not exsit!");
+            }
+            String str2 = new String(e, "UTF-8");
+            LinkedList linkedList = new LinkedList();
+            for (String str3 : str2.split(IOUtils.LINE_SEPARATOR_UNIX)) {
+                String trim = str3.trim();
+                if (trim.startsWith("#(")) {
+                    String[] split = trim.split("=");
+                    if (split.length == 2) {
+                        String trim2 = split[0].trim();
+                        String trim3 = split[1].trim();
+                        com.baidu.tbadk.editortool.ac.a();
+                        a(str, "s_" + trim3 + ".png", com.baidu.tbadk.editortool.ac.a(trim2, false));
+                        com.baidu.tbadk.editortool.ac.a();
+                        a(str, "d_" + trim3 + ".gif", com.baidu.tbadk.editortool.ac.a(trim2, true));
+                        linkedList.add(trim2);
+                    }
+                }
+            }
+            return linkedList;
         } catch (Throwable th2) {
             th = th2;
-            fileInputStream = null;
-            if (fileInputStream != null) {
-            }
-            throw th;
+            zipInputStream = null;
         }
-    }
-
-    @Override // com.baidu.tieba.download.b
-    public final void a(com.baidu.tieba.download.a aVar) {
-        if (aVar != null) {
-            f.a();
-            f.a(aVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.download.b
-    public final boolean b(com.baidu.tieba.download.a aVar) {
-        if (aVar == null) {
-            return false;
-        }
-        EmotionGroupData a = com.baidu.tbadk.editortool.v.a().a(aVar.a());
-        if (a != null && d.a(aVar.a())) {
-            com.baidu.tbadk.editortool.v.a();
-            com.baidu.tbadk.editortool.v.a(aVar.n(), a);
-            aVar.e((String) null);
-            return false;
-        }
-        return true;
     }
 }

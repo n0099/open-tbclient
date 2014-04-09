@@ -15,6 +15,7 @@ import android.os.PowerManager;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.voice.service.MediaService;
 import java.io.File;
 import java.util.UUID;
 /* loaded from: classes.dex */
@@ -23,7 +24,7 @@ public final class VoiceManager extends BroadcastReceiver implements SensorEvent
     private static Integer H;
     private static Integer I;
     private Boolean A;
-    private com.baidu.tbadk.core.voice.cache.a C;
+    private com.baidu.tbadk.core.voice.a.a C;
     y a;
     Activity d;
     AudioManager g;
@@ -183,7 +184,7 @@ public final class VoiceManager extends BroadcastReceiver implements SensorEvent
         if (m) {
             if (c(voiceModel.voice_status.intValue())) {
                 b(voiceModel);
-                com.baidu.tbadk.core.voice.service.a.b(this.d);
+                MediaService.b(this.d);
                 return;
             }
             b(voiceModel);
@@ -343,7 +344,7 @@ public final class VoiceManager extends BroadcastReceiver implements SensorEvent
                 this.r = false;
             }
             if (m) {
-                com.baidu.tbadk.core.voice.service.a.a(this.d, str, voiceModel.duration, voiceModel.curr_time);
+                MediaService.a(this.d, str, voiceModel.duration, voiceModel.curr_time);
                 voiceModel.curr_time = 0;
                 return;
             }
@@ -429,12 +430,12 @@ public final class VoiceManager extends BroadcastReceiver implements SensorEvent
         this.g = (AudioManager) activity.getSystemService("audio");
         this.e = (SensorManager) activity.getSystemService("sensor");
         this.f = this.e.getDefaultSensor(8);
-        this.C = new com.baidu.tbadk.core.voice.cache.a(activity);
+        this.C = new com.baidu.tbadk.core.voice.a.a(activity);
         this.u = null;
         this.v = null;
         if (m) {
-            com.baidu.tbadk.core.voice.service.a.a(activity, this.L);
-            com.baidu.tbadk.core.voice.service.a.a(activity, (Intent) null);
+            MediaService.a(activity, this.L);
+            MediaService.a(activity, (Intent) null);
         }
         if (this.g != null) {
             try {
@@ -471,7 +472,7 @@ public final class VoiceManager extends BroadcastReceiver implements SensorEvent
                 b(this.u);
                 this.u = null;
             }
-            com.baidu.tbadk.core.voice.service.a.b(this.d);
+            MediaService.b(this.d);
             return;
         }
         f();
@@ -489,7 +490,7 @@ public final class VoiceManager extends BroadcastReceiver implements SensorEvent
         e();
         f();
         v();
-        com.baidu.tbadk.core.voice.service.a.c(this.d);
+        MediaService.c(this.d);
         a((Context) this.d);
         if (this.C != null) {
             this.C.a();
@@ -515,7 +516,7 @@ public final class VoiceManager extends BroadcastReceiver implements SensorEvent
         this.p = null;
         this.g = null;
         if (m) {
-            com.baidu.tbadk.core.voice.service.a.b(activity, this.L);
+            MediaService.b(activity, this.L);
         }
     }
 
@@ -625,7 +626,7 @@ public final class VoiceManager extends BroadcastReceiver implements SensorEvent
             if (!this.J && this.u != null && c(this.u.voice_status.intValue()) && o2 != null) {
                 this.J = true;
                 if (m) {
-                    com.baidu.tbadk.core.voice.service.a.b(this.d);
+                    MediaService.b(this.d);
                 } else {
                     f();
                 }

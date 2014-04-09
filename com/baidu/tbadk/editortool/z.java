@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import java.util.Map;
 /* loaded from: classes.dex */
-public final class z extends af {
+public final class z extends ag {
     public z() {
         super.b(7);
         super.c(3);
@@ -15,7 +15,7 @@ public final class z extends af {
         super.a(bVar);
     }
 
-    @Override // com.baidu.tbadk.editortool.af
+    @Override // com.baidu.tbadk.editortool.ag
     public final String a(int i) {
         int i2;
         if (i < 0 || i >= w.b.size()) {
@@ -31,12 +31,12 @@ public final class z extends af {
         return null;
     }
 
-    @Override // com.baidu.tbadk.editortool.af
+    @Override // com.baidu.tbadk.editortool.ag
     public final boolean a(String str) {
         return w.c.get(str) != null;
     }
 
-    @Override // com.baidu.tbadk.editortool.af
+    @Override // com.baidu.tbadk.editortool.ag
     public final com.baidu.adp.widget.ImageView.b b(String str) {
         Integer num = w.c.get(str);
         if (num == null) {
@@ -50,37 +50,37 @@ public final class z extends af {
         return null;
     }
 
-    @Override // com.baidu.tbadk.editortool.af
+    @Override // com.baidu.tbadk.editortool.ag
     public final int d() {
         return w.b.size();
     }
 
-    @Override // com.baidu.tbadk.editortool.af
+    @Override // com.baidu.tbadk.editortool.ag
     public final com.baidu.adp.widget.ImageView.b c(String str) {
         return b(str);
     }
 
-    @Override // com.baidu.tbadk.editortool.af
+    @Override // com.baidu.tbadk.editortool.ag
     public final EmotionGroupType c() {
         return EmotionGroupType.LOCAL;
     }
 
-    @Override // com.baidu.tbadk.editortool.af
+    @Override // com.baidu.tbadk.editortool.ag
     public final String e() {
         return "_local";
     }
 
-    @Override // com.baidu.tbadk.editortool.af
+    @Override // com.baidu.tbadk.editortool.ag
     public final String f() {
         return "_local";
     }
 
-    @Override // com.baidu.tbadk.editortool.af
+    @Override // com.baidu.tbadk.editortool.ag
     public final int g() {
         return 0;
     }
 
-    @Override // com.baidu.tbadk.editortool.af
+    @Override // com.baidu.tbadk.editortool.ag
     public final int h() {
         return 0;
     }

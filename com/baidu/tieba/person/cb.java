@@ -1,9 +1,9 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-final class cb implements View.OnClickListener {
+final class cb implements Runnable {
     final /* synthetic */ PersonListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,22 +11,33 @@ final class cb implements View.OnClickListener {
         this.a = personListActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        ch chVar;
-        ch chVar2;
-        ch chVar3;
-        int intValue = ((Integer) view.getTag()).intValue();
-        chVar = this.a.g;
-        if (chVar != null) {
-            chVar2 = this.a.g;
-            if (chVar2.getItemViewType(intValue) == 0) {
-                chVar3 = this.a.g;
-                UserData userData = (UserData) chVar3.getItem(intValue);
-                if (userData != null && userData.getUserId() != null) {
-                    com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new com.baidu.tbadk.core.b.ag(this.a, userData.getUserId(), userData.getName_show())));
+    @Override // java.lang.Runnable
+    public final void run() {
+        BdListView bdListView;
+        BdListView bdListView2;
+        cj cjVar;
+        cj cjVar2;
+        cj cjVar3;
+        try {
+            bdListView = this.a.b;
+            int firstVisiblePosition = bdListView.getFirstVisiblePosition();
+            bdListView2 = this.a.b;
+            int lastVisiblePosition = bdListView2.getLastVisiblePosition();
+            for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
+                cjVar = this.a.g;
+                if (i < cjVar.getCount()) {
+                    cjVar2 = this.a.g;
+                    UserData userData = (UserData) cjVar2.getItem(i);
+                    if (userData != null && userData.getPortrait() != null) {
+                        cjVar3 = this.a.g;
+                        cjVar3.c().c(userData.getPortrait(), new cc(this));
+                    }
+                } else {
+                    return;
                 }
             }
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
         }
     }
 }

@@ -100,9 +100,9 @@ public class SignAllForumActivity extends com.baidu.tbadk.a implements com.baidu
     @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (com.baidu.tieba.r.c().h() > 0 && this.a != null && this.a.g() != null && this.a.g().j() != null) {
+        if (com.baidu.tieba.p.c().h() > 0 && this.a != null && this.a.g() != null && this.a.g().j() != null) {
             a g = this.a.g();
-            com.baidu.tieba.r c = com.baidu.tieba.r.c();
+            com.baidu.tieba.p c = com.baidu.tieba.p.c();
             ArrayList<b> m = g.m();
             ArrayList<b> l = g.l();
             Iterator<b> it = m.iterator();

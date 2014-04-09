@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class n extends BaseAdapter {
     private final Context a;
-    private com.baidu.tbadk.editortool.aa b;
+    private com.baidu.tbadk.editortool.ab b;
     private ArrayList<MetaData> c;
     private com.baidu.tbadk.core.view.o d;
     private p e = null;
@@ -31,7 +31,7 @@ public final class n extends BaseAdapter {
         this.g = true;
         this.a = context;
         this.g = z;
-        this.b = new com.baidu.tbadk.editortool.aa(context);
+        this.b = new com.baidu.tbadk.editortool.ab(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -66,7 +66,7 @@ public final class n extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final com.baidu.tbadk.editortool.aa a() {
+    public final com.baidu.tbadk.editortool.ab a() {
         return this.b;
     }
 
@@ -109,7 +109,7 @@ public final class n extends BaseAdapter {
             } else {
                 oVar.d.setVisibility(8);
             }
-            com.baidu.tbadk.editortool.aa aaVar = this.b;
+            com.baidu.tbadk.editortool.ab abVar = this.b;
             com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(portrait);
             if (b != null) {
                 oVar.b.setTag(null);

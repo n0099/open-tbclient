@@ -1,14 +1,6 @@
 package com.baidu.adp.framework.b;
 
-import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import java.security.InvalidParameterException;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public abstract class c extends g<HttpResponsedMessage> {
-    public c(int i) {
-        super(i);
-        if (i != 0 && FrameHelper.a(i) != FrameHelper.TYPE.HTTP) {
-            throw new InvalidParameterException("cmd invalid");
-        }
-    }
+public abstract class c extends h<com.baidu.adp.framework.message.a, CustomMessageTask> {
 }

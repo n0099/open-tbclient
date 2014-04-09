@@ -2,42 +2,36 @@ package com.baidu.tbadk.core.voice.service;
 
 import android.content.Intent;
 import android.os.Handler;
+import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
 final class b implements Runnable {
-    final /* synthetic */ a a;
+    final /* synthetic */ MediaService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.a = aVar;
+    public b(MediaService mediaService) {
+        this.a = mediaService;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        Handler handler;
-        d dVar;
+        long j;
         int i;
-        int i2;
-        Handler handler2;
+        Handler handler;
         Runnable runnable;
-        int i3;
-        handler = this.a.d;
-        if (handler == null) {
-            return;
-        }
-        dVar = this.a.k;
-        int a = dVar.a();
-        i = this.a.e;
-        int i4 = a + i;
-        i2 = this.a.b;
-        if (i4 != i2) {
-            this.a.b = i4;
-            Intent intent = new Intent("com.baidu.playElapsedTime");
-            i3 = this.a.b;
-            intent.putExtra("com.baidu.msg.playElapsedTime", i3);
+        int i2;
+        long currentTimeMillis = System.currentTimeMillis();
+        j = this.a.c;
+        int i3 = (int) (currentTimeMillis - j);
+        i = this.a.b;
+        if (i != i3) {
+            this.a.b = i3 / LocationClientOption.MIN_SCAN_SPAN;
+            Intent intent = new Intent("com.baidu.recordElapsedTime");
+            i2 = this.a.b;
+            intent.putExtra("com.baidu.msg.recordElapsedTime", i2);
             this.a.sendBroadcast(intent);
         }
-        handler2 = this.a.d;
-        runnable = this.a.h;
-        handler2.postDelayed(runnable, 100L);
+        handler = this.a.d;
+        runnable = this.a.i;
+        handler.postDelayed(runnable, 200L);
     }
 }

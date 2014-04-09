@@ -28,15 +28,15 @@ public class PersonListActivity extends com.baidu.tbadk.a {
     private View d = null;
     private TextView e = null;
     private ProgressBar f = null;
-    private ch g = null;
+    private cj g = null;
     private final Handler h = new Handler();
-    private cg i = null;
+    private ci i = null;
     private RelativeLayout m = null;
     private TextView o = null;
     private int p = 0;
     int a = 0;
     private com.baidu.tieba.data.ag q = null;
-    private final Runnable r = new bz(this);
+    private final Runnable r = new cb(this);
 
     public static void a(Activity activity, boolean z, String str, int i) {
         Intent intent = new Intent(activity, PersonListActivity.class);
@@ -46,7 +46,7 @@ public class PersonListActivity extends com.baidu.tbadk.a {
             intent.putExtra("follow", false);
         }
         intent.putExtra("user_sex", i);
-        intent.putExtra(PersonInfoActivity.TAG_ID, str);
+        intent.putExtra("un", str);
         activity.startActivity(intent);
     }
 
@@ -58,13 +58,13 @@ public class PersonListActivity extends com.baidu.tbadk.a {
         this.j = new com.baidu.tieba.model.ay();
         if (bundle != null) {
             this.j.a(bundle.getBoolean("follow", false));
-            this.j.a(bundle.getString(PersonInfoActivity.TAG_ID));
+            this.j.a(bundle.getString("un"));
             this.p = bundle.getInt("user_sex");
             this.j.a(this.p);
         } else {
             Intent intent = getIntent();
             this.j.a(intent.getBooleanExtra("follow", false));
-            this.j.a(intent.getStringExtra(PersonInfoActivity.TAG_ID));
+            this.j.a(intent.getStringExtra("un"));
             this.p = intent.getIntExtra("user_sex", 0);
             this.j.a(this.p);
         }
@@ -96,10 +96,10 @@ public class PersonListActivity extends com.baidu.tbadk.a {
         } else {
             this.o.setText(com.baidu.tieba.a.k.fans);
         }
-        cb cbVar = new cb(this);
-        cc ccVar = new cc(this);
         cd cdVar = new cd(this);
-        this.g = new ch(this, getIntent().getBooleanExtra("follow", false), this.j.a() != null && this.j.a().equals(TbadkApplication.E()), this.j.b(), cbVar, ccVar, cdVar);
+        ce ceVar = new ce(this);
+        cf cfVar = new cf(this);
+        this.g = new cj(this, getIntent().getBooleanExtra("follow", false), this.j.a() != null && this.j.a().equals(TbadkApplication.E()), this.j.b(), cdVar, ceVar, cfVar);
         this.b = (BdListView) findViewById(com.baidu.tieba.a.h.list);
         this.b.setAdapter((ListAdapter) this.g);
         this.c = LayoutInflater.from(this).inflate(com.baidu.tieba.a.i.person_list_newheader, (ViewGroup) null);
@@ -111,9 +111,9 @@ public class PersonListActivity extends com.baidu.tbadk.a {
         this.b.addHeaderView(this.c, null, false);
         this.k = (LinearLayout) findViewById(com.baidu.tieba.a.h.no_data_container);
         this.l = (TextView) findViewById(com.baidu.tieba.a.h.no_data_image_text);
-        this.b.setOnScrollListener(new ce(this));
-        this.b.setOnSrollToBottomListener(new cf(this));
-        this.i = new cg(this, this.j.a(), this.j.c(), 0, true);
+        this.b.setOnScrollListener(new cg(this));
+        this.b.setOnSrollToBottomListener(new ch(this));
+        this.i = new ci(this, this.j.a(), this.j.c(), 0, true);
         this.i.execute(new String[0]);
     }
 
@@ -152,7 +152,7 @@ public class PersonListActivity extends com.baidu.tbadk.a {
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putBoolean("follow", this.j.c());
-        bundle.putString(PersonInfoActivity.TAG_ID, this.j.a());
+        bundle.putString("un", this.j.a());
         bundle.putInt("user_sex", this.p);
     }
 
@@ -163,7 +163,7 @@ public class PersonListActivity extends com.baidu.tbadk.a {
                 personListActivity.g.b(true);
                 personListActivity.g.notifyDataSetChanged();
             }
-            personListActivity.i = new cg(personListActivity, personListActivity.j.a(), personListActivity.j.c(), personListActivity.j.d().a().d() + 1);
+            personListActivity.i = new ci(personListActivity, personListActivity.j.a(), personListActivity.j.c(), personListActivity.j.d().a().d() + 1);
             personListActivity.i.setPriority(3);
             personListActivity.i.execute(new String[0]);
         }

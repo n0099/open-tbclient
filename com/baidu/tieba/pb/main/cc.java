@@ -6,12 +6,12 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class cc implements Animation.AnimationListener {
-    final /* synthetic */ bk a;
+    final /* synthetic */ bm a;
     private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cc(bk bkVar, ImageView imageView) {
-        this.a = bkVar;
+    public cc(bm bmVar, ImageView imageView) {
+        this.a = bmVar;
         this.b = imageView;
     }
 

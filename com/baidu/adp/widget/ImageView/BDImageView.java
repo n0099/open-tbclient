@@ -8,12 +8,14 @@ import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import com.baidu.adp.g;
 import com.baidu.adp.lib.e.e;
+import com.baidu.adp.widget.q;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class BDImageView extends ImageView {
@@ -326,6 +328,10 @@ public class BDImageView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Matrix matrix;
+        Drawable drawable;
+        if (this.q && (drawable = getDrawable()) != null && (drawable instanceof q)) {
+            ((q) drawable).a(this.o);
+        }
         super.onDraw(canvas);
         if (!this.q) {
             b image = getImage();

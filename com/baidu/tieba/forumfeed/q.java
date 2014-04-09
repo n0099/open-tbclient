@@ -1,22 +1,15 @@
 package com.baidu.tieba.forumfeed;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.b.ao;
 /* loaded from: classes.dex */
-public final class q extends BroadcastReceiver {
-    final /* synthetic */ p a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public q(p pVar) {
-        this.a = pVar;
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
-        if (intent.getAction() == "com.baidu.tieba.SHOWSQUARE") {
-            this.a.a(0);
+final class q implements com.baidu.adp.framework.task.a<ao> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<ao> aVar) {
+        if (aVar != null && aVar.a() != null) {
+            aVar.a().d().setClass(aVar.a().c(), SingleForumFeedActivity.class);
+            aVar.a().f();
         }
+        return null;
     }
 }

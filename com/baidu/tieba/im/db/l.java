@@ -1,22 +1,21 @@
 package com.baidu.tieba.im.db;
 
-import java.util.LinkedList;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class l extends com.baidu.tieba.im.m<Void> {
-    final /* synthetic */ h b;
-    private final /* synthetic */ LinkedList c;
+public final class l implements com.baidu.tieba.im.b.d {
+    final /* synthetic */ i a;
+    private final /* synthetic */ Set b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(h hVar, LinkedList linkedList) {
-        this.b = hVar;
-        this.c = linkedList;
+    public l(i iVar, Set set) {
+        this.a = iVar;
+        this.b = set;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* bridge */ /* synthetic */ Void a() {
-        g.a().a(this.c);
-        return null;
+    @Override // com.baidu.tieba.im.b.d
+    public final void a(ImMessageCenterPojo imMessageCenterPojo) {
+        this.b.add(imMessageCenterPojo.getGid());
     }
 }

@@ -47,8 +47,8 @@ public final class b {
         if (a2 == null) {
             throw new Exception("Can't find the ResourceLoaderProc with type " + i);
         }
-        Object fromMemory = a2.getFromMemory(str, eVar);
-        if (fromMemory == null) {
+        Object a3 = a2.a(str, eVar);
+        if (a3 == null) {
             a cVar = aVar == null ? new c(this) : aVar;
             String str2 = String.valueOf(str) + context.getClass().getName();
             BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask(str2);
@@ -80,7 +80,7 @@ public final class b {
             }
             return null;
         }
-        return fromMemory;
+        return a3;
     }
 
     public final Object a(String str, int i, a aVar, Context context, e eVar) {

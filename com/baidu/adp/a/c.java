@@ -66,7 +66,9 @@ public class c extends FragmentActivity implements DialogInterface.OnClickListen
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.adp.framework.c.a().f(this.a);
-        com.baidu.adp.framework.c.a().c(this.a);
+        if (this.a != 0) {
+            com.baidu.adp.framework.c.a().f(this.a);
+            com.baidu.adp.framework.c.a().c(this.a);
+        }
     }
 }

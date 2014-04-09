@@ -18,7 +18,7 @@ public final class j implements View.OnTouchListener {
     public final boolean onTouch(View view, MotionEvent motionEvent) {
         EditText editText;
         if (motionEvent.getAction() == 1) {
-            editText = this.a.G;
+            editText = this.a.H;
             editText.setCursorVisible(true);
             this.a.R();
         } else if (motionEvent.getAction() == 0) {

@@ -149,7 +149,7 @@ public class ToolMoreView extends FrameLayout {
         this.i = (FrameLayout) findViewById(com.baidu.tbadk.j.lay_tool_camera);
         this.j = (Button) findViewById(com.baidu.tbadk.j.btn_tool_at);
         this.k = (Button) findViewById(com.baidu.tbadk.j.btn_tool_privilege);
-        if (TbadkApplication.j().ac()) {
+        if (TbadkApplication.j().ae()) {
             b("N");
         } else {
             e();
@@ -284,7 +284,7 @@ public class ToolMoreView extends FrameLayout {
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
-        if (TbadkApplication.j().ac()) {
+        if (TbadkApplication.j().ae()) {
             b("N");
         } else {
             e();

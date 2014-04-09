@@ -20,6 +20,7 @@ public final class g extends com.baidu.adp.framework.c.b {
         i iVar;
         i iVar2;
         i iVar3;
+        i iVar4;
         HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
         if (httpResponsedMessage2 == null || httpResponsedMessage2.g() != 1006000) {
             return;
@@ -28,13 +29,19 @@ public final class g extends com.baidu.adp.framework.c.b {
         if (iVar != null) {
             int d = httpResponsedMessage2.d();
             int e = httpResponsedMessage2.e();
-            if (d != 200 || e != 0 || !(httpResponsedMessage2 instanceof ResponseBubbleListMessage)) {
+            if (!(httpResponsedMessage2 instanceof ResponseBubbleListMessage)) {
+                iVar4 = this.a.a;
+                iVar4.b(null);
+                return;
+            }
+            ResponseBubbleListMessage responseBubbleListMessage = (ResponseBubbleListMessage) httpResponsedMessage2;
+            if (d != 200 || e != 0 || responseBubbleListMessage.i() == null) {
                 iVar2 = this.a.a;
-                iVar2.b(null);
+                iVar2.b(responseBubbleListMessage.i());
                 return;
             }
             iVar3 = this.a.a;
-            iVar3.a(((ResponseBubbleListMessage) httpResponsedMessage2).i());
+            iVar3.a(responseBubbleListMessage.i());
         }
     }
 }

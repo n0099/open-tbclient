@@ -1,36 +1,64 @@
 package com.baidu.tieba.im.chat;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.GroupData;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
-final class bg implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ GroupChatActivity a;
-    private final /* synthetic */ GroupData b;
+final class bg extends com.baidu.adp.framework.c.g {
+    final /* synthetic */ GroupSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(GroupChatActivity groupChatActivity, GroupData groupData) {
-        this.a = groupChatActivity;
-        this.b = groupData;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bg(GroupSettingActivity groupSettingActivity, int i) {
+        super(0);
+        this.a = groupSettingActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
-        Boolean bool2 = bool;
-        if (bool2 != null) {
-            if (bool2.booleanValue()) {
-                this.a.d.J();
-            } else {
-                this.a.d.K();
-            }
-            if (this.a.e == null || this.b == null) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+        bo boVar;
+        bo boVar2;
+        com.baidu.tieba.im.model.bs bsVar;
+        bo boVar3;
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        if (socketResponsedMessage2 == null || !(socketResponsedMessage2 instanceof com.baidu.adp.framework.message.f)) {
+            return;
+        }
+        if (socketResponsedMessage2.g() == 103112) {
+            if (socketResponsedMessage2.e() != 0) {
+                this.a.hideProgressBar();
+                this.a.showToast(com.baidu.tieba.im.j.neterror);
                 return;
             }
-            String name = this.b.getName();
-            if (TextUtils.isEmpty(name)) {
+            this.a.hideProgressBar();
+            this.a.showToast(com.baidu.tieba.im.j.group_quit_suc);
+            boVar3 = this.a.b;
+            com.baidu.tieba.im.f.h.a(boVar3.b());
+            com.baidu.tieba.im.pushNotify.a.d().b(false, null);
+            this.a.finish();
+        } else if (socketResponsedMessage2.g() == 103102) {
+            if (socketResponsedMessage2.e() != 0) {
+                this.a.hideProgressBar();
+                this.a.showToast(socketResponsedMessage2.f());
                 return;
             }
-            this.a.d.a(name);
+            this.a.hideProgressBar();
+            this.a.showToast(com.baidu.tieba.im.j.group_add_group_switch_success);
+            boVar2 = this.a.b;
+            bsVar = this.a.c;
+            boVar2.b(bsVar.c());
+        } else if (socketResponsedMessage2.g() != 103104) {
+            socketResponsedMessage2.g();
+        } else {
+            this.a.hideProgressBar();
+            if (socketResponsedMessage2.e() != 0) {
+                GroupSettingActivity.a(this.a, socketResponsedMessage2.f(), socketResponsedMessage2.e());
+                return;
+            }
+            com.baidu.tbadk.core.g.a(this.a, "dismiss_group_success");
+            boVar = this.a.b;
+            com.baidu.tieba.im.f.h.a(boVar.b());
+            this.a.showToast(com.baidu.tieba.im.j.group_dismiss_success, false);
+            this.a.finish();
         }
     }
 }

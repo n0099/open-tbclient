@@ -3,7 +3,7 @@ package com.baidu.tieba.b;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.data.n;
 import com.baidu.tbadk.core.util.ak;
-import com.baidu.tieba.recommend.y;
+import com.baidu.tieba.recommend.o;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -28,7 +28,7 @@ public final class e {
             this.b.a("date", str);
         }
         if (str2 != null) {
-            this.b.a(y.a, str2);
+            this.b.a(o.a, str2);
         }
         String i = this.b.i();
         if (i != null) {

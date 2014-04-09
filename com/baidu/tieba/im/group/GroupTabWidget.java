@@ -22,11 +22,12 @@ public class GroupTabWidget extends RelativeLayout {
     private ImageView g;
     private ImageView h;
     private ImageView i;
-    private int[] j;
+    private ImageView j;
+    private int[] k;
 
     public GroupTabWidget(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.j = new int[2];
+        this.k = new int[2];
         this.a = false;
         this.b = 0;
         this.c = 0;
@@ -35,7 +36,7 @@ public class GroupTabWidget extends RelativeLayout {
 
     public GroupTabWidget(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.j = new int[2];
+        this.k = new int[2];
         this.a = false;
         this.b = 0;
         this.c = 0;
@@ -44,7 +45,7 @@ public class GroupTabWidget extends RelativeLayout {
 
     public GroupTabWidget(Context context) {
         super(context);
-        this.j = new int[2];
+        this.k = new int[2];
         this.a = false;
         this.b = 0;
         this.c = 0;
@@ -62,12 +63,16 @@ public class GroupTabWidget extends RelativeLayout {
         this.d.setVisibility(z ? 0 : 8);
     }
 
-    public void setLineBottomVisibility(boolean z) {
+    public void setLineTopVisibility(boolean z) {
         this.h.setVisibility(z ? 0 : 8);
     }
 
-    public void setLineBottomPxVisibility(boolean z) {
+    public void setLineTopPxVisibility(boolean z) {
         this.i.setVisibility(z ? 0 : 8);
+    }
+
+    public void setLineBottomPxVisibility(boolean z) {
+        this.j.setVisibility(z ? 0 : 8);
     }
 
     private void a(AttributeSet attributeSet) {
@@ -76,31 +81,32 @@ public class GroupTabWidget extends RelativeLayout {
         this.e = (ImageView) findViewById(com.baidu.tieba.im.h.left_icon);
         this.f = (TextView) findViewById(com.baidu.tieba.im.h.text);
         this.g = (ImageView) findViewById(com.baidu.tieba.im.h.right_arraw);
-        this.h = (ImageView) findViewById(com.baidu.tieba.im.h.diver_bottom);
-        this.i = (ImageView) findViewById(com.baidu.tieba.im.h.diver_bottom_px);
+        this.h = (ImageView) findViewById(com.baidu.tieba.im.h.diver_top);
+        this.i = (ImageView) findViewById(com.baidu.tieba.im.h.diver_top_px);
+        this.j = (ImageView) findViewById(com.baidu.tieba.im.h.diver_bottom_px);
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.im.l.groupTabWidget);
         this.f.setText(obtainStyledAttributes.getString(1));
         this.e.setImageDrawable(obtainStyledAttributes.getDrawable(0));
-        this.j[0] = obtainStyledAttributes.getResourceId(0, 0);
-        if (this.j[0] != 0) {
-            this.j[1] = com.baidu.tbadk.core.c.a(getResources(), this.j[0]);
+        this.k[0] = obtainStyledAttributes.getResourceId(0, 0);
+        if (this.k[0] != 0) {
+            this.k[1] = com.baidu.tbadk.core.c.a(getResources(), this.k[0]);
         } else {
-            this.j[1] = this.j[0];
+            this.k[1] = this.k[0];
         }
         obtainStyledAttributes.recycle();
     }
 
     public void setLeftIconRes(int i) {
-        this.j[0] = i;
-        if (this.j[0] != 0) {
-            this.j[1] = com.baidu.tbadk.core.c.a(getResources(), this.j[0]);
+        this.k[0] = i;
+        if (this.k[0] != 0) {
+            this.k[1] = com.baidu.tbadk.core.c.a(getResources(), this.k[0]);
         } else {
-            this.j[1] = this.j[0];
+            this.k[1] = this.k[0];
         }
         if (1 == TbadkApplication.j().l()) {
-            this.e.setImageResource(this.j[1]);
+            this.e.setImageResource(this.k[1]);
         } else {
-            this.e.setImageResource(this.j[0]);
+            this.e.setImageResource(this.k[0]);
         }
     }
 
@@ -133,13 +139,15 @@ public class GroupTabWidget extends RelativeLayout {
 
     public final void a(int i) {
         if (1 == i) {
-            this.e.setImageResource(this.j[1]);
+            this.e.setImageResource(this.k[1]);
             this.h.setImageResource(com.baidu.tieba.im.e.cp_bg_line_b_1);
             this.i.setImageResource(com.baidu.tieba.im.e.cp_bg_line_b_1);
+            this.j.setImageResource(com.baidu.tieba.im.e.cp_bg_line_b_1);
         } else {
-            this.e.setImageResource(this.j[0]);
+            this.e.setImageResource(this.k[0]);
             this.h.setImageResource(com.baidu.tieba.im.e.cp_bg_line_b);
             this.i.setImageResource(com.baidu.tieba.im.e.cp_bg_line_b);
+            this.j.setImageResource(com.baidu.tieba.im.e.cp_bg_line_b);
         }
         Context context = getContext();
         if (context instanceof com.baidu.tbadk.a) {

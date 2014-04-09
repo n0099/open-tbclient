@@ -16,7 +16,7 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         byte[] bArr = (byte[]) obj;
         QueryHistoryMsgRes.QueryHistoryMsgResIdl parseFrom = QueryHistoryMsgRes.QueryHistoryMsgResIdl.parseFrom(bArr);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         this.a = parseFrom.getData().getTotal();
         for (QueryHistoryMsgRes.MsgInfo msgInfo : parseFrom.getData().getResList()) {
             bf bfVar = new bf();

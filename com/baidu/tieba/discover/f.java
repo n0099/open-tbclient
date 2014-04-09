@@ -1,24 +1,27 @@
 package com.baidu.tieba.discover;
 
-import android.widget.ImageView;
+import android.os.Bundle;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 final class f extends com.baidu.adp.framework.c.a {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
     @Override // com.baidu.adp.framework.c.c
     public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        ImageView imageView;
+        com.baidu.tbadk.mainTab.d b;
         CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 == null || customResponsedMessage2.g() != 2007004 || customResponsedMessage2.a() == null || !(customResponsedMessage2.a() instanceof com.baidu.tbadk.mainTab.a)) {
+        if (customResponsedMessage2 == null || customResponsedMessage2.g() != 2007002 || customResponsedMessage2.a() == null) {
             return;
         }
-        boolean z = ((com.baidu.tbadk.mainTab.a) customResponsedMessage2.a()).a;
-        imageView = DiscoverDelegateStatic.a;
-        imageView.setVisibility(z ? 0 : 8);
+        DiscoverDelegateStatic discoverDelegateStatic = new DiscoverDelegateStatic();
+        ((com.baidu.tbadk.mainTab.e) customResponsedMessage2.a()).a(discoverDelegateStatic);
+        if (((com.baidu.tbadk.mainTab.e) customResponsedMessage2.a()).b() == null || (b = discoverDelegateStatic.b()) == null) {
+            return;
+        }
+        b.a.setArguments(new Bundle());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i) {
-        super(2007004);
+        super(2007002);
     }
 }

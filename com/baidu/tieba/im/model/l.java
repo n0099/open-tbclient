@@ -16,7 +16,7 @@ public final class l extends com.baidu.adp.a.e {
     private int c;
     private long d;
     private String e;
-    private com.baidu.tieba.im.message.bl f;
+    private com.baidu.tieba.im.message.bk f;
     private com.baidu.tieba.im.message.ak g;
     private com.baidu.tieba.im.message.aj h;
     private PhotoUrlData i;
@@ -113,12 +113,12 @@ public final class l extends com.baidu.adp.a.e {
         bundle.putString("default_invite_msg", this.e);
     }
 
-    public final void a(com.baidu.tieba.im.message.bl blVar) {
+    public final void a(com.baidu.tieba.im.message.bk bkVar) {
         this.i = null;
-        this.f = blVar;
+        this.f = bkVar;
     }
 
-    public final com.baidu.tieba.im.message.bl f() {
+    public final com.baidu.tieba.im.message.bk f() {
         return this.f;
     }
 

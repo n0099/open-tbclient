@@ -6,13 +6,13 @@ import android.widget.TimePicker;
 final class aa implements TimePickerDialog.OnTimeSetListener {
     final /* synthetic */ MsgRemindActivity a;
     private final /* synthetic */ int b;
-    private final /* synthetic */ com.baidu.tieba.r c;
+    private final /* synthetic */ com.baidu.tieba.p c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(MsgRemindActivity msgRemindActivity, int i, com.baidu.tieba.r rVar) {
+    public aa(MsgRemindActivity msgRemindActivity, int i, com.baidu.tieba.p pVar) {
         this.a = msgRemindActivity;
         this.b = i;
-        this.c = rVar;
+        this.c = pVar;
     }
 
     @Override // android.app.TimePickerDialog.OnTimeSetListener
@@ -26,11 +26,11 @@ final class aa implements TimePickerDialog.OnTimeSetListener {
         } else if (this.b == com.baidu.tieba.a.h.no_disturb_end_time || this.b == com.baidu.tieba.a.h.no_disturb_start_time) {
             String str = String.valueOf(String.valueOf(i < 10 ? "0" : "") + i) + ":" + (String.valueOf(i2 < 10 ? "0" : "") + i2);
             if (this.b == com.baidu.tieba.a.h.no_disturb_start_time) {
-                com.baidu.tieba.r rVar = this.c;
-                com.baidu.tieba.r.h(str);
+                com.baidu.tieba.p pVar = this.c;
+                com.baidu.tieba.p.h(str);
             } else {
-                com.baidu.tieba.r rVar2 = this.c;
-                com.baidu.tieba.r.i(str);
+                com.baidu.tieba.p pVar2 = this.c;
+                com.baidu.tieba.p.i(str);
             }
             abVar = this.a.a;
             abVar.e();

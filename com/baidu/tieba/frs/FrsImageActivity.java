@@ -23,12 +23,11 @@ import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.frs.view.FrsWaterFallItem;
-import com.baidu.tieba.person.PersonInfoActivity;
 import com.slidingmenu.lib.SlidingMenu;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FrsImageActivity extends com.baidu.tbadk.a implements com.baidu.adp.widget.BdSwitchView.c {
-    private cu m;
+    private cw m;
     private com.baidu.tieba.model.o n;
     private com.baidu.tieba.model.af t;
     private com.baidu.tieba.model.bc u;
@@ -46,8 +45,8 @@ public class FrsImageActivity extends com.baidu.tbadk.a implements com.baidu.adp
     private cj l = null;
     private boolean o = false;
     private boolean p = false;
-    private cy q = null;
-    private cv r = null;
+    private da q = null;
+    private cx r = null;
     private boolean s = false;
     private int v = 0;
     private int w = 0;
@@ -134,10 +133,10 @@ public class FrsImageActivity extends com.baidu.tbadk.a implements com.baidu.adp
         Intent intent = getIntent();
         this.j = intent.getStringExtra("from");
         this.k = intent.getIntExtra("add_search", 0);
-        this.b = intent.getStringExtra(PersonInfoActivity.TAG_NAME);
+        this.b = intent.getStringExtra("name");
         if (this.b == null) {
             TbadkApplication.j();
-            this.b = TbadkApplication.af();
+            this.b = TbadkApplication.ah();
         } else {
             TbadkApplication.j();
             TbadkApplication.l(this.b);
@@ -150,7 +149,7 @@ public class FrsImageActivity extends com.baidu.tbadk.a implements com.baidu.adp
             this.i = 1;
         }
         b(this.i);
-        this.m = new cu();
+        this.m = new cw();
         this.n = new com.baidu.tieba.model.o();
         this.n.setLoadDataCallBack(new bv(this));
         this.t = new com.baidu.tieba.model.af();
@@ -216,9 +215,12 @@ public class FrsImageActivity extends com.baidu.tbadk.a implements com.baidu.adp
                 if (this.q.f() != null && this.q.f().getIfpost() == 0) {
                     com.baidu.adp.lib.util.i.a((Context) this, this.q.f().getForbid_info());
                     return;
+                } else if (this.q.b() != null) {
+                    com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.av(this, 0, this.q.b().getId(), this.q.b().getName(), null, null, 0, this.q.f(), 13003, false, false, null, false, false, null, null, null)));
+                    return;
+                } else {
+                    return;
                 }
-                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.av(this, 0, this.q.b().getId(), this.q.b().getName(), null, null, 0, this.q.f(), 13003, false, false, null, false, false, null, null, null)));
-                return;
             }
             this.l.p().show();
         }
@@ -349,17 +351,17 @@ public class FrsImageActivity extends com.baidu.tbadk.a implements com.baidu.adp
                         if ((i5 <= c2 || z) && i5 < childCount) {
                             FrsWaterFallItem frsWaterFallItem = (FrsWaterFallItem) a.getChildAt(i5);
                             if (frsWaterFallItem != null) {
-                                com.baidu.tieba.data.ar arVar = (com.baidu.tieba.data.ar) frsWaterFallItem.getTag();
-                                i4 += arVar.b().d() * arVar.b().e() * 2;
+                                com.baidu.tieba.data.aq aqVar = (com.baidu.tieba.data.aq) frsWaterFallItem.getTag();
+                                i4 += aqVar.b().d() * aqVar.b().e() * 2;
                                 if (i4 > i) {
                                     break;
                                 }
                                 if (i3 == 1) {
-                                    this.c.b(arVar.b().c(), this.C);
+                                    this.c.b(aqVar.b().c(), this.C);
                                 } else {
-                                    this.c.b(arVar.b().c(), this.D);
+                                    this.c.b(aqVar.b().c(), this.D);
                                 }
-                                int d2 = arVar.b().d() + i6;
+                                int d2 = aqVar.b().d() + i6;
                                 int i7 = i5 + 1;
                                 if (i7 <= c2 || d2 < c) {
                                     i5 = i7;
@@ -458,7 +460,7 @@ public class FrsImageActivity extends com.baidu.tbadk.a implements com.baidu.adp
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
         if (this.q == null) {
-            this.q = new cy();
+            this.q = new da();
         }
         this.q.a(this.j, this.b);
         this.q.a(this.x);
@@ -525,10 +527,10 @@ public class FrsImageActivity extends com.baidu.tbadk.a implements com.baidu.adp
         try {
             int size = arrayList.size();
             for (int i2 = 0; i2 < size; i2++) {
-                com.baidu.tieba.data.ar arVar = (com.baidu.tieba.data.ar) arrayList.get(i2);
-                if (arVar != null) {
-                    int a = arVar.b().a();
-                    int b = arVar.b().b();
+                com.baidu.tieba.data.aq aqVar = (com.baidu.tieba.data.aq) arrayList.get(i2);
+                if (aqVar != null) {
+                    int a = aqVar.b().a();
+                    int b = aqVar.b().b();
                     if (a >= 100 && b >= 50) {
                         if (a > frsImageActivity.a) {
                             float f = frsImageActivity.a / a;
@@ -549,18 +551,18 @@ public class FrsImageActivity extends com.baidu.tbadk.a implements com.baidu.adp
                         ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
                         layoutParams.height = height;
                         tbImageView.setLayoutParams(layoutParams);
-                        frsWaterFallItem.setTag(arVar);
-                        tbImageView.setImageSearchUrl(String.valueOf(arVar.b().c()) + "_water");
+                        frsWaterFallItem.setTag(aqVar);
+                        tbImageView.setImageSearchUrl(String.valueOf(aqVar.b().c()) + "_water");
                         tbImageView.setDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d);
                         tbImageView.setNightDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d_1);
-                        tbImageView.setTag(arVar.b().c());
+                        tbImageView.setTag(aqVar.b().c());
                         frsWaterFallItem.setOnClickListener(frsImageActivity.B);
                         int a3 = com.baidu.adp.lib.util.i.a((Context) frsImageActivity, 1.0f);
                         int paddingBottom = height + (frsImageActivity.f * 2) + frsWaterFallItem.getPaddingBottom();
                         frsWaterFallItem.a(frsImageActivity.d, frsImageActivity.e, a3, frsImageActivity.f);
                         frsImageActivity.l.k().a(frsWaterFallItem, paddingBottom);
-                        arVar.b().a(paddingBottom);
-                        arVar.b().b(i);
+                        aqVar.b().a(paddingBottom);
+                        aqVar.b().b(i);
                     }
                 }
             }
@@ -575,7 +577,7 @@ public class FrsImageActivity extends com.baidu.tbadk.a implements com.baidu.adp
             if (switchState == BdSwitchView.SwitchState.ON) {
                 if (TbadkApplication.j().l() != 1) {
                     TiebaStatic.a(this, "frs_night_mode", "frsclick", 1, new Object[0]);
-                    com.baidu.tieba.r.c().c(1);
+                    com.baidu.tieba.p.c().c(1);
                     this.mSkinType = 1;
                     onChangeSkinType(this.mSkinType);
                     new com.baidu.tbadk.core.util.ax("eyeshield").start();
@@ -583,13 +585,14 @@ public class FrsImageActivity extends com.baidu.tbadk.a implements com.baidu.adp
                     return;
                 }
             } else if (TbadkApplication.j().l() != 0) {
-                com.baidu.tieba.r.c().c(0);
+                com.baidu.tieba.p.c().c(0);
                 this.mSkinType = 0;
                 onChangeSkinType(this.mSkinType);
             } else {
                 return;
             }
             com.baidu.tbadk.core.util.g.a();
+            com.baidu.tieba.pb.main.bj.a().f();
         }
     }
 

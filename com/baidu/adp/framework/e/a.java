@@ -1,6 +1,6 @@
 package com.baidu.adp.framework.e;
 /* loaded from: classes.dex */
-public class a extends d {
+public class a extends e {
     private static a c = null;
 
     public static a a() {

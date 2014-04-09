@@ -52,7 +52,7 @@ public final class TbFaceManager {
             Bitmap a2 = com.baidu.adp.lib.util.b.a(this.b, i);
             if (a2 != null) {
                 com.baidu.adp.widget.ImageView.b bVar = new com.baidu.adp.widget.ImageView.b(a2, false, str);
-                e.a().c(str, bVar);
+                e.a().d(str, bVar);
                 return bVar;
             }
             return c;

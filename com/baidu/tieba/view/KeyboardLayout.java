@@ -8,7 +8,7 @@ public class KeyboardLayout extends RelativeLayout {
     private boolean a;
     private boolean b;
     private int c;
-    private u d;
+    private s d;
 
     public KeyboardLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -25,8 +25,8 @@ public class KeyboardLayout extends RelativeLayout {
         this.a = false;
     }
 
-    public void setOnkbdStateListener(u uVar) {
-        this.d = uVar;
+    public void setOnkbdStateListener(s sVar) {
+        this.d = sVar;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View

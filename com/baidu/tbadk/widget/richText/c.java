@@ -115,13 +115,20 @@ public final class c {
         return "";
     }
 
+    public final d f() {
+        if (this.a != 1) {
+            return null;
+        }
+        return this.f;
+    }
+
     public final void a(e eVar) {
         if (this.a == 17) {
             this.g = eVar;
         }
     }
 
-    public final e f() {
+    public final e g() {
         return this.g;
     }
 }

@@ -22,12 +22,12 @@ final class q extends com.baidu.adp.framework.c.g {
     @Override // com.baidu.adp.framework.c.c
     public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
         ah ahVar;
-        com.baidu.tieba.im.model.y yVar;
+        com.baidu.tieba.im.model.z zVar;
         boolean d;
         boolean d2;
-        com.baidu.tieba.im.model.y yVar2;
-        com.baidu.tieba.im.model.y yVar3;
-        com.baidu.tieba.im.model.y yVar4;
+        com.baidu.tieba.im.model.z zVar2;
+        com.baidu.tieba.im.model.z zVar3;
+        com.baidu.tieba.im.model.z zVar4;
         boolean d3;
         SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
         ahVar = this.a.b;
@@ -40,8 +40,8 @@ final class q extends com.baidu.adp.framework.c.g {
         ResponseMembersMessage responseMembersMessage = (ResponseMembersMessage) socketResponsedMessage2;
         com.baidu.adp.framework.message.d<?> h2 = responseMembersMessage.h();
         ap apVar = (h2 == null || !(h2 instanceof ap)) ? null : (ap) h2;
-        yVar = this.a.c;
-        yVar.a(apVar);
+        zVar = this.a.c;
+        zVar.a(apVar);
         if (responseMembersMessage.e() != 0) {
             if (responseMembersMessage.e() <= 0) {
                 this.a.showToast(com.baidu.tieba.im.j.neterror);
@@ -65,8 +65,8 @@ final class q extends com.baidu.adp.framework.c.g {
                 h.a(true);
             }
             int size = users.size();
-            yVar2 = this.a.c;
-            if (size != yVar2.e()) {
+            zVar2 = this.a.c;
+            if (size != zVar2.e()) {
                 h.b(false);
                 h.c(false);
                 d3 = this.a.d();
@@ -77,10 +77,10 @@ final class q extends com.baidu.adp.framework.c.g {
             } else {
                 h.c(true);
             }
-            yVar3 = this.a.c;
-            yVar3.c(users.size());
-            yVar4 = this.a.c;
-            yVar4.d(20);
+            zVar3 = this.a.c;
+            zVar3.c(users.size());
+            zVar4 = this.a.c;
+            zVar4.d(20);
             h.a(users);
             h.notifyDataSetChanged();
             this.a.c();

@@ -1,54 +1,39 @@
 package com.baidu.tieba.pb.image;
 
-import android.os.Handler;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import com.baidu.tbadk.editortool.EmotionTabHost;
-import com.baidu.tieba.view.KeyboardLayout;
 /* loaded from: classes.dex */
-final class f implements View.OnClickListener {
+final class f implements View.OnTouchListener {
     final /* synthetic */ ImagePbActivity a;
-    private final /* synthetic */ Handler b;
-    private final /* synthetic */ Runnable c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(ImagePbActivity imagePbActivity, Handler handler, Runnable runnable) {
+    public f(ImagePbActivity imagePbActivity) {
         this.a = imagePbActivity;
-        this.b = handler;
-        this.c = runnable;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    @Override // android.view.View.OnTouchListener
+    public final boolean onTouch(View view, MotionEvent motionEvent) {
         EmotionTabHost emotionTabHost;
-        KeyboardLayout keyboardLayout;
         EditText editText;
-        Button button;
-        EditText editText2;
         EmotionTabHost emotionTabHost2;
-        EditText editText3;
-        Button button2;
-        emotionTabHost = this.a.o;
+        EditText editText2;
+        Button button;
+        emotionTabHost = this.a.n;
         if (emotionTabHost.getVisibility() == 0) {
-            editText2 = this.a.l;
-            editText2.requestFocus();
-            emotionTabHost2 = this.a.o;
+            editText = this.a.k;
+            editText.requestFocus();
+            emotionTabHost2 = this.a.n;
             emotionTabHost2.setVisibility(8);
             ImagePbActivity imagePbActivity = this.a;
-            editText3 = this.a.l;
-            com.baidu.adp.lib.util.i.b(imagePbActivity, editText3);
-            button2 = this.a.n;
-            button2.setBackgroundResource(com.baidu.tieba.a.g.sub_pb_face);
-            return;
+            editText2 = this.a.k;
+            com.baidu.adp.lib.util.i.b(imagePbActivity, editText2);
+            button = this.a.m;
+            button.setBackgroundResource(com.baidu.tieba.a.g.sub_pb_face);
+            return true;
         }
-        keyboardLayout = this.a.s;
-        keyboardLayout.setOnkbdStateListener(null);
-        ImagePbActivity imagePbActivity2 = this.a;
-        editText = this.a.l;
-        com.baidu.adp.lib.util.i.a(imagePbActivity2, editText);
-        this.b.postDelayed(this.c, 200L);
-        button = this.a.n;
-        button.setBackgroundResource(com.baidu.tieba.a.g.sub_pb_keyboard);
+        return false;
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tbadk.core.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.Button;
 /* loaded from: classes.dex */
-public final class x implements com.baidu.tbadk.coreExtra.view.u {
+final class x implements View.OnClickListener {
     final /* synthetic */ ReLoginShareActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +11,24 @@ public final class x implements com.baidu.tbadk.coreExtra.view.u {
         this.a = reLoginShareActivity;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.u
-    public final void a(AccountData accountData) {
-        ReLoginShareActivity.a(this.a, accountData);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        Button button;
+        Button button2;
+        String str;
+        button = this.a.c;
+        if (view != button) {
+            button2 = this.a.b;
+            if (view != button2) {
+                return;
+            }
+            this.a.a();
+            return;
+        }
+        this.a.j = true;
+        com.baidu.tbadk.core.a.l a = com.baidu.tbadk.core.a.l.a();
+        str = this.a.f;
+        a.b(str);
+        ReLoginShareActivity.c(this.a);
     }
 }

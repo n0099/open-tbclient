@@ -64,6 +64,10 @@ public final class ai extends com.baidu.tbadk.core.util.a {
     }
 
     public final void a(String str) {
+        this.a = str;
+    }
+
+    public final void b(String str) {
         this.b = str;
     }
 
@@ -99,7 +103,7 @@ public final class ai extends com.baidu.tbadk.core.util.a {
         return this.o;
     }
 
-    public final void a(Context context, boolean z, com.baidu.tbadk.editortool.aa aaVar) {
+    public final void a(Context context, boolean z, com.baidu.tbadk.editortool.ab abVar) {
         String str;
         SpannableString spannableString;
         String str2;
@@ -113,16 +117,16 @@ public final class ai extends com.baidu.tbadk.core.util.a {
             String str3 = z ? " [host]" : "";
             int b = com.baidu.adp.lib.util.i.b(context, 15.0f);
             ArrayList arrayList = new ArrayList();
-            if (tShowInfo != null && aaVar != null) {
+            if (tShowInfo != null && abVar != null) {
                 Iterator<IconData> it = tShowInfo.iterator();
                 while (it.hasNext()) {
-                    com.baidu.adp.widget.ImageView.b b2 = aaVar.b(it.next().getIcon(), null);
+                    com.baidu.adp.widget.ImageView.b b2 = abVar.b(it.next().getIcon(), null);
                     if (b2 != null && (h = b2.h()) != null) {
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(h);
-                        com.baidu.tieba.r.c();
-                        int dimensionPixelSize = com.baidu.tieba.r.d().getApplicationContext().getResources().getDimensionPixelSize(com.baidu.tieba.a.f.small_icon_width);
-                        com.baidu.tieba.r.c();
-                        bitmapDrawable.setBounds(0, 0, dimensionPixelSize, com.baidu.tieba.r.d().getApplicationContext().getResources().getDimensionPixelSize(com.baidu.tieba.a.f.small_icon_height));
+                        com.baidu.tieba.p.c();
+                        int dimensionPixelSize = com.baidu.tieba.p.d().getApplicationContext().getResources().getDimensionPixelSize(com.baidu.tieba.a.f.small_icon_width);
+                        com.baidu.tieba.p.c();
+                        bitmapDrawable.setBounds(0, 0, dimensionPixelSize, com.baidu.tieba.p.d().getApplicationContext().getResources().getDimensionPixelSize(com.baidu.tieba.a.f.small_icon_height));
                         arrayList.add(new com.baidu.adp.widget.t(bitmapDrawable, 1));
                     }
                 }
@@ -324,22 +328,22 @@ public final class ai extends com.baidu.tbadk.core.util.a {
                 while (it.hasNext()) {
                     f next = it.next();
                     if (next.a() == 0) {
-                        if (next.f() != null) {
-                            sb.append((CharSequence) next.f());
+                        if (next.d() != null) {
+                            sb.append((CharSequence) next.d());
                         }
                     } else if (next.a() == 3) {
-                        if (next.g() != null) {
+                        if (next.e() != null) {
                             sb.append(context.getString(com.baidu.tieba.a.k.pic));
                         }
                     } else if (next.a() == 2) {
-                        String d = TbFaceManager.a().d(next.d());
+                        String d = TbFaceManager.a().d(next.b());
                         if (d != null) {
                             sb.append("[");
                             sb.append(d);
                             sb.append("]");
                         }
-                    } else if (next.a() == 11 && !bc.c(next.e())) {
-                        sb.append("[").append(next.e()).append("]");
+                    } else if (next.a() == 11 && !bc.c(next.c())) {
+                        sb.append("[").append(next.c()).append("]");
                     }
                 }
                 ClipboardManager clipboardManager2 = (ClipboardManager) context.getSystemService("clipboard");
@@ -450,11 +454,11 @@ public final class ai extends com.baidu.tbadk.core.util.a {
                 aaVar.c = next.c().b();
                 aaVar.a = next.c().f();
                 linkedList.add(aaVar);
-            } else if (next.f() != null) {
+            } else if (next.g() != null) {
                 com.baidu.tbadk.core.util.aa aaVar2 = new com.baidu.tbadk.core.util.aa();
-                aaVar2.b = next.f().f;
-                aaVar2.c = next.f().g;
-                aaVar2.d = next.f();
+                aaVar2.b = next.g().f;
+                aaVar2.c = next.g().g;
+                aaVar2.d = next.g();
                 linkedList.add(aaVar2);
             }
         }
@@ -487,7 +491,7 @@ public final class ai extends com.baidu.tbadk.core.util.a {
             com.baidu.tbadk.widget.richText.c next = it.next();
             if (next.a() == 1) {
                 stringBuffer.append(next.d().toString());
-            } else if (next.a() == 17 && (str = next.f().c) != null && str.startsWith("#(") && str.endsWith(")")) {
+            } else if (next.a() == 17 && (str = next.g().c) != null && str.startsWith("#(") && str.endsWith(")")) {
                 stringBuffer.append("[" + str.substring(2, str.length() - 1) + "]");
             }
         }

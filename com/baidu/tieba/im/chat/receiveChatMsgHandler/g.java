@@ -6,10 +6,11 @@ import com.baidu.tieba.im.data.GroupMsgData;
 public final class g extends com.baidu.adp.framework.c.a {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
     @Override // com.baidu.adp.framework.c.c
-    public final /* bridge */ /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
         CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
         if (customResponsedMessage2 instanceof GroupMsgData) {
             b.a((GroupMsgData) customResponsedMessage2, false);
+            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2012111));
         }
     }
 

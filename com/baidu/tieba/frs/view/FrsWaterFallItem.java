@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import com.baidu.tieba.data.ar;
+import com.baidu.tieba.data.aq;
 /* loaded from: classes.dex */
 public class FrsWaterFallItem extends LinearLayout {
     private TextPaint a;
@@ -95,8 +95,8 @@ public class FrsWaterFallItem extends LinearLayout {
         Bitmap a;
         super.onDraw(canvas);
         try {
-            ar arVar = (ar) getTag();
-            if (arVar != null) {
+            aq aqVar = (aq) getTag();
+            if (aqVar != null) {
                 int height = ((getHeight() - getPaddingBottom()) - this.l) + this.n;
                 int width = (getWidth() - getPaddingRight()) - this.j;
                 this.a.setTextSize(this.h);
@@ -106,7 +106,7 @@ public class FrsWaterFallItem extends LinearLayout {
                     this.a.setColor(getContext().getResources().getColor(com.baidu.tieba.a.e.frs_water_fall_item_num));
                 }
                 int ceil = (int) Math.ceil(this.a.getFontMetrics().ascent);
-                int e = arVar.e();
+                int e = aqVar.e();
                 if (e > 0) {
                     if (this.d == null) {
                         if (e > 999) {
@@ -136,7 +136,7 @@ public class FrsWaterFallItem extends LinearLayout {
                 } else {
                     this.a.setColor(getContext().getResources().getColor(com.baidu.tieba.a.e.frs_water_fall_item_num));
                 }
-                this.c = com.baidu.adp.lib.util.i.a(this.a, arVar.a(), width - (this.j * 2));
+                this.c = com.baidu.adp.lib.util.i.a(this.a, aqVar.a(), width - (this.j * 2));
                 canvas.drawText(this.c, this.k + this.j, height - ceil, this.a);
                 if (this.q == 1) {
                     this.a.setColor(getContext().getResources().getColor(com.baidu.tieba.a.e.frs_water_fall_item_divider_1));
@@ -153,7 +153,7 @@ public class FrsWaterFallItem extends LinearLayout {
                 }
                 int ceil2 = (int) Math.ceil(this.a.getFontMetrics().ascent);
                 if (this.b == null) {
-                    this.b = com.baidu.adp.lib.util.i.a(this.a, arVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - (this.j * 2));
+                    this.b = com.baidu.adp.lib.util.i.a(this.a, aqVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - (this.j * 2));
                 }
                 canvas.drawText(this.b, this.k + this.j, (((getHeight() - getPaddingBottom()) - (this.l * 2)) + this.m) - ceil2, this.a);
             }

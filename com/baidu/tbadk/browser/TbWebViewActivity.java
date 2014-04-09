@@ -57,7 +57,7 @@ public class TbWebViewActivity extends com.baidu.tbadk.a implements com.baidu.tb
 
     @Override // com.baidu.tbadk.a
     public boolean getGpuSwitch() {
-        return TbadkApplication.j().ax();
+        return TbadkApplication.j().az();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

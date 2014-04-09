@@ -1,22 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Context;
-import android.widget.TextView;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ce extends com.baidu.adp.a.d<com.baidu.tieba.im.message.a.a> {
-    private TextView c;
+public final class ce implements View.OnLongClickListener {
+    final /* synthetic */ cd a;
 
-    public ce(Context context) {
-        super(context, com.baidu.tieba.im.i.msg_msg_chat_rule_view);
-        this.c = (TextView) a(com.baidu.tieba.im.h.tex_msgcontent);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ce(cd cdVar) {
+        this.a = cdVar;
     }
 
-    public final void a(com.baidu.tieba.im.message.a.a aVar) {
-        String str;
-        if (aVar == null) {
-            this.c = null;
-        } else if ((aVar instanceof com.baidu.tieba.im.message.b) && (str = ((com.baidu.tieba.im.message.b) aVar).a) != null) {
-            this.c.setText(str);
-        }
+    @Override // android.view.View.OnLongClickListener
+    public final boolean onLongClick(View view) {
+        this.a.d.b(view, 5, this.a.f, 0L);
+        return true;
     }
 }

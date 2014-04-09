@@ -23,11 +23,11 @@ final class p implements AdapterView.OnItemLongClickListener {
         com.baidu.tbadk.core.data.o oVar5;
         if (i >= 0) {
             cmVar = this.a.r;
-            long itemId = cmVar.t().getItemId(i);
+            long itemId = cmVar.u().getItemId(i);
             if (itemId != -1 && itemId != -2) {
                 FrsActivity frsActivity = this.a;
                 cmVar2 = this.a.r;
-                frsActivity.L = (com.baidu.tbadk.core.data.o) cmVar2.t().getItem(i);
+                frsActivity.L = (com.baidu.tbadk.core.data.o) cmVar2.u().getItem(i);
                 oVar = this.a.L;
                 if (oVar instanceof com.baidu.tbadk.core.data.b) {
                     oVar5 = this.a.L;

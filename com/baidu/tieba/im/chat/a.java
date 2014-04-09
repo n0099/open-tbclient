@@ -43,7 +43,7 @@ public abstract class a extends com.baidu.tbadk.a {
     private HashMap<String, Boolean> u = null;
     private int v = 0;
 
-    protected abstract void a(String str, bz bzVar);
+    protected abstract void a(String str, bv bvVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0129, code lost:

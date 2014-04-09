@@ -46,7 +46,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class WriteActivity extends com.baidu.tbadk.a implements PopupWindow.OnDismissListener, com.baidu.tbadk.core.voice.z, com.baidu.tieba.util.n, bt {
-    private com.baidu.tbadk.editortool.aa B;
+    private com.baidu.tbadk.editortool.ab B;
     private String D;
     private com.baidu.tieba.model.ar E;
     private VoiceManager F;
@@ -150,7 +150,7 @@ public class WriteActivity extends com.baidu.tbadk.a implements PopupWindow.OnDi
         Boolean bool;
         super.onCreate(bundle);
         this.c = (InputMethodManager) getSystemService("input_method");
-        this.B = new com.baidu.tbadk.editortool.aa(this);
+        this.B = new com.baidu.tbadk.editortool.ab(this);
         this.E = new com.baidu.tieba.model.ar();
         this.E.a(this.Q);
         this.r = new au(this);
@@ -195,7 +195,7 @@ public class WriteActivity extends com.baidu.tbadk.a implements PopupWindow.OnDi
         if (this.L != null && this.L.getPrefixs().size() > 0) {
             this.L.getPrefixs().add(getString(com.baidu.tieba.a.k.write_no_prefix));
         }
-        this.l = TbadkApplication.j().aA();
+        this.l = TbadkApplication.j().aC();
         setContentView(com.baidu.tieba.a.i.write_activity);
         this.n = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
         this.o = this.n.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -609,10 +609,10 @@ public class WriteActivity extends com.baidu.tbadk.a implements PopupWindow.OnDi
     /* JADX INFO: Access modifiers changed from: private */
     public void a(SpannableStringBuilder spannableStringBuilder, int i, com.baidu.adp.widget.ImageView.b bVar) {
         Bitmap h = bVar.h();
-        com.baidu.tieba.view.w wVar = new com.baidu.tieba.view.w(h);
-        wVar.setBounds(0, 0, h.getWidth() + 1, h.getHeight());
-        wVar.setGravity(3);
-        spannableStringBuilder.setSpan(new ImageSpan(wVar, 0), 0, spannableStringBuilder.length(), 33);
+        com.baidu.tieba.view.u uVar = new com.baidu.tieba.view.u(h);
+        uVar.setBounds(0, 0, h.getWidth() + 1, h.getHeight());
+        uVar.setGravity(3);
+        spannableStringBuilder.setSpan(new ImageSpan(uVar, 0), 0, spannableStringBuilder.length(), 33);
         this.h.getText().insert(i, spannableStringBuilder);
     }
 
@@ -678,12 +678,12 @@ public class WriteActivity extends com.baidu.tbadk.a implements PopupWindow.OnDi
                 this.a.setContent(writeData.getContent());
                 this.h.setText(TbFaceManager.a().a(this.a.getContent(), new av(this)));
             }
-            if (writeData.getWriteImagesInfo() != null) {
+            if (writeData.getWriteImagesInfo() != null && this.C.size() == 0) {
                 this.C = writeData.getWriteImagesInfo();
                 this.a.setWriteImagesInfo(this.C);
-                this.A.a(this.C, true);
-                k();
             }
+            this.A.a(this.C, true);
+            k();
         }
     }
 

@@ -57,7 +57,7 @@ public final class g extends BdAsyncTask<Void, f, f> {
             for (f fVar : fVarArr2) {
                 com.baidu.adp.widget.ImageView.b bVar = fVar.d;
                 if (bVar != null && !fVar.e) {
-                    com.baidu.tbadk.imageManager.e.a().c(fVar.a.toCachedKey(fVar.c), bVar);
+                    com.baidu.tbadk.imageManager.e.a().d(fVar.a.toCachedKey(fVar.c), bVar);
                 }
                 if (fVar.b != null) {
                     fVar.b.a(bVar, fVar.a.toCachedKey(fVar.c), fVar.e);

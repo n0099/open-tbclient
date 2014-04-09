@@ -10,7 +10,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
     protected Context a;
@@ -49,7 +48,6 @@ public class TbSettingTextTipView extends FrameLayout {
         if (!this.f) {
             this.e.setVisibility(4);
         }
-        a(TbadkApplication.j().l());
     }
 
     public TbSettingTextTipView(Context context) {
@@ -57,7 +55,6 @@ public class TbSettingTextTipView extends FrameLayout {
         this.f = true;
         this.a = context;
         e();
-        a(TbadkApplication.j().l());
     }
 
     public final void a() {
@@ -106,18 +103,6 @@ public class TbSettingTextTipView extends FrameLayout {
 
     public void setTipBackground(Drawable drawable) {
         this.d.setBackgroundDrawable(drawable);
-    }
-
-    public final void a(int i) {
-        if (i == 1) {
-            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tbadk.g.about_tip_color_1));
-            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tbadk.g.setting_subtip_color_1));
-            this.e.setImageResource(com.baidu.tbadk.i.icon_arrow_right_1);
-            return;
-        }
-        this.c.setTextColor(this.a.getResources().getColor(com.baidu.tbadk.g.about_tip_color));
-        this.e.setImageResource(com.baidu.tbadk.i.icon_arrow_right);
-        this.d.setTextColor(this.a.getResources().getColor(com.baidu.tbadk.g.setting_subtip_color));
     }
 
     private void e() {

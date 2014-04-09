@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ImageForumListResponsedMessage extends JsonHttpResponsedMessage {
     public ForumData a;
-    public ArrayList<com.baidu.tieba.data.ar> b;
+    public ArrayList<com.baidu.tieba.data.aq> b;
     public ArrayList<String> c;
     public int d;
     public int e;
@@ -44,9 +44,9 @@ public class ImageForumListResponsedMessage extends JsonHttpResponsedMessage {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            com.baidu.tieba.data.ar arVar = new com.baidu.tieba.data.ar();
-                            arVar.a(optJSONArray.optJSONObject(i));
-                            this.b.add(arVar);
+                            com.baidu.tieba.data.aq aqVar = new com.baidu.tieba.data.aq();
+                            aqVar.a(optJSONArray.optJSONObject(i));
+                            this.b.add(aqVar);
                         }
                     }
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");

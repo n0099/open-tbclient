@@ -5,7 +5,7 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public final class g extends com.baidu.adp.lib.webSocket.d {
     private static Handler a = new Handler();
-    private com.baidu.adp.framework.e.e b;
+    private com.baidu.adp.framework.e.f b;
     private boolean c;
     private com.baidu.adp.framework.message.g d;
     private int e;
@@ -17,8 +17,9 @@ public final class g extends com.baidu.adp.lib.webSocket.d {
     private boolean i = true;
     private int k = 0;
     private int l = 0;
+    private CoderException n = null;
 
-    public g(com.baidu.adp.framework.message.g gVar, boolean z, int i, boolean z2, d dVar, com.baidu.adp.framework.e.e eVar, int i2, boolean z3) {
+    public g(com.baidu.adp.framework.message.g gVar, boolean z, int i, boolean z2, d dVar, com.baidu.adp.framework.e.f fVar, int i2, boolean z3) {
         this.b = null;
         this.c = false;
         this.d = null;
@@ -34,7 +35,7 @@ public final class g extends com.baidu.adp.lib.webSocket.d {
         this.e = i;
         this.f = z2;
         this.c = z;
-        this.b = eVar;
+        this.b = fVar;
         this.h = dVar;
         this.m = i2;
         this.j = z3;
@@ -48,7 +49,7 @@ public final class g extends com.baidu.adp.lib.webSocket.d {
         gVar.h.a(gVar);
     }
 
-    private Runnable m() {
+    private Runnable n() {
         if (this.g == null) {
             this.g = new h(this);
         }
@@ -56,17 +57,17 @@ public final class g extends com.baidu.adp.lib.webSocket.d {
     }
 
     public final void a() {
-        a.removeCallbacks(m());
+        a.removeCallbacks(n());
         this.i = false;
     }
 
     @Override // com.baidu.adp.lib.webSocket.ao
     public final void b() {
-        a.removeCallbacks(m());
+        a.removeCallbacks(n());
         if (this.b.a() > 0) {
-            a.postDelayed(m(), this.b.a());
+            a.postDelayed(n(), this.b.a());
         } else {
-            a.postDelayed(m(), i.a().c());
+            a.postDelayed(n(), j.a().c());
         }
         if (this.h == null || !this.i) {
             return;
@@ -78,7 +79,7 @@ public final class g extends com.baidu.adp.lib.webSocket.d {
 
     @Override // com.baidu.adp.lib.webSocket.ao
     public final void a(int i) {
-        a.removeCallbacks(m());
+        a.removeCallbacks(n());
         if (this.h == null || !this.i) {
             return;
         }
@@ -88,7 +89,7 @@ public final class g extends com.baidu.adp.lib.webSocket.d {
     @Override // com.baidu.adp.lib.webSocket.ao
     public final void c() {
         if (!this.c) {
-            a.removeCallbacks(m());
+            a.removeCallbacks(n());
         }
         if (this.h == null || !this.i) {
             return;
@@ -110,13 +111,19 @@ public final class g extends com.baidu.adp.lib.webSocket.d {
 
     @Override // com.baidu.adp.lib.webSocket.d
     protected final byte[] g() {
-        if (this.d == null) {
-            return null;
+        byte[] bArr = null;
+        if (this.d != null) {
+            try {
+                if (com.baidu.adp.framework.e.c.a().c() == null) {
+                    bArr = this.d.b();
+                } else {
+                    bArr = com.baidu.adp.framework.e.c.a().c().a(this.d, this.f);
+                }
+            } catch (CoderException e) {
+                this.n = e;
+            }
         }
-        if (com.baidu.adp.framework.e.c.a().c() == null) {
-            return this.d.b();
-        }
-        return com.baidu.adp.framework.e.c.a().c().a(this.d, this.f);
+        return bArr;
     }
 
     public final int h() {
@@ -135,5 +142,9 @@ public final class g extends com.baidu.adp.lib.webSocket.d {
 
     public final boolean k() {
         return this.j;
+    }
+
+    public final CoderException l() {
+        return this.n;
     }
 }

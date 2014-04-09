@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public final class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, com.baidu.tieba.view.s {
+public final class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, com.baidu.tieba.view.q {
     private Context a;
     private LayoutInflater b;
     private final int c;
@@ -23,7 +23,7 @@ public final class ah extends ViewGroup implements com.baidu.tbadk.imageManager.
     private float j;
     private int k;
     private ArrayList<at> l;
-    private com.baidu.tbadk.editortool.aa m;
+    private com.baidu.tbadk.editortool.ab m;
     private View n;
 
     public ah(Context context) {
@@ -55,7 +55,7 @@ public final class ah extends ViewGroup implements com.baidu.tbadk.imageManager.
         this.g.add((HeadImageView) viewGroup.findViewById(com.baidu.tieba.a.h.forum_topic_pic4));
         this.h = ((this.e - (this.c * 2)) - this.d) / 2;
         this.i = (int) (this.h * this.j);
-        this.m = new com.baidu.tbadk.editortool.aa(context);
+        this.m = new com.baidu.tbadk.editortool.ab(context);
         this.m.a(this.h, this.i);
         setPadding(this.c, 0, this.c, 0);
     }
@@ -145,14 +145,14 @@ public final class ah extends ViewGroup implements com.baidu.tbadk.imageManager.
         }
     }
 
-    @Override // com.baidu.tieba.view.s
-    public final void d() {
+    @Override // com.baidu.tieba.view.q
+    public final void b() {
         if (this.m != null) {
             this.m.c();
         }
     }
 
-    @Override // com.baidu.tieba.view.s
+    @Override // com.baidu.tieba.view.q
     public final void a(View view, int i, int i2) {
         this.n = view;
         try {

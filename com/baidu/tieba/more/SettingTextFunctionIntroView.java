@@ -20,8 +20,8 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
     public final void e() {
         boolean z = true;
         boolean z2 = TbadkApplication.j().l() == 1;
-        VersionData B = com.baidu.tieba.r.c().B();
-        if (B == null || B.getHas_new_ver() != 1) {
+        VersionData y = com.baidu.tieba.p.c().y();
+        if (y == null || y.getHas_new_ver() != 1) {
             z = false;
         }
         boolean a = com.baidu.tbadk.core.sharedPref.b.a().a(f, false);

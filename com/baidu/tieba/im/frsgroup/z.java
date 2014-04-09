@@ -17,10 +17,10 @@ final class z implements DialogInterface.OnClickListener {
     public final void onClick(DialogInterface dialogInterface, int i) {
         MembersActivity membersActivity;
         MembersActivity membersActivity2;
-        com.baidu.tieba.im.model.y yVar;
+        com.baidu.tieba.im.model.z zVar;
         membersActivity = this.a.a;
         membersActivity2 = this.a.a;
-        yVar = membersActivity2.c;
-        MembersActivity.a(membersActivity, yVar.f(), this.b);
+        zVar = membersActivity2.c;
+        MembersActivity.a(membersActivity, zVar.f(), this.b);
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.data.SearchPostModel;
-import com.baidu.tieba.data.am;
+import com.baidu.tieba.data.al;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -142,17 +142,17 @@ public final class c extends BaseAdapter {
             }
             int l = TbadkApplication.j().l();
             if (getItemViewType(i) == 0) {
-                am amVar = (am) getItem(i);
-                if (amVar != null) {
-                    eVar.d.setText(String.valueOf(amVar.d()) + this.b.getString(com.baidu.tieba.a.k.bar));
-                    eVar.a.setText(bc.a(amVar.g()));
-                    if (amVar.f() == null || amVar.f().length() <= 0) {
+                al alVar = (al) getItem(i);
+                if (alVar != null) {
+                    eVar.d.setText(String.valueOf(alVar.d()) + this.b.getString(com.baidu.tieba.a.k.bar));
+                    eVar.a.setText(bc.a(alVar.g()));
+                    if (alVar.f() == null || alVar.f().length() <= 0) {
                         eVar.e.setVisibility(8);
                     } else {
                         eVar.e.setVisibility(0);
-                        eVar.b.setText(Html.fromHtml(bc.g(amVar.f())));
+                        eVar.b.setText(Html.fromHtml(bc.g(alVar.f())));
                     }
-                    eVar.c.setText(Html.fromHtml(bc.g(amVar.e())));
+                    eVar.c.setText(Html.fromHtml(bc.g(alVar.e())));
                     ba.b(eVar.b, l);
                     if (l == 0) {
                         eVar.f.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.square_dividing_line));

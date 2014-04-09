@@ -6,7 +6,6 @@ import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.resourceLoader.PicImageLoaderProc;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public final class GifView extends ImageView implements a {
@@ -165,10 +164,11 @@ public final class GifView extends ImageView implements a {
                         return;
                 }
             }
-            Log.e(PicImageLoaderProc.IS_GIF, "parse error");
+            Log.e("gif", "parse error");
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         if (this.g != null) {
             this.g.sendMessage(this.g.obtainMessage());

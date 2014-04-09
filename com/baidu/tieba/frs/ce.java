@@ -14,13 +14,13 @@ final class ce implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         String str;
-        if (view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.data.ar)) {
-            com.baidu.tieba.data.ar arVar = (com.baidu.tieba.data.ar) view.getTag();
+        if (view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.data.aq)) {
+            com.baidu.tieba.data.aq aqVar = (com.baidu.tieba.data.aq) view.getTag();
             FrsImageActivity frsImageActivity = this.a;
             com.baidu.tbadk.core.b.s sVar = new com.baidu.tbadk.core.b.s(this.a);
-            String d = arVar.d();
+            String d = aqVar.d();
             str = this.a.b;
-            String c = arVar.c();
+            String c = aqVar.c();
             Intent d2 = sVar.d();
             d2.putExtra("thread_id", d);
             d2.putExtra("forum", str);

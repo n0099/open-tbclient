@@ -1,32 +1,39 @@
 package com.baidu.tieba.faceshop;
 
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.widget.TbImageView;
+import android.content.Context;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class bq {
-    TbImageView a;
-    TextView b;
-    FrameLayout c;
-    TextView d;
-    TextView e;
-    ImageView f;
-    FrameLayout g;
-    TextView h;
-    TbImageView i;
-    TbImageView j;
-    String k;
-    int l;
-    int m;
-    final /* synthetic */ bm n;
-
-    private bq(bm bmVar) {
-        this.n = bmVar;
-    }
+public final class bq extends com.baidu.adp.a.h {
+    final /* synthetic */ bo a;
+    private final /* synthetic */ FacePackageData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bq(bm bmVar, byte b) {
-        this(bmVar);
+    public bq(bo boVar, FacePackageData facePackageData) {
+        this.a = boVar;
+        this.b = facePackageData;
+    }
+
+    @Override // com.baidu.adp.a.h
+    public final void a(Object obj) {
+        Context context;
+        Context context2;
+        Context context3;
+        if (obj == null || !(obj instanceof FacePackageDownloadData)) {
+            context = this.a.c;
+            UtilHelper.a(context, com.baidu.tieba.a.k.neterror);
+            return;
+        }
+        FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
+        if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
+            this.b.packUrl = facePackageDownloadData.packUrl;
+            g.a().a(String.valueOf(this.b.pid), this.b.pname, this.b.packUrl);
+        } else if (facePackageDownloadData.usermsg != null) {
+            context3 = this.a.c;
+            UtilHelper.a(context3, facePackageDownloadData.usermsg);
+        } else {
+            context2 = this.a.c;
+            UtilHelper.a(context2, com.baidu.tieba.a.k.neterror);
+        }
     }
 }

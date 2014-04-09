@@ -15,7 +15,7 @@ final class z implements com.baidu.tbadk.core.view.m {
         g gVar2;
         if (z) {
             cmVar = this.a.r;
-            if (!cmVar.s()) {
+            if (!cmVar.t()) {
                 gVar = this.a.D;
                 if (gVar != null) {
                     gVar2 = this.a.D;

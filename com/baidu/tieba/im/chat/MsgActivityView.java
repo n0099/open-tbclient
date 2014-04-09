@@ -8,7 +8,7 @@ import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class MsgActivityView extends ch {
+public class MsgActivityView extends cd {
     private HeadImageView p;
     private TextView q;
     private TextView r;
@@ -20,7 +20,7 @@ public class MsgActivityView extends ch {
 
     public MsgActivityView(Context context) {
         super(context, com.baidu.tieba.im.i.msg_msgactivity_view);
-        this.u = new ca(this);
+        this.u = new bw(this);
         this.i = (TextView) a(com.baidu.tieba.im.h.tex_msgitem_time);
         this.q = (TextView) a(com.baidu.tieba.im.h.msg_msgactivity_title);
         this.r = (TextView) a(com.baidu.tieba.im.h.msg_msgactivity_time);
@@ -28,8 +28,8 @@ public class MsgActivityView extends ch {
         this.p = (HeadImageView) a(com.baidu.tieba.im.h.img_msgactivity_photo);
         this.p.setIsRound(false);
         this.p.setClickable(true);
-        a().setOnClickListener(new cb(this));
-        a().setOnLongClickListener(new cc(this));
+        a().setOnClickListener(new bx(this));
+        a().setOnLongClickListener(new by(this));
     }
 
     public final void a(com.baidu.tieba.im.message.a.a aVar) {
@@ -95,7 +95,7 @@ public class MsgActivityView extends ch {
                         this.s.setText(optString3);
                     }
                     this.p.setTag(optString4);
-                    this.p.setOnClickListener(new cd(this, optString5, optString6));
+                    this.p.setOnClickListener(new bz(this, optString5, optString6));
                     if (this.e != null) {
                         this.e.c(optString4, this.u);
                     }
@@ -106,17 +106,17 @@ public class MsgActivityView extends ch {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.ch
+    @Override // com.baidu.tieba.im.chat.cd
     public final void a(com.baidu.adp.lib.b.a aVar) {
         this.v = aVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.ch
+    @Override // com.baidu.tieba.im.chat.cd
     public final void a(com.baidu.adp.lib.b.b bVar) {
         this.w = bVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.ch
+    @Override // com.baidu.tieba.im.chat.cd
     public final void b(int i) {
         this.t = i;
     }

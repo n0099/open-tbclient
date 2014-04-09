@@ -15,5 +15,7 @@ public final class o {
     ImageView g;
     ImageView h;
     ImageView i;
-    ImageView[] j;
+    ImageView j;
+    ImageView k;
+    ImageView[] l;
 }

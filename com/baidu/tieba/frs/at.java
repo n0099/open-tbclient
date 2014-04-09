@@ -16,12 +16,12 @@ final class at implements com.baidu.tbadk.imageManager.d {
         cm cmVar2;
         if (bVar != null) {
             cmVar = this.a.r;
-            ImageView imageView = (ImageView) cmVar.I().findViewWithTag(str);
+            ImageView imageView = (ImageView) cmVar.J().findViewWithTag(str);
             while (imageView != null) {
                 imageView.setTag(null);
                 imageView.setImageBitmap(bVar.h());
                 cmVar2 = this.a.r;
-                imageView = (ImageView) cmVar2.I().findViewWithTag(str);
+                imageView = (ImageView) cmVar2.J().findViewWithTag(str);
             }
         }
     }

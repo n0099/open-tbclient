@@ -21,7 +21,7 @@ public final class u extends BdAsyncTask<Boolean, t, t> {
         Context context;
         com.baidu.adp.a.h hVar;
         com.baidu.adp.a.h hVar2;
-        com.baidu.tbadk.editortool.aa unused;
+        com.baidu.tbadk.editortool.ab unused;
         t tVar2 = tVar;
         super.a((u) tVar2);
         this.a.b = null;

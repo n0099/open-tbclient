@@ -1,8 +1,8 @@
 package com.baidu.adp.framework.e;
 /* loaded from: classes.dex */
-public class b extends d {
+public class b extends e {
     private static b c = null;
-    private e d;
+    private f d;
 
     public static b a() {
         if (c == null) {
@@ -17,12 +17,12 @@ public class b extends d {
 
     private b() {
         this.d = null;
-        this.a = new e(30000, 20000, 10000);
-        this.d = new e(20000, 10000, 5000);
+        this.a = new f(30000, 20000, 10000);
+        this.d = new f(20000, 10000, 5000);
         this.b = 5;
     }
 
-    public final e b() {
+    public final f b() {
         return this.d;
     }
 }

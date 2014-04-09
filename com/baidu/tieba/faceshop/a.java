@@ -1,41 +1,63 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.editortool.AdsEmotionGroupData;
+import android.text.TextUtils;
 import java.util.LinkedList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes.dex */
-final class a extends com.baidu.adp.framework.c.a {
-    final /* synthetic */ AdsEmotionRegister a;
+public final class a extends com.baidu.tbadk.editortool.e {
+    private LinkedList<com.baidu.tbadk.editortool.ag> a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(AdsEmotionRegister adsEmotionRegister, int i) {
-        super(2001145);
-        this.a = adsEmotionRegister;
+    @Override // com.baidu.tbadk.editortool.e
+    public final int a() {
+        return 3;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        Object a;
-        JSONArray optJSONArray;
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2.g() != 2001145 || (a = customResponsedMessage2.a()) == null || !(a instanceof JSONObject) || (optJSONArray = ((JSONObject) a).optJSONArray("recmd_face")) == null) {
-            return;
-        }
-        LinkedList linkedList = new LinkedList();
-        for (int i = 0; i < optJSONArray.length() && i < 2; i++) {
-            try {
-                JSONObject jSONObject = optJSONArray.getJSONObject(i);
-                AdsEmotionGroupData adsEmotionGroupData = new AdsEmotionGroupData();
-                adsEmotionGroupData.parseJson(jSONObject);
-                linkedList.add(adsEmotionGroupData);
-            } catch (JSONException e) {
+    @Override // com.baidu.tbadk.editortool.e
+    public final void a(com.baidu.tbadk.editortool.f fVar) {
+        if (com.baidu.tbadk.core.util.w.a() && this.a != null) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.a.size()) {
+                    com.baidu.tbadk.editortool.a aVar = (com.baidu.tbadk.editortool.a) this.a.get(i2);
+                    if (aVar.b() && com.baidu.tbadk.editortool.v.a().a(aVar.e()) == null && fVar != null) {
+                        fVar.a(aVar);
+                    }
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
             }
         }
-        this.a.setNewAdsEmotionGroups(linkedList);
+    }
+
+    @Override // com.baidu.tbadk.editortool.e
+    public final void b() {
+        com.baidu.adp.framework.c.a().a(new b(this, 2001145));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public synchronized void a(List<com.baidu.tbadk.editortool.y> list) {
+        if (list != null) {
+            if (!list.isEmpty()) {
+                LinkedList<com.baidu.tbadk.editortool.ag> linkedList = new LinkedList<>();
+                boolean z = false;
+                for (com.baidu.tbadk.editortool.y yVar : list) {
+                    if (!TextUtils.isEmpty(yVar.getGroupId()) && yVar.IsValid()) {
+                        com.baidu.tbadk.editortool.a aVar = new com.baidu.tbadk.editortool.a(yVar);
+                        linkedList.add(aVar);
+                        z = z || aVar.a(yVar, new c(this));
+                    }
+                }
+                this.a = linkedList;
+                if (z) {
+                    com.baidu.tbadk.editortool.ac.a().b();
+                }
+            }
+        }
+        if (this.a != null) {
+            this.a = null;
+            com.baidu.tbadk.editortool.ac.a().b();
+        }
     }
 }

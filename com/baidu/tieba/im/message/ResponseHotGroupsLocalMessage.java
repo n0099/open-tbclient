@@ -22,7 +22,7 @@ public class ResponseHotGroupsLocalMessage extends CustomResponsedMessage<Object
     public final void a(byte[] bArr) {
         QueryHotGroupsRes.QueryHotGroupsResIdl parseFrom = QueryHotGroupsRes.QueryHotGroupsResIdl.parseFrom(bArr);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             this.a = new ArrayList();
             int groupsCount = parseFrom.getData().getGroupsCount();

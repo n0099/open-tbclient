@@ -55,7 +55,7 @@ public final class g {
         if (this.b) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.a.g = true;
+        this.a.g = z;
         return this;
     }
 

@@ -1,33 +1,40 @@
 package com.baidu.tieba.im.chat.notify;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
+import android.os.Handler;
+import android.widget.AbsListView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m extends com.baidu.adp.framework.c.g {
+public final class m implements AbsListView.OnScrollListener {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m(b bVar, int i) {
-        super(0);
+    public m(b bVar) {
         this.a = bVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        if (socketResponsedMessage2 != null && socketResponsedMessage2.g() == 103104 && (socketResponsedMessage2 instanceof ResponseDismissGroupMessage)) {
-            ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage2;
-            if (responseDismissGroupMessage.e() > 0) {
-                this.a.showToast(responseDismissGroupMessage.f());
-            } else if (responseDismissGroupMessage.e() < 0) {
-                this.a.showToast(com.baidu.tieba.im.j.neterror);
-            } else {
-                new StringBuilder(String.valueOf(responseDismissGroupMessage.d())).toString();
-                this.a.b();
-            }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        BdListView bdListView;
+        BdListView bdListView2;
+        handler = this.a.f;
+        runnable = this.a.g;
+        handler.removeCallbacks(runnable);
+        handler2 = this.a.f;
+        runnable2 = this.a.g;
+        handler2.postDelayed(runnable2, 300L);
+        bdListView = this.a.j;
+        if (bdListView.getAdapter() != null) {
+            bdListView2 = this.a.j;
+            bdListView2.getAdapter().getCount();
         }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public final void onScrollStateChanged(AbsListView absListView, int i) {
     }
 }

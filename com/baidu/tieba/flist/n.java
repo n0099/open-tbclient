@@ -40,7 +40,7 @@ final class n extends com.baidu.adp.a.h {
                     if (i2 == 1) {
                         rVar = this.a.E;
                         rVar.notifyDataSetChanged();
-                        com.baidu.tieba.r c = com.baidu.tieba.r.c();
+                        com.baidu.tieba.p c = com.baidu.tieba.p.c();
                         ForumInfoData[] forumInfoDataArr = this.b;
                         rVar2 = this.a.E;
                         c.e(forumInfoDataArr[rVar2.a].forum_name);
@@ -50,7 +50,7 @@ final class n extends com.baidu.adp.a.h {
                 }
                 rVar3 = this.a.D;
                 rVar3.notifyDataSetChanged();
-                com.baidu.tieba.r c2 = com.baidu.tieba.r.c();
+                com.baidu.tieba.p c2 = com.baidu.tieba.p.c();
                 ForumInfoData[] forumInfoDataArr2 = this.b;
                 rVar4 = this.a.D;
                 c2.e(forumInfoDataArr2[rVar4.a].forum_name);

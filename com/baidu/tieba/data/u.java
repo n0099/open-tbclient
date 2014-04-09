@@ -2,7 +2,6 @@ package com.baidu.tieba.data;
 
 import android.content.Context;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -61,15 +60,11 @@ public final class u {
         return this.j;
     }
 
-    public final AntiData e() {
-        return this.d;
-    }
-
-    public final String f() {
+    public final String e() {
         return this.g;
     }
 
-    public final String g() {
+    public final String f() {
         return this.h;
     }
 
@@ -97,7 +92,7 @@ public final class u {
         }
     }
 
-    public final LinkedList<t> h() {
+    public final LinkedList<t> g() {
         return this.f;
     }
 
@@ -105,19 +100,19 @@ public final class u {
         this.a = str;
     }
 
-    public final String i() {
+    public final String h() {
         return this.a;
     }
 
-    public final String j() {
+    public final String i() {
         return this.b;
     }
 
-    public final int k() {
+    public final int j() {
         return this.c;
     }
 
-    public final String l() {
+    public final String k() {
         return this.f.size() > 0 ? this.f.get(this.f.size() - 1).c() : "";
     }
 
@@ -127,7 +122,7 @@ public final class u {
                 this.k = jSONObject.optInt("is_new_url", 0);
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.a = optJSONObject.optString(PersonInfoActivity.TAG_NAME);
+                    this.a = optJSONObject.optString("name");
                     this.b = optJSONObject.optString("id");
                 }
                 this.c = jSONObject.optInt("pic_amount", 0);
@@ -162,7 +157,7 @@ public final class u {
         }
     }
 
-    public final int m() {
+    public final int l() {
         return this.k;
     }
 }

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.view.HeadImageShaderView;
 /* loaded from: classes.dex */
-public class MsgrightView extends ch {
+public class MsgrightView extends cd {
     private static final String q = MsgrightView.class.getName();
     protected TextView p;
     private ProgressBar r;
@@ -24,10 +24,10 @@ public class MsgrightView extends ch {
         this.s = (ImageButton) a(com.baidu.tieba.im.h.btn_msgitem_resend);
         this.t = (HeadImageShaderView) a(com.baidu.tieba.im.h.img_msgitem_photo);
         this.t.setAutoChangeStyle(false);
-        this.t.setOnClickListener(new cu(this));
+        this.t.setOnClickListener(new cq(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.ch
+    @Override // com.baidu.tieba.im.chat.cd
     public final void b(com.baidu.tieba.im.message.a.a aVar) {
         if (aVar.y() != null && aVar.y().getStatus() != null && (aVar.y().getStatus().shortValue() == 3 || aVar.y().getStatus().shortValue() == 2)) {
             if (this.p.getVisibility() != 8) {
@@ -46,7 +46,7 @@ public class MsgrightView extends ch {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.ch
+    @Override // com.baidu.tieba.im.chat.cd
     public final void a(View view, com.baidu.tieba.im.message.a.a aVar) {
         String str = null;
         super.a(view, aVar);
@@ -70,7 +70,7 @@ public class MsgrightView extends ch {
                     str = com.baidu.tieba.im.p.c();
                 }
             }
-            this.e.c(str, new cv(this));
+            this.e.c(str, new cr(this));
             this.r.setVisibility(8);
             this.s.setVisibility(8);
             if (aVar.y() != null && aVar.y().getStatus() != null) {
@@ -87,7 +87,7 @@ public class MsgrightView extends ch {
                 }
             }
             if (this.s.getVisibility() == 0) {
-                this.s.setOnClickListener(new cw(this));
+                this.s.setOnClickListener(new cs(this));
             }
             this.j.setVisibility(8);
             c(8);

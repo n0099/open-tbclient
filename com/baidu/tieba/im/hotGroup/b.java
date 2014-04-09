@@ -41,69 +41,69 @@ final class b extends g {
         HotGroupAdapter hotGroupAdapter8;
         BdListView bdListView3;
         SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        hotGroupActivity = this.a.c;
+        hotGroupActivity = this.a.d;
         if (hotGroupActivity != null) {
-            bdListView = this.a.a;
+            bdListView = this.a.b;
             if (bdListView != null) {
-                dVar = this.a.f;
+                dVar = this.a.g;
                 if (dVar == null) {
                     return;
                 }
                 if (socketResponsedMessage2 instanceof ResponseUpgradeMemberGroupMessage) {
                     ResponseUpgradeMemberGroupMessage responseUpgradeMemberGroupMessage = (ResponseUpgradeMemberGroupMessage) socketResponsedMessage2;
                     if (responseUpgradeMemberGroupMessage.e() == 0 || responseUpgradeMemberGroupMessage.e() == 2230110) {
-                        this.a.c();
+                        this.a.e();
                         return;
                     }
                 }
                 if (!(socketResponsedMessage2 instanceof ResponseHotGroupsMessage)) {
-                    bdListView3 = this.a.a;
+                    bdListView3 = this.a.b;
                     bdListView3.b();
                     return;
                 }
                 ResponseHotGroupsMessage responseHotGroupsMessage = (ResponseHotGroupsMessage) socketResponsedMessage2;
-                dVar2 = this.a.f;
+                dVar2 = this.a.g;
                 dVar2.c(false);
                 if (socketResponsedMessage2.g() == 103012) {
-                    bdListView2 = this.a.a;
+                    bdListView2 = this.a.b;
                     bdListView2.b();
                     if (responseHotGroupsMessage.e() != 0) {
                         if (responseHotGroupsMessage.e() <= 0 || TextUtils.isEmpty(responseHotGroupsMessage.f())) {
                             return;
                         }
-                        this.a.showToast(responseHotGroupsMessage.f());
+                        this.a.a(responseHotGroupsMessage.f());
                     } else if (responseHotGroupsMessage.h() instanceof an) {
                         an anVar = (an) responseHotGroupsMessage.h();
                         List<GroupInfoData> d = responseHotGroupsMessage.d();
                         if (d != null) {
                             if (anVar.i()) {
-                                hotGroupAdapter8 = this.a.e;
+                                hotGroupAdapter8 = this.a.f;
                                 hotGroupAdapter8.b();
                             }
-                            dVar3 = this.a.f;
+                            dVar3 = this.a.g;
                             dVar3.a(responseHotGroupsMessage.i());
-                            dVar4 = this.a.f;
+                            dVar4 = this.a.g;
                             if (dVar4.a()) {
-                                hotGroupAdapter7 = this.a.e;
+                                hotGroupAdapter7 = this.a.f;
                                 hotGroupAdapter7.a(HotGroupAdapter.BOTTOM_TYPE.HAVE_MORE);
                             } else if (!anVar.i()) {
-                                hotGroupAdapter = this.a.e;
+                                hotGroupAdapter = this.a.f;
                                 hotGroupAdapter.a(HotGroupAdapter.BOTTOM_TYPE.NO_MORE);
                             } else if (d.size() == 0) {
-                                hotGroupAdapter3 = this.a.e;
+                                hotGroupAdapter3 = this.a.f;
                                 hotGroupAdapter3.a(false);
                                 return;
                             } else {
-                                hotGroupAdapter2 = this.a.e;
+                                hotGroupAdapter2 = this.a.f;
                                 hotGroupAdapter2.a(HotGroupAdapter.BOTTOM_TYPE.LINE);
                             }
                             if (d.size() > 0) {
-                                hotGroupAdapter4 = this.a.e;
+                                hotGroupAdapter4 = this.a.f;
                                 hotGroupAdapter4.a(d);
-                                hotGroupAdapter5 = this.a.e;
+                                hotGroupAdapter5 = this.a.f;
                                 hotGroupAdapter5.notifyDataSetChanged();
-                                this.a.d();
-                                hotGroupAdapter6 = this.a.e;
+                                this.a.f();
+                                hotGroupAdapter6 = this.a.f;
                                 hotGroupAdapter6.a(true);
                             }
                         }

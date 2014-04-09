@@ -37,7 +37,7 @@ public final class e extends f {
         this.a.b().a(i == 1);
         this.a.b().a(this.c);
         this.d.b(i);
-        this.g.onChangeSkinType(i);
+        this.g.c(i);
         this.e.a(i);
     }
 }

@@ -67,6 +67,6 @@ final class s implements AbsListView.OnScrollListener {
         cmVar2.f(true);
         this.a.N = true;
         cmVar3 = this.a.r;
-        cmVar3.P();
+        cmVar3.Q();
     }
 }

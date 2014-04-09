@@ -28,8 +28,8 @@ public final class k extends BdAsyncTask<Object, g, JSONObject> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final /* synthetic */ void a(JSONObject jSONObject) {
-        cx cxVar;
-        cx cxVar2;
+        cz czVar;
+        cz czVar2;
         JSONObject jSONObject2 = jSONObject;
         if (this.d != null) {
             this.b.a = true;
@@ -38,10 +38,10 @@ public final class k extends BdAsyncTask<Object, g, JSONObject> {
             this.b.d = this.d.f();
             this.b.e = this.d.b();
         }
-        cxVar = this.c.j;
-        if (cxVar != null) {
-            cxVar2 = this.c.j;
-            cxVar2.a(this.g, jSONObject2, this.b);
+        czVar = this.c.j;
+        if (czVar != null) {
+            czVar2 = this.c.j;
+            czVar2.a(this.g, jSONObject2, this.b);
         }
         this.c.m = null;
     }
@@ -50,13 +50,13 @@ public final class k extends BdAsyncTask<Object, g, JSONObject> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final /* synthetic */ void b(g... gVarArr) {
-        cx cxVar;
-        cx cxVar2;
+        cz czVar;
+        cz czVar2;
         g[] gVarArr2 = gVarArr;
-        cxVar = this.c.j;
-        if (cxVar != null) {
-            cxVar2 = this.c.j;
-            cxVar2.a(gVarArr2.length > 0 ? gVarArr2[0] : null);
+        czVar = this.c.j;
+        if (czVar != null) {
+            czVar2 = this.c.j;
+            czVar2.a(gVarArr2.length > 0 ? gVarArr2[0] : null);
         }
     }
 
@@ -77,12 +77,12 @@ public final class k extends BdAsyncTask<Object, g, JSONObject> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final void c() {
-        cx cxVar;
-        cx cxVar2;
-        cxVar = this.c.j;
-        if (cxVar != null) {
-            cxVar2 = this.c.j;
-            cxVar2.a(this.g);
+        cz czVar;
+        cz czVar2;
+        czVar = this.c.j;
+        if (czVar != null) {
+            czVar2 = this.c.j;
+            czVar2.a(this.g);
         }
     }
 
@@ -142,16 +142,16 @@ public final class k extends BdAsyncTask<Object, g, JSONObject> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final void cancel() {
-        cx cxVar;
-        cx cxVar2;
+        cz czVar;
+        cz czVar2;
         super.cancel(true);
         if (this.d != null) {
             this.d.g();
         }
-        cxVar = this.c.j;
-        if (cxVar != null) {
-            cxVar2 = this.c.j;
-            cxVar2.a(this.g, null, null);
+        czVar = this.c.j;
+        if (czVar != null) {
+            czVar2 = this.c.j;
+            czVar2.a(this.g, null, null);
         }
     }
 }

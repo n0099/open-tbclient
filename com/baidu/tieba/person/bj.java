@@ -1,11 +1,10 @@
 package com.baidu.tieba.person;
 
-import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
-import android.widget.ProgressBar;
-import com.baidu.tbadk.coreExtra.view.MultiImageView;
+import android.view.View;
 /* loaded from: classes.dex */
-final class bj implements DialogInterface.OnClickListener {
+final class bj implements View.OnLongClickListener {
     final /* synthetic */ PersonImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,42 +12,18 @@ final class bj implements DialogInterface.OnClickListener {
         this.a = personImageActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog listMenu;
-        MultiImageView multiImageView;
-        MultiImageView multiImageView2;
-        bl blVar;
-        ProgressBar progressBar;
-        listMenu = this.a.getListMenu();
-        if (dialogInterface == listMenu) {
-            switch (i) {
-                case 0:
-                    try {
-                        multiImageView = this.a.c;
-                        byte[] currentImageData = multiImageView.getCurrentImageData();
-                        if (currentImageData != null) {
-                            multiImageView2 = this.a.c;
-                            String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.a.b = new bl(this.a, currentImageUrl, currentImageData);
-                            blVar = this.a.b;
-                            blVar.execute(new String[0]);
-                            progressBar = this.a.a;
-                            progressBar.setVisibility(0);
-                        } else {
-                            this.a.showToast(this.a.getString(com.baidu.tieba.a.k.no_data));
-                        }
-                        return;
-                    } catch (Exception e) {
-                        com.baidu.adp.lib.util.f.b("PersonImageActivity click save  error" + e.getMessage());
-                        return;
-                    }
-                case 1:
-                    dialogInterface.dismiss();
-                    return;
-                default:
-                    return;
-            }
-        }
+    @Override // android.view.View.OnLongClickListener
+    public final boolean onLongClick(View view) {
+        Context context;
+        Context context2;
+        DialogInterface.OnClickListener onClickListener;
+        context = this.a.i;
+        context2 = this.a.i;
+        String[] strArr = {context.getString(com.baidu.tieba.a.k.save), context2.getString(com.baidu.tieba.a.k.cancel)};
+        PersonImageActivity personImageActivity = this.a;
+        onClickListener = this.a.f;
+        personImageActivity.createListMenu(strArr, onClickListener);
+        this.a.showListMenu();
+        return false;
     }
 }

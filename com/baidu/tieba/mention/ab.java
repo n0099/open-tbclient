@@ -45,7 +45,7 @@ public final class ab implements View.OnClickListener {
                     stringBuffer.append("size=");
                     stringBuffer.append(com.baidu.tbadk.core.data.n.u());
                     stringBuffer.append("&src=");
-                    stringBuffer.append(bc.d(this.b.get(i).g()));
+                    stringBuffer.append(bc.d(this.b.get(i).e()));
                     arrayList.add(stringBuffer.toString());
                 }
             }

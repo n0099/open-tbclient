@@ -20,11 +20,19 @@ public final class e implements View.OnClickListener {
             BubbleListData.BubbleData bubbleData = this.a.b.getB_info().get(((Integer) view.getTag()).intValue());
             if (bubbleData != null) {
                 if (bubbleData.getBcode() == 0 || bubbleData.canUse() || bubbleData.isFree()) {
-                    com.baidu.tieba.model.f fVar = this.a.a;
-                    com.baidu.tieba.model.f.a(bubbleData.getBcode(), com.baidu.adp.lib.util.i.b(this.a.d), com.baidu.adp.lib.util.i.c(this.a.d));
-                    this.a.a.a(bubbleData.getBcode());
+                    if (!bubbleData.isDef()) {
+                        com.baidu.tieba.model.f fVar = this.a.a;
+                        com.baidu.tieba.model.f.a(bubbleData.getBcode(), com.baidu.adp.lib.util.i.b(this.a.d), com.baidu.adp.lib.util.i.c(this.a.d));
+                        this.a.a.a(bubbleData.getBcode());
+                        if (this.a.i() != null) {
+                            this.a.i().b();
+                            return;
+                        }
+                        return;
+                    }
                     return;
                 }
+                this.a.a.b(bubbleData.getBcode());
                 TbWebViewActivity.a(this.a.d, TbadkApplication.j().getString(com.baidu.tieba.a.k.web_title_bubble_purchase), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeantshow?_client_version=" + com.baidu.tbadk.core.data.n.c());
             }
         }

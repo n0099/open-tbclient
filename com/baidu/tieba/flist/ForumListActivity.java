@@ -46,7 +46,7 @@ public class ForumListActivity extends com.baidu.tbadk.a implements ViewPager.On
     private int o = 200;
     private int p = 0;
     private final com.baidu.tieba.model.af q = new com.baidu.tieba.model.af();
-    private com.baidu.tbadk.editortool.aa r = null;
+    private com.baidu.tbadk.editortool.ab r = null;
     private boolean s = false;
     private int t = 0;
     private boolean u = false;
@@ -160,7 +160,7 @@ public class ForumListActivity extends com.baidu.tbadk.a implements ViewPager.On
             stringExtra2 = stringExtra;
         }
         this.c.h.setText(stringExtra2);
-        this.r = new com.baidu.tbadk.editortool.aa(this);
+        this.r = new com.baidu.tbadk.editortool.ab(this);
         this.A = new ForumListModel.RequestParams();
         try {
             this.A.menu_id = Integer.valueOf(stringExtra3).intValue();

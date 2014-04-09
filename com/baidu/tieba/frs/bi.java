@@ -34,10 +34,13 @@ final class bi {
     FrsReplyView t;
     FrsReplyView u;
     TextView v;
-    final /* synthetic */ ay w;
+    LinearLayout w;
+    View x;
+    View y;
+    final /* synthetic */ ay z;
 
     private bi(ay ayVar) {
-        this.w = ayVar;
+        this.z = ayVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

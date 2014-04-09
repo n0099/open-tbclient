@@ -39,7 +39,7 @@ public final class b extends g {
                     return;
                 }
                 eVar5 = this.a.h;
-                eVar5.a(socketResponsedMessage2.f());
+                eVar5.b(socketResponsedMessage2.f());
             }
         } else if (socketResponsedMessage2 instanceof ResponseQueryGroupCountMessage) {
             ResponseQueryGroupCountMessage responseQueryGroupCountMessage = (ResponseQueryGroupCountMessage) socketResponsedMessage2;

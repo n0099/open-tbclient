@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.frsgroup;
 
-import com.baidu.tieba.im.message.bj;
+import com.baidu.tieba.im.message.bi;
 /* loaded from: classes.dex */
 final class l implements com.baidu.tbadk.core.dialog.c {
     final /* synthetic */ GroupLevelActivity a;
@@ -13,11 +13,11 @@ final class l implements com.baidu.tbadk.core.dialog.c {
     @Override // com.baidu.tbadk.core.dialog.c
     public final void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tieba.im.model.m mVar;
-        bj bjVar = new bj();
+        bi biVar = new bi();
         mVar = this.a.a;
-        bjVar.b(mVar.a());
-        bjVar.a(true);
-        com.baidu.adp.lib.util.f.e("send upgrade mem group msg:" + bjVar.e() + " gid:" + bjVar.i());
-        this.a.sendMessage(bjVar);
+        biVar.b(mVar.a());
+        biVar.a(true);
+        com.baidu.adp.lib.util.f.e("send upgrade mem group msg:" + biVar.e() + " gid:" + biVar.i());
+        this.a.sendMessage(biVar);
     }
 }

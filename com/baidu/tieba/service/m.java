@@ -10,7 +10,7 @@ public final class m extends BdAsyncTask<String, Integer, ab> {
     int b;
     final /* synthetic */ TiebaMessageService c;
     ak a = null;
-    private final com.baidu.tieba.r d = com.baidu.tieba.r.c();
+    private final TbadkApplication d = TbadkApplication.j();
     private final String e = TbadkApplication.E();
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
@@ -58,12 +58,12 @@ public final class m extends BdAsyncTask<String, Integer, ab> {
         ab abVar;
         Exception e;
         try {
-            com.baidu.tieba.r rVar = this.d;
+            TbadkApplication tbadkApplication = this.d;
         } catch (Exception e2) {
             abVar = null;
             e = e2;
         }
-        if (com.baidu.tieba.r.p() && this.e != null && this.e.length() > 0) {
+        if (TbadkApplication.aG() && this.e != null && this.e.length() > 0) {
             this.a = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/s/msg");
             if (this.b == 2) {
                 this.a.a("bookmark", "1");

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.g;
 import com.baidu.tieba.im.h;
@@ -26,7 +26,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public final class HotGroupAdapter extends BaseAdapter {
     private HotGroupActivity a;
-    private aa b;
+    private ab b;
     private List<GroupInfoData> c = new ArrayList();
     private BOTTOM_TYPE d;
     private boolean e;
@@ -50,11 +50,11 @@ public final class HotGroupAdapter extends BaseAdapter {
 
     public HotGroupAdapter(HotGroupActivity hotGroupActivity) {
         this.a = hotGroupActivity;
-        this.b = new aa(this.a);
+        this.b = new ab(this.a);
         this.b.a(true);
     }
 
-    public final aa a() {
+    public final ab a() {
         return this.b;
     }
 

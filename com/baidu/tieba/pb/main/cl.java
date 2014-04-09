@@ -1,37 +1,48 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ImageView.BDImageView;
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.drawable.NinePatchDrawable;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
-public final class cl implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ bk a;
+final class cl implements com.baidu.tbadk.core.util.bp {
+    final /* synthetic */ ck a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(bk bkVar) {
-        this.a = bkVar;
+    public cl(ck ckVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
+        this.a = ckVar;
+        this.b = str;
+        this.c = bVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        BdListView bdListView;
-        bdListView = this.a.o;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        if (bVar == null) {
-            if (imageView != null && (imageView instanceof bb)) {
-                ((bb) imageView).a(false);
+    @Override // com.baidu.tbadk.core.util.bp
+    public final boolean a(View view) {
+        SparseArray sparseArray;
+        PbActivity pbActivity;
+        if ((view instanceof TbRichTextView) && !this.b.equals(((TbRichTextView) view).getBackgroundImageUrl())) {
+            try {
+                sparseArray = (SparseArray) view.getTag();
+            } catch (Exception e) {
+                sparseArray = null;
             }
-        } else if (imageView != null) {
-            if (imageView instanceof bb) {
-                ((bb) imageView).a(true);
-                if (((bb) imageView).getIsLoaded()) {
-                    return;
+            if (sparseArray != null) {
+                String str = (String) sparseArray.get(com.baidu.tieba.a.h.tag_richtext_bg);
+                if (!TextUtils.isEmpty(str) && this.b.equals(str)) {
+                    pbActivity = this.a.a.m;
+                    NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(pbActivity.getResources(), this.c.h(), this.c.h().getNinePatchChunk(), this.c.l(), null);
+                    if (TbadkApplication.j().l() == 1) {
+                        ninePatchDrawable.getPaint().setAlpha(bm.a);
+                    }
+                    if (view instanceof TbRichTextView) {
+                        view.setBackgroundDrawable(ninePatchDrawable);
+                    }
                 }
-            } else if (imageView instanceof BDImageView) {
-                imageView.setImageBitmap(bVar.h());
             }
-            imageView.invalidate();
         }
+        return false;
     }
 }

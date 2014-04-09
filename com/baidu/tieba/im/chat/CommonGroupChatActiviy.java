@@ -39,9 +39,9 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
         GroupData groupData = (GroupData) intent.getSerializableExtra("group");
         String stringExtra = intent.getStringExtra("ObjTp");
         String valueOf = String.valueOf(groupData.getGroupId());
-        if (!com.baidu.tieba.im.model.bm.a().a(valueOf)) {
+        if (!com.baidu.tieba.im.model.bn.a().a(valueOf)) {
             new com.baidu.tieba.im.f.p("chat_pg", stringExtra, valueOf).start();
-            com.baidu.tieba.im.model.bm.a().a(valueOf, Long.valueOf(System.currentTimeMillis()));
+            com.baidu.tieba.im.model.bn.a().a(valueOf, Long.valueOf(System.currentTimeMillis()));
         }
         ((CommonGroupMsglistModel) this.e).a(groupData);
         b = String.valueOf(((CommonGroupMsglistModel) this.e).b().getGroupId());
@@ -55,7 +55,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dn, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.dj, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putBoolean("is_accept_notify", this.e.h());
@@ -76,7 +76,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.adp.lib.b.b
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.adp.lib.b.b
     public final void b(View view, int i, int i2, long j) {
         switch (i) {
             case 2:
@@ -86,11 +86,14 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
                     break;
                 }
                 break;
+            case 7:
+                this.d.g(i2);
+                break;
         }
         super.b(view, i, i2, j);
     }
 
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         super.onClick(dialogInterface, i);
         if (dialogInterface == this.d.C()) {
@@ -141,7 +144,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
                 case 1:
                     String a3 = com.baidu.tieba.im.f.q.a(a2.v(), true);
                     if (a3 != null) {
-                        this.i = new de(a3, this);
+                        this.i = new da(a3, this);
                         this.i.a();
                         return;
                     }
@@ -160,12 +163,12 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
                     if (TbadkApplication.j().V()) {
                         TbadkApplication.j().d(false);
                         this.h.b(true);
-                        this.d.H();
+                        this.d.I();
                         return;
                     }
                     TbadkApplication.j().d(true);
                     this.h.b(false);
-                    this.d.I();
+                    this.d.J();
                     return;
                 case 1:
                     if (a4 != null && a4.r() != null && a4.r().getUserName() != null) {
@@ -179,12 +182,28 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
                 default:
                     return;
             }
+        } else if (dialogInterface == this.d.G()) {
+            int intValue4 = ((Integer) ((AlertDialog) dialogInterface).getListView().getTag()).intValue();
+            com.baidu.tieba.im.message.a.a a5 = this.e.a(intValue4);
+            switch (i) {
+                case 0:
+                    if (a5 != null && a5.r() != null && a5.r().getUserName() != null) {
+                        this.d.b(a5.r().getUserName());
+                        return;
+                    }
+                    return;
+                case 1:
+                    this.e.c(intValue4);
+                    return;
+                default:
+                    return;
+            }
         }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x0090  */
     /* JADX WARN: Removed duplicated region for block: B:65:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.adp.lib.b.a
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.adp.lib.b.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -219,7 +238,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
                 if (s() && this.e != null && (a = this.e.a(i2)) != null) {
                     if (!a.D()) {
                         a.b(true);
-                        dg.a((Context) this, (GifView) view, a, this.d.O(), false);
+                        dc.a((Context) this, (GifView) view, a, this.d.P(), false);
                         return;
                     } else if (com.baidu.tieba.im.f.q.b(a) && (v = a.v()) != null) {
                         try {

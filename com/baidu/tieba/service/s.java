@@ -4,6 +4,7 @@ import android.app.NotificationManager;
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.data.VersionData;
@@ -49,8 +50,8 @@ final class s extends BdAsyncTask<String, Integer, Boolean> {
             this.a.i = true;
             return;
         }
-        handler = this.a.t;
-        handler2 = this.a.t;
+        handler = this.a.u;
+        handler2 = this.a.u;
         versionData = this.a.e;
         handler.sendMessageDelayed(handler2.obtainMessage(1, versionData), 100L);
     }
@@ -61,20 +62,20 @@ final class s extends BdAsyncTask<String, Integer, Boolean> {
         this.b = str;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x00d3, code lost:
-        r0 = r9.a.s;
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x00d1, code lost:
+        r0 = r7.a.s;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00d9, code lost:
-        if (r0 == false) goto L24;
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00d7, code lost:
+        if (r0 == false) goto L27;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00db, code lost:
-        r9.a.i = true;
-        r0 = r9.a.t;
-        r2 = r9.a.t;
-        r4 = r9.a.e;
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00d9, code lost:
+        r7.a.i = true;
+        r0 = r7.a.u;
+        r2 = r7.a.u;
+        r4 = r7.a.e;
         r0.sendMessageDelayed(r2.obtainMessage(1, r4), 100);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00fd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00fb, code lost:
         r0 = r1;
      */
     /*
@@ -85,13 +86,14 @@ final class s extends BdAsyncTask<String, Integer, Boolean> {
         Exception e;
         File e2;
         Handler handler;
+        boolean z;
         long j;
         Boolean bool2 = false;
         while (true) {
             try {
                 if (!this.d) {
                     this.c = new ak(this.b);
-                    handler = this.a.u;
+                    handler = this.a.v;
                     bool2 = Boolean.valueOf(this.c.a(String.valueOf(this.a.a) + ".tmp", handler, 900003));
                     if (bool2.booleanValue() || this.c.d() == -2) {
                         break;
@@ -102,10 +104,11 @@ final class s extends BdAsyncTask<String, Integer, Boolean> {
                         } catch (Exception e3) {
                         }
                     }
-                    if (!this.c.a().b().a()) {
+                    z = this.a.t;
+                    if (z && UtilHelper.a()) {
                         long currentTimeMillis = System.currentTimeMillis();
                         j = this.a.r;
-                        if (currentTimeMillis - j > 10000) {
+                        if (currentTimeMillis - j > 20000) {
                             break;
                         }
                     }

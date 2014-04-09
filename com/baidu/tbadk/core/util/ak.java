@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -150,7 +149,7 @@ public final class ak {
             this.c.a.a().d = false;
             this.c.a.a().c = false;
             this.c.a.a().b = false;
-            this.c.a(PersonInfoActivity.TAG_ID, str);
+            this.c.a("un", str);
             this.c.a("passwd", str2);
             this.c.a("isphone", "0");
             this.c.a("channel_id", TbadkApplication.j().S());

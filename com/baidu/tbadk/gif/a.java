@@ -25,9 +25,9 @@ public final class a extends Handler {
         int i3;
         Bitmap bitmap;
         b bVar;
-        b bVar2;
         int i4;
         boolean z2;
+        b unused;
         weakReference = this.a.b;
         if (weakReference != null) {
             weakReference2 = this.a.b;
@@ -63,8 +63,7 @@ public final class a extends Handler {
                 }
                 bVar = this.a.e;
                 if (bVar != null) {
-                    bVar2 = this.a.e;
-                    bVar2.a();
+                    unused = this.a.e;
                 }
             }
         }

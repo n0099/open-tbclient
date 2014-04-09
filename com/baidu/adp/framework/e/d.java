@@ -1,14 +1,7 @@
 package com.baidu.adp.framework.e;
 /* loaded from: classes.dex */
-public class d {
-    protected e a = null;
-    protected int b = 1;
+public interface d {
+    void a(String str, String str2, int i, com.baidu.adp.framework.message.d<?> dVar);
 
-    public final int i() {
-        return this.b;
-    }
-
-    public final e j() {
-        return this.a;
-    }
+    void a(String str, String str2, int i, com.baidu.adp.framework.message.f<?> fVar);
 }

@@ -21,7 +21,7 @@ public final class a {
             case 10:
             case 11:
             case 12:
-                return 5;
+                return 6;
         }
     }
 }

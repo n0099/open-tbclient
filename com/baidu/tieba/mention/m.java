@@ -204,9 +204,9 @@ public final class m {
                     }
                     if (this.b.isAdded()) {
                         if (this.b instanceof a) {
-                            ((a) this.b).onChangeSkinType(TbadkApplication.j().l());
+                            ((a) this.b).c(TbadkApplication.j().l());
                         } else if (this.b instanceof af) {
-                            ((af) this.b).onChangeSkinType(TbadkApplication.j().l());
+                            ((af) this.b).c(TbadkApplication.j().l());
                         }
                     }
                 }

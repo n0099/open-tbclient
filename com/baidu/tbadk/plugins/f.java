@@ -1,9 +1,8 @@
 package com.baidu.tbadk.plugins;
 
 import com.baidu.tbplugin.i;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements i {
+final class f implements i {
     final /* synthetic */ a a;
     private final /* synthetic */ com.baidu.tbplugin.c b;
 

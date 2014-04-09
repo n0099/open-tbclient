@@ -12,7 +12,7 @@ final class ac implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public final void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.y yVar;
+        com.baidu.tieba.im.model.z zVar;
         ah ahVar;
         int i2 = 0;
         switch (i) {
@@ -23,8 +23,8 @@ final class ac implements DialogInterface.OnClickListener {
                 i2 = 2;
                 break;
         }
-        yVar = this.a.c;
-        yVar.a(i2);
+        zVar = this.a.c;
+        zVar.a(i2);
         ahVar = this.a.b;
         ahVar.c(i);
         MembersActivity.f(this.a);

@@ -15,20 +15,21 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.b.al;
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.download.CancelDownloadMessage;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class LoginActivity extends com.baidu.tbadk.a {
     private NavigationBar L;
-    private w d;
-    private w e;
+    private y d;
+    private y e;
     private String f = null;
     private String g = null;
     private String h = null;
@@ -62,9 +63,9 @@ public class LoginActivity extends com.baidu.tbadk.a {
     private Button J = null;
     private Button K = null;
     RelativeLayout a = null;
-    private y M = null;
+    private aa M = null;
     private com.baidu.tbadk.core.data.h N = null;
-    private x O = null;
+    private z O = null;
     private com.baidu.tbadk.core.a.n P = null;
     InputMethodManager b = null;
     com.baidu.tbadk.coreExtra.view.p c = null;
@@ -104,9 +105,8 @@ public class LoginActivity extends com.baidu.tbadk.a {
         context.startActivity(intent);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(com.baidu.tbadk.k.account_login_activity);
         this.R = getIntent().getStringExtra("info");
@@ -141,19 +141,19 @@ public class LoginActivity extends com.baidu.tbadk.a {
         this.I = (TextView) findViewById(com.baidu.tbadk.j.text_login);
         this.J = (Button) findViewById(com.baidu.tbadk.j.normal_login);
         this.K = (Button) findViewById(com.baidu.tbadk.j.mobile_login);
-        p pVar = new p(this);
-        this.o.setOnFocusChangeListener(pVar);
-        this.p.setOnFocusChangeListener(pVar);
-        this.q.setOnFocusChangeListener(pVar);
-        q qVar = new q(this);
-        this.p.setOnEditorActionListener(qVar);
-        this.q.setOnEditorActionListener(qVar);
-        this.o.addTextChangedListener(new r(this));
-        this.p.addTextChangedListener(new s(this));
-        this.q.addTextChangedListener(new t(this));
+        r rVar = new r(this);
+        this.o.setOnFocusChangeListener(rVar);
+        this.p.setOnFocusChangeListener(rVar);
+        this.q.setOnFocusChangeListener(rVar);
+        s sVar = new s(this);
+        this.p.setOnEditorActionListener(sVar);
+        this.q.setOnEditorActionListener(sVar);
+        this.o.addTextChangedListener(new t(this));
+        this.p.addTextChangedListener(new u(this));
+        this.q.addTextChangedListener(new v(this));
         this.r = findViewById(com.baidu.tbadk.j.layout_login);
         this.r.setEnabled(false);
-        this.r.setOnClickListener(new u(this));
+        this.r.setOnClickListener(new w(this));
         f();
         Intent intent = getIntent();
         String stringExtra = intent.getStringExtra("account");
@@ -197,9 +197,8 @@ public class LoginActivity extends com.baidu.tbadk.a {
         bundle.putInt("type_login", this.j);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
-    public void onDestroy() {
+    protected void onDestroy() {
         try {
             h();
             System.gc();
@@ -212,9 +211,8 @@ public class LoginActivity extends com.baidu.tbadk.a {
         super.onDestroy();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.a, android.app.Activity
-    public void onResume() {
+    protected void onResume() {
         if (this.c == null || !this.c.c()) {
             ShowSoftKeyPadDelay(this.o, 150);
         }
@@ -266,9 +264,8 @@ public class LoginActivity extends com.baidu.tbadk.a {
         finish();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.a
-    public void onChangeSkinType(int i) {
+    protected void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.L.b(i);
         ba.a(this.I, i);
@@ -444,7 +441,7 @@ public class LoginActivity extends com.baidu.tbadk.a {
 
     private void e() {
         if (this.j == 0) {
-            this.d = new w(this, (byte) 0);
+            this.d = new y(this, (byte) 0);
             this.d.a = this.o.getText().toString();
             this.d.b = this.p.getText().toString();
             this.d.c = this.q.getText().toString();
@@ -454,7 +451,7 @@ public class LoginActivity extends com.baidu.tbadk.a {
             this.d.g = this.n;
         }
         if (this.j == 1) {
-            this.e = new w(this, (byte) 0);
+            this.e = new y(this, (byte) 0);
             this.e.a = this.o.getText().toString();
             this.e.b = this.p.getText().toString();
             this.e.c = this.q.getText().toString();
@@ -493,7 +490,7 @@ public class LoginActivity extends com.baidu.tbadk.a {
             stringBuffer.append(com.baidu.tbadk.core.data.n.a);
             stringBuffer.append("c/s/login");
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new BasicNameValuePair(PersonInfoActivity.TAG_ID, editable));
+            arrayList.add(new BasicNameValuePair("un", editable));
             arrayList.add(new BasicNameValuePair("passwd", loginActivity.g));
             arrayList.add(new BasicNameValuePair("isphone", String.valueOf(loginActivity.j)));
             arrayList.add(new BasicNameValuePair("channel_id", TbadkApplication.j().S()));
@@ -503,7 +500,7 @@ public class LoginActivity extends com.baidu.tbadk.a {
                 arrayList.add(new BasicNameValuePair("vcode_md5", loginActivity.h));
             }
             loginActivity.h();
-            loginActivity.M = new y(loginActivity, stringBuffer.toString(), arrayList);
+            loginActivity.M = new aa(loginActivity, stringBuffer.toString(), arrayList);
             loginActivity.M.setPriority(3);
             loginActivity.M.execute(stringBuffer.toString(), arrayList);
         }
@@ -540,7 +537,7 @@ public class LoginActivity extends com.baidu.tbadk.a {
         }
         if (loginActivity.c == null) {
             loginActivity.c = new com.baidu.tbadk.coreExtra.view.p(loginActivity);
-            loginActivity.c.a(new v(loginActivity));
+            loginActivity.c.a(new x(loginActivity));
         }
         loginActivity.c.e();
         loginActivity.c.a(loginActivity.o.getText().toString());
@@ -562,7 +559,7 @@ public class LoginActivity extends com.baidu.tbadk.a {
         this.v.setVisibility(0);
         this.s.setImageBitmap(null);
         h();
-        this.O = new x(this, (byte) 0);
+        this.O = new z(this, (byte) 0);
         this.O.setPriority(3);
         this.O.execute(str);
     }
@@ -663,5 +660,14 @@ public class LoginActivity extends com.baidu.tbadk.a {
         if (this.O != null) {
             this.O.cancel();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void o(LoginActivity loginActivity) {
+        loginActivity.h();
+        al alVar = new al(loginActivity);
+        alVar.a(22002);
+        alVar.a(IntentAction.ActivityForResult);
+        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, alVar));
     }
 }

@@ -41,76 +41,76 @@ public final class d extends com.baidu.adp.framework.c.g {
         com.baidu.tieba.im.model.k kVar9;
         SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
         if (socketResponsedMessage2 == null || !(socketResponsedMessage2 instanceof ResponseFrsGroupsMessage)) {
-            this.a.showToast(com.baidu.tieba.im.j.neterror);
+            this.a.a(com.baidu.tieba.im.j.neterror);
             return;
         }
         ResponseFrsGroupsMessage responseFrsGroupsMessage = (ResponseFrsGroupsMessage) socketResponsedMessage2;
         com.baidu.adp.framework.message.d<?> h = responseFrsGroupsMessage.h();
         if (h != null && (h instanceof com.baidu.tieba.im.message.ag)) {
             String j = ((com.baidu.tieba.im.message.ag) h).j();
-            kVar9 = this.a.b;
+            kVar9 = this.a.c;
             if (!j.equals(String.valueOf(kVar9.g()))) {
                 return;
             }
         }
         b.d(this.a);
-        kVar = this.a.c;
+        kVar = this.a.d;
         kVar.b(true);
-        kVar2 = this.a.b;
+        kVar2 = this.a.c;
         kVar2.a(this.a.getTag());
         if (responseFrsGroupsMessage.e() != 0) {
             if (responseFrsGroupsMessage.e() <= 0) {
-                this.a.showToast(com.baidu.tieba.im.j.neterror);
+                this.a.a(com.baidu.tieba.im.j.neterror);
                 return;
             } else if (TextUtils.isEmpty(responseFrsGroupsMessage.f())) {
                 return;
             } else {
-                this.a.showToast(responseFrsGroupsMessage.f());
+                this.a.a(responseFrsGroupsMessage.f());
                 return;
             }
         }
         List<GroupInfoData> d = responseFrsGroupsMessage.d();
         GroupPermData i = responseFrsGroupsMessage.i();
-        kVar3 = this.a.b;
+        kVar3 = this.a.c;
         kVar3.a(i);
         if (d != null) {
-            kVar4 = this.a.b;
+            kVar4 = this.a.c;
             if (kVar4.h()) {
-                groupListAdapter8 = this.a.h;
+                groupListAdapter8 = this.a.i;
                 groupListAdapter8.a(true);
-                this.a.b(true);
+                this.a.c(true);
             }
-            this.a.j = com.baidu.adp.lib.util.i.a();
+            this.a.k = com.baidu.adp.lib.util.i.a();
             int size = d.size();
-            kVar5 = this.a.b;
+            kVar5 = this.a.c;
             if (size != kVar5.k()) {
-                kVar8 = this.a.b;
+                kVar8 = this.a.c;
                 if (!kVar8.h()) {
-                    groupListAdapter5 = this.a.h;
+                    groupListAdapter5 = this.a.i;
                     groupListAdapter5.a(GroupListAdapter.BOTTOM_TYPE.NO_MORE);
                 } else if (d.size() == 0) {
-                    groupListAdapter7 = this.a.h;
+                    groupListAdapter7 = this.a.i;
                     groupListAdapter7.b(false);
                     b.f(this.a);
                     return;
                 } else {
-                    groupListAdapter6 = this.a.h;
+                    groupListAdapter6 = this.a.i;
                     groupListAdapter6.a(GroupListAdapter.BOTTOM_TYPE.LINE);
                 }
             } else {
-                groupListAdapter = this.a.h;
+                groupListAdapter = this.a.i;
                 groupListAdapter.a(GroupListAdapter.BOTTOM_TYPE.HAVE_MORE);
             }
             b.g(this.a);
-            groupListAdapter2 = this.a.h;
+            groupListAdapter2 = this.a.i;
             groupListAdapter2.b(true);
-            kVar6 = this.a.b;
+            kVar6 = this.a.c;
             kVar6.c(d.size());
-            kVar7 = this.a.b;
+            kVar7 = this.a.c;
             kVar7.d(20);
-            groupListAdapter3 = this.a.h;
+            groupListAdapter3 = this.a.i;
             groupListAdapter3.a(d);
-            groupListAdapter4 = this.a.h;
+            groupListAdapter4 = this.a.i;
             groupListAdapter4.notifyDataSetChanged();
             b.h(this.a);
         }

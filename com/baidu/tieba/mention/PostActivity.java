@@ -33,7 +33,7 @@ public class PostActivity extends com.baidu.tbadk.a {
     private String j = null;
     private ac k = null;
     private am l = null;
-    private com.baidu.tbadk.editortool.aa m;
+    private com.baidu.tbadk.editortool.ab m;
     private ImageView n;
     private TextView o;
     private TextView p;
@@ -75,7 +75,7 @@ public class PostActivity extends com.baidu.tbadk.a {
         this.o.setTextSize(com.baidu.tbadk.core.data.n.o());
         this.s.setTextSize(com.baidu.tbadk.core.data.n.p());
         this.u = TbadkApplication.j().L();
-        this.v = com.baidu.tieba.r.c().u();
+        this.v = com.baidu.tieba.p.c().s();
         if (bundle != null) {
             this.h = bundle.getString("tid");
             this.i = bundle.getString("pid");
@@ -86,7 +86,7 @@ public class PostActivity extends com.baidu.tbadk.a {
             this.i = intent.getStringExtra("pid");
             this.j = intent.getStringExtra("st_type");
         }
-        this.m = new com.baidu.tbadk.editortool.aa(this);
+        this.m = new com.baidu.tbadk.editortool.ab(this);
         this.l = new am();
         a();
     }
@@ -100,8 +100,8 @@ public class PostActivity extends com.baidu.tbadk.a {
             this.s.setTextSize(com.baidu.tbadk.core.data.n.p());
             b();
         }
-        if (this.v != com.baidu.tieba.r.c().u()) {
-            this.v = com.baidu.tieba.r.c().u();
+        if (this.v != com.baidu.tieba.p.c().s()) {
+            this.v = com.baidu.tieba.p.c().s();
             b();
         }
         super.onResume();
@@ -193,7 +193,7 @@ public class PostActivity extends com.baidu.tbadk.a {
                 this.n.setVisibility(0);
                 String portrait = aiVar.g().getPortrait();
                 if (portrait != null && portrait.length() > 0) {
-                    com.baidu.tbadk.editortool.aa aaVar = this.m;
+                    com.baidu.tbadk.editortool.ab abVar = this.m;
                     com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(portrait);
                     if (b != null) {
                         b.a(this.n);
@@ -217,7 +217,7 @@ public class PostActivity extends com.baidu.tbadk.a {
                                 i = 0;
                             } else {
                                 this.s.setVisibility(0);
-                                this.s.setText(fVar.f());
+                                this.s.setText(fVar.d());
                                 i = 1;
                             }
                             int i3 = -1;
@@ -234,15 +234,15 @@ public class PostActivity extends com.baidu.tbadk.a {
                                         int a2 = com.baidu.adp.lib.util.i.a((Context) this, 105.0f);
                                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a);
                                         layoutParams.topMargin = com.baidu.adp.lib.util.i.a((Context) this, 15.0f);
-                                        com.baidu.tbadk.editortool.aa aaVar2 = this.m;
-                                        com.baidu.adp.widget.ImageView.b c = com.baidu.tbadk.imageManager.e.a().c(fVar2.g());
+                                        com.baidu.tbadk.editortool.ab abVar2 = this.m;
+                                        com.baidu.adp.widget.ImageView.b c = com.baidu.tbadk.imageManager.e.a().c(fVar2.e());
                                         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                                         imageView.setMaxWidth(a2);
                                         if (c != null) {
                                             imageView.setTag(null);
                                             c.a(imageView);
                                         } else {
-                                            imageView.setTag(fVar2.g());
+                                            imageView.setTag(fVar2.e());
                                             imageView.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.a.g.image_default));
                                         }
                                         imageView.setClickable(true);
@@ -262,7 +262,7 @@ public class PostActivity extends com.baidu.tbadk.a {
                                     layoutParams2.topMargin = a3;
                                     customTextView.setTextSize(com.baidu.tbadk.core.data.n.p());
                                     customTextView.setTextColor(-11974584);
-                                    customTextView.setText(fVar2.f());
+                                    customTextView.setText(fVar2.d());
                                     customTextView.setLineSpacing(0.0f, 1.2f);
                                     customTextView.setMovementMethod(LinkMovementMethod.getInstance());
                                     customTextView.setFocusable(false);
@@ -315,7 +315,7 @@ public class PostActivity extends com.baidu.tbadk.a {
                 if (this.v) {
                     for (int i = 0; i < size; i++) {
                         if (j.get(i).a() == 3) {
-                            this.m.b(j.get(i).g(), new aa(this));
+                            this.m.b(j.get(i).e(), new aa(this));
                         }
                     }
                 }

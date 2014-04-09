@@ -13,17 +13,17 @@ final class j implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         int i;
-        com.baidu.tbadk.editortool.aa aaVar;
-        com.baidu.tbadk.editortool.aa aaVar2;
+        com.baidu.tbadk.editortool.ab abVar;
+        com.baidu.tbadk.editortool.ab abVar2;
         i = this.a.z;
         if (i == 0) {
             BdListView bdListView = this.a.c.i;
-            aaVar2 = this.a.r;
-            com.baidu.tbadk.core.util.ac.a(bdListView, aaVar2, 1, -1);
+            abVar2 = this.a.r;
+            com.baidu.tbadk.core.util.ac.a(bdListView, abVar2, 1, -1);
             return;
         }
         BdListView bdListView2 = this.a.c.j;
-        aaVar = this.a.r;
-        com.baidu.tbadk.core.util.ac.a(bdListView2, aaVar, 1, -1);
+        abVar = this.a.r;
+        com.baidu.tbadk.core.util.ac.a(bdListView2, abVar, 1, -1);
     }
 }

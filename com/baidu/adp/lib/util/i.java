@@ -280,4 +280,13 @@ public final class i {
     public static boolean d() {
         return BdNetUtil.a() != BdNetUtil.NetworkStateInfo.UNAVAIL;
     }
+
+    public static void a(Context context, View view, int i, int i2, int i3, int i4) {
+        int a2 = a(context, 0.0f);
+        int a3 = a(context, 10.0f);
+        int a4 = a(context, 0.0f);
+        int a5 = a(context, 20.0f);
+        View view2 = (View) view.getParent();
+        view2.post(new k(view, a4, a2, a5, a3, view2));
+    }
 }

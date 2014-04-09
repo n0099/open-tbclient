@@ -4,7 +4,6 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.bc;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -57,7 +56,7 @@ public final class i extends BdAsyncTask<String, Object, ForbidResultData> {
         str = h.a;
         ak akVar = new ak(str);
         akVar.a("day", this.e);
-        akVar.a(PersonInfoActivity.TAG_ID, this.d);
+        akVar.a("un", this.d);
         akVar.a("fid", this.a);
         akVar.a("word", this.b);
         akVar.a("z", this.c);

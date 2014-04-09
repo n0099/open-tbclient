@@ -23,11 +23,11 @@ final class ar implements Runnable {
         com.baidu.tbadk.imageManager.d dVar;
         try {
             cmVar = this.a.r;
-            cmVar.t().a().a();
+            cmVar.u().a().a();
             cmVar2 = this.a.r;
-            cmVar2.v().a().a();
+            cmVar2.w().a().a();
             cmVar3 = this.a.r;
-            cmVar3.u().a().a();
+            cmVar3.v().a().a();
             str = this.a.J;
             if (!str.equals("frs_page")) {
                 str2 = this.a.J;
@@ -44,12 +44,12 @@ final class ar implements Runnable {
             this.a.l();
             int i = com.baidu.tbadk.core.h.a().f() ? 0 : 1;
             cmVar4 = this.a.r;
-            BdListView I = cmVar4.I();
+            BdListView J = cmVar4.J();
             cmVar5 = this.a.r;
-            com.baidu.tbadk.editortool.aa a = cmVar5.t().a();
+            com.baidu.tbadk.editortool.ab a = cmVar5.u().a();
             com.baidu.tbadk.imageManager.d dVar2 = this.a.c;
             dVar = this.a.ac;
-            com.baidu.tbadk.core.util.ac.a(I, a, dVar2, dVar, null, i, 0);
+            com.baidu.tbadk.core.util.ac.a(J, a, dVar2, dVar, null, i, 0);
         } catch (Exception e) {
             com.baidu.adp.lib.util.f.b("FrsActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
         }

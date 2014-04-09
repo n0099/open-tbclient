@@ -1,22 +1,23 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.data.GroupMsgData;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class j extends com.baidu.adp.framework.c.a {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 instanceof GroupMsgData) {
-            GroupMsgData groupMsgData = (GroupMsgData) customResponsedMessage2;
-            com.baidu.adp.lib.util.f.e("GET Personal Gid PULLMSG=" + groupMsgData.b().getGroupId());
-            com.baidu.tieba.im.pushNotify.a.d().b(h.a(groupMsgData), new k(this));
-            com.baidu.tieba.im.chat.x.b().a(groupMsgData);
-        }
+public final class j extends com.baidu.tieba.im.m<Boolean> {
+    private final /* synthetic */ long b;
+    private final /* synthetic */ long c;
+    private final /* synthetic */ LinkedList d;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(long j, long j2, LinkedList linkedList) {
+        this.b = j;
+        this.c = j2;
+        this.d = linkedList;
     }
 
-    public j() {
-        super(2013003);
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.b, this.c, this.d, true));
     }
 }

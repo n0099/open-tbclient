@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class u extends BaseAdapter implements com.baidu.tieba.view.s {
+public final class u extends BaseAdapter implements com.baidu.tieba.view.q {
     private y a = null;
     private ArrayList<at> b = new ArrayList<>();
     private v c;
@@ -29,7 +29,7 @@ public final class u extends BaseAdapter implements com.baidu.tieba.view.s {
         }
     }
 
-    public final void b() {
+    public final void c() {
         if (this.c != null) {
             this.c.b();
         }
@@ -55,14 +55,14 @@ public final class u extends BaseAdapter implements com.baidu.tieba.view.s {
         return this.c;
     }
 
-    @Override // com.baidu.tieba.view.s
-    public final void d() {
+    @Override // com.baidu.tieba.view.q
+    public final void b() {
         if (this.a != null) {
-            this.a.d();
+            this.a.b();
         }
     }
 
-    @Override // com.baidu.tieba.view.s
+    @Override // com.baidu.tieba.view.q
     public final void a(View view, int i, int i2) {
         if (this.a != null) {
             this.a.a(this.c, 0, 0);

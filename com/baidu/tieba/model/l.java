@@ -10,7 +10,7 @@ public final class l extends BdAsyncTask<Boolean, Integer, Boolean> {
     private com.baidu.tbadk.core.util.ak b = null;
     private String c;
     private int d;
-    private com.baidu.tieba.data.aq e;
+    private com.baidu.tieba.data.ap e;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -59,7 +59,7 @@ public final class l extends BdAsyncTask<Boolean, Integer, Boolean> {
         this.e = null;
         this.c = str;
         this.d = i;
-        this.e = new com.baidu.tieba.data.aq();
+        this.e = new com.baidu.tieba.data.ap();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

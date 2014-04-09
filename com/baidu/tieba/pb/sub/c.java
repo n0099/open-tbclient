@@ -2,19 +2,17 @@ package com.baidu.tieba.pb.sub;
 
 import android.view.View;
 import android.widget.Button;
-import com.baidu.adp.widget.ColumnLayout;
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.widget.LinearLayout;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
 public final class c {
     public View a;
-    public ColumnLayout b;
-    public HeadImageView c;
-    public Button d;
-    public TbRichTextView e;
-    final /* synthetic */ b f;
+    public LinearLayout b;
+    public Button c;
+    public TbRichTextView d;
+    final /* synthetic */ b e;
 
     public c(b bVar) {
-        this.f = bVar;
+        this.e = bVar;
     }
 }

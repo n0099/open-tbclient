@@ -32,14 +32,14 @@ public final class d extends com.baidu.adp.framework.c.g {
                 try {
                     ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage2;
                     if (responseUserPermissionMessage.e() > 0) {
-                        this.a.showToast(responseUserPermissionMessage.f());
+                        this.a.a(responseUserPermissionMessage.f());
                     } else {
                         GroupPermData d = responseUserPermissionMessage.d();
                         if (d != null) {
                             if (d.isCreatePersonal()) {
                                 CreateGroupStepActivity.a(this.a.getActivity(), 2, 0, 1011, d.getCanCreateNormalNum(), d.getCanCreateOfficialNum(), d.getCanCreatePersonalNum());
                             } else if (!TextUtils.isEmpty(d.getCreatePersonalTip())) {
-                                this.a.showToast(d.getCreatePersonalTip());
+                                this.a.a(d.getCreatePersonalTip());
                             }
                         }
                     }
@@ -47,21 +47,21 @@ public final class d extends com.baidu.adp.framework.c.g {
                 }
             }
         } else if (socketResponsedMessage2.g() == 106101) {
-            eVar = this.a.f;
+            eVar = this.a.g;
             eVar.c();
             if (!(socketResponsedMessage2 instanceof ResponseEnterChatRoomMessage)) {
-                this.a.showToast(com.baidu.tieba.im.j.neterror);
+                this.a.a(com.baidu.tieba.im.j.neterror);
                 return;
             }
             ResponseEnterChatRoomMessage responseEnterChatRoomMessage = (ResponseEnterChatRoomMessage) socketResponsedMessage2;
             if (responseEnterChatRoomMessage.e() != 0) {
                 if (responseEnterChatRoomMessage.e() <= 0) {
-                    this.a.showToast(com.baidu.tieba.im.j.neterror);
+                    this.a.a(com.baidu.tieba.im.j.neterror);
                     return;
                 } else if (TextUtils.isEmpty(responseEnterChatRoomMessage.f())) {
                     return;
                 } else {
-                    this.a.showToast(responseEnterChatRoomMessage.f());
+                    this.a.a(responseEnterChatRoomMessage.f());
                     return;
                 }
             }
@@ -77,7 +77,7 @@ public final class d extends com.baidu.adp.framework.c.g {
             imMessageCenterPojo.setIs_delete(0);
             imMessageCenterPojo.setIs_hidden(1);
             com.baidu.tieba.im.f.h.a(imMessageCenterPojo);
-            eVar2 = this.a.f;
+            eVar2 = this.a.g;
             WaittingActivity.a(eVar2, d2, 0);
         }
     }

@@ -16,7 +16,7 @@ public class ResponseFrsGroupsMessage extends TbSocketReponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         QueryGroupsByFidRes.QueryGroupsByFidResIdl parseFrom = QueryGroupsByFidRes.QueryGroupsByFidResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             this.a = new ArrayList();
             int groupsCount = parseFrom.getData().getGroupsCount();

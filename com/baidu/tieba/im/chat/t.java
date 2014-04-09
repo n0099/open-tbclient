@@ -15,8 +15,8 @@ public final class t implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         ImageView imageView;
-        r0.a(this.a.G);
-        imageView = this.a.E;
+        r0.a(this.a.H);
+        imageView = this.a.F;
         imageView.postDelayed(new u(this), 100L);
     }
 }

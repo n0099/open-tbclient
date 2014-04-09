@@ -1,39 +1,60 @@
 package com.baidu.tbadk.editortool;
 
-import android.content.Context;
-import java.util.HashMap;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-public final class aa extends com.baidu.tbadk.core.util.b {
-    public aa(Context context) {
-        super(context);
+public final class aa extends e {
+    private static aa a = new aa();
+    private LinkedList<ag> b;
+
+    @Override // com.baidu.tbadk.editortool.e
+    public final int a() {
+        return 1;
     }
 
-    public final com.baidu.adp.widget.ImageView.b a(String str, String str2, String str3, boolean z, com.baidu.tbadk.imageManager.d dVar, boolean z2) {
-        ab.a();
-        String b = ab.b(str2, z);
-        com.baidu.adp.widget.ImageView.b c = com.baidu.tbadk.imageManager.e.a().c(b);
-        if (c == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("em_sharp_text", str2);
-            hashMap.put("em_load_gif", Boolean.valueOf(z));
-            if (str != null) {
-                hashMap.put("em_group_id", str);
-            }
-            if (str3 != null) {
-                hashMap.put("em_img_url", str3);
-            }
-            return a(b, dVar, 6, true, false, false, false, hashMap, false);
+    public static synchronized aa c() {
+        aa aaVar;
+        synchronized (aa.class) {
+            aaVar = a;
         }
-        return c;
+        return aaVar;
     }
 
-    @Deprecated
-    public final com.baidu.adp.widget.ImageView.b a(String str, String str2, String str3, boolean z, com.baidu.tbadk.imageManager.d dVar) {
-        return a(str, str2, str3, z, dVar, false);
+    public final List<ag> d() {
+        return this.b;
     }
 
-    @Deprecated
-    public final com.baidu.adp.widget.ImageView.b b(String str, boolean z, com.baidu.tbadk.imageManager.d dVar) {
-        return a((String) null, str, (String) null, z, dVar);
+    @Override // com.baidu.tbadk.editortool.e
+    public final void a(f fVar) {
+        if (this.b == null) {
+            this.b = new LinkedList<>();
+            if (TbFaceManager.a().b() > 0) {
+                z zVar = new z();
+                this.b.add(zVar);
+                if (fVar != null) {
+                    fVar.a(zVar);
+                    return;
+                }
+                return;
+            }
+            return;
+        }
+        Iterator<ag> it = this.b.iterator();
+        while (it.hasNext()) {
+            ag next = it.next();
+            if (fVar != null) {
+                fVar.a(next);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.editortool.e
+    public final void b() {
+    }
+
+    public final boolean e() {
+        return this.b == null || this.b.size() == 0;
     }
 }

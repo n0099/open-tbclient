@@ -5,11 +5,9 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.tieba.im.data.GroupActivityData;
-import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
 public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implements View.OnClickListener {
     private e c;
@@ -32,7 +30,7 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
             intent.putExtra("gid", i);
             intent.putExtra("isedit", true);
             intent.putExtra("aid", groupActivityData.getActivityId());
-            intent.putExtra(PersonInfoActivity.TAG_NAME, groupActivityData.getgActivityTitle());
+            intent.putExtra("name", groupActivityData.getgActivityTitle());
             intent.putExtra("time", groupActivityData.getgActivityTime());
             intent.putExtra("area", groupActivityData.getgActivityArea());
             intent.putExtra("content", groupActivityData.getgActivityContent());
@@ -53,7 +51,7 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
                 this.e = bundle.getBoolean("isedit", false);
                 if (this.e) {
                     this.d.a().setActivityId(bundle.getInt("aid", 0));
-                    this.d.a().setgActivityTitle(bundle.getString(PersonInfoActivity.TAG_NAME));
+                    this.d.a().setgActivityTitle(bundle.getString("name"));
                     this.d.a().setgActivityArea(bundle.getString("area"));
                     this.d.a().setgActivityContent(bundle.getString("content"));
                     this.d.a().setgActivityTime(bundle.getLong("time", 0L));
@@ -63,7 +61,7 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
                 this.e = getIntent().getBooleanExtra("isedit", false);
                 if (this.e) {
                     this.d.a().setActivityId(getIntent().getIntExtra("aid", 0));
-                    this.d.a().setgActivityTitle(getIntent().getStringExtra(PersonInfoActivity.TAG_NAME));
+                    this.d.a().setgActivityTitle(getIntent().getStringExtra("name"));
                     this.d.a().setgActivityArea(getIntent().getStringExtra("area"));
                     this.d.a().setgActivityContent(getIntent().getStringExtra("content"));
                     this.d.a().setgActivityTime(getIntent().getLongExtra("time", 0L));
@@ -89,7 +87,7 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
             this.e = getIntent().getBooleanExtra("isedit", false);
             if (this.e) {
                 this.d.a().setActivityId(intent.getIntExtra("aid", 0));
-                this.d.a().setgActivityTitle(getIntent().getStringExtra(PersonInfoActivity.TAG_NAME));
+                this.d.a().setgActivityTitle(getIntent().getStringExtra("name"));
                 this.d.a().setgActivityArea(getIntent().getStringExtra("area"));
                 this.d.a().setgActivityContent(getIntent().getStringExtra("content"));
                 this.d.a().setgActivityTime(getIntent().getLongExtra("time", 0L));
@@ -110,14 +108,14 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
             i = this.d.a().getGroupId();
         }
         bundle.putInt("gid", i);
-        bundle.putString(PersonInfoActivity.TAG_NAME, this.c.e());
+        bundle.putString("name", this.c.e());
         bundle.putString("content", this.c.g());
         bundle.putString("area", this.c.f());
         bundle.putLong("time", this.c.h());
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void c(int i) {
+    protected final void b(int i) {
         if (this.c != null) {
             this.c.a(i);
         }
@@ -133,6 +131,7 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
         super.onDestroy();
         this.d.cancelMessage();
         this.c.c();
+        com.baidu.adp.framework.c.a().b(this.f);
     }
 
     @Override // com.baidu.adp.a.c, android.view.View.OnClickListener
@@ -149,7 +148,7 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
             this.d.a().setgActivityContent(this.c.g());
             this.d.a().setgActivityTime(h);
             this.d.a().setgActivityTitle(this.c.e());
-            g_();
+            d_();
             this.d.a(this.e);
         }
     }
@@ -157,10 +156,6 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
     @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (TextUtils.isEmpty(this.c.e())) {
-                finish();
-                return true;
-            }
             g();
             return true;
         }

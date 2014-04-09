@@ -40,7 +40,7 @@ public class CustomTextView extends TextView {
                 return;
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(text);
-            j a = a(spannableStringBuilder, i, i2);
+            h a = a(spannableStringBuilder, i, i2);
             if (a.a) {
                 a(i, i2, spannableStringBuilder, a);
             } else {
@@ -49,7 +49,7 @@ public class CustomTextView extends TextView {
         }
     }
 
-    private j a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
+    private h a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         Object[] spans = spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), Object.class);
         ArrayList arrayList = new ArrayList(spans.length);
         ArrayList arrayList2 = new ArrayList(spans.length);
@@ -66,13 +66,13 @@ public class CustomTextView extends TextView {
             }
             try {
                 a((CharSequence) spannableStringBuilder, i, i2);
-                return j.a(arrayList, arrayList2);
+                return h.a(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
                 com.baidu.adp.lib.util.f.b(getClass().getName(), "addSpacesAroundSpansUntilFixed", e.getMessage());
             }
         }
         com.baidu.adp.lib.util.f.e(getClass().getName(), "addSpacesAroundSpansUntilFixed", "Could not fix the Spanned by adding spaces around spans");
-        return j.a();
+        return h.a();
     }
 
     private static boolean a(CharSequence charSequence, int i) {
@@ -84,8 +84,8 @@ public class CustomTextView extends TextView {
         super.onMeasure(i, i2);
     }
 
-    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, j jVar) {
-        for (Object obj : jVar.c) {
+    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, h hVar) {
+        for (Object obj : hVar.c) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -95,7 +95,7 @@ public class CustomTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : jVar.b) {
+        for (Object obj2 : hVar.b) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {

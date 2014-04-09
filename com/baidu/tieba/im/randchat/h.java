@@ -3,7 +3,7 @@ package com.baidu.tieba.im.randchat;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.message.ChatRoomEventResponseMessage;
-import com.baidu.tieba.im.model.bu;
+import com.baidu.tieba.im.model.bv;
 import com.baidu.tieba.im.randchat.WaitingTipView;
 /* loaded from: classes.dex */
 final class h extends com.baidu.adp.framework.c.a {
@@ -20,10 +20,10 @@ final class h extends com.baidu.adp.framework.c.a {
     @Override // com.baidu.adp.framework.c.c
     public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tieba.im.data.b a;
-        bu buVar;
-        bu buVar2;
+        bv bvVar;
+        bv bvVar2;
         WaitingTipView.Type type;
-        bu buVar3;
+        bv bvVar3;
         boolean a2;
         f fVar;
         f fVar2;
@@ -49,15 +49,15 @@ final class h extends com.baidu.adp.framework.c.a {
                 default:
                     return;
                 case 205:
-                    buVar = this.a.b;
-                    buVar.a(a.j);
-                    buVar2 = this.a.b;
-                    buVar2.b(a.i);
-                    type = this.a.h;
+                    bvVar = this.a.b;
+                    bvVar.a(a.j);
+                    bvVar2 = this.a.b;
+                    bvVar2.b(a.i);
+                    type = this.a.i;
                     if (type != WaitingTipView.Type.PERSONS_READY) {
                         WaittingActivity waittingActivity = this.a;
-                        buVar3 = this.a.b;
-                        a2 = WaittingActivity.a(buVar3.f());
+                        bvVar3 = this.a.b;
+                        a2 = WaittingActivity.a(bvVar3.f());
                         if (!a2) {
                             this.a.b(WaitingTipView.Type.TOPIC_UPDATE, (Object[]) null);
                         }

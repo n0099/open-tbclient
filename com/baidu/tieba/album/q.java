@@ -24,8 +24,8 @@ public final class q {
         if (a == null) {
             q qVar = new q();
             a = qVar;
-            com.baidu.tieba.r.c();
-            Application d = com.baidu.tieba.r.d();
+            com.baidu.tieba.p.c();
+            Application d = com.baidu.tieba.p.d();
             qVar.c = new s(qVar);
             qVar.d = new t(qVar, qVar.b);
             IntentFilter intentFilter = new IntentFilter();
@@ -75,8 +75,8 @@ public final class q {
 
     public final void b() {
         this.e.clear();
-        com.baidu.tieba.r.c();
-        Application d = com.baidu.tieba.r.d();
+        com.baidu.tieba.p.c();
+        Application d = com.baidu.tieba.p.d();
         d.unregisterReceiver(this.c);
         d.getContentResolver().unregisterContentObserver(this.d);
         a = null;

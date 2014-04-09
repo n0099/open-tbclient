@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.b.l;
 import com.baidu.tbadk.core.data.n;
 import com.baidu.tbadk.core.util.ak;
-import com.baidu.tieba.r;
+import com.baidu.tieba.p;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class TiebaSDK implements Serializable {
     private static final long serialVersionUID = -3424378401905406520L;
 
     public static void init(Application application) {
-        r.c().a(application);
+        p.c().a(application);
     }
 
     public static void openBar(Context context, String str) {
@@ -41,7 +41,7 @@ public class TiebaSDK implements Serializable {
         ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
         arrayList.add(new BasicNameValuePair("kw", str));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(1)));
-        if (r.c().u()) {
+        if (p.c().s()) {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(35));
         } else {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(50));

@@ -116,7 +116,12 @@ public class SubPbLayout extends ViewGroup {
             }
             c cVar = (c) sparseArray.get(com.baidu.tieba.a.h.tag_holder);
             if (z) {
-                this.d.a(cVar, a.get(i4), this.e.k() > a.size() || a.size() - i4 > 1, i4 == 0);
+                b bVar = this.d;
+                ai aiVar = a.get(i4);
+                if (this.e.k() <= a.size()) {
+                    a.size();
+                }
+                bVar.a(cVar, aiVar);
             }
             view.measure(((i3 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             i4++;
@@ -126,8 +131,8 @@ public class SubPbLayout extends ViewGroup {
             TextView textView = (TextView) this.h.findViewById(com.baidu.tieba.a.h.sub_pb_more_text);
             Context context = getContext();
             int k = this.e.k() - a.size();
-            com.baidu.tieba.r.c();
-            String string = com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.sub_pb_load_more);
+            com.baidu.tieba.p.c();
+            String string = com.baidu.tieba.p.d().getString(com.baidu.tieba.a.k.sub_pb_load_more);
             String valueOf = String.valueOf(k);
             int indexOf = string.indexOf("%d");
             SpannableString spannableString = new SpannableString(string.replace("%d", valueOf));

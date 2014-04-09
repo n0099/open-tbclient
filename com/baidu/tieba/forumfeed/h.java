@@ -1,18 +1,15 @@
 package com.baidu.tieba.forumfeed;
 
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.view.NoNetworkView;
+import android.view.View;
 /* loaded from: classes.dex */
-final class h {
-    public LinearLayout a;
-    public com.baidu.tbadk.core.view.b b;
-    public NoNetworkView c;
-
-    private h() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ h(byte b) {
-        this();
+public final class h {
+    public static void a(com.baidu.tbadk.core.e eVar, View view, int i) {
+        i iVar = (i) view.getTag();
+        eVar.b().a(i == 1);
+        eVar.b().a(view);
+        if (iVar != null) {
+            iVar.b.a(i);
+            iVar.c.a(i);
+        }
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.n;
 import com.baidu.tbadk.core.f;
 import com.baidu.tbadk.core.util.bd;
 import com.baidu.tieba.a.k;
-import com.baidu.tieba.r;
+import com.baidu.tieba.p;
 /* loaded from: classes.dex */
 public final class b extends f {
     private static final String e = String.valueOf(n.a) + "c/u/feed/forum";
@@ -18,10 +18,10 @@ public final class b extends f {
         a("rn", String.valueOf(20));
         this.a.a().a().a = true;
         a(e);
-        r.c();
-        int b = i.b(r.d());
-        r.c();
-        int c = i.c(r.d());
+        p.c();
+        int b = i.b(p.d());
+        p.c();
+        int c = i.c(p.d());
         float f = b / 320.0f;
         int i = bd.a().b() ? 2 : 1;
         this.a.a("scr_w", String.valueOf(b));
@@ -39,8 +39,8 @@ public final class b extends f {
             return null;
         } else {
             this.c = -1;
-            r.c();
-            this.d = r.d().getResources().getString(k.neterror);
+            p.c();
+            this.d = p.d().getResources().getString(k.neterror);
             return null;
         }
     }

@@ -17,14 +17,15 @@ final class h implements AbsListView.OnScrollListener {
         Handler handler2;
         Handler handler3;
         Handler handler4;
-        bk bkVar;
+        bm bmVar;
+        bm bmVar2;
         Handler handler5;
         handler = this.a.w;
         if (handler != null) {
             handler5 = this.a.w;
             handler5.removeMessages(0);
         }
-        this.a.T = i;
+        this.a.V = i;
         if (i == 0 || i == 1) {
             handler2 = this.a.w;
             if (handler2 != null) {
@@ -34,8 +35,10 @@ final class h implements AbsListView.OnScrollListener {
             }
         }
         if (i == 2 || i == 1) {
-            bkVar = this.a.D;
-            bkVar.ab();
+            bmVar = this.a.D;
+            bmVar.ab();
+            bmVar2 = this.a.D;
+            bmVar2.b();
         }
     }
 

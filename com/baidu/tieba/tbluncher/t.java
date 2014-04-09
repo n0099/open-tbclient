@@ -1,31 +1,23 @@
 package com.baidu.tieba.tbluncher;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-final class t extends BroadcastReceiver {
+final class t extends com.baidu.adp.framework.c.a {
     final /* synthetic */ MainTabActivity a;
 
-    private t(MainTabActivity mainTabActivity) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(MainTabActivity mainTabActivity, int i) {
+        super(2007005);
         this.a = mainTabActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ t(MainTabActivity mainTabActivity, byte b) {
-        this(mainTabActivity);
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(com.baidu.tbadk.core.data.n.z())) {
-            if (TbadkApplication.az()) {
-                MainTabActivity.a(this.a, true);
-            } else {
-                MainTabActivity.a(this.a, false);
-            }
-            MainTabActivity.f(this.a);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || com.baidu.tbadk.core.d.b.a() != null) {
+            return;
         }
+        com.baidu.tbadk.core.d.b.a(new y());
     }
 }

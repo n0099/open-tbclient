@@ -14,7 +14,7 @@ final class h implements e {
         y yVar2;
         yVar = this.a.a;
         yVar.d();
-        com.baidu.tieba.home.p k = aVar.k();
+        com.baidu.tieba.home.q k = aVar.k();
         if (k != null && k.a() == 0) {
             yVar2 = this.a.a;
             yVar2.a(aVar);

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class s extends BaseAdapter {
     private final Context a;
-    private com.baidu.tbadk.editortool.aa b;
+    private com.baidu.tbadk.editortool.ab b;
     private ArrayList<com.baidu.tieba.im.data.c> c;
     private com.baidu.tbadk.core.view.o d;
     private x e = null;
@@ -23,7 +23,7 @@ public final class s extends BaseAdapter {
     public s(Context context) {
         this.b = null;
         this.a = context;
-        this.b = new com.baidu.tbadk.editortool.aa(context);
+        this.b = new com.baidu.tbadk.editortool.ab(context);
     }
 
     public final void a(x xVar) {
@@ -59,7 +59,7 @@ public final class s extends BaseAdapter {
         return 0L;
     }
 
-    public final com.baidu.tbadk.editortool.aa a() {
+    public final com.baidu.tbadk.editortool.ab a() {
         return this.b;
     }
 

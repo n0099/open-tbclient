@@ -23,8 +23,8 @@ public class BdSocketLinkService extends Service {
         }
         com.baidu.adp.lib.util.f.e("启动连接");
         d.removeMessages(1);
-        i.a().b();
-        d.sendEmptyMessageDelayed(1, i.a().c());
+        j.a().b();
+        d.sendEmptyMessageDelayed(1, j.a().c());
         return com.baidu.adp.lib.webSocket.l.a().b();
     }
 
@@ -39,12 +39,18 @@ public class BdSocketLinkService extends Service {
     }
 
     public static void a(String str) {
+        if (com.baidu.adp.framework.e.c.a().i() != null) {
+            com.baidu.adp.framework.e.c.a().i().a("TiebaSocketLinkService", "close():", 0, (com.baidu.adp.framework.message.d<?>) null);
+        }
         a(1);
     }
 
     public static void a(int i) {
         if (!a()) {
             com.baidu.adp.lib.util.f.e("关闭连接");
+            if (com.baidu.adp.framework.e.c.a().i() != null) {
+                com.baidu.adp.framework.e.c.a().i().a("TiebaSocketLinkService", "close():", i, (com.baidu.adp.framework.message.d<?>) null);
+            }
             d.removeMessages(1);
             com.baidu.adp.lib.webSocket.l.a().a(i);
         }
@@ -87,11 +93,11 @@ public class BdSocketLinkService extends Service {
             }
             if (intent.getBooleanExtra("reopen", false)) {
                 com.baidu.adp.lib.util.f.e("进行重连" + stringExtra);
-                a(1);
+                a(stringExtra);
                 f();
             } else if (!com.baidu.adp.lib.webSocket.l.a().d() && !com.baidu.adp.lib.webSocket.l.a().e()) {
                 com.baidu.adp.lib.util.f.e("进行连接" + stringExtra);
-                a(1);
+                a(stringExtra);
                 f();
             }
         }
@@ -100,7 +106,7 @@ public class BdSocketLinkService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        a(1);
+        a("service onDestroy");
     }
 
     public static void b(String str) {

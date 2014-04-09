@@ -1,20 +1,28 @@
 package com.baidu.tieba.view;
 
-import android.app.Activity;
-import android.view.View;
+import android.content.Context;
+import android.graphics.Canvas;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-final class x implements View.OnClickListener {
-    final /* synthetic */ SearchBoxView a;
+public final class x extends com.baidu.tbadk.widget.k {
+    private int b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public x(SearchBoxView searchBoxView) {
-        this.a = searchBoxView;
+    public x(Context context) {
+        super(context);
+        this.b = -1;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        Activity activity;
-        activity = this.a.a;
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.e(activity, 16003)));
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.widget.k, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.BDImageView, android.widget.ImageView, android.view.View
+    public final void onDraw(Canvas canvas) {
+        if (TbadkApplication.j().l() == 1) {
+            this.b = getResources().getColor(com.baidu.tieba.a.e.pb_default_image_bg_1);
+        } else {
+            this.b = getResources().getColor(com.baidu.tieba.a.e.pb_default_image_bg);
+        }
+        if (getImage() == null && this.b != -1) {
+            canvas.drawColor(this.b);
+        }
+        super.onDraw(canvas);
     }
 }

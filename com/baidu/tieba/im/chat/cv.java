@@ -1,21 +1,26 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.view.HeadImageShaderView;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-final class cv implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ MsgrightView a;
+final class cv implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ ct a;
+    private final /* synthetic */ com.baidu.adp.framework.message.a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(MsgrightView msgrightView) {
-        this.a = msgrightView;
+    public cv(ct ctVar, com.baidu.adp.framework.message.a aVar) {
+        this.a = ctVar;
+        this.b = aVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        HeadImageShaderView headImageShaderView;
-        if (bVar != null) {
-            headImageShaderView = this.a.t;
-            bVar.a(headImageShaderView.getHeadImageView());
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(Void r6) {
+        ((com.baidu.tbadk.core.b.ah) this.b.a()).d().setClass(((com.baidu.tbadk.core.b.ah) this.b.a()).c(), PersonalChatActivity.class);
+        UserData b = ((com.baidu.tbadk.core.b.ah) this.b.a()).b();
+        if (b.getUserIdLong() == 0) {
+            com.baidu.adp.lib.util.f.e("userid = " + b.getUserId());
+        } else {
+            ((com.baidu.tbadk.core.b.ah) this.b.a()).f();
         }
     }
 }

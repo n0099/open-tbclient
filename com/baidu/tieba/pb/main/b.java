@@ -13,12 +13,12 @@ public final class b {
         this.b.a("kz", str);
         this.b.a("rn", String.valueOf(30));
         this.b.a("with_floor", "1");
-        com.baidu.tieba.r.c();
-        int b = com.baidu.adp.lib.util.i.b(com.baidu.tieba.r.d());
-        com.baidu.tieba.r.c();
-        int c = com.baidu.adp.lib.util.i.c(com.baidu.tieba.r.d());
-        com.baidu.tieba.r.c();
-        float f = com.baidu.tieba.r.d().getResources().getDisplayMetrics().density;
+        com.baidu.tieba.p.c();
+        int b = com.baidu.adp.lib.util.i.b(com.baidu.tieba.p.d());
+        com.baidu.tieba.p.c();
+        int c = com.baidu.adp.lib.util.i.c(com.baidu.tieba.p.d());
+        com.baidu.tieba.p.c();
+        float f = com.baidu.tieba.p.d().getResources().getDisplayMetrics().density;
         int i6 = 1;
         if (com.baidu.tbadk.core.util.bd.a().d().equals("80")) {
             i6 = 2;

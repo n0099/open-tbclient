@@ -113,12 +113,14 @@ public final class a extends RelativeLayout {
             this.i.setVisibility(8);
             if (bVar != null && !TextUtils.isEmpty(bubbleData.getIcon_url())) {
                 this.l.setVisibility(0);
+                this.o.setVisibility(8);
                 this.n.setText(bubbleData.getBname());
                 this.m.setTag(bubbleData.getIcon_url());
                 bVar.b(bubbleData.getIcon_url(), new c(this));
                 return;
             }
             this.l.setVisibility(8);
+            this.o.setVisibility(0);
             this.o.setText(bubbleData.getBname());
         }
     }

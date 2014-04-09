@@ -8,7 +8,7 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.db.pojo.OldUserData;
 import com.baidu.tieba.im.f.q;
-import com.baidu.tieba.im.s;
+import com.baidu.tieba.im.r;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -80,7 +80,7 @@ public final class a extends c {
                                 }
                                 if (z2) {
                                     a2.setIs_hidden(0);
-                                    s.a(new b(this, str), null);
+                                    r.a(new b(this, str), null);
                                     return;
                                 }
                                 return;
@@ -114,8 +114,8 @@ public final class a extends c {
     protected final void b() {
         String str;
         OldUserData oldUserData;
-        com.baidu.tieba.im.db.g.a();
-        LinkedList<ImMessageCenterPojo> b = com.baidu.tieba.im.db.g.b();
+        com.baidu.tieba.im.db.h.a();
+        LinkedList<ImMessageCenterPojo> b = com.baidu.tieba.im.db.h.b();
         if (b != null) {
             Iterator<ImMessageCenterPojo> it = b.iterator();
             while (it.hasNext()) {

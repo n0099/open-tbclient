@@ -13,22 +13,22 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 /* loaded from: classes.dex */
 public class GroupSettingActivity extends com.baidu.tbadk.a implements com.baidu.adp.widget.BdSwitchView.c {
-    private com.baidu.tieba.im.model.br c;
+    private com.baidu.tieba.im.model.bs c;
     private com.baidu.tieba.im.a<Boolean> e;
-    private bv a = null;
-    private bs b = null;
-    private com.baidu.tieba.im.model.bn d = null;
-    private com.baidu.adp.framework.c.g f = new bk(this, 0);
-    private final DialogInterface.OnClickListener g = new bl(this);
-    private com.baidu.adp.framework.c.g h = new bm(this, 0);
+    private br a = null;
+    private bo b = null;
+    private com.baidu.tieba.im.model.bo d = null;
+    private com.baidu.adp.framework.c.g f = new bg(this, 0);
+    private final DialogInterface.OnClickListener g = new bh(this);
+    private com.baidu.adp.framework.c.g h = new bi(this, 0);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new bv(this);
-        this.b = new bs(this);
-        this.c = new com.baidu.tieba.im.model.br();
+        this.a = new br(this);
+        this.b = new bo(this);
+        this.c = new com.baidu.tieba.im.model.bs();
         this.b.setUniqueId(getUniqueId());
         this.c.setUniqueId(getUniqueId());
         Intent intent = getIntent();
@@ -47,17 +47,17 @@ public class GroupSettingActivity extends com.baidu.tbadk.a implements com.baidu
                 this.a.a(false);
                 this.a.n();
             }
-            bs bsVar = this.b;
-            bsVar.b(stringExtra2);
-            bsVar.a(stringExtra);
-            bsVar.b(intExtra);
+            bo boVar = this.b;
+            boVar.b(stringExtra2);
+            boVar.a(stringExtra);
+            boVar.b(intExtra);
         }
         this.a.a(this.b.a());
         this.a.a(this.g);
         this.a.b(((this.b.d() & 2) >> 1) != 1);
         this.a.d();
-        this.e = new bn(this);
-        com.baidu.tieba.im.s.a(new bu(this.b), this.e);
+        this.e = new bj(this);
+        com.baidu.tieba.im.r.a(new bq(this.b), this.e);
         registerListener(103103, this.h);
         registerListener(103102, this.f);
         registerListener(103112, this.f);
@@ -100,7 +100,7 @@ public class GroupSettingActivity extends com.baidu.tbadk.a implements com.baidu
             } else if (view.equals(this.a.a())) {
                 finish();
             } else if (view.equals(this.a.i())) {
-                new AlertDialog.Builder(this).setTitle(com.baidu.tieba.im.j.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.im.j.alert_clear_cache_group).setPositiveButton(com.baidu.tieba.im.j.alert_yes_button, new bo(this)).setNegativeButton(com.baidu.tieba.im.j.alert_no_button, new br(this)).create().show();
+                new AlertDialog.Builder(this).setTitle(com.baidu.tieba.im.j.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.im.j.alert_clear_cache_group).setPositiveButton(com.baidu.tieba.im.j.alert_yes_button, new bk(this)).setNegativeButton(com.baidu.tieba.im.j.alert_no_button, new bn(this)).create().show();
             } else if (view == this.a.g()) {
                 this.a.u();
             }

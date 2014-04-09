@@ -92,7 +92,7 @@ public final class c extends BdAsyncTask<Object, Integer, String> {
             akVar2.a("message_id", String.valueOf(j));
         }
         Address b = com.baidu.adp.lib.c.a.a().b(false);
-        if (b != null && com.baidu.tieba.r.c().j()) {
+        if (b != null && com.baidu.tieba.p.c().j()) {
             this.b.a("lbs", String.valueOf(String.valueOf(b.getLatitude())) + "," + String.valueOf(b.getLongitude()));
         }
         try {

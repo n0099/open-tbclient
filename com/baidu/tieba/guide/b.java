@@ -35,6 +35,6 @@ final class b implements aq {
         aoVar.a(true);
         aoVar2 = this.a.c;
         aoVar2.a((InterestFrsData) null);
-        this.a.d(com.baidu.tieba.a.k.neterror_interestfrs);
+        this.a.c(com.baidu.tieba.a.k.neterror_interestfrs);
     }
 }

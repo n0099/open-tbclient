@@ -6,7 +6,7 @@ import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements bz {
+public final class f implements bv {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ public final class f implements bz {
     /* JADX WARN: Code restructure failed: missing block: B:5:0x0015, code lost:
         if (r0 != false) goto L39;
      */
-    @Override // com.baidu.tieba.im.chat.bz
+    @Override // com.baidu.tieba.im.chat.bv
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -18,7 +18,6 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public class NewVcodeActivity extends com.baidu.tbadk.a {
     private TextView d;
@@ -149,7 +148,7 @@ public class NewVcodeActivity extends com.baidu.tbadk.a {
                 return true;
             } catch (Exception e) {
                 com.baidu.adp.lib.util.f.b(getClass().getName(), "", "NewVcodeActivity.initWebView error = " + e.getMessage());
-                com.baidu.tieba.r.c().f(com.baidu.tieba.r.c().x() + 1);
+                com.baidu.tieba.p.c().e(com.baidu.tieba.p.c().u() + 1);
                 return false;
             }
         }
@@ -165,7 +164,23 @@ public class NewVcodeActivity extends com.baidu.tbadk.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.j != null) {
-            this.j.loadUrl(UtilHelper.appendCuidParam(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/f/anti/gridcaptcha?version=" + com.baidu.tbadk.core.data.n.c()));
+            String str = String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/f/anti/gridcaptcha?version=" + com.baidu.tbadk.core.data.n.c();
+            BaseWebView baseWebView = this.j;
+            if (com.baidu.tbadk.core.util.bc.c(str) || str.indexOf("cuid=") < 0) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str);
+                if (str.indexOf("?") > 0) {
+                    sb.append("&");
+                } else {
+                    sb.append("?");
+                }
+                sb.append("cuid=");
+                sb.append(TbadkApplication.j().z());
+                sb.append("&timestamp=");
+                sb.append(Long.toString(System.currentTimeMillis()));
+                str = sb.toString();
+            }
+            baseWebView.loadUrl(str);
         }
     }
 
@@ -283,7 +298,7 @@ public class NewVcodeActivity extends com.baidu.tbadk.a {
                 this.c.a(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/thread/add");
                 this.c.a("title", this.b.getTitle());
                 this.c.a("is_ntitle", this.b.isNoTitle() ? "1" : "0");
-                if (!com.baidu.tbadk.core.data.n.y().equals(NewVcodeActivity.this.getIntent().getStringExtra("forum_id")) && com.baidu.tieba.r.c().j() && (b = com.baidu.adp.lib.c.a.a().b(false)) != null) {
+                if (!com.baidu.tbadk.core.data.n.y().equals(NewVcodeActivity.this.getIntent().getStringExtra("forum_id")) && com.baidu.tieba.p.c().j() && (b = com.baidu.adp.lib.c.a.a().b(false)) != null) {
                     akVar = this.c;
                     str = "lbs";
                     str2 = String.valueOf(String.valueOf(b.getLatitude())) + "," + String.valueOf(b.getLongitude());
@@ -306,8 +321,8 @@ public class NewVcodeActivity extends com.baidu.tbadk.a {
             if (!this.c.a().b().b()) {
                 if (this.b.isHasImages() && com.baidu.adp.lib.util.h.b(String.valueOf(this.b.getContent()) + imagesCodeForPost)) {
                     int d = this.c.d();
-                    com.baidu.tieba.r.c();
-                    return new com.baidu.tieba.data.ak(d, com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.img_upload_error), null);
+                    com.baidu.tieba.p.c();
+                    return new com.baidu.tieba.data.ak(d, com.baidu.tieba.p.d().getString(com.baidu.tieba.a.k.img_upload_error), null);
                 }
                 return new com.baidu.tieba.data.ak(this.c.d(), this.c.f(), null);
             }
@@ -315,11 +330,11 @@ public class NewVcodeActivity extends com.baidu.tbadk.a {
             errorData.parserJson(this.d);
             String error_msg = errorData.getError_msg();
             if (com.baidu.adp.lib.util.h.b(error_msg)) {
-                com.baidu.tieba.r.c();
-                error_msg = com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.send_success);
+                com.baidu.tieba.p.c();
+                error_msg = com.baidu.tieba.p.d().getString(com.baidu.tieba.a.k.send_success);
             } else if (this.b.isHasImages() && com.baidu.adp.lib.util.h.b(String.valueOf(this.b.getContent()) + imagesCodeForPost)) {
-                com.baidu.tieba.r.c();
-                error_msg = com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.img_upload_error);
+                com.baidu.tieba.p.c();
+                error_msg = com.baidu.tieba.p.d().getString(com.baidu.tieba.a.k.img_upload_error);
             }
             com.baidu.tieba.data.ak akVar2 = new com.baidu.tieba.data.ak(errorData.getError_code(), error_msg, null);
             if (!akVar2.a()) {

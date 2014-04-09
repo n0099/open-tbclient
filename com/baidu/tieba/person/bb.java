@@ -1,6 +1,9 @@
 package com.baidu.tieba.person;
+
+import android.app.AlertDialog;
+import android.view.View;
 /* loaded from: classes.dex */
-final class bb implements com.baidu.tbadk.imageManager.d {
+final class bb implements View.OnClickListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,10 +11,10 @@ final class bb implements com.baidu.tbadk.imageManager.d {
         this.a = personChangeActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null) {
-            bVar.a(this.a.a);
-        }
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        AlertDialog alertDialog;
+        alertDialog = this.a.c;
+        alertDialog.show();
     }
 }

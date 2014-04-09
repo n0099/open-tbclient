@@ -39,7 +39,7 @@ public final class j {
     */
     public final void a(TextView textView, LinearLayout linearLayout, List<com.baidu.tieba.data.f> list, boolean z) {
         int i;
-        CharSequence f;
+        CharSequence d;
         boolean z2;
         if (textView != null && linearLayout != null && list != null) {
             if (list != null && list.size() > 0) {
@@ -55,11 +55,11 @@ public final class j {
                         }
                         com.baidu.tieba.data.f fVar = list.get(i3);
                         int a = fVar.a();
-                        int length = (a == 0 || a == 4 || a == 1) ? fVar.f() != null ? fVar.f().length() + i2 : i2 : i2 + 1;
+                        int length = (a == 0 || a == 4 || a == 1) ? fVar.d() != null ? fVar.d().length() + i2 : i2 : i2 + 1;
                         if (length > 50) {
                             z3 = true;
                             if (a == 0 || a == 4 || a == 1) {
-                                SpannableStringBuilder valueOf = SpannableStringBuilder.valueOf(fVar.f().subSequence(0, 50 - i2));
+                                SpannableStringBuilder valueOf = SpannableStringBuilder.valueOf(fVar.d().subSequence(0, 50 - i2));
                                 com.baidu.tieba.data.f fVar2 = new com.baidu.tieba.data.f();
                                 fVar2.a(valueOf);
                                 fVar2.a(a);
@@ -82,7 +82,7 @@ public final class j {
                 }
                 CustomTextView customTextView = null;
                 com.baidu.tieba.data.f fVar4 = list.get(0);
-                if (fVar4 == null || (fVar4.a() != 0 && fVar4.a() != 2)) {
+                if (fVar4 == null || (fVar4.a() != 0 && fVar4.a() != 2 && fVar4.a() != 11)) {
                     i = 0;
                 } else {
                     textView.setTextSize(com.baidu.tbadk.core.data.n.p());
@@ -101,12 +101,12 @@ public final class j {
                             if (customTextView != null) {
                                 if (fVar5.a() == 2) {
                                     Context context = this.a;
-                                    f = fVar5.c(this.b, this.c);
+                                    d = fVar5.c(this.b, this.c);
                                 } else {
-                                    f = fVar5.f();
+                                    d = fVar5.d();
                                 }
-                                if (f != null) {
-                                    customTextView.append(f);
+                                if (d != null) {
+                                    customTextView.append(d);
                                 }
                             } else {
                                 customTextView = new CustomTextView(this.a);
@@ -147,9 +147,11 @@ public final class j {
             if (fVar.a() == 2) {
                 Context context = this.a;
                 textView.setText(fVar.c(this.b, this.c));
-                return;
+            } else if (fVar.a() == 11) {
+                textView.setText("[" + fVar.c() + "]");
+            } else {
+                textView.setText(fVar.d());
             }
-            textView.setText(fVar.f());
         }
     }
 

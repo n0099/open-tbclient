@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public final class n extends BdAsyncTask<k, Integer, Boolean> {
     final /* synthetic */ k a;
     private com.baidu.tbadk.core.util.ak b;
-    private com.baidu.tieba.data.aq c;
+    private com.baidu.tieba.data.ap c;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -57,7 +57,7 @@ public final class n extends BdAsyncTask<k, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final void c() {
-        this.c = new com.baidu.tieba.data.aq();
+        this.c = new com.baidu.tieba.data.ap();
     }
 
     private Boolean a() {

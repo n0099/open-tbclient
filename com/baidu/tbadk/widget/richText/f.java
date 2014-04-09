@@ -56,7 +56,7 @@ public final class f extends BitmapDrawable {
                     c = new com.baidu.adp.widget.ImageView.b(decodeResource, false, null);
                 }
                 if (a != null && c != null && this.d != null) {
-                    a.c(this.d, c);
+                    a.d(this.d, c);
                 }
                 bVar = c;
             } else {

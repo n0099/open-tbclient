@@ -16,14 +16,14 @@ final class aw implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public final void onClick(DialogInterface dialogInterface, int i) {
         OfficialBarTipActivity officialBarTipActivity;
-        com.baidu.tieba.im.model.bc bcVar;
+        com.baidu.tieba.im.model.bd bdVar;
         OfficialBarTipActivity officialBarTipActivity2;
         com.baidu.tieba.im.a<Void> aVar;
         officialBarTipActivity = this.a.a;
-        bcVar = officialBarTipActivity.a;
+        bdVar = officialBarTipActivity.a;
         ImMessageCenterShowItemData imMessageCenterShowItemData = this.b;
         officialBarTipActivity2 = this.a.a;
         aVar = officialBarTipActivity2.d;
-        bcVar.a(imMessageCenterShowItemData, aVar);
+        bdVar.a(imMessageCenterShowItemData, aVar);
     }
 }

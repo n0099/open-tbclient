@@ -43,7 +43,7 @@ public class DailyClassicalActivity extends com.baidu.tbadk.a implements com.bai
 
     @Override // com.baidu.tbadk.a
     public boolean getGpuSwitch() {
-        return TbadkApplication.j().ax();
+        return TbadkApplication.j().az();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -90,7 +90,7 @@ public class DailyClassicalActivity extends com.baidu.tbadk.a implements com.bai
     }
 
     public final void a() {
-        if (com.baidu.tieba.r.c().v() == 0 && !d()) {
+        if (TbadkApplication.j().aF() == 0 && !d()) {
             this.m.setVisibility(0);
             return;
         }

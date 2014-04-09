@@ -22,7 +22,7 @@ public class ForumRankActivity extends com.baidu.tbadk.a {
     private r c = null;
     private NavigationBar d = null;
     private TbImageView e = null;
-    private com.baidu.tbadk.editortool.aa f = null;
+    private com.baidu.tbadk.editortool.ab f = null;
     private com.baidu.tieba.model.af g = null;
     private LinearLayout h = null;
     private com.baidu.tbadk.core.view.q i = null;
@@ -47,7 +47,7 @@ public class ForumRankActivity extends com.baidu.tbadk.a {
         setContentView(com.baidu.tieba.a.i.forum_rank_activity);
         this.e = new TbImageView(this);
         this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f = new com.baidu.tbadk.editortool.aa(this);
+        this.f = new com.baidu.tbadk.editortool.ab(this);
         int b = com.baidu.adp.lib.util.i.b(this);
         this.f.a(b, b);
         this.d = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
@@ -94,7 +94,7 @@ public class ForumRankActivity extends com.baidu.tbadk.a {
         super.onResume();
         ForumInfoData[] a = this.c.a();
         for (int i = 0; i < a.length; i++) {
-            int d = com.baidu.tieba.r.c().d(a[i].forum_name);
+            int d = com.baidu.tieba.p.c().d(a[i].forum_name);
             if (d == 1) {
                 a[i].is_like = 1;
             } else if (d == -1) {

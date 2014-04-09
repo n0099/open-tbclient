@@ -1,12 +1,14 @@
 package com.baidu.tieba.discover;
-
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class j {
-    int a;
-    String b;
-    List<l> c;
-    i d;
-    k e;
+    private static final String a = String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/s/found";
+    private l b;
+
+    public j(l lVar) {
+        this.b = lVar;
+    }
+
+    public final void a() {
+        new k(this.b).execute(new String[0]);
+    }
 }

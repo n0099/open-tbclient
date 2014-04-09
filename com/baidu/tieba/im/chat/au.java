@@ -6,12 +6,12 @@ import java.util.LinkedList;
 /* loaded from: classes.dex */
 public final class au implements com.baidu.tieba.im.a<LinkedList<String>> {
     final /* synthetic */ x a;
-    private final /* synthetic */ bz b;
+    private final /* synthetic */ bv b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(x xVar, bz bzVar) {
+    public au(x xVar, bv bvVar) {
         this.a = xVar;
-        this.b = bzVar;
+        this.b = bvVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */

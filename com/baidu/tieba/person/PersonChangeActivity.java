@@ -46,23 +46,23 @@ public class PersonChangeActivity extends com.baidu.tbadk.a {
     private com.baidu.tieba.model.au u = null;
     protected HeadImageView a = null;
     private com.baidu.adp.widget.ImageView.b v = null;
-    private bf w = null;
-    private bg x = null;
+    private bg w = null;
+    private bh x = null;
     private ProgressBar y = null;
     private DialogInterface.OnCancelListener z = null;
-    private com.baidu.tbadk.editortool.aa A = null;
+    private com.baidu.tbadk.editortool.ab A = null;
     private Dialog B = null;
     private Dialog C = null;
     private boolean D = false;
     private int E = 0;
     private final int F = 50;
-    private View.OnClickListener G = new ao(this);
+    private View.OnClickListener G = new ap(this);
 
     public static void a(Activity activity, int i, PersonChangeData personChangeData, Boolean bool) {
         Intent intent = new Intent(activity, PersonChangeActivity.class);
         intent.putExtra("data", personChangeData);
         intent.putExtra("isFromPersonInfo", bool);
-        activity.startActivityForResult(intent, PersonInfoActivity.REQUSET_CHANGE);
+        activity.startActivityForResult(intent, 101);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -71,18 +71,18 @@ public class PersonChangeActivity extends com.baidu.tbadk.a {
         super.onCreate(bundle);
         setContentView(com.baidu.tieba.a.i.person_change_activity);
         this.s = (InputMethodManager) getSystemService("input_method");
-        this.z = new ay(this);
+        this.z = new az(this);
         PersonChangeData personChangeData = bundle != null ? (PersonChangeData) bundle.getSerializable("data") : (PersonChangeData) getIntent().getSerializableExtra("data");
         if (personChangeData == null) {
             personChangeData = new PersonChangeData();
         }
         this.u = new com.baidu.tieba.model.au(personChangeData);
-        this.A = new com.baidu.tbadk.editortool.aa(this);
+        this.A = new com.baidu.tbadk.editortool.ab(this);
         this.d = TbadkApplication.j().l();
         String[] strArr = {getString(com.baidu.tieba.a.k.take_photo), getString(com.baidu.tieba.a.k.album)};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(com.baidu.tieba.a.k.operation));
-        builder.setItems(strArr, new az(this));
+        builder.setItems(strArr, new ba(this));
         if (this.c == null) {
             this.c = builder.create();
         }
@@ -90,8 +90,8 @@ public class PersonChangeActivity extends com.baidu.tbadk.a {
         this.a.setIsRound(true);
         this.a.setAutoChangeStyle(true);
         this.a.setDrawBorder(false);
-        this.a.setOnClickListener(new ba(this));
-        com.baidu.tbadk.editortool.aa aaVar = this.A;
+        this.a.setOnClickListener(new bb(this));
+        com.baidu.tbadk.editortool.ab abVar = this.A;
         this.v = com.baidu.tbadk.imageManager.e.a().b(this.u.a().getPortrait());
         this.a.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.a.setDefaultResource(0);
@@ -100,7 +100,7 @@ public class PersonChangeActivity extends com.baidu.tbadk.a {
         if (this.v != null) {
             this.v.a(this.a);
         } else {
-            this.A.a(this.u.a().getPortrait(), new bb(this));
+            this.A.a(this.u.a().getPortrait(), new bc(this));
         }
         this.g = (LinearLayout) findViewById(com.baidu.tieba.a.h.parent);
         this.h = (ScrollView) findViewById(com.baidu.tieba.a.h.person_change_scroll);
@@ -110,11 +110,11 @@ public class PersonChangeActivity extends com.baidu.tbadk.a {
         this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.G);
         this.e.a(getResources().getString(com.baidu.tieba.a.k.my_info));
         this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.a.k.save));
-        this.f.setOnClickListener(new bc(this));
-        this.j.setOnClickListener(new bd(this));
+        this.f.setOnClickListener(new bd(this));
+        this.j.setOnClickListener(new be(this));
         this.l = (LinearLayout) findViewById(com.baidu.tieba.a.h.intro_click);
-        this.l.setOnClickListener(new be(this));
-        this.l.setOnTouchListener(new ap(this));
+        this.l.setOnClickListener(new bf(this));
+        this.l.setOnTouchListener(new aq(this));
         this.i = (TextView) findViewById(com.baidu.tieba.a.h.nick_name_show);
         this.i.setText(this.u.a().getName());
         this.m = (TextView) findViewById(com.baidu.tieba.a.h.intro);
@@ -125,10 +125,10 @@ public class PersonChangeActivity extends com.baidu.tbadk.a {
         }
         this.n = (EditText) findViewById(com.baidu.tieba.a.h.edit);
         this.n.setText(this.u.a().getIntro());
-        this.n.setOnFocusChangeListener(new aq(this));
-        this.n.setOnTouchListener(new ar(this));
-        this.n.setOnClickListener(new as(this));
-        this.n.addTextChangedListener(new at(this));
+        this.n.setOnFocusChangeListener(new ar(this));
+        this.n.setOnTouchListener(new as(this));
+        this.n.setOnClickListener(new at(this));
+        this.n.addTextChangedListener(new au(this));
         if (this.u.a().getSex() == 1) {
             this.E = 1;
             this.k.setText(com.baidu.tieba.a.k.man);
@@ -146,8 +146,8 @@ public class PersonChangeActivity extends com.baidu.tbadk.a {
         this.y = (ProgressBar) findViewById(com.baidu.tieba.a.h.image_progress);
         AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
         builder2.setMessage(getString(com.baidu.tieba.a.k.confirm_giveup));
-        builder2.setPositiveButton(getString(com.baidu.tieba.a.k.alert_yes_button), new au(this));
-        builder2.setNeutralButton(getString(com.baidu.tieba.a.k.cancel), new av(this));
+        builder2.setPositiveButton(getString(com.baidu.tieba.a.k.alert_yes_button), new av(this));
+        builder2.setNeutralButton(getString(com.baidu.tieba.a.k.cancel), new aw(this));
         this.B = builder2.create();
         if (bundle != null) {
             this.b = Boolean.valueOf(bundle.getBoolean("isFromPersonInfo"));
@@ -171,7 +171,7 @@ public class PersonChangeActivity extends com.baidu.tbadk.a {
         super.onDestroy();
     }
 
-    @Override // android.app.Activity, android.view.Window.Callback
+    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         this.t = false;
         boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
@@ -216,7 +216,7 @@ public class PersonChangeActivity extends com.baidu.tbadk.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        this.h.postDelayed(new ax(this), i);
+        this.h.postDelayed(new ay(this), i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -292,7 +292,7 @@ public class PersonChangeActivity extends com.baidu.tbadk.a {
         personChangeActivity.u.a().setIntro(personChangeActivity.n.getText().toString().replaceAll("\\s*", ""));
         personChangeActivity.u.a().setSex(personChangeActivity.E);
         if (personChangeActivity.x == null) {
-            personChangeActivity.x = new bg(personChangeActivity, personChangeActivity.u);
+            personChangeActivity.x = new bh(personChangeActivity, personChangeActivity.u);
             personChangeActivity.x.setPriority(3);
             personChangeActivity.x.execute(new String[0]);
         }
@@ -305,7 +305,7 @@ public class PersonChangeActivity extends com.baidu.tbadk.a {
             String string = personChangeActivity.getString(com.baidu.tieba.a.k.man);
             String string2 = personChangeActivity.getString(com.baidu.tieba.a.k.woman);
             builder.setTitle(com.baidu.tieba.a.k.choose_sex);
-            builder.setItems(new String[]{string, string2}, new aw(personChangeActivity, string, string2));
+            builder.setItems(new String[]{string, string2}, new ax(personChangeActivity, string, string2));
             personChangeActivity.C = builder.create();
             personChangeActivity.C.setCanceledOnTouchOutside(true);
         }
@@ -343,7 +343,7 @@ public class PersonChangeActivity extends com.baidu.tbadk.a {
                         this.w.cancel();
                     }
                     this.v = null;
-                    this.w = new bf(this, (byte) 0);
+                    this.w = new bg(this, (byte) 0);
                     this.w.execute(new Object[0]);
                     r.a(true);
                     return;

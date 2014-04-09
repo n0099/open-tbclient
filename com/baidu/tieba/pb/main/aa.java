@@ -11,17 +11,17 @@ final class aa implements com.baidu.tbadk.core.view.m {
     @Override // com.baidu.tbadk.core.view.m
     public final void a(boolean z) {
         boolean z2;
-        bd bdVar;
-        bd bdVar2;
-        bk bkVar;
+        bf bfVar;
+        bf bfVar2;
+        bm bmVar;
         z2 = this.a.e;
         if (!z2 && z) {
-            bdVar = this.a.x;
-            if (!bdVar.n()) {
-                bdVar2 = this.a.x;
-                if (bdVar2.s()) {
-                    bkVar = this.a.D;
-                    bkVar.t();
+            bfVar = this.a.x;
+            if (!bfVar.n()) {
+                bfVar2 = this.a.x;
+                if (bfVar2.s()) {
+                    bmVar = this.a.D;
+                    bmVar.t();
                 }
             }
         }

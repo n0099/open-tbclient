@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.c;
 
-import com.baidu.tieba.im.chat.receiveChatMsgHandler.w;
+import com.baidu.tieba.im.chat.receiveChatMsgHandler.x;
 import com.baidu.tieba.im.m;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -21,11 +21,11 @@ final class g extends m<Void> {
     @Override // com.baidu.tieba.im.m
     public final /* synthetic */ Void a() {
         if (this.c.size() > 0) {
-            w.a();
+            x.a();
             LinkedHashMap linkedHashMap = this.c;
             if (linkedHashMap != null && linkedHashMap.size() != 0) {
                 for (Map.Entry entry : linkedHashMap.entrySet()) {
-                    w.a((String) entry.getKey(), ((Long) entry.getValue()).longValue());
+                    x.a((String) entry.getKey(), ((Long) entry.getValue()).longValue());
                 }
             }
         }

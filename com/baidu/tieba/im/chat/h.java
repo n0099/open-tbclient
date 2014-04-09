@@ -25,7 +25,6 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortool.EmotionTabHost;
 import com.baidu.tbadk.editortool.ToolMoreView;
 import com.baidu.tieba.im.data.MsgPageData;
-import com.baidu.tieba.im.widget.EggBreakerView;
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -34,19 +33,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.core.voice.y, com.baidu.tbadk.editortool.x {
-    private static final String k = h.class.getName();
+    private static final String l = h.class.getName();
     private LinearLayout A;
     private LinearLayout B;
     private LinearLayout C;
-    private ImageView D;
+    private LinearLayout D;
     private ImageView E;
-    private Button F;
-    private EditText G;
-    private ToolMoreView H;
-    private LinearLayout I;
-    private TextView J;
-    private EggBreakerView K;
-    private ct L;
+    private ImageView F;
+    private Button G;
+    private EditText H;
+    private ToolMoreView I;
+    private LinearLayout J;
+    private TextView K;
+    private cp L;
     private final AlertDialog M;
     private FrameLayout N;
     private int O;
@@ -64,41 +63,42 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
     protected AlertDialog g;
     protected AlertDialog h;
     protected AlertDialog i;
-    protected boolean j;
-    private final int l;
-    private View m;
-    private TextView n;
-    private ImageView o;
+    protected AlertDialog j;
+    protected boolean k;
+    private final int m;
+    private View n;
+    private TextView o;
     private ImageView p;
-    private NoNetworkView q;
-    private BdListView r;
-    private ProgressBar s;
-    private LinearLayout t;
-    private ImageView u;
+    private ImageView q;
+    private NoNetworkView r;
+    private BdListView s;
+    private ProgressBar t;
+    private LinearLayout u;
     private ImageView v;
-    private RelativeLayout w;
-    private TextView x;
-    private ImageView y;
-    private LinearLayout z;
+    private ImageView w;
+    private RelativeLayout x;
+    private TextView y;
+    private ImageView z;
 
-    protected abstract void b(dn dnVar);
+    protected abstract void b(dj djVar);
 
-    protected abstract void c(dn dnVar);
+    protected abstract void c(dj djVar);
 
-    protected abstract void d(dn dnVar);
+    protected abstract void d(dj djVar);
 
     protected abstract void e();
 
-    protected abstract void e(dn dnVar);
+    protected abstract void e(dj djVar);
+
+    protected abstract void f(dj djVar);
 
     public h(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity);
-        this.l = 100;
+        this.m = 100;
         this.a = null;
-        this.m = null;
         this.n = null;
-        this.c = null;
         this.o = null;
+        this.c = null;
         this.p = null;
         this.q = null;
         this.r = null;
@@ -118,113 +118,114 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
         this.F = null;
         this.G = null;
         this.H = null;
-        this.d = null;
         this.I = null;
+        this.d = null;
         this.J = null;
+        this.K = null;
         this.e = null;
         this.f = null;
         this.g = null;
         this.h = null;
         this.i = null;
+        this.j = null;
         this.M = null;
         this.N = null;
         this.O = 0;
         this.P = 5;
         this.Q = new i(this);
-        this.j = true;
+        this.k = true;
         this.T = 0;
         this.U = 0L;
         this.e = msglistActivity;
         msglistActivity.setContentView(com.baidu.tieba.im.i.msg_msglist_activity);
         a(msglistActivity, z);
-        this.q = (NoNetworkView) msglistActivity.findViewById(com.baidu.tieba.im.h.view_no_network);
-        this.r = (BdListView) msglistActivity.findViewById(com.baidu.tieba.im.h.lis_msg);
-        this.s = (ProgressBar) msglistActivity.findViewById(com.baidu.tieba.im.h.msg_progress);
-        this.s.setVisibility(8);
-        this.L = new ct(msglistActivity);
+        this.r = (NoNetworkView) msglistActivity.findViewById(com.baidu.tieba.im.h.view_no_network);
+        this.s = (BdListView) msglistActivity.findViewById(com.baidu.tieba.im.h.lis_msg);
+        this.t = (ProgressBar) msglistActivity.findViewById(com.baidu.tieba.im.h.msg_progress);
+        this.t.setVisibility(8);
+        this.L = new cp(msglistActivity);
         e();
-        this.L.a(this.j);
+        this.L.a(this.k);
         this.L.a((com.baidu.adp.lib.b.a) msglistActivity);
         this.L.a((com.baidu.adp.lib.b.b) msglistActivity);
-        this.r.setAdapter((ListAdapter) this.L);
-        this.r.setOnScrollListener(new m(this));
-        this.r.setOnSrollToTopListener(msglistActivity);
-        this.r.setOnSrollToBottomListener(msglistActivity);
-        this.r.setItemsCanFocus(true);
-        this.r.setFocusable(false);
-        this.r.setFocusableInTouchMode(false);
-        this.r.setClickable(false);
-        this.r.setOnTouchListener(new n(this));
-        this.r.setKybdsScrollBottom(true);
-        this.r.setRecyclerListener(new o(this));
-        this.t = (LinearLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_msgsend_voice);
-        this.t.setVisibility(8);
-        this.u = (ImageView) msglistActivity.findViewById(com.baidu.tieba.im.h.btn_msgsend_softkey);
-        this.u.setOnClickListener(new p(this));
-        this.v = (ImageView) msglistActivity.findViewById(com.baidu.tieba.im.h.btn_msgsend_more1);
-        this.v.setOnClickListener(new r(this));
-        this.w = (RelativeLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.btn_msgsend_voice);
-        this.w.setOnTouchListener(msglistActivity);
-        this.x = (TextView) msglistActivity.findViewById(com.baidu.tieba.im.h.tex_send_voice);
-        this.z = (LinearLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_msgsend_voicelayer);
-        this.z.setVisibility(8);
-        this.y = (ImageView) msglistActivity.findViewById(com.baidu.tieba.im.h.img_msgsend_recording);
-        this.A = (LinearLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_msgsend_voicelayer_short);
-        this.B = (LinearLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_msgsend_voicelayer_cancel);
-        this.C = (LinearLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_msgsend_text);
-        this.C.setVisibility(0);
-        this.D = (ImageView) msglistActivity.findViewById(com.baidu.tieba.im.h.btn_msgsend_govoice);
-        this.D.setOnClickListener(new s(this));
-        this.E = (ImageView) msglistActivity.findViewById(com.baidu.tieba.im.h.btn_msgsend_more2);
-        this.E.setOnClickListener(new t(this));
-        this.G = (EditText) msglistActivity.findViewById(com.baidu.tieba.im.h.edt_msgsend_text);
-        this.G.setCursorVisible(false);
-        this.G.setFocusable(true);
-        this.G.setFocusableInTouchMode(true);
-        this.G.addTextChangedListener(new v(this));
-        this.G.setOnTouchListener(new j(this));
-        this.F = (Button) msglistActivity.findViewById(com.baidu.tieba.im.h.btn_msgsend_send);
-        this.F.setOnClickListener(msglistActivity);
-        this.F.setEnabled(false);
-        this.F.setTextColor(this.e.getResources().getColorStateList(com.baidu.tieba.im.e.post_image_btn_color));
-        this.H = (ToolMoreView) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_msgsend_more);
-        this.H.setVisibility(8);
-        this.H.setOnClickListener(msglistActivity);
-        this.H.d();
-        a(msglistActivity);
-        this.I = (LinearLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_last_msg);
-        this.J = (TextView) msglistActivity.findViewById(com.baidu.tieba.im.h.text_last_msg);
+        this.s.setAdapter((ListAdapter) this.L);
+        this.s.setOnScrollListener(new m(this));
+        this.s.setOnSrollToTopListener(msglistActivity);
+        this.s.setOnSrollToBottomListener(msglistActivity);
+        this.s.setItemsCanFocus(true);
+        this.s.setFocusable(false);
+        this.s.setFocusableInTouchMode(false);
+        this.s.setClickable(false);
+        this.s.setOnTouchListener(new n(this));
+        this.s.setKybdsScrollBottom(true);
+        this.s.setRecyclerListener(new o(this));
+        this.u = (LinearLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_msgsend_voice);
+        this.u.setVisibility(8);
+        this.v = (ImageView) msglistActivity.findViewById(com.baidu.tieba.im.h.btn_msgsend_softkey);
+        this.v.setOnClickListener(new p(this));
+        this.w = (ImageView) msglistActivity.findViewById(com.baidu.tieba.im.h.btn_msgsend_more1);
+        this.w.setOnClickListener(new r(this));
+        this.x = (RelativeLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.btn_msgsend_voice);
+        this.x.setOnTouchListener(msglistActivity);
+        this.y = (TextView) msglistActivity.findViewById(com.baidu.tieba.im.h.tex_send_voice);
+        this.A = (LinearLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_msgsend_voicelayer);
+        this.A.setVisibility(8);
+        this.z = (ImageView) msglistActivity.findViewById(com.baidu.tieba.im.h.img_msgsend_recording);
+        this.B = (LinearLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_msgsend_voicelayer_short);
+        this.C = (LinearLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_msgsend_voicelayer_cancel);
+        this.D = (LinearLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_msgsend_text);
+        this.D.setVisibility(0);
+        this.E = (ImageView) msglistActivity.findViewById(com.baidu.tieba.im.h.btn_msgsend_govoice);
+        this.E.setOnClickListener(new s(this));
+        this.F = (ImageView) msglistActivity.findViewById(com.baidu.tieba.im.h.btn_msgsend_more2);
+        this.F.setOnClickListener(new t(this));
+        this.H = (EditText) msglistActivity.findViewById(com.baidu.tieba.im.h.edt_msgsend_text);
+        this.H.setCursorVisible(false);
+        this.H.setFocusable(true);
+        this.H.setFocusableInTouchMode(true);
+        this.H.addTextChangedListener(new v(this));
+        this.H.setOnTouchListener(new j(this));
+        this.G = (Button) msglistActivity.findViewById(com.baidu.tieba.im.h.btn_msgsend_send);
+        this.G.setOnClickListener(msglistActivity);
+        this.G.setEnabled(false);
+        this.G.setTextColor(this.e.getResources().getColorStateList(com.baidu.tieba.im.e.post_image_btn_color));
+        this.I = (ToolMoreView) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_msgsend_more);
+        this.I.setVisibility(8);
         this.I.setOnClickListener(msglistActivity);
+        this.I.d();
+        a(msglistActivity);
+        this.J = (LinearLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_last_msg);
+        this.K = (TextView) msglistActivity.findViewById(com.baidu.tieba.im.h.text_last_msg);
+        this.J.setOnClickListener(msglistActivity);
         this.N = (FrameLayout) msglistActivity.findViewById(com.baidu.tieba.im.h.lay_bottom_bar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(dn dnVar, boolean z) {
-        this.a = (NavigationBar) dnVar.findViewById(com.baidu.tieba.im.h.lay_title_bar);
-        this.m = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, dnVar);
-        this.n = this.a.a("");
+    public void a(dj djVar, boolean z) {
+        this.a = (NavigationBar) djVar.findViewById(com.baidu.tieba.im.h.lay_title_bar);
+        this.n = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, djVar);
+        this.o = this.a.a("");
         View inflate = LayoutInflater.from(this.e).inflate(com.baidu.tieba.im.i.msg_chat_top_notify, (ViewGroup) null);
-        this.o = (ImageView) inflate.findViewById(com.baidu.tieba.im.h.img_receiver);
-        this.p = (ImageView) inflate.findViewById(com.baidu.tieba.im.h.img_close_notify);
+        this.p = (ImageView) inflate.findViewById(com.baidu.tieba.im.h.img_receiver);
+        this.q = (ImageView) inflate.findViewById(com.baidu.tieba.im.h.img_close_notify);
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, inflate, (View.OnClickListener) null);
         if (z) {
-            J();
-        } else {
             K();
+        } else {
+            L();
         }
-        this.K = (EggBreakerView) dnVar.findViewById(com.baidu.tieba.im.h.egg_breaker);
     }
 
-    public final ct d() {
+    public final cp d() {
         return this.L;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(dn dnVar) {
-        this.d = (EmotionTabHost) dnVar.findViewById(com.baidu.tieba.im.h.face_view);
+    public void a(dj djVar) {
+        this.d = (EmotionTabHost) djVar.findViewById(com.baidu.tieba.im.h.face_view);
         this.d.setOnDataSelected(this);
         this.d.setIsInChat(true);
-        this.H.getFaceButton().setOnClickListener(new k(this));
+        this.I.getFaceButton().setOnClickListener(new k(this));
     }
 
     public final FrameLayout f() {
@@ -233,7 +234,7 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
 
     /* JADX INFO: Access modifiers changed from: private */
     public void R() {
-        this.H.setVisibility(8);
+        this.I.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -243,26 +244,26 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
 
     /* JADX INFO: Access modifiers changed from: private */
     public void T() {
-        this.t.setVisibility(8);
-        this.C.setVisibility(0);
+        this.u.setVisibility(8);
+        this.D.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void U() {
-        this.t.setVisibility(0);
-        this.C.setVisibility(8);
+        this.u.setVisibility(0);
+        this.D.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void V() {
         W();
-        this.G.requestFocus();
-        a(this.G, 100);
+        this.H.requestFocus();
+        a(this.H, 100);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void p(h hVar) {
-        hVar.G.requestFocus();
+        hVar.H.requestFocus();
         hVar.d.setVisibility(0);
     }
 
@@ -270,18 +271,18 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
     public void W() {
         List<com.baidu.tieba.im.message.a.a> b = this.L.b();
         if (b != null && b.size() > 0) {
-            this.r.setSelection(b.size() - 1);
+            this.s.setSelection(b.size() - 1);
             q();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void h(h hVar) {
-        if (hVar.H.getVisibility() != 0) {
+        if (hVar.I.getVisibility() != 0) {
             if (hVar.d.getVisibility() == 0) {
                 hVar.d.setVisibility(8);
             }
-            hVar.H.setVisibility(0);
+            hVar.I.setVisibility(0);
         }
     }
 
@@ -294,7 +295,7 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
     }
 
     public final void a(String str) {
-        this.n.setText(str);
+        this.o.setText(str);
     }
 
     public final void g() {
@@ -303,17 +304,17 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
 
     private void b(MsgPageData msgPageData, int i) {
         try {
-            com.baidu.adp.lib.util.f.a(k, "doRefresh", "selection:" + i);
+            com.baidu.adp.lib.util.f.a(l, "doRefresh", "selection:" + i);
             if (msgPageData != null) {
                 this.L.a();
                 this.L.a(msgPageData.getChatMessages());
                 this.L.notifyDataSetChanged();
                 if (i >= 0) {
-                    this.r.setSelection(i);
+                    this.s.setSelection(i);
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(k, "doRefresh", e.getMessage());
+            com.baidu.adp.lib.util.f.b(l, "doRefresh", e.getMessage());
         }
     }
 
@@ -335,7 +336,7 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
                         }
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b(k, "refreshGo2New", e.getMessage());
+                    com.baidu.adp.lib.util.f.b(l, "refreshGo2New", e.getMessage());
                     b(msgPageData, -1);
                     return;
                 }
@@ -347,8 +348,8 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
 
     public final void c(MsgPageData msgPageData) {
         try {
-            com.baidu.adp.lib.util.f.a(k, "refreshPrepage", "new:" + msgPageData.getNewAddNum());
-            int firstVisiblePosition = this.r.getFirstVisiblePosition();
+            com.baidu.adp.lib.util.f.a(l, "refreshPrepage", "new:" + msgPageData.getNewAddNum());
+            int firstVisiblePosition = this.s.getFirstVisiblePosition();
             com.baidu.adp.lib.util.f.e("pos" + firstVisiblePosition);
             if (msgPageData.getIsNewAdd()) {
                 int newAddNum = msgPageData.getNewAddNum();
@@ -360,13 +361,13 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
                 b(msgPageData, -1);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(k, "refreshPrepage", e.getMessage());
+            com.baidu.adp.lib.util.f.b(l, "refreshPrepage", e.getMessage());
             b(msgPageData, -1);
         }
     }
 
     public final String h() {
-        String editable = this.G.getText().toString();
+        String editable = this.H.getText().toString();
         if (TextUtils.isEmpty(editable)) {
             return null;
         }
@@ -377,28 +378,28 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
     public boolean X() {
         try {
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(k, "checkTextNum", e.getMessage());
+            com.baidu.adp.lib.util.f.b(l, "checkTextNum", e.getMessage());
         }
-        if (Pattern.compile("\\s*|\t|\r|\n").matcher(this.G.getText().toString()).replaceAll("").length() == 0) {
+        if (Pattern.compile("\\s*|\t|\r|\n").matcher(this.H.getText().toString()).replaceAll("").length() == 0) {
             return false;
         }
         return true;
     }
 
     public final void i() {
-        this.G.setText("");
+        this.H.setText("");
     }
 
     public final void b(String str) {
         String editable;
         String str2;
-        if (this.G.getText().toString().equals("")) {
+        if (this.H.getText().toString().equals("")) {
             str2 = "@" + str + " ";
         } else {
             str2 = String.valueOf(editable) + " @" + str + " ";
         }
-        this.G.setText(str2);
-        this.G.setSelection(str2.length());
+        this.H.setText(str2);
+        this.H.setSelection(str2.length());
         R();
         S();
         T();
@@ -407,16 +408,16 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
 
     public final void b(boolean z) {
         if (z) {
-            this.w.setBackgroundResource(com.baidu.tieba.im.g.but_talk_s);
-            this.x.setText(this.e.getString(com.baidu.tieba.im.j.msglist_no_push));
+            this.x.setBackgroundResource(com.baidu.tieba.im.g.but_talk_s);
+            this.y.setText(this.e.getString(com.baidu.tieba.im.j.msglist_no_push));
             return;
         }
-        this.w.setBackgroundResource(com.baidu.tieba.im.g.but_talk_n);
-        this.x.setText(this.e.getString(com.baidu.tieba.im.j.msglist_push_talk));
+        this.x.setBackgroundResource(com.baidu.tieba.im.g.but_talk_n);
+        this.y.setText(this.e.getString(com.baidu.tieba.im.j.msglist_push_talk));
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x00ab, code lost:
-        if (r9.r.getLastVisiblePosition() != ((r3.size() - k()) - r2)) goto L37;
+        if (r9.s.getLastVisiblePosition() != ((r3.size() - k()) - r2)) goto L37;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -425,13 +426,13 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
         boolean z = true;
         if (msgPageData != null) {
             try {
-                com.baidu.adp.lib.util.f.a(k, "refreshCheckNew", "new:" + msgPageData.getNewAddNum());
+                com.baidu.adp.lib.util.f.a(l, "refreshCheckNew", "new:" + msgPageData.getNewAddNum());
                 if (msgPageData.getIsNewAdd()) {
                     int newAddNum = msgPageData.getNewAddNum();
                     List<com.baidu.tieba.im.message.a.a> b = this.L.b();
                     if (b != null) {
                         if (b.size() > newAddNum) {
-                            com.baidu.adp.lib.util.f.e("simon", "checkListAtNew", "lastVisiblePosition = " + this.r.getLastVisiblePosition());
+                            com.baidu.adp.lib.util.f.e("simon", "checkListAtNew", "lastVisiblePosition = " + this.s.getLastVisiblePosition());
                             com.baidu.adp.lib.util.f.e("simon", "checkListAtNew", "data.size = " + b.size());
                             com.baidu.adp.lib.util.f.e("simon", "checkListAtNew", "num = " + newAddNum);
                         }
@@ -452,19 +453,19 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
                     }
                     String h = com.baidu.tieba.im.f.q.h(aVar);
                     if (!TextUtils.isEmpty(h)) {
-                        this.I.setVisibility(0);
-                        this.J.setText(h);
+                        this.J.setVisibility(0);
+                        this.K.setText(h);
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(k, "refreshCheckNew", e.getMessage());
+                com.baidu.adp.lib.util.f.b(l, "refreshCheckNew", e.getMessage());
                 b(msgPageData, -1);
             }
         }
     }
 
     public final BdListView j() {
-        return this.r;
+        return this.s;
     }
 
     protected int k() {
@@ -472,29 +473,29 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
     }
 
     public final void l() {
-        this.z.setVisibility(0);
+        this.A.setVisibility(0);
     }
 
     public final void m() {
-        this.z.setVisibility(8);
-    }
-
-    public final void n() {
         this.A.setVisibility(8);
     }
 
-    public final void o() {
-        this.B.setVisibility(0);
-    }
-
-    public final void p() {
+    public final void n() {
         this.B.setVisibility(8);
     }
 
+    public final void o() {
+        this.C.setVisibility(0);
+    }
+
+    public final void p() {
+        this.C.setVisibility(8);
+    }
+
     public final void q() {
-        if (this.I.getVisibility() == 0) {
-            this.I.setVisibility(8);
-            this.J.setText("");
+        if (this.J.getVisibility() == 0) {
+            this.J.setVisibility(8);
+            this.K.setText("");
         }
     }
 
@@ -524,45 +525,53 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
         }
     }
 
+    public final void g(int i) {
+        f(this.e);
+        if (this.j != null) {
+            this.j.getListView().setTag(Integer.valueOf(i));
+            this.j.show();
+        }
+    }
+
     public final void r() {
-        this.s.setVisibility(8);
+        this.t.setVisibility(8);
     }
 
     public final void s() {
-        this.q.setVisible(true);
+        this.r.setVisible(true);
     }
 
     public final void t() {
-        this.q.setVisible(false);
+        this.r.setVisible(false);
     }
 
     public final boolean u() {
-        return this.d.getVisibility() == 0 || this.H.getVisibility() == 0;
+        return this.d.getVisibility() == 0 || this.I.getVisibility() == 0;
     }
 
     public final void v() {
         if (this.d.getVisibility() == 0) {
             this.d.setVisibility(8);
         }
-        if (this.H.getVisibility() == 0) {
-            this.H.setVisibility(8);
+        if (this.I.getVisibility() == 0) {
+            this.I.setVisibility(8);
         }
     }
 
     public final View w() {
-        return this.m;
+        return this.n;
     }
 
     public final Button x() {
-        return this.F;
+        return this.G;
     }
 
     public final View y() {
-        return this.H.getCameraButton();
+        return this.I.getCameraButton();
     }
 
     public final View z() {
-        return this.H.getImageButton();
+        return this.I.getImageButton();
     }
 
     public final View A() {
@@ -570,7 +579,7 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
     }
 
     public final RelativeLayout B() {
-        return this.w;
+        return this.x;
     }
 
     public final AlertDialog C() {
@@ -589,8 +598,12 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
         return this.i;
     }
 
-    public final LinearLayout G() {
-        return this.I;
+    public final AlertDialog G() {
+        return this.j;
+    }
+
+    public final LinearLayout H() {
+        return this.J;
     }
 
     @Override // com.baidu.tbadk.core.voice.y
@@ -599,7 +612,7 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
 
     @Override // com.baidu.tbadk.core.voice.y
     public final void a(int i, String str) {
-        if (!com.baidu.adp.lib.util.n.a(str)) {
+        if (!com.baidu.adp.lib.util.o.a(str)) {
             com.baidu.adp.lib.util.f.d("----record error. " + i + "---errMsg:" + str);
             if (i == 3) {
                 this.e.showToast(str);
@@ -607,7 +620,7 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
             } else if (i == 2) {
                 p();
                 n();
-                this.A.setVisibility(0);
+                this.B.setVisibility(0);
                 this.Q.sendMessageDelayed(this.Q.obtainMessage(1), 500L);
             } else {
                 this.e.showToast(str);
@@ -651,22 +664,22 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
         if (this.O % 5 == 0) {
             this.O = 0;
             if (this.T < 2) {
-                this.y.setImageResource(com.baidu.tieba.im.g.icon_chat_talk_sound_up_zero);
+                this.z.setImageResource(com.baidu.tieba.im.g.icon_chat_talk_sound_up_zero);
             } else if (this.T < 10) {
-                this.y.setImageResource(com.baidu.tieba.im.g.icon_chat_talk_sound_up_one);
+                this.z.setImageResource(com.baidu.tieba.im.g.icon_chat_talk_sound_up_one);
             } else if (this.T < 20) {
-                this.y.setImageResource(com.baidu.tieba.im.g.icon_chat_talk_sound_up_two);
+                this.z.setImageResource(com.baidu.tieba.im.g.icon_chat_talk_sound_up_two);
             } else {
                 if (this.T >= 30) {
                     if (this.T < 40) {
-                        this.y.setImageResource(com.baidu.tieba.im.g.icon_chat_talk_sound_up_four);
+                        this.z.setImageResource(com.baidu.tieba.im.g.icon_chat_talk_sound_up_four);
                         return;
                     } else if (this.T < 50) {
-                        this.y.setImageResource(com.baidu.tieba.im.g.icon_chat_talk_sound_up_five);
+                        this.z.setImageResource(com.baidu.tieba.im.g.icon_chat_talk_sound_up_five);
                         return;
                     }
                 }
-                this.y.setImageResource(com.baidu.tieba.im.g.icon_chat_talk_sound_up_three);
+                this.z.setImageResource(com.baidu.tieba.im.g.icon_chat_talk_sound_up_three);
             }
         }
     }
@@ -675,28 +688,28 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
         this.R = wVar;
     }
 
-    public final void H() {
-        this.o.setVisibility(8);
-    }
-
     public final void I() {
-        this.o.setVisibility(0);
-    }
-
-    public final void J() {
         this.p.setVisibility(8);
     }
 
-    public final void K() {
+    public final void J() {
         this.p.setVisibility(0);
+    }
+
+    public final void K() {
+        this.q.setVisibility(8);
+    }
+
+    public final void L() {
+        this.q.setVisibility(0);
     }
 
     public final void c(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.G.setText(jSONObject.getString("input_draft"));
-                this.G.setSelection(this.G.getText().toString().length());
+                this.H.setText(jSONObject.getString("input_draft"));
+                this.H.setSelection(this.H.getText().toString().length());
                 if (jSONObject.getString("input_status").equals("input_voice")) {
                     U();
                 } else {
@@ -708,20 +721,20 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
         }
     }
 
-    public final String L() {
+    public final String M() {
         String str;
-        if (this.C.getVisibility() == 0) {
+        if (this.D.getVisibility() == 0) {
             str = "input_text";
         } else {
             str = "input_voice";
         }
         HashMap hashMap = new HashMap();
-        hashMap.put("input_draft", this.G.getText().toString());
+        hashMap.put("input_draft", this.H.getText().toString());
         hashMap.put("input_status", str);
         return new Gson().toJson(hashMap);
     }
 
-    public final void M() {
+    public final void N() {
         if (this.Q != null) {
             this.Q.removeMessages(1);
         }
@@ -732,14 +745,14 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
         this.L.c();
     }
 
-    public final void N() {
+    public final void O() {
         this.a.b(0);
-        this.q.a(0);
+        this.r.a(0);
         this.d.b(0);
-        this.H.a(0);
+        this.I.a(0);
     }
 
-    public final com.baidu.tbadk.editortool.aa O() {
+    public final com.baidu.tbadk.editortool.ab P() {
         if (this.L != null) {
             return this.L.d();
         }
@@ -755,36 +768,32 @@ public abstract class h extends com.baidu.adp.a.f implements com.baidu.tbadk.cor
                 String a = dVar.a();
                 if (b == EmotionGroupType.LOCAL) {
                     if (a != null) {
-                        this.G.getText().insert(this.G.getSelectionStart(), a);
+                        this.H.getText().insert(this.H.getSelectionStart(), a);
                     }
                 } else if (a != null) {
                     this.e.a(dVar);
                 }
             }
-        } else if (i == 21 && this.G.getSelectionStart() > 0) {
-            String substring = this.G.getText().toString().substring(0, this.G.getSelectionStart());
+        } else if (i == 21 && this.H.getSelectionStart() > 0) {
+            String substring = this.H.getText().toString().substring(0, this.H.getSelectionStart());
             Matcher matcher = Pattern.compile("#\\([^#\\)\\(]+\\)$").matcher(substring);
             if (matcher.find()) {
-                this.G.getText().delete(this.G.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.G.getSelectionStart());
+                this.H.getText().delete(this.H.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.H.getSelectionStart());
                 return;
             }
-            this.G.getText().delete(this.G.getSelectionStart() - 1, this.G.getSelectionStart());
+            this.H.getText().delete(this.H.getSelectionStart() - 1, this.H.getSelectionStart());
         }
     }
 
-    public final void P() {
-        this.H.getCameraButton().setEnabled(false);
-        this.H.getImageButton().setEnabled(false);
-        this.w.setEnabled(false);
-        this.D.setEnabled(false);
-        this.H.getFaceButton().setEnabled(false);
-        this.v.setEnabled(false);
+    public final void Q() {
+        this.I.getCameraButton().setEnabled(false);
+        this.I.getImageButton().setEnabled(false);
+        this.x.setEnabled(false);
         this.E.setEnabled(false);
-        this.G.setEnabled(false);
+        this.I.getFaceButton().setEnabled(false);
+        this.w.setEnabled(false);
         this.F.setEnabled(false);
-    }
-
-    public final EggBreakerView Q() {
-        return this.K;
+        this.H.setEnabled(false);
+        this.G.setEnabled(false);
     }
 }

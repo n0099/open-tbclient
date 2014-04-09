@@ -8,7 +8,7 @@ public final class aj extends BdAsyncTask<Boolean, Integer, Boolean> {
     final /* synthetic */ ai a;
     private com.baidu.tbadk.core.util.ak b = null;
     private boolean c;
-    private com.baidu.tieba.data.aq d;
+    private com.baidu.tieba.data.ap d;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -80,7 +80,7 @@ public final class aj extends BdAsyncTask<Boolean, Integer, Boolean> {
         this.c = true;
         this.d = null;
         this.c = z;
-        this.d = new com.baidu.tieba.data.aq();
+        this.d = new com.baidu.tieba.data.ap();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

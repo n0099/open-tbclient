@@ -18,7 +18,7 @@ public class ResponseMembersMessage extends SocketResponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         QueryGroupUserListRes.QueryGroupUserListResIdl parseFrom = QueryGroupUserListRes.QueryGroupUserListResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             this.a = new MembersData();
             this.a.setUsers(new ArrayList());

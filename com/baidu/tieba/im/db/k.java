@@ -1,21 +1,22 @@
 package com.baidu.tieba.im.db;
 
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.Set;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 /* loaded from: classes.dex */
-public final class k implements com.baidu.tieba.im.b.d {
-    final /* synthetic */ h a;
-    private final /* synthetic */ Set b;
+final class k extends com.baidu.tieba.im.m<Void> {
+    final /* synthetic */ j b;
+    private final /* synthetic */ ResponseRemoveMembersMessage c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(h hVar, Set set) {
-        this.a = hVar;
-        this.b = set;
+    public k(j jVar, ResponseRemoveMembersMessage responseRemoveMembersMessage) {
+        this.b = jVar;
+        this.c = responseRemoveMembersMessage;
     }
 
-    @Override // com.baidu.tieba.im.b.d
-    public final void a(ImMessageCenterPojo imMessageCenterPojo) {
-        this.b.add(imMessageCenterPojo.getGid());
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Void a() {
+        h.a();
+        h.c(this.c.d(), true);
+        return null;
     }
 }

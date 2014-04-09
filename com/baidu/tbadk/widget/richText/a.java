@@ -126,11 +126,10 @@ public final class a {
             String cVar2 = cVar.toString();
             if (i == size - 1 && cVar.a() == 1 && this.a) {
                 sb.append(cVar2.substring(0, cVar2.length() - this.b));
+            } else if (cVar.a() == 8) {
+                sb.append("[图片]");
             } else {
                 sb.append(cVar2);
-            }
-            if (cVar.a() == 8) {
-                sb.append(" ");
             }
         }
         return sb.toString();

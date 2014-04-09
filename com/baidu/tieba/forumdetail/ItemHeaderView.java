@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.forumdetail.ForumDetailData;
 /* loaded from: classes.dex */
 public class ItemHeaderView extends RelativeLayout {
@@ -74,9 +74,9 @@ public class ItemHeaderView extends RelativeLayout {
             this.c.setVisibility(8);
         }
         int a = com.baidu.adp.lib.util.i.a(this.a, 80.0f);
-        aa aaVar = new aa(this.a);
-        aaVar.a(a, a);
-        aaVar.b(forumInfo.avatar, new j(this));
+        ab abVar = new ab(this.a);
+        abVar.a(a, a);
+        abVar.b(forumInfo.avatar, new j(this));
         return true;
     }
 

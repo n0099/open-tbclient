@@ -7,7 +7,7 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.data.InterestFrsData;
 /* loaded from: classes.dex */
 public final class k extends Dialog implements a {
@@ -65,8 +65,8 @@ public final class k extends Dialog implements a {
     }
 
     @Override // com.baidu.tieba.guide.a
-    public final void a(aa aaVar) {
-        this.g.a(aaVar);
+    public final void a(ab abVar) {
+        this.g.a(abVar);
     }
 
     @Override // com.baidu.tieba.guide.a

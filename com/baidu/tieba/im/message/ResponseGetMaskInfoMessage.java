@@ -14,7 +14,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         GetMaskInfoRes.GetMaskInfoResIdl parseFrom = GetMaskInfoRes.GetMaskInfoResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             this.a = parseFrom.getData().getIsMask();
             this.b = parseFrom.getData().getList();

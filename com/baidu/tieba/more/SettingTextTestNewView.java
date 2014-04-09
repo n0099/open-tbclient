@@ -16,8 +16,8 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
         String c;
         boolean z = false;
         boolean z2 = TbadkApplication.j().l() == 1;
-        VersionData B = com.baidu.tieba.r.c().B();
-        if (B != null && B.getHas_new_ver() == 1) {
+        VersionData y = com.baidu.tieba.p.c().y();
+        if (y != null && y.getHas_new_ver() == 1) {
             z = true;
         }
         if (z) {

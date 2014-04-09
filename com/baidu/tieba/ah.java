@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.data.VersionData;
+import android.view.View;
+import com.baidu.tieba.data.CombineDownload;
 /* loaded from: classes.dex */
-final class ah implements DialogInterface.OnDismissListener {
+final class ah implements View.OnClickListener {
     final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,15 +11,20 @@ final class ah implements DialogInterface.OnDismissListener {
         this.a = updateDialog;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public final void onDismiss(DialogInterface dialogInterface) {
-        m mVar;
-        VersionData versionData;
-        mVar = this.a.c;
-        mVar.dismiss();
-        versionData = this.a.a;
-        if (versionData.getForce_update() == 1) {
-            com.baidu.tbadk.core.d.b.a(this.a, 200);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        k kVar;
+        boolean z;
+        CombineDownload combineDownload;
+        kVar = this.a.c;
+        kVar.a();
+        z = this.a.f;
+        if (z) {
+            UpdateDialog updateDialog = this.a;
+            combineDownload = this.a.b;
+            UpdateDialog.a(updateDialog, combineDownload.getAppUrl());
+            return;
         }
+        UpdateDialog.d(this.a);
     }
 }

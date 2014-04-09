@@ -1,23 +1,20 @@
 package com.baidu.tieba.im.chat;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class db implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ PersonalChatActivity a;
+public final class db implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ da a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public db(PersonalChatActivity personalChatActivity) {
-        this.a = personalChatActivity;
+    public db(da daVar) {
+        this.a = daVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
-        Boolean bool2 = bool;
-        if (bool2 != null) {
-            if (bool2.booleanValue()) {
-                this.a.d.J();
-            } else {
-                this.a.d.K();
-            }
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        if (bVar != null) {
+            this.a.a(da.a(this.a, str, bVar.k()));
+        } else {
+            this.a.a(this.a.b.getString(com.baidu.tieba.im.j.save_error));
         }
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class a extends c<com.baidu.adp.framework.message.a<?>, CustomMessageTask, com.baidu.adp.framework.b.b, CustomResponsedMessage<?>> {
+public final class a extends c<com.baidu.adp.framework.message.a<?>, CustomMessageTask, com.baidu.adp.framework.b.c, CustomResponsedMessage<?>> {
     private com.baidu.adp.framework.a.b c;
 
     @Override // com.baidu.adp.framework.a

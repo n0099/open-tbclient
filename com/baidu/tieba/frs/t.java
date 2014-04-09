@@ -15,9 +15,9 @@ final class t implements SlidingMenu.OnClosedListener {
         cm cmVar;
         cm cmVar2;
         cmVar = this.a.r;
-        if (cmVar.m().f()) {
+        if (cmVar.n().f()) {
             cmVar2 = this.a.r;
-            cmVar2.m().b(false);
+            cmVar2.n().b(false);
             this.a.n();
         }
     }

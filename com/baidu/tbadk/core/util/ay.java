@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.util;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallelType;
-import com.baidu.tbadk.core.util.resourceLoader.PicImageLoaderProc;
 /* loaded from: classes.dex */
 public final class ay extends BdAsyncTask<String, String, String> {
     private e a;
@@ -23,7 +22,7 @@ public final class ay extends BdAsyncTask<String, String, String> {
         setType(BdAsyncTaskParallelType.SERIAL);
     }
 
-    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.String, byte[]] */
+    /* JADX WARN: Type inference failed for: r5v0, types: [byte[], java.lang.String] */
     private String a() {
         try {
             if (!this.a.p) {
@@ -32,7 +31,7 @@ public final class ay extends BdAsyncTask<String, String, String> {
                         bb.a().a(this.a.k, this.a.j);
                     }
                 } else if (this.a.d == 5) {
-                    com.baidu.tbadk.core.c.a.a(this.a.l, this.a.e);
+                    com.baidu.tbadk.core.c.a.b(this.a.l, this.a.e);
                 } else if (this.a.d == 7) {
                     bb.a();
                     String str = this.a.k;
@@ -43,7 +42,7 @@ public final class ay extends BdAsyncTask<String, String, String> {
                 } else if (this.a.k != null) {
                     com.baidu.adp.lib.cache.s<String> x = com.baidu.tbadk.core.c.b.a().x();
                     if (x != null && this.a.h) {
-                        x.a(this.a.l, PicImageLoaderProc.IS_GIF, 315532800000L);
+                        x.a(this.a.l, "gif", 315532800000L);
                     }
                     bb.a().a(this.a.k, this.a.j);
                 }

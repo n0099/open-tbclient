@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.f;
 
-import com.baidu.tieba.im.model.bo;
+import com.baidu.tieba.im.model.bp;
 /* loaded from: classes.dex */
 public final class d {
-    private bo d;
+    private bp d;
     private g e;
     private double a = 0.0d;
     private double b = 0.0d;
@@ -14,7 +14,7 @@ public final class d {
     public d(g gVar) {
         this.d = null;
         this.e = null;
-        this.d = new bo();
+        this.d = new bp();
         this.e = gVar;
         this.g.b(this.c);
         com.baidu.adp.framework.c.a().a(this.g);

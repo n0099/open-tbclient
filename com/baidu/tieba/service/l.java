@@ -5,7 +5,7 @@ import android.os.Message;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 final class l extends Handler {
-    long a = TbadkApplication.j().ag();
+    long a = TbadkApplication.j().ai();
     long b = 0;
     final /* synthetic */ TiebaMessageService c;
 

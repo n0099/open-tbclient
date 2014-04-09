@@ -21,9 +21,9 @@ final class as implements com.baidu.tbadk.imageManager.d {
             cmVar = this.a.r;
             if (cmVar != null) {
                 cmVar2 = this.a.r;
-                if (cmVar2.I() != null) {
+                if (cmVar2.J() != null) {
                     cmVar3 = this.a.r;
-                    View findViewWithTag = cmVar3.I().findViewWithTag(str);
+                    View findViewWithTag = cmVar3.J().findViewWithTag(str);
                     if (findViewWithTag != null) {
                         if (findViewWithTag instanceof HeadImageView) {
                             ((HeadImageView) findViewWithTag).invalidate();

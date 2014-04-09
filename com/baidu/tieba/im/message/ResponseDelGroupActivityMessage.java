@@ -11,7 +11,7 @@ public class ResponseDelGroupActivityMessage extends SocketResponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         DelGroupActivityRes.DelGroupActivityResIdl parseFrom = DelGroupActivityRes.DelGroupActivityResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             DelGroupActivityRes.DataRes data = parseFrom.getData();
             GroupActivityData groupActivityData = new GroupActivityData();

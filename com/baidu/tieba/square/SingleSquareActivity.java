@@ -53,6 +53,6 @@ public class SingleSquareActivity extends com.baidu.tbadk.core.e {
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void c(int i) {
+    protected final void b(int i) {
     }
 }

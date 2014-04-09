@@ -23,7 +23,7 @@ public final class n implements AdapterView.OnItemClickListener {
         int i4;
         if (i >= 0) {
             cmVar = this.a.r;
-            long itemId = cmVar.t().getItemId(i);
+            long itemId = cmVar.u().getItemId(i);
             if (itemId == -1) {
                 i3 = this.a.l;
                 if (i3 > 1) {
@@ -35,7 +35,7 @@ public final class n implements AdapterView.OnItemClickListener {
                 }
             } else if (itemId != -2) {
                 cmVar2 = this.a.r;
-                com.baidu.tbadk.core.data.o oVar = (com.baidu.tbadk.core.data.o) cmVar2.t().getItem(i);
+                com.baidu.tbadk.core.data.o oVar = (com.baidu.tbadk.core.data.o) cmVar2.u().getItem(i);
                 if (oVar != null) {
                     if (oVar instanceof com.baidu.tbadk.core.data.b) {
                         com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) oVar;
@@ -50,14 +50,14 @@ public final class n implements AdapterView.OnItemClickListener {
                             return;
                         }
                     }
-                    com.baidu.tieba.util.p C = com.baidu.tieba.r.c().C();
-                    if (C != null && !C.b(oVar.l())) {
-                        C.a(oVar.l());
+                    com.baidu.tieba.util.p z = com.baidu.tieba.p.c().z();
+                    if (z != null && !z.b(oVar.l())) {
+                        z.a(oVar.l());
                     }
-                    boolean z = false;
+                    boolean z2 = false;
                     String v = oVar.v();
                     if (v != null && !v.equals("")) {
-                        z = true;
+                        z2 = true;
                         new Thread(new o(this, v)).start();
                     }
                     String m = oVar.m();
@@ -76,7 +76,7 @@ public final class n implements AdapterView.OnItemClickListener {
                     FrsActivity frsActivity3 = this.a;
                     com.baidu.tbadk.core.b.af afVar = new com.baidu.tbadk.core.b.af(this.a);
                     str = this.a.i;
-                    frsActivity3.sendMessage(new com.baidu.adp.framework.message.a(2004001, afVar.a(oVar, str, null, 18003, true, false, z)));
+                    frsActivity3.sendMessage(new com.baidu.adp.framework.message.a(2004001, afVar.a(oVar, str, null, 18003, true, false, z2)));
                 }
             } else {
                 TiebaStatic.a(this.a, "frs_nextpage", "frsclick", 1, new Object[0]);

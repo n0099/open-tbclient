@@ -12,7 +12,7 @@ final class ap implements Runnable {
     public final void run() {
         ay ayVar;
         try {
-            ayVar = this.a.b;
+            ayVar = this.a.c;
             ayVar.a();
         } catch (Exception e) {
             com.baidu.adp.lib.util.f.b("SquareActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());

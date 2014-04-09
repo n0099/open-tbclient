@@ -97,6 +97,9 @@ public class ImageViewerActivity extends com.baidu.tbadk.a implements com.baidu.
             }
         }
         this.e = this.c.size();
+        if (this.E == null) {
+            this.E = this.e > 0 ? this.c.get(this.e - 1) : "";
+        }
         this.w = new HashMap<>();
         this.n = new f(this);
         this.p = new h(this);

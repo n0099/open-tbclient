@@ -22,7 +22,7 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.f.q;
 import com.baidu.tieba.im.i;
 import com.baidu.tieba.im.l;
-import com.baidu.tieba.im.s;
+import com.baidu.tieba.im.r;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ChatVoiceView extends LinearLayout implements View.OnClickListener, x {
@@ -105,23 +105,23 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
                     LinkedList linkedList = new LinkedList();
                     linkedList.add(new CommonMsgPojo(bVar));
                     if (!bVar.i().equals(String.valueOf(com.baidu.tieba.im.chat.x.a))) {
-                        s.a(new a(this, bVar, linkedList), new b(this));
+                        r.a(new a(this, bVar, linkedList), new b(this));
                         return;
                     } else {
-                        s.a(new c(this, bVar, linkedList), new d(this));
+                        r.a(new c(this, bVar, linkedList), new d(this));
                         return;
                     }
                 } else if (this.g instanceof com.baidu.tieba.im.message.a.f) {
                     com.baidu.tieba.im.message.a.f fVar = (com.baidu.tieba.im.message.a.f) this.g;
                     LinkedList linkedList2 = new LinkedList();
                     linkedList2.add(new CommonMsgPojo(fVar));
-                    s.a(new e(this, fVar, linkedList2), new f(this));
+                    r.a(new e(this, fVar, linkedList2), new f(this));
                     return;
                 } else if (this.g instanceof com.baidu.tieba.im.message.a.e) {
                     com.baidu.tieba.im.message.a.e eVar = (com.baidu.tieba.im.message.a.e) this.g;
                     LinkedList linkedList3 = new LinkedList();
                     linkedList3.add(new CommonMsgPojo(eVar));
-                    s.a(new g(this, eVar, linkedList3), new h(this));
+                    r.a(new g(this, eVar, linkedList3), new h(this));
                     return;
                 } else {
                     return;

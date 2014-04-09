@@ -63,7 +63,7 @@ public class HeadImageView extends TbImageView {
         this.e = new Paint();
         this.e.setStyle(Paint.Style.STROKE);
         this.e.setAntiAlias(true);
-        this.e.setColor(171061811);
+        this.e.setColor(439497267);
         this.e.setStrokeWidth(this.i);
         this.f = new Paint();
         this.f.setColor(1275068416);

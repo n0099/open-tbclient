@@ -43,18 +43,18 @@ public final class p implements m {
         boolean z2;
         TextView textView7;
         if (this.a.isAdded()) {
-            progressBar = this.a.d;
+            progressBar = this.a.e;
             progressBar.setVisibility(8);
             if (TbadkApplication.j().l() == 1) {
-                textView7 = this.a.f;
+                textView7 = this.a.g;
                 textView7.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.person_post_header_uname_1));
             } else {
-                textView = this.a.f;
+                textView = this.a.g;
                 textView.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.person_post_header_uname));
             }
             if (personPostReplyModel != null) {
                 if (PersonPostReplyModel.getRealPostCount(personPostReplyModel.post_list) == 0) {
-                    z2 = this.a.l;
+                    z2 = this.a.m;
                     if (z2) {
                         if (personPostReplyModel.getErrorString() != null) {
                             if (personPostReplyModel.getErrorString() != null) {
@@ -64,47 +64,47 @@ public final class p implements m {
                 }
                 if (personPostReplyModel.getErrorString() != null && !personPostReplyModel.getErrorString().equals("")) {
                     if (PersonPostReplyModel.getRealPostCount(personPostReplyModel.post_list) == 0) {
-                        bdListView3 = this.a.b;
-                        textView6 = this.a.f;
+                        bdListView3 = this.a.c;
+                        textView6 = this.a.g;
                         bdListView3.setEmptyView(textView6);
                     }
                     com.baidu.adp.lib.util.i.a((Context) this.a.getActivity(), personPostReplyModel.getErrorString());
                 }
-                textView5 = this.a.f;
+                textView5 = this.a.g;
                 textView5.setVisibility(8);
                 if (PersonPostReplyModel.getRealPostCount(personPostReplyModel.post_list) < 20) {
                     if (!UtilHelper.a()) {
-                        view = this.a.i;
+                        view = this.a.j;
                         view.setVisibility(8);
                     } else {
-                        this.a.j = false;
-                        pbListView2 = this.a.h;
+                        this.a.k = false;
+                        pbListView2 = this.a.i;
                         pbListView2.a(this.a.getResources().getString(com.baidu.tieba.a.k.person_post_reply_no_more));
-                        view2 = this.a.i;
+                        view2 = this.a.j;
                         view2.setVisibility(0);
                     }
                 }
-                pbListView = this.a.h;
+                pbListView = this.a.i;
                 pbListView.e();
-                bdListView2 = this.a.b;
+                bdListView2 = this.a.c;
                 bdListView2.b();
                 if (z) {
-                    this.a.j = true;
-                    this.a.k = 0;
-                    this.a.l = false;
+                    this.a.k = true;
+                    this.a.l = 0;
+                    this.a.m = false;
                     return;
                 }
                 return;
             }
             if (TbadkApplication.j().l() == 1) {
-                textView4 = this.a.f;
+                textView4 = this.a.g;
                 textView4.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.person_post_header_uname_1));
             } else {
-                textView2 = this.a.f;
+                textView2 = this.a.g;
                 textView2.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.person_post_header_uname));
             }
-            bdListView = this.a.b;
-            textView3 = this.a.f;
+            bdListView = this.a.c;
+            textView3 = this.a.g;
             bdListView.setEmptyView(textView3);
         }
     }

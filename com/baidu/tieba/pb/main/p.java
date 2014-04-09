@@ -12,19 +12,19 @@ final class p implements com.baidu.adp.widget.ListView.t {
 
     @Override // com.baidu.adp.widget.ListView.t
     public final void b() {
-        bd bdVar;
-        bk bkVar;
-        bd bdVar2;
-        bk bkVar2;
-        bdVar = this.a.x;
-        if (bdVar.a(false)) {
-            bkVar2 = this.a.D;
-            bkVar2.v();
+        bf bfVar;
+        bm bmVar;
+        bf bfVar2;
+        bm bmVar2;
+        bfVar = this.a.x;
+        if (bfVar.a(false)) {
+            bmVar2 = this.a.D;
+            bmVar2.v();
             TiebaStatic.a(this.a, "pb_more", "pbclick", 1, new Object[0]);
             return;
         }
-        bkVar = this.a.D;
-        bdVar2 = this.a.x;
-        bkVar.c(bdVar2.p());
+        bmVar = this.a.D;
+        bfVar2 = this.a.x;
+        bmVar.c(bfVar2.p());
     }
 }

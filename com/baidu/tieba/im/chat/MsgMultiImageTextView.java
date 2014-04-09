@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.baidu.tieba.im.chat.officialBar.MultiContentView;
 import java.util.List;
 /* loaded from: classes.dex */
-public class MsgMultiImageTextView extends ch {
+public class MsgMultiImageTextView extends cd {
     private MultiContentView p;
 
     public MsgMultiImageTextView(Context context) {

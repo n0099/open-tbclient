@@ -47,11 +47,11 @@ final class ah extends Handler {
                     z = this.a.g;
                     if (!z) {
                         cmVar = this.a.r;
-                        com.baidu.tieba.frs.view.n v = cmVar.v();
+                        com.baidu.tieba.frs.view.n w = cmVar.w();
                         gVar4 = this.a.D;
                         ForumData f = gVar4.f();
                         gVar5 = this.a.D;
-                        v.a(f, gVar5);
+                        w.a(f, gVar5);
                         return;
                     }
                     return;

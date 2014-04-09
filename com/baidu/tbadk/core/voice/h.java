@@ -7,7 +7,6 @@ import android.os.Process;
 import android.util.Log;
 import com.baidu.adp.lib.voice.Amrnb;
 import com.baidu.adp.lib.voice.BdSoundGate;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -256,7 +255,7 @@ public final class h implements Runnable {
                                     }
                                 } catch (Exception e8) {
                                     if (this.f != null) {
-                                        this.f.sendMessage(this.f.obtainMessage(PersonInfoActivity.REQUSET_CHANGE));
+                                        this.f.sendMessage(this.f.obtainMessage(101));
                                     }
                                     this.a = 0;
                                 }

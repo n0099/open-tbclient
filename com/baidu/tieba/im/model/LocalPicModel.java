@@ -7,7 +7,7 @@ public class LocalPicModel extends com.baidu.adp.a.e implements Serializable {
     private static final long serialVersionUID = -339604626740227228L;
     private String mDName;
     private String mDPath;
-    private w mImageTask = null;
+    private x mImageTask = null;
     private String mSName;
     private String mSPath;
 
@@ -31,7 +31,7 @@ public class LocalPicModel extends com.baidu.adp.a.e implements Serializable {
         if (this.mImageTask != null) {
             return false;
         }
-        this.mImageTask = new w(this, (byte) 0);
+        this.mImageTask = new x(this, (byte) 0);
         this.mImageTask.setSelfExecute(true);
         this.mImageTask.execute(new Object[0]);
         return true;

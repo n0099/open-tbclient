@@ -66,12 +66,12 @@ final class ag extends com.baidu.adp.a.h {
         str = this.a.J;
         if (str.equals("normal_page")) {
             cmVar11 = this.a.r;
-            cmVar11.B();
+            cmVar11.C();
         } else {
             str2 = this.a.J;
             if (str2.equals("frs_page")) {
                 cmVar = this.a.r;
-                cmVar.D();
+                cmVar.E();
             }
         }
         if (z) {
@@ -104,13 +104,13 @@ final class ag extends com.baidu.adp.a.h {
             }
             if (obj != null && (obj instanceof SignData)) {
                 cmVar9 = this.a.r;
-                if (cmVar9.l()) {
+                if (cmVar9.m()) {
                     gVar10 = this.a.D;
                     i = gVar10.f().getUser_level() + 1;
                 } else {
                     i = -1;
                 }
-                com.baidu.tieba.r c = com.baidu.tieba.r.c();
+                com.baidu.tieba.p c = com.baidu.tieba.p.c();
                 gVar9 = this.a.D;
                 c.a(gVar9.f().getName(), ((SignData) obj).getBonusPoint(), i);
             }
@@ -128,7 +128,7 @@ final class ag extends com.baidu.adp.a.h {
             }
             StringBuilder sb = new StringBuilder(100);
             cmVar6 = this.a.r;
-            if (!cmVar6.F()) {
+            if (!cmVar6.G()) {
                 sb.append(this.a.getString(com.baidu.tieba.a.k.sign_success));
                 sb.append("!\n");
                 sb.append(String.format(this.a.getString(com.baidu.tieba.a.k.sign_user), Integer.valueOf(((SignData) obj).getUserSignRank())));

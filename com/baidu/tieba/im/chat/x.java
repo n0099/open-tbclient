@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public final class x {
-    private final LinkedList<WeakReference<by>> c = new LinkedList<>();
+    private final LinkedList<WeakReference<bu>> c = new LinkedList<>();
     private com.baidu.adp.framework.c.g d = new y(this, 0);
     private com.baidu.adp.framework.c.a e = new aj(this, 0);
     private static x b = null;
@@ -40,33 +40,33 @@ public final class x {
                 com.baidu.adp.lib.util.f.b("私聊GID有变化!!!!!!!!!!!");
             }
             a = i;
-            com.baidu.tieba.im.s.a(new as(i), null);
+            com.baidu.tieba.im.r.a(new as(i), null);
         }
     }
 
-    public final void a(by byVar) {
-        Iterator<WeakReference<by>> it = this.c.iterator();
+    public final void a(bu buVar) {
+        Iterator<WeakReference<bu>> it = this.c.iterator();
         boolean z = false;
         while (it.hasNext()) {
-            if (it.next().get() == byVar) {
+            if (it.next().get() == buVar) {
                 z = true;
             }
         }
         if (!z) {
-            this.c.add(new WeakReference<>(byVar));
+            this.c.add(new WeakReference<>(buVar));
         }
     }
 
-    public final void b(by byVar) {
-        WeakReference<by> weakReference;
-        Iterator<WeakReference<by>> it = this.c.iterator();
+    public final void b(bu buVar) {
+        WeakReference<bu> weakReference;
+        Iterator<WeakReference<bu>> it = this.c.iterator();
         while (true) {
             if (!it.hasNext()) {
                 weakReference = null;
                 break;
             }
             weakReference = it.next();
-            if (weakReference.get() == byVar) {
+            if (weakReference.get() == buVar) {
                 break;
             }
         }
@@ -75,16 +75,16 @@ public final class x {
         }
     }
 
-    public final void a(String str, bz bzVar) {
-        com.baidu.tieba.im.s.a(new at(this, str), new au(this, bzVar));
+    public final void a(String str, bv bvVar) {
+        com.baidu.tieba.im.r.a(new at(this, str), new au(this, bvVar));
     }
 
-    public final void b(String str, bz bzVar) {
-        com.baidu.tieba.im.s.a(new av(this, str), new aw(this, bzVar));
+    public final void b(String str, bv bvVar) {
+        com.baidu.tieba.im.r.a(new av(this, str), new aw(this, bvVar));
     }
 
-    public final void c(String str, bz bzVar) {
-        com.baidu.tieba.im.s.a(new ax(this, str), new ay(this, bzVar));
+    public final void c(String str, bv bvVar) {
+        com.baidu.tieba.im.r.a(new ax(this, str), new ay(this, bvVar));
     }
 
     public final void a(com.baidu.tieba.im.message.a.a aVar) {
@@ -95,21 +95,21 @@ public final class x {
             CommonMsgPojo commonMsgPojo = new CommonMsgPojo(bVar);
             commonMsgPojo.setRead_flag(0);
             linkedList.add(commonMsgPojo);
-            com.baidu.tieba.im.s.a(new z(this, bVar, linkedList), new aa(this, bVar));
+            com.baidu.tieba.im.r.a(new z(this, bVar, linkedList), new aa(this, bVar));
         } else if (aVar instanceof com.baidu.tieba.im.message.a.f) {
             com.baidu.tieba.im.message.a.f fVar = (com.baidu.tieba.im.message.a.f) aVar;
             LinkedList linkedList2 = new LinkedList();
             CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(aVar);
             commonMsgPojo2.setRead_flag(0);
             linkedList2.add(commonMsgPojo2);
-            com.baidu.tieba.im.s.a(new ab(this, fVar, linkedList2), new ac(this, fVar));
+            com.baidu.tieba.im.r.a(new ab(this, fVar, linkedList2), new ac(this, fVar));
         } else if (aVar instanceof com.baidu.tieba.im.message.a.e) {
             com.baidu.tieba.im.message.a.e eVar = (com.baidu.tieba.im.message.a.e) aVar;
             LinkedList linkedList3 = new LinkedList();
             CommonMsgPojo commonMsgPojo3 = new CommonMsgPojo(aVar);
             commonMsgPojo3.setRead_flag(0);
             linkedList3.add(commonMsgPojo3);
-            com.baidu.tieba.im.s.a(new ad(this, eVar, linkedList3), new ae(this, eVar));
+            com.baidu.tieba.im.r.a(new ad(this, eVar, linkedList3), new ae(this, eVar));
         }
     }
 
@@ -131,7 +131,7 @@ public final class x {
             if (responseCommitGroupMessage.e() != 0) {
                 xVar.b(responseCommitGroupMessage);
             } else {
-                com.baidu.tieba.im.s.a(new am(xVar, responseCommitGroupMessage), new an(xVar, responseCommitGroupMessage));
+                com.baidu.tieba.im.r.a(new am(xVar, responseCommitGroupMessage), new an(xVar, responseCommitGroupMessage));
             }
         }
     }
@@ -149,9 +149,9 @@ public final class x {
             a(a2);
             com.baidu.adp.lib.util.f.e("GET Personal Gid MSGACK=" + a2);
             if (responseCommitPersonalMessage.l() == 0) {
-                com.baidu.tieba.im.s.a(new ao(xVar, com.baidu.adp.lib.f.b.a(TbadkApplication.E(), 0L), com.baidu.adp.lib.f.b.a(responseCommitPersonalMessage.k(), 0L), responseCommitPersonalMessage), new ap(xVar, responseCommitPersonalMessage));
+                com.baidu.tieba.im.r.a(new ao(xVar, com.baidu.adp.lib.f.b.a(TbadkApplication.E(), 0L), com.baidu.adp.lib.f.b.a(responseCommitPersonalMessage.k(), 0L), responseCommitPersonalMessage), new ap(xVar, responseCommitPersonalMessage));
             } else {
-                com.baidu.tieba.im.s.a(new aq(xVar, com.baidu.adp.lib.f.b.a(TbadkApplication.E(), 0L), com.baidu.adp.lib.f.b.a(responseCommitPersonalMessage.k(), 0L), responseCommitPersonalMessage), new ar(xVar, responseCommitPersonalMessage));
+                com.baidu.tieba.im.r.a(new aq(xVar, com.baidu.adp.lib.f.b.a(TbadkApplication.E(), 0L), com.baidu.adp.lib.f.b.a(responseCommitPersonalMessage.k(), 0L), responseCommitPersonalMessage), new ar(xVar, responseCommitPersonalMessage));
             }
         }
     }
@@ -162,21 +162,21 @@ public final class x {
             if (aVar == null) {
                 com.baidu.adp.lib.util.f.b("chatMessage == null");
             } else if (aVar instanceof com.baidu.tieba.im.message.a.b) {
-                com.baidu.tieba.im.s.a(new af(this, (com.baidu.tieba.im.message.a.b) aVar, aVar), new ag(this, fVar));
+                com.baidu.tieba.im.r.a(new af(this, (com.baidu.tieba.im.message.a.b) aVar, aVar), new ag(this, fVar));
             } else if (aVar instanceof com.baidu.tieba.im.message.a.f) {
-                com.baidu.tieba.im.s.a(new ah(this, (com.baidu.tieba.im.message.a.f) aVar, aVar), new ai(this, fVar));
+                com.baidu.tieba.im.r.a(new ah(this, (com.baidu.tieba.im.message.a.f) aVar, aVar), new ai(this, fVar));
             } else if (aVar instanceof com.baidu.tieba.im.message.a.e) {
-                com.baidu.tieba.im.s.a(new ak(this, (com.baidu.tieba.im.message.a.e) aVar, aVar), new al(this, fVar));
+                com.baidu.tieba.im.r.a(new ak(this, (com.baidu.tieba.im.message.a.e) aVar, aVar), new al(this, fVar));
             }
         }
     }
 
     public final void a(com.baidu.adp.framework.message.f<?> fVar) {
-        Iterator<WeakReference<by>> it = this.c.iterator();
+        Iterator<WeakReference<bu>> it = this.c.iterator();
         while (it.hasNext()) {
-            by byVar = it.next().get();
-            if (byVar != null) {
-                byVar.a(fVar);
+            bu buVar = it.next().get();
+            if (buVar != null) {
+                buVar.a(fVar);
             }
         }
     }

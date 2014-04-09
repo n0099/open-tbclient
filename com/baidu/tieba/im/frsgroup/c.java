@@ -15,8 +15,8 @@ public final class c implements Runnable {
     public final void run() {
         BdListView bdListView;
         GroupListAdapter groupListAdapter;
-        bdListView = this.a.d;
-        groupListAdapter = this.a.h;
+        bdListView = this.a.e;
+        groupListAdapter = this.a.i;
         com.baidu.tbadk.core.util.ac.a(bdListView, groupListAdapter.b(), 0, -1);
     }
 }

@@ -1,19 +1,12 @@
 package com.baidu.tieba;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class o implements View.OnClickListener {
-    final /* synthetic */ m a;
+public interface o {
+    void a();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(m mVar) {
-        this.a = mVar;
-    }
+    void a(boolean z);
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        q qVar;
-        qVar = this.a.k;
-        qVar.a();
-    }
+    void b();
+
+    void c();
 }

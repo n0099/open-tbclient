@@ -23,6 +23,7 @@ public class WriteData implements Serializable {
     private String mForumName;
     private boolean mHaveDraft;
     private boolean mIsAddition;
+    private boolean mIsFrsReply;
     private boolean mIsNoTitle;
     private String mThreadId;
     private String mTitle;
@@ -298,5 +299,13 @@ public class WriteData implements Serializable {
 
     public void setIsNoTitle(boolean z) {
         this.mIsNoTitle = z;
+    }
+
+    public boolean isFrsReply() {
+        return this.mIsFrsReply;
+    }
+
+    public void setIsFrsReply(boolean z) {
+        this.mIsFrsReply = z;
     }
 }

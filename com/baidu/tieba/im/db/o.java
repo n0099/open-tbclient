@@ -1,23 +1,21 @@
 package com.baidu.tieba.im.db;
-
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-final class o extends com.baidu.adp.framework.c.a {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 == null || customResponsedMessage2.g() != 2008015 || customResponsedMessage2.a() == null) {
-            return;
-        }
-        if (customResponsedMessage2.a() instanceof String) {
-            ImDatabaseManager.deleteImDb((String) customResponsedMessage2.a());
-        }
-        com.baidu.tieba.im.b.e.d();
+public final class o extends a {
+    public static String b = "tb_private_msg_";
+    private static a c;
+
+    private o() {
+        super("tb_private_msg_", com.baidu.tieba.im.message.a.f.class);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(int i) {
-        super(2008015);
+    public static synchronized o d() {
+        o oVar;
+        synchronized (o.class) {
+            if (c == null) {
+                c = new o();
+            }
+            oVar = (o) c;
+        }
+        return oVar;
     }
 }

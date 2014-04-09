@@ -13,10 +13,10 @@ final class v implements com.baidu.tbadk.widget.richText.q {
 
     @Override // com.baidu.tbadk.widget.richText.q
     public final void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
-        bk bkVar;
+        bm bmVar;
         com.baidu.tbadk.imageManager.d dVar;
         com.baidu.adp.widget.ImageView.b a;
-        bk bkVar2;
+        bm bmVar2;
         com.baidu.tbadk.imageManager.d dVar2;
         GifView gifView = (GifView) view;
         com.baidu.tbadk.widget.richText.e tbRichTextEmotionINfo = gifView.getTbRichTextEmotionINfo();
@@ -25,14 +25,14 @@ final class v implements com.baidu.tbadk.widget.richText.q {
             tbRichTextEmotionINfo.j = false;
             tbRichTextEmotionINfo.k = false;
             if (com.baidu.tbadk.core.util.b.b()) {
-                bkVar2 = this.a.D;
-                com.baidu.tbadk.editortool.aa a2 = bkVar2.l().a();
-                dVar2 = this.a.ak;
+                bmVar2 = this.a.D;
+                com.baidu.tbadk.editortool.ab a2 = bmVar2.l().a();
+                dVar2 = this.a.am;
                 a = a2.a(str, str6, str5, true, dVar2);
             } else {
-                bkVar = this.a.D;
-                com.baidu.tbadk.editortool.aa a3 = bkVar.l().a();
-                dVar = this.a.ak;
+                bmVar = this.a.D;
+                com.baidu.tbadk.editortool.ab a3 = bmVar.l().a();
+                dVar = this.a.am;
                 a = a3.a(str, str6, str4, false, dVar);
             }
             if (a == null) {

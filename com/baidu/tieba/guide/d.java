@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.data.InterestFrsData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -19,7 +19,7 @@ public final class d extends Dialog implements a {
     private View d;
     private LinearLayout e;
     private View.OnClickListener f;
-    private aa g;
+    private ab g;
     private View h;
     private LinearLayout i;
 
@@ -92,8 +92,8 @@ public final class d extends Dialog implements a {
     }
 
     @Override // com.baidu.tieba.guide.a
-    public final void a(aa aaVar) {
-        this.g = aaVar;
+    public final void a(ab abVar) {
+        this.g = abVar;
     }
 
     @Override // com.baidu.tieba.guide.a

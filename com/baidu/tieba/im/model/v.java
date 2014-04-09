@@ -1,9 +1,10 @@
 package com.baidu.tieba.im.model;
 
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
-import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-final class v implements Comparator<ImMessageCenterShowItemData> {
+final class v implements com.baidu.tieba.im.a<Void> {
     final /* synthetic */ p a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,17 +12,18 @@ final class v implements Comparator<ImMessageCenterShowItemData> {
         this.a = pVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
-    @Override // java.util.Comparator
-    public final /* synthetic */ int compare(ImMessageCenterShowItemData imMessageCenterShowItemData, ImMessageCenterShowItemData imMessageCenterShowItemData2) {
-        ImMessageCenterShowItemData imMessageCenterShowItemData3 = imMessageCenterShowItemData;
-        ImMessageCenterShowItemData imMessageCenterShowItemData4 = imMessageCenterShowItemData2;
-        if (imMessageCenterShowItemData3 == null || imMessageCenterShowItemData4 == null) {
-            return 0;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(Void r3) {
+        List list;
+        List list2;
+        LinkedList<ImMessageCenterShowItemData> e = com.baidu.tieba.im.pushNotify.a.d().e();
+        if (e != null) {
+            list = this.a.b;
+            list.clear();
+            list2 = this.a.b;
+            list2.addAll(e);
+            this.a.d();
         }
-        if (imMessageCenterShowItemData3.getServerTime() < imMessageCenterShowItemData4.getServerTime()) {
-            return 1;
-        }
-        return imMessageCenterShowItemData3.getServerTime() > imMessageCenterShowItemData4.getServerTime() ? -1 : 0;
     }
 }

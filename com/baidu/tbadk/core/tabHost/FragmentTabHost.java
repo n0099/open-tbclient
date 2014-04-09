@@ -186,7 +186,7 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
             for (int i2 = 0; i2 < count; i2++) {
                 Fragment item = this.j.getItem(i2);
                 if (item != null && (item instanceof com.baidu.tbadk.core.d)) {
-                    ((com.baidu.tbadk.core.d) item).changeSkinType(i);
+                    ((com.baidu.tbadk.core.d) item).b(i);
                 }
             }
         }

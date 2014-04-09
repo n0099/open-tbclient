@@ -31,31 +31,31 @@ public final class e extends com.baidu.adp.framework.c.a {
         CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
         this.a.a(true);
         if (customResponsedMessage2 == null || !(customResponsedMessage2 instanceof ResponseFrsGroupsLocalMessage)) {
-            this.a.showToast(com.baidu.tieba.im.j.neterror);
+            this.a.a(com.baidu.tieba.im.j.neterror);
             return;
         }
         ResponseFrsGroupsLocalMessage responseFrsGroupsLocalMessage = (ResponseFrsGroupsLocalMessage) customResponsedMessage2;
         com.baidu.adp.framework.message.d<?> h = responseFrsGroupsLocalMessage.h();
         if (h != null && (h instanceof com.baidu.tieba.im.message.af)) {
             String c = ((com.baidu.tieba.im.message.af) h).c();
-            kVar3 = this.a.b;
+            kVar3 = this.a.c;
             if (!c.equals(String.valueOf(kVar3.g()))) {
                 return;
             }
         }
-        kVar = this.a.b;
+        kVar = this.a.c;
         if (kVar.e() || (b = responseFrsGroupsLocalMessage.b()) == null || b.isEmpty()) {
             return;
         }
-        kVar2 = this.a.b;
+        kVar2 = this.a.c;
         kVar2.a(true);
-        groupListAdapter = this.a.h;
+        groupListAdapter = this.a.i;
         groupListAdapter.b(true);
-        groupListAdapter2 = this.a.h;
+        groupListAdapter2 = this.a.i;
         groupListAdapter2.a(GroupListAdapter.BOTTOM_TYPE.LINE);
-        groupListAdapter3 = this.a.h;
+        groupListAdapter3 = this.a.i;
         groupListAdapter3.a(b);
-        groupListAdapter4 = this.a.h;
+        groupListAdapter4 = this.a.i;
         groupListAdapter4.notifyDataSetChanged();
         b.h(this.a);
     }

@@ -9,7 +9,7 @@ public final class t extends com.baidu.adp.a.e {
     private u b;
     private String c;
     private final Context e;
-    private com.baidu.tbadk.editortool.aa f;
+    private com.baidu.tbadk.editortool.ab f;
     private boolean i;
     private boolean j;
     private boolean k;
@@ -19,7 +19,7 @@ public final class t extends com.baidu.adp.a.e {
     private long h = 0;
 
     public t(Context context) {
-        this.f = new com.baidu.tbadk.editortool.aa(context);
+        this.f = new com.baidu.tbadk.editortool.ab(context);
         this.e = context;
     }
 
@@ -90,7 +90,7 @@ public final class t extends com.baidu.adp.a.e {
         }
     }
 
-    public final com.baidu.tbadk.editortool.aa g() {
+    public final com.baidu.tbadk.editortool.ab g() {
         return this.f;
     }
 

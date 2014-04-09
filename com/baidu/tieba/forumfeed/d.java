@@ -1,7 +1,9 @@
 package com.baidu.tieba.forumfeed;
+
+import com.baidu.adp.widget.ListView.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d implements com.baidu.adp.widget.ListView.t {
+public final class d implements t {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

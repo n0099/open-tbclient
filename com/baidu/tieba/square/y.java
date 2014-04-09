@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public final class y extends PagerAdapter implements com.baidu.tbadk.imageManager.d, com.baidu.tieba.view.s {
+public final class y extends PagerAdapter implements com.baidu.tbadk.imageManager.d, com.baidu.tieba.view.q {
     final /* synthetic */ v b;
     private Context f;
-    private com.baidu.tbadk.editortool.aa g;
+    private com.baidu.tbadk.editortool.ab g;
     private int h;
     private int i;
     private LayoutInflater k;
@@ -33,7 +33,7 @@ public final class y extends PagerAdapter implements com.baidu.tbadk.imageManage
         this.k = null;
         this.f = context;
         this.k = LayoutInflater.from(context);
-        this.g = new com.baidu.tbadk.editortool.aa(context);
+        this.g = new com.baidu.tbadk.editortool.ab(context);
         this.h = com.baidu.adp.lib.util.i.b(context);
         this.i = (int) (0.5f + (this.h * this.j));
         this.g.a(this.h, this.i);
@@ -98,14 +98,14 @@ public final class y extends PagerAdapter implements com.baidu.tbadk.imageManage
         return view == obj;
     }
 
-    @Override // com.baidu.tieba.view.s
-    public final void d() {
+    @Override // com.baidu.tieba.view.q
+    public final void b() {
         if (this.g != null) {
             this.g.c();
         }
     }
 
-    @Override // com.baidu.tieba.view.s
+    @Override // com.baidu.tieba.view.q
     public final void a(View view, int i, int i2) {
         this.l = view;
         if (this.g != null && this.c != null) {

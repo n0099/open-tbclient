@@ -22,7 +22,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EmotionTabContentView extends LinearLayout implements ViewPager.OnPageChangeListener {
     private ViewPager a;
-    private af b;
+    private ag b;
     private WindowManager c;
     private WindowManager.LayoutParams d;
     private GifView e;
@@ -38,7 +38,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     private final Point o;
     private x p;
     private int q;
-    private aa r;
+    private ab r;
     private LayoutInflater s;
 
     public EmotionTabContentView(Context context, AttributeSet attributeSet) {
@@ -63,7 +63,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         setOrientation(1);
         this.s = (LayoutInflater) context.getSystemService("layout_inflater");
         this.s.inflate(com.baidu.tbadk.k.emotion_tab_content, (ViewGroup) this, true);
-        this.r = new aa(context);
+        this.r = new ab(context);
         this.a = (ViewPager) findViewById(com.baidu.tbadk.j.face_tab_viewpager);
         this.a.setFadingEdgeLength(0);
         this.a.setOnPageChangeListener(this);
@@ -93,12 +93,12 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         }
     }
 
-    public final void a(af afVar) {
+    public final void a(ag agVar) {
         int i;
-        this.b = afVar;
+        this.b = agVar;
         int d = this.b.d();
-        int j = afVar.j();
-        int k = afVar.k();
+        int j = agVar.j();
+        int k = agVar.k();
         if (j != 0 && k != 0) {
             int i2 = d / (j * k);
             int i3 = d % (j * k) == 0 ? i2 : i2 + 1;
@@ -109,10 +109,12 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
             } else {
                 this.n.setVisibility(4);
             }
+            this.a.setAdapter(null);
+            System.gc();
             ArrayList arrayList = new ArrayList();
             for (int i4 = 0; i4 < i3; i4++) {
                 GridView gridView = new GridView(getContext());
-                gridView.setNumColumns(afVar.j());
+                gridView.setNumColumns(agVar.j());
                 gridView.setVerticalSpacing(0);
                 gridView.setHorizontalSpacing(0);
                 gridView.setSelector(com.baidu.tbadk.g.transparent);
@@ -137,7 +139,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         if (this.m != i) {
             String a = this.b.a(((k) gridView.getAdapter()).a() + i);
             this.e.setTag(a);
-            com.baidu.adp.widget.ImageView.b b = this.r.b(a, aa.b(), new j(this));
+            com.baidu.adp.widget.ImageView.b b = this.r.b(a, ab.b(), new j(this));
             if (b != null) {
                 this.e.setGif(b);
             }

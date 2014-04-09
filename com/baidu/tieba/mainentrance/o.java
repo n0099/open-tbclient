@@ -22,18 +22,11 @@ final class o implements AdapterView.OnItemClickListener {
         EditText editText;
         EditText editText2;
         EditText editText3;
-        a aVar3;
-        a aVar4;
         String str = (String) ((ListView) adapterView).getAdapter().getItem(i);
         i2 = this.a.z;
         if (i2 == 0) {
             com.baidu.tieba.util.k.f(str);
             this.a.sendMessage(new com.baidu.adp.framework.message.a(2003000, new com.baidu.tbadk.core.b.l(this.a).a(str, "tb_searchlist")));
-            aVar3 = this.a.l;
-            aVar3.a(i);
-            aVar4 = this.a.l;
-            aVar4.notifyDataSetChanged();
-            this.a.finish();
         } else if (str != null && str.length() > 0) {
             aVar = this.a.l;
             aVar.a(i);

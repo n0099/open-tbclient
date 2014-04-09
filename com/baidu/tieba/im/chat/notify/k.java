@@ -1,9 +1,11 @@
 package com.baidu.tieba.im.chat.notify;
 
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class k implements com.baidu.adp.widget.ListView.d {
+public final class k implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,13 +13,27 @@ public final class k implements com.baidu.adp.widget.ListView.d {
         this.a = bVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public final void a(boolean z) {
-        if (!z) {
-            b.b(this.a, 1, 3);
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public final boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        q qVar;
+        q qVar2;
+        ImMessageCenterShowItemData imMessageCenterShowItemData;
+        if (i >= 0) {
+            qVar = this.a.k;
+            long itemId = qVar.getItemId(i);
+            if (itemId != -1 && itemId != -2) {
+                b bVar = this.a;
+                qVar2 = this.a.k;
+                bVar.h = (ImMessageCenterShowItemData) qVar2.getItem(i);
+                b bVar2 = this.a;
+                imMessageCenterShowItemData = this.a.h;
+                b.b(bVar2, imMessageCenterShowItemData);
+                if (this.a.b != null) {
+                    this.a.b.show();
+                }
+            }
+            return true;
         }
-        if (!UtilHelper.a()) {
-            this.a.showToast(com.baidu.tieba.im.j.neterror);
-        }
+        return false;
     }
 }

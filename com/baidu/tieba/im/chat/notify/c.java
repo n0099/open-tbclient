@@ -15,20 +15,20 @@ public final class c implements com.baidu.tieba.im.a<Void> {
     @Override // com.baidu.tieba.im.a
     public final /* synthetic */ void a(Void r3) {
         BdListView bdListView;
-        p pVar;
-        p pVar2;
-        com.baidu.tieba.im.model.p pVar3;
+        q qVar;
+        q qVar2;
+        com.baidu.tieba.im.model.p pVar;
         BdListView bdListView2;
-        bdListView = this.a.i;
+        bdListView = this.a.j;
         if (bdListView != null) {
-            bdListView2 = this.a.i;
+            bdListView2 = this.a.j;
             bdListView2.b();
         }
-        pVar = this.a.j;
-        if (pVar != null) {
-            pVar2 = this.a.j;
-            pVar3 = this.a.b;
-            pVar2.a(pVar3.a());
+        qVar = this.a.k;
+        if (qVar != null) {
+            qVar2 = this.a.k;
+            pVar = this.a.c;
+            qVar2.a(pVar.b());
         }
     }
 }

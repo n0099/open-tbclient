@@ -1,17 +1,20 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
-import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class al implements AbsListView.RecyclerListener {
-    final /* synthetic */ aj a;
+public final class al implements Runnable {
+    final /* synthetic */ ak a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(aj ajVar) {
-        this.a = ajVar;
+    public al(ak akVar) {
+        this.a = akVar;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public final void onMovedToScrapHeap(View view) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        boolean z;
+        z = this.a.j;
+        if (z) {
+            this.a.c();
+        }
     }
 }

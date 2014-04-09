@@ -18,7 +18,7 @@ public class ResponseChatRoomInfoMessage extends SocketResponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         QueryChatroomInfoRes.QueryChatroomInfoResIdl parseFrom = QueryChatroomInfoRes.QueryChatroomInfoResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             QueryChatroomInfoRes.DataRes data = parseFrom.getData();
             this.a = data.getUserNum();

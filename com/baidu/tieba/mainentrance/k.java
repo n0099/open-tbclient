@@ -20,6 +20,7 @@ final class k implements TextWatcher {
         int i4;
         int i5;
         this.a.y = charSequence.toString();
+        this.a.A = "";
         str = this.a.y;
         if (str.trim().length() > 0) {
             i5 = this.a.z;
@@ -44,32 +45,23 @@ final class k implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public final void afterTextChanged(Editable editable) {
-        TextView textView;
         Button button;
+        TextView textView;
         TextView textView2;
-        TextView textView3;
         Button button2;
-        TextView textView4;
         if (editable.toString().trim().length() == 0) {
-            if (TbadkApplication.j().l() == 1) {
-                textView4 = this.a.e;
-                textView4.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.square_search_no_text_color_1));
-            } else {
-                textView3 = this.a.e;
-                textView3.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.square_search_no_text_color));
-            }
             button2 = this.a.d;
             button2.setVisibility(8);
-            return;
+        } else {
+            button = this.a.d;
+            button.setVisibility(0);
         }
         if (TbadkApplication.j().l() == 1) {
             textView2 = this.a.e;
-            textView2.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.a.e.square_search_text_color_1));
-        } else {
-            textView = this.a.e;
-            textView.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.a.e.square_search_text_color));
+            textView2.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.a.e.common_new_page_title_1));
+            return;
         }
-        button = this.a.d;
-        button.setVisibility(0);
+        textView = this.a.e;
+        textView.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.a.e.white));
     }
 }

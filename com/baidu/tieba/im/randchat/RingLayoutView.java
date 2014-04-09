@@ -13,7 +13,7 @@ import android.view.ViewParent;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class RingLayoutView extends RelativeLayout {
@@ -28,7 +28,7 @@ public class RingLayoutView extends RelativeLayout {
     private a i;
     private com.baidu.tieba.im.view.h j;
     private Point k;
-    private aa l;
+    private ab l;
     private int m;
 
     public Point getCenterP() {
@@ -88,7 +88,7 @@ public class RingLayoutView extends RelativeLayout {
         this.e.setStyle(Paint.Style.STROKE);
         this.e.setAntiAlias(true);
         this.e.setStrokeWidth(this.c);
-        this.l = new aa(this.a);
+        this.l = new ab(this.a);
     }
 
     public int getShapeType() {

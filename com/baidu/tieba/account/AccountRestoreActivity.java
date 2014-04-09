@@ -10,7 +10,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.person.PersonInfoActivity;
+import com.baidu.tieba.person.bn;
 import com.baidu.tieba.util.AntiHelper;
 @SuppressLint({"SetJavaScriptEnabled"})
 /* loaded from: classes.dex */
@@ -65,7 +65,7 @@ public class AccountRestoreActivity extends com.baidu.tbadk.a {
 
     public void exit(int i) {
         if (AntiHelper.PageType.PERSON_INFO.toString().equals(this.mPageType)) {
-            PersonInfoActivity.setRefreshFlag(true);
+            bn.c(true);
         } else if (AntiHelper.PageType.FRS.toString().equals(this.mPageType)) {
             com.baidu.adp.framework.c.a().a(new CustomResponsedMessage(2003003, null));
         }

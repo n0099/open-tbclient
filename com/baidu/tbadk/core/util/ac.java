@@ -11,12 +11,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public final class ac {
-    public static void a(ListView listView, com.baidu.tbadk.editortool.aa aaVar, int i, int i2) {
-        a(listView, aaVar, null, null, null, i, i2);
+    public static void a(ListView listView, com.baidu.tbadk.editortool.ab abVar, int i, int i2) {
+        a(listView, abVar, null, null, null, i, i2);
     }
 
-    public static void a(ListView listView, com.baidu.tbadk.editortool.aa aaVar, com.baidu.tbadk.imageManager.d dVar, com.baidu.tbadk.imageManager.d dVar2, com.baidu.tbadk.imageManager.d dVar3, int i, int i2) {
-        a(listView, aaVar, dVar, dVar2, null, null, i, i2);
+    public static void a(ListView listView, com.baidu.tbadk.editortool.ab abVar, com.baidu.tbadk.imageManager.d dVar, com.baidu.tbadk.imageManager.d dVar2, com.baidu.tbadk.imageManager.d dVar3, int i, int i2) {
+        a(listView, abVar, dVar, dVar2, null, null, i, i2);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:164:0x0056 A[EDGE_INSN: B:164:0x0056->B:20:0x0056 ?: BREAK  , SYNTHETIC] */
@@ -24,7 +24,7 @@ public final class ac {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(ListView listView, com.baidu.tbadk.editortool.aa aaVar, com.baidu.tbadk.imageManager.d dVar, com.baidu.tbadk.imageManager.d dVar2, com.baidu.tbadk.imageManager.d dVar3, com.baidu.tbadk.imageManager.d dVar4, int i, int i2) {
+    public static void a(ListView listView, com.baidu.tbadk.editortool.ab abVar, com.baidu.tbadk.imageManager.d dVar, com.baidu.tbadk.imageManager.d dVar2, com.baidu.tbadk.imageManager.d dVar3, com.baidu.tbadk.imageManager.d dVar4, int i, int i2) {
         int i3;
         int i4;
         LinkedList<String> photoUrl;
@@ -35,8 +35,8 @@ public final class ac {
         int i6;
         int i7;
         View findViewWithTag2;
-        if (listView != null && aaVar != null) {
-            aaVar.a();
+        if (listView != null && abVar != null) {
+            abVar.a();
             int firstVisiblePosition = listView.getFirstVisiblePosition();
             int lastVisiblePosition = listView.getLastVisiblePosition();
             ListAdapter adapter = listView.getAdapter();
@@ -57,9 +57,9 @@ public final class ac {
                     for (int i11 = firstVisiblePosition; i11 < adapter.getCount() && ((i11 <= lastVisiblePosition || z2) && i == 0); i11++) {
                         Object item = adapter.getItem(i11);
                         if (item instanceof ab) {
-                            ab abVar = (ab) item;
-                            if (abVar.isSupportImageSize()) {
-                                LinkedList<aa> imagesWithEmotions = abVar.getImagesWithEmotions();
+                            ab abVar2 = (ab) item;
+                            if (abVar2.isSupportImageSize()) {
+                                LinkedList<aa> imagesWithEmotions = abVar2.getImagesWithEmotions();
                                 if (imagesWithEmotions != null) {
                                     Iterator<aa> it = imagesWithEmotions.iterator();
                                     while (it.hasNext()) {
@@ -113,7 +113,7 @@ public final class ac {
                                 }
                             } else {
                                 if (i8 < 13) {
-                                    LinkedList<String> imageUrl = abVar.getImageUrl();
+                                    LinkedList<String> imageUrl = abVar2.getImageUrl();
                                     if (imageUrl != null) {
                                         Iterator<String> it2 = imageUrl.iterator();
                                         while (it2.hasNext()) {
@@ -154,18 +154,18 @@ public final class ac {
                         if (i15 <= lastVisiblePosition || z2) {
                             Object item2 = adapter.getItem(i15);
                             if (item2 instanceof ab) {
-                                ab abVar2 = (ab) item2;
+                                ab abVar3 = (ab) item2;
                                 if (i14 < i13) {
-                                    if (abVar2.isSupportImageSize()) {
-                                        LinkedList<aa> imagesWithEmotions2 = abVar2.getImagesWithEmotions();
+                                    if (abVar3.isSupportImageSize()) {
+                                        LinkedList<aa> imagesWithEmotions2 = abVar3.getImagesWithEmotions();
                                         if (imagesWithEmotions2 != null) {
                                             int i17 = 0;
                                             while (i17 < imagesWithEmotions2.size() && i14 < i13) {
-                                                aa aaVar2 = imagesWithEmotions2.get(i17);
+                                                aa aaVar = imagesWithEmotions2.get(i17);
                                                 int i18 = i14 + 1;
-                                                if (aaVar2.d != null) {
-                                                    com.baidu.tbadk.widget.richText.e eVar = aaVar2.d;
-                                                    View findViewWithTag3 = listView.findViewWithTag(aaVar2.a());
+                                                if (aaVar.d != null) {
+                                                    com.baidu.tbadk.widget.richText.e eVar = aaVar.d;
+                                                    View findViewWithTag3 = listView.findViewWithTag(aaVar.a());
                                                     if (findViewWithTag3 != null) {
                                                         GifView gifView = (GifView) findViewWithTag3;
                                                         if (eVar.j) {
@@ -173,7 +173,7 @@ public final class ac {
                                                         } else if (!eVar.k) {
                                                             String str = b2 ? eVar.b : eVar.a;
                                                             com.baidu.adp.lib.util.f.e("LoadImageHelper", "loadEmotion", "emotion dynamic:" + eVar.c);
-                                                            com.baidu.adp.widget.ImageView.b a = aaVar.a(eVar.e, eVar.c, str, b2, agVar);
+                                                            com.baidu.adp.widget.ImageView.b a = abVar.a(eVar.e, eVar.c, str, b2, agVar);
                                                             if (a != null) {
                                                                 gifView.setGif(a);
                                                                 gifView.setIsLoading(false);
@@ -183,46 +183,46 @@ public final class ac {
                                                             }
                                                         }
                                                     }
-                                                } else if (aaVar2.e != null) {
-                                                    aaVar.g(aaVar2.e, dVar4);
-                                                } else if (listView.findViewWithTag(aaVar2.a) != null && (b = aaVar.b(aaVar2.a, dVar)) != null) {
-                                                    dVar.a(b, aaVar2.a, true);
+                                                } else if (aaVar.e != null) {
+                                                    abVar.g(aaVar.e, dVar4);
+                                                } else if (listView.findViewWithTag(aaVar.a) != null && (b = abVar.b(aaVar.a, dVar)) != null) {
+                                                    dVar.a(b, aaVar.a, true);
                                                 }
                                                 i17++;
                                                 i14 = i18;
                                             }
                                         }
                                     } else {
-                                        LinkedList<String> imageUrl2 = abVar2.getImageUrl();
+                                        LinkedList<String> imageUrl2 = abVar3.getImageUrl();
                                         if (imageUrl2 != null) {
                                             int i19 = i14;
                                             for (int i20 = 0; i20 < imageUrl2.size() && i19 < i13; i20++) {
                                                 i19++;
-                                                aaVar.b(imageUrl2.get(i20), dVar);
+                                                abVar.b(imageUrl2.get(i20), dVar);
                                             }
                                             i14 = i19;
                                         }
                                     }
                                 }
-                                if (i16 < 30 && (photoUrl = abVar2.getPhotoUrl()) != null) {
+                                if (i16 < 30 && (photoUrl = abVar3.getPhotoUrl()) != null) {
                                     Iterator<String> it3 = photoUrl.iterator();
                                     while (it3.hasNext()) {
                                         String next3 = it3.next();
                                         i16++;
                                         if (i2 == 0) {
-                                            aaVar.d(next3, dVar2);
+                                            abVar.d(next3, dVar2);
                                         } else if (i2 == 1) {
-                                            aaVar.c(next3, dVar2);
+                                            abVar.c(next3, dVar2);
                                         }
                                     }
                                 }
                                 i4 = i16;
-                                LinkedList<String> forumPhotoUrl = abVar2.getForumPhotoUrl();
+                                LinkedList<String> forumPhotoUrl = abVar3.getForumPhotoUrl();
                                 if (forumPhotoUrl != null) {
                                     Iterator<String> it4 = forumPhotoUrl.iterator();
                                     while (it4.hasNext()) {
                                         i4++;
-                                        aaVar.f(it4.next(), dVar);
+                                        abVar.f(it4.next(), dVar);
                                     }
                                 }
                             } else {

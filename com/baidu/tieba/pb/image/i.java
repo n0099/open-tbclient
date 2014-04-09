@@ -1,10 +1,9 @@
 package com.baidu.tieba.pb.image;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
+import android.text.InputFilter;
+import android.text.Spanned;
 /* loaded from: classes.dex */
-final class i implements TextWatcher {
+final class i implements InputFilter {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,24 +11,16 @@ final class i implements TextWatcher {
         this.a = imagePbActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
-        Button button;
-        Button button2;
-        if (editable == null || editable.length() <= 0) {
-            button = this.a.m;
-            button.setEnabled(false);
-            return;
+    @Override // android.text.InputFilter
+    public final CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+        boolean a;
+        a = this.a.a();
+        if (a) {
+            if (charSequence.length() <= 0 && spanned.length() > 0) {
+                return spanned.subSequence(i3, i4 - 1);
+            }
+            return "";
         }
-        button2 = this.a.m;
-        button2.setEnabled(true);
+        return null;
     }
 }

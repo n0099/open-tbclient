@@ -46,7 +46,7 @@ public final class ac extends BdAsyncTask<Object, Integer, SearchPostModel> {
             this.b.v = searchPostModel2;
             cVar3 = this.b.p;
             cVar3.notifyDataSetChanged();
-            SquareSearchActivity.g(this.b);
+            SquareSearchActivity.h(this.b);
         }
         this.b.x = null;
     }

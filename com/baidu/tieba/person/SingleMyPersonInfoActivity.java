@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 /* loaded from: classes.dex */
 public class SingleMyPersonInfoActivity extends com.baidu.tbadk.core.e {
-    private PersonInfoActivity c;
+    private bn c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
@@ -23,7 +23,7 @@ public class SingleMyPersonInfoActivity extends com.baidu.tbadk.core.e {
             }
         }
         FragmentManager supportFragmentManager = getSupportFragmentManager();
-        this.c = new PersonInfoActivity();
+        this.c = new bn();
         this.c.setArguments(bundle2);
         FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
         beginTransaction.add(16908290, this.c);
@@ -31,7 +31,7 @@ public class SingleMyPersonInfoActivity extends com.baidu.tbadk.core.e {
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void c(int i) {
+    protected final void b(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

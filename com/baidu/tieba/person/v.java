@@ -143,8 +143,8 @@ public final class v {
 
     public final void b() {
         boolean z = true;
-        VersionData B = com.baidu.tieba.r.c().B();
-        if (B == null || B.getHas_new_ver() != 1) {
+        VersionData y = com.baidu.tieba.p.c().y();
+        if (y == null || y.getHas_new_ver() != 1) {
             z = false;
         }
         boolean a = com.baidu.tbadk.core.sharedPref.b.a().a(SettingTextFunctionIntroView.f, false);

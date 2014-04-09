@@ -44,8 +44,8 @@ public class TiebaMessageService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        com.baidu.tieba.r.c();
-        if (!com.baidu.tieba.r.p()) {
+        TbadkApplication.j();
+        if (!TbadkApplication.aG()) {
             stopSelf();
             return;
         }
@@ -99,16 +99,16 @@ public class TiebaMessageService extends Service {
         if (tiebaMessageService.c == null || tiebaMessageService.c.a() < 0 || tiebaMessageService.c.b() < 0 || tiebaMessageService.c.c() < 0 || tiebaMessageService.c.d() < 0 || tiebaMessageService.c.e() < 0) {
             return;
         }
-        if (!TbadkApplication.j().ai()) {
+        if (!TbadkApplication.j().ak()) {
             tiebaMessageService.c.a(0);
         }
-        if (!TbadkApplication.j().ah()) {
+        if (!TbadkApplication.j().aj()) {
             tiebaMessageService.c.b(0);
         }
-        if (!TbadkApplication.j().ak()) {
+        if (!TbadkApplication.j().am()) {
             tiebaMessageService.c.c(0);
         }
-        if (!TbadkApplication.j().ae()) {
+        if (!TbadkApplication.j().ag()) {
             tiebaMessageService.c.d(0);
         }
         Intent intent = new Intent(com.baidu.tieba.data.d.b());

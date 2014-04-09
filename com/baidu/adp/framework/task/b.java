@@ -1,11 +1,11 @@
 package com.baidu.adp.framework.task;
 
-import com.baidu.adp.framework.e.e;
+import com.baidu.adp.framework.e.f;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class b {
     protected final int a;
-    protected e b;
+    protected f b;
     protected int c;
     protected int d;
 
@@ -22,12 +22,12 @@ public abstract class b {
         return this.a;
     }
 
-    public final e j() {
+    public final f j() {
         return this.b;
     }
 
-    public final void b(e eVar) {
-        this.b = eVar;
+    public final void b(f fVar) {
+        this.b = fVar;
     }
 
     public final int k() {

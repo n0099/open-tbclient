@@ -79,19 +79,19 @@ public final class f extends BdAsyncTask<HttpMessage, HttpResponsedMessage, Http
             newInstance.a(this.d.b().c);
             newInstance.c(this.d.b().e);
             newInstance.b(this.d.b().d);
-            newInstance.a(this.b.e(), this.d);
             if (newInstance.c()) {
                 try {
                     newInstance.a(this.b.e(), (int) this.d.b().g);
                     newInstance.b(this.b.e(), this.d.b().g);
-                    return newInstance;
                 } catch (Exception e2) {
                     newInstance.a(-1003);
                     e2.printStackTrace();
                     com.baidu.adp.lib.util.f.b(e2.toString());
-                    return newInstance;
                 }
+            } else {
+                newInstance.a(newInstance.d());
             }
+            newInstance.a(this.b.e(), this.d);
             return newInstance;
         } catch (Exception e3) {
             e3.printStackTrace();

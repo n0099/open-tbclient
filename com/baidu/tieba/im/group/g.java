@@ -33,41 +33,41 @@ public final class g extends com.baidu.adp.framework.c.a {
         CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
         if (customResponsedMessage2 instanceof ResponseGroupsByUidLocalMessage) {
             if (this.a.getActivity() != null) {
-                qVar3 = this.a.b;
+                qVar3 = this.a.c;
                 if (qVar3 != null) {
-                    jVar = this.a.d;
+                    jVar = this.a.e;
                     if (jVar != null) {
                         ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = (ResponseGroupsByUidLocalMessage) customResponsedMessage2;
                         if (responseGroupsByUidLocalMessage.e() != 0) {
-                            qVar6 = this.a.b;
+                            qVar6 = this.a.c;
                             qVar6.c();
                             if (responseGroupsByUidLocalMessage.e() == 0 || TextUtils.isEmpty(responseGroupsByUidLocalMessage.f())) {
                                 return;
                             }
-                            this.a.showToast(responseGroupsByUidLocalMessage.f());
+                            this.a.a(responseGroupsByUidLocalMessage.f());
                             return;
                         }
                         List<GroupInfoData> b = responseGroupsByUidLocalMessage.b();
                         if (b != null) {
-                            qVar4 = this.a.b;
+                            qVar4 = this.a.c;
                             qVar4.a().a(b);
-                            qVar5 = this.a.b;
+                            qVar5 = this.a.c;
                             qVar5.a().notifyDataSetChanged();
                         }
-                        jVar2 = this.a.d;
+                        jVar2 = this.a.e;
                         if (jVar2 != null && UtilHelper.d(this.a.getActivity()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
-                            jVar3 = this.a.d;
+                            jVar3 = this.a.e;
                             jVar3.a();
                             return;
                         }
                     }
                 }
             }
-            qVar2 = this.a.b;
+            qVar2 = this.a.c;
             qVar2.c();
             return;
         }
-        qVar = this.a.b;
+        qVar = this.a.c;
         qVar.c();
     }
 }

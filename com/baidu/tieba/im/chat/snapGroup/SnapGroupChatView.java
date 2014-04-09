@@ -8,35 +8,35 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.ProgressCountDownView;
 import com.baidu.tieba.im.chat.CommonGroupMsglistView;
-import com.baidu.tieba.im.chat.dn;
+import com.baidu.tieba.im.chat.dj;
 import com.baidu.tieba.im.view.HorizontalPanelView;
 import com.baidu.tieba.im.view.NumCountDownView;
 /* loaded from: classes.dex */
 public class SnapGroupChatView extends CommonGroupMsglistView {
-    private AlertDialog k;
     private AlertDialog l;
-    private HorizontalPanelView m;
-    private ProgressCountDownView n;
-    private NumCountDownView o;
-    private TextView p;
+    private AlertDialog m;
+    private HorizontalPanelView n;
+    private ProgressCountDownView o;
+    private NumCountDownView p;
+    private TextView q;
 
     public SnapGroupChatView(SnapGroupChatActivity snapGroupChatActivity, boolean z) {
         super(snapGroupChatActivity, z);
-        if (this.k == null) {
+        if (this.l == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(snapGroupChatActivity);
             builder.setNegativeButton(com.baidu.tieba.im.j.snap_group_chat_quit_confirm_tip_cancel, new j(this));
             builder.setPositiveButton(com.baidu.tieba.im.j.snap_group_chat_quit_confirm_tip_ok, new k(this, snapGroupChatActivity));
             builder.setTitle(snapGroupChatActivity.getString(com.baidu.tieba.im.j.snap_group_chat_quit_confirm_tip));
-            this.k = builder.create();
-            this.k.setCanceledOnTouchOutside(true);
+            this.l = builder.create();
+            this.l.setCanceledOnTouchOutside(true);
         }
-        if (this.l == null) {
+        if (this.m == null) {
             AlertDialog.Builder builder2 = new AlertDialog.Builder(snapGroupChatActivity);
             builder2.setNegativeButton(com.baidu.tieba.im.j.cancel, new l(this));
             builder2.setPositiveButton(com.baidu.tieba.im.j.confirm, snapGroupChatActivity);
             builder2.setTitle(snapGroupChatActivity.getString(com.baidu.tieba.im.j.snap_group_chat_change_confirm_tip));
-            this.l = builder2.create();
-            this.l.setCanceledOnTouchOutside(true);
+            this.m = builder2.create();
+            this.m.setCanceledOnTouchOutside(true);
         }
         View view = new View(snapGroupChatActivity);
         view.setLayoutParams(new AbsListView.LayoutParams(-1, snapGroupChatActivity.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.horizontal_panel_view_height)));
@@ -44,39 +44,39 @@ public class SnapGroupChatView extends CommonGroupMsglistView {
     }
 
     public final HorizontalPanelView R() {
-        return this.m;
+        return this.n;
     }
 
     @Override // com.baidu.tieba.im.chat.h
-    protected final void a(dn dnVar, boolean z) {
-        super.a(dnVar, z);
-        this.p = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, dnVar.getString(com.baidu.tieba.im.j.snap_group_chat_change_group), dnVar);
-        this.m = (HorizontalPanelView) ((ViewStub) dnVar.findViewById(com.baidu.tieba.im.h.snap_chat_header_stub)).inflate();
-        this.n = (ProgressCountDownView) this.m.findViewById(com.baidu.tieba.im.h.count_down);
-        this.o = (NumCountDownView) ((ViewStub) dnVar.findViewById(com.baidu.tieba.im.h.snap_chat_float_tip_stub)).inflate();
-        this.o.setNoticeText(dnVar.getString(com.baidu.tieba.im.j.snap_group_chat_float_tip));
+    protected final void a(dj djVar, boolean z) {
+        super.a(djVar, z);
+        this.q = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, djVar.getString(com.baidu.tieba.im.j.snap_group_chat_change_group), djVar);
+        this.n = (HorizontalPanelView) ((ViewStub) djVar.findViewById(com.baidu.tieba.im.h.snap_chat_header_stub)).inflate();
+        this.o = (ProgressCountDownView) this.n.findViewById(com.baidu.tieba.im.h.count_down);
+        this.p = (NumCountDownView) ((ViewStub) djVar.findViewById(com.baidu.tieba.im.h.snap_chat_float_tip_stub)).inflate();
+        this.p.setNoticeText(djVar.getString(com.baidu.tieba.im.j.snap_group_chat_float_tip));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final AlertDialog S() {
-        return this.k;
+        return this.l;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final AlertDialog T() {
-        return this.l;
+        return this.m;
     }
 
     public final NumCountDownView U() {
-        return this.o;
+        return this.p;
     }
 
     public final ProgressCountDownView V() {
-        return this.n;
+        return this.o;
     }
 
     public final TextView W() {
-        return this.p;
+        return this.q;
     }
 
     @Override // com.baidu.tieba.im.chat.h

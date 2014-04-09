@@ -1,6 +1,6 @@
 package com.baidu.tieba.mainentrance;
 /* loaded from: classes.dex */
-final class g implements com.baidu.tieba.view.v {
+final class g implements com.baidu.tieba.view.t {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,9 +8,9 @@ final class g implements com.baidu.tieba.view.v {
         this.a = squareSearchActivity;
     }
 
-    @Override // com.baidu.tieba.view.v
+    @Override // com.baidu.tieba.view.t
     public final void a(boolean z) {
         com.baidu.adp.lib.util.f.e("simon", "onSoftKeyboardShown", String.valueOf(z));
-        this.a.C = z;
+        this.a.D = z;
     }
 }

@@ -170,6 +170,8 @@ public class GuideActivity extends com.baidu.tbadk.a {
                 if (T) {
                     TbadkApplication.j();
                     TbadkApplication.U();
+                    TbadkApplication.j().g(true);
+                    TbadkApplication.j().f(true);
                 }
             }
             finish();

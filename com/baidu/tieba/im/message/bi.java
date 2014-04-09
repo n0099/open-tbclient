@@ -1,15 +1,31 @@
 package com.baidu.tieba.im.message;
-/* loaded from: classes.dex */
-public final class bi extends bg {
-    private String b;
 
-    public bi(String str) {
-        this.b = null;
-        this.b = str;
+import com.google.protobuf.MessageLite;
+import protobuf.UpgradeMemberGroup.UpgradeMemberGroupReq;
+/* loaded from: classes.dex */
+public final class bi extends com.baidu.tbadk.message.websockt.d {
+    private long a;
+    private int b;
+
+    public bi() {
+        super(103105);
+        this.b = 1;
     }
 
-    @Override // com.baidu.tieba.im.message.bg
-    protected final void a(protobuf.k kVar) {
-        kVar.c(this.b);
+    public final long i() {
+        return this.a;
+    }
+
+    public final void a(boolean z) {
+        this.b = 1;
+    }
+
+    public final void b(long j) {
+        this.a = j;
+    }
+
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
+        return UpgradeMemberGroupReq.UpgradeMemberGroupReqIdl.newBuilder().a(UpgradeMemberGroupReq.DataReq.newBuilder().a((int) this.a).b(this.b).build()).build();
     }
 }

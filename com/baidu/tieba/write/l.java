@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ao> {
+public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.an> {
     final /* synthetic */ AtListActivity a;
     private com.baidu.tbadk.core.util.ak b;
     private String c;
@@ -18,36 +18,36 @@ public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.a
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(com.baidu.tieba.data.ao aoVar) {
+    public final /* synthetic */ void a(com.baidu.tieba.data.an anVar) {
         ProgressBar progressBar;
         EditText editText;
         com.baidu.tieba.model.c cVar;
         n nVar;
         n nVar2;
         BdListView bdListView;
-        com.baidu.tieba.data.ao aoVar2 = aoVar;
+        com.baidu.tieba.data.an anVar2 = anVar;
         this.a.i = null;
         progressBar = this.a.n;
         progressBar.setVisibility(8);
         if (this.b.a().b().b() && this.c != null) {
             editText = this.a.b;
             if (editText.getText().toString().equals(this.c)) {
-                if (!aoVar2.a().isEmpty()) {
+                if (!anVar2.a().isEmpty()) {
                     AtListActivity.a(this.a, false);
                 }
                 cVar = this.a.k;
-                cVar.a(aoVar2);
+                cVar.a(anVar2);
                 nVar = this.a.l;
-                nVar.a(aoVar2.a());
+                nVar.a(anVar2.a());
                 nVar2 = this.a.l;
                 nVar2.notifyDataSetInvalidated();
                 bdListView = this.a.d;
                 bdListView.setSelection(0);
-                super.a((l) aoVar2);
+                super.a((l) anVar2);
             }
         }
         this.a.showToast(this.b.f());
-        super.a((l) aoVar2);
+        super.a((l) anVar2);
     }
 
     private l(AtListActivity atListActivity) {
@@ -83,7 +83,7 @@ public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.tieba.data.ao a(String... strArr) {
+    public com.baidu.tieba.data.an a(String... strArr) {
         com.baidu.tieba.model.c cVar;
         this.c = strArr[0];
         this.b = new com.baidu.tbadk.core.util.ak();
@@ -95,16 +95,16 @@ public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.a
         this.b.a("q", this.c);
         String i = this.b.i();
         if (this.b.a().b().b()) {
-            com.baidu.tieba.data.ao aoVar = new com.baidu.tieba.data.ao();
+            com.baidu.tieba.data.an anVar = new com.baidu.tieba.data.an();
             cVar = this.a.k;
             com.baidu.tieba.data.r a = cVar.a();
             if (a != null) {
-                aoVar.a(i, a.b());
+                anVar.a(i, a.b());
             } else {
-                aoVar.a(i, (HashMap<String, String>) null);
+                anVar.a(i, (HashMap<String, String>) null);
             }
             if (AtListActivity.a != null && AtListActivity.a.size() > 0) {
-                Iterator<MetaData> it = aoVar.a().iterator();
+                Iterator<MetaData> it = anVar.a().iterator();
                 while (it.hasNext()) {
                     MetaData next = it.next();
                     Iterator<MetaData> it2 = AtListActivity.a.iterator();
@@ -120,7 +120,7 @@ public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.a
                     }
                 }
             }
-            return aoVar;
+            return anVar;
         }
         return null;
     }

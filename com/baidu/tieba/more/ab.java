@@ -173,7 +173,7 @@ public final class ab extends com.baidu.adp.a.f {
         this.ah = (LinearLayout) msgRemindActivity.findViewById(com.baidu.tieba.a.h.line14_layout);
         this.ai = (LinearLayout) msgRemindActivity.findViewById(com.baidu.tieba.a.h.line15_layout);
         this.aj = (LinearLayout) msgRemindActivity.findViewById(com.baidu.tieba.a.h.line16_layout);
-        if (TbadkApplication.j().aq()) {
+        if (TbadkApplication.j().as()) {
             this.e.a();
             this.f.setVisibility(0);
             e();
@@ -183,46 +183,46 @@ public final class ab extends com.baidu.adp.a.f {
             this.f.setVisibility(8);
             this.V.setVisibility(8);
         }
-        com.baidu.tieba.r.c();
-        if (com.baidu.tieba.r.p()) {
+        TbadkApplication.j();
+        if (TbadkApplication.aG()) {
             this.k.a();
             this.l.setVisibility(0);
         } else {
             this.k.b();
             this.l.setVisibility(8);
         }
-        com.baidu.tieba.r.c();
-        if (com.baidu.tieba.r.p()) {
+        TbadkApplication.j();
+        if (TbadkApplication.aG()) {
             this.ab.setPadding(this.T.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.ds30), 0, this.T.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.ds30), 0);
         } else {
             this.ab.setPadding(0, 0, 0, 0);
         }
-        if (TbadkApplication.j().ai()) {
+        if (TbadkApplication.j().ak()) {
             this.m.setChecked(true);
         }
-        if (TbadkApplication.j().aj()) {
+        if (TbadkApplication.j().al()) {
             this.n.setChecked(true);
         }
-        if (TbadkApplication.j().ah()) {
+        if (TbadkApplication.j().aj()) {
             this.o.setChecked(true);
         }
-        if (TbadkApplication.j().ak()) {
+        if (TbadkApplication.j().am()) {
             this.p.setChecked(true);
         }
-        if (TbadkApplication.j().ae()) {
+        if (TbadkApplication.j().ag()) {
             this.q.setChecked(true);
         }
         TbadkApplication.j();
-        if (TbadkApplication.ad()) {
+        if (TbadkApplication.af()) {
             this.r.setChecked(true);
         }
-        if (com.baidu.tieba.r.c().n()) {
+        if (TbadkApplication.j().aE()) {
             this.A.a();
         } else {
             this.A.b();
         }
-        com.baidu.tieba.r.c();
-        if (com.baidu.tieba.r.q()) {
+        com.baidu.tieba.p.c();
+        if (com.baidu.tieba.p.o()) {
             this.u.a();
             this.v.setVisibility(0);
             d();
@@ -232,12 +232,12 @@ public final class ab extends com.baidu.adp.a.f {
             this.v.setVisibility(8);
             this.ai.setVisibility(8);
         }
-        if (TbadkApplication.j().ap()) {
+        if (TbadkApplication.j().ar()) {
             this.P.a();
         } else {
             this.P.b();
         }
-        if (TbadkApplication.j().ao()) {
+        if (TbadkApplication.j().aq()) {
             this.S.a();
         } else {
             this.S.b();
@@ -425,17 +425,17 @@ public final class ab extends com.baidu.adp.a.f {
     public final void d() {
         String str;
         String str2;
-        com.baidu.tieba.r c = com.baidu.tieba.r.c();
-        if (com.baidu.tieba.r.q()) {
-            if (c.r() > 9) {
-                str = String.valueOf(c.r());
+        com.baidu.tieba.p c = com.baidu.tieba.p.c();
+        if (com.baidu.tieba.p.o()) {
+            if (c.p() > 9) {
+                str = String.valueOf(c.p());
             } else {
-                str = "0" + c.r();
+                str = "0" + c.p();
             }
-            if (c.s() > 9) {
-                str2 = String.valueOf(c.s());
+            if (c.q() > 9) {
+                str2 = String.valueOf(c.q());
             } else {
-                str2 = "0" + c.s();
+                str2 = "0" + c.q();
             }
             this.x.setText(b().getString(com.baidu.tieba.a.k.sign_remind_time, str, str2));
             this.v.setVisibility(0);
@@ -453,9 +453,9 @@ public final class ab extends com.baidu.adp.a.f {
     }
 
     public final void e() {
-        this.h.setText(String.valueOf(TbadkApplication.j().ar()) + "-" + TbadkApplication.j().as());
-        this.J.setText(TbadkApplication.j().ar());
-        this.M.setText(TbadkApplication.j().as());
+        this.h.setText(String.valueOf(TbadkApplication.j().at()) + "-" + TbadkApplication.j().au());
+        this.J.setText(TbadkApplication.j().at());
+        this.M.setText(TbadkApplication.j().au());
     }
 
     public final View f() {

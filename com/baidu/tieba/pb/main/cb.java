@@ -1,24 +1,25 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.FrameLayout;
-import android.widget.ImageView;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class cb implements Runnable {
-    final /* synthetic */ ca a;
-    private final /* synthetic */ ImageView b;
+public final class cb implements com.baidu.tbadk.editortool.x {
+    final /* synthetic */ bm a;
+    private final /* synthetic */ com.baidu.tbadk.editortool.x b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(ca caVar, ImageView imageView) {
-        this.a = caVar;
-        this.b = imageView;
+    public cb(bm bmVar, com.baidu.tbadk.editortool.x xVar) {
+        this.a = bmVar;
+        this.b = xVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        bk bkVar;
-        FrameLayout frameLayout;
-        bkVar = this.a.a;
-        frameLayout = bkVar.n;
-        frameLayout.removeView(this.b);
+    @Override // com.baidu.tbadk.editortool.x
+    public final void a(int i, Object obj) {
+        PbActivity pbActivity;
+        if (i == 35 && !this.a.j.h() && !this.a.j.i()) {
+            pbActivity = this.a.m;
+            TiebaStatic.a(pbActivity, "pb_reply", "pbclick", 1, new Object[0]);
+        }
+        this.b.a(i, obj);
     }
 }

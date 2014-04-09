@@ -2,7 +2,8 @@ package com.baidu.adp.framework.d;
 
 import android.util.SparseArray;
 import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.b.f;
+import com.baidu.adp.framework.b.h;
+import com.baidu.adp.framework.e.e;
 import com.baidu.adp.framework.message.d;
 import com.baidu.adp.framework.message.f;
 import com.baidu.adp.framework.task.b;
@@ -11,12 +12,12 @@ import java.security.InvalidParameterException;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public abstract class c<M extends com.baidu.adp.framework.message.d, T extends com.baidu.adp.framework.task.b, R extends f, N extends com.baidu.adp.framework.message.f<?>> implements com.baidu.adp.framework.a<M, T> {
+public abstract class c<M extends com.baidu.adp.framework.message.d, T extends com.baidu.adp.framework.task.b, R extends h, N extends f<?>> implements com.baidu.adp.framework.a<M, T> {
     protected com.baidu.adp.framework.c a;
     private final SparseArray<T> c = new SparseArray<>();
     private final SparseArray<N> d = new SparseArray<>();
     private final SparseArray<LinkedList<com.baidu.adp.framework.c.c<N>>> e = new SparseArray<>();
-    protected com.baidu.adp.framework.e.d b = null;
+    protected e b = null;
     private boolean f = false;
     private boolean g = false;
 
@@ -117,10 +118,10 @@ public abstract class c<M extends com.baidu.adp.framework.message.d, T extends c
             M b = b((c<M, T, R, N>) m, (M) c);
             if (this.b != null) {
                 if (c.j() == null) {
-                    c.b(this.b.j());
+                    c.b(this.b.k());
                 }
                 if (c.k() == 0) {
-                    c.a(this.b.i());
+                    c.a(this.b.j());
                 }
             }
             if (b != null) {

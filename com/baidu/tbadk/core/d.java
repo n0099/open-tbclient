@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.util.n;
 /* loaded from: classes.dex */
 public abstract class d extends Fragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
-    private n customToast;
-    private boolean isPrimary;
-    private int mId = 0;
-    protected int mSkinType = -1;
+    private n c;
+    private boolean d;
+    private int b = 0;
+    protected int a = -1;
 
     @Override // android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
@@ -33,8 +33,8 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
 
     @Override // android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
-        this.mId = com.baidu.adp.framework.f.a().b();
-        this.customToast = n.a();
+        this.b = com.baidu.adp.framework.f.a().b();
+        this.c = n.a();
         super.onCreate(bundle);
     }
 
@@ -43,43 +43,27 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
         super.onActivityCreated(bundle);
     }
 
-    public void showToast(String str) {
+    public final void a(String str) {
         if (getActivity() != null) {
             String name = getClass().getName();
             String str2 = String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".chat";
             if (name.startsWith(String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".im") || name.startsWith(str2)) {
-                this.customToast.a(str, 2000);
+                this.c.a(str, 2000);
             } else {
                 i.a((Context) getActivity(), str);
             }
         }
     }
 
-    public void showToast(int i) {
+    public final void a(int i) {
         if (getActivity() != null) {
             String name = getClass().getName();
             String str = String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".chat";
             if (name.startsWith(String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".im") || name.startsWith(str)) {
-                this.customToast.a(i, 2000);
+                this.c.a(i, 2000);
             } else {
                 i.a((Context) getActivity(), i);
             }
-        }
-    }
-
-    public void showToast(String str, boolean z) {
-        if (z) {
-            this.customToast.a(str, 2000);
-        } else {
-            i.a((Context) TbadkApplication.j().b(), str);
-        }
-    }
-
-    public void showToast(int i, boolean z) {
-        if (z) {
-            this.customToast.a(i, 2000);
-        } else {
-            i.a((Context) TbadkApplication.j().b(), i);
         }
     }
 
@@ -90,29 +74,29 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
 
     @Override // android.support.v4.app.Fragment
     public void onResume() {
-        if (this.customToast != null) {
-            this.customToast.c();
+        if (this.c != null) {
+            this.c.c();
         }
         super.onResume();
-        if (isShow()) {
-            changeSkinType(TbadkApplication.j().l());
+        if (c_()) {
+            b(TbadkApplication.j().l());
             be.a(getClass().getName());
-            if (this.isPrimary) {
-                onPrimary();
+            if (this.d) {
+                d();
             }
         }
     }
 
-    public void changeSkinType(int i) {
-        if (i != this.mSkinType) {
-            this.mSkinType = i;
-            onChangeSkinType(this.mSkinType);
+    public final void b(int i) {
+        if (i != this.a) {
+            this.a = i;
+            c(this.a);
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onPause() {
-        this.customToast.b();
+        this.c.b();
         super.onPause();
     }
 
@@ -134,11 +118,11 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
     @Override // android.support.v4.app.Fragment
     public void onDetach() {
         super.onDetach();
-        com.baidu.adp.framework.c.a().f(this.mId);
-        com.baidu.adp.framework.c.a().c(this.mId);
+        com.baidu.adp.framework.c.a().f(this.b);
+        com.baidu.adp.framework.c.a().c(this.b);
     }
 
-    public void onChangeSkinType(int i) {
+    public void c(int i) {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -171,9 +155,6 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
     public void onClick(View view) {
     }
 
-    public void onResourceRecycle() {
-    }
-
     @Override // android.support.v4.app.Fragment
     public void onHiddenChanged(boolean z) {
         super.onHiddenChanged(z);
@@ -185,48 +166,26 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean isShow() {
+    public final boolean c_() {
         return !isHidden();
     }
 
-    public void sendMessage(com.baidu.adp.framework.message.d<?> dVar) {
+    public final void a(com.baidu.adp.framework.message.d<?> dVar) {
         if (dVar != null) {
             if (dVar.f() == 0) {
-                dVar.b(this.mId);
+                dVar.b(this.b);
             }
             com.baidu.adp.framework.c.a().a(dVar);
         }
     }
 
-    public void registerListener(com.baidu.adp.framework.c.c<?> cVar) {
-        if (cVar != null && cVar.c() == 0) {
-            cVar.b(this.mId);
-        }
-        com.baidu.adp.framework.c.a().a(cVar);
-    }
-
-    public void registerListener(int i, com.baidu.adp.framework.c.c<?> cVar) {
-        if (cVar != null && cVar.c() == 0) {
-            cVar.b(this.mId);
-        }
-        com.baidu.adp.framework.c.a().a(i, cVar);
-    }
-
-    public int getUniqueId() {
-        return this.mId;
-    }
-
-    public void setPrimary(boolean z) {
-        this.isPrimary = z;
+    public final void b(boolean z) {
+        this.d = z;
         if (isResumed()) {
-            onPrimary();
+            d();
         }
     }
 
-    public boolean isPrimary() {
-        return this.isPrimary;
-    }
-
-    public void onPrimary() {
+    public void d() {
     }
 }

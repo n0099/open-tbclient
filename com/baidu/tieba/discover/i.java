@@ -1,14 +1,25 @@
 package com.baidu.tieba.discover;
+
+import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i {
-    String a;
-    String b;
-    String c;
+public final class i implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ DiscoverItemView a;
 
-    public i(String str, String str2, String str3) {
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(DiscoverItemView discoverItemView) {
+        this.a = discoverItemView;
+    }
+
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        HeadImageView headImageView;
+        HeadImageView headImageView2;
+        if (bVar != null) {
+            headImageView = this.a.i;
+            headImageView.setImageBitmap(bVar.h());
+            headImageView2 = this.a.i;
+            headImageView2.invalidate();
+        }
     }
 }

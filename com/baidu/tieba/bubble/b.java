@@ -1,5 +1,6 @@
 package com.baidu.tieba.bubble;
 
+import android.text.TextUtils;
 import com.baidu.tieba.a.k;
 import com.baidu.tieba.data.BubbleListData;
 import com.baidu.tieba.data.SetBubbleResultData;
@@ -53,6 +54,19 @@ final class b implements j {
         e eVar;
         eVar = this.a.b;
         eVar.g();
+        if (setBubbleResultData != null) {
+            if (!setBubbleResultData.getError_code().equals("0")) {
+                if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
+                    this.a.showToast(setBubbleResultData.getError_msg());
+                    return;
+                } else {
+                    this.a.showToast(k.neterror);
+                    return;
+                }
+            }
+            this.a.showToast(k.neterror);
+            return;
+        }
         this.a.showToast(k.neterror);
     }
 }

@@ -4,10 +4,9 @@ import android.content.Context;
 import com.baidu.tbadk.core.b.ag;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
-import com.baidu.tieba.view.ae;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.view.ac;
 /* loaded from: classes.dex */
-public final class l implements ae {
+final class l implements ac {
     final /* synthetic */ FrsPraiseView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,11 +14,11 @@ public final class l implements ae {
         this.a = frsPraiseView;
     }
 
-    @Override // com.baidu.tieba.view.ae
+    @Override // com.baidu.tieba.view.ac
     public final void a(int i) {
         PraiseData praiseData;
         Context context;
-        praiseData = this.a.f;
+        praiseData = this.a.e;
         MetaData metaData = praiseData.getUser().get(i);
         if (metaData != null) {
             com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();

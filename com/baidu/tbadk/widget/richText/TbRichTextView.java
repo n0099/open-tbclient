@@ -34,6 +34,8 @@ public class TbRichTextView extends LinearLayout {
     private View.OnClickListener G;
     private boolean H;
     private int I;
+    private boolean J;
+    private Drawable K;
     private com.baidu.adp.lib.d.b<ImageView> b;
     private com.baidu.adp.lib.d.b<TextView> c;
     private com.baidu.adp.lib.d.b<View> d;
@@ -314,31 +316,31 @@ public class TbRichTextView extends LinearLayout {
                         } else {
                             gifView2 = getGifView();
                             GifView gifView3 = gifView2;
-                            gifView3.setTag(next.f().c);
-                            gifView3.setTbRichTextEmotionInfo(next.f());
+                            gifView3.setTag(next.g().c);
+                            gifView3.setTbRichTextEmotionInfo(next.g());
                             if (this.H) {
-                                next.f().k = false;
+                                next.g().k = false;
                             } else {
-                                next.f().k = true;
+                                next.g().k = true;
                             }
-                            gifView3.a(next.f().k, this.I);
-                            com.baidu.adp.lib.util.f.e("TbRichTextView", "initGifView", "c:" + next.f());
+                            gifView3.a(next.g().k, this.I);
+                            com.baidu.adp.lib.util.f.e("TbRichTextView", "initGifView", "c:" + next.g());
                             LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) gifView3.getLayoutParams();
-                            if (layoutParams3 != null && layoutParams3.width == next.f().f && layoutParams3.height == next.f().g) {
+                            if (layoutParams3 != null && layoutParams3.width == next.g().f && layoutParams3.height == next.g().g) {
                                 layoutParams3.bottomMargin = 0;
                             } else {
-                                LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(next.f().f, next.f().g);
+                                LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(next.g().f, next.g().g);
                                 layoutParams4.gravity = 3;
                                 gifView3.setLayoutParams(layoutParams4);
                             }
                             gifView3.setOnClickListener(new o(this, next));
-                            com.baidu.adp.widget.ImageView.b c2 = this.D ? com.baidu.tbadk.imageManager.e.a().c("#@" + next.f().c) : com.baidu.tbadk.imageManager.e.a().c(next.f().c);
-                            if (c2 != null || next.f().k) {
+                            com.baidu.adp.widget.ImageView.b c2 = this.D ? com.baidu.tbadk.imageManager.e.a().c("#@" + next.g().c) : com.baidu.tbadk.imageManager.e.a().c(next.g().c);
+                            if (c2 != null || next.g().k) {
                                 if (c2 != null) {
-                                    next.f().k = false;
+                                    next.g().k = false;
                                     gifView3.setGif(c2);
                                 }
-                            } else if (next.f().j) {
+                            } else if (next.g().j) {
                                 gifView3.setGif(null);
                             } else {
                                 gifView3.setIsLoading(true);
@@ -421,6 +423,9 @@ public class TbRichTextView extends LinearLayout {
         textView.setFocusable(false);
         textView.setLayoutParams(layoutParams);
         textView.setTag(cVar);
+        if (cVar != null && cVar.f() != null) {
+            cVar.f().d = this.J;
+        }
         return true;
     }
 
@@ -674,6 +679,11 @@ public class TbRichTextView extends LinearLayout {
     public void setBackgroundDrawable(Drawable drawable) {
         super.setBackgroundDrawable(drawable);
         this.F = null;
+        if (this.K != drawable) {
+            this.J = true;
+            this.K = drawable;
+        }
         setText(this.E);
+        this.J = false;
     }
 }

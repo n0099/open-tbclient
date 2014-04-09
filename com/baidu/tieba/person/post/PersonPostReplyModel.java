@@ -2,7 +2,6 @@ package com.baidu.tieba.person.post;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.annotations.SerializedName;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -96,7 +95,7 @@ public class PersonPostReplyModel extends com.baidu.adp.a.e implements Serializa
         public String text = "";
         @SerializedName("src")
         public String src = "";
-        @SerializedName(PersonInfoActivity.TAG_ID)
+        @SerializedName("un")
         public String un = "";
         @SerializedName("link")
         public String link = "";

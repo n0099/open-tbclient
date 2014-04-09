@@ -28,7 +28,7 @@ public final class k extends BaseAdapter implements AbsListView.OnScrollListener
     private Context c;
     private LayoutInflater d;
     private volatile boolean e;
-    private com.baidu.tbadk.editortool.aa f;
+    private com.baidu.tbadk.editortool.ab f;
     private boolean j;
     private TextView k;
     private ArrayList<b> a = new ArrayList<>();
@@ -40,7 +40,7 @@ public final class k extends BaseAdapter implements AbsListView.OnScrollListener
         this.c = context;
         this.k = textView;
         this.d = (LayoutInflater) this.c.getSystemService("layout_inflater");
-        this.f = new com.baidu.tbadk.editortool.aa(this.c);
+        this.f = new com.baidu.tbadk.editortool.ab(this.c);
     }
 
     public final void a(a aVar) {
@@ -198,7 +198,7 @@ public final class k extends BaseAdapter implements AbsListView.OnScrollListener
         }
         String c = bVar.c();
         oVar2.a.setTag(c);
-        com.baidu.tbadk.editortool.aa aaVar = this.f;
+        com.baidu.tbadk.editortool.ab abVar = this.f;
         if (com.baidu.tbadk.imageManager.e.a().c(c) != null) {
             oVar2.a.invalidate();
         } else if (!this.e) {
@@ -253,7 +253,7 @@ public final class k extends BaseAdapter implements AbsListView.OnScrollListener
                     bVar.b(signData.getCountSignNum());
                     bVar.d(signData.getBonusPoint());
                     bVar.a(1);
-                    com.baidu.tieba.r.c().a(bVar.b(), signData.getBonusPoint(), -1);
+                    com.baidu.tieba.p.c().a(bVar.b(), signData.getBonusPoint(), -1);
                     ArrayList<b> m = this.b.m();
                     if (m.contains(bVar)) {
                         m.remove(bVar);

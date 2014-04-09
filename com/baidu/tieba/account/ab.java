@@ -1,10 +1,13 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-final class ab implements View.OnFocusChangeListener {
+final class ab implements View.OnClickListener {
     final /* synthetic */ Register2Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,26 +15,96 @@ final class ab implements View.OnFocusChangeListener {
         this.a = register2Activity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public final void onFocusChange(View view, boolean z) {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        View view2;
+        TextView textView;
+        TextView textView2;
+        Button button;
+        ImageView imageView;
+        ImageView imageView2;
+        RelativeLayout relativeLayout;
+        ImageView imageView3;
+        ag agVar;
+        com.baidu.tbadk.core.data.h hVar;
+        com.baidu.tbadk.core.data.h hVar2;
+        ag agVar2;
+        Button button2;
+        ah ahVar;
+        ag agVar3;
+        ah ahVar2;
+        ah ahVar3;
+        ag agVar4;
         EditText editText;
         EditText editText2;
-        ImageView imageView = null;
-        editText = this.a.t;
-        if (view == editText) {
-            imageView = this.a.k;
-        } else {
-            editText2 = this.a.v;
-            if (view == editText2) {
-                imageView = this.a.l;
+        view2 = this.a.h;
+        if (view != view2) {
+            textView2 = this.a.i;
+            if (view != textView2) {
+                button = this.a.j;
+                if (view != button) {
+                    imageView = this.a.k;
+                    if (view != imageView) {
+                        imageView2 = this.a.l;
+                        if (view == imageView2) {
+                            editText = this.a.v;
+                            editText.setText((CharSequence) null);
+                            return;
+                        }
+                        relativeLayout = this.a.x;
+                        if (view != relativeLayout) {
+                            imageView3 = this.a.F;
+                            if (view != imageView3) {
+                                button2 = this.a.m;
+                                if (view != button2) {
+                                    return;
+                                }
+                            }
+                            agVar = this.a.N;
+                            if (agVar == null) {
+                                hVar = this.a.P;
+                                if (hVar != null) {
+                                    Register2Activity register2Activity = this.a;
+                                    Register2Activity register2Activity2 = this.a;
+                                    hVar2 = this.a.P;
+                                    register2Activity.N = new ag(register2Activity2, hVar2.b().getVcode_pic_url());
+                                    agVar2 = this.a.N;
+                                    agVar2.execute(new String[0]);
+                                    return;
+                                }
+                                return;
+                            }
+                            return;
+                        }
+                        ahVar = this.a.O;
+                        if (ahVar == null) {
+                            agVar3 = this.a.N;
+                            if (agVar3 != null) {
+                                agVar4 = this.a.N;
+                                agVar4.cancel();
+                            }
+                            this.a.O = new ah(this.a, (byte) 0);
+                            ahVar2 = this.a.O;
+                            ahVar2.setPriority(3);
+                            ahVar3 = this.a.O;
+                            ahVar3.execute(new String[0]);
+                            return;
+                        }
+                        return;
+                    }
+                    editText2 = this.a.t;
+                    editText2.setText((CharSequence) null);
+                    return;
+                }
+                this.a.f();
+                return;
             }
         }
-        if (imageView != null) {
-            if (z) {
-                imageView.setVisibility(0);
-            } else {
-                imageView.setVisibility(8);
-            }
+        textView = this.a.i;
+        if (view == textView) {
+            this.a.setResult(0);
         }
+        this.a.finish();
+        com.baidu.adp.lib.util.f.a("Register2Activity", "mButtonBack", "onClick");
     }
 }

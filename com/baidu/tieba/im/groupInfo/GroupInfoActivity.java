@@ -27,7 +27,7 @@ import com.baidu.tieba.im.frsgroup.MembersActivity;
 import com.baidu.tieba.im.groupActivity.CreateGroupActivityActivity;
 import com.baidu.tieba.im.groupActivity.GroupActivityActivity;
 import com.baidu.tieba.im.groupCard.GroupCardActivity;
-import com.baidu.tieba.im.model.br;
+import com.baidu.tieba.im.model.bs;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 import java.util.ArrayList;
 import org.json.JSONException;
@@ -36,7 +36,7 @@ import org.json.JSONObject;
 public class GroupInfoActivity extends com.baidu.tbadk.a implements View.OnClickListener, View.OnLongClickListener, ae, af {
     private r f;
     private com.baidu.tieba.im.model.l g;
-    private br h;
+    private bs h;
     private p i;
     private final int a = 1;
     private final int b = 2;
@@ -143,7 +143,7 @@ public class GroupInfoActivity extends com.baidu.tbadk.a implements View.OnClick
         } else {
             this.g.a(bundle);
         }
-        this.h = new br();
+        this.h = new bs();
         this.h.setUniqueId(getUniqueId());
     }
 

@@ -36,14 +36,14 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected final void a(com.baidu.tieba.im.message.a.a aVar) {
         if (this.a != null && aVar != null) {
-            com.baidu.tieba.im.s.a(new d(this, aVar), null);
+            com.baidu.tieba.im.r.a(new d(this, aVar), null);
         }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected final void b(com.baidu.tieba.im.message.a.a aVar) {
         if (this.a != null && aVar != null) {
-            com.baidu.tieba.im.s.a(new e(this, aVar), null);
+            com.baidu.tieba.im.r.a(new e(this, aVar), null);
         }
     }
 
@@ -101,10 +101,10 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
         String[] split;
         if (fVar instanceof ResponseRemoveMembersMessage) {
             ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) fVar;
-            if (responseRemoveMembersMessage.e() == 0 && (h = responseRemoveMembersMessage.h()) != null && (h instanceof com.baidu.tieba.im.message.aw)) {
-                com.baidu.tieba.im.message.aw awVar = (com.baidu.tieba.im.message.aw) h;
-                if (awVar.i() == commonGroupMsglistModel.a.getGroupId()) {
-                    String j = awVar.j();
+            if (responseRemoveMembersMessage.e() == 0 && (h = responseRemoveMembersMessage.h()) != null && (h instanceof com.baidu.tieba.im.message.av)) {
+                com.baidu.tieba.im.message.av avVar = (com.baidu.tieba.im.message.av) h;
+                if (avVar.i() == commonGroupMsglistModel.a.getGroupId()) {
+                    String j = avVar.j();
                     if (TextUtils.isEmpty(j) || (split = j.split(",")) == null || split.length == 0) {
                         return;
                     }
@@ -141,8 +141,8 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public final void a(com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.db.h.a();
-        com.baidu.tieba.im.db.h.c(String.valueOf(this.a.getGroupId()));
+        com.baidu.tieba.im.db.i.a();
+        com.baidu.tieba.im.db.i.c(String.valueOf(this.a.getGroupId()));
         aVar.a(null);
         com.baidu.tieba.im.message.ao aoVar = new com.baidu.tieba.im.message.ao();
         aoVar.a((com.baidu.tieba.im.message.ao) String.valueOf(this.a.getGroupId()));

@@ -13,25 +13,25 @@ final class d implements com.baidu.tieba.model.ak {
 
     @Override // com.baidu.tieba.model.ak
     public final void a(boolean z, boolean z2) {
-        bk bkVar;
+        bm bmVar;
         com.baidu.tieba.model.ai aiVar;
-        bd bdVar;
-        bd bdVar2;
-        bk bkVar2;
-        bd bdVar3;
+        bf bfVar;
+        bf bfVar2;
+        bm bmVar2;
+        bf bfVar3;
         com.baidu.tieba.model.ai aiVar2;
-        bkVar = this.a.D;
-        bkVar.w();
+        bmVar = this.a.D;
+        bmVar.w();
         if (z) {
             aiVar = this.a.y;
             aiVar.a(z2);
-            bdVar = this.a.x;
-            bdVar.c(z2);
-            bdVar2 = this.a.x;
-            if (!bdVar2.w()) {
-                bkVar2 = this.a.D;
-                bdVar3 = this.a.x;
-                bkVar2.a(bdVar3.p());
+            bfVar = this.a.x;
+            bfVar.c(z2);
+            bfVar2 = this.a.x;
+            if (!bfVar2.w()) {
+                bmVar2 = this.a.D;
+                bfVar3 = this.a.x;
+                bmVar2.a(bfVar3.p());
             } else {
                 PbActivity.c(this.a);
             }

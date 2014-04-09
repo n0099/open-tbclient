@@ -28,7 +28,7 @@ public final class f extends com.baidu.adp.framework.c.g {
             } else if (socketResponsedMessage2 instanceof ResponseUpgradeMemberGroupMessage) {
                 ResponseUpgradeMemberGroupMessage responseUpgradeMemberGroupMessage = (ResponseUpgradeMemberGroupMessage) socketResponsedMessage2;
                 if (responseUpgradeMemberGroupMessage.e() == 0 || responseUpgradeMemberGroupMessage.e() == 2230110) {
-                    this.a.c();
+                    this.a.e();
                 }
             }
         }

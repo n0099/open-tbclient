@@ -35,57 +35,57 @@ public final class al implements av {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        ayVar = this.a.b;
+        ayVar = this.a.c;
         ayVar.d();
         if (z && aqVar != null) {
-            ayVar5 = this.a.b;
-            auVar5 = this.a.c;
+            ayVar5 = this.a.c;
+            auVar5 = this.a.d;
             ayVar5.a(auVar5.e());
-            handler = this.a.h;
-            runnable = this.a.i;
+            handler = this.a.i;
+            runnable = this.a.j;
             handler.removeCallbacks(runnable);
-            handler2 = this.a.h;
-            runnable2 = this.a.i;
+            handler2 = this.a.i;
+            runnable2 = this.a.j;
             handler2.postDelayed(runnable2, 0L);
-            this.a.d = true;
-            r0.b.b(this.a.l);
+            this.a.e = true;
+            r0.c.b(this.a.m);
         }
-        z2 = this.a.e;
+        z2 = this.a.f;
         if (z2) {
-            this.a.e = false;
-            ayVar4 = this.a.b;
+            this.a.f = false;
+            ayVar4 = this.a.c;
             ayVar4.f();
         } else {
-            j = this.a.f;
+            j = this.a.g;
             if (j > -1) {
                 long currentTimeMillis = System.currentTimeMillis();
-                j2 = this.a.f;
-                auVar = this.a.c;
+                j2 = this.a.g;
+                auVar = this.a.d;
                 long d = auVar.d();
-                j3 = this.a.f;
+                j3 = this.a.g;
                 long j4 = d - j3;
-                auVar2 = this.a.c;
+                auVar2 = this.a.d;
                 long b = auVar2.b();
-                auVar3 = this.a.c;
+                auVar3 = this.a.d;
                 long c = auVar3.c();
-                auVar4 = this.a.c;
+                auVar4 = this.a.d;
                 TiebaStatic.a("op_square_enter", currentTimeMillis - j2, j4, b, c, currentTimeMillis - auVar4.a());
-                this.a.f = -1L;
+                this.a.g = -1L;
             }
         }
         if (!UtilHelper.a()) {
-            ayVar3 = this.a.b;
+            ayVar3 = this.a.c;
             ayVar3.g();
-            z3 = this.a.d;
+            z3 = this.a.e;
             if (z3) {
                 return;
             }
-            r0.b.a(this.a.l);
+            r0.c.a(this.a.m);
             return;
         }
-        eVar = this.a.g;
+        eVar = this.a.h;
         eVar.a(str);
-        ayVar2 = this.a.b;
+        ayVar2 = this.a.c;
         ayVar2.h();
     }
 }

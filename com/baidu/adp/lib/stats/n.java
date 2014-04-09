@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.stats;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class n {
+public final class n {
     final /* synthetic */ l a;
     private int b;
     private int c;

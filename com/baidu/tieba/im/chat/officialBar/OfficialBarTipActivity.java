@@ -7,7 +7,7 @@ import android.os.Handler;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 public class OfficialBarTipActivity extends com.baidu.tbadk.a implements AbsListView.OnScrollListener {
-    private com.baidu.tieba.im.model.bc a;
+    private com.baidu.tieba.im.model.bd a;
     private az b;
     private Handler c;
     private final com.baidu.tieba.im.a<Void> d = new ar(this);
@@ -23,7 +23,7 @@ public class OfficialBarTipActivity extends com.baidu.tbadk.a implements AbsList
     @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new com.baidu.tieba.im.model.bc();
+        this.a = new com.baidu.tieba.im.model.bd();
         this.c = new Handler();
         this.b = new az(this);
         this.b.a().setOnScrollListener(this);

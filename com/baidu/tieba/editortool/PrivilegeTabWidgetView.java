@@ -25,6 +25,7 @@ public class PrivilegeTabWidgetView extends LinearLayout {
     }
 
     private void a(Context context) {
+        setVisibility(8);
         removeAllViews();
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.privilege_tab_widget, (ViewGroup) this, true);
         this.a = (PrivilegeTabHorizonScrollView) findViewById(com.baidu.tieba.a.h.privilege_tab_scroll_view);
@@ -36,6 +37,8 @@ public class PrivilegeTabWidgetView extends LinearLayout {
         this.a.setDatas(arrayList);
         if (arrayList == null || arrayList.size() <= 1) {
             setVisibility(8);
+        } else {
+            setVisibility(0);
         }
     }
 

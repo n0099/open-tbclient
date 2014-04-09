@@ -10,13 +10,13 @@ import java.util.List;
 import protobuf.Im;
 import protobuf.QueryGroupDetail.QueryGroupDetailRes;
 /* loaded from: classes.dex */
-public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<bl> {
+public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<bk> {
     private QueryGroupDetailRes.QueryGroupDetailResIdl a;
-    private bl b;
+    private bk b;
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage
-    public final /* bridge */ /* synthetic */ bl a() {
+    public final /* bridge */ /* synthetic */ bk a() {
         return this.b;
     }
 
@@ -32,16 +32,16 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<bl> {
         this.b = null;
     }
 
-    public final bl b() {
+    public final bk b() {
         return this.b;
     }
 
     public final void a(byte[] bArr) {
         Im.ActivityInfo activityInfo;
-        this.b = new bl();
+        this.b = new bk();
         this.a = QueryGroupDetailRes.QueryGroupDetailResIdl.parseFrom(bArr);
         a(this.a.getError().getErrorno());
-        e(this.a.getError().getUsermsg());
+        d(this.a.getError().getUsermsg());
         if (e() == 0) {
             this.b.b(this.a.getData().getCanJoinGroupNum());
             this.b.b(this.a.getData().getIsGroupManager() != 0);

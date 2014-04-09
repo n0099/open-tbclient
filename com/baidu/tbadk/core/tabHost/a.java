@@ -36,10 +36,10 @@ public final class a extends FragmentPagerAdapter {
         super.setPrimaryItem(viewGroup, i, obj);
         if (this.a != i) {
             if (this.a != -1) {
-                ((com.baidu.tbadk.core.d) getItem(this.a)).setPrimary(false);
+                ((com.baidu.tbadk.core.d) getItem(this.a)).b(false);
             }
             this.a = i;
-            ((com.baidu.tbadk.core.d) obj).setPrimary(true);
+            ((com.baidu.tbadk.core.d) obj).b(true);
         }
     }
 }

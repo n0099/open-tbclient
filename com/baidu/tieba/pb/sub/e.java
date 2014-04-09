@@ -8,15 +8,16 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.pb.main.ay;
+import com.baidu.tieba.pb.main.ba;
 /* loaded from: classes.dex */
 public final class e extends com.baidu.adp.widget.ListView.e {
     private Context a;
     private TextView b = null;
-    private ProgressBar c = null;
-    private View.OnClickListener d = null;
-    private View e = null;
-    private int f = 0;
+    private TextView c = null;
+    private ProgressBar d = null;
+    private View.OnClickListener e = null;
+    private View f = null;
+    private int g = 0;
 
     public e(Context context) {
         this.a = null;
@@ -25,41 +26,46 @@ public final class e extends com.baidu.adp.widget.ListView.e {
 
     @Override // com.baidu.adp.widget.ListView.e
     public final View a() {
-        this.e = LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.new_sub_pb_list_more, (ViewGroup) null);
-        this.b = (TextView) this.e.findViewById(com.baidu.tieba.a.h.sub_pb_more_text);
-        this.c = (ProgressBar) this.e.findViewById(com.baidu.tieba.a.h.progress);
-        return this.e;
+        this.f = LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.new_sub_pb_list_more, (ViewGroup) null);
+        this.b = (TextView) this.f.findViewById(com.baidu.tieba.a.h.sub_pb_more_text);
+        this.c = (TextView) this.f.findViewById(com.baidu.tieba.a.h.sub_pb_more_text_marginright);
+        this.d = (ProgressBar) this.f.findViewById(com.baidu.tieba.a.h.progress);
+        return this.f;
     }
 
     public final void c() {
-        this.c.setVisibility(0);
+        this.d.setVisibility(0);
         this.b.setText(this.a.getText(com.baidu.tieba.a.k.loading));
         e();
     }
 
     public final void a(int i) {
-        this.f = i;
-        this.c.setVisibility(8);
+        this.g = i;
+        this.d.setVisibility(8);
         if (i > 0) {
-            ay.a(this.a, this.b, i);
+            ba.a(this.a, this.b, i);
+            this.c.setVisibility(0);
         } else {
             this.b.setText(this.a.getText(com.baidu.tieba.a.k.load_more));
+            this.c.setVisibility(8);
         }
         e();
     }
 
     public final void d() {
-        this.c.setVisibility(8);
-        if (this.f > 0) {
-            ay.a(this.a, this.b, this.f);
+        this.d.setVisibility(8);
+        if (this.g > 0) {
+            ba.a(this.a, this.b, this.g);
+            this.c.setVisibility(0);
         } else {
             this.b.setText(this.a.getText(com.baidu.tieba.a.k.load_more));
+            this.c.setVisibility(8);
         }
         e();
     }
 
     public final void a(View.OnClickListener onClickListener) {
-        this.d = onClickListener;
+        this.e = onClickListener;
     }
 
     private void b(int i) {
@@ -81,8 +87,8 @@ public final class e extends com.baidu.adp.widget.ListView.e {
 
     @Override // com.baidu.adp.widget.ListView.e
     public final void onClick() {
-        if (this.d != null) {
-            this.d.onClick(this.e);
+        if (this.e != null) {
+            this.e.onClick(this.f);
         }
     }
 }

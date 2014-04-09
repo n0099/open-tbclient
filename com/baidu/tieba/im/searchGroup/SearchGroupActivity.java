@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.BaseGroupData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ac;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
-import com.baidu.tieba.im.model.bp;
+import com.baidu.tieba.im.model.bq;
 /* loaded from: classes.dex */
 public class SearchGroupActivity extends com.baidu.tbadk.a implements View.OnClickListener {
-    protected bp a;
+    protected bq a;
     private g b;
     private com.baidu.adp.framework.c.g c = new d(this, 103007);
 
@@ -21,7 +21,7 @@ public class SearchGroupActivity extends com.baidu.tbadk.a implements View.OnCli
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = new g(this);
-        this.a = new bp();
+        this.a = new bq();
         registerListener(this.c);
     }
 

@@ -10,9 +10,6 @@ import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 import com.baidu.tieba.im.model.GroupMsglistModel;
 /* loaded from: classes.dex */
 public class GroupChatActivity extends CommonGroupChatActiviy {
-    private final com.baidu.adp.framework.c.g l = new bd(this, 103013);
-    private final com.baidu.adp.framework.c.a m = new be(this, 2001125);
-
     static {
         TbadkApplication.j().a(com.baidu.tbadk.core.b.n.class, GroupChatActivity.class);
     }
@@ -29,7 +26,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy {
                     this.d.a(name);
                 }
             }
-            com.baidu.tieba.im.s.a(new bf(this, b), new bg(this, b));
+            com.baidu.tieba.im.r.a(new bd(this, b), new be(this, b));
         }
     }
 
@@ -37,19 +34,17 @@ public class GroupChatActivity extends CommonGroupChatActiviy {
     @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.MsglistActivity
     public final void m() {
         super.m();
-        com.baidu.adp.framework.c.a().a(this.l);
-        com.baidu.adp.framework.c.a().a(this.m);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, android.app.Activity
     public void onPause() {
         super.onPause();
         a = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dn, com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         a = true;
@@ -57,12 +52,6 @@ public class GroupChatActivity extends CommonGroupChatActiviy {
         if (!TextUtils.isEmpty(b)) {
             String str = b;
             com.baidu.tieba.im.pushNotify.a.d().b(false, null);
-        }
-        com.baidu.tieba.im.p.a();
-        if (com.baidu.tieba.im.p.f() && this.d != null && this.d.Q() != null) {
-            this.d.Q().setVisibility(0);
-            this.d.Q().d();
-            this.d.Q().setOnClickListener(new bh(this));
         }
     }
 
@@ -77,11 +66,11 @@ public class GroupChatActivity extends CommonGroupChatActiviy {
                 this.d.a(((GroupMsglistModel) this.e).b().getName());
             }
             this.d.a(this.e.g(), i);
-            this.d.a(new bj(this));
+            this.d.a(new bf(this));
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.d.A()) {
@@ -111,7 +100,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy {
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
     protected final boolean p() {
-        this.e.d_();
+        this.e.f_();
         return true;
     }
 }

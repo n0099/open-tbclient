@@ -29,7 +29,7 @@ public final class ad extends BaseAdapter {
     private boolean c;
     private boolean d;
     private boolean e;
-    private final com.baidu.tbadk.editortool.aa f;
+    private final com.baidu.tbadk.editortool.ab f;
     private final Set<Long> g = new HashSet();
     private final List<UserData> h = new ArrayList();
     private LinkedList<IconData> i = null;
@@ -86,7 +86,7 @@ public final class ad extends BaseAdapter {
 
     public ad(MembersActivity membersActivity) {
         this.a = membersActivity;
-        this.f = new com.baidu.tbadk.editortool.aa(membersActivity);
+        this.f = new com.baidu.tbadk.editortool.ab(membersActivity);
         this.f.a(false);
         this.d = false;
     }
@@ -209,7 +209,7 @@ public final class ad extends BaseAdapter {
                 agVar.e.setTag(null);
                 String portrait = userData.getPortrait();
                 if (!TextUtils.isEmpty(portrait)) {
-                    com.baidu.tbadk.editortool.aa aaVar = this.f;
+                    com.baidu.tbadk.editortool.ab abVar = this.f;
                     com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(portrait);
                     if (b != null) {
                         agVar.e.setImageBitmap(b.h());
@@ -244,7 +244,7 @@ public final class ad extends BaseAdapter {
                 }
                 TextView textView = agVar.h;
                 long j = 0;
-                com.baidu.tieba.im.model.y a = this.a.a();
+                com.baidu.tieba.im.model.z a = this.a.a();
                 switch (a.a()) {
                     case 0:
                         j = userData.getLoginTime();
@@ -282,7 +282,7 @@ public final class ad extends BaseAdapter {
         this.a.getLayoutMode().a(view);
     }
 
-    public final com.baidu.tbadk.editortool.aa e() {
+    public final com.baidu.tbadk.editortool.ab e() {
         return this.f;
     }
 }

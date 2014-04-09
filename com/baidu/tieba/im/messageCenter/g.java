@@ -13,7 +13,7 @@ final class g extends com.baidu.tieba.im.m<Integer> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.tieba.im.m
     public final /* synthetic */ Integer a() {
-        x.a = com.baidu.tieba.im.db.n.d().a();
+        x.a = com.baidu.tieba.im.db.o.d().a();
         com.baidu.tieba.im.db.b.a().b();
         return 0;
     }

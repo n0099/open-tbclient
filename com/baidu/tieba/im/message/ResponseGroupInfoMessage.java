@@ -13,15 +13,15 @@ import protobuf.QueryGroupDetail.QueryGroupDetailRes;
 /* loaded from: classes.dex */
 public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
     private QueryGroupDetailRes.QueryGroupDetailResIdl a;
-    private bl b;
+    private bk b;
 
     @Override // com.baidu.adp.framework.message.c
     public final /* synthetic */ void a(int i, Object obj) {
         Im.ActivityInfo activityInfo;
-        this.b = new bl();
+        this.b = new bk();
         this.a = QueryGroupDetailRes.QueryGroupDetailResIdl.parseFrom((byte[]) obj);
         a(this.a.getError().getErrorno());
-        e(this.a.getError().getUsermsg());
+        d(this.a.getError().getUsermsg());
         if (e() == 0) {
             this.b.b(this.a.getData().getCanJoinGroupNum());
             this.b.b(this.a.getData().getIsGroupManager() != 0);
@@ -115,7 +115,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
         this.a = null;
     }
 
-    public final bl d() {
+    public final bk d() {
         return this.b;
     }
 }

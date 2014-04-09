@@ -18,7 +18,7 @@ import java.util.Set;
 public class MembersActivity extends com.baidu.tbadk.a implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.t {
     private com.baidu.tbadk.core.view.q a;
     private ah b;
-    private com.baidu.tieba.im.model.y c;
+    private com.baidu.tieba.im.model.z c;
     private Handler d;
     private final com.baidu.adp.framework.c.g e = new q(this, 103005);
     private final com.baidu.adp.framework.c.g f = new t(this, 103112);
@@ -37,7 +37,7 @@ public class MembersActivity extends com.baidu.tbadk.a implements View.OnClickLi
         super.onCreate(bundle);
         com.baidu.adp.framework.c.a().a(2001132, this.h);
         com.baidu.adp.framework.c.a().a(2001130, this.h);
-        this.c = new com.baidu.tieba.im.model.y();
+        this.c = new com.baidu.tieba.im.model.z();
         this.c.setUniqueId(getUniqueId());
         if (bundle == null) {
             this.c.a(getIntent());
@@ -88,7 +88,7 @@ public class MembersActivity extends com.baidu.tbadk.a implements View.OnClickLi
         super.onDestroy();
     }
 
-    public final com.baidu.tieba.im.model.y a() {
+    public final com.baidu.tieba.im.model.z a() {
         return this.c;
     }
 
@@ -99,7 +99,7 @@ public class MembersActivity extends com.baidu.tbadk.a implements View.OnClickLi
         }
         membersActivity.b.a(true);
         membersActivity.c.a(list);
-        com.baidu.tieba.im.model.y yVar = membersActivity.c;
+        com.baidu.tieba.im.model.z zVar = membersActivity.c;
         StringBuffer stringBuffer = new StringBuffer();
         Iterator it = list.iterator();
         while (it.hasNext()) {
@@ -108,7 +108,7 @@ public class MembersActivity extends com.baidu.tbadk.a implements View.OnClickLi
         if (stringBuffer.length() > 0) {
             stringBuffer.deleteCharAt(stringBuffer.length() - 1);
         }
-        yVar.a(j, stringBuffer.toString());
+        zVar.a(j, stringBuffer.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

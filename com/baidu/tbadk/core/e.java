@@ -24,7 +24,7 @@ public abstract class e extends com.baidu.adp.a.c {
     private DialogInterface.OnCancelListener c = null;
     protected int b = -1;
 
-    protected abstract void c(int i);
+    protected abstract void b(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
@@ -64,12 +64,8 @@ public abstract class e extends com.baidu.adp.a.c {
     public final void a(int i) {
         if (i != this.b) {
             this.b = i;
-            c(this.b);
+            b(this.b);
         }
-    }
-
-    public final void b(int i) {
-        this.b = -1;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -125,7 +121,7 @@ public abstract class e extends com.baidu.adp.a.c {
         i.a((Context) this, str);
     }
 
-    public final void d(int i) {
+    public final void c(int i) {
         i.a((Context) this, i);
     }
 
@@ -138,7 +134,7 @@ public abstract class e extends com.baidu.adp.a.c {
         return super.onCreateView(str, context, attributeSet);
     }
 
-    public final void g_() {
+    public final void d_() {
         if (this.d == null) {
             this.d = new ProgressBar(this);
             this.d.setIndeterminateDrawable(getResources().getDrawable(com.baidu.tbadk.i.progressbar));

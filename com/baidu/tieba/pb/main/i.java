@@ -16,11 +16,16 @@ final class i implements AbsListView.OnScrollListener {
         Handler handler;
         Handler handler2;
         Handler handler3;
+        bm bmVar;
         handler = this.a.w;
         handler.removeMessages(1);
         handler2 = this.a.w;
         handler3 = this.a.w;
         handler2.sendMessageDelayed(handler3.obtainMessage(1), 300L);
+        if (i == 2 || i == 1) {
+            bmVar = this.a.D;
+            bmVar.ab();
+        }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener

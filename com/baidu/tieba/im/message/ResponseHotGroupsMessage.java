@@ -16,7 +16,7 @@ public class ResponseHotGroupsMessage extends TbSocketReponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         QueryHotGroupsRes.QueryHotGroupsResIdl parseFrom = QueryHotGroupsRes.QueryHotGroupsResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             this.a = new ArrayList();
             int groupsCount = parseFrom.getData().getGroupsCount();

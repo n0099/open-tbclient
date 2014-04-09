@@ -12,7 +12,6 @@ import com.baidu.tbadk.core.data.h;
 import com.baidu.tbadk.core.data.n;
 import com.baidu.tbadk.l;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.person.PersonInfoActivity;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONObject;
@@ -56,7 +55,7 @@ public final class ReloginManager {
             c a = c.a();
             TbadkApplication.a((AccountData) null, TbadkApplication.j().b().getApplicationContext());
             HttpMessage httpMessage2 = new HttpMessage(1002001);
-            httpMessage2.a(PersonInfoActivity.TAG_ID, N.getAccount());
+            httpMessage2.a("un", N.getAccount());
             httpMessage2.a("passwd", N.getPassword());
             httpMessage2.a("isphone", "0");
             httpMessage2.a("channel_id", TbadkApplication.j().S());
@@ -73,6 +72,12 @@ public final class ReloginManager {
         bundle.putString("account", account);
         obtainMessage.setData(bundle);
         TbadkApplication.j().F.sendMessage(obtainMessage);
+    }
+
+    public final void b(HttpMessage httpMessage) {
+        if (this.c.contains(httpMessage)) {
+            this.c.remove(httpMessage);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -105,7 +110,7 @@ public final class ReloginManager {
                 hVar.a(jSONObject);
                 String userId = hVar.a().getUserId();
                 if (userId == null || userId.length() <= 0) {
-                    e(TbadkApplication.j().b().getApplicationContext().getString(l.neterror));
+                    d(TbadkApplication.j().b().getApplicationContext().getString(l.neterror));
                     return;
                 }
                 AccountData accountData = new AccountData();

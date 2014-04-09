@@ -26,11 +26,11 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.data.ai;
-import com.baidu.tieba.data.an;
+import com.baidu.tieba.data.am;
 import com.baidu.tieba.editortool.PbEditor;
 import com.baidu.tieba.view.ClickableLayout4Frame;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ import protobuf.Im;
 public class m {
     protected View.OnClickListener A;
     protected View.OnClickListener B;
-    protected aa C;
+    protected ab C;
     protected int D;
     protected Handler H;
     protected ProgressBar K;
@@ -80,6 +80,7 @@ public class m {
     private LinkedList<IconData> P = null;
     protected PbEditor M = null;
     private String Q = null;
+    private boolean R = false;
     protected AdapterView.OnItemClickListener N = new n(this);
     protected AdapterView.OnItemLongClickListener O = new s(this);
 
@@ -153,7 +154,7 @@ public class m {
         TextView textView = new TextView(this.f);
         textView.setLineSpacing(0.0f, 1.2f);
         textView.setTextSize(com.baidu.tbadk.core.data.n.p());
-        this.C = new aa(this.f);
+        this.C = new ab(this.f);
         this.C.b("pb");
         this.C.a(this.D, (int) (this.D * 1.6f));
         a(TbadkApplication.j().l());
@@ -193,6 +194,7 @@ public class m {
     }
 
     public boolean a() {
+        this.R = false;
         if (this.M.n()) {
             this.M.f();
             this.M.m();
@@ -222,8 +224,8 @@ public class m {
         this.n.setMaxImageHeight((int) (i * 1.618f));
     }
 
-    public final void a(aa aaVar) {
-        this.C = aaVar;
+    public final void a(ab abVar) {
+        this.C = abVar;
     }
 
     public final void a(AbsListView.OnScrollListener onScrollListener) {
@@ -276,6 +278,7 @@ public class m {
     }
 
     public final void b(String str) {
+        this.R = true;
         this.M.l();
         this.r.setEnabled(false);
         if (str != null) {
@@ -292,6 +295,7 @@ public class m {
     }
 
     public final void o() {
+        this.R = false;
         this.M.m();
         this.r.setEnabled(true);
     }
@@ -316,30 +320,30 @@ public class m {
         return this.Q;
     }
 
-    public final void a(an anVar, int i) {
+    public final void a(am amVar, int i) {
         String userId;
-        if (anVar != null) {
-            if (anVar.a() != null) {
-                this.Q = anVar.a().d();
+        if (amVar != null) {
+            if (amVar.a() != null) {
+                this.Q = amVar.a().d();
             }
-            if (anVar.k()) {
+            if (amVar.k()) {
                 this.d.setNextPage(this.q);
                 this.e.a(true);
             } else {
                 this.d.setNextPage(null);
                 this.e.a(false);
             }
-            this.q.a(a(anVar));
-            this.e.a(anVar.c());
+            this.q.a(a(amVar));
+            this.e.a(amVar.c());
             boolean z = false;
-            if (anVar.l() != null && anVar.l().t() != null && (userId = anVar.l().t().getUserId()) != null && userId.equals(TbadkApplication.E())) {
+            if (amVar.l() != null && amVar.l().t() != null && (userId = amVar.l().t().getUserId()) != null && userId.equals(TbadkApplication.E())) {
                 z = true;
             }
             this.e.a(i, z);
             this.e.notifyDataSetChanged();
-            ai a = anVar.a();
-            boolean i2 = anVar.i();
-            anVar.j();
+            ai a = amVar.a();
+            boolean i2 = amVar.i();
+            amVar.j();
             if (a != null) {
                 this.h.setTag(null);
                 this.h.setUserId(null);
@@ -394,7 +398,7 @@ public class m {
                 }
                 this.k.setText(String.format(this.f.getString(com.baidu.tieba.a.k.is_floor), Integer.valueOf(a.e())));
                 String portrait = a.g().getPortrait();
-                aa aaVar = this.C;
+                ab abVar = this.C;
                 com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(portrait);
                 if (a.g() != null) {
                     this.i.setText(a.g().getName_show());
@@ -468,7 +472,7 @@ public class m {
                 }
             }
             u();
-            aa a2 = this.e != null ? this.e.a() : null;
+            ab a2 = this.e != null ? this.e.a() : null;
             if (a2 != null) {
                 Object tag = this.h.getTag();
                 String obj = tag != null ? tag.toString() : null;
@@ -485,8 +489,8 @@ public class m {
         }
     }
 
-    protected int a(an anVar) {
-        return anVar.d() - anVar.c().size();
+    protected int a(am amVar) {
+        return amVar.d() - amVar.c().size();
     }
 
     public final void c(int i) {
@@ -518,18 +522,18 @@ public class m {
                 com.baidu.tbadk.widget.richText.c next = it.next();
                 switch (next.a()) {
                     case Im.GroupInfo.CREATETIME_FIELD_NUMBER /* 17 */:
-                        com.baidu.tbadk.widget.richText.e f = next.f();
-                        if (f != null && !f.k) {
+                        com.baidu.tbadk.widget.richText.e g = next.g();
+                        if (g != null && !g.k) {
                             z zVar = new z(this);
                             if (com.baidu.tbadk.core.util.b.b()) {
-                                a = this.C.a(f.e, f.c, f.b, true, (com.baidu.tbadk.imageManager.d) zVar);
+                                a = this.C.a(g.e, g.c, g.b, true, (com.baidu.tbadk.imageManager.d) zVar);
                             } else {
-                                a = this.C.a(f.e, f.c, f.a, false, (com.baidu.tbadk.imageManager.d) zVar);
+                                a = this.C.a(g.e, g.c, g.a, false, (com.baidu.tbadk.imageManager.d) zVar);
                             }
                             if (a == null) {
-                                GifView gifView = (GifView) this.n.findViewWithTag(f.c);
+                                GifView gifView = (GifView) this.n.findViewWithTag(g.c);
                                 if (gifView != null) {
-                                    if (next.f().j) {
+                                    if (next.g().j) {
                                         gifView.setGif(null);
                                         break;
                                     } else {
@@ -540,7 +544,7 @@ public class m {
                                     return;
                                 }
                             } else {
-                                GifView gifView2 = (GifView) this.n.findViewWithTag(f.c);
+                                GifView gifView2 = (GifView) this.n.findViewWithTag(g.c);
                                 if (gifView2 != null) {
                                     gifView2.setGif(a);
                                     break;

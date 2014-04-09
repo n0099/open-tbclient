@@ -1,46 +1,32 @@
 package com.baidu.tbadk.a;
 
-import com.baidu.adp.framework.message.g;
-import com.baidu.adp.lib.network.websocket.j;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+import com.baidu.adp.framework.message.f;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public final class b extends j {
-    @Override // com.baidu.adp.lib.network.websocket.j
-    public final byte[] a(g gVar, boolean z) {
-        try {
-            com.baidu.tbadk.message.websockt.d dVar = gVar instanceof com.baidu.tbadk.message.websockt.d ? (com.baidu.tbadk.message.websockt.d) gVar : null;
-            byte[] b = gVar.b();
-            if (b != null && z) {
-                b = a(b, 0, b.length);
-            }
-            boolean b2 = com.baidu.tbadk.message.websockt.c.a().b(gVar.e());
-            if (b != null && b2) {
-                b = com.baidu.tbadk.d.c.a(com.baidu.tbadk.message.websockt.c.a().c(), b);
-            }
-            dVar.g(a.a().b());
-            return com.baidu.tbadk.message.websockt.a.a(b2, z, dVar.e(), dVar.k(), b);
-        } catch (Exception e) {
-            return null;
+public final class b implements com.baidu.adp.framework.e.d {
+    @Override // com.baidu.adp.framework.e.d
+    public final void a(String str, String str2, int i, com.baidu.adp.framework.message.d<?> dVar) {
+        int i2;
+        int i3 = 0;
+        if (dVar == null || !(dVar instanceof com.baidu.tbadk.message.websockt.d)) {
+            i2 = 0;
+        } else {
+            i2 = dVar.e();
+            i3 = ((com.baidu.tbadk.message.websockt.d) dVar).k();
         }
+        TiebaStatic.a(str, i2, i3, str2, i);
     }
 
-    private static byte[] a(byte[] bArr, int i, int i2) {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, 0, i2);
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            com.baidu.tbadk.d.a.a(byteArrayInputStream, byteArrayOutputStream);
-            byteArrayOutputStream.flush();
-            return byteArrayOutputStream.toByteArray();
-        } finally {
-            try {
-                byteArrayOutputStream.close();
-            } catch (Exception e) {
-            }
-            try {
-                byteArrayInputStream.close();
-            } catch (Exception e2) {
-            }
+    @Override // com.baidu.adp.framework.e.d
+    public final void a(String str, String str2, int i, f<?> fVar) {
+        int i2;
+        int i3 = 0;
+        if (fVar == null || fVar.h() == null || !(fVar.h() instanceof com.baidu.tbadk.message.websockt.d)) {
+            i2 = 0;
+        } else {
+            i2 = fVar.g();
+            i3 = ((com.baidu.tbadk.message.websockt.d) fVar.h()).k();
         }
+        TiebaStatic.a(str, i2, i3, str2, i);
     }
 }

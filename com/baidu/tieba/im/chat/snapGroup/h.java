@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat.snapGroup;
 
 import android.os.Handler;
-import com.baidu.tieba.im.model.bu;
+import com.baidu.tieba.im.model.bv;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class h extends com.baidu.tbadk.coreExtra.c.b {
@@ -30,15 +30,15 @@ public final class h extends com.baidu.tbadk.coreExtra.c.b {
     @Override // com.baidu.tbadk.coreExtra.c.b
     public final void c() {
         com.baidu.tieba.im.chat.h hVar;
-        bu buVar;
+        bv bvVar;
         int i;
         Handler handler;
         SnapGroupChatActivity.d(this.a).U().setNoticeText(this.a.getString(com.baidu.tieba.im.j.snap_group_chat_kick_out_by_silence));
         hVar = this.a.d;
-        hVar.P();
-        buVar = this.a.l;
+        hVar.Q();
+        bvVar = this.a.l;
         i = this.a.o;
-        buVar.a(i, false, 1);
+        bvVar.a(i, false, 1);
         handler = this.a.u;
         handler.postDelayed(new i(this), 3000L);
     }

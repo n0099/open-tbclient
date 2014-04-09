@@ -7,7 +7,7 @@ public class SnapGroupMsglistModel extends CommonGroupMsglistModel {
 
     public SnapGroupMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
-        this.e = new bq(this, 0);
+        this.e = new br(this, 0);
         com.baidu.adp.framework.c.a().a(2013002, this.e);
     }
 
@@ -29,7 +29,7 @@ public class SnapGroupMsglistModel extends CommonGroupMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean d_() {
+    public final boolean f_() {
         return true;
     }
 

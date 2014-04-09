@@ -1,17 +1,18 @@
 package com.baidu.tieba.faceshop;
 
-import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-final class w implements View.OnClickListener {
-    final /* synthetic */ v a;
+final class w {
+    ImageView a;
+    ImageView b;
+    TextView c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public w(v vVar) {
-        this.a = vVar;
+    private w() {
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        this.a.dismiss();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ w(byte b) {
+        this();
     }
 }

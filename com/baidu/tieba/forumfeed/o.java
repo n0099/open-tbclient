@@ -2,20 +2,64 @@ package com.baidu.tieba.forumfeed;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.b.aq;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class o implements View.OnClickListener {
-    final /* synthetic */ n a;
-    private final /* synthetic */ Context b;
+public final class o {
+    public boolean a = false;
+    final /* synthetic */ j b;
+    private final TextView c;
+    private final TextView d;
+    private final ImageView e;
+    private final LinearLayout f;
+    private final Button g;
+    private final View h;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(n nVar, Context context) {
-        this.a = nVar;
-        this.b = context;
+    public o(j jVar, Context context, View view) {
+        this.b = jVar;
+        this.h = view;
+        this.c = (TextView) view.findViewById(com.baidu.tieba.a.h.tip1);
+        this.d = (TextView) view.findViewById(com.baidu.tieba.a.h.tip2);
+        this.e = (ImageView) view.findViewById(com.baidu.tieba.a.h.nodata_img_bg);
+        this.g = (Button) view.findViewById(com.baidu.tieba.a.h.btn_go);
+        this.f = (LinearLayout) view.findViewById(com.baidu.tieba.a.h.layout_btn_go);
+        this.g.setOnClickListener(new p(this, context));
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2010010, new aq(this.b)));
+    public final void a() {
+        LinearLayout linearLayout;
+        this.a = false;
+        this.c.setVisibility(8);
+        this.d.setVisibility(8);
+        this.e.setVisibility(8);
+        this.f.setVisibility(8);
+        int i = TbadkApplication.j().l() == 1 ? com.baidu.tieba.a.e.forumfeed_frs_bg_1 : com.baidu.tieba.a.e.forumfeed_frs_bg;
+        linearLayout = this.b.m;
+        linearLayout.setBackgroundResource(i);
+    }
+
+    public final void b() {
+        LinearLayout linearLayout;
+        this.a = true;
+        int l = TbadkApplication.j().l();
+        this.c.setVisibility(0);
+        this.d.setVisibility(0);
+        this.e.setVisibility(0);
+        this.f.setVisibility(0);
+        a(l);
+        linearLayout = this.b.m;
+        linearLayout.setBackgroundColor(0);
+    }
+
+    public final void a(int i) {
+        if (i == 1) {
+            this.h.setBackgroundResource(com.baidu.tieba.a.e.forumfeed_frs_bg_1);
+        } else if (this.a) {
+            this.h.setBackgroundResource(com.baidu.tieba.a.e.forumfeed_frs_bg);
+        }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.person.PersonInfoActivity;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class ac {
@@ -23,7 +22,7 @@ public final class ac {
                 this.b = jSONObject.optString("id");
                 this.a = jSONObject.optInt("is_login", 0);
                 this.e = jSONObject.optInt("no_un", 0);
-                this.c = jSONObject.optString(PersonInfoActivity.TAG_NAME);
+                this.c = jSONObject.optString("name");
                 this.d = jSONObject.optString("name_show");
                 this.f = jSONObject.optString("portrait");
                 if (jSONObject.optInt("is_manager", 0) == 1) {

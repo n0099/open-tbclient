@@ -24,8 +24,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new x(this);
-        this.g = new y(this);
+        this.f = new v(this);
+        this.g = new w(this);
         a(context);
     }
 
@@ -35,8 +35,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new x(this);
-        this.g = new y(this);
+        this.f = new v(this);
+        this.g = new w(this);
         a(context);
     }
 
@@ -46,8 +46,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new x(this);
-        this.g = new y(this);
+        this.f = new v(this);
+        this.g = new w(this);
         a(context);
     }
 

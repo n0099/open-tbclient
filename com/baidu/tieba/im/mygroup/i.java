@@ -11,7 +11,7 @@ final class i implements com.baidu.adp.widget.ListView.d {
     @Override // com.baidu.adp.widget.ListView.d
     public final void a(boolean z) {
         j jVar;
-        jVar = this.a.c;
+        jVar = this.a.d;
         jVar.a();
     }
 }

@@ -1,7 +1,12 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.tieba.view.FrsCommonImageLayout;
+import com.baidu.tieba.view.UserPhotoLayout;
+import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public final class cr implements com.baidu.tbadk.core.view.h {
+final class cr implements AbsListView.RecyclerListener {
     final /* synthetic */ cm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,8 +14,18 @@ public final class cr implements com.baidu.tbadk.core.view.h {
         this.a = cmVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.h
-    public final void a() {
-        this.a.a();
+    @Override // android.widget.AbsListView.RecyclerListener
+    public final void onMovedToScrapHeap(View view) {
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(com.baidu.tieba.a.h.abstract_voice);
+        if (playVoiceBnt != null) {
+            playVoiceBnt.b();
+        }
+        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(com.baidu.tieba.a.h.abstract_img_layout);
+        if (frsCommonImageLayout != null) {
+            frsCommonImageLayout.a();
+        }
+        if (view != null && (view instanceof UserPhotoLayout)) {
+            ((UserPhotoLayout) view).a();
+        }
     }
 }

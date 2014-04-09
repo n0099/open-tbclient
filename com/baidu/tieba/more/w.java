@@ -12,7 +12,7 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 public final class w extends com.baidu.adp.a.f {
     private com.baidu.tbadk.a a;
     private p c;
-    private com.baidu.tbadk.editortool.aa d;
+    private com.baidu.tbadk.editortool.ab d;
     private NavigationBar e;
     private AlertDialog f;
     private SettingTextImageView g;
@@ -48,7 +48,7 @@ public final class w extends com.baidu.adp.a.f {
         this.m = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.a.h.feedBack);
         this.n = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.a.h.recommend);
         this.o = this.a.findViewById(com.baidu.tieba.a.h.line_recommend_layout);
-        if (com.baidu.tieba.r.c().k()) {
+        if (com.baidu.tieba.p.c().k()) {
             this.n.setVisibility(0);
             this.o.setVisibility(0);
         } else {
@@ -96,11 +96,11 @@ public final class w extends com.baidu.adp.a.f {
             return;
         }
         if (this.d == null) {
-            this.d = new com.baidu.tbadk.editortool.aa(this.a);
+            this.d = new com.baidu.tbadk.editortool.ab(this.a);
         }
         this.g.b();
         a();
-        com.baidu.tbadk.editortool.aa aaVar = this.d;
+        com.baidu.tbadk.editortool.ab abVar = this.d;
         com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(str);
         if (b != null) {
             this.g.setIcon(b);
@@ -126,7 +126,7 @@ public final class w extends com.baidu.adp.a.f {
 
     public final void b(String str) {
         if (this.d != null) {
-            com.baidu.tbadk.editortool.aa aaVar = this.d;
+            com.baidu.tbadk.editortool.ab abVar = this.d;
             com.baidu.tbadk.imageManager.e.a().a(str);
         }
     }
@@ -161,19 +161,10 @@ public final class w extends com.baidu.adp.a.f {
     public final void a(int i) {
         this.e.b(i);
         this.g.a(i);
-        this.h.a(i);
-        this.i.a(i);
-        this.j.a(i);
-        this.k.a(i);
-        this.l.a(i);
-        this.m.a(i);
-        this.n.a(i);
-        this.q.a(i);
         this.a.getLayoutMode().a(i == 1);
         this.a.getLayoutMode().a(this.r);
         this.e.b(i);
         d();
-        this.p.a(i);
     }
 
     public final void f() {

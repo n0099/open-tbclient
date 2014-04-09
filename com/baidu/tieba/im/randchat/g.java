@@ -39,6 +39,6 @@ public final class g implements com.baidu.adp.lib.guide.b {
 
     @Override // com.baidu.adp.lib.guide.b
     public final int d() {
-        return 45;
+        return 40;
     }
 }

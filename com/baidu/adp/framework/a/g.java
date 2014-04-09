@@ -1,14 +1,16 @@
 package com.baidu.adp.framework.a;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.network.websocket.BdSocketLinkService;
-import com.baidu.adp.lib.network.websocket.l;
+import com.baidu.adp.lib.network.websocket.i;
+import com.baidu.adp.lib.network.websocket.m;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public final class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.framework.task.c> implements com.baidu.adp.lib.network.websocket.c, com.baidu.adp.lib.network.websocket.d {
+public final class g extends a<com.baidu.adp.framework.message.g, SocketMessageTask> implements com.baidu.adp.lib.network.websocket.c, com.baidu.adp.lib.network.websocket.d {
     private com.baidu.adp.lib.network.websocket.c b;
     private final LinkedList<com.baidu.adp.lib.network.websocket.g> c;
     private final LinkedList<com.baidu.adp.lib.network.websocket.g> d;
@@ -50,16 +52,16 @@ public final class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.
         return linkedList2;
     }
 
-    public final com.baidu.adp.framework.message.g a(l lVar) {
-        com.baidu.adp.lib.network.websocket.g a = a(lVar, this.c);
-        if (a != null) {
-            return a.f();
+    public final com.baidu.adp.lib.network.websocket.g a(m mVar) {
+        com.baidu.adp.lib.network.websocket.g a = a(mVar, this.c);
+        if (a == null) {
+            com.baidu.adp.lib.network.websocket.g a2 = a(mVar, this.e);
+            if (a2 == null) {
+                return null;
+            }
+            return a2;
         }
-        com.baidu.adp.lib.network.websocket.g a2 = a(lVar, this.e);
-        if (a2 != null) {
-            return a2.f();
-        }
-        return null;
+        return a;
     }
 
     public g(com.baidu.adp.framework.c cVar) {
@@ -73,17 +75,53 @@ public final class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0080  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00d1  */
     @Override // com.baidu.adp.framework.a
-    public final void a(com.baidu.adp.framework.message.g gVar, com.baidu.adp.framework.task.c cVar) {
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void a(com.baidu.adp.framework.message.g gVar, SocketMessageTask socketMessageTask) {
+        boolean z;
         com.baidu.adp.lib.util.f.e("sendMessage:" + gVar.getClass().getName());
-        com.baidu.adp.lib.network.websocket.g gVar2 = new com.baidu.adp.lib.network.websocket.g(gVar, cVar.a(), cVar.l(), cVar.c(), this, cVar.j(), cVar.k(), cVar.e());
-        if (this.f && !cVar.e()) {
+        com.baidu.adp.lib.network.websocket.g gVar2 = new com.baidu.adp.lib.network.websocket.g(gVar, socketMessageTask.a(), socketMessageTask.l(), socketMessageTask.c(), this, socketMessageTask.j(), socketMessageTask.k(), socketMessageTask.e());
+        if (this.f && !socketMessageTask.e()) {
             com.baidu.adp.lib.util.f.e("MessageQuene is BlockedCMD=" + gVar.getClass().getName());
             gVar2.a(1);
             return;
         }
-        a(gVar2, this.d);
-        c();
+        SocketMessageTask.DupLicateMode f = socketMessageTask.f();
+        if (f == SocketMessageTask.DupLicateMode.REMOVE_ME) {
+            LinkedList<com.baidu.adp.framework.message.g> c = c(gVar.e(), this.d);
+            if (c == null || c.size() <= 0) {
+                LinkedList<com.baidu.adp.framework.message.g> c2 = c(gVar.e(), this.c);
+                if (c2 == null || c2.size() <= 0) {
+                    LinkedList<com.baidu.adp.framework.message.g> c3 = c(gVar.e(), this.e);
+                    if (c3 != null && c3.size() > 0) {
+                        z = true;
+                    }
+                } else {
+                    z = true;
+                }
+            } else {
+                z = true;
+            }
+            if (!z) {
+                if (com.baidu.adp.framework.e.c.a().i() != null) {
+                    com.baidu.adp.framework.e.c.a().i().a("sendMessage", "duplicate remove", 0, gVar);
+                    return;
+                }
+                return;
+            }
+            a(gVar2, this.d);
+            c();
+            return;
+        } else if (f == SocketMessageTask.DupLicateMode.REMOVE_WAITING) {
+            b(gVar.e(), this.d);
+        }
+        z = false;
+        if (!z) {
+        }
     }
 
     private void c() {
@@ -99,9 +137,9 @@ public final class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.
         }
     }
 
-    private static com.baidu.adp.lib.network.websocket.g a(l lVar, List<com.baidu.adp.lib.network.websocket.g> list) {
+    private static com.baidu.adp.lib.network.websocket.g a(m mVar, List<com.baidu.adp.lib.network.websocket.g> list) {
         for (com.baidu.adp.lib.network.websocket.g gVar : list) {
-            if (gVar != null && lVar.a(gVar.f())) {
+            if (gVar != null && mVar.a(gVar.f())) {
                 return gVar;
             }
         }
@@ -177,8 +215,23 @@ public final class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.
 
     @Override // com.baidu.adp.lib.network.websocket.d
     public final void a(int i, com.baidu.adp.lib.network.websocket.g gVar) {
+        int i2;
+        String string;
+        int i3;
         c(gVar);
-        a(gVar, i, "");
+        if (i == 2) {
+            if (gVar.l() != null) {
+                i3 = gVar.l().getErrorCode();
+            } else {
+                i3 = i.k;
+            }
+            i2 = i3;
+            string = i.a(i3);
+        } else {
+            i2 = i.q;
+            string = com.baidu.adp.a.b.a().getString(com.baidu.adp.f.send_error);
+        }
+        a(gVar, i2, string);
         c();
     }
 
@@ -193,7 +246,8 @@ public final class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.
         c();
     }
 
-    private void c(com.baidu.adp.lib.network.websocket.g gVar) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(com.baidu.adp.lib.network.websocket.g gVar) {
         a(gVar, (List<com.baidu.adp.lib.network.websocket.g>) this.c);
         a(gVar, (List<com.baidu.adp.lib.network.websocket.g>) this.e);
         a(gVar, (List<com.baidu.adp.lib.network.websocket.g>) this.d);
@@ -203,10 +257,13 @@ public final class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.
         com.baidu.adp.framework.message.g f;
         if (gVar != null && (f = gVar.f()) != null) {
             try {
-                SocketResponsedMessage newInstance = ((com.baidu.adp.framework.task.c) this.a.d(f.e())).d().newInstance();
+                SocketResponsedMessage newInstance = ((SocketMessageTask) this.a.d(f.e())).d().newInstance();
                 newInstance.a(i);
-                newInstance.e(str);
+                newInstance.d(str);
                 newInstance.a(f);
+                if (com.baidu.adp.framework.e.c.a().i() != null) {
+                    com.baidu.adp.framework.e.c.a().i().a("dispatchMessage", str, i, newInstance);
+                }
                 this.a.b(newInstance);
             } catch (Exception e) {
                 com.baidu.adp.lib.util.f.b(e.toString());
@@ -245,6 +302,20 @@ public final class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.
         return linkedList;
     }
 
+    private static LinkedList<com.baidu.adp.lib.network.websocket.g> b(int i, List<com.baidu.adp.lib.network.websocket.g> list) {
+        LinkedList<com.baidu.adp.lib.network.websocket.g> linkedList = new LinkedList<>();
+        Iterator<com.baidu.adp.lib.network.websocket.g> it = list.iterator();
+        while (it.hasNext()) {
+            com.baidu.adp.lib.network.websocket.g next = it.next();
+            if (next != null && next.f() != null && next.f().e() == i) {
+                it.remove();
+                next.a();
+                linkedList.add(next);
+            }
+        }
+        return linkedList;
+    }
+
     private static LinkedList<com.baidu.adp.lib.network.websocket.g> a(int i, int i2, List<com.baidu.adp.lib.network.websocket.g> list) {
         LinkedList<com.baidu.adp.lib.network.websocket.g> linkedList = new LinkedList<>();
         Iterator<com.baidu.adp.lib.network.websocket.g> it = list.iterator();
@@ -254,6 +325,16 @@ public final class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.
                 it.remove();
                 next.a();
                 linkedList.add(next);
+            }
+        }
+        return linkedList;
+    }
+
+    private static LinkedList<com.baidu.adp.framework.message.g> c(int i, List<com.baidu.adp.lib.network.websocket.g> list) {
+        LinkedList<com.baidu.adp.framework.message.g> linkedList = new LinkedList<>();
+        for (com.baidu.adp.lib.network.websocket.g gVar : list) {
+            if (gVar != null && gVar.f() != null && gVar.f().e() == i) {
+                linkedList.add(gVar.f());
             }
         }
         return linkedList;

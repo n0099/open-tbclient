@@ -21,7 +21,7 @@ final class av extends com.baidu.adp.framework.c.a {
             cmVar = this.a.r;
             if (cmVar != null) {
                 cmVar2 = this.a.r;
-                cmVar2.O();
+                cmVar2.P();
             }
         }
     }

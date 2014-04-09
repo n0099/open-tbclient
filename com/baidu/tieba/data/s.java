@@ -15,7 +15,7 @@ public final class s {
     private int j = 0;
     private long k = 0;
     private long l = 0;
-    private ap m = new ap();
+    private ao m = new ao();
 
     public final int a() {
         return this.a;
@@ -91,7 +91,7 @@ public final class s {
         }
     }
 
-    public final ap j() {
+    public final ao j() {
         return this.m;
     }
 }

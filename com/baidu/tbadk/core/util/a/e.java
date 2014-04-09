@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.util.a;
 
 import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import com.baidu.adp.lib.stats.o;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.io.ByteArrayInputStream;
@@ -54,6 +55,9 @@ public final class e {
                 this.i = null;
             }
             this.h = new com.baidu.adp.lib.network.http.e();
+            if (!TextUtils.isEmpty(this.a)) {
+                this.h.a().b("sid", this.a);
+            }
             this.h.a().a(str);
             if (this.j != null) {
                 for (Map.Entry<String, String> entry : this.j.entrySet()) {
@@ -104,8 +108,9 @@ public final class e {
     }
 
     public final byte[] a(String str, boolean z) {
-        String obj;
-        boolean z2 = false;
+        boolean z2;
+        String str2;
+        boolean z3 = false;
         try {
             byte[] b = b(str);
             if (b == null) {
@@ -113,30 +118,31 @@ public final class e {
             }
             if (this.h != null && this.h.b().f != null) {
                 List<String> list = this.h.b().f.get("imgsrc");
-                if (list != null && (obj = list.toString()) != null && obj.length() > 0) {
-                    z2 = true;
+                if (list != null && list.size() > 0 && (str2 = list.get(0)) != null && str2.length() > 0) {
+                    z3 = true;
                 }
                 List<String> list2 = this.h.b().f.get("Src-Content-Type");
-                if (list2 != null) {
-                    if ("image/gif".equalsIgnoreCase(list2.toString())) {
+                if (list2 != null && list2.size() > 0) {
+                    if ("image/gif".equalsIgnoreCase(list2.get(0))) {
                         this.d = true;
-                    } else {
-                        this.d = false;
+                        z2 = z3;
+                        if (this.m || !((z || z2) && new String(b, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;"))) {
+                            return b;
+                        }
+                        int length = b.length;
+                        int i = length - 23;
+                        if (i < 0) {
+                            throw new IllegalArgumentException(String.valueOf(23) + " > " + length);
+                        }
+                        byte[] bArr = new byte[i];
+                        System.arraycopy(b, 23, bArr, 0, Math.min(b.length - 23, i));
+                        return bArr;
                     }
+                    this.d = false;
                 }
             }
+            z2 = z3;
             if (this.m) {
-                if ((z || z2) && new String(b, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;")) {
-                    int length = b.length;
-                    int i = length - 23;
-                    if (i < 0) {
-                        throw new IllegalArgumentException(String.valueOf(23) + " > " + length);
-                    }
-                    byte[] bArr = new byte[i];
-                    System.arraycopy(b, 23, bArr, 0, Math.min(b.length - 23, i));
-                    return bArr;
-                }
-                return b;
             }
             return b;
         } catch (Exception e) {

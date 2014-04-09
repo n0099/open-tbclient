@@ -17,14 +17,14 @@ public final class b extends com.baidu.adp.a.h {
         boolean z;
         VoiceManager voiceManager;
         VoiceManager voiceManager2;
-        z = this.a.h;
+        z = this.a.i;
         if (z) {
-            voiceManager = this.a.a;
+            voiceManager = this.a.b;
             if (voiceManager != null) {
-                voiceManager2 = this.a.a;
+                voiceManager2 = this.a.b;
                 voiceManager2.h();
             }
-            this.a.h = false;
+            this.a.i = false;
         }
         if (obj instanceof u) {
             a.a(this.a, obj);

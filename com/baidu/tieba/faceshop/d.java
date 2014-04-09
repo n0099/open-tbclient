@@ -1,99 +1,101 @@
 package com.baidu.tieba.faceshop;
 
-import android.graphics.Bitmap;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
+import android.database.Cursor;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.DatabaseManager;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class d {
-    public static boolean a(String str, String str2, InputStream inputStream) {
-        return com.baidu.tbadk.core.util.w.a(new StringBuilder(".emotions/").append(str).toString(), str2, inputStream) != null;
+    private static d a = new d();
+
+    public static d a() {
+        return a;
     }
 
-    public static boolean a(String str) {
-        com.baidu.tbadk.editortool.ab.a();
-        Bitmap c = com.baidu.tbadk.editortool.ab.c(str, "panel.png");
-        if (c == null) {
-            return false;
-        }
-        c.recycle();
-        return true;
-    }
-
-    public static boolean a(String str, String str2, String str3) {
-        String str4 = com.baidu.tbadk.core.util.w.a + "/" + com.baidu.tbadk.core.data.n.f() + "/.emotions/" + str + "/";
-        File file = new File(str4, str2);
-        if (!file.exists()) {
-            return false;
-        }
-        File file2 = new File(str4, str3);
-        if (file2.exists()) {
-            if (file2.delete() && file.renameTo(file2)) {
-                return true;
+    public static int a(String str, InputStream inputStream) {
+        com.baidu.tbadk.editortool.v a2 = com.baidu.tbadk.editortool.v.a();
+        List<String> a3 = e.a(str, inputStream);
+        int i = 0;
+        for (int i2 = 0; i2 < a3.size(); i2++) {
+            if (a2.a(a3.get(i2), str, i2 + 1)) {
+                i++;
             }
-            return com.baidu.tbadk.core.util.w.f(file.getAbsolutePath(), file2.getAbsolutePath());
-        } else if (file.renameTo(file2)) {
-            return true;
-        } else {
-            return com.baidu.tbadk.core.util.w.f(file.getAbsolutePath(), file2.getAbsolutePath());
         }
+        return i;
     }
 
-    public static List<String> a(String str, InputStream inputStream) {
-        ZipInputStream zipInputStream;
+    public static boolean a(MyEmotionGroupData myEmotionGroupData) {
+        if (myEmotionGroupData == null) {
+            return false;
+        }
         try {
-            zipInputStream = new ZipInputStream(new BufferedInputStream(inputStream));
-            while (true) {
-                try {
-                    ZipEntry nextEntry = zipInputStream.getNextEntry();
-                    if (nextEntry == null) {
-                        break;
-                    } else if (!nextEntry.isDirectory()) {
-                        String name = nextEntry.getName();
-                        com.baidu.adp.lib.util.f.e("zip file name:" + name);
-                        a(str, name, zipInputStream);
-                    } else {
-                        com.baidu.adp.lib.util.f.e("zip file dir:" + nextEntry.getName());
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    com.baidu.tbadk.core.util.l.a((InputStream) zipInputStream);
-                    throw th;
-                }
-            }
-            zipInputStream.close();
-            com.baidu.tbadk.core.util.l.a((InputStream) zipInputStream);
-            byte[] e = com.baidu.tbadk.core.util.w.e(".emotions/" + str, "map.txt");
-            if (e == null) {
-                throw new FileNotFoundException("map.txt file not exsit!");
-            }
-            String str2 = new String(e, "UTF-8");
-            LinkedList linkedList = new LinkedList();
-            for (String str3 : str2.split(IOUtils.LINE_SEPARATOR_UNIX)) {
-                String trim = str3.trim();
-                if (trim.startsWith("#(")) {
-                    String[] split = trim.split("=");
-                    if (split.length == 2) {
-                        String trim2 = split[0].trim();
-                        String trim3 = split[1].trim();
-                        com.baidu.tbadk.editortool.ab.a();
-                        a(str, "s_" + trim3 + ".png", com.baidu.tbadk.editortool.ab.a(trim2, false));
-                        com.baidu.tbadk.editortool.ab.a();
-                        a(str, "d_" + trim3 + ".gif", com.baidu.tbadk.editortool.ab.a(trim2, true));
-                        linkedList.add(trim2);
-                    }
-                }
-            }
-            return linkedList;
-        } catch (Throwable th2) {
-            th = th2;
-            zipInputStream = null;
+            DatabaseManager.a().delete("user_emotions", "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
+            return true;
+        } catch (Throwable th) {
+            com.baidu.adp.lib.util.f.b("BigEmotionsDBManager", "addToMyEmotion", th.getMessage());
+            DatabaseManager.a(th, "EmotionsDBManager.deleteMyEmotion");
+            return false;
         }
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [98=4] */
+    public final MyEmotionGroupData a(String str, String str2) {
+        Cursor cursor;
+        MyEmotionGroupData myEmotionGroupData = null;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            try {
+                cursor = DatabaseManager.a().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            try {
+                if (cursor.moveToNext()) {
+                    myEmotionGroupData = a(cursor);
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    com.baidu.adp.lib.util.f.b("BigEmotionsDBManager", "getMyEmotion", th.getMessage());
+                    DatabaseManager.a(th, "EmotionsDBManager.getMyEmotion");
+                    return myEmotionGroupData;
+                } finally {
+                    com.baidu.tbadk.core.util.l.a(cursor);
+                }
+            }
+        }
+        return myEmotionGroupData;
+    }
+
+    public final List<MyEmotionGroupData> a(String str) {
+        LinkedList linkedList = new LinkedList();
+        if (!TextUtils.isEmpty(str)) {
+            Cursor cursor = null;
+            try {
+                cursor = DatabaseManager.a().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{str});
+                while (cursor.moveToNext()) {
+                    linkedList.add(a(cursor));
+                }
+            } catch (Throwable th) {
+                try {
+                    com.baidu.adp.lib.util.f.b("BigEmotionsDBManager", "listMyEmotions", th.getMessage());
+                    DatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
+                } finally {
+                    com.baidu.tbadk.core.util.l.a(cursor);
+                }
+            }
+        }
+        return linkedList;
+    }
+
+    private static MyEmotionGroupData a(Cursor cursor) {
+        MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
+        myEmotionGroupData.id = cursor.getInt(cursor.getColumnIndex("id"));
+        myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex("uid"));
+        myEmotionGroupData.groupId = cursor.getString(cursor.getColumnIndex("groupId"));
+        myEmotionGroupData.updateTime = cursor.getLong(cursor.getColumnIndex("updateTime"));
+        return myEmotionGroupData;
     }
 }

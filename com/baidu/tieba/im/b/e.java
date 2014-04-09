@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.chat.receiveChatMsgHandler.w;
+import com.baidu.tieba.im.chat.receiveChatMsgHandler.x;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.db.pojo.OldUserData;
 import com.baidu.tieba.im.f.q;
-import com.baidu.tieba.im.s;
+import com.baidu.tieba.im.r;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -30,10 +30,10 @@ public final class e {
 
     public static synchronized void b() {
         synchronized (e.class) {
-            w.a();
-            long a = w.a(11);
-            w.a();
-            long a2 = w.a(12);
+            x.a();
+            long a = x.a(11);
+            x.a();
+            long a2 = x.a(12);
             if (a != -1) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.a().a(11, a);
             }
@@ -158,7 +158,7 @@ public final class e {
                                 }
                                 if (z2) {
                                     a.setIs_hidden(0);
-                                    s.a(new h(str), null);
+                                    r.a(new h(str), null);
                                     return;
                                 }
                                 return;
@@ -171,7 +171,7 @@ public final class e {
                         if (fromCommonMsg != null) {
                             LinkedList linkedList = new LinkedList();
                             linkedList.add(fromCommonMsg.getGid());
-                            s.a(new i(linkedList), null);
+                            r.a(new i(linkedList), null);
                             new LinkedList().add(commonMsgPojo);
                             fromCommonMsg.setUnread_count(i);
                             cVar.a(fromCommonMsg);

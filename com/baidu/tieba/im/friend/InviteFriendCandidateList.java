@@ -17,7 +17,7 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
     private int c;
     private int d;
     private int e;
-    private com.baidu.tbadk.editortool.aa f;
+    private com.baidu.tbadk.editortool.ab f;
     private int g;
     private HeadImageView h;
     private m i;
@@ -85,8 +85,8 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
         return childCount > 0 && this.b.getChildAt(childCount + (-1)) == this.h;
     }
 
-    public final void a(com.baidu.tbadk.editortool.aa aaVar) {
-        this.f = aaVar;
+    public final void a(com.baidu.tbadk.editortool.ab abVar) {
+        this.f = abVar;
     }
 
     public final void a(com.baidu.tieba.im.data.c cVar) {
@@ -94,7 +94,7 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
             HeadImageView g = g();
             g.setIsRound(true);
             if (this.f != null) {
-                com.baidu.tbadk.editortool.aa aaVar = this.f;
+                com.baidu.tbadk.editortool.ab abVar = this.f;
                 com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(cVar.c());
                 if (b != null) {
                     b.a(g);

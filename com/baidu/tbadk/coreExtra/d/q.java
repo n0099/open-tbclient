@@ -76,12 +76,12 @@ public final class q {
         stringBuffer.append(",");
         stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.i.c(TbadkApplication.j().b())));
         eVar.a("_phone_screen", stringBuffer.toString());
-        if (TbadkApplication.j().ag() > 0) {
+        if (TbadkApplication.j().ai() > 0) {
             eVar.a("_msg_status", "0");
         } else {
             eVar.a("_msg_status", "1");
         }
-        eVar.a("_pic_quality", String.valueOf(TbadkApplication.j().al()));
+        eVar.a("_pic_quality", String.valueOf(TbadkApplication.j().an()));
         try {
             if (TbadkApplication.F()) {
                 com.baidu.tbadk.core.a.n a2 = com.baidu.tbadk.core.a.a.a(TbadkApplication.D());

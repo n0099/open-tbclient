@@ -20,7 +20,7 @@ final class a extends com.baidu.adp.framework.c.g {
         SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
         this.a.e();
         if (socketResponsedMessage2 == null) {
-            this.a.d(com.baidu.tieba.im.j.neterror);
+            this.a.c(com.baidu.tieba.im.j.neterror);
         } else if (socketResponsedMessage2.g() == 103120) {
             if (!(socketResponsedMessage2 instanceof ResponseCreateGroupActivityMessage)) {
                 if (socketResponsedMessage2.e() != 0) {
@@ -36,9 +36,9 @@ final class a extends com.baidu.adp.framework.c.g {
             }
             z = this.a.e;
             if (z) {
-                this.a.d(com.baidu.tieba.im.j.group_activity_edit_succ);
+                this.a.c(com.baidu.tieba.im.j.group_activity_edit_succ);
             } else {
-                this.a.d(com.baidu.tieba.im.j.group_activity_create_succ);
+                this.a.c(com.baidu.tieba.im.j.group_activity_create_succ);
             }
             this.a.setResult(-1);
             this.a.finish();

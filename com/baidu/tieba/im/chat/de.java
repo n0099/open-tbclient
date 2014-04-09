@@ -1,42 +1,29 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.View;
+import com.baidu.adp.widget.ImageView.BDImageView2;
 /* loaded from: classes.dex */
-public final class de {
-    String a;
-    com.baidu.tbadk.a b;
-
-    public de(String str, com.baidu.tbadk.a aVar) {
-        this.a = null;
-        this.a = str;
-        this.b = aVar;
-    }
-
-    public final void a() {
-        try {
-            if (this.a == null || this.a.length() <= 0) {
-                a(this.b.getString(com.baidu.tieba.im.j.save_error));
-            }
-            new com.baidu.tbadk.editortool.aa(this.b).a(this.a, false, true, (com.baidu.tbadk.imageManager.d) new df(this));
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("SaveImageAsyncTask", "execute", "error" + e.getMessage());
-            a(this.b.getString(com.baidu.tieba.im.j.save_error));
-        }
-    }
+final class de implements com.baidu.tbadk.core.util.bp {
+    final /* synthetic */ dd a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ String a(de deVar, String str, byte[] bArr) {
-        switch (com.baidu.tbadk.core.util.w.a(str, bArr, deVar.b)) {
-            case -2:
-                return com.baidu.tbadk.core.util.w.b();
-            case -1:
-            default:
-                return deVar.b.getString(com.baidu.tieba.im.j.save_error);
-            case 0:
-                return deVar.b.getString(com.baidu.tieba.im.j.save_image_to_album);
-        }
+    public de(dd ddVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
+        this.a = ddVar;
+        this.b = str;
+        this.c = bVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void a(String str) {
-        this.b.showToast(str);
+    @Override // com.baidu.tbadk.core.util.bp
+    public final boolean a(View view) {
+        if ((view instanceof BDImageView2) && this.b.equals(view.getTag())) {
+            view.setTag(null);
+            BDImageView2 bDImageView2 = (BDImageView2) view;
+            bDImageView2.a();
+            this.c.a(bDImageView2);
+            return false;
+        }
+        return false;
     }
 }

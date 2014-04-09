@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.a;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.ak;
-import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
 public final class q {
     public static void a(String str, String str2, r rVar) {
@@ -21,7 +20,7 @@ public final class q {
             sb.append(com.baidu.tbadk.core.data.n.a);
             sb.append("c/s/login");
             akVar = new ak(sb.toString());
-            akVar.a(PersonInfoActivity.TAG_ID, str);
+            akVar.a("un", str);
             akVar.a("passwd", str2);
             akVar.a("isphone", "0");
             akVar.a("channel_id", TbadkApplication.j().S());

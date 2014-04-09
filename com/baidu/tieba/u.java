@@ -1,18 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.account.SapiFastRegActivity;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class u implements Runnable {
-    final /* synthetic */ t a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(t tVar) {
-        this.a = tVar;
-    }
-
-    @Override // java.lang.Runnable
-    public final void run() {
-        SapiFastRegActivity.a(TbadkApplication.j());
+public final class u implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.u> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<com.baidu.tbadk.core.b.u> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.u> aVar) {
+        if (aVar != null && aVar.a() != null) {
+            p.c().f();
+        }
+        return null;
     }
 }

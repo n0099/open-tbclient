@@ -36,10 +36,10 @@ final class cc implements View.OnClickListener {
         String str6;
         cj cjVar14;
         cj cjVar15;
-        cy cyVar;
+        da daVar;
         String str7;
-        cy cyVar2;
-        cy cyVar3;
+        da daVar2;
+        da daVar3;
         cjVar = this.a.l;
         if (view != cjVar.e()) {
             cjVar2 = this.a.l;
@@ -116,12 +116,12 @@ final class cc implements View.OnClickListener {
             }
         } else if (id == com.baidu.tieba.a.h.forum_manager_center) {
             String str8 = "";
-            cyVar = this.a.q;
-            if (cyVar != null) {
-                cyVar2 = this.a.q;
-                if (cyVar2.b() != null) {
-                    cyVar3 = this.a.q;
-                    str8 = cyVar3.b().getId();
+            daVar = this.a.q;
+            if (daVar != null) {
+                daVar2 = this.a.q;
+                if (daVar2.b() != null) {
+                    daVar3 = this.a.q;
+                    str8 = daVar3.b().getId();
                 }
             }
             StringBuilder sb = new StringBuilder("http://tieba.baidu.com/mo/q/bawuindex?fn=");

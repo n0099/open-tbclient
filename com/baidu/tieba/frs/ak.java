@@ -39,11 +39,11 @@ public final class ak implements DialogInterface.OnClickListener {
                 this.a.c(this.b);
                 break;
         }
-        com.baidu.tieba.util.p C = com.baidu.tieba.r.c().C();
-        if (C != null && !C.b(this.b.l())) {
-            C.a(this.b.l());
+        com.baidu.tieba.util.p z2 = com.baidu.tieba.p.c().z();
+        if (z2 != null && !z2.b(this.b.l())) {
+            z2.a(this.b.l());
         }
         cmVar = this.a.r;
-        cmVar.x();
+        cmVar.y();
     }
 }

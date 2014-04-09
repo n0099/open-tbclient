@@ -31,7 +31,7 @@ final class g implements DatePickerDialog.OnDateSetListener {
         if (i < i4 || ((i == i4 && i2 < i5) || (i == i4 && i2 == i5 && i3 < i6))) {
             eVar = this.a.a;
             createGroupActivityActivity = eVar.a;
-            createGroupActivityActivity.d(com.baidu.tieba.im.j.group_activity_time_val);
+            createGroupActivityActivity.c(com.baidu.tieba.im.j.group_activity_time_val);
             return;
         }
         eVar2 = this.a.a;

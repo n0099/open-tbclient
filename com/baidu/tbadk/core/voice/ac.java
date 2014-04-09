@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ac implements com.baidu.tbadk.core.voice.cache.c {
+public final class ac implements com.baidu.tbadk.core.voice.a.c {
     final /* synthetic */ VoiceManager a;
 
     private ac(VoiceManager voiceManager) {
@@ -16,7 +16,7 @@ public final class ac implements com.baidu.tbadk.core.voice.cache.c {
         this(voiceManager);
     }
 
-    @Override // com.baidu.tbadk.core.voice.cache.c
+    @Override // com.baidu.tbadk.core.voice.a.c
     public final void a(String str, String str2, int i, String str3) {
         VoiceData.VoiceModel voiceModel;
         x xVar;
@@ -30,7 +30,7 @@ public final class ac implements com.baidu.tbadk.core.voice.cache.c {
         if (voiceModel != null) {
             xVar = this.a.x;
             if (xVar != null) {
-                if (!com.baidu.adp.lib.util.n.a(str) && !com.baidu.adp.lib.util.n.a(str2)) {
+                if (!com.baidu.adp.lib.util.o.a(str) && !com.baidu.adp.lib.util.o.a(str2)) {
                     voiceModel3 = this.a.u;
                     if (voiceModel3.voiceId.equals(str2)) {
                         voiceModel4 = this.a.u;
@@ -46,7 +46,7 @@ public final class ac implements com.baidu.tbadk.core.voice.cache.c {
                 }
                 com.baidu.adp.lib.util.f.b("VoiceManager", "VoiceLoaderCallback::voiceLoaded", "error code:" + i + " error msg:" + str3);
                 TiebaStatic.b("", i, str3, str);
-                if (i <= 0 || com.baidu.adp.lib.util.n.a(str3) || (i != 2 && i != 4 && i != 3 && i != 7)) {
+                if (i <= 0 || com.baidu.adp.lib.util.o.a(str3) || (i != 2 && i != 4 && i != 3 && i != 7)) {
                     xVar2 = this.a.x;
                     xVar2.a(5, ae.a(com.baidu.tbadk.l.voice_err_load_fail));
                 } else {

@@ -67,8 +67,8 @@ final class q extends Handler {
                         this.a.i = true;
                         return;
                     }
-                    handler = this.a.t;
-                    handler2 = this.a.t;
+                    handler = this.a.u;
+                    handler2 = this.a.u;
                     versionData = this.a.e;
                     handler.sendMessageDelayed(handler2.obtainMessage(1, versionData), 100L);
                 }

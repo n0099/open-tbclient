@@ -1,21 +1,17 @@
 package com.baidu.tbadk.coreExtra.act;
-/* loaded from: classes.dex */
-final class w {
-    String a;
-    String b;
-    String c;
-    String d;
-    int e;
-    int f;
-    boolean g;
-    final /* synthetic */ LoginActivity h;
 
-    private w(LoginActivity loginActivity) {
-        this.h = loginActivity;
-    }
+import android.view.View;
+/* loaded from: classes.dex */
+final class w implements View.OnClickListener {
+    final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ w(LoginActivity loginActivity, byte b) {
-        this(loginActivity);
+    public w(LoginActivity loginActivity) {
+        this.a = loginActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        LoginActivity.t(this.a);
     }
 }

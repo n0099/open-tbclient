@@ -1,39 +1,42 @@
 package com.baidu.tieba.im.chat.notify;
 
-import android.view.View;
-import android.widget.AdapterView;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class j implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ b a;
+final class j extends com.baidu.tieba.im.m<Void> {
+    final /* synthetic */ h b;
+    private final /* synthetic */ ImMessageCenterShowItemData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(b bVar) {
-        this.a = bVar;
+    public j(h hVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        this.b = hVar;
+        this.c = imMessageCenterShowItemData;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public final boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        p pVar;
-        p pVar2;
-        ImMessageCenterShowItemData imMessageCenterShowItemData;
-        if (i >= 0) {
-            pVar = this.a.j;
-            long itemId = pVar.getItemId(i);
-            if (itemId != -1 && itemId != -2) {
-                b bVar = this.a;
-                pVar2 = this.a.j;
-                bVar.g = (ImMessageCenterShowItemData) pVar2.getItem(i);
-                b bVar2 = this.a;
-                imMessageCenterShowItemData = this.a.g;
-                b.b(bVar2, imMessageCenterShowItemData);
-                if (this.a.a != null) {
-                    this.a.a.show();
-                }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Void a() {
+        if (this.c != null) {
+            this.c.setUnReadCount(0);
+            com.baidu.adp.lib.util.f.e("updates before updates:" + this.c.getUnReadCount() + "ownerName" + this.c.getOwnerName() + " fid" + this.c.getFriendId() + " uid" + this.c.getOwnerId());
+            if (this.c.getOwnerName().equals("2")) {
+                com.baidu.tieba.im.db.d.a().a("apply_join_group");
+                com.baidu.tieba.im.pushNotify.a.d().a(this.c);
+                return null;
+            } else if (this.c.getOwnerName().equals("3")) {
+                com.baidu.tieba.im.pushNotify.a.d().b(this.c);
+                com.baidu.adp.lib.util.f.e("updates data.getOwnerName():" + this.c.getOwnerName());
+                com.baidu.tieba.im.db.d.a().a("group_intro_change");
+                com.baidu.tieba.im.db.d.a().a("group_name_change");
+                com.baidu.tieba.im.db.d.a().a("group_notice_change");
+                com.baidu.tieba.im.db.d.a().a("group_level_up");
+                com.baidu.tieba.im.db.d.a().a("dismiss_group");
+                com.baidu.tieba.im.db.d.a().a("kick_out");
+                com.baidu.tieba.im.db.d.a().a("group_activitys_change");
+                return null;
+            } else {
+                return null;
             }
-            return true;
         }
-        return false;
+        return null;
     }
 }

@@ -36,7 +36,7 @@ public final class c extends com.baidu.adp.framework.c.a {
                     return;
                 }
                 eVar4 = this.a.h;
-                eVar4.a(customResponsedMessage2.f());
+                eVar4.b(customResponsedMessage2.f());
             }
         } else if (customResponsedMessage2 instanceof ResponseQueryGroupCountLocalMessage) {
             ResponseQueryGroupCountLocalMessage responseQueryGroupCountLocalMessage = (ResponseQueryGroupCountLocalMessage) customResponsedMessage2;

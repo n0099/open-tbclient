@@ -1,15 +1,13 @@
 package com.baidu.tieba.tbluncher;
+
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-final class j implements com.baidu.tbadk.core.view.h {
-    final /* synthetic */ MainTabActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
-    }
-
-    @Override // com.baidu.tbadk.core.view.h
-    public final void a() {
-        this.a.g();
+final class j implements com.baidu.adp.framework.task.a<Void> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<Void> aVar) {
+        if (aVar != null) {
+            MainTabActivity.c = true;
+        }
+        return null;
     }
 }

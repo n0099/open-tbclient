@@ -7,8 +7,10 @@ import com.baidu.gson.Gson;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.person.PersonPostListData;
-import com.baidu.tieba.person.bx;
+import com.baidu.tieba.person.bz;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class ax extends BdAsyncTask<Boolean, av, av> {
@@ -25,7 +27,8 @@ public final class ax extends BdAsyncTask<Boolean, av, av> {
         com.baidu.adp.a.h hVar;
         Context context;
         com.baidu.adp.a.h hVar2;
-        bx bxVar;
+        bz bzVar;
+        bz bzVar2;
         com.baidu.adp.a.h hVar3;
         av avVar2 = avVar;
         super.a((ax) avVar2);
@@ -34,10 +37,18 @@ public final class ax extends BdAsyncTask<Boolean, av, av> {
         hVar = this.a.mLoadDataCallBack;
         avVar3.r = new com.baidu.tbadk.coreExtra.b.a(hVar);
         if (avVar2 != null) {
-            this.a.a(avVar2.g());
-            this.a.a(avVar2.d());
-            this.a.i();
-            com.baidu.tbadk.imageManager.e.a().a(avVar2.g().getPortrait());
+            UserData g = avVar2.g();
+            if (g != null) {
+                this.a.a(g);
+                if (g.getPortrait() != null) {
+                    this.a.i();
+                    com.baidu.tbadk.imageManager.e.a().a(g.getPortrait());
+                }
+            }
+            AntiData d = avVar2.d();
+            if (d != null) {
+                this.a.a(d);
+            }
             this.a.mLoadDataMode = 1;
             hVar3 = this.a.mLoadDataCallBack;
             hVar3.a(true);
@@ -53,8 +64,11 @@ public final class ax extends BdAsyncTask<Boolean, av, av> {
             hVar2 = this.a.mLoadDataCallBack;
             hVar2.a(false);
         }
-        bxVar = this.a.t;
-        bxVar.a();
+        bzVar = this.a.t;
+        if (bzVar != null) {
+            bzVar2 = this.a.t;
+            bzVar2.a();
+        }
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */

@@ -72,7 +72,7 @@ public class ImagePbImageView extends ImageView {
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new ac(this);
+        this.o = new ab(this);
         b();
     }
 
@@ -92,7 +92,7 @@ public class ImagePbImageView extends ImageView {
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new ac(this);
+        this.o = new ab(this);
         b();
     }
 
@@ -112,7 +112,7 @@ public class ImagePbImageView extends ImageView {
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new ac(this);
+        this.o = new ab(this);
         b();
     }
 

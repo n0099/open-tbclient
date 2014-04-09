@@ -1,25 +1,50 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.widget.TextView;
+import java.util.List;
 /* loaded from: classes.dex */
-final class p extends com.baidu.adp.framework.c.a {
+final class p implements View.OnClickListener {
     final /* synthetic */ EmotionManageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(EmotionManageActivity emotionManageActivity, int i) {
-        super(0);
+    public p(EmotionManageActivity emotionManageActivity) {
         this.a = emotionManageActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        TextView textView;
+        TextView textView2;
+        TextView textView3;
+        boolean z;
         t tVar;
-        if (customResponsedMessage.g() == 2001120) {
-            this.a.c = new t(this.a, (byte) 0);
-            tVar = this.a.c;
-            tVar.execute(new String[0]);
+        List list;
+        textView = this.a.h;
+        if (view != textView) {
+            textView2 = this.a.i;
+            if (view != textView2) {
+                textView3 = this.a.m;
+                if (view == textView3) {
+                    FacePurchaseRecordsActivity.a(this.a, "emotion_manage");
+                    this.a.b();
+                    this.a.a(true);
+                    return;
+                }
+                return;
+            }
+            z = this.a.p;
+            if (!z) {
+                EmotionManageActivity.g(this.a);
+            } else {
+                this.a.b();
+                list = this.a.b;
+                list.clear();
+            }
+            tVar = this.a.o;
+            tVar.notifyDataSetChanged();
+            return;
         }
+        EmotionManageActivity.b(this.a);
     }
 }

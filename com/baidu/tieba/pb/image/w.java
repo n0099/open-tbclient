@@ -1,127 +1,104 @@
 package com.baidu.tieba.pb.image;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.b.au;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.util.AntiHelper;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.bc;
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class w extends BdAsyncTask<Integer, Integer, String> {
+public final class w extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
-    private WriteData b;
-    private ak c = null;
-    private boolean d = false;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ String a(Integer... numArr) {
-        if (this.d) {
-            return null;
-        }
-        this.c = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/post/add");
-        this.c.a("anonymous", "0");
-        this.c.a("fid", this.b.getForumId());
-        this.c.a("kw", this.b.getForumName());
-        this.c.a("new_vcode", "1");
-        this.c.a("content", this.b.getContent());
-        this.c.a("tid", this.b.getThreadId());
-        if (this.b.getVcode() != null && this.b.getVcode().length() > 0) {
-            this.c.a("vcode", this.b.getVcode());
-        }
-        if (com.baidu.tieba.r.c().x() < 3) {
-            this.c.a("vcode_tag", "11");
-        }
-        this.c.a("quote_id", this.b.getFloor());
-        this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
-        this.c.a().a().a = true;
-        return this.c.i();
+    public final /* bridge */ /* synthetic */ String a(String... strArr) {
+        return a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final /* synthetic */ void a(String str) {
-        AntiData antiData;
         String str2 = str;
         super.a((w) str2);
-        this.a.closeLoadingDialog();
-        this.a.u = null;
-        if (this.c != null) {
-            try {
-                antiData = new AntiData();
-                try {
-                    antiData.parserJson(new JSONObject(str2).optJSONObject("anti_stat"));
-                } catch (Exception e) {
-                }
-            } catch (Exception e2) {
-                antiData = null;
-            }
-            if (this.c.a().b().b()) {
-                this.a.c();
-                return;
-            }
-            int d = this.c.d();
-            String f = this.c.f();
-            if (d == 5 || d == 6) {
-                com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
-                fVar.a(str2);
-                if (!AntiHelper.c(antiData)) {
-                    if (fVar.b() == null) {
-                        a(antiData, f);
-                        return;
-                    }
-                    this.b.setVcodeMD5(fVar.a());
-                    this.b.setVcodeUrl(fVar.b());
-                    if (fVar.c().equals("4")) {
-                        if (this.b != null) {
-                            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.ac(this.a, 12006, this.b, false)));
-                            return;
-                        }
-                        return;
-                    } else if (this.b != null) {
-                        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new au(this.a, this.b, 12006)));
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-            }
-            a(antiData, f);
+        if (str2 != null) {
+            this.a.showToast(str2);
         }
+        this.a.w = null;
     }
 
-    public w(ImagePbActivity imagePbActivity, WriteData writeData) {
+    private w(ImagePbActivity imagePbActivity) {
         this.a = imagePbActivity;
-        this.b = null;
-        this.b = writeData;
     }
 
-    private void a(AntiData antiData, String str) {
-        if (AntiHelper.a(antiData) || AntiHelper.b(antiData) || AntiHelper.c(antiData) || AntiHelper.d(antiData)) {
-            antiData.setBlock_forum_name(this.b.getForumName());
-            antiData.setBlock_forum_id(this.b.getForumId());
-            antiData.setUser_id(TbadkApplication.E());
-            antiData.setUser_name(TbadkApplication.O());
-            AntiHelper.a(this.a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.IMAGE_PB);
-            return;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ w(ImagePbActivity imagePbActivity, byte b) {
+        this(imagePbActivity);
+    }
+
+    private String a() {
+        com.baidu.tieba.data.u uVar;
+        com.baidu.tieba.data.u uVar2;
+        com.baidu.tieba.data.u uVar3;
+        int i;
+        com.baidu.tieba.data.u uVar4;
+        int i2;
+        com.baidu.tieba.data.u uVar5;
+        String f;
+        try {
+            uVar = this.a.F;
+            if (uVar != null) {
+                uVar2 = this.a.F;
+                if (uVar2.g() != null) {
+                    uVar3 = this.a.F;
+                    LinkedList<com.baidu.tieba.data.t> g = uVar3.g();
+                    i = this.a.I;
+                    if (g.get(i) == null) {
+                        return null;
+                    }
+                    uVar4 = this.a.F;
+                    LinkedList<com.baidu.tieba.data.t> g2 = uVar4.g();
+                    i2 = this.a.I;
+                    String str = String.valueOf(g2.get(i2).b()) + "_big";
+                    if (str != null && str.length() > 0) {
+                        uVar5 = this.a.F;
+                        if (uVar5 != null) {
+                            if (bc.f(str) != null) {
+                                String str2 = String.valueOf(f) + ".jpg";
+                                int i3 = 0;
+                                while (com.baidu.tbadk.core.util.w.b(str2) && i3 < 10000) {
+                                    i3++;
+                                    str2 = String.valueOf(f) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
+                                }
+                                com.baidu.adp.widget.ImageView.b c = com.baidu.tbadk.imageManager.e.a().c(str);
+                                if (c != null) {
+                                    str2 = com.baidu.tbadk.core.util.w.a((String) null, str2, c.h(), 80);
+                                }
+                                if (str2 != null) {
+                                    new ai(this.a).a(str2);
+                                    return this.a.getString(com.baidu.tieba.a.k.save_image_to_album);
+                                }
+                                return com.baidu.tbadk.core.util.w.b();
+                            }
+                            return this.a.getString(com.baidu.tieba.a.k.save_error);
+                        }
+                    }
+                    return this.a.getString(com.baidu.tieba.a.k.save_error);
+                }
+                return null;
+            }
+            return null;
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            return this.a.getString(com.baidu.tieba.a.k.save_error);
         }
-        this.a.showToast(str);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final void cancel() {
-        this.a.u = null;
-        this.a.closeLoadingDialog();
-        this.d = true;
-        if (this.c != null) {
-            this.c.g();
-        }
+        this.a.w = null;
         super.cancel(true);
     }
 }

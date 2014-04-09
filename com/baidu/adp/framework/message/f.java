@@ -18,7 +18,7 @@ public abstract class f<T> implements c<T> {
         return this.d;
     }
 
-    public final void e(String str) {
+    public final void d(String str) {
         this.d = str;
     }
 

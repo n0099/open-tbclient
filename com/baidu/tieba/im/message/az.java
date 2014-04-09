@@ -1,21 +1,33 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.SearchGroup.SearchGroupReq;
+import java.util.HashMap;
+import org.json.JSONObject;
+import protobuf.LogStat.LogStatReq;
 /* loaded from: classes.dex */
 public final class az extends com.baidu.tbadk.message.websockt.d {
-    private int a;
+    private String a;
+    private String b;
 
     public az() {
-        super(103007);
+        super(104001);
     }
 
-    public final void d(int i) {
-        this.a = i;
+    private az(String str, String str2) {
+        super(104001);
+        this.a = str;
+        this.b = str2;
     }
 
     @Override // com.baidu.tbadk.message.websockt.d
     public final MessageLite h() {
-        return SearchGroupReq.SearchGroupReqIdl.newBuilder().a(SearchGroupReq.DataReq.newBuilder().a(this.a).build()).build();
+        return LogStatReq.LogStatReqIdl.newBuilder().a(LogStatReq.DataReq.newBuilder().a(this.a).b(this.b).build()).build();
+    }
+
+    public static void a(String str, String str2) {
+        HashMap hashMap = new HashMap();
+        hashMap.put("st_param", str2);
+        hashMap.put("jobid", "0");
+        com.baidu.adp.framework.c.a().a(new az(str, new JSONObject(hashMap).toString()));
     }
 }

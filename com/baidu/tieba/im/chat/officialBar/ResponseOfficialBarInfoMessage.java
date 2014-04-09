@@ -11,7 +11,7 @@ public class ResponseOfficialBarInfoMessage extends TbSocketReponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         QueryForumDetailRes.QueryForumDetailResIdl parseFrom = QueryForumDetailRes.QueryForumDetailResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         this.a = parseFrom.getData().getPortrait();
         this.b = parseFrom.getData().getAuthen();
     }

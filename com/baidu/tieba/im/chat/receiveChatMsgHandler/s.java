@@ -1,19 +1,11 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
-
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.data.GroupMsgData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class s extends com.baidu.adp.framework.c.a {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* bridge */ /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 instanceof GroupMsgData) {
-            SnapChatMsgHelper.a((GroupMsgData) customResponsedMessage2);
-        }
-    }
-
-    public s() {
-        super(2013002);
+public final class s implements com.baidu.tieba.im.a<Void> {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(Void r1) {
+        com.baidu.tieba.im.pushNotify.o.a();
+        com.baidu.tieba.im.pushNotify.o.d();
     }
 }

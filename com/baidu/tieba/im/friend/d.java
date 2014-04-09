@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.friend;
 
 import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class d implements DialogInterface.OnCancelListener {
+public final class d implements DialogInterface.OnCancelListener {
     final /* synthetic */ IMBlackListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

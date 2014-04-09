@@ -380,7 +380,7 @@ public final class f extends Service {
             public void onReceive(Context context, Intent intent) {
                 String action = intent.getAction();
                 if (action.equals(c.f143for)) {
-                    f.this.P.obtainMessage(101).sendToTarget();
+                    f.this.P.obtainMessage(f.am).sendToTarget();
                     return;
                 }
                 try {
@@ -924,7 +924,7 @@ public final class f extends Service {
                     case f.t /* 91 */:
                         f.this.m169int();
                         break;
-                    case 101:
+                    case f.am /* 101 */:
                         if (j.f205try && f.this.y != null) {
                             f.this.y.m188do();
                             break;

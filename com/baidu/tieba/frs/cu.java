@@ -1,32 +1,41 @@
 package com.baidu.tieba.frs;
+
+import android.app.Activity;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.NavigationBar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class cu {
-    private long a = 0;
-    private long b = 0;
-    private long c = 0;
-    private long d;
+public final class cu implements Runnable {
+    final /* synthetic */ cm a;
+    private final /* synthetic */ int b;
+    private final /* synthetic */ int c;
 
-    public final void a(long j) {
-        this.a = j;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cu(cm cmVar, int i, int i2) {
+        this.a = cmVar;
+        this.b = i;
+        this.c = i2;
     }
 
-    public final void b(long j) {
-        this.b = j;
-    }
-
-    public final long a() {
-        return this.b + this.c;
-    }
-
-    public final void c(long j) {
-        this.c = j;
-    }
-
-    public final long b() {
-        return this.d;
-    }
-
-    public final void d(long j) {
-        this.d = j;
+    @Override // java.lang.Runnable
+    public final void run() {
+        BdListView bdListView;
+        BdListView bdListView2;
+        NavigationBar navigationBar;
+        com.baidu.tbadk.a aVar;
+        BdListView bdListView3;
+        int[] iArr = new int[2];
+        this.a.c.getLocationInWindow(iArr);
+        bdListView = this.a.r;
+        int i = this.b;
+        bdListView2 = this.a.r;
+        int headerViewsCount = i + bdListView2.getHeaderViewsCount();
+        int i2 = iArr[1] - this.c;
+        navigationBar = this.a.ae;
+        int height = i2 - navigationBar.getHeight();
+        aVar = this.a.g;
+        bdListView.setSelectionFromTop(headerViewsCount, height - com.baidu.adp.lib.util.i.a((Activity) aVar));
+        bdListView3 = this.a.r;
+        bdListView3.invalidate();
     }
 }

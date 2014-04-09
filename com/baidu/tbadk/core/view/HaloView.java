@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
 public class HaloView extends View {
     Runnable a;
@@ -77,7 +76,7 @@ public class HaloView extends View {
             }
         } else {
             int c5 = com.baidu.adp.lib.util.i.c(this.c, com.baidu.tbadk.h.ds120);
-            this.b.setARGB(PersonInfoActivity.REQUEST_MARK, 0, 0, 0);
+            this.b.setARGB(102, 0, 0, 0);
             this.b.setStrokeWidth(c5);
             canvas.drawCircle(width, height, c5, this.b);
         }

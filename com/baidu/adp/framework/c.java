@@ -2,7 +2,8 @@ package com.baidu.adp.framework;
 
 import android.os.Handler;
 import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.b.i;
+import com.baidu.adp.framework.b.h;
+import com.baidu.adp.framework.b.k;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
@@ -10,6 +11,8 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.message.g;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.lib.util.i;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -18,7 +21,7 @@ public class c {
     private com.baidu.adp.framework.d.b b;
     private com.baidu.adp.framework.d.d c;
     private com.baidu.adp.framework.d.a d;
-    private i e;
+    private k e;
     private Handler f;
 
     public static c a() {
@@ -41,7 +44,7 @@ public class c {
         this.b = new com.baidu.adp.framework.d.b(this);
         this.c = new com.baidu.adp.framework.d.d(this);
         this.d = new com.baidu.adp.framework.d.a(this);
-        this.e = new i();
+        this.e = new k();
         this.f = new Handler();
     }
 
@@ -150,11 +153,11 @@ public class c {
 
     public final void a(com.baidu.adp.framework.task.b bVar) {
         if (bVar != null) {
-            com.baidu.adp.lib.util.i.b();
+            i.b();
             if (bVar instanceof HttpMessageTask) {
                 this.b.a((com.baidu.adp.framework.d.b) ((HttpMessageTask) bVar));
-            } else if (bVar instanceof com.baidu.adp.framework.task.c) {
-                this.c.a((com.baidu.adp.framework.d.d) ((com.baidu.adp.framework.task.c) bVar));
+            } else if (bVar instanceof SocketMessageTask) {
+                this.c.a((com.baidu.adp.framework.d.d) ((SocketMessageTask) bVar));
             } else if (bVar instanceof CustomMessageTask) {
                 this.d.a((com.baidu.adp.framework.d.a) ((CustomMessageTask) bVar));
             } else {
@@ -178,7 +181,7 @@ public class c {
     }
 
     public final void e(int i) {
-        com.baidu.adp.lib.util.i.b();
+        i.b();
         com.baidu.adp.framework.d.c<?, ?, ?, ?> g = g(i);
         if (g != null) {
             g.b(i);
@@ -201,7 +204,7 @@ public class c {
 
     public final void a(com.baidu.adp.framework.c.c<?> cVar) {
         if (cVar != null) {
-            com.baidu.adp.lib.util.i.b();
+            i.b();
             FrameHelper.TYPE a2 = FrameHelper.a(cVar.b());
             if (a2 == FrameHelper.TYPE.HTTP && (cVar instanceof com.baidu.adp.framework.c.b)) {
                 this.b.a(0, (com.baidu.adp.framework.c.b) cVar);
@@ -217,7 +220,7 @@ public class c {
 
     public final void a(int i, com.baidu.adp.framework.c.c<?> cVar) {
         if (cVar != null) {
-            com.baidu.adp.lib.util.i.b();
+            i.b();
             FrameHelper.TYPE a2 = FrameHelper.a(i);
             if (a2 == FrameHelper.TYPE.HTTP && (cVar instanceof com.baidu.adp.framework.c.b)) {
                 this.b.a(i, (com.baidu.adp.framework.c.b) cVar);
@@ -232,7 +235,7 @@ public class c {
     }
 
     public final void b(com.baidu.adp.framework.c.c<?> cVar) {
-        com.baidu.adp.lib.util.i.b();
+        i.b();
         if (cVar != null) {
             int b = cVar.b();
             if (b != 0) {
@@ -255,17 +258,22 @@ public class c {
         this.d.d(i);
     }
 
-    public final void a(com.baidu.adp.framework.b.f<?, ?> fVar) {
-        com.baidu.adp.lib.util.i.b();
-        this.e.a(fVar);
+    public final void a(h<?, ?> hVar) {
+        i.b();
+        this.e.a(hVar);
+    }
+
+    public final void a(com.baidu.adp.framework.b.i<?> iVar) {
+        i.b();
+        this.e.a(iVar);
     }
 
     public final void a(com.baidu.adp.framework.b.g<?> gVar) {
-        com.baidu.adp.lib.util.i.b();
+        i.b();
         this.e.a(gVar);
     }
 
-    public final i b() {
+    public final k b() {
         return this.e;
     }
 

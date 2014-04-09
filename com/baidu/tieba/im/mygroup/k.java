@@ -29,7 +29,7 @@ public final class k extends com.baidu.adp.a.f {
         this.a.b().a(i == 1);
         this.a.b().a(this.d);
         this.e.b(i);
-        this.c.onChangeSkinType(i);
+        this.c.c(i);
         this.f.a(i);
     }
 

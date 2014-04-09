@@ -27,26 +27,25 @@ public final class c extends BdAsyncTask<e, com.baidu.tieba.download.a, com.baid
         if (com.baidu.tbadk.core.util.bc.c(a) || com.baidu.tbadk.core.util.bc.c(c)) {
             return null;
         }
-        b bVar = this.a;
-        String a2 = b.a(b);
-        String a3 = b.a(this.a, a2);
-        if (com.baidu.tbadk.core.util.w.d(a2) != null) {
+        String replace = a.replace(".", "_");
+        String a2 = b.a(this.a, replace);
+        if (com.baidu.tbadk.core.util.w.d(replace) != null) {
             com.baidu.tieba.download.a aVar = new com.baidu.tieba.download.a(a);
-            aVar.a(a2);
+            aVar.a(replace);
             aVar.e(d);
-            aVar.c(a3);
+            aVar.c(a2);
             aVar.a(3);
             return aVar;
         }
         com.baidu.tieba.download.a aVar2 = new com.baidu.tieba.download.a(a, c, b, new a());
-        b bVar2 = this.a;
-        i = bVar2.j;
-        bVar2.j = i + 1;
+        b bVar = this.a;
+        i = bVar.j;
+        bVar.j = i + 1;
         i2 = this.a.j;
         aVar2.f(i2);
         aVar2.e(TbadkApplication.E());
         aVar2.b(12);
-        aVar2.c(a3);
+        aVar2.c(a2);
         aVar2.e(d);
         return aVar2;
     }
@@ -69,8 +68,8 @@ public final class c extends BdAsyncTask<e, com.baidu.tieba.download.a, com.baid
             if (aVar2.f() == 3) {
                 b bVar = this.a;
                 b.a(aVar2);
-                com.baidu.tieba.r.c();
-                UtilHelper.b(com.baidu.tieba.r.d(), aVar2.b());
+                com.baidu.tieba.p.c();
+                UtilHelper.b(com.baidu.tieba.p.d(), aVar2.a().replace(".", "_"));
             } else {
                 aVar2.a(1);
                 b bVar2 = this.a;
@@ -81,8 +80,8 @@ public final class c extends BdAsyncTask<e, com.baidu.tieba.download.a, com.baid
                 notification2 = this.a.g;
                 RemoteViews remoteViews = notification2.contentView;
                 int i = com.baidu.tieba.a.h.schedule;
-                com.baidu.tieba.r.c();
-                remoteViews.setTextViewText(i, com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.download_will_begin));
+                com.baidu.tieba.p.c();
+                remoteViews.setTextViewText(i, com.baidu.tieba.p.d().getString(com.baidu.tieba.a.k.download_will_begin));
                 notification3 = this.a.g;
                 notification3.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, 0, false);
                 notificationManager = this.a.f;

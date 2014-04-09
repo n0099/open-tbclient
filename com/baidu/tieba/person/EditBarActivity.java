@@ -41,7 +41,7 @@ public class EditBarActivity extends com.baidu.tbadk.a {
             intent.putExtra("view_user_id", str);
             intent.putExtra("user_sex", i2);
         }
-        activity.startActivityForResult(intent, PersonInfoActivity.REQUSET_MY_BAR);
+        activity.startActivityForResult(intent, 103);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

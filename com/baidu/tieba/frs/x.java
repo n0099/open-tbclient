@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-final class x implements cx {
+final class x implements cz {
     final /* synthetic */ FrsActivity a;
     private long b = 0;
 
@@ -17,7 +17,7 @@ final class x implements cx {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.cx
+    @Override // com.baidu.tieba.frs.cz
     public final void a(int i) {
         cm cmVar;
         cm cmVar2;
@@ -30,13 +30,13 @@ final class x implements cx {
                 cmVar3 = this.a.r;
                 cmVar3.d(true);
                 cmVar4 = this.a.r;
-                cmVar4.x();
+                cmVar4.y();
                 return;
             case 2:
                 cmVar = this.a.r;
                 cmVar.e(true);
                 cmVar2 = this.a.r;
-                cmVar2.x();
+                cmVar2.y();
                 return;
             case 3:
                 cmVar5 = this.a.r;
@@ -49,7 +49,7 @@ final class x implements cx {
 
     /* JADX WARN: Removed duplicated region for block: B:101:0x0482  */
     /* JADX WARN: Removed duplicated region for block: B:99:0x045b  */
-    @Override // com.baidu.tieba.frs.cx
+    @Override // com.baidu.tieba.frs.cz
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -130,14 +130,14 @@ final class x implements cx {
         cm cmVar25;
         if (UtilHelper.d(this.a) == UtilHelper.NetworkStateInfo.UNAVAIL) {
             cmVar25 = this.a.r;
-            cmVar25.o();
+            cmVar25.p();
         } else {
             cmVar = this.a.r;
-            cmVar.p();
+            cmVar.q();
         }
         if (jVar != null && jVar.b) {
             cmVar24 = this.a.r;
-            cmVar24.t().a(com.baidu.tbadk.core.util.bd.a().b());
+            cmVar24.u().a(com.baidu.tbadk.core.util.bd.a().b());
             FrsActivity.v = 0L;
             FrsActivity.w = 0L;
             FrsActivity.x = 0;
@@ -151,13 +151,13 @@ final class x implements cx {
                 cmVar5 = this.a.r;
                 cmVar5.d(false);
                 cmVar6 = this.a.r;
-                cmVar6.x();
+                cmVar6.y();
                 break;
             case 2:
                 cmVar3 = this.a.r;
                 cmVar3.e(false);
                 cmVar4 = this.a.r;
-                cmVar4.x();
+                cmVar4.y();
                 break;
         }
         if (jSONObject != null && (jVar == null || jVar.c == 0)) {
@@ -175,19 +175,19 @@ final class x implements cx {
                 z3 = this.a.z;
                 if (!z3) {
                     cmVar17 = this.a.r;
-                    cmVar17.R().setVisibility(0);
+                    cmVar17.S().setVisibility(0);
                     cmVar18 = this.a.r;
-                    cmVar18.S().setVisibility(4);
+                    cmVar18.T().setVisibility(4);
                     cmVar19 = this.a.r;
-                    cmVar19.T().setVisibility(4);
+                    cmVar19.U().setVisibility(4);
                 } else {
                     this.a.J = "good_page";
                     cmVar21 = this.a.r;
-                    cmVar21.R().setVisibility(4);
+                    cmVar21.S().setVisibility(4);
                     cmVar22 = this.a.r;
-                    cmVar22.S().setVisibility(0);
+                    cmVar22.T().setVisibility(0);
                     cmVar23 = this.a.r;
-                    cmVar23.T().setVisibility(4);
+                    cmVar23.U().setVisibility(4);
                 }
                 cmVar20 = this.a.r;
                 gVar28 = this.a.D;
@@ -254,18 +254,18 @@ final class x implements cx {
             z2 = this.a.A;
             if (z2) {
                 cmVar16 = this.a.r;
-                cmVar16.G();
+                cmVar16.H();
                 this.a.A = false;
             }
             str = this.a.J;
             if (str.equals("frs_page")) {
                 cmVar15 = this.a.r;
-                cmVar15.z();
+                cmVar15.A();
             } else {
                 str2 = this.a.J;
                 if (str2.equals("normal_page")) {
                     cmVar8 = this.a.r;
-                    cmVar8.y();
+                    cmVar8.z();
                 } else {
                     str3 = this.a.J;
                     if (str3.equals("good_page")) {
@@ -330,14 +330,14 @@ final class x implements cx {
                         gVar12 = this.a.D;
                         if (!gVar12.e()) {
                             cmVar12 = this.a.r;
-                            cmVar12.u().j();
+                            cmVar12.v().j();
                             cmVar13 = this.a.r;
-                            cmVar13.v().i();
+                            cmVar13.w().i();
                         } else {
                             cmVar10 = this.a.r;
-                            cmVar10.u().i();
+                            cmVar10.v().i();
                             cmVar11 = this.a.r;
-                            cmVar11.v().h();
+                            cmVar11.w().h();
                         }
                     }
                 }
@@ -376,7 +376,7 @@ final class x implements cx {
         System.gc();
     }
 
-    @Override // com.baidu.tieba.frs.cx
+    @Override // com.baidu.tieba.frs.cz
     public final void a(g gVar) {
         String str;
         String str2;

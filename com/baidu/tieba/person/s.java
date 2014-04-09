@@ -13,11 +13,11 @@ final class s extends com.baidu.adp.a.h {
         v vVar;
         v vVar2;
         t tVar;
-        r.e = true;
-        vVar = this.a.b;
+        r.f = true;
+        vVar = this.a.c;
         if (vVar != null) {
-            vVar2 = this.a.b;
-            tVar = this.a.c;
+            vVar2 = this.a.c;
+            tVar = this.a.d;
             vVar2.a(tVar, ((Boolean) obj).booleanValue());
         }
     }

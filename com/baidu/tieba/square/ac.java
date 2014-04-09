@@ -80,8 +80,8 @@ public final class ac extends BaseAdapter {
                 aeVar.b.setOnClickListener(this.a);
                 view2.setTag(aeVar);
             } else if (itemViewType == 1) {
-                view2 = new com.baidu.tieba.view.k(this.b);
-                ((com.baidu.tieba.view.k) view2).setHeightPx(this.b.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.square_forum_list_paddingBottom));
+                view2 = new com.baidu.tieba.view.i(this.b);
+                ((com.baidu.tieba.view.i) view2).setHeightPx(this.b.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.square_forum_list_paddingBottom));
             }
             view = view2;
         }

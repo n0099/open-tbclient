@@ -7,12 +7,7 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 /* loaded from: classes.dex */
 public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
-    public boolean isAvailable() {
-        return true;
-    }
-
-    @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d createFragmentTabStructure() {
+    public final com.baidu.tbadk.mainTab.d a() {
         com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
         dVar.a = new e();
         dVar.c = 1;
@@ -21,14 +16,14 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     static {
-        m mVar = new m(2007002);
-        mVar.a(2);
-        com.baidu.adp.framework.c.a().a(mVar);
+        n nVar = new n(2007002);
+        nVar.a(2);
+        com.baidu.adp.framework.c.a().a(nVar);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator getTabIndicator(Context context) {
-        this.mIndicator = (FragmentTabIndicator) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.fragmenttabindicator, (ViewGroup) null);
-        return this.mIndicator;
+    public final FragmentTabIndicator a(Context context) {
+        this.b = (FragmentTabIndicator) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.fragmenttabindicator, (ViewGroup) null);
+        return this.b;
     }
 }

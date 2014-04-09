@@ -29,14 +29,14 @@ public final class bb {
                     this.g = jSONObject.optInt("sync_active", 0);
                     com.baidu.adp.framework.c.a().b(new CustomResponsedMessage(2001145, jSONObject));
                     this.f = jSONObject.optInt("faceshop_version");
-                    if (this.f > TbadkApplication.j().an()) {
+                    if (this.f > TbadkApplication.j().ap()) {
                         TbadkApplication.j().h(this.f);
-                        TbadkApplication.j().f(true);
+                        TbadkApplication.j().h(true);
                     }
                     JSONObject optJSONObject = jSONObject.optJSONObject("lcs_strategy");
                     if (optJSONObject != null) {
-                        com.baidu.tieba.r.c();
-                        com.baidu.tieba.r.m(optJSONObject.toString());
+                        com.baidu.tieba.p.c();
+                        com.baidu.tieba.p.m(optJSONObject.toString());
                     }
                 } catch (Exception e) {
                     com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());

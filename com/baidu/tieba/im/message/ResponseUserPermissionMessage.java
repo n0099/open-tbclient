@@ -12,7 +12,7 @@ public class ResponseUserPermissionMessage extends SocketResponsedMessage {
     public final /* synthetic */ void a(int i, Object obj) {
         QueryUserPermissionRes.QueryUserPermissionResIdl parseFrom = QueryUserPermissionRes.QueryUserPermissionResIdl.parseFrom((byte[]) obj);
         a(parseFrom.getError().getErrorno());
-        e(parseFrom.getError().getUsermsg());
+        d(parseFrom.getError().getUsermsg());
         if (e() == 0) {
             Im.GroupPermission groupPerm = parseFrom.getData().getGroupPerm();
             GroupPermData groupPermData = new GroupPermData();

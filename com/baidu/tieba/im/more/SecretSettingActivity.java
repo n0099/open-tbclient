@@ -9,10 +9,10 @@ import com.baidu.adp.widget.BdSwitchView.c;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.b.am;
 import com.baidu.tbadk.core.b.q;
-import com.baidu.tieba.im.model.x;
+import com.baidu.tieba.im.model.y;
 /* loaded from: classes.dex */
 public class SecretSettingActivity extends com.baidu.tbadk.a implements View.OnClickListener, c {
-    private x a;
+    private y a;
     private b b;
     private final g c = new a(this, 0);
 
@@ -26,8 +26,8 @@ public class SecretSettingActivity extends com.baidu.tbadk.a implements View.OnC
         super.onCreate(bundle);
         this.b = new b(this);
         this.b.a(this);
-        this.a = new x();
-        x xVar = this.a;
+        this.a = new y();
+        y yVar = this.a;
         g gVar = this.c;
         com.baidu.adp.framework.c.a().a(104103, gVar);
         com.baidu.adp.framework.c.a().a(104102, gVar);
@@ -44,7 +44,7 @@ public class SecretSettingActivity extends com.baidu.tbadk.a implements View.OnC
     @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        x xVar = this.a;
+        y yVar = this.a;
         com.baidu.adp.framework.c.a().b(this.c);
     }
 

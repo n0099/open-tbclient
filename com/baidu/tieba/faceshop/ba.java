@@ -1,21 +1,15 @@
 package com.baidu.tieba.faceshop;
-
-import android.widget.TextView;
-import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-final class ba {
-    TbImageView a;
-    TextView b;
-    TextView c;
-    TextView d;
-    final /* synthetic */ az e;
-
-    private ba(az azVar) {
-        this.e = azVar;
-    }
+final class ba implements com.baidu.adp.widget.ListView.d {
+    final /* synthetic */ FacePurchaseRecordsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ba(az azVar, byte b) {
-        this(azVar);
+    public ba(FacePurchaseRecordsActivity facePurchaseRecordsActivity) {
+        this.a = facePurchaseRecordsActivity;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.d
+    public final void a(boolean z) {
+        this.a.a(false);
     }
 }

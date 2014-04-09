@@ -1,8 +1,8 @@
 package com.baidu.tieba.faceshop;
 
-import android.view.View;
+import com.baidu.adp.widget.ImageView.BDImageView;
 /* loaded from: classes.dex */
-final class m implements View.OnClickListener {
+final class m implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ EmotionImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,28 +10,18 @@ final class m implements View.OnClickListener {
         this.a = emotionImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        int i;
-        String str;
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        boolean z2;
         String str2;
-        i = this.a.r;
-        switch (i) {
-            case 1:
-                str = "faceshop_from_forum_detail";
-                break;
-            case 2:
-                str = "faceshop_from_pchat_detail";
-                break;
-            case 3:
-                str = "faceshop_from_gchat_detail";
-                break;
-            default:
-                str = "emotion_image";
-                break;
+        BDImageView bDImageView;
+        z2 = this.a.q;
+        if (!z2 && bVar != null) {
+            str2 = this.a.h;
+            if (str2.equals(str)) {
+                bDImageView = this.a.c;
+                bVar.a(bDImageView);
+            }
         }
-        EmotionImageActivity emotionImageActivity = this.a;
-        str2 = this.a.f;
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.i(emotionImageActivity, str2, false, str)));
     }
 }

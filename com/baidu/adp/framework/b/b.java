@@ -1,6 +1,6 @@
 package com.baidu.adp.framework.b;
 
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public abstract class b extends f<com.baidu.adp.framework.message.a, CustomMessageTask> {
+public abstract class b extends i<CustomResponsedMessage> {
 }

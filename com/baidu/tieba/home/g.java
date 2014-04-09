@@ -10,8 +10,8 @@ final class g implements Runnable {
 
     @Override // java.lang.Runnable
     public final void run() {
-        n nVar;
-        nVar = this.a.a.a;
-        nVar.a();
+        o oVar;
+        oVar = this.a.a.b;
+        oVar.a();
     }
 }

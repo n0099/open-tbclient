@@ -14,14 +14,14 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.coreExtra.view.BannerView;
-import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.data.GroupInfoData;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class l extends BaseAdapter implements AbsListView.OnScrollListener {
     private com.baidu.tbadk.core.d a;
-    private aa b;
+    private ab b;
     private volatile boolean c;
     private List<GroupInfoData> d = new ArrayList();
     private int e = 0;
@@ -31,7 +31,7 @@ public final class l extends BaseAdapter implements AbsListView.OnScrollListener
     public l(com.baidu.tbadk.core.d dVar) {
         this.b = null;
         this.a = dVar;
-        this.b = new aa(dVar.getActivity());
+        this.b = new ab(dVar.getActivity());
     }
 
     public final void a(int i) {
@@ -129,12 +129,10 @@ public final class l extends BaseAdapter implements AbsListView.OnScrollListener
                 View inflate = LayoutInflater.from(TbadkApplication.j().b().getApplicationContext()).inflate(com.baidu.tieba.im.i.group_tab_banner, viewGroup, false);
                 BannerView bannerView = (BannerView) inflate.findViewById(com.baidu.tieba.im.h.group_banner);
                 bannerView.a("group_tab_banner_click", "group_tab_banner_close");
-                ImageView imageView3 = (ImageView) inflate.findViewById(com.baidu.tieba.im.h.diver);
-                if (!TextUtils.isEmpty(this.f) && !TextUtils.isEmpty(this.g)) {
-                    ba.c(imageView3, com.baidu.tieba.im.g.divier_color);
-                    bannerView.a(this.f, this.g, "group_banner_date", 259200000L);
+                if (TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g)) {
+                    return inflate;
                 }
-                imageView3.setVisibility(bannerView.getVisibility());
+                bannerView.a(this.f, this.g, "group_banner_date", 259200000L);
                 return inflate;
             case 1:
                 n nVar = view != null ? (n) view.getTag() : null;
@@ -146,8 +144,9 @@ public final class l extends BaseAdapter implements AbsListView.OnScrollListener
                 n nVar2 = nVar;
                 switch (i) {
                     case 2:
-                        nVar2.b.setLineBottomVisibility(false);
-                        nVar2.b.setLineBottomPxVisibility(true);
+                        nVar2.b.setLineTopVisibility(true);
+                        nVar2.b.setLineTopPxVisibility(false);
+                        nVar2.b.setLineBottomPxVisibility(false);
                         if (this.e <= 0) {
                             nVar2.b.setText("附近群组");
                         } else {
@@ -158,15 +157,17 @@ public final class l extends BaseAdapter implements AbsListView.OnScrollListener
                         nVar2.c.setVisibility(8);
                         break;
                     case 3:
-                        nVar2.b.setLineBottomVisibility(false);
-                        nVar2.b.setLineBottomPxVisibility(true);
+                        nVar2.b.setLineTopVisibility(false);
+                        nVar2.b.setLineTopPxVisibility(true);
+                        nVar2.b.setLineBottomPxVisibility(false);
                         nVar2.b.setText(TbadkApplication.j().b().getResources().getString(com.baidu.tieba.im.j.group_tab_hotgroup));
                         nVar2.b.setLeftIconRes(com.baidu.tieba.im.g.icon_hot_group);
                         nVar2.b.getRightIcon().setVisibility(8);
                         nVar2.c.setVisibility(8);
                         break;
                     case 4:
-                        nVar2.b.setLineBottomVisibility(true);
+                        nVar2.b.setLineTopVisibility(false);
+                        nVar2.b.setLineTopPxVisibility(true);
                         nVar2.b.setLineBottomPxVisibility(false);
                         nVar2.b.setText(TbadkApplication.j().b().getResources().getString(com.baidu.tieba.im.j.group_tab_enterchatroom_btn));
                         nVar2.b.setLeftIconRes(com.baidu.tieba.im.g.icon_come_chat);
@@ -174,16 +175,18 @@ public final class l extends BaseAdapter implements AbsListView.OnScrollListener
                         nVar2.c.setVisibility(8);
                         break;
                     case 5:
-                        nVar2.b.setLineBottomVisibility(false);
-                        nVar2.b.setLineBottomPxVisibility(true);
+                        nVar2.b.setLineTopVisibility(false);
+                        nVar2.b.setLineTopPxVisibility(true);
+                        nVar2.b.setLineBottomPxVisibility(false);
                         nVar2.b.setText(TbadkApplication.j().b().getResources().getString(com.baidu.tieba.im.j.group_tab_addgroup));
                         nVar2.b.setLeftIconRes(com.baidu.tieba.im.g.icon_qun_search);
                         nVar2.b.getRightIcon().setVisibility(8);
                         nVar2.c.setVisibility(0);
                         break;
                     case 6:
-                        nVar2.b.setLineBottomVisibility(true);
-                        nVar2.b.setLineBottomPxVisibility(false);
+                        nVar2.b.setLineTopVisibility(false);
+                        nVar2.b.setLineTopPxVisibility(true);
+                        nVar2.b.setLineBottomPxVisibility(true);
                         nVar2.b.setText(TbadkApplication.j().b().getResources().getString(com.baidu.tieba.im.j.group_tab_creategroup));
                         nVar2.b.setLeftIconRes(com.baidu.tieba.im.g.icon_add_group);
                         nVar2.b.getRightIcon().setVisibility(8);
@@ -205,10 +208,10 @@ public final class l extends BaseAdapter implements AbsListView.OnScrollListener
                 if (a != null) {
                     if (i == 1) {
                         a.a(com.baidu.tieba.im.j.group_title_find_group);
-                        a.a(false, true);
+                        a.a(false, false);
                     } else if (i == 7) {
                         a.a(com.baidu.tieba.im.j.group_tab_mygroup);
-                        a.a(false, true);
+                        a.a(false, false);
                     }
                     ((com.baidu.tbadk.core.e) this.a.getActivity()).b().a(TbadkApplication.j().l() == 1);
                     ((com.baidu.tbadk.core.e) this.a.getActivity()).b().a(a.a());
@@ -228,18 +231,20 @@ public final class l extends BaseAdapter implements AbsListView.OnScrollListener
                     view = LayoutInflater.from(this.a.getActivity()).inflate(com.baidu.tieba.im.i.tab_my_group_item, viewGroup, false);
                     oVar = new o();
                     oVar.a = (LinearLayout) view.findViewById(com.baidu.tieba.im.h.click_head);
+                    oVar.g = (ImageView) view.findViewById(com.baidu.tieba.im.h.diver_top);
+                    oVar.h = (ImageView) view.findViewById(com.baidu.tieba.im.h.diver_top_px);
                     oVar.b = (HeadImageView) view.findViewById(com.baidu.tieba.im.h.item_head);
                     oVar.c = (TextView) view.findViewById(com.baidu.tieba.im.h.item_group_name);
                     oVar.d = (TextView) view.findViewById(com.baidu.tieba.im.h.item_group_num);
                     oVar.e = (TextView) view.findViewById(com.baidu.tieba.im.h.item_introduce);
                     oVar.f = (TextView) view.findViewById(com.baidu.tieba.im.h.isCreator);
-                    oVar.g = (ImageView) view.findViewById(com.baidu.tieba.im.h.item_grade1);
-                    oVar.h = (ImageView) view.findViewById(com.baidu.tieba.im.h.item_grade2);
-                    oVar.i = (ImageView) view.findViewById(com.baidu.tieba.im.h.item_grade3);
-                    oVar.j = new ImageView[4];
-                    oVar.j[1] = oVar.g;
-                    oVar.j[2] = oVar.h;
-                    oVar.j[3] = oVar.i;
+                    oVar.i = (ImageView) view.findViewById(com.baidu.tieba.im.h.item_grade1);
+                    oVar.j = (ImageView) view.findViewById(com.baidu.tieba.im.h.item_grade2);
+                    oVar.k = (ImageView) view.findViewById(com.baidu.tieba.im.h.item_grade3);
+                    oVar.l = new ImageView[4];
+                    oVar.l[1] = oVar.i;
+                    oVar.l[2] = oVar.j;
+                    oVar.l[3] = oVar.k;
                     view.setTag(oVar);
                 } else {
                     oVar = (o) view.getTag();
@@ -255,7 +260,7 @@ public final class l extends BaseAdapter implements AbsListView.OnScrollListener
                 if (groupInfoData != null) {
                     String portrait = groupInfoData.getPortrait();
                     oVar.b.setTag(portrait);
-                    aa aaVar = this.b;
+                    ab abVar = this.b;
                     if (com.baidu.tbadk.imageManager.e.a().c(portrait) != null) {
                         oVar.b.invalidate();
                     } else if (!this.c) {
@@ -263,6 +268,13 @@ public final class l extends BaseAdapter implements AbsListView.OnScrollListener
                     }
                     oVar.a.setOnClickListener(this.a);
                     oVar.a.setTag(groupInfoData);
+                    if (this.d == null || i != getCount() - this.d.size()) {
+                        oVar.g.setVisibility(8);
+                        oVar.h.setVisibility(0);
+                    } else {
+                        oVar.g.setVisibility(0);
+                        oVar.h.setVisibility(8);
+                    }
                     oVar.c.setText(groupInfoData.getName());
                     oVar.d.setText(String.valueOf(groupInfoData.getMemberNum()) + "/" + groupInfoData.getMaxMemberNum());
                     oVar.e.setText(groupInfoData.getIntro());
@@ -271,7 +283,7 @@ public final class l extends BaseAdapter implements AbsListView.OnScrollListener
                     } else {
                         oVar.f.setVisibility(8);
                     }
-                    a(oVar.j, groupInfoData.getGrade());
+                    a(oVar.l, groupInfoData.getGrade());
                 }
                 ((com.baidu.tbadk.core.e) this.a.getActivity()).b().a(TbadkApplication.j().l() == 1);
                 ((com.baidu.tbadk.core.e) this.a.getActivity()).b().a(view);
@@ -279,9 +291,9 @@ public final class l extends BaseAdapter implements AbsListView.OnScrollListener
                     return view;
                 }
                 ba.a(oVar.c, com.baidu.tieba.im.e.cp_cont_b, 1);
-                ba.c(oVar.g, com.baidu.tieba.im.g.icon_vip_grade_big_small_s);
-                ba.c(oVar.h, com.baidu.tieba.im.g.icon_vip_grade_big_small_s);
                 ba.c(oVar.i, com.baidu.tieba.im.g.icon_vip_grade_big_small_s);
+                ba.c(oVar.j, com.baidu.tieba.im.g.icon_vip_grade_big_small_s);
+                ba.c(oVar.k, com.baidu.tieba.im.g.icon_vip_grade_big_small_s);
                 return view;
             default:
                 return view;

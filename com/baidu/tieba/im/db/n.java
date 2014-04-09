@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.db;
 /* loaded from: classes.dex */
 public final class n extends a {
-    public static String b = "tb_private_msg_";
+    public static String b = "tb_oficial_msg_";
     private static a c;
 
     private n() {
-        super("tb_private_msg_", com.baidu.tieba.im.message.a.f.class);
+        super("tb_oficial_msg_", com.baidu.tieba.im.message.a.e.class);
     }
 
     public static synchronized n d() {

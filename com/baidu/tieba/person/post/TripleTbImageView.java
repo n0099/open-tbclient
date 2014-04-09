@@ -9,7 +9,7 @@ import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class TripleTbImageView extends ViewGroup {
     public static final float[] a = {0.5f, 0.33f, 0.25f};
-    private static com.baidu.tbadk.editortool.aa g;
+    private static com.baidu.tbadk.editortool.ab g;
     private static int h;
     public TbImageView b;
     public TbImageView c;
@@ -34,7 +34,7 @@ public class TripleTbImageView extends ViewGroup {
         addView(this.d);
         this.f = com.baidu.adp.lib.util.i.a(context, 6.0f);
         if (g == null) {
-            g = new com.baidu.tbadk.editortool.aa(context);
+            g = new com.baidu.tbadk.editortool.ab(context);
         }
     }
 

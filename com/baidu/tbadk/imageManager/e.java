@@ -1,6 +1,4 @@
 package com.baidu.tbadk.imageManager;
-
-import android.text.TextUtils;
 /* loaded from: classes.dex */
 public final class e {
     private static e a = new e();
@@ -32,14 +30,11 @@ public final class e {
     }
 
     public final void a(String str, com.baidu.adp.widget.ImageView.b bVar) {
-        a(str, bVar, false);
+        b(str, bVar);
     }
 
-    public final void a(String str, com.baidu.adp.widget.ImageView.b bVar, boolean z) {
+    public final void b(String str, com.baidu.adp.widget.ImageView.b bVar) {
         if (bVar != null && this.b != null) {
-            if (z) {
-                str = d(str).a;
-            }
             this.b.a(str, bVar);
         }
     }
@@ -48,7 +43,7 @@ public final class e {
         return this.c.a(i);
     }
 
-    public final void b(String str, com.baidu.adp.widget.ImageView.b bVar) {
+    public final void c(String str, com.baidu.adp.widget.ImageView.b bVar) {
         if (bVar != null && this.c != null) {
             if (com.baidu.adp.lib.util.f.a()) {
                 com.baidu.adp.lib.util.f.e("image joined cache:" + bVar.j() + ", size:" + bVar.f());
@@ -57,26 +52,16 @@ public final class e {
         }
     }
 
-    public final void c(String str, com.baidu.adp.widget.ImageView.b bVar) {
-        b(str, bVar);
+    public final void d(String str, com.baidu.adp.widget.ImageView.b bVar) {
+        c(str, bVar);
     }
 
     public final void a(String str) {
         this.b.b((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.b>) str);
-        h d = d(str);
-        if (!TextUtils.isEmpty(d.a) && !d.a.equals(str)) {
-            this.b.b((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.b>) d.a);
-        }
     }
 
     public final com.baidu.adp.widget.ImageView.b b(String str) {
-        h d = d(str);
-        com.baidu.adp.widget.ImageView.b a2 = this.b.a((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.b>) d.a);
-        if (a2 != null && a2.b < d.b) {
-            this.b.b((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.b>) d.a);
-            return null;
-        }
-        return a2;
+        return this.b.a((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.b>) str);
     }
 
     public final com.baidu.adp.widget.ImageView.b c(String str) {
@@ -90,19 +75,5 @@ public final class e {
 
     public final String toString() {
         return "pic:" + this.c.toString() + "  photo:" + this.b.toString();
-    }
-
-    public static h d(String str) {
-        h hVar = new h();
-        if (str != null) {
-            int indexOf = str.indexOf("?");
-            hVar.b = 0L;
-            hVar.a = str;
-            if (indexOf != -1 && str.length() > indexOf + 3) {
-                hVar.b = com.baidu.adp.lib.f.b.a(str.substring(indexOf + 3), 0L);
-                hVar.a = str.substring(0, indexOf);
-            }
-        }
-        return hVar;
     }
 }

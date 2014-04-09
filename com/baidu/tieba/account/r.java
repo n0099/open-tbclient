@@ -7,7 +7,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.RegistData;
-import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.h> {
@@ -91,7 +90,7 @@ public final class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.d
             this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/s/regreal");
             com.baidu.tbadk.core.util.ak akVar = this.b;
             registData = this.a.q;
-            akVar.a(PersonInfoActivity.TAG_ID, registData.getName());
+            akVar.a("un", registData.getName());
             com.baidu.tbadk.core.util.ak akVar2 = this.b;
             registData2 = this.a.q;
             akVar2.a("phonenum", registData2.getPhone());

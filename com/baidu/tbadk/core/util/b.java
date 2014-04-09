@@ -188,8 +188,8 @@ public class b {
                 this.k.add(eVar3);
             }
             com.baidu.adp.lib.e.e eVar4 = new com.baidu.adp.lib.e.e();
-            eVar4.a(com.baidu.tbadk.core.util.resourceLoader.a.KEY_ImageAsyncTask, eVar3);
-            eVar4.a(com.baidu.tbadk.core.util.resourceLoader.a.KEY_AsyncImageLoader, this);
+            eVar4.a("ImageAsyncTaskInfo", eVar3);
+            eVar4.a("AsyncImageLoader", this);
             eVar4.a("param_immediatelyExecut", Boolean.valueOf(z2));
             if (map != null) {
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
@@ -210,7 +210,7 @@ public class b {
                 return (com.baidu.adp.widget.ImageView.b) a;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(com.baidu.tbadk.core.util.resourceLoader.a.KEY_AsyncImageLoader, "loadBitmap", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.f.b("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
             TiebaStatic.a("", -1008, "AsyncImageLoader.loadBitmap error: " + e.toString(), sb.toString());
         }
         return null;

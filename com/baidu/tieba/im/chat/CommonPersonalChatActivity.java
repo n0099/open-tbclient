@@ -66,7 +66,7 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
         ((CommonPersonalMsglistModel) this.e).a(userData);
     }
 
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         super.onClick(dialogInterface, i);
         if (dialogInterface == this.d.C()) {
@@ -123,7 +123,7 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
                 case 1:
                     String a3 = com.baidu.tieba.im.f.q.a(a2.v(), true);
                     if (a3 != null) {
-                        this.i = new de(a3, this);
+                        this.i = new da(a3, this);
                         this.i.a();
                         return;
                     }
@@ -145,12 +145,12 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
                     if (TbadkApplication.j().V()) {
                         TbadkApplication.j().d(false);
                         this.h.b(true);
-                        this.d.H();
+                        this.d.I();
                         return;
                     }
                     TbadkApplication.j().d(true);
                     this.h.b(false);
-                    this.d.I();
+                    this.d.J();
                     return;
                 case 1:
                     if (a4 != null && a4.r() != null && a4.r().getUserName() != null) {
@@ -164,12 +164,24 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
                 default:
                     return;
             }
+        } else if (dialogInterface == this.d.G()) {
+            int intValue4 = ((Integer) ((AlertDialog) dialogInterface).getListView().getTag()).intValue();
+            if (i >= 0) {
+                i++;
+            }
+            switch (i) {
+                case 1:
+                    this.e.c(intValue4);
+                    return;
+                default:
+                    return;
+            }
         }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:23:0x004f  */
     /* JADX WARN: Removed duplicated region for block: B:40:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.im.chat.dn, com.baidu.adp.lib.b.a
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.adp.lib.b.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -184,7 +196,7 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
                 if (s() && this.e != null && (a = this.e.a(i2)) != null) {
                     if (!a.D()) {
                         a.b(true);
-                        dg.a((Context) this, (GifView) view, a, this.d.O(), false);
+                        dc.a((Context) this, (GifView) view, a, this.d.P(), false);
                         return;
                     } else if (com.baidu.tieba.im.f.q.b(a) && (v = a.v()) != null) {
                         try {
@@ -217,5 +229,15 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
             default:
                 return;
         }
+    }
+
+    @Override // com.baidu.tieba.im.chat.dj, com.baidu.adp.lib.b.b
+    public void b(View view, int i, int i2, long j) {
+        switch (i) {
+            case 7:
+                this.d.g(i2);
+                break;
+        }
+        super.b(view, i, i2, j);
     }
 }

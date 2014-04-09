@@ -1,25 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.core.view.HeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public final class ca implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ MsgActivityView a;
+public final class ca extends com.baidu.adp.a.d<com.baidu.tieba.im.message.a.a> {
+    private TextView c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(MsgActivityView msgActivityView) {
-        this.a = msgActivityView;
+    public ca(Context context) {
+        super(context, com.baidu.tieba.im.i.msg_msg_chat_rule_view);
+        this.c = (TextView) a(com.baidu.tieba.im.h.tex_msgcontent);
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        HeadImageView headImageView;
-        HeadImageView headImageView2;
-        headImageView = this.a.p;
-        String str2 = (String) headImageView.getTag();
-        if (str != null && str.equals(str2) && bVar != null) {
-            headImageView2 = this.a.p;
-            bVar.a(headImageView2);
+    public final void a(com.baidu.tieba.im.message.a.a aVar) {
+        String str;
+        if (aVar == null) {
+            this.c = null;
+        } else if ((aVar instanceof com.baidu.tieba.im.message.b) && (str = ((com.baidu.tieba.im.message.b) aVar).a) != null) {
+            this.c.setText(str);
         }
     }
 }

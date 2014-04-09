@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes.dex */
 public class Voice implements Parcelable {
-    public static final Parcelable.Creator<Voice> CREATOR = new f();
+    public static final Parcelable.Creator<Voice> CREATOR = new e();
     private String a;
     private int b;
 
