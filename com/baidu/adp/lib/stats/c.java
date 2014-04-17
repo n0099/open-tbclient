@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class c extends d {
+public final class c extends e {
     private String p;
 
     public c(Context context, Handler handler, String str) {
@@ -17,7 +17,7 @@ public final class c extends d {
         a((String) null);
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final void a(boolean z) {
         if (this.j != null) {
             if (z || j()) {
@@ -27,14 +27,14 @@ public final class c extends d {
         }
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final void b(boolean z) {
         if (this.j != null) {
             if (!this.b || this.f) {
                 if (m()) {
                     this.j.removeMessages(4);
                     this.j.sendMessage(this.j.obtainMessage(4));
-                } else if (z && System.currentTimeMillis() - g() >= g.a().e()) {
+                } else if (z && System.currentTimeMillis() - g() >= i.a().e()) {
                     this.j.removeMessages(4);
                     this.j.sendMessage(this.j.obtainMessage(4));
                 }
@@ -42,7 +42,7 @@ public final class c extends d {
         }
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final void a(String str) {
         this.l = str;
         if (TextUtils.isEmpty(str)) {
@@ -61,13 +61,13 @@ public final class c extends d {
     /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.io.FileOutputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: java.io.FileOutputStream */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final void a() {
         if (this.e <= 5) {
             if (this.i > 0) {
                 File file = new File(this.p);
                 if (a(file)) {
-                    FileOutputStream a = o.a(file, true);
+                    FileOutputStream a = q.a(file, true);
                     try {
                         if (a != 0) {
                             try {
@@ -104,7 +104,7 @@ public final class c extends d {
     }
 
     private boolean a(File file) {
-        if (file != null && file.length() >= 307200) {
+        if (file != null && file.length() >= 61440) {
             try {
                 return file.delete();
             } catch (Exception e) {
@@ -122,7 +122,7 @@ public final class c extends d {
         try {
             File file = new File(this.p);
             if (file.exists()) {
-                if (file.length() > 102400) {
+                if (file.length() > 20480) {
                     return true;
                 }
             }
@@ -132,37 +132,42 @@ public final class c extends d {
         return false;
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final ArrayList<String> b() {
         try {
-            if (new File(this.p).exists()) {
-                ArrayList<String> arrayList = new ArrayList<>();
-                arrayList.add(this.p);
+            ArrayList<String> arrayList = new ArrayList<>();
+            String[] list = new File(this.k).list(new d(this));
+            if (list != null && list.length > 0) {
+                int length = list.length;
+                for (int i = 0; i < length; i++) {
+                    arrayList.add(String.valueOf(this.k) + File.separator + list[i]);
+                }
                 return arrayList;
             }
+            return arrayList;
         } catch (Exception e) {
             com.baidu.adp.lib.util.f.a(getClass(), "getLogFiles", e);
+            return null;
         }
-        return null;
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final String c() {
         return "omp";
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final void b(String str) {
         try {
             new File(str).delete();
             this.n = System.currentTimeMillis();
-            k.a().c(this.n, this.l);
+            m.a().c(this.n, this.l);
         } catch (Exception e) {
             com.baidu.adp.lib.util.f.a(getClass(), "uploadSucc", e);
         }
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final boolean d() {
         return this.e > 5;
     }

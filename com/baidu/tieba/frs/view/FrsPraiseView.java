@@ -46,7 +46,22 @@ public class FrsPraiseView extends LinearLayout {
             this.g = str;
             this.h = str2;
             this.e = praiseData;
+            boolean d = com.baidu.tbadk.core.h.a().d();
             long num = this.e.getNum();
+            if (!d) {
+                this.d.setVisibility(8);
+                if (num > 0) {
+                    if (num <= 999999) {
+                        this.c.setText(String.valueOf(this.a.getString(com.baidu.tieba.a.k.common_praise_view_text3)) + num + this.a.getString(com.baidu.tieba.a.k.common_praise_view_text2));
+                        return;
+                    } else {
+                        this.c.setText(String.valueOf(this.a.getString(com.baidu.tieba.a.k.common_praise_view_text3)) + "999999+" + this.a.getString(com.baidu.tieba.a.k.common_praise_view_text2));
+                        return;
+                    }
+                }
+                return;
+            }
+            this.d.setVisibility(0);
             if (num > 0) {
                 if (num <= 6) {
                     this.c.setText(this.a.getString(com.baidu.tieba.a.k.common_praise_view_text));

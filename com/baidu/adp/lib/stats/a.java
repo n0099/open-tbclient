@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import org.apache.commons.io.FileUtils;
 /* loaded from: classes.dex */
-public final class a extends d {
+public final class a extends e {
     private String p;
     private String q;
     private String r;
@@ -28,7 +28,7 @@ public final class a extends d {
         a((String) null);
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final void a(boolean z) {
         if (this.j != null) {
             if (z || j()) {
@@ -38,7 +38,7 @@ public final class a extends d {
         }
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final void a(String str) {
         this.l = str;
         if (TextUtils.isEmpty(str)) {
@@ -56,7 +56,7 @@ public final class a extends d {
     /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.io.FileOutputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: java.io.FileOutputStream */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final void a() {
         Class<?> cls;
         if (this.e <= 5) {
@@ -64,7 +64,7 @@ public final class a extends d {
                 if (this.p == null) {
                     this.p = String.valueOf(this.k) + File.separator + this.q + "-" + DateFormat.format(this.s, System.currentTimeMillis()).toString() + ".log";
                 }
-                FileOutputStream a = o.a(this.p, true);
+                FileOutputStream a = q.a(this.p, true);
                 try {
                     if (a != 0) {
                         try {
@@ -109,7 +109,7 @@ public final class a extends d {
         }
         try {
             File file = new File(this.p);
-            if (file.exists() && file.length() > 102400) {
+            if (file.exists() && file.length() > 20480) {
                 this.p = null;
                 return true;
             }
@@ -119,7 +119,7 @@ public final class a extends d {
         return false;
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final ArrayList<String> b() {
         ArrayList<String> arrayList = null;
         File[] listFiles = new File(this.k).listFiles();
@@ -174,13 +174,13 @@ public final class a extends d {
         }
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final void b(boolean z) {
         if (this.j != null) {
             if (!this.b || this.f) {
                 if (m()) {
                     this.j.sendMessage(this.j.obtainMessage(5));
-                } else if (z && System.currentTimeMillis() - g() >= g.a().e()) {
+                } else if (z && System.currentTimeMillis() - g() >= i.a().e()) {
                     this.j.removeMessages(5);
                     this.j.sendMessage(this.j.obtainMessage(5));
                 }
@@ -188,25 +188,25 @@ public final class a extends d {
         }
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final String c() {
         return "omp";
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final void b(String str) {
         try {
             File file = new File(str);
             file.renameTo(new File(String.valueOf(this.r) + File.separator + file.getName()));
             this.n = System.currentTimeMillis();
-            k.a().b(this.n, this.l);
+            m.a().b(this.n, this.l);
         } catch (Exception e) {
             com.baidu.adp.lib.util.f.a(getClass(), "uploadSucc", e);
         }
         d(this.r);
     }
 
-    @Override // com.baidu.adp.lib.stats.d
+    @Override // com.baidu.adp.lib.stats.e
     public final boolean d() {
         return this.e > 5;
     }

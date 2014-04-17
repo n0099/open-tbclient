@@ -337,7 +337,7 @@ public class FrsActivity extends com.baidu.tbadk.a implements com.baidu.adp.widg
             cm cmVar = this.r;
             aj ajVar = new aj(this);
             if (ajVar != null) {
-                cmVar.c.setOnActionListener(new cv(cmVar, ajVar));
+                cmVar.c.setOnActionListener(new cu(cmVar, ajVar));
             }
             this.r.u().a(this.ap);
             String[] strArr = {getString(com.baidu.tieba.a.k.take_photo), getString(com.baidu.tieba.a.k.album)};
@@ -698,44 +698,46 @@ public class FrsActivity extends com.baidu.tbadk.a implements com.baidu.adp.widg
                     }
                     if (intent.getBooleanExtra("praise_changed", false)) {
                         String stringExtra2 = intent.getStringExtra("praise_changed_tid");
-                        ArrayList<com.baidu.tbadk.core.data.o> g = this.D.g();
-                        if (g != null) {
-                            Iterator<com.baidu.tbadk.core.data.o> it = g.iterator();
-                            while (true) {
-                                if (it.hasNext()) {
-                                    com.baidu.tbadk.core.data.o next = it.next();
-                                    if (next.m() != null && next.l().equals(stringExtra2)) {
-                                        if (next.k().getIsLike() != 1) {
-                                            PraiseData k = next.k();
-                                            AccountData N = TbadkApplication.N();
-                                            if (N != null) {
-                                                MetaData metaData = new MetaData();
-                                                metaData.setName_show(N.getAccount());
-                                                metaData.setPortrait(N.getPortrait());
-                                                metaData.setUserId(N.getID());
-                                                if (k == null) {
-                                                    PraiseData praiseData = new PraiseData();
-                                                    praiseData.setIsLike(1);
-                                                    praiseData.setNum(1L);
-                                                    praiseData.getUser().add(0, metaData);
-                                                    next.a(praiseData);
-                                                } else {
-                                                    next.k().getUser().add(0, metaData);
-                                                    next.k().setNum(next.k().getNum() + 1);
-                                                    next.k().setIsLike(1);
+                        try {
+                            ArrayList<com.baidu.tbadk.core.data.o> g = this.D.g();
+                            if (g != null) {
+                                Iterator<com.baidu.tbadk.core.data.o> it = g.iterator();
+                                while (true) {
+                                    if (it.hasNext()) {
+                                        com.baidu.tbadk.core.data.o next = it.next();
+                                        if (next.m() != null && next.l().equals(stringExtra2)) {
+                                            if (next.k().getIsLike() != 1) {
+                                                PraiseData k = next.k();
+                                                AccountData N = TbadkApplication.N();
+                                                if (N != null) {
+                                                    MetaData metaData = new MetaData();
+                                                    metaData.setName_show(N.getAccount());
+                                                    metaData.setPortrait(N.getPortrait());
+                                                    metaData.setUserId(N.getID());
+                                                    if (k == null) {
+                                                        PraiseData praiseData = new PraiseData();
+                                                        praiseData.setIsLike(1);
+                                                        praiseData.setNum(1L);
+                                                        praiseData.getUser().add(0, metaData);
+                                                        next.a(praiseData);
+                                                    } else {
+                                                        next.k().getUser().add(0, metaData);
+                                                        next.k().setNum(next.k().getNum() + 1);
+                                                        next.k().setIsLike(1);
+                                                    }
                                                 }
-                                            }
-                                        } else {
-                                            next.k().setIsLike(0);
-                                            next.k().setNum(next.k().getNum() - 1);
-                                            ArrayList<MetaData> user = next.k().getUser();
-                                            if (user != null) {
-                                                Iterator<MetaData> it2 = user.iterator();
-                                                while (true) {
-                                                    if (it2.hasNext()) {
-                                                        MetaData next2 = it2.next();
-                                                        if (next2.getUserId().equals(TbadkApplication.N().getID())) {
-                                                            next.k().getUser().remove(next2);
+                                            } else {
+                                                next.k().setIsLike(0);
+                                                next.k().setNum(next.k().getNum() - 1);
+                                                ArrayList<MetaData> user = next.k().getUser();
+                                                if (user != null) {
+                                                    Iterator<MetaData> it2 = user.iterator();
+                                                    while (true) {
+                                                        if (it2.hasNext()) {
+                                                            MetaData next2 = it2.next();
+                                                            if (next2.getUserId().equals(TbadkApplication.N().getID())) {
+                                                                next.k().getUser().remove(next2);
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -743,12 +745,14 @@ public class FrsActivity extends com.baidu.tbadk.a implements com.baidu.adp.widg
                                         }
                                     }
                                 }
+                                this.r.u().a(g, this.D);
+                                this.r.u().notifyDataSetChanged();
+                                return;
                             }
-                            this.r.u().a(g, this.D);
-                            this.r.u().notifyDataSetChanged();
+                            return;
+                        } catch (Exception e3) {
                             return;
                         }
-                        return;
                     }
                     return;
                 case 18004:

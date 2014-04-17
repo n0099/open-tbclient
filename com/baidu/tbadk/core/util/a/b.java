@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util.a;
 
 import android.os.Build;
-import com.baidu.adp.lib.stats.o;
+import com.baidu.adp.lib.stats.q;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.n;
 import com.baidu.tbadk.core.util.z;
@@ -13,7 +13,7 @@ public final class b {
     public boolean c = true;
     public boolean d = true;
     public boolean e = false;
-    public String f = o.a();
+    public String f = q.a();
     public boolean g = false;
     public int h = 0;
 

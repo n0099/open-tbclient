@@ -14,7 +14,7 @@ public final class al implements Runnable {
         boolean z;
         z = this.a.j;
         if (z) {
-            this.a.c();
+            this.a.d();
         }
     }
 }

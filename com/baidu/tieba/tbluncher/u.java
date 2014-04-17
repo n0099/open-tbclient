@@ -8,14 +8,15 @@ final class u extends com.baidu.adp.framework.c.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(MainTabActivity mainTabActivity, int i) {
-        super(2001158);
+        super(2007006);
         this.a = mainTabActivity;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
     @Override // com.baidu.adp.framework.c.c
-    public final /* bridge */ /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        this.a.N = 0;
-        this.a.a(false);
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            MainTabActivity.d(2);
+        }
     }
 }

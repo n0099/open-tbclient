@@ -4,6 +4,7 @@ import com.baidu.tbadk.core.data.n;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.data.t;
 import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes.dex */
 public final class a {
     private ArrayList<String> a;
@@ -18,6 +19,7 @@ public final class a {
     private int i = 0;
     private boolean j = false;
     private c l = null;
+    private HashMap<String, String> m = new HashMap<>();
 
     public a(ArrayList<String> arrayList, String str, String str2, String str3) {
         this.a = null;
@@ -28,6 +30,11 @@ public final class a {
         this.a = arrayList;
         if (this.a == null) {
             this.a = new ArrayList<>();
+        }
+        int size = this.a.size();
+        for (int i = 0; i < size; i++) {
+            String str4 = this.a.get(i);
+            this.m.put(a(str4), str4);
         }
         this.d = str2;
         this.e = str;
@@ -91,5 +98,19 @@ public final class a {
             return sb.toString();
         }
         return tVar.j();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static String a(String str) {
+        int lastIndexOf;
+        int indexOf;
+        String e = bc.e(str);
+        if (e != null) {
+            if (e.indexOf(".baidu.com") != -1 && (lastIndexOf = e.lastIndexOf("/")) != -1 && (indexOf = e.indexOf(".", lastIndexOf)) != -1) {
+                return e.substring(lastIndexOf + 1, indexOf);
+            }
+            return null;
+        }
+        return e;
     }
 }

@@ -67,6 +67,13 @@ public final class br extends com.baidu.adp.a.f {
         this.a.getLayoutMode().a(i == 1);
         this.a.getLayoutMode().a(this.c);
         this.o.b(i);
+        if (i == 1) {
+            this.k.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.im.g.big_red_button_1));
+            this.l.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.im.g.big_red_button_1));
+            return;
+        }
+        this.k.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.im.g.big_red_button));
+        this.l.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.im.g.big_red_button));
     }
 
     public final View a() {

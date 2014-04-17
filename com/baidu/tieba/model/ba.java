@@ -1,7 +1,9 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.SignData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -22,7 +24,9 @@ public final class ba extends BdAsyncTask<Object, Integer, SignData> {
     public final /* synthetic */ void a(SignData signData) {
         com.baidu.adp.a.h hVar;
         SignData signData2 = signData;
+        TiebaStatic.a(TbadkApplication.j().getApplicationContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
         this.a.c = null;
+        TiebaStatic.a(TbadkApplication.j().getApplicationContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
         if (signData2 == null && this.b != null) {
             this.a.mErrorCode = this.b.d();
             this.a.mErrorString = this.b.f();
@@ -46,26 +50,28 @@ public final class ba extends BdAsyncTask<Object, Integer, SignData> {
     public final void c() {
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0099 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x006a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x00d5 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x00a6 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:? */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v13 */
-    /* JADX WARN: Type inference failed for: r0v14 */
-    /* JADX WARN: Type inference failed for: r0v15 */
-    /* JADX WARN: Type inference failed for: r0v19, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v26 */
-    /* JADX WARN: Type inference failed for: r0v27 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tbadk.core.data.SignData] */
+    /* JADX WARN: Type inference failed for: r0v17 */
+    /* JADX WARN: Type inference failed for: r0v18 */
+    /* JADX WARN: Type inference failed for: r0v19 */
+    /* JADX WARN: Type inference failed for: r0v23, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r0v30 */
+    /* JADX WARN: Type inference failed for: r0v31 */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    /* JADX WARN: Type inference failed for: r0v5, types: [com.baidu.tbadk.core.data.SignData] */
     private SignData a() {
         Object obj;
         Exception e;
         String str;
         String str2;
         String i;
+        TiebaStatic.a(TbadkApplication.j().getApplicationContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
         Object obj2 = null;
         try {
+            TiebaStatic.a(TbadkApplication.j().getApplicationContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
             this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/forum/sign");
             com.baidu.tbadk.core.util.ak akVar = this.b;
             str = this.a.a;

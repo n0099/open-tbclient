@@ -96,6 +96,7 @@ public final class cm {
     private boolean ab = false;
     final Runnable d = new cn(this);
     private View.OnTouchListener ai = new co(this);
+    private cv aj = null;
 
     public cm(com.baidu.tbadk.a aVar, View.OnClickListener onClickListener) {
         this.g = null;
@@ -385,6 +386,12 @@ public final class cm {
         }
         if (this.A != null) {
             this.A.k();
+        }
+        if (this.d != null) {
+            this.ah.removeCallbacks(this.d);
+        }
+        if (this.aj != null) {
+            this.ah.removeCallbacks(this.aj);
         }
     }
 
@@ -881,7 +888,8 @@ public final class cm {
             this.c.getEditText().requestFocus();
             this.c.a(this.c.getEditText());
         }
-        new Handler().postDelayed(new cu(this, i, i2), 300L);
+        this.aj = new cv(this.g, i, i2, this.c, this.r, this.ae.getHeight());
+        this.ah.postDelayed(this.aj, 300L);
     }
 
     public final void a(WriteImagesInfo writeImagesInfo, boolean z) {

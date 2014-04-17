@@ -28,7 +28,7 @@ public final class an implements AbsListView.OnScrollListener {
             handler2.removeCallbacks(runnable);
         }
         if (i == 0) {
-            this.a.d();
+            this.a.e();
         }
     }
 }

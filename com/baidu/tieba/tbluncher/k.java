@@ -16,7 +16,7 @@ public final class k implements com.baidu.adp.lib.guide.b {
     @Override // com.baidu.adp.lib.guide.b
     public final View a(LayoutInflater layoutInflater) {
         MainTabActivity mainTabActivity;
-        mainTabActivity = this.a.E;
+        mainTabActivity = this.a.F;
         ImageView imageView = new ImageView(mainTabActivity);
         imageView.setBackgroundResource(com.baidu.b.a.e.sign_all_tip);
         return imageView;
@@ -36,8 +36,8 @@ public final class k implements com.baidu.adp.lib.guide.b {
     public final int c() {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.a.E;
-        mainTabActivity2 = this.a.E;
+        mainTabActivity = this.a.F;
+        mainTabActivity2 = this.a.F;
         return -((int) ((mainTabActivity.getResources().getDimensionPixelSize(com.baidu.b.a.d.ds54) - 0.5f) / mainTabActivity2.getResources().getDisplayMetrics().density));
     }
 
@@ -45,8 +45,8 @@ public final class k implements com.baidu.adp.lib.guide.b {
     public final int d() {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.a.E;
-        mainTabActivity2 = this.a.E;
+        mainTabActivity = this.a.F;
+        mainTabActivity2 = this.a.F;
         return (int) ((mainTabActivity.getResources().getDimensionPixelSize(com.baidu.b.a.d.ds64) - 0.5f) / mainTabActivity2.getResources().getDisplayMetrics().density);
     }
 }

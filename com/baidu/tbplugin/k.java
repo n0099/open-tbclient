@@ -119,7 +119,7 @@ public final class k {
             } catch (Exception e) {
                 Context context = this.o;
                 String str = String.valueOf(cls.getName()) + " Nested Exception: " + e.getMessage();
-                com.baidu.adp.lib.stats.g.a().a("plugin", "load", 1, "failed", str);
+                com.baidu.adp.lib.stats.i.a().a("plugin", "load", 1, "failed", str);
                 com.baidu.adp.lib.util.f.b("Plugin load failed: " + str);
             }
         }

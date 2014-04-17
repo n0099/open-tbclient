@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
@@ -117,6 +118,7 @@ public class NewVcodeActivity extends com.baidu.tbadk.a {
         finish();
     }
 
+    @JavascriptInterface
     @SuppressLint({"SetJavaScriptEnabled"})
     private boolean a() {
         if (this.j == null) {
@@ -481,15 +483,18 @@ public class NewVcodeActivity extends com.baidu.tbadk.a {
         VcodeJsInterface() {
         }
 
+        @JavascriptInterface
         public final String jsGetVcodeImageUrl() {
             return NewVcodeActivity.this.b.getVcodeUrl();
         }
 
+        @JavascriptInterface
         public final void jsSetLoadVcodeFinished(boolean z, String str) {
             NewVcodeActivity.this.n = z;
             NewVcodeActivity.this.l = str;
         }
 
+        @JavascriptInterface
         public final void jsSetVcodeInputResult(boolean z, String str, String str2) {
             if (!z) {
                 if (NewVcodeActivity.this.o != null) {
@@ -506,10 +511,12 @@ public class NewVcodeActivity extends com.baidu.tbadk.a {
             }
         }
 
+        @JavascriptInterface
         public final void jsCancelVcode() {
             NewVcodeActivity.this.finish();
         }
 
+        @JavascriptInterface
         public final void jsChangeVcode(String str) {
             if (str != null && str.length() > 0) {
                 NewVcodeActivity.this.k = str;
@@ -520,6 +527,7 @@ public class NewVcodeActivity extends com.baidu.tbadk.a {
             }
         }
 
+        @JavascriptInterface
         public final String jsGetSkinType() {
             return String.valueOf(TbadkApplication.j().l());
         }

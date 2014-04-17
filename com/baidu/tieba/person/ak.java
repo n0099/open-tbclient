@@ -33,8 +33,8 @@ public final class ak extends LinearLayout {
         this.d = (BdExpandListView) this.c.findViewById(com.baidu.tieba.a.h.user_info_center_lv);
         this.j = false;
         if (this.e == null) {
-            h();
             i();
+            j();
         }
         this.d.removeFooterView(this.i.b());
         if (1 == TbadkApplication.j().l()) {
@@ -47,7 +47,7 @@ public final class ak extends LinearLayout {
         this.e.notifyDataSetChanged();
     }
 
-    private void h() {
+    private void i() {
         this.h = this.b.e();
         this.e = new x(this.a);
         if (this.h != null) {
@@ -76,11 +76,18 @@ public final class ak extends LinearLayout {
         this.d.setExpandListRefreshListener(aVar);
     }
 
+    public final void a() {
+        if (this.g != null) {
+            this.g.a();
+            this.g.c();
+        }
+    }
+
     public final void a(com.baidu.tieba.model.av avVar) {
         if (avVar != null) {
             if (this.e == null) {
-                h();
                 i();
+                j();
             }
             if (avVar.a() != null && avVar.a().post_list != null && avVar.a().post_list.size() > 0) {
                 this.d.setNextPage(this.i);
@@ -114,40 +121,40 @@ public final class ak extends LinearLayout {
         return 0;
     }
 
-    public final void a() {
+    public final void b() {
         if (this.i != null) {
             this.i.f();
         }
     }
 
-    public final void b() {
+    public final void c() {
         if (this.d != null) {
             this.d.a();
         }
     }
 
-    public final void c() {
+    public final void d() {
         if (com.baidu.tbadk.core.h.a().f()) {
             com.baidu.tbadk.core.util.ac.a(this.d, this.e.a(), 0, -1);
         }
     }
 
-    private void i() {
+    private void j() {
         this.f = new Handler();
         this.d.setOnScrollListener(new an(this));
     }
 
-    public final void d() {
+    public final void e() {
         if (this.f != null) {
             this.f.postDelayed(this.k, 300L);
         }
     }
 
-    public final void e() {
+    public final void f() {
         this.i.e();
     }
 
-    public final void f() {
+    public final void g() {
         this.i.g();
     }
 
@@ -157,7 +164,7 @@ public final class ak extends LinearLayout {
         this.i.c();
     }
 
-    public final void g() {
+    public final void h() {
         this.e.notifyDataSetChanged();
     }
 }

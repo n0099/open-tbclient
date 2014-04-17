@@ -14,7 +14,7 @@ final class bu implements View.OnClickListener {
     public final void onClick(View view) {
         ak akVar;
         akVar = this.a.l;
-        akVar.e();
+        akVar.f();
         this.a.c.a(false, true, 2);
     }
 }

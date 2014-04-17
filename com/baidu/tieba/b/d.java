@@ -101,7 +101,7 @@ public final class d {
                 this.c.a("kw", writeData.getForumName());
                 this.c.a("is_ad", writeData.getIsAd() ? "1" : "0");
                 if (writeData.isFrsReply()) {
-                    this.c.a("st_type", "frs");
+                    this.c.a("st_param", "frs");
                     break;
                 }
                 break;

@@ -63,6 +63,11 @@ public final class c {
         }
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.android.nebula.b.b.run():void] */
+    public static /* synthetic */ void d(c cVar) {
+        cVar.h();
+    }
+
     private void f() {
         this.c = d.a(this.a).a();
         this.b = f.a(this.a);
@@ -93,8 +98,7 @@ public final class c {
         return this.e;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x0021, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0021, code lost:
         if ((r2 - com.baidu.android.nebula.b.m.a(r8.a, r2)) > (com.baidu.android.nebula.b.m.a(r8.a) * 1000)) goto L7;
      */
     /*
@@ -112,7 +116,6 @@ public final class c {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void i() {
         this.g.removeCallbacks(this.i);
         this.g.postDelayed(this.i, 60000L);

@@ -169,139 +169,139 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
         int i = this.a;
         int i2 = this.b;
         int i3 = (i & 1) == 1 ? 1 : 0;
-        Im.GroupInfo.access$5(groupInfo, this.c);
+        groupInfo.groupId_ = this.c;
         if ((i & 2) == 2) {
             i3 |= 2;
         }
-        Im.GroupInfo.access$6(groupInfo, this.d);
+        groupInfo.forumId_ = this.d;
         if ((i & 4) == 4) {
             i3 |= 4;
         }
-        Im.GroupInfo.access$7(groupInfo, this.e);
+        groupInfo.name_ = this.e;
         if ((i & 8) == 8) {
             i3 |= 8;
         }
-        Im.GroupInfo.access$8(groupInfo, this.f);
+        groupInfo.intro_ = this.f;
         if ((i & 16) == 16) {
             i3 |= 16;
         }
-        Im.GroupInfo.access$9(groupInfo, this.g);
+        groupInfo.portrait_ = this.g;
         if ((i & 32) == 32) {
             i3 |= 32;
         }
-        Im.GroupInfo.access$10(groupInfo, this.h);
+        groupInfo.position_ = this.h;
         if ((i & 64) == 64) {
             i3 |= 64;
         }
-        Im.GroupInfo.access$11(groupInfo, this.i);
+        groupInfo.business_ = this.i;
         if ((i & 128) == 128) {
             i3 |= 128;
         }
-        Im.GroupInfo.access$12(groupInfo, this.j);
+        groupInfo.lng_ = this.j;
         if ((i & 256) == 256) {
             i3 |= 256;
         }
-        Im.GroupInfo.access$13(groupInfo, this.k);
+        groupInfo.lat_ = this.k;
         if ((i & 512) == 512) {
             i3 |= 512;
         }
-        Im.GroupInfo.access$14(groupInfo, this.l);
+        groupInfo.notice_ = this.l;
         if ((i & 1024) == 1024) {
             i3 |= 1024;
         }
-        Im.GroupInfo.access$15(groupInfo, this.m);
+        groupInfo.album_ = this.m;
         if ((i & 2048) == 2048) {
             i3 |= 2048;
         }
-        Im.GroupInfo.access$16(groupInfo, this.n);
+        groupInfo.status_ = this.n;
         if ((i & 4096) == 4096) {
             i3 |= 4096;
         }
-        Im.GroupInfo.access$17(groupInfo, this.o);
+        groupInfo.flag_ = this.o;
         if ((i & 8192) == 8192) {
             i3 |= 8192;
         }
-        Im.GroupInfo.access$18(groupInfo, this.p);
+        groupInfo.authorId_ = this.p;
         if ((i & 16384) == 16384) {
             i3 |= 16384;
         }
-        Im.GroupInfo.access$19(groupInfo, this.q);
+        groupInfo.authorName_ = this.q;
         if ((i & 32768) == 32768) {
             i3 |= 32768;
         }
-        Im.GroupInfo.access$20(groupInfo, this.r);
+        groupInfo.authorPortrait_ = this.r;
         if ((i & AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED) == 65536) {
             i3 |= AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED;
         }
-        Im.GroupInfo.access$21(groupInfo, this.s);
+        groupInfo.createTime_ = this.s;
         if ((i & AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY) == 131072) {
             i3 |= AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
         }
-        Im.GroupInfo.access$22(groupInfo, this.t);
+        groupInfo.maxMemberNum_ = this.t;
         if ((262144 & i) == 262144) {
             i3 |= AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START;
         }
-        Im.GroupInfo.access$23(groupInfo, this.u);
+        groupInfo.memberNum_ = this.u;
         if ((524288 & i) == 524288) {
             i3 |= AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         }
-        Im.GroupInfo.access$24(groupInfo, this.v);
+        groupInfo.groupType_ = this.v;
         if ((1048576 & i) == 1048576) {
             i3 |= AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START;
         }
-        Im.GroupInfo.access$25(groupInfo, this.w);
+        groupInfo.lastMsgId_ = this.w;
         if ((2097152 & i) == 2097152) {
             i3 |= AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
         }
-        Im.GroupInfo.access$26(groupInfo, this.x);
+        groupInfo.grade_ = this.x;
         if ((4194304 & i) == 4194304) {
             i3 |= 4194304;
         }
-        Im.GroupInfo.access$27(groupInfo, this.y);
+        groupInfo.distance_ = this.y;
         if ((8388608 & i) == 8388608) {
             i3 |= GravityCompat.RELATIVE_LAYOUT_DIRECTION;
         }
-        Im.GroupInfo.access$28(groupInfo, this.z);
+        groupInfo.isHidePosition_ = this.z;
         if ((16777216 & i) == 16777216) {
             i3 |= 16777216;
         }
-        Im.GroupInfo.access$29(groupInfo, this.A);
+        groupInfo.forumName_ = this.A;
         if ((33554432 & i) == 33554432) {
             i3 |= 33554432;
         }
-        Im.GroupInfo.access$30(groupInfo, this.B);
+        groupInfo.nickName_ = this.B;
         if ((67108864 & i) == 67108864) {
             i3 |= 67108864;
         }
-        Im.GroupInfo.access$31(groupInfo, this.C);
+        groupInfo.activeDay_ = this.C;
         if ((134217728 & i) == 134217728) {
             i3 |= 134217728;
         }
-        Im.GroupInfo.access$32(groupInfo, this.D);
+        groupInfo.isGroupManager_ = this.D;
         if ((268435456 & i) == 268435456) {
             i3 |= 268435456;
         }
-        Im.GroupInfo.access$33(groupInfo, this.E);
+        groupInfo.authorIsMeizhi_ = this.E;
         if ((536870912 & i) == 536870912) {
             i3 |= 536870912;
         }
-        Im.GroupInfo.access$34(groupInfo, this.F);
+        groupInfo.lastMsgTime_ = this.F;
         if ((1073741824 & i) == 1073741824) {
             i3 |= 1073741824;
         }
-        Im.GroupInfo.access$35(groupInfo, this.G);
+        groupInfo.forumShowName_ = this.G;
         if ((i & Integer.MIN_VALUE) == Integer.MIN_VALUE) {
             i3 |= Integer.MIN_VALUE;
         }
-        Im.GroupInfo.access$36(groupInfo, this.H);
+        groupInfo.isNewlyCreate_ = this.H;
         int i4 = (i2 & 1) != 1 ? 0 : 1;
-        Im.GroupInfo.access$37(groupInfo, this.I);
+        groupInfo.isRecentlyReply_ = this.I;
         if ((i2 & 2) == 2) {
             i4 |= 2;
         }
-        Im.GroupInfo.access$38(groupInfo, this.J);
-        Im.GroupInfo.access$39(groupInfo, i3);
-        Im.GroupInfo.access$40(groupInfo, i4);
+        groupInfo.isMemberGroup_ = this.J;
+        groupInfo.bitField0_ = i3;
+        groupInfo.bitField1_ = i4;
         return groupInfo;
     }
 
@@ -320,23 +320,23 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
             }
             if (groupInfo.hasName()) {
                 this.a |= 4;
-                this.e = Im.GroupInfo.access$41(groupInfo);
+                this.e = groupInfo.name_;
             }
             if (groupInfo.hasIntro()) {
                 this.a |= 8;
-                this.f = Im.GroupInfo.access$42(groupInfo);
+                this.f = groupInfo.intro_;
             }
             if (groupInfo.hasPortrait()) {
                 this.a |= 16;
-                this.g = Im.GroupInfo.access$43(groupInfo);
+                this.g = groupInfo.portrait_;
             }
             if (groupInfo.hasPosition()) {
                 this.a |= 32;
-                this.h = Im.GroupInfo.access$44(groupInfo);
+                this.h = groupInfo.position_;
             }
             if (groupInfo.hasBusiness()) {
                 this.a |= 64;
-                this.i = Im.GroupInfo.access$45(groupInfo);
+                this.i = groupInfo.business_;
             }
             if (groupInfo.hasLng()) {
                 double lng = groupInfo.getLng();
@@ -350,11 +350,11 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
             }
             if (groupInfo.hasNotice()) {
                 this.a |= 512;
-                this.l = Im.GroupInfo.access$46(groupInfo);
+                this.l = groupInfo.notice_;
             }
             if (groupInfo.hasAlbum()) {
                 this.a |= 1024;
-                this.m = Im.GroupInfo.access$47(groupInfo);
+                this.m = groupInfo.album_;
             }
             if (groupInfo.hasStatus()) {
                 int status = groupInfo.getStatus();
@@ -371,11 +371,11 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
             }
             if (groupInfo.hasAuthorName()) {
                 this.a |= 16384;
-                this.q = Im.GroupInfo.access$48(groupInfo);
+                this.q = groupInfo.authorName_;
             }
             if (groupInfo.hasAuthorPortrait()) {
                 this.a |= 32768;
-                this.r = Im.GroupInfo.access$49(groupInfo);
+                this.r = groupInfo.authorPortrait_;
             }
             if (groupInfo.hasCreateTime()) {
                 int createTime = groupInfo.getCreateTime();
@@ -419,11 +419,11 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
             }
             if (groupInfo.hasForumName()) {
                 this.a |= 16777216;
-                this.A = Im.GroupInfo.access$50(groupInfo);
+                this.A = groupInfo.forumName_;
             }
             if (groupInfo.hasNickName()) {
                 this.a |= 33554432;
-                this.B = Im.GroupInfo.access$51(groupInfo);
+                this.B = groupInfo.nickName_;
             }
             if (groupInfo.hasActiveDay()) {
                 int activeDay = groupInfo.getActiveDay();
@@ -447,7 +447,7 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
             }
             if (groupInfo.hasForumShowName()) {
                 this.a |= 1073741824;
-                this.G = Im.GroupInfo.access$52(groupInfo);
+                this.G = groupInfo.forumShowName_;
             }
             if (groupInfo.hasIsNewlyCreate()) {
                 int isNewlyCreate = groupInfo.getIsNewlyCreate();

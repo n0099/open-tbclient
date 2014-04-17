@@ -23,7 +23,7 @@ final class u implements bf {
         de unused;
         cmVar = this.a.r;
         cmVar.u();
-        if (i != ay.g()) {
+        if (i != ay.g() || view2 == null || view == null) {
             cmVar2 = this.a.r;
             cmVar2.u();
             if (i == ay.f()) {

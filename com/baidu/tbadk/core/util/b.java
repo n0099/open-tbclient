@@ -205,7 +205,7 @@ public class b {
             } else if (i == 7) {
                 i5 = 5;
             }
-            Object a = com.baidu.adp.lib.e.b.a().a(str, i5, new c(this, eVar3), TbadkApplication.j().b(), eVar4, (i == 0 || i == 6) ? 1 : 1);
+            Object a = com.baidu.adp.lib.e.b.a().a(str, i5, new c(this, eVar3), TbadkApplication.j().b(), eVar4, (i == 0 || i == 6 || i == 1) ? 1 : 1);
             if (a != null && (a instanceof com.baidu.adp.widget.ImageView.b)) {
                 return (com.baidu.adp.widget.ImageView.b) a;
             }

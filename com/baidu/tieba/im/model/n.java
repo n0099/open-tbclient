@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.model;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class n extends com.baidu.adp.framework.c.a {
+public final class n extends com.baidu.adp.framework.c.a {
     final /* synthetic */ GroupMsglistModel a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

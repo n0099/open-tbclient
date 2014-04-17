@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -28,7 +29,6 @@ public final class ac {
         int i3;
         int i4;
         LinkedList<String> photoUrl;
-        com.baidu.adp.widget.ImageView.b b;
         boolean z;
         View findViewWithTag;
         int i5;
@@ -53,7 +53,7 @@ public final class ac {
                     int i8 = 0;
                     int i9 = 0;
                     int i10 = 0;
-                    boolean b2 = b.b();
+                    boolean b = b.b();
                     for (int i11 = firstVisiblePosition; i11 < adapter.getCount() && ((i11 <= lastVisiblePosition || z2) && i == 0); i11++) {
                         Object item = adapter.getItem(i11);
                         if (item instanceof ab) {
@@ -170,23 +170,31 @@ public final class ac {
                                                         GifView gifView = (GifView) findViewWithTag3;
                                                         if (eVar.j) {
                                                             gifView.setGif(null);
-                                                        } else if (!eVar.k) {
-                                                            String str = b2 ? eVar.b : eVar.a;
-                                                            com.baidu.adp.lib.util.f.e("LoadImageHelper", "loadEmotion", "emotion dynamic:" + eVar.c);
-                                                            com.baidu.adp.widget.ImageView.b a = abVar.a(eVar.e, eVar.c, str, b2, agVar);
+                                                        }
+                                                    }
+                                                    if (!eVar.k) {
+                                                        String str = b ? eVar.b : eVar.a;
+                                                        com.baidu.adp.lib.util.f.e("LoadImageHelper", "loadEmotion", "emotion dynamic:" + eVar.c);
+                                                        com.baidu.adp.widget.ImageView.b a = abVar.a(eVar.e, eVar.c, str, b, agVar);
+                                                        if (findViewWithTag3 != null) {
+                                                            GifView gifView2 = (GifView) findViewWithTag3;
                                                             if (a != null) {
-                                                                gifView.setGif(a);
-                                                                gifView.setIsLoading(false);
+                                                                gifView2.setGif(a);
+                                                                gifView2.setIsLoading(false);
                                                                 eVar.j = false;
                                                             } else {
-                                                                gifView.setIsLoading(true);
+                                                                gifView2.setIsLoading(true);
                                                             }
                                                         }
                                                     }
                                                 } else if (aaVar.e != null) {
                                                     abVar.g(aaVar.e, dVar4);
-                                                } else if (listView.findViewWithTag(aaVar.a) != null && (b = abVar.b(aaVar.a, dVar)) != null) {
-                                                    dVar.a(b, aaVar.a, true);
+                                                } else {
+                                                    Log.e("image:", aaVar.a);
+                                                    com.baidu.adp.widget.ImageView.b b2 = abVar.b(aaVar.a, dVar);
+                                                    if (b2 != null) {
+                                                        dVar.a(b2, aaVar.a, true);
+                                                    }
                                                 }
                                                 i17++;
                                                 i14 = i18;

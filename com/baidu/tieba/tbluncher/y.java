@@ -1,50 +1,14 @@
 package com.baidu.tieba.tbluncher;
 
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.b.aa;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public final class y implements com.baidu.tbadk.core.d.a {
-    @Override // com.baidu.tbadk.core.d.a
-    public final void a(Context context, int i) {
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2015001, new aa(context).a(i, false)));
-    }
-
-    @Override // com.baidu.tbadk.core.d.a
-    public final void a(Context context) {
-        String E = TbadkApplication.E();
-        if (E != null && E.length() > 0) {
-            a(context, 1);
-        } else {
-            a(context, 0);
+final class y implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.aa> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.aa> aVar) {
+        if (aVar != null && aVar.a() != null) {
+            aVar.a().d().setClass(aVar.a().c(), MainTabActivity.class);
+            aVar.a().f();
         }
-    }
-
-    @Override // com.baidu.tbadk.core.d.a
-    public final void a(Context context, int i, boolean z) {
-        com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
-        aa aaVar = new aa(context);
-        Intent d = aaVar.d();
-        d.setFlags(603979776);
-        d.putExtra("refresh_all", true);
-        if (i >= 0) {
-            d.putExtra("locate_type", i);
-        }
-        if (z) {
-            d.addFlags(268435456);
-        }
-        d.putExtra("close_dialog", true);
-        a.a(new com.baidu.adp.framework.message.a(2015001, aaVar));
-    }
-
-    @Override // com.baidu.tbadk.core.d.a
-    public final Class<?> a() {
-        return MainTabActivity.class;
-    }
-
-    @Override // com.baidu.tbadk.core.d.a
-    public final String b() {
-        return MainTabActivity.class.getName();
+        return null;
     }
 }

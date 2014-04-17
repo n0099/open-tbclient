@@ -112,6 +112,7 @@ public final class e extends com.baidu.tbadk.core.d implements AbsListView.OnScr
         super.onResume();
         if (!TbadkApplication.F()) {
             com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new ad(getActivity(), ad.c)));
+            getActivity().finish();
         }
         if (!c_()) {
         }

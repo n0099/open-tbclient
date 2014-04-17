@@ -316,7 +316,7 @@ public class TbadkApplication extends com.baidu.adp.a.b {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0042  */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0075  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x006a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -345,12 +345,10 @@ public class TbadkApplication extends com.baidu.adp.a.b {
                         z = true;
                     }
                     if (z) {
-                        TiebaStatic.a(b(), "LocalWebpUnSupport", "");
                         com.baidu.adp.lib.util.f.d("I'm not capable of webp.");
                         i = 6;
                         this.E = false;
                     } else {
-                        TiebaStatic.a(b(), "LocalWebpSupport", "");
                         com.baidu.adp.lib.util.f.d("Proudly I'm capable of webp.");
                         this.E = true;
                         i = 0;

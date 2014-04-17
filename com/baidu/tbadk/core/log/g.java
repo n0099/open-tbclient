@@ -22,7 +22,7 @@ public final class g {
 
     public static void a() {
         try {
-            a = com.baidu.adp.lib.stats.f.a().b();
+            a = com.baidu.adp.lib.stats.h.a().b();
         } catch (Exception e) {
             com.baidu.adp.lib.util.f.e(e.getMessage());
         }

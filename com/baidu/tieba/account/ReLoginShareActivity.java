@@ -184,7 +184,7 @@ public class ReLoginShareActivity extends com.baidu.tbadk.a {
             com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2006001, "stop"));
             com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2006001, "start"));
             com.baidu.adp.framework.c.a().a(new CustomResponsedMessage(2007005, null));
-            com.baidu.tbadk.core.d.b.a(reLoginShareActivity, intExtra, false);
+            reLoginShareActivity.sendMessage(new com.baidu.adp.framework.message.a(2015001, new com.baidu.tbadk.core.b.aa(reLoginShareActivity).a(intExtra, false)));
         }
         if (com.baidu.tieba.p.c().w() && com.baidu.tieba.p.c().y() != null) {
             com.baidu.tieba.p.c();

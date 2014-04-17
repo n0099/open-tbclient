@@ -1,31 +1,32 @@
 package com.baidu.tieba.tbluncher;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
-final class x extends BroadcastReceiver {
+final class x extends com.baidu.adp.framework.c.a {
     final /* synthetic */ MainTabActivity a;
 
-    private x(MainTabActivity mainTabActivity) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(MainTabActivity mainTabActivity, int i) {
+        super(2001124);
         this.a = mainTabActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ x(MainTabActivity mainTabActivity, byte b) {
-        this(mainTabActivity);
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(com.baidu.tbadk.core.data.n.z())) {
-            if (TbadkApplication.aB()) {
-                MainTabActivity.b(this.a, true);
-            } else {
-                MainTabActivity.b(this.a, false);
-            }
-            MainTabActivity.a(this.a, false);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (customResponsedMessage2 == null || customResponsedMessage2.g() != 2001124) {
+            return;
         }
+        if (!(customResponsedMessage2 instanceof NewsNotifyMessage)) {
+            com.baidu.adp.lib.util.f.b("transform error");
+            return;
+        }
+        NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage2;
+        this.a.P = newsNotifyMessage.j();
+        this.a.O = newsNotifyMessage.d();
+        this.a.a(false);
     }
 }

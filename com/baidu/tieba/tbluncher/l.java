@@ -16,11 +16,11 @@ final class l implements View.OnClickListener {
         TextView textView;
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2 = this.a;
-        textView = this.a.A;
+        textView = this.a.B;
         MainTabActivity.a(mainTabActivity2, textView, 0);
         MainTabActivity.c = false;
         MainTabActivity mainTabActivity3 = this.a;
-        mainTabActivity = this.a.E;
+        mainTabActivity = this.a.F;
         mainTabActivity3.a(new com.baidu.adp.framework.message.a(2015003, new com.baidu.tbadk.core.frameworkData.a(mainTabActivity)));
     }
 }

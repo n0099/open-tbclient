@@ -312,12 +312,7 @@ public final class ab extends RelativeLayout {
 
     public final void a() {
         if (this.z != null) {
-            LinkedList<IconData> iconInfo = this.z.g().getIconInfo();
-            if (this.y != null) {
-                this.y.a(iconInfo, iconInfo.size(), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.person_icon_width), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.person_icon_height), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.person_icon_margin));
-            } else if (this.u != null) {
-                this.u.a(iconInfo, iconInfo.size(), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.person_icon_width), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.person_icon_height), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.person_icon_margin));
-            }
+            b();
         }
     }
 }

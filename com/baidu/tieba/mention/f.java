@@ -13,7 +13,7 @@ final class f implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         com.baidu.tbadk.core.e eVar;
-        eVar = this.a.n;
+        eVar = this.a.m;
         eVar.finish();
     }
 }

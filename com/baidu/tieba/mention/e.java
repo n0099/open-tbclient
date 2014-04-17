@@ -21,11 +21,11 @@ final class e implements View.OnClickListener {
         com.baidu.tbadk.core.e eVar2;
         imageView = this.a.i;
         if (view == imageView && TbadkApplication.F()) {
-            eVar = this.a.n;
+            eVar = this.a.m;
             TiebaStatic.a(eVar, "msg_newchat_tab_c", "click", 1, new Object[0]);
             new ax("pchat", "2").start();
             com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
-            eVar2 = this.a.n;
+            eVar2 = this.a.m;
             a.a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.c(eVar2, 12011, false)));
         }
     }

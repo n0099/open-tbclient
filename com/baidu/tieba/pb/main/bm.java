@@ -1850,7 +1850,7 @@ public final class bm {
 
     public final void ae() {
         this.m.n();
-        com.baidu.tbadk.core.util.ac.a(this.o, this.I.a(), this.bf, this.bd, null, this.be, this.I.c() ? 0 : 1, 0);
+        com.baidu.tbadk.core.util.ac.a(this.o, this.I.a(), this.bf, this.bd, null, this.be, this.I.c() ? 0 : 1, com.baidu.tbadk.core.h.a().d() ? 0 : -1);
     }
 
     public final void a(int i) {

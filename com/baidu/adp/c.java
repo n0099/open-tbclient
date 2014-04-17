@@ -35,7 +35,7 @@ public final class c {
     public static final int btn_switch_masking = 2130838695;
     public static final int btn_switch_masking_1 = 2130838696;
     public static final int btn_switch_masking_sidebar = 2130838697;
-    public static final int pull_icon = 2130839891;
-    public static final int pull_loading = 2130839892;
-    public static final int pull_progressbar = 2130839893;
+    public static final int pull_icon = 2130839892;
+    public static final int pull_loading = 2130839893;
+    public static final int pull_progressbar = 2130839894;
 }

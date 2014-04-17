@@ -7,16 +7,23 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BdStatSwitchData implements Serializable {
     private static final long serialVersionUID = -4426491450548432115L;
+    private BdStatFirstSwitchData error;
     private int uploadInterval;
     private int error_code = -1;
     private String error_msg = null;
     private BdStatFirstSwitchData debug = new BdStatFirstSwitchData();
     private BdStatFirstSwitchData stat = new BdStatFirstSwitchData();
-    private BdStatFirstSwitchData error = new BdStatFirstSwitchData();
 
     public BdStatSwitchData() {
         this.uploadInterval = 0;
         this.uploadInterval = 3600;
+        this.stat.getCommon().setIs_only_wifi(false);
+        this.stat.getCommon().setIs_open(true);
+        this.stat.getCommon().setIs_exact(true);
+        this.error = new BdStatFirstSwitchData();
+        this.error.getCommon().setIs_only_wifi(false);
+        this.error.getCommon().setIs_open(true);
+        this.error.getCommon().setIs_exact(false);
     }
 
     public int getError_code() {

@@ -57,7 +57,7 @@ final class bw extends com.baidu.adp.a.h {
         }
         if (!((Boolean) obj).booleanValue()) {
             akVar = this.a.l;
-            akVar.f();
+            akVar.g();
             eVar = this.a.f;
             avVar4 = this.a.c;
             eVar.a(avVar4.getErrorString());
@@ -67,7 +67,7 @@ final class bw extends com.baidu.adp.a.h {
         avVar2 = this.a.c;
         if (avVar2.b()) {
             akVar3 = this.a.l;
-            akVar3.a();
+            akVar3.b();
             return;
         }
         akVar2 = this.a.l;

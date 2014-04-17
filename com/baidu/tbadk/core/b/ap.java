@@ -9,5 +9,6 @@ public class ap extends com.baidu.tbadk.core.frameworkData.a {
         d().putExtra("NotifiIdKey", i);
         d().addFlags(268435456);
         ab.a = true;
+        ab.b = i;
     }
 }

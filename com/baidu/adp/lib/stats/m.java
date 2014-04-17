@@ -1,63 +1,106 @@
 package com.baidu.adp.lib.stats;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.text.TextUtils;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.cache.s;
 /* loaded from: classes.dex */
-public final class m {
-    final /* synthetic */ l a;
-    private long b;
-    private boolean c;
-    private int d;
-    private long e;
-    private boolean f;
+public class m {
+    private static m b;
+    private s<String> a = null;
 
-    private m(l lVar) {
-        this.a = lVar;
-        this.c = false;
-        this.d = 0;
-        this.f = false;
+    public static m a() {
+        if (b == null) {
+            synchronized (m.class) {
+                if (b == null) {
+                    b = new m();
+                }
+            }
+        }
+        return b;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(l lVar, byte b) {
-        this(lVar);
+    private s<String> b() {
+        if (this.a == null) {
+            this.a = BdCacheService.a().a("adp.stat.uploadtime", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 100);
+        }
+        return this.a;
     }
 
-    public final boolean a() {
-        return this.f;
+    public final void a(long j, String str) {
+        if (j > 0) {
+            String str2 = "adp.stat.stat_upload_time ";
+            if (!TextUtils.isEmpty(str)) {
+                str2 = String.valueOf("adp.stat.stat_upload_time ") + str;
+            }
+            b().a(str2, String.valueOf(j));
+        }
     }
 
-    public final void a(boolean z) {
-        this.f = z;
+    public final long a(String str) {
+        String str2 = "adp.stat.stat_upload_time ";
+        if (!TextUtils.isEmpty(str)) {
+            str2 = String.valueOf("adp.stat.stat_upload_time ") + str;
+        }
+        String a = b().a(str2);
+        if (!TextUtils.isEmpty(a)) {
+            try {
+                return Long.parseLong(a);
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.d(e.getMessage());
+            }
+        }
+        return 0L;
     }
 
-    public final long b() {
-        return this.e;
+    public final void b(long j, String str) {
+        if (j > 0) {
+            String str2 = "adp.stat.stat_debug_time";
+            if (!TextUtils.isEmpty(str)) {
+                str2 = String.valueOf("adp.stat.stat_debug_time") + str;
+            }
+            b().a(str2, String.valueOf(j));
+        }
     }
 
-    public final void a(long j) {
-        this.e = j;
+    public final long b(String str) {
+        String str2 = "adp.stat.stat_debug_time";
+        if (!TextUtils.isEmpty(str)) {
+            str2 = String.valueOf("adp.stat.stat_debug_time") + str;
+        }
+        String a = b().a(str2);
+        if (!TextUtils.isEmpty(a)) {
+            try {
+                return Long.parseLong(a);
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.d(e.getMessage());
+            }
+        }
+        return 0L;
     }
 
-    public final int c() {
-        return this.d;
+    public final void c(long j, String str) {
+        if (j > 0) {
+            String str2 = "adp.stat.stat_error_time";
+            if (!TextUtils.isEmpty(str)) {
+                str2 = String.valueOf("adp.stat.stat_error_time") + str;
+            }
+            b().a(str2, String.valueOf(j));
+        }
     }
 
-    public final void a(int i) {
-        this.d = i;
-    }
-
-    public final long d() {
-        return this.b;
-    }
-
-    public final void b(long j) {
-        this.b = j;
-    }
-
-    public final boolean e() {
-        return this.c;
-    }
-
-    public final void b(boolean z) {
-        this.c = z;
+    public final long c(String str) {
+        String str2 = "adp.stat.stat_error_time";
+        if (!TextUtils.isEmpty(str)) {
+            str2 = String.valueOf("adp.stat.stat_error_time") + str;
+        }
+        String a = b().a(str2);
+        if (!TextUtils.isEmpty(a)) {
+            try {
+                return Long.parseLong(a);
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.d(e.getMessage());
+            }
+        }
+        return 0L;
     }
 }

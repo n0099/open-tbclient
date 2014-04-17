@@ -17,6 +17,7 @@ import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.chat.personaltalk.PersonalSettingItemData;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -44,7 +45,11 @@ public final class q extends BaseAdapter {
         if (this.h == null) {
             this.h = new LinkedList();
         }
-        this.h.clear();
+        ArrayList arrayList = new ArrayList();
+        for (ImMessageCenterShowItemData imMessageCenterShowItemData : this.h) {
+            arrayList.add(imMessageCenterShowItemData);
+        }
+        this.h.removeAll(arrayList);
         this.h.addAll(list);
         if (TbadkApplication.F()) {
             com.baidu.adp.lib.util.f.e("mRecentChatData.size():" + this.h.size());

@@ -1,4 +1,7 @@
 package com.baidu.tieba.model;
+
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public final class az extends com.baidu.adp.a.e {
     private String a = null;
@@ -29,6 +32,7 @@ public final class az extends com.baidu.adp.a.e {
             this.c = new ba(this, (byte) 0);
             this.c.setPriority(2);
             this.c.execute(new Object[0]);
+            TiebaStatic.a(TbadkApplication.j().getApplicationContext(), "sign_start_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
         }
     }
 }

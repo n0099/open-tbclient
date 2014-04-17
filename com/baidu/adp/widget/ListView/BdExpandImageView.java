@@ -56,6 +56,14 @@ public class BdExpandImageView extends ImageView {
         super.setImageDrawable(drawable);
     }
 
+    @Override // android.widget.ImageView
+    public void setImageBitmap(Bitmap bitmap) {
+        if (this.i) {
+            a();
+        }
+        super.setImageBitmap(bitmap);
+    }
+
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);

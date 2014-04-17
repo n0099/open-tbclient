@@ -180,7 +180,7 @@ public final class bn extends com.baidu.tbadk.core.d {
 
     public final void f() {
         if (this.l != null) {
-            this.l.b();
+            this.l.c();
         }
         this.c.a(true, true, 1);
     }
@@ -233,9 +233,10 @@ public final class bn extends com.baidu.tbadk.core.d {
                 }
             }
             this.p.a();
-            this.l.d();
+            this.l.a();
+            this.l.e();
             this.o.a();
-            this.l.g();
+            this.l.h();
         }
     }
 
@@ -378,7 +379,7 @@ public final class bn extends com.baidu.tbadk.core.d {
             bnVar.c.a(d);
             bnVar.o.a(true);
             bnVar.o.a();
-            bnVar.l.g();
+            bnVar.l.h();
         }
     }
 
@@ -465,7 +466,7 @@ public final class bn extends com.baidu.tbadk.core.d {
                 }
                 this.o.a(false);
                 this.o.a();
-                this.l.g();
+                this.l.h();
                 PersonListActivity.a(this.f, false, this.c.g().getUserId(), this.c.g() != null ? this.c.g().getSex() : 0);
             }
         } else if (view.getId() == this.o.getForumId()) {

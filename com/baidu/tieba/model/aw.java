@@ -1,5 +1,7 @@
 package com.baidu.tieba.model;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,6 +19,7 @@ public final class aw extends com.baidu.adp.framework.c.a {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
     @Override // com.baidu.adp.framework.c.c
     public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        Context context;
         com.baidu.adp.a.h hVar;
         com.baidu.adp.a.h hVar2;
         CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
@@ -28,7 +31,12 @@ public final class aw extends com.baidu.adp.framework.c.a {
                     }
                     UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage2;
                     com.baidu.tbadk.coreExtra.message.d a = updateAttentionMessage.a();
-                    if (this.a.g().getUserId() == null || a == null || !this.a.g().getUserId().equals(a.c)) {
+                    if (this.a.g().getUserId() == null || a == null || !this.a.g().getUserId().equals(a.c) || !a.a) {
+                        if (a == null || TextUtils.isEmpty(a.b)) {
+                            return;
+                        }
+                        context = this.a.s;
+                        com.baidu.adp.lib.util.i.a(context, a.b);
                         return;
                     }
                     this.a.g().setHave_attention(updateAttentionMessage.c() ? 0 : 1);

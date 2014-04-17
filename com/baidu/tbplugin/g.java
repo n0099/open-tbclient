@@ -20,13 +20,13 @@ public final class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str, String str2) {
-        com.baidu.adp.lib.stats.g.a().a("plugin", "install", 1, "failed", str2, str);
+        com.baidu.adp.lib.stats.i.a().a("plugin", "install", 1, "failed", str2, str);
         com.baidu.adp.lib.util.f.b("Plugin install failed: " + str + ": " + str2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str) {
-        com.baidu.adp.lib.stats.g.a().a("plugin", "general", 1, "failed", str);
+        com.baidu.adp.lib.stats.i.a().a("plugin", "general", 1, "failed", str);
         com.baidu.adp.lib.util.f.b("Plugin general failed: " + str);
     }
 }

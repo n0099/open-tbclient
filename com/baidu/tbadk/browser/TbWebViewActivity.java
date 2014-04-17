@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.URLUtil;
 import android.webkit.WebView;
 import android.widget.ImageView;
@@ -248,6 +249,7 @@ public class TbWebViewActivity extends com.baidu.tbadk.a implements com.baidu.tb
         return true;
     }
 
+    @JavascriptInterface
     private void c() {
         if (a == null) {
             a = new HashMap<>();

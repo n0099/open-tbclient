@@ -114,7 +114,7 @@ public class TiebaUpdateService extends Service {
         this.q = System.currentTimeMillis();
         this.r = System.currentTimeMillis();
         com.baidu.adp.lib.util.f.a(getClass().getName(), "onStart", "onStart");
-        if (!g) {
+        if (!g && intent != null) {
             this.h = intent.getStringExtra("other_url");
             if (this.h == null || this.h.length() == 0) {
                 this.i = true;

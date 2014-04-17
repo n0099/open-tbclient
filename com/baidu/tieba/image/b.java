@@ -6,6 +6,7 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.data.t;
 import com.baidu.tieba.data.u;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -26,10 +27,10 @@ public final class b extends BdAsyncTask<Object, Integer, u> {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0095  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00ae  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00bf  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0108  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x009e  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00b7  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00c8  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0121  */
     /* JADX WARN: Removed duplicated region for block: B:49:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /*
@@ -38,8 +39,8 @@ public final class b extends BdAsyncTask<Object, Integer, u> {
     public final /* synthetic */ void a(u uVar) {
         boolean z;
         boolean z2;
-        int i;
         boolean z3;
+        int i;
         c cVar;
         c cVar2;
         ArrayList<String> arrayList;
@@ -48,9 +49,12 @@ public final class b extends BdAsyncTask<Object, Integer, u> {
         String str2;
         String str3;
         int i3;
+        String a;
+        HashMap hashMap;
         ArrayList arrayList2;
+        HashMap hashMap2;
         ArrayList arrayList3;
-        ArrayList arrayList4;
+        HashMap hashMap3;
         c cVar3;
         int i4;
         String str4;
@@ -63,18 +67,24 @@ public final class b extends BdAsyncTask<Object, Integer, u> {
             this.a.c = uVar2.f();
             this.a.b = uVar2.e();
             if (this.d == null) {
-                arrayList4 = this.a.a;
-                arrayList4.clear();
+                arrayList3 = this.a.a;
+                arrayList3.clear();
+                hashMap3 = this.a.m;
+                hashMap3.clear();
             }
             LinkedList<t> g = uVar2.g();
             int size = g.size();
             if (size > 0) {
                 for (int i5 = 0; i5 < size; i5++) {
-                    String a = a.a(this.a, g.get(i5));
-                    arrayList2 = this.a.a;
-                    if (!arrayList2.contains(a)) {
-                        arrayList3 = this.a.a;
-                        arrayList3.add(a);
+                    String a2 = a.a(this.a, g.get(i5));
+                    a aVar = this.a;
+                    a = a.a(a2);
+                    hashMap = this.a.m;
+                    if (!hashMap.containsKey(a)) {
+                        arrayList2 = this.a.a;
+                        arrayList2.add(a2);
+                        hashMap2 = this.a.m;
+                        hashMap2.put(a, a2);
                     }
                 }
                 t tVar = g.get(size - 1);
@@ -91,11 +101,11 @@ public final class b extends BdAsyncTask<Object, Integer, u> {
                                 z2 = true;
                                 if (this.d == null) {
                                     this.a.d = this.c;
-                                    i = 0;
                                     z3 = true;
+                                    i = 0;
                                 } else {
-                                    i = -1;
                                     z3 = false;
+                                    i = -1;
                                 }
                                 cVar = this.a.l;
                                 if (cVar != null) {

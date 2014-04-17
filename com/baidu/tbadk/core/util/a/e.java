@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.a;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.o;
+import com.baidu.adp.lib.stats.q;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -19,7 +19,7 @@ public final class e {
     private volatile com.baidu.adp.lib.network.http.c i = null;
     private HashMap<String, String> j = null;
     private com.baidu.adp.lib.network.http.g k = new com.baidu.adp.lib.network.http.g();
-    public String a = o.a();
+    public String a = q.a();
     public List<Integer> b = new ArrayList();
     public boolean c = false;
     public boolean d = false;

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
+import android.webkit.JavascriptInterface;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
@@ -63,6 +64,7 @@ public class AccountRestoreActivity extends com.baidu.tbadk.a {
         this.mNavigationBar.b(i);
     }
 
+    @JavascriptInterface
     public void exit(int i) {
         if (AntiHelper.PageType.PERSON_INFO.toString().equals(this.mPageType)) {
             bn.c(true);

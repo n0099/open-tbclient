@@ -14,7 +14,7 @@ final class m implements View.OnClickListener {
     public final void onClick(View view) {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2 = this.a;
-        mainTabActivity = this.a.E;
+        mainTabActivity = this.a.F;
         mainTabActivity2.a(new com.baidu.adp.framework.message.a(2015002, new com.baidu.tbadk.core.frameworkData.a(mainTabActivity)));
     }
 }

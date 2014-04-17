@@ -17,12 +17,12 @@ final class bs implements com.baidu.adp.widget.ListView.t {
             avVar = this.a.c;
             if (avVar.b()) {
                 akVar2 = this.a.l;
-                akVar2.a();
+                akVar2.b();
                 return;
             }
             this.a.a(true);
             akVar = this.a.l;
-            akVar.e();
+            akVar.f();
             this.a.c.a(false, true, 2);
         }
     }

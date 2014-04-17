@@ -105,8 +105,9 @@ public class LoginActivity extends com.baidu.tbadk.a {
         context.startActivity(intent);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(com.baidu.tbadk.k.account_login_activity);
         this.R = getIntent().getStringExtra("info");
@@ -197,8 +198,9 @@ public class LoginActivity extends com.baidu.tbadk.a {
         bundle.putInt("type_login", this.j);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
-    protected void onDestroy() {
+    public void onDestroy() {
         try {
             h();
             System.gc();
@@ -211,8 +213,9 @@ public class LoginActivity extends com.baidu.tbadk.a {
         super.onDestroy();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.a, android.app.Activity
-    protected void onResume() {
+    public void onResume() {
         if (this.c == null || !this.c.c()) {
             ShowSoftKeyPadDelay(this.o, 150);
         }
@@ -264,8 +267,9 @@ public class LoginActivity extends com.baidu.tbadk.a {
         finish();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.a
-    protected void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.L.b(i);
         ba.a(this.I, i);

@@ -69,7 +69,6 @@ public class SubPbLayout extends ViewGroup {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        View view;
         SparseArray sparseArray;
         if (this.e == null || this.e.a().size() == 0) {
             setMeasuredDimension(0, 0);
@@ -81,17 +80,13 @@ public class SubPbLayout extends ViewGroup {
         int i4 = 0;
         int i5 = 0;
         while (i4 < size) {
-            boolean z = false;
             View childAt = getChildAt(i4);
             if (childAt == null || childAt.equals(this.h)) {
                 com.baidu.adp.lib.util.f.e("SubPbLayout", "onMeasure", "Item View Created for position: " + i4);
-                View c = this.d.c();
-                this.g.offer(new d(i4, c, (byte) 0));
-                z = true;
-                view = c;
-            } else {
-                view = childAt;
+                childAt = this.d.c();
+                this.g.offer(new d(i4, childAt, (byte) 0));
             }
+            View view = childAt;
             view.setOnClickListener(this.a);
             view.setOnLongClickListener(this.b);
             view.setOnTouchListener(this.c);
@@ -106,7 +101,6 @@ public class SubPbLayout extends ViewGroup {
             }
             if (sparseArray.get(com.baidu.tieba.a.h.tag_load_sub_data) != this.e) {
                 sparseArray.put(com.baidu.tieba.a.h.tag_load_sub_data, this.e);
-                z = true;
             }
             sparseArray.put(com.baidu.tieba.a.h.tag_load_sub_view, this.f);
             sparseArray.put(com.baidu.tieba.a.h.tag_is_subpb, true);
@@ -115,14 +109,12 @@ public class SubPbLayout extends ViewGroup {
                 sparseArray.put(com.baidu.tieba.a.h.tag_clip_board, a.get(i4));
             }
             c cVar = (c) sparseArray.get(com.baidu.tieba.a.h.tag_holder);
-            if (z) {
-                b bVar = this.d;
-                ai aiVar = a.get(i4);
-                if (this.e.k() <= a.size()) {
-                    a.size();
-                }
-                bVar.a(cVar, aiVar);
+            b bVar = this.d;
+            ai aiVar = a.get(i4);
+            if (this.e.k() <= a.size()) {
+                a.size();
             }
+            bVar.a(cVar, aiVar);
             view.measure(((i3 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             i4++;
             i5 += view.getMeasuredHeight();

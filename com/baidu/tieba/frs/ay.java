@@ -233,8 +233,8 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
         return 3;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x069a: INVOKE  (r2v81 long A[REMOVE]) = 
-      (wrap: com.baidu.tbadk.core.data.PraiseData : 0x0696: INVOKE  (r2v80 com.baidu.tbadk.core.data.PraiseData A[REMOVE]) = (r6v1 com.baidu.tbadk.core.data.o) type: VIRTUAL call: com.baidu.tbadk.core.data.o.k():com.baidu.tbadk.core.data.PraiseData)
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x06b4: INVOKE  (r2v78 long A[REMOVE]) = 
+      (wrap: com.baidu.tbadk.core.data.PraiseData : 0x06b0: INVOKE  (r2v77 com.baidu.tbadk.core.data.PraiseData A[REMOVE]) = (r6v1 com.baidu.tbadk.core.data.o) type: VIRTUAL call: com.baidu.tbadk.core.data.o.k():com.baidu.tbadk.core.data.PraiseData)
      type: VIRTUAL call: com.baidu.tbadk.core.data.PraiseData.getNum():long)] */
     @Override // android.widget.Adapter
     public final View getView(int i, View view, ViewGroup viewGroup) {
@@ -419,16 +419,21 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                 biVar.a.setPadding(0, i2 == 0 ? this.o : this.p, 0, 0);
                 com.baidu.tbadk.core.data.o oVar2 = (com.baidu.tbadk.core.data.o) getItem(i);
                 biVar.f.setText(com.baidu.tbadk.core.util.bc.a(oVar2.p() * 1000));
-                String portrait = oVar2.t().getPortrait();
-                com.baidu.tbadk.editortool.ab abVar = this.h;
-                com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(portrait);
-                biVar.j.setUserId(oVar2.t().getUserId());
-                biVar.j.setImageBitmap(null);
-                if (b != null) {
-                    b.a(biVar.j);
+                if (com.baidu.tbadk.core.h.a().d()) {
+                    biVar.j.setVisibility(0);
+                    String portrait = oVar2.t().getPortrait();
+                    com.baidu.tbadk.editortool.ab abVar = this.h;
+                    com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(portrait);
+                    biVar.j.setUserId(oVar2.t().getUserId());
+                    biVar.j.setImageBitmap(null);
+                    if (b != null) {
+                        b.a(biVar.j);
+                    } else {
+                        biVar.j.setTag(portrait);
+                        biVar.j.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.a.g.photo));
+                    }
                 } else {
-                    biVar.j.setTag(portrait);
-                    biVar.j.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.a.g.photo));
+                    biVar.j.setVisibility(8);
                 }
                 biVar.w.setOnClickListener(new ba(this, oVar2));
                 oVar2.t().getIconInfo();
@@ -501,28 +506,30 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                         int i6 = 0;
                         int i7 = 0;
                         while (true) {
-                            int i8 = i5;
+                            int i8 = i6;
+                            int i9 = i5;
                             if (i8 < z3.size()) {
                                 if (z3.get(i8) != null && (z3.get(i8).b() == 3 || z3.get(i8).b() == 5)) {
-                                    i6++;
+                                    i9++;
                                     i7++;
                                 }
-                                i5 = i8 + 1;
-                            } else if (i6 > 0) {
-                                com.baidu.tbadk.core.data.j[] jVarArr = new com.baidu.tbadk.core.data.j[i6];
-                                int i9 = 0;
+                                i5 = i9;
+                                i6 = i8 + 1;
+                            } else if (i9 > 0) {
+                                com.baidu.tbadk.core.data.j[] jVarArr = new com.baidu.tbadk.core.data.j[i9];
                                 int i10 = 0;
+                                int i11 = 0;
                                 while (true) {
-                                    int i11 = i9;
                                     int i12 = i10;
-                                    if (i11 < z3.size() && i12 < i6) {
-                                        if (z3.get(i11).b() == 3 || z3.get(i11).b() == 5) {
-                                            jVarArr[i12] = z3.get(i11);
-                                            i10 = i12 + 1;
+                                    int i13 = i11;
+                                    if (i12 < z3.size() && i13 < i9) {
+                                        if (z3.get(i12).b() == 3 || z3.get(i12).b() == 5) {
+                                            jVarArr[i13] = z3.get(i12);
+                                            i11 = i13 + 1;
                                         } else {
-                                            i10 = i12;
+                                            i11 = i13;
                                         }
-                                        i9 = i11 + 1;
+                                        i10 = i12 + 1;
                                     }
                                 }
                                 biVar.e.a(this.c.f().getName(), this.c.f().getId(), oVar2.m());
@@ -557,10 +564,17 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                         biVar.l.setImageResource(com.baidu.tieba.a.g.icon_hand_normal);
                     }
                 } else {
-                    biVar.p.setVisibility(0);
-                    biVar.p.setIsFromPb(false);
-                    biVar.p.a(l);
-                    biVar.r.setVisibility(0);
+                    if (com.baidu.tbadk.core.h.a().d()) {
+                        biVar.p.setVisibility(0);
+                        biVar.p.setIsFromPb(false);
+                        biVar.p.a(l);
+                        biVar.r.setVisibility(0);
+                        biVar.p.setImageLoad(this.h);
+                        biVar.p.a(oVar2.k(), oVar2.l(), oVar2.j(), false);
+                    } else {
+                        biVar.p.setVisibility(8);
+                        biVar.r.setVisibility(8);
+                    }
                     if (oVar2.k().getIsLike() == 1) {
                         if (l == 1) {
                             biVar.l.setImageResource(com.baidu.tieba.a.g.icon_hand_click_1);
@@ -572,8 +586,6 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                     } else {
                         biVar.l.setImageResource(com.baidu.tieba.a.g.icon_hand_normal);
                     }
-                    biVar.p.setImageLoad(this.h);
-                    biVar.p.a(oVar2.k(), oVar2.l(), oVar2.j(), false);
                     if (oVar2.k().getNum() <= 999999) {
                         biVar.m.setText(new StringBuilder().append(oVar2.k().getNum()).toString());
                     } else {
@@ -635,13 +647,13 @@ public final class ay extends BaseAdapter implements View.OnClickListener {
                     return view;
                 } else {
                     biVar.o.setText(String.valueOf(o));
-                    int i13 = o - size;
-                    if (i13 <= 0 || size <= 0) {
+                    int i14 = o - size;
+                    if (i14 <= 0 || size <= 0) {
                         biVar.v.setVisibility(8);
                         return view;
                     }
                     biVar.v.setVisibility(0);
-                    biVar.v.setText(String.valueOf(this.a.getString(com.baidu.tieba.a.k.frs_item_more_reply_item1)) + i13 + this.a.getString(com.baidu.tieba.a.k.frs_item_more_reply_item2));
+                    biVar.v.setText(String.valueOf(this.a.getString(com.baidu.tieba.a.k.frs_item_more_reply_item1)) + i14 + this.a.getString(com.baidu.tieba.a.k.frs_item_more_reply_item2));
                     return view;
                 }
             case 4:

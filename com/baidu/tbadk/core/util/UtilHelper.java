@@ -324,109 +324,110 @@ public class UtilHelper {
     }
 
     public static boolean a(Context context, Intent intent) {
-        if (intent != null) {
-            switch (intent.getExtras().getInt("class", -1)) {
-                case 0:
-                    com.baidu.tbadk.browser.a.a(context, intent.getExtras().getString("url"));
-                    return true;
-                case 1:
-                    String stringExtra = intent.getStringExtra("id");
-                    String stringExtra2 = intent.getStringExtra("from");
-                    if (intent.getBooleanExtra("is_message_pv", false)) {
-                        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(context).a(stringExtra, null, stringExtra2, intent.getLongExtra("message_id", 0L))));
-                        return true;
-                    }
-                    com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(context).a(stringExtra, null, stringExtra2)));
-                    return true;
-                case 2:
-                    com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2003000, new com.baidu.tbadk.core.b.l(context).a(intent.getStringExtra("fname"), intent.getStringExtra("from"))));
-                    return true;
-                case 3:
-                    if (com.baidu.tbadk.core.d.b.a() != null) {
-                        intent.setClass(context, com.baidu.tbadk.core.d.b.a());
-                        context.startActivity(intent);
-                        return true;
-                    }
-                    break;
-                case 4:
-                case 6:
-                case 7:
-                default:
-                    return false;
-                case 5:
-                    int intExtra = intent.getIntExtra("at_me", 0);
-                    int intExtra2 = intent.getIntExtra("reply_me", 0);
-                    int intExtra3 = intent.getIntExtra("fans", 0);
-                    int intExtra4 = intent.getIntExtra("chat", 0);
-                    int intExtra5 = intent.getIntExtra("group_msg", 0);
-                    int intExtra6 = intent.getIntExtra("group_msg_validate", 0);
-                    int intExtra7 = intent.getIntExtra("group_msg_updates", 0);
-                    int intExtra8 = intent.getIntExtra("officialbar_msg", 0);
-                    int intExtra9 = intent.getIntExtra("KeyOfNotiId", 16);
-                    com.baidu.tbadk.coreExtra.messageCenter.a.a().a(intExtra2, intExtra, intExtra3, intExtra4);
-                    com.baidu.adp.lib.util.f.e("group_msg:" + intExtra5 + " group_msg_validate:" + intExtra6 + " group_msg_updates" + intExtra7 + "officialbar_msg=" + intExtra8);
-                    if (intExtra2 > 0 || intExtra > 0 || intExtra4 > 0 || intExtra7 > 0 || intExtra6 > 0 || intExtra5 > 0 || intExtra8 > 0) {
-                        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.ap(context, intExtra9)));
-                        return false;
-                    }
-                    return false;
-                case 8:
-                    com.baidu.tbadk.core.d.b.a(context, 2);
-                    return true;
-                case 9:
-                    if (com.baidu.tbadk.core.d.b.a() != null) {
-                        intent.setClass(context, com.baidu.tbadk.core.d.b.a());
-                        context.startActivity(intent);
-                        return true;
-                    }
-                    break;
-                case 10:
-                    com.baidu.tbadk.core.d.b.a(context, 4);
-                    return true;
-                case 11:
-                    int intExtra10 = intent.getIntExtra("at_me", 0);
-                    int intExtra11 = intent.getIntExtra("reply_me", 0);
-                    int intExtra12 = intent.getIntExtra("fans", 0);
-                    int intExtra13 = intent.getIntExtra("chat", 0);
-                    int intExtra14 = intent.getIntExtra("group_msg", 0);
-                    int intExtra15 = intent.getIntExtra("group_msg_validate", 0);
-                    int intExtra16 = intent.getIntExtra("group_msg_updates", 0);
-                    int intExtra17 = intent.getIntExtra("officialbar_msg", 0);
-                    int intExtra18 = intent.getIntExtra("KeyOfNotiId", 16);
-                    com.baidu.tbadk.coreExtra.messageCenter.a.a().a(intExtra11, intExtra10, intExtra12, intExtra13);
-                    com.baidu.adp.lib.util.f.e("group_msg1:" + intExtra14 + " group_msg_validate1 " + intExtra15 + " group_msg_updates1 " + intExtra16 + "officialbar_msg=" + intExtra17);
-                    if (intExtra11 > 0 || intExtra10 > 0 || intExtra13 > 0 || intExtra16 > 0 || intExtra15 > 0 || intExtra14 > 0 || intExtra17 > 0) {
-                        com.baidu.tbadk.core.b.ab.a = true;
-                        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.ap(context, intExtra18)));
-                        return false;
-                    }
-                    return false;
-                case 12:
-                    String E = TbadkApplication.E();
-                    String O = TbadkApplication.O();
-                    if (TextUtils.isEmpty(E) || TextUtils.isEmpty(O)) {
-                        return false;
-                    }
-                    com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new com.baidu.tbadk.core.b.ag(context, E, O)));
-                    com.baidu.adp.framework.c.a().a(new CustomResponsedMessage(2001158));
-                    return false;
-                case 13:
-                    com.baidu.tbadk.core.b.o oVar = new com.baidu.tbadk.core.b.o(context, com.baidu.adp.lib.f.b.a(intent.getStringExtra("groupid"), 0L), 0);
-                    if (context instanceof com.baidu.tbadk.a) {
-                        ((com.baidu.tbadk.a) context).sendMessage(new com.baidu.adp.framework.message.a(2008011, oVar));
-                        return true;
-                    } else if (context instanceof com.baidu.tbadk.core.e) {
-                        ((com.baidu.tbadk.core.e) context).a(new com.baidu.adp.framework.message.a(2008011, oVar));
-                        return true;
-                    }
-                    break;
-                case 14:
-                    com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2008013));
-                    return true;
-            }
-            return true;
+        if (intent == null) {
+            return false;
         }
-        return false;
+        switch (intent.getExtras().getInt("class", -1)) {
+            case 0:
+                com.baidu.tbadk.browser.a.a(context, intent.getExtras().getString("url"));
+                return true;
+            case 1:
+                String stringExtra = intent.getStringExtra("id");
+                String stringExtra2 = intent.getStringExtra("from");
+                if (intent.getBooleanExtra("is_message_pv", false)) {
+                    com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(context).a(stringExtra, null, stringExtra2, intent.getLongExtra("message_id", 0L))));
+                    return true;
+                }
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(context).a(stringExtra, null, stringExtra2)));
+                return true;
+            case 2:
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2003000, new com.baidu.tbadk.core.b.l(context).a(intent.getStringExtra("fname"), intent.getStringExtra("from"))));
+                return true;
+            case 3:
+                if (com.baidu.tbadk.core.d.b.a() == null) {
+                    return true;
+                }
+                intent.setClass(context, com.baidu.tbadk.core.d.b.a());
+                context.startActivity(intent);
+                return true;
+            case 4:
+            case 6:
+            case 7:
+            default:
+                return false;
+            case 5:
+                int intExtra = intent.getIntExtra("at_me", 0);
+                int intExtra2 = intent.getIntExtra("reply_me", 0);
+                int intExtra3 = intent.getIntExtra("fans", 0);
+                int intExtra4 = intent.getIntExtra("chat", 0);
+                int intExtra5 = intent.getIntExtra("group_msg", 0);
+                int intExtra6 = intent.getIntExtra("group_msg_validate", 0);
+                int intExtra7 = intent.getIntExtra("group_msg_updates", 0);
+                int intExtra8 = intent.getIntExtra("officialbar_msg", 0);
+                int intExtra9 = intent.getIntExtra("KeyOfNotiId", 16);
+                com.baidu.tbadk.coreExtra.messageCenter.a.a().a(com.baidu.tbadk.coreExtra.messageCenter.a.a().i(), com.baidu.tbadk.coreExtra.messageCenter.a.a().j(), intExtra3, com.baidu.tbadk.coreExtra.messageCenter.a.a().m());
+                com.baidu.adp.lib.util.f.e("group_msg:" + intExtra5 + " group_msg_validate:" + intExtra6 + " group_msg_updates" + intExtra7 + "officialbar_msg=" + intExtra8);
+                if (intExtra2 <= 0 && intExtra <= 0 && intExtra4 <= 0 && intExtra7 <= 0 && intExtra6 <= 0 && intExtra5 <= 0 && intExtra8 <= 0) {
+                    return false;
+                }
+                com.baidu.tbadk.core.b.ab.a = true;
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.ap(context, intExtra9)));
+                return false;
+            case 8:
+                com.baidu.tbadk.core.d.b.a(context, 2);
+                return true;
+            case 9:
+                if (com.baidu.tbadk.core.d.b.a() == null) {
+                    return true;
+                }
+                intent.setClass(context, com.baidu.tbadk.core.d.b.a());
+                context.startActivity(intent);
+                return true;
+            case 10:
+                com.baidu.tbadk.core.d.b.a(context, 4);
+                return true;
+            case 11:
+                int intExtra10 = intent.getIntExtra("at_me", 0);
+                int intExtra11 = intent.getIntExtra("reply_me", 0);
+                int intExtra12 = intent.getIntExtra("chat", 0);
+                int intExtra13 = intent.getIntExtra("fans", 0);
+                int intExtra14 = intent.getIntExtra("group_msg", 0);
+                int intExtra15 = intent.getIntExtra("group_msg_validate", 0);
+                int intExtra16 = intent.getIntExtra("group_msg_updates", 0);
+                int intExtra17 = intent.getIntExtra("officialbar_msg", 0);
+                int intExtra18 = intent.getIntExtra("KeyOfNotiId", 11);
+                com.baidu.tbadk.coreExtra.messageCenter.a.a().a(com.baidu.tbadk.coreExtra.messageCenter.a.a().i(), com.baidu.tbadk.coreExtra.messageCenter.a.a().j(), intExtra13, com.baidu.tbadk.coreExtra.messageCenter.a.a().m());
+                com.baidu.adp.lib.util.f.e("group_msg1:" + intExtra14 + " group_msg_validate1 " + intExtra15 + " group_msg_updates1 " + intExtra16 + "officialbar_msg=" + intExtra17);
+                if (intExtra11 <= 0 && intExtra10 <= 0 && intExtra12 <= 0 && intExtra16 <= 0 && intExtra15 <= 0 && intExtra14 <= 0 && intExtra17 <= 0) {
+                    return false;
+                }
+                com.baidu.tbadk.core.b.ab.a = true;
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.ap(context, intExtra18)));
+                return false;
+            case 12:
+                String E = TbadkApplication.E();
+                String O = TbadkApplication.O();
+                if (TextUtils.isEmpty(E) || TextUtils.isEmpty(O)) {
+                    return false;
+                }
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new com.baidu.tbadk.core.b.ag(context, E, O)));
+                com.baidu.adp.framework.c.a().a(new CustomResponsedMessage(2001158));
+                return false;
+            case 13:
+                com.baidu.tbadk.core.b.o oVar = new com.baidu.tbadk.core.b.o(context, com.baidu.adp.lib.f.b.a(intent.getStringExtra("groupid"), 0L), 0);
+                if (context instanceof com.baidu.tbadk.a) {
+                    ((com.baidu.tbadk.a) context).sendMessage(new com.baidu.adp.framework.message.a(2008011, oVar));
+                    return true;
+                } else if (!(context instanceof com.baidu.tbadk.core.e)) {
+                    return true;
+                } else {
+                    ((com.baidu.tbadk.core.e) context).a(new com.baidu.adp.framework.message.a(2008011, oVar));
+                    return true;
+                }
+            case 14:
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2008013));
+                return true;
+        }
     }
 
     public static String c(String str) {

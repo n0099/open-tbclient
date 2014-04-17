@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.b.f;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.lib.stats.o;
+import com.baidu.adp.lib.stats.q;
 import com.baidu.adp.lib.util.h;
 import com.baidu.loginshare.e;
 import com.baidu.tbadk.TbadkApplication;
@@ -101,7 +101,7 @@ public final class a extends f {
             if (!TextUtils.isEmpty(TbadkApplication.E())) {
                 httpMessage2.b("client_user_token", TbadkApplication.E());
             }
-            String a4 = o.a();
+            String a4 = q.a();
             if (!TextUtils.isEmpty(a4)) {
                 httpMessage2.b("sid", a4);
             }

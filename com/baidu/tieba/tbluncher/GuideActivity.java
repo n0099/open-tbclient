@@ -19,7 +19,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.mobstat.StatService;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.b.aa;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.BaseViewPager;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,6 +75,9 @@ public class GuideActivity extends com.baidu.tbadk.a {
             this.e = bundle.getString("from_page");
         } else {
             this.e = getIntent().getStringExtra("from_page");
+        }
+        if (bc.c(this.e)) {
+            this.e = "";
         }
         com.baidu.tbadk.core.g.a(this, "new_user_guide_pv");
         if (TbadkApplication.j().x()) {
@@ -163,10 +166,10 @@ public class GuideActivity extends com.baidu.tbadk.a {
         if (this.l) {
             boolean T = TbadkApplication.j().T();
             if (!T) {
-                sendMessage(new com.baidu.adp.framework.message.a(2015001, new aa(this).a(1, false)));
+                sendMessage(new com.baidu.adp.framework.message.a(2015001, new com.baidu.tbadk.core.b.aa(this).a(1, false)));
             } else {
                 com.baidu.adp.framework.c.a().a(new CustomResponsedMessage(2007006, null));
-                sendMessage(new com.baidu.adp.framework.message.a(2015001, new aa(this).a(2, false)));
+                sendMessage(new com.baidu.adp.framework.message.a(2015001, new com.baidu.tbadk.core.b.aa(this).a(2, false)));
                 if (T) {
                     TbadkApplication.j();
                     TbadkApplication.U();

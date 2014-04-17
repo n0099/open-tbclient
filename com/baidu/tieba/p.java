@@ -29,6 +29,7 @@ import com.baidu.tieba.data.CombineDownload;
 import com.baidu.tieba.data.PersonChangeData;
 import com.baidu.tieba.data.VersionData;
 import com.baidu.tieba.more.AppsActivity;
+import com.baidu.tieba.pb.main.bj;
 import com.baidu.tieba.service.ClearTempService;
 import com.baidu.tieba.service.SDCardChangeReceiver;
 import com.baidu.tieba.service.SignAlertReceiver;
@@ -176,6 +177,11 @@ public final class p {
                 TiebaStatic.a(TbadkApplication.j());
                 if (TbadkApplication.j().T()) {
                     com.baidu.adp.lib.a.f.a().b();
+                    if (!TbadkApplication.j().aw()) {
+                        TiebaStatic.a(TbadkApplication.j().b(), "LocalWebpUnSupport", "");
+                    } else {
+                        TiebaStatic.a(TbadkApplication.j().b(), "LocalWebpSupport", "");
+                    }
                 }
                 com.baidu.tbadk.imageManager.e.a().a(50, com.baidu.tbadk.core.data.n.i());
                 this.g = new HashMap<>();
@@ -355,6 +361,7 @@ public final class p {
         com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2005001));
         com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2006001, "start_once"));
         com.baidu.tbadk.editortool.ac.a().b();
+        bj.a().f();
     }
 
     public static void l() {

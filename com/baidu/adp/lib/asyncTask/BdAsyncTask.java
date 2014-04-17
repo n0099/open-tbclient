@@ -295,7 +295,9 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     public void setImmediatelyExecut(boolean z) {
-        this.f = 4;
+        if (z) {
+            this.f = 4;
+        }
     }
 
     public boolean isImmediatelyExecut() {
