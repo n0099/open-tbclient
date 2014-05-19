@@ -36,7 +36,7 @@ public final class a {
         return aVar;
     }
 
-    public final boolean a(String str) {
+    public boolean a(String str) {
         boolean z = false;
         if (!TextUtils.isEmpty(str) && Pattern.compile(this.a).matcher(str).matches()) {
             z = true;
@@ -51,7 +51,7 @@ public final class a {
         return z;
     }
 
-    public final String b(Context context) {
+    public String b(Context context) {
         String str = null;
         ProxyHttpClient proxyHttpClient = new ProxyHttpClient(context);
         try {

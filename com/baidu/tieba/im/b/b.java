@@ -1,9 +1,7 @@
 package com.baidu.tieba.im.b;
-
-import com.baidu.tieba.im.m;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b extends m<Void> {
+public class b extends com.baidu.tieba.im.b<Void> {
     final /* synthetic */ a b;
     private final /* synthetic */ String c;
 
@@ -13,11 +11,11 @@ public final class b extends m<Void> {
         this.c = str;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* bridge */ /* synthetic */ Void a() {
-        com.baidu.tieba.im.db.h.a();
-        com.baidu.tieba.im.db.h.a(this.c, false);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        com.baidu.tieba.im.db.h.a().a(this.c, false);
         return null;
     }
 }

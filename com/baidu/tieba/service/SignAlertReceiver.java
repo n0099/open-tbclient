@@ -6,8 +6,11 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class SignAlertReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
@@ -23,20 +26,20 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 intent2.putExtra("locate_type", 1);
                 intent2.setFlags(603979776);
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-                String string = context.getString(com.baidu.tieba.a.k.sign_notification_content);
-                Notification notification = new Notification(com.baidu.tieba.a.g.icon, string, System.currentTimeMillis());
-                String string2 = context.getString(com.baidu.tieba.a.k.app_name);
-                notification.icon = com.baidu.tieba.a.g.icon;
+                String string = context.getString(u.sign_notification_content);
+                Notification notification = new Notification(com.baidu.tieba.q.icon, string, System.currentTimeMillis());
+                String string2 = context.getString(u.app_name);
+                notification.icon = com.baidu.tieba.q.icon;
                 notification.setLatestEventInfo(context, string2, string, service);
                 notification.defaults = -1;
                 if (com.baidu.tbadk.coreExtra.messageCenter.a.c()) {
                     notification.defaults &= -2;
                     notification.defaults &= -3;
                 } else {
-                    if (!TbadkApplication.j().aq()) {
+                    if (!TbadkApplication.m252getInst().isMsgVibrateOn()) {
                         notification.defaults &= -3;
                     }
-                    if (!TbadkApplication.j().ar()) {
+                    if (!TbadkApplication.m252getInst().isMsgToneOn()) {
                         notification.defaults &= -2;
                     } else {
                         notification.audioStreamType = 5;
@@ -46,11 +49,11 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 ((NotificationManager) context.getSystemService("notification")).notify(12, notification);
             } catch (Throwable th) {
                 try {
-                    if (com.baidu.adp.lib.util.f.a()) {
-                        com.baidu.adp.lib.util.f.b(th.getMessage());
+                    if (BdLog.isDebugMode()) {
+                        BdLog.e(th.getMessage());
                     }
                 } finally {
-                    com.baidu.tieba.p.c().r();
+                    ad.c().v();
                 }
             }
         }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.voice;
 import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i implements Runnable {
+public class i implements Runnable {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public final class i implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         long j;
         Handler handler;
         Runnable runnable;

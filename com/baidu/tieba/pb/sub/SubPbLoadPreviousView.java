@@ -19,22 +19,22 @@ public class SubPbLoadPreviousView extends LinearLayout {
     public SubPbLoadPreviousView(Context context) {
         super(context);
         this.a = context;
-        f();
+        e();
     }
 
     public SubPbLoadPreviousView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = context;
-        f();
+        e();
     }
 
-    private void f() {
+    private void e() {
         setOrientation(0);
         setClickable(true);
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.sub_pb_load_previous, (ViewGroup) this, true);
-        this.b = (TextView) findViewById(com.baidu.tieba.a.h.btn_loadprevious);
-        this.c = (ImageView) findViewById(com.baidu.tieba.a.h.image_up);
-        this.d = (ProgressBar) findViewById(com.baidu.tieba.a.h.progress);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.sub_pb_load_previous, (ViewGroup) this, true);
+        this.b = (TextView) findViewById(com.baidu.tieba.r.btn_loadprevious);
+        this.c = (ImageView) findViewById(com.baidu.tieba.r.image_up);
+        this.d = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
     }
 
     @Override // android.view.View
@@ -43,26 +43,26 @@ public class SubPbLoadPreviousView extends LinearLayout {
         this.c.setOnClickListener(onClickListener);
     }
 
-    public final void a() {
-        this.b.setText(com.baidu.tieba.a.k.loading);
+    public void a() {
+        this.b.setText(com.baidu.tieba.u.loading);
         this.c.setVisibility(8);
         this.d.setVisibility(0);
     }
 
-    public final void b() {
-        this.b.setText(com.baidu.tieba.a.k.view_previous_floor);
+    public void b() {
+        this.b.setText(com.baidu.tieba.u.view_previous_floor);
         this.c.setVisibility(0);
         this.d.setVisibility(8);
     }
 
-    public static void c() {
+    public void a(int i) {
     }
 
-    public final void d() {
+    public void c() {
         setVisibility(8);
     }
 
-    public final void e() {
+    public void d() {
         setVisibility(0);
     }
 }

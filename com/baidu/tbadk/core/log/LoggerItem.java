@@ -3,8 +3,9 @@ package com.baidu.tbadk.core.log;
 import android.os.Build;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.n;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import org.apache.commons.io.IOUtils;
@@ -26,19 +27,19 @@ public class LoggerItem extends LinkedHashMap<String, String> {
     }
 
     public void initBaseData() {
-        String E = TbadkApplication.E();
-        String c = n.c();
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        String version = TbConfig.getVersion();
         String charSequence = DateFormat.format(a, System.currentTimeMillis()).toString();
-        String y = TbadkApplication.y();
+        String uniqueIdentifier = TbadkApplication.getUniqueIdentifier();
         String str = Build.MODEL;
         String b = g.b();
         put("logtype", TextUtils.isEmpty(this.mType) ? "" : this.mType);
         put("time", TextUtils.isEmpty(charSequence) ? "" : charSequence);
-        put("cuid", TextUtils.isEmpty(y) ? "" : y);
+        put("cuid", TextUtils.isEmpty(uniqueIdentifier) ? "" : uniqueIdentifier);
         put("model", TextUtils.isEmpty(str) ? "" : str);
         put("network", TextUtils.isEmpty(b) ? "" : b);
-        put("uid", TextUtils.isEmpty(E) ? "" : E);
-        put("version", TextUtils.isEmpty(c) ? "" : c);
+        put(SapiAccountManager.SESSION_UID, TextUtils.isEmpty(currentAccount) ? "" : currentAccount);
+        put("version", TextUtils.isEmpty(version) ? "" : version);
     }
 
     public synchronized String mergeString(String str) {

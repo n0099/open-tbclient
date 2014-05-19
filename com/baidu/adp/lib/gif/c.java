@@ -2,7 +2,7 @@ package com.baidu.adp.lib.gif;
 
 import android.graphics.Bitmap;
 /* loaded from: classes.dex */
-public final class c {
+public class c {
     public Bitmap a;
     public int b;
     public String c;

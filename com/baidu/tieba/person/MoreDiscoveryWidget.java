@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public class MoreDiscoveryWidget extends FrameLayout {
     private ImageView a;
@@ -29,12 +31,12 @@ public class MoreDiscoveryWidget extends FrameLayout {
         super(context, attributeSet, i);
         this.f = new int[2];
         this.e = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.more_discovery_widget, (ViewGroup) this, true);
-        this.a = (ImageView) findViewById(com.baidu.tieba.a.h.widget_icon);
-        this.b = (TextView) findViewById(com.baidu.tieba.a.h.widget_text);
-        this.c = (ImageView) findViewById(com.baidu.tieba.a.h.widget_new);
-        this.d = (ImageView) findViewById(com.baidu.tieba.a.h.widget_remind);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.a.m.moreTabWidget);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.more_discovery_widget, (ViewGroup) this, true);
+        this.a = (ImageView) findViewById(com.baidu.tieba.r.widget_icon);
+        this.b = (TextView) findViewById(com.baidu.tieba.r.widget_text);
+        this.c = (ImageView) findViewById(com.baidu.tieba.r.widget_new);
+        this.d = (ImageView) findViewById(com.baidu.tieba.r.widget_remind);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.w.moreTabWidget);
         this.b.setText(obtainStyledAttributes.getString(1));
         this.a.setImageDrawable(obtainStyledAttributes.getDrawable(0));
         this.f[0] = obtainStyledAttributes.getResourceId(0, 0);
@@ -42,11 +44,11 @@ public class MoreDiscoveryWidget extends FrameLayout {
         obtainStyledAttributes.recycle();
     }
 
-    public final void a(int i) {
-        if (this.e instanceof com.baidu.tbadk.a) {
-            ((com.baidu.tbadk.a) this.e).getLayoutMode().a(this);
+    public void a(int i) {
+        if (this.e instanceof BaseActivity) {
+            ((BaseActivity) this.e).getLayoutMode().a((View) this);
         } else if (this.e instanceof com.baidu.tbadk.core.e) {
-            ((com.baidu.tbadk.core.e) getContext()).b().a(this);
+            ((com.baidu.tbadk.core.e) getContext()).a().a((View) this);
         }
         if (1 == i) {
             this.a.setImageResource(this.f[1]);
@@ -55,19 +57,19 @@ public class MoreDiscoveryWidget extends FrameLayout {
         }
     }
 
-    public final void a() {
+    public void a() {
         this.c.setVisibility(0);
     }
 
-    public final void b() {
+    public void b() {
         this.c.setVisibility(8);
     }
 
-    public final void c() {
+    public void c() {
         this.d.setVisibility(0);
     }
 
-    public final void d() {
+    public void d() {
         this.d.setVisibility(8);
     }
 }

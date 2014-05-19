@@ -1,33 +1,43 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
+import tbclient.FrsPage.Badges;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private int a;
     private String b;
     private String c;
 
-    public final String a() {
+    public String a() {
         return this.b;
     }
 
-    public final String b() {
+    public String b() {
         return String.valueOf(this.a);
     }
 
-    public final String c() {
+    public String c() {
         return this.c;
     }
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optInt("badge_id", 0);
                 this.b = jSONObject.optString("badge_url", "");
                 this.c = jSONObject.optString("webview");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("BadgeData", "parserJson", "error = " + e.getMessage());
+                BdLog.e("BadgeData", "parserJson", "error = " + e.getMessage());
             }
+        }
+    }
+
+    public void a(Badges badges) {
+        if (badges != null) {
+            this.a = badges.badge_id.intValue();
+            this.b = badges.badge_url;
+            this.c = badges.webview;
         }
     }
 }

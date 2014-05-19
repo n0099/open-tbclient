@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.f;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.g;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.f.q;
+import com.baidu.tieba.im.f.r;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ImMessageCenterPojo implements Serializable {
@@ -181,18 +181,18 @@ public class ImMessageCenterPojo implements Serializable {
         OldUserData oldUserData;
         OldUserData oldUserData2;
         if (commonMsgPojo == null) {
-            f.e("see init cmpojo is null");
+            BdLog.d("see init cmpojo is null");
             return null;
         }
-        String E = TbadkApplication.E();
-        if (TextUtils.isEmpty(E)) {
-            f.e("see init not login:");
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (TextUtils.isEmpty(currentAccount)) {
+            BdLog.d("see init not login:");
             return null;
         }
-        f.e("see init private cmpojo:" + commonMsgPojo);
+        BdLog.d("see init private cmpojo:" + commonMsgPojo);
         String gid = commonMsgPojo.getGid();
         if (TextUtils.isEmpty(gid)) {
-            f.b("see init private uid  is null uid:" + gid);
+            BdLog.e("see init private uid  is null uid:" + gid);
             return null;
         }
         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
@@ -200,21 +200,21 @@ public class ImMessageCenterPojo implements Serializable {
         UserData userData = (UserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) UserData.class);
         UserData userData2 = (UserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) UserData.class);
         if (userData == null) {
-            f.e("see init private userinfo:" + commonMsgPojo.getUser_info());
+            BdLog.d("see init private userinfo:" + commonMsgPojo.getUser_info());
             return null;
         }
-        if (h.b(userData.getUserId()) && (oldUserData2 = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
+        if (g.b(userData.getUserId()) && (oldUserData2 = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
             oldUserData2.setToUserData(userData);
         }
         String toUid = commonMsgPojo.getToUid();
-        if (!TextUtils.isEmpty(toUid) && toUid.equals(gid) && E.equals(gid)) {
-            f.b("see init private : send msg to self");
+        if (!TextUtils.isEmpty(toUid) && toUid.equals(gid) && currentAccount.equals(gid)) {
+            BdLog.e("see init private : send msg to self");
             return null;
         }
         String uid = commonMsgPojo.getUid();
-        if (E.equals(uid)) {
+        if (currentAccount.equals(uid)) {
             if (userData2 != null) {
-                if (h.b(userData2.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) OldUserData.class)) != null) {
+                if (g.b(userData2.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) OldUserData.class)) != null) {
                     oldUserData.setToUserData(userData2);
                 }
                 imMessageCenterPojo.setGroup_name(userData2.getUserName());
@@ -224,7 +224,7 @@ public class ImMessageCenterPojo implements Serializable {
             imMessageCenterPojo.setGroup_name(userData.getUserName());
             imMessageCenterPojo.setGroup_head(userData.getPortrait());
         }
-        if (E.equals(uid)) {
+        if (currentAccount.equals(uid)) {
             if (userData2 != null && userData2.getUserType() == 1) {
                 imMessageCenterPojo.setCustomGroupType(4);
                 z = true;
@@ -240,14 +240,14 @@ public class ImMessageCenterPojo implements Serializable {
         if (!z) {
             imMessageCenterPojo.setCustomGroupType(2);
         }
-        if (E.equals(uid)) {
-            imMessageCenterPojo.setLast_content(q.g(commonMsgPojo.toChatMessage()));
+        if (currentAccount.equals(uid)) {
+            imMessageCenterPojo.setLast_content(r.h(commonMsgPojo.toChatMessage()));
         } else {
-            imMessageCenterPojo.setLast_content(String.valueOf(userData.getUserName()) + ":" + q.g(commonMsgPojo.toChatMessage()));
+            imMessageCenterPojo.setLast_content(String.valueOf(userData.getUserName()) + ":" + r.h(commonMsgPojo.toChatMessage()));
         }
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
         imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
-        f.e("see convert " + imMessageCenterPojo + "ori:" + commonMsgPojo);
+        BdLog.d("see convert " + imMessageCenterPojo + "ori:" + commonMsgPojo);
         return imMessageCenterPojo;
     }
 

@@ -4,8 +4,10 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -17,34 +19,38 @@ public class TiebaActiveService extends Service {
     private Handler c = new Handler();
     private Runnable d = new i(this);
 
-    private static void a(String str) {
+    private String a() {
+        return com.baidu.tbadk.core.sharedPref.b.a().a("channel_id", (String) null);
+    }
+
+    private void a(String str) {
         if (str != null && str.length() > 0) {
             com.baidu.tbadk.core.sharedPref.b.a().b("channel_id", str);
         }
     }
 
-    private String a() {
+    private String b() {
         String str = null;
         try {
-            File d = w.d("channel.dat");
-            if (d == null) {
-                return null;
+            File d = x.d(TbConfig.CHANNEL_FILE);
+            if (d != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(d));
+                str = bufferedReader.readLine();
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
             }
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(d));
-            str = bufferedReader.readLine();
-            bufferedReader.close();
-            return str;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "getFromByFile", e.getMessage());
-            TiebaStatic.a(e, "TiebaActiveService.getChannelyFile");
-            return str;
+            BdLog.e(getClass().getName(), "getFromByFile", e.getMessage());
+            TiebaStatic.file(e, "TiebaActiveService.getChannelyFile");
         }
+        return str;
     }
 
     private void b(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File f = w.f("channel.dat");
+                File f = x.f(TbConfig.CHANNEL_FILE);
                 if (f != null) {
                     FileWriter fileWriter = new FileWriter(f);
                     fileWriter.append((CharSequence) str);
@@ -52,21 +58,21 @@ public class TiebaActiveService extends Service {
                     fileWriter.close();
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "saveFromToFile", e.getMessage());
-                TiebaStatic.a(e, "TiebaActiveService.saveChannelToFile");
+                BdLog.e(getClass().getName(), "saveFromToFile", e.getMessage());
+                TiebaStatic.file(e, "TiebaActiveService.saveChannelToFile");
             }
         }
     }
 
-    private boolean b() {
+    private boolean c() {
         try {
-            String a = com.baidu.tbadk.core.sharedPref.b.a().a("channel_id", (String) null);
+            String a = a();
             if (a == null) {
-                String a2 = a();
-                if (a2 != null && a2.length() > 0) {
-                    a(a2);
+                String b = b();
+                if (b != null && b.length() > 0) {
+                    a(b);
                 } else {
-                    if ("aishide".length() > 0) {
+                    if ("aishide" != 0 && "aishide".length() > 0) {
                         a("aishide");
                         b("aishide");
                     }
@@ -76,9 +82,9 @@ public class TiebaActiveService extends Service {
                 b(a);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "getActiveState", e.getMessage());
+            BdLog.e(getClass().getName(), "getActiveState", e.getMessage());
         }
-        com.baidu.adp.lib.util.f.a(getClass().getName(), "getActiveState", "channel = ");
+        BdLog.i(getClass().getName(), "getActiveState", "channel = ");
         return true;
     }
 
@@ -90,10 +96,10 @@ public class TiebaActiveService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (b() && com.baidu.tbadk.core.sharedPref.b.a().a("active", 2) != 1) {
+        if (c() && com.baidu.tbadk.core.sharedPref.b.a().a("active", 2) != 1) {
             stopSelf();
         } else {
-            c();
+            d();
         }
     }
 
@@ -108,11 +114,11 @@ public class TiebaActiveService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
+    public void d() {
         if (this.a != null) {
             this.a.cancel();
         }
-        this.a = new j(this, (byte) 0);
+        this.a = new j(this, null);
         this.a.execute(new String[0]);
     }
 }

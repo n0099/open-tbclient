@@ -1,7 +1,9 @@
 package com.baidu.adp.widget;
+
+import android.database.DataSetObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class o implements com.baidu.adp.widget.ListView.u {
+public class o extends DataSetObserver {
     final /* synthetic */ PinnedHeaderListView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,8 +11,16 @@ public final class o implements com.baidu.adp.widget.ListView.u {
         this.a = pinnedHeaderListView;
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
-    public final void a(boolean z) {
-        this.a.l = z;
+    @Override // android.database.DataSetObserver
+    public void onChanged() {
+        this.a.requestLayout();
+        this.a.invalidate();
+    }
+
+    @Override // android.database.DataSetObserver
+    public void onInvalidated() {
+        this.a.h = -1;
+        this.a.requestLayout();
+        this.a.invalidate();
     }
 }

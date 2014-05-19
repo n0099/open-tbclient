@@ -2,14 +2,15 @@ package com.baidu.tieba.model;
 
 import com.baidu.tieba.data.PersonChangeData;
 /* loaded from: classes.dex */
-public final class MoreModel extends com.baidu.adp.a.e {
+public class MoreModel extends com.baidu.adp.base.d {
     private PersonChangeData a;
     private boolean b = false;
 
     /* loaded from: classes.dex */
     public enum TaskType {
-        DO_CLEAR,
-        GET_SIZE;
+        DO_CACHE_CLEAR,
+        GET_SIZE,
+        DO_IM_CLEAR;
 
         /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
@@ -30,29 +31,29 @@ public final class MoreModel extends com.baidu.adp.a.e {
         }
     }
 
-    public final void a(PersonChangeData personChangeData) {
+    public void a(PersonChangeData personChangeData) {
         this.a = personChangeData;
     }
 
-    public final void a(boolean z) {
-        this.b = true;
+    public void a(boolean z) {
+        this.b = z;
     }
 
-    public final boolean a() {
+    public boolean a() {
         return this.b;
     }
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         return false;
     }
 
-    public final PersonChangeData b() {
+    public PersonChangeData b() {
         return this.a;
     }
 }

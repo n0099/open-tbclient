@@ -9,12 +9,12 @@ public final class ISBNParsedResult extends ParsedResult {
         this.isbn = str;
     }
 
-    public final String getISBN() {
+    public String getISBN() {
         return this.isbn;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public final String getDisplayResult() {
+    public String getDisplayResult() {
         return this.isbn;
     }
 }

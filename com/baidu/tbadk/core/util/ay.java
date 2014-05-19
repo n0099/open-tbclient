@@ -1,60 +1,163 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallelType;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoaderNetHelperStatic;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class ay extends BdAsyncTask<String, String, String> {
-    private e a;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ String a(String... strArr) {
-        return a();
-    }
-
-    public ay(e eVar) {
-        this.a = null;
-        this.a = eVar;
-        setParallelTag(1);
-        setType(BdAsyncTaskParallelType.SERIAL);
-    }
-
-    /* JADX WARN: Type inference failed for: r5v0, types: [byte[], java.lang.String] */
-    private String a() {
-        try {
-            if (!this.a.p) {
-                if (this.a.d == 4) {
-                    if (this.a.k != null) {
-                        bb.a().a(this.a.k, this.a.j);
+public class ay {
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0085  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0095  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(ListView listView, int i, int i2) {
+        ListAdapter adapter;
+        LinkedList<String> photoUrl;
+        LinkedList<String> forumPhotoUrl;
+        int pbImageSize;
+        if (listView != null && (adapter = listView.getAdapter()) != null && BdResourceLoaderNetHelperStatic.a() && com.baidu.adp.lib.resourceLoader.d.a().c(i2)) {
+            int i3 = 0;
+            int i4 = 0;
+            int i5 = 0;
+            int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
+            boolean i6 = bf.i();
+            int firstVisiblePosition = listView.getFirstVisiblePosition();
+            int lastVisiblePosition = listView.getLastVisiblePosition();
+            com.baidu.adp.lib.resourceLoader.d.a().a(i, (com.baidu.adp.lib.resourceLoader.c) null);
+            while (true) {
+                int i7 = firstVisiblePosition;
+                int i8 = i5;
+                int i9 = i4;
+                int i10 = i3;
+                if (i7 < adapter.getCount()) {
+                    Object item = adapter.getItem(i7);
+                    if (item instanceof ad) {
+                        ad adVar = (ad) item;
+                        if (adVar.isSupportImageSize()) {
+                            LinkedList<ab> imagesWithEmotions = adVar.getImagesWithEmotions();
+                            if (imagesWithEmotions != null && imagesWithEmotions.size() != 0) {
+                                Iterator<ab> it = imagesWithEmotions.iterator();
+                                while (it.hasNext()) {
+                                    ab next = it.next();
+                                    int i11 = next.b * next.c;
+                                    if (i11 > 0) {
+                                        if (next.d != null) {
+                                            pbImageSize = i9 + (i11 * 4);
+                                        } else {
+                                            pbImageSize = i9 + (i11 * 2);
+                                        }
+                                    } else if (next.d != null) {
+                                        BdLog.e("missing big emotion image width and height!");
+                                        pbImageSize = i9 + TbConfig.getBigEmotionsSize();
+                                    } else if (next.e != null) {
+                                        pbImageSize = i9 + TbConfig.getBubbleImageSize();
+                                    } else {
+                                        pbImageSize = i9 + TbConfig.getPbImageSize();
+                                    }
+                                    int i12 = i10 + 1;
+                                    if (i12 <= 13 && pbImageSize <= bigImageMaxUsedMemory) {
+                                        if (i7 > lastVisiblePosition) {
+                                            if (next.d != null) {
+                                                com.baidu.tbadk.widget.richText.e eVar = next.d;
+                                                String str = i6 ? eVar.b.d : eVar.b.c;
+                                                if (!TextUtils.isEmpty(str)) {
+                                                    com.baidu.adp.lib.resourceLoader.d.a().a(eVar.b.b, 20, null, 0, 0, i, eVar.b.e, eVar.b.b, Boolean.valueOf(i6), str);
+                                                    i9 = pbImageSize;
+                                                    i10 = i12;
+                                                }
+                                            } else if (next.e != null) {
+                                                String str2 = next.e;
+                                                if (!TextUtils.isEmpty(str2)) {
+                                                    com.baidu.adp.lib.resourceLoader.d.a().a(str2, 19, null, i);
+                                                    i9 = pbImageSize;
+                                                    i10 = i12;
+                                                }
+                                            } else {
+                                                String str3 = next.a;
+                                                if (!TextUtils.isEmpty(str3)) {
+                                                    com.baidu.adp.lib.resourceLoader.d.a().a(str3, i2, null, i);
+                                                }
+                                            }
+                                        }
+                                        i9 = pbImageSize;
+                                        i10 = i12;
+                                    } else {
+                                        return;
+                                    }
+                                }
+                                photoUrl = adVar.getPhotoUrl();
+                                if (photoUrl != null) {
+                                    Iterator<String> it2 = photoUrl.iterator();
+                                    while (it2.hasNext()) {
+                                        String next2 = it2.next();
+                                        i8++;
+                                        if (i8 >= 30) {
+                                            break;
+                                        } else if (i7 > lastVisiblePosition) {
+                                            com.baidu.adp.lib.resourceLoader.d.a().a(next2, 12, null, i);
+                                        }
+                                    }
+                                }
+                                forumPhotoUrl = adVar.getForumPhotoUrl();
+                                if (forumPhotoUrl != null) {
+                                    Iterator<String> it3 = forumPhotoUrl.iterator();
+                                    while (it3.hasNext()) {
+                                        String next3 = it3.next();
+                                        i8++;
+                                        if (i8 >= 30) {
+                                            break;
+                                        } else if (i7 > lastVisiblePosition) {
+                                            com.baidu.adp.lib.resourceLoader.d.a().a(next3, 12, null, i);
+                                        }
+                                    }
+                                }
+                                if (i10 < 13 && i8 >= 30) {
+                                    return;
+                                }
+                            }
+                        } else {
+                            LinkedList<String> imageUrl = adVar.getImageUrl();
+                            if (imageUrl != null && imageUrl.size() != 0) {
+                                Iterator<String> it4 = imageUrl.iterator();
+                                while (it4.hasNext()) {
+                                    String next4 = it4.next();
+                                    i10++;
+                                    i9 += TbConfig.getPbImageSize();
+                                    if (i10 <= 13 && i9 <= bigImageMaxUsedMemory) {
+                                        if (i7 > lastVisiblePosition && !TextUtils.isEmpty(next4)) {
+                                            com.baidu.adp.lib.resourceLoader.d.a().a(next4, i2, null, i);
+                                        }
+                                    } else {
+                                        return;
+                                    }
+                                }
+                                photoUrl = adVar.getPhotoUrl();
+                                if (photoUrl != null) {
+                                }
+                                forumPhotoUrl = adVar.getForumPhotoUrl();
+                                if (forumPhotoUrl != null) {
+                                }
+                                if (i10 < 13) {
+                                    continue;
+                                } else {
+                                    return;
+                                }
+                            }
+                        }
                     }
-                } else if (this.a.d == 5) {
-                    com.baidu.tbadk.core.c.a.b(this.a.l, this.a.e);
-                } else if (this.a.d == 7) {
-                    bb.a();
-                    String str = this.a.k;
-                    byte[] bArr = this.a.j;
-                    if (!TextUtils.isEmpty(str)) {
-                        w.a(w.a(3), str, bArr);
-                    }
-                } else if (this.a.k != null) {
-                    com.baidu.adp.lib.cache.s<String> x = com.baidu.tbadk.core.c.b.a().x();
-                    if (x != null && this.a.h) {
-                        x.a(this.a.l, "gif", 315532800000L);
-                    }
-                    bb.a().a(this.a.k, this.a.j);
+                    i3 = i10;
+                    i4 = i9;
+                    i5 = i8;
+                    firstVisiblePosition = i7 + 1;
+                } else {
+                    return;
                 }
             }
-        } catch (Throwable th) {
-            try {
-                TiebaStatic.a("", -1004, "cache img err: " + th.toString(), this.a.m);
-            } finally {
-                this.a.j = null;
-                this.a.m = null;
-            }
         }
-        return null;
     }
 }

@@ -1,19 +1,55 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.google.protobuf.MessageLite;
+import android.view.View;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.view.NavigationBar;
+import java.util.List;
 /* loaded from: classes.dex */
-final class ag extends com.baidu.tieba.im.message.a.a {
-    final /* synthetic */ ae a;
+public class ag extends com.baidu.adp.base.e {
+    private BaseActivity a;
+    private View b;
+    private BdListView c;
+    private NavigationBar d;
+    private ae e;
+    private View f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag(ae aeVar, int i) {
-        super(501126);
-        this.a = aeVar;
+    public ag(BaseActivity baseActivity) {
+        super(baseActivity);
+        this.a = baseActivity;
+        b();
     }
 
-    @Override // com.baidu.tbadk.message.websockt.d
-    protected final MessageLite h() {
-        return null;
+    private void b() {
+        this.b = View.inflate(this.a, com.baidu.tieba.s.official_bar_history_activity, null);
+        this.a.setContentView(this.b);
+        this.d = (NavigationBar) this.b.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.d.a(com.baidu.tieba.u.officical_bar_info_history);
+        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.c = (BdListView) this.b.findViewById(com.baidu.tieba.r.bar_history_list);
+        this.e = new ae(this.a);
+        this.c.setAdapter((ListAdapter) this.e);
+        this.f = View.inflate(this.a, com.baidu.tieba.s.official_bar_history_item_occupy, null);
+        this.c.addHeaderView(this.f);
+        this.c.addFooterView(this.f);
+    }
+
+    public void a(List<ba> list) {
+        this.e.a(list);
+    }
+
+    public void a(int i) {
+        this.a.getLayoutMode().a(i == 1);
+        this.a.getLayoutMode().a(this.b);
+        this.d.c(i);
+    }
+
+    public void a(com.baidu.adp.widget.ListView.u uVar) {
+        this.c.setOnSrollToBottomListener(uVar);
+    }
+
+    public boolean a() {
+        return this.e.getCount() != 0 && this.c.getLastVisiblePosition() < this.e.getCount() + (-1);
     }
 }

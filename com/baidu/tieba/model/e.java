@@ -1,48 +1,43 @@
 package com.baidu.tieba.model;
-/* loaded from: classes.dex */
-public final class e extends com.baidu.adp.a.e {
-    private com.baidu.tbadk.core.message.d a;
-    private com.baidu.tbadk.core.message.b b;
-    private int c = 2;
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
+/* loaded from: classes.dex */
+public class e extends com.baidu.adp.base.d {
+    private RequestUpdateMaskInfoMessage a;
+    private int b = 2;
+
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         super.cancelMessage();
         return false;
     }
 
-    public final void a(long j) {
-        this.a = new com.baidu.tbadk.core.message.d();
-        this.a.e(1);
-        this.a.d(10);
-        this.a.a(String.valueOf(j));
+    public void a(long j) {
+        this.a = new RequestUpdateMaskInfoMessage();
+        this.a.setIsMask(1);
+        this.a.setMaskType(10);
+        this.a.setList(String.valueOf(j));
         super.sendMessage(this.a);
     }
 
-    public final void a(int i) {
-        this.b = new com.baidu.tbadk.core.message.b();
-        this.b.d(i);
-        super.sendMessage(this.b);
-    }
-
-    public final void b(long j) {
-        this.a = new com.baidu.tbadk.core.message.d();
-        this.a.e(0);
-        this.a.d(10);
-        this.a.a(String.valueOf(j));
+    public void b(long j) {
+        this.a = new RequestUpdateMaskInfoMessage();
+        this.a.setIsMask(0);
+        this.a.setMaskType(10);
+        this.a.setList(String.valueOf(j));
         super.sendMessage(this.a);
     }
 
-    public final int a() {
-        return this.c;
+    public int a() {
+        return this.b;
     }
 
-    public final void b(int i) {
-        this.c = i;
+    public void a(int i) {
+        this.b = i;
     }
 }

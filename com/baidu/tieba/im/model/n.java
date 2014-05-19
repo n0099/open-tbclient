@@ -1,30 +1,49 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.tieba.im.message.RequestGroupLevelMessage;
 /* loaded from: classes.dex */
-public final class n extends com.baidu.adp.framework.c.a {
-    final /* synthetic */ GroupMsglistModel a;
+public class n extends com.baidu.adp.base.d {
+    private long a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n(GroupMsglistModel groupMsglistModel, int i) {
-        super(0);
-        this.a = groupMsglistModel;
+    public long a() {
+        return this.a;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 != null) {
-            if (customResponsedMessage2.g() == 2013005) {
-                this.a.a((com.baidu.adp.framework.message.f<?>) customResponsedMessage2);
-            } else if (customResponsedMessage2.g() == 2001146) {
-                this.a.b(customResponsedMessage2);
-            } else if (customResponsedMessage2.g() == 2001149) {
-                this.a.a(customResponsedMessage2);
-            }
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void a(Intent intent) {
+        this.a = intent.getLongExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0L);
+    }
+
+    public void a(Bundle bundle) {
+        this.a = bundle.getLong(com.baidu.tbadk.core.frameworkData.a.GROUP_ID);
+    }
+
+    private RequestGroupLevelMessage a(long j) {
+        RequestGroupLevelMessage requestGroupLevelMessage = new RequestGroupLevelMessage();
+        requestGroupLevelMessage.setGroupId(j);
+        return requestGroupLevelMessage;
+    }
+
+    public void a(long j, int i) {
+        RequestGroupLevelMessage a = a(j);
+        if (a.getTag() == 0) {
+            a.setTag(i);
         }
+        super.sendMessage(a);
+    }
+
+    public void b(Bundle bundle) {
+        bundle.putLong(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, this.a);
     }
 }

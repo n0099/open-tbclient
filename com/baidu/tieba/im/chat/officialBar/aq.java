@@ -1,23 +1,22 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-final class aq implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ ap a;
+class aq implements Runnable {
+    final /* synthetic */ OfficialBarTipActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(ap apVar) {
-        this.a = apVar;
+    public aq(OfficialBarTipActivity officialBarTipActivity) {
+        this.a = officialBarTipActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        HeadImageView headImageView;
-        com.baidu.adp.lib.util.f.e("img load finish");
-        if (bVar != null) {
-            com.baidu.adp.lib.util.f.e("img load suceess");
-            headImageView = this.a.e;
-            bVar.a(headImageView);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        ax axVar;
+        ax axVar2;
+        axVar = this.a.b;
+        BdListView a = axVar.a();
+        axVar2 = this.a.b;
+        com.baidu.tbadk.core.util.ae.a(a, axVar2.b().a(), 0, -1);
     }
 }

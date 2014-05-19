@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.groupCard;
 
-import com.baidu.tieba.im.j;
+import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class a implements com.baidu.tbadk.imageManager.d {
+public class a implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ GroupCardActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,22 +12,22 @@ final class a implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         d dVar;
         d dVar2;
         d dVar3;
         d dVar4;
         dVar = this.a.d;
-        dVar.d();
-        if (bVar == null) {
+        dVar.b();
+        if (aVar == null) {
             dVar4 = this.a.d;
-            dVar4.a(0, this.a.getString(j.group_card_error));
+            dVar4.a(0, this.a.getString(u.group_card_error));
             return;
         }
-        this.a.i = bVar.h();
+        this.a.i = aVar.h();
         dVar2 = this.a.d;
-        dVar2.a(bVar);
+        dVar2.a(aVar);
         dVar3 = this.a.d;
-        dVar3.e();
+        dVar3.c();
     }
 }

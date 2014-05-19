@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.hotGroup;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,20 +10,21 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.g;
-import com.baidu.tieba.im.h;
-import com.baidu.tieba.im.i;
-import com.baidu.tieba.im.j;
+import com.baidu.tieba.o;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class HotGroupAdapter extends BaseAdapter {
+public class HotGroupAdapter extends BaseAdapter {
     private HotGroupActivity a;
     private ab b;
     private List<GroupInfoData> c = new ArrayList();
@@ -51,36 +51,30 @@ public final class HotGroupAdapter extends BaseAdapter {
     public HotGroupAdapter(HotGroupActivity hotGroupActivity) {
         this.a = hotGroupActivity;
         this.b = new ab(this.a);
-        this.b.a(true);
+        this.b.d(true);
     }
 
-    public final ab a() {
+    public ab a() {
         return this.b;
     }
 
-    public final void a(List<GroupInfoData> list) {
+    public void a(List<GroupInfoData> list) {
         this.c.addAll(list);
-        HashSet hashSet = new HashSet();
-        Iterator<GroupInfoData> it = this.c.iterator();
-        while (it.hasNext()) {
-            if (!hashSet.add(Integer.valueOf(it.next().getGroupId()))) {
-                it.remove();
-            }
-        }
+        c();
     }
 
-    public final void b() {
+    public void b() {
         if (this.c != null) {
             this.c.clear();
         }
     }
 
-    public final void a(BOTTOM_TYPE bottom_type) {
+    public void a(BOTTOM_TYPE bottom_type) {
         this.d = bottom_type;
     }
 
     @Override // android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         if (this.c == null) {
             return 0;
         }
@@ -92,23 +86,23 @@ public final class HotGroupAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getViewTypeCount() {
+    public int getViewTypeCount() {
         return 2;
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         this.e = z;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getItemViewType(int i) {
+    public int getItemViewType(int i) {
         return getItemId(i) >= 0 ? 0 : 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public final GroupInfoData getItem(int i) {
+    public GroupInfoData getItem(int i) {
         int itemId = (int) getItemId(i);
         if (itemId < 0 || itemId >= this.c.size()) {
             return null;
@@ -117,7 +111,7 @@ public final class HotGroupAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final long getItemId(int i) {
+    public long getItemId(int i) {
         if (i == getCount() - 1 && this.e) {
             i = -2;
         }
@@ -125,25 +119,25 @@ public final class HotGroupAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof a)) {
-            view = LayoutInflater.from(this.a).inflate(i.hot_group_item_view, viewGroup, false);
+            view = LayoutInflater.from(this.a).inflate(s.hot_group_item_view, viewGroup, false);
             a aVar2 = new a();
-            aVar2.a = (LinearLayout) view.findViewById(h.list_more);
-            aVar2.c = (TextView) view.findViewById(h.list_more_title);
-            aVar2.d = (ProgressBar) view.findViewById(h.list_more_progress);
-            aVar2.e = (ImageView) view.findViewById(h.list_more_line);
-            aVar2.b = (LinearLayout) view.findViewById(h.list_more_text);
-            aVar2.f = (LinearLayout) view.findViewById(h.click_head);
-            aVar2.g = (LinearLayout) view.findViewById(h.list_item_content);
-            aVar2.h = (HeadImageView) view.findViewById(h.item_head);
-            aVar2.i = (TextView) view.findViewById(h.group_name);
-            aVar2.j = (TextView) view.findViewById(h.item_group_num);
-            aVar2.k = (TextView) view.findViewById(h.group_intro);
-            aVar2.l = (ImageView) view.findViewById(h.item_grade1);
-            aVar2.m = (ImageView) view.findViewById(h.item_grade2);
-            aVar2.n = (ImageView) view.findViewById(h.item_grade3);
+            aVar2.a = (LinearLayout) view.findViewById(r.list_more);
+            aVar2.c = (TextView) view.findViewById(r.list_more_title);
+            aVar2.d = (ProgressBar) view.findViewById(r.list_more_progress);
+            aVar2.e = (ImageView) view.findViewById(r.list_more_line);
+            aVar2.b = (LinearLayout) view.findViewById(r.list_more_text);
+            aVar2.f = (LinearLayout) view.findViewById(r.click_head);
+            aVar2.g = (LinearLayout) view.findViewById(r.list_item_content);
+            aVar2.h = (HeadImageView) view.findViewById(r.item_head);
+            aVar2.i = (TextView) view.findViewById(r.group_name);
+            aVar2.j = (TextView) view.findViewById(r.item_group_num);
+            aVar2.k = (TextView) view.findViewById(r.group_intro);
+            aVar2.l = (ImageView) view.findViewById(r.item_grade1);
+            aVar2.m = (ImageView) view.findViewById(r.item_grade2);
+            aVar2.n = (ImageView) view.findViewById(r.item_grade3);
             aVar2.o = new ImageView[4];
             aVar2.o[1] = aVar2.l;
             aVar2.o[2] = aVar2.m;
@@ -154,10 +148,9 @@ public final class HotGroupAdapter extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         aVar.h.setTag(null);
-        aVar.h.setDefaultResource(g.avatar_poto_defaul140);
+        aVar.h.setDefaultResource(q.avatar_poto_defaul140);
         aVar.h.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         aVar.h.setDrawBorder(true);
-        aVar.h.setRadius(com.baidu.adp.lib.util.i.a((Context) this.a, 3.0f));
         if (getItemViewType(i) == 1) {
             aVar.a.setVisibility(0);
             aVar.g.setVisibility(8);
@@ -168,10 +161,10 @@ public final class HotGroupAdapter extends BaseAdapter {
                 aVar.e.setVisibility(8);
                 aVar.b.setVisibility(0);
                 if (this.d == BOTTOM_TYPE.HAVE_MORE) {
-                    aVar.c.setText(j.frsgroup_load_more);
+                    aVar.c.setText(u.frsgroup_load_more);
                     aVar.d.setVisibility(0);
                 } else {
-                    aVar.c.setText(j.frsgroup_no_more);
+                    aVar.c.setText(u.frsgroup_no_more);
                     aVar.d.setVisibility(8);
                 }
             }
@@ -191,19 +184,19 @@ public final class HotGroupAdapter extends BaseAdapter {
                 }
                 a(aVar.o, item.getGrade());
             }
-            this.a.b().a(TbadkApplication.j().l() == 1);
-            this.a.b().a(view);
+            this.a.a().a(TbadkApplication.m252getInst().getSkinType() == 1);
+            this.a.a().a(view);
             if (item != null && item.isMemGroup()) {
-                ba.a(aVar.i, com.baidu.tieba.im.e.im_group_vip_text, 1);
-                ba.c(aVar.l, g.icon_vip_grade_big_small_s);
-                ba.c(aVar.m, g.icon_vip_grade_big_small_s);
-                ba.c(aVar.n, g.icon_vip_grade_big_small_s);
+                bc.a(aVar.i, o.im_group_vip_text, 1);
+                bc.c(aVar.l, q.icon_vip_grade_big_small_s);
+                bc.c(aVar.m, q.icon_vip_grade_big_small_s);
+                bc.c(aVar.n, q.icon_vip_grade_big_small_s);
             }
         }
         return view;
     }
 
-    private static void a(ImageView[] imageViewArr, int i) {
+    private void a(ImageView[] imageViewArr, int i) {
         int i2 = i < 0 ? 0 : i;
         if (i2 > 3) {
             i2 = 3;
@@ -213,6 +206,16 @@ public final class HotGroupAdapter extends BaseAdapter {
                 imageViewArr[i3].setVisibility(0);
             } else {
                 imageViewArr[i3].setVisibility(8);
+            }
+        }
+    }
+
+    private void c() {
+        HashSet hashSet = new HashSet();
+        Iterator<GroupInfoData> it = this.c.iterator();
+        while (it.hasNext()) {
+            if (!hashSet.add(Integer.valueOf(it.next().getGroupId()))) {
+                it.remove();
             }
         }
     }

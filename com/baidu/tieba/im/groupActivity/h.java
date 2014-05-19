@@ -4,7 +4,7 @@ import android.app.TimePickerDialog;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class h implements View.OnClickListener {
+public class h implements View.OnClickListener {
     final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public final class h implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         TimePickerDialog timePickerDialog;
         TimePickerDialog timePickerDialog2;
         int i;
@@ -22,20 +22,20 @@ public final class h implements View.OnClickListener {
         CreateGroupActivityActivity createGroupActivityActivity;
         int i3;
         int i4;
-        timePickerDialog = this.a.n;
+        timePickerDialog = this.a.m;
         if (timePickerDialog == null) {
             i iVar = new i(this);
             e eVar = this.a;
             createGroupActivityActivity = this.a.a;
-            i3 = this.a.s;
-            i4 = this.a.t;
-            eVar.n = new TimePickerDialog(createGroupActivityActivity, iVar, i3, i4, false);
+            i3 = this.a.r;
+            i4 = this.a.s;
+            eVar.m = new TimePickerDialog(createGroupActivityActivity, iVar, i3, i4, false);
         }
-        timePickerDialog2 = this.a.n;
-        i = this.a.s;
-        i2 = this.a.t;
+        timePickerDialog2 = this.a.m;
+        i = this.a.r;
+        i2 = this.a.s;
         timePickerDialog2.updateTime(i, i2);
-        timePickerDialog3 = this.a.n;
+        timePickerDialog3 = this.a.m;
         timePickerDialog3.show();
     }
 }

@@ -1,23 +1,20 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.data.GroupMsgData;
 /* loaded from: classes.dex */
-public final class j extends com.baidu.tieba.im.m<Boolean> {
-    private final /* synthetic */ long b;
-    private final /* synthetic */ long c;
-    private final /* synthetic */ LinkedList d;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(long j, long j2, LinkedList linkedList) {
-        this.b = j;
-        this.c = j2;
-        this.d = linkedList;
+public class j extends CustomMessageListener {
+    public j() {
+        super(2015007);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.b, this.c, this.d, true));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof GroupMsgData) {
+            g.a((GroupMsgData) customResponsedMessage);
+        }
     }
 }

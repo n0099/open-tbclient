@@ -3,8 +3,9 @@ package com.baidu.tieba.person;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class d implements View.OnClickListener {
+public class d implements View.OnClickListener {
     final /* synthetic */ EditBarActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +14,7 @@ final class d implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         g gVar;
         g gVar2;
         TextView textView;
@@ -28,9 +29,9 @@ final class d implements View.OnClickListener {
             gVar4 = this.a.i;
             gVar4.a(true);
             textView3 = this.a.g;
-            textView3.setText(com.baidu.tieba.a.k.done);
+            textView3.setText(com.baidu.tieba.u.done);
             textView4 = this.a.g;
-            com.baidu.tbadk.core.util.ba.g(textView4, TbadkApplication.j().l());
+            com.baidu.tbadk.core.util.bc.g(textView4, TbadkApplication.m252getInst().getSkinType());
             gVar5 = this.a.i;
             gVar5.notifyDataSetChanged();
             return;
@@ -38,9 +39,9 @@ final class d implements View.OnClickListener {
         gVar2 = this.a.i;
         gVar2.a(false);
         textView = this.a.g;
-        textView.setText(com.baidu.tieba.a.k.edit);
+        textView.setText(com.baidu.tieba.u.edit);
         textView2 = this.a.g;
-        com.baidu.tbadk.core.util.ba.h(textView2, TbadkApplication.j().l());
+        com.baidu.tbadk.core.util.bc.i(textView2, TbadkApplication.m252getInst().getSkinType());
         gVar3 = this.a.i;
         gVar3.notifyDataSetChanged();
     }

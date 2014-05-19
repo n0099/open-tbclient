@@ -1,9 +1,10 @@
 package com.baidu.tieba.topRec;
 
+import com.baidu.tieba.ad;
 import com.baidu.tieba.data.z;
 import com.baidu.tieba.model.af;
 /* loaded from: classes.dex */
-final class c extends com.baidu.adp.a.h {
+class c extends com.baidu.adp.base.g {
     final /* synthetic */ TopRecActivity a;
     private final /* synthetic */ int b;
     private final /* synthetic */ int c;
@@ -15,8 +16,8 @@ final class c extends com.baidu.adp.a.h {
         this.c = i2;
     }
 
-    @Override // com.baidu.adp.a.h
-    public final void a(Object obj) {
+    @Override // com.baidu.adp.base.g
+    public void a(Object obj) {
         TRForumListData tRForumListData;
         TRForumListData tRForumListData2;
         af afVar;
@@ -31,18 +32,19 @@ final class c extends com.baidu.adp.a.h {
                 afVar = this.a.d;
                 if (afVar.getErrorCode() != 22) {
                     afVar2 = this.a.d;
-                    if (afVar2.getErrorCode() == 0 && ((z) obj) != null) {
-                        this.a.a();
-                        com.baidu.tieba.p c = com.baidu.tieba.p.c();
+                    if (afVar2.getErrorCode() != 0) {
+                        this.a.b(this.b, this.c);
+                        return;
+                    } else if (((z) obj) == null) {
+                        this.a.b(this.b, this.c);
+                        return;
+                    } else {
+                        this.a.c();
+                        ad c = ad.c();
                         tRForumListData3 = this.a.f;
                         c.e(tRForumListData3.forum_list[this.b].forum_name);
                         return;
                     }
-                    TopRecActivity topRecActivity = this.a;
-                    int i = this.b;
-                    int i2 = this.c;
-                    topRecActivity.b(i);
-                    return;
                 }
                 tRForumListData4 = this.a.f;
                 tRForumListData4.forum_list[this.b].is_like = 1;

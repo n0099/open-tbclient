@@ -1,18 +1,20 @@
 package com.baidu.tieba.im.pushNotify;
+
+import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f extends com.baidu.tieba.im.m<Void> {
-    private final /* synthetic */ boolean b;
+public class f extends com.baidu.tieba.im.b<Void> {
+    private final /* synthetic */ LinkedHashMap b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(boolean z) {
-        this.b = z;
+    public f(LinkedHashMap linkedHashMap) {
+        this.b = linkedHashMap;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* bridge */ /* synthetic */ Void a() {
-        a.a((String) null, this.b);
-        return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        return com.baidu.tieba.im.db.c.a().a(this.b);
     }
 }

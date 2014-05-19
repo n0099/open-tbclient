@@ -1,9 +1,11 @@
 package com.baidu.tieba.person;
 
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.view.View;
+import com.baidu.location.LocationClientOption;
+import com.baidu.tbadk.coreExtra.view.EllipsizingTextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ae implements com.baidu.tbadk.imageManager.d {
+public class ae implements View.OnClickListener {
     final /* synthetic */ ab a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,15 +13,10 @@ public final class ae implements com.baidu.tbadk.imageManager.d {
         this.a = abVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        HeadImageView headImageView;
-        HeadImageView headImageView2;
-        if (bVar != null) {
-            headImageView = this.a.d;
-            headImageView.setImageResource(0);
-            headImageView2 = this.a.d;
-            bVar.a(headImageView2);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EllipsizingTextView ellipsizingTextView;
+        ellipsizingTextView = this.a.f;
+        ellipsizingTextView.setMaxLines(LocationClientOption.MIN_SCAN_SPAN);
     }
 }

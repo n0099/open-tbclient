@@ -5,7 +5,7 @@ import com.google.zxing.Result;
 public final class TelResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public final TelParsedResult parse(Result result) {
+    public TelParsedResult parse(Result result) {
         String massagedText = getMassagedText(result);
         if (massagedText.startsWith("tel:") || massagedText.startsWith("TEL:")) {
             String str = massagedText.startsWith("TEL:") ? "tel:" + massagedText.substring(4) : massagedText;

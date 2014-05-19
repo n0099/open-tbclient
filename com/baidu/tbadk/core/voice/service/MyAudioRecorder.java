@@ -2,9 +2,10 @@ package com.baidu.tbadk.core.voice.service;
 
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
+import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 /* loaded from: classes.dex */
-public final class MyAudioRecorder implements d {
-    private static final int[] a = {44100, 22050, 11025, 8000};
+public class MyAudioRecorder implements d {
+    private static final int[] a = {LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_44_1, LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_22_05, LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_11_025, LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8};
     private static Object b = new Object();
     private static AudioRecord c = null;
     private static MediaRecorder d = null;

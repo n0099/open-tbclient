@@ -1,9 +1,11 @@
 package com.baidu.tieba.account.appeal;
 
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class d implements l {
+public class d implements l {
     final /* synthetic */ AppealActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +14,7 @@ final class d implements l {
     }
 
     @Override // com.baidu.tieba.account.appeal.l
-    public final void a(ForbidReasonData forbidReasonData) {
+    public void a(ForbidReasonData forbidReasonData) {
         TextView textView;
         String str;
         TextView textView2;
@@ -20,11 +22,11 @@ final class d implements l {
         str = this.a.h;
         textView.setText(str);
         textView2 = this.a.c;
-        textView2.setText(!bc.c(forbidReasonData.reason) ? forbidReasonData.reason : this.a.getString(com.baidu.tieba.a.k.default_forbid_reason));
+        textView2.setText(!be.c(forbidReasonData.reason) ? forbidReasonData.reason : this.a.getString(u.default_forbid_reason));
     }
 
     @Override // com.baidu.tieba.account.appeal.l
-    public final void b(ForbidReasonData forbidReasonData) {
+    public void b(ForbidReasonData forbidReasonData) {
         this.a.showToast(forbidReasonData.error.b);
     }
 }

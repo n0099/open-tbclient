@@ -2,10 +2,10 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.bn;
 import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.br;
 /* loaded from: classes.dex */
-final class k implements com.baidu.tbadk.imageManager.d {
+class k implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ h a;
     private final /* synthetic */ View b;
 
@@ -16,9 +16,9 @@ final class k implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null && this.b != null && (this.b instanceof ViewGroup)) {
-            bn.a((ViewGroup) this.b, false, (bp) new l(this, str, bVar));
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null && this.b != null && (this.b instanceof ViewGroup)) {
+            bp.a((ViewGroup) this.b, false, (br) new l(this, str, aVar));
         }
     }
 }

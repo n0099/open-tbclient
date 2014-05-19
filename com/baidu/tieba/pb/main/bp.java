@@ -1,26 +1,40 @@
 package com.baidu.tieba.pb.main;
 
-import android.util.SparseArray;
 import android.view.View;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bp implements View.OnClickListener {
-    final /* synthetic */ bm a;
+public class bp implements Animation.AnimationListener {
+    final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(bm bmVar) {
-        this.a = bmVar;
+    public bp(bj bjVar) {
+        this.a = bjVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            if (!"".equals(sparseArray.get(com.baidu.tieba.a.h.tag_forbid_user_name)) && !"".equals(sparseArray.get(com.baidu.tieba.a.h.tag_del_post_id))) {
-                this.a.a(view);
-            } else {
-                this.a.a(((Integer) sparseArray.get(com.baidu.tieba.a.h.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.a.h.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.a.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.a.h.tag_del_post_is_self)).booleanValue());
-            }
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        View view;
+        View view2;
+        View view3;
+        PbActivity pbActivity;
+        bj bjVar = this.a;
+        view = this.a.aL;
+        bjVar.aR = view.getVisibility() == 0;
+        this.a.j.setVisibility(8);
+        view2 = this.a.aL;
+        view2.setVisibility(8);
+        view3 = this.a.aK;
+        view3.setVisibility(8);
+        pbActivity = this.a.m;
+        pbActivity.showToast(com.baidu.tieba.u.pb_double_click_tips, 0);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

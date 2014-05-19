@@ -1,13 +1,14 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.app.AlertDialog;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.tbadk.core.data.UserData;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class y implements AdapterView.OnItemLongClickListener {
+public class y implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,18 +17,18 @@ public final class y implements AdapterView.OnItemLongClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
-    public final boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         ah ahVar;
-        com.baidu.tieba.im.model.z zVar;
+        com.baidu.tieba.im.model.ad adVar;
         ah ahVar2;
         ahVar = this.a.b;
-        if (ahVar.h().d()) {
+        if (ahVar.f().d()) {
             return false;
         }
-        zVar = this.a.c;
-        if (zVar.b()) {
+        adVar = this.a.c;
+        if (adVar.b()) {
             ahVar2 = this.a.b;
-            UserData userData = (UserData) ahVar2.h().getItem(i);
+            UserData userData = (UserData) ahVar2.f().getItem(i);
             if (userData != null) {
                 if (userData.getPermission().isController()) {
                     return false;
@@ -35,9 +36,7 @@ public final class y implements AdapterView.OnItemLongClickListener {
                 long userIdLong = userData.getUserIdLong();
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(Long.valueOf(userIdLong));
-                MembersActivity membersActivity = this.a;
-                z zVar2 = new z(this, arrayList);
-                new AlertDialog.Builder(membersActivity).setTitle(com.baidu.tieba.im.j.del_post_tip).setMessage(com.baidu.tieba.im.j.members_dialog_remove_one_message).setPositiveButton(com.baidu.tieba.im.j.alert_yes_button, zVar2).setNegativeButton(com.baidu.tieba.im.j.alert_no_button, new aa(this)).create().show();
+                com.baidu.tieba.im.f.b.a((Activity) this.a, (DialogInterface.OnClickListener) new z(this, arrayList), (DialogInterface.OnClickListener) new aa(this));
             }
             return true;
         }

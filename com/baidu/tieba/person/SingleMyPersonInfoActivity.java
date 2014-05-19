@@ -7,12 +7,22 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 /* loaded from: classes.dex */
 public class SingleMyPersonInfoActivity extends com.baidu.tbadk.core.e {
-    private bn c;
+    private bm c;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        Bundle a = a(bundle);
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        this.c = new bm();
+        this.c.setArguments(a);
+        FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
+        beginTransaction.add(16908290, this.c);
+        beginTransaction.commitAllowingStateLoss();
+    }
+
+    private Bundle a(Bundle bundle) {
         Bundle bundle2 = new Bundle();
         if (bundle != null) {
             bundle2.putAll(bundle);
@@ -22,16 +32,11 @@ public class SingleMyPersonInfoActivity extends com.baidu.tbadk.core.e {
                 bundle2.putAll(intent.getExtras());
             }
         }
-        FragmentManager supportFragmentManager = getSupportFragmentManager();
-        this.c = new bn();
-        this.c.setArguments(bundle2);
-        FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-        beginTransaction.add(16908290, this.c);
-        beginTransaction.commitAllowingStateLoss();
+        return bundle2;
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void b(int i) {
+    protected void b(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

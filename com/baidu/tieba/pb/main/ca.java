@@ -1,21 +1,24 @@
 package com.baidu.tieba.pb.main;
 
-import android.app.Dialog;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public final class ca implements View.OnClickListener {
-    final /* synthetic */ bm a;
+class ca implements Runnable {
+    final /* synthetic */ bz a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(bm bmVar) {
-        this.a = bmVar;
+    public ca(bz bzVar, ImageView imageView) {
+        this.a = bzVar;
+        this.b = imageView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        Dialog dialog;
-        dialog = this.a.av;
-        dialog.dismiss();
+    @Override // java.lang.Runnable
+    public void run() {
+        bj bjVar;
+        FrameLayout frameLayout;
+        bjVar = this.a.a;
+        frameLayout = bjVar.n;
+        frameLayout.removeView(this.b);
     }
 }

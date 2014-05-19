@@ -4,20 +4,46 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ae extends BdAsyncTask<String, Integer, Bitmap> {
-    volatile com.baidu.tbadk.core.util.ak a;
+public class ae extends BdAsyncTask<String, Integer, Bitmap> {
+    volatile com.baidu.tbadk.core.util.al a;
     com.baidu.tbadk.coreExtra.data.f b;
     final /* synthetic */ VcodeActivity c;
     private volatile boolean d;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    private ae(VcodeActivity vcodeActivity) {
+        this.c = vcodeActivity;
+        this.a = null;
+        this.b = null;
+        this.d = false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ae(VcodeActivity vcodeActivity, ae aeVar) {
+        this(vcodeActivity);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        this.c.h = null;
+        if (this.a != null) {
+            this.a.g();
+        }
+        this.d = true;
+        progressBar = this.c.f;
+        progressBar.setVisibility(8);
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Bitmap a(String... strArr) {
+    /* renamed from: a */
+    public Bitmap doInBackground(String... strArr) {
         WriteData writeData;
         WriteData writeData2;
         WriteData writeData3;
@@ -26,28 +52,28 @@ public final class ae extends BdAsyncTask<String, Integer, Bitmap> {
         WriteData writeData6;
         String str = strArr[0];
         if (str == null || str.length() <= 0) {
-            this.a = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/f/anti/vcode");
-            com.baidu.tbadk.core.util.ak akVar = this.a;
+            this.a = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+            com.baidu.tbadk.core.util.al alVar = this.a;
             writeData = this.c.b;
-            akVar.a("fid", writeData.getForumId());
-            com.baidu.tbadk.core.util.ak akVar2 = this.a;
+            alVar.a("fid", writeData.getForumId());
+            com.baidu.tbadk.core.util.al alVar2 = this.a;
             writeData2 = this.c.b;
-            akVar2.a("kw", writeData2.getForumName());
-            this.a.a("new_vcode", "1");
-            com.baidu.tbadk.core.util.ak akVar3 = this.a;
+            alVar2.a("kw", writeData2.getForumName());
+            this.a.a("new_vcode", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            com.baidu.tbadk.core.util.al alVar3 = this.a;
             writeData3 = this.c.b;
-            akVar3.a("title", writeData3.getTitle());
-            com.baidu.tbadk.core.util.ak akVar4 = this.a;
+            alVar3.a("title", writeData3.getTitle());
+            com.baidu.tbadk.core.util.al alVar4 = this.a;
             writeData4 = this.c.b;
-            akVar4.a("content", writeData4.getContent());
+            alVar4.a("content", writeData4.getContent());
             writeData5 = this.c.b;
             if (writeData5.getType() == 0) {
-                this.a.a("pub_type", "1");
+                this.a.a("pub_type", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             } else {
-                this.a.a("pub_type", "2");
-                com.baidu.tbadk.core.util.ak akVar5 = this.a;
+                this.a.a("pub_type", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+                com.baidu.tbadk.core.util.al alVar5 = this.a;
                 writeData6 = this.c.b;
-                akVar5.a("tid", writeData6.getThreadId());
+                alVar5.a("tid", writeData6.getThreadId());
             }
             String i = this.a.i();
             if (!this.a.a().b().b()) {
@@ -60,23 +86,23 @@ public final class ae extends BdAsyncTask<String, Integer, Bitmap> {
         if (this.d) {
             return null;
         }
-        this.a = new com.baidu.tbadk.core.util.ak(str);
+        this.a = new com.baidu.tbadk.core.util.al(str);
         return com.baidu.tbadk.core.util.g.a(this.a.h());
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(Bitmap bitmap) {
+    /* renamed from: a */
+    public void onPostExecute(Bitmap bitmap) {
         ProgressBar progressBar;
         WriteData writeData;
         WriteData writeData2;
         ImageView imageView;
-        Bitmap bitmap2 = bitmap;
         this.c.h = null;
-        if (bitmap2 != null) {
+        if (bitmap != null) {
             imageView = this.c.d;
-            imageView.setImageBitmap(bitmap2);
+            imageView.setImageBitmap(bitmap);
         }
         progressBar = this.c.f;
         progressBar.setVisibility(8);
@@ -86,31 +112,6 @@ public final class ae extends BdAsyncTask<String, Integer, Bitmap> {
             writeData2 = this.c.b;
             writeData2.setVcodeUrl(this.b.b());
         }
-        super.a((ae) bitmap2);
-    }
-
-    private ae(VcodeActivity vcodeActivity) {
-        this.c = vcodeActivity;
-        this.a = null;
-        this.b = null;
-        this.d = false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(VcodeActivity vcodeActivity, byte b) {
-        this(vcodeActivity);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        ProgressBar progressBar;
-        this.c.h = null;
-        if (this.a != null) {
-            this.a.g();
-        }
-        this.d = true;
-        progressBar = this.c.f;
-        progressBar.setVisibility(8);
-        super.cancel(true);
+        super.onPostExecute(bitmap);
     }
 }

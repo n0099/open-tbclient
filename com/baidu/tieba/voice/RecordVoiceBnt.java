@@ -16,20 +16,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.o;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.core.voice.x;
 import com.baidu.tbadk.core.voice.y;
 import com.baidu.tbadk.core.voice.z;
-import com.baidu.tieba.a.g;
-import com.baidu.tieba.a.h;
-import com.baidu.tieba.a.i;
-import com.baidu.tieba.a.k;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.o;
 import com.baidu.tieba.p;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x, y {
     private float A;
@@ -81,57 +83,39 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x
         this.n = new Rect();
         this.o = new RectF();
         this.F = new int[2];
-        this.G = new f(this, (byte) 0);
+        this.G = new f(this, null);
         this.I = 0;
         this.J = 0;
-        this.c[0] = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.record_voice_btn_marginleft);
-        this.c[1] = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.record_voice_btn_margintop);
-        this.c[2] = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.record_voice_btn_marginright);
-        this.c[3] = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.record_voice_btn_marginbottom);
-        this.d = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.record_voice_btn_paddingtop);
-        this.e = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.record_voice_btn_channel_paddingtop);
-        this.f = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.record_voice_btn_restart_button_paddingleft);
-        this.g = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.record_voice_btn_restart_button_paddingbottom);
-        this.h = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.record_voice_btn_duration_time_offset_y);
-        this.i = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.record_voice_btn_dot_glow_padding);
-        this.j = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.record_voice_btn_paint_stroke_width);
-        this.k = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.record_voice_btn_progress_padding);
+        this.c[0] = context.getResources().getDimensionPixelSize(p.record_voice_btn_marginleft);
+        this.c[1] = context.getResources().getDimensionPixelSize(p.record_voice_btn_margintop);
+        this.c[2] = context.getResources().getDimensionPixelSize(p.record_voice_btn_marginright);
+        this.c[3] = context.getResources().getDimensionPixelSize(p.record_voice_btn_marginbottom);
+        this.d = context.getResources().getDimensionPixelSize(p.record_voice_btn_paddingtop);
+        this.e = context.getResources().getDimensionPixelSize(p.record_voice_btn_channel_paddingtop);
+        this.f = context.getResources().getDimensionPixelSize(p.record_voice_btn_restart_button_paddingleft);
+        this.g = context.getResources().getDimensionPixelSize(p.record_voice_btn_restart_button_paddingbottom);
+        this.h = context.getResources().getDimensionPixelSize(p.record_voice_btn_duration_time_offset_y);
+        this.i = context.getResources().getDimensionPixelSize(p.record_voice_btn_dot_glow_padding);
+        this.j = context.getResources().getDimensionPixelSize(p.record_voice_btn_paint_stroke_width);
+        this.k = context.getResources().getDimensionPixelSize(p.record_voice_btn_progress_padding);
         this.m.setStyle(Paint.Style.STROKE);
         this.m.setStrokeWidth(this.j);
-        this.l = (BitmapDrawable) getResources().getDrawable(g.dot_play_schedule);
-        LayoutInflater.from(context).inflate(i.record_voice_area, (ViewGroup) this, true);
-        setClickable(true);
-        this.q = (TextView) findViewById(h.tip_error);
-        this.r = (TextView) findViewById(h.tip_operator);
-        this.s = (TextView) findViewById(h.tip_time_out);
-        this.t = (VoiceBnt) findViewById(h.voice_bnt);
-        this.p = (TextView) findViewById(h.restart);
-        this.u = (ImageView) findViewById(h.play_img);
-        this.v = (TextView) findViewById(h.play_time);
-        this.w = (ImageView) findViewById(h.left_chanel);
-        this.x = (ImageView) findViewById(h.right_chanel);
-        this.p.setOnClickListener(this);
-        this.u.setOnClickListener(this);
-        this.t.setRecorderView(this);
-        e();
-        if (TbadkApplication.j().l() == -1) {
-            int[] iArr = this.F;
-            p.c();
-            iArr[0] = p.d().getResources().getColor(com.baidu.tieba.a.e.record_voice_progress_start_1);
-            int[] iArr2 = this.F;
-            p.c();
-            iArr2[1] = p.d().getResources().getColor(com.baidu.tieba.a.e.record_voice_progress_end_1);
+        this.l = (BitmapDrawable) getResources().getDrawable(q.dot_play_schedule);
+        a(context);
+    }
+
+    public void a(Context context) {
+        b(context);
+        if (TbadkApplication.m252getInst().getSkinType() == -1) {
+            this.F[0] = ad.c().d().getResources().getColor(o.record_voice_progress_start_1);
+            this.F[1] = ad.c().d().getResources().getColor(o.record_voice_progress_end_1);
         } else {
-            int[] iArr3 = this.F;
-            p.c();
-            iArr3[0] = p.d().getResources().getColor(com.baidu.tieba.a.e.record_voice_progress_start);
-            int[] iArr4 = this.F;
-            p.c();
-            iArr4[1] = p.d().getResources().getColor(com.baidu.tieba.a.e.record_voice_progress_end);
+            this.F[0] = ad.c().d().getResources().getColor(o.record_voice_progress_start);
+            this.F[1] = ad.c().d().getResources().getColor(o.record_voice_progress_end);
         }
         VoiceManager voiceManager = getVoiceManager();
         if (voiceManager != null) {
-            voiceManager.a(false);
+            voiceManager.b(false);
         }
     }
 
@@ -209,112 +193,39 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x
         }
     }
 
-    public void e() {
-        ba.c((ImageView) this.t, g.but_posts_record_zero_selector);
-        this.t.setVisibility(0);
-        this.w.setVisibility(0);
-        this.x.setVisibility(0);
-        ba.c(this.w, g.btn_posts_record_left_zero);
-        ba.c(this.x, g.btn_posts_record_right_zero);
-        this.u.setVisibility(4);
-        this.v.setVisibility(4);
-        this.p.setVisibility(4);
-        this.s.setVisibility(4);
-        ba.a(this.r, com.baidu.tieba.a.e.record_voice_tip_down_text, 1);
-        this.r.setText(getContext().getString(k.voice_record_press_to_record));
-    }
-
-    public final void b() {
-        e();
-        this.a = null;
-    }
-
-    @Override // com.baidu.tbadk.core.voice.y
-    public final void a(boolean z) {
-        if (z) {
-            e();
-            this.r.setText(getContext().getString(k.voice_record_release_to_stop));
+    private void e() {
+        if (this.C == null) {
+            this.C = new AlertDialog.Builder(getContext()).setTitle(getContext().getString(u.voice_restart_tip)).setPositiveButton(getContext().getString(u.voice_restart), new a(this)).setNegativeButton(getContext().getString(u.cancel), new b(this)).create();
         }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchSetPressed(boolean z) {
-    }
-
-    public final void c() {
-    }
-
-    @Override // com.baidu.tbadk.core.voice.x
-    public final void a(VoiceData.VoiceModel voiceModel) {
-        if (this.u != null && this.v != null) {
-            switch (voiceModel.voice_status.intValue()) {
-                case 1:
-                    this.y = false;
-                    this.v.setText(VoiceManager.b(voiceModel.duration));
-                    ba.c(this.u, g.but_posts_record_play_selector);
-                    this.r.setText(getContext().getString(k.voice_play_tip));
-                    this.z = 0.0f;
-                    this.A = 0.0f;
-                    this.G.removeMessages(1);
-                    ((ViewGroup) getParent()).invalidate();
-                    return;
-                case 2:
-                default:
-                    return;
-                case 3:
-                    this.y = true;
-                    ba.c(this.u, g.but_posts_record_stop_selector);
-                    this.r.setText(getContext().getString(k.voice_stop_tip));
-                    if (this.a != null) {
-                        this.z = 360.0f / (this.a.duration2 > 0 ? this.a.duration2 / 1000.0f : this.a.duration);
-                        this.D = SystemClock.uptimeMillis();
-                        this.E = this.D + 25;
-                        this.G.sendEmptyMessageAtTime(1, this.E);
-                        invalidate();
-                        return;
-                    }
-                    return;
+        try {
+            this.C.show();
+        } catch (Exception e) {
+            if (getVoiceManager() != null && this.a != null) {
+                getVoiceManager().a(this.a.voiceId);
+                this.a = null;
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.voice.x
-    public final void a(int i, String str) {
-        ba.a(this.s, com.baidu.tieba.a.e.record_voice_tip_up_text, 1);
-        ba.a(this.q, com.baidu.tieba.a.e.record_voice_tip_up_text, 1);
-        ba.a(this.r, com.baidu.tieba.a.e.record_voice_tip_down_text, 1);
-        if (!o.a(str)) {
-            if (i == 3) {
-                postDelayed(new c(this, str), 300L);
-            } else if (i == 2) {
-                this.q.setVisibility(0);
-                this.q.setText(str);
-                this.r.setText(k.voice_record_press_to_record);
-                ba.c(this.w, g.btn_posts_record_left_zero);
-                ba.c(this.x, g.btn_posts_record_right_zero);
-                postDelayed(new d(this), 2000L);
-            } else if (i == 5) {
-                this.q.setVisibility(0);
-                this.q.setText(str);
-            } else {
-                e();
-                this.q.setVisibility(0);
-                this.q.setText(str);
-            }
-        }
+    private void b(Context context) {
+        LayoutInflater.from(context).inflate(s.record_voice_area, (ViewGroup) this, true);
+        setClickable(true);
+        this.q = (TextView) findViewById(r.tip_error);
+        this.r = (TextView) findViewById(r.tip_operator);
+        this.s = (TextView) findViewById(r.tip_time_out);
+        this.t = (VoiceBnt) findViewById(r.voice_bnt);
+        this.p = (TextView) findViewById(r.restart);
+        this.u = (ImageView) findViewById(r.play_img);
+        this.v = (TextView) findViewById(r.play_time);
+        this.w = (ImageView) findViewById(r.left_chanel);
+        this.x = (ImageView) findViewById(r.right_chanel);
+        this.p.setOnClickListener(this);
+        this.u.setOnClickListener(this);
+        this.t.setRecorderView(this);
+        g();
     }
 
-    @Override // com.baidu.tbadk.core.voice.y
-    public final void a(String str, int i) {
-        this.q.setVisibility(4);
-        VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
-        voiceModel.duration = i;
-        voiceModel.isLocal = true;
-        voiceModel.voiceId = str;
-        voiceModel.voice_status = 1;
-        this.a = voiceModel;
-        this.q.setText("");
-        this.q.setVisibility(4);
+    private void f() {
         this.t.setVisibility(4);
         this.w.setVisibility(4);
         this.x.setVisibility(4);
@@ -322,18 +233,122 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x
         this.p.setVisibility(0);
         this.u.setVisibility(0);
         if (this.a != null) {
-            this.v.setText(VoiceManager.b(this.a.duration));
-            ba.c(this.u, g.but_posts_record_play_selector);
+            this.v.setText(VoiceManager.c(this.a.duration));
+            bc.c(this.u, q.but_posts_record_play_selector);
         }
-        ba.a(this.r, com.baidu.tieba.a.e.record_voice_tip_down_text, 1);
-        this.r.setText(getContext().getString(k.voice_play_tip));
+        bc.a(this.r, o.record_voice_tip_down_text, 1);
+        this.r.setText(getContext().getString(u.voice_play_tip));
+    }
+
+    public void g() {
+        bc.c((ImageView) this.t, q.but_posts_record_zero_selector);
+        this.t.setVisibility(0);
+        this.w.setVisibility(0);
+        this.x.setVisibility(0);
+        bc.c(this.w, q.btn_posts_record_left_zero);
+        bc.c(this.x, q.btn_posts_record_right_zero);
+        this.u.setVisibility(4);
+        this.v.setVisibility(4);
+        this.p.setVisibility(4);
+        this.s.setVisibility(4);
+        bc.a(this.r, o.record_voice_tip_down_text, 1);
+        this.r.setText(getContext().getString(u.voice_record_press_to_record));
+    }
+
+    public void c() {
+        g();
+        this.a = null;
+    }
+
+    public void b(VoiceData.VoiceModel voiceModel) {
+        this.a = voiceModel;
+        this.q.setText("");
+        this.q.setVisibility(4);
+        f();
         if (this.B != null) {
             this.B.a();
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.y
-    public final void a() {
+    public void a(boolean z) {
+        if (z) {
+            g();
+            this.r.setText(getContext().getString(u.voice_record_release_to_stop));
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    protected void dispatchSetPressed(boolean z) {
+    }
+
+    @Override // com.baidu.tbadk.core.voice.y
+    public void b() {
+    }
+
+    @Override // com.baidu.tbadk.core.voice.x
+    public void a(VoiceData.VoiceModel voiceModel) {
+        if (this.u != null && this.v != null) {
+            switch (voiceModel.voice_status.intValue()) {
+                case 1:
+                    this.y = false;
+                    this.v.setText(VoiceManager.c(voiceModel.duration));
+                    bc.c(this.u, q.but_posts_record_play_selector);
+                    this.r.setText(getContext().getString(u.voice_play_tip));
+                    i();
+                    return;
+                case 2:
+                default:
+                    return;
+                case 3:
+                    this.y = true;
+                    bc.c(this.u, q.but_posts_record_stop_selector);
+                    this.r.setText(getContext().getString(u.voice_stop_tip));
+                    h();
+                    return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.voice.x
+    public void a(int i, String str) {
+        bc.a(this.s, o.record_voice_tip_up_text, 1);
+        bc.a(this.q, o.record_voice_tip_up_text, 1);
+        bc.a(this.r, o.record_voice_tip_down_text, 1);
+        if (!StringUtils.isNull(str)) {
+            if (i == 3) {
+                postDelayed(new c(this, str), 300L);
+            } else if (i == 2) {
+                this.q.setVisibility(0);
+                this.q.setText(str);
+                this.r.setText(u.voice_record_press_to_record);
+                bc.c(this.w, q.btn_posts_record_left_zero);
+                bc.c(this.x, q.btn_posts_record_right_zero);
+                postDelayed(new d(this), 2000L);
+            } else if (i == 5) {
+                this.q.setVisibility(0);
+                this.q.setText(str);
+            } else {
+                g();
+                this.q.setVisibility(0);
+                this.q.setText(str);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.voice.y
+    public void a(String str, int i) {
+        this.q.setVisibility(4);
+        VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
+        voiceModel.duration = i;
+        voiceModel.isLocal = true;
+        voiceModel.voiceId = str;
+        voiceModel.voice_status = 1;
+        b(voiceModel);
+    }
+
+    @Override // com.baidu.tbadk.core.voice.y
+    public void a(String str) {
         this.a = null;
         if (this.B != null) {
             this.B.b();
@@ -341,14 +356,14 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x
     }
 
     @Override // com.baidu.tbadk.core.voice.y
-    public final void b(int i) {
-        ba.a(this.q, com.baidu.tieba.a.e.record_voice_tip_up_text, 1);
+    public void b(int i) {
+        bc.a(this.q, o.record_voice_tip_up_text, 1);
         this.q.setVisibility(0);
-        this.q.setText(VoiceManager.b(i));
+        this.q.setText(VoiceManager.c(i));
     }
 
     @Override // com.baidu.tbadk.core.voice.y
-    public final void c(int i) {
+    public void c(int i) {
         this.I = Math.max(i, this.I);
         long uptimeMillis = SystemClock.uptimeMillis();
         if (uptimeMillis - this.b > 200) {
@@ -356,38 +371,55 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x
             this.b = uptimeMillis;
         }
         if (this.I < 10) {
-            ba.c(this.w, g.btn_posts_record_left_zero);
-            ba.c(this.x, g.btn_posts_record_right_zero);
+            bc.c(this.w, q.btn_posts_record_left_zero);
+            bc.c(this.x, q.btn_posts_record_right_zero);
         } else if (this.I < 20) {
-            ba.c(this.w, g.btn_posts_record_left_one);
-            ba.c(this.x, g.btn_posts_record_right_one);
+            bc.c(this.w, q.btn_posts_record_left_one);
+            bc.c(this.x, q.btn_posts_record_right_one);
         } else if (this.I < 30) {
-            ba.c(this.w, g.btn_posts_record_left_two);
-            ba.c(this.x, g.btn_posts_record_right_two);
+            bc.c(this.w, q.btn_posts_record_left_two);
+            bc.c(this.x, q.btn_posts_record_right_two);
         } else if (this.I < 40) {
-            ba.c(this.w, g.btn_posts_record_left_three);
-            ba.c(this.x, g.btn_posts_record_right_three);
+            bc.c(this.w, q.btn_posts_record_left_three);
+            bc.c(this.x, q.btn_posts_record_right_three);
         } else if (this.I < 50) {
-            ba.c(this.w, g.btn_posts_record_left_four);
-            ba.c(this.x, g.btn_posts_record_right_four);
+            bc.c(this.w, q.btn_posts_record_left_four);
+            bc.c(this.x, q.btn_posts_record_right_four);
         } else if (this.I < 60) {
-            ba.c(this.w, g.btn_posts_record_left_five);
-            ba.c(this.x, g.btn_posts_record_right_five);
+            bc.c(this.w, q.btn_posts_record_left_five);
+            bc.c(this.x, q.btn_posts_record_right_five);
         } else {
-            ba.c(this.w, g.btn_posts_record_left_six);
-            ba.c(this.x, g.btn_posts_record_right_six);
+            bc.c(this.w, q.btn_posts_record_left_six);
+            bc.c(this.x, q.btn_posts_record_right_six);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.x
-    public final void a(int i) {
+    public void a(int i) {
         if (this.a != null && this.v != null) {
             int i2 = i / LocationClientOption.MIN_SCAN_SPAN;
             if (this.J != i2) {
-                this.v.setText(VoiceManager.b(this.a.duration - i2));
+                this.v.setText(VoiceManager.c(this.a.duration - i2));
             }
             this.J = i2;
         }
+    }
+
+    private void h() {
+        if (this.a != null) {
+            this.z = 360.0f / (this.a.duration2 > 0 ? this.a.duration2 / 1000.0f : this.a.duration);
+            this.D = SystemClock.uptimeMillis();
+            this.E = this.D + 25;
+            this.G.sendEmptyMessageAtTime(1, this.E);
+            invalidate();
+        }
+    }
+
+    private void i() {
+        this.z = 0.0f;
+        this.A = 0.0f;
+        this.G.removeMessages(1);
+        ((ViewGroup) getParent()).invalidate();
     }
 
     public VoiceManager getVoiceManager() {
@@ -403,25 +435,14 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x
         VoiceManager voiceManager;
         if (view != null && (voiceManager = getVoiceManager()) != null) {
             int id = view.getId();
-            if (id == h.restart) {
-                voiceManager.f();
-                if (this.C == null) {
-                    this.C = new AlertDialog.Builder(getContext()).setTitle(getContext().getString(k.voice_restart_tip)).setPositiveButton(getContext().getString(k.voice_restart), new a(this)).setNegativeButton(getContext().getString(k.cancel), new b(this)).create();
-                }
-                try {
-                    this.C.show();
-                } catch (Exception e) {
-                    if (getVoiceManager() == null || this.a == null) {
-                        return;
-                    }
-                    getVoiceManager().a(this.a.voiceId);
-                    this.a = null;
-                }
-            } else if (id == h.play_img && this.a != null) {
+            if (id == r.restart) {
+                voiceManager.g();
+                e();
+            } else if (id == r.play_img && this.a != null) {
                 if (this.a.voice_status.intValue() == 3) {
-                    voiceManager.f();
+                    voiceManager.g();
                 } else if (this.a.voice_status.intValue() == 1) {
-                    voiceManager.a(false);
+                    voiceManager.b(false);
                     voiceManager.b(this);
                 }
             }
@@ -432,7 +453,7 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x
     public void setVisibility(int i) {
         if (getVisibility() == 0 && (i == 4 || i == 8)) {
             if (getVoiceManager() != null) {
-                getVoiceManager().f();
+                getVoiceManager().g();
             } else {
                 return;
             }
@@ -444,7 +465,7 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         if (getVoiceManager() != null) {
-            getVoiceManager().f();
+            getVoiceManager().g();
         }
     }
 
@@ -453,8 +474,8 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x
         return this.a;
     }
 
-    public final void d() {
-        e();
+    public void d() {
+        g();
         if (getVoiceManager() != null && this.a != null) {
             getVoiceManager().a(this.a.voiceId);
             this.a = null;
@@ -468,5 +489,9 @@ public class RecordVoiceBnt extends ViewGroup implements View.OnClickListener, x
     @Override // com.baidu.tbadk.core.voice.x
     public x getRealView() {
         return this;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.x
+    public void a() {
     }
 }

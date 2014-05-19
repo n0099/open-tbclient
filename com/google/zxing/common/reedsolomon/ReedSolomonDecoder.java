@@ -7,7 +7,7 @@ public final class ReedSolomonDecoder {
         this.field = genericGF;
     }
 
-    public final void decode(int[] iArr, int i) {
+    public void decode(int[] iArr, int i) {
         GenericGFPoly genericGFPoly = new GenericGFPoly(this.field, iArr);
         int[] iArr2 = new int[i];
         boolean z = true;
@@ -34,33 +34,33 @@ public final class ReedSolomonDecoder {
         }
     }
 
-    public final GenericGFPoly[] runEuclideanAlgorithm(GenericGFPoly genericGFPoly, GenericGFPoly genericGFPoly2, int i) {
+    public GenericGFPoly[] runEuclideanAlgorithm(GenericGFPoly genericGFPoly, GenericGFPoly genericGFPoly2, int i) {
         if (genericGFPoly.getDegree() >= genericGFPoly2.getDegree()) {
             genericGFPoly2 = genericGFPoly;
             genericGFPoly = genericGFPoly2;
         }
         GenericGFPoly zero = this.field.getZero();
         GenericGFPoly one = this.field.getOne();
-        GenericGFPoly genericGFPoly3 = genericGFPoly;
-        while (genericGFPoly3.getDegree() >= i / 2) {
-            if (genericGFPoly3.isZero()) {
+        while (genericGFPoly.getDegree() >= i / 2) {
+            if (genericGFPoly.isZero()) {
                 throw new ReedSolomonException("r_{i-1} was zero");
             }
             GenericGFPoly zero2 = this.field.getZero();
-            int inverse = this.field.inverse(genericGFPoly3.getCoefficient(genericGFPoly3.getDegree()));
+            int inverse = this.field.inverse(genericGFPoly.getCoefficient(genericGFPoly.getDegree()));
+            GenericGFPoly genericGFPoly3 = zero2;
             GenericGFPoly genericGFPoly4 = genericGFPoly2;
-            while (genericGFPoly4.getDegree() >= genericGFPoly3.getDegree() && !genericGFPoly4.isZero()) {
-                int degree = genericGFPoly4.getDegree() - genericGFPoly3.getDegree();
+            while (genericGFPoly4.getDegree() >= genericGFPoly.getDegree() && !genericGFPoly4.isZero()) {
+                int degree = genericGFPoly4.getDegree() - genericGFPoly.getDegree();
                 int multiply = this.field.multiply(genericGFPoly4.getCoefficient(genericGFPoly4.getDegree()), inverse);
-                zero2 = zero2.addOrSubtract(this.field.buildMonomial(degree, multiply));
-                genericGFPoly4 = genericGFPoly4.addOrSubtract(genericGFPoly3.multiplyByMonomial(degree, multiply));
+                genericGFPoly3 = genericGFPoly3.addOrSubtract(this.field.buildMonomial(degree, multiply));
+                genericGFPoly4 = genericGFPoly4.addOrSubtract(genericGFPoly.multiplyByMonomial(degree, multiply));
             }
-            GenericGFPoly addOrSubtract = zero2.multiply(one).addOrSubtract(zero);
-            if (genericGFPoly4.getDegree() >= genericGFPoly3.getDegree()) {
+            GenericGFPoly addOrSubtract = genericGFPoly3.multiply(one).addOrSubtract(zero);
+            if (genericGFPoly4.getDegree() >= genericGFPoly.getDegree()) {
                 throw new IllegalStateException("Division algorithm failed to reduce polynomial?");
             }
-            genericGFPoly2 = genericGFPoly3;
-            genericGFPoly3 = genericGFPoly4;
+            genericGFPoly2 = genericGFPoly;
+            genericGFPoly = genericGFPoly4;
             GenericGFPoly genericGFPoly5 = one;
             one = addOrSubtract;
             zero = genericGFPoly5;
@@ -70,7 +70,7 @@ public final class ReedSolomonDecoder {
             throw new ReedSolomonException("sigmaTilde(0) was zero");
         }
         int inverse2 = this.field.inverse(coefficient);
-        return new GenericGFPoly[]{one.multiply(inverse2), genericGFPoly3.multiply(inverse2)};
+        return new GenericGFPoly[]{one.multiply(inverse2), genericGFPoly.multiply(inverse2)};
     }
 
     private int[] findErrorLocations(GenericGFPoly genericGFPoly) {

@@ -4,24 +4,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public final class d extends BdAsyncTask<String, Object, Object> {
+public class d extends BdAsyncTask<String, Object, Object> {
     protected final Map<a, e> a = new HashMap();
     final /* synthetic */ b b;
     private final String c;
     private final int d;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Object a(String... strArr) {
-        f a;
-        a = this.b.a(this.d);
-        if (a == null) {
-            return null;
-        }
-        Object a2 = a.a(this.c, this);
-        return a2 == null ? a.b(this.c, this) : a2;
-    }
 
     public d(b bVar, String str, int i, a aVar, e eVar) {
         this.b = bVar;
@@ -30,11 +17,11 @@ public final class d extends BdAsyncTask<String, Object, Object> {
         this.a.put(aVar, eVar);
     }
 
-    public final void d(Object... objArr) {
-        c(objArr);
+    public void a(Object... objArr) {
+        publishProgress(objArr);
     }
 
-    public final e a() {
+    public e a() {
         if (this.a.isEmpty()) {
             return null;
         }
@@ -45,22 +32,39 @@ public final class d extends BdAsyncTask<String, Object, Object> {
         }
     }
 
-    public final void a(a aVar, e eVar) {
+    public void a(a aVar, e eVar) {
         this.a.put(aVar, eVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void a(a aVar) {
+    public void a(a aVar) {
         if (aVar != null) {
             aVar.a(this.c, this.a.get(aVar));
             aVar.a();
-            aVar.b(this.c, this.a.get(aVar));
+            aVar.c(this.c, this.a.get(aVar));
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Object doInBackground(String... strArr) {
+        f a;
+        a = this.b.a(this.d);
+        if (a == null) {
+            return null;
+        }
+        Object a2 = a.a(this.c, this);
+        if (a2 == null) {
+            return a.b(this.c, this);
+        }
+        return a2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
+    public void onPreCancel() {
         for (Map.Entry<a, e> entry : this.a.entrySet()) {
             a key = entry.getKey();
             e value = entry.getValue();
@@ -72,18 +76,19 @@ public final class d extends BdAsyncTask<String, Object, Object> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
+    public void onPreExecute() {
         for (Map.Entry<a, e> entry : this.a.entrySet()) {
-            entry.getValue();
-            if (!entry.getKey().b()) {
-                String str = this.c;
+            a key = entry.getKey();
+            e value = entry.getValue();
+            if (!key.b()) {
+                key.b(this.c, value);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void a(Object obj) {
+    public void onPostExecute(Object obj) {
         for (Map.Entry<a, e> entry : this.a.entrySet()) {
             a key = entry.getKey();
             e value = entry.getValue();
@@ -95,7 +100,7 @@ public final class d extends BdAsyncTask<String, Object, Object> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b(Object... objArr) {
+    public void onProgressUpdate(Object... objArr) {
         for (Map.Entry<a, e> entry : this.a.entrySet()) {
             a key = entry.getKey();
             if (!key.b()) {
@@ -106,12 +111,12 @@ public final class d extends BdAsyncTask<String, Object, Object> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void d() {
+    public void onCancelled() {
         for (Map.Entry<a, e> entry : this.a.entrySet()) {
             a key = entry.getKey();
             e value = entry.getValue();
             if (!key.b()) {
-                key.b(this.c, value);
+                key.c(this.c, value);
             }
         }
     }

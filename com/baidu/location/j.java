@@ -7,8 +7,10 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.kirin.KirinConfig;
 import com.baidu.location.c;
 import com.baidu.location.e;
+import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -87,7 +89,7 @@ public class j {
 
     /* renamed from: new  reason: not valid java name */
     public static float f204new = 0.9f;
-    public static int h = 5000;
+    public static int h = KirinConfig.READ_TIME_OUT;
     public static float D = 0.5f;
     public static float S = 0.0f;
     public static float P = 0.1f;
@@ -96,7 +98,7 @@ public class j {
     public static boolean m = true;
     public static boolean G = true;
     public static int i = 20;
-    public static int g = 300;
+    public static int g = TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI;
     public static int l = LocationClientOption.MIN_SCAN_SPAN;
     public static long z = 1200000;
     public static long B = 20;
@@ -115,13 +117,13 @@ public class j {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public static String m243if(Context context) {
+        public static String m245if(Context context) {
             String a2 = a(context);
-            String m244do = b.m244do(context);
-            if (TextUtils.isEmpty(m244do)) {
-                m244do = "0";
+            String m246do = b.m246do(context);
+            if (TextUtils.isEmpty(m246do)) {
+                m246do = "0";
             }
-            return a2 + "|" + new StringBuffer(m244do).reverse().toString();
+            return a2 + "|" + new StringBuffer(m246do).reverse().toString();
         }
     }
 
@@ -145,14 +147,14 @@ public class j {
             SharedPreferences sharedPreferences = context.getSharedPreferences(f208do, 0);
             String string = sharedPreferences.getString(f209for, null);
             if (string == null) {
-                string = m244do(context);
+                string = m246do(context);
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putString(f209for, string);
                 edit.commit();
             }
             String string2 = sharedPreferences.getString(a, null);
             if (string2 == null) {
-                string2 = m245if(context);
+                string2 = m247if(context);
                 SharedPreferences.Editor edit2 = sharedPreferences.edit();
                 edit2.putString(a, string2);
                 edit2.commit();
@@ -168,7 +170,7 @@ public class j {
         }
 
         /* renamed from: do  reason: not valid java name */
-        public static String m244do(Context context) {
+        public static String m246do(Context context) {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager != null) {
                 String deviceId = telephonyManager.getDeviceId();
@@ -178,7 +180,7 @@ public class j {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public static String m245if(Context context) {
+        public static String m247if(Context context) {
             String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
             return TextUtils.isEmpty(string) ? "" : string;
         }
@@ -212,7 +214,7 @@ public class j {
     }
 
     public static String a(c.a aVar, e.c cVar, Location location, String str, int i2) {
-        String m116int;
+        String m118int;
         String aVar2;
         StringBuffer stringBuffer = new StringBuffer();
         if (i2 != 0) {
@@ -223,15 +225,15 @@ public class j {
             stringBuffer.append(aVar2);
         }
         if (cVar != null) {
-            String m132byte = i2 == 0 ? cVar.m132byte() : cVar.m142try();
-            if (m132byte != null) {
-                stringBuffer.append(m132byte);
+            String m134byte = i2 == 0 ? cVar.m134byte() : cVar.m144try();
+            if (m134byte != null) {
+                stringBuffer.append(m134byte);
             }
         }
         if (location != null) {
-            String m65if = (f206void == 0 || i2 == 0) ? com.baidu.location.b.m65if(location) : com.baidu.location.b.k();
-            if (m65if != null) {
-                stringBuffer.append(m65if);
+            String m67if = (f206void == 0 || i2 == 0) ? com.baidu.location.b.m67if(location) : com.baidu.location.b.k();
+            if (m67if != null) {
+                stringBuffer.append(m67if);
             }
         }
         String a2 = c.a(i2 == 0);
@@ -241,8 +243,8 @@ public class j {
         if (str != null) {
             stringBuffer.append(str);
         }
-        if (aVar != null && (m116int = aVar.m116int()) != null && m116int.length() + stringBuffer.length() < 750) {
-            stringBuffer.append(m116int);
+        if (aVar != null && (m118int = aVar.m118int()) != null && m118int.length() + stringBuffer.length() < 750) {
+            stringBuffer.append(m118int);
         }
         String stringBuffer2 = stringBuffer.toString();
         a(f199for, "util format : " + stringBuffer2);
@@ -295,13 +297,13 @@ public class j {
     }
 
     public static boolean a(String str) {
-        int m238if = m238if(str, "error\":\"", "\"");
-        return m238if > 100 && m238if < 200;
+        int m240if = m240if(str, "error\":\"", "\"");
+        return m240if > 100 && m240if < 200;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: do  reason: not valid java name */
-    public static double m234do(String str, String str2, String str3) {
+    public static double m236do(String str, String str2, String str3) {
         int indexOf;
         int length;
         int indexOf2;
@@ -319,19 +321,19 @@ public class j {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public static String m235do() {
+    public static String m237do() {
         return x;
     }
 
     /* renamed from: do  reason: not valid java name */
-    public static void m236do(String str) {
+    public static void m238do(String str) {
         if ((r || n) && str != null) {
             x = str;
         }
     }
 
     /* renamed from: for  reason: not valid java name */
-    public static void m237for() {
+    public static void m239for() {
         if (r || n) {
             try {
                 if (y != null) {
@@ -354,7 +356,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: if  reason: not valid java name */
-    public static int m238if(String str, String str2, String str3) {
+    public static int m240if(String str, String str2, String str3) {
         int indexOf;
         int length;
         int indexOf2;
@@ -372,27 +374,27 @@ public class j {
     }
 
     /* renamed from: if  reason: not valid java name */
-    static String m239if() {
+    static String m241if() {
         Calendar calendar = Calendar.getInstance();
         return String.format("%d_%d_%d_%d_%d_%d", Integer.valueOf(calendar.get(1)), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)), Integer.valueOf(calendar.get(11)), Integer.valueOf(calendar.get(12)), Integer.valueOf(calendar.get(13)));
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static void m240if(String str) {
+    public static void m242if(String str) {
         if (p) {
             Log.d(w, str);
         }
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static void m241if(String str, String str2) {
+    public static void m243if(String str, String str2) {
         if (n) {
             Log.d(str, str2);
         }
     }
 
     /* renamed from: int  reason: not valid java name */
-    public static void m242int() {
+    public static void m244int() {
         if (y != null) {
             try {
                 a(f199for, "logcat stop...");

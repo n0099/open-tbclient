@@ -7,7 +7,7 @@ import com.baidu.tieba.data.BubbleListData;
 import com.baidu.tieba.data.SetBubbleResultData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements com.baidu.tieba.model.j {
+public class c implements com.baidu.tieba.model.j {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,16 +16,16 @@ public final class c implements com.baidu.tieba.model.j {
     }
 
     @Override // com.baidu.tieba.model.j
-    public final void a(SetBubbleResultData setBubbleResultData) {
+    public void a(SetBubbleResultData setBubbleResultData) {
         if (setBubbleResultData == null || setBubbleResultData.getB_info() == null) {
-            this.a.i().c();
+            this.a.i().b();
             return;
         }
         this.a.f = setBubbleResultData.getB_info().getB_url();
-        TbadkApplication.j().q(this.a.f);
+        TbadkApplication.m252getInst().setDefaultBubble(this.a.f);
         int a = this.a.a.a();
         if (a == 0) {
-            TbadkApplication.j().q("");
+            TbadkApplication.m252getInst().setDefaultBubble("");
             for (BubbleListData.BubbleData bubbleData : this.a.b.getB_info()) {
                 if (bubbleData.getBcode() != 0) {
                     if (bubbleData.isDef()) {
@@ -44,31 +44,29 @@ public final class c implements com.baidu.tieba.model.j {
                 }
             }
         } else {
-            UtilHelper.a(this.a.d, com.baidu.tieba.a.k.bubble_setdefualt_error);
+            UtilHelper.showToast(this.a.d, com.baidu.tieba.u.bubble_setdefualt_error);
         }
-        a.a(this.a);
-        al i = this.a.i();
-        a aVar = this.a;
-        i.a();
+        this.a.k();
+        this.a.i().a(this.a);
     }
 
     @Override // com.baidu.tieba.model.j
-    public final void b(SetBubbleResultData setBubbleResultData) {
+    public void b(SetBubbleResultData setBubbleResultData) {
         if (setBubbleResultData != null) {
             if (!setBubbleResultData.getError_code().equals("0")) {
                 if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
-                    UtilHelper.a(this.a.d, setBubbleResultData.getError_msg());
+                    UtilHelper.showToast(this.a.d, setBubbleResultData.getError_msg());
                 } else {
-                    UtilHelper.a(this.a.d, com.baidu.tieba.a.k.neterror);
+                    UtilHelper.showToast(this.a.d, com.baidu.tieba.u.neterror);
                 }
             } else {
-                UtilHelper.a(this.a.d, com.baidu.tieba.a.k.neterror);
+                UtilHelper.showToast(this.a.d, com.baidu.tieba.u.neterror);
             }
         } else {
-            UtilHelper.a(this.a.d, com.baidu.tieba.a.k.neterror);
+            UtilHelper.showToast(this.a.d, com.baidu.tieba.u.neterror);
         }
         if (this.a.i() != null) {
-            this.a.i().c();
+            this.a.i().b();
         }
     }
 }

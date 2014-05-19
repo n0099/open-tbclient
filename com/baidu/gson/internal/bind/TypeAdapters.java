@@ -888,7 +888,7 @@ public final class TypeAdapters {
         /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.gson.internal.bind.TypeAdapters$EnumTypeAdapter<T extends java.lang.Enum<T>> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.baidu.gson.TypeAdapter
-        public final /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) {
+        public /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) {
             write(jsonWriter, (JsonWriter) ((Enum) obj));
         }
 
@@ -909,7 +909,7 @@ public final class TypeAdapters {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.gson.TypeAdapter
-        public final T read(JsonReader jsonReader) {
+        public T read(JsonReader jsonReader) {
             if (jsonReader.peek() == JsonToken.NULL) {
                 jsonReader.nextNull();
                 return null;
@@ -917,7 +917,7 @@ public final class TypeAdapters {
             return this.nameToConstant.get(jsonReader.nextString());
         }
 
-        public final void write(JsonWriter jsonWriter, T t) {
+        public void write(JsonWriter jsonWriter, T t) {
             jsonWriter.value(t == null ? null : this.constantToName.get(t));
         }
     }

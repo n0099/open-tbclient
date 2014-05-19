@@ -2,11 +2,12 @@ package com.baidu.tieba.data;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.adp.lib.util.BdLog;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class h extends com.baidu.tieba.util.l {
+public class h extends com.baidu.tieba.util.l {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +18,7 @@ public final class h extends com.baidu.tieba.util.l {
     }
 
     @Override // com.baidu.tieba.util.l, android.text.style.ClickableSpan
-    public final void onClick(View view) {
+    public void onClick(View view) {
         Pattern pattern;
         String str;
         Pattern pattern2;
@@ -32,7 +33,7 @@ public final class h extends com.baidu.tieba.util.l {
                 b(group.substring(group.lastIndexOf("/") + 1));
                 return;
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onClick", e.toString());
+                BdLog.e(getClass().getName(), "onClick", e.toString());
             }
         }
         pattern2 = f.k;
@@ -44,7 +45,7 @@ public final class h extends com.baidu.tieba.util.l {
                 b(group2.substring(group2.lastIndexOf("=") + 1));
                 return;
             } catch (Exception e2) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onClick", e2.toString());
+                BdLog.e(getClass().getName(), "onClick", e2.toString());
             }
         }
         str3 = this.a.g;

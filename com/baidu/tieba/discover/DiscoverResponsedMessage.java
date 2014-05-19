@@ -6,22 +6,22 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class DiscoverResponsedMessage extends JsonHttpResponsedMessage {
-    n a;
+    n mData;
 
     public DiscoverResponsedMessage(int i) {
         super(i);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public final void a(JSONObject jSONObject) {
-        int d = d();
-        int e = e();
-        if (d == 200 && e == 0 && jSONObject != null) {
-            this.a = b(jSONObject);
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+        int statusCode = getStatusCode();
+        int error = getError();
+        if (statusCode == 200 && error == 0 && jSONObject != null) {
+            this.mData = parseJson(jSONObject);
         }
     }
 
-    public static n b(JSONObject jSONObject) {
+    public static n parseJson(JSONObject jSONObject) {
         n nVar = new n();
         nVar.a = jSONObject.optInt("errno");
         nVar.b = jSONObject.optString("errmsg");

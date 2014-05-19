@@ -1,6 +1,7 @@
 package com.baidu.tieba.mainentrance;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,14 +11,14 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.data.SearchPostModel;
-import com.baidu.tieba.data.al;
+import com.baidu.tieba.data.an;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public final class c extends BaseAdapter {
+public class c extends BaseAdapter {
     private Context b;
     private SearchPostModel a = null;
     private int c = 0;
@@ -28,11 +29,11 @@ public final class c extends BaseAdapter {
         this.b = context;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.c = i;
     }
 
-    public final void a() {
+    public void a() {
         if (this.d != null) {
             Iterator<ProgressBar> it = this.d.iterator();
             while (it.hasNext()) {
@@ -41,19 +42,26 @@ public final class c extends BaseAdapter {
         }
     }
 
-    private boolean b() {
+    public boolean b() {
         if (this.a == null) {
             return false;
         }
         return this.a.hasPre();
     }
 
-    public final void a(SearchPostModel searchPostModel) {
+    public boolean c() {
+        if (this.a == null) {
+            return false;
+        }
+        return this.a.hasMore();
+    }
+
+    public void a(SearchPostModel searchPostModel) {
         this.a = searchPostModel;
     }
 
     @Override // android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         if (this.a == null || this.a.getData() == null) {
             return 0;
         }
@@ -61,14 +69,14 @@ public final class c extends BaseAdapter {
         if (b()) {
             size++;
         }
-        if (this.a != null ? this.a.hasMore() : false) {
+        if (c()) {
             return size + 1;
         }
         return size;
     }
 
     @Override // android.widget.Adapter
-    public final Object getItem(int i) {
+    public Object getItem(int i) {
         int itemId;
         if (this.a == null || this.a.getData() == null || (itemId = (int) getItemId(i)) < 0 || itemId >= this.a.getData().size()) {
             return null;
@@ -77,12 +85,12 @@ public final class c extends BaseAdapter {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getItemViewType(int i) {
+    public int getItemViewType(int i) {
         return getItemId(i) >= 0 ? 0 : -1;
     }
 
     @Override // android.widget.Adapter
-    public final long getItemId(int i) {
+    public long getItemId(int i) {
         if (this.a == null || this.a.getData() == null) {
             return -1L;
         }
@@ -99,95 +107,96 @@ public final class c extends BaseAdapter {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getViewTypeCount() {
+    public int getViewTypeCount() {
         return 2;
     }
 
     @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         d dVar;
-        e eVar = null;
+        e eVar;
         if (this.a != null) {
             if (view == null) {
                 LayoutInflater from = LayoutInflater.from(this.b);
                 if (getItemViewType(i) == 0) {
-                    e eVar2 = new e(this, (byte) 0);
-                    view = from.inflate(com.baidu.tieba.a.i.search_post_item, (ViewGroup) null);
-                    eVar2.c = (TextView) view.findViewById(com.baidu.tieba.a.h.title);
-                    eVar2.f = view.findViewById(com.baidu.tieba.a.h.search_post_lv_search_forum_divider);
-                    eVar2.b = (TextView) view.findViewById(com.baidu.tieba.a.h.content);
-                    eVar2.d = (TextView) view.findViewById(com.baidu.tieba.a.h.forum);
-                    eVar2.a = (TextView) view.findViewById(com.baidu.tieba.a.h.time);
-                    eVar2.e = (LinearLayout) view.findViewById(com.baidu.tieba.a.h.square_search_content_layout);
-                    view.setTag(eVar2);
+                    eVar = new e(this, null);
+                    view = from.inflate(com.baidu.tieba.s.search_post_item, (ViewGroup) null);
+                    eVar.c = (TextView) view.findViewById(com.baidu.tieba.r.title);
+                    eVar.f = view.findViewById(com.baidu.tieba.r.search_post_lv_search_forum_divider);
+                    eVar.b = (TextView) view.findViewById(com.baidu.tieba.r.content);
+                    eVar.d = (TextView) view.findViewById(com.baidu.tieba.r.forum);
+                    eVar.a = (TextView) view.findViewById(com.baidu.tieba.r.time);
+                    eVar.e = (LinearLayout) view.findViewById(com.baidu.tieba.r.square_search_content_layout);
+                    view.setTag(eVar);
                     dVar = null;
-                    eVar = eVar2;
                 } else {
-                    d dVar2 = new d(this, (byte) 0);
-                    view = from.inflate(com.baidu.tieba.a.i.page_item, (ViewGroup) null);
-                    dVar2.a = (TextView) view.findViewById(com.baidu.tieba.a.h.page_text);
-                    dVar2.b = (ProgressBar) view.findViewById(com.baidu.tieba.a.h.progress);
+                    d dVar2 = new d(this, null);
+                    view = from.inflate(com.baidu.tieba.s.page_item, (ViewGroup) null);
+                    dVar2.a = (TextView) view.findViewById(com.baidu.tieba.r.page_text);
+                    dVar2.b = (ProgressBar) view.findViewById(com.baidu.tieba.r.progress);
                     if (this.d == null) {
                         this.d = new ArrayList<>();
                     }
                     this.d.add(dVar2.b);
                     view.setTag(dVar2);
                     dVar = dVar2;
+                    eVar = null;
                 }
             } else if (getItemViewType(i) == 0) {
                 eVar = (e) view.getTag();
                 dVar = null;
             } else {
                 dVar = (d) view.getTag();
+                eVar = null;
             }
-            int l = TbadkApplication.j().l();
+            int skinType = TbadkApplication.m252getInst().getSkinType();
             if (getItemViewType(i) == 0) {
-                al alVar = (al) getItem(i);
-                if (alVar != null) {
-                    eVar.d.setText(String.valueOf(alVar.d()) + this.b.getString(com.baidu.tieba.a.k.bar));
-                    eVar.a.setText(bc.a(alVar.g()));
-                    if (alVar.f() == null || alVar.f().length() <= 0) {
+                an anVar = (an) getItem(i);
+                if (anVar != null) {
+                    eVar.d.setText(String.valueOf(anVar.d()) + this.b.getString(com.baidu.tieba.u.bar));
+                    eVar.a.setText(be.a(anVar.g()));
+                    if (anVar.f() == null || anVar.f().length() < 1) {
                         eVar.e.setVisibility(8);
                     } else {
                         eVar.e.setVisibility(0);
-                        eVar.b.setText(Html.fromHtml(bc.g(alVar.f())));
+                        eVar.b.setText(Html.fromHtml(be.a(anVar.f(), (Color) null)));
                     }
-                    eVar.c.setText(Html.fromHtml(bc.g(alVar.e())));
-                    ba.b(eVar.b, l);
-                    if (l == 0) {
-                        eVar.f.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.square_dividing_line));
-                        eVar.e.setBackgroundResource(com.baidu.tieba.a.g.bg_search_tiezi);
-                        eVar.d.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.post_search_text_content));
-                        eVar.a.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.post_search_text_content));
-                        eVar.b.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.square_search_text_content));
-                        eVar.c.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.search_text_title));
+                    eVar.c.setText(Html.fromHtml(be.a(anVar.e(), (Color) null)));
+                    bc.b(eVar.b, skinType);
+                    if (skinType == 0) {
+                        eVar.f.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.o.square_dividing_line));
+                        eVar.e.setBackgroundResource(com.baidu.tieba.q.bg_search_tiezi);
+                        eVar.d.setTextColor(this.b.getResources().getColor(com.baidu.tieba.o.post_search_text_content));
+                        eVar.a.setTextColor(this.b.getResources().getColor(com.baidu.tieba.o.post_search_text_content));
+                        eVar.b.setTextColor(this.b.getResources().getColor(com.baidu.tieba.o.square_search_text_content));
+                        eVar.c.setTextColor(this.b.getResources().getColor(com.baidu.tieba.o.search_text_title));
                     } else {
-                        eVar.f.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.square_dividing_line_1));
-                        eVar.e.setBackgroundResource(com.baidu.tieba.a.g.bg_search_tiezi_1);
-                        eVar.d.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.post_search_text_content_night));
-                        eVar.a.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.post_search_text_content_night));
-                        eVar.b.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.square_search_text_content_night));
-                        eVar.c.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.search_text_title_1));
+                        eVar.f.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.o.square_dividing_line_1));
+                        eVar.e.setBackgroundResource(com.baidu.tieba.q.bg_search_tiezi_1);
+                        eVar.d.setTextColor(this.b.getResources().getColor(com.baidu.tieba.o.post_search_text_content_night));
+                        eVar.a.setTextColor(this.b.getResources().getColor(com.baidu.tieba.o.post_search_text_content_night));
+                        eVar.b.setTextColor(this.b.getResources().getColor(com.baidu.tieba.o.square_search_text_content_night));
+                        eVar.c.setTextColor(this.b.getResources().getColor(com.baidu.tieba.o.search_text_title_1));
                     }
                 }
             } else if (getItemId(i) == -1) {
                 if (this.c == 1) {
                     dVar.b.setVisibility(0);
-                    dVar.a.setText(this.b.getString(com.baidu.tieba.a.k.loading));
+                    dVar.a.setText(this.b.getString(com.baidu.tieba.u.loading));
                 } else {
                     dVar.b.setVisibility(8);
-                    dVar.a.setText(this.b.getString(com.baidu.tieba.a.k.pre_page));
+                    dVar.a.setText(this.b.getString(com.baidu.tieba.u.pre_page));
                 }
-                ba.b(dVar.a, l);
+                bc.b(dVar.a, skinType);
             } else {
                 if (this.c == 2) {
                     dVar.b.setVisibility(0);
-                    dVar.a.setText(this.b.getString(com.baidu.tieba.a.k.loading));
+                    dVar.a.setText(this.b.getString(com.baidu.tieba.u.loading));
                 } else {
                     dVar.b.setVisibility(8);
-                    dVar.a.setText(this.b.getString(com.baidu.tieba.a.k.next_page));
+                    dVar.a.setText(this.b.getString(com.baidu.tieba.u.next_page));
                 }
-                ba.b(dVar.a, l);
+                bc.b(dVar.a, skinType);
             }
         }
         return view;

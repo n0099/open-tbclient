@@ -1,42 +1,47 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class f {
+public class f {
     private String a = null;
     private String b = null;
     private String c = null;
 
-    public final String a() {
+    public String a() {
         return this.a;
     }
 
-    public final String b() {
+    public String b() {
         return this.b;
     }
 
-    public final String c() {
+    public String c() {
         return this.c;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             JSONObject optJSONObject = jSONObject.optJSONObject("info");
             if (optJSONObject == null) {
                 optJSONObject = jSONObject.optJSONObject("anti");
             }
-            if (optJSONObject != null) {
-                try {
-                    this.a = optJSONObject.optString("vcode_md5");
-                    this.b = optJSONObject.optString("vcode_pic_url");
-                    this.c = optJSONObject.optString("vcode_type");
-                } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
-                }
+            a(optJSONObject);
+        } catch (Exception e) {
+            BdLog.e("VcodeInfoData", "parserJson", "error = " + e.getMessage());
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optString("vcode_md5");
+                this.b = jSONObject.optString("vcode_pic_url");
+                this.c = jSONObject.optString("vcode_type");
+            } catch (Exception e) {
+                BdLog.e("VcodeInfoData", "parserJson", "error = " + e.getMessage());
             }
-        } catch (Exception e2) {
-            com.baidu.adp.lib.util.f.b("VcodeInfoData", "parserJson", "error = " + e2.getMessage());
         }
     }
 }

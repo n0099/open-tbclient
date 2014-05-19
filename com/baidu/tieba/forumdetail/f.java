@@ -1,20 +1,21 @@
 package com.baidu.tieba.forumdetail;
 
 import android.view.View;
+import com.baidu.tbadk.BaseActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements View.OnClickListener {
+public class f implements View.OnClickListener {
     final /* synthetic */ ItemFootNavView a;
-    private final /* synthetic */ com.baidu.tbadk.a b;
+    private final /* synthetic */ BaseActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(ItemFootNavView itemFootNavView, com.baidu.tbadk.a aVar) {
+    public f(ItemFootNavView itemFootNavView, BaseActivity baseActivity) {
         this.a = itemFootNavView;
-        this.b = aVar;
+        this.b = baseActivity;
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         this.a.b(this.b);
     }
 }

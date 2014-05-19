@@ -1,11 +1,14 @@
 package com.baidu.tieba.im.groupInfo;
 
 import android.content.Context;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.bk;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class o implements bi {
-    @Override // com.baidu.tbadk.core.util.bi
-    public final boolean a(Context context, String[] strArr) {
+public class o implements bk {
+    @Override // com.baidu.tbadk.core.util.bk
+    public boolean a(Context context, String[] strArr) {
         if (strArr == null || strArr.length == 0) {
             return false;
         }
@@ -20,12 +23,12 @@ final class o implements bi {
             if (a <= 0) {
                 return false;
             }
-            com.baidu.tbadk.core.b.o oVar = new com.baidu.tbadk.core.b.o(context, a, 0);
-            if (context instanceof com.baidu.tbadk.a) {
-                ((com.baidu.tbadk.a) context).sendMessage(new com.baidu.adp.framework.message.a(2008011, oVar));
+            com.baidu.tbadk.core.atomData.q qVar = new com.baidu.tbadk.core.atomData.q(context, a, 0);
+            if (context instanceof BaseActivity) {
+                ((BaseActivity) context).sendMessage(new CustomMessage(2010011, qVar));
                 return true;
             } else if (context instanceof com.baidu.tbadk.core.e) {
-                ((com.baidu.tbadk.core.e) context).a(new com.baidu.adp.framework.message.a(2008011, oVar));
+                ((com.baidu.tbadk.core.e) context).a(new CustomMessage(2010011, qVar));
                 return true;
             }
         }

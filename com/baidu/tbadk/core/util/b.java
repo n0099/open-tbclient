@@ -1,9 +1,10 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
@@ -14,6 +15,7 @@ public class b {
     public boolean e;
     public String f;
     public boolean g;
+    private BdAsyncTaskParallel m;
     private boolean i = false;
     private String j = "other";
     public ArrayList<BasicNameValuePair> h = null;
@@ -27,87 +29,107 @@ public class b {
         this.e = false;
         this.f = null;
         this.g = false;
+        this.m = null;
         this.a = context;
         this.d = true;
         this.f = null;
         this.e = false;
         this.g = false;
+        this.m = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, com.baidu.adp.lib.asyncTask.l.a());
     }
 
-    public final String a(String str) {
+    public String a(String str) {
         if (this.f != null) {
             return String.valueOf(str) + this.f;
         }
         return str;
     }
 
-    public final void a() {
+    public void a(boolean z) {
+    }
+
+    public void a(ArrayList<BasicNameValuePair> arrayList) {
+        this.h = arrayList;
+    }
+
+    public void b(boolean z) {
+        this.e = z;
+    }
+
+    public void b(String str) {
+        this.f = str;
+    }
+
+    public void a() {
         this.l.clear();
     }
 
+    public com.baidu.adp.widget.a.a c(String str) {
+        return com.baidu.tbadk.imageManager.e.a().b(str);
+    }
+
+    public com.baidu.adp.widget.a.a d(String str) {
+        return com.baidu.tbadk.imageManager.e.a().c(str);
+    }
+
+    public void e(String str) {
+        com.baidu.tbadk.imageManager.e.a().a(str);
+    }
+
     public static boolean b() {
-        return w.a() && com.baidu.adp.gif.f.a();
+        return c();
+    }
+
+    public static boolean c() {
+        return x.a() && com.baidu.adp.gif.d.a();
     }
 
     @Deprecated
-    public final com.baidu.adp.widget.ImageView.b a(String str, com.baidu.tbadk.imageManager.d dVar) {
+    public com.baidu.adp.widget.a.a a(String str, com.baidu.tbadk.imageManager.d dVar) {
         return a(str, dVar, (Integer) 1, false, false);
     }
 
-    @Deprecated
-    public final com.baidu.adp.widget.ImageView.b a(String str, boolean z, com.baidu.tbadk.imageManager.d dVar) {
-        return a(str, true, false, dVar, false);
+    public com.baidu.adp.widget.a.a a(String str, boolean z, boolean z2, com.baidu.tbadk.imageManager.d dVar) {
+        return a(str, dVar, 0, true, false, z, z2, null, true);
     }
 
-    public final com.baidu.adp.widget.ImageView.b a(String str, boolean z, boolean z2, com.baidu.tbadk.imageManager.d dVar) {
-        return a(str, dVar, 0, true, false, false, true, null, true);
+    public com.baidu.adp.widget.a.a a(String str, boolean z, com.baidu.tbadk.imageManager.d dVar, boolean z2) {
+        return a(str, z, false, dVar, z2);
     }
 
-    public final com.baidu.adp.widget.ImageView.b a(String str, boolean z, com.baidu.tbadk.imageManager.d dVar, boolean z2) {
-        return a(str, true, false, dVar, true);
-    }
-
-    public final com.baidu.adp.widget.ImageView.b b(String str, com.baidu.tbadk.imageManager.d dVar) {
+    public com.baidu.adp.widget.a.a b(String str, com.baidu.tbadk.imageManager.d dVar) {
         return a(str, dVar, 0, true, false, false, false, null, true);
     }
 
-    private com.baidu.adp.widget.ImageView.b a(String str, boolean z, boolean z2, com.baidu.tbadk.imageManager.d dVar, boolean z3) {
-        return a(str, dVar, 0, true, false, z, false, null, z3);
+    public com.baidu.adp.widget.a.a a(String str, boolean z, boolean z2, com.baidu.tbadk.imageManager.d dVar, boolean z3) {
+        return a(str, dVar, 0, true, false, z, z2, null, z3);
     }
 
-    public final com.baidu.adp.widget.ImageView.b a(String str, com.baidu.tbadk.imageManager.d dVar, boolean z) {
-        return a(str, dVar, 0, true, false, false, false, null, false);
+    public com.baidu.adp.widget.a.a a(String str, com.baidu.tbadk.imageManager.d dVar, boolean z) {
+        return a(str, dVar, 0, true, false, false, false, null, z);
     }
 
-    public final com.baidu.adp.widget.ImageView.b a(String str, com.baidu.tbadk.imageManager.d dVar, boolean z, boolean z2) {
-        return a(str, dVar, 0, true, true, false, false, null, true);
-    }
-
-    public final com.baidu.adp.widget.ImageView.b c(String str, com.baidu.tbadk.imageManager.d dVar) {
+    public com.baidu.adp.widget.a.a c(String str, com.baidu.tbadk.imageManager.d dVar) {
         return a(str, dVar, (Integer) 1, true, true);
     }
 
-    public final com.baidu.adp.widget.ImageView.b d(String str, com.baidu.tbadk.imageManager.d dVar) {
+    public com.baidu.adp.widget.a.a d(String str, com.baidu.tbadk.imageManager.d dVar) {
         return a(str, dVar, (Integer) 2, true, true);
     }
 
-    public final com.baidu.adp.widget.ImageView.b e(String str, com.baidu.tbadk.imageManager.d dVar) {
-        return a(str, dVar, (Integer) 5, true, true);
-    }
-
-    public final com.baidu.adp.widget.ImageView.b f(String str, com.baidu.tbadk.imageManager.d dVar) {
+    public com.baidu.adp.widget.a.a e(String str, com.baidu.tbadk.imageManager.d dVar) {
         return a(str, dVar, (Integer) 4, true, true);
     }
 
-    private com.baidu.adp.widget.ImageView.b a(String str, com.baidu.tbadk.imageManager.d dVar, Integer num, boolean z, boolean z2) {
+    protected com.baidu.adp.widget.a.a a(String str, com.baidu.tbadk.imageManager.d dVar, Integer num, boolean z, boolean z2) {
         return a(str, dVar, num.intValue(), z, false, false, false, null, z2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final com.baidu.adp.widget.ImageView.b a(String str, com.baidu.tbadk.imageManager.d dVar, int i, boolean z, boolean z2, boolean z3, boolean z4, Map<String, Object> map, boolean z5) {
-        com.baidu.adp.widget.ImageView.b c;
+    public com.baidu.adp.widget.a.a a(String str, com.baidu.tbadk.imageManager.d dVar, int i, boolean z, boolean z2, boolean z3, boolean z4, Map<String, Object> map, boolean z5) {
+        com.baidu.adp.widget.a.a c;
         if (str == null) {
-            TiebaStatic.a("", -1003, "", "");
+            TiebaStatic.imgError("", TbErrInfo.ERR_IMG_URL_IS_NULL, "", "");
             return null;
         }
         StringBuilder sb = new StringBuilder();
@@ -138,14 +160,10 @@ public class b {
             while (true) {
                 if (i2 >= size) {
                     break;
-                } else if (!this.k.get(i2).c.equals(str)) {
+                } else if (!this.k.get(i2).d().equals(str)) {
                     i2++;
                 } else {
-                    e eVar2 = this.k.get(i2);
-                    if (eVar2.b == null) {
-                        eVar2.b = new HashSet<>();
-                    }
-                    eVar2.b.add(dVar);
+                    this.k.get(i2).a(dVar);
                     if (z2) {
                         eVar = this.k.get(i2);
                     } else {
@@ -170,7 +188,7 @@ public class b {
             }
             if (!z2 && this.k.size() >= 5) {
                 if (this.d || z6) {
-                    d dVar2 = new d(this, (byte) 0);
+                    d dVar2 = new d(this, null);
                     dVar2.c = dVar;
                     dVar2.a = str;
                     dVar2.b = i;
@@ -181,19 +199,21 @@ public class b {
                     this.l.add(dVar2);
                     return null;
                 }
-                com.baidu.adp.lib.e.b.a().a(this.k.get(0).c, TbadkApplication.j().b());
+                com.baidu.adp.lib.e.b.a().a(this.k.get(0).c, TbadkApplication.m252getInst().getApp());
             }
-            e eVar3 = eVar != null ? eVar : new e(str, i, dVar, z, z3, z4, map);
-            if (eVar != eVar3) {
-                this.k.add(eVar3);
+            e eVar2 = eVar != null ? eVar : new e(str, i, dVar, z, z3, z4, map);
+            if (eVar != eVar2) {
+                this.k.add(eVar2);
             }
-            com.baidu.adp.lib.e.e eVar4 = new com.baidu.adp.lib.e.e();
-            eVar4.a("ImageAsyncTaskInfo", eVar3);
-            eVar4.a("AsyncImageLoader", this);
-            eVar4.a("param_immediatelyExecut", Boolean.valueOf(z2));
+            com.baidu.adp.lib.e.e eVar3 = new com.baidu.adp.lib.e.e();
+            eVar3.a("ImageAsyncTaskInfo", eVar2);
+            eVar3.a("AsyncImageLoader", this);
+            if (i != 6) {
+                eVar3.a("param_parallel", this.m);
+            }
             if (map != null) {
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
-                    eVar4.a(entry.getKey(), entry.getValue());
+                    eVar3.a(entry.getKey(), entry.getValue());
                 }
             }
             int i4 = 2;
@@ -205,22 +225,22 @@ public class b {
             } else if (i == 7) {
                 i5 = 5;
             }
-            Object a = com.baidu.adp.lib.e.b.a().a(str, i5, new c(this, eVar3), TbadkApplication.j().b(), eVar4, (i == 0 || i == 6 || i == 1) ? 1 : 1);
-            if (a != null && (a instanceof com.baidu.adp.widget.ImageView.b)) {
-                return (com.baidu.adp.widget.ImageView.b) a;
+            Object a = com.baidu.adp.lib.e.b.a().a(str, i5, new c(this, eVar2), TbadkApplication.m252getInst().getApp(), eVar3, (i == 0 || i == 6 || i == 1) ? 1 : 1);
+            if (a != null && (a instanceof com.baidu.adp.widget.a.a)) {
+                return (com.baidu.adp.widget.a.a) a;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
-            TiebaStatic.a("", -1008, "AsyncImageLoader.loadBitmap error: " + e.toString(), sb.toString());
+            BdLog.e("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
+            TiebaStatic.imgError("", TbErrInfo.ERR_IMG_LOAD_BITMAP, "AsyncImageLoader.loadBitmap error: " + e.toString(), sb.toString());
         }
         return null;
     }
 
-    public final com.baidu.adp.widget.ImageView.b g(String str, com.baidu.tbadk.imageManager.d dVar) {
+    public com.baidu.adp.widget.a.a f(String str, com.baidu.tbadk.imageManager.d dVar) {
         return a(str, dVar, 7, true, false, false, false, null, true);
     }
 
-    public final void c() {
+    public void d() {
         this.l.clear();
         int i = 0;
         while (true) {
@@ -228,7 +248,7 @@ public class b {
             if (i2 < this.k.size()) {
                 e eVar = this.k.get(i2);
                 if (eVar != null) {
-                    com.baidu.adp.lib.e.b.a().a(eVar.c, TbadkApplication.j().b());
+                    com.baidu.adp.lib.e.b.a().a(eVar.c, TbadkApplication.m252getInst().getApp());
                 }
                 i = i2 + 1;
             } else {
@@ -238,20 +258,24 @@ public class b {
         }
     }
 
-    public final void a(int i, int i2) {
+    public void a(int i, int i2) {
         this.b = i;
         this.c = i2;
     }
 
-    public final boolean d() {
+    public void c(boolean z) {
+        this.g = z;
+    }
+
+    public boolean e() {
         return this.i;
     }
 
-    public final void a(boolean z) {
+    public void d(boolean z) {
         this.i = z;
     }
 
-    public final void b(String str) {
+    public void f(String str) {
         this.j = str;
     }
 }

@@ -1,37 +1,36 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.shell.listener.AuthorizationListener;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ad implements View.OnFocusChangeListener {
-    final /* synthetic */ Register2Activity a;
+public class ad extends AuthorizationListener {
+    final /* synthetic */ SapiFastRegActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(Register2Activity register2Activity) {
-        this.a = register2Activity;
+    public ad(SapiFastRegActivity sapiFastRegActivity) {
+        this.a = sapiFastRegActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public final void onFocusChange(View view, boolean z) {
-        EditText editText;
-        EditText editText2;
-        ImageView imageView = null;
-        editText = this.a.t;
-        if (view == editText) {
-            imageView = this.a.k;
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public void onSuccess() {
+        com.baidu.tbadk.core.account.g gVar;
+        SapiAccount session = SapiAccountManager.getInstance().getSession();
+        String str = session.username;
+        String str2 = session.bduss;
+        String str3 = session.ptoken;
+        gVar = this.a.c;
+        com.baidu.tbadk.core.account.f.a(str, str2, str3, gVar);
+    }
+
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public void onFailed(int i, String str) {
+        if (str != null && !"".equals(str)) {
+            this.a.showToast(str);
         } else {
-            editText2 = this.a.v;
-            if (view == editText2) {
-                imageView = this.a.l;
-            }
+            this.a.showToast(com.baidu.tieba.u.data_load_error);
         }
-        if (imageView != null) {
-            if (z) {
-                imageView.setVisibility(0);
-            } else {
-                imageView.setVisibility(8);
-            }
-        }
+        this.a.finish();
     }
 }

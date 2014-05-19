@@ -9,8 +9,7 @@ public class BarDetailForDirSwitchStatic extends a {
     public static final int OFF_TYPE = 1;
 
     static {
-        f.a();
-        f.a(BarDetailForDirSwitchStatic.class);
+        f.a().a(BarDetailForDirSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

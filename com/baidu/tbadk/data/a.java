@@ -1,6 +1,6 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     final /* synthetic */ NewsNotifyMessage a;
     private int b = 0;
     private int c = 0;

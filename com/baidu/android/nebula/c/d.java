@@ -1,10 +1,11 @@
 package com.baidu.android.nebula.c;
 
+import com.baidu.tbadk.TbConfig;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public abstract class d {
     private boolean a = false;
-    private long b = 60000;
+    private long b = TbConfig.USE_TIME_INTERVAL;
     private long c = System.currentTimeMillis();
 
     public abstract int a(ByteBuffer byteBuffer);

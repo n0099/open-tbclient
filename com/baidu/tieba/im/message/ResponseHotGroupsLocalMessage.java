@@ -1,53 +1,67 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.GroupInfoData;
+import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
-import protobuf.Im;
-import protobuf.QueryHotGroups.QueryHotGroupsRes;
+import protobuf.GroupInfo;
+import protobuf.QueryHotGroups.QueryHotGroupsResIdl;
 /* loaded from: classes.dex */
 public class ResponseHotGroupsLocalMessage extends CustomResponsedMessage<Object> {
-    private List<GroupInfoData> a;
-    private boolean b;
+    private List<GroupInfoData> groups;
+    private boolean hasMore;
 
     public ResponseHotGroupsLocalMessage() {
-        super(2001116);
+        super(MessageTypes.CMD_HOT_GROUPS_LOCAL);
     }
 
-    public final List<GroupInfoData> b() {
-        return this.a;
+    public List<GroupInfoData> getGroups() {
+        return this.groups;
     }
 
-    public final void a(byte[] bArr) {
-        QueryHotGroupsRes.QueryHotGroupsResIdl parseFrom = QueryHotGroupsRes.QueryHotGroupsResIdl.parseFrom(bArr);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.a = new ArrayList();
-            int groupsCount = parseFrom.getData().getGroupsCount();
-            for (int i = 0; i < groupsCount; i++) {
+    public void setGroups(List<GroupInfoData> list) {
+        this.groups = list;
+    }
+
+    public boolean getHasMore() {
+        return this.hasMore;
+    }
+
+    public void setHasMore(boolean z) {
+        this.hasMore = z;
+    }
+
+    public void decodeInBackGround(int i, byte[] bArr) {
+        QueryHotGroupsResIdl queryHotGroupsResIdl = (QueryHotGroupsResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHotGroupsResIdl.class);
+        setError(queryHotGroupsResIdl.error.errorno.intValue());
+        setErrorString(queryHotGroupsResIdl.error.usermsg);
+        if (getError() == 0) {
+            setGroups(new ArrayList());
+            int size = queryHotGroupsResIdl.data.groups == null ? 0 : queryHotGroupsResIdl.data.groups.size();
+            for (int i2 = 0; i2 < size; i2++) {
                 GroupInfoData groupInfoData = new GroupInfoData();
-                this.a.add(groupInfoData);
-                Im.GroupInfo groups = parseFrom.getData().getGroups(i);
-                groupInfoData.setGroupId(groups.getGroupId());
-                groupInfoData.setForumId(groups.getForumId());
-                groupInfoData.setForumName(groups.getForumName());
-                groupInfoData.setName(groups.getName());
-                groupInfoData.setIntro(groups.getIntro());
-                groupInfoData.setPortrait(groups.getPortrait());
-                groupInfoData.setMaxMemberNum(groups.getMaxMemberNum());
-                groupInfoData.setMemberNum(groups.getMemberNum());
-                groupInfoData.setAuthorId(groups.getAuthorId());
-                groupInfoData.setAuthorName(groups.getAuthorName());
-                groupInfoData.setGrade(groups.getGrade());
-                groupInfoData.setForumShowName(groups.getForumShowName());
-                groupInfoData.setMemGroup(groups.getIsMemberGroup() == 1);
+                getGroups().add(groupInfoData);
+                GroupInfo groupInfo = queryHotGroupsResIdl.data.groups.get(i2);
+                groupInfoData.setGroupId(groupInfo.groupId.intValue());
+                groupInfoData.setForumId(groupInfo.forumId.intValue());
+                groupInfoData.setForumName(groupInfo.forumName);
+                groupInfoData.setName(groupInfo.name);
+                groupInfoData.setIntro(groupInfo.intro);
+                groupInfoData.setPortrait(groupInfo.portrait);
+                groupInfoData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
+                groupInfoData.setMemberNum(groupInfo.memberNum.intValue());
+                groupInfoData.setAuthorId(groupInfo.authorId.intValue());
+                groupInfoData.setAuthorName(groupInfo.authorName);
+                groupInfoData.setGrade(groupInfo.grade.intValue());
+                groupInfoData.setForumShowName(groupInfo.forumShowName);
+                groupInfoData.setMemGroup(groupInfo.isMemberGroup.intValue() == 1);
             }
-            if (parseFrom.getData().getHasMore() == 1) {
-                this.b = true;
+            if (queryHotGroupsResIdl.data.hasMore.intValue() == 1) {
+                setHasMore(true);
             } else {
-                this.b = false;
+                setHasMore(false);
             }
         }
     }

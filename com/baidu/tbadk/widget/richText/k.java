@@ -3,8 +3,9 @@ package com.baidu.tbadk.widget.richText;
 import android.view.View;
 import android.widget.ImageView;
 import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-final class k implements View.OnClickListener {
+class k implements View.OnClickListener {
     final /* synthetic */ TbRichTextView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,17 +14,19 @@ final class k implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        r rVar;
+    public void onClick(View view) {
+        s sVar;
         String str;
-        r rVar2;
-        rVar = this.a.u;
-        if (rVar != null && (view instanceof ImageView)) {
+        s sVar2;
+        sVar = this.a.v;
+        if (sVar != null && (view instanceof ImageView)) {
             Object tag = view.getTag();
-            if (tag == null || !(tag instanceof String)) {
+            if (tag != null && (tag instanceof String)) {
+                str = (String) tag;
+            } else if (!(view instanceof TbImageView)) {
                 str = null;
             } else {
-                str = (String) tag;
+                str = ((TbImageView) view).getUrl();
             }
             int childCount = this.a.getChildCount();
             int i = -1;
@@ -36,8 +39,8 @@ final class k implements View.OnClickListener {
                     break;
                 }
             }
-            rVar2 = this.a.u;
-            rVar2.onClick(view, str, i);
+            sVar2 = this.a.v;
+            sVar2.onClick(view, str, i);
         }
     }
 }

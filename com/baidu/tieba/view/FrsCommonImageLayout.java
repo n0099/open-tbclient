@@ -6,16 +6,19 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class FrsCommonImageLayout extends LinearLayout {
-    private static com.baidu.tbadk.core.util.b k;
-    private o a;
+public class FrsCommonImageLayout extends LinearLayout implements AbsListView.RecyclerListener {
+    private q a;
     private boolean b;
-    private com.baidu.tbadk.core.data.j[] c;
+    private com.baidu.tbadk.core.data.k[] c;
     private final Context d;
     private boolean e;
     private int f;
@@ -23,16 +26,16 @@ public class FrsCommonImageLayout extends LinearLayout {
     private int h;
     private int i;
     private int j;
-    private String l;
-    private int m;
-    private boolean n;
+    private int k;
+    private boolean l;
+    private String m;
+    private String n;
     private String o;
-    private String p;
+    private com.baidu.adp.lib.d.b<TbImageView> p;
     private String q;
-    private String r;
 
     public void setDrawNum(boolean z) {
-        this.n = z;
+        this.l = z;
     }
 
     public int getNormalShowCount() {
@@ -48,7 +51,7 @@ public class FrsCommonImageLayout extends LinearLayout {
     }
 
     public void setItemSize(int i) {
-        this.f = com.baidu.adp.lib.util.i.a(this.d, i);
+        this.f = com.baidu.adp.lib.util.h.a(this.d, i);
     }
 
     public FrsCommonImageLayout(Context context) {
@@ -63,41 +66,48 @@ public class FrsCommonImageLayout extends LinearLayout {
         this.h = 3;
         this.i = 105;
         this.j = 3;
-        this.l = "other";
-        this.n = false;
+        this.l = false;
+        this.p = null;
         this.d = context;
-        this.h = com.baidu.adp.lib.util.i.a(this.d, this.h);
-        this.f = com.baidu.adp.lib.util.i.a(this.d, this.i);
+        this.h = com.baidu.adp.lib.util.h.a(this.d, this.h);
+        this.f = com.baidu.adp.lib.util.h.a(this.d, this.i);
+        if (this.d instanceof r) {
+            this.p = ((r) this.d).h();
+        }
+        setOnHierarchyChangeListener(new n(this));
     }
 
-    public void setOnChildClickListener(o oVar) {
-        this.a = oVar;
+    public void setOnChildClickListener(q qVar) {
+        this.a = qVar;
+    }
+
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        view.setOnClickListener(new n(this, getChildCount() - 1, (byte) 0));
+        view.setOnClickListener(new p(this, getChildCount() - 1, null));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         super.addView(view, i);
-        view.setOnClickListener(new n(this, getChildCount() - 1, (byte) 0));
+        view.setOnClickListener(new p(this, getChildCount() - 1, null));
     }
 
-    public final void a(String str, String str2, String str3) {
-        this.p = str;
-        this.o = str2;
-        this.q = str3;
+    public void a(com.baidu.tbadk.core.data.o oVar, String str, String str2, String str3) {
+        this.n = str;
+        this.m = str2;
+        this.o = str3;
     }
 
-    public final void a(com.baidu.tbadk.core.data.j[] jVarArr, int i) {
-        if (getChildCount() > 0) {
-            removeAllViews();
-        }
-        this.c = jVarArr;
-        this.m = i;
+    public void a(com.baidu.tbadk.core.data.k[] kVarArr, int i) {
+        Drawable drawable;
+        a();
+        this.c = kVarArr;
+        this.k = i;
         if (this.c == null || this.c.length <= 0) {
             requestLayout();
             invalidate();
@@ -107,27 +117,20 @@ public class FrsCommonImageLayout extends LinearLayout {
         if (this.g > this.j) {
             this.g = this.j;
         }
+        if (TbadkApplication.m252getInst().getSkinType() == 1) {
+            drawable = getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg_1);
+        } else {
+            drawable = getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg);
+        }
         int i2 = 0;
         while (true) {
             int i3 = i2;
             if (i3 < this.g) {
-                x xVar = new x(this.d);
-                xVar.setSuffix(this.r);
-                xVar.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                com.baidu.tbadk.core.data.j jVar = this.c[i3];
-                if (xVar != null) {
-                    String c = jVar.c();
-                    if (jVar.b() == 5) {
-                        c = null;
-                        xVar.setDefaultResource(com.baidu.tieba.a.g.pic_video);
-                        xVar.setNightDefaultResource(com.baidu.tieba.a.g.pic_video_1);
-                    } else {
-                        xVar.setDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d);
-                        xVar.setNightDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d_1);
-                    }
-                    xVar.setTag(c);
-                }
-                addView(xVar);
+                TbImageView a = this.p.a();
+                a.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                a.setDefaultBg(drawable);
+                addView(a);
+                a(a, this.c[i3], i3);
                 i2 = i3 + 1;
             } else {
                 requestLayout();
@@ -154,7 +157,7 @@ public class FrsCommonImageLayout extends LinearLayout {
         }
         setMeasuredDimension(i3, this.f);
         for (int i5 = 0; i5 < this.g; i5++) {
-            measureChild((x) getChildAt(i5), this.f, this.f);
+            measureChild((TbImageView) getChildAt(i5), this.f, this.f);
         }
     }
 
@@ -163,7 +166,7 @@ public class FrsCommonImageLayout extends LinearLayout {
         super.onLayout(z, i, i2, i3, i4);
         if (this.g != 0) {
             for (int i5 = 0; i5 < this.g; i5++) {
-                ((x) getChildAt(i5)).layout((this.h * i5) + (this.f * i5), 0, (this.h * i5) + (this.f * (i5 + 1)), i4 - i2);
+                ((TbImageView) getChildAt(i5)).layout((this.h * i5) + (this.f * i5), 0, (this.h * i5) + (this.f * (i5 + 1)), i4 - i2);
             }
         }
     }
@@ -176,32 +179,57 @@ public class FrsCommonImageLayout extends LinearLayout {
         this.h = i;
     }
 
+    private void a(TbImageView tbImageView, com.baidu.tbadk.core.data.k kVar, int i) {
+        if (tbImageView != null) {
+            String c = kVar.c();
+            if (kVar.b() == 5) {
+                c = null;
+                tbImageView.setDefaultResource(com.baidu.tieba.q.pic_video);
+                tbImageView.setNightDefaultResource(com.baidu.tieba.q.pic_video_1);
+            } else {
+                tbImageView.setDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d);
+                tbImageView.setNightDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d_1);
+            }
+            tbImageView.a(c, this.b ? 13 : 14, false);
+        }
+    }
+
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        String str;
         if (this.c != null && this.c.length > 0) {
             this.g = getChildCount();
             if (this.g != 0) {
                 long drawingTime = getDrawingTime();
-                for (int i = 0; i < this.g; i++) {
-                    drawChild(canvas, (x) getChildAt(i), drawingTime);
+                int i = 0;
+                while (true) {
+                    int i2 = i;
+                    if (i2 >= this.g) {
+                        break;
+                    }
+                    drawChild(canvas, (TbImageView) getChildAt(i2), drawingTime);
+                    i = i2 + 1;
                 }
-                if (this.m > 3 && this.n) {
-                    int a = com.baidu.adp.lib.util.i.a(this.d, 50.0f);
-                    int a2 = com.baidu.adp.lib.util.i.a(this.d, 23.0f);
-                    Paint paint = new Paint();
-                    paint.setDither(true);
-                    paint.setFilterBitmap(true);
-                    Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), com.baidu.tieba.a.g.bg_look_photo_1);
-                    canvas.drawBitmap(decodeResource, new Rect(0, 0, decodeResource.getWidth(), decodeResource.getHeight()), new Rect(getWidth() - a, getHeight() - a2, getWidth(), getHeight()), paint);
-                    int a3 = com.baidu.adp.lib.util.i.a(this.d, 10.0f);
-                    Paint paint2 = new Paint(257);
-                    paint2.setColor(-1);
-                    paint2.setTextSize(this.d.getResources().getDimension(com.baidu.tieba.a.f.ds20));
-                    canvas.drawText(String.valueOf(this.d.getResources().getString(com.baidu.tieba.a.k.frs_item_common_image_canvas_text1)) + this.m + this.d.getResources().getString(com.baidu.tieba.a.k.frs_item_common_image_canvas_text2), ((a - (((str.length() + 2) * com.baidu.adp.lib.util.i.a(this.d, 10.0f)) / 2)) / 2) + (getWidth() - a), ((a3 - a2) / 2) + getHeight(), paint2);
+                if (this.k > 3 && this.l) {
+                    a(canvas);
                 }
             }
         }
+    }
+
+    private void a(Canvas canvas) {
+        String str;
+        int a = com.baidu.adp.lib.util.h.a(this.d, 50.0f);
+        int a2 = com.baidu.adp.lib.util.h.a(this.d, 23.0f);
+        Paint paint = new Paint();
+        paint.setDither(true);
+        paint.setFilterBitmap(true);
+        Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), com.baidu.tieba.q.bg_look_photo_1);
+        canvas.drawBitmap(decodeResource, new Rect(0, 0, decodeResource.getWidth(), decodeResource.getHeight()), new Rect(getWidth() - a, getHeight() - a2, getWidth(), getHeight()), paint);
+        int a3 = com.baidu.adp.lib.util.h.a(this.d, 10.0f);
+        Paint paint2 = new Paint(257);
+        paint2.setColor(-1);
+        paint2.setTextSize(this.d.getResources().getDimension(com.baidu.tieba.p.ds20));
+        canvas.drawText(String.valueOf(this.d.getResources().getString(com.baidu.tieba.u.frs_item_common_image_canvas_text1)) + this.k + this.d.getResources().getString(com.baidu.tieba.u.frs_item_common_image_canvas_text2), ((a - (((str.length() + 2) * com.baidu.adp.lib.util.h.a(this.d, 10.0f)) / 2)) / 2) + (getWidth() - a), ((a3 - a2) / 2) + getHeight(), paint2);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -210,38 +238,29 @@ public class FrsCommonImageLayout extends LinearLayout {
         a();
     }
 
-    public final void a() {
-        int childCount = getChildCount();
-        if (childCount > 0) {
-            for (int i = 0; i < childCount; i++) {
-                x xVar = (x) getChildAt(i);
-                if (xVar != null) {
-                    xVar.c();
-                }
-            }
+    public void a() {
+        if (getChildCount() > 0) {
+            removeAllViews();
         }
     }
 
     public void setFromCDN(boolean z) {
         this.b = z;
-        if (k != null) {
-            k.a(this.b);
-        }
     }
 
     public void setImageFrom(String str) {
-        this.l = str;
-        if (k != null) {
-            k.b(str);
-        }
     }
 
     public void setShowBig(boolean z) {
         this.e = z;
         if (this.e) {
-            this.r = "_small";
+            this.q = "_small";
         } else {
-            this.r = "_mobile";
+            this.q = "_mobile";
         }
+    }
+
+    public static com.baidu.adp.lib.d.b<TbImageView> a(Context context, int i) {
+        return new com.baidu.adp.lib.d.b<>(new o(context), i, 0);
     }
 }

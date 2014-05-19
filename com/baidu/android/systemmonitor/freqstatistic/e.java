@@ -200,7 +200,7 @@ public final class e {
         return l;
     }
 
-    public final k a(String str) {
+    public k a(String str) {
         Cursor cursor;
         Cursor cursor2;
         k kVar;
@@ -287,7 +287,7 @@ public final class e {
         return kVar;
     }
 
-    public final void a(ContentResolver contentResolver, d dVar) {
+    public void a(ContentResolver contentResolver, d dVar) {
         String str;
         String str2 = null;
         try {
@@ -320,7 +320,7 @@ public final class e {
         }
     }
 
-    public final void a(ContentResolver contentResolver, k kVar) {
+    public void a(ContentResolver contentResolver, k kVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("pn", kVar.d);
         contentValues.put("lautimes", Integer.valueOf(kVar.h));
@@ -341,7 +341,7 @@ public final class e {
         }
     }
 
-    public final void a(k kVar) {
+    public void a(k kVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("lautimes", Integer.valueOf(kVar.h));
         contentValues.put("totaltime", Long.valueOf(kVar.k));
@@ -355,14 +355,14 @@ public final class e {
         }
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         if (z) {
             d();
         }
         this.e.sendBroadcast(new Intent("com.baidu.freqstatistic.summaryresults"));
     }
 
-    public final boolean a(String str, l lVar) {
+    public boolean a(String str, l lVar) {
         long j;
         if (str == null) {
             return false;
@@ -387,17 +387,16 @@ public final class e {
         } catch (NullPointerException e2) {
             try {
                 this.c = new com.baidu.android.systemmonitor.b.c(this.e);
-                return true;
             } catch (Exception e3) {
                 e3.printStackTrace();
-                return true;
             }
+            return true;
         } catch (Exception e4) {
             return false;
         }
     }
 
-    public final HashMap b() {
+    public HashMap b() {
         Cursor cursor;
         Throwable th;
         Cursor rawQuery;
@@ -459,12 +458,12 @@ public final class e {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x0107 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:75:0x0150 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:77:0x0152 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:87:0x0014 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x0108 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:75:0x0151 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:77:0x0153 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:85:0x0015 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:92:0x010a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x010b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.StringBuffer] */
     /* JADX WARN: Type inference failed for: r1v12 */
     /* JADX WARN: Type inference failed for: r1v13, types: [android.database.Cursor] */
@@ -477,7 +476,7 @@ public final class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void b(Context context) {
+    public void b(Context context) {
         Throwable th;
         Exception e;
         NullPointerException e2;
@@ -616,9 +615,9 @@ public final class e {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x009a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x00ef */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x0005 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x00ad */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00f2 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x0005 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r0v1 */
@@ -627,7 +626,7 @@ public final class e {
     /* JADX WARN: Type inference failed for: r0v6 */
     /* JADX WARN: Type inference failed for: r0v8 */
     /* JADX WARN: Type inference failed for: r0v9, types: [android.database.Cursor] */
-    public final void b(k kVar) {
+    public void b(k kVar) {
         Throwable th;
         Cursor cursor = null;
         if (kVar == null) {
@@ -685,7 +684,7 @@ public final class e {
                 r0 = 0;
             } catch (Throwable th2) {
                 th = th2;
-                if (cursor != null && !cursor.isClosed()) {
+                if (cursor != null) {
                     cursor.deactivate();
                     cursor.close();
                 }
@@ -694,14 +693,19 @@ public final class e {
         } catch (Throwable th3) {
             cursor = r0;
             th = th3;
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.deactivate();
+                cursor.close();
+            }
+            throw th;
         }
     }
 
-    public final boolean b(long j) {
+    public boolean b(long j) {
         return System.currentTimeMillis() - j > com.baidu.android.a.j.a(this.e).j();
     }
 
-    public final HashMap c() {
+    public HashMap c() {
         System.currentTimeMillis();
         HashMap b = b();
         if (b == null) {
@@ -727,7 +731,7 @@ public final class e {
         return b;
     }
 
-    public final boolean d() {
+    public boolean d() {
         try {
             this.c.a().delete("atrace", null, null);
             return true;
@@ -736,11 +740,11 @@ public final class e {
         }
     }
 
-    public final boolean e() {
+    public boolean e() {
         return this.a;
     }
 
-    public final ArrayList f() {
+    public ArrayList f() {
         Cursor cursor;
         Cursor cursor2 = null;
         ArrayList arrayList = new ArrayList();
@@ -801,7 +805,7 @@ public final class e {
         return arrayList;
     }
 
-    public final void g() {
+    public void g() {
         try {
             this.c.a().delete("achange", null, null);
         } catch (Exception e) {

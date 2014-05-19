@@ -55,7 +55,7 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         this.m = null;
         this.n = true;
         this.a = context;
-        r();
+        a();
     }
 
     public EditorToolComponetContainer(Context context, AttributeSet attributeSet) {
@@ -64,40 +64,35 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         this.m = null;
         this.n = true;
         this.a = context;
-        r();
+        a();
     }
 
-    private void r() {
+    protected void a() {
         this.r = LayoutInflater.from(this.a);
-        this.r.inflate(com.baidu.tieba.a.i.editor_tool_container, (ViewGroup) this, true);
-        this.b = (ToolMoreView) findViewById(com.baidu.tieba.a.h.tool_view);
-        this.c = (EmotionTabHost) findViewById(com.baidu.tieba.a.h.face_view);
-        this.d = (RecordVoiceBnt) findViewById(com.baidu.tieba.a.h.record_voice_view);
-        this.k = (PrivilegeTabHost) findViewById(com.baidu.tieba.a.h.privilege_view);
+        this.r.inflate(com.baidu.tieba.s.editor_tool_container, (ViewGroup) this, true);
+        this.b = (ToolMoreView) findViewById(com.baidu.tieba.r.tool_view);
+        this.c = (EmotionTabHost) findViewById(com.baidu.tieba.r.face_view);
+        this.d = (RecordVoiceBnt) findViewById(com.baidu.tieba.r.record_voice_view);
+        this.k = (PrivilegeTabHost) findViewById(com.baidu.tieba.r.privilege_view);
         this.m = new AlertDialog.Builder(this.a);
-        this.m.setTitle(com.baidu.tieba.a.k.editor_dialog_title);
-        this.m.setNegativeButton(com.baidu.tieba.a.k.editor_dialog_no, (DialogInterface.OnClickListener) null);
-        this.f = (ImageView) findViewById(com.baidu.tieba.a.h.pb_foot_down_shadow);
-        this.g = (DragContainer) findViewById(com.baidu.tieba.a.h.muti_image_upload);
-        this.h = (DragLayer) findViewById(com.baidu.tieba.a.h.muti_image_upload_draglayer);
-        this.i = (DragHorizonScrollView) findViewById(com.baidu.tieba.a.h.muti_image_upload_dragscrollview);
+        this.m.setTitle(com.baidu.tieba.u.editor_dialog_title);
+        this.m.setNegativeButton(com.baidu.tieba.u.editor_dialog_no, (DialogInterface.OnClickListener) null);
+        this.f = (ImageView) findViewById(com.baidu.tieba.r.pb_foot_down_shadow);
+        C();
+    }
+
+    private void C() {
+        this.g = (DragContainer) findViewById(com.baidu.tieba.r.muti_image_upload);
+        this.h = (DragLayer) findViewById(com.baidu.tieba.r.muti_image_upload_draglayer);
+        this.i = (DragHorizonScrollView) findViewById(com.baidu.tieba.r.muti_image_upload_dragscrollview);
         com.baidu.tieba.img.view.a aVar = new com.baidu.tieba.img.view.a(getContext());
         aVar.a(this.h);
         aVar.a((com.baidu.tieba.img.view.g) this.i);
         aVar.a((com.baidu.tieba.img.view.f) this.i);
-        this.j = (TextView) findViewById(com.baidu.tieba.a.h.muti_image_tips);
-        this.p = getResources().getDimensionPixelSize(com.baidu.tieba.a.f.editor_muti_image_upload_scrollview_paddingleft);
-        this.q = getResources().getDimensionPixelSize(com.baidu.tieba.a.f.default_gap_24);
-        DragHorizonScrollView dragHorizonScrollView = this.i;
-        int l = TbadkApplication.j().l();
-        ImageView imageView = new ImageView(getContext());
-        imageView.setImageResource(l == 1 ? com.baidu.tieba.a.g.btn_add_photo_selector_1 : com.baidu.tieba.a.g.btn_add_photo_selector);
-        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        imageView.setClickable(true);
-        int a = com.baidu.adp.lib.util.i.a(this.a, 3.0f);
-        imageView.setPadding(a, com.baidu.adp.lib.util.i.a(this.a, 1.0f) + getResources().getDimensionPixelSize(com.baidu.tieba.a.f.default_gap_20) + a, this.q + a, a);
-        imageView.setOnClickListener(new n(this));
-        dragHorizonScrollView.setAddView(imageView);
+        this.j = (TextView) findViewById(com.baidu.tieba.r.muti_image_tips);
+        this.p = getResources().getDimensionPixelSize(com.baidu.tieba.p.editor_muti_image_upload_scrollview_paddingleft);
+        this.q = getResources().getDimensionPixelSize(com.baidu.tieba.p.default_gap_24);
+        this.i.setAddView(D());
         this.i.setOnSwapDataListener(this);
         this.i.setMaxItemNum(10);
         this.u = new com.baidu.tbadk.img.e(this.a);
@@ -109,81 +104,121 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         }
     }
 
-    public final void a(View view) {
-        if (view != null) {
-            com.baidu.adp.lib.util.i.b(this.a, view);
-            this.l = true;
-        }
-    }
-
-    public final void b(View view) {
-        if (view != null) {
-            com.baidu.adp.lib.util.i.a(this.a, view);
-            this.l = false;
-        }
-    }
-
-    public final boolean a() {
-        return this.b.getVisibility() == 0 || this.d.getVisibility() == 0 || this.c.getVisibility() == 0 || this.g.getVisibility() == 0 || this.k.getVisibility() == 0;
-    }
-
-    public final void b() {
-        c();
-        b(this.e);
-    }
-
-    public final void c() {
-        this.f.setVisibility(8);
-        this.b.setVisibility(8);
-        this.d.setVisibility(8);
-        this.c.setVisibility(8);
-        this.g.setVisibility(8);
-        this.k.setVisibility(8);
-    }
-
-    public final void d() {
-        b();
-        this.f.setVisibility(0);
-        this.b.setVisibility(0);
-    }
-
-    public final void e() {
-        b();
+    protected void b() {
         this.f.setVisibility(0);
         this.c.setVisibility(0);
     }
 
-    public final void f() {
-        b();
+    protected void c() {
+        this.c.setVisibility(8);
+    }
+
+    protected void d() {
         this.f.setVisibility(0);
         this.d.setVisibility(0);
     }
 
-    public final void g() {
-        b();
+    protected void e() {
+        this.d.setVisibility(8);
+    }
+
+    protected void f() {
+        this.f.setVisibility(0);
+        this.b.setVisibility(0);
+    }
+
+    public void g() {
+        this.g.setVisibility(8);
+    }
+
+    public void h() {
         this.f.setVisibility(0);
         this.g.setVisibility(0);
     }
 
-    public final void h() {
-        b();
+    protected void i() {
+        this.b.setVisibility(8);
+    }
+
+    protected void j() {
         this.k.setVisibility(0);
     }
 
-    public final void c(View view) {
+    protected void k() {
+        this.k.setVisibility(8);
+    }
+
+    public void a(View view) {
+        if (view != null) {
+            com.baidu.adp.lib.util.h.b(this.a, view);
+            this.l = true;
+        }
+    }
+
+    public void b(View view) {
+        if (view != null) {
+            com.baidu.adp.lib.util.h.a(this.a, view);
+            this.l = false;
+        }
+    }
+
+    public boolean l() {
+        return this.b.getVisibility() == 0 || this.d.getVisibility() == 0 || this.c.getVisibility() == 0 || this.g.getVisibility() == 0 || this.k.getVisibility() == 0;
+    }
+
+    public void m() {
+        n();
+        b(this.e);
+    }
+
+    public void n() {
+        this.f.setVisibility(8);
+        i();
+        e();
+        c();
+        g();
+        k();
+    }
+
+    public void o() {
+        m();
+        f();
+    }
+
+    public void p() {
+        m();
+        b();
+    }
+
+    public void q() {
+        m();
+        d();
+    }
+
+    public void r() {
+        m();
+        h();
+    }
+
+    public void s() {
+        m();
+        j();
+    }
+
+    public void c(View view) {
         if (!this.l) {
-            b();
+            m();
             this.e = view;
             a(view);
         }
     }
 
-    public final boolean i() {
+    public boolean t() {
         BaseAdapter adapter = this.i.getAdapter();
         return adapter != null && adapter.getCount() > 0;
     }
 
-    public final boolean j() {
+    public boolean u() {
         VoiceData.VoiceModel voiceModel = this.d.getVoiceModel();
         return (voiceModel == null || voiceModel.getId() == null || voiceModel.getId().length() <= 0) ? false : true;
     }
@@ -192,33 +227,33 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         return this.d.getVoiceModel();
     }
 
-    public final void k() {
+    public void v() {
         this.d.d();
     }
 
-    public final void l() {
-        this.d.b();
+    public void w() {
+        this.d.c();
         setImage(null);
     }
 
-    public final void m() {
-        this.d.c();
+    public void x() {
+        this.d.b();
     }
 
-    public final void n() {
-        this.d.c();
+    public void y() {
+        x();
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.x xVar) {
         this.t = new h(this, xVar);
-        this.m.setPositiveButton(com.baidu.tieba.a.k.editor_dialog_yes, new i(this));
+        this.m.setPositiveButton(com.baidu.tieba.u.editor_dialog_yes, new i(this));
         this.b.setOnClickListener(new j(this));
         this.c.setOnDataSelected(new k(this));
         this.d.setCallback(new l(this));
         this.k.setOnDataSelected(new m(this));
     }
 
-    public final boolean o() {
+    public boolean z() {
         return this.l;
     }
 
@@ -229,28 +264,28 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         this.b.setImage(bitmap);
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         this.o = z;
-        this.b.a(z);
+        this.b.b(z);
         this.c.setShowBigEmotion(!z);
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.c.b(i);
         this.b.a(i);
         this.k.b(i);
     }
 
-    public final void a(WriteImagesInfo writeImagesInfo, boolean z) {
+    public void a(WriteImagesInfo writeImagesInfo, boolean z) {
         this.s = writeImagesInfo;
         this.i.a(new o(this, writeImagesInfo), z);
         int maxItemNum = this.i.getMaxItemNum();
         int size = writeImagesInfo.size();
-        if (!com.baidu.tieba.p.c().N() && size > 1) {
-            this.j.setText(com.baidu.tieba.a.k.editor_mutiiamge_drag_tip);
-            com.baidu.tieba.p.c().p(true);
+        if (!com.baidu.tieba.ad.c().R() && size > 1) {
+            this.j.setText(com.baidu.tieba.u.editor_mutiiamge_drag_tip);
+            com.baidu.tieba.ad.c().q(true);
         } else {
-            this.j.setText(getResources().getString(com.baidu.tieba.a.k.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
+            this.j.setText(getResources().getString(com.baidu.tieba.u.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
         }
         if (size > 0) {
             this.b.a(new StringBuilder(String.valueOf(size)).toString());
@@ -260,12 +295,24 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         this.t.a(13, null);
     }
 
-    public final void p() {
+    private View D() {
+        int skinType = TbadkApplication.m252getInst().getSkinType();
+        ImageView imageView = new ImageView(getContext());
+        imageView.setImageResource(skinType == 1 ? com.baidu.tieba.q.btn_add_photo_selector_1 : com.baidu.tieba.q.btn_add_photo_selector);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        imageView.setClickable(true);
+        int a = com.baidu.adp.lib.util.h.a(this.a, 3.0f);
+        imageView.setPadding(a, com.baidu.adp.lib.util.h.a(this.a, 1.0f) + getResources().getDimensionPixelSize(com.baidu.tieba.p.default_gap_20) + a, this.q + a, a);
+        imageView.setOnClickListener(new n(this));
+        return imageView;
+    }
+
+    public void A() {
         this.i.f();
     }
 
     @Override // com.baidu.tieba.img.view.d
-    public final void a(int i, int i2) {
+    public void a(int i, int i2) {
         if (i != i2 && this.s != null && this.s.size() != 0) {
             LinkedList<ImageFileInfo> chosedFiles = this.s.getChosedFiles();
             chosedFiles.add(i2, chosedFiles.remove(i));
@@ -278,13 +325,13 @@ public class EditorToolComponetContainer extends RelativeLayout implements com.b
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    public final void q() {
+    public void B() {
         if (this.o) {
-            this.b.c();
-        } else if (TextUtils.isEmpty(TbadkApplication.j().aC()) && !this.o) {
-            this.b.c();
+            this.b.d();
+        } else if (TextUtils.isEmpty(TbadkApplication.m252getInst().getDefaultBubble()) && !this.o) {
+            this.b.d();
         } else {
-            this.b.b();
+            this.b.c();
         }
     }
 }

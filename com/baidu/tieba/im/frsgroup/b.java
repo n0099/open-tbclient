@@ -8,12 +8,15 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.GroupInfoData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class b extends com.baidu.tbadk.core.d implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.t {
+public class b extends com.baidu.tbadk.core.d implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.u {
     private FrsGroupActivity b;
     private com.baidu.tieba.im.model.k c;
     private k d;
@@ -26,47 +29,53 @@ public final class b extends com.baidu.tbadk.core.d implements AbsListView.OnScr
     private int k;
     private boolean l;
     private final Runnable m = new c(this);
-    private final com.baidu.adp.framework.c.g n = new d(this, 103002);
-    private final com.baidu.adp.framework.c.a o = new e(this, 2001201);
-    private final com.baidu.adp.framework.c.g p = new f(this, 0);
-    private final com.baidu.adp.framework.c.a q = new g(this, 0);
+    private final com.baidu.adp.framework.listener.b n = new d(this, MessageTypes.CMD_REQUEST_GROUPS_BYFID);
+    private final CustomMessageListener o = new e(this, MessageTypes.CMD_CACHE_GROUPS_BY_FID);
+    private final com.baidu.adp.framework.listener.b p = new f(this, 0);
+    private final CustomMessageListener q = new g(this, 0);
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = (FrsGroupActivity) getActivity();
-        this.c = this.b.f();
-        this.d = this.b.g();
+        this.c = this.b.e();
+        this.d = this.b.f();
         this.j = new Handler();
         this.c.registerListener(this.n);
         this.c.registerListener(this.o);
-        com.baidu.adp.framework.c.a().a(103104, this.p);
-        com.baidu.adp.framework.c.a().a(103105, this.p);
-        com.baidu.adp.framework.c.a().a(2001141, this.q);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_DISSMISS_GROUP, this.p);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_UPGRADE_MEMBER_GROUP, this.p);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.q);
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final void onHiddenChanged(boolean z) {
-        if (z) {
-            com.baidu.tieba.im.model.k kVar = this.c;
-            com.baidu.adp.framework.c.a().b(this.n);
-            com.baidu.tieba.im.model.k kVar2 = this.c;
-            com.baidu.adp.framework.c.a().b(this.o);
-            return;
-        }
+    private void f() {
         this.c.registerListener(this.n);
         this.c.registerListener(this.o);
         if (!this.c.b(getTag()) || this.l) {
-            a();
+            i();
+        }
+    }
+
+    private void g() {
+        this.c.a(this.n);
+        this.c.a(this.o);
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onHiddenChanged(boolean z) {
+        if (z) {
+            g();
+        } else {
+            f();
         }
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(com.baidu.tieba.im.i.im_frsgroup_list, (ViewGroup) null);
-        this.h = (InitGuideView) inflate.findViewById(com.baidu.tieba.im.h.group_guide);
-        this.f = (Button) inflate.findViewById(com.baidu.tieba.im.h.guide_create);
-        this.e = (BdListView) inflate.findViewById(com.baidu.tieba.im.h.group_list);
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        View inflate = layoutInflater.inflate(com.baidu.tieba.s.im_frsgroup_list, (ViewGroup) null);
+        this.h = (InitGuideView) inflate.findViewById(com.baidu.tieba.r.group_guide);
+        this.f = (Button) inflate.findViewById(com.baidu.tieba.r.guide_create);
+        this.e = (BdListView) inflate.findViewById(com.baidu.tieba.r.group_list);
         this.g = new com.baidu.tbadk.core.view.q(this.b);
         this.e.setPullRefresh(this.g);
         this.i = new GroupListAdapter(this.b);
@@ -81,14 +90,14 @@ public final class b extends com.baidu.tbadk.core.d implements AbsListView.OnScr
     }
 
     @Override // android.support.v4.app.Fragment
-    public final void onViewCreated(View view, Bundle bundle) {
+    public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
-        e();
+        j();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ int m(b bVar) {
-        switch (bVar.c.g()) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public int h() {
+        switch (this.c.g()) {
             case 1:
             default:
                 return 4;
@@ -100,50 +109,49 @@ public final class b extends com.baidu.tbadk.core.d implements AbsListView.OnScr
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final void onStart() {
+    public void onStart() {
         super.onStart();
         if (this.h.b()) {
-            this.h.e();
+            this.h.f();
         }
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final void onStop() {
+    public void onStop() {
         super.onStop();
-        this.h.f();
+        this.h.g();
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.model.k kVar = this.c;
-        com.baidu.adp.framework.c.a().b(this.n);
-        com.baidu.adp.framework.c.a().b(this.q);
-        com.baidu.adp.framework.c.a().b(this.q);
+        this.c.a(this.n);
+        MessageManager.getInstance().unRegisterListener(this.q);
+        MessageManager.getInstance().unRegisterListener(this.q);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         if (z) {
-            this.c.a(this.c.l(), this.c.i(), this.c.j(), this.c.k(), this.c.b(), this.c.c());
+            this.c.a(this.c.m(), this.c.j(), this.c.k(), this.c.l(), this.c.b(), this.c.c());
         } else {
-            this.c.b(this.c.l(), this.c.i(), this.c.j(), this.c.k(), this.c.b(), this.c.c());
+            this.c.b(this.c.m(), this.c.j(), this.c.k(), this.c.l(), this.c.b(), this.c.c());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
+    public void i() {
         this.c.f();
         this.c.a(true);
         this.i.a(false);
         this.k = 0;
         this.c.b(0);
         this.c.d(50);
-        this.e.c();
+        this.e.d();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
+    public void j() {
         this.c.f();
         this.c.a(false);
         this.k = 0;
@@ -151,22 +159,26 @@ public final class b extends com.baidu.tbadk.core.d implements AbsListView.OnScr
         this.i.a(true);
         this.c.b(0);
         this.c.d(50);
-        this.e.c();
+        this.e.d();
     }
 
-    @Override // com.baidu.adp.widget.ListView.t
-    public final void b() {
+    @Override // com.baidu.adp.widget.ListView.u
+    public void f_() {
+        k();
+    }
+
+    private void k() {
         if (this.i.c()) {
             a(true);
         }
     }
 
     @Override // com.baidu.tbadk.core.d, android.widget.AbsListView.OnScrollListener
-    public final void onScrollStateChanged(AbsListView absListView, int i) {
+    public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
             if (this.j != null) {
                 this.j.removeCallbacks(this.m);
-                this.j.postDelayed(this.m, 300L);
+                this.j.postDelayed(this.m, 90L);
             }
         } else if (this.j != null) {
             this.j.removeCallbacks(this.m);
@@ -174,85 +186,85 @@ public final class b extends com.baidu.tbadk.core.d implements AbsListView.OnScr
     }
 
     @Override // com.baidu.tbadk.core.d, android.widget.AbsListView.OnScrollListener
-    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void d(b bVar) {
-        if (bVar.c.h()) {
-            bVar.e.b();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void l() {
+        if (this.c.h()) {
+            this.e.c();
         }
     }
 
     @Override // com.baidu.tbadk.core.d
-    public final void c(int i) {
+    public void c(int i) {
         super.c(i);
         if (i == 1) {
-            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.im.g.list_divider_1));
+            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.q.list_divider_1));
         } else {
-            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.im.g.list_divider));
+            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.q.list_divider));
         }
         this.g.a(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void g(b bVar) {
-        if (bVar.h.b()) {
-            bVar.h.a();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void m() {
+        if (this.h.b()) {
+            this.h.a();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void h(b bVar) {
-        if (bVar.j != null) {
-            bVar.j.removeCallbacks(bVar.m);
-            bVar.j.postDelayed(bVar.m, 0L);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void n() {
+        if (this.j != null) {
+            this.j.removeCallbacks(this.m);
+            this.j.postDelayed(this.m, 0L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(boolean z) {
-        int l = TbadkApplication.j().l();
+        int skinType = TbadkApplication.m252getInst().getSkinType();
         if (!z) {
             this.e.setDivider(getResources().getDrawable(17170445));
-        } else if (l == 1) {
-            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.im.g.list_divider_1));
+        } else if (skinType == 1) {
+            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.q.list_divider_1));
         } else {
-            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.im.g.list_divider));
+            this.e.setDivider(getResources().getDrawable(com.baidu.tieba.q.list_divider));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void f(b bVar) {
-        bVar.c(false);
-        bVar.h.e();
-        switch (bVar.c.g()) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void o() {
+        c(false);
+        this.h.f();
+        switch (this.c.g()) {
             case 1:
-                bVar.h.c();
+                this.h.c();
                 return;
             case 2:
-                bVar.h.a(bVar.c.d());
+                this.h.a(this.c.d());
                 return;
             case 3:
-                bVar.h.b(bVar.c.d());
+                this.h.b(this.c.d());
                 return;
             default:
                 return;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(b bVar, long j) {
-        ArrayList<GroupInfoData> a = bVar.i.a();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(long j) {
+        ArrayList<GroupInfoData> a = this.i.a();
         if (a != null) {
             int size = a.size();
             for (int i = 0; i < size; i++) {
                 if (a.get(i).getGroupId() == j) {
-                    if (bVar.c_()) {
-                        bVar.a();
+                    if (d_()) {
+                        i();
                         return;
                     } else {
-                        bVar.l = true;
+                        this.l = true;
                         return;
                     }
                 }

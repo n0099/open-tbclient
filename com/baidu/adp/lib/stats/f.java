@@ -1,228 +1,199 @@
 package com.baidu.adp.lib.stats;
 
+import android.app.ActivityManager;
 import android.content.Context;
-import android.os.Handler;
+import android.os.Process;
 import android.text.TextUtils;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
+import java.util.List;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public final class f extends e {
-    private String p;
+public abstract class f {
+    protected static String k;
+    private long a;
+    private Context b;
+    protected StringBuffer l;
+    protected String n;
+    protected String o;
+    protected String p;
+    protected boolean e = false;
+    protected boolean f = false;
+    protected boolean g = false;
+    protected int h = 50;
+    protected int i = 0;
+    protected boolean j = false;
+    protected int m = 0;
+    protected boolean q = false;
+    protected long r = 0;
+    protected BdStatFirstSwitchData s = null;
 
-    public f(Context context, Handler handler, String str) {
-        super(context, handler, str);
-        this.d = 10;
-        a((String) null);
+    public abstract void a(String str);
+
+    public abstract boolean a(boolean z);
+
+    public abstract void b(String str);
+
+    public abstract boolean b(boolean z);
+
+    public abstract String c();
+
+    public abstract ArrayList<String> c(String str);
+
+    public abstract void c(boolean z);
+
+    public abstract boolean d();
+
+    public abstract ArrayList<String> f();
+
+    public f(Context context, String str) {
+        this.a = 0L;
+        this.b = null;
+        this.b = context;
+        this.o = str;
+        this.a = System.currentTimeMillis();
+        com.baidu.adp.lib.util.c.f(this.o);
+        if (TextUtils.isEmpty(k)) {
+            k = a();
+        }
+        this.l = new StringBuffer();
     }
 
-    @Override // com.baidu.adp.lib.stats.e
-    public final void a(boolean z) {
-        if (this.j != null) {
-            if (z || j()) {
-                this.j.sendMessage(this.j.obtainMessage(3));
+    public void d(boolean z) {
+        this.j = z;
+    }
+
+    public String h() {
+        return this.p;
+    }
+
+    public long i() {
+        return this.r;
+    }
+
+    public void a(long j) {
+        this.r = j;
+    }
+
+    public boolean j() {
+        return this.q;
+    }
+
+    public void e(boolean z) {
+        this.q = z;
+    }
+
+    public boolean k() {
+        return this.e;
+    }
+
+    public void a(s sVar) {
+        if (sVar != null) {
+            try {
+                this.l.append(sVar.toString());
+                this.l.append(IOUtils.LINE_SEPARATOR_WINDOWS);
+                this.m++;
+            } catch (Exception e) {
+                BdLog.e(getClass(), "add", e);
             }
         }
-    }
-
-    @Override // com.baidu.adp.lib.stats.e
-    public final void b(boolean z) {
-        if (this.j != null) {
-            if (!this.b || this.f) {
-                if (m()) {
-                    this.j.removeMessages(6);
-                    this.j.sendMessage(this.j.obtainMessage(6));
-                } else if (z && System.currentTimeMillis() - g() >= i.a().e()) {
-                    this.j.removeMessages(6);
-                    this.j.sendMessage(this.j.obtainMessage(6));
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.adp.lib.stats.e
-    public final void a(String str) {
-        this.l = str;
-        if (TextUtils.isEmpty(str)) {
-            this.p = String.valueOf(this.k) + File.separator + g + "stat";
+        if (System.currentTimeMillis() - this.a > TbConfig.USE_TIME_INTERVAL) {
+            h.a().a(this, true, false);
         } else {
-            this.p = String.valueOf(this.k) + File.separator + str + g + "stat";
+            h.a().a(this, false, false);
         }
+        this.a = System.currentTimeMillis();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x001c */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v10, resolved type: java.io.FileOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v11, resolved type: java.io.FileOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v12, resolved type: java.io.FileOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v13, resolved type: java.io.FileOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: java.io.FileOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.io.FileOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: java.io.FileOutputStream */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.adp.lib.stats.e
-    public final void a() {
-        if (this.e <= 5) {
-            if (this.i > 0) {
-                File file = new File(this.p);
-                if (a(file)) {
-                    FileOutputStream a = q.a(file, true);
-                    try {
-                        if (a != 0) {
-                            try {
-                                a.write(this.h.toString().getBytes("utf-8"));
-                                l();
-                            } catch (Exception e) {
-                                this.e++;
-                                com.baidu.adp.lib.util.f.a(getClass(), "refreshFile", e);
-                                try {
-                                    a.close();
-                                    a = a;
-                                } catch (IOException e2) {
-                                    Class<?> cls = getClass();
-                                    com.baidu.adp.lib.util.f.a(cls, "refreshFile", e2);
-                                    a = cls;
-                                }
-                            }
-                        } else {
-                            this.e++;
-                        }
-                    } finally {
-                        try {
-                            a.close();
-                        } catch (IOException e3) {
-                            com.baidu.adp.lib.util.f.a(getClass(), "refreshFile", e3);
-                        }
-                    }
-                } else {
-                    return;
-                }
+    public boolean l() {
+        return this.m > 0 && (this.g || this.m >= 10);
+    }
+
+    public void a(BdStatFirstSwitchData bdStatFirstSwitchData) {
+        if (bdStatFirstSwitchData != null) {
+            this.s = bdStatFirstSwitchData;
+            BdStatCommonSwitchData common = this.s.getCommon();
+            if (common != null) {
+                this.g = common.isIs_exact();
+                this.e = common.isIs_open();
+                this.f = common.isIs_only_wifi();
             }
-            b(false);
         }
     }
 
-    private boolean m() {
-        if (this.i > this.d) {
+    public boolean d(String str) {
+        if (TextUtils.isEmpty(str) || this.s == null || this.s.getChildren() == null) {
             return true;
         }
-        try {
-            File file = new File(this.p);
-            if (file.exists()) {
-                if (file.length() > 20480) {
-                    return true;
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.a(getClass(), "shouldUpload", e);
-        }
-        return false;
-    }
-
-    private boolean a(File file) {
-        if (file != null && file.length() >= 61440) {
-            try {
-                return file.delete();
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.a(getClass(), "checkFileTooBig", e);
-                return false;
+        Iterator<BdStatSecondSwitchData> it = this.s.getChildren().iterator();
+        while (it.hasNext()) {
+            BdStatSecondSwitchData next = it.next();
+            if (next != null && next.getType() != null && next.getType().equals(str)) {
+                return next.isIs_open();
             }
         }
         return true;
     }
 
-    @Override // com.baidu.adp.lib.stats.e
-    public final ArrayList<String> b() {
-        try {
+    public ArrayList<String> a(ArrayList<String> arrayList) {
+        return arrayList;
+    }
+
+    public ArrayList<String> m() {
+        if (this.l != null && this.l.length() > 0) {
             ArrayList<String> arrayList = new ArrayList<>();
-            String[] list = new File(this.k).list(new g(this));
-            if (list != null && list.length > 0) {
-                int length = list.length;
-                for (int i = 0; i < length; i++) {
-                    arrayList.add(String.valueOf(this.k) + File.separator + list[i]);
+            String[] split = this.l.toString().split(IOUtils.LINE_SEPARATOR_WINDOWS);
+            if (split != null && split.length > 0) {
+                for (String str : split) {
+                    arrayList.add(str);
                 }
                 return arrayList;
             }
             return arrayList;
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.a(getClass(), "getLogFiles", e);
+        }
+        return null;
+    }
+
+    public void n() {
+        this.l = new StringBuffer(this.l.length());
+        this.m = 0;
+    }
+
+    private String a() {
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
+        if (this.b == null) {
             return null;
         }
-    }
-
-    @Override // com.baidu.adp.lib.stats.e
-    public final String c() {
-        return "stat";
-    }
-
-    @Override // com.baidu.adp.lib.stats.e
-    public final void b(String str) {
-        try {
-            new File(str).delete();
-            this.n = System.currentTimeMillis();
-            m.a().a(this.n, this.l);
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.a(getClass(), "uploadSucc", e);
-        }
-    }
-
-    @Override // com.baidu.adp.lib.stats.e
-    public final boolean d() {
-        return this.e > 5;
-    }
-
-    @Override // com.baidu.adp.lib.stats.e
-    public final ArrayList<String> a(ArrayList<String> arrayList) {
-        if (arrayList != null && arrayList.size() != 0) {
-            HashMap hashMap = new HashMap();
-            ArrayList<String> arrayList2 = new ArrayList<>();
-            Iterator<String> it = arrayList.iterator();
-            while (it.hasNext()) {
-                r rVar = new r();
-                rVar.a(it.next());
-                String b = rVar.b("op_key");
-                if (b != null && !TextUtils.isEmpty(b)) {
-                    String b2 = rVar.b("mi");
-                    if (!TextUtils.isEmpty(b2) && b2.equals("0")) {
-                        arrayList2.add(rVar.toString());
-                    } else if (hashMap.containsKey(b)) {
-                        r rVar2 = (r) hashMap.get(b);
-                        String b3 = rVar2.b("co");
-                        String b4 = rVar.b("co");
-                        if (rVar2 != null) {
-                            try {
-                                rVar2.a("co", Integer.parseInt(b4) + Integer.parseInt(b3));
-                            } catch (Exception e) {
-                                com.baidu.adp.lib.util.f.a(getClass(), "filter", e);
+        ActivityManager activityManager = (ActivityManager) this.b.getSystemService("activity");
+        if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
+            int myPid = Process.myPid();
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 >= runningAppProcesses.size()) {
+                    break;
+                }
+                if (runningAppProcesses.get(i2).pid == myPid) {
+                    String str = runningAppProcesses.get(i2).processName;
+                    if (!TextUtils.isEmpty(str)) {
+                        try {
+                            String a = r.a(str.getBytes("UTF-8"));
+                            if (!TextUtils.isEmpty(a) && a.length() > 8) {
+                                return a.substring(a.length() - 8);
                             }
+                            return a;
+                        } catch (UnsupportedEncodingException e) {
+                            BdLog.e(getClass(), "getProcessName", e);
+                            return str;
                         }
-                    } else {
-                        hashMap.put(b, rVar);
                     }
                 }
-            }
-            try {
-                for (Map.Entry entry : hashMap.entrySet()) {
-                    arrayList2.add(((r) entry.getValue()).toString());
-                }
-                return arrayList2;
-            } catch (Exception e2) {
-                com.baidu.adp.lib.util.f.a(getClass(), "filter", e2);
-                return arrayList;
+                i = i2 + 1;
             }
         }
-        return arrayList;
-    }
-
-    public final void e() {
-        try {
-            l();
-            new File(this.p).delete();
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.a(getClass(), "clearLogs", e);
-        }
+        return null;
     }
 }

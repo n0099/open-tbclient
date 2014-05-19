@@ -3,71 +3,89 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import java.util.List;
 /* loaded from: classes.dex */
-public class OfficialBarHistoryActivity extends com.baidu.tbadk.a implements com.baidu.adp.widget.ListView.t {
-    private ai b;
+public class OfficialBarHistoryActivity extends BaseActivity implements com.baidu.adp.widget.ListView.u {
+    private ag b;
     private ab c;
     private ad d;
-    private List<bf> e;
+    private List<ba> e;
     private int a = 0;
     private boolean f = false;
 
     public static void a(Context context, int i) {
         Intent intent = new Intent(context, OfficialBarHistoryActivity.class);
-        intent.putExtra("forum_id", i);
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, i);
         context.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        b();
+        d();
+        a(bundle);
+    }
+
+    private void b() {
         this.c = new ab(this);
         this.d = new ad(this);
-        com.baidu.adp.framework.c.a().a(this.c);
-        com.baidu.adp.framework.c.a().a(this.d);
-        this.b = new ai(this);
+        MessageManager.getInstance().registerListener(this.c);
+        MessageManager.getInstance().registerListener(this.d);
+    }
+
+    private void c() {
+        MessageManager.getInstance().unRegisterListener(this.c);
+        MessageManager.getInstance().unRegisterListener(this.d);
+    }
+
+    private void d() {
+        this.b = new ag(this);
         this.b.a(this);
-        this.a = getIntent().getIntExtra("forum_id", 0);
-        com.baidu.adp.framework.c.a().a(new bd(String.valueOf(this.a)));
-        a();
+    }
+
+    private void a(Bundle bundle) {
+        this.a = getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, 0);
+        MessageManager.getInstance().sendMessage(new RequestLocalHistoryMessage(String.valueOf(this.a)));
+        e();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
+    public void e() {
         int i = (this.e == null || this.e.isEmpty()) ? 0 : this.e.get(this.e.size() - 1).d;
         this.f = true;
         showProgressBar();
-        com.baidu.adp.framework.c.a().a(new bc(this.a, com.baidu.adp.lib.f.b.a(TbadkApplication.E(), 0), i));
+        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.a, com.baidu.adp.lib.f.b.a(TbadkApplication.getCurrentAccount(), 0), i));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.adp.framework.c.a().b(this.c);
-        com.baidu.adp.framework.c.a().b(this.d);
+        c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.b.a(i);
     }
 
-    @Override // com.baidu.adp.widget.ListView.t
-    public final void b() {
+    @Override // com.baidu.adp.widget.ListView.u
+    public void f_() {
         if (!this.f) {
-            a();
+            e();
         }
     }
 }

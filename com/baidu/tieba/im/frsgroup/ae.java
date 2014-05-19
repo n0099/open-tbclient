@@ -3,7 +3,7 @@ package com.baidu.tieba.im.frsgroup;
 import android.view.View;
 import java.util.Set;
 /* loaded from: classes.dex */
-final class ae implements View.OnClickListener {
+class ae implements View.OnClickListener {
     final /* synthetic */ ad a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ final class ae implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         Set set;
         af afVar;
         af afVar2;

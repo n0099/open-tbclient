@@ -1,33 +1,95 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 /* loaded from: classes.dex */
-final class an extends com.baidu.adp.framework.c.g {
-    final /* synthetic */ OfficialBarInfoActivity a;
+public class an extends com.baidu.adp.base.e {
+    private BaseActivity a;
+    private View b;
+    private NavigationBar c;
+    private HeadImageView d;
+    private TextView e;
+    private TextView f;
+    private SettingTextSwitchView g;
+    private RelativeLayout h;
+    private RelativeLayout i;
+    private Button j;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
-        ap apVar;
-        ap apVar2;
-        com.baidu.tbadk.editortool.ab abVar;
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        if (socketResponsedMessage2 != null && socketResponsedMessage2.g() == 208001 && (socketResponsedMessage2 instanceof ResponseOfficialBarInfoMessage)) {
-            ResponseOfficialBarInfoMessage responseOfficialBarInfoMessage = (ResponseOfficialBarInfoMessage) socketResponsedMessage2;
-            com.baidu.adp.lib.util.f.e("portrait:" + responseOfficialBarInfoMessage.d());
-            apVar = this.a.f;
-            apVar.a(responseOfficialBarInfoMessage.i());
-            apVar2 = this.a.f;
-            String d = responseOfficialBarInfoMessage.d();
-            abVar = this.a.e;
-            abVar.b(d, new aq(apVar2));
-        }
-        this.a.hideProgressBar();
+    public an(BaseActivity baseActivity) {
+        super(baseActivity);
+        this.a = baseActivity;
+        d();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public an(OfficialBarInfoActivity officialBarInfoActivity) {
-        super(208001);
-        this.a = officialBarInfoActivity;
+    private void d() {
+        this.b = View.inflate(this.a, com.baidu.tieba.s.official_bar_info_activity, null);
+        this.a.setContentView(this.b);
+        this.c = (NavigationBar) this.b.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.c.a(com.baidu.tieba.u.officical_bar_info_title);
+        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d = (HeadImageView) this.b.findViewById(com.baidu.tieba.r.bar_img);
+        this.e = (TextView) this.b.findViewById(com.baidu.tieba.r.bar_name);
+        this.f = (TextView) this.b.findViewById(com.baidu.tieba.r.bar_authen_content);
+        this.g = (SettingTextSwitchView) this.b.findViewById(com.baidu.tieba.r.bar_notify);
+        this.h = (RelativeLayout) this.b.findViewById(com.baidu.tieba.r.bar_info_clean_lay);
+        this.i = (RelativeLayout) this.b.findViewById(com.baidu.tieba.r.bar_info_history_lay);
+        this.j = (Button) this.b.findViewById(com.baidu.tieba.r.bar_info_goto_btn);
+    }
+
+    public void a(boolean z) {
+        if (z) {
+            this.g.b();
+        } else {
+            this.g.a();
+        }
+    }
+
+    public RelativeLayout a() {
+        return this.h;
+    }
+
+    public RelativeLayout b() {
+        return this.i;
+    }
+
+    public Button c() {
+        return this.j;
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        this.h.setOnClickListener(onClickListener);
+        this.i.setOnClickListener(onClickListener);
+        this.j.setOnClickListener(onClickListener);
+    }
+
+    public void a(String str) {
+        this.f.setText(str);
+    }
+
+    public void b(String str) {
+        String str2 = String.valueOf(str) + this.a.getString(com.baidu.tieba.u.bar);
+        this.e.setText(str2);
+        this.j.setText(String.valueOf(this.a.getString(com.baidu.tieba.u.visit)) + str2);
+    }
+
+    public void a(String str, com.baidu.tbadk.editortool.ab abVar) {
+        abVar.b(str, new ao(this));
+    }
+
+    public void a(com.baidu.adp.widget.BdSwitchView.c cVar) {
+        this.g.setSwitchStateChangeListener(cVar);
+    }
+
+    public void a(int i) {
+        this.a.getLayoutMode().a(i == 1);
+        this.a.getLayoutMode().a(this.b);
+        this.c.c(i);
+        this.g.a(i);
     }
 }

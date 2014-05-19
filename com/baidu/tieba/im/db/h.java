@@ -4,12 +4,13 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class h {
+public class h {
     private static h a;
 
     public static synchronized h a() {
@@ -26,7 +27,7 @@ public final class h {
     private h() {
     }
 
-    public final synchronized boolean a(ImMessageCenterPojo imMessageCenterPojo) {
+    public synchronized boolean a(ImMessageCenterPojo imMessageCenterPojo) {
         boolean z = false;
         synchronized (this) {
             try {
@@ -38,7 +39,7 @@ public final class h {
                     contentValues.put("gid", imMessageCenterPojo.getGid());
                     contentValues.put("group_ext", imMessageCenterPojo.getGroup_ext());
                     contentValues.put("group_head", imMessageCenterPojo.getGroup_head());
-                    contentValues.put("group_name", imMessageCenterPojo.getGroup_name());
+                    contentValues.put(com.baidu.tbadk.core.frameworkData.a.GROUP_NAME, imMessageCenterPojo.getGroup_name());
                     contentValues.put("group_type", Integer.valueOf(imMessageCenterPojo.getGroup_type()));
                     contentValues.put("is_hidden", Integer.valueOf(imMessageCenterPojo.getIs_hidden()));
                     contentValues.put("type", Integer.valueOf(imMessageCenterPojo.getType()));
@@ -50,13 +51,13 @@ public final class h {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                TiebaStatic.a(e, "ImMessageCenterDao.CreatGroupSync", new Object[0]);
+                TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.CreatGroupSync", new Object[0]);
             }
         }
         return z;
     }
 
-    public static boolean a(String str) {
+    public boolean a(String str) {
         try {
             SQLiteDatabase a2 = g.a();
             if (a2 != null) {
@@ -66,31 +67,35 @@ public final class h {
             return false;
         } catch (Exception e) {
             e.printStackTrace();
-            TiebaStatic.a(e, "ImMessageCenterDao.deleteByGid", new Object[0]);
+            TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteByGid", new Object[0]);
             return false;
         }
     }
 
-    public static LinkedList<ImMessageCenterPojo> b() {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x00d1 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v0, types: [android.database.sqlite.SQLiteDatabase] */
+    /* JADX WARN: Type inference failed for: r2v1, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    public LinkedList<ImMessageCenterPojo> b() {
         Cursor cursor;
-        Throwable th;
         LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
-        SQLiteDatabase a2 = g.a();
-        if (a2 == null) {
-            return null;
-        }
+        ?? a2 = g.a();
         try {
-            cursor = a2.rawQuery("select * from tb_message_center ORDER BY gid", null);
-            if (cursor != null) {
-                while (cursor.moveToNext()) {
-                    try {
+            if (a2 == 0) {
+                return null;
+            }
+            try {
+                cursor = a2.rawQuery("select * from tb_message_center ORDER BY gid", null);
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
                         try {
                             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                             imMessageCenterPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
                             imMessageCenterPojo.setGid(cursor.getString(cursor.getColumnIndex("gid")));
                             imMessageCenterPojo.setGroup_ext(cursor.getString(cursor.getColumnIndex("group_ext")));
                             imMessageCenterPojo.setGroup_head(cursor.getString(cursor.getColumnIndex("group_head")));
-                            imMessageCenterPojo.setGroup_name(cursor.getString(cursor.getColumnIndex("group_name")));
+                            imMessageCenterPojo.setGroup_name(cursor.getString(cursor.getColumnIndex(com.baidu.tbadk.core.frameworkData.a.GROUP_NAME)));
                             imMessageCenterPojo.setCustomGroupType(cursor.getInt(cursor.getColumnIndex("custom_group_type")));
                             imMessageCenterPojo.setIs_hidden(cursor.getInt(cursor.getColumnIndex("is_hidden")));
                             imMessageCenterPojo.setType(cursor.getInt(cursor.getColumnIndex("type")));
@@ -100,36 +105,34 @@ public final class h {
                         } catch (Exception e) {
                             e = e;
                             e.printStackTrace();
-                            TiebaStatic.a(e, "ImMessageCenterDao.getAllRecentMsg", new Object[0]);
-                            com.baidu.tbadk.core.util.l.a(cursor);
+                            TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getAllRecentMsg", new Object[0]);
+                            com.baidu.tbadk.core.util.m.a(cursor);
                             return null;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        com.baidu.tbadk.core.util.l.a(cursor);
-                        throw th;
                     }
                 }
+                com.baidu.tbadk.core.util.m.a(cursor);
+                return linkedList;
+            } catch (Exception e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th) {
+                a2 = 0;
+                th = th;
+                com.baidu.tbadk.core.util.m.a((Cursor) a2);
+                throw th;
             }
-            com.baidu.tbadk.core.util.l.a(cursor);
-            return linkedList;
-        } catch (Exception e2) {
-            e = e2;
-            cursor = null;
-        } catch (Throwable th3) {
-            cursor = null;
-            th = th3;
-            com.baidu.tbadk.core.util.l.a(cursor);
-            throw th;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x00e6 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x00f4 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v0, types: [android.database.sqlite.SQLiteDatabase] */
     /* JADX WARN: Type inference failed for: r2v1, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v2 */
-    public static ImMessageCenterPojo b(String str) {
+    public ImMessageCenterPojo b(String str) {
         Cursor cursor;
         Exception e;
         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
@@ -147,7 +150,7 @@ public final class h {
                             imMessageCenterPojo.setGid(cursor.getString(cursor.getColumnIndex("gid")));
                             imMessageCenterPojo.setGroup_ext(cursor.getString(cursor.getColumnIndex("group_ext")));
                             imMessageCenterPojo.setGroup_head(cursor.getString(cursor.getColumnIndex("group_head")));
-                            imMessageCenterPojo.setGroup_name(cursor.getString(cursor.getColumnIndex("group_name")));
+                            imMessageCenterPojo.setGroup_name(cursor.getString(cursor.getColumnIndex(com.baidu.tbadk.core.frameworkData.a.GROUP_NAME)));
                             imMessageCenterPojo.setGroup_type(cursor.getInt(cursor.getColumnIndex("group_type")));
                             imMessageCenterPojo.setCustomGroupType(cursor.getInt(cursor.getColumnIndex("custom_group_type")));
                             imMessageCenterPojo.setIs_hidden(cursor.getInt(cursor.getColumnIndex("is_hidden")));
@@ -159,12 +162,12 @@ public final class h {
                     } catch (Exception e2) {
                         e = e2;
                         e.printStackTrace();
-                        TiebaStatic.a(e, "ImMessageCenterDao.getGroupInfo", new Object[0]);
-                        com.baidu.tbadk.core.util.l.a(cursor);
+                        TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getGroupInfo", new Object[0]);
+                        com.baidu.tbadk.core.util.m.a(cursor);
                         return imMessageCenterPojo;
                     }
                 }
-                com.baidu.tbadk.core.util.l.a(cursor);
+                com.baidu.tbadk.core.util.m.a(cursor);
                 return imMessageCenterPojo;
             } catch (Exception e3) {
                 cursor = null;
@@ -172,7 +175,7 @@ public final class h {
             } catch (Throwable th) {
                 a2 = 0;
                 th = th;
-                com.baidu.tbadk.core.util.l.a((Cursor) a2);
+                com.baidu.tbadk.core.util.m.a((Cursor) a2);
                 throw th;
             }
         } catch (Throwable th2) {
@@ -180,7 +183,7 @@ public final class h {
         }
     }
 
-    public final synchronized void a(LinkedList<ImMessageCenterPojo> linkedList) {
+    public synchronized void a(LinkedList<ImMessageCenterPojo> linkedList) {
         SQLiteDatabase a2 = g.a();
         if (a2 != null && linkedList != null && linkedList.size() > 0) {
             try {
@@ -193,34 +196,34 @@ public final class h {
                     contentValues.put("gid", next.getGid());
                     contentValues.put("group_ext", next.getGroup_ext());
                     contentValues.put("group_head", next.getGroup_head());
-                    contentValues.put("group_name", next.getGroup_name());
+                    contentValues.put(com.baidu.tbadk.core.frameworkData.a.GROUP_NAME, next.getGroup_name());
                     contentValues.put("group_type", Integer.valueOf(next.getGroup_type()));
                     contentValues.put("custom_group_type", Integer.valueOf(next.getCustomGroupType()));
                     contentValues.put("is_delete", Integer.valueOf(next.getIs_delete()));
                     contentValues.put("type", Integer.valueOf(next.getType()));
                     contentValues.put("orderCol", Long.valueOf(next.getOrderCol()));
-                    com.baidu.adp.lib.util.f.e(" update recent group chat gid:" + next.getGid());
+                    BdLog.d(" update recent group chat gid:" + next.getGid());
                     if (a2.update("tb_message_center", contentValues, "gid=?", new String[]{next.getGid()}) == 0) {
                         if (a2.insert("tb_message_center", null, contentValues) == 0) {
-                            com.baidu.adp.lib.util.f.e("表：tb_message_center[insert error] " + next);
+                            BdLog.d("表：tb_message_center[insert error] " + next);
                         } else {
-                            com.baidu.adp.lib.util.f.e("表：tb_message_center[insert] " + next);
+                            BdLog.d("表：tb_message_center[insert] " + next);
                         }
                     } else {
-                        com.baidu.adp.lib.util.f.e("表：tb_message_center[update] " + next);
+                        BdLog.d("表：tb_message_center[update] " + next);
                     }
                 }
                 a2.setTransactionSuccessful();
                 a2.endTransaction();
             } catch (Exception e) {
-                TiebaStatic.a(e, "ImMessageCenterDao.syncOnline", new Object[0]);
+                TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.syncOnline", new Object[0]);
                 e.printStackTrace();
                 a2.endTransaction();
             }
         }
     }
 
-    public static void a(String str, boolean z) {
+    public void a(String str, boolean z) {
         SQLiteDatabase a2;
         try {
             if (!TextUtils.isEmpty(str) && (a2 = g.a()) != null) {
@@ -233,11 +236,11 @@ public final class h {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            TiebaStatic.a(e, "ImMessageCenterDao.updateGroupMsgVisiblity", new Object[0]);
+            TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.updateGroupMsgVisiblity", new Object[0]);
         }
     }
 
-    public static void b(String str, boolean z) {
+    public void b(String str, boolean z) {
         SQLiteDatabase a2;
         try {
             if (!TextUtils.isEmpty(str) && (a2 = g.a()) != null) {
@@ -250,25 +253,25 @@ public final class h {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            TiebaStatic.a(e, "ImMessageCenterDao.updateGroupMsgVisiblity", new Object[0]);
+            TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.updateGroupMsgVisiblity", new Object[0]);
         }
     }
 
-    public static void a(String str, String str2) {
+    public void a(String str, String str2) {
         SQLiteDatabase a2;
         try {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (a2 = g.a()) != null) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("group_name", str2);
+                contentValues.put(com.baidu.tbadk.core.frameworkData.a.GROUP_NAME, str2);
                 a2.update("tb_message_center", contentValues, "gid=?", new String[]{str});
             }
         } catch (Exception e) {
             e.printStackTrace();
-            TiebaStatic.a(e, "ImMessageCenterDao.updateGroupMsgNameSync", new Object[0]);
+            TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.updateGroupMsgNameSync", new Object[0]);
         }
     }
 
-    public static void b(String str, String str2) {
+    public void b(String str, String str2) {
         SQLiteDatabase a2;
         try {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (a2 = g.a()) != null) {
@@ -278,21 +281,21 @@ public final class h {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            TiebaStatic.a(e, "ImMessageCenterDao.updateGroupHeadSync", new Object[0]);
+            TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.updateGroupHeadSync", new Object[0]);
         }
     }
 
-    public static void c(String str, boolean z) {
+    public void c(String str, boolean z) {
         SQLiteDatabase a2;
         try {
             if (!TextUtils.isEmpty(str) && (a2 = g.a()) != null) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("is_delete", (Integer) 1);
+                contentValues.put("is_delete", Integer.valueOf(z ? 1 : 0));
                 a2.update("tb_message_center", contentValues, "gid=?", new String[]{str});
             }
         } catch (Exception e) {
             e.printStackTrace();
-            TiebaStatic.a(e, "ImMessageCenterDao.updateIsDelete", new Object[0]);
+            TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.updateIsDelete", new Object[0]);
         }
     }
 

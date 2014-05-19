@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.voice.service;
 import android.content.Intent;
 import android.os.Handler;
 /* loaded from: classes.dex */
-final class a implements Runnable {
+class a implements Runnable {
     final /* synthetic */ MediaService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ final class a implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         Handler handler;
         c cVar;
         int i;

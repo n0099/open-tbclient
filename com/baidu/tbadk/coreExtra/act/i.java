@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i implements View.OnClickListener {
+public class i implements View.OnClickListener {
     final /* synthetic */ EditHeadActivity a;
     private final /* synthetic */ String b;
     private final /* synthetic */ int c;
@@ -17,7 +17,7 @@ public final class i implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         ProgressBar progressBar;
         String str;
         progressBar = this.a.n;
@@ -25,8 +25,8 @@ public final class i implements View.OnClickListener {
             String str2 = this.b;
             str = this.a.B;
             if (!str2.equals(str)) {
-                EditHeadActivity.a(this.a, this.b);
                 this.a.a(this.b);
+                this.a.b(this.b);
                 this.a.z = this.c;
             }
         }

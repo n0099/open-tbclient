@@ -1,18 +1,46 @@
 package com.baidu.tieba.pb.main;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.frs.Cdo;
+import com.baidu.tieba.frs.dm;
 /* loaded from: classes.dex */
-final class at implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.af> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.af> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            aVar.a().d().setClass(aVar.a().c(), PbActivity.class);
-            if ("1".equals(aVar.a().d().getStringExtra("is_start_for_result"))) {
-                aVar.a().b(aVar.a().d().getIntExtra("request_code", 0));
+class at implements Cdo {
+    final /* synthetic */ PbActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public at(PbActivity pbActivity) {
+        this.a = pbActivity;
+    }
+
+    @Override // com.baidu.tieba.frs.Cdo
+    public void a(String str) {
+        dm dmVar;
+        bc bcVar;
+        boolean z;
+        this.a.M = false;
+        dmVar = this.a.N;
+        if (dmVar != null) {
+            bcVar = this.a.y;
+            if (bcVar.p().d().j().getIsLike() == 1) {
+                this.a.a(0);
             } else {
-                aVar.a().f();
+                this.a.a(1);
+            }
+            z = this.a.L;
+            if (!z) {
+                this.a.L = true;
+            } else {
+                this.a.L = false;
             }
         }
-        return null;
+    }
+
+    @Override // com.baidu.tieba.frs.Cdo
+    public void b(String str) {
+        dm dmVar;
+        this.a.M = false;
+        dmVar = this.a.N;
+        if (dmVar != null && str != null) {
+            this.a.showToast(str);
+        }
     }
 }

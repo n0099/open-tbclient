@@ -1,7 +1,16 @@
 package com.baidu.tieba.frs;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface bf {
-    void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.o oVar);
+public class bf implements Runnable {
+    final /* synthetic */ ba a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bf(ba baVar) {
+        this.a = baVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.n = System.currentTimeMillis();
+    }
 }

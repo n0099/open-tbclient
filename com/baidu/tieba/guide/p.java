@@ -1,59 +1,134 @@
 package com.baidu.tieba.guide;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import com.baidu.tbadk.core.b.aa;
+import android.widget.ImageView;
 import com.baidu.tieba.data.InterestFrsData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.model.ao;
+import java.util.ArrayList;
+import java.util.Hashtable;
 /* loaded from: classes.dex */
-public final class p implements View.OnClickListener {
-    final /* synthetic */ o a;
+public class p extends com.baidu.tbadk.core.d {
+    private ViewGroup b;
+    private View c;
+    private ImageView d;
+    private ImageView e;
+    private ImageView f;
+    private ImageView g;
+    private ImageView h;
+    private ImageView i;
+    private ImageView j;
+    private ImageView k;
+    private ImageView l;
+    private ImageView m;
+    private NewUserGuideActivity o;
+    private ao p;
+    private Button q;
+    private final Hashtable<Integer, ImageView> n = new Hashtable<>();
+    private boolean r = false;
+    private boolean s = false;
+    private boolean t = true;
+    private final View.OnClickListener u = new q(this);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(o oVar) {
-        this.a = oVar;
+    public void a(InterestFrsData interestFrsData) {
+        b(interestFrsData);
+        this.s = true;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        Button button;
-        NewUserGuideActivity newUserGuideActivity;
-        NewUserGuideActivity newUserGuideActivity2;
-        boolean z;
-        NewUserGuideActivity newUserGuideActivity3;
-        boolean z2;
-        NewUserGuideActivity newUserGuideActivity4;
-        NewUserGuideActivity newUserGuideActivity5;
-        View view2;
-        if (view.getTag() == null || !(view.getTag() instanceof InterestFrsData.Tag)) {
-            button = this.a.q;
-            if (view == button) {
-                newUserGuideActivity = this.a.o;
-                if (newUserGuideActivity.f()) {
-                    com.baidu.tieba.p.c().e(true);
-                }
-                o oVar = this.a;
-                newUserGuideActivity2 = this.a.o;
-                aa aaVar = new aa(newUserGuideActivity2);
-                z = this.a.r;
-                oVar.a(new com.baidu.adp.framework.message.a(2015001, aaVar.a(1, z)));
-                newUserGuideActivity3 = this.a.o;
-                newUserGuideActivity3.finish();
-                return;
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.o = (NewUserGuideActivity) getActivity();
+        this.p = this.o.h();
+        a(bundle);
+    }
+
+    private void a(Bundle bundle) {
+        if (this.p != null && !this.s) {
+            if (bundle != null) {
+                this.r = bundle.getBoolean("is_new_user");
+            } else {
+                this.r = this.o.getIntent().getBooleanExtra("is_new_user", false);
             }
-            return;
+            b(this.p.b());
         }
-        z2 = this.a.t;
-        if (z2) {
-            this.a.t = false;
-            newUserGuideActivity4 = this.a.o;
-            com.baidu.tbadk.core.g.a(newUserGuideActivity4, "newUserInterestSelect");
-            newUserGuideActivity5 = this.a.o;
-            w wVar = new w(newUserGuideActivity5, (InterestFrsData.Tag) view.getTag(), new q(this));
-            view2 = this.a.c;
-            view2.setVisibility(0);
-            wVar.a();
-            this.a.t = true;
+    }
+
+    private void b(InterestFrsData interestFrsData) {
+        ArrayList<InterestFrsData.Tag> tag_list;
+        ImageView imageView;
+        if (interestFrsData != null && (tag_list = interestFrsData.getTag_list()) != null && tag_list.size() != 0) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < tag_list.size()) {
+                    InterestFrsData.Tag tag = tag_list.get(i2);
+                    if (tag.getBid() >= 1 && tag.getBid() <= 10 && (imageView = this.n.get(Integer.valueOf(tag.getBid()))) != null) {
+                        imageView.setTag(tag);
+                        a(imageView, tag.getBicon());
+                    }
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            }
         }
+    }
+
+    private void a(ImageView imageView, String str) {
+        this.o.g().b(str, new s(this, imageView));
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.b = (ViewGroup) layoutInflater.inflate(com.baidu.tieba.s.guide_main, (ViewGroup) null);
+        this.c = this.b.findViewById(com.baidu.tieba.r.root_main_view_cover);
+        this.d = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_1);
+        this.e = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_2);
+        this.f = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_3);
+        this.g = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_4);
+        this.h = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_5);
+        this.i = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_6);
+        this.j = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_7);
+        this.k = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_8);
+        this.l = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_9);
+        this.m = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_10);
+        this.q = (Button) this.b.findViewById(com.baidu.tieba.r.btn_next);
+        this.n.put(1, this.d);
+        this.n.put(2, this.e);
+        this.n.put(3, this.f);
+        this.n.put(4, this.g);
+        this.n.put(5, this.h);
+        this.n.put(6, this.i);
+        this.n.put(7, this.j);
+        this.n.put(8, this.k);
+        this.n.put(9, this.l);
+        this.n.put(10, this.m);
+        this.q.setOnClickListener(this.u);
+        this.d.setOnClickListener(this.u);
+        this.e.setOnClickListener(this.u);
+        this.f.setOnClickListener(this.u);
+        this.g.setOnClickListener(this.u);
+        this.h.setOnClickListener(this.u);
+        this.i.setOnClickListener(this.u);
+        this.j.setOnClickListener(this.u);
+        this.k.setOnClickListener(this.u);
+        this.l.setOnClickListener(this.u);
+        this.l.setOnClickListener(this.u);
+        this.m.setOnClickListener(this.u);
+        return this.b;
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    public void onPause() {
+        super.onPause();
     }
 }

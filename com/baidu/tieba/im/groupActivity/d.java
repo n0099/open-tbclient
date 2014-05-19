@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.groupActivity;
 
 import com.baidu.tieba.im.data.GroupActivityData;
-import com.baidu.tieba.im.message.ab;
+import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
 /* loaded from: classes.dex */
-public final class d extends com.baidu.adp.a.e {
-    ab a;
+public class d extends com.baidu.adp.base.d {
+    RequestCreateGroupActivityMessage a;
     private GroupActivityData b = new GroupActivityData();
     private com.baidu.tbadk.core.e c;
 
@@ -12,37 +12,37 @@ public final class d extends com.baidu.adp.a.e {
         this.c = eVar;
     }
 
-    public final GroupActivityData a() {
+    public GroupActivityData a() {
         return this.b;
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         if (this.b != null) {
-            this.a = new ab();
-            this.a.f(z ? 1 : 0);
+            this.a = new RequestCreateGroupActivityMessage();
+            this.a.setCommitType(z ? 1 : 0);
             if (z) {
-                this.a.e(this.b.getActivityId());
+                this.a.setActivityId(this.b.getActivityId());
             }
-            this.a.c(this.b.getgActivityArea());
-            this.a.b(this.b.getgActivityContent());
-            this.a.b(this.b.getgActivityTime());
-            this.a.a(this.b.getgActivityTitle());
-            this.a.d(this.b.getGroupId());
+            this.a.setgActivityArea(this.b.getgActivityArea());
+            this.a.setgActivityContent(this.b.getgActivityContent());
+            this.a.setgActivityTime(this.b.getgActivityTime());
+            this.a.setgActivityTitle(this.b.getgActivityTitle());
+            this.a.setGroupId(this.b.getGroupId());
             this.c.a(this.a);
         }
     }
 
-    @Override // com.baidu.adp.a.e
-    public final void cancelMessage() {
+    @Override // com.baidu.adp.base.d
+    public void cancelMessage() {
     }
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         return false;
     }
 }

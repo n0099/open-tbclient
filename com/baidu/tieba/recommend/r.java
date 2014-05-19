@@ -8,95 +8,102 @@ import android.view.animation.AnimationUtils;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.adp.widget.ListView.u;
 import com.baidu.adp.widget.PinnedHeaderListView;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.view.PbListView;
-import com.baidu.tieba.view.y;
+import com.baidu.tieba.view.z;
 /* loaded from: classes.dex */
-public final class r extends com.baidu.adp.a.f {
+public class r extends com.baidu.adp.base.e {
     private final DailyRecommendActivity a;
-    private final PinnedHeaderListView c;
-    private final ProgressBar d;
-    private final View e;
-    private final y f;
-    private final PbListView g;
-    private final View h;
-    private final TextView i;
-    private final i j;
-    private final NavigationBar k;
+    private final PinnedHeaderListView b;
+    private final ProgressBar c;
+    private final View d;
+    private final z e;
+    private final PbListView f;
+    private final View g;
+    private final TextView h;
+    private final i i;
+    private final NavigationBar j;
 
-    public r(DailyRecommendActivity dailyRecommendActivity, com.baidu.adp.widget.ListView.t tVar, l lVar) {
+    public r(DailyRecommendActivity dailyRecommendActivity, u uVar, l lVar) {
         super(dailyRecommendActivity);
         this.a = dailyRecommendActivity;
-        this.e = LayoutInflater.from(this.b).inflate(com.baidu.tieba.a.i.daily_recommend_view, (ViewGroup) null);
-        this.a.setContentView(this.e);
-        this.c = (PinnedHeaderListView) this.e.findViewById(com.baidu.tieba.a.h.pinnedHeaderListview);
-        this.j = new i(dailyRecommendActivity, lVar);
-        this.i = (TextView) this.e.findViewById(com.baidu.tieba.a.h.text_info);
-        this.f = new y(this.b);
-        this.c.setPullRefresh(this.f);
-        this.c.setAdapter((ListAdapter) this.j);
-        this.c.setOnSrollToBottomListener(tVar);
-        this.d = (ProgressBar) this.e.findViewById(com.baidu.tieba.a.h.progress);
-        this.d.setVisibility(8);
-        this.g = new PbListView(this.a);
-        this.g.a(new s(this));
-        this.h = this.g.b().findViewById(com.baidu.tieba.a.h.pb_more_view);
-        this.k = (NavigationBar) this.a.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.k.a(this.a.getString(com.baidu.tieba.a.k.dailyrecommend_title));
+        this.d = LayoutInflater.from(this.mContext).inflate(com.baidu.tieba.s.daily_recommend_view, (ViewGroup) null);
+        this.a.setContentView(this.d);
+        this.b = (PinnedHeaderListView) this.d.findViewById(com.baidu.tieba.r.pinnedHeaderListview);
+        this.i = new i(dailyRecommendActivity, lVar);
+        this.h = (TextView) this.d.findViewById(com.baidu.tieba.r.text_info);
+        this.e = new z(this.mContext);
+        this.b.setPullRefresh(this.e);
+        this.b.setAdapter((ListAdapter) this.i);
+        this.b.setOnSrollToBottomListener(uVar);
+        this.c = (ProgressBar) this.d.findViewById(com.baidu.tieba.r.progress);
+        this.c.setVisibility(8);
+        this.f = new PbListView(this.a);
+        this.f.a(new s(this));
+        this.g = this.f.b().findViewById(com.baidu.tieba.r.pb_more_view);
+        this.j = (NavigationBar) this.a.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.j.a(this.a.getString(com.baidu.tieba.u.dailyrecommend_title));
     }
 
-    public final void a() {
-        this.g.d();
+    public void a() {
+        this.f.d();
     }
 
-    public final void d() {
-        this.d.setVisibility(0);
+    public void b() {
+        this.c.setVisibility(0);
     }
 
-    public final void a(boolean z, String str) {
-        this.d.setVisibility(8);
+    public void a(boolean z, String str) {
+        this.c.setVisibility(8);
+        if (!z && str != null) {
+            this.a.showToast(str);
+        }
     }
 
-    public final void e() {
-        this.d.setVisibility(8);
-        this.g.e();
+    public void c() {
+        this.c.setVisibility(8);
+        this.f.e();
     }
 
-    public final void a(com.baidu.tieba.data.k kVar) {
-        this.c.b();
-        this.g.e();
+    public void a(com.baidu.tieba.data.k kVar) {
+        this.b.c();
+        this.f.e();
         if (kVar != null) {
             if (kVar.a().size() > 0) {
-                this.c.setNextPage(this.g);
+                this.b.setNextPage(this.f);
             }
-            this.j.a(kVar);
-            this.j.a();
+            this.i.a(kVar);
+            this.i.a();
         }
     }
 
-    public final void f() {
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.b, com.baidu.tieba.a.b.custom_home_text_info);
-        this.i.setVisibility(0);
+    public void d() {
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, com.baidu.tieba.l.custom_home_text_info);
+        this.h.setVisibility(0);
         loadAnimation.setAnimationListener(new t(this));
-        this.i.startAnimation(loadAnimation);
+        this.h.startAnimation(loadAnimation);
     }
 
-    public final void a(int i) {
-        this.k.b(i);
-        ba.f(this.c, com.baidu.tieba.a.e.cp_bg_line_c);
-        this.f.a(i);
-        if (this.g != null) {
-            this.g.c(i);
+    public void a(int i) {
+        this.j.c(i);
+        bc.f(this.b, com.baidu.tieba.o.cp_bg_line_c);
+        this.e.a(i);
+        if (this.f != null) {
+            this.f.d(i);
         }
-        ba.a(this.i, com.baidu.tieba.a.e.cp_link_tip_d, 1);
-        ba.f((View) this.i, com.baidu.tieba.a.g.bg_update);
-        this.j.a();
+        bc.a(this.h, com.baidu.tieba.o.cp_link_tip_d, 1);
+        bc.f((View) this.h, com.baidu.tieba.q.bg_update);
+        this.i.a();
     }
 
-    public final void a(com.baidu.adp.widget.ListView.d dVar) {
-        this.f.a(dVar);
+    public void e() {
+    }
+
+    public void a(com.baidu.adp.widget.ListView.d dVar) {
+        this.e.a(dVar);
     }
 }

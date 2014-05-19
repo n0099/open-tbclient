@@ -5,8 +5,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class f implements TextWatcher {
+public class f implements TextWatcher {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +16,7 @@ final class f implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
+    public void afterTextChanged(Editable editable) {
         String str;
         Button button;
         Button button2;
@@ -45,7 +46,7 @@ final class f implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         EditText editText;
         AtListActivity atListActivity = this.a;
         editText = this.a.b;
@@ -53,6 +54,6 @@ final class f implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

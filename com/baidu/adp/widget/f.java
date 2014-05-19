@@ -2,13 +2,14 @@ package com.baidu.adp.widget;
 
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.sapi2.shell.SapiErrorCode;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f extends Handler {
+public class f extends Handler {
     final /* synthetic */ HorizontalTranslateLayout a;
 
     @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    public void handleMessage(Message message) {
         g gVar;
         g gVar2;
         g gVar3;
@@ -17,15 +18,15 @@ public final class f extends Handler {
         gVar = this.a.s;
         if (gVar.g) {
             switch (message.what) {
-                case -105:
+                case SapiErrorCode.GET_CERT_FAIL /* -105 */:
                     gVar5 = this.a.s;
                     gVar5.d();
                     return;
-                case -104:
+                case SapiErrorCode.GETTING_CERT /* -104 */:
                     gVar2 = this.a.s;
                     gVar2.c();
                     return;
-                case -103:
+                case SapiErrorCode.INVALID_ARG /* -103 */:
                 case -102:
                 default:
                     return;

@@ -2,10 +2,12 @@ package com.baidu.tbadk.editortool;
 
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class o implements View.OnClickListener {
+public class o implements View.OnClickListener {
     final /* synthetic */ EmotionTabHorizonScrollView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +16,7 @@ public final class o implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         TextView textView;
         int i;
         String str;
@@ -24,8 +26,8 @@ public final class o implements View.OnClickListener {
             gVar = this.a.a;
             gVar.setNewViewVisible(false);
         }
-        TbadkApplication.j().g(TbadkApplication.j().av());
-        TbadkApplication.j().h(false);
+        TbadkApplication.m252getInst().setFaceShopVersion(TbadkApplication.m252getInst().getTempFaceShopVersion());
+        TbadkApplication.m252getInst().setFaceShopNew(false);
         i = this.a.l;
         switch (i) {
             case 1:
@@ -41,6 +43,6 @@ public final class o implements View.OnClickListener {
                 str = "";
                 break;
         }
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.j(this.a.getContext(), str)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.k(this.a.getContext(), str)));
     }
 }

@@ -3,10 +3,11 @@ package com.baidu.tbadk.img;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.LocalViewSize;
+import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.l;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public final class a<T> {
+public class a<T> {
     public T a;
     private String d;
     private final h f;
@@ -20,65 +21,44 @@ public final class a<T> {
         this.f = new h(str2);
     }
 
-    public final void a() {
+    public void a(int i, int i2, int i3, int i4) {
+        this.f.a(i, i2, i3, i4);
+    }
+
+    public void a() {
         if (this.e == null) {
-            this.e = new c(this, (byte) 0);
+            this.e = new c(this, null);
             this.e.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public final class c extends BdAsyncTask<String, Integer, ImageUploadResult> implements i {
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public final /* synthetic */ ImageUploadResult a(String... strArr) {
-            a.this.f.a(this, null);
-            ImageUploadResult a = a.this.f.a(a.this.d);
-            c((Object[]) new Integer[]{100});
-            return a;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public final /* synthetic */ void a(ImageUploadResult imageUploadResult) {
-            ImageUploadResult imageUploadResult2 = imageUploadResult;
-            super.a((c) imageUploadResult2);
-            a.this.e = null;
-            if (a.this.c != null) {
-                if (imageUploadResult2 == null) {
-                    imageUploadResult2 = new ImageUploadResult();
-                    imageUploadResult2.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
-                    imageUploadResult2.error_msg = TbadkApplication.j().b().getString(l.send_error);
-                    TiebaStatic.a("", -1002, imageUploadResult2.error_msg, "");
-                }
-                a.this.c.a(a.this.d, imageUploadResult2);
-            }
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public final /* synthetic */ void b(Integer... numArr) {
-            Integer[] numArr2 = numArr;
-            if (numArr2 == null || numArr2.length == 0 || a.this.b == null) {
-                return;
-            }
-            a.this.b.a(numArr2[0].intValue(), a.this.a);
-        }
-
+    public class c extends BdAsyncTask<String, Integer, ImageUploadResult> implements i {
         private c() {
         }
 
-        /* synthetic */ c(a aVar, byte b) {
+        /* synthetic */ c(a aVar, c cVar) {
             this();
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: a */
+        public ImageUploadResult doInBackground(String... strArr) {
+            return a();
+        }
+
+        private ImageUploadResult a() {
+            a.this.f.a(this, null);
+            ImageUploadResult a = a.this.f.a(a.this.d);
+            publishProgress(100);
+            return a;
+        }
+
         @Override // com.baidu.tbadk.img.i
-        public final void a(long j, long j2) {
+        public void a(String str, Object obj, long j, long j2) {
             int i;
             if (j2 == 0) {
                 i = 0;
@@ -88,51 +68,87 @@ public final class a<T> {
                     i = 90;
                 }
             }
-            c((Object[]) new Integer[]{Integer.valueOf(i)});
+            publishProgress(Integer.valueOf(i));
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: a */
+        public void onProgressUpdate(Integer... numArr) {
+            if (numArr != null && numArr.length != 0 && a.this.b != null) {
+                a.this.b.a(numArr[0].intValue(), a.this.a);
+            }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public final void b() {
-            super.b();
+        public void onPreCancel() {
+            super.onPreCancel();
             if (a.this.c != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
-                imageUploadResult.error_msg = TbadkApplication.j().b().getString(l.send_error);
+                imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(u.send_error);
                 a.this.c.a(a.this.d, imageUploadResult);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public final void cancel() {
+        public void cancel() {
             super.cancel();
             a.this.e = null;
             a.this.f.a();
         }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: a */
+        public void onPostExecute(ImageUploadResult imageUploadResult) {
+            super.onPostExecute(imageUploadResult);
+            a.this.e = null;
+            if (a.this.c != null) {
+                if (imageUploadResult == null) {
+                    imageUploadResult = new ImageUploadResult();
+                    imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
+                    imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(u.send_error);
+                    TiebaStatic.imgError("", TbErrInfo.ERR_IMG_SEND, imageUploadResult.error_msg, "");
+                }
+                a.this.c.a(a.this.d, imageUploadResult);
+            }
+        }
     }
 
-    public final void b() {
+    public void b() {
         if (this.e != null) {
             this.e.cancel();
             this.e = null;
         }
     }
 
-    public final void a(b<T> bVar) {
+    public void a(b<T> bVar) {
         this.b = bVar;
     }
 
-    public final void a(d dVar) {
+    public void a(d dVar) {
         this.c = dVar;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.f.b(str);
     }
 
-    public final void c() {
+    public T c() {
+        return this.a;
+    }
+
+    public void a(T t) {
+        this.a = t;
+    }
+
+    public void d() {
         LocalViewSize.ImageSize c2 = LocalViewSize.a().c();
         LocalViewSize.ImageSize d = LocalViewSize.a().d();
-        this.f.a(d.width, d.height, c2.width, c2.height);
+        a(d.width, d.height, c2.width, c2.height);
     }
 }

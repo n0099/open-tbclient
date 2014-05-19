@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.widget.RemoteViews;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class FileDownloader extends Service {
     private NotificationManager a = null;
@@ -20,7 +21,7 @@ public class FileDownloader extends Service {
 
     public static void a(Context context, String str, String str2, String str3) {
         Intent intent = new Intent(context, FileDownloader.class);
-        intent.putExtra("file", (String) null);
+        intent.putExtra("file", str2);
         intent.putExtra("url", str);
         intent.putExtra("info", str3);
         context.startService(intent);
@@ -35,24 +36,26 @@ public class FileDownloader extends Service {
     public void onCreate() {
         super.onCreate();
         this.a = (NotificationManager) getSystemService("notification");
-        p.c();
-        PendingIntent activity = PendingIntent.getActivity(p.d(), 0, new Intent(), 0);
-        Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-        p.c();
-        notification.contentView = new RemoteViews(p.d().getPackageName(), com.baidu.tieba.a.i.notify_item);
-        notification.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, 0, false);
-        notification.contentIntent = activity;
-        notification.flags = 32;
-        this.b = notification;
+        this.b = a();
         if (this.a == null) {
             stopSelf();
         }
     }
 
+    public Notification a() {
+        PendingIntent activity = PendingIntent.getActivity(ad.c().d(), 0, new Intent(), 0);
+        Notification notification = new Notification(17301633, null, System.currentTimeMillis());
+        notification.contentView = new RemoteViews(ad.c().d().getPackageName(), s.notify_item);
+        notification.contentView.setProgressBar(r.progress, 100, 0, false);
+        notification.contentIntent = activity;
+        notification.flags = 32;
+        return notification;
+    }
+
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.d.removeMessages(900002);
+        this.d.removeMessages(TbConfig.NET_MSG_GETLENTH);
         if (this.c != null) {
             this.c.cancel();
         }
@@ -64,29 +67,37 @@ public class FileDownloader extends Service {
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
-        String str;
+        String a;
         if (intent != null) {
             String stringExtra = intent.getStringExtra("info");
             String stringExtra2 = intent.getStringExtra("url");
-            this.b.contentView.setTextViewText(com.baidu.tieba.a.h.info, stringExtra);
-            this.b.contentView.setTextViewText(com.baidu.tieba.a.h.schedule, "0/0");
+            this.b.contentView.setTextViewText(r.info, stringExtra);
+            this.b.contentView.setTextViewText(r.schedule, "0/0");
             if (intent.getStringExtra("file") != null) {
-                str = intent.getStringExtra("file");
-            } else if (stringExtra2 == null || stringExtra2.length() == 0) {
-                str = null;
+                a = intent.getStringExtra("file");
             } else {
-                String[] split = (stringExtra2.contains("?") ? stringExtra2.substring(0, stringExtra2.indexOf("?")) : stringExtra2).split("/");
-                str = split[split.length - 1];
+                a = a(stringExtra2);
             }
-            if (com.baidu.tbadk.core.util.w.d(str) != null) {
-                this.d.sendMessageDelayed(this.d.obtainMessage(1, str), 100L);
+            if (com.baidu.tbadk.core.util.x.d(a) != null) {
+                this.d.sendMessageDelayed(this.d.obtainMessage(1, a), 100L);
             } else if (this.c == null) {
-                this.c = new d(this, stringExtra2, str);
+                this.c = new d(this, stringExtra2, a);
                 this.c.execute(new String[0]);
-                this.b.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, 0, false);
+                this.b.contentView.setProgressBar(r.progress, 100, 0, false);
                 this.a.notify(10, this.b);
             }
         }
         super.onStart(intent, i);
+    }
+
+    private String a(String str) {
+        if (str == null || str.length() == 0) {
+            return null;
+        }
+        if (str.contains("?")) {
+            str = str.substring(0, str.indexOf("?"));
+        }
+        String[] split = str.split("/");
+        return split[split.length - 1];
     }
 }

@@ -1,31 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
-import android.widget.ListView;
-import com.baidu.tieba.editortool.PbEditor;
+import android.widget.Button;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class cv implements Runnable {
-    private int a;
-    private int b;
-    private PbEditor c;
-    private ListView d;
-    private Activity e;
-    private int f;
+public class cv implements com.baidu.tbadk.coreExtra.view.ag {
+    final /* synthetic */ cs a;
 
-    public cv(Activity activity, int i, int i2, PbEditor pbEditor, ListView listView, int i3) {
-        this.b = i2;
-        this.a = i;
-        this.c = pbEditor;
-        this.d = listView;
-        this.f = i3;
-        this.e = activity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cv(cs csVar) {
+        this.a = csVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        int[] iArr = new int[2];
-        this.c.getLocationInWindow(iArr);
-        this.d.setSelectionFromTop(this.a + this.d.getHeaderViewsCount(), ((iArr[1] - this.b) - this.f) - com.baidu.adp.lib.util.i.a(this.e));
-        this.d.invalidate();
+    @Override // com.baidu.tbadk.coreExtra.view.ag
+    public void a(int i) {
+        g gVar;
+        Button button;
+        if (i == 0) {
+            button = this.a.af;
+            button.setVisibility(8);
+            return;
+        }
+        cs csVar = this.a;
+        gVar = this.a.an;
+        csVar.a(gVar);
     }
 }

@@ -6,10 +6,14 @@ import android.os.Debug;
 import android.os.Environment;
 import android.os.Process;
 import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tieba.ad;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileWriter;
@@ -18,19 +22,21 @@ import java.lang.Thread;
 import java.util.List;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public final class q implements Thread.UncaughtExceptionHandler {
-    private static final String b = String.valueOf(Environment.getExternalStorageDirectory().getPath()) + File.separator + "tieba" + File.separator + "oom" + File.separator;
-    private final Thread.UncaughtExceptionHandler a = Thread.getDefaultUncaughtExceptionHandler();
+public class q implements Thread.UncaughtExceptionHandler {
+    public static final String[] a = {"com.baidu.android.systemmonitor", "com.baidu.android.defense", "com.baidu.android.moplus", "com.baidu.android.nebula", "com.baidu.android.a."};
+    public static final String[] b = {"com.baidu.lightapp", "com.baidu.channelrtc"};
+    private static final String d = String.valueOf(Environment.getExternalStorageDirectory().getPath()) + File.separator + "tieba" + File.separator + "oom" + File.separator;
+    private final Thread.UncaughtExceptionHandler c = Thread.getDefaultUncaughtExceptionHandler();
 
-    /* JADX WARN: Removed duplicated region for block: B:121:0x0224 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x0229 A[Catch: Exception -> 0x024f, TryCatch #1 {Exception -> 0x024f, blocks: (B:85:0x0224, B:87:0x0229, B:89:0x022e), top: B:121:0x0224 }] */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x022e A[Catch: Exception -> 0x024f, TRY_LEAVE, TryCatch #1 {Exception -> 0x024f, blocks: (B:85:0x0224, B:87:0x0229, B:89:0x022e), top: B:121:0x0224 }] */
-    /* JADX WARN: Removed duplicated region for block: B:92:0x0237  */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x0237 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x023c A[Catch: Exception -> 0x028d, TryCatch #0 {Exception -> 0x028d, blocks: (B:92:0x0237, B:94:0x023c, B:96:0x0241), top: B:135:0x0237 }] */
+    /* JADX WARN: Removed duplicated region for block: B:96:0x0241 A[Catch: Exception -> 0x028d, TRY_LEAVE, TryCatch #0 {Exception -> 0x028d, blocks: (B:92:0x0237, B:94:0x023c, B:96:0x0241), top: B:135:0x0237 }] */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x024a  */
     @Override // java.lang.Thread.UncaughtExceptionHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void uncaughtException(Thread thread, Throwable th) {
+    public void uncaughtException(Thread thread, Throwable th) {
         FileWriter fileWriter;
         PrintStream printStream;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -38,19 +44,8 @@ public final class q implements Thread.UncaughtExceptionHandler {
         ByteArrayOutputStream byteArrayOutputStream2;
         String str;
         FileWriter fileWriter2 = null;
-        if (com.baidu.tbadk.core.data.n.a() && a(th)) {
-            com.baidu.adp.lib.util.f.b("OOM!!!please keep alive, and getting in touch with RD!");
-            try {
-                File file = new File(b);
-                if (!file.exists()) {
-                    file.mkdir();
-                }
-                Debug.dumpHprofData(String.valueOf(b) + System.currentTimeMillis());
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("couldn’t dump hprof:Exception");
-            } catch (OutOfMemoryError e2) {
-                com.baidu.adp.lib.util.f.b("couldn’t dump hprof: OutOfMemoryError");
-            }
+        if (TbConfig.getDebugSwitch() && a(th)) {
+            a();
         }
         try {
             byteArrayOutputStream = new ByteArrayOutputStream();
@@ -60,43 +55,41 @@ public final class q implements Thread.UncaughtExceptionHandler {
                     try {
                         th.printStackTrace(printStream);
                         String str2 = new String(byteArrayOutputStream.toByteArray());
-                        if (com.baidu.tbadk.core.data.n.a()) {
-                            str = "fatal_error_debug.log";
+                        if (TbConfig.getDebugSwitch()) {
+                            str = TbConfig.FATAL_ERROR_DEBUG_FILE;
                         } else {
-                            str = "fatal_error.log";
+                            str = TbConfig.FATAL_ERROR_FILE;
                         }
-                        File g = w.g(str);
-                        if (g != null && g.length() < 204800) {
+                        File g = x.g(str);
+                        if (g != null && g.length() < 204800 && str2 != null) {
                             fileWriter = new FileWriter(g, true);
                             try {
-                                a(fileWriter, bc.a(), null);
+                                a(fileWriter, be.a(), null);
                                 a(fileWriter, "tieba_crash_new_info", null);
-                                a(fileWriter, "version", com.baidu.tbadk.core.data.n.c());
+                                a(fileWriter, "version", TbConfig.getVersion());
                                 a(fileWriter, "model", Build.MODEL);
                                 a(fileWriter, "android_version", Build.VERSION.RELEASE);
                                 a(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-                                a(fileWriter, "from", com.baidu.tbadk.core.data.n.j());
-                                a(fileWriter, "current_from", com.baidu.tbadk.core.data.n.k());
-                                a(fileWriter, "uid", TbadkApplication.E());
-                                a(fileWriter, "client_id", TbadkApplication.B());
-                                a(fileWriter, "imei", TbadkApplication.j().C());
-                                a(fileWriter, "uname", TbadkApplication.O());
-                                a(fileWriter, "activity", be.b());
+                                a(fileWriter, "from", TbConfig.getFrom());
+                                a(fileWriter, "current_from", TbConfig.getCurrentFrom());
+                                a(fileWriter, SapiAccountManager.SESSION_UID, TbadkApplication.getCurrentAccount());
+                                a(fileWriter, "client_id", TbadkApplication.getClientId());
+                                a(fileWriter, "imei", TbadkApplication.m252getInst().getImei());
+                                a(fileWriter, "uname", TbadkApplication.getCurrentAccountName());
+                                a(fileWriter, "activity", bg.b());
                                 a(fileWriter, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
                                 a(fileWriter, "crash_type", th.getClass().getName());
-                                com.baidu.tieba.p.c();
-                                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) com.baidu.tieba.p.d().getSystemService("activity")).getRunningAppProcesses();
+                                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) ad.c().d().getSystemService("activity")).getRunningAppProcesses();
                                 int myPid = Process.myPid();
                                 if (runningAppProcesses != null) {
                                     int i = 0;
                                     while (true) {
-                                        int i2 = i;
-                                        if (i2 >= runningAppProcesses.size()) {
+                                        if (i >= runningAppProcesses.size()) {
                                             break;
-                                        } else if (runningAppProcesses.get(i2).pid != myPid) {
-                                            i = i2 + 1;
+                                        } else if (runningAppProcesses.get(i).pid != myPid) {
+                                            i++;
                                         } else {
-                                            a(fileWriter, "process_name", runningAppProcesses.get(i2).processName);
+                                            a(fileWriter, "process_name", runningAppProcesses.get(i).processName);
                                             break;
                                         }
                                     }
@@ -106,8 +99,8 @@ public final class q implements Thread.UncaughtExceptionHandler {
                                 fileWriter.append(IOUtils.LINE_SEPARATOR_UNIX);
                                 fileWriter.flush();
                                 fileWriter2 = fileWriter;
-                            } catch (Exception e3) {
-                                e = e3;
+                            } catch (Exception e) {
+                                e = e;
                                 fileWriter2 = fileWriter;
                                 printStream2 = printStream;
                                 byteArrayOutputStream2 = byteArrayOutputStream;
@@ -116,10 +109,10 @@ public final class q implements Thread.UncaughtExceptionHandler {
                                     if (printStream2 != null) {
                                         try {
                                             printStream2.close();
-                                        } catch (Exception e4) {
-                                            e4.printStackTrace();
-                                            if (!com.baidu.tbadk.core.data.n.a() && this.a != null) {
-                                                this.a.uncaughtException(thread, th);
+                                        } catch (Exception e2) {
+                                            e2.printStackTrace();
+                                            if (!TbConfig.getDebugSwitch() && this.c != null) {
+                                                this.c.uncaughtException(thread, th);
                                                 return;
                                             } else {
                                                 Process.killProcess(Process.myPid());
@@ -133,7 +126,7 @@ public final class q implements Thread.UncaughtExceptionHandler {
                                     if (fileWriter2 != null) {
                                         fileWriter2.close();
                                     }
-                                    if (!com.baidu.tbadk.core.data.n.a()) {
+                                    if (!TbConfig.getDebugSwitch()) {
                                     }
                                     Process.killProcess(Process.myPid());
                                     return;
@@ -148,7 +141,7 @@ public final class q implements Thread.UncaughtExceptionHandler {
                                     }
                                     if (fileWriter != null) {
                                     }
-                                    if (!com.baidu.tbadk.core.data.n.a()) {
+                                    if (!TbConfig.getDebugSwitch()) {
                                     }
                                     Process.killProcess(Process.myPid());
                                     throw th;
@@ -161,79 +154,117 @@ public final class q implements Thread.UncaughtExceptionHandler {
                                 }
                                 if (fileWriter != null) {
                                 }
-                                if (!com.baidu.tbadk.core.data.n.a()) {
+                                if (!TbConfig.getDebugSwitch()) {
                                 }
                                 Process.killProcess(Process.myPid());
                                 throw th;
                             }
                         }
-                        try {
-                            if (str2.contains("java.lang.SecurityException: No permission to modify given thread")) {
-                                TbadkApplication.j().i(TbadkApplication.j().aF() + 1);
-                            } else if (str2.contains("com.baidu.location")) {
-                                com.baidu.tieba.p.c().v();
-                            } else if (str2.contains("Couldn't load mtprocessor-jni")) {
-                                com.baidu.adp.lib.a.f.a().a("motu_sdk", 1);
+                        if (str2 != null) {
+                            try {
+                                if (str2.contains("java.lang.SecurityException: No permission to modify given thread")) {
+                                    TbadkApplication.m252getInst().setWebviewCrashCount(TbadkApplication.m252getInst().getWebviewCrashCount() + 1);
+                                } else if (str2.contains("com.baidu.location")) {
+                                    ad.c().A();
+                                } else if (str2.contains("Couldn't load mtprocessor-jni")) {
+                                    com.baidu.adp.lib.a.f.a().a("motu_sdk", 1);
+                                }
+                                if (str2.contains("com.baidu.sapi2")) {
+                                    TbadkApplication.m252getInst().incPassportV6CrashCount();
+                                }
+                                if (str2.contains("com.baidu.mobstat")) {
+                                    TbadkApplication.m252getInst().incMobstatCrashCount();
+                                }
+                                String[] strArr = a;
+                                int length = strArr.length;
+                                int i2 = 0;
+                                while (true) {
+                                    if (i2 >= length) {
+                                        break;
+                                    } else if (!str2.contains(strArr[i2])) {
+                                        i2++;
+                                    } else {
+                                        TbadkApplication.m252getInst().incMoPlusCrashCount();
+                                        break;
+                                    }
+                                }
+                                String[] strArr2 = b;
+                                int length2 = strArr2.length;
+                                int i3 = 0;
+                                while (true) {
+                                    if (i3 >= length2) {
+                                        break;
+                                    } else if (!str2.contains(strArr2[i3])) {
+                                        i3++;
+                                    } else {
+                                        TbadkApplication.m252getInst().incLiveSdkCrashCount();
+                                        break;
+                                    }
+                                }
+                                if (bg.a() != null && bg.a().indexOf("NewVcode") != -1) {
+                                    ad.c().e(ad.c().z() + 1);
+                                }
+                            } catch (Throwable th4) {
+                                th = th4;
+                                fileWriter = fileWriter2;
+                                if (printStream != null) {
+                                    try {
+                                        printStream.close();
+                                    } catch (Exception e3) {
+                                        e3.printStackTrace();
+                                        if (!TbConfig.getDebugSwitch() && this.c != null) {
+                                            this.c.uncaughtException(thread, th);
+                                        } else {
+                                            Process.killProcess(Process.myPid());
+                                        }
+                                        throw th;
+                                    }
+                                }
+                                if (byteArrayOutputStream != null) {
+                                    byteArrayOutputStream.close();
+                                }
+                                if (fileWriter != null) {
+                                    fileWriter.close();
+                                }
+                                if (!TbConfig.getDebugSwitch()) {
+                                }
+                                Process.killProcess(Process.myPid());
+                                throw th;
                             }
-                            if (be.a() != null && be.a().indexOf("NewVcode") != -1) {
-                                com.baidu.tieba.p.c().e(com.baidu.tieba.p.c().u() + 1);
-                            }
-                            com.baidu.adp.lib.a.f.a().a(str2);
-                            if (!TextUtils.isEmpty(str2)) {
-                                com.baidu.adp.lib.util.f.b(str2);
-                            }
+                        }
+                        com.baidu.adp.lib.a.f.a().a(str2);
+                        if (!TextUtils.isEmpty(str2)) {
+                            BdLog.e(str2);
+                        }
+                        if (printStream != null) {
                             try {
                                 printStream.close();
-                                byteArrayOutputStream.close();
-                                if (fileWriter2 != null) {
-                                    fileWriter2.close();
-                                }
-                            } catch (Exception e5) {
-                                e5.printStackTrace();
+                            } catch (Exception e4) {
+                                e4.printStackTrace();
                             }
-                            if (com.baidu.tbadk.core.data.n.a() && this.a != null) {
-                                this.a.uncaughtException(thread, th);
-                            } else {
-                                Process.killProcess(Process.myPid());
-                            }
-                        } catch (Throwable th4) {
-                            th = th4;
-                            fileWriter = fileWriter2;
-                            if (printStream != null) {
-                                try {
-                                    printStream.close();
-                                } catch (Exception e6) {
-                                    e6.printStackTrace();
-                                    if (!com.baidu.tbadk.core.data.n.a()) {
-                                    }
-                                    Process.killProcess(Process.myPid());
-                                    throw th;
-                                }
-                            }
-                            if (byteArrayOutputStream != null) {
-                                byteArrayOutputStream.close();
-                            }
-                            if (fileWriter != null) {
-                                fileWriter.close();
-                            }
-                            if (!com.baidu.tbadk.core.data.n.a() && this.a != null) {
-                                this.a.uncaughtException(thread, th);
-                            } else {
-                                Process.killProcess(Process.myPid());
-                            }
-                            throw th;
+                        }
+                        if (byteArrayOutputStream != null) {
+                            byteArrayOutputStream.close();
+                        }
+                        if (fileWriter2 != null) {
+                            fileWriter2.close();
+                        }
+                        if (TbConfig.getDebugSwitch() && this.c != null) {
+                            this.c.uncaughtException(thread, th);
+                        } else {
+                            Process.killProcess(Process.myPid());
                         }
                     } catch (Throwable th5) {
                         th = th5;
                         fileWriter = null;
                     }
-                } catch (Exception e7) {
-                    e = e7;
+                } catch (Exception e5) {
+                    e = e5;
                     printStream2 = printStream;
                     byteArrayOutputStream2 = byteArrayOutputStream;
                 }
-            } catch (Exception e8) {
-                e = e8;
+            } catch (Exception e6) {
+                e = e6;
                 printStream2 = null;
                 byteArrayOutputStream2 = byteArrayOutputStream;
             } catch (Throwable th6) {
@@ -241,8 +272,8 @@ public final class q implements Thread.UncaughtExceptionHandler {
                 fileWriter = null;
                 printStream = null;
             }
-        } catch (Exception e9) {
-            e = e9;
+        } catch (Exception e7) {
+            e = e7;
             printStream2 = null;
             byteArrayOutputStream2 = null;
         } catch (Throwable th7) {
@@ -262,17 +293,33 @@ public final class q implements Thread.UncaughtExceptionHandler {
             }
             fileWriter.append(IOUtils.LINE_SEPARATOR_UNIX);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "addInfo", e.getMessage());
+            BdLog.e(getClass().getName(), "addInfo", e.getMessage());
         }
     }
 
-    private static boolean a(Throwable th) {
-        while (!"java.lang.OutOfMemoryError".equals(th.getClass().getName())) {
-            th = th.getCause();
-            if (th == null) {
-                return false;
-            }
+    public static boolean a(Throwable th) {
+        if ("java.lang.OutOfMemoryError".equals(th.getClass().getName())) {
+            return true;
         }
-        return true;
+        Throwable cause = th.getCause();
+        if (cause != null) {
+            return a(cause);
+        }
+        return false;
+    }
+
+    private void a() {
+        BdLog.e("OOM!!!please keep alive, and getting in touch with RD!");
+        try {
+            File file = new File(d);
+            if (!file.exists()) {
+                file.mkdir();
+            }
+            Debug.dumpHprofData(String.valueOf(d) + System.currentTimeMillis());
+        } catch (Exception e) {
+            BdLog.e("couldn’t dump hprof:Exception");
+        } catch (OutOfMemoryError e2) {
+            BdLog.e("couldn’t dump hprof: OutOfMemoryError");
+        }
     }
 }

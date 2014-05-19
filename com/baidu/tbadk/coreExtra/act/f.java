@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements CompoundButton.OnCheckedChangeListener {
+public class f implements CompoundButton.OnCheckedChangeListener {
     final /* synthetic */ EditHeadActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public final class f implements CompoundButton.OnCheckedChangeListener {
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         RadioButton radioButton;
         RadioButton radioButton2;
         HorizontalScrollView horizontalScrollView;

@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-final class t implements SlidingMenu.OnClosedListener {
+class t implements SlidingMenu.OnClosedListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,14 +11,14 @@ final class t implements SlidingMenu.OnClosedListener {
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
-    public final void onClosed() {
-        cm cmVar;
-        cm cmVar2;
-        cmVar = this.a.r;
-        if (cmVar.n().f()) {
-            cmVar2 = this.a.r;
-            cmVar2.n().b(false);
-            this.a.n();
+    public void onClosed() {
+        cs csVar;
+        cs csVar2;
+        csVar = this.a.w;
+        if (csVar.n().d()) {
+            csVar2 = this.a.w;
+            csVar2.n().b(false);
+            this.a.D();
         }
     }
 }

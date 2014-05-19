@@ -1,26 +1,23 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class r implements com.baidu.tieba.im.a<Boolean> {
-    private final /* synthetic */ GroupMsgData a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ CommonMsgPojo c;
-    private final /* synthetic */ int d;
+class r extends com.baidu.tieba.im.b<Boolean> {
+    private final /* synthetic */ long b;
+    private final /* synthetic */ long c;
+    private final /* synthetic */ LinkedList d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(GroupMsgData groupMsgData, String str, CommonMsgPojo commonMsgPojo, int i) {
-        this.a = groupMsgData;
-        this.b = str;
-        this.c = commonMsgPojo;
-        this.d = i;
+    public r(long j, long j2, LinkedList linkedList) {
+        this.b = j;
+        this.c = j2;
+        this.d = linkedList;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* bridge */ /* synthetic */ void a(Boolean bool) {
-        SnapChatMsgHelper.a(this.a, this.b, this.c, this.d);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.o.d().a(this.b, this.c, this.d, true));
     }
 }

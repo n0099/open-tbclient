@@ -2,18 +2,23 @@ package com.baidu.tieba.frs;
 
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-final class bh {
+class bh {
     LinearLayout a;
     TextView b;
-    final /* synthetic */ ay c;
+    HeadImageView c;
+    TextView d;
+    TextView e;
+    TextView f;
+    final /* synthetic */ ba g;
 
-    private bh(ay ayVar) {
-        this.c = ayVar;
+    private bh(ba baVar) {
+        this.g = baVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bh(ay ayVar, byte b) {
-        this(ayVar);
+    public /* synthetic */ bh(ba baVar, bh bhVar) {
+        this(baVar);
     }
 }

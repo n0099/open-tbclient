@@ -1,78 +1,79 @@
 package com.baidu.tieba.im.randchat;
 
 import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.message.ChatRoomEventResponseMessage;
-import com.baidu.tieba.im.model.bv;
+import com.baidu.tieba.im.model.ca;
 import com.baidu.tieba.im.randchat.WaitingTipView;
 /* loaded from: classes.dex */
-final class h extends com.baidu.adp.framework.c.a {
+class h extends CustomMessageListener {
     final /* synthetic */ WaittingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(WaittingActivity waittingActivity, int i) {
-        super(2001119);
+        super(i);
         this.a = waittingActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tieba.im.data.b a;
-        bv bvVar;
-        bv bvVar2;
+        ca caVar;
+        ca caVar2;
         WaitingTipView.Type type;
-        bv bvVar3;
+        ca caVar3;
         boolean a2;
         f fVar;
         f fVar2;
         f fVar3;
         f fVar4;
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 instanceof ChatRoomEventResponseMessage) {
-            String a3 = ((ChatRoomEventResponseMessage) customResponsedMessage2).a();
-            if (TextUtils.isEmpty(a3) || (a = com.baidu.tieba.im.data.b.a(a3)) == null) {
+        if (customResponsedMessage instanceof ChatRoomEventResponseMessage) {
+            String data = ((ChatRoomEventResponseMessage) customResponsedMessage).getData();
+            if (TextUtils.isEmpty(data) || (a = com.baidu.tieba.im.data.b.a(data)) == null) {
                 return;
             }
             switch (a.h) {
                 case 201:
-                    WaittingActivity.a(this.a, a);
+                    this.a.a(a);
                     return;
                 case 202:
-                    WaittingActivity.b(this.a, a);
+                    this.a.b(a);
                     return;
                 case 203:
-                    this.a.a(a.a);
+                    this.a.c(a);
                     return;
                 case 204:
                 default:
                     return;
                 case 205:
-                    bvVar = this.a.b;
-                    bvVar.a(a.j);
-                    bvVar2 = this.a.b;
-                    bvVar2.b(a.i);
+                    caVar = this.a.b;
+                    caVar.a(a.j);
+                    caVar2 = this.a.b;
+                    caVar2.b(a.i);
                     type = this.a.i;
                     if (type != WaitingTipView.Type.PERSONS_READY) {
                         WaittingActivity waittingActivity = this.a;
-                        bvVar3 = this.a.b;
-                        a2 = WaittingActivity.a(bvVar3.f());
+                        caVar3 = this.a.b;
+                        a2 = waittingActivity.a(caVar3.f());
                         if (!a2) {
                             this.a.b(WaitingTipView.Type.TOPIC_UPDATE, (Object[]) null);
                         }
                         if (!TextUtils.isEmpty(a.j)) {
                             fVar = this.a.a;
-                            fVar.d().getLoadingView().setVisibility(8);
+                            fVar.b().getLoadingView().setVisibility(8);
                         } else if (!a2) {
                             fVar4 = this.a.a;
-                            fVar4.d().getLoadingView().setVisibility(0);
+                            fVar4.b().getLoadingView().setVisibility(0);
                         } else {
                             fVar3 = this.a.a;
-                            fVar3.d().getLoadingView().setVisibility(8);
+                            fVar3.b().getLoadingView().setVisibility(8);
                         }
                         fVar2 = this.a.a;
-                        fVar2.d().getChatterboxView().setTitle(a.j);
+                        fVar2.b().getChatterboxView().setTitle(a.j);
                         return;
                     }
                     return;

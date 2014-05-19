@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import java.util.Timer;
 /* loaded from: classes.dex */
-final class h implements Runnable {
+class h implements Runnable {
     final /* synthetic */ g a;
     private final /* synthetic */ View b;
     private final /* synthetic */ Timer c;
@@ -17,7 +17,7 @@ final class h implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         f fVar;
         int i;
         f fVar2;

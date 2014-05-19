@@ -2,6 +2,7 @@ package com.baidu.android.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -51,7 +52,7 @@ public final class j {
 
     public static void k() {
         if (l != null) {
-            l.k = null;
+            l.l();
             l = null;
         }
     }
@@ -60,8 +61,8 @@ public final class j {
         this.k = null;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0035 -> B:7:0x000e). Please submit an issue!!! */
-    public final boolean a() {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0037 -> B:7:0x000e). Please submit an issue!!! */
+    public boolean a() {
         if (com.baidu.android.systemmonitor.c.a.f() != -1) {
             return com.baidu.android.systemmonitor.c.a.f() == 1;
         }
@@ -71,8 +72,8 @@ public final class j {
         return this.a;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0035 -> B:7:0x000e). Please submit an issue!!! */
-    public final boolean b() {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0037 -> B:7:0x000e). Please submit an issue!!! */
+    public boolean b() {
         if (com.baidu.android.systemmonitor.c.a.g() != -1) {
             return com.baidu.android.systemmonitor.c.a.g() == 1;
         }
@@ -82,8 +83,8 @@ public final class j {
         return this.b;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0035 -> B:7:0x000e). Please submit an issue!!! */
-    public final boolean c() {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0037 -> B:7:0x000e). Please submit an issue!!! */
+    public boolean c() {
         if (com.baidu.android.systemmonitor.c.a.h() != -1) {
             return com.baidu.android.systemmonitor.c.a.h() == 1;
         }
@@ -93,8 +94,8 @@ public final class j {
         return this.c;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0035 -> B:7:0x000e). Please submit an issue!!! */
-    public final boolean d() {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0037 -> B:7:0x000e). Please submit an issue!!! */
+    public boolean d() {
         if (com.baidu.android.systemmonitor.c.a.i() != -1) {
             return com.baidu.android.systemmonitor.c.a.i() == 1;
         }
@@ -104,8 +105,8 @@ public final class j {
         return this.d;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0035 -> B:7:0x000e). Please submit an issue!!! */
-    public final boolean e() {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0037 -> B:7:0x000e). Please submit an issue!!! */
+    public boolean e() {
         if (com.baidu.android.systemmonitor.c.a.b() != -1) {
             return com.baidu.android.systemmonitor.c.a.b() == 1;
         }
@@ -115,8 +116,8 @@ public final class j {
         return this.f;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0035 -> B:7:0x000e). Please submit an issue!!! */
-    public final boolean f() {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0037 -> B:7:0x000e). Please submit an issue!!! */
+    public boolean f() {
         if (com.baidu.android.systemmonitor.c.a.n() != -1) {
             return com.baidu.android.systemmonitor.c.a.n() == 1;
         }
@@ -126,7 +127,7 @@ public final class j {
         return this.g;
     }
 
-    public final boolean g() {
+    public boolean g() {
         try {
             if (this.k != null && !TextUtils.isEmpty((CharSequence) this.k.get("moplus_enable"))) {
                 return Boolean.parseBoolean((String) this.k.get("moplus_enable"));
@@ -136,8 +137,8 @@ public final class j {
         return this.h;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0035 -> B:7:0x000e). Please submit an issue!!! */
-    public final boolean h() {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x0037 -> B:7:0x000e). Please submit an issue!!! */
+    public boolean h() {
         if (com.baidu.android.systemmonitor.c.a.a() != -1) {
             return com.baidu.android.systemmonitor.c.a.a() == 1;
         }
@@ -147,8 +148,8 @@ public final class j {
         return this.e;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:14:0x0036 -> B:6:0x0010). Please submit an issue!!! */
-    public final long i() {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:14:0x0038 -> B:6:0x0010). Please submit an issue!!! */
+    public long i() {
         if (com.baidu.android.systemmonitor.c.a.c() != -1) {
             return com.baidu.android.systemmonitor.c.a.c() * 86400000;
         }
@@ -158,12 +159,12 @@ public final class j {
         return this.i * 86400000;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:14:0x0039 -> B:6:0x0013). Please submit an issue!!! */
-    public final long j() {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:14:0x003b -> B:6:0x0013). Please submit an issue!!! */
+    public long j() {
         long j = 3600000;
         if (com.baidu.android.systemmonitor.c.a.d() != -1) {
-            j = 60000;
-            return com.baidu.android.systemmonitor.c.a.d() * 60000;
+            j = TbConfig.USE_TIME_INTERVAL;
+            return com.baidu.android.systemmonitor.c.a.d() * TbConfig.USE_TIME_INTERVAL;
         }
         if (this.k != null && !TextUtils.isEmpty((CharSequence) this.k.get("tj_data_upload_interval"))) {
             return Long.parseLong((String) this.k.get("tj_data_upload_interval")) * 3600000;

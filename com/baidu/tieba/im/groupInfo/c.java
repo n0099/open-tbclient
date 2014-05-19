@@ -2,8 +2,9 @@ package com.baidu.tieba.im.groupInfo;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-final class c implements TextWatcher {
+class c implements TextWatcher {
     final /* synthetic */ ApplyJoinGroupActivity a;
     private CharSequence b;
 
@@ -13,16 +14,16 @@ final class c implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         this.b = charSequence;
     }
 
     @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
+    public void afterTextChanged(Editable editable) {
         if (editable != null) {
             int selectionStart = this.a.b.getSelectionStart();
             int selectionEnd = this.a.b.getSelectionEnd();
@@ -30,12 +31,12 @@ final class c implements TextWatcher {
             if (30 < length) {
                 this.a.f.setEnabled(false);
                 editable.delete(selectionStart - 1, selectionEnd);
-                com.baidu.adp.lib.util.f.e("start:" + selectionStart + " end:" + selectionEnd);
+                BdLog.d("start:" + selectionStart + " end:" + selectionEnd);
                 this.a.b.setText(editable);
                 this.a.b.setSelection(selectionStart);
                 length = 30;
             } else {
-                this.a.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.im.e.edit_normal));
+                this.a.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.edit_normal));
                 if (editable.length() > 0) {
                     this.a.f.setEnabled(true);
                 } else {
@@ -43,7 +44,7 @@ final class c implements TextWatcher {
                 }
             }
             if (30 == length) {
-                this.a.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.im.e.edit_exceed));
+                this.a.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.edit_exceed));
             }
             this.a.c.setText(String.valueOf(length) + "/30");
         }

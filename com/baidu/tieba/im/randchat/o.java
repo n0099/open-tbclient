@@ -2,10 +2,10 @@ package com.baidu.tieba.im.randchat;
 
 import com.baidu.tieba.im.chat.snapGroup.SnapGroupChatActivity;
 import com.baidu.tieba.im.data.RandChatRoomData;
-import com.baidu.tieba.im.model.bv;
+import com.baidu.tieba.im.model.ca;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class o implements c {
+public class o implements c {
     final /* synthetic */ WaittingActivity a;
     private final /* synthetic */ String b;
 
@@ -16,23 +16,23 @@ public final class o implements c {
     }
 
     @Override // com.baidu.tieba.im.randchat.c
-    public final void a() {
+    public void a() {
         boolean z;
-        bv bvVar;
-        bv bvVar2;
-        bv bvVar3;
-        bv bvVar4;
+        ca caVar;
+        ca caVar2;
+        ca caVar3;
+        ca caVar4;
         z = this.a.g;
         if (!z) {
-            bvVar = this.a.b;
-            RandChatRoomData f = bvVar.f();
-            bvVar2 = this.a.b;
-            int g = bvVar2.g();
+            caVar = this.a.b;
+            RandChatRoomData f = caVar.f();
+            caVar2 = this.a.b;
+            int g = caVar2.g();
             WaittingActivity waittingActivity = this.a;
-            bvVar3 = this.a.b;
-            String h = bvVar3.h();
-            bvVar4 = this.a.b;
-            SnapGroupChatActivity.a(waittingActivity, f, h, bvVar4.i(), this.b, g);
+            caVar3 = this.a.b;
+            String h = caVar3.h();
+            caVar4 = this.a.b;
+            SnapGroupChatActivity.a(waittingActivity, f, h, caVar4.i(), this.b, g);
             this.a.finish();
             this.a.g = true;
         }

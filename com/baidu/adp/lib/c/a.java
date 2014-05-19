@@ -5,6 +5,7 @@ import android.location.Address;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Handler;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
@@ -12,7 +13,7 @@ import java.lang.ref.SoftReference;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private static long b = 10000;
     private static a c = null;
     private static long d = 300000;
@@ -45,31 +46,39 @@ public final class a {
         return aVar;
     }
 
-    public final void a(Context context, String str) {
+    public void a(Context context, String str) {
+        a(context, str, true);
+    }
+
+    public void a(Context context, String str, boolean z) {
         if (context == null) {
             throw new InvalidParameterException("context is null");
         }
         this.n = new ArrayList<>();
         this.o = context;
         this.h = str;
-        this.i = true;
-        this.p = new Handler(new c(this));
+        this.i = z;
         b();
+        c();
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         this.e = z;
     }
 
     private void b() {
+        this.p = new Handler(new c(this));
+    }
+
+    private void c() {
         try {
             this.k = (LocationManager) this.o.getSystemService("location");
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            BdLog.e(e.getMessage());
         }
         try {
             if (this.e) {
-                this.g = new e(this, (byte) 0);
+                this.g = new e(this, null);
                 LocationClientOption locationClientOption = new LocationClientOption();
                 locationClientOption.setOpenGps(true);
                 locationClientOption.setProdName(this.h);
@@ -82,28 +91,30 @@ public final class a {
                 this.f.setLocOption(locationClientOption);
             }
         } catch (Exception e2) {
-            com.baidu.adp.lib.util.f.b(e2.getMessage());
+            BdLog.e(e2.getMessage());
         }
     }
 
-    public final Address b(boolean z) {
+    public Address b(boolean z) {
         if (System.currentTimeMillis() - this.a > d) {
             this.l = null;
         }
-        if (this.l != null) {
+        if (this.l != null && !z) {
             return this.l;
         }
         this.l = null;
-        d();
+        e();
         return null;
     }
 
-    public final Address a(boolean z, d dVar) {
+    public Address a(boolean z, d dVar) {
         boolean z2;
         if (System.currentTimeMillis() - this.a > d) {
             this.l = null;
         }
-        Address address = this.l;
+        if (this.l != null && !z) {
+            return this.l;
+        }
         if (dVar != null) {
             int i = 0;
             while (true) {
@@ -126,12 +137,12 @@ public final class a {
                 }
                 this.n.add(new SoftReference<>(dVar));
             }
-            d();
+            e();
         }
         return null;
     }
 
-    public void c() {
+    public void d() {
         if (this.p.hasMessages(0)) {
             this.p.removeMessages(0);
         }
@@ -139,7 +150,7 @@ public final class a {
             try {
                 this.k.removeUpdates(this.q);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("error : " + e.getMessage());
+                BdLog.e("error : " + e.getMessage());
             }
         }
         if (this.f != null && this.f.isStarted()) {
@@ -151,7 +162,7 @@ public final class a {
         }
     }
 
-    private void d() {
+    private void e() {
         try {
             this.l = null;
             if (this.p.hasMessages(0)) {
@@ -186,7 +197,7 @@ public final class a {
             }
             this.p.sendMessageDelayed(this.p.obtainMessage(0), b);
         } catch (Exception e) {
-            c();
+            d();
             this.j = 5;
             if (this.p.hasMessages(0)) {
                 this.p.removeMessages(0);
@@ -195,25 +206,26 @@ public final class a {
         }
     }
 
-    public static /* synthetic */ void a(a aVar, int i, String str, Address address) {
+    public void a(int i, String str, Address address) {
         int i2 = 0;
-        if (aVar.p.hasMessages(0)) {
-            aVar.p.removeMessages(0);
+        if (this.p.hasMessages(0)) {
+            this.p.removeMessages(0);
         }
-        if (aVar.n == null) {
+        if (this.n == null) {
             return;
         }
         while (true) {
             int i3 = i2;
-            if (i3 >= aVar.n.size()) {
-                aVar.n.clear();
+            if (i3 < this.n.size()) {
+                d dVar = this.n.get(i3).get();
+                if (dVar != null) {
+                    dVar.a(i, str, address);
+                }
+                i2 = i3 + 1;
+            } else {
+                this.n.clear();
                 return;
             }
-            d dVar = aVar.n.get(i3).get();
-            if (dVar != null) {
-                dVar.a(i, address);
-            }
-            i2 = i3 + 1;
         }
     }
 }

@@ -4,12 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.model.bb;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class AboutActivity extends com.baidu.tbadk.a {
+public class AboutActivity extends BaseActivity {
     private d a;
     private com.baidu.tieba.model.a b;
     private c c = null;
@@ -19,40 +21,35 @@ public class AboutActivity extends com.baidu.tbadk.a {
         context.startActivity(new Intent(context, AboutActivity.class));
     }
 
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.a = new d(this, new a(this));
-        this.a.e();
-        this.c = new c(this, (byte) 0);
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(com.baidu.tbadk.core.data.n.z());
-        registerReceiver(this.c, intentFilter);
+        this.a.c();
+        b();
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.a != null) {
-            this.a.e();
+            this.a.c();
         }
     }
 
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.c != null) {
-            unregisterReceiver(this.c);
-        }
+        c();
         if (this.b != null) {
             this.b.cancelLoadData();
         }
         if (this.a != null) {
-            this.a.d();
+            this.a.b();
         }
     }
 
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.a != null) {
@@ -60,43 +57,55 @@ public class AboutActivity extends com.baidu.tbadk.a {
         }
     }
 
-    public static /* synthetic */ void b(AboutActivity aboutActivity) {
-        if (aboutActivity.b == null) {
-            aboutActivity.b = new com.baidu.tieba.model.a(aboutActivity, new b(aboutActivity));
+    public void a() {
+        if (this.b == null) {
+            this.b = new com.baidu.tieba.model.a(this, new b(this));
         } else {
-            aboutActivity.b.cancelLoadData();
+            this.b.cancelLoadData();
         }
-        aboutActivity.b.a();
-        if (aboutActivity.a != null) {
-            aboutActivity.a.a();
+        this.b.a();
+        if (this.a != null) {
+            this.a.a();
         }
     }
 
-    public static /* synthetic */ void a(AboutActivity aboutActivity, Object obj) {
-        if (aboutActivity.a != null) {
-            aboutActivity.a.d();
+    public void a(Object obj) {
+        if (this.a != null) {
+            this.a.b();
         }
         bb bbVar = obj != null ? (bb) obj : null;
-        if (bbVar == null) {
-            aboutActivity.showToast(aboutActivity.getResources().getString(com.baidu.tieba.a.k.neterror));
+        if (bbVar != null) {
+            com.baidu.tieba.ad.c().a(bbVar.c());
+            TbadkApplication.m252getInst().refreshNewVersion(false);
+            if (bbVar.c().hasNewVer()) {
+                if (bbVar.c().forceUpdate()) {
+                    UpdateDialog.a(com.baidu.tieba.ad.c().d(), bbVar.c(), bbVar.b());
+                } else {
+                    TbadkApplication.m252getInst().setUpdateNotifyTime(Long.valueOf(new Date().getTime()).longValue());
+                    UpdateDialog.a(com.baidu.tieba.ad.c().d(), bbVar.c(), bbVar.b());
+                }
+            } else {
+                showToast(getResources().getString(com.baidu.tieba.u.neednot_update));
+            }
+            if (this.a != null) {
+                this.a.c();
+                return;
+            }
             return;
         }
-        com.baidu.tieba.p.c().a(bbVar.c());
-        TbadkApplication.j().k(false);
-        if (bbVar.c().getHas_new_ver() != 1) {
-            aboutActivity.showToast(aboutActivity.getResources().getString(com.baidu.tieba.a.k.neednot_update));
-        } else if (bbVar.c().getForce_update() == 1) {
-            com.baidu.tieba.p.c();
-            UpdateDialog.a(com.baidu.tieba.p.d(), bbVar.c(), bbVar.b());
-        } else {
-            Long valueOf = Long.valueOf(new Date().getTime());
-            TbadkApplication.j();
-            TbadkApplication.a(valueOf.longValue());
-            com.baidu.tieba.p.c();
-            UpdateDialog.a(com.baidu.tieba.p.d(), bbVar.c(), bbVar.b());
-        }
-        if (aboutActivity.a != null) {
-            aboutActivity.a.e();
+        showToast(getResources().getString(com.baidu.tieba.u.neterror));
+    }
+
+    private void b() {
+        this.c = new c(this, null);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
+        registerReceiver(this.c, intentFilter);
+    }
+
+    private void c() {
+        if (this.c != null) {
+            unregisterReceiver(this.c);
         }
     }
 }

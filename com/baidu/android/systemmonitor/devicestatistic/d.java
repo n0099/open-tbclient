@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.CallLog;
+import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class d {
@@ -44,7 +45,7 @@ public final class d {
     }
 
     public static long d() {
-        long e = com.baidu.android.systemmonitor.c.a.e() * 60000;
+        long e = com.baidu.android.systemmonitor.c.a.e() * TbConfig.USE_TIME_INTERVAL;
         if (e == 0) {
             return 86400000L;
         }
@@ -52,14 +53,14 @@ public final class d {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX WARN: Removed duplicated region for block: B:134:0x00da A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:136:0x009a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:142:0x0162 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:146:0x011e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:130:0x0127 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:136:0x016d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:142:0x00e1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:144:0x009f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final ArrayList a(int i, long j) {
+    public ArrayList a(int i, long j) {
         String[] strArr;
         String str;
         Cursor cursor;
@@ -262,7 +263,7 @@ public final class d {
         return arrayList;
     }
 
-    public final void a() {
+    public void a() {
         if (this.d == null || this.a) {
             return;
         }
@@ -271,39 +272,39 @@ public final class d {
         this.d = null;
     }
 
-    public final void a(Context context, long j) {
+    public void a(Context context, long j) {
         PendingIntent broadcast = PendingIntent.getBroadcast(context, 0, new Intent("com.baidu.systemmonitor.getstoreinfo"), 268435456);
         long d = d();
         ((AlarmManager) context.getSystemService("alarm")).setRepeating(3, j + d, d, broadcast);
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(14:1|2|3|(3:35|36|(10:38|39|(1:7)|8|9|10|(6:14|(1:15)|17|18|(1:20)|21)|(1:24)|25|26))|5|(0)|8|9|10|(7:12|14|(1:15)|17|18|(0)|21)|(0)|25|26|(1:(0))) */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x00d0, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(13:1|(2:2|3)|(3:35|36|(10:38|39|(1:7)|8|9|10|(6:14|(1:15)|17|18|(1:20)|21)|(1:24)|25|26))|5|(0)|8|9|10|(7:12|14|(1:15)|17|18|(0)|21)|(0)|25|26|(1:(0))) */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x00dd, code lost:
         if (r6 != null) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00d2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00df, code lost:
         r6.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00d6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00e3, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00d7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e4, code lost:
         if (r6 != null) goto L33;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00d9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00e6, code lost:
         r6.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x00dc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x00e9, code lost:
         throw r0;
      */
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0039  */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0051 A[Catch: SQLiteException -> 0x00cf, all -> 0x00d6, TryCatch #4 {SQLiteException -> 0x00cf, all -> 0x00d6, blocks: (B:12:0x003d, B:14:0x0051, B:16:0x0057, B:17:0x0068, B:19:0x009c, B:21:0x00a2, B:22:0x00ab), top: B:52:0x003d }] */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x00a2 A[Catch: SQLiteException -> 0x00cf, all -> 0x00d6, TryCatch #4 {SQLiteException -> 0x00cf, all -> 0x00d6, blocks: (B:12:0x003d, B:14:0x0051, B:16:0x0057, B:17:0x0068, B:19:0x009c, B:21:0x00a2, B:22:0x00ab), top: B:52:0x003d }] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x00b2  */
+    /* JADX WARN: Removed duplicated region for block: B:10:0x003e  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0058 A[Catch: SQLiteException -> 0x00dc, all -> 0x00e3, TryCatch #6 {SQLiteException -> 0x00dc, all -> 0x00e3, blocks: (B:12:0x0042, B:14:0x0058, B:16:0x005e, B:17:0x0072, B:19:0x00a8, B:21:0x00ae, B:22:0x00b7), top: B:48:0x0042 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x00ae A[Catch: SQLiteException -> 0x00dc, all -> 0x00e3, TryCatch #6 {SQLiteException -> 0x00dc, all -> 0x00e3, blocks: (B:12:0x0042, B:14:0x0058, B:16:0x005e, B:17:0x0072, B:19:0x00a8, B:21:0x00ae, B:22:0x00b7), top: B:48:0x0042 }] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x00bf  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void a(Context context, long j, com.baidu.android.systemmonitor.devicestatistic.a.a aVar) {
+    public void a(Context context, long j, com.baidu.android.systemmonitor.devicestatistic.a.a aVar) {
         Cursor cursor;
         int columnIndex;
         int columnIndex2;
@@ -392,7 +393,7 @@ public final class d {
         aVar.d = sb.toString();
     }
 
-    public final boolean a(com.baidu.android.systemmonitor.devicestatistic.a.f fVar) {
+    public boolean a(com.baidu.android.systemmonitor.devicestatistic.a.f fVar) {
         long insert;
         if (fVar == null) {
             return false;
@@ -453,24 +454,24 @@ public final class d {
         }
     }
 
-    public final void b(Context context) {
+    public void b(Context context) {
         ((AlarmManager) context.getSystemService("alarm")).cancel(PendingIntent.getBroadcast(context, 0, new Intent("com.baidu.systemmonitor.getstoreinfo"), 268435456));
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(13:1|(2:2|3)|(3:41|42|(10:44|45|(1:7)|8|9|10|(3:17|18|(6:20|(1:21)|23|24|(1:26)|27))|(1:13)|14|15))|5|(0)|8|9|10|(0)|(0)|14|15|(1:(0))) */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x00e9, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(14:1|2|3|(3:41|42|(10:44|45|(1:7)|8|9|10|(3:17|18|(6:20|(1:21)|23|24|(1:26)|27))|(1:13)|14|15))|5|(0)|8|9|10|(0)|(0)|14|15|(1:(0))) */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x00f8, code lost:
         r0 = r6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00f0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x00ff, code lost:
         r0 = th;
      */
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0047  */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x00cb  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:10:0x004d  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x00da  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void b(Context context, long j, com.baidu.android.systemmonitor.devicestatistic.a.a aVar) {
+    public void b(Context context, long j, com.baidu.android.systemmonitor.devicestatistic.a.a aVar) {
         Cursor cursor;
         Cursor cursor2;
         Cursor cursor3;
@@ -566,7 +567,7 @@ public final class d {
         aVar.f = sb.toString();
     }
 
-    public final boolean b(int i, long j) {
+    public boolean b(int i, long j) {
         String str;
         String[] strArr = null;
         if (j != 0) {
@@ -616,7 +617,7 @@ public final class d {
         }
     }
 
-    public final void c() {
+    public void c() {
         new Thread(new c(this)).start();
     }
 }

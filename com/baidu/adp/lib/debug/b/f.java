@@ -7,7 +7,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements View.OnClickListener {
+public class f implements View.OnClickListener {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ public final class f implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         TextView textView;
         Context context;
         Context context2;

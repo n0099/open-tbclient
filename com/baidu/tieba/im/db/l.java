@@ -4,7 +4,7 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class l implements com.baidu.tieba.im.b.d {
+public class l implements com.baidu.tieba.im.b.d {
     final /* synthetic */ i a;
     private final /* synthetic */ Set b;
 
@@ -15,7 +15,7 @@ public final class l implements com.baidu.tieba.im.b.d {
     }
 
     @Override // com.baidu.tieba.im.b.d
-    public final void a(ImMessageCenterPojo imMessageCenterPojo) {
+    public void a(ImMessageCenterPojo imMessageCenterPojo) {
         this.b.add(imMessageCenterPojo.getGid());
     }
 }

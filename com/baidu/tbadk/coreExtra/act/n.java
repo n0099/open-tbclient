@@ -1,30 +1,31 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.view.View;
-import android.widget.EditText;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-final class n implements View.OnClickListener {
-    final /* synthetic */ LoginActivity a;
+class n extends BroadcastReceiver {
+    final /* synthetic */ EditHeadActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(LoginActivity loginActivity) {
-        this.a = loginActivity;
+    private n(EditHeadActivity editHeadActivity) {
+        this.a = editHeadActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        EditText editText;
-        EditText editText2;
-        EditText editText3;
-        LoginActivity loginActivity = this.a;
-        editText = this.a.o;
-        com.baidu.adp.lib.util.i.a(loginActivity, editText);
-        LoginActivity loginActivity2 = this.a;
-        editText2 = this.a.p;
-        com.baidu.adp.lib.util.i.a(loginActivity2, editText2);
-        LoginActivity loginActivity3 = this.a;
-        editText3 = this.a.q;
-        com.baidu.adp.lib.util.i.a(loginActivity3, editText3);
-        this.a.finish();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ n(EditHeadActivity editHeadActivity, n nVar) {
+        this(editHeadActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        this.a.releaseResouce();
+        if (intent.getBooleanExtra("result", false)) {
+            EditHeadActivity.i(this.a);
+            return;
+        }
+        this.a.showToast(intent.getStringExtra("error"));
+        if (EditHeadActivity.d(this.a) != null) {
+            EditHeadActivity.d(this.a).setEnabled(false);
+        }
     }
 }

@@ -1,27 +1,34 @@
 package com.baidu.tbadk.core.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import protobuf.CheckMaskUser.CheckMaskUserRes;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.squareup.wire.Wire;
+import protobuf.CheckMaskUser.CheckMaskUserResIdl;
 /* loaded from: classes.dex */
 public class ResponseCheckUserMaskMessage extends SocketResponsedMessage {
-    private boolean a;
+    private boolean isMasked;
 
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        CheckMaskUserRes.CheckMaskUserResIdl parseFrom = CheckMaskUserRes.CheckMaskUserResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.a = parseFrom.getData().getIsMask() == 1;
+    public ResponseCheckUserMaskMessage() {
+        super(MessageTypes.CMD_CHECK_USER_MASK);
+        this.isMasked = false;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        CheckMaskUserResIdl checkMaskUserResIdl = (CheckMaskUserResIdl) new Wire(new Class[0]).parseFrom(bArr, CheckMaskUserResIdl.class);
+        setError(checkMaskUserResIdl.error.errorno.intValue());
+        setErrorString(checkMaskUserResIdl.error.usermsg);
+        if (getError() == 0) {
+            setMasked(checkMaskUserResIdl.data.isMask.intValue() == 1);
         }
     }
 
-    public ResponseCheckUserMaskMessage() {
-        super(104104);
-        this.a = false;
+    public boolean isMasked() {
+        return this.isMasked;
     }
 
-    public final boolean d() {
-        return this.a;
+    public void setMasked(boolean z) {
+        this.isMasked = z;
     }
 }

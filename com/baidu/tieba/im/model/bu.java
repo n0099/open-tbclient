@@ -1,52 +1,51 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import org.apache.http.message.BasicNameValuePair;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.RequestQueryGroupLocMessage;
 /* loaded from: classes.dex */
-public final class bu extends BdAsyncTask<Object, Integer, String> {
-    final /* synthetic */ bt a;
-    private String b;
-    private long c;
-    private o d = new o();
+public class bu extends com.baidu.adp.base.d {
+    private RequestQueryGroupLocMessage a = null;
+    private int b;
+    private String c;
+    private String d;
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ String a(Object... objArr) {
-        return a();
+    public void a(int i) {
+        this.b = i;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(String str) {
-        com.baidu.adp.a.h hVar;
-        com.baidu.adp.a.h hVar2;
-        String str2 = str;
-        super.a((bu) str2);
-        hVar = this.a.mLoadDataCallBack;
-        if (hVar != null) {
-            hVar2 = this.a.mLoadDataCallBack;
-            hVar2.a(new BasicNameValuePair(String.valueOf(this.c), str2));
-        }
+    public void a(String str) {
+        this.c = str;
     }
 
-    public bu(bt btVar, String str, long j) {
-        this.a = btVar;
-        this.b = str;
-        this.c = j;
+    public void b(String str) {
+        this.d = str;
     }
 
-    private String a() {
-        String str;
-        try {
-            o oVar = this.d;
-            return o.a(this.b);
-        } catch (Exception e) {
-            str = bt.a;
-            com.baidu.adp.lib.util.f.b(str, "doInBackground", "errro: " + e.getMessage());
-            return null;
-        }
+    private RequestQueryGroupLocMessage b() {
+        RequestQueryGroupLocMessage requestQueryGroupLocMessage = new RequestQueryGroupLocMessage();
+        requestQueryGroupLocMessage.setLng(this.c);
+        requestQueryGroupLocMessage.setLat(this.d);
+        requestQueryGroupLocMessage.setGroupId(this.b);
+        return requestQueryGroupLocMessage;
+    }
+
+    public void a() {
+        this.a = b();
+        super.sendMessage(this.a);
+    }
+
+    @Override // com.baidu.adp.base.d
+    public void cancelMessage() {
+        this.a = null;
+        super.cancelMessage();
+    }
+
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
+        return false;
     }
 }

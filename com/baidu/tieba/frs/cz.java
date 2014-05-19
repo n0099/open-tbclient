@@ -1,11 +1,20 @@
 package com.baidu.tieba.frs;
-
-import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface cz {
-    void a(int i);
+public class cz implements com.baidu.tbadk.core.view.h {
+    final /* synthetic */ cs a;
 
-    void a(int i, JSONObject jSONObject, j jVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cz(cs csVar) {
+        this.a = csVar;
+    }
 
-    void a(g gVar);
+    @Override // com.baidu.tbadk.core.view.h
+    public void a() {
+        this.a.a();
+    }
+
+    @Override // com.baidu.tbadk.core.view.h
+    public void b() {
+    }
 }

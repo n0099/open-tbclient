@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.a;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.q;
+import com.baidu.adp.lib.stats.r;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -13,86 +13,112 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 @SuppressLint({"DefaultLocale"})
 /* loaded from: classes.dex */
-public final class e {
-    private static int l = 5;
-    private com.baidu.adp.lib.network.http.e h;
-    private volatile com.baidu.adp.lib.network.http.c i = null;
-    private HashMap<String, String> j = null;
-    private com.baidu.adp.lib.network.http.g k = new com.baidu.adp.lib.network.http.g();
-    public String a = q.a();
+public class e implements com.baidu.adp.lib.resourceLoader.b {
+    private static int m = 5;
+    private com.baidu.adp.lib.network.http.e i;
+    private volatile com.baidu.adp.lib.network.http.c j = null;
+    private HashMap<String, String> k = null;
+    private com.baidu.adp.lib.network.http.g l = new com.baidu.adp.lib.network.http.g();
+    public String a = r.a();
     public List<Integer> b = new ArrayList();
     public boolean c = false;
     public boolean d = false;
     public String e = "";
-    public int f = -1;
+    public com.baidu.adp.lib.network.http.d f = null;
     public int g = -1;
-    private boolean m = false;
+    public int h = -1;
+    private boolean n = false;
 
-    public final boolean a() {
-        return this.m;
+    public boolean b() {
+        return this.n;
     }
 
-    public final void a(BasicNameValuePair basicNameValuePair) {
+    public com.baidu.adp.lib.network.http.g c() {
+        return this.l;
+    }
+
+    public void d() {
+        this.f = null;
+        this.e = "";
+        this.n = false;
+        this.h = -1;
+        this.g = -1;
+        this.d = false;
+        this.c = false;
+        this.b.clear();
+    }
+
+    public void a(BasicNameValuePair basicNameValuePair) {
         if (basicNameValuePair != null) {
-            if (this.j == null) {
-                this.j = new HashMap<>();
+            if (this.k == null) {
+                this.k = new HashMap<>();
             }
-            this.j.put(basicNameValuePair.getName(), basicNameValuePair.getValue());
+            this.k.put(basicNameValuePair.getName(), basicNameValuePair.getValue());
         }
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [167=6] */
     private final byte[] b(String str) {
+        int size;
+        int i = 0;
         try {
-            this.e = "";
-            this.m = false;
-            this.g = -1;
-            this.f = -1;
-            this.d = false;
-            this.c = false;
-            this.b.clear();
-            if (this.h != null) {
-                b();
-                this.i = null;
-            }
-            this.h = new com.baidu.adp.lib.network.http.e();
-            if (!TextUtils.isEmpty(this.a)) {
-                this.h.a().b("sid", this.a);
-            }
-            this.h.a().a(str);
-            if (this.j != null) {
-                for (Map.Entry<String, String> entry : this.j.entrySet()) {
-                    this.h.a().a(entry.getKey(), entry.getValue());
+            try {
+                d();
+                if (this.i != null) {
+                    a();
+                    this.j = null;
                 }
+                this.i = new com.baidu.adp.lib.network.http.e();
+                if (!TextUtils.isEmpty(this.a)) {
+                    this.i.a().b("sid", this.a);
+                }
+                this.i.a().a(str);
+                if (this.k != null) {
+                    for (Map.Entry<String, String> entry : this.k.entrySet()) {
+                        this.i.a().a(entry.getKey(), entry.getValue());
+                    }
+                }
+                this.j = new com.baidu.adp.lib.network.http.c(this.i);
+                this.j.a(m, 0, 0);
+                this.l = this.i.b();
+                byte[] bArr = this.i.b().g;
+                this.h = this.i.b().b;
+                this.n = this.i.b().a();
+                if (bArr != null) {
+                    this.g = bArr.length;
+                } else {
+                    this.g = 0;
+                }
+                if (this.i.b().c != null && this.i.b().c.toLowerCase().contains("gzip")) {
+                    this.c = true;
+                    bArr = a(bArr);
+                }
+                if (!this.n) {
+                    a(str, (Exception) null);
+                }
+                while (true) {
+                    if (i >= size) {
+                        return bArr;
+                    }
+                }
+            } catch (Exception e) {
+                a(str, e);
+                TiebaStatic.netImg(this.i);
+                for (int i2 = 0; i2 < this.i.c().size(); i2++) {
+                    this.f = this.i.c().get(i2);
+                }
+                return null;
             }
-            this.i = new com.baidu.adp.lib.network.http.c(this.h);
-            this.i.a(l, 0, 0);
-            this.k = this.h.b();
-            byte[] bArr = this.h.b().g;
-            this.g = this.h.b().b;
-            com.baidu.adp.lib.network.http.g b = this.h.b();
-            this.m = b.b == 200 || b.b / 100 == 3;
-            if (bArr != null) {
-                this.f = bArr.length;
-            } else {
-                this.f = 0;
-            }
-            if (this.h.b().c != null && this.h.b().c.toLowerCase().contains("gzip")) {
-                this.c = true;
-                bArr = a(bArr);
-            }
-            if (!this.m) {
-                a(str, (Exception) null);
-            }
-            return bArr;
-        } catch (Exception e) {
-            a(str, e);
-            return null;
         } finally {
-            TiebaStatic.a(this.h);
+            TiebaStatic.netImg(this.i);
+            while (i < this.i.c().size()) {
+                this.f = this.i.c().get(i);
+                i++;
+            }
         }
     }
 
-    private static byte[] a(byte[] bArr) {
+    private final byte[] a(byte[] bArr) {
         try {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
@@ -103,11 +129,11 @@ public final class e {
         }
     }
 
-    public final byte[] a(String str) {
+    public byte[] a(String str) {
         return a(str, false);
     }
 
-    public final byte[] a(String str, boolean z) {
+    public byte[] a(String str, boolean z) {
         boolean z2;
         String str2;
         boolean z3 = false;
@@ -116,39 +142,38 @@ public final class e {
             if (b == null) {
                 return null;
             }
-            if (this.h != null && this.h.b().f != null) {
-                List<String> list = this.h.b().f.get("imgsrc");
+            if (this.i != null && this.i.b().f != null) {
+                List<String> list = this.i.b().f.get("imgsrc");
                 if (list != null && list.size() > 0 && (str2 = list.get(0)) != null && str2.length() > 0) {
                     z3 = true;
                 }
-                List<String> list2 = this.h.b().f.get("Src-Content-Type");
+                List<String> list2 = this.i.b().f.get("Src-Content-Type");
                 if (list2 != null && list2.size() > 0) {
                     if ("image/gif".equalsIgnoreCase(list2.get(0))) {
                         this.d = true;
                         z2 = z3;
-                        if (this.m || !((z || z2) && new String(b, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;"))) {
-                            return b;
-                        }
-                        int length = b.length;
-                        int i = length - 23;
-                        if (i < 0) {
-                            throw new IllegalArgumentException(String.valueOf(23) + " > " + length);
-                        }
-                        byte[] bArr = new byte[i];
-                        System.arraycopy(b, 23, bArr, 0, Math.min(b.length - 23, i));
-                        return bArr;
+                        return (this.n || !((z || z2) && new String(b, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;"))) ? b : a(b, 23, b.length);
                     }
                     this.d = false;
                 }
             }
             z2 = z3;
-            if (this.m) {
+            if (this.n) {
             }
-            return b;
         } catch (Exception e) {
             this.e = String.valueOf(this.e) + "BDIMAGE DECODE ERROR" + e.getMessage();
             return null;
         }
+    }
+
+    private static byte[] a(byte[] bArr, int i, int i2) {
+        int i3 = i2 - i;
+        if (i3 < 0) {
+            throw new IllegalArgumentException(String.valueOf(i) + " > " + i2);
+        }
+        byte[] bArr2 = new byte[i3];
+        System.arraycopy(bArr, i, bArr2, 0, Math.min(bArr.length - i, i3));
+        return bArr2;
     }
 
     private void a(String str, Exception exc) {
@@ -158,8 +183,8 @@ public final class e {
             stringBuffer.append(str);
             stringBuffer.append("thread_id:");
             stringBuffer.append(Thread.currentThread().getId());
-            for (int i = 0; i < this.h.c().size(); i++) {
-                com.baidu.adp.lib.network.http.d dVar = this.h.c().get(i);
+            for (int i = 0; i < this.i.c().size(); i++) {
+                com.baidu.adp.lib.network.http.d dVar = this.i.c().get(i);
                 stringBuffer.append(" index: ");
                 stringBuffer.append(i);
                 stringBuffer.append("exception:");
@@ -194,13 +219,14 @@ public final class e {
             this.e = stringBuffer.toString();
         } catch (Exception e) {
         } finally {
-            this.m = false;
+            this.n = false;
         }
     }
 
-    public final void b() {
-        if (this.h != null) {
-            this.h.b().a = true;
+    @Override // com.baidu.adp.lib.resourceLoader.b
+    public void a() {
+        if (this.i != null) {
+            this.i.b().a = true;
         }
     }
 }

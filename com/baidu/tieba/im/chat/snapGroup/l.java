@@ -4,7 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class l implements DialogInterface.OnClickListener {
+public class l implements DialogInterface.OnClickListener {
     final /* synthetic */ SnapGroupChatView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,9 +13,9 @@ public final class l implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         AlertDialog alertDialog;
-        alertDialog = this.a.m;
+        alertDialog = this.a.l;
         alertDialog.dismiss();
     }
 }

@@ -28,7 +28,7 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
     }
 
     @Override // com.baidu.gson.TypeAdapter
-    public final T read(JsonReader jsonReader) {
+    public T read(JsonReader jsonReader) {
         if (this.deserializer == null) {
             return delegate().read(jsonReader);
         }
@@ -40,7 +40,7 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
     }
 
     @Override // com.baidu.gson.TypeAdapter
-    public final void write(JsonWriter jsonWriter, T t) {
+    public void write(JsonWriter jsonWriter, T t) {
         if (this.serializer == null) {
             delegate().write(jsonWriter, t);
         } else if (t == null) {

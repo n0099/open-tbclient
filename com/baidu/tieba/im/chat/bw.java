@@ -1,25 +1,15 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tbadk.core.view.HeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bw implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ MsgActivityView a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(MsgActivityView msgActivityView) {
-        this.a = msgActivityView;
+public class bw {
+    public static long a(long j) {
+        return 1 + j;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        HeadImageView headImageView;
-        HeadImageView headImageView2;
-        headImageView = this.a.p;
-        String str2 = (String) headImageView.getTag();
-        if (str != null && str.equals(str2) && bVar != null) {
-            headImageView2 = this.a.p;
-            bVar.a(headImageView2);
-        }
+    public static long b(long j) {
+        return 100 * j;
+    }
+
+    public static long c(long j) {
+        return j / 100;
     }
 }

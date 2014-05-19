@@ -9,7 +9,7 @@ public final class GeoResultParser extends ResultParser {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public final GeoParsedResult parse(Result result) {
+    public GeoParsedResult parse(Result result) {
         double d = 0.0d;
         Matcher matcher = GEO_URL_PATTERN.matcher(getMassagedText(result));
         if (matcher.matches()) {

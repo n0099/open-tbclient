@@ -2,7 +2,7 @@ package com.baidu.tieba.barcode;
 
 import android.view.SurfaceHolder;
 /* loaded from: classes.dex */
-final class f implements Runnable {
+class f implements Runnable {
     final /* synthetic */ CaptureActivity a;
     private final /* synthetic */ SurfaceHolder b;
 
@@ -13,7 +13,7 @@ final class f implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         this.a.a(this.b);
     }
 }

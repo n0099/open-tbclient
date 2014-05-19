@@ -36,38 +36,38 @@ public final class IOCase implements Serializable {
         return forName(this.name);
     }
 
-    public final String getName() {
+    public String getName() {
         return this.name;
     }
 
-    public final boolean isCaseSensitive() {
+    public boolean isCaseSensitive() {
         return this.sensitive;
     }
 
-    public final int checkCompareTo(String str, String str2) {
+    public int checkCompareTo(String str, String str2) {
         if (str == null || str2 == null) {
             throw new NullPointerException("The strings must not be null");
         }
         return this.sensitive ? str.compareTo(str2) : str.compareToIgnoreCase(str2);
     }
 
-    public final boolean checkEquals(String str, String str2) {
+    public boolean checkEquals(String str, String str2) {
         if (str == null || str2 == null) {
             throw new NullPointerException("The strings must not be null");
         }
         return this.sensitive ? str.equals(str2) : str.equalsIgnoreCase(str2);
     }
 
-    public final boolean checkStartsWith(String str, String str2) {
+    public boolean checkStartsWith(String str, String str2) {
         return str.regionMatches(!this.sensitive, 0, str2, 0, str2.length());
     }
 
-    public final boolean checkEndsWith(String str, String str2) {
+    public boolean checkEndsWith(String str, String str2) {
         int length = str2.length();
         return str.regionMatches(!this.sensitive, str.length() - length, str2, 0, length);
     }
 
-    public final int checkIndexOf(String str, int i, String str2) {
+    public int checkIndexOf(String str, int i, String str2) {
         int length = str.length() - str2.length();
         if (length >= i) {
             for (int i2 = i; i2 <= length; i2++) {
@@ -79,11 +79,11 @@ public final class IOCase implements Serializable {
         return -1;
     }
 
-    public final boolean checkRegionMatches(String str, int i, String str2) {
+    public boolean checkRegionMatches(String str, int i, String str2) {
         return str.regionMatches(!this.sensitive, i, str2, 0, str2.length());
     }
 
-    public final String toString() {
+    public String toString() {
         return this.name;
     }
 }

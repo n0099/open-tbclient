@@ -1,8 +1,13 @@
 package com.baidu.tbadk.core.util;
+
+import java.util.Date;
 /* loaded from: classes.dex */
-final class bh extends bg {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bh() {
-        super((byte) 0);
+public class bh {
+    public static Date a() {
+        return new Date(System.currentTimeMillis());
+    }
+
+    public static long a(Date date, Date date2) {
+        return (date.getTime() - date2.getTime()) / 3600000;
     }
 }

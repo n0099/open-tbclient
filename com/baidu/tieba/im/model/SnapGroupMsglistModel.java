@@ -1,50 +1,62 @@
 package com.baidu.tieba.im.model;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tieba.im.chat.MsglistActivity;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.SnapChatMessage;
 /* loaded from: classes.dex */
 public class SnapGroupMsglistModel extends CommonGroupMsglistModel {
-    private com.baidu.adp.framework.c.a e;
+    private CustomMessageListener b;
 
     public SnapGroupMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
-        this.e = new br(this, 0);
-        com.baidu.adp.framework.c.a().a(2013002, this.e);
+        this.b = new bw(this, 0);
+        f();
     }
 
     @Override // com.baidu.tieba.im.model.CommonGroupMsglistModel, com.baidu.tieba.im.model.MsglistModel
-    public final void a() {
+    public void a() {
         super.a();
-        com.baidu.adp.framework.c.a().b(this.e);
+        m();
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected final com.baidu.tieba.im.message.a.a f() {
-        com.baidu.tieba.im.message.a.g gVar = new com.baidu.tieba.im.message.a.g();
-        gVar.b(System.currentTimeMillis());
+    protected ChatMessage g() {
+        SnapChatMessage snapChatMessage = new SnapChatMessage();
+        snapChatMessage.setBornTime(System.currentTimeMillis());
         if (b() == null) {
             return null;
         }
-        gVar.a(String.valueOf(b().getGroupId()));
-        return gVar;
+        snapChatMessage.setGroupId(String.valueOf(b().getGroupId()));
+        return snapChatMessage;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean f_() {
+    public boolean g_() {
         return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean d() {
+    public boolean d() {
         return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean e() {
+    public boolean e() {
         return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean a(String str) {
+    public boolean a(String str) {
         return true;
+    }
+
+    private void f() {
+        MessageManager.getInstance().registerListener(2015002, this.b);
+    }
+
+    private void m() {
+        MessageManager.getInstance().unRegisterListener(this.b);
     }
 }

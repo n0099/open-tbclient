@@ -1,20 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ae implements DialogInterface.OnCancelListener {
-    final /* synthetic */ UpdateDialog a;
+public class ae implements Handler.Callback {
+    final /* synthetic */ ad a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(UpdateDialog updateDialog) {
-        this.a = updateDialog;
+    public ae(ad adVar) {
+        this.a = adVar;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public final void onCancel(DialogInterface dialogInterface) {
-        k kVar;
-        kVar = this.a.c;
-        kVar.dismiss();
-        this.a.finish();
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        switch (message.what) {
+            case 2:
+                MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.START));
+                return false;
+            case 3:
+                MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.STOP));
+                return false;
+            default:
+                return false;
+        }
     }
 }

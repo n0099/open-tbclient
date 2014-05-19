@@ -1,51 +1,34 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class ar {
-    private String a = null;
-    private int b = 0;
-    private int d = 0;
-    private int e = 0;
-    private int c = 0;
+public class ar {
+    private int a = 0;
+    private String b = null;
 
-    public final int a() {
-        return this.d;
-    }
-
-    public final int b() {
-        return this.e;
-    }
-
-    public final String c() {
+    public int a() {
         return this.a;
     }
 
-    public final int d() {
+    public String b() {
         return this.b;
     }
 
-    public final void a(int i) {
-        this.b = i;
+    public void a(String str) {
+        try {
+            a(new JSONObject(str).optJSONObject("error"));
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "parserJson", e.toString());
+        }
     }
 
-    public final int e() {
-        return this.c;
-    }
-
-    public final void b(int i) {
-        this.c = i;
-    }
-
-    public final void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("id");
-                this.d = jSONObject.optInt("width", 0);
-                this.e = jSONObject.optInt("height", 0);
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
-            }
+    public void a(JSONObject jSONObject) {
+        try {
+            this.a = jSONObject.optInt("errno");
+            this.b = jSONObject.optString("usermsg");
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "parserJson", e.toString());
         }
     }
 }

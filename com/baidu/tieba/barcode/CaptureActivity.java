@@ -1,6 +1,7 @@
 package com.baidu.tieba.barcode;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
@@ -17,14 +18,20 @@ import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.service.TiebaPrepareImageService;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bd;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.barcode.result.ZxingResult;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
@@ -39,9 +46,8 @@ import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 import java.io.IOException;
 import java.util.Hashtable;
-import protobuf.Im;
 /* loaded from: classes.dex */
-public final class CaptureActivity extends com.baidu.tbadk.a implements SurfaceHolder.Callback {
+public final class CaptureActivity extends BaseActivity implements SurfaceHolder.Callback {
     private com.baidu.tieba.barcode.a.e a;
     private CaptureActivityHandler b;
     private Result c;
@@ -58,80 +64,84 @@ public final class CaptureActivity extends com.baidu.tbadk.a implements SurfaceH
     private Handler n = new Handler();
 
     static {
-        TbadkApplication.j().a(com.baidu.tbadk.core.b.e.class, CaptureActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.f.class, CaptureActivity.class);
     }
 
-    public final ViewfinderView a() {
+    public ViewfinderView a() {
         return this.d;
     }
 
-    public final Handler b() {
+    public Handler b() {
         return this.b;
     }
 
-    public final com.baidu.tieba.barcode.a.e c() {
+    public com.baidu.tieba.barcode.a.e c() {
         return this.a;
     }
 
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
-    public final void onCreate(Bundle bundle) {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         getWindow().addFlags(128);
-        setContentView(com.baidu.tieba.a.i.barcode_capture);
-        this.l = (ProgressBar) findViewById(com.baidu.tieba.a.h.progress);
+        setContentView(s.barcode_capture);
+        this.l = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
         this.l.setVisibility(8);
-        this.g = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
+        this.g = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
         this.h = this.g.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.h.setOnClickListener(new a(this));
-        this.g.a(getResources().getString(com.baidu.tieba.a.k.bar_code_scanning));
-        this.i = this.g.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.a.k.album));
+        this.g.a(getResources().getString(u.bar_code_scanning));
+        this.i = this.g.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(u.album));
         this.i.setOnClickListener(new b(this));
         this.e = false;
         this.f = new n(this);
-        this.j = new j(this, (byte) 0);
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(com.baidu.tbadk.core.data.n.t());
-        registerReceiver(this.j, intentFilter);
+        f();
     }
 
-    public static /* synthetic */ boolean d(CaptureActivity captureActivity) {
-        if (w.a()) {
+    public boolean e() {
+        if (x.a()) {
             return true;
         }
-        captureActivity.showToast(captureActivity.getString(com.baidu.tieba.a.k.voice_error_sdcard));
+        showToast(getString(u.voice_error_sdcard));
         return false;
     }
 
     @Override // android.app.Activity
-    protected final void onActivityResult(int i, int i2, Intent intent) {
+    protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 12002 && intent != null && intent.getData() != null) {
-            TiebaPrepareImageService.a(i, intent.getData(), bd.a().e(), com.baidu.adp.lib.util.i.b(this));
+            TiebaPrepareImageService.a(i, intent.getData(), bf.a().e(), com.baidu.adp.lib.util.h.b(this));
         }
     }
 
-    public static /* synthetic */ void a(CaptureActivity captureActivity) {
-        if (captureActivity.k != null) {
-            captureActivity.k.cancel();
+    private void f() {
+        this.j = new j(this, null);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(TbConfig.getBroadcastActionImageResized());
+        registerReceiver(this.j, intentFilter);
+    }
+
+    public void g() {
+        if (this.k != null) {
+            this.k.cancel();
         }
-        captureActivity.k = new i(captureActivity, (byte) 0);
-        captureActivity.k.execute(new Object[0]);
+        this.k = new i(this, null);
+        this.k.execute(new Object[0]);
     }
 
     public void a(String str) {
         if (TextUtils.isEmpty(str)) {
-            new AlertDialog.Builder(this).setTitle(com.baidu.tbadk.l.anti_title).setMessage(com.baidu.tbadk.l.msg_album_bug).setPositiveButton(com.baidu.tbadk.l.alert_yes_button, new c(this)).create().show();
+            com.baidu.tbadk.coreExtra.c.a.a(this, new c(this));
             return;
         }
-        TiebaStatic.a(this, "2d_code_scan_suc", "onclick", 1, new Object[0]);
+        TiebaStatic.eventStat(this, "2d_code_scan_suc", "onclick", 1, new Object[0]);
         if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
-            bg.a().a(this, new String[]{str}, true, new d(this));
+            bi.a().a((Context) this, new String[]{str}, true, (bm) new d(this));
             return;
         }
-        new AlertDialog.Builder(this).setTitle(com.baidu.tbadk.l.bar_code_result).setMessage(str).setPositiveButton(com.baidu.tbadk.l.alert_yes_button, new e(this)).create().show();
+        com.baidu.tbadk.coreExtra.c.a.a(this, new e(this), str);
     }
 
-    public static String a(Bitmap bitmap) {
+    public String a(Bitmap bitmap) {
         Hashtable hashtable = new Hashtable();
         hashtable.put(DecodeHintType.CHARACTER_SET, "utf-8");
         int width = bitmap.getWidth();
@@ -152,15 +162,15 @@ public final class CaptureActivity extends com.baidu.tbadk.a implements SurfaceH
         }
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity
-    public final void onResume() {
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void onResume() {
         super.onResume();
         this.a = new com.baidu.tieba.barcode.a.e(getApplication());
-        this.d = (ViewfinderView) findViewById(com.baidu.tieba.a.h.viewfinder_view);
+        this.d = (ViewfinderView) findViewById(com.baidu.tieba.r.viewfinder_view);
         this.d.setCameraManager(this.a);
         this.b = null;
-        this.d.setVisibility(0);
-        SurfaceHolder holder = ((SurfaceView) findViewById(com.baidu.tieba.a.h.preview_view)).getHolder();
+        i();
+        SurfaceHolder holder = ((SurfaceView) findViewById(com.baidu.tieba.r.preview_view)).getHolder();
         if (this.e) {
             a(holder);
         } else {
@@ -170,8 +180,8 @@ public final class CaptureActivity extends com.baidu.tbadk.a implements SurfaceH
         this.f.c();
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity
-    public final void onPause() {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onPause() {
         if (this.b != null) {
             this.b.a();
             this.b = null;
@@ -179,7 +189,7 @@ public final class CaptureActivity extends com.baidu.tbadk.a implements SurfaceH
         this.f.b();
         this.a.b();
         if (!this.e) {
-            ((SurfaceView) findViewById(com.baidu.tieba.a.h.preview_view)).getHolder().removeCallback(this);
+            ((SurfaceView) findViewById(com.baidu.tieba.r.preview_view)).getHolder().removeCallback(this);
         }
         if (this.d != null) {
             this.d.d();
@@ -187,8 +197,8 @@ public final class CaptureActivity extends com.baidu.tbadk.a implements SurfaceH
         super.onPause();
     }
 
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
-    public final void onDestroy() {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
         TiebaPrepareImageService.a();
         this.f.d();
         if (this.d != null) {
@@ -201,21 +211,35 @@ public final class CaptureActivity extends com.baidu.tbadk.a implements SurfaceH
         super.onDestroy();
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
-    public final boolean onKeyDown(int i, KeyEvent keyEvent) {
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
-            case Im.GroupInfo.ACTIVEDAY_FIELD_NUMBER /* 27 */:
-            case com.baidu.loginshare.e.i /* 80 */:
+            case 27:
+            case 80:
                 return true;
             default:
                 return super.onKeyDown(i, keyEvent);
         }
     }
 
+    private void a(Bitmap bitmap, Result result) {
+        if (this.b == null) {
+            this.c = result;
+            return;
+        }
+        if (result != null) {
+            this.c = result;
+        }
+        if (this.c != null) {
+            this.b.sendMessage(Message.obtain(this.b, com.baidu.tieba.r.decode_succeeded, this.c));
+        }
+        this.c = null;
+    }
+
     @Override // android.view.SurfaceHolder.Callback
-    public final void surfaceCreated(SurfaceHolder surfaceHolder) {
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
         if (surfaceHolder == null) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "surfaceCreated", "*** WARNING *** surfaceCreated() gave us a null surface!");
+            BdLog.e(getClass().getName(), "surfaceCreated", "*** WARNING *** surfaceCreated() gave us a null surface!");
         }
         if (!this.e) {
             this.e = true;
@@ -224,21 +248,28 @@ public final class CaptureActivity extends com.baidu.tbadk.a implements SurfaceH
     }
 
     @Override // android.view.SurfaceHolder.Callback
-    public final void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         this.e = false;
     }
 
     @Override // android.view.SurfaceHolder.Callback
-    public final void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
     }
 
-    public final void a(Result result, Bitmap bitmap, float f) {
-        ResultPoint[] resultPoints;
+    public void a(Result result, Bitmap bitmap, float f) {
         this.f.a();
-        if ((bitmap != null) && (resultPoints = result.getResultPoints()) != null && resultPoints.length > 0) {
+        if (bitmap != null) {
+            a(bitmap, f, result);
+        }
+        a(result, bitmap);
+    }
+
+    private void a(Bitmap bitmap, float f, Result result) {
+        ResultPoint[] resultPoints = result.getResultPoints();
+        if (resultPoints != null && resultPoints.length > 0) {
             Canvas canvas = new Canvas(bitmap);
             Paint paint = new Paint();
-            paint.setColor(getResources().getColor(com.baidu.tieba.a.e.result_points));
+            paint.setColor(getResources().getColor(com.baidu.tieba.o.result_points));
             if (resultPoints.length == 2) {
                 paint.setStrokeWidth(4.0f);
                 a(canvas, paint, resultPoints[0], resultPoints[1], f);
@@ -252,11 +283,6 @@ public final class CaptureActivity extends com.baidu.tbadk.a implements SurfaceH
                 }
             }
         }
-        this.d.setVisibility(8);
-        ZxingResult zxingResult = new ZxingResult();
-        zxingResult.a(ResultParser.parseResult(result).getDisplayResult().toString());
-        TiebaStatic.a(this, "2d_code_scan", "onclick", 1, new Object[0]);
-        a(zxingResult.a());
     }
 
     private static void a(Canvas canvas, Paint paint, ResultPoint resultPoint, ResultPoint resultPoint2, float f) {
@@ -265,12 +291,20 @@ public final class CaptureActivity extends com.baidu.tbadk.a implements SurfaceH
         }
     }
 
+    private void a(Result result, Bitmap bitmap) {
+        this.d.setVisibility(8);
+        ZxingResult zxingResult = new ZxingResult();
+        zxingResult.a(ResultParser.parseResult(result).getDisplayResult().toString());
+        TiebaStatic.eventStat(this, "2d_code_scan", "onclick", 1, new Object[0]);
+        a(zxingResult.a());
+    }
+
     public void a(SurfaceHolder surfaceHolder) {
         if (surfaceHolder == null) {
             throw new IllegalStateException("No SurfaceHolder provided");
         }
         if (this.a.a()) {
-            com.baidu.adp.lib.util.f.c(getClass().getName(), "initCamera", "initCamera() while already open -- late SurfaceView callback?");
+            BdLog.w(getClass().getName(), "initCamera", "initCamera() while already open -- late SurfaceView callback?");
             return;
         }
         try {
@@ -278,39 +312,36 @@ public final class CaptureActivity extends com.baidu.tbadk.a implements SurfaceH
             if (this.b == null) {
                 this.b = new CaptureActivityHandler(this, null, null, null, this.a);
             }
-            if (this.b != null) {
-                if (this.c != null) {
-                    this.b.sendMessage(Message.obtain(this.b, com.baidu.tieba.a.h.decode_succeeded, this.c));
-                }
-                this.c = null;
-                return;
-            }
-            this.c = null;
+            a((Bitmap) null, (Result) null);
         } catch (IOException e) {
-            com.baidu.adp.lib.util.f.c(getClass().getName(), "initCamera", e.toString());
-            e();
+            BdLog.w(getClass().getName(), "initCamera", e.toString());
+            h();
         } catch (RuntimeException e2) {
-            com.baidu.adp.lib.util.f.c(getClass().getName(), "initCamera", "Unexpected error initializing camera" + e2.toString());
-            e();
+            BdLog.w(getClass().getName(), "initCamera", "Unexpected error initializing camera" + e2.toString());
+            h();
         }
     }
 
-    private void e() {
+    private void h() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(com.baidu.tieba.a.k.app_name));
-        builder.setMessage(getString(com.baidu.tieba.a.k.msg_camera_framework_bug));
-        builder.setPositiveButton(com.baidu.tieba.a.k.dialog_ok, new g(this));
+        builder.setTitle(getString(u.app_name));
+        builder.setMessage(getString(u.msg_camera_framework_bug));
+        builder.setPositiveButton(u.dialog_ok, new g(this));
         builder.setOnCancelListener(new h(this));
         builder.show();
     }
 
-    public final void d() {
+    private void i() {
+        this.d.setVisibility(0);
+    }
+
+    public void d() {
         this.d.c();
     }
 
-    @Override // com.baidu.tbadk.a
-    public final void onChangeSkinType(int i) {
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.g.b(i);
+        this.g.c(i);
     }
 }

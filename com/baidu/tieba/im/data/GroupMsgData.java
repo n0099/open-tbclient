@@ -1,31 +1,32 @@
 package com.baidu.tieba.im.data;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class GroupMsgData extends CustomResponsedMessage<Object> {
-    private GroupIdTypeData a;
-    private LinkedList<com.baidu.tieba.im.message.a.a> b;
+    private GroupIdTypeData groupInfo;
+    private LinkedList<ChatMessage> listMessage;
 
     public GroupMsgData(int i) {
         super(i);
-        this.a = new GroupIdTypeData();
-        this.b = new LinkedList<>();
+        this.groupInfo = new GroupIdTypeData();
+        this.listMessage = new LinkedList<>();
     }
 
-    public final GroupIdTypeData b() {
-        return this.a;
+    public GroupIdTypeData getGroupInfo() {
+        return this.groupInfo;
     }
 
-    public final void a(GroupIdTypeData groupIdTypeData) {
-        this.a = groupIdTypeData;
+    public void setGroupInfo(GroupIdTypeData groupIdTypeData) {
+        this.groupInfo = groupIdTypeData;
     }
 
-    public final LinkedList<com.baidu.tieba.im.message.a.a> c() {
-        return this.b;
+    public LinkedList<ChatMessage> getListMessage() {
+        return this.listMessage;
     }
 
-    public final void a(LinkedList<com.baidu.tieba.im.message.a.a> linkedList) {
-        this.b = linkedList;
+    public void setListMessageData(LinkedList<ChatMessage> linkedList) {
+        this.listMessage = linkedList;
     }
 }

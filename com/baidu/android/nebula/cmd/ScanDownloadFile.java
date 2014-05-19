@@ -3,6 +3,8 @@ package com.baidu.android.nebula.cmd;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.moplus.util.NoProGuard;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
+import com.baidu.tbadk.TbConfig;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,7 +23,7 @@ public class ScanDownloadFile implements NoProGuard, n {
     private String mFilePackageName = "";
     private long mExpiredTime = 1800000;
     private long mTotalExpiredTime = 1800000;
-    private long mScanedOneTime = 5000;
+    private long mScanedOneTime = TbConfig.NOTIFY_SOUND_INTERVAL;
     private long mTotalRetryTime = 0;
 
     public ScanDownloadFile() {
@@ -40,7 +42,7 @@ public class ScanDownloadFile implements NoProGuard, n {
     public void execute(com.baidu.android.nebula.a.d dVar, com.baidu.android.nebula.a.a aVar) {
         a.a(System.currentTimeMillis());
         Map a = dVar.a();
-        if (a == null || a.size() <= 0) {
+        if (a == null || a.size() < 1) {
             a.a(-1);
             return;
         }
@@ -89,7 +91,7 @@ public class ScanDownloadFile implements NoProGuard, n {
         aVar.a("text/javascript");
         aVar.a().put("Cache-Control", "no-cache");
         aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
-        aVar.a(200);
+        aVar.a(Constants.MEDIA_INFO);
         a.a(this.mErrcode);
     }
 

@@ -49,16 +49,16 @@ public class FacePackageData extends com.baidu.tbadk.core.util.a implements Seri
     public long downloadNow = 0;
     public String orderId = "";
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ab
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
-        if (!com.baidu.tbadk.core.util.bc.c(this.bannerUrl)) {
+        if (!com.baidu.tbadk.core.util.be.c(this.bannerUrl)) {
             linkedList.add(this.bannerUrl);
         }
-        if (!com.baidu.tbadk.core.util.bc.c(this.newIcon)) {
+        if (!com.baidu.tbadk.core.util.be.c(this.newIcon)) {
             linkedList.add(this.newIcon);
         }
-        if (!com.baidu.tbadk.core.util.bc.c(this.tagUrl)) {
+        if (!com.baidu.tbadk.core.util.be.c(this.tagUrl)) {
             linkedList.add(this.tagUrl);
         }
         return linkedList;

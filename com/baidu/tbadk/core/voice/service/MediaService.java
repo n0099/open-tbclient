@@ -132,6 +132,24 @@ public class MediaService extends Service implements MediaPlayer.OnErrorListener
         return null;
     }
 
+    private int a() {
+        if (this.f == null) {
+            return 0;
+        }
+        long a = this.f.a();
+        if (a == 0 && (this.k instanceof f)) {
+            a = ((f) this.k).getDuration() / LocationClientOption.MIN_SCAN_SPAN;
+        }
+        return (int) a;
+    }
+
+    private long b() {
+        if (!(this.k instanceof f)) {
+            return 0L;
+        }
+        return ((f) this.k).getDuration();
+    }
+
     @Override // android.content.ContextWrapper, android.content.Context
     public void sendBroadcast(Intent intent) {
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
@@ -139,28 +157,19 @@ public class MediaService extends Service implements MediaPlayer.OnErrorListener
 
     @Override // android.media.MediaPlayer.OnPreparedListener
     public void onPrepared(MediaPlayer mediaPlayer) {
-        int i;
         Intent intent = new Intent("com.baidu.playPrepared");
         intent.setFlags(1073741824);
         intent.putExtra("com.baidu.playPrepared_err_code", -1);
-        if (this.f == null) {
-            i = 0;
-        } else {
-            long a = this.f.a();
-            if (a == 0 && (this.k instanceof f)) {
-                a = ((f) this.k).getDuration() / LocationClientOption.MIN_SCAN_SPAN;
-            }
-            i = (int) a;
+        int a = a();
+        long j = a * LocationClientOption.MIN_SCAN_SPAN;
+        long b = b();
+        if (b - j > 1000 || b < j) {
+            b = j;
         }
-        long j = i * LocationClientOption.MIN_SCAN_SPAN;
-        long duration = this.k instanceof f ? ((f) this.k).getDuration() : 0L;
-        if (duration - j > 1000 || duration < j) {
-            duration = j;
-        }
-        intent.putExtra("com.baidu.msg.durationTime", i);
-        intent.putExtra("com.baidu.msg.durationTime2", duration);
+        intent.putExtra("com.baidu.msg.durationTime", a);
+        intent.putExtra("com.baidu.msg.durationTime2", b);
         if (this.a > 0) {
-            long j2 = this.a;
+            int i = (int) this.a;
         }
         this.a = 0L;
         sendBroadcast(intent);

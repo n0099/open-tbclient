@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.sharedPref;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     public static String a = "com.baidu.tieba";
     public static String b = "com.baidu.tieba:remote";
     public static String c = "com.baidu.tieba:bdservice_v1";

@@ -2,7 +2,7 @@ package com.baidu.tieba.data;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class l {
+public class l {
     private String a;
     private String b;
     private String c;
@@ -13,42 +13,42 @@ public final class l {
     private String h;
     private String i;
 
-    public final String a() {
+    public String a() {
         return this.a;
     }
 
-    public final String b() {
+    public String b() {
         return this.b;
     }
 
-    public final String c() {
+    public String c() {
         return this.c;
     }
 
-    public final String d() {
+    public String d() {
         return this.d;
     }
 
-    public final String e() {
+    public String e() {
         return this.g;
     }
 
-    public final String f() {
+    public String f() {
         return this.f;
     }
 
-    public final String g() {
+    public String g() {
         return this.h;
     }
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         this.a = jSONObject.optString("link");
         this.b = jSONObject.optString("title");
         this.c = jSONObject.optString("abstract");
-        this.d = jSONObject.optString("forum_name");
+        this.d = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
         this.e = jSONObject.optString("img");
         this.f = jSONObject.optString("post_type");
-        this.g = jSONObject.optString("user_name");
+        this.g = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
         this.h = jSONObject.optString("reply_num");
         this.i = jSONObject.optString("proper");
     }

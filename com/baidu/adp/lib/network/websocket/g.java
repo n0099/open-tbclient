@@ -1,123 +1,136 @@
 package com.baidu.adp.lib.network.websocket;
 
 import android.os.Handler;
+import com.baidu.adp.framework.message.SocketMessage;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
-public final class g extends com.baidu.adp.lib.webSocket.d {
+public class g extends com.baidu.adp.lib.webSocket.d {
     private static Handler a = new Handler();
-    private com.baidu.adp.framework.e.f b;
+    private com.baidu.adp.framework.c.g b;
     private boolean c;
-    private com.baidu.adp.framework.message.g d;
+    private SocketMessage d;
     private int e;
     private boolean f;
     private d h;
-    private boolean j;
-    private int m;
     private Runnable g = null;
     private boolean i = true;
+    private boolean j = false;
     private int k = 0;
     private int l = 0;
+    private int m = 3;
     private CoderException n = null;
+    private boolean o = true;
 
-    public g(com.baidu.adp.framework.message.g gVar, boolean z, int i, boolean z2, d dVar, com.baidu.adp.framework.e.f fVar, int i2, boolean z3) {
+    public g(SocketMessage socketMessage, boolean z, int i, boolean z2, d dVar, com.baidu.adp.framework.c.g gVar, int i2, boolean z3, boolean z4) {
         this.b = null;
         this.c = false;
         this.d = null;
         this.e = 0;
         this.f = false;
         this.h = null;
-        this.j = false;
-        this.m = 3;
-        if (gVar == null) {
+        if (socketMessage == null) {
             throw new InvalidParameterException("SenderData msg null");
         }
-        this.d = gVar;
+        this.d = socketMessage;
         this.e = i;
         this.f = z2;
         this.c = z;
-        this.b = fVar;
+        this.b = gVar;
         this.h = dVar;
-        this.m = i2;
-        this.j = z3;
+        b(z4);
+        b(i2);
+        a(z3);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(g gVar) {
-        if (gVar.h == null || !gVar.i) {
-            return;
+    private void c(int i) {
+        if (this.h != null && this.i) {
+            this.h.a(i, this);
         }
-        gVar.h.a(gVar);
     }
 
-    private Runnable n() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void s() {
+        if (this.h != null && this.i) {
+            this.h.a(this);
+        }
+    }
+
+    private void t() {
+        if (this.h != null && this.i) {
+            this.h.b(this);
+        }
+    }
+
+    private void u() {
+        if (this.h != null && this.i) {
+            this.d.setmStartSendTime(System.currentTimeMillis());
+            this.d.setmRetryCount(this.k - 1);
+            this.h.c(this);
+        }
+    }
+
+    private Runnable v() {
         if (this.g == null) {
             this.g = new h(this);
         }
         return this.g;
     }
 
-    public final void a() {
-        a.removeCallbacks(n());
+    public void a() {
+        a.removeCallbacks(v());
+    }
+
+    public void b() {
+        a();
         this.i = false;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.ao
-    public final void b() {
-        a.removeCallbacks(n());
+    @Override // com.baidu.adp.lib.webSocket.ap
+    public void c() {
+        a.removeCallbacks(v());
         if (this.b.a() > 0) {
-            a.postDelayed(n(), this.b.a());
+            a.postDelayed(v(), this.b.a());
         } else {
-            a.postDelayed(n(), j.a().c());
+            a.postDelayed(v(), j.a().d());
         }
-        if (this.h == null || !this.i) {
-            return;
-        }
-        this.d.a(System.currentTimeMillis());
-        this.d.c(this.k - 1);
-        this.h.b(this);
+        u();
     }
 
-    @Override // com.baidu.adp.lib.webSocket.ao
-    public final void a(int i) {
-        a.removeCallbacks(n());
-        if (this.h == null || !this.i) {
-            return;
-        }
-        this.h.a(i, this);
+    @Override // com.baidu.adp.lib.webSocket.ap
+    public void a(int i) {
+        a.removeCallbacks(v());
+        c(i);
     }
 
-    @Override // com.baidu.adp.lib.webSocket.ao
-    public final void c() {
+    @Override // com.baidu.adp.lib.webSocket.ap
+    public void d() {
         if (!this.c) {
-            a.removeCallbacks(n());
+            a.removeCallbacks(v());
         }
-        if (this.h == null || !this.i) {
-            return;
-        }
-        this.h.a();
+        t();
     }
 
-    public final boolean d() {
+    public boolean e() {
         return this.c;
     }
 
-    public final int e() {
+    public int f() {
         return this.e;
     }
 
-    public final com.baidu.adp.framework.message.g f() {
+    public SocketMessage g() {
         return this.d;
     }
 
     @Override // com.baidu.adp.lib.webSocket.d
-    protected final byte[] g() {
+    protected byte[] h() {
         byte[] bArr = null;
         if (this.d != null) {
             try {
-                if (com.baidu.adp.framework.e.c.a().c() == null) {
-                    bArr = this.d.b();
+                if (com.baidu.adp.framework.c.c.a().c() == null) {
+                    bArr = this.d.encodeInBackGround();
                 } else {
-                    bArr = com.baidu.adp.framework.e.c.a().c().a(this.d, this.f);
+                    bArr = com.baidu.adp.framework.c.c.a().c().a(this.d, this.f);
                 }
             } catch (CoderException e) {
                 this.n = e;
@@ -126,25 +139,58 @@ public final class g extends com.baidu.adp.lib.webSocket.d {
         return bArr;
     }
 
-    public final int h() {
+    public int i() {
+        if (this.d != null) {
+            return this.d.getCmd();
+        }
+        return 0;
+    }
+
+    public int j() {
+        return this.l;
+    }
+
+    public int k() {
+        int i = this.l + 1;
+        this.l = i;
+        return i;
+    }
+
+    public int l() {
         return this.k;
     }
 
-    public final int i() {
+    public int m() {
         int i = this.k + 1;
         this.k = i;
         return i;
     }
 
-    public final int j() {
+    public int n() {
         return this.m;
     }
 
-    public final boolean k() {
+    public void b(int i) {
+        this.m = i;
+    }
+
+    public boolean o() {
         return this.j;
     }
 
-    public final CoderException l() {
+    public void a(boolean z) {
+        this.j = z;
+    }
+
+    public CoderException p() {
         return this.n;
+    }
+
+    public boolean q() {
+        return this.o;
+    }
+
+    public void b(boolean z) {
+        this.o = z;
     }
 }

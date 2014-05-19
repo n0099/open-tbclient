@@ -1,26 +1,28 @@
 package com.baidu.tieba.im.chat.officialBar;
 
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-final class w implements com.baidu.tieba.im.a<Void> {
+class w implements com.baidu.tieba.im.a<Void> {
     final /* synthetic */ u a;
-    private final /* synthetic */ com.baidu.adp.framework.message.a b;
+    private final /* synthetic */ CustomMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(u uVar, com.baidu.adp.framework.message.a aVar) {
+    public w(u uVar, CustomMessage customMessage) {
         this.a = uVar;
-        this.b = aVar;
+        this.b = customMessage;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Void r6) {
-        ((com.baidu.tbadk.core.b.ae) this.b.a()).d().setClass(((com.baidu.tbadk.core.b.ae) this.b.a()).c(), OfficialBarChatActivity.class);
-        UserData b = ((com.baidu.tbadk.core.b.ae) this.b.a()).b();
-        if (b.getUserIdLong() == 0) {
-            com.baidu.adp.lib.util.f.e("userid = " + b.getUserId());
+    public void a(Void r6) {
+        ((com.baidu.tbadk.core.atomData.ar) this.b.getData()).getIntent().setClass(((com.baidu.tbadk.core.atomData.ar) this.b.getData()).getContext(), OfficialBarChatActivity.class);
+        UserData a = ((com.baidu.tbadk.core.atomData.ar) this.b.getData()).a();
+        if (a.getUserIdLong() == 0) {
+            BdLog.d("userid = " + a.getUserId());
         } else {
-            ((com.baidu.tbadk.core.b.ae) this.b.a()).f();
+            ((com.baidu.tbadk.core.atomData.ar) this.b.getData()).startActivity();
         }
     }
 }

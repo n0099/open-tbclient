@@ -1,32 +1,25 @@
 package com.baidu.tbadk.core.util;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import android.widget.ImageView;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public final class ah {
-    public static String a(String str) {
-        String str2 = "";
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(str.getBytes());
-            byte[] digest = messageDigest.digest();
-            StringBuffer stringBuffer = new StringBuffer("");
-            for (int i = 0; i < digest.length; i++) {
-                int i2 = digest[i];
-                if (i2 < 0) {
-                    i2 += 256;
-                }
-                if (i2 < 16) {
-                    stringBuffer.append("0");
-                }
-                stringBuffer.append(Integer.toHexString(i2));
+class ah implements com.baidu.tbadk.imageManager.d {
+    private final /* synthetic */ ListView a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(ListView listView) {
+        this.a = listView;
+    }
+
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null) {
+            ImageView imageView = (ImageView) this.a.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setImageBitmap(aVar.h());
+                imageView = (ImageView) this.a.findViewWithTag(str);
             }
-            str2 = stringBuffer.toString();
-            return stringBuffer.toString();
-        } catch (NoSuchAlgorithmException e) {
-            String str3 = str2;
-            com.baidu.adp.lib.util.f.b(e.getMessage());
-            return str3;
         }
     }
 }

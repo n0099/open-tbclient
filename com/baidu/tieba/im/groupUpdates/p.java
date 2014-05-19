@@ -9,10 +9,20 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class p {
+public class p {
     private List<UpdatesItemData> a = new ArrayList();
 
-    public final String a() {
+    public static void a(UpdatesItemData updatesItemData, com.baidu.tieba.im.a<Boolean> aVar) {
+        if (updatesItemData != null) {
+            com.baidu.tieba.im.i.a(new q(updatesItemData), aVar);
+        }
+    }
+
+    public void a(com.baidu.tieba.im.a<Boolean> aVar) {
+        com.baidu.tieba.im.i.a(new r(this), aVar);
+    }
+
+    public String a() {
         String str;
         String str2 = "";
         if (this.a == null || this.a.size() == 0) {
@@ -36,24 +46,28 @@ public final class p {
         return str2;
     }
 
-    public final void b() {
+    public void b() {
         this.a.clear();
     }
 
-    public final void a(UpdatesItemData updatesItemData) {
+    public void c() {
+        b();
+    }
+
+    public void a(UpdatesItemData updatesItemData) {
         this.a.add(updatesItemData);
     }
 
-    public final void b(UpdatesItemData updatesItemData) {
+    public void b(UpdatesItemData updatesItemData) {
         this.a.remove(updatesItemData);
     }
 
-    public final int c() {
+    public int d() {
         return this.a.size();
     }
 
-    public static void a(com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {
-        com.baidu.tieba.im.r.a(new s(), aVar);
+    public static void b(com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {
+        com.baidu.tieba.im.i.a(new s(), aVar);
     }
 
     public static List<UpdatesItemData> a(LinkedList<GroupNewsPojo> linkedList) {

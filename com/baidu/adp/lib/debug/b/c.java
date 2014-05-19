@@ -15,7 +15,8 @@ import com.baidu.adp.lib.debug.service.SwitchDebugService;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
-public final class c extends View {
+public class c extends View {
+    private static boolean p = false;
     ArrayList<HashMap<String, Object>> a;
     String[] b;
     String[] c;
@@ -29,6 +30,9 @@ public final class c extends View {
     private final Context k;
     private Dialog l;
     private ListView m;
+    private LinearLayout n;
+    private TextView o;
+    private LinearLayout q;
 
     public c(Activity activity) {
         super(activity);
@@ -36,6 +40,10 @@ public final class c extends View {
         this.b = new String[]{"当前地址", "线上", "沙盒W", "沙盒C", "QA测试机", "RD测试机", "线上client机器"};
         this.c = new String[]{"current server", "http://c.tieba.baidu.com", "http://ai-forum-shahew.ai01.baidu.com:", "http://ai-forum-shahec.ai01.baidu.com:", "http://cq01-testing-forum56.vm.baidu.com:8666", "http://cq01-forum-rdtest00.vm.baidu.com:8666", "http://ai-forum-client01.ai01.baidu.com:8090"};
         this.k = activity;
+        a();
+    }
+
+    public void a() {
         ((Activity) this.k).setContentView(com.baidu.adp.e.adp_debug_config_activity);
         this.d = (ImageButton) ((Activity) this.k).findViewById(com.baidu.adp.d.close_debug);
         this.e = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.d.switch_monitor_item);
@@ -53,20 +61,26 @@ public final class c extends View {
         this.m.setAdapter((ListAdapter) new b(this.k));
         this.h = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.d.debug_update_package_item);
         this.h.setOnClickListener(new i(this));
+        this.n = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.d.switch_lcs_switch_item);
+        this.o = (TextView) this.n.findViewById(com.baidu.adp.d.switch_lcs_switch);
+        this.o.setText(((Activity) this.k).getText(p ? com.baidu.adp.f.item_close : com.baidu.adp.f.item_open));
+        this.n.setOnClickListener(new j(this));
+        this.q = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.d.switch_lcs_reOnline_item);
+        this.q.setOnClickListener(new k(this));
     }
 
-    public final void a() {
+    public void b() {
         this.k.startService(new Intent(this.k, DebugService.class));
     }
 
-    public final void b() {
+    public void c() {
         this.k.stopService(new Intent(this.k, DebugService.class));
     }
 
-    public final void c() {
-        b();
+    public void d() {
+        c();
         Intent intent = new Intent(this.k, SwitchDebugService.class);
-        intent.putExtra("stop", true);
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.STOP, true);
         this.k.startService(intent);
     }
 }

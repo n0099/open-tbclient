@@ -4,7 +4,7 @@ import android.app.DatePickerDialog;
 import android.widget.DatePicker;
 import java.util.Calendar;
 /* loaded from: classes.dex */
-final class g implements DatePickerDialog.OnDateSetListener {
+class g implements DatePickerDialog.OnDateSetListener {
     final /* synthetic */ f a;
     private final /* synthetic */ Calendar b;
 
@@ -15,7 +15,7 @@ final class g implements DatePickerDialog.OnDateSetListener {
     }
 
     @Override // android.app.DatePickerDialog.OnDateSetListener
-    public final void onDateSet(DatePicker datePicker, int i, int i2, int i3) {
+    public void onDateSet(DatePicker datePicker, int i, int i2, int i3) {
         e eVar;
         CreateGroupActivityActivity createGroupActivityActivity;
         e eVar2;
@@ -31,21 +31,21 @@ final class g implements DatePickerDialog.OnDateSetListener {
         if (i < i4 || ((i == i4 && i2 < i5) || (i == i4 && i2 == i5 && i3 < i6))) {
             eVar = this.a.a;
             createGroupActivityActivity = eVar.a;
-            createGroupActivityActivity.c(com.baidu.tieba.im.j.group_activity_time_val);
+            createGroupActivityActivity.c(com.baidu.tieba.u.group_activity_time_val);
             return;
         }
         eVar2 = this.a.a;
-        eVar2.p = i;
+        eVar2.o = i;
         eVar3 = this.a.a;
-        eVar3.q = i2;
+        eVar3.p = i2;
         eVar4 = this.a.a;
-        eVar4.r = i3;
+        eVar4.q = i3;
         eVar5 = this.a.a;
-        datePickerDialog = eVar5.m;
+        datePickerDialog = eVar5.l;
         datePickerDialog.dismiss();
         eVar6 = this.a.a;
-        eVar6.k();
+        eVar6.j();
         eVar7 = this.a.a;
-        eVar7.u = true;
+        eVar7.t = true;
     }
 }

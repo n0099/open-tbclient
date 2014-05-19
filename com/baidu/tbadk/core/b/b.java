@@ -2,38 +2,44 @@ package com.baidu.tbadk.core.b;
 
 import android.content.Context;
 /* loaded from: classes.dex */
-public final class b extends com.baidu.tbadk.core.frameworkData.a {
-    public static int a = 0;
-    public static int b = 1;
+public class b {
+    private static a a = null;
 
-    public b(Context context, String str, int i, int i2) {
-        super(context);
-        if (context != null) {
-            d().putExtra("groupID", str);
-            d().putExtra("alreadJoinCount", i);
-            d().putExtra("canJoinCount", i2);
+    public static void a(Context context, int i) {
+        if (a != null) {
+            a.a(context, i);
         }
     }
 
-    public b(Context context, String str, int i, int i2, long j, String str2) {
-        super(context);
-        if (context != null) {
-            d().putExtra("groupID", str);
-            d().putExtra("alreadJoinCount", i);
-            d().putExtra("canJoinCount", i2);
-            d().putExtra("inviteUserId", j);
-            d().putExtra("defaultUserMsg", str2);
-            d().putExtra("joinType", b);
+    public static void a(Context context) {
+        if (a != null) {
+            a.a(context);
         }
     }
 
-    public b(Context context, String str, long j, String str2) {
-        super(context);
-        if (context != null) {
-            d().putExtra("groupID", str);
-            d().putExtra("inviteUserId", j);
-            d().putExtra("defaultUserMsg", str2);
-            d().putExtra("joinType", b);
+    public static void a(Context context, int i, boolean z) {
+        if (a != null) {
+            a.a(context, i, z);
+        }
+    }
+
+    public static Class<?> a() {
+        if (a == null) {
+            return null;
+        }
+        return a.a();
+    }
+
+    public static String b() {
+        if (a == null) {
+            return null;
+        }
+        return a.b();
+    }
+
+    public static void a(a aVar) {
+        if (aVar != null) {
+            a = aVar;
         }
     }
 }

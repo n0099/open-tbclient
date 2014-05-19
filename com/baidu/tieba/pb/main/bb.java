@@ -1,24 +1,55 @@
 package com.baidu.tieba.pb.main;
 
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.frs.view.FrsPraiseView;
+import com.baidu.tieba.pb.sub.SubPbLayout;
 /* loaded from: classes.dex */
-final class bb implements View.OnClickListener {
-    final /* synthetic */ ba a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ int c;
-    private final /* synthetic */ com.baidu.tieba.data.ai d;
+class bb {
+    public View A;
+    final /* synthetic */ az B;
+    private LinearLayout C;
+    private ImageView D;
+    public View a;
+    public View b;
+    public View c;
+    public View d;
+    public HeadImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public ImageView j;
+    public ImageView k;
+    public TbRichTextView l;
+    public View m;
+    public FrsPraiseView n;
+    public ImageView o;
+    public RelativeLayout p;
+    public SubPbLayout q;
+    public UserIconBox r;
+    UserIconBox s;
+    public LinearLayout t;
+    public TextView u;
+    public LinearLayout v;
+    public Button w;
+    public LinearLayout x;
+    public TextView y;
+    public View z;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(ba baVar, int i, int i2, com.baidu.tieba.data.ai aiVar) {
-        this.a = baVar;
-        this.b = i;
-        this.c = i2;
-        this.d = aiVar;
+    private bb(az azVar) {
+        this.B = azVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        this.d.c(Math.min(this.b + 5, this.c));
-        this.a.notifyDataSetChanged();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bb(az azVar, bb bbVar) {
+        this(azVar);
     }
 }

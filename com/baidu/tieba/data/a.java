@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -10,43 +11,43 @@ public abstract class a {
 
     protected abstract void a(JSONObject jSONObject);
 
-    public final int a() {
+    public int a() {
         return this.c;
     }
 
-    public final boolean b() {
+    public boolean b() {
         return this.b != null;
     }
 
-    public final String c() {
+    public String c() {
         return this.b;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.b = str;
     }
 
-    public final void b(String str) {
+    public void b(String str) {
         try {
             b(new JSONObject(str));
         } catch (Exception e) {
-            this.b = "你的网络状况不大好，请稍后重试";
-            com.baidu.adp.lib.util.f.b("error = " + e.getMessage());
+            a("你的网络状况不大好，请稍后重试");
+            BdLog.e("error = " + e.getMessage());
         }
     }
 
-    public final void b(JSONObject jSONObject) {
+    public void b(JSONObject jSONObject) {
         try {
             this.c = jSONObject.optInt("error_code", 0);
             if (this.c != 0) {
-                this.b = jSONObject.optString("error_msg", "你的网络状况不大好，请稍后重试");
+                a(jSONObject.optString("error_msg", "你的网络状况不大好，请稍后重试"));
                 return;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("error");
             if (optJSONObject != null) {
                 this.c = optJSONObject.optInt("errno", 0);
                 if (this.c != 0) {
-                    this.b = optJSONObject.optString("usermsg", "你的网络状况不大好，请稍后重试");
+                    a(optJSONObject.optString("usermsg", "你的网络状况不大好，请稍后重试"));
                     return;
                 }
             }
@@ -56,8 +57,8 @@ public abstract class a {
             }
             a(jSONObject);
         } catch (Exception e) {
-            this.b = "你的网络状况不大好，请稍后重试";
-            com.baidu.adp.lib.util.f.b("error = " + e.getMessage());
+            a("你的网络状况不大好，请稍后重试");
+            BdLog.e("error = " + e.getMessage());
         }
     }
 }

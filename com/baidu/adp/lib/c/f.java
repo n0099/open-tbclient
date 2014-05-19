@@ -10,46 +10,28 @@ import java.util.List;
 import java.util.Locale;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f extends BdAsyncTask<Location, Void, Address> {
+public class f extends BdAsyncTask<Location, Void, Address> {
     final /* synthetic */ a a;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(Address address) {
-        int i;
-        Address address2 = address;
-        super.a((f) address2);
-        this.a.m = null;
-        if (address2 != null) {
-            this.a.c();
-            this.a.j = 0;
-            this.a.a = System.currentTimeMillis();
-            a aVar = this.a;
-            i = this.a.j;
-            a.a(aVar, i, "", address2);
-            this.a.l = address2;
-        }
-    }
 
     private f(a aVar) {
         this.a = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(a aVar, byte b) {
+    public /* synthetic */ f(a aVar, f fVar) {
         this(aVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Address a(Location... locationArr) {
+    /* renamed from: a */
+    public Address doInBackground(Location... locationArr) {
         Context context;
         List<Address> list;
         context = this.a.o;
         Geocoder geocoder = new Geocoder(context, Locale.getDefault());
-        if (locationArr == null || locationArr.length <= 0) {
+        if (locationArr == null || locationArr.length < 1) {
             return null;
         }
         Location location = locationArr[0];
@@ -76,8 +58,28 @@ public final class f extends BdAsyncTask<Location, Void, Address> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
-        super.b();
+    public void onPreCancel() {
+        super.onPreCancel();
         this.a.m = null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Address address) {
+        int i;
+        super.onPostExecute(address);
+        this.a.m = null;
+        if (address == null) {
+            return;
+        }
+        this.a.d();
+        this.a.j = 0;
+        this.a.a = System.currentTimeMillis();
+        a aVar = this.a;
+        i = this.a.j;
+        aVar.a(i, "", address);
+        this.a.l = address;
     }
 }

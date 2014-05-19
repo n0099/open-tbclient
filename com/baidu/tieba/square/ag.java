@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class ag extends BaseAdapter implements com.baidu.tieba.view.q {
+public class ag extends BaseAdapter implements com.baidu.tieba.view.t {
     private ah a;
     private ArrayList<at> b = new ArrayList<>();
 
@@ -15,40 +15,40 @@ public final class ag extends BaseAdapter implements com.baidu.tieba.view.q {
         this.a = new ah(context);
     }
 
-    public final void a(ArrayList<at> arrayList) {
+    public void a(ArrayList<at> arrayList) {
         this.b = arrayList;
         this.a.a(arrayList);
     }
 
     @Override // android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         return (this.b == null || this.b.size() <= 1) ? 0 : 1;
     }
 
     @Override // android.widget.Adapter
-    public final Object getItem(int i) {
+    public Object getItem(int i) {
         return Integer.valueOf(i);
     }
 
     @Override // android.widget.Adapter
-    public final long getItemId(int i) {
+    public long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         return this.a;
     }
 
-    @Override // com.baidu.tieba.view.q
-    public final void b() {
+    @Override // com.baidu.tieba.view.t
+    public void b() {
         if (this.a != null) {
             this.a.b();
         }
     }
 
-    @Override // com.baidu.tieba.view.q
-    public final void a(View view, int i, int i2) {
+    @Override // com.baidu.tieba.view.t
+    public void a(View view, int i, int i2) {
         if (this.a != null) {
             this.a.a(this.a, 0, 0);
         }

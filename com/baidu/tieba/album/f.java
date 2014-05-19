@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.io.File;
 import java.util.ArrayList;
@@ -13,14 +14,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f extends BdAsyncTask<Object, Integer, List<a>> {
+public class f extends BdAsyncTask<Object, Integer, List<a>> {
     final /* synthetic */ e a;
     private final o b;
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    public f(e eVar, o oVar) {
+        this.a = eVar;
+        this.b = oVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ List<a> a(Object... objArr) {
+    /* renamed from: a */
+    public List<a> doInBackground(Object... objArr) {
         Context context;
         Context context2;
         context = this.a.e;
@@ -29,32 +36,27 @@ public final class f extends BdAsyncTask<Object, Integer, List<a>> {
         return a(context2, a, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ void a(List<a> list) {
-        List<a> list2 = list;
-        super.a((f) list2);
+    public void onPreExecute() {
+        super.onPreExecute();
         if (this.b != null) {
-            this.b.a(list2);
+            this.b.a();
         }
     }
 
-    public f(e eVar, o oVar) {
-        this.a = eVar;
-        this.b = oVar;
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
-        super.c();
+    /* renamed from: a */
+    public void onPostExecute(List<a> list) {
+        super.onPostExecute(list);
         if (this.b != null) {
-            o oVar = this.b;
+            this.b.a(list);
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0124 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x012e */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v4, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r2v5 */
@@ -123,7 +125,7 @@ public final class f extends BdAsyncTask<Object, Integer, List<a>> {
                 } catch (Exception e) {
                     e = e;
                     str = this.a.a;
-                    com.baidu.adp.lib.util.f.b(str, "getAlbumData", "error = " + e.getMessage());
+                    BdLog.e(str, "getAlbumData", "error = " + e.getMessage());
                     com.baidu.adp.lib.f.a.a(cursor);
                     return list;
                 }

@@ -1,32 +1,35 @@
 package com.baidu.tieba.im.e.a;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.ResponseGetGroupActivityLocalMessage;
-import com.baidu.tieba.im.message.ah;
 /* loaded from: classes.dex */
-public class e implements com.baidu.adp.framework.task.a<Integer> {
-    private static ResponseGetGroupActivityLocalMessage a() {
+public class e implements CustomMessageTask.CustomRunnable<Integer> {
+    private ResponseGetGroupActivityLocalMessage a() {
         ResponseGetGroupActivityLocalMessage responseGetGroupActivityLocalMessage = new ResponseGetGroupActivityLocalMessage();
-        responseGetGroupActivityLocalMessage.a(-18);
+        responseGetGroupActivityLocalMessage.setError(-18);
         return responseGetGroupActivityLocalMessage;
     }
 
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<Integer> aVar) {
-        if (aVar == null || !(aVar instanceof ah)) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
+        if (customMessage == null || !(customMessage instanceof RequestGetGroupActivityLocalMessage)) {
             return a();
         }
-        ah ahVar = (ah) aVar;
+        RequestGetGroupActivityLocalMessage requestGetGroupActivityLocalMessage = (RequestGetGroupActivityLocalMessage) customMessage;
         String str = "";
-        if (TbadkApplication.N() != null) {
-            str = TbadkApplication.N().getID();
+        if (TbadkApplication.getCurrentAccountObj() != null) {
+            str = TbadkApplication.getCurrentAccountObj().getID();
         }
-        byte[] a = com.baidu.tbadk.core.c.b.a().r().a("group_activity" + str + ahVar.a());
+        byte[] a = com.baidu.tbadk.core.a.b.a().t().a("group_activity" + str + requestGetGroupActivityLocalMessage.getData());
         ResponseGetGroupActivityLocalMessage responseGetGroupActivityLocalMessage = new ResponseGetGroupActivityLocalMessage();
         if (a != null) {
             try {
-                responseGetGroupActivityLocalMessage.a(2001127, a);
+                responseGetGroupActivityLocalMessage.decodeInBackGround(MessageTypes.CMD_REQUEST_GROUP_ACTIVITY_BY_ID_LOCAL, a);
                 return responseGetGroupActivityLocalMessage;
             } catch (Exception e) {
                 e.printStackTrace();

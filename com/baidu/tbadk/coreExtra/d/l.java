@@ -5,7 +5,7 @@ import android.os.Message;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class l extends Handler {
+public class l extends Handler {
     private final WeakReference<i> a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,11 +14,12 @@ public final class l extends Handler {
     }
 
     @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    public void handleMessage(Message message) {
         i iVar;
         super.handleMessage(message);
-        if (message.what == 0 && (iVar = this.a.get()) != null) {
-            i.a(iVar);
+        if (message.what != 0 || (iVar = this.a.get()) == null) {
+            return;
         }
+        iVar.c();
     }
 }

@@ -1,40 +1,26 @@
 package com.baidu.tieba.frs;
 
-import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.IndicatorView;
+import com.baidu.tieba.view.ChildViewPager;
 /* loaded from: classes.dex */
-final class bk implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ bj a;
-    private final /* synthetic */ View b;
+class bk {
+    ChildViewPager a;
+    TextView b;
+    IndicatorView c;
+    TextView d;
+    View e;
+    View f;
+    View g;
+    final /* synthetic */ ba h;
+
+    private bk(ba baVar) {
+        this.h = baVar;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(bj bjVar, View view) {
-        this.a = bjVar;
-        this.b = view;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public final View a(LayoutInflater layoutInflater) {
-        return this.b;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public final int a() {
-        return 5;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public final int b() {
-        return 32;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public final int c() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public final int d() {
-        return 0;
+    public /* synthetic */ bk(ba baVar, bk bkVar) {
+        this(baVar);
     }
 }

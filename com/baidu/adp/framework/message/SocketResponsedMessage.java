@@ -1,38 +1,43 @@
 package com.baidu.adp.framework.message;
 /* loaded from: classes.dex */
-public abstract class SocketResponsedMessage extends f<byte[]> {
-    private int a;
-    private int b;
-    private long c;
+public abstract class SocketResponsedMessage extends ResponsedMessage<byte[]> {
+    private long mCostTime;
+    private int mDownSize;
+    private int mRetry;
 
-    public final int a() {
-        return this.a;
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public boolean hasError() {
+        return getError() != 0;
     }
 
-    public final void b(int i) {
-        this.a = i;
+    public int getmDownSize() {
+        return this.mDownSize;
     }
 
-    public final int b() {
-        return this.b;
+    public void setmDownSize(int i) {
+        this.mDownSize = i;
     }
 
-    public final void c(int i) {
-        this.b = i;
+    public int getmRetry() {
+        return this.mRetry;
     }
 
-    public final long c() {
-        return this.c;
+    public void setmRetry(int i) {
+        this.mRetry = i;
     }
 
-    public final void a(long j) {
-        this.c = j;
+    public long getmCostTime() {
+        return this.mCostTime;
+    }
+
+    public void setmCostTime(long j) {
+        this.mCostTime = j;
     }
 
     public SocketResponsedMessage(int i) {
         super(i);
-        this.a = 0;
-        this.b = 0;
-        this.c = 0L;
+        this.mDownSize = 0;
+        this.mRetry = 0;
+        this.mCostTime = 0L;
     }
 }

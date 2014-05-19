@@ -1,19 +1,26 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.chat.PersonalChatActivity;
+import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
+import java.util.Comparator;
 /* loaded from: classes.dex */
-final class bm extends com.baidu.tieba.im.m<Void> {
-    final /* synthetic */ PersonalMsglistModel b;
+class bm implements Comparator<ImMessageCenterShowItemData> {
+    final /* synthetic */ bi a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(PersonalMsglistModel personalMsglistModel) {
-        this.b = personalMsglistModel;
+    public bm(bi biVar) {
+        this.a = biVar;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Void a() {
-        com.baidu.tieba.im.db.o.d().b(PersonalChatActivity.b);
-        return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(ImMessageCenterShowItemData imMessageCenterShowItemData, ImMessageCenterShowItemData imMessageCenterShowItemData2) {
+        if (imMessageCenterShowItemData == null || imMessageCenterShowItemData2 == null) {
+            return 0;
+        }
+        if (imMessageCenterShowItemData.getServerTime() < imMessageCenterShowItemData2.getServerTime()) {
+            return 1;
+        }
+        return imMessageCenterShowItemData.getServerTime() > imMessageCenterShowItemData2.getServerTime() ? -1 : 0;
     }
 }

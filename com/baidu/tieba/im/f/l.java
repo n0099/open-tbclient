@@ -1,20 +1,21 @@
 package com.baidu.tieba.im.f;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class l extends com.baidu.tieba.im.m<Void> {
+public class l extends com.baidu.tieba.im.b<Boolean> {
     private final /* synthetic */ String b;
-    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(String str, String str2) {
+    public l(String str) {
         this.b = str;
-        this.c = str2;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* bridge */ /* synthetic */ Void a() {
-        com.baidu.tieba.im.db.h.a();
-        com.baidu.tieba.im.db.h.a(this.b, this.c);
-        return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        boolean e;
+        i.d(this.b);
+        e = i.e(this.b);
+        return Boolean.valueOf(e);
     }
 }

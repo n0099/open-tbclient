@@ -6,35 +6,37 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.data.ai;
-import com.baidu.tieba.data.am;
+import com.baidu.tbadk.editortool.x;
+import com.baidu.tieba.data.ah;
+import com.baidu.tieba.data.ao;
 import com.baidu.tieba.editortool.PbEditor;
 /* loaded from: classes.dex */
-public final class j extends m {
-    private TextView P;
-    private SubPbLoadPreviousView Q;
-    private NavigationBar R;
+public class j extends m {
+    private TextView O;
+    private SubPbLoadPreviousView P;
+    private NavigationBar Q;
     protected View a;
 
-    public j(com.baidu.tbadk.a aVar, boolean z, View.OnClickListener onClickListener, View.OnClickListener onClickListener2, View.OnClickListener onClickListener3, View.OnClickListener onClickListener4, View.OnClickListener onClickListener5) {
-        super(aVar, onClickListener, onClickListener2, onClickListener3, onClickListener4, onClickListener5);
+    public j(BaseActivity baseActivity, boolean z, View.OnClickListener onClickListener, View.OnClickListener onClickListener2, View.OnClickListener onClickListener3, View.OnClickListener onClickListener4, View.OnClickListener onClickListener5) {
+        super(baseActivity, z, onClickListener, onClickListener2, onClickListener3, onClickListener4, onClickListener5);
+        this.O = null;
         this.P = null;
         this.Q = null;
-        this.R = null;
         this.a = null;
-        this.Q = (SubPbLoadPreviousView) this.c.findViewById(com.baidu.tieba.a.h.sub_pb_load_previous);
-        this.R = (NavigationBar) this.b.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.a = this.R.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.P = this.R.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, aVar.getResources().getString(com.baidu.tieba.a.k.view_subject), onClickListener);
+        this.P = (SubPbLoadPreviousView) this.c.findViewById(com.baidu.tieba.r.sub_pb_load_previous);
+        this.Q = (NavigationBar) this.b.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.a = this.Q.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.O = this.Q.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getResources().getString(com.baidu.tieba.u.view_subject), onClickListener);
     }
 
     @Override // com.baidu.tieba.pb.sub.m
-    public final boolean a() {
-        if (this.M.n()) {
-            this.M.f();
-            this.M.m();
+    public boolean a() {
+        if (this.L.o()) {
+            this.L.f();
+            this.L.n();
             this.r.setEnabled(true);
         } else {
             this.f.finish();
@@ -44,106 +46,109 @@ public final class j extends m {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.sub.m
-    public final void a(int i, View view) {
+    public void a(int i, View view) {
         new Handler().postDelayed(new k(this, i, view), 300L);
     }
 
     @Override // com.baidu.tieba.pb.sub.m
-    protected final void b() {
-        this.M = (PbEditor) this.b.findViewById(com.baidu.tieba.a.h.sub_pb_editor);
-        this.M.a(true);
-        this.M.e();
+    protected void b() {
+        this.L = (PbEditor) this.b.findViewById(com.baidu.tieba.r.sub_pb_editor);
+        this.L.a(true);
+        this.L.e();
         this.r.setEnabled(false);
     }
 
     @Override // com.baidu.tieba.pb.sub.m
-    public final void a(com.baidu.tbadk.editortool.x xVar) {
+    public void a(x xVar) {
         if (xVar != null) {
-            this.M.setOnActionListener(new l(this, xVar));
+            this.L.setOnActionListener(new l(this, xVar));
         }
     }
 
-    public final TextView c() {
-        return this.P;
+    public TextView c() {
+        return this.O;
     }
 
-    private SubPbLoadPreviousView C() {
-        this.Q = (SubPbLoadPreviousView) this.c.findViewById(com.baidu.tieba.a.h.sub_pb_load_previous);
+    private NavigationBar D() {
+        this.Q = (NavigationBar) this.b.findViewById(com.baidu.tieba.r.view_navigation_bar);
         return this.Q;
     }
 
-    public final void d() {
-        C().a();
+    private SubPbLoadPreviousView E() {
+        this.P = (SubPbLoadPreviousView) this.c.findViewById(com.baidu.tieba.r.sub_pb_load_previous);
+        return this.P;
     }
 
-    public final void e() {
-        C().b();
+    public void d() {
+        E().a();
     }
 
-    public final void f() {
-        C().d();
+    public void e() {
+        E().b();
+    }
+
+    public void f() {
+        E().c();
         this.c.setPadding(0, 0, 0, 0);
-        ((i) this.e).b(false);
+        ((i) this.e).d(false);
     }
 
-    public final void g() {
-        C().e();
+    public void g() {
+        E().d();
         this.c.setPadding(0, 0, 0, 0);
-        ((i) this.e).b(true);
+        ((i) this.e).d(true);
     }
 
     @Override // com.baidu.tieba.pb.sub.m
-    protected final void a(View.OnClickListener onClickListener) {
+    protected void a(View.OnClickListener onClickListener) {
         this.e = new i(this.f, onClickListener);
         this.e.a(this.z);
         this.d.setAdapter((ListAdapter) this.e);
     }
 
     @Override // com.baidu.tieba.pb.sub.m
-    public final void a(int i) {
+    public void a(int i) {
         super.a(i);
-        this.R = (NavigationBar) this.b.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.R.b(i);
-        C();
-        SubPbLoadPreviousView.c();
+        D().c(i);
+        E().a(i);
     }
 
     @Override // com.baidu.tieba.pb.sub.m
-    protected final void h() {
+    protected void h() {
         LayoutInflater from = LayoutInflater.from(this.f);
-        this.b = from.inflate(com.baidu.tieba.a.i.new_sub_pb_reply_layout, (ViewGroup) null);
-        this.c = from.inflate(com.baidu.tieba.a.i.new_sub_pb_reply_head, (ViewGroup) null);
-        C().setOnClickListener(this.x);
+        this.b = from.inflate(com.baidu.tieba.s.new_sub_pb_reply_layout, (ViewGroup) null);
+        this.c = from.inflate(com.baidu.tieba.s.new_sub_pb_reply_head, (ViewGroup) null);
+        E().setOnClickListener(this.x);
     }
 
     @Override // com.baidu.tieba.pb.sub.m
-    protected final int a(am amVar) {
-        int d = amVar.d() - (amVar.f() * amVar.e());
-        if (d < 0) {
+    protected int a(ao aoVar) {
+        int e = aoVar.e() - (aoVar.g() * aoVar.f());
+        if (e < 0) {
             return 0;
         }
-        return d;
+        return e;
     }
 
     @Override // com.baidu.tieba.pb.sub.m
-    public final void a(String str) {
+    public void a(String str) {
         i iVar;
         int a;
-        if ((this.e instanceof i) && (a = (iVar = (i) this.e).a(str)) >= 0) {
+        if ((this.e instanceof i) && (a = (iVar = (i) this.e).a(str)) > -1) {
             this.d.setSelection(a + 1);
-            ai aiVar = (ai) iVar.getItem(a);
-            if (aiVar != null) {
-                String userName = aiVar.g().getUserName();
+            ah ahVar = (ah) iVar.getItem(a);
+            if (ahVar != null) {
+                String userName = ahVar.g().getUserName();
                 if (userName == null) {
                     userName = "";
                 }
-                this.M.getEditText().setText(this.f.getResources().getString(com.baidu.tieba.a.k.reply_sub_floor).replace("%s", userName));
-                this.M.getEditText().setSelection(this.M.getEditText().getText().length());
+                this.L.getEditText().setText(this.f.getResources().getString(com.baidu.tieba.u.reply_sub_floor).replace("%s", userName));
+                this.L.getEditText().setSelection(this.L.getEditText().getText().length());
             }
-            if (TbadkApplication.j().l() == 1) {
-                iVar.a(str, this.f.getResources().getColor(com.baidu.tieba.a.e.c_393d47));
+            if (TbadkApplication.m252getInst().getSkinType() == 1) {
+                iVar.a(str, this.f.getResources().getColor(com.baidu.tieba.o.c_393d47));
             } else {
-                iVar.a(str, this.f.getResources().getColor(com.baidu.tieba.a.e.c_fdfdf1));
+                iVar.a(str, this.f.getResources().getColor(com.baidu.tieba.o.c_fdfdf1));
             }
             this.d.invalidate();
         }

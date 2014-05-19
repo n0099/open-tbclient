@@ -2,54 +2,55 @@ package com.baidu.tieba.im.creategroup;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public final class i extends BdAsyncTask<Object, Integer, Bitmap> {
+class i extends BdAsyncTask<Object, Integer, Bitmap> {
     final /* synthetic */ h a;
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Bitmap a(Object... objArr) {
-        return com.baidu.tbadk.core.util.w.c(null, "tieba_group_image");
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(Bitmap bitmap) {
-        Bitmap bitmap2 = bitmap;
-        super.a((i) bitmap2);
-        if (bitmap2 != null) {
-            this.a.c.setVisibility(0);
-            h.a(this.a, new com.baidu.adp.widget.ImageView.b(bitmap2, false, null));
-            h.a(this.a).a(this.a.c);
-        }
-    }
 
     private i(h hVar) {
         this.a = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ i(h hVar, byte b) {
+    public /* synthetic */ i(h hVar, i iVar) {
         this(hVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
-        super.c();
+    public void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Bitmap doInBackground(Object... objArr) {
+        return com.baidu.tbadk.core.util.x.c(null, TbConfig.GROUP_HEAD_FILE);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
+    public void cancel() {
         super.cancel(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void d() {
-        super.d();
+    public void onCancelled() {
+        super.onCancelled();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Bitmap bitmap) {
+        super.onPostExecute(bitmap);
+        if (bitmap != null) {
+            this.a.c.setVisibility(0);
+            h.a(this.a, new com.baidu.adp.widget.a.a(bitmap, false, null));
+            h.a(this.a).a(this.a.c);
+        }
     }
 }

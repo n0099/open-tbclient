@@ -2,7 +2,7 @@ package com.baidu.tieba.recommend;
 
 import android.view.View;
 /* loaded from: classes.dex */
-final class b implements View.OnClickListener {
+class b implements View.OnClickListener {
     final /* synthetic */ DailyClassicalActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,11 +11,11 @@ final class b implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         int id = view.getId();
-        if (id == com.baidu.tieba.a.h.back) {
+        if (id == com.baidu.tieba.r.back) {
             this.a.finish();
-        } else if (id == com.baidu.tieba.a.h.tag_webview_item) {
+        } else if (id == com.baidu.tieba.r.tag_webview_item) {
             this.a.a();
         }
     }

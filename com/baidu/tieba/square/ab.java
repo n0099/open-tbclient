@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class ab {
+public class ab {
     public String a;
     public String b;
     public String c;
     public String d;
     public ArrayList<ab> e;
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         this.a = jSONObject.optString("menu_type");
         this.b = jSONObject.optString("menu_name");
         this.c = jSONObject.optString("menu_id");

@@ -1,24 +1,37 @@
 package com.baidu.tieba.account;
 
-import android.app.Activity;
-import android.content.Intent;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-final class w implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.ak> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<byte[]> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.ak> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            Intent d = aVar.a().d();
-            if (aVar.a().c() instanceof Activity) {
-                ReLoginShareActivity.l = (Activity) aVar.a().c();
+class w implements View.OnFocusChangeListener {
+    final /* synthetic */ Register2Activity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(Register2Activity register2Activity) {
+        this.a = register2Activity;
+    }
+
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        EditText editText;
+        EditText editText2;
+        ImageView imageView = null;
+        editText = this.a.t;
+        if (view == editText) {
+            imageView = this.a.k;
+        } else {
+            editText2 = this.a.v;
+            if (view == editText2) {
+                imageView = this.a.l;
             }
-            d.setClass(aVar.a().c(), ReLoginShareActivity.class);
-            d.putExtra("user_name", aVar.a().a.c);
-            d.putExtra("bduss", aVar.a().a.a);
-            d.putExtra("ptoken", aVar.a().a.b);
-            d.putExtra("locate_type", aVar.a().b);
-            aVar.a().f();
         }
-        return null;
+        if (imageView != null) {
+            if (z) {
+                imageView.setVisibility(0);
+            } else {
+                imageView.setVisibility(8);
+            }
+        }
     }
 }

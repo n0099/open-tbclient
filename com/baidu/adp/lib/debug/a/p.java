@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class p extends a implements Runnable {
+public class p extends a implements Runnable {
     private ActivityManager a;
     private String b;
     private int c;
@@ -31,7 +31,7 @@ public final class p extends a implements Runnable {
         com.baidu.adp.lib.debug.c.b(d());
     }
 
-    private q d() {
+    public q d() {
         q qVar = new q(this);
         qVar.b = a(String.valueOf("/proc/uid_stat/") + this.c + "/tcp_rcv");
         qVar.c = a(String.valueOf("/proc/uid_stat/") + this.c + "/tcp_snd");
@@ -39,7 +39,15 @@ public final class p extends a implements Runnable {
         return qVar;
     }
 
-    private static double a(String str) {
+    public q e() {
+        q d = d();
+        this.d.b = com.baidu.adp.lib.debug.c.a(d.b - com.baidu.adp.lib.debug.c.h().b);
+        this.d.c = com.baidu.adp.lib.debug.c.a(d.c - com.baidu.adp.lib.debug.c.h().c);
+        this.d.a = com.baidu.adp.lib.debug.c.a(d.a - com.baidu.adp.lib.debug.c.h().a);
+        return this.d;
+    }
+
+    public double a(String str) {
         try {
             return com.baidu.adp.lib.debug.c.a(Long.valueOf(Long.parseLong(new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("cat " + str).getInputStream())).readLine())).longValue() / 1024.0d);
         } catch (Throwable th) {
@@ -49,15 +57,11 @@ public final class p extends a implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         super.b();
         while (true) {
             try {
-                q d = d();
-                this.d.b = com.baidu.adp.lib.debug.c.a(d.b - com.baidu.adp.lib.debug.c.h().b);
-                this.d.c = com.baidu.adp.lib.debug.c.a(d.c - com.baidu.adp.lib.debug.c.h().c);
-                this.d.a = com.baidu.adp.lib.debug.c.a(d.a - com.baidu.adp.lib.debug.c.h().a);
-                com.baidu.adp.lib.debug.c.a(this.d);
+                com.baidu.adp.lib.debug.c.a(e());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {

@@ -1,26 +1,33 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import protobuf.DelGroup.DelGroupRes;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.squareup.wire.Wire;
+import protobuf.DelGroup.DelGroupResIdl;
 /* loaded from: classes.dex */
 public class ResponseDismissGroupMessage extends SocketResponsedMessage {
-    private long a;
+    private long groupId;
 
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        DelGroupRes.DelGroupResIdl parseFrom = DelGroupRes.DelGroupResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.a = parseFrom.getData().getGroupId();
-        }
+    public long getGroupId() {
+        return this.groupId;
     }
 
-    public final long d() {
-        return this.a;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 
     public ResponseDismissGroupMessage() {
-        super(103104);
+        super(MessageTypes.CMD_DISSMISS_GROUP);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        DelGroupResIdl delGroupResIdl = (DelGroupResIdl) new Wire(new Class[0]).parseFrom(bArr, DelGroupResIdl.class);
+        setError(delGroupResIdl.error.errorno.intValue());
+        setErrorString(delGroupResIdl.error.usermsg);
+        if (getError() == 0) {
+            setGroupId(delGroupResIdl.data.groupId.intValue());
+        }
     }
 }

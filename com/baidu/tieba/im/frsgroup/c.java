@@ -3,7 +3,7 @@ package com.baidu.tieba.im.frsgroup;
 import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements Runnable {
+public class c implements Runnable {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,11 +12,11 @@ public final class c implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         BdListView bdListView;
         GroupListAdapter groupListAdapter;
         bdListView = this.a.e;
         groupListAdapter = this.a.i;
-        com.baidu.tbadk.core.util.ac.a(bdListView, groupListAdapter.b(), 0, -1);
+        com.baidu.tbadk.core.util.ae.a(bdListView, groupListAdapter.b(), 0, -1);
     }
 }

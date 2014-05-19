@@ -10,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.data.ai;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.data.ah;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -21,16 +23,11 @@ public class SubPbLayout extends ViewGroup {
     private View.OnLongClickListener b;
     private View.OnTouchListener c;
     private b d;
-    private ai e;
+    private ah e;
     private View f;
     private Queue<d> g;
     private View h;
     private ViewGroup.MarginLayoutParams i;
-
-    @Override // android.view.ViewGroup
-    protected /* synthetic */ ViewGroup.LayoutParams generateDefaultLayoutParams() {
-        return a();
-    }
 
     public SubPbLayout(Context context) {
         this(context, null);
@@ -41,7 +38,7 @@ public class SubPbLayout extends ViewGroup {
         this.f = null;
         this.g = new LinkedList();
         this.i = new ViewGroup.MarginLayoutParams(-1, -2);
-        this.h = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.a.i.new_sub_pb_list_more, (ViewGroup) null);
+        this.h = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.s.new_sub_pb_list_more, (ViewGroup) null);
         addView(this.h, -1, -2);
     }
 
@@ -61,8 +58,8 @@ public class SubPbLayout extends ViewGroup {
         this.d = bVar;
     }
 
-    public final void a(ai aiVar, View view) {
-        this.e = aiVar;
+    public void a(ah ahVar, View view) {
+        this.e = ahVar;
         requestLayout();
         this.f = view;
     }
@@ -75,16 +72,16 @@ public class SubPbLayout extends ViewGroup {
             return;
         }
         int i3 = i & 1073741823;
-        ArrayList<ai> a = this.e.a();
+        ArrayList<ah> a = this.e.a();
         int size = a.size();
         int i4 = 0;
         int i5 = 0;
         while (i4 < size) {
             View childAt = getChildAt(i4);
             if (childAt == null || childAt.equals(this.h)) {
-                com.baidu.adp.lib.util.f.e("SubPbLayout", "onMeasure", "Item View Created for position: " + i4);
-                childAt = this.d.c();
-                this.g.offer(new d(i4, childAt, (byte) 0));
+                BdLog.d("SubPbLayout", "onMeasure", "Item View Created for position: " + i4);
+                childAt = this.d.b();
+                this.g.offer(new d(i4, childAt, null));
             }
             View view = childAt;
             view.setOnClickListener(this.a);
@@ -99,51 +96,30 @@ public class SubPbLayout extends ViewGroup {
             } else {
                 sparseArray = sparseArray2;
             }
-            if (sparseArray.get(com.baidu.tieba.a.h.tag_load_sub_data) != this.e) {
-                sparseArray.put(com.baidu.tieba.a.h.tag_load_sub_data, this.e);
+            if (sparseArray.get(com.baidu.tieba.r.tag_load_sub_data) != this.e) {
+                sparseArray.put(com.baidu.tieba.r.tag_load_sub_data, this.e);
             }
-            sparseArray.put(com.baidu.tieba.a.h.tag_load_sub_view, this.f);
-            sparseArray.put(com.baidu.tieba.a.h.tag_is_subpb, true);
+            sparseArray.put(com.baidu.tieba.r.tag_load_sub_view, this.f);
+            sparseArray.put(com.baidu.tieba.r.tag_is_subpb, true);
             if (a.get(i4) != null && a.get(i4).g() != null) {
-                sparseArray.put(com.baidu.tieba.a.h.tag_photo_username, a.get(i4).g().getUserName());
-                sparseArray.put(com.baidu.tieba.a.h.tag_clip_board, a.get(i4));
+                sparseArray.put(com.baidu.tieba.r.tag_photo_username, a.get(i4).g().getUserName());
+                sparseArray.put(com.baidu.tieba.r.tag_clip_board, a.get(i4));
             }
-            c cVar = (c) sparseArray.get(com.baidu.tieba.a.h.tag_holder);
-            b bVar = this.d;
-            ai aiVar = a.get(i4);
-            if (this.e.k() <= a.size()) {
-                a.size();
-            }
-            bVar.a(cVar, aiVar);
+            this.d.a((c) sparseArray.get(com.baidu.tieba.r.tag_holder), a.get(i4), this.e.k() > a.size() || a.size() - i4 > 1, i4 == 0);
             view.measure(((i3 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             i4++;
             i5 += view.getMeasuredHeight();
         }
         if (a != null && this.e.k() > a.size()) {
-            TextView textView = (TextView) this.h.findViewById(com.baidu.tieba.a.h.sub_pb_more_text);
-            Context context = getContext();
-            int k = this.e.k() - a.size();
-            com.baidu.tieba.p.c();
-            String string = com.baidu.tieba.p.d().getString(com.baidu.tieba.a.k.sub_pb_load_more);
-            String valueOf = String.valueOf(k);
-            int indexOf = string.indexOf("%d");
-            SpannableString spannableString = new SpannableString(string.replace("%d", valueOf));
-            if (TbadkApplication.j().l() == 1) {
-                spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(com.baidu.tieba.a.e.sub_pb_more_text_1)), indexOf, valueOf.length() + indexOf, 33);
-                textView.setTextColor(context.getResources().getColor(com.baidu.tieba.a.e.sub_pb_more_text_1));
-            } else {
-                spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(com.baidu.tieba.a.e.sub_pb_more_text)), indexOf, valueOf.length() + indexOf, 33);
-                textView.setTextColor(context.getResources().getColor(com.baidu.tieba.a.e.sub_pb_more_text));
-            }
-            textView.setText(spannableString);
+            a(getContext(), (TextView) this.h.findViewById(com.baidu.tieba.r.sub_pb_more_text), this.e.k() - a.size());
             this.h.setOnClickListener(this.a);
             SparseArray sparseArray4 = (SparseArray) this.h.getTag();
             if (sparseArray4 == null) {
                 sparseArray4 = new SparseArray();
                 this.h.setTag(sparseArray4);
             }
-            sparseArray4.put(com.baidu.tieba.a.h.tag_load_sub_data, this.e);
-            sparseArray4.put(com.baidu.tieba.a.h.tag_load_sub_view, this.f);
+            sparseArray4.put(com.baidu.tieba.r.tag_load_sub_data, this.e);
+            sparseArray4.put(com.baidu.tieba.r.tag_load_sub_view, this.f);
             this.h.setVisibility(0);
             this.h.measure(((i3 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             this.h.setBackgroundColor(0);
@@ -161,7 +137,7 @@ public class SubPbLayout extends ViewGroup {
             for (int i6 = 0; i6 < size; i6++) {
                 d poll = this.g.poll();
                 if (poll.b.getParent() == null) {
-                    com.baidu.adp.lib.util.f.e("SubPbLayout", "onLayout", "add to position: " + poll.a);
+                    BdLog.d("SubPbLayout", "onLayout", "add to position: " + poll.a);
                     addViewInLayout(poll.b, poll.a, this.i, true);
                 }
             }
@@ -172,18 +148,18 @@ public class SubPbLayout extends ViewGroup {
             int i8 = paddingTop;
             while (i7 < size2) {
                 View childAt = getChildAt(i7);
-                if (childAt != null) {
+                if (childAt == null) {
+                    i5 = i8;
+                } else {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) childAt.getLayoutParams();
                     if (marginLayoutParams == null) {
-                        marginLayoutParams = a();
+                        marginLayoutParams = generateDefaultLayoutParams();
                     }
                     int i9 = i8 + marginLayoutParams.topMargin;
                     int measuredWidth = marginLayoutParams.leftMargin + paddingLeft + childAt.getMeasuredWidth();
                     int measuredHeight = childAt.getMeasuredHeight() + i9;
                     childAt.layout(marginLayoutParams.leftMargin + paddingLeft, i9, measuredWidth, measuredHeight);
                     i5 = marginLayoutParams.bottomMargin + measuredHeight;
-                } else {
-                    i5 = i8;
                 }
                 i7++;
                 i8 = i5;
@@ -194,6 +170,21 @@ public class SubPbLayout extends ViewGroup {
                 this.h.layout(marginLayoutParams2.leftMargin + paddingLeft, i10, marginLayoutParams2.leftMargin + paddingLeft + this.h.getMeasuredWidth(), this.h.getMeasuredHeight() + i10);
             }
         }
+    }
+
+    public static void a(Context context, TextView textView, int i) {
+        String string = ad.c().d().getString(com.baidu.tieba.u.sub_pb_load_more);
+        String valueOf = String.valueOf(i);
+        int indexOf = string.indexOf("%d");
+        SpannableString spannableString = new SpannableString(string.replace("%d", valueOf));
+        if (TbadkApplication.m252getInst().getSkinType() == 1) {
+            spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(com.baidu.tieba.o.sub_pb_more_text_1)), indexOf, valueOf.length() + indexOf, 33);
+            textView.setTextColor(context.getResources().getColor(com.baidu.tieba.o.sub_pb_more_text_1));
+        } else {
+            spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(com.baidu.tieba.o.sub_pb_more_text)), indexOf, valueOf.length() + indexOf, 33);
+            textView.setTextColor(context.getResources().getColor(com.baidu.tieba.o.sub_pb_more_text));
+        }
+        textView.setText(spannableString);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -213,7 +204,11 @@ public class SubPbLayout extends ViewGroup {
         return new ViewGroup.MarginLayoutParams(getContext(), attributeSet);
     }
 
-    private static ViewGroup.MarginLayoutParams a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.view.ViewGroup
+    /* renamed from: a */
+    public ViewGroup.MarginLayoutParams generateDefaultLayoutParams() {
         return new ViewGroup.MarginLayoutParams(-2, -2);
     }
 }

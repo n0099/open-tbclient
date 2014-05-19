@@ -12,7 +12,7 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.gson.JsonElement
-    public final JsonArray deepCopy() {
+    public JsonArray deepCopy() {
         JsonArray jsonArray = new JsonArray();
         for (JsonElement jsonElement : this.elements) {
             jsonArray.add(jsonElement.deepCopy());
@@ -20,32 +20,32 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
         return jsonArray;
     }
 
-    public final void add(JsonElement jsonElement) {
+    public void add(JsonElement jsonElement) {
         if (jsonElement == null) {
             jsonElement = JsonNull.INSTANCE;
         }
         this.elements.add(jsonElement);
     }
 
-    public final void addAll(JsonArray jsonArray) {
+    public void addAll(JsonArray jsonArray) {
         this.elements.addAll(jsonArray.elements);
     }
 
-    public final int size() {
+    public int size() {
         return this.elements.size();
     }
 
     @Override // java.lang.Iterable
-    public final Iterator<JsonElement> iterator() {
+    public Iterator<JsonElement> iterator() {
         return this.elements.iterator();
     }
 
-    public final JsonElement get(int i) {
+    public JsonElement get(int i) {
         return this.elements.get(i);
     }
 
     @Override // com.baidu.gson.JsonElement
-    public final Number getAsNumber() {
+    public Number getAsNumber() {
         if (this.elements.size() == 1) {
             return this.elements.get(0).getAsNumber();
         }
@@ -53,7 +53,7 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
     }
 
     @Override // com.baidu.gson.JsonElement
-    public final String getAsString() {
+    public String getAsString() {
         if (this.elements.size() == 1) {
             return this.elements.get(0).getAsString();
         }
@@ -61,7 +61,7 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
     }
 
     @Override // com.baidu.gson.JsonElement
-    public final double getAsDouble() {
+    public double getAsDouble() {
         if (this.elements.size() == 1) {
             return this.elements.get(0).getAsDouble();
         }
@@ -69,7 +69,7 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
     }
 
     @Override // com.baidu.gson.JsonElement
-    public final BigDecimal getAsBigDecimal() {
+    public BigDecimal getAsBigDecimal() {
         if (this.elements.size() == 1) {
             return this.elements.get(0).getAsBigDecimal();
         }
@@ -77,7 +77,7 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
     }
 
     @Override // com.baidu.gson.JsonElement
-    public final BigInteger getAsBigInteger() {
+    public BigInteger getAsBigInteger() {
         if (this.elements.size() == 1) {
             return this.elements.get(0).getAsBigInteger();
         }
@@ -85,7 +85,7 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
     }
 
     @Override // com.baidu.gson.JsonElement
-    public final float getAsFloat() {
+    public float getAsFloat() {
         if (this.elements.size() == 1) {
             return this.elements.get(0).getAsFloat();
         }
@@ -93,7 +93,7 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
     }
 
     @Override // com.baidu.gson.JsonElement
-    public final long getAsLong() {
+    public long getAsLong() {
         if (this.elements.size() == 1) {
             return this.elements.get(0).getAsLong();
         }
@@ -101,7 +101,7 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
     }
 
     @Override // com.baidu.gson.JsonElement
-    public final int getAsInt() {
+    public int getAsInt() {
         if (this.elements.size() == 1) {
             return this.elements.get(0).getAsInt();
         }
@@ -109,7 +109,7 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
     }
 
     @Override // com.baidu.gson.JsonElement
-    public final byte getAsByte() {
+    public byte getAsByte() {
         if (this.elements.size() == 1) {
             return this.elements.get(0).getAsByte();
         }
@@ -117,7 +117,7 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
     }
 
     @Override // com.baidu.gson.JsonElement
-    public final char getAsCharacter() {
+    public char getAsCharacter() {
         if (this.elements.size() == 1) {
             return this.elements.get(0).getAsCharacter();
         }
@@ -125,7 +125,7 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
     }
 
     @Override // com.baidu.gson.JsonElement
-    public final short getAsShort() {
+    public short getAsShort() {
         if (this.elements.size() == 1) {
             return this.elements.get(0).getAsShort();
         }
@@ -133,18 +133,18 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
     }
 
     @Override // com.baidu.gson.JsonElement
-    public final boolean getAsBoolean() {
+    public boolean getAsBoolean() {
         if (this.elements.size() == 1) {
             return this.elements.get(0).getAsBoolean();
         }
         throw new IllegalStateException();
     }
 
-    public final boolean equals(Object obj) {
+    public boolean equals(Object obj) {
         return obj == this || ((obj instanceof JsonArray) && ((JsonArray) obj).elements.equals(this.elements));
     }
 
-    public final int hashCode() {
+    public int hashCode() {
         return this.elements.hashCode();
     }
 }

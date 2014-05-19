@@ -1,41 +1,42 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class m {
+public class m {
     private String a;
     private String b;
     private String c;
     private boolean d;
     private ArrayList<l> e = new ArrayList<>();
 
-    public final String a() {
+    public String a() {
         return this.a;
     }
 
-    public final String b() {
+    public String b() {
         return this.b;
     }
 
-    public final ArrayList<l> c() {
+    public ArrayList<l> c() {
         return this.e;
     }
 
-    public final boolean d() {
+    public boolean d() {
         return this.d;
     }
 
-    public final void a(boolean z) {
-        this.d = true;
+    public void a(boolean z) {
+        this.d = z;
     }
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         try {
             this.b = jSONObject.optString("publish_time");
-            this.a = jSONObject.optString("total");
+            this.a = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.TOTAL);
             this.c = jSONObject.optString("update_time");
             JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
             if (optJSONArray != null) {
@@ -47,7 +48,7 @@ public final class m {
                 }
             }
         } catch (JSONException e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+            BdLog.e(getClass().getName(), "parserJson", e.toString());
         }
     }
 }

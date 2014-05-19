@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.groupUpdates;
 
 import com.baidu.gson.Gson;
+import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -17,6 +18,7 @@ public class UpdatesItemData extends com.baidu.tbadk.core.util.a implements Seri
     private String groupName;
     private boolean isSelected;
     private boolean isShown;
+    private LiveCardData mLiveCardData = null;
     private String notice_id;
     private long time;
     private String title;
@@ -107,14 +109,14 @@ public class UpdatesItemData extends com.baidu.tbadk.core.util.a implements Seri
         this.notice_id = str;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ab
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getGroupHeadUrl());
         return linkedList;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ab
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getGroupHeadUrl());
@@ -159,5 +161,13 @@ public class UpdatesItemData extends com.baidu.tbadk.core.util.a implements Seri
 
     public void setGroupActivityId(String str) {
         this.groupActivityId = str;
+    }
+
+    public LiveCardData getLiveCardData() {
+        return this.mLiveCardData;
+    }
+
+    public void setLiveCardData(LiveCardData liveCardData) {
+        this.mLiveCardData = liveCardData;
     }
 }

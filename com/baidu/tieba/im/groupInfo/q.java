@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.groupInfo;
 
 import com.baidu.tieba.im.message.ResponseGroupInfoMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class q implements com.baidu.tieba.im.a<Boolean> {
+public class q implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ p a;
     private final /* synthetic */ ResponseGroupInfoMessage b;
 
@@ -12,18 +13,21 @@ final class q implements com.baidu.tieba.im.a<Boolean> {
         this.b = responseGroupInfoMessage;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
+    public void a(Boolean bool) {
+        GroupInfoActivity groupInfoActivity;
         r rVar;
-        com.baidu.tieba.im.model.l lVar;
-        Boolean bool2 = bool;
-        if (bool2 == null) {
-            bool2 = false;
+        GroupInfoActivity groupInfoActivity2;
+        com.baidu.tieba.im.model.m mVar;
+        if (bool == null) {
+            bool = false;
         }
-        rVar = this.a.a.f;
-        rVar.a(this.b.d(), bool2.booleanValue());
-        lVar = this.a.a.g;
-        lVar.a(bool2.booleanValue() ? false : true);
+        groupInfoActivity = this.a.a;
+        rVar = groupInfoActivity.f;
+        rVar.a(this.b.getData(), bool.booleanValue());
+        groupInfoActivity2 = this.a.a;
+        mVar = groupInfoActivity2.g;
+        mVar.a(bool.booleanValue() ? false : true);
     }
 }

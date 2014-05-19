@@ -1,29 +1,21 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class u implements TextWatcher {
-    final /* synthetic */ LoginActivity a;
+public class u implements com.baidu.tbadk.coreExtra.view.v {
+    final /* synthetic */ FillUProfileActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(LoginActivity loginActivity) {
-        this.a = loginActivity;
+    public u(FillUProfileActivity fillUProfileActivity) {
+        this.a = fillUProfileActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.a.n = true;
-        this.a.g();
-        this.a.h();
-    }
-
-    @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
-        this.a.c();
+    @Override // com.baidu.tbadk.coreExtra.view.v
+    public void a(AccountData accountData) {
+        com.baidu.tbadk.core.account.a.a(accountData);
+        TbadkApplication.setCurrentAccount(accountData, this.a.getBaseContext());
+        this.a.b();
     }
 }

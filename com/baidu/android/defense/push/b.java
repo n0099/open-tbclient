@@ -56,7 +56,7 @@ public final class b {
 
     public static void c(Context context, String str) {
         SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
-        edit.putString("user_id", str);
+        edit.putString(com.baidu.tbadk.core.frameworkData.a.USER_ID, str);
         edit.commit();
     }
 
@@ -65,7 +65,7 @@ public final class b {
     }
 
     public static String e(Context context) {
-        return context.getSharedPreferences("moplus_psetting", 0).getString("user_id", "");
+        return context.getSharedPreferences("moplus_psetting", 0).getString(com.baidu.tbadk.core.frameworkData.a.USER_ID, "");
     }
 
     public static long f(Context context) {

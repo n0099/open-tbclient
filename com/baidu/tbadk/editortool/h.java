@@ -6,7 +6,7 @@ import android.widget.GridView;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class h implements AdapterView.OnItemLongClickListener {
+public class h implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ EmotionTabContentView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public final class h implements AdapterView.OnItemLongClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
-    public final boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         ag agVar;
         agVar = this.a.b;
         if (agVar.c() == EmotionGroupType.BIG_EMOTION) {

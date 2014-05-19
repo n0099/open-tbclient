@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.d;
 
 import java.util.List;
 /* loaded from: classes.dex */
-final class w implements b {
+class w implements b {
     final /* synthetic */ v a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,17 +11,22 @@ final class w implements b {
     }
 
     @Override // com.baidu.tbadk.coreExtra.d.b
-    public final void a() {
-        a aVar;
+    public void a() {
+        q qVar;
+        q qVar2;
         List list;
-        q qVar = this.a.a;
-        aVar = d.a;
-        qVar.g = aVar.a();
-        list = this.a.a.g;
-        if (list == null) {
-            this.a.a.h = false;
-        } else {
-            this.a.a.a("change ip to reconnect with DNS' failed.", 0);
+        q qVar3;
+        q qVar4;
+        qVar = this.a.a;
+        qVar.g = a.a().b();
+        qVar2 = this.a.a;
+        list = qVar2.g;
+        if (list != null) {
+            qVar4 = this.a.a;
+            qVar4.a("change ip to reconnect with DNS' failed.", 0);
+            return;
         }
+        qVar3 = this.a.a;
+        qVar3.h = false;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.flist;
 
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-final class ab extends com.baidu.tbadk.core.util.a {
+class ab extends com.baidu.tbadk.core.util.a {
     final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,8 +10,8 @@ final class ab extends com.baidu.tbadk.core.util.a {
         this.a = forumRankActivity;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ab
-    public final LinkedList<String> getImageUrl() {
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+    public LinkedList<String> getImageUrl() {
         String str;
         String str2;
         str = this.a.l;

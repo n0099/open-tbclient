@@ -1,6 +1,8 @@
 package com.baidu.tieba.im.chat.officialBar;
+
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-final class aj implements com.baidu.tieba.im.a<Boolean> {
+class aj implements DialogInterface.OnClickListener {
     final /* synthetic */ OfficialBarInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,11 +10,8 @@ final class aj implements com.baidu.tieba.im.a<Boolean> {
         this.a = officialBarInfoActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
-        ap apVar;
-        apVar = this.a.f;
-        apVar.a(bool.booleanValue());
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.cancel();
     }
 }

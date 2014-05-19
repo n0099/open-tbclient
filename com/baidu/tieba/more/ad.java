@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.Scroller;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ad implements Runnable {
+public class ad implements Runnable {
     final /* synthetic */ ac a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public final class ad implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         Scroller scroller;
         boolean z;
         View view;

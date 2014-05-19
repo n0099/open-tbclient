@@ -23,12 +23,12 @@ public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
     }
 
     @Override // com.baidu.gson.TypeAdapter
-    public final T read(JsonReader jsonReader) {
+    public T read(JsonReader jsonReader) {
         return this.delegate.read(jsonReader);
     }
 
     @Override // com.baidu.gson.TypeAdapter
-    public final void write(JsonWriter jsonWriter, T t) {
+    public void write(JsonWriter jsonWriter, T t) {
         TypeAdapter<T> typeAdapter = this.delegate;
         Type runtimeTypeIfMoreSpecific = getRuntimeTypeIfMoreSpecific(this.type, t);
         if (runtimeTypeIfMoreSpecific != this.type) {

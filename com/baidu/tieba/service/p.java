@@ -6,9 +6,10 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.ad;
 import com.baidu.tieba.data.VersionData;
 /* loaded from: classes.dex */
-final class p extends Handler {
+class p extends Handler {
     final /* synthetic */ TiebaUpdateService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +18,7 @@ final class p extends Handler {
     }
 
     @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    public void handleMessage(Message message) {
         VersionData versionData;
         boolean z;
         NotificationManager notificationManager;
@@ -81,7 +82,7 @@ final class p extends Handler {
                             long j20 = j16 + j17;
                             j18 = this.a.j;
                             j19 = this.a.k;
-                            TiebaUpdateService.a(tiebaUpdateService2, j20, j18 + j19);
+                            tiebaUpdateService2.a(j20, j18 + j19);
                             this.a.a(i3);
                             return;
                         }
@@ -96,7 +97,7 @@ final class p extends Handler {
                             TiebaUpdateService tiebaUpdateService3 = this.a;
                             j7 = this.a.l;
                             j8 = this.a.j;
-                            TiebaUpdateService.a(tiebaUpdateService3, j7, j8);
+                            tiebaUpdateService3.a(j7, j8);
                             TiebaUpdateService tiebaUpdateService4 = this.a;
                             j9 = this.a.l;
                             j10 = this.a.j;
@@ -112,7 +113,7 @@ final class p extends Handler {
                     TiebaUpdateService tiebaUpdateService5 = this.a;
                     j4 = this.a.l;
                     j5 = this.a.j;
-                    TiebaUpdateService.a(tiebaUpdateService5, j4, j5);
+                    tiebaUpdateService5.a(j4, j5);
                     this.a.a(i3);
                 }
             }
@@ -125,11 +126,9 @@ final class p extends Handler {
             this.a.a("closeFlag", "true");
             notificationManager = this.a.b;
             notificationManager.cancel(10);
-            com.baidu.tieba.p.c();
-            UtilHelper.b(com.baidu.tieba.p.d(), versionData.getNew_file());
+            UtilHelper.install_apk(ad.c().d(), versionData.getNewFile());
             if (this.a.a != null && this.a.a.length() > 4) {
-                TbadkApplication.j();
-                TbadkApplication.p(this.a.a);
+                TbadkApplication.m252getInst().setInstallOtherApp(this.a.a);
             }
             this.a.stopSelf();
         }

@@ -3,7 +3,7 @@ package com.baidu.tieba.editortool;
 public interface al {
     void a();
 
-    void b();
+    void a(ag agVar);
 
-    void c();
+    void b();
 }

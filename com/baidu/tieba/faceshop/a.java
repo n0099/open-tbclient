@@ -1,20 +1,22 @@
 package com.baidu.tieba.faceshop;
 
 import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class a extends com.baidu.tbadk.editortool.e {
+public class a extends com.baidu.tbadk.editortool.e {
     private LinkedList<com.baidu.tbadk.editortool.ag> a;
 
     @Override // com.baidu.tbadk.editortool.e
-    public final int a() {
+    public int a() {
         return 3;
     }
 
     @Override // com.baidu.tbadk.editortool.e
-    public final void a(com.baidu.tbadk.editortool.f fVar) {
-        if (com.baidu.tbadk.core.util.w.a() && this.a != null) {
+    public void a(com.baidu.tbadk.editortool.f fVar) {
+        if (com.baidu.tbadk.core.util.x.a() && this.a != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -32,8 +34,8 @@ public final class a extends com.baidu.tbadk.editortool.e {
     }
 
     @Override // com.baidu.tbadk.editortool.e
-    public final void b() {
-        com.baidu.adp.framework.c.a().a(new b(this, 2001145));
+    public void b() {
+        MessageManager.getInstance().registerListener(new b(this, MessageTypes.CMD_ADS_EMOTION));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

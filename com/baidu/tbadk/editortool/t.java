@@ -3,7 +3,7 @@ package com.baidu.tbadk.editortool;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class t implements View.OnClickListener {
+public class t implements View.OnClickListener {
     final /* synthetic */ EmotionTabWidgetView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public final class t implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         x xVar;
         x xVar2;
         xVar = this.a.c;

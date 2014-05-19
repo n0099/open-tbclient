@@ -1,6 +1,6 @@
 package com.baidu.tieba.album;
 /* loaded from: classes.dex */
-final class r implements Runnable {
+class r implements Runnable {
     final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ final class r implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         this.a.a(false);
     }
 }

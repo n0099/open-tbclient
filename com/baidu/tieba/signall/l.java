@@ -3,8 +3,9 @@ package com.baidu.tieba.signall;
 import android.content.Context;
 import android.view.View;
 import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class l implements View.OnClickListener {
+public class l implements View.OnClickListener {
     final /* synthetic */ k a;
     private final /* synthetic */ b b;
     private final /* synthetic */ o c;
@@ -17,13 +18,13 @@ final class l implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         HashMap hashMap;
         Context context;
         if (!this.b.k()) {
             this.c.i.setVisibility(4);
             this.c.j.setVisibility(0);
-            this.c.k.setText(com.baidu.tieba.a.k.signallforum_resigning);
+            this.c.k.setText(com.baidu.tieba.u.signallforum_resigning);
             this.b.c(true);
             aa aaVar = new aa();
             aaVar.a(this.a);

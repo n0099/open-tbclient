@@ -1,10 +1,11 @@
 package com.baidu.adp.lib.c;
 
+import android.location.Address;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements Handler.Callback {
+public class c implements Handler.Callback {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,12 +14,12 @@ public final class c implements Handler.Callback {
     }
 
     @Override // android.os.Handler.Callback
-    public final boolean handleMessage(Message message) {
+    public boolean handleMessage(Message message) {
         int i;
         int i2;
         switch (message.what) {
             case 0:
-                this.a.c();
+                this.a.d();
                 String str = "";
                 i = this.a.j;
                 switch (i) {
@@ -37,7 +38,7 @@ public final class c implements Handler.Callback {
                 }
                 a aVar = this.a;
                 i2 = this.a.j;
-                a.a(aVar, i2, str, null);
+                aVar.a(i2, str, (Address) null);
                 return false;
             default:
                 return false;

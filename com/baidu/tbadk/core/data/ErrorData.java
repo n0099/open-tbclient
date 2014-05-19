@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -37,7 +38,7 @@ public class ErrorData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
@@ -48,14 +49,14 @@ public class ErrorData implements Serializable {
                 this.error_msg = jSONObject.optString("error_msg");
                 this.error_data = jSONObject.optString("error_data");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.adp.lib.util.f.d(getClass().getName(), "logPrint", "error_code = " + String.valueOf(this.error_code));
-        com.baidu.adp.lib.util.f.d(getClass().getName(), "logPrint", "error_msg = " + this.error_msg);
-        com.baidu.adp.lib.util.f.d(getClass().getName(), "logPrint", "error_data = " + this.error_data);
+        BdLog.v(getClass().getName(), "logPrint", "error_code = " + String.valueOf(this.error_code));
+        BdLog.v(getClass().getName(), "logPrint", "error_msg = " + this.error_msg);
+        BdLog.v(getClass().getName(), "logPrint", "error_data = " + this.error_data);
     }
 }

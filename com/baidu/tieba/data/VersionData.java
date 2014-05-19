@@ -1,46 +1,95 @@
 package com.baidu.tieba.data;
 
 import android.webkit.URLUtil;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.be;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class VersionData implements Serializable {
     private static final long serialVersionUID = 5102616316349188013L;
-    private String client_id;
-    private String new_file;
-    private String new_version_desc;
-    private int new_version_remind;
+    private String clientId;
+    private String newFile;
+    private String newVersionDesc;
+    private int newVersionRemind;
+    private String patch;
+    private String patchSize;
     private String size;
-    private int force_update = 0;
+    private int forceUpdate = 0;
     private int strategy = 0;
-    private int has_new_ver = 0;
-    private String new_ver = null;
+    private int hasNewVer = 0;
+    private String newVer = null;
     private String url = null;
 
     public VersionData() {
-        setClient_id(null);
-        this.new_file = null;
+        setClientId(null);
+        this.newFile = null;
     }
 
-    public String getNew_version_desc() {
-        return this.new_version_desc;
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+        }
     }
 
-    public void setNew_version_desc(String str) {
-        this.new_version_desc = str;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.forceUpdate = jSONObject.optInt("force_update", 0);
+                this.strategy = jSONObject.optInt("strategy", 0);
+                this.newVer = jSONObject.optString("new_version", null);
+                this.size = jSONObject.optString("size", null);
+                String optString = jSONObject.optString("new_four_version", null);
+                if (!be.c(optString)) {
+                    this.newVer = optString;
+                }
+                this.url = jSONObject.optString("new_version_url");
+                this.newVersionRemind = jSONObject.optInt("new_version_remind", 0);
+                this.newVersionDesc = jSONObject.optString("new_version_desc", null);
+                this.patch = jSONObject.optString("patch");
+                this.patchSize = jSONObject.optString("patch_size");
+                if (a()) {
+                    this.hasNewVer = 1;
+                    this.newFile = "tieba_" + this.newVer + ".apk";
+                }
+            } catch (Exception e) {
+                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+            }
+        }
     }
 
-    public int getForce_update() {
-        return this.force_update;
+    private boolean a() {
+        return (this.newVersionRemind != 1 || this.url == null || !URLUtil.isHttpUrl(this.url) || this.newVer == null || TbConfig.getVersion().equalsIgnoreCase(this.newVer)) ? false : true;
     }
 
-    public void setForce_update(int i) {
-        this.force_update = i;
+    public void logPrint() {
+        BdLog.v("VersionData", "logPrint", "force_update = " + String.valueOf(this.forceUpdate));
+        BdLog.v("VersionData", "logPrint", "new_ver = " + this.newVer);
+        BdLog.v("VersionData", "logPrint", "has_new_ver = " + String.valueOf(this.hasNewVer));
+        BdLog.v("VersionData", "logPrint", "url = " + this.url);
     }
 
-    public String getNew_version() {
-        return this.new_ver;
+    public String getNewVersionDesc() {
+        return this.newVersionDesc;
+    }
+
+    public void setNewVersionDesc(String str) {
+        this.newVersionDesc = str;
+    }
+
+    public boolean forceUpdate() {
+        return this.forceUpdate == 1;
+    }
+
+    public void setForceUpdate(int i) {
+        this.forceUpdate = i;
+    }
+
+    public String getNewVersion() {
+        return this.newVer;
     }
 
     public void setUrl(String str) {
@@ -51,67 +100,28 @@ public class VersionData implements Serializable {
         return this.url;
     }
 
-    public void setHas_new_ver(int i) {
-        this.has_new_ver = i;
+    public void setHasNewVer(int i) {
+        this.hasNewVer = i;
     }
 
-    public int getHas_new_ver() {
-        return this.has_new_ver;
+    public boolean hasNewVer() {
+        return this.hasNewVer == 1;
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
-        }
+    public void setClientId(String str) {
+        this.clientId = str;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.force_update = jSONObject.optInt("force_update", 0);
-                this.strategy = jSONObject.optInt("strategy", 0);
-                this.new_ver = jSONObject.optString("new_version", null);
-                this.size = jSONObject.optString("size", null);
-                String optString = jSONObject.optString("new_four_version", null);
-                if (!bc.c(optString)) {
-                    this.new_ver = optString;
-                }
-                this.url = jSONObject.optString("new_version_url");
-                this.new_version_remind = jSONObject.optInt("new_version_remind", 0);
-                this.new_version_desc = jSONObject.optString("new_version_desc", null);
-                if (this.new_version_remind == 1 && this.url != null && URLUtil.isHttpUrl(this.url) && this.new_ver != null && !com.baidu.tbadk.core.data.n.c().equalsIgnoreCase(this.new_ver)) {
-                    this.has_new_ver = 1;
-                    this.new_file = "tieba_" + this.new_ver + ".apk";
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
-            }
-        }
+    public String getClientId() {
+        return this.clientId;
     }
 
-    public void logPrint() {
-        com.baidu.adp.lib.util.f.d("VersionData", "logPrint", "force_update = " + String.valueOf(this.force_update));
-        com.baidu.adp.lib.util.f.d("VersionData", "logPrint", "new_ver = " + this.new_ver);
-        com.baidu.adp.lib.util.f.d("VersionData", "logPrint", "has_new_ver = " + String.valueOf(this.has_new_ver));
-        com.baidu.adp.lib.util.f.d("VersionData", "logPrint", "url = " + this.url);
+    public void setNewFile(String str) {
+        this.newFile = str;
     }
 
-    public void setClient_id(String str) {
-        this.client_id = str;
-    }
-
-    public String getClient_id() {
-        return this.client_id;
-    }
-
-    public void setNew_file(String str) {
-        this.new_file = str;
-    }
-
-    public String getNew_file() {
-        return this.new_file;
+    public String getNewFile() {
+        return this.newFile;
     }
 
     public int getStrategy() {
@@ -128,5 +138,21 @@ public class VersionData implements Serializable {
 
     public void setSize(String str) {
         this.size = str;
+    }
+
+    public String getPatch() {
+        return this.patch;
+    }
+
+    public void setPatch(String str) {
+        this.patch = str;
+    }
+
+    public String getPatchSize() {
+        return this.patchSize;
+    }
+
+    public void setPatchSize(String str) {
+        this.patchSize = str;
     }
 }

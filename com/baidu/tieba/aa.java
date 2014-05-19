@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public final class aa implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.data.k> {
-    final /* synthetic */ p a;
+class aa implements View.OnClickListener {
+    final /* synthetic */ y a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(p pVar) {
-        this.a = pVar;
+    public aa(y yVar) {
+        this.a = yVar;
     }
 
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.data.k> aVar) {
-        UtilHelper.a(TbadkApplication.j(), aVar.a(), 13);
-        return null;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ac acVar;
+        acVar = this.a.k;
+        acVar.a();
     }
 }

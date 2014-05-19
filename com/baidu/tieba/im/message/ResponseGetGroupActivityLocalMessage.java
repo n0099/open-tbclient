@@ -1,16 +1,21 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.GroupActivityData;
 /* loaded from: classes.dex */
 public class ResponseGetGroupActivityLocalMessage extends CustomResponsedMessage<byte[]> {
-    private GroupActivityData a;
+    private GroupActivityData activityData;
 
     public ResponseGetGroupActivityLocalMessage() {
-        super(2001127);
+        super(MessageTypes.CMD_REQUEST_GROUP_ACTIVITY_BY_ID_LOCAL);
     }
 
-    public final GroupActivityData b() {
-        return this.a;
+    public GroupActivityData getActivityData() {
+        return this.activityData;
+    }
+
+    public void setActivityData(GroupActivityData groupActivityData) {
+        this.activityData = groupActivityData;
     }
 }

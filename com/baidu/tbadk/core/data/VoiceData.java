@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public final class VoiceData {
+public class VoiceData {
 
     /* loaded from: classes.dex */
     public class VoiceModel implements Serializable {

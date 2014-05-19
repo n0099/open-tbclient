@@ -3,7 +3,7 @@ package com.baidu.tieba.write;
 public interface w {
     void a();
 
-    void a(com.baidu.tbadk.coreExtra.view.j jVar, int i);
+    void a(com.baidu.tbadk.coreExtra.view.k kVar, int i);
 
     void b();
 

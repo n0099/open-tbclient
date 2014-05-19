@@ -1,34 +1,21 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
-import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public final class bg implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ bd a;
-    private final /* synthetic */ com.baidu.tieba.im.a b;
+class bg extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ OfficialBarMsglistModel b;
+    private final /* synthetic */ ChatMessage c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(bd bdVar, com.baidu.tieba.im.a aVar) {
-        this.a = bdVar;
-        this.b = aVar;
+    public bg(OfficialBarMsglistModel officialBarMsglistModel, ChatMessage chatMessage) {
+        this.b = officialBarMsglistModel;
+        this.c = chatMessage;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Void r3) {
-        LinkedList linkedList;
-        LinkedList linkedList2;
-        LinkedList<ImMessageCenterShowItemData> h = com.baidu.tieba.im.pushNotify.a.d().h();
-        if (h != null) {
-            linkedList = this.a.a;
-            linkedList.clear();
-            linkedList2 = this.a.a;
-            linkedList2.addAll(h);
-            bd.b(this.a);
-            if (this.b != null) {
-                this.b.a(null);
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().b(String.valueOf(this.b.a.getUserId()), String.valueOf(this.c.getMsgId())));
     }
 }

@@ -15,12 +15,15 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.compatible.CompatibleUtile;
 @SuppressLint({"SetJavaScriptEnabled"})
 /* loaded from: classes.dex */
-public class WebTbActivity extends com.baidu.tbadk.a {
+public class WebTbActivity extends BaseActivity {
     protected WebView a = null;
     private ImageView g = null;
     private ImageView h = null;
@@ -32,20 +35,20 @@ public class WebTbActivity extends com.baidu.tbadk.a {
     private LinearLayout l = null;
     protected String d = null;
     protected String e = null;
-    protected w f = null;
+    protected z f = null;
     private final Handler m = new Handler();
-    private final Runnable n = new q(this);
+    private final Runnable n = new t(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str, String str2, String str3) {
-        if (UtilHelper.h(context)) {
-            com.baidu.adp.lib.util.i.a(context, context.getString(com.baidu.tbadk.l.web_view_corrupted));
+        if (UtilHelper.webViewIsProbablyCorrupt(context)) {
+            com.baidu.adp.lib.util.h.a(context, context.getString(com.baidu.tieba.u.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, WebTbActivity.class);
         intent.putExtra("url", str);
-        intent.putExtra("bduss", str2);
-        intent.putExtra("ptoken", str3);
+        intent.putExtra(SapiAccountManager.SESSION_BDUSS, str2);
+        intent.putExtra(SapiAccountManager.SESSION_PTOKEN, str3);
         if (!(context instanceof Activity)) {
             intent.addFlags(268435456);
         }
@@ -53,17 +56,48 @@ public class WebTbActivity extends com.baidu.tbadk.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TbadkApplication.j().a(this);
-        UtilHelper.a((Activity) this);
-        setContentView(com.baidu.tbadk.k.web_activity);
-        this.l = (LinearLayout) findViewById(com.baidu.tbadk.j.softkey);
-        this.j = (ProgressBar) findViewById(com.baidu.tbadk.j.progress);
-        this.a = (WebView) findViewById(com.baidu.tbadk.j.webview);
+        TbadkApplication.m252getInst().addRemoteActivity(this);
+        UtilHelper.openGpu(this);
+        b();
+        if (bundle == null) {
+            this.d = getIntent().getStringExtra(SapiAccountManager.SESSION_BDUSS);
+        } else {
+            this.d = bundle.getString(SapiAccountManager.SESSION_BDUSS);
+        }
+        if (bundle == null) {
+            this.e = getIntent().getStringExtra(SapiAccountManager.SESSION_PTOKEN);
+        } else {
+            this.e = bundle.getString(SapiAccountManager.SESSION_PTOKEN);
+        }
+        a();
+        a(bundle);
+    }
+
+    private void a() {
+        CookieSyncManager.createInstance(this);
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+        cookieManager.setCookie("baidu.com", "BDUSS=" + this.d + "; domain=.baidu.com;");
+        cookieManager.setCookie("baidu.com", "PTOKEN=" + this.e + "; domain=.baidu.com;");
+        CookieSyncManager.getInstance().sync();
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
+    public void releaseResouce() {
+        super.releaseResouce();
+        finish();
+    }
+
+    private void b() {
+        setContentView(com.baidu.tieba.s.web_activity);
+        this.l = (LinearLayout) findViewById(com.baidu.tieba.r.softkey);
+        this.j = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
+        this.a = (WebView) findViewById(com.baidu.tieba.r.webview);
         CompatibleUtile.getInstance().removeJavascriptInterface(this.a);
-        this.a.setWebViewClient(new r(this));
+        this.a.setWebViewClient(new u(this));
         this.k = CompatibleUtile.getInstance().getWebChromeClient(this);
         this.a.setWebChromeClient(this.k);
         WebSettings settings = this.a.getSettings();
@@ -71,36 +105,62 @@ public class WebTbActivity extends com.baidu.tbadk.a {
             settings.setBuiltInZoomControls(true);
             settings.setJavaScriptEnabled(true);
             settings.setPluginsEnabled(true);
-            CompatibleUtile.getInstance().WebViewNoDataBase(settings);
+            a.a(settings);
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.a(WebTbActivity.class.getName(), "set webview settings.", th);
+            BdLog.e(WebTbActivity.class.getName(), "set webview settings.", th);
         }
-        this.g = (ImageView) findViewById(com.baidu.tbadk.j.webBack);
+        this.g = (ImageView) findViewById(com.baidu.tieba.r.webBack);
         this.g.setEnabled(false);
-        this.g.setOnClickListener(new s(this));
-        this.h = (ImageView) findViewById(com.baidu.tbadk.j.webForward);
+        this.g.setOnClickListener(new v(this));
+        this.h = (ImageView) findViewById(com.baidu.tieba.r.webForward);
         this.h.setEnabled(false);
-        this.h.setOnClickListener(new t(this));
-        this.i = (ImageView) findViewById(com.baidu.tbadk.j.refresh);
-        this.i.setOnClickListener(new u(this));
-        this.b = (ImageView) findViewById(com.baidu.tbadk.j.back);
-        this.b.setOnClickListener(new v(this));
-        if (bundle == null) {
-            this.d = getIntent().getStringExtra("bduss");
-        } else {
-            this.d = bundle.getString("bduss");
+        this.h.setOnClickListener(new w(this));
+        this.i = (ImageView) findViewById(com.baidu.tieba.r.refresh);
+        this.i.setOnClickListener(new x(this));
+        this.b = (ImageView) findViewById(com.baidu.tieba.r.back);
+        this.b.setOnClickListener(new y(this));
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (i == 4) {
+            closeActivity();
+            return true;
         }
-        if (bundle == null) {
-            this.e = getIntent().getStringExtra("ptoken");
-        } else {
-            this.e = bundle.getString("ptoken");
+        return super.onKeyDown(i, keyEvent);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        this.a.pauseTimers();
+        a("onPause");
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.a.resumeTimers();
+        a("onResume");
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        this.m.removeCallbacks(this.n);
+        TbadkApplication.m252getInst().delRemoteActivity(this);
+        if (this.j != null) {
+            this.j.setVisibility(8);
         }
-        CookieSyncManager.createInstance(this);
-        CookieManager cookieManager = CookieManager.getInstance();
-        cookieManager.setAcceptCookie(true);
-        cookieManager.setCookie("baidu.com", "BDUSS=" + this.d + "; domain=.baidu.com;");
-        cookieManager.setCookie("baidu.com", "PTOKEN=" + this.e + "; domain=.baidu.com;");
-        CookieSyncManager.getInstance().sync();
+        if (this.k != null && (this.k instanceof CompatibleUtile.FullscreenableChromeClient)) {
+            ((CompatibleUtile.FullscreenableChromeClient) this.k).hideCustomView();
+        }
+    }
+
+    private void a(Bundle bundle) {
         if (bundle != null) {
             this.c = bundle.getString("url");
         } else {
@@ -113,64 +173,19 @@ public class WebTbActivity extends com.baidu.tbadk.a {
         }
     }
 
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a
-    public void releaseResouce() {
-        super.releaseResouce();
-        finish();
-    }
-
-    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
-            closeActivity();
-            return true;
-        }
-        return super.onKeyDown(i, keyEvent);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
-    public void onPause() {
-        super.onPause();
-        this.a.pauseTimers();
-        a("onPause");
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        this.a.resumeTimers();
-        a("onResume");
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        this.m.removeCallbacks(this.n);
-        TbadkApplication.j().b(this);
-        if (this.j != null) {
-            this.j.setVisibility(8);
-        }
-        if (this.k != null && (this.k instanceof CompatibleUtile.FullscreenableChromeClient)) {
-            ((CompatibleUtile.FullscreenableChromeClient) this.k).hideCustomView();
-        }
-    }
-
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putString("url", this.c);
-        bundle.putString("bduss", this.d);
-        bundle.putString("ptoken", this.e);
+        bundle.putString(SapiAccountManager.SESSION_BDUSS, this.d);
+        bundle.putString(SapiAccountManager.SESSION_PTOKEN, this.e);
     }
 
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        this.d = bundle.getString("bduss");
-        this.e = bundle.getString("ptoken");
+        this.d = bundle.getString(SapiAccountManager.SESSION_BDUSS);
+        this.e = bundle.getString(SapiAccountManager.SESSION_PTOKEN);
     }
 
     private void a(String str) {
@@ -178,7 +193,7 @@ public class WebTbActivity extends com.baidu.tbadk.a {
             try {
                 WebView.class.getMethod(str, new Class[0]).invoke(this.a, new Object[0]);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
+                BdLog.e(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
             }
         }
     }

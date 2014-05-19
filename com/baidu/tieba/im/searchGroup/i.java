@@ -6,7 +6,7 @@ import android.widget.TextView;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i implements View.OnClickListener {
+public class i implements View.OnClickListener {
     final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public final class i implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         EditText editText;
         e eVar;
         TextView textView;

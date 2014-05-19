@@ -4,51 +4,51 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 /* loaded from: classes.dex */
-final class t extends com.baidu.adp.framework.c.g {
+class t extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(MembersActivity membersActivity, int i) {
-        super(103112);
+        super(i);
         this.a = membersActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         ah ahVar;
         ah ahVar2;
-        com.baidu.tieba.im.model.z zVar;
+        com.baidu.tieba.im.model.ad adVar;
         ah ahVar3;
         ah ahVar4;
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
         ahVar = this.a.b;
         ahVar.a(false);
-        if (socketResponsedMessage2 == null || !(socketResponsedMessage2 instanceof ResponseRemoveMembersMessage)) {
-            this.a.showToast(com.baidu.tieba.im.j.neterror);
+        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseRemoveMembersMessage)) {
+            this.a.showToast(com.baidu.tieba.u.neterror);
             return;
         }
-        ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) socketResponsedMessage2;
-        if (responseRemoveMembersMessage.e() != 0) {
-            if (responseRemoveMembersMessage.e() <= 0) {
-                this.a.showToast(com.baidu.tieba.im.j.neterror);
-                return;
-            } else if (TextUtils.isEmpty(responseRemoveMembersMessage.f())) {
-                return;
-            } else {
-                this.a.showToast(responseRemoveMembersMessage.f());
+        ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) socketResponsedMessage;
+        if (responseRemoveMembersMessage.getError() != 0) {
+            if (responseRemoveMembersMessage.getError() > 0) {
+                if (!TextUtils.isEmpty(responseRemoveMembersMessage.getErrorString())) {
+                    this.a.showToast(responseRemoveMembersMessage.getErrorString());
+                    return;
+                }
                 return;
             }
+            this.a.showToast(com.baidu.tieba.u.neterror);
+            return;
         }
-        this.a.showToast(com.baidu.tieba.im.j.members_delete_success);
+        this.a.showToast(com.baidu.tieba.u.members_delete_success);
         ahVar2 = this.a.b;
-        ad h = ahVar2.h();
-        zVar = this.a.c;
-        h.b(zVar.c());
+        ad f = ahVar2.f();
+        adVar = this.a.c;
+        f.b(adVar.c());
         ahVar3 = this.a.b;
-        ahVar3.i();
+        ahVar3.g();
         ahVar4 = this.a.b;
-        ahVar4.h().a();
+        ahVar4.f().a();
     }
 }

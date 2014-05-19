@@ -1,25 +1,61 @@
 package com.baidu.tieba.faceshop;
 
-import android.webkit.URLUtil;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.gson.GsonBuilder;
+import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ac implements Runnable {
-    final /* synthetic */ FaceBuyWebViewActivity a;
+public class ac extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
+    final /* synthetic */ aa a;
+    private com.baidu.tbadk.core.util.al b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(FaceBuyWebViewActivity faceBuyWebViewActivity) {
-        this.a = faceBuyWebViewActivity;
+    private ac(aa aaVar) {
+        this.a = aaVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        String str;
-        BaseWebView baseWebView;
-        str = this.a.c;
-        String guessUrl = URLUtil.guessUrl(str);
-        if (URLUtil.isNetworkUrl(guessUrl)) {
-            baseWebView = this.a.a;
-            baseWebView.loadUrl(guessUrl);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ac(aa aaVar, ac acVar) {
+        this(aaVar);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public FaceBuyData doInBackground(Object... objArr) {
+        String obj = objArr[0].toString();
+        try {
+            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/buyfacepack");
+            this.b.a("pid", obj);
+            return (FaceBuyData) new GsonBuilder().create().fromJson(this.b.i(), (Class<Object>) FaceBuyData.class);
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "doInBackground", e.toString());
+            return null;
         }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        com.baidu.adp.base.g gVar;
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.g();
+        }
+        this.a.a = null;
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(FaceBuyData faceBuyData) {
+        com.baidu.adp.base.g gVar;
+        super.onPostExecute(faceBuyData);
+        this.a.a = null;
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(faceBuyData);
     }
 }

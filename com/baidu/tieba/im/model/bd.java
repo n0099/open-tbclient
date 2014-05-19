@@ -1,64 +1,134 @@
 package com.baidu.tieba.im.model;
 
-import android.text.TextUtils;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.im.message.GroupsByLocationLocalMessage;
+import com.baidu.tieba.im.message.RequestNearbyGroupsMessage;
+import com.baidu.tieba.im.message.RequestUserPermissionMessage;
 /* loaded from: classes.dex */
-public final class bd extends com.baidu.adp.a.e {
-    private final LinkedList<ImMessageCenterShowItemData> a = new LinkedList<>();
+public class bd extends com.baidu.adp.base.d {
+    private String b;
+    private String c;
+    private int d;
+    private boolean g;
+    private RequestNearbyGroupsMessage j;
+    private RequestUserPermissionMessage k;
+    private GroupsByLocationLocalMessage l;
+    private int a = 0;
+    private boolean h = false;
+    private boolean i = false;
+    private int f = com.baidu.adp.lib.util.h.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+    private int e = com.baidu.adp.lib.util.h.a(TbadkApplication.m252getInst().getContext(), 70.0f);
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    public boolean a() {
+        return this.i;
+    }
+
+    public void a(boolean z) {
+        this.i = z;
+    }
+
+    public void a(int i) {
+        this.d = i;
+    }
+
+    public void a(String str) {
+        this.b = str;
+    }
+
+    public boolean b() {
+        return this.g;
+    }
+
+    public void b(boolean z) {
+        this.g = z;
+    }
+
+    public void b(String str) {
+        this.c = str;
+    }
+
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         return false;
     }
 
-    public final void a(ImMessageCenterShowItemData imMessageCenterShowItemData, com.baidu.tieba.im.a<Void> aVar) {
-        if (imMessageCenterShowItemData != null && imMessageCenterShowItemData.getOwnerName() != null) {
-            String friendId = imMessageCenterShowItemData.getFriendId();
-            if (!TextUtils.isEmpty(friendId)) {
-                a(friendId, aVar);
-                Iterator<ImMessageCenterShowItemData> it = this.a.iterator();
-                while (it.hasNext()) {
-                    if (friendId.equals(it.next().getFriendId())) {
-                        it.remove();
-                    }
-                }
+    public boolean c() {
+        return this.h;
+    }
+
+    public void c(boolean z) {
+        this.h = z;
+    }
+
+    private RequestNearbyGroupsMessage b(int i) {
+        RequestNearbyGroupsMessage requestNearbyGroupsMessage = new RequestNearbyGroupsMessage();
+        requestNearbyGroupsMessage.setHeight(this.e);
+        requestNearbyGroupsMessage.setWidth(this.f);
+        requestNearbyGroupsMessage.setLat(this.c);
+        requestNearbyGroupsMessage.setLng(this.b);
+        requestNearbyGroupsMessage.setOffset(i * 30);
+        requestNearbyGroupsMessage.setRn(30);
+        requestNearbyGroupsMessage.setGeo(this.d);
+        return requestNearbyGroupsMessage;
+    }
+
+    private RequestUserPermissionMessage b(long j) {
+        RequestUserPermissionMessage requestUserPermissionMessage = new RequestUserPermissionMessage();
+        requestUserPermissionMessage.setForumId(j);
+        return requestUserPermissionMessage;
+    }
+
+    public void d() {
+        this.a = 0;
+        this.d = 0;
+        this.j = b(this.a);
+        super.sendMessage(this.j);
+    }
+
+    public void e() {
+        g();
+        this.j = b(this.a);
+        super.sendMessage(this.j);
+    }
+
+    public void a(long j) {
+        this.k = b(j);
+        super.sendMessage(this.k);
+    }
+
+    public void f() {
+        this.h = true;
+        this.l = new GroupsByLocationLocalMessage();
+        super.sendMessage(this.l);
+    }
+
+    public void g() {
+        this.a++;
+    }
+
+    public boolean h() {
+        if (this.h) {
+            if (UtilHelper.isNetOk()) {
+                d();
+                return true;
             }
+            return false;
         }
+        f();
+        return true;
     }
 
-    public static void a(String str, com.baidu.tieba.im.a<Void> aVar) {
-        if (!TextUtils.isEmpty(str)) {
-            ImMessageCenterPojo a = com.baidu.tieba.im.b.j.a().a(str);
-            if (a != null) {
-                a.setIs_hidden(1);
-                a.setUnread_count(0);
-            }
-            com.baidu.tieba.im.r.a(new be(str), new bf(str, aVar));
-        }
-    }
-
-    public final LinkedList<ImMessageCenterShowItemData> a() {
-        return this.a;
-    }
-
-    public final void a(com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.pushNotify.a.d().b(false, new bg(this, aVar));
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void b(bd bdVar) {
-        if (bdVar.a == null || bdVar.a.size() == 0) {
-            return;
-        }
-        Collections.sort(bdVar.a, new bh(bdVar));
+    @Override // com.baidu.adp.base.d
+    public void cancelMessage() {
+        super.cancelMessage();
+        this.j = null;
+        this.k = null;
+        this.l = null;
     }
 }

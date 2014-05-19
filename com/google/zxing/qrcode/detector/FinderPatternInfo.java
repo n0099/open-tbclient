@@ -11,15 +11,15 @@ public final class FinderPatternInfo {
         this.topRight = finderPatternArr[2];
     }
 
-    public final FinderPattern getBottomLeft() {
+    public FinderPattern getBottomLeft() {
         return this.bottomLeft;
     }
 
-    public final FinderPattern getTopLeft() {
+    public FinderPattern getTopLeft() {
         return this.topLeft;
     }
 
-    public final FinderPattern getTopRight() {
+    public FinderPattern getTopRight() {
         return this.topRight;
     }
 }

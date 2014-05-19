@@ -3,81 +3,90 @@ package com.baidu.tieba.im.more;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.adp.framework.c.g;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.adp.widget.BdSwitchView.c;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.b.am;
-import com.baidu.tbadk.core.b.q;
-import com.baidu.tieba.im.model.y;
+import com.baidu.tbadk.core.atomData.ay;
+import com.baidu.tbadk.core.atomData.t;
+import com.baidu.tieba.im.model.ac;
 /* loaded from: classes.dex */
-public class SecretSettingActivity extends com.baidu.tbadk.a implements View.OnClickListener, c {
-    private y a;
+public class SecretSettingActivity extends BaseActivity implements View.OnClickListener, c {
+    private ac a;
     private b b;
-    private final g c = new a(this, 0);
+    private final com.baidu.adp.framework.listener.b c = new a(this, 0);
 
     static {
-        TbadkApplication.j().a(am.class, SecretSettingActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(ay.class, SecretSettingActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = new b(this);
         this.b.a(this);
-        this.a = new y();
-        y yVar = this.a;
-        g gVar = this.c;
-        com.baidu.adp.framework.c.a().a(104103, gVar);
-        com.baidu.adp.framework.c.a().a(104102, gVar);
+        b();
+        a();
+        c();
+    }
+
+    private void a() {
+        this.a.a(this.c);
+    }
+
+    private void b() {
+        this.a = new ac();
+    }
+
+    private void c() {
         this.b.a();
         this.a.a(8);
     }
 
     private void a(boolean z) {
-        this.b.e();
+        this.b.c();
         this.a.a(8, z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        y yVar = this.a;
-        com.baidu.adp.framework.c.a().b(this.c);
+        this.a.b(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.b.a(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         super.onResourceRecycle();
-        this.b.d();
+        this.b.b();
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        this.b.g().performClick();
+        this.b.e().performClick();
     }
 
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.b.g()) {
+        if (view == this.b.e()) {
             finish();
-        } else if (view == this.b.i()) {
-            sendMessage(new com.baidu.adp.framework.message.a(2008001, new q(this)));
+        } else if (view == this.b.g()) {
+            d();
         }
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
@@ -88,8 +97,12 @@ public class SecretSettingActivity extends com.baidu.tbadk.a implements View.OnC
         }
     }
 
+    private void d() {
+        sendMessage(new CustomMessage(2010001, new t(this)));
+    }
+
     @Override // com.baidu.adp.widget.BdSwitchView.c
-    public final void a(View view, BdSwitchView.SwitchState switchState) {
+    public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
             a(true);
         } else {

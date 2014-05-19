@@ -5,5 +5,5 @@ import android.view.View;
 public interface a {
     View a();
 
-    void a(Object obj);
+    void a(int i, Object obj);
 }

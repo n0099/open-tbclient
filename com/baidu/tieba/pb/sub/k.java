@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.sub;
 import android.view.View;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-final class k implements Runnable {
+class k implements Runnable {
     final /* synthetic */ j a;
     private final /* synthetic */ int b;
     private final /* synthetic */ View c;
@@ -16,12 +16,12 @@ final class k implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         NavigationBar navigationBar;
         int[] iArr = new int[2];
-        this.a.M.getLocationInWindow(iArr);
+        this.a.L.getLocationInWindow(iArr);
         int height = iArr[1] - this.c.getHeight();
-        navigationBar = this.a.R;
+        navigationBar = this.a.Q;
         this.a.d.setSelectionFromTop(this.b + 1, height - navigationBar.getHeight());
         this.a.d.invalidate();
     }

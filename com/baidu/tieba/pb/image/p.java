@@ -4,8 +4,9 @@ import android.app.AlertDialog;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class p implements View.OnClickListener {
+public class p implements View.OnClickListener {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +15,7 @@ final class p implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         String str;
         String str2;
         View view2;
@@ -30,13 +31,13 @@ final class p implements View.OnClickListener {
         if (str != null) {
             str2 = this.a.D;
             if (str2.length() != 0) {
-                ImagePbActivity.u(this.a);
+                this.a.c();
                 view2 = this.a.j;
-                TextView textView3 = (TextView) view2.findViewById(com.baidu.tieba.a.h.text);
+                TextView textView3 = (TextView) view2.findViewById(com.baidu.tieba.r.text);
                 if (textView3 != null) {
                     alertDialog = this.a.i;
                     alertDialog.show();
-                    StringBuilder sb = new StringBuilder(String.valueOf(this.a.getString(com.baidu.tieba.a.k.title)));
+                    StringBuilder sb = new StringBuilder(String.valueOf(this.a.getString(com.baidu.tieba.u.title)));
                     str3 = this.a.D;
                     textView3.setText(sb.append(str3).toString());
                     alertDialog2 = this.a.i;

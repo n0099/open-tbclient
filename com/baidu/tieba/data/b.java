@@ -1,27 +1,23 @@
 package com.baidu.tieba.data;
 
-import org.json.JSONObject;
+import tbclient.FrsPage.Group;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
     private int a = 0;
     private int b = 0;
 
-    public final void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("group_count", 0);
-                this.b = jSONObject.optInt("hide_recommend_group", 0);
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("FrsStarData", "parserJson", "error = " + e.getMessage());
-            }
-        }
-    }
-
-    public final int a() {
+    public int a() {
         return this.a;
     }
 
-    public final int b() {
+    public int b() {
         return this.b;
+    }
+
+    public void a(Group group) {
+        if (group != null) {
+            this.a = group.group_count.intValue();
+            this.b = group.hide_recommend_group.intValue();
+        }
     }
 }

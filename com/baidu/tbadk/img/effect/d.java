@@ -8,7 +8,7 @@ public class d extends b {
     private int b;
 
     @Override // com.baidu.tbadk.img.effect.b
-    public final String a() {
+    public String a() {
         return "resize";
     }
 
@@ -20,7 +20,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public final void b(String str) {
+    public void b(String str) {
         if (str != null) {
             String[] split = str.split(",");
             if (split.length == 2) {
@@ -31,24 +31,24 @@ public class d extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public final Bitmap a(Bitmap bitmap, boolean z) {
+    public Bitmap a(Bitmap bitmap, boolean z) {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.a().b(g.a(bitmap) * 2);
+        com.baidu.tbadk.imageManager.e.a().c(g.a(bitmap) * 2);
         return g.a(bitmap, this.a, this.b, z);
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public final Bitmap c(String str) {
+    public Bitmap c(String str) {
         return a(g.a(str, this.a, this.b), true);
     }
 
-    public final int b() {
+    public int b() {
         return this.a;
     }
 
-    public final int c() {
+    public int c() {
         return this.b;
     }
 }

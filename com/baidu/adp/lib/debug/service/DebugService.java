@@ -5,15 +5,15 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
-import com.baidu.adp.lib.debug.b.k;
+import com.baidu.adp.lib.debug.b.m;
 /* loaded from: classes.dex */
 public class DebugService extends Service {
-    k a;
+    m a;
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.a = new k(this);
+        this.a = new m(this);
     }
 
     @Override // android.app.Service
@@ -27,7 +27,7 @@ public class DebugService extends Service {
         if (this.a != null) {
             Log.i("Monitor", "off");
             try {
-                this.a.a();
+                this.a.c();
                 this.a.setVisibility(8);
             } catch (Throwable th) {
                 th.printStackTrace();

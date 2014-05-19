@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class g implements com.baidu.adp.lib.guide.b {
+public class g implements com.baidu.adp.lib.guide.b {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,31 +14,31 @@ public final class g implements com.baidu.adp.lib.guide.b {
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public final View a(LayoutInflater layoutInflater) {
+    public View a(LayoutInflater layoutInflater) {
         WaittingActivity waittingActivity;
-        waittingActivity = this.a.c;
+        waittingActivity = this.a.b;
         ImageView imageView = new ImageView(waittingActivity);
-        imageView.setBackgroundResource(com.baidu.tieba.im.g.pic_chatprogress);
+        imageView.setBackgroundResource(com.baidu.tieba.q.pic_chatprogress);
         return imageView;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public final int a() {
+    public int a() {
         return 5;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public final int b() {
+    public int b() {
         return 48;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public final int c() {
+    public int c() {
         return -110;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public final int d() {
+    public int d() {
         return 40;
     }
 }

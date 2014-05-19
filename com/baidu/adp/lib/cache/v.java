@@ -11,12 +11,12 @@ public class v<T> implements u<T> {
 
     @Override // com.baidu.adp.lib.cache.s
     public T a(String str) {
-        return this.a.a(this.b, str);
+        return this.a.c(this.b, str);
     }
 
     @Override // com.baidu.adp.lib.cache.s
     public t<T> b(String str) {
-        return this.a.b(this.b, str);
+        return this.a.d(this.b, str);
     }
 
     @Override // com.baidu.adp.lib.cache.s
@@ -30,47 +30,49 @@ public class v<T> implements u<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.s
-    public final void a(String str, T t) {
+    public void a(String str, T t) {
         a(str, t, 315532800000L);
     }
 
     @Override // com.baidu.adp.lib.cache.s
     public void c(String str) {
-        this.a.c(this.b, str);
+        this.a.e(this.b, str);
     }
 
     @Override // com.baidu.adp.lib.cache.s
-    public final void b(String str, T t, long j) {
-        com.baidu.adp.lib.f.d.a();
-        com.baidu.adp.lib.f.d.a(new w(this, str, t, j));
+    public void b(String str, T t, long j) {
+        com.baidu.adp.lib.f.d.a().a(new w(this, str, t, j));
     }
 
     @Override // com.baidu.adp.lib.cache.s
-    public final void d(String str) {
-        com.baidu.adp.lib.f.d.a();
-        com.baidu.adp.lib.f.d.a(new x(this, str));
+    public void d(String str) {
+        com.baidu.adp.lib.f.d.a().a(new x(this, str));
     }
 
     @Override // com.baidu.adp.lib.cache.u
-    public final String a() {
+    public String a() {
         return this.b;
     }
 
     @Override // com.baidu.adp.lib.cache.u
-    public final r<T> b() {
+    public r<T> b() {
         return this.a;
     }
 
-    public final void d() {
+    public void d() {
         this.a.e(this.b);
     }
 
-    @Override // com.baidu.adp.lib.cache.u
-    public final void c() {
-        this.a.d(this.b);
-        f a = this.a.a();
+    protected void e() {
+        f a = b().a();
         if (a instanceof h) {
-            ((h) a).c();
+            ((h) a).e();
         }
+    }
+
+    @Override // com.baidu.adp.lib.cache.u
+    public void c() {
+        this.a.d(this.b);
+        e();
     }
 }

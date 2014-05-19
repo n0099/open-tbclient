@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ad implements View.OnClickListener {
+public class ad implements View.OnClickListener {
     final /* synthetic */ ac a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,13 +14,13 @@ public final class ad implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         int i;
         Context context;
         ac acVar = this.a;
         i = this.a.q;
-        ac.a(acVar, i);
+        acVar.a(i);
         context = this.a.b;
-        TiebaStatic.a(context, "pic_pb", "");
+        TiebaStatic.eventStat(context, "pic_pb", "");
     }
 }

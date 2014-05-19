@@ -1,6 +1,7 @@
 package com.baidu.android.nebula.c;
 
 import com.baidu.android.common.logging.Log;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
@@ -33,7 +34,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         int read;
-        ByteBuffer allocate = ByteBuffer.allocate(200);
+        ByteBuffer allocate = ByteBuffer.allocate(Constants.MEDIA_INFO);
         do {
             this.f.select();
             Iterator<SelectionKey> it = this.f.selectedKeys().iterator();

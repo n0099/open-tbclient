@@ -1,48 +1,26 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tbadk.core.data.AccountData;
+import android.content.Context;
+import android.content.Intent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class y implements com.baidu.tbadk.core.a.u {
-    final /* synthetic */ ReLoginShareActivity a;
+public class y extends com.baidu.tieba.util.l {
+    final /* synthetic */ Register2Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(ReLoginShareActivity reLoginShareActivity) {
-        this.a = reLoginShareActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y(Register2Activity register2Activity, Context context) {
+        super(context);
+        this.a = register2Activity;
     }
 
-    @Override // com.baidu.tbadk.core.a.u
-    public final void a(String str) {
-        String str2;
-        ReLoginShareActivity reLoginShareActivity = this.a;
-        str2 = this.a.f;
-        reLoginShareActivity.a(0, str2, null);
-    }
-
-    @Override // com.baidu.tbadk.core.a.u
-    public final void a(AccountData accountData) {
-        boolean z;
-        String str;
-        z = this.a.j;
-        if (z) {
-            a(accountData.getAccount(), "");
-            return;
+    @Override // com.baidu.tieba.util.l, android.text.style.ClickableSpan
+    public void onClick(View view) {
+        aa aaVar;
+        aaVar = this.a.O;
+        if (aaVar == null) {
+            a().startActivity(new Intent(a(), ProtocolActivity.class));
         }
-        if (accountData.getAccount() != null) {
-            ReLoginShareActivity.a(this.a, accountData);
-        } else {
-            ReLoginShareActivity reLoginShareActivity = this.a;
-            str = this.a.f;
-            reLoginShareActivity.a(2, str, accountData);
-        }
-        com.baidu.tbadk.core.a.a.a();
-        com.baidu.tbadk.core.a.a.b("share_login_success");
-    }
-
-    @Override // com.baidu.tbadk.core.a.u
-    public final void a(String str, String str2) {
-        com.baidu.tbadk.core.a.l.a().b(str);
-        this.a.a(1, str2, null);
-        com.baidu.tbadk.core.a.a.a();
-        com.baidu.tbadk.core.a.a.b("share_login_failure");
     }
 }

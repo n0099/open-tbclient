@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.chat;
 /* loaded from: classes.dex */
-final class q implements Runnable {
+class q implements Runnable {
     final /* synthetic */ p a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,9 +9,9 @@ final class q implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         h hVar;
         hVar = this.a.a;
-        hVar.V();
+        hVar.i();
     }
 }

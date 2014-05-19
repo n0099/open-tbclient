@@ -3,9 +3,10 @@ package com.baidu.tieba.flist;
 import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.flist.ForumListModel;
 /* loaded from: classes.dex */
-final class f implements u {
+class f implements u {
     final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +15,7 @@ final class f implements u {
     }
 
     @Override // com.baidu.tieba.flist.u
-    public final void a(boolean z, int i, ForumListModel forumListModel, String str, boolean z2) {
+    public void a(boolean z, int i, ForumListModel forumListModel, String str, boolean z2) {
         ForumListModel.RequestParams requestParams;
         ForumListModel.RequestParams requestParams2;
         int i2;
@@ -39,14 +40,14 @@ final class f implements u {
         int i6;
         r rVar7;
         ForumListModel.RequestParams requestParams5;
-        com.baidu.adp.lib.util.f.e("ForunListActivity", "ForumListDetailCallBack", "callback start");
+        BdLog.d("ForunListActivity", "ForumListDetailCallBack", "callback start");
         if (!z) {
             rVar7 = this.a.D;
             if (rVar7.a() == null) {
-                com.baidu.adp.lib.util.f.e("ForunListActivity", "ForumListDetailCallBack", "isOk == false");
+                BdLog.d("ForunListActivity", "ForumListDetailCallBack", "isOk == false");
                 this.a.showToast(str);
-                this.a.c.b();
-                this.a.c.a();
+                this.a.c.d();
+                this.a.c.c();
                 requestParams5 = this.a.A;
                 if (requestParams5.menu_type == 2 && !z2) {
                     this.a.finish();
@@ -56,14 +57,14 @@ final class f implements u {
             }
         }
         if (forumListModel == null || forumListModel.recommend_list_left == null || forumListModel.recommend_list_right == null || forumListModel.editor_recommend == null || forumListModel.forum_class == null) {
-            com.baidu.adp.lib.util.f.e("ForunListActivity", "ForumListDetailCallBack", "data null ec:" + i);
+            BdLog.d("ForunListActivity", "ForumListDetailCallBack", "data null ec:" + i);
             requestParams = this.a.A;
             if (requestParams.menu_type == 2 && !z2) {
-                this.a.showToast(this.a.getString(com.baidu.tieba.a.k.no_forum_data));
+                this.a.showToast(this.a.getString(com.baidu.tieba.u.no_forum_data));
                 this.a.finish();
             } else {
                 this.a.showToast(str);
-                this.a.c.a();
+                this.a.c.c();
                 requestParams2 = this.a.A;
                 i2 = this.a.v;
                 requestParams2.recommend_type = i2;
@@ -77,11 +78,11 @@ final class f implements u {
         this.a.c.B.setVisibility(8);
         z3 = this.a.u;
         if (z3) {
-            this.a.c.n.setText(this.a.getString(com.baidu.tieba.a.k.flist_expand_list));
+            this.a.c.n.setText(this.a.getString(com.baidu.tieba.u.flist_expand_list));
             ImageView imageView = this.a.c.o;
             i5 = this.a.l;
             imageView.setImageResource(i5);
-            this.a.c.q.setText(this.a.getString(com.baidu.tieba.a.k.flist_expand_list));
+            this.a.c.q.setText(this.a.getString(com.baidu.tieba.u.flist_expand_list));
             ImageView imageView2 = this.a.c.r;
             i6 = this.a.l;
             imageView2.setImageResource(i6);
@@ -125,8 +126,8 @@ final class f implements u {
             this.a.c.c.setVisibility(8);
         }
         this.a.c.l.setText(forumListModel.forum_class[1]);
-        this.a.findViewById(com.baidu.tieba.a.h.item_root).setVisibility(0);
-        this.a.c.a();
+        this.a.findViewById(com.baidu.tieba.r.item_root).setVisibility(0);
+        this.a.c.c();
         if (this.a.c.y.getCount() > 0) {
             this.a.c.z.setClickable(true);
             this.a.c.z.setOnClickListener(this.a);

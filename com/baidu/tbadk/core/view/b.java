@@ -11,65 +11,74 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public final class b extends com.baidu.adp.a.f {
+public class b extends com.baidu.adp.base.e {
     private final Activity a;
-    private final View c;
-    private final LinearLayout d;
-    private final TextView e;
-    private final ImageView f;
+    private final View b;
+    private final LinearLayout c;
+    private final TextView d;
+    private final ImageView e;
+    private final Button f;
     private final Button g;
-    private final Button h;
-    private int i;
+    private int h;
+
+    public void a(int i) {
+        this.h = i;
+    }
+
+    public int a() {
+        return this.h;
+    }
 
     public b(Activity activity, String str, String str2, int i) {
         super(activity);
-        this.i = -1;
+        this.h = -1;
         this.a = activity;
-        this.c = LayoutInflater.from(activity).inflate(com.baidu.tbadk.k.enter_forum_login, (ViewGroup) null);
-        this.d = (LinearLayout) this.c;
-        this.e = (TextView) this.c.findViewById(com.baidu.tbadk.j.tip);
-        this.f = (ImageView) this.c.findViewById(com.baidu.tbadk.j.img_bg);
-        this.g = (Button) this.c.findViewById(com.baidu.tbadk.j.login_btn);
+        this.b = LayoutInflater.from(activity).inflate(com.baidu.tieba.s.enter_forum_login, (ViewGroup) null);
+        this.c = (LinearLayout) this.b;
+        this.d = (TextView) this.b.findViewById(com.baidu.tieba.r.tip);
+        this.e = (ImageView) this.b.findViewById(com.baidu.tieba.r.img_bg);
+        this.f = (Button) this.b.findViewById(com.baidu.tieba.r.login_btn);
         if (str != null) {
-            this.e.setText(str);
+            this.d.setText(str);
         }
-        this.g.setOnClickListener(new c(this, activity, i, str2));
-        this.h = (Button) this.c.findViewById(com.baidu.tbadk.j.reg_btn);
-        this.h.setOnClickListener(new d(this, activity));
-        int a = com.baidu.adp.lib.util.i.a((Context) activity, 7.0f);
-        int a2 = com.baidu.adp.lib.util.i.a((Context) activity, 5.0f);
-        this.d.setPadding(a, a2, a, a2);
+        this.f.setOnClickListener(new c(this, activity, i, str2));
+        this.g = (Button) this.b.findViewById(com.baidu.tieba.r.reg_btn);
+        this.g.setOnClickListener(new d(this, activity));
+        int a = com.baidu.adp.lib.util.h.a((Context) activity, 7.0f);
+        int a2 = com.baidu.adp.lib.util.h.a((Context) activity, 5.0f);
+        this.c.setPadding(a, a2, a, a2);
     }
 
-    public final View a() {
-        TiebaStatic.a(this.a, "home_login_show", "loginshow", 1, new Object[0]);
-        return this.c;
+    public View b() {
+        TiebaStatic.eventStat(this.a, "home_login_show", "loginshow", 1, new Object[0]);
+        return this.b;
     }
 
-    public final void a(int i) {
-        boolean z;
-        if (i == this.i) {
-            z = false;
-        } else {
-            this.i = i;
-            z = true;
+    private boolean c(int i) {
+        if (i == a()) {
+            return false;
         }
-        if (z) {
+        a(i);
+        return true;
+    }
+
+    public void b(int i) {
+        if (c(i)) {
             if (i == 1) {
-                this.e.setTextColor(-11444363);
-                this.f.setBackgroundResource(com.baidu.tbadk.i.pic_inset_login_1);
-                this.g.setBackgroundResource(com.baidu.tbadk.i.btn_blue_square_1);
-                this.h.setBackgroundResource(com.baidu.tbadk.i.btn_w_square_1);
-                this.g.setTextColor(-5454368);
-                this.h.setTextColor(-9207399);
+                this.d.setTextColor(-11444363);
+                this.e.setBackgroundResource(com.baidu.tieba.q.pic_inset_login_1);
+                this.f.setBackgroundResource(com.baidu.tieba.q.btn_blue_square_1);
+                this.g.setBackgroundResource(com.baidu.tieba.q.btn_w_square_1);
+                this.f.setTextColor(-5454368);
+                this.g.setTextColor(-9207399);
                 return;
             }
-            this.e.setTextColor(-5065030);
-            this.f.setBackgroundResource(com.baidu.tbadk.i.pic_inset_login);
-            this.g.setBackgroundResource(com.baidu.tbadk.i.btn_blue_square);
-            this.h.setBackgroundResource(com.baidu.tbadk.i.btn_w_square);
-            this.g.setTextColor(-1);
-            this.h.setTextColor(-14277082);
+            this.d.setTextColor(-5065030);
+            this.e.setBackgroundResource(com.baidu.tieba.q.pic_inset_login);
+            this.f.setBackgroundResource(com.baidu.tieba.q.btn_blue_square);
+            this.g.setBackgroundResource(com.baidu.tieba.q.btn_w_square);
+            this.f.setTextColor(-1);
+            this.g.setTextColor(-14277082);
         }
     }
 }

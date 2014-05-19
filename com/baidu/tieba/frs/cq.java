@@ -1,26 +1,19 @@
 package com.baidu.tieba.frs;
-
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class cq implements DialogInterface.OnClickListener {
-    final /* synthetic */ cm a;
+class cq implements com.baidu.tbadk.core.view.h {
+    final /* synthetic */ cp a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cq(cm cmVar) {
-        this.a = cmVar;
+    public cq(cp cpVar) {
+        this.a = cpVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tbadk.a aVar;
-        com.baidu.tbadk.a aVar2;
-        if (i == 0) {
-            aVar2 = this.a.g;
-            com.baidu.tbadk.core.util.az.a(aVar2);
-        } else if (i == 1) {
-            aVar = this.a.g;
-            com.baidu.tbadk.core.util.az.b(aVar);
-        }
+    @Override // com.baidu.tbadk.core.view.h
+    public void a() {
+        this.a.a();
+    }
+
+    @Override // com.baidu.tbadk.core.view.h
+    public void b() {
     }
 }

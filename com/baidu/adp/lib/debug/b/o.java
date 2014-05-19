@@ -1,48 +1,34 @@
 package com.baidu.adp.lib.debug.b;
 
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageButton;
 /* loaded from: classes.dex */
-final class o extends Handler {
-    final /* synthetic */ k a;
+class o implements View.OnTouchListener {
+    final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(k kVar) {
-        this.a = kVar;
+    public o(m mVar) {
+        this.a = mVar;
     }
 
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
-        try {
-            switch (message.what) {
-                case 0:
-                    this.a.n.setText("fps:" + com.baidu.adp.lib.debug.c.a());
-                    break;
-                case 1:
-                    this.a.o.setText("mem:" + com.baidu.adp.lib.debug.c.b());
-                    break;
-                case 2:
-                    this.a.p.setText("cpu:" + com.baidu.adp.lib.debug.c.c());
-                    break;
-                case 3:
-                    this.a.q.setText("gc:" + com.baidu.adp.lib.debug.c.d());
-                    break;
-                case 4:
-                    this.a.r.setText("strictMode:" + com.baidu.adp.lib.debug.c.e());
-                    break;
-                case 5:
-                    Log.i("Monitor", "battery run");
-                    this.a.s.setText("battery:" + com.baidu.adp.lib.debug.c.i());
-                    break;
-                case 6:
-                    this.a.v.setText("-T:" + com.baidu.adp.lib.debug.c.f().a() + "kb");
-                    this.a.t.setText("-S:" + com.baidu.adp.lib.debug.c.f().c() + "kb");
-                    this.a.u.setText("-R:" + com.baidu.adp.lib.debug.c.f().b() + "kb");
-                    break;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (this.a.w && motionEvent.getAction() == 0) {
+            ((ImageButton) view).setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.adp.c.adp_debug_switch_bk));
+            this.a.m.setVisibility(8);
+            this.a.m.setClickable(false);
+            this.a.b.setVisibility(8);
+            this.a.w = false;
+            this.a.c.setVisibility(0);
+        } else if (motionEvent.getAction() == 0) {
+            ((ImageButton) view).setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.adp.c.adp_debug_switch));
+            this.a.m.setVisibility(0);
+            this.a.m.setClickable(true);
+            this.a.b.setVisibility(0);
+            this.a.c.setVisibility(8);
+            this.a.w = true;
         }
+        return false;
     }
 }

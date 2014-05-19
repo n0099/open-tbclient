@@ -1,20 +1,17 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.tieba.im.chat.x;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.InvokeLiveNotifyActivityIsOpenConfig;
+import com.baidu.tieba.im.live.livenotify.LiveNotifyActivity;
 /* loaded from: classes.dex */
-final class g extends com.baidu.tieba.im.m<Integer> {
-    final /* synthetic */ f b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.b = fVar;
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Integer a() {
-        x.a = com.baidu.tieba.im.db.o.d().a();
-        com.baidu.tieba.im.db.b.a().b();
-        return 0;
+class g implements CustomMessageTask.CustomRunnable<InvokeLiveNotifyActivityIsOpenConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<Boolean> run(CustomMessage<InvokeLiveNotifyActivityIsOpenConfig> customMessage) {
+        if (customMessage == null) {
+            return null;
+        }
+        return new CustomResponsedMessage<>(2010018, Boolean.valueOf(LiveNotifyActivity.a));
     }
 }

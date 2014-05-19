@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     public boolean a;
     public int b;
     private ArrayList<i> c;
@@ -31,6 +31,19 @@ public final class a {
 
     private void a(Context context, JSONArray jSONArray, int i, boolean z) {
         this.f = context;
+        a(jSONArray, i, z);
+    }
+
+    public a(Context context, ArrayList<c> arrayList) {
+        this.c = null;
+        this.d = 0;
+        this.e = null;
+        this.f = null;
+        this.f = context;
+        this.e = arrayList;
+    }
+
+    private void a(JSONArray jSONArray, int i, boolean z) {
         if (jSONArray != null) {
             this.c = new ArrayList<>();
             int length = jSONArray.length();
@@ -61,12 +74,12 @@ public final class a {
                         this.e.add(cVar);
                     }
                     c cVar3 = new c(32);
-                    cVar3.a(next.e());
+                    cVar3.a(next.f());
                     this.e.add(cVar3);
                     cVar = new c(1);
-                    CharSequence a = next.a(this.f, cVar.b());
-                    if (a != null) {
-                        cVar.a(a);
+                    CharSequence c = next.c(this.f, cVar.b());
+                    if (c != null) {
+                        cVar.a(c);
                     }
                 } else if (next.a() == 512) {
                     if (cVar != null) {
@@ -88,9 +101,9 @@ public final class a {
                     if (cVar == null) {
                         cVar = new c(1);
                     }
-                    CharSequence a2 = next.a(this.f, cVar.b());
-                    if (a2 != null) {
-                        cVar.a(a2);
+                    CharSequence c2 = next.c(this.f, cVar.b());
+                    if (c2 != null) {
+                        cVar.a(c2);
                     }
                 }
             }
@@ -102,20 +115,11 @@ public final class a {
         }
     }
 
-    public a(Context context, ArrayList<c> arrayList) {
-        this.c = null;
-        this.d = 0;
-        this.e = null;
-        this.f = null;
-        this.f = context;
-        this.e = arrayList;
-    }
-
-    public final ArrayList<c> a() {
+    public ArrayList<c> a() {
         return this.e;
     }
 
-    public final String toString() {
+    public String toString() {
         if (this.e == null) {
             return "";
         }

@@ -4,6 +4,9 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.x;
 import java.io.File;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -39,7 +42,7 @@ public class ClearTempService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(File file) {
+    public void a(File file, boolean z) {
         try {
             File[] listFiles = file.listFiles();
             long time = new Date().getTime();
@@ -48,35 +51,48 @@ public class ClearTempService extends Service {
                 for (int i = 0; i < listFiles.length && !this.a; i++) {
                     File file2 = listFiles[i];
                     if (file2.isDirectory()) {
-                        a(file2);
+                        a(file2, false);
                     } else if (length > 0 && i < length) {
                         if (!file2.delete()) {
-                            com.baidu.adp.lib.util.f.b(getClass().getName(), "run", "list[i].delete error");
+                            BdLog.e(getClass().getName(), "run", "list[i].delete error");
                         }
                     } else if (time - listFiles[i].lastModified() > 259200000 && !file2.delete()) {
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "run", "list[i].delete error");
+                        BdLog.e(getClass().getName(), "run", "list[i].delete error");
                     }
                 }
             }
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.a(ClearTempService.class, "deleteCache", th);
+            BdLog.e(ClearTempService.class, "deleteCache", th);
+            if (!z) {
+                a();
+            }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void b(ClearTempService clearTempService, File file) {
+    private void a() {
+        String str = x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
+        for (int i = 0; i < 20; i++) {
+            File file = new File(String.valueOf(str) + "/" + i);
+            if (file.exists() && file.isDirectory()) {
+                a(file, true);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(File file) {
         try {
             File[] listFiles = file.listFiles();
             long time = new Date().getTime();
             if (listFiles != null) {
-                for (int i = 0; i < listFiles.length && !clearTempService.a; i++) {
+                for (int i = 0; i < listFiles.length && !this.a; i++) {
                     if (time - listFiles[i].lastModified() > 259200000 && !listFiles[i].delete()) {
-                        com.baidu.adp.lib.util.f.b(clearTempService.getClass().getName(), "run", "list[i].delete error");
+                        BdLog.e(getClass().getName(), "run", "list[i].delete error");
                     }
                 }
             }
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.a(ClearTempService.class, "deleteCache", th);
+            BdLog.e(ClearTempService.class, "deleteCache", th);
         }
     }
 }

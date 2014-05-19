@@ -2,10 +2,11 @@ package com.baidu.tbadk.coreExtra.act;
 
 import android.graphics.Bitmap;
 import android.view.View;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.widget.EditHeadsImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d implements View.OnClickListener {
+public class d implements View.OnClickListener {
     final /* synthetic */ EditHeadActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,16 +15,16 @@ public final class d implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         int i;
         EditHeadsImageView editHeadsImageView;
         int i2;
         boolean a;
         int i3;
-        String str = "tieba_head_image";
+        String str = TbConfig.PERSON_HEAD_FILE;
         i = this.a.i;
         if (i != 0) {
-            str = "tieba_group_image";
+            str = TbConfig.GROUP_HEAD_FILE;
         }
         editHeadsImageView = this.a.g;
         i2 = this.a.i;
@@ -35,14 +36,14 @@ public final class d implements View.OnClickListener {
         if (a) {
             i3 = this.a.i;
             if (i3 == 0) {
-                EditHeadActivity.o(this.a);
+                this.a.d();
                 return;
             }
-            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.w.c("tieba_group_image"), "head");
-            aVar.c();
-            aVar.a(new e(this));
+            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.x.c(TbConfig.GROUP_HEAD_FILE), "head");
+            aVar.d();
+            aVar.a((com.baidu.tbadk.img.d) new e(this));
             aVar.a();
-            this.a.showLoadingDialog(this.a.getString(com.baidu.tbadk.l.uploading));
+            this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.u.uploading));
         }
     }
 }

@@ -12,7 +12,7 @@ public final class MonochromeRectangleDetector {
         this.image = bitMatrix;
     }
 
-    public final ResultPoint[] detect() {
+    public ResultPoint[] detect() {
         int height = this.image.getHeight();
         int width = this.image.getWidth();
         int i = height >> 1;

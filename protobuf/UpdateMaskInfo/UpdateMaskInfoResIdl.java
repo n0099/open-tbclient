@@ -1,0 +1,41 @@
+package protobuf.UpdateMaskInfo;
+
+import com.squareup.wire.Message;
+import com.squareup.wire.ProtoField;
+import protobuf.Error;
+/* loaded from: classes.dex */
+public final class UpdateMaskInfoResIdl extends Message {
+    @ProtoField(tag = 1)
+    public final Error error;
+
+    /* synthetic */ UpdateMaskInfoResIdl(Builder builder, boolean z, UpdateMaskInfoResIdl updateMaskInfoResIdl) {
+        this(builder, z);
+    }
+
+    private UpdateMaskInfoResIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            this.error = builder.error;
+        } else {
+            this.error = builder.error;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public final class Builder extends Message.Builder<UpdateMaskInfoResIdl> {
+        public Error error;
+
+        public Builder(UpdateMaskInfoResIdl updateMaskInfoResIdl) {
+            super(updateMaskInfoResIdl);
+            if (updateMaskInfoResIdl != null) {
+                this.error = updateMaskInfoResIdl.error;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.squareup.wire.Message.Builder
+        public UpdateMaskInfoResIdl build(boolean z) {
+            return new UpdateMaskInfoResIdl(this, z, null);
+        }
+    }
+}

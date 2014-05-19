@@ -1,15 +1,38 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class x implements com.baidu.adp.framework.task.a<AccountData> {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.a] */
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<AccountData> aVar) {
-        com.baidu.tbadk.coreExtra.messageCenter.a.a().a(true);
-        com.baidu.tieba.util.k.n();
-        return null;
+class x extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public x(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            switch (customResponsedMessage.getCmd()) {
+                case 2007009:
+                    ad.c().M();
+                    return;
+                case 2007010:
+                    ad.c().N();
+                    return;
+                case 2007011:
+                    ad.c().O();
+                    return;
+                case 2007012:
+                    ad.c().P();
+                    return;
+                case 2007013:
+                    ad.c().L();
+                    return;
+                default:
+                    return;
+            }
+        }
     }
 }

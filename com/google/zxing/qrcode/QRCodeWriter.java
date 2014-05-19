@@ -14,12 +14,12 @@ public final class QRCodeWriter implements Writer {
     private static final int QUIET_ZONE_SIZE = 4;
 
     @Override // com.google.zxing.Writer
-    public final BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) {
         return encode(str, barcodeFormat, i, i2, null);
     }
 
     @Override // com.google.zxing.Writer
-    public final BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) {
         int i3;
         if (str.length() == 0) {
             throw new IllegalArgumentException("Found empty contents");

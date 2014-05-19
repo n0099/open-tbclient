@@ -1,86 +1,80 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
-import java.io.File;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public final class az {
-    public static void a(Activity activity) {
-        try {
-            if (!w.a()) {
-                if (activity instanceof com.baidu.tbadk.a) {
-                    ((com.baidu.tbadk.a) activity).showToast(w.b());
-                } else if (activity instanceof com.baidu.tbadk.core.e) {
-                    ((com.baidu.tbadk.core.e) activity).a(w.b());
-                }
-            } else {
-                File f = w.f("camera.jpg");
-                if (f != null) {
-                    Uri fromFile = Uri.fromFile(f);
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", fromFile);
-                    activity.startActivityForResult(intent, 12001);
-                } else if (activity instanceof com.baidu.tbadk.a) {
-                    ((com.baidu.tbadk.a) activity).showToast(activity.getString(com.baidu.tbadk.l.error_sd_error));
-                } else if (activity instanceof com.baidu.tbadk.core.e) {
-                    ((com.baidu.tbadk.core.e) activity).a(activity.getString(com.baidu.tbadk.l.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("WriteUtil", "takePhoto", "error = " + e.getMessage());
-        }
+public class az extends Thread {
+    private String a;
+    private String b;
+    private String c;
+    private String d;
+    private boolean e;
+
+    public az(String str) {
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = false;
+        this.a = str;
+        this.e = false;
     }
 
-    public static void a(Activity activity, String str) {
+    public az(String str, String str2) {
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = false;
+        this.a = str;
+        this.b = str2;
+    }
+
+    public az(String str, String str2, String str3) {
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = false;
+        this.a = str;
+        this.c = str2;
+        this.d = str3;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        String str;
         String str2;
-        try {
-            if (!w.a()) {
-                if (activity instanceof com.baidu.tbadk.a) {
-                    ((com.baidu.tbadk.a) activity).showToast(w.b());
-                    return;
-                } else if (activity instanceof com.baidu.tbadk.core.e) {
-                    ((com.baidu.tbadk.core.e) activity).a(w.b());
-                    return;
-                } else {
-                    return;
-                }
-            }
-            boolean z = false;
-            if (w.a(w.a + "/" + com.baidu.tbadk.core.data.n.f() + "/cameras")) {
-                File file = new File(String.valueOf(str2) + "/" + str);
-                if (!file.exists()) {
-                    z = file.createNewFile();
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    Uri fromFile = Uri.fromFile(file);
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", fromFile);
-                    activity.startActivityForResult(intent, 12001);
-                }
-            }
-            if (!z) {
-                if (activity instanceof com.baidu.tbadk.a) {
-                    ((com.baidu.tbadk.a) activity).showToast(activity.getString(com.baidu.tbadk.l.error_sd_error));
-                } else if (activity instanceof com.baidu.tbadk.core.e) {
-                    ((com.baidu.tbadk.core.e) activity).a(activity.getString(com.baidu.tbadk.l.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("WriteUtil", "takePhoto", "error = " + e.getMessage());
+        super.run();
+        if (this.e) {
+            str = TbConfig.IN_PV_ADDRESS;
+        } else {
+            str = TbConfig.LOAD_REG_PV_ADDRESS;
         }
-    }
-
-    public static void b(Activity activity) {
-        try {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, 12002);
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
+        al alVar = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
+        if (this.e) {
+            str2 = null;
+        } else {
+            str2 = ar.a().d();
+            if (!be.c(str2)) {
+                ar.a().c();
+                alVar.a("st_record", str2);
+            }
+        }
+        alVar.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.a);
+        if (this.b != null) {
+            alVar.a("st_param", this.b);
+        }
+        if (this.c != null) {
+            alVar.a("obj", this.c);
+        }
+        if (this.d != null) {
+            alVar.a("obj_tp", this.d);
+        }
+        alVar.i();
+        if (!this.e) {
+            if (!alVar.a().b().b() || alVar.d() != 0) {
+                ar.a().b(str2);
+            }
         }
     }
 }

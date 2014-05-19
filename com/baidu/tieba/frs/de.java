@@ -1,53 +1,55 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ForumData;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class de extends com.baidu.adp.a.e {
-    private static final String b = String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/zan/like";
-    private static com.baidu.tbadk.c.b c;
-    private dg a;
-    private com.baidu.adp.framework.c.b d = new df(this, 1014000);
+public class de {
+    private ForumData a = new ForumData();
+    private ArrayList<com.baidu.tieba.data.as> b = new ArrayList<>();
+    private ArrayList<String> c = new ArrayList<>();
+    private int d = 0;
+    private int e = 0;
+    private int f = 0;
+    private AntiData g = new AntiData();
+    private com.baidu.tieba.data.ad h = new com.baidu.tieba.data.ad();
 
-    static {
-        com.baidu.tbadk.c.b bVar = new com.baidu.tbadk.c.b(1014000, b);
-        c = bVar;
-        bVar.a(PraiseResponseMessage.class);
-        com.baidu.adp.framework.c.a().a(c);
+    public ArrayList<com.baidu.tieba.data.as> a() {
+        return this.b;
     }
 
-    public de(dg dgVar) {
-        this.a = null;
-        this.a = dgVar;
-    }
-
-    public final void a() {
-        registerListener(this.d);
-    }
-
-    public static void a(String str, String str2, int i, String str3) {
-        String str4;
-        if (i == 1) {
-            str4 = "unlike";
-        } else {
-            str4 = "like";
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a.parserJson(jSONObject.optJSONObject("forum"));
+                this.h.a(jSONObject.optJSONObject("user"));
+                this.g.parserJson(jSONObject.optJSONObject("anti"));
+                JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");
+                if (optJSONObject != null) {
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            com.baidu.tieba.data.as asVar = new com.baidu.tieba.data.as();
+                            asVar.a(optJSONArray.optJSONObject(i));
+                            this.b.add(asVar);
+                        }
+                    }
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");
+                    if (optJSONArray2 != null) {
+                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                            this.c.add(optJSONArray2.optString(i2));
+                        }
+                    }
+                    this.d = optJSONObject.optInt("has_more", 0);
+                    this.e = optJSONObject.optInt("amount", 0);
+                    this.f = optJSONObject.optInt("current_count", 0);
+                }
+            } catch (Exception e) {
+                BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            }
         }
-        HttpMessage httpMessage = new HttpMessage(1014000);
-        httpMessage.a("st_type", str4);
-        httpMessage.a("action", str4);
-        httpMessage.a("post_id", new StringBuilder(String.valueOf(str)).toString());
-        httpMessage.a("thread_id", new StringBuilder(String.valueOf(str2)).toString());
-        httpMessage.a("st_param", str3);
-        httpMessage.b(1014000);
-        com.baidu.adp.framework.c.a().a(httpMessage);
-    }
-
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
-        return false;
     }
 }

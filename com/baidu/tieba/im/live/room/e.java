@@ -1,0 +1,95 @@
+package com.baidu.tieba.im.live.room;
+
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.tieba.im.message.RequestLiveGroupLikeListMessage;
+import java.util.LinkedList;
+import java.util.List;
+import protobuf.QueryLiveGroupLikeList.LikeUserInfo;
+/* loaded from: classes.dex */
+public class e extends com.baidu.adp.base.d {
+    private String a;
+    private int b;
+    private int c;
+    private boolean f;
+    private RequestLiveGroupLikeListMessage g;
+    private int d = 0;
+    private int e = 20;
+    private List<LikeUserInfo> h = new LinkedList();
+
+    public LikeUserInfo a(int i) {
+        if (this.h == null) {
+            return null;
+        }
+        return this.h.get(i);
+    }
+
+    public int a() {
+        return this.d + 1;
+    }
+
+    public List<LikeUserInfo> b() {
+        return this.h;
+    }
+
+    public String c() {
+        return this.a;
+    }
+
+    public boolean d() {
+        return this.f;
+    }
+
+    public void a(boolean z) {
+        this.f = z;
+    }
+
+    public int e() {
+        return this.b;
+    }
+
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void a(Intent intent, Bundle bundle) {
+        if (bundle != null) {
+            this.a = bundle.getString(com.baidu.tbadk.core.frameworkData.a.GROUP_NAME);
+            this.b = bundle.getInt("likers");
+            this.c = bundle.getInt(com.baidu.tbadk.core.frameworkData.a.GROUP_ID);
+            return;
+        }
+        this.a = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_NAME);
+        this.b = intent.getIntExtra("likers", 0);
+        this.c = intent.getIntExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0);
+    }
+
+    public void f() {
+        if (this.g == null) {
+            this.g = new RequestLiveGroupLikeListMessage();
+            this.g.mGroupId = this.c;
+            this.g.mOffset = this.d;
+            this.g.mRn = this.e;
+            sendMessage(this.g);
+        }
+    }
+
+    public void g() {
+        this.g = null;
+    }
+
+    public boolean h() {
+        return this.d == 0;
+    }
+
+    public void i() {
+        this.d++;
+        f();
+    }
+}

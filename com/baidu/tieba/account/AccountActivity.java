@@ -6,12 +6,14 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class AccountActivity extends com.baidu.tbadk.a {
+public class AccountActivity extends BaseActivity {
     private NavigationBar e;
     private ArrayList<AccountData> a = null;
     private l b = null;
@@ -23,44 +25,52 @@ public class AccountActivity extends com.baidu.tbadk.a {
     private f i = null;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2015006, new a());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2017006, new a());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.a.i.account_activity);
-        this.a = com.baidu.tbadk.core.a.o.d();
-        this.d = (RelativeLayout) findViewById(com.baidu.tieba.a.h.account_container);
-        this.g = new b(this);
-        this.e = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e.a(getString(com.baidu.tieba.a.k.account_manager));
-        this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.a.k.edit));
-        this.f.setOnClickListener(new d(this));
-        this.b = new l(this, this.g);
-        this.b.a(this.a);
-        this.c = (ListView) findViewById(com.baidu.tieba.a.h.list);
-        this.c.setAdapter((ListAdapter) this.b);
-        this.c.setOnItemClickListener(new e(this));
+        setContentView(com.baidu.tieba.s.account_activity);
+        a();
+        b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.e.b(i);
+        this.e.c(i);
         getLayoutMode().a(i == 1);
-        getLayoutMode().a(this.d);
+        getLayoutMode().a((View) this.d);
         this.b.notifyDataSetChanged();
+    }
+
+    private void a() {
+        this.a = com.baidu.tbadk.core.account.a.d();
+    }
+
+    private void b() {
+        this.d = (RelativeLayout) findViewById(com.baidu.tieba.r.account_container);
+        this.g = new b(this);
+        this.e = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e.a(getString(com.baidu.tieba.u.account_manager));
+        this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.u.edit));
+        this.f.setOnClickListener(new d(this));
+        this.b = new l(this, this.g);
+        this.b.a(this.a);
+        this.c = (ListView) findViewById(com.baidu.tieba.r.list);
+        this.c.setAdapter((ListAdapter) this.b);
+        this.c.setOnItemClickListener(new e(this));
     }
 }

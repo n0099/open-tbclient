@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-final class q {
+class q {
     ImageView a;
     TextView b;
     LinearLayout c;
@@ -21,7 +21,7 @@ final class q {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ q(o oVar, byte b) {
+    public /* synthetic */ q(o oVar, q qVar) {
         this(oVar);
     }
 }

@@ -5,7 +5,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-public final class o {
+public class o {
     LinearLayout a;
     HeadImageView b;
     TextView c;

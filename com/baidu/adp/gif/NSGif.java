@@ -2,6 +2,7 @@ package com.baidu.adp.gif;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import com.baidu.adp.lib.stats.h;
 import java.io.File;
 /* loaded from: classes.dex */
 public class NSGif implements c {
@@ -12,6 +13,8 @@ public class NSGif implements c {
     private final int e;
 
     private static native int nativeCreate(String str);
+
+    private static native int nativeCreate(byte[] bArr, int i, int i2);
 
     private static native boolean nativeDecodeFrame(int i, int i2);
 
@@ -42,8 +45,16 @@ public class NSGif implements c {
         return null;
     }
 
+    public static NSGif a(byte[] bArr, int i, int i2) {
+        int nativeCreate = nativeCreate(bArr, i, i2);
+        if (nativeCreate != 0) {
+            return new NSGif(nativeCreate);
+        }
+        return null;
+    }
+
     @Override // com.baidu.adp.gif.c
-    public final void a() {
+    public void a() {
         this.b = nativeDestroy(this.b);
     }
 
@@ -56,22 +67,22 @@ public class NSGif implements c {
     }
 
     @Override // com.baidu.adp.gif.c
-    public final int b() {
+    public int b() {
         return this.c;
     }
 
     @Override // com.baidu.adp.gif.c
-    public final int c() {
+    public int c() {
         return this.d;
     }
 
     @Override // com.baidu.adp.gif.c
-    public final int d() {
+    public int d() {
         return this.e;
     }
 
     @Override // com.baidu.adp.gif.c
-    public final int b(int i) {
+    public int b(int i) {
         int nativeGetFrameDelay = nativeGetFrameDelay(this.b, i);
         if (nativeGetFrameDelay <= 0) {
             return 100;
@@ -80,12 +91,12 @@ public class NSGif implements c {
     }
 
     @Override // com.baidu.adp.gif.c
-    public final boolean a(int i) {
+    public boolean a(int i) {
         return nativeDecodeFrame(this.b, i);
     }
 
     @Override // com.baidu.adp.gif.c
-    public final boolean a(Bitmap bitmap, Canvas canvas) {
+    public boolean a(Bitmap bitmap, Canvas canvas) {
         if (bitmap == null) {
             return false;
         }
@@ -94,20 +105,25 @@ public class NSGif implements c {
 
     static {
         try {
-            if (com.baidu.adp.a.b.a().b() != null && com.baidu.adp.a.b.a().b().getApplicationInfo() != null) {
-                String str = String.valueOf(com.baidu.adp.a.b.a().b().getApplicationInfo().dataDir) + File.separator + "lib/libnsgif_jni.so";
+            if (com.baidu.adp.base.a.getInst().getApp() != null && com.baidu.adp.base.a.getInst().getApp().getApplicationInfo() != null) {
+                String str = String.valueOf(com.baidu.adp.base.a.getInst().getApp().getApplicationInfo().dataDir) + File.separator + "lib" + File.separator + "libnsgif_jni.so";
                 if (new File(str).exists()) {
                     System.load(str);
                 } else {
+                    h.a().a("so", "loadNsgifFile", "", "", -9111, String.valueOf(str) + "FileNotFound", new Object[0]);
                     System.loadLibrary("nsgif_jni");
                 }
+            } else {
+                h.a().a("so", "loadNsgifFile", "", "", -9111, "CannotGetApp", new Object[0]);
             }
             a = true;
         } catch (Throwable th) {
             try {
+                h.a().a("so", "loadNsgif", "", "", -9112, String.valueOf(th.getClass().getName()) + "-" + th.getMessage(), new Object[0]);
                 System.loadLibrary("nsgif_jni");
                 a = true;
             } catch (Throwable th2) {
+                h.a().a("so", "reloadNsgif", "", "", -9113, String.valueOf(th2.getClass().getName()) + "-" + th2.getMessage(), new Object[0]);
                 a = false;
             }
         }

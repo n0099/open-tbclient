@@ -6,4 +6,8 @@ public interface h extends f {
     String b(m<?> mVar);
 
     void c();
+
+    void d();
+
+    void e();
 }

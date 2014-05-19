@@ -30,9 +30,9 @@ class b extends Thread {
         str2 = scanDownloadFile.mFileName;
         setName(sb.append(str2).append("_moplus_findapkfromsdcard_thread").toString());
         this.d = jSONArray;
-        StringBuilder sb2 = new StringBuilder("^");
+        StringBuilder append = new StringBuilder().append("^");
         str3 = scanDownloadFile.mFileName;
-        this.e = sb2.append(str3).append("(.*)?\\.apk$").toString();
+        this.e = append.append(str3).append("(.*)?\\.apk$").toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

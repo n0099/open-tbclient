@@ -7,24 +7,24 @@ public class f extends b {
     private float a;
 
     @Override // com.baidu.tbadk.img.effect.b
-    public final String a() {
+    public String a() {
         return "round_corner";
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public final void b(String str) {
+    public void b(String str) {
         if (str != null) {
             this.a = com.baidu.adp.lib.f.b.a(str, 0.0f);
         }
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public final Bitmap a(Bitmap bitmap, boolean z) {
+    public Bitmap a(Bitmap bitmap, boolean z) {
         if (bitmap == null) {
             return null;
         }
         if (this.a > 0.0f) {
-            com.baidu.tbadk.imageManager.e.a().b(g.a(bitmap) * 2);
+            com.baidu.tbadk.imageManager.e.a().c(g.a(bitmap) * 2);
             return g.a(bitmap, this.a, z);
         }
         return bitmap;

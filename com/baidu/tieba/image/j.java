@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
-final class j extends BroadcastReceiver {
+class j extends BroadcastReceiver {
     final /* synthetic */ ImageViewerActivity a;
 
     private j(ImageViewerActivity imageViewerActivity) {
@@ -12,12 +12,12 @@ final class j extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(ImageViewerActivity imageViewerActivity, byte b) {
+    public /* synthetic */ j(ImageViewerActivity imageViewerActivity, j jVar) {
         this(imageViewerActivity);
     }
 
     @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
+    public void onReceive(Context context, Intent intent) {
         ImageViewerActivity.a(this.a, intent.getBooleanExtra("hasnext", false));
         ImageViewerActivity.a(this.a, intent.getStringExtra("nexttile"));
         ImageViewerActivity.a(this.a, intent.getStringArrayListExtra("url"));

@@ -1,23 +1,28 @@
 package com.baidu.tieba.im.updategroup;
 
 import android.widget.TextView;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.o;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public final class e extends g {
+public class e extends g {
     protected TextView a;
 
     public e(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
         this.a = null;
-        c(com.baidu.tieba.im.i.update_group_info_activity);
-        d(com.baidu.tieba.im.j.group_update_info);
-        this.a = (TextView) this.h.findViewById(com.baidu.tieba.im.h.edit_count);
+        c(s.update_group_info_activity);
+        d(u.group_update_info);
+        this.a = (TextView) this.g.findViewById(r.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public final void g() {
-        int length = this.c.getText().length();
-        a(length, length, 15, 300);
+    public void g() {
+        int length = this.b.getText().length();
+        a(length, length, 15, TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
         int i = 300 - length;
         this.a.setText(String.valueOf(i));
         if (i <= 50) {
@@ -26,15 +31,19 @@ public final class e extends g {
             this.a.setVisibility(8);
         }
         if (i == 0) {
-            this.a.setTextColor(this.h.getResources().getColor(com.baidu.tieba.im.e.group_create_info_count_color));
-            return;
+            this.a.setTextColor(this.g.getResources().getColor(o.group_create_info_count_color));
+        } else {
+            n();
         }
-        this.h.getLayoutMode().a(TbadkApplication.j().l() == 1);
-        this.h.getLayoutMode().a(this.a);
+    }
+
+    private void n() {
+        this.g.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
+        this.g.getLayoutMode().a(this.a);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public final int j() {
-        return com.baidu.tieba.im.j.group_step_info_error;
+    public int j() {
+        return u.group_step_info_error;
     }
 }

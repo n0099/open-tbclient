@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -22,7 +23,7 @@ public class NewErrorData implements Serializable {
             try {
                 parserJson(new JSONObject(str).optJSONObject("error"));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
@@ -33,7 +34,7 @@ public class NewErrorData implements Serializable {
                 this.errno = jSONObject.optInt("errno");
                 this.errmsg = jSONObject.optString("usermsg");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

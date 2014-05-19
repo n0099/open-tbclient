@@ -1,42 +1,22 @@
 package com.baidu.tbadk.widget.richText;
 
-import com.baidu.location.LocationClientOption;
-import org.json.JSONObject;
+import android.view.View;
+import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class t {
-    private String a;
-    private int b;
-    private int c;
-    private Object d;
+public class t implements AbsListView.RecyclerListener {
+    private int a;
 
-    public t() {
+    public t(int i) {
+        this.a = 0;
+        this.a = i;
     }
 
-    public t(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.a = jSONObject.optString("voice_md5");
-            this.b = jSONObject.optInt("during_time") / LocationClientOption.MIN_SCAN_SPAN;
-            this.c = jSONObject.optInt("is_sub");
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        View findViewById = view.findViewById(this.a);
+        if (findViewById != null && (findViewById instanceof TbRichTextView)) {
+            ((TbRichTextView) findViewById).setText(null);
         }
-    }
-
-    public final String a() {
-        return this.a;
-    }
-
-    public final int b() {
-        return this.b;
-    }
-
-    public final int c() {
-        return this.c;
-    }
-
-    public final Object d() {
-        return this.d;
-    }
-
-    public final void a(Object obj) {
-        this.d = obj;
     }
 }

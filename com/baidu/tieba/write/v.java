@@ -10,7 +10,7 @@ import com.baidu.tbadk.img.effect.ImageOperation;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class v extends PagerAdapter implements ViewPager.OnPageChangeListener, com.baidu.tbadk.coreExtra.view.m {
+public class v extends PagerAdapter implements ViewPager.OnPageChangeListener, com.baidu.tbadk.coreExtra.view.n {
     private Context a;
     private ImageFileInfo[] b;
     private ViewPager c;
@@ -18,12 +18,11 @@ public final class v extends PagerAdapter implements ViewPager.OnPageChangeListe
     private int e;
     private int f;
     private x[] g;
-    private com.baidu.tbadk.coreExtra.view.j[] h;
+    private com.baidu.tbadk.coreExtra.view.k[] h;
     private int i;
     private int j;
 
     public v(Context context, ViewPager viewPager, LinkedList<ImageFileInfo> linkedList, int i, w wVar) {
-        String str;
         int i2 = 0;
         this.a = null;
         this.b = null;
@@ -36,30 +35,18 @@ public final class v extends PagerAdapter implements ViewPager.OnPageChangeListe
         this.i = 120;
         this.j = 120;
         this.a = context;
-        this.i = (int) context.getResources().getDimension(com.baidu.tieba.a.f.motu_image_size_width);
-        this.j = (int) context.getResources().getDimension(com.baidu.tieba.a.f.motu_image_size_height);
+        this.i = (int) context.getResources().getDimension(com.baidu.tieba.p.motu_image_size_width);
+        this.j = (int) context.getResources().getDimension(com.baidu.tieba.p.motu_image_size_height);
         if (linkedList != null) {
             this.e = linkedList.size();
         }
         this.b = new ImageFileInfo[this.e];
         this.g = new x[this.e];
-        this.h = new com.baidu.tbadk.coreExtra.view.j[this.e];
+        this.h = new com.baidu.tbadk.coreExtra.view.k[this.e];
         while (true) {
             int i3 = i2;
             if (i3 < linkedList.size()) {
-                ImageFileInfo imageFileInfo = linkedList.get(i3);
-                if (imageFileInfo.getPersistActionsList() != null) {
-                    Iterator<ImageOperation> it = imageFileInfo.getPersistActionsList().iterator();
-                    while (it.hasNext()) {
-                        ImageOperation next = it.next();
-                        if ("filter".equals(next.actionName)) {
-                            str = next.actionParam;
-                            break;
-                        }
-                    }
-                }
-                str = null;
-                this.h[i3] = new com.baidu.tbadk.coreExtra.view.j(this.a, this, str);
+                a(linkedList.get(i3), i3);
                 this.b[i3] = linkedList.get(i3).cloneWithoutFilterAction(true);
                 this.b[i3].addPageAction(com.baidu.tbadk.img.effect.d.a(this.i, this.j));
                 linkedList.set(i3, this.b[i3]);
@@ -76,7 +63,7 @@ public final class v extends PagerAdapter implements ViewPager.OnPageChangeListe
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(int i) {
+    public void a(int i) {
         if (this.g[this.f].c()) {
             this.b[this.f].addPageAction(com.baidu.tbadk.img.effect.e.a(i));
             if (this.h[this.f] != null) {
@@ -94,8 +81,8 @@ public final class v extends PagerAdapter implements ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.m
-    public final void a(String str) {
+    @Override // com.baidu.tbadk.coreExtra.view.n
+    public void a(String str) {
         if (str != null && !str.equals("normal")) {
             ImageFileInfo cloneWithoutFilterAction = this.b[this.f].cloneWithoutFilterAction(false);
             cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.a(str));
@@ -106,7 +93,7 @@ public final class v extends PagerAdapter implements ViewPager.OnPageChangeListe
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final Object instantiateItem(ViewGroup viewGroup, int i) {
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (this.g[i] == null) {
             this.g[i] = new x(this, i);
         }
@@ -115,18 +102,25 @@ public final class v extends PagerAdapter implements ViewPager.OnPageChangeListe
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         this.c.removeView(this.g[i].a());
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageSelected(int i) {
+    public void onPageSelected(int i) {
         this.f = i;
+        c();
+        if (this.d != null) {
+            this.d.a(this.h[i], i);
+        }
+    }
+
+    private void c() {
         if (this.f >= 0) {
             if (this.g != null) {
-                for (int i2 = 0; i2 < this.g.length; i2++) {
-                    if (this.g[i2] != null) {
-                        this.g[i2].b();
+                for (int i = 0; i < this.g.length; i++) {
+                    if (this.g[i] != null) {
+                        this.g[i].b();
                     }
                 }
             }
@@ -134,36 +128,49 @@ public final class v extends PagerAdapter implements ViewPager.OnPageChangeListe
                 this.g[this.f] = new x(this, this.f);
             }
             String selectedFilter = this.h[this.f].getSelectedFilter();
-            if (selectedFilter == null || selectedFilter.equals("normal")) {
-                this.g[this.f].a(this.b[this.f]);
-            } else {
+            if (selectedFilter != null && !selectedFilter.equals("normal")) {
                 ImageFileInfo cloneWithoutFilterAction = this.b[this.f].cloneWithoutFilterAction(false);
                 cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.a(selectedFilter));
                 this.g[this.f].a(cloneWithoutFilterAction);
+                return;
             }
-        }
-        if (this.d != null) {
-            this.d.a(this.h[i], i);
+            this.g[this.f].a(this.b[this.f]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final int a() {
+    public int a() {
         return this.f;
     }
 
+    private void a(ImageFileInfo imageFileInfo, int i) {
+        String str;
+        if (imageFileInfo.getPersistActionsList() != null) {
+            Iterator<ImageOperation> it = imageFileInfo.getPersistActionsList().iterator();
+            while (it.hasNext()) {
+                ImageOperation next = it.next();
+                if ("filter".equals(next.actionName)) {
+                    str = next.actionParam;
+                    break;
+                }
+            }
+        }
+        str = null;
+        this.h[i] = new com.baidu.tbadk.coreExtra.view.k(this.a, this, str);
+    }
+
     @Override // android.support.v4.view.PagerAdapter
-    public final int getCount() {
+    public int getCount() {
         return this.e;
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final boolean isViewFromObject(View view, Object obj) {
+    public boolean isViewFromObject(View view, Object obj) {
         return view == obj;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void b() {
+    public void b() {
         String selectedFilter;
         for (int i = 0; i < this.b.length; i++) {
             this.b[i].applayRotatePageActionToPersistAction();
@@ -174,10 +181,10 @@ public final class v extends PagerAdapter implements ViewPager.OnPageChangeListe
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageScrolled(int i, float f, int i2) {
+    public void onPageScrolled(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageScrollStateChanged(int i) {
+    public void onPageScrollStateChanged(int i) {
     }
 }

@@ -15,16 +15,16 @@ public final class ProductParsedResult extends ParsedResult {
         this.normalizedProductID = str2;
     }
 
-    public final String getProductID() {
+    public String getProductID() {
         return this.productID;
     }
 
-    public final String getNormalizedProductID() {
+    public String getNormalizedProductID() {
         return this.normalizedProductID;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public final String getDisplayResult() {
+    public String getDisplayResult() {
         return this.productID;
     }
 }

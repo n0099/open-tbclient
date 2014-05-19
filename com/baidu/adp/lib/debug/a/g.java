@@ -7,7 +7,7 @@ import android.os.SystemClock;
 import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class g extends ImageView {
+public class g extends ImageView {
     final /* synthetic */ e a;
     private long b;
     private int c;
@@ -27,7 +27,7 @@ public final class g extends ImageView {
     }
 
     @Override // android.view.View
-    public final void draw(Canvas canvas) {
+    public void draw(Canvas canvas) {
         if (this.b == -1) {
             this.b = SystemClock.elapsedRealtime();
             this.c = 0;

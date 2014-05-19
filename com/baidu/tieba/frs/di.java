@@ -1,25 +1,40 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class di implements com.baidu.adp.widget.BdSwitchView.c {
+public class di extends HttpMessageListener {
     final /* synthetic */ dh a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public di(dh dhVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public di(dh dhVar, int i) {
+        super(i);
         this.a = dhVar;
     }
 
-    @Override // com.baidu.adp.widget.BdSwitchView.c
-    public final void a(View view, BdSwitchView.SwitchState switchState) {
-        if (switchState == BdSwitchView.SwitchState.ON) {
-            com.baidu.tbadk.core.h.a().c(0);
-            com.baidu.tbadk.core.h.a().a(true);
-        } else {
-            com.baidu.tbadk.core.h.a().a(false);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        co coVar;
+        dk a;
+        int a2;
+        co coVar2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1007003) {
+            int statusCode = httpResponsedMessage.getStatusCode();
+            int error = httpResponsedMessage.getError();
+            if (statusCode == 200 && error == 0 && (httpResponsedMessage instanceof ImageForumResponsedMessage)) {
+                coVar = this.a.l;
+                if (coVar == null) {
+                    return;
+                }
+                a = this.a.a(httpResponsedMessage, statusCode, error);
+                a2 = this.a.a(httpResponsedMessage);
+                coVar2 = this.a.l;
+                coVar2.a(a2, ((ImageForumResponsedMessage) httpResponsedMessage).mJSONObject, a);
+            }
         }
-        this.a.l = true;
     }
 }

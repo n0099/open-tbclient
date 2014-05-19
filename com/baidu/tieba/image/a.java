@@ -1,12 +1,12 @@
 package com.baidu.tieba.image;
 
-import com.baidu.tbadk.core.data.n;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.data.t;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private ArrayList<String> a;
     private String d;
     private String e;
@@ -44,13 +44,13 @@ public final class a {
         }
     }
 
-    public final void a() {
+    public void a() {
         if (!this.g && !this.k) {
             a(this.d, this.f, 10, 0);
         }
     }
 
-    public final void b() {
+    public void b() {
         if (!this.k) {
             if (!this.g) {
                 a();
@@ -73,38 +73,38 @@ public final class a {
         this.h.execute(new Object[0]);
     }
 
-    public final void a(c cVar) {
+    public void a(c cVar) {
         this.l = cVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ String a(a aVar, t tVar) {
-        if (tVar.j() == null || tVar.j().length() <= 0) {
-            StringBuilder sb = new StringBuilder(150);
-            if (tVar.g() * tVar.f() > n.u() * n.u()) {
-                double sqrt = Math.sqrt((n.u() * n.u()) / (tVar.g() * tVar.f()));
-                sb.append("width=");
-                sb.append(String.valueOf((int) (tVar.f() * sqrt)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) (sqrt * tVar.g())));
-            } else {
-                sb.append("width=");
-                sb.append(String.valueOf(tVar.f()));
-                sb.append("&height=");
-                sb.append(String.valueOf(tVar.g()));
-            }
-            sb.append("&src=");
-            sb.append(bc.d(tVar.b()));
-            return sb.toString();
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a(t tVar) {
+        if (tVar.j() != null && tVar.j().length() > 0) {
+            return tVar.j();
         }
-        return tVar.j();
+        StringBuilder sb = new StringBuilder(150);
+        if (tVar.g() * tVar.f() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
+            double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (tVar.g() * tVar.f()));
+            sb.append("width=");
+            sb.append(String.valueOf((int) (tVar.f() * sqrt)));
+            sb.append("&height=");
+            sb.append(String.valueOf((int) (sqrt * tVar.g())));
+        } else {
+            sb.append("width=");
+            sb.append(String.valueOf(tVar.f()));
+            sb.append("&height=");
+            sb.append(String.valueOf(tVar.g()));
+        }
+        sb.append("&src=");
+        sb.append(be.d(tVar.b()));
+        return sb.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String a(String str) {
+    public String a(String str) {
         int lastIndexOf;
         int indexOf;
-        String e = bc.e(str);
+        String e = be.e(str);
         if (e != null) {
             if (e.indexOf(".baidu.com") != -1 && (lastIndexOf = e.lastIndexOf("/")) != -1 && (indexOf = e.indexOf(".", lastIndexOf)) != -1) {
                 return e.substring(lastIndexOf + 1, indexOf);

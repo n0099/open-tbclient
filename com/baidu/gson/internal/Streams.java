@@ -57,22 +57,22 @@ public final class Streams {
         }
 
         @Override // java.io.Writer
-        public final void write(char[] cArr, int i, int i2) {
+        public void write(char[] cArr, int i, int i2) {
             this.currentWrite.chars = cArr;
             this.appendable.append(this.currentWrite, i, i + i2);
         }
 
         @Override // java.io.Writer
-        public final void write(int i) {
+        public void write(int i) {
             this.appendable.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable
-        public final void flush() {
+        public void flush() {
         }
 
         @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
-        public final void close() {
+        public void close() {
         }
 
         /* loaded from: classes.dex */

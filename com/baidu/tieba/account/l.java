@@ -7,28 +7,30 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class l extends BaseAdapter {
-    private com.baidu.tbadk.a a;
+public class l extends BaseAdapter {
+    private BaseActivity a;
     private View.OnClickListener d;
     private ArrayList<AccountData> c = null;
     private boolean b = false;
 
-    public l(com.baidu.tbadk.a aVar, View.OnClickListener onClickListener) {
-        this.a = aVar;
+    public l(BaseActivity baseActivity, View.OnClickListener onClickListener) {
+        this.a = baseActivity;
         this.d = onClickListener;
     }
 
-    public final void a(ArrayList<AccountData> arrayList) {
+    public void a(ArrayList<AccountData> arrayList) {
         this.c = arrayList;
     }
 
     @Override // android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         int i = 0;
         if (this.c != null) {
             i = this.c.size();
@@ -37,7 +39,7 @@ public final class l extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final Object getItem(int i) {
+    public Object getItem(int i) {
         if (this.c == null || i < 0 || i >= this.c.size()) {
             return null;
         }
@@ -45,7 +47,7 @@ public final class l extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final long getItemId(int i) {
+    public long getItemId(int i) {
         if (getItem(i) != null) {
             return i;
         }
@@ -53,14 +55,14 @@ public final class l extends BaseAdapter {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [138=4] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x010c  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x017b  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x017d  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x010d  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x017c  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x017e  */
     @Override // android.widget.Adapter
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         m mVar;
         View view2;
         try {
@@ -69,18 +71,18 @@ public final class l extends BaseAdapter {
                     if (view == null) {
                         LayoutInflater from = LayoutInflater.from(this.a);
                         if (getItemViewType(i) == 0) {
-                            view2 = from.inflate(com.baidu.tieba.a.i.account_item, (ViewGroup) null);
-                            mVar = new m(this, (byte) 0);
-                            mVar.a = (TextView) view2.findViewById(com.baidu.tieba.a.h.account);
-                            mVar.c = (ImageView) view2.findViewById(com.baidu.tieba.a.h.active);
-                            mVar.d = (Button) view2.findViewById(com.baidu.tieba.a.h.delete);
-                            mVar.e = view2.findViewById(com.baidu.tieba.a.h.account_item_line_layout);
+                            view2 = from.inflate(com.baidu.tieba.s.account_item, (ViewGroup) null);
+                            mVar = new m(this, null);
+                            mVar.a = (TextView) view2.findViewById(com.baidu.tieba.r.account);
+                            mVar.c = (ImageView) view2.findViewById(com.baidu.tieba.r.active);
+                            mVar.d = (Button) view2.findViewById(com.baidu.tieba.r.delete);
+                            mVar.e = view2.findViewById(com.baidu.tieba.r.account_item_line_layout);
                             mVar.d.setOnClickListener(this.d);
                             view2.setTag(mVar);
                         } else {
-                            view2 = from.inflate(com.baidu.tieba.a.i.account_add_item, (ViewGroup) null);
-                            mVar = new m(this, (byte) 0);
-                            mVar.b = (TextView) view2.findViewById(com.baidu.tieba.a.h.add_text);
+                            view2 = from.inflate(com.baidu.tieba.s.account_add_item, (ViewGroup) null);
+                            mVar = new m(this, null);
+                            mVar.b = (TextView) view2.findViewById(com.baidu.tieba.r.add_text);
                             view2.setTag(mVar);
                         }
                     } else {
@@ -88,8 +90,8 @@ public final class l extends BaseAdapter {
                         view2 = view;
                     }
                     if (getItemViewType(i) == 0) {
-                        if (TbadkApplication.j().l() == 1) {
-                            mVar.a.setTextColor(ba.a(1));
+                        if (TbadkApplication.m252getInst().getSkinType() == 1) {
+                            mVar.a.setTextColor(bc.a(1));
                         } else {
                             mVar.a.setTextColor(-12895429);
                         }
@@ -112,53 +114,53 @@ public final class l extends BaseAdapter {
                             mVar.e.setVisibility(0);
                         }
                     } else {
-                        if (TbadkApplication.j().l() == 1) {
-                            mVar.b.setTextColor(ba.a(1));
+                        if (TbadkApplication.m252getInst().getSkinType() == 1) {
+                            mVar.b.setTextColor(bc.a(1));
                         } else {
                             mVar.b.setTextColor(-12895429);
                         }
                         mVar.e.setVisibility(8);
                     }
-                    this.a.getLayoutMode().a(TbadkApplication.j().l() == 1);
+                    this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
                     this.a.getLayoutMode().a(view2);
                     return view2;
-                } catch (Exception e) {
-                    e = e;
-                    com.baidu.adp.lib.util.f.b(getClass().getName(), "getView", e.getMessage());
-                    this.a.getLayoutMode().a(TbadkApplication.j().l() != 1);
+                } catch (Throwable th) {
+                    th = th;
+                    this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
                     this.a.getLayoutMode().a(view);
-                    return view;
+                    throw th;
                 }
-            } catch (Throwable th) {
-                th = th;
-                this.a.getLayoutMode().a(TbadkApplication.j().l() == 1);
+            } catch (Exception e) {
+                e = e;
+                BdLog.e(getClass().getName(), "getView", e.getMessage());
+                this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() != 1);
                 this.a.getLayoutMode().a(view);
-                throw th;
+                return view;
             }
         } catch (Exception e2) {
             e = e2;
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "getView", e.getMessage());
-            this.a.getLayoutMode().a(TbadkApplication.j().l() != 1);
+            BdLog.e(getClass().getName(), "getView", e.getMessage());
+            this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() != 1);
             this.a.getLayoutMode().a(view);
             return view;
         } catch (Throwable th2) {
             th = th2;
-            this.a.getLayoutMode().a(TbadkApplication.j().l() == 1);
+            this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
             this.a.getLayoutMode().a(view);
             throw th;
         }
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         this.b = z;
     }
 
-    public final boolean a() {
+    public boolean a() {
         return this.b;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getItemViewType(int i) {
+    public int getItemViewType(int i) {
         if (getItemId(i) >= 0) {
             return 0;
         }
@@ -166,7 +168,7 @@ public final class l extends BaseAdapter {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getViewTypeCount() {
+    public int getViewTypeCount() {
         return 2;
     }
 }

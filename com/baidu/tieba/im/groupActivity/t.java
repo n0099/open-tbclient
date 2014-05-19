@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class t implements View.OnClickListener {
+public class t implements View.OnClickListener {
     final /* synthetic */ s a;
     private final /* synthetic */ GroupActivityActivity b;
 
@@ -16,11 +16,11 @@ public final class t implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         Dialog dialog;
-        s.a(this.a);
-        dialog = this.a.t;
+        this.a.f();
+        dialog = this.a.s;
         dialog.show();
-        TiebaStatic.a(this.b, "group_activity_edit", "groupclick", 1, new Object[0]);
+        TiebaStatic.eventStat(this.b, "group_activity_edit", "groupclick", 1, new Object[0]);
     }
 }

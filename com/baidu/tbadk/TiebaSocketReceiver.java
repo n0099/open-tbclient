@@ -10,17 +10,15 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-            com.baidu.tbadk.core.log.a.a(UtilHelper.d(context));
-            if (UtilHelper.a()) {
-                TiebaStatic.b("net change", "TiebaIMReceiver", "succ");
-                com.baidu.adp.framework.e.c.a();
-                com.baidu.adp.framework.e.c.a(false, "net succ");
+            com.baidu.tbadk.core.log.a.a(UtilHelper.getNetStatusInfo(context));
+            if (UtilHelper.isNetOk()) {
+                TiebaStatic.imLog("net change", "TiebaIMReceiver", "succ");
+                com.baidu.adp.framework.c.c.a().a(false, "net succ");
                 return;
             }
-            TiebaStatic.b("net change", "TiebaIMReceiver", "failed");
+            TiebaStatic.imLog("net change", "TiebaIMReceiver", "failed");
             return;
         }
-        com.baidu.adp.framework.e.c.a();
-        com.baidu.adp.framework.e.c.a(false, "calling or boot ");
+        com.baidu.adp.framework.c.c.a().a(false, "calling or boot ");
     }
 }

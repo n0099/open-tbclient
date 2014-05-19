@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.j;
-import com.baidu.tbadk.k;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -44,41 +44,47 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
     private void a(Context context) {
         this.a = context;
         this.b = (LayoutInflater) this.a.getSystemService("layout_inflater");
-        this.b.inflate(k.fragment_tabhost, (ViewGroup) this, true);
+        this.b.inflate(s.fragment_tabhost, (ViewGroup) this, true);
         this.d = -1;
         this.e = null;
     }
 
     public void setup(FragmentManager fragmentManager) {
         this.f = fragmentManager;
-        this.c = (FragmentTabWidget) findViewById(j.tabcontainer);
+        this.c = (FragmentTabWidget) findViewById(r.tabcontainer);
         this.c.setTabSelectionListener(this);
     }
 
-    public final void a(b bVar) {
+    public void a(b bVar) {
+        a(bVar, -1);
+    }
+
+    public void a(b bVar, int i) {
         if (bVar.b == null) {
             throw new IllegalArgumentException("you must create the tab indicator.");
         }
         if (bVar.c == null) {
             throw new IllegalArgumentException("you must create the tab content");
         }
-        if (this.g.contains(bVar)) {
-            return;
+        if (!this.g.contains(bVar)) {
+            this.c.addView(bVar.b, i);
+            if (i == -1) {
+                this.g.add(bVar);
+            } else {
+                this.g.add(i, bVar);
+            }
+            if (this.d != -1 && i <= this.d) {
+                this.d++;
+            }
         }
-        this.c.addView(bVar.b, -1);
-        this.g.add(bVar);
-        if (this.d == -1 || -1 > this.d) {
-            return;
-        }
-        this.d++;
     }
 
-    public final void a() {
+    public void a() {
         if (this.i != null) {
             removeView(this.i);
         }
         this.i = new ViewPager(this.a);
-        this.i.setId(j.tab_content);
+        this.i.setId(r.tab_content);
         this.i.setLayoutParams(new LinearLayout.LayoutParams(-1, 0, 1.0f));
         addView(this.i);
         this.i.setOffscreenPageLimit(this.g.size() - 1);
@@ -123,7 +129,7 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
     }
 
     @Override // com.baidu.tbadk.core.tabHost.c
-    public final void a(int i) {
+    public void a(int i, boolean z) {
         setCurrentTab(i);
     }
 
@@ -149,22 +155,11 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
         return null;
     }
 
-    public final b b(int i) {
-        for (b bVar : this.g) {
-            if (i == bVar.a) {
-                return bVar;
-            }
-        }
-        return null;
-    }
-
-    public final void b() {
+    public void b() {
         FragmentTransaction beginTransaction = this.f.beginTransaction();
         int size = this.g.size();
         for (int i = 0; i < size; i++) {
-            FragmentManager fragmentManager = this.f;
-            int id = this.i.getId();
-            Fragment findFragmentByTag = fragmentManager.findFragmentByTag("android:switcher:" + id + ":" + this.j.getItemId(i));
+            Fragment findFragmentByTag = this.f.findFragmentByTag(a(this.i.getId(), this.j.getItemId(i)));
             if (findFragmentByTag != null) {
                 beginTransaction.remove(findFragmentByTag);
             }
@@ -176,7 +171,11 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
         this.c.a();
     }
 
-    public final void c(int i) {
+    private static String a(int i, long j) {
+        return "android:switcher:" + i + ":" + j;
+    }
+
+    public void a(int i) {
         this.c.a(i);
         for (b bVar : this.g) {
             bVar.b.a(i);

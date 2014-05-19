@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Handler;
+import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -63,11 +64,6 @@ public final class c {
         }
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.android.nebula.b.b.run():void] */
-    public static /* synthetic */ void d(c cVar) {
-        cVar.h();
-    }
-
     private void f() {
         this.c = d.a(this.a).a();
         this.b = f.a(this.a);
@@ -98,7 +94,8 @@ public final class c {
         return this.e;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0021, code lost:
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0021, code lost:
         if ((r2 - com.baidu.android.nebula.b.m.a(r8.a, r2)) > (com.baidu.android.nebula.b.m.a(r8.a) * 1000)) goto L7;
      */
     /*
@@ -116,9 +113,10 @@ public final class c {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void i() {
         this.g.removeCallbacks(this.i);
-        this.g.postDelayed(this.i, 60000L);
+        this.g.postDelayed(this.i, TbConfig.USE_TIME_INTERVAL);
     }
 
     private void j() {
@@ -138,7 +136,7 @@ public final class c {
         this.a.unregisterReceiver(this.h);
     }
 
-    public final j a(int i) {
+    public j a(int i) {
         this.d.a();
         if (i >= this.e.c()) {
             this.d = this.e.a(0, this.e.c());
@@ -148,7 +146,7 @@ public final class c {
         return this.d;
     }
 
-    public final boolean a(ArrayList arrayList) {
+    public boolean a(ArrayList arrayList) {
         if (arrayList == null || arrayList.size() > this.d.c()) {
             return false;
         }
@@ -169,7 +167,7 @@ public final class c {
         return true;
     }
 
-    public final j b(int i) {
+    public j b(int i) {
         if (i >= this.b.c()) {
             return this.b;
         }
@@ -181,11 +179,11 @@ public final class c {
         return jVar;
     }
 
-    public final void b() {
+    public void b() {
         d.a(this.a).b();
     }
 
-    public final void b(ArrayList arrayList) {
+    public void b(ArrayList arrayList) {
         if (arrayList == null) {
             return;
         }
@@ -195,11 +193,11 @@ public final class c {
         }
     }
 
-    public final boolean c() {
+    public boolean c() {
         return this.e.c() > 0;
     }
 
-    public final void d() {
+    public void d() {
         this.e.a();
         Iterator it = this.b.b().iterator();
         while (it.hasNext()) {
@@ -209,7 +207,7 @@ public final class c {
         }
     }
 
-    public final boolean e() {
+    public boolean e() {
         return this.e.c() > 0;
     }
 }

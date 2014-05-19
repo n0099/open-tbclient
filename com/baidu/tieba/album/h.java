@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public final class h extends PagerAdapter {
+public class h extends PagerAdapter {
     private AlbumActivity a;
     private com.baidu.tbadk.img.e b;
     private List<ImageFileInfo> c;
@@ -22,17 +22,17 @@ public final class h extends PagerAdapter {
     public h(AlbumActivity albumActivity, com.baidu.tbadk.img.e eVar) {
         this.a = albumActivity;
         this.b = eVar;
-        this.d = com.baidu.adp.lib.util.i.b(this.a);
-        this.e = com.baidu.adp.lib.util.i.c(this.a) - ((int) this.a.getResources().getDimension(com.baidu.tieba.a.f.album_bottom_height));
+        this.d = com.baidu.adp.lib.util.h.b(this.a);
+        this.e = com.baidu.adp.lib.util.h.c(this.a) - ((int) this.a.getResources().getDimension(com.baidu.tieba.p.album_bottom_height));
     }
 
-    public final void a(List<ImageFileInfo> list) {
+    public void a(List<ImageFileInfo> list) {
         this.c = list;
         notifyDataSetChanged();
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final int getCount() {
+    public int getCount() {
         if (this.c != null) {
             return this.c.size();
         }
@@ -40,23 +40,23 @@ public final class h extends PagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final boolean isViewFromObject(View view, Object obj) {
+    public boolean isViewFromObject(View view, Object obj) {
         return view == obj;
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         ((ViewPager) viewGroup).removeView((View) obj);
     }
 
-    public final ImageFileInfo a(int i) {
+    public ImageFileInfo a(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
         return this.c.get(i);
     }
 
-    public final boolean b(int i) {
+    public boolean b(int i) {
         if (this.f.get(Integer.valueOf(i)) == null) {
             return false;
         }
@@ -64,9 +64,9 @@ public final class h extends PagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final Object instantiateItem(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.album_big_image_item, (ViewGroup) null);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(com.baidu.tieba.a.h.big_image);
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.album_big_image_item, (ViewGroup) null);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(com.baidu.tieba.r.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
         tbImageView.setNightDefaultResource(0);
@@ -76,8 +76,7 @@ public final class h extends PagerAdapter {
             a.clearPageActions();
             a.addPageAction(com.baidu.tbadk.img.effect.d.a(this.d, this.e));
             tbImageView.setTag(a.toCachedKey(false));
-            com.baidu.tbadk.img.e eVar = this.b;
-            if (com.baidu.tbadk.img.e.a(a, false) != null) {
+            if (this.b.a(a, false) != null) {
                 tbImageView.invalidate();
                 this.f.put(Integer.valueOf(i), true);
             } else {

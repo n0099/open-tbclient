@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.voice;
 /* loaded from: classes.dex */
-final class v implements Runnable {
+class v implements Runnable {
     final /* synthetic */ t a;
     private final /* synthetic */ String b;
     private final /* synthetic */ int c;
@@ -13,8 +13,12 @@ final class v implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
-        this.a.a.E = 1;
-        this.a.a.a.a(this.b, this.c);
+    public void run() {
+        VoiceManager voiceManager;
+        VoiceManager voiceManager2;
+        voiceManager = this.a.a;
+        voiceManager.H = 1;
+        voiceManager2 = this.a.a;
+        voiceManager2.a.a(this.b, this.c);
     }
 }

@@ -20,49 +20,49 @@ public class d implements View.OnClickListener, View.OnKeyListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(Configuration configuration) {
+    public void a(Configuration configuration) {
         this.b = configuration;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(b[] bVarArr) {
+    public void a(b[] bVarArr) {
         this.d = bVarArr;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(h hVar) {
+    public void a(h hVar) {
         this.e = hVar;
     }
 
-    public final void a(Activity activity) {
+    public void a(Activity activity) {
         if (this.c == null) {
             this.c = b(activity);
         }
         ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
         if (this.c.getParent() == null) {
             viewGroup.addView(this.c);
-            if (this.b.i != -1) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(activity, this.b.i);
+            if (this.b.j != -1) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(activity, this.b.j);
                 if (!a && loadAnimation == null) {
                     throw new AssertionError();
                 }
                 loadAnimation.setAnimationListener(new e(this));
                 this.c.startAnimation(loadAnimation);
             } else if (this.e != null) {
-                h hVar = this.e;
+                this.e.a();
             }
         }
     }
 
-    public final void a() {
+    public void a() {
         ViewGroup viewGroup;
         if (this.c != null && (viewGroup = (ViewGroup) this.c.getParent()) != null) {
-            if (this.b.j != -1) {
+            if (this.b.k != -1) {
                 Context context = this.c.getContext();
                 if (!a && context == null) {
                     throw new AssertionError();
                 }
-                Animation loadAnimation = AnimationUtils.loadAnimation(context, this.b.j);
+                Animation loadAnimation = AnimationUtils.loadAnimation(context, this.b.k);
                 if (!a && loadAnimation == null) {
                     throw new AssertionError();
                 }
@@ -72,19 +72,17 @@ public class d implements View.OnClickListener, View.OnKeyListener {
             }
             viewGroup.removeView(this.c);
             if (this.e != null) {
-                h hVar = this.e;
+                this.e.b();
             }
             b();
         }
     }
 
     private i b(Activity activity) {
-        b[] bVarArr;
         i iVar = new i(activity);
-        iVar.b(activity.getResources().getColor(this.b.e));
-        iVar.a(this.b.b);
-        boolean z = this.b.g;
-        i.a();
+        iVar.b(activity.getResources().getColor(this.b.f));
+        iVar.a(this.b.c);
+        iVar.a(this.b.h);
         iVar.setOnKeyListener(this);
         int[] iArr = new int[2];
         ((ViewGroup) activity.findViewById(16908290)).getLocationInWindow(iArr);
@@ -112,25 +110,22 @@ public class d implements View.OnClickListener, View.OnKeyListener {
         if (this.b.a != null) {
             iVar.a(a.a(this.b.a, 0, i));
         } else {
-            View findViewById = activity.findViewById(this.b.d);
+            View findViewById = activity.findViewById(this.b.e);
             if (findViewById != null) {
                 iVar.a(a.a(findViewById, 0, i));
             }
         }
-        View findViewById2 = activity.findViewById(this.b.c);
+        View findViewById2 = activity.findViewById(this.b.d);
         if (findViewById2 != null) {
             iVar.b(a.a(findViewById2, 0, i));
         }
-        iVar.setOnClickListener(this);
+        if (this.b.b) {
+            iVar.setClickable(false);
+        } else {
+            iVar.setOnClickListener(this);
+        }
         for (b bVar : this.d) {
-            View a2 = bVar.a(activity.getLayoutInflater());
-            j jVar = new j(-2, -2);
-            jVar.c = bVar.c();
-            jVar.d = bVar.d();
-            jVar.a = bVar.a();
-            jVar.b = bVar.b();
-            a2.setLayoutParams(jVar);
-            iVar.addView(a2);
+            iVar.addView(a.a(activity.getLayoutInflater(), bVar));
         }
         return iVar;
     }
@@ -147,7 +142,7 @@ public class d implements View.OnClickListener, View.OnKeyListener {
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
         if (i == 4 && keyEvent.getAction() == 1) {
-            if (this.b == null || !this.b.f) {
+            if (this.b == null || !this.b.g) {
                 return false;
             }
             a();
@@ -158,7 +153,7 @@ public class d implements View.OnClickListener, View.OnKeyListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.b != null && this.b.f) {
+        if (this.b != null && this.b.g) {
             a();
         }
     }

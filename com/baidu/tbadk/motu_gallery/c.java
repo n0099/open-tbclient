@@ -3,7 +3,7 @@ package com.baidu.tbadk.motu_gallery;
 import android.net.Uri;
 import android.provider.MediaStore;
 /* loaded from: classes.dex */
-public final class c {
+public class c {
     public int a;
     public String b;
     public int c;

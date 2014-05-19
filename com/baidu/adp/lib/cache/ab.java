@@ -3,25 +3,35 @@ package com.baidu.adp.lib.cache;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public final class ab extends c<String> {
+public class ab extends c<String> {
     private String g;
 
-    public ab(com.baidu.adp.a.i iVar, String str) {
-        super(iVar);
+    public ab(com.baidu.adp.base.h hVar, String str) {
+        super(hVar);
         this.g = str;
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public final String a(String str) {
+    public String a(String str) {
         this.a.a(this.a.a(), "CREATE TABLE IF NOT EXISTS " + this.g + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
         this.a.a(this.a.a(), "CREATE INDEX if not exists idx_mi_ns ON " + this.g + "(m_ns)");
         return this.g;
     }
 
+    @Override // com.baidu.adp.lib.cache.c
+    public void a(String str, String str2, int i, int i2) {
+    }
+
+    @Override // com.baidu.adp.lib.cache.c
+    public int a() {
+        return 1;
+    }
+
     /* JADX WARN: Type inference failed for: r2v17, types: [T, java.lang.String] */
     @Override // com.baidu.adp.lib.cache.c
-    protected final m<String> a(SQLiteDatabase sQLiteDatabase, String str) {
+    protected m<String> a(SQLiteDatabase sQLiteDatabase, String str) {
         Cursor cursor;
         Throwable th;
         m<String> mVar = null;
@@ -53,7 +63,7 @@ public final class ab extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected final ContentValues a(m<String> mVar) {
+    protected ContentValues a(m<String> mVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("m_key", mVar.a);
         contentValues.put("m_ns", mVar.c);
@@ -65,18 +75,18 @@ public final class ab extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public final Cursor b(SQLiteDatabase sQLiteDatabase, String str) {
+    public Cursor b(SQLiteDatabase sQLiteDatabase, String str) {
         return sQLiteDatabase.rawQuery("select * from " + this.b + " where m_ns = ?", new String[]{str});
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected final boolean b(String str) {
+    protected boolean b(String str) {
         try {
             this.a.a().delete(this.b, "m_ns = ?", new String[]{str});
             return true;
         } catch (Throwable th) {
-            this.a.b();
-            com.baidu.adp.lib.util.f.a(getClass(), "failed to clear from " + str, th);
+            this.a.a(th);
+            BdLog.e(getClass(), "failed to clear from " + str, th);
             return false;
         }
     }

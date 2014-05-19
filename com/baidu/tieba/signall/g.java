@@ -1,14 +1,16 @@
 package com.baidu.tieba.signall;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.b.an;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.az;
 /* loaded from: classes.dex */
-final class g implements com.baidu.adp.framework.task.a<an> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<an> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            aVar.a().d().setClass(aVar.a().c(), SignAllForumActivity.class);
-            aVar.a().f();
+class g implements CustomMessageTask.CustomRunnable<az> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<az> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), SignAllForumActivity.class);
+            customMessage.getData().startActivity();
         }
         return null;
     }

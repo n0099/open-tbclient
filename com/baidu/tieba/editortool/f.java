@@ -2,10 +2,12 @@ package com.baidu.tieba.editortool;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.data.BubbleListData;
 /* loaded from: classes.dex */
-final class f implements ah {
+class f implements ah {
     final /* synthetic */ a a;
     private final /* synthetic */ Context b;
 
@@ -16,8 +18,9 @@ final class f implements ah {
     }
 
     @Override // com.baidu.tieba.editortool.ah
-    public final View a(int i, View view) {
+    public View a(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.view.a aVar;
+        BubbleListData.BubbleData e;
         View.OnClickListener onClickListener;
         if (view == null) {
             aVar = new com.baidu.tieba.view.a(this.b);
@@ -25,21 +28,21 @@ final class f implements ah {
         } else {
             aVar = (com.baidu.tieba.view.a) view;
         }
-        BubbleListData.BubbleData a = a.a(this.a, i);
-        if (a != null) {
-            aVar.a(a, this.a.c, com.baidu.tieba.model.f.a(this.a.b.getB_info()));
+        e = this.a.e(i);
+        if (e != null) {
+            aVar.a(e, this.a.c, com.baidu.tieba.model.f.a(this.a.b.getB_info()));
             aVar.setGravity(17);
             aVar.setTag(Integer.valueOf(i));
             onClickListener = this.a.k;
             aVar.setOnClickListener(onClickListener);
         }
-        int l = TbadkApplication.j().l();
-        if (this.b instanceof com.baidu.tbadk.a) {
-            ((com.baidu.tbadk.a) this.b).getLayoutMode().a(l == 1);
-            ((com.baidu.tbadk.a) this.b).getLayoutMode().a(view);
+        int skinType = TbadkApplication.m252getInst().getSkinType();
+        if (this.b instanceof BaseActivity) {
+            ((BaseActivity) this.b).getLayoutMode().a(skinType == 1);
+            ((BaseActivity) this.b).getLayoutMode().a(view);
         } else if (this.b instanceof com.baidu.tbadk.core.e) {
-            ((com.baidu.tbadk.core.e) this.b).b().a(l == 1);
-            ((com.baidu.tbadk.core.e) this.b).b().a(view);
+            ((com.baidu.tbadk.core.e) this.b).a().a(skinType == 1);
+            ((com.baidu.tbadk.core.e) this.b).a().a(view);
         }
         return view;
     }

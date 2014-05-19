@@ -1,8 +1,11 @@
 package com.baidu.tieba.pb.main;
 
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-final class c implements com.baidu.adp.lib.d.c<ImageView> {
+class c implements com.baidu.adp.lib.d.c<ImageView> {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,48 +13,83 @@ final class c implements com.baidu.adp.lib.d.c<ImageView> {
         this.a = pbActivity;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* synthetic */ ImageView a() {
-        return new bd(this.a);
+    /* renamed from: b */
+    public ImageView a() {
+        Drawable drawable;
+        TbImageView tbImageView = new TbImageView(this.a);
+        boolean f = com.baidu.tbadk.core.h.a().f();
+        if (TbadkApplication.m252getInst().getSkinType() == 1) {
+            drawable = this.a.getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg_1);
+        } else {
+            drawable = this.a.getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg);
+        }
+        tbImageView.setDefaultBg(drawable);
+        if (f) {
+            tbImageView.setNightDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d_1);
+            tbImageView.setDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d);
+            tbImageView.setAdjustViewBounds(false);
+            tbImageView.setInterceptOnClick(false);
+        } else {
+            tbImageView.setNightDefaultResource(com.baidu.tieba.q.icon_click_1);
+            tbImageView.setDefaultResource(com.baidu.tieba.q.icon_click);
+            tbImageView.setAdjustViewBounds(true);
+            tbImageView.setInterceptOnClick(true);
+        }
+        return tbImageView;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* synthetic */ void a(ImageView imageView) {
-        ImageView imageView2 = imageView;
-        imageView2.setBackgroundDrawable(null);
-        imageView2.setImageDrawable(null);
-        imageView2.setTag(null);
-        imageView2.setOnClickListener(null);
-        if (imageView2 instanceof bd) {
-            ((bd) imageView2).g();
+    public void a(ImageView imageView) {
+        imageView.setBackgroundDrawable(null);
+        imageView.setImageDrawable(null);
+        imageView.setTag(null);
+        imageView.setOnClickListener(null);
+        if (imageView instanceof TbImageView) {
+            ((TbImageView) imageView).e();
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* synthetic */ ImageView b(ImageView imageView) {
-        ImageView imageView2 = imageView;
-        if (imageView2 instanceof bd) {
-            ((bd) imageView2).f();
+    public ImageView b(ImageView imageView) {
+        Drawable drawable;
+        if (imageView instanceof TbImageView) {
+            TbImageView tbImageView = (TbImageView) imageView;
+            tbImageView.setTag(null);
+            if (TbadkApplication.m252getInst().getSkinType() == 1) {
+                drawable = this.a.getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg_1);
+            } else {
+                drawable = this.a.getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg);
+            }
+            tbImageView.setDefaultBg(drawable);
+            if (com.baidu.tbadk.core.h.a().f()) {
+                tbImageView.setNightDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d_1);
+                tbImageView.setDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d);
+                tbImageView.setAdjustViewBounds(false);
+                tbImageView.setInterceptOnClick(false);
+            } else {
+                tbImageView.setNightDefaultResource(com.baidu.tieba.q.icon_click_1);
+                tbImageView.setDefaultResource(com.baidu.tieba.q.icon_click);
+                tbImageView.setAdjustViewBounds(true);
+                tbImageView.setInterceptOnClick(true);
+            }
         }
-        return imageView2;
+        return imageView;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* synthetic */ ImageView c(ImageView imageView) {
-        ImageView imageView2 = imageView;
-        imageView2.setBackgroundDrawable(null);
-        imageView2.setImageDrawable(null);
-        imageView2.setTag(null);
-        imageView2.setOnClickListener(null);
-        if (imageView2 instanceof bd) {
-            ((bd) imageView2).g();
+    public ImageView c(ImageView imageView) {
+        imageView.setBackgroundDrawable(null);
+        imageView.setImageDrawable(null);
+        imageView.setTag(null);
+        imageView.setOnClickListener(null);
+        if (imageView instanceof TbImageView) {
+            ((TbImageView) imageView).e();
         }
-        return imageView2;
+        return imageView;
     }
 }

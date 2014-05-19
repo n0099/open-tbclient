@@ -4,7 +4,7 @@ import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class r extends com.baidu.tieba.im.m<LinkedList<GroupNewsPojo>> {
+public class r extends com.baidu.tieba.im.b<LinkedList<GroupNewsPojo>> {
     private final /* synthetic */ int b;
     private final /* synthetic */ int c;
 
@@ -14,9 +14,10 @@ public final class r extends com.baidu.tieba.im.m<LinkedList<GroupNewsPojo>> {
         this.c = i2;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* bridge */ /* synthetic */ LinkedList<GroupNewsPojo> a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public LinkedList<GroupNewsPojo> a() {
         return com.baidu.tieba.im.db.d.a().a(0L, this.b, this.c, "apply_join_group");
     }
 }

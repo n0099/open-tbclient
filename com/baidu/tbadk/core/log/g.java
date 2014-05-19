@@ -1,8 +1,9 @@
 package com.baidu.tbadk.core.log;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public final class g {
+public class g {
     private static String a = "";
     private static boolean b = false;
 
@@ -10,10 +11,14 @@ public final class g {
         if (loggerItem == null) {
             return false;
         }
-        return com.baidu.adp.lib.a.f.a().b(loggerItem.getType()) == 0;
+        return a(loggerItem.getType());
     }
 
-    public static String a(String str) {
+    public static boolean a(String str) {
+        return com.baidu.adp.lib.a.f.a().b(str) == 0;
+    }
+
+    public static String b(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -24,7 +29,7 @@ public final class g {
         try {
             a = com.baidu.adp.lib.stats.h.a().b();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.e(e.getMessage());
+            BdLog.d(e.getMessage());
         }
     }
 

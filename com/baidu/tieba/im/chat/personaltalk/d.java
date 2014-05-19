@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
 import android.content.DialogInterface;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-final class d implements DialogInterface.OnClickListener {
+class d implements DialogInterface.OnClickListener {
     final /* synthetic */ PersonalTalkSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,12 +12,12 @@ final class d implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         long j;
         this.a.showLoadingDialog(null);
         StringBuilder sb = new StringBuilder("see del person :");
         j = this.a.c;
-        com.baidu.adp.lib.util.f.e(sb.append(j).toString());
-        com.baidu.tieba.im.r.a(new e(this), new f(this));
+        BdLog.d(sb.append(j).toString());
+        com.baidu.tieba.im.i.a(new e(this), new f(this));
     }
 }

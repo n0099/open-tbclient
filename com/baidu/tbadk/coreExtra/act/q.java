@@ -1,16 +1,27 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.sapi2.SapiWebView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class q implements DialogInterface.OnClickListener {
-    final /* synthetic */ o a;
+public class q implements View.OnClickListener {
+    final /* synthetic */ FillUProfileActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(o oVar) {
-        this.a = oVar;
+    public q(FillUProfileActivity fillUProfileActivity) {
+        this.a = fillUProfileActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        SapiWebView sapiWebView;
+        SapiWebView sapiWebView2;
+        sapiWebView = this.a.a;
+        if (sapiWebView.canGoBack()) {
+            sapiWebView2 = this.a.a;
+            sapiWebView2.goBack();
+            return;
+        }
+        this.a.finish();
     }
 }

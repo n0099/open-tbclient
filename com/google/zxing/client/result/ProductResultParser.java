@@ -6,7 +6,7 @@ import com.google.zxing.Result;
 public final class ProductResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public final ProductParsedResult parse(Result result) {
+    public ProductParsedResult parse(Result result) {
         BarcodeFormat barcodeFormat = result.getBarcodeFormat();
         if (barcodeFormat == BarcodeFormat.UPC_A || barcodeFormat == BarcodeFormat.UPC_E || barcodeFormat == BarcodeFormat.EAN_8 || barcodeFormat == BarcodeFormat.EAN_13) {
             String massagedText = getMassagedText(result);

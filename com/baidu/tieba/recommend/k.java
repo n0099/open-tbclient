@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-final class k {
+class k {
     View a;
     LinearLayout b;
     View c;

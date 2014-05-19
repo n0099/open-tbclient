@@ -66,10 +66,10 @@ public class MagicNumberFileFilter extends AbstractFileFilter implements Seriali
             }
             try {
                 randomAccessFile.seek(this.byteOffset);
-                if (randomAccessFile.read(bArr) != this.magicNumbers.length) {
+                if (randomAccessFile.read(bArr) == this.magicNumbers.length) {
+                    z = Arrays.equals(this.magicNumbers, bArr);
                     IOUtils.closeQuietly(randomAccessFile);
                 } else {
-                    z = Arrays.equals(this.magicNumbers, bArr);
                     IOUtils.closeQuietly(randomAccessFile);
                 }
             } catch (IOException e2) {

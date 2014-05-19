@@ -1,26 +1,26 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
-public final class cl implements DialogInterface.OnClickListener {
-    final /* synthetic */ cj a;
+class cl implements View.OnClickListener {
+    final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(cj cjVar) {
-        this.a = cjVar;
+    public cl(FrsImageActivity frsImageActivity) {
+        this.a = frsImageActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tbadk.a aVar;
-        com.baidu.tbadk.a aVar2;
-        if (i == 0) {
-            aVar2 = this.a.b;
-            com.baidu.tbadk.core.util.az.a(aVar2);
-        } else if (i == 1) {
-            aVar = this.a.b;
-            com.baidu.tbadk.core.util.az.b(aVar);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        if (view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.data.as)) {
+            com.baidu.tieba.data.as asVar = (com.baidu.tieba.data.as) view.getTag();
+            FrsImageActivity frsImageActivity = this.a;
+            com.baidu.tbadk.core.atomData.v vVar = new com.baidu.tbadk.core.atomData.v(this.a);
+            String d = asVar.d();
+            str = this.a.e;
+            frsImageActivity.sendMessage(new CustomMessage(2006002, vVar.a(d, str, asVar.c())));
         }
     }
 }

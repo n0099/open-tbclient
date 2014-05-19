@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Process;
 import android.util.Log;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.voice.Amrnb;
 import com.baidu.adp.lib.voice.BdSoundGate;
 import java.io.File;
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class h implements Runnable {
+public class h implements Runnable {
     private String b;
     private int c;
     private FileOutputStream d;
@@ -50,7 +51,7 @@ public final class h implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         AudioRecord audioRecord;
         short[] sArr;
         int i;
@@ -68,9 +69,9 @@ public final class h implements Runnable {
         } else {
             if (this.b != null && this.b.length() > 0) {
                 try {
-                    File a = com.baidu.adp.lib.util.c.a((String) null, this.b);
-                    if (a != null) {
-                        this.d = new FileOutputStream(a);
+                    File d = com.baidu.adp.lib.util.c.d(null, this.b);
+                    if (d != null) {
+                        this.d = new FileOutputStream(d);
                     } else if (this.f != null) {
                         this.f.sendMessage(this.f.obtainMessage(1));
                         return;
@@ -78,7 +79,7 @@ public final class h implements Runnable {
                         return;
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b("Recorder", "run", "error = " + e.getMessage());
+                    BdLog.e("Recorder", "run", "error = " + e.getMessage());
                     c();
                     if (this.f != null) {
                         this.f.sendMessage(this.f.obtainMessage(1));
@@ -166,8 +167,7 @@ public final class h implements Runnable {
                         com.baidu.adp.lib.util.c.a(this.d);
                         this.e.encoderInit();
                         if (this.c > 0) {
-                            BdSoundGate.a();
-                            BdSoundGate.a(1600, this.c);
+                            BdSoundGate.a().a(1600, this.c);
                         }
                         ArrayList arrayList = new ArrayList();
                         this.g = System.currentTimeMillis();
@@ -214,7 +214,7 @@ public final class h implements Runnable {
                                 } else {
                                     a(sArr2);
                                 }
-                                com.baidu.adp.lib.util.f.a(getClass(), "TestVoice_compress", new StringBuilder(String.valueOf(System.currentTimeMillis() - currentTimeMillis)).toString());
+                                BdLog.d(getClass(), "TestVoice_compress", new StringBuilder(String.valueOf(System.currentTimeMillis() - currentTimeMillis)).toString());
                                 sArr2 = null;
                             }
                             if (System.currentTimeMillis() - this.g > com.baidu.adp.lib.voice.a.a) {
@@ -239,17 +239,17 @@ public final class h implements Runnable {
                         long currentTimeMillis3 = System.currentTimeMillis();
                         b.stop();
                         b.release();
-                        com.baidu.adp.lib.util.f.a(getClass(), "test_record", "2:" + (System.currentTimeMillis() - currentTimeMillis3));
+                        BdLog.d(getClass(), "test_record", "2:" + (System.currentTimeMillis() - currentTimeMillis3));
                         System.currentTimeMillis();
                         if (this.a == 5) {
-                            com.baidu.adp.lib.util.f.d("----runnable cancel");
+                            BdLog.i("----runnable cancel");
                             if (!c()) {
                                 if (this.f != null) {
                                     this.f.sendMessage(this.f.obtainMessage(2));
                                 }
                             } else {
                                 try {
-                                    com.baidu.adp.lib.util.c.c(this.b);
+                                    com.baidu.adp.lib.util.c.e(this.b);
                                     if (this.f != null) {
                                         this.f.sendMessage(this.f.obtainMessage(100));
                                     }
@@ -284,7 +284,7 @@ public final class h implements Runnable {
                                 this.f.sendMessage(obtainMessage2);
                             }
                         }
-                        com.baidu.adp.lib.util.f.a(getClass(), "test_record", "5:" + (System.currentTimeMillis() - currentTimeMillis4));
+                        BdLog.d(getClass(), "test_record", "5:" + (System.currentTimeMillis() - currentTimeMillis4));
                     } catch (IOException e9) {
                         audioRecord = b;
                     }
@@ -336,14 +336,14 @@ public final class h implements Runnable {
             try {
                 this.d.close();
             } catch (IOException e) {
-                com.baidu.adp.lib.util.f.b("Recorder", "closeFileStream", "error = " + e.getMessage());
+                BdLog.e("Recorder", "closeFileStream", "error = " + e.getMessage());
                 return false;
             }
         }
         return true;
     }
 
-    public final boolean a(String str, int i) {
+    public boolean a(String str, int i) {
         if (this.e == null) {
             return false;
         }
@@ -353,14 +353,14 @@ public final class h implements Runnable {
         return true;
     }
 
-    public final void a() {
+    public void a() {
         this.a = 4;
-        com.baidu.adp.lib.util.f.d("----stop:" + this.a);
-        com.baidu.adp.lib.util.f.d("record runnable state after stop:----" + this.h);
+        BdLog.i("----stop:" + this.a);
+        BdLog.i("record runnable state after stop:----" + this.h);
     }
 
-    public final void b() {
+    public void b() {
         this.a = 5;
-        com.baidu.adp.lib.util.f.d("----cancel:");
+        BdLog.i("----cancel:");
     }
 }

@@ -7,6 +7,8 @@ import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
+import com.baidu.sapi2.shell.SapiErrorCode;
+import com.baidu.tbadk.TbConfig;
 import java.util.List;
 /* loaded from: classes.dex */
 public class HorizontalTranslateLayout extends FrameLayout {
@@ -29,10 +31,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
     private boolean q;
     private final f r;
     private final g s;
-    private final k t;
+    private final l t;
     private i u;
-    private j v;
-    private final List<OnOpenAnimationListener> w;
+    private k v;
+    private final List<j> w;
     private h x;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -75,7 +77,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 this.j = 10004;
             } else if (f == -1.0f) {
                 this.c -= getMeasuredWidth();
-                this.j = 10000;
+                this.j = TbConfig.BIG_IMAGE_MIN_CAPACITY;
             } else if (f == 1.0f) {
                 this.c = getMeasuredWidth() - this.d;
                 this.j = 10001;
@@ -108,8 +110,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
         this.u = iVar;
     }
 
-    public void setRightAnimationListener(j jVar) {
-        this.v = jVar;
+    public void setRightAnimationListener(k kVar) {
+        this.v = kVar;
     }
 
     public void setHorizontalTrackListener(h hVar) {
@@ -144,9 +146,9 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.n = x;
                     this.o = y;
                     this.r.removeMessages(-100);
-                    this.r.removeMessages(-104);
+                    this.r.removeMessages(SapiErrorCode.GETTING_CERT);
                     this.r.removeMessages(-101);
-                    this.r.removeMessages(-105);
+                    this.r.removeMessages(SapiErrorCode.GET_CERT_FAIL);
                     return false;
                 case 1:
                 default:
@@ -154,14 +156,15 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 case 2:
                     Log.d("HorizontalTranslateLayout", "@interceptInterceptTouchEvent");
                     motionEvent.offsetLocation(-this.e, 0.0f);
-                    if (y < this.o - this.f || y > this.o + this.f) {
-                        return false;
-                    }
-                    return (x < this.n - this.f || x > this.n + this.f) && this.t.a(x - this.n);
+                    return a(x, y);
             }
         }
         Log.d("HorizontalTranslateLayout", "Intercepted to onTouch()");
         return true;
+    }
+
+    private boolean a(int i, int i2) {
+        return i2 >= this.o - this.f && i2 <= this.o + this.f && (i < this.n - this.f || i > this.n + this.f) && this.t.a(i - this.n);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -178,8 +181,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.q = false;
                     if (this.t.b) {
                         Log.d("HorizontalTranslateLayout", "@onTouchEvent tracking");
-                        this.t.b = false;
-                        k.a(this.t);
+                        this.t.a();
+                        l.a(this.t);
                         return true;
                     }
                     return true;
@@ -221,8 +224,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
             case 1:
             case 3:
                 if (this.t.b) {
-                    this.t.b = false;
-                    k.a(this.t);
+                    this.t.a();
+                    l.a(this.t);
                     return true;
                 }
                 return true;
@@ -272,7 +275,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         switch (this.j) {
-            case 10000:
+            case TbConfig.BIG_IMAGE_MIN_CAPACITY /* 10000 */:
                 this.e = (int) (this.c - getMeasuredWidth());
                 invalidate();
                 return;

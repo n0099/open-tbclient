@@ -5,7 +5,7 @@ import com.baidu.tieba.data.y;
 import com.baidu.tieba.guide.NewUserGuideActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m implements View.OnClickListener {
+public class m implements View.OnClickListener {
     final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public final class m implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         y yVar;
         boolean z;
         com.baidu.tbadk.core.e eVar;

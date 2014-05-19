@@ -1,54 +1,62 @@
 package com.baidu.tieba.im.chat.officialBar;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
+import com.squareup.wire.Wire;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import protobuf.QueryHistoryMsg.QueryHistoryMsgRes;
+import protobuf.QueryHistoryMsg.MsgInfo;
+import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
 /* loaded from: classes.dex */
 public class ResponseHistoryMessage extends TbSocketReponsedMessage {
-    private int a;
-    private List<bf> b;
+    private List<ba> msg;
+    private int msgCount;
 
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        byte[] bArr = (byte[]) obj;
-        QueryHistoryMsgRes.QueryHistoryMsgResIdl parseFrom = QueryHistoryMsgRes.QueryHistoryMsgResIdl.parseFrom(bArr);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        this.a = parseFrom.getData().getTotal();
-        for (QueryHistoryMsgRes.MsgInfo msgInfo : parseFrom.getData().getResList()) {
-            bf bfVar = new bf();
-            if (msgInfo != null) {
-                Date date = new Date();
-                date.setTime(msgInfo.getSendTime() * 1000);
-                bfVar.a = com.baidu.tbadk.core.util.bc.c(date);
-                bfVar.b = msgInfo.getType();
-                bfVar.c = msgInfo.getContent();
-                bfVar.d = msgInfo.getId();
-                com.baidu.adp.lib.util.f.e("history:item:" + bfVar.d);
-                this.b.add(bfVar);
-            }
-        }
-        if (this.b.isEmpty()) {
-            return;
-        }
-        com.baidu.adp.lib.cache.s<byte[]> z = com.baidu.tbadk.core.c.b.a().z();
-        bc bcVar = (bc) h();
-        if (bcVar == null || bcVar.j() != 0) {
-            return;
-        }
-        z.a(String.valueOf(TbadkApplication.E()) + "@" + String.valueOf(bcVar.i()), bArr);
+    public int getMsgCount() {
+        return this.msgCount;
     }
 
-    public final List<bf> d() {
-        return this.b;
+    public List<ba> getMsg() {
+        return this.msg;
     }
 
     public ResponseHistoryMessage() {
-        super(208002);
-        this.a = 0;
-        this.b = new LinkedList();
+        super(MessageTypes.CMD_QUERY_OFFICIAL_BAR_HISTORY);
+        this.msgCount = 0;
+        this.msg = new LinkedList();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        QueryHistoryMsgResIdl queryHistoryMsgResIdl = (QueryHistoryMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHistoryMsgResIdl.class);
+        setError(queryHistoryMsgResIdl.error.errorno.intValue());
+        setErrorString(queryHistoryMsgResIdl.error.usermsg);
+        this.msgCount = queryHistoryMsgResIdl.data.total.intValue();
+        if (queryHistoryMsgResIdl.data.res != null) {
+            for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
+                ba baVar = new ba();
+                if (msgInfo != null) {
+                    Date date = new Date();
+                    date.setTime(msgInfo.sendTime.longValue() * 1000);
+                    baVar.a = com.baidu.tbadk.core.util.be.c(date);
+                    baVar.b = msgInfo.type.intValue();
+                    baVar.c = msgInfo.content;
+                    baVar.d = msgInfo.id.intValue();
+                    BdLog.d("history:item:" + baVar.d);
+                    this.msg.add(baVar);
+                }
+            }
+        }
+        if (!this.msg.isEmpty()) {
+            com.baidu.adp.lib.cache.s<byte[]> B = com.baidu.tbadk.core.a.b.a().B();
+            RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
+            if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
+                B.a(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);
+            }
+        }
     }
 }

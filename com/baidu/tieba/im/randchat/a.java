@@ -7,8 +7,9 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.view.View;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public final class a extends View {
+public class a extends View {
     private Context a;
     private int b;
     private int c;
@@ -35,19 +36,23 @@ public final class a extends View {
     public a(Context context) {
         super(context);
         this.v = new b(this);
+        a(context);
+    }
+
+    private void a(Context context) {
         this.a = context;
-        this.d = com.baidu.adp.lib.util.i.c(context, com.baidu.tieba.im.f.loading_circle_radius);
-        this.e = com.baidu.adp.lib.util.i.c(context, com.baidu.tieba.im.f.loading_circle_stroke);
-        this.f = com.baidu.adp.lib.util.i.c(context, com.baidu.tieba.im.f.loading_small_light_circle_radius);
-        this.g = com.baidu.adp.lib.util.i.c(context, com.baidu.tieba.im.f.loading_small_normal_circle_radius);
-        this.h = com.baidu.adp.lib.util.i.c(context, com.baidu.tieba.im.f.loading_circle_distance);
-        this.i = this.a.getResources().getColor(com.baidu.tieba.im.e.loading_circle_color);
-        this.j = this.a.getResources().getColor(com.baidu.tieba.im.e.loading_stroke_color);
-        this.k = this.a.getResources().getColor(com.baidu.tieba.im.e.loading_circle_common_color);
-        this.l = this.a.getResources().getColor(com.baidu.tieba.im.e.loading_circle_light_color);
-        this.m = this.a.getResources().getColor(com.baidu.tieba.im.e.white);
-        this.n = com.baidu.adp.lib.util.i.c(context, com.baidu.tieba.im.f.fontsize40);
-        this.o = new String[]{this.a.getString(com.baidu.tieba.im.j.loading_view_ready), "3", "2", "1"};
+        this.d = com.baidu.adp.lib.util.h.c(context, com.baidu.tieba.p.loading_circle_radius);
+        this.e = com.baidu.adp.lib.util.h.c(context, com.baidu.tieba.p.loading_circle_stroke);
+        this.f = com.baidu.adp.lib.util.h.c(context, com.baidu.tieba.p.loading_small_light_circle_radius);
+        this.g = com.baidu.adp.lib.util.h.c(context, com.baidu.tieba.p.loading_small_normal_circle_radius);
+        this.h = com.baidu.adp.lib.util.h.c(context, com.baidu.tieba.p.loading_circle_distance);
+        this.i = this.a.getResources().getColor(com.baidu.tieba.o.loading_circle_color);
+        this.j = this.a.getResources().getColor(com.baidu.tieba.o.loading_stroke_color);
+        this.k = this.a.getResources().getColor(com.baidu.tieba.o.loading_circle_common_color);
+        this.l = this.a.getResources().getColor(com.baidu.tieba.o.loading_circle_light_color);
+        this.m = this.a.getResources().getColor(com.baidu.tieba.o.white);
+        this.n = com.baidu.adp.lib.util.h.c(context, com.baidu.tieba.p.fontsize40);
+        this.o = new String[]{this.a.getString(com.baidu.tieba.u.loading_view_ready), TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE, TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK};
         this.p = new Paint();
         this.p.setAntiAlias(true);
         this.q = new RectF();
@@ -56,7 +61,7 @@ public final class a extends View {
     }
 
     @Override // android.view.View
-    protected final void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         this.b = getWidth();
         this.c = getHeight();
@@ -64,7 +69,7 @@ public final class a extends View {
         this.r.set(((this.b / 2) - this.d) + this.e, ((this.c / 2) - this.d) + this.e, ((this.b / 2) + this.d) - this.e, ((this.c / 2) + this.d) - this.e);
     }
 
-    public final void a(c cVar) {
+    public void a(c cVar) {
         this.u = cVar;
         this.v.removeMessages(0);
         this.s = 3;
@@ -72,18 +77,18 @@ public final class a extends View {
         this.v.sendEmptyMessageDelayed(1, 1000L);
     }
 
-    public final void a() {
+    public void a() {
         this.v.removeMessages(0);
         this.v.removeMessages(1);
     }
 
-    public final void b() {
+    public void b() {
         this.v.removeMessages(0);
         this.v.sendEmptyMessageDelayed(0, 800L);
     }
 
     @Override // android.view.View
-    protected final void onDraw(Canvas canvas) {
+    protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.s != 3) {
             this.p.setColor(this.j);

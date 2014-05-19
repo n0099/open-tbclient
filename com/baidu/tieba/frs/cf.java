@@ -1,9 +1,12 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.widget.TbImageView;
+import android.app.Activity;
+import android.content.DialogInterface;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class cf implements com.baidu.tbadk.imageManager.d {
+public class cf implements DialogInterface.OnClickListener {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,17 +14,21 @@ final class cf implements com.baidu.tbadk.imageManager.d {
         this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        cj cjVar;
-        try {
-            cjVar = this.a.l;
-            View findViewWithTag = cjVar.k().a(1).findViewWithTag(str);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
-                findViewWithTag.invalidate();
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "imageLoaded", e.getMessage());
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tieba.model.bc bcVar;
+        dh dhVar;
+        dh dhVar2;
+        dialogInterface.dismiss();
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (currentAccount != null && currentAccount.length() > 0) {
+            bcVar = this.a.x;
+            dhVar = this.a.t;
+            String name = dhVar.b().getName();
+            dhVar2 = this.a.t;
+            bcVar.a(name, Long.valueOf(dhVar2.b().getId()).longValue());
+            return;
         }
+        LoginActivity.a((Activity) this.a, this.a.getString(com.baidu.tieba.u.login_to_use), true, 11036);
     }
 }

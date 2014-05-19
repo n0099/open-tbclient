@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupInfo;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ai implements View.OnClickListener {
+public class ai implements View.OnClickListener {
     final /* synthetic */ PhotoWallView a;
     private final /* synthetic */ int b;
 
@@ -14,7 +14,7 @@ public final class ai implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         ae aeVar;
         ae aeVar2;
         aeVar = this.a.k;

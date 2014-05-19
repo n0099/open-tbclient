@@ -1,9 +1,10 @@
 package com.baidu.tieba.pb.sub;
 
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class r implements com.baidu.tbadk.imageManager.d {
+public class r implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,15 +12,12 @@ public final class r implements com.baidu.tbadk.imageManager.d {
         this.a = mVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null) {
-            ImageView imageView = (ImageView) this.a.d.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                bVar.a(imageView);
-                imageView = (ImageView) this.a.d.findViewWithTag(str);
-            }
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        if (this.a.K != null) {
+            this.a.K.onLongClick(view);
+            return false;
         }
+        return false;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.message.websockt;
 
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private static byte a = Byte.MIN_VALUE;
     private static byte b = 64;
     private boolean c = false;
@@ -15,7 +15,7 @@ public final class a {
     }
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr) {
-        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + 9);
+        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + a());
         byte b2 = z ? (byte) (a | 0) : (byte) 0;
         if (z2) {
             b2 = (byte) (b2 | b);
@@ -31,7 +31,7 @@ public final class a {
     }
 
     public static a a(byte[] bArr) {
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, 9);
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, a());
         a aVar = new a();
         byte b2 = wrap.get();
         if ((a & b2) != 0) {
@@ -45,19 +45,19 @@ public final class a {
         return aVar;
     }
 
-    public final boolean b() {
+    public boolean b() {
         return this.d;
     }
 
-    public final int c() {
+    public int c() {
         return this.e;
     }
 
-    public final boolean d() {
+    public boolean d() {
         return this.c;
     }
 
-    public final int e() {
+    public int e() {
         return this.f;
     }
 }

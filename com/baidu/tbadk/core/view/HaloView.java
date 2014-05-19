@@ -29,7 +29,7 @@ public class HaloView extends View {
         this.c = context;
         this.b = new Paint();
         this.b.setAntiAlias(true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tbadk.n.HaloView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.w.HaloView);
         this.d = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
         if (this.d) {
@@ -55,11 +55,11 @@ public class HaloView extends View {
         int width = getWidth() / 2;
         int height = getHeight() / 2;
         if (!this.d) {
-            int c = com.baidu.adp.lib.util.i.c(this.c, com.baidu.tbadk.h.ds70);
-            int c2 = com.baidu.adp.lib.util.i.c(this.c, com.baidu.tbadk.h.ds90);
-            int c3 = com.baidu.adp.lib.util.i.c(this.c, com.baidu.tbadk.h.ds30);
-            int c4 = com.baidu.adp.lib.util.i.c(this.c, com.baidu.tbadk.h.ds60);
-            if (this.e > 0) {
+            int c = com.baidu.adp.lib.util.h.c(this.c, com.baidu.tieba.p.ds70);
+            int c2 = com.baidu.adp.lib.util.h.c(this.c, com.baidu.tieba.p.ds90);
+            int c3 = com.baidu.adp.lib.util.h.c(this.c, com.baidu.tieba.p.ds30);
+            int c4 = com.baidu.adp.lib.util.h.c(this.c, com.baidu.tieba.p.ds60);
+            if (this.e >= 1) {
                 this.b.setARGB(25, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
                 this.b.setStrokeWidth(c3);
                 canvas.drawCircle(width, height, c, this.b);
@@ -75,7 +75,7 @@ public class HaloView extends View {
                 canvas.drawCircle(width, height, c + c3, this.b);
             }
         } else {
-            int c5 = com.baidu.adp.lib.util.i.c(this.c, com.baidu.tbadk.h.ds120);
+            int c5 = com.baidu.adp.lib.util.h.c(this.c, com.baidu.tieba.p.ds120);
             this.b.setARGB(102, 0, 0, 0);
             this.b.setStrokeWidth(c5);
             canvas.drawCircle(width, height, c5, this.b);
@@ -83,7 +83,7 @@ public class HaloView extends View {
         super.onDraw(canvas);
     }
 
-    public final void a() {
+    public void a() {
         this.f = true;
     }
 }

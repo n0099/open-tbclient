@@ -1,19 +1,21 @@
 package com.baidu.tieba.im.model;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 /* loaded from: classes.dex */
-public final class as implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ MsglistModel a;
-    private final /* synthetic */ com.baidu.tieba.im.message.a.b b;
+class as extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ ar b;
+    private final /* synthetic */ CommonGroupChatMessage c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(MsglistModel msglistModel, com.baidu.tieba.im.message.a.b bVar) {
-        this.a = msglistModel;
-        this.b = bVar;
+    public as(ar arVar, CommonGroupChatMessage commonGroupChatMessage) {
+        this.b = arVar;
+        this.c = commonGroupChatMessage;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
-        this.a.c(this.b);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().b(this.c.getGroupId(), String.valueOf(this.c.getRecordId()), String.valueOf(this.c.getMsgId()), 2));
     }
 }

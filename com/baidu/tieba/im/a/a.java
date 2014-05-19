@@ -1,10 +1,12 @@
 package com.baidu.tieba.im.a;
 
-import com.baidu.adp.framework.c.g;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.im.message.w;
+import com.baidu.tieba.im.message.QueryGroupCountLocalMessage;
 /* loaded from: classes.dex */
-public final class a extends com.baidu.adp.a.e {
+public class a extends com.baidu.adp.base.d {
     public static boolean a = true;
     private int d;
     private int e;
@@ -12,51 +14,51 @@ public final class a extends com.baidu.adp.a.e {
     private String g;
     private e h;
     private boolean c = false;
-    private final g i = new b(this, 103011);
-    private final com.baidu.adp.framework.c.a j = new c(this, 2001114);
+    private final com.baidu.adp.framework.listener.b i = new b(this, MessageTypes.CMD_QUERY_GROUP_COUNT);
+    private final CustomMessageListener j = new c(this, MessageTypes.CMD_REQUEST_GROUP_COUNT_LOCAL);
     com.baidu.adp.lib.c.d b = new d(this);
 
-    public final void a(e eVar) {
+    public void a(e eVar) {
         this.h = eVar;
     }
 
-    public final void a() {
+    public void a() {
         if (this.c) {
-            if (UtilHelper.a()) {
+            if (UtilHelper.isNetOk()) {
                 com.baidu.adp.lib.c.a.a().a(true, this.b);
                 return;
             } else if (this.h != null) {
-                e eVar = this.h;
+                this.h.f();
                 return;
             } else {
                 return;
             }
         }
         this.c = true;
-        com.baidu.adp.framework.c.a().a(new w());
+        MessageManager.getInstance().sendMessage(new QueryGroupCountLocalMessage());
     }
 
-    public final void b() {
+    public void b() {
         a();
     }
 
-    public final void c() {
+    public void c() {
         registerListener(this.i);
         registerListener(this.j);
     }
 
-    public final void d() {
-        com.baidu.adp.framework.c.a().b(this.i);
-        com.baidu.adp.framework.c.a().b(this.j);
+    public void d() {
+        MessageManager.getInstance().unRegisterListener(this.i);
+        MessageManager.getInstance().unRegisterListener(this.j);
     }
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         return false;
     }
 }

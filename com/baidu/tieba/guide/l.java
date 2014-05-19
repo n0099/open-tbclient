@@ -1,86 +1,85 @@
 package com.baidu.tieba.guide;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.LayoutInflater;
+import android.app.Dialog;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.TranslateAnimation;
-import android.widget.ImageView;
-import com.baidu.tieba.view.GoOnAnimView;
+import android.widget.GridView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import com.baidu.tbadk.editortool.ab;
+import com.baidu.tieba.data.InterestFrsData;
 /* loaded from: classes.dex */
-public final class l extends com.baidu.tbadk.core.d {
-    private ViewGroup b;
-    private NewUserGuideActivity c;
-    private ImageView d;
-    private ImageView e;
-    private ImageView f;
-    private GoOnAnimView g;
-    private Handler h = new m(this);
+public class l extends Dialog implements a {
+    private Context a;
+    private TextView b;
+    private TextView c;
+    private View d;
+    private View e;
+    private InterestFrsData.Tag f;
+    private h g;
+    private GridView h;
+    private LinearLayout i;
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.c = (NewUserGuideActivity) getActivity();
+    public l(Context context, int i) {
+        super(context, i);
+        this.a = context;
+        b();
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(com.baidu.tieba.a.i.guide_introduce, (ViewGroup) null);
-        this.b = (ViewGroup) viewGroup2.findViewById(com.baidu.tieba.a.h.root_view);
-        this.d = (ImageView) viewGroup2.findViewById(com.baidu.tieba.a.h.image_tip_1);
-        this.e = (ImageView) viewGroup2.findViewById(com.baidu.tieba.a.h.image_tip_2);
-        this.f = (ImageView) viewGroup2.findViewById(com.baidu.tieba.a.h.image_tip_3);
-        this.b.setBackgroundResource(com.baidu.tieba.a.g.pic_bg_startpage);
-        this.g = (GoOnAnimView) viewGroup2.findViewById(com.baidu.tieba.a.h.tip_go_on);
-        this.h.removeMessages(0);
-        this.h.removeMessages(1);
-        this.h.sendEmptyMessageDelayed(0, 750L);
-        this.h.sendEmptyMessageDelayed(1, 70L);
-        this.g.setOnClickListener(new n(this));
-        return viewGroup2;
+    private void b() {
+        this.e = View.inflate(this.a, com.baidu.tieba.s.new_user_img_box, null);
+        this.g = new h(this.a);
+        setCanceledOnTouchOutside(true);
+        this.i = (LinearLayout) this.e.findViewById(com.baidu.tieba.r.box_close_layout);
+        this.h = (GridView) this.e.findViewById(com.baidu.tieba.r.layout_content);
+        this.h.setAdapter((ListAdapter) this.g);
+        this.h.setSelector(com.baidu.tieba.o.transparent);
+        setContentView(this.e);
+        this.b = (TextView) this.e.findViewById(com.baidu.tieba.r.prompt_title);
+        this.c = (TextView) this.e.findViewById(com.baidu.tieba.r.prompt_sub_title);
+        this.d = this.e.findViewById(com.baidu.tieba.r.view_layout);
+        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.q.bg_startpage2_card_orange_up));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(l lVar) {
-        lVar.d.setImageResource(com.baidu.tieba.a.g.pic_startpage1_one);
-        lVar.e.setImageResource(com.baidu.tieba.a.g.pic_startpage1_two);
-        lVar.f.setImageResource(com.baidu.tieba.a.g.pic_startpage1_three);
-        a(lVar.d, true, 0L);
-        a(lVar.e, false, 100L);
-        a(lVar.f, true, 250L);
+    @Override // com.baidu.tieba.guide.a
+    public void a(InterestFrsData.Tag tag) {
+        this.f = tag;
+        if (this.f != null) {
+            this.b.setText(tag.getBname());
+            this.c.setText(tag.getBdesc());
+            this.g.a(tag.getCard_list());
+        }
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final void onDestroy() {
-        super.onDestroy();
-        this.b.setBackgroundDrawable(null);
-        this.d.clearAnimation();
-        this.d.setImageBitmap(null);
-        this.e.clearAnimation();
-        this.e.setImageBitmap(null);
-        this.f.clearAnimation();
-        this.f.setImageBitmap(null);
-        this.g.c();
-        this.h.removeMessages(0);
-        this.h.removeMessages(1);
+    @Override // com.baidu.tieba.guide.a
+    public void a(int i) {
+        this.g.notifyDataSetChanged();
     }
 
-    public final void a() {
-        this.g.a();
+    @Override // com.baidu.tieba.guide.a
+    public void b(int i) {
+        this.g.notifyDataSetChanged();
     }
 
-    public final void b() {
-        this.g.b();
+    @Override // com.baidu.tieba.guide.a
+    public void a(View.OnClickListener onClickListener) {
+        this.i.setOnClickListener(onClickListener);
+        this.g.a(onClickListener);
     }
 
-    private static void a(ImageView imageView, boolean z, long j) {
-        TranslateAnimation translateAnimation = new TranslateAnimation(2, z ? 1.0f : -1.0f, 1, 0.0f, 1, 0.0f, 1, 0.0f);
-        translateAnimation.setInterpolator(new LinearInterpolator());
-        translateAnimation.setDuration(500L);
-        translateAnimation.setStartOffset(j);
-        translateAnimation.setFillAfter(true);
-        imageView.startAnimation(translateAnimation);
+    @Override // com.baidu.tieba.guide.a
+    public void a(ab abVar) {
+        this.g.a(abVar);
+    }
+
+    @Override // com.baidu.tieba.guide.a
+    public View a() {
+        return this.e;
+    }
+
+    @Override // android.app.Dialog, com.baidu.tieba.guide.a
+    public void hide() {
+        super.dismiss();
     }
 }

@@ -1,25 +1,45 @@
 package com.baidu.tieba.im.model;
-/* loaded from: classes.dex */
-public class bt extends com.baidu.adp.a.e {
-    private static final String a = bt.class.getName();
-    private bu b;
 
-    @Override // com.baidu.adp.a.e
+import com.baidu.tieba.im.message.RequestReportGroupMessage;
+/* loaded from: classes.dex */
+public class bt extends com.baidu.adp.base.d {
+    private int a;
+    private int b;
+    private RequestReportGroupMessage c;
+
+    public void a(int i) {
+        this.a = i;
+    }
+
+    public void b(int i) {
+        this.b = i;
+    }
+
+    @Override // com.baidu.adp.base.d
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
+    @Override // com.baidu.adp.base.d
     public boolean cancelLoadData() {
         return false;
     }
 
-    public final void a(String str, long j) {
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
-        }
-        this.b = new bu(this, str, j);
-        this.b.execute(new Object[0]);
+    private RequestReportGroupMessage b() {
+        RequestReportGroupMessage requestReportGroupMessage = new RequestReportGroupMessage();
+        requestReportGroupMessage.setGroupId(this.a);
+        requestReportGroupMessage.setReportType(this.b);
+        return requestReportGroupMessage;
+    }
+
+    public void a() {
+        this.c = b();
+        super.sendMessage(this.c);
+    }
+
+    @Override // com.baidu.adp.base.d
+    public void cancelMessage() {
+        super.cancelMessage();
+        this.c = null;
     }
 }

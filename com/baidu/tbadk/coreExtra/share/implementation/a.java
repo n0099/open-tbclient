@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.Log;
 import com.baidu.tbadk.coreExtra.share.f;
 import com.baidu.tbadk.plugins.BdSocialShareSdkDelegate;
-import com.baidu.tbplugin.k;
+import com.baidu.tbadk.tbplugin.m;
 /* loaded from: classes.dex */
-public final class a implements com.baidu.tbadk.coreExtra.share.b {
+public class a implements com.baidu.tbadk.coreExtra.share.b {
     private Context a;
     private BdSocialShareSdkDelegate b;
     private c c;
@@ -15,7 +15,7 @@ public final class a implements com.baidu.tbadk.coreExtra.share.b {
         this.a = null;
         this.b = null;
         this.a = context;
-        this.b = (BdSocialShareSdkDelegate) k.a().a(BdSocialShareSdkDelegate.class);
+        this.b = (BdSocialShareSdkDelegate) m.a().b(BdSocialShareSdkDelegate.class);
         if (this.b == null) {
             Log.e("ShareTool", "Social Share Plugin Invalid");
         } else {
@@ -24,7 +24,7 @@ public final class a implements com.baidu.tbadk.coreExtra.share.b {
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.b
-    public final void a(f fVar, int i, boolean z) {
+    public void a(f fVar, int i, boolean z) {
         if (this.b == null) {
             Log.e("ShareTool", "Social Share Plugin Invalid");
             return;

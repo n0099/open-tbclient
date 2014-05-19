@@ -7,7 +7,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
-final class ab implements View.OnClickListener {
+class ab implements View.OnClickListener {
     final /* synthetic */ VcodeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ final class ab implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         InputMethodManager inputMethodManager;
         EditText editText;
         DialogInterface.OnCancelListener onCancelListener;
@@ -32,7 +32,7 @@ final class ab implements View.OnClickListener {
         vcodeActivity.HidenSoftKeyPad(inputMethodManager, editText);
         VcodeActivity vcodeActivity2 = this.a;
         VcodeActivity vcodeActivity3 = this.a;
-        String string = this.a.getString(com.baidu.tieba.a.k.sending);
+        String string = this.a.getString(com.baidu.tieba.u.sending);
         onCancelListener = this.a.j;
         vcodeActivity2.mWaitingDialog = ProgressDialog.show(vcodeActivity3, "", string, true, false, onCancelListener);
         progressDialog = this.a.mWaitingDialog;

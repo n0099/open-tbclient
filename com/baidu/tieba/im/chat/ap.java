@@ -1,9 +1,10 @@
 package com.baidu.tieba.im.chat;
 
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ap implements com.baidu.tieba.im.a<Boolean> {
+public class ap implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ x a;
     private final /* synthetic */ ResponseCommitPersonalMessage b;
 
@@ -13,11 +14,11 @@ public final class ap implements com.baidu.tieba.im.a<Boolean> {
         this.b = responseCommitPersonalMessage;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public final /* bridge */ /* synthetic */ void a(Boolean bool) {
+    public void a(Boolean bool) {
         if (this.b != null) {
-            this.a.a(this.b);
+            this.a.a((ResponsedMessage<?>) this.b);
         }
     }
 }

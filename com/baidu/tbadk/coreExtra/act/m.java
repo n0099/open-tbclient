@@ -1,82 +1,136 @@
 package com.baidu.tbadk.coreExtra.act;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.widget.EditHeadsImageView;
+import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m extends BdAsyncTask<String, Integer, String> {
+public class m extends BdAsyncTask<Object, Integer, Bitmap> {
     final /* synthetic */ EditHeadActivity a;
-    private ak b;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ String a(String... strArr) {
-        return a();
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(String str) {
-        this.a.closeLoadingDialog();
-        if (this.b != null) {
-            if (!this.b.a().b().b()) {
-                this.a.showToast(this.b.f());
-                return;
-            }
-            this.a.setResult(-1);
-            this.a.finish();
-            this.a.showToast(this.a.getString(com.baidu.tbadk.l.upload_head_ok));
-        }
-    }
 
     private m(EditHeadActivity editHeadActivity) {
         this.a = editHeadActivity;
-        this.b = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(EditHeadActivity editHeadActivity, byte b) {
+    public /* synthetic */ m(EditHeadActivity editHeadActivity, m mVar) {
         this(editHeadActivity);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tbadk.l.upload_head));
-    }
-
-    private String a() {
-        String str;
-        Exception e;
-        this.b = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/img/portrait");
+    /* renamed from: a */
+    public Bitmap doInBackground(Object... objArr) {
+        boolean z;
+        HashMap hashMap;
+        Bitmap bitmap = null;
         try {
-            str = this.b.b("tieba_head_image");
+            Bitmap c = com.baidu.tbadk.core.util.x.c(null, TbConfig.IMAGE_RESIZED_FILE);
             try {
-                if (this.b.a().b().b()) {
-                    return str;
+                if (c.getWidth() > 750 || c.getHeight() > 750) {
+                    Bitmap a = com.baidu.tbadk.core.util.g.a(c, (int) TbConfig.POST_IMAGE_MIDDLE);
+                    try {
+                        c.recycle();
+                        c = a;
+                    } catch (Exception e) {
+                        e = e;
+                        bitmap = a;
+                        BdLog.e(getClass().getName(), "GetImageTask", e.toString());
+                        return bitmap;
+                    }
                 }
-                return null;
+                if (isCancelled() && c != null && !c.isRecycled()) {
+                    c.recycle();
+                    return null;
+                }
+                int a2 = com.baidu.adp.lib.util.h.a((Context) this.a, 63.5f);
+                if (Build.VERSION.SDK_INT >= 7) {
+                    z = this.a.A;
+                    if (z) {
+                        Bitmap b = com.baidu.tbadk.core.util.g.b(c, a2);
+                        Bitmap a3 = com.baidu.tbadk.core.util.g.a(b, com.baidu.adp.lib.util.h.a((Context) this.a, 5.0f), c != b);
+                        this.a.F = new HashMap();
+                        this.a.G = new HashMap();
+                        hashMap = this.a.F;
+                        hashMap.put("normal", a3);
+                        return c;
+                    }
+                }
+                return c;
             } catch (Exception e2) {
+                bitmap = c;
                 e = e2;
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
-                return str;
             }
         } catch (Exception e3) {
-            str = null;
             e = e3;
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        this.a.closeLoadingDialog();
-        this.a.u = null;
-        if (this.b != null) {
-            this.b.g();
-        }
+    public void onPreExecute() {
+        ProgressBar progressBar;
+        TextView textView;
+        progressBar = this.a.n;
+        progressBar.setVisibility(0);
+        textView = this.a.j;
+        textView.setClickable(false);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        TextView textView;
+        TextView textView2;
+        this.a.o = null;
+        progressBar = this.a.n;
+        progressBar.setVisibility(8);
+        textView = this.a.j;
+        textView.setClickable(true);
+        textView2 = this.a.j;
+        textView2.setEnabled(true);
         super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Bitmap bitmap) {
+        ProgressBar progressBar;
+        TextView textView;
+        TextView textView2;
+        EditHeadsImageView editHeadsImageView;
+        boolean z;
+        String[] strArr;
+        super.onPostExecute(bitmap);
+        this.a.o = null;
+        this.a.h = bitmap;
+        progressBar = this.a.n;
+        progressBar.setVisibility(8);
+        textView = this.a.j;
+        textView.setClickable(true);
+        textView2 = this.a.j;
+        textView2.setEnabled(true);
+        if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
+            editHeadsImageView = this.a.g;
+            editHeadsImageView.setImageBitmap(bitmap);
+            if (Build.VERSION.SDK_INT >= 7) {
+                z = this.a.A;
+                if (z) {
+                    EditHeadActivity editHeadActivity = this.a;
+                    strArr = EditHeadActivity.f;
+                    editHeadActivity.a(strArr);
+                }
+            }
+        }
     }
 }

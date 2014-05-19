@@ -1,24 +1,27 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class at extends com.baidu.adp.framework.c.a {
+public class at implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ OfficialBarTipActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public at(OfficialBarTipActivity officialBarTipActivity, int i) {
-        super(0);
+    public at(OfficialBarTipActivity officialBarTipActivity) {
         this.a = officialBarTipActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.im.model.bd bdVar;
-        com.baidu.tieba.im.a<Void> aVar;
-        bdVar = this.a.a;
-        aVar = this.a.d;
-        bdVar.a(aVar);
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        ax axVar;
+        axVar = this.a.b;
+        Object item = axVar.b().getItem(i);
+        if (item != null) {
+            com.baidu.tieba.im.f.b.b(this.a, new au(this, (ImMessageCenterShowItemData) item));
+            return false;
+        }
+        return false;
     }
 }

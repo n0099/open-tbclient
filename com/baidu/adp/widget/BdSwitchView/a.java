@@ -3,7 +3,7 @@ package com.baidu.adp.widget.BdSwitchView;
 import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class a implements Animation.AnimationListener {
+public class a implements Animation.AnimationListener {
     final /* synthetic */ BdSwitchView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,16 +12,16 @@ public final class a implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationStart(Animation animation) {
+    public void onAnimationStart(Animation animation) {
         this.a.f = true;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationRepeat(Animation animation) {
+    public void onAnimationRepeat(Animation animation) {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationEnd(Animation animation) {
+    public void onAnimationEnd(Animation animation) {
         this.a.f = false;
     }
 }

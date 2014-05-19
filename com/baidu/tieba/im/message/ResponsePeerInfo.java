@@ -1,27 +1,30 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import protobuf.GetPeerInfo.GetPeerInfoRes;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.squareup.wire.Wire;
+import protobuf.GetPeerInfo.GetPeerInfoResIdl;
 /* loaded from: classes.dex */
 public class ResponsePeerInfo extends SocketResponsedMessage {
-    private int a;
+    private int isAllowed;
 
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        GetPeerInfoRes.GetPeerInfoResIdl parseFrom = GetPeerInfoRes.GetPeerInfoResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.a = parseFrom.getData().getIsAllowed();
-        }
-    }
-
-    public final boolean d() {
-        return this.a != 0;
+    public boolean getIsAllowed() {
+        return this.isAllowed != 0;
     }
 
     public ResponsePeerInfo() {
-        super(205004);
-        this.a = 1;
+        super(MessageTypes.CMD_GET_PEER_INFO);
+        this.isAllowed = 1;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        GetPeerInfoResIdl getPeerInfoResIdl = (GetPeerInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetPeerInfoResIdl.class);
+        setError(getPeerInfoResIdl.error.errorno.intValue());
+        setErrorString(getPeerInfoResIdl.error.usermsg);
+        if (getError() == 0) {
+            this.isAllowed = getPeerInfoResIdl.data.isAllowed.intValue();
+        }
     }
 }

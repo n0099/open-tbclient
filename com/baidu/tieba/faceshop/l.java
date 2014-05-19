@@ -1,8 +1,9 @@
 package com.baidu.tieba.faceshop;
 
 import com.baidu.tbadk.gif.GifView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class l implements com.baidu.tbadk.imageManager.d {
+public class l implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ EmotionImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,16 +12,16 @@ final class l implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         boolean z2;
         String str2;
         GifView gifView;
         z2 = this.a.q;
-        if (!z2 && bVar != null) {
+        if (!z2 && aVar != null) {
             str2 = this.a.k;
             if (str2.equals(str)) {
                 gifView = this.a.b;
-                gifView.setGif(bVar);
+                gifView.setGif(aVar);
             }
         }
     }

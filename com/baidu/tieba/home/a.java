@@ -3,8 +3,9 @@ package com.baidu.tieba.home;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class a implements View.OnClickListener {
+public class a implements View.OnClickListener {
     final /* synthetic */ CreateBarActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,18 +14,18 @@ final class a implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         RelativeLayout relativeLayout;
         FrameLayout frameLayout;
         relativeLayout = this.a.j;
         if (view != relativeLayout) {
             frameLayout = this.a.k;
             if (view == frameLayout) {
-                CreateBarActivity.c(this.a);
+                this.a.c();
                 return;
             }
             return;
         }
-        CreateBarActivity.g(this.a);
+        this.a.d();
     }
 }

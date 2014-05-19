@@ -3,7 +3,7 @@ package com.baidu.tieba.editortool;
 import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i implements DialogInterface.OnClickListener {
+public class i implements DialogInterface.OnClickListener {
     final /* synthetic */ EditorToolComponetContainer a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public final class i implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         com.baidu.tbadk.editortool.x xVar;
         this.a.b.setmImagetype(2);
         xVar = this.a.t;

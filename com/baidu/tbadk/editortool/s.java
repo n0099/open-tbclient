@@ -1,22 +1,25 @@
 package com.baidu.tbadk.editortool;
 
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
-final class s extends com.baidu.adp.framework.c.a {
+class s extends CustomMessageListener {
     final /* synthetic */ EmotionTabHost a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(EmotionTabHost emotionTabHost, int i) {
-        super(2001120);
+        super(i);
         this.a = emotionTabHost;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        switch (customResponsedMessage.g()) {
-            case 2001120:
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        switch (customResponsedMessage.getCmd()) {
+            case MessageTypes.CMD_EMOTIONS_GROUP_CHANGED /* 2003120 */:
                 this.a.a();
                 this.a.b();
                 return;

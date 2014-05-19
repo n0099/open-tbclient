@@ -2,7 +2,7 @@ package com.baidu.tieba.signall;
 
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class r extends com.baidu.adp.a.e {
+public class r extends com.baidu.adp.base.d {
     private static r f = new r();
     public boolean a;
     private p c;
@@ -19,24 +19,19 @@ public final class r extends com.baidu.adp.a.e {
         this.c = new p();
     }
 
-    public final void a(s sVar) {
+    public void a(s sVar) {
         this.d = sVar;
     }
 
-    public final void a(a aVar) {
+    public void a(a aVar) {
         this.e = aVar;
     }
 
-    public final a b() {
+    public a b() {
         return this.e;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.a.e
-    public final boolean LoadData() {
-        if (this.b != null) {
-            return false;
-        }
+    private String c() {
         ArrayList<b> m = this.e.m();
         int size = m.size();
         StringBuilder sb = new StringBuilder();
@@ -52,14 +47,23 @@ public final class r extends com.baidu.adp.a.e {
             }
             sb.append(bVar.a());
         }
-        String sb2 = sb.toString();
+        return sb.toString();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.base.d
+    public boolean LoadData() {
+        if (this.b != null) {
+            return false;
+        }
+        String c = c();
         this.b = new t(this);
-        this.b.execute(sb2);
+        this.b.execute(c);
         return true;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         if (this.b != null) {
             this.b.cancel();
             return true;

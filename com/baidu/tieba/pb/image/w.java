@@ -1,44 +1,29 @@
 package com.baidu.tieba.pb.image;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.be;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class w extends BdAsyncTask<String, Integer, String> {
+public class w extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ String a(String... strArr) {
-        return a();
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(String str) {
-        String str2 = str;
-        super.a((w) str2);
-        if (str2 != null) {
-            this.a.showToast(str2);
-        }
-        this.a.w = null;
-    }
 
     private w(ImagePbActivity imagePbActivity) {
         this.a = imagePbActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ w(ImagePbActivity imagePbActivity, byte b) {
+    public /* synthetic */ w(ImagePbActivity imagePbActivity, w wVar) {
         this(imagePbActivity);
     }
 
-    private String a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
         com.baidu.tieba.data.u uVar;
         com.baidu.tieba.data.u uVar2;
         com.baidu.tieba.data.u uVar3;
@@ -65,39 +50,51 @@ public final class w extends BdAsyncTask<String, Integer, String> {
                     if (str != null && str.length() > 0) {
                         uVar5 = this.a.F;
                         if (uVar5 != null) {
-                            if (bc.f(str) != null) {
+                            if (be.f(str) != null) {
                                 String str2 = String.valueOf(f) + ".jpg";
                                 int i3 = 0;
-                                while (com.baidu.tbadk.core.util.w.b(str2) && i3 < 10000) {
+                                while (com.baidu.tbadk.core.util.x.b(str2) && i3 < 10000) {
                                     i3++;
                                     str2 = String.valueOf(f) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
                                 }
-                                com.baidu.adp.widget.ImageView.b c = com.baidu.tbadk.imageManager.e.a().c(str);
+                                com.baidu.adp.widget.a.a c = com.baidu.tbadk.imageManager.e.a().c(str);
                                 if (c != null) {
-                                    str2 = com.baidu.tbadk.core.util.w.a((String) null, str2, c.h(), 80);
+                                    str2 = com.baidu.tbadk.core.util.x.a((String) null, str2, c.h(), 80);
                                 }
                                 if (str2 != null) {
-                                    new ai(this.a).a(str2);
-                                    return this.a.getString(com.baidu.tieba.a.k.save_image_to_album);
+                                    new aj(this.a).a(str2);
+                                    return this.a.getString(com.baidu.tieba.u.save_image_to_album);
                                 }
-                                return com.baidu.tbadk.core.util.w.b();
+                                return com.baidu.tbadk.core.util.x.b();
                             }
-                            return this.a.getString(com.baidu.tieba.a.k.save_error);
+                            return this.a.getString(com.baidu.tieba.u.save_error);
                         }
                     }
-                    return this.a.getString(com.baidu.tieba.a.k.save_error);
+                    return this.a.getString(com.baidu.tieba.u.save_error);
                 }
                 return null;
             }
             return null;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
-            return this.a.getString(com.baidu.tieba.a.k.save_error);
+            BdLog.e("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            return this.a.getString(com.baidu.tieba.u.save_error);
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
+    /* renamed from: a */
+    public void onPostExecute(String str) {
+        super.onPostExecute(str);
+        if (str != null) {
+            this.a.showToast(str);
+        }
+        this.a.w = null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
         this.a.w = null;
         super.cancel(true);
     }

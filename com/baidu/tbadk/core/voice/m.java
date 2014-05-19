@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.voice;
 import com.baidu.tbadk.core.data.VoiceData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m implements Runnable {
+public class m implements Runnable {
     final /* synthetic */ VoiceManager a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,19 +12,19 @@ public final class m implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         VoiceData.VoiceModel voiceModel;
         x xVar;
         VoiceData.VoiceModel voiceModel2;
         VoiceManager voiceManager = this.a;
-        voiceModel = this.a.v;
-        voiceManager.u = voiceModel;
+        voiceModel = this.a.y;
+        voiceManager.x = voiceModel;
         VoiceManager voiceManager2 = this.a;
-        xVar = this.a.w;
-        voiceManager2.x = xVar;
-        this.a.w = null;
+        xVar = this.a.z;
+        voiceManager2.A = xVar;
+        this.a.z = null;
         VoiceManager voiceManager3 = this.a;
-        voiceModel2 = this.a.u;
+        voiceModel2 = this.a.x;
         voiceManager3.d(voiceModel2);
     }
 }

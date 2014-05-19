@@ -1,20 +1,16 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class bu implements View.OnClickListener {
-    final /* synthetic */ bn a;
+public class bu implements by {
+    final /* synthetic */ bm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(bn bnVar) {
-        this.a = bnVar;
+    public bu(bm bmVar) {
+        this.a = bmVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        ak akVar;
-        akVar = this.a.l;
-        akVar.f();
-        this.a.c.a(false, true, 2);
+    @Override // com.baidu.tieba.person.by
+    public void a() {
+        this.a.a(false);
     }
 }

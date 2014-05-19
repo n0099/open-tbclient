@@ -1,28 +1,17 @@
 package com.baidu.tieba.write;
-
-import android.text.style.ImageSpan;
 /* loaded from: classes.dex */
-final class av implements com.baidu.tbadk.imageManager.a {
+class av implements Runnable {
     final /* synthetic */ WriteActivity a;
+    private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(WriteActivity writeActivity) {
+    public av(WriteActivity writeActivity, int i) {
         this.a = writeActivity;
+        this.b = i;
     }
 
-    @Override // com.baidu.tbadk.imageManager.a
-    public final ImageSpan a(String str) {
-        com.baidu.tbadk.editortool.ac.a();
-        com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.editortool.ac.b(str);
-        if (b == null) {
-            b = com.baidu.tbadk.editortool.ac.a().a((String) null, str);
-        }
-        if (b == null) {
-            return null;
-        }
-        com.baidu.tieba.view.u uVar = new com.baidu.tieba.view.u(b.h());
-        uVar.setBounds(0, 0, b.c() + 1, b.d());
-        uVar.setGravity(3);
-        return new ImageSpan(uVar, 0);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.b(this.b);
     }
 }

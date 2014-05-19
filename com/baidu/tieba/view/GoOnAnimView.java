@@ -18,38 +18,38 @@ public class GoOnAnimView extends LinearLayout {
 
     public GoOnAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f = new p(this);
+        this.f = new s(this);
         a(context);
     }
 
     public GoOnAnimView(Context context) {
         super(context);
-        this.f = new p(this);
+        this.f = new s(this);
         a(context);
     }
 
     private void a(Context context) {
         this.a = context;
-        LinearLayout linearLayout = (LinearLayout) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.go_on_anim, (ViewGroup) null, false);
-        this.b = (ImageView) linearLayout.findViewById(com.baidu.tieba.a.h.tip_go_on_1);
-        this.c = (ImageView) linearLayout.findViewById(com.baidu.tieba.a.h.tip_go_on_2);
-        this.d = (ImageView) linearLayout.findViewById(com.baidu.tieba.a.h.tip_go_on_3);
-        this.b.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_1);
-        this.c.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_2);
-        this.d.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_3);
+        LinearLayout linearLayout = (LinearLayout) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.go_on_anim, (ViewGroup) null, false);
+        this.b = (ImageView) linearLayout.findViewById(com.baidu.tieba.r.tip_go_on_1);
+        this.c = (ImageView) linearLayout.findViewById(com.baidu.tieba.r.tip_go_on_2);
+        this.d = (ImageView) linearLayout.findViewById(com.baidu.tieba.r.tip_go_on_3);
+        this.b.setImageResource(com.baidu.tieba.q.pic_startpage1_next_1);
+        this.c.setImageResource(com.baidu.tieba.q.pic_startpage1_next_2);
+        this.d.setImageResource(com.baidu.tieba.q.pic_startpage1_next_3);
         addView(linearLayout);
     }
 
-    public final void a() {
+    public void a() {
         this.f.removeMessages(0);
         this.f.sendEmptyMessage(0);
     }
 
-    public final void b() {
+    public void b() {
         this.f.removeMessages(0);
     }
 
-    public final void c() {
+    public void c() {
         this.f.removeMessages(0);
         if (this.b != null) {
             this.b.setImageBitmap(null);

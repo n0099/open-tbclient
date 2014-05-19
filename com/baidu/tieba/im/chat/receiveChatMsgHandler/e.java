@@ -1,11 +1,9 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class e implements com.baidu.tieba.im.a<Void> {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+class e implements com.baidu.tieba.im.a<Void> {
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Void r1) {
-        com.baidu.tieba.im.pushNotify.o.a();
-        com.baidu.tieba.im.pushNotify.o.d();
+    public void a(Void r2) {
+        com.baidu.tieba.im.pushNotify.p.a().d();
     }
 }

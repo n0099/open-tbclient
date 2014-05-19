@@ -3,7 +3,7 @@ package com.baidu.tieba.write;
 import android.widget.EditText;
 import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
-final class as implements Runnable {
+class as implements Runnable {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ final class as implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         EditText editText;
         EditorToolComponetContainer editorToolComponetContainer;
         EditText editText2;

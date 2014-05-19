@@ -2,21 +2,22 @@ package com.baidu.tieba.im.friend;
 
 import android.content.Intent;
 import android.os.Bundle;
-import protobuf.CommitInviteMsg.CommitInviteMsgReq;
+import com.baidu.tieba.im.message.RequestCommitInviteMessage;
+import protobuf.CommitInviteMsg.DataReq;
 /* loaded from: classes.dex */
-public final class af extends com.baidu.adp.a.e {
+public class af extends com.baidu.adp.base.d {
     private ag a = null;
-    private com.baidu.tieba.im.message.aa b;
+    private RequestCommitInviteMessage b;
     private int c;
     private int d;
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();
         }
@@ -24,39 +25,46 @@ public final class af extends com.baidu.adp.a.e {
         return true;
     }
 
-    public final void a(Intent intent) {
+    public void a(Intent intent) {
         if (intent != null) {
             this.c = intent.getIntExtra("gid", -1);
             this.d = intent.getIntExtra("groupid", -1);
         }
     }
 
-    public final void a(Bundle bundle) {
+    public void a(Bundle bundle) {
         if (bundle != null) {
             this.c = bundle.getInt("gid", -1);
             this.d = bundle.getInt("groupid", -1);
         }
     }
 
-    public final void b(Bundle bundle) {
+    public void b(Bundle bundle) {
         bundle.putInt("gid", this.c);
         bundle.putInt("groupid", this.d);
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         if (this.a != null) {
             this.a.cancel();
         }
-        this.a = new ag(this, (byte) 0);
+        this.a = new ag(this, null);
         this.a.execute(str);
     }
 
-    public final void b(String str) {
-        int i = this.c;
-        CommitInviteMsgReq.DataReq build = CommitInviteMsgReq.DataReq.newBuilder().a(i).b(5).a(str).b("{\"type\":" + String.valueOf(1) + ",\"groupId\":" + String.valueOf(this.d) + "}").build();
-        com.baidu.tieba.im.message.aa aaVar = new com.baidu.tieba.im.message.aa();
-        aaVar.a(build);
-        this.b = aaVar;
+    public void b(String str) {
+        this.b = a(this.c, this.d, str);
         super.sendMessage(this.b);
+    }
+
+    private RequestCommitInviteMessage a(int i, int i2, String str) {
+        DataReq.Builder builder = new DataReq.Builder();
+        builder.groupId = Integer.valueOf(i);
+        builder.msgType = 5;
+        builder.toUids = str;
+        builder.content = "{\"type\":" + String.valueOf(1) + ",\"groupId\":" + String.valueOf(i2) + "}";
+        RequestCommitInviteMessage requestCommitInviteMessage = new RequestCommitInviteMessage();
+        requestCommitInviteMessage.setReqData(builder.build(false));
+        return requestCommitInviteMessage;
     }
 }

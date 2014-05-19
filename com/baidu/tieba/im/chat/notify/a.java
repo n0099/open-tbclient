@@ -1,13 +1,16 @@
 package com.baidu.tieba.im.chat.notify;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.u;
 /* loaded from: classes.dex */
-final class a implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.r> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.r> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            aVar.a().d().setClass(aVar.a().c(), ImMessageCenterActivity.class);
-            aVar.a().f();
+class a implements CustomMessageTask.CustomRunnable<u> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<u> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), ImMessageCenterActivity.class);
+            customMessage.getData().startActivity();
         }
         return null;
     }

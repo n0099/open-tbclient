@@ -1,18 +1,35 @@
 package com.baidu.tieba.im.data;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import com.baidu.tbadk.core.data.LiveCardData;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-final class h implements Parcelable.Creator<RandChatRoomData> {
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ RandChatRoomData createFromParcel(Parcel parcel) {
-        return new RandChatRoomData(parcel, (byte) 0);
+public class h {
+    private LiveCardData a;
+    private List<i> b = new ArrayList();
+    private int c;
+
+    public LiveCardData a() {
+        return this.a;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ RandChatRoomData[] newArray(int i) {
-        return new RandChatRoomData[i];
+    public void a(LiveCardData liveCardData) {
+        this.a = liveCardData;
+    }
+
+    public List<i> b() {
+        return this.b;
+    }
+
+    public void a(List<i> list) {
+        this.b = list;
+    }
+
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public boolean c() {
+        return this.c == 1;
     }
 }

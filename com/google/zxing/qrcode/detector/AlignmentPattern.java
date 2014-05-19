@@ -12,7 +12,7 @@ public final class AlignmentPattern extends ResultPoint {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean aboutEquals(float f, float f2, float f3) {
+    public boolean aboutEquals(float f, float f2, float f3) {
         if (Math.abs(f2 - getY()) > f || Math.abs(f3 - getX()) > f) {
             return false;
         }
@@ -21,7 +21,7 @@ public final class AlignmentPattern extends ResultPoint {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final AlignmentPattern combineEstimate(float f, float f2, float f3) {
+    public AlignmentPattern combineEstimate(float f, float f2, float f3) {
         return new AlignmentPattern((getX() + f2) / 2.0f, (getY() + f) / 2.0f, (this.estimatedModuleSize + f3) / 2.0f);
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.img.effect;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,7 +23,7 @@ public class ImageOperation implements Serializable {
             jSONObject.put("actionParam", this.actionParam);
             return jSONObject;
         } catch (JSONException e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            BdLog.e(e.getMessage());
             return null;
         }
     }

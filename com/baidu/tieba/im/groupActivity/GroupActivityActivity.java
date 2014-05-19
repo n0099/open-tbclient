@@ -6,17 +6,20 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
-public class GroupActivityActivity extends com.baidu.tbadk.a implements View.OnClickListener {
+public class GroupActivityActivity extends BaseActivity implements View.OnClickListener {
     private s a;
     private r b;
-    private com.baidu.adp.framework.c.a c = new n(this, 2001127);
-    private com.baidu.adp.framework.c.g d = new o(this, 0);
+    private CustomMessageListener c = new n(this, MessageTypes.CMD_REQUEST_GROUP_ACTIVITY_BY_ID_LOCAL);
+    private com.baidu.adp.framework.listener.b d = new o(this, 0);
 
     public static void a(Context context, int i, long j, int i2) {
         Intent intent = new Intent(context, GroupActivityActivity.class);
         intent.putExtra("activity_id", i);
-        intent.putExtra("group_id", j);
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, j);
         intent.putExtra("from", i2);
         if (!(context instanceof Activity)) {
             intent.addFlags(268435456);
@@ -25,7 +28,7 @@ public class GroupActivityActivity extends com.baidu.tbadk.a implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a();
@@ -35,11 +38,11 @@ public class GroupActivityActivity extends com.baidu.tbadk.a implements View.OnC
         }
         if (bundle != null) {
             this.b.b(bundle.getInt("activity_id", 0));
-            this.b.a(bundle.getLong("group_id", 0L));
+            this.b.a(bundle.getLong(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0L));
             this.b.a(bundle.getInt("from", 0));
         } else if (getIntent() != null) {
             this.b.b(getIntent().getIntExtra("activity_id", 0));
-            this.b.a(getIntent().getLongExtra("group_id", 0L));
+            this.b.a(getIntent().getLongExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0L));
             this.b.a(getIntent().getIntExtra("from", 0));
         }
         b();
@@ -59,16 +62,16 @@ public class GroupActivityActivity extends com.baidu.tbadk.a implements View.OnC
         }
         if (intent != null) {
             this.b.b(intent.getIntExtra("activity_id", 0));
-            this.b.a(intent.getLongExtra("group_id", 0L));
+            this.b.a(intent.getLongExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0L));
             this.b.a(intent.getIntExtra("from", 0));
         }
         c();
     }
 
     private void a() {
-        registerListener(103015, this.d);
+        registerListener(MessageTypes.CMD_GET_GROUP_ACTIVITY, this.d);
         registerListener(this.c);
-        registerListener(103121, this.d);
+        registerListener(MessageTypes.CMD_DEL_GROUP_ACTIVITY, this.d);
     }
 
     @Override // android.app.Activity
@@ -76,19 +79,19 @@ public class GroupActivityActivity extends com.baidu.tbadk.a implements View.OnC
         super.onSaveInstanceState(bundle);
         if (this.b != null) {
             bundle.putInt("activity_id", this.b.b());
-            bundle.putLong("group_id", this.b.c());
+            bundle.putLong(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, this.b.c());
             bundle.putInt("from", this.b.a());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.b.cancelMessage();
@@ -109,7 +112,7 @@ public class GroupActivityActivity extends com.baidu.tbadk.a implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.a != null) {
@@ -117,23 +120,23 @@ public class GroupActivityActivity extends com.baidu.tbadk.a implements View.OnC
         }
     }
 
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.a.d()) {
+        if (view == this.a.b()) {
             closeActivity();
-        } else if (view == this.a.e()) {
-            com.baidu.tieba.im.f.b.a(this, new p(this));
+        } else if (view == this.a.c()) {
+            com.baidu.tieba.im.f.b.a((Context) this, (DialogInterface.OnClickListener) new p(this));
         }
     }
 
-    @Override // com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         super.onClick(dialogInterface, i);
-        if (dialogInterface != null && dialogInterface == this.a.f()) {
+        if (dialogInterface != null && dialogInterface == this.a.d()) {
             if (i == 0) {
                 CreateGroupActivityActivity.a(this, (int) this.b.c(), this.b.g(), 23001);
             } else if (i == 1) {
-                com.baidu.tieba.im.f.b.a(this, new q(this));
+                com.baidu.tieba.im.f.b.a((Context) this, (DialogInterface.OnClickListener) new q(this));
             }
         }
     }
@@ -153,7 +156,7 @@ public class GroupActivityActivity extends com.baidu.tbadk.a implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void closeActivity() {
         finish();
     }

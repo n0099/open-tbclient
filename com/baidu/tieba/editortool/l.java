@@ -1,7 +1,7 @@
 package com.baidu.tieba.editortool;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class l implements com.baidu.tieba.voice.e {
+public class l implements com.baidu.tieba.voice.e {
     final /* synthetic */ EditorToolComponetContainer a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,14 +10,14 @@ public final class l implements com.baidu.tieba.voice.e {
     }
 
     @Override // com.baidu.tieba.voice.e
-    public final void a() {
+    public void a() {
         com.baidu.tbadk.editortool.x xVar;
         xVar = this.a.t;
         xVar.a(14, null);
     }
 
     @Override // com.baidu.tieba.voice.e
-    public final void b() {
+    public void b() {
         com.baidu.tbadk.editortool.x xVar;
         xVar = this.a.t;
         xVar.a(15, null);

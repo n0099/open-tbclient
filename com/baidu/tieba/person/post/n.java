@@ -1,30 +1,36 @@
 package com.baidu.tieba.person.post;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class n extends a {
-    public ReplyLinearLayout g;
-    public TextView h;
-    private View i;
-    private View j;
+public class n extends HttpMessageListener {
+    final /* synthetic */ k a;
 
-    public n(View view) {
-        super(view);
-        this.g = (ReplyLinearLayout) view.findViewById(com.baidu.tieba.a.h.content_container);
-        this.h = (TextView) view.findViewById(com.baidu.tieba.a.h.original_post_title);
-        this.i = view.findViewById(com.baidu.tieba.a.h.reply_top_line);
-        this.j = view.findViewById(com.baidu.tieba.a.h.reply_bottom_line);
-        this.h.setOnClickListener(this);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(k kVar, int i) {
+        super(i);
+        this.a = kVar;
     }
 
-    @Override // com.baidu.tieba.person.post.a
-    public final void a(int i) {
-        super.a(i);
-        ba.f((View) this.h, com.baidu.tieba.a.e.cp_bg_line_e);
-        ba.a(this.h, com.baidu.tieba.a.e.cp_cont_b, 1);
-        ba.f(this.i, com.baidu.tieba.a.e.cp_bg_line_b);
-        ba.f(this.j, com.baidu.tieba.a.e.cp_bg_line_b);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        f fVar;
+        f fVar2;
+        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
+            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
+            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
+                fVar2 = this.a.n;
+                fVar2.a(null, false);
+                return;
+            }
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
+            if (!userPostPageRequestMessage.isThread() && (fVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
+                fVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+            }
+        }
     }
 }

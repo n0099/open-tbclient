@@ -1,23 +1,45 @@
 package com.baidu.tieba.im.chat;
-/* loaded from: classes.dex */
-final class cx implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ PersonalChatActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(PersonalChatActivity personalChatActivity) {
-        this.a = personalChatActivity;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
+/* loaded from: classes.dex */
+public class cx {
+    String a;
+    BaseActivity b;
+
+    public cx(String str, BaseActivity baseActivity) {
+        this.a = null;
+        this.a = str;
+        this.b = baseActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
-        Boolean bool2 = bool;
-        if (bool2 != null) {
-            if (bool2.booleanValue()) {
-                this.a.d.K();
-            } else {
-                this.a.d.L();
+    public void a() {
+        try {
+            if (this.a == null || this.a.length() <= 0) {
+                a(this.b.getString(com.baidu.tieba.u.save_error));
             }
+            new com.baidu.tbadk.editortool.ab(this.b).a(this.a, false, true, (com.baidu.tbadk.imageManager.d) new cy(this));
+        } catch (Exception e) {
+            BdLog.e("SaveImageAsyncTask", "execute", "error" + e.getMessage());
+            a(this.b.getString(com.baidu.tieba.u.save_error));
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a(String str, byte[] bArr) {
+        switch (com.baidu.tbadk.core.util.x.a(str, bArr, this.b)) {
+            case -2:
+                return com.baidu.tbadk.core.util.x.b();
+            case -1:
+            default:
+                return this.b.getString(com.baidu.tieba.u.save_error);
+            case 0:
+                return this.b.getString(com.baidu.tieba.u.save_image_to_album);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void a(String str) {
+        this.b.showToast(str);
     }
 }

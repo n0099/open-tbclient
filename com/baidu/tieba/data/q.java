@@ -4,7 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.location.LocationClientOption;
+import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
@@ -26,25 +28,27 @@ public class q extends com.baidu.tbadk.core.util.a {
     private int j;
     private int k;
     private int l;
-    private ArrayList<com.baidu.tbadk.core.data.j> m;
-    private ArrayList<VoiceData.VoiceModel> n = new ArrayList<>();
-    private final int o = 0;
+    private ArrayList<com.baidu.tbadk.core.data.k> m;
     private int p;
     private LinkedList<IconData> q;
     private LinkedList<IconData> r;
+    private boolean t;
+    private ArrayList<VoiceData.VoiceModel> n = new ArrayList<>();
+    private final int o = 0;
+    private LiveCardData s = new LiveCardData();
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optString("forum_id", "");
-                this.b = jSONObject.optString("forum_name", "");
-                this.c = jSONObject.optString("thread_id", "");
+                this.a = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, "");
+                this.b = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME, "");
+                this.c = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, "");
                 String optString = jSONObject.optString("title", "");
                 this.e = jSONObject.optInt("post_num", 0);
                 this.k = jSONObject.optInt("is_top", 0);
                 this.j = jSONObject.optInt("is_good", 0);
-                this.f = jSONObject.optString("user_id", "");
-                this.g = jSONObject.optString("user_name", "");
+                this.f = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_ID, "");
+                this.g = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME, "");
                 this.l = jSONObject.optInt("is_up", 0);
                 this.h = jSONObject.optLong("create_time", 0L);
                 this.p = jSONObject.optInt("is_voice_thread");
@@ -89,10 +93,10 @@ public class q extends com.baidu.tbadk.core.util.a {
                         this.m = new ArrayList<>();
                     }
                     for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
-                        jVar.a(optJSONArray4.getJSONObject(i4));
-                        if (jVar.c() != null && jVar.c().length() > 0) {
-                            this.m.add(jVar);
+                        com.baidu.tbadk.core.data.k kVar = new com.baidu.tbadk.core.data.k();
+                        kVar.a(optJSONArray4.getJSONObject(i4));
+                        if (kVar.c() != null && kVar.c().length() > 0) {
+                            this.m.add(kVar);
                         }
                     }
                 }
@@ -108,22 +112,40 @@ public class q extends com.baidu.tbadk.core.util.a {
                     }
                 }
                 a(optString);
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("anchor_info");
+                if (optJSONObject2 == null) {
+                    this.t = false;
+                    return;
+                }
+                this.t = true;
+                this.s.setPortrait(optJSONObject2.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT));
+                this.s.setName(optJSONObject2.optString("name"));
+                this.s.setStartTime(optJSONObject2.optLong("start_time"));
+                this.s.setAuthorId(optJSONObject2.optInt("author_id"));
+                this.s.setAuthorName(optJSONObject2.optString("author_name"));
+                this.s.setListeners(optJSONObject2.optInt("listeners"));
+                this.s.setLikers(optJSONObject2.optInt("likers"));
+                this.s.setGroupId(optJSONObject2.optInt(com.baidu.tbadk.core.frameworkData.a.GROUP_ID));
+                this.s.setIntro(optJSONObject2.optString("intro"));
+                this.s.setPublisherPortrait(optJSONObject2.optString("publisherPortrait"));
+                this.s.setPublisherId(optJSONObject2.optInt(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_ID));
+                this.s.setPublisherName(optJSONObject2.optString(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_NAME));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(q.class.getName(), "parserJson", "error = " + e.getMessage());
+                BdLog.detailException("parserJson", e);
             }
         }
     }
 
-    public final LinkedList<IconData> a() {
+    public LinkedList<IconData> a() {
         return this.r;
     }
 
-    private void a(String str) {
+    public void a(String str) {
         SpannableString spannableString;
         if (str != null) {
             ArrayList arrayList = new ArrayList();
             if (this.p == 1) {
-                arrayList.add(Integer.valueOf(com.baidu.tieba.a.g.icon_voice));
+                arrayList.add(Integer.valueOf(com.baidu.tieba.q.icon_voice));
             }
             if (arrayList.size() > 0) {
                 StringBuilder sb = new StringBuilder();
@@ -147,64 +169,64 @@ public class q extends com.baidu.tbadk.core.util.a {
         }
     }
 
-    public final String b() {
+    public String b() {
         return this.a;
     }
 
-    public final String c() {
+    public String c() {
         return this.b != null ? this.b : "";
     }
 
-    public final String d() {
+    public String d() {
         return this.c != null ? this.c : "";
     }
 
-    public final SpannableString e() {
+    public SpannableString e() {
         return this.d;
     }
 
-    public final int f() {
+    public int f() {
         return this.e;
     }
 
-    public final String g() {
+    public String g() {
         return this.g != null ? this.g : "";
     }
 
-    public final long h() {
+    public long h() {
         return this.h;
     }
 
-    public final String i() {
+    public String i() {
         return this.i != null ? this.i : "";
     }
 
-    public final int j() {
+    public int j() {
         return this.j;
     }
 
-    public final ArrayList<com.baidu.tbadk.core.data.j> k() {
+    public ArrayList<com.baidu.tbadk.core.data.k> k() {
         return this.m;
     }
 
-    public final ArrayList<VoiceData.VoiceModel> l() {
+    public ArrayList<VoiceData.VoiceModel> l() {
         return this.n;
     }
 
-    public final LinkedList<IconData> m() {
+    public LinkedList<IconData> m() {
         return this.q;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ab
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
     public LinkedList<String> getImageUrl() {
         if (this.m == null) {
             return null;
         }
         LinkedList<String> linkedList = new LinkedList<>();
-        Iterator<com.baidu.tbadk.core.data.j> it = this.m.iterator();
+        Iterator<com.baidu.tbadk.core.data.k> it = this.m.iterator();
         int i = 0;
         while (it.hasNext()) {
-            com.baidu.tbadk.core.data.j next = it.next();
+            com.baidu.tbadk.core.data.k next = it.next();
             i++;
             if (i > 3) {
                 break;
@@ -213,5 +235,13 @@ public class q extends com.baidu.tbadk.core.util.a {
             }
         }
         return linkedList;
+    }
+
+    public LiveCardData n() {
+        return this.s;
+    }
+
+    public boolean o() {
+        return this.t;
     }
 }

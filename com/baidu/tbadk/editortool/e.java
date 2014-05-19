@@ -7,18 +7,18 @@ public abstract class e implements Comparable<e> {
 
     protected abstract void b();
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // java.lang.Comparable
-    public /* synthetic */ int compareTo(e eVar) {
-        e eVar2 = eVar;
-        if (eVar2 == null) {
-            return 1;
-        }
-        return a() - eVar2.a();
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
     public e() {
         b();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(e eVar) {
+        if (eVar == null) {
+            return 1;
+        }
+        return a() - eVar.a();
     }
 }

@@ -2,9 +2,12 @@ package com.baidu.tieba.forumfeed;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.b.aq;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.bc;
+import com.baidu.tbadk.core.frameworkData.CmdConfig;
 /* loaded from: classes.dex */
-final class p implements View.OnClickListener {
+class p implements View.OnClickListener {
     final /* synthetic */ o a;
     private final /* synthetic */ Context b;
 
@@ -15,7 +18,7 @@ final class p implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2010010, new aq(this.b)));
+    public void onClick(View view) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new bc(this.b)));
     }
 }

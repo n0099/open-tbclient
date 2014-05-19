@@ -1,54 +1,38 @@
 package com.baidu.tieba.im.f;
 
-import android.location.Address;
-import com.baidu.tieba.im.model.bp;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tieba.im.model.bu;
 /* loaded from: classes.dex */
-public final class e implements com.baidu.adp.lib.c.d {
-    final /* synthetic */ d a;
+public class e {
+    private bu d;
+    private h e;
+    private double a = 0.0d;
+    private double b = 0.0d;
+    private int c = 0;
+    private com.baidu.adp.lib.c.d f = new f(this);
+    private com.baidu.adp.framework.listener.b g = new g(this, MessageTypes.CMD_QUERY_GROUPLOC);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar) {
-        this.a = dVar;
+    public e(h hVar) {
+        this.d = null;
+        this.e = null;
+        this.d = new bu();
+        this.e = hVar;
+        this.g.setTag(this.c);
+        MessageManager.getInstance().registerListener(this.g);
     }
 
-    @Override // com.baidu.adp.lib.c.d
-    public final void a(int i, Address address) {
-        g gVar;
-        g gVar2;
-        bp bpVar;
-        bp bpVar2;
-        bp bpVar3;
-        bp bpVar4;
-        switch (i) {
-            case 0:
-                if (address != null) {
-                    this.a.b = address.getLatitude();
-                    this.a.a = address.getLongitude();
-                    bpVar = this.a.d;
-                    bpVar.b(String.valueOf(address.getLatitude()));
-                    bpVar2 = this.a.d;
-                    bpVar2.a(String.valueOf(address.getLongitude()));
-                    bpVar3 = this.a.d;
-                    bpVar3.a(0);
-                    bpVar4 = this.a.d;
-                    bpVar4.a();
-                    return;
-                }
-                return;
-            case 1:
-            case 2:
-            case 3:
-                gVar2 = this.a.e;
-                gVar2.b();
-                return;
-            case 4:
-            case 5:
-                gVar = this.a.e;
-                gVar.a();
-                return;
-            default:
-                return;
-        }
+    public void a(int i) {
+        this.c = i;
+        this.d.setUniqueId(i);
+    }
+
+    public void a() {
+        com.baidu.adp.lib.c.a.a().a(true, this.f);
+    }
+
+    public void b() {
+        this.d.cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.g);
     }
 }

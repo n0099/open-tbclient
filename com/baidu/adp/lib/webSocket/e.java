@@ -2,7 +2,7 @@ package com.baidu.adp.lib.webSocket;
 
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
-public final class e extends ByteArrayOutputStream {
+public class e extends ByteArrayOutputStream {
     public e() {
     }
 

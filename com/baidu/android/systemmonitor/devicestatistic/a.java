@@ -108,7 +108,7 @@ public final class a {
         c();
     }
 
-    public final void b() {
+    public void b() {
         if (this.d == null || this.d.size() == 0) {
             return;
         }
@@ -117,7 +117,7 @@ public final class a {
         }
     }
 
-    public final void c() {
+    public void c() {
         if (this.d != null && this.d.size() != 0) {
             for (h hVar : this.d.values()) {
                 hVar.startWatching();

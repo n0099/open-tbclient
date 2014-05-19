@@ -1,30 +1,34 @@
 package com.baidu.tieba.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
 import android.view.View;
+import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bv implements View.OnClickListener {
-    final /* synthetic */ bm a;
+public class bv implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(bm bmVar) {
-        this.a = bmVar;
+    public bv(bj bjVar) {
+        this.a = bjVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        dialog = this.a.ae;
-        if (dialog != null) {
-            dialog2 = this.a.ae;
-            dialog2.dismiss();
-        }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.a.a(((Integer) sparseArray.get(com.baidu.tieba.a.h.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.a.h.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.a.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.a.h.tag_del_post_is_self)).booleanValue());
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        BdListView bdListView;
+        BdListView bdListView2;
+        if (aVar != null) {
+            bdListView = this.a.o;
+            View findViewWithTag = bdListView.findViewWithTag(str);
+            while (findViewWithTag != null) {
+                if (findViewWithTag instanceof ImageView) {
+                    ImageView imageView = (ImageView) findViewWithTag;
+                    imageView.setTag(null);
+                    imageView.setImageBitmap(aVar.h());
+                }
+                bdListView2 = this.a.o;
+                findViewWithTag = bdListView2.findViewWithTag(str);
+            }
         }
     }
 }

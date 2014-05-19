@@ -3,7 +3,8 @@ package com.baidu.tieba.service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.atomData.PayActivityConfig;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class WebNativeReceiver extends BroadcastReceiver {
@@ -21,7 +22,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
                     intent2.putExtra("class", 0);
                     intent2.putExtra("url", intent.getStringExtra("url"));
                     intent2.putExtra("from", stringExtra2);
-                    new ax(stringExtra2, "url").start();
+                    new az(stringExtra2, "url").start();
                 } else if (stringExtra.equals("pb")) {
                     intent2.putExtra("class", 1);
                     intent2.putExtra("id", intent.getStringExtra("id"));
@@ -32,6 +33,16 @@ public class WebNativeReceiver extends BroadcastReceiver {
                     intent2.putExtra("from", stringExtra2);
                 } else if (stringExtra.equals("groupinfo")) {
                     intent2.putExtra("class", 13);
+                    intent2.putExtra("groupid", intent.getStringExtra("groupid"));
+                } else if (stringExtra.equals("pay")) {
+                    intent2.putExtra("class", 15);
+                    intent2.putExtra(PayActivityConfig.PAY_TYPE, intent.getStringExtra(PayActivityConfig.PAY_TYPE));
+                    intent2.putExtra(PayActivityConfig.PROPS_ID, intent.getStringExtra(PayActivityConfig.PROPS_ID));
+                    intent2.putExtra(PayActivityConfig.QUAN_NUM, intent.getStringExtra(PayActivityConfig.QUAN_NUM));
+                    intent2.putExtra(PayActivityConfig.IS_LEFT, intent.getStringExtra(PayActivityConfig.IS_LEFT));
+                    intent2.putExtra(PayActivityConfig.PROPS_MON, intent.getStringExtra(PayActivityConfig.PROPS_MON));
+                } else if (stringExtra.equals("livegroup")) {
+                    intent2.putExtra("class", 17);
                     intent2.putExtra("groupid", intent.getStringExtra("groupid"));
                 } else {
                     return;

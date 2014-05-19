@@ -5,7 +5,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
-public final class c {
+public class c {
     public View a;
     public LinearLayout b;
     public Button c;

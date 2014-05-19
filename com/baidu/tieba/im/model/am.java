@@ -1,27 +1,25 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class am extends com.baidu.adp.framework.c.a {
+public class am implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ MsglistModel a;
+    private final /* synthetic */ PersonalChatMessage b;
+    private final /* synthetic */ String c;
+    private final /* synthetic */ com.baidu.tbadk.img.b d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public am(MsglistModel msglistModel, int i) {
-        super(0);
+    public am(MsglistModel msglistModel, PersonalChatMessage personalChatMessage, String str, com.baidu.tbadk.img.b bVar) {
         this.a = msglistModel;
+        this.b = personalChatMessage;
+        this.c = str;
+        this.d = bVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.adp.a.h hVar;
-        if (customResponsedMessage instanceof ResponseUnLoginMessage) {
-            this.a.mLoadDataMode = 11;
-            hVar = this.a.mLoadDataCallBack;
-            hVar.a(null);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.a.a(this.b, this.c, this.d);
     }
 }

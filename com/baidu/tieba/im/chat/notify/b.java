@@ -15,98 +15,88 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.b.ah;
+import com.baidu.tbadk.core.atomData.au;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.view.ShutDownValidateTipView;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.core.d implements com.baidu.tbadk.imageManager.d {
-    private ShutDownValidateTipView m;
-    private DialogInterface.OnClickListener o;
-    private LinearLayout p;
-    private com.baidu.tbadk.core.view.k q;
-    private com.baidu.tbadk.core.view.b r;
-    private int s;
-    private com.baidu.tieba.im.model.p c = null;
-    private Activity d = null;
-    private int e = 1;
-    private Handler f = null;
-    private Runnable g = null;
-    private ImMessageCenterShowItemData h = null;
-    private int i = 3;
-    private BdListView j = null;
-    private q k = null;
-    private com.baidu.tbadk.core.view.q l = null;
-    private String n = null;
+    private ShutDownValidateTipView n;
+    private DialogInterface.OnClickListener p;
+    private LinearLayout q;
+    private com.baidu.tbadk.core.view.k r;
+    private com.baidu.tbadk.core.view.b s;
+    private int t;
+    private com.baidu.tieba.im.model.r d = null;
+    private Activity e = null;
+    private int f = 1;
+    private Handler g = null;
+    private Runnable h = null;
+    private ImMessageCenterShowItemData i = null;
+    private int j = 3;
+    private BdListView k = null;
+    private s l = null;
+    private com.baidu.tbadk.core.view.q m = null;
+    private String o = null;
     AlertDialog b = null;
-    private boolean t = true;
-    private final com.baidu.tieba.im.a<Void> u = new c(this);
-    private final View.OnClickListener v = new g(this);
-    private final AdapterView.OnItemClickListener w = new h(this);
-    private final AdapterView.OnItemLongClickListener x = new k(this);
-    private final com.baidu.adp.widget.ListView.d y = new l(this);
-    private final AbsListView.OnScrollListener z = new m(this);
-    private final com.baidu.adp.framework.c.g A = new n(this, 0);
-    private final com.baidu.adp.framework.c.a B = new o(this, 0);
+    private boolean u = true;
+    private final com.baidu.tieba.im.a<Void> v = new c(this);
+    CustomMessageTask c = new CustomMessageTask(2007014, new i(this));
+    private final View.OnClickListener w = new j(this);
+    private final AdapterView.OnItemClickListener x = new k(this);
+    private final AdapterView.OnItemLongClickListener y = new n(this);
+    private final com.baidu.adp.widget.ListView.d z = new o(this);
+    private final AbsListView.OnScrollListener A = new p(this);
+    private final com.baidu.adp.framework.listener.b B = new q(this, 0);
+    private final CustomMessageListener C = new r(this, 0);
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.adp.framework.c.a().a(2001140, this.B);
-        com.baidu.adp.framework.c.a().a(2001129, this.B);
-        com.baidu.adp.framework.c.a().a(2001130, this.B);
-        com.baidu.adp.framework.c.a().a(2001132, this.B);
-        com.baidu.adp.framework.c.a().a(2001136, this.B);
-        com.baidu.adp.framework.c.a().a(2001137, this.B);
-        com.baidu.adp.framework.c.a().a(2001134, this.B);
-        com.baidu.adp.framework.c.a().a(2001133, this.B);
-        com.baidu.adp.framework.c.a().a(2001135, this.B);
-        com.baidu.adp.framework.c.a().a(2001141, this.B);
-        com.baidu.adp.framework.c.a().a(2001143, this.B);
-        com.baidu.adp.framework.c.a().a(2001142, this.B);
-        com.baidu.adp.framework.c.a().a(103104, this.A);
-        this.c = new com.baidu.tieba.im.model.p();
-        this.t = com.baidu.tbadk.core.sharedPref.b.a().a("is_shut_down_validate", false) ? false : true;
-        this.f = new Handler();
-        this.g = new f(this);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_MSG_ARRIVED, this.C);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_GROUP, this.C);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.C);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.C);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_INTRO_CHANGE, this.C);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_LEVEL_UP, this.C);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.C);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_NOTICE_CHANGE, this.C);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_EVENT_INFO, this.C);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_LIVE_NOTIFY_LOCAL, this.C);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.C);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_HIDE_GROUP, this.C);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_HIDE_GROUP_WARN, this.C);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_DISSMISS_GROUP, this.B);
+        this.c.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(this.c);
+        h();
     }
 
     @Override // android.support.v4.app.Fragment
     public void setUserVisibleHint(boolean z) {
         super.setUserVisibleHint(z);
         if (z) {
-            b();
+            j();
         }
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.s = -1;
-        this.d = getActivity();
-        View inflate = layoutInflater.inflate(com.baidu.tieba.im.i.chat_list_activity, viewGroup, false);
-        this.q = new com.baidu.tbadk.core.view.k(inflate, com.baidu.tieba.im.g.individual_center_news, com.baidu.tieba.im.g.individual_center_news_1, com.baidu.tieba.im.h.no_data_container, com.baidu.tieba.im.h.no_data_image, com.baidu.tieba.im.h.no_data_image_text);
-        this.m = (ShutDownValidateTipView) inflate.findViewById(com.baidu.tieba.im.h.view_no_validate);
-        this.m.setVisibility(8);
-        this.m.setShutDownClickListener(new p(this));
-        this.p = (LinearLayout) inflate.findViewById(com.baidu.tieba.im.h.bodyNotLogin);
-        this.j = (BdListView) inflate.findViewById(com.baidu.tieba.im.h.chat_list_content);
-        this.j.setDividerHeight(0);
-        this.l = new com.baidu.tbadk.core.view.q(this.d);
-        this.l.a(this.y);
-        this.j.setPullRefresh(this.l);
-        this.k = new q(this.d);
-        this.k.a(this);
-        this.j.setAdapter((ListAdapter) this.k);
-        q qVar = this.k;
-        View.OnClickListener onClickListener = this.v;
-        q.a();
-        this.j.setOnItemClickListener(this.w);
-        this.j.setOnScrollListener(this.z);
-        this.j.setOnItemLongClickListener(this.x);
-        TiebaStatic.a(this.d, "enter_chatlist", "chatlistclick", 1, new Object[0]);
+        this.t = -1;
+        this.e = getActivity();
+        View inflate = layoutInflater.inflate(com.baidu.tieba.s.chat_list_activity, viewGroup, false);
+        a(inflate);
+        TiebaStatic.eventStat(this.e, "enter_chatlist", "chatlistclick", 1, new Object[0]);
         return inflate;
     }
 
@@ -115,31 +105,32 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tbadk.imageMa
         super.onSaveInstanceState(bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void b(b bVar, int i, int i2) {
-        bVar.e = 1;
-        bVar.i = 3;
-        if (bVar.i == 1) {
-            bVar.k.a(true);
-        } else if (bVar.i == 2) {
-            bVar.k.b(true);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i, int i2) {
+        if (i >= 1) {
+            this.f = i;
+            this.j = i2;
+            if (this.j == 1) {
+                this.l.a(true);
+            } else if (this.j == 2) {
+                this.l.b(true);
+            }
+            com.baidu.tieba.im.pushNotify.p.a().c();
+            j();
         }
-        com.baidu.tieba.im.pushNotify.o.a();
-        com.baidu.tieba.im.pushNotify.o.c();
-        bVar.b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, int i2) {
-        if (i > 0) {
-            this.e = i;
-            this.i = i2;
-            if (this.i == 1) {
-                this.k.a(true);
-            } else if (this.i == 2) {
-                this.k.b(true);
+    public void b(int i, int i2) {
+        if (i >= 1) {
+            this.f = i;
+            this.j = i2;
+            if (this.j == 1) {
+                this.l.a(true);
+            } else if (this.j == 2) {
+                this.l.b(true);
             }
-            b();
+            j();
         }
     }
 
@@ -149,123 +140,154 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tbadk.imageMa
         a();
     }
 
-    public final void a() {
-        if (this.d == null) {
-            this.d = getActivity();
+    public void a() {
+        if (this.e == null) {
+            this.e = getActivity();
         }
-        if (this.d != null) {
-            if (TbadkApplication.F()) {
-                if (this.j != null) {
-                    this.j.setVisibility(0);
+        if (this.e != null) {
+            if (TbadkApplication.isLogin()) {
+                if (this.k != null) {
+                    this.k.setVisibility(0);
                 }
-                if (this.p != null) {
-                    this.p.setVisibility(8);
+                if (this.q != null) {
+                    this.q.setVisibility(8);
                 }
-                if (this.n == null) {
-                    this.n = TbadkApplication.E();
-                } else if (!this.n.equals(TbadkApplication.E())) {
-                    this.n = TbadkApplication.E();
-                    com.baidu.tieba.im.pushNotify.a.d().b();
-                    this.c.c();
-                    com.baidu.adp.lib.util.f.e(" change account");
+                if (this.o == null) {
+                    this.o = TbadkApplication.getCurrentAccount();
+                } else if (!this.o.equals(TbadkApplication.getCurrentAccount())) {
+                    this.o = TbadkApplication.getCurrentAccount();
+                    com.baidu.tieba.im.pushNotify.a.f().d();
+                    this.d.c();
+                    BdLog.d(" change account");
                 }
                 if (getParentFragment() != null && !getParentFragment().isHidden()) {
-                    a(this.e, 3);
-                    this.g.run();
+                    b(this.f, 3);
+                    this.h.run();
                 }
             } else {
-                if (this.r == null) {
-                    this.r = new com.baidu.tbadk.core.view.b(this.d, this.d.getString(com.baidu.tieba.im.j.login_msg_tab), this.d.getString(com.baidu.tieba.im.j.login_msg_form), 3);
-                    this.p.addView(this.r.a());
-                    this.r.a(TbadkApplication.j().l());
+                if (this.s == null) {
+                    this.s = new com.baidu.tbadk.core.view.b(this.e, this.e.getString(u.login_msg_tab), this.e.getString(u.login_msg_form), 3);
+                    this.q.addView(this.s.b());
+                    this.s.b(TbadkApplication.m252getInst().getSkinType());
                 } else {
-                    ((ViewGroup) this.r.a().getParent()).removeAllViews();
-                    this.p.addView(this.r.a());
-                    this.r.a(TbadkApplication.j().l());
+                    ((ViewGroup) this.s.b().getParent()).removeAllViews();
+                    this.q.addView(this.s.b());
+                    this.s.b(TbadkApplication.m252getInst().getSkinType());
                 }
-                if (this.k.getCount() > 0) {
+                if (this.l.getCount() > 0) {
                     c(false);
                 }
-                this.j.setVisibility(8);
-                this.p.setVisibility(0);
+                this.k.setVisibility(8);
+                this.q.setVisibility(0);
             }
-            c(TbadkApplication.j().l());
+            c(TbadkApplication.m252getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.k != null && this.k.b() != null) {
-            this.k.b().c();
+        com.baidu.tieba.im.i.a(new d(this), null);
+        if (this.l != null && this.l.a() != null) {
+            this.l.a().d();
         }
-        if (this.f != null) {
-            this.f.removeCallbacks(this.g);
+        if (this.g != null) {
+            this.g.removeCallbacks(this.h);
         }
-        com.baidu.adp.framework.c.a().b(this.B);
-        com.baidu.adp.framework.c.a().b(this.A);
+        MessageManager.getInstance().unRegisterListener(this.C);
+        MessageManager.getInstance().unRegisterListener(this.B);
+        MessageManager.getInstance().unRegisterTask(2007014);
         super.onDestroy();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void k(b bVar) {
+    private void h() {
+        this.d = new com.baidu.tieba.im.model.r();
+        d(com.baidu.tbadk.core.sharedPref.b.a().a("is_shut_down_validate", false) ? false : true);
+        f();
+    }
+
+    private void a(View view) {
+        this.r = new com.baidu.tbadk.core.view.k(view, com.baidu.tieba.q.individual_center_news, com.baidu.tieba.q.individual_center_news_1, com.baidu.tieba.r.no_data_container, com.baidu.tieba.r.no_data_image, com.baidu.tieba.r.no_data_image_text);
+        this.n = (ShutDownValidateTipView) view.findViewById(com.baidu.tieba.r.view_no_validate);
+        this.n.setVisibility(8);
+        this.n.setShutDownClickListener(new e(this));
+        this.q = (LinearLayout) view.findViewById(com.baidu.tieba.r.bodyNotLogin);
+        this.k = (BdListView) view.findViewById(com.baidu.tieba.r.chat_list_content);
+        this.k.setDividerHeight(0);
+        this.m = new com.baidu.tbadk.core.view.q(this.e);
+        this.m.a(this.z);
+        this.k.setPullRefresh(this.m);
+        this.l = new s(this.e);
+        this.l.a(this);
+        this.k.setAdapter((ListAdapter) this.l);
+        this.l.a(this.w);
+        this.k.setOnItemClickListener(this.x);
+        this.k.setOnScrollListener(this.A);
+        this.k.setOnItemLongClickListener(this.y);
+        this.k.d();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void i() {
+        int i;
         String friendPortrait;
-        int i = 0;
-        UtilHelper.NetworkStateInfo d = UtilHelper.d(bVar.d);
-        bVar.k.b().a();
-        boolean z = d == UtilHelper.NetworkStateInfo.WIFI || d == UtilHelper.NetworkStateInfo.ThreeG;
-        bVar.k.b();
-        int firstVisiblePosition = bVar.j.getFirstVisiblePosition();
-        int lastVisiblePosition = bVar.j.getLastVisiblePosition();
-        bVar.k.b().a();
-        while (true) {
-            int i2 = i;
-            int i3 = firstVisiblePosition;
-            if (i3 >= bVar.k.getCount()) {
-                return;
-            }
-            if (!z && i3 > lastVisiblePosition) {
-                return;
-            }
-            ImMessageCenterShowItemData imMessageCenterShowItemData = (ImMessageCenterShowItemData) bVar.k.getItem(i3);
-            if (!(bVar.k.getItem(i3) instanceof ImMessageCenterShowItemData) || i2 >= 13 || (friendPortrait = ((ImMessageCenterShowItemData) bVar.k.getItem(i3)).getFriendPortrait()) == null || friendPortrait.equals("")) {
-                i = i2;
-            } else {
-                String ownerName = imMessageCenterShowItemData.getOwnerName();
-                if (TextUtils.isEmpty(ownerName)) {
-                    bVar.k.b().c(friendPortrait, bVar);
-                } else if (ownerName.equals(String.valueOf(1))) {
-                    com.baidu.adp.lib.util.f.e("group head url:" + friendPortrait);
-                    bVar.k.b().b(friendPortrait, bVar);
+        UtilHelper.NetworkStateInfo netStatusInfo = UtilHelper.getNetStatusInfo(this.e);
+        this.l.a().a();
+        boolean z = netStatusInfo == UtilHelper.NetworkStateInfo.WIFI || netStatusInfo == UtilHelper.NetworkStateInfo.ThreeG;
+        this.l.a().a(z);
+        int firstVisiblePosition = this.k.getFirstVisiblePosition();
+        int lastVisiblePosition = this.k.getLastVisiblePosition();
+        this.l.a().a();
+        int i2 = firstVisiblePosition;
+        int i3 = 0;
+        while (i2 < this.l.getCount()) {
+            if (z || i2 <= lastVisiblePosition) {
+                ImMessageCenterShowItemData imMessageCenterShowItemData = (ImMessageCenterShowItemData) this.l.getItem(i2);
+                if (!(this.l.getItem(i2) instanceof ImMessageCenterShowItemData) || i3 >= 13 || (friendPortrait = ((ImMessageCenterShowItemData) this.l.getItem(i2)).getFriendPortrait()) == null || friendPortrait.equals("")) {
+                    i = i3;
                 } else {
-                    bVar.k.b().c(friendPortrait, bVar);
+                    String ownerName = imMessageCenterShowItemData.getOwnerName();
+                    if (!TextUtils.isEmpty(ownerName)) {
+                        if (ownerName.equals(String.valueOf(1))) {
+                            BdLog.d("group head url:" + friendPortrait);
+                            this.l.a().b(friendPortrait, this);
+                        } else {
+                            this.l.a().c(friendPortrait, this);
+                        }
+                    } else {
+                        this.l.a().c(friendPortrait, this);
+                    }
+                    i = i3 + 1;
                 }
-                i = i2 + 1;
-            }
-            if (i >= 30) {
+                if (i < 30) {
+                    i2++;
+                    i3 = i;
+                } else {
+                    return;
+                }
+            } else {
                 return;
             }
-            firstVisiblePosition = i3 + 1;
         }
     }
 
     @Override // com.baidu.tbadk.core.d
-    public final void c(int i) {
-        if (isAdded() && this.s != i) {
-            this.s = i;
-            if (this.q != null) {
-                this.q.a(i);
+    public void c(int i) {
+        if (isAdded() && this.t != i) {
+            this.t = i;
+            if (this.r != null) {
+                this.r.a(i);
+            }
+            if (this.n != null) {
+                this.n.a(i);
             }
             if (this.m != null) {
                 this.m.a(i);
             }
+            if (this.s != null) {
+                this.s.b(i);
+            }
             if (this.l != null) {
-                this.l.a(i);
-            }
-            if (this.r != null) {
-                this.r.a(i);
-            }
-            if (this.k != null) {
-                this.k.notifyDataSetChanged();
+                this.l.notifyDataSetChanged();
             }
         }
     }
@@ -273,13 +295,13 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tbadk.imageMa
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        this.q.a();
+        this.r.a();
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        this.q.b();
+        this.r.b();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -288,12 +310,12 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tbadk.imageMa
         if (i2 == -1) {
             switch (i) {
                 case 12011:
-                    String stringExtra = intent.getStringExtra("user_id");
-                    String stringExtra2 = intent.getStringExtra("user_name");
-                    String stringExtra3 = intent.getStringExtra("portrait");
+                    String stringExtra = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.USER_ID);
+                    String stringExtra2 = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
+                    String stringExtra3 = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
                     if (stringExtra2 != null && stringExtra != null) {
                         try {
-                            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001005, new ah(this.d, Long.parseLong(stringExtra), stringExtra2, stringExtra3, 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new au(this.e, Long.parseLong(stringExtra), stringExtra2, stringExtra3, 0)));
                             return;
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -307,61 +329,75 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tbadk.imageMa
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void b(b bVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        bVar.o = new d(bVar, imMessageCenterShowItemData);
-        String string = bVar.d.getString(com.baidu.tieba.im.j.delete_user_chat);
-        AlertDialog.Builder builder = new AlertDialog.Builder(bVar.d);
-        builder.setTitle(com.baidu.tieba.im.j.operation);
-        builder.setItems(new String[]{string}, bVar.o);
-        bVar.b = builder.create();
-        bVar.b.setCanceledOnTouchOutside(true);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        this.p = new f(this, imMessageCenterShowItemData);
+        String string = this.e.getString(u.delete_user_chat);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.e);
+        builder.setTitle(u.operation);
+        builder.setItems(new String[]{string}, this.p);
+        this.b = builder.create();
+        this.b.setCanceledOnTouchOutside(true);
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         if (z) {
-            if (this.t && this.m.getVisibility() != 0) {
-                this.m.setVisibility(0);
+            if (g() && this.n.getVisibility() != 0) {
+                this.n.setVisibility(0);
             }
-        } else if (this.m.getVisibility() != 8) {
-            this.m.setVisibility(8);
+        } else if (this.n.getVisibility() != 8) {
+            this.n.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null && this.j != null) {
-            com.baidu.adp.lib.util.f.e("imageUrl:" + str);
-            ImageView imageView = (ImageView) this.j.findViewWithTag(str);
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null && this.k != null) {
+            BdLog.d("imageUrl:" + str);
+            ImageView imageView = (ImageView) this.k.findViewWithTag(str);
             if (imageView != null) {
-                com.baidu.adp.lib.util.f.e("view found:  imageUrl:" + str);
-                bVar.a(imageView);
+                BdLog.d("view found:  imageUrl:" + str);
+                aVar.a(imageView);
                 imageView.invalidate();
                 return;
             }
-            com.baidu.adp.lib.util.f.e("view not found:  imageUrl:" + str);
+            BdLog.d("view not found:  imageUrl:" + str);
         }
     }
 
-    public final void c(boolean z) {
-        com.baidu.adp.lib.util.f.e("is show no data:" + z);
+    public void c(boolean z) {
+        BdLog.d("is show no data:" + z);
         if (z) {
-            this.q.b(0);
+            this.r.b(0);
         } else {
-            this.q.b(8);
+            this.r.b(8);
         }
         if (!isAdded()) {
         }
     }
 
+    public void f() {
+        this.g = new Handler();
+        this.h = new h(this);
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        if (this.c != null) {
-            this.c.a(this.u);
+    public void j() {
+        if (this.d != null) {
+            this.d.a(this.v);
         }
     }
 
-    public final void d(boolean z) {
-        this.t = z;
+    public boolean g() {
+        return this.u;
+    }
+
+    public void d(boolean z) {
+        this.u = z;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(String str) {
+        j();
     }
 }

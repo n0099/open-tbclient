@@ -1,37 +1,18 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class db extends com.baidu.adp.framework.c.b {
-    final /* synthetic */ da a;
+public class db implements com.baidu.tbadk.editortool.x {
+    final /* synthetic */ cs a;
+    private final /* synthetic */ com.baidu.tbadk.editortool.x b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public db(da daVar, int i) {
-        super(1006003);
-        this.a = daVar;
+    public db(cs csVar, com.baidu.tbadk.editortool.x xVar) {
+        this.a = csVar;
+        this.b = xVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(HttpResponsedMessage httpResponsedMessage) {
-        ci ciVar;
-        ci ciVar2;
-        HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
-        if (httpResponsedMessage2 == null || httpResponsedMessage2.g() != 1006003) {
-            return;
-        }
-        int d = httpResponsedMessage2.d();
-        int e = httpResponsedMessage2.e();
-        if (d == 200 && e == 0 && (httpResponsedMessage2 instanceof ImageForumResponsedMessage)) {
-            ciVar = this.a.l;
-            if (ciVar != null) {
-                dd a = da.a(this.a, httpResponsedMessage2, d, e);
-                int a2 = da.a(this.a, httpResponsedMessage2);
-                ciVar2 = this.a.l;
-                ciVar2.a(a2, ((ImageForumResponsedMessage) httpResponsedMessage2).a, a);
-            }
-        }
+    @Override // com.baidu.tbadk.editortool.x
+    public void a(int i, Object obj) {
+        this.b.a(i, obj);
     }
 }

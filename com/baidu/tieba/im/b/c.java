@@ -4,39 +4,41 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public abstract class c {
-    private final AtomicBoolean a = new AtomicBoolean(false);
-    private final com.baidu.tieba.im.db.e b = new com.baidu.tieba.im.db.e();
+    final AtomicBoolean a = new AtomicBoolean(false);
+    protected final com.baidu.tieba.im.db.e b = new com.baidu.tieba.im.db.e();
 
     protected abstract void b();
 
-    public final boolean c() {
-        return this.a.get();
-    }
+    public abstract void d();
 
-    public final synchronized void d() {
+    public synchronized void e() {
         this.a.set(false);
         this.b.a();
         b();
         this.a.set(true);
     }
 
-    public final void e() {
+    public synchronized void f() {
+        d();
+    }
+
+    public void g() {
         this.b.a();
     }
 
-    public final void a(ImMessageCenterPojo imMessageCenterPojo) {
+    public void a(ImMessageCenterPojo imMessageCenterPojo) {
         this.b.a(imMessageCenterPojo);
     }
 
-    public final ImMessageCenterPojo a(String str) {
+    public ImMessageCenterPojo a(String str) {
         return this.b.a(str);
     }
 
-    public final void b(String str) {
+    public void b(String str) {
         this.b.b(str);
     }
 
-    public final void a(d dVar) {
+    public void a(d dVar) {
         this.b.a(dVar);
     }
 }

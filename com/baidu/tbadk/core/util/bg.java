@@ -1,89 +1,54 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.Context;
-import android.text.SpannableString;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import android.text.TextUtils;
+import java.util.HashMap;
 /* loaded from: classes.dex */
 public class bg {
-    private static bg a = new bh();
-    private static final Pattern d = Pattern.compile("(((ht|f)tp(s{0,1}))://)?([\\w-]+\\.)+[a-zA-Z_-]{2,}(/[\\w-./?%&+=#]*)?", 2);
-    private List<bi> b;
-    private bj c;
+    private static String a;
+    private static String b;
+    private static final HashMap<String, String> c = new HashMap<>();
 
-    private bg() {
-        this.b = new LinkedList();
-        this.c = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bg(byte b) {
-        this();
-    }
-
-    public static SpannableString a(Context context, String str) {
-        int start;
-        Matcher matcher = d.matcher(str);
-        SpannableString spannableString = new SpannableString(str);
-        while (matcher.find()) {
-            String group = matcher.group();
-            String group2 = matcher.group();
-            if (!group2.endsWith(" ")) {
-                group2 = String.valueOf(group2) + " ";
-            }
-            int length = group2.length();
-            spannableString.setSpan(new com.baidu.tbadk.widget.richText.h(context, 2, group), matcher.start(), (length + start) - 1, 33);
+    public static void a(String str) {
+        b = str;
+        if (TextUtils.isEmpty(str)) {
+            a = str;
+            return;
         }
-        return spannableString;
+        int lastIndexOf = str.lastIndexOf(".");
+        if (lastIndexOf != -1 && lastIndexOf + 1 < str.length()) {
+            str = str.substring(lastIndexOf + 1, str.length());
+        }
+        String str2 = "";
+        if (c != null) {
+            str2 = c.get(str);
+        }
+        if (str2 == null) {
+            str2 = b(str);
+            if (c != null) {
+                c.put(str, str2);
+            }
+        }
+        if (str2 != null) {
+            a = String.valueOf(str2) + System.currentTimeMillis();
+        }
     }
 
-    public static bg a() {
+    private static String b(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            int length = str.length();
+            if ((str.toLowerCase().endsWith("activity") || str.toLowerCase().endsWith("fragment")) && length - 8 >= 0) {
+                return str.substring(0, length - 8);
+            }
+            return str;
+        }
+        return str;
+    }
+
+    public static String a() {
         return a;
     }
 
-    public final void a(bi biVar) {
-        if (!this.b.contains(biVar)) {
-            this.b.add(biVar);
-        }
-    }
-
-    public final void a(bj bjVar) {
-        this.c = bjVar;
-    }
-
-    public final void a(Context context, String[] strArr, boolean z, bk bkVar) {
-        boolean z2;
-        if (strArr != null && strArr.length != 0) {
-            if (this.b == null) {
-                this.b = new LinkedList();
-            }
-            Iterator<bi> it = this.b.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z2 = false;
-                    break;
-                }
-                bi next = it.next();
-                if (next != null && next.a(context, strArr)) {
-                    z2 = true;
-                    break;
-                }
-            }
-            if (!z2 && this.c != null) {
-                String lowerCase = strArr[0].toLowerCase();
-                if (!d.matcher(lowerCase).find()) {
-                    com.baidu.adp.lib.util.f.e("wrong url:" + lowerCase);
-                } else {
-                    this.c.a(context, lowerCase, z, bkVar);
-                }
-            }
-        }
-    }
-
-    public final void a(Context context, String[] strArr) {
-        a(context, strArr, false, null);
+    public static String b() {
+        return b;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.album;
 /* loaded from: classes.dex */
-final class af {
+class af {
     boolean a;
     final /* synthetic */ ab b;
 
@@ -9,7 +9,7 @@ final class af {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ af(ab abVar, byte b) {
+    public /* synthetic */ af(ab abVar, af afVar) {
         this(abVar);
     }
 }

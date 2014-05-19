@@ -1,26 +1,37 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.content.DialogInterface;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-final class ak implements DialogInterface.OnClickListener {
+class ak extends BdAsyncTask<Void, Void, Void> {
     final /* synthetic */ OfficialBarInfoActivity a;
+    private final /* synthetic */ BdSwitchView.SwitchState b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(OfficialBarInfoActivity officialBarInfoActivity) {
+    public ak(OfficialBarInfoActivity officialBarInfoActivity, BdSwitchView.SwitchState switchState) {
         this.a = officialBarInfoActivity;
+        this.b = switchState;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Void doInBackground(Void... voidArr) {
+        int i;
         int i2;
-        String str;
-        OfficialBarInfoActivity officialBarInfoActivity = this.a;
-        i2 = this.a.c;
-        officialBarInfoActivity.sendMessage(new com.baidu.adp.framework.message.a(2001155, String.valueOf(i2)));
-        com.baidu.adp.framework.e.c.a();
-        StringBuilder sb = new StringBuilder("clear cache by official:");
-        str = this.a.d;
-        com.baidu.adp.framework.e.c.a(true, sb.append(str).toString());
-        dialogInterface.cancel();
+        if (this.b == BdSwitchView.SwitchState.OFF) {
+            az a = az.a();
+            String currentAccount = TbadkApplication.getCurrentAccount();
+            i2 = this.a.c;
+            a.d(currentAccount, String.valueOf(i2), false);
+            return null;
+        }
+        az a2 = az.a();
+        String currentAccount2 = TbadkApplication.getCurrentAccount();
+        i = this.a.c;
+        a2.d(currentAccount2, String.valueOf(i), true);
+        return null;
     }
 }

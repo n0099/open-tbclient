@@ -1,6 +1,8 @@
 package com.baidu.tieba.im.chat.snapGroup;
+
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-final class i implements Runnable {
+class i implements Runnable {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,12 +11,20 @@ final class i implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
+        SnapGroupChatActivity snapGroupChatActivity;
+        SnapGroupChatActivity snapGroupChatActivity2;
         boolean z;
-        this.a.a.finish();
-        z = this.a.a.s;
+        SnapGroupChatActivity snapGroupChatActivity3;
+        SnapGroupChatActivity snapGroupChatActivity4;
+        snapGroupChatActivity = this.a.a;
+        snapGroupChatActivity.finish();
+        snapGroupChatActivity2 = this.a.a;
+        z = snapGroupChatActivity2.t;
         if (z) {
-            this.a.a.showToast(this.a.a.getString(com.baidu.tieba.im.j.snap_group_chat_kick_out_by_silence), false);
+            snapGroupChatActivity3 = this.a.a;
+            snapGroupChatActivity4 = this.a.a;
+            snapGroupChatActivity3.showToast(snapGroupChatActivity4.getString(u.snap_group_chat_kick_out_by_silence), false);
         }
     }
 }

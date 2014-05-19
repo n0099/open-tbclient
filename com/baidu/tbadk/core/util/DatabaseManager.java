@@ -1,15 +1,18 @@
 package com.baidu.tbadk.core.util;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.database.sqlite.SQLiteException;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class DatabaseManager {
     private static volatile SQLiteDatabase a = null;
     private static volatile SQLiteDatabase b = null;
-    private static t d = null;
+    private static u d = null;
     private DatabaseLocation c;
 
     /* loaded from: classes.dex */
@@ -30,13 +33,13 @@ public class DatabaseManager {
 
     public static void a(Throwable th, String str) {
         if (th != null) {
-            TiebaStatic.a(th, str, new Object[0]);
+            TiebaStatic.printDBExceptionLog(th, str, new Object[0]);
             if ((th instanceof SQLiteException) && (((SQLiteException) th) instanceof SQLiteDatabaseCorruptException)) {
-                com.baidu.adp.lib.util.f.c("database corrupted.  recreate!");
+                BdLog.w("database corrupted.  recreate!");
                 try {
-                    r.a(TbadkApplication.j().b());
+                    s.a(TbadkApplication.m252getInst().getApp());
                 } catch (Throwable th2) {
-                    com.baidu.adp.lib.util.f.b("failed to drop database. msg:" + th2.getMessage());
+                    BdLog.e("failed to drop database. msg:" + th2.getMessage());
                 }
                 a = null;
             }
@@ -48,43 +51,42 @@ public class DatabaseManager {
             this.c = DatabaseLocation.INNER;
             if (a == null || !a.isOpen()) {
                 try {
-                    a = new r(TbadkApplication.j().b()).getWritableDatabase();
+                    a = new s(TbadkApplication.m252getInst().getApp()).getWritableDatabase();
                 } catch (Exception e) {
-                    TiebaStatic.a(e, "DatabaseService", new Object[0]);
-                    com.baidu.adp.lib.util.f.b("DatabaseService", "DatabaseService", "error = " + e.getMessage());
+                    TiebaStatic.printDBExceptionLog(e, "DatabaseService", new Object[0]);
+                    BdLog.e("DatabaseService", "DatabaseService", "error = " + e.getMessage());
                 }
             }
         }
     }
 
-    public static void a(t tVar) {
-        d = tVar;
+    public static void a(u uVar) {
+        d = uVar;
     }
 
     public DatabaseManager(DatabaseLocation databaseLocation) {
         synchronized (DatabaseManager.class) {
             this.c = databaseLocation;
             if (this.c != DatabaseLocation.SDCARD || b == null || !b.isOpen()) {
-                if (this.c == DatabaseLocation.INNER && a != null && a.isOpen()) {
-                    return;
-                }
-                try {
-                    if (this.c == DatabaseLocation.SDCARD) {
-                        s sVar = new s();
-                        sVar.a(d);
-                        b = sVar.a();
-                    } else {
-                        a = new r(TbadkApplication.j().b()).getWritableDatabase();
+                if (this.c != DatabaseLocation.INNER || a == null || !a.isOpen()) {
+                    try {
+                        if (this.c == DatabaseLocation.SDCARD) {
+                            t tVar = new t();
+                            tVar.a(d);
+                            b = tVar.a();
+                        } else {
+                            a = new s(TbadkApplication.m252getInst().getApp()).getWritableDatabase();
+                        }
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "DatabaseService", new Object[0]);
+                        BdLog.e("DatabaseService", "DatabaseService", "error = " + e.getMessage());
                     }
-                } catch (Exception e) {
-                    TiebaStatic.a(e, "DatabaseService", new Object[0]);
-                    com.baidu.adp.lib.util.f.b("DatabaseService", "DatabaseService", "error = " + e.getMessage());
                 }
             }
         }
     }
 
-    public final boolean a(String str) {
+    public boolean a(String str) {
         try {
             if (this.c == DatabaseLocation.SDCARD && b != null) {
                 b.execSQL(str);
@@ -96,7 +98,7 @@ public class DatabaseManager {
                 return true;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "ExecSQL", String.valueOf(str) + "   error = " + e.getMessage());
+            BdLog.e(getClass().getName(), "ExecSQL", String.valueOf(str) + "   error = " + e.getMessage());
             throw e;
         }
     }
@@ -106,7 +108,7 @@ public class DatabaseManager {
         return a;
     }
 
-    public final Boolean a(String str, Object[] objArr) {
+    public Boolean a(String str, Object[] objArr) {
         try {
             if (this.c == DatabaseLocation.SDCARD && b != null) {
                 b.execSQL(str, objArr);
@@ -115,13 +117,13 @@ public class DatabaseManager {
             }
             return true;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("DatabaseService", "ExecSQL", "error = " + e.getMessage());
-            com.baidu.adp.lib.util.f.b("DatabaseService", "ExecSQL", str);
+            BdLog.e("DatabaseService", "ExecSQL", "error = " + e.getMessage());
+            BdLog.e("DatabaseService", "ExecSQL", str);
             throw e;
         }
     }
 
-    public final Cursor a(String str, String[] strArr) {
+    public Cursor a(String str, String[] strArr) {
         try {
             if (this.c == DatabaseLocation.SDCARD && b != null) {
                 return b.rawQuery(str, strArr);
@@ -131,22 +133,37 @@ public class DatabaseManager {
             }
             return a.rawQuery(str, strArr);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("DatabaseService", "rawQuery", "error = " + e.getMessage() + " sql = " + str);
+            BdLog.e("DatabaseService", "rawQuery", "error = " + e.getMessage() + " sql = " + str);
             throw e;
         }
     }
 
-    public static void b() {
+    public void b() {
         synchronized (DatabaseManager.class) {
             try {
                 b.close();
             } catch (Exception e) {
             }
             try {
-                w.j("tieba_database.db");
+                x.j(TbConfig.TMP_DATABASE_NAME);
             } catch (Exception e2) {
             }
             b = null;
+        }
+    }
+
+    public void a(Context context) {
+        synchronized (DatabaseManager.class) {
+            try {
+                a.close();
+            } catch (Exception e) {
+            }
+            try {
+                context.deleteDatabase(TbConfig.PHONE_DATEBASE_NAME);
+            } catch (Exception e2) {
+                BdLog.e("DatabaseService", "deletDatebase", "error = " + e2.getMessage());
+            }
+            a = null;
         }
     }
 }

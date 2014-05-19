@@ -5,7 +5,7 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class q implements AbsListView.OnScrollListener {
+public class q implements AbsListView.OnScrollListener {
     final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public final class q implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         Handler handler;
         Runnable runnable;
         Handler handler2;
@@ -26,7 +26,7 @@ public final class q implements AbsListView.OnScrollListener {
         handler.removeCallbacks(runnable);
         handler2 = this.a.p;
         runnable2 = this.a.q;
-        handler2.postDelayed(runnable2, 300L);
+        handler2.postDelayed(runnable2, 90L);
         bdListView = this.a.e;
         if (bdListView.getAdapter() != null) {
             bdListView2 = this.a.e;
@@ -35,6 +35,6 @@ public final class q implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScrollStateChanged(AbsListView absListView, int i) {
+    public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 }

@@ -1,10 +1,11 @@
 package com.baidu.adp.lib.network.websocket;
 
 import android.app.Application;
+import com.baidu.sapi2.shell.SapiErrorCode;
 /* loaded from: classes.dex */
-public final class i {
+public class i {
     private static int v = -100000000;
-    public static final int a = -100000200;
+    public static final int a = v + SapiErrorCode.NETWORK_FAILED;
     public static final int b = v - 201;
     public static final int c = v - 210;
     public static final int d = v - 211;
@@ -28,7 +29,7 @@ public final class i {
 
     public static String a(int i2) {
         int i3 = v - i2;
-        Application b2 = com.baidu.adp.a.b.a().b();
-        return (i3 <= 199 || i3 >= 300) ? b2.getString(com.baidu.adp.f.im_error_default) : b2.getString(com.baidu.adp.f.im_error_codec);
+        Application app = com.baidu.adp.base.a.getInst().getApp();
+        return (i3 <= 199 || i3 >= 300) ? app.getString(com.baidu.adp.f.im_error_default) : app.getString(com.baidu.adp.f.im_error_codec);
     }
 }

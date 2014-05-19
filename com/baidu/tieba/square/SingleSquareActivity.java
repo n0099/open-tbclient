@@ -4,19 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfig;
 /* loaded from: classes.dex */
 public class SingleSquareActivity extends com.baidu.tbadk.core.e {
     private ak c;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2010010, new aj());
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new aj());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
@@ -53,6 +55,6 @@ public class SingleSquareActivity extends com.baidu.tbadk.core.e {
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void b(int i) {
+    protected void b(int i) {
     }
 }

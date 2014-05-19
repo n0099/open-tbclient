@@ -1,8 +1,9 @@
 package com.baidu.tieba.signall;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class m implements com.baidu.tbadk.imageManager.d {
+public class m implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ k a;
     private final /* synthetic */ View b;
 
@@ -13,7 +14,7 @@ final class m implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         View findViewWithTag = this.b.findViewWithTag(str);
         if (findViewWithTag != null) {
             findViewWithTag.invalidate();

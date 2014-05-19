@@ -7,13 +7,14 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bp;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class BarFolderFirstDirActivity extends com.baidu.tbadk.a {
-    public static String c = "st_type";
+public class BarFolderFirstDirActivity extends BaseActivity {
+    public static String c = com.baidu.tbadk.core.frameworkData.a.ST_TYPE;
     protected ViewGroup b;
     private ProgressBar d;
     private c e;
@@ -29,19 +30,50 @@ public class BarFolderFirstDirActivity extends com.baidu.tbadk.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.a.i.bar_folder_dir_activity);
-        this.h = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.h.a(getResources().getString(com.baidu.tieba.a.k.bar_first_dir_name));
+        setContentView(com.baidu.tieba.s.bar_folder_dir_activity);
+        a();
+        a(bundle);
+        b();
+        TiebaStatic.eventStat(this, "category_1", "enter");
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.e.notifyDataSetChanged();
+    }
+
+    protected void a() {
+        this.h = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.h.a(getResources().getString(com.baidu.tieba.u.bar_first_dir_name));
         this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a = (ListView) findViewById(com.baidu.tieba.a.h.list);
-        this.e = new c(this, new h());
+        this.a = (ListView) findViewById(com.baidu.tieba.r.list);
+        this.e = new c(this, new h(), true);
         this.a.setAdapter((ListAdapter) this.e);
-        this.d = (ProgressBar) findViewById(com.baidu.tieba.a.h.progress);
-        this.b = (ViewGroup) findViewById(com.baidu.tieba.a.h.body_container);
-        bn.b(this.b);
+        this.d = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
+        this.b = (ViewGroup) findViewById(com.baidu.tieba.r.body_container);
+        bp.b(this.b);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.f != null) {
+            this.f.cancel();
+        }
+        a((h) null, true);
+    }
+
+    protected void b() {
+        this.a.setOnItemClickListener(new a(this));
+    }
+
+    protected void a(Bundle bundle) {
         if (bundle != null) {
             this.g = bundle.getString(c);
         } else {
@@ -52,32 +84,13 @@ public class BarFolderFirstDirActivity extends com.baidu.tbadk.a {
         if (this.f != null) {
             this.f.cancel();
         }
-        this.f = new b(this, (byte) 0);
+        this.f = new b(this, null);
         this.f.setPriority(3);
         this.f.execute("");
-        this.a.setOnItemClickListener(new a(this));
-        TiebaStatic.a(this, "category_1", "enter");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        this.e.notifyDataSetChanged();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.f != null) {
-            this.f.cancel();
-        }
-        a((h) null, true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void a(h hVar, boolean z) {
+    public void a(h hVar, boolean z) {
         this.d.setVisibility(8);
         this.a.setEnabled(true);
         this.f = null;
@@ -94,16 +107,16 @@ public class BarFolderFirstDirActivity extends com.baidu.tbadk.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.h.b(i);
+        this.h.c(i);
         if (this.a != null) {
             this.a.invalidateViews();
         }
         if (this.b != null) {
-            bn.a(this.b, i);
+            bp.a(this.b, i);
         }
-        ba.b(findViewById(com.baidu.tieba.a.h.root_view), i);
+        bc.b(findViewById(com.baidu.tieba.r.root_view), i);
     }
 }

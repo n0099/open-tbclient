@@ -2,10 +2,11 @@ package com.baidu.adp.lib.network.websocket;
 
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.location.LocationClientOption;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f extends Handler {
+public class f extends Handler {
     final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +15,7 @@ public final class f extends Handler {
     }
 
     @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    public void handleMessage(Message message) {
         Handler handler;
         int i;
         int i2;
@@ -34,7 +35,7 @@ public final class f extends Handler {
                 handler.removeMessages(1);
                 StringBuilder sb = new StringBuilder("this is reconn time:");
                 i = this.a.b;
-                com.baidu.adp.lib.util.f.d(sb.append(i).toString());
+                BdLog.i(sb.append(i).toString());
                 BdSocketLinkService.a(true, "time to reconnStragety");
                 e eVar = this.a;
                 i2 = eVar.b;
@@ -47,7 +48,7 @@ public final class f extends Handler {
                         StringBuilder sb2 = new StringBuilder("Next will be delay:");
                         iArr3 = this.a.c;
                         i4 = this.a.b;
-                        com.baidu.adp.lib.util.f.d(sb2.append(iArr3[i4]).toString());
+                        BdLog.i(sb2.append(iArr3[i4]).toString());
                         handler2 = this.a.d;
                         handler3 = this.a.d;
                         Message obtainMessage = handler3.obtainMessage(1);
@@ -57,7 +58,7 @@ public final class f extends Handler {
                         return;
                     }
                 }
-                this.a.b();
+                this.a.b("reconnStragety to the end");
                 return;
             default:
                 return;

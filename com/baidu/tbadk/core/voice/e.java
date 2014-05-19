@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.voice;
 /* loaded from: classes.dex */
-final class e implements Runnable {
+class e implements Runnable {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ final class e implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         this.a.b();
     }
 }

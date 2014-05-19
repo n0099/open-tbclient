@@ -15,6 +15,7 @@ import com.baidu.android.nebula.util.BDLocationManager;
 import com.baidu.android.systemmonitor.devicestatistic.StatisticReceiver;
 import com.baidu.android.systemmonitor.devicestatistic.i;
 import com.baidu.android.systemmonitor.localapp.AppManager;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public final class StatisticManager implements NoProGuard {
     private static final boolean DEBUG = false;
@@ -76,7 +77,7 @@ public final class StatisticManager implements NoProGuard {
                 localServerSocket = sLock;
             } else {
                 try {
-                    sLock = new LocalServerSocket(Util.toMd5(("Statistic_" + ((int) com.baidu.android.systemmonitor.c.b.a)).getBytes(), DEBUG));
+                    sLock = new LocalServerSocket(Util.toMd5(("Statistic_" + ((int) com.baidu.android.systemmonitor.c.b.a)).getBytes(), false));
                 } catch (Exception e) {
                 }
                 localServerSocket = sLock;
@@ -98,36 +99,36 @@ public final class StatisticManager implements NoProGuard {
         if (j.a(this.mContext).a()) {
             if (com.baidu.android.systemmonitor.c.d.t(this.mContext) == 1) {
                 this.mStartStamp = com.baidu.android.systemmonitor.c.b.a(this.mContext, true);
-                this.mStopStamp = com.baidu.android.systemmonitor.c.b.a(this.mContext, (boolean) DEBUG);
+                this.mStopStamp = com.baidu.android.systemmonitor.c.b.a(this.mContext, false);
                 com.baidu.android.systemmonitor.c.b.a(this.mContext, System.currentTimeMillis(), true);
-                com.baidu.android.systemmonitor.c.b.a(this.mContext, 0L, DEBUG);
+                com.baidu.android.systemmonitor.c.b.a(this.mContext, 0L, false);
                 if (this.mStartStamp != 0 && this.mStopStamp != 0 && this.mStartStamp < this.mStopStamp) {
                     com.baidu.android.systemmonitor.devicestatistic.a.c cVar = new com.baidu.android.systemmonitor.devicestatistic.a.c(this.mStartStamp);
                     cVar.a = this.mStopStamp;
                     com.baidu.android.systemmonitor.devicestatistic.d.a(this.mContext).a(cVar);
                 }
             }
-            this.mHandler.postDelayed(this.mGetStoreInfoRunnable, 5000L);
+            this.mHandler.postDelayed(this.mGetStoreInfoRunnable, TbConfig.NOTIFY_SOUND_INTERVAL);
         }
     }
 
     private void handleConnectionChangeAction() {
         if (j.a(this.mContext).a()) {
-            this.mHandler.postDelayed(this.mGetStoreInfoRunnable, 5000L);
+            this.mHandler.postDelayed(this.mGetStoreInfoRunnable, TbConfig.NOTIFY_SOUND_INTERVAL);
             this.mHandler.removeCallbacks(this.mNetFlowTjRunnable);
-            this.mHandler.postDelayed(this.mNetFlowTjRunnable, 5000L);
+            this.mHandler.postDelayed(this.mNetFlowTjRunnable, TbConfig.NOTIFY_SOUND_INTERVAL);
         }
         this.mHandler.removeCallbacks(this.mUploadRunnable);
-        this.mHandler.postDelayed(this.mUploadRunnable, 5000L);
+        this.mHandler.postDelayed(this.mUploadRunnable, TbConfig.NOTIFY_SOUND_INTERVAL);
         if (com.baidu.android.systemmonitor.c.d.n(this.mContext) == 1) {
             this.mHandler.removeCallbacks(this.mRequestLocationRunnable);
-            this.mHandler.postDelayed(this.mRequestLocationRunnable, 5000L);
+            this.mHandler.postDelayed(this.mRequestLocationRunnable, TbConfig.NOTIFY_SOUND_INTERVAL);
         }
     }
 
     private void handleGetStoreinfoAction() {
         if (j.a(this.mContext).a()) {
-            this.mHandler.postDelayed(this.mGetStoreInfoRunnable, 5000L);
+            this.mHandler.postDelayed(this.mGetStoreInfoRunnable, TbConfig.NOTIFY_SOUND_INTERVAL);
         } else if (this.mHandler == null || this.mGetStoreInfoRunnable == null) {
         } else {
             this.mHandler.removeCallbacks(this.mGetStoreInfoRunnable);
@@ -166,10 +167,7 @@ public final class StatisticManager implements NoProGuard {
     }
 
     public static boolean isActive() {
-        if (sLock != null) {
-            return true;
-        }
-        return DEBUG;
+        return sLock != null;
     }
 
     private void registerStatisticReceivers() {
@@ -208,7 +206,7 @@ public final class StatisticManager implements NoProGuard {
         }
     }
 
-    public final void handleAction(String str) {
+    public void handleAction(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -219,7 +217,7 @@ public final class StatisticManager implements NoProGuard {
         } else if ("android.intent.action.ACTION_POWER_CONNECTED".equals(str)) {
             handlePowerConnectAction(true);
         } else if ("android.intent.action.ACTION_POWER_DISCONNECTED".equals(str)) {
-            handlePowerConnectAction(DEBUG);
+            handlePowerConnectAction(false);
         } else if ("com.baidu.systemmonitor.getstoreinfo".equals(str)) {
             handleGetStoreinfoAction();
         }

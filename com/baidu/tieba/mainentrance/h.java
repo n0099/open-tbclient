@@ -4,8 +4,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class h implements View.OnTouchListener {
+public class h implements View.OnTouchListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +15,7 @@ final class h implements View.OnTouchListener {
     }
 
     @Override // android.view.View.OnTouchListener
-    public final boolean onTouch(View view, MotionEvent motionEvent) {
+    public boolean onTouch(View view, MotionEvent motionEvent) {
         LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard;
         LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard2;
         EditText editText;
@@ -28,7 +29,7 @@ final class h implements View.OnTouchListener {
             if (editText.hasFocus()) {
                 SquareSearchActivity squareSearchActivity = this.a;
                 editText2 = this.a.c;
-                com.baidu.adp.lib.util.i.a(squareSearchActivity, editText2);
+                com.baidu.adp.lib.util.h.a(squareSearchActivity, editText2);
                 return false;
             }
             return false;

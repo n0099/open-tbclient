@@ -1,42 +1,34 @@
 package com.baidu.tieba.im.chat;
+
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public final class da {
-    String a;
-    com.baidu.tbadk.a b;
-
-    public da(String str, com.baidu.tbadk.a aVar) {
-        this.a = null;
-        this.a = str;
-        this.b = aVar;
-    }
-
-    public final void a() {
-        try {
-            if (this.a == null || this.a.length() <= 0) {
-                a(this.b.getString(com.baidu.tieba.im.j.save_error));
-            }
-            new com.baidu.tbadk.editortool.ab(this.b).a(this.a, false, true, (com.baidu.tbadk.imageManager.d) new db(this));
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("SaveImageAsyncTask", "execute", "error" + e.getMessage());
-            a(this.b.getString(com.baidu.tieba.im.j.save_error));
-        }
-    }
+class da extends com.baidu.adp.lib.resourceLoader.c<com.baidu.adp.widget.a.a> {
+    private final /* synthetic */ TbImageView a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ String a(da daVar, String str, byte[] bArr) {
-        switch (com.baidu.tbadk.core.util.w.a(str, bArr, daVar.b)) {
-            case -2:
-                return com.baidu.tbadk.core.util.w.b();
-            case -1:
-            default:
-                return daVar.b.getString(com.baidu.tieba.im.j.save_error);
-            case 0:
-                return daVar.b.getString(com.baidu.tieba.im.j.save_image_to_album);
-        }
+    public da(TbImageView tbImageView, String str) {
+        this.a = tbImageView;
+        this.b = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void a(String str) {
-        this.b.showToast(str);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.resourceLoader.c
+    public void a(com.baidu.adp.widget.a.a aVar, String str) {
+        super.a((da) aVar, str);
+        this.a.a(this.b, 10, false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.resourceLoader.c
+    public void a(Object... objArr) {
+        super.a(objArr);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.resourceLoader.c
+    public void a(String str) {
+        super.a(str);
     }
 }

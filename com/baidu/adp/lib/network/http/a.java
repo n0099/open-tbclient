@@ -2,7 +2,9 @@ package com.baidu.adp.lib.network.http;
 
 import android.net.Proxy;
 import android.os.Build;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetUtil;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -17,7 +19,7 @@ import java.util.TimerTask;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private static Pattern c = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
     private static String d = "--------7da3d81520810*";
     private e a;
@@ -40,7 +42,7 @@ public final class a {
         this.a = eVar;
     }
 
-    public final void a() {
+    public void a() {
         this.a.b().a = true;
         com.baidu.adp.lib.f.a.a(this.b);
     }
@@ -56,9 +58,9 @@ public final class a {
             return null;
         }
         if ((b == BdNetUtil.NetTpyeEnmu.NET || b == BdNetUtil.NetTpyeEnmu.WAP) && (defaultHost = Proxy.getDefaultHost()) != null && defaultHost.length() > 0) {
-            if (c.matcher(defaultHost).find()) {
+            if (a(defaultHost)) {
                 StringBuilder sb = new StringBuilder(80);
-                sb.append(com.baidu.loginshare.e.f);
+                sb.append("http://");
                 sb.append(Proxy.getDefaultHost());
                 String file = url.getFile();
                 if (file != null && file.startsWith("?")) {
@@ -77,7 +79,7 @@ public final class a {
         return this.b;
     }
 
-    public final void a(int i, int i2, d dVar) {
+    public void a(int i, int i2, d dVar) {
         dVar.j = -1;
         if (this.a.b().a) {
             throw new BdHttpCancelException();
@@ -103,7 +105,7 @@ public final class a {
                 throw new BdHttpCancelException();
             }
             dVar.g = new Date().getTime() - currentTimeMillis;
-            com.baidu.adp.lib.util.f.d("GET:" + a);
+            BdLog.i("GET:" + a);
             dVar.j = -4;
             a2.connect();
             dVar.j = -5;
@@ -114,9 +116,10 @@ public final class a {
             dVar.j = -8;
             this.a.b().a(this.b);
             dVar.i = this.a.b().b;
-            this.a.b().g = a(this.b);
-            if (this.a.b().g != null) {
-                dVar.b = this.a.b().g.length;
+            byte[] a3 = a(this.b);
+            if (a3 != null) {
+                dVar.b = a3.length;
+                this.a.b().g = a(this.a.b().c, a3);
             }
             dVar.j = -9;
             dVar.d = new Date().getTime() - currentTimeMillis;
@@ -125,6 +128,16 @@ public final class a {
                 this.b.disconnect();
             }
         }
+    }
+
+    protected final byte[] a(String str, byte[] bArr) {
+        if (str != null && str.toLowerCase().contains("gzip")) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
+            com.baidu.adp.lib.util.e.a(byteArrayInputStream, byteArrayOutputStream);
+            return byteArrayOutputStream.toByteArray();
+        }
+        return bArr;
     }
 
     private byte[] a(HttpURLConnection httpURLConnection) {
@@ -165,7 +178,14 @@ public final class a {
         return bArr;
     }
 
-    public final void b(int i, int i2, d dVar) {
+    private boolean a(String str) {
+        if (c.matcher(str).find()) {
+            return true;
+        }
+        return false;
+    }
+
+    public void b(int i, int i2, d dVar) {
         dVar.j = -1;
         try {
             URL url = new URL(this.a.a().b());
@@ -213,7 +233,11 @@ public final class a {
             dVar.j = -8;
             this.a.b().a(this.b);
             dVar.i = this.a.b().b;
-            this.a.b().g = a(this.b);
+            byte[] a2 = a(this.b);
+            if (a2 != null) {
+                dVar.b = a2.length;
+                this.a.b().g = a(this.a.b().c, a2);
+            }
             if (this.a.b().g != null) {
                 dVar.b = this.a.b().g.length;
             }
@@ -227,7 +251,7 @@ public final class a {
         }
     }
 
-    public final void c(int i, int i2, d dVar) {
+    public void c(int i, int i2, d dVar) {
         dVar.j = -1;
         try {
             URL url = new URL(this.a.a().b());
@@ -271,9 +295,11 @@ public final class a {
             dVar.j = -8;
             this.a.b().a(this.b);
             dVar.i = this.a.b().b;
-            this.a.b().g = a(this.b);
-            if (this.a.b().g != null) {
-                dVar.b = this.a.b().g.length;
+            byte[] a2 = a(this.b);
+            if (a2 != null) {
+                dVar.b = a2.length;
+                this.a.b().h = a2.length;
+                this.a.b().g = a(this.a.b().c, a2);
             }
             dVar.d = new Date().getTime() - currentTimeMillis;
             dVar.j = -9;

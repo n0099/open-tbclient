@@ -1,27 +1,24 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
-import java.util.Iterator;
-import java.util.LinkedList;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-final class q extends com.baidu.tieba.im.m<Void> {
-    final /* synthetic */ p b;
-    private final /* synthetic */ LinkedList c;
+public class q {
+    private static final String a = q.class.getName();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public q(p pVar, LinkedList linkedList) {
-        this.b = pVar;
-        this.c = linkedList;
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Void a() {
-        Iterator it = this.c.iterator();
-        while (it.hasNext()) {
-            String c = com.baidu.tieba.im.db.h.c(((ImMessageCenterShowItemData) it.next()).getFriendId());
-            com.baidu.tieba.im.db.h.a();
-            com.baidu.tieba.im.db.h.a(c, true);
+    public String a(String str) {
+        com.baidu.tbadk.coreExtra.data.b a2;
+        if (str != null) {
+            try {
+                com.baidu.tbadk.coreExtra.data.c a3 = new com.baidu.tbadk.coreExtra.service.b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS).a(com.baidu.tbadk.core.util.x.a(str, 1));
+                if (a3 != null && a3.b() && (a2 = a3.a()) != null) {
+                    String a4 = a2.a();
+                    com.baidu.tbadk.core.voice.a.e.a(str, a4);
+                    return a4;
+                }
+            } catch (Exception e) {
+                BdLog.e(a, "submitVoiceBinary", "error: " + e.getMessage());
+            }
         }
         return null;
     }

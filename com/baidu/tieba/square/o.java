@@ -3,8 +3,9 @@ package com.baidu.tieba.square;
 import android.view.View;
 import android.widget.AdapterView;
 import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class o implements AdapterView.OnItemClickListener {
+public class o implements AdapterView.OnItemClickListener {
     final /* synthetic */ BarFolderSecondDirActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +14,7 @@ final class o implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         q qVar;
         qVar = this.a.i;
         ArrayList<ab> arrayList = qVar.a().d().e;

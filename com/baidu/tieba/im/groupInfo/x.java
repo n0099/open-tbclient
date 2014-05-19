@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupInfo;
 import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class x implements DialogInterface.OnClickListener {
+public class x implements DialogInterface.OnClickListener {
     final /* synthetic */ r a;
     private final /* synthetic */ Object b;
     private final /* synthetic */ int c;
@@ -16,9 +16,9 @@ public final class x implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         ad adVar;
-        adVar = this.a.Q;
+        adVar = this.a.P;
         adVar.a(dialogInterface, i, this.b, this.c);
     }
 }

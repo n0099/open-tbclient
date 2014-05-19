@@ -1,7 +1,7 @@
 package com.baidu.tieba.editortool;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class t implements as {
+public class t implements as {
     final /* synthetic */ PbEditor a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,8 +10,12 @@ public final class t implements as {
     }
 
     @Override // com.baidu.tieba.editortool.as
-    public final void a() {
+    public void a() {
         this.a.e();
         this.a.g = false;
+    }
+
+    @Override // com.baidu.tieba.editortool.as
+    public void b() {
     }
 }

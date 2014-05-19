@@ -1,21 +1,21 @@
 package com.baidu.tbadk.core.util.a;
 /* loaded from: classes.dex */
-public final class c {
+public class c {
     public int a;
     public int b;
     public String c;
     public String d = null;
     public boolean e = false;
 
-    public final boolean a() {
+    public boolean a() {
         return this.a == 200;
     }
 
-    public final boolean b() {
+    public boolean b() {
         return this.a == 200 && this.b == 0;
     }
 
-    public final boolean c() {
+    public boolean c() {
         return this.a == 200 || this.a == 206;
     }
 }

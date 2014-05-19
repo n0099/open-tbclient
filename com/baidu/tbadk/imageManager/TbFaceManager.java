@@ -10,7 +10,7 @@ import java.security.InvalidParameterException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public final class TbFaceManager {
+public class TbFaceManager {
     private static TbFaceManager a = null;
     private Context b = null;
     private b c = null;
@@ -33,7 +33,7 @@ public final class TbFaceManager {
     private TbFaceManager() {
     }
 
-    public final void a(Context context, b bVar) {
+    public void a(Context context, b bVar) {
         if (context == null || bVar == null) {
             throw new InvalidParameterException("TbFaceManager initial error");
         }
@@ -41,49 +41,44 @@ public final class TbFaceManager {
         this.c = bVar;
     }
 
-    public final com.baidu.adp.widget.ImageView.b a(String str) {
+    public com.baidu.adp.widget.a.a a(String str) {
         return a(b(str), str);
     }
 
-    private com.baidu.adp.widget.ImageView.b a(int i, String str) {
-        com.baidu.adp.widget.ImageView.b c = e.a().c(str);
-        if (c == null) {
-            com.baidu.adp.lib.util.b.a();
-            Bitmap a2 = com.baidu.adp.lib.util.b.a(this.b, i);
-            if (a2 != null) {
-                com.baidu.adp.widget.ImageView.b bVar = new com.baidu.adp.widget.ImageView.b(a2, false, str);
-                e.a().d(str, bVar);
-                return bVar;
-            }
-            return c;
+    private com.baidu.adp.widget.a.a a(int i, String str) {
+        Bitmap a2;
+        com.baidu.adp.widget.a.a c = e.a().c(str);
+        if (c == null && (a2 = com.baidu.adp.lib.util.b.a().a(this.b, i)) != null) {
+            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(a2, false, str);
+            e.a().b(str, aVar);
+            return aVar;
         }
         return c;
     }
 
-    public final int b(String str) {
+    public int b(String str) {
         return this.c.a(str);
     }
 
-    public final c c(String str) {
-        b bVar = this.c;
-        Context context = this.b;
-        com.baidu.adp.widget.ImageView.b a2 = a(str);
-        if (a2 != null) {
+    public c c(String str) {
+        com.baidu.adp.widget.a.a a2;
+        c a3 = this.c.a(this.b, str);
+        if (a3 == null && (a2 = a(str)) != null) {
             return new c(a2.c(), a2.d());
         }
-        return null;
+        return a3;
     }
 
-    public final int b() {
+    public int b() {
         return this.c.a();
     }
 
-    public final String d(String str) {
+    public String d(String str) {
         return this.c.c(str);
     }
 
-    public final SpannableString e(String str) {
-        com.baidu.adp.widget.ImageView.b a2;
+    public SpannableString a(Context context, String str) {
+        com.baidu.adp.widget.a.a a2;
         if (str == null) {
             return null;
         }
@@ -95,15 +90,15 @@ public final class TbFaceManager {
             if (b > 0 && (a2 = a(b, String.valueOf(b))) != null) {
                 int length = group.length();
                 int start = matcher.start();
-                BitmapDrawable i = a2.i();
-                i.setBounds(0, 0, a2.c(), a2.d());
-                spannableString.setSpan(new ImageSpan(i, 0), start, length + start, 33);
+                BitmapDrawable j = a2.j();
+                j.setBounds(0, 0, a2.c(), a2.d());
+                spannableString.setSpan(new ImageSpan(j, 0), start, length + start, 33);
             }
         }
         return spannableString;
     }
 
-    public final SpannableString a(String str, a aVar) {
+    public SpannableString a(Context context, String str, a aVar) {
         ImageSpan a2;
         if (str == null) {
             return null;
@@ -114,13 +109,13 @@ public final class TbFaceManager {
             String group = matcher.group();
             int b = this.c.b(group);
             if (b > 0) {
-                com.baidu.adp.widget.ImageView.b a3 = a(b, String.valueOf(b));
+                com.baidu.adp.widget.a.a a3 = a(b, String.valueOf(b));
                 if (a3 != null) {
                     int length = group.length();
                     int start = matcher.start();
-                    BitmapDrawable i = a3.i();
-                    i.setBounds(0, 0, a3.c(), a3.d());
-                    spannableString.setSpan(new ImageSpan(i, 0), start, length + start, 33);
+                    BitmapDrawable j = a3.j();
+                    j.setBounds(0, 0, a3.c(), a3.d());
+                    spannableString.setSpan(new ImageSpan(j, 0), start, length + start, 33);
                 }
             } else if (aVar != null && (a2 = aVar.a(group)) != null) {
                 int length2 = group.length();

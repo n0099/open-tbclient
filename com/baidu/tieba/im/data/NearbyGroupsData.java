@@ -3,7 +3,7 @@ package com.baidu.tieba.im.data;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class NearbyGroupsData extends ArrayList<f> {
+public class NearbyGroupsData extends ArrayList<k> {
     private static final long serialVersionUID = 1;
     private int geo;
     private boolean hasMore;
@@ -33,47 +33,47 @@ public class NearbyGroupsData extends ArrayList<f> {
         this.hasMore = z;
     }
 
-    public g findItemByGroupId(String str) {
-        g gVar;
+    public l findItemByGroupId(String str) {
+        l lVar;
         if (str == null) {
             return null;
         }
-        Iterator<f> it = iterator();
+        Iterator<k> it = iterator();
         while (true) {
             if (!it.hasNext()) {
-                gVar = null;
+                lVar = null;
                 break;
             }
-            f next = it.next();
-            if ((next instanceof g) && ((g) next).c() != null && ((g) next).c().equals(str)) {
-                gVar = (g) next;
+            k next = it.next();
+            if ((next instanceof l) && ((l) next).c() != null && ((l) next).c().equals(str)) {
+                lVar = (l) next;
                 break;
             }
         }
-        return gVar;
+        return lVar;
     }
 
-    public e getFirstGroup() {
+    public j getFirstGroup() {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 >= size()) {
                 return null;
             }
-            f fVar = get(i2);
-            if (!(fVar instanceof e)) {
+            k kVar = get(i2);
+            if (!(kVar instanceof j)) {
                 i = i2 + 1;
             } else {
-                return (e) fVar;
+                return (j) kVar;
             }
         }
     }
 
-    public e getLastGroup() {
+    public j getLastGroup() {
         for (int size = size() - 1; size >= 0 && size >= 0; size--) {
-            f fVar = get(size);
-            if (fVar instanceof e) {
-                return (e) fVar;
+            k kVar = get(size);
+            if (kVar instanceof j) {
+                return (j) kVar;
             }
         }
         return null;

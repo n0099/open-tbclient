@@ -1,18 +1,36 @@
 package com.baidu.tieba.im.model;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ap extends com.baidu.tieba.im.m<Boolean> {
-    final /* synthetic */ an b;
-    private final /* synthetic */ com.baidu.tieba.im.message.a.f c;
+public class ap extends CustomMessageListener {
+    final /* synthetic */ MsglistModel a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(an anVar, com.baidu.tieba.im.message.a.f fVar) {
-        this.b = anVar;
-        this.c = fVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ap(MsglistModel msglistModel, int i) {
+        super(i);
+        this.a = msglistModel;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.o.d().a(this.c.x(), this.c.l(), String.valueOf(this.c.u()), String.valueOf(this.c.w()), 2));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.adp.base.g gVar;
+        if (customResponsedMessage.getCmd() == 2003113) {
+            this.a.k();
+        } else if (customResponsedMessage.getCmd() == 501126) {
+            BdLog.d("simon", "onMessage", "msg = " + customResponsedMessage);
+            if (customResponsedMessage instanceof ResponsedMessage) {
+                this.a.s.getChatMessages().add((ChatMessage) customResponsedMessage.getOrginalMessage());
+                gVar = this.a.mLoadDataCallBack;
+                gVar.a(this.a.s);
+            }
+        }
     }
 }

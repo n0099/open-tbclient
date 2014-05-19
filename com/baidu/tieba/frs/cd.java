@@ -1,6 +1,7 @@
 package com.baidu.tieba.frs;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class cd implements com.baidu.tieba.frs.view.u {
+public class cd implements com.baidu.tieba.model.bd {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,21 +9,14 @@ final class cd implements com.baidu.tieba.frs.view.u {
         this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.tieba.frs.view.u
-    public final void a() {
-        int i;
-        FrsImageActivity frsImageActivity = this.a;
-        i = this.a.h;
-        FrsImageActivity.e(frsImageActivity, i);
+    @Override // com.baidu.tieba.model.bd
+    public void a(String str, long j) {
+        dh dhVar;
+        dhVar = this.a.t;
+        dhVar.b().setLike(0);
     }
 
-    @Override // com.baidu.tieba.frs.view.u
-    public final void b() {
-        this.a.c();
-    }
-
-    @Override // com.baidu.tieba.frs.view.u
-    public final void c() {
-        this.a.c();
+    @Override // com.baidu.tieba.model.bd
+    public void b(String str, long j) {
     }
 }

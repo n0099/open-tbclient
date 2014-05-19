@@ -80,14 +80,14 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public final SavedState createFromParcel(Parcel parcel) {
+            public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel, null);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public final SavedState[] newArray(int i) {
+            public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
         };
@@ -279,7 +279,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 this.mChildFragmentManager.dispatchStart();
             } else if (this.mState >= 2) {
                 this.mChildFragmentManager.dispatchActivityCreated();
-            } else if (this.mState > 0) {
+            } else if (this.mState >= 1) {
                 this.mChildFragmentManager.dispatchCreate();
             }
         }

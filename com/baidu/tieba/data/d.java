@@ -1,19 +1,19 @@
 package com.baidu.tieba.data;
+
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public final class d {
+public class d {
     public static String a = "http://tieba.baidu.com/";
     public static final Long b = 3600000L;
     public static final Long c = 36000000L;
     public static final Long d = 36000000L;
     public static final Long e = 86400000L;
     public static final String f = String.valueOf(a) + "mo/q/topic_page/136_1";
-    public static final String g = String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/s/recommend/";
-    public static final String h = String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/s/classic";
+    public static final String g = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/recommend/";
+    public static final String h = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/classic";
     public static int i = 80;
-    private static int k = 300;
+    private static int k = TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI;
     private static int l = 1;
-    private static String m = "贴吧客户端反馈";
-    private static String n = "2631903";
     public static final Long j = 3600000L;
 
     public static final String a() {
@@ -48,8 +48,8 @@ public final class d {
 
     public static void a(String str, String str2) {
         if (str != null && str.length() > 0 && str2 != null && str2.length() > 0) {
-            m = str;
-            n = str2;
+            TbConfig.setPositionPagerName(str);
+            TbConfig.setPositionPagerId(str2);
         }
     }
 

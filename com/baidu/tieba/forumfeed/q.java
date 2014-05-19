@@ -1,14 +1,16 @@
 package com.baidu.tieba.forumfeed;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.b.ao;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.ba;
 /* loaded from: classes.dex */
-final class q implements com.baidu.adp.framework.task.a<ao> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<ao> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            aVar.a().d().setClass(aVar.a().c(), SingleForumFeedActivity.class);
-            aVar.a().f();
+class q implements CustomMessageTask.CustomRunnable<ba> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<ba> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), SingleForumFeedActivity.class);
+            customMessage.getData().startActivity();
         }
         return null;
     }

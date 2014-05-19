@@ -5,22 +5,30 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
+public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
     final /* synthetic */ e a;
     private final al b;
     private final String c;
     private String d;
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    public g(e eVar, String str, al alVar) {
+        this.a = eVar;
+        this.b = alVar;
+        this.c = str;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ List<ImageFileInfo> a(Object... objArr) {
+    /* renamed from: a */
+    public List<ImageFileInfo> doInBackground(Object... objArr) {
         Context context;
         Context context2;
         String str = this.c;
@@ -34,56 +42,44 @@ public final class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
         return a;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ void a(List<ImageFileInfo> list) {
-        List<ImageFileInfo> list2 = list;
-        super.a((g) list2);
+    public void onPreCancel() {
+        super.onPreCancel();
         if (this.b != null) {
-            this.b.a(list2, this.d);
+            this.b.a();
         }
     }
 
-    public g(e eVar, String str, al alVar) {
-        this.a = eVar;
-        this.b = alVar;
-        this.c = str;
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
-        super.b();
+    /* renamed from: a */
+    public void onPostExecute(List<ImageFileInfo> list) {
+        super.onPostExecute(list);
         if (this.b != null) {
-            al alVar = this.b;
+            this.b.a(list, this.d);
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x0092 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v3, types: [android.database.Cursor] */
     private List<ImageFileInfo> a(String str, Context context, Uri uri) {
         Cursor cursor;
         String str2;
         ArrayList arrayList = new ArrayList();
-        ?? r1 = "bucket_display_name";
         try {
+            cursor = context.getContentResolver().query(uri, new String[]{"bucket_id", "_data", "bucket_display_name"}, "bucket_id=?", new String[]{str}, "datetaken DESC");
             try {
-                cursor = context.getContentResolver().query(uri, new String[]{"bucket_id", "_data", "bucket_display_name"}, "bucket_id=?", new String[]{str}, "datetaken DESC");
                 try {
                 } catch (Exception e) {
                     e = e;
                     str2 = this.a.a;
-                    com.baidu.adp.lib.util.f.b(str2, "getAlbumData", "error = " + e.getMessage());
+                    BdLog.e(str2, "getAlbumData", "error = " + e.getMessage());
                     com.baidu.adp.lib.f.a.a(cursor);
                     return arrayList;
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.f.a.a((Cursor) r1);
+                com.baidu.adp.lib.f.a.a(cursor);
                 throw th;
             }
         } catch (Exception e2) {
@@ -91,8 +87,8 @@ public final class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            r1 = 0;
-            com.baidu.adp.lib.f.a.a((Cursor) r1);
+            cursor = null;
+            com.baidu.adp.lib.f.a.a(cursor);
             throw th;
         }
         if (cursor.moveToFirst()) {

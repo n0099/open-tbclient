@@ -1,62 +1,51 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.gson.Gson;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.VoiceMsgData;
-import org.apache.http.message.BasicNameValuePair;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.coreExtra.live.LivePublisherSayMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class aa extends com.baidu.adp.a.h {
-    final /* synthetic */ MsglistModel a;
+public class aa extends CustomMessageListener {
+    final /* synthetic */ LiveMsglistModel a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(MsglistModel msglistModel) {
-        this.a = msglistModel;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa(LiveMsglistModel liveMsglistModel, int i) {
+        super(i);
+        this.a = liveMsglistModel;
     }
 
-    @Override // com.baidu.adp.a.h
-    public final void a(Object obj) {
-        BasicNameValuePair basicNameValuePair;
-        String str;
-        ax axVar;
-        ax axVar2;
-        if (obj != null && (obj instanceof BasicNameValuePair) && (basicNameValuePair = (BasicNameValuePair) obj) != null && basicNameValuePair.getName() != null && basicNameValuePair.getName().length() > 0) {
-            String name = basicNameValuePair.getName();
-            String value = basicNameValuePair.getValue();
-            com.baidu.adp.lib.util.f.d("----send voice suc, vid : " + value);
-            try {
-                com.baidu.tieba.im.message.a.a a = MsglistModel.a(this.a, Long.parseLong(name));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() == 2015007) {
+                List<ChatMessage> a = this.a.a((ResponsedMessage<?>) customResponsedMessage);
                 if (a != null) {
-                    if (value != null && value.length() > 0) {
-                        VoiceMsgData f = com.baidu.tieba.im.f.q.f(a);
-                        if (f != null) {
-                            f.setVoice_md5(value);
-                            a.d("[" + new Gson().toJson(f) + "]");
-                        }
-                        TiebaStatic.a(a.e(), 0, "", "", "upload voice http suc vid = " + value, 0, "upload voice http success ", System.currentTimeMillis() - a.E());
-                        com.baidu.tieba.im.chat.x.b().a(a);
-                        axVar = this.a.k;
-                        if (axVar != null) {
-                            com.baidu.adp.lib.util.f.e("simon", "send callback", "send voice");
-                            axVar2 = this.a.k;
-                            axVar2.t();
-                            return;
-                        }
-                        return;
-                    }
-                    TiebaStatic.a(a.e(), 0, "", "", "", -1, "upload voice http fail", System.currentTimeMillis() - a.E());
-                    this.a.d(a);
-                    if (a instanceof com.baidu.tieba.im.message.a.b) {
-                        com.baidu.tieba.im.r.a(new ab(this, (com.baidu.tieba.im.message.a.b) a), null);
-                    } else if (a instanceof com.baidu.tieba.im.message.a.f) {
-                        com.baidu.tieba.im.r.a(new ac(this, (com.baidu.tieba.im.message.a.f) a), null);
-                    } else if (a instanceof com.baidu.tieba.im.message.a.e) {
-                        com.baidu.tieba.im.r.a(new ad(this, (com.baidu.tieba.im.message.a.e) a), null);
-                    }
+                    a(a);
                 }
-            } catch (Exception e) {
-                str = MsglistModel.a;
-                com.baidu.adp.lib.util.f.b(str, "BdLoadDataCallBack", e.getMessage());
+            } else if (customResponsedMessage.getCmd() == 2003146) {
+                this.a.b(customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2003149) {
+                this.a.a(customResponsedMessage);
+            }
+        }
+    }
+
+    private void a(List<ChatMessage> list) {
+        if (list != null && !TextUtils.isEmpty(this.a.o)) {
+            for (int size = list.size() - 1; size >= 0; size--) {
+                ChatMessage chatMessage = list.get(size);
+                if (this.a.o.equals(chatMessage.getUserInfo().getUserId())) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new LivePublisherSayMessage(chatMessage));
+                    return;
+                }
             }
         }
     }

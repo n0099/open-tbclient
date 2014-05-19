@@ -1,45 +1,66 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
-import protobuf.GetMaskInfo.GetMaskInfoRes;
+import protobuf.GetMaskInfo.GetMaskInfoResIdl;
+import protobuf.GetMaskInfo.UserInfo;
 /* loaded from: classes.dex */
 public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
-    private int a;
-    private String b;
-    private ArrayList<com.baidu.tieba.im.data.a> c;
+    public static final int FALSE = 0;
+    private ArrayList<com.baidu.tieba.im.data.a> blackList;
+    private int isMask;
+    private String list;
 
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        GetMaskInfoRes.GetMaskInfoResIdl parseFrom = GetMaskInfoRes.GetMaskInfoResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.a = parseFrom.getData().getIsMask();
-            this.b = parseFrom.getData().getList();
-            List<GetMaskInfoRes.UserInfo> usersList = parseFrom.getData().getUsersList();
-            int size = usersList != null ? usersList.size() : 0;
-            this.c = new ArrayList<>();
+    public ResponseGetMaskInfoMessage() {
+        super(MessageTypes.CMD_GET_MASK_INFO);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        GetMaskInfoResIdl getMaskInfoResIdl = (GetMaskInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMaskInfoResIdl.class);
+        setError(getMaskInfoResIdl.error.errorno.intValue());
+        setErrorString(getMaskInfoResIdl.error.usermsg);
+        if (getError() == 0) {
+            setIsMask(getMaskInfoResIdl.data.isMask.intValue());
+            setList(getMaskInfoResIdl.data.list);
+            List<UserInfo> list = getMaskInfoResIdl.data.users;
+            int size = list != null ? list.size() : 0;
+            this.blackList = new ArrayList<>();
             for (int i2 = 0; i2 < size; i2++) {
                 com.baidu.tieba.im.data.a aVar = new com.baidu.tieba.im.data.a();
-                aVar.b(usersList.get(i2).getPortrait());
-                aVar.a(usersList.get(i2).getUid());
-                aVar.a(usersList.get(i2).getName());
-                this.c.add(aVar);
+                aVar.b(list.get(i2).portrait);
+                aVar.a(list.get(i2).uid.intValue());
+                aVar.a(list.get(i2).name);
+                this.blackList.add(aVar);
             }
         }
     }
 
-    public ResponseGetMaskInfoMessage() {
-        super(104103);
+    public int getIsMask() {
+        return this.isMask;
     }
 
-    public final int d() {
-        return this.a;
+    public void setIsMask(int i) {
+        this.isMask = i;
     }
 
-    public final ArrayList<com.baidu.tieba.im.data.a> i() {
-        return this.c;
+    public String getList() {
+        return this.list;
+    }
+
+    public void setList(String str) {
+        this.list = str;
+    }
+
+    public ArrayList<com.baidu.tieba.im.data.a> getBlackList() {
+        return this.blackList;
+    }
+
+    public void setBlackList(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
+        this.blackList = arrayList;
     }
 }

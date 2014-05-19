@@ -1,18 +1,25 @@
 package com.baidu.tieba.im.model;
+
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ao extends com.baidu.tieba.im.m<Boolean> {
-    final /* synthetic */ an b;
-    private final /* synthetic */ com.baidu.tieba.im.message.a.b c;
+public class ao implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ MsglistModel a;
+    private final /* synthetic */ OfficialChatMessage b;
+    private final /* synthetic */ String c;
+    private final /* synthetic */ com.baidu.tbadk.img.b d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(an anVar, com.baidu.tieba.im.message.a.b bVar) {
-        this.b = anVar;
-        this.c = bVar;
+    public ao(MsglistModel msglistModel, OfficialChatMessage officialChatMessage, String str, com.baidu.tbadk.img.b bVar) {
+        this.a = msglistModel;
+        this.b = officialChatMessage;
+        this.c = str;
+        this.d = bVar;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().b(this.c.i(), String.valueOf(this.c.u()), String.valueOf(this.c.w()), 2));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.a.a(this.b, this.c, this.d);
     }
 }

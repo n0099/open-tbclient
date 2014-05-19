@@ -1,29 +1,22 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-final class aw implements DialogInterface.OnClickListener {
-    final /* synthetic */ av a;
-    private final /* synthetic */ ImMessageCenterShowItemData b;
+class aw {
+    HeadImageView a;
+    TextView b;
+    TextView c;
+    TextView d;
+    TextView e;
+    ImageView f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(av avVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.a = avVar;
-        this.b = imMessageCenterShowItemData;
+    private aw() {
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        OfficialBarTipActivity officialBarTipActivity;
-        com.baidu.tieba.im.model.bd bdVar;
-        OfficialBarTipActivity officialBarTipActivity2;
-        com.baidu.tieba.im.a<Void> aVar;
-        officialBarTipActivity = this.a.a;
-        bdVar = officialBarTipActivity.a;
-        ImMessageCenterShowItemData imMessageCenterShowItemData = this.b;
-        officialBarTipActivity2 = this.a.a;
-        aVar = officialBarTipActivity2.d;
-        bdVar.a(imMessageCenterShowItemData, aVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aw(aw awVar) {
+        this();
     }
 }

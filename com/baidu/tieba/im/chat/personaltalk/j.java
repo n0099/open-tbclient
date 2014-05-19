@@ -4,7 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-final class j extends BdAsyncTask<Void, Void, Void> {
+class j extends BdAsyncTask<Void, Void, Void> {
     final /* synthetic */ PersonalTalkSettingActivity a;
     private final /* synthetic */ BdSwitchView.SwitchState b;
 
@@ -14,24 +14,24 @@ final class j extends BdAsyncTask<Void, Void, Void> {
         this.b = switchState;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Void a(Void... voidArr) {
+    /* renamed from: a */
+    public Void doInBackground(Void... voidArr) {
         long j;
         long j2;
         if (this.b == BdSwitchView.SwitchState.OFF) {
             a a = a.a();
-            String E = TbadkApplication.E();
+            String currentAccount = TbadkApplication.getCurrentAccount();
             j2 = this.a.c;
-            a.d(E, String.valueOf(j2), false);
+            a.d(currentAccount, String.valueOf(j2), false);
             return null;
         }
         a a2 = a.a();
-        String E2 = TbadkApplication.E();
+        String currentAccount2 = TbadkApplication.getCurrentAccount();
         j = this.a.c;
-        a2.d(E2, String.valueOf(j), true);
+        a2.d(currentAccount2, String.valueOf(j), true);
         return null;
     }
 }

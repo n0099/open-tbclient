@@ -8,94 +8,94 @@ import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.message.ResponseNearbyGroupsMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
-import com.baidu.tieba.im.model.ay;
-import com.baidu.tieba.im.p;
+import com.baidu.tieba.im.model.bd;
 /* loaded from: classes.dex */
-final class e extends com.baidu.adp.framework.c.g {
+class e extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ NearbyGroupsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(NearbyGroupsActivity nearbyGroupsActivity, int i) {
-        super(0);
+        super(i);
         this.a = nearbyGroupsActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
-        ay ayVar;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [356=4] */
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        bd bdVar;
         m mVar;
         m mVar2;
-        ay ayVar2;
-        ay ayVar3;
+        bd bdVar2;
+        bd bdVar3;
         m mVar3;
         m mVar4;
-        ay ayVar4;
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        if (socketResponsedMessage2 != null) {
-            if (socketResponsedMessage2.g() == 103105) {
-                if (socketResponsedMessage2 instanceof ResponseUpgradeMemberGroupMessage) {
-                    ResponseUpgradeMemberGroupMessage responseUpgradeMemberGroupMessage = (ResponseUpgradeMemberGroupMessage) socketResponsedMessage2;
-                    if (responseUpgradeMemberGroupMessage.e() == 0 || responseUpgradeMemberGroupMessage.e() == 2230110) {
-                        ayVar4 = this.a.c;
-                        ayVar4.d();
-                    }
+        bd bdVar4;
+        if (socketResponsedMessage == null) {
+            return;
+        }
+        if (socketResponsedMessage.getCmd() == 103105) {
+            if (socketResponsedMessage instanceof ResponseUpgradeMemberGroupMessage) {
+                ResponseUpgradeMemberGroupMessage responseUpgradeMemberGroupMessage = (ResponseUpgradeMemberGroupMessage) socketResponsedMessage;
+                if (responseUpgradeMemberGroupMessage.getError() == 0 || responseUpgradeMemberGroupMessage.getError() == 2230110) {
+                    bdVar4 = this.a.c;
+                    bdVar4.d();
                 }
-            } else if (socketResponsedMessage2.g() != 103009) {
-                if (socketResponsedMessage2.g() == 103008 && (socketResponsedMessage2 instanceof ResponseUserPermissionMessage)) {
-                    try {
-                        ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage2;
-                        if (responseUserPermissionMessage.e() > 0) {
-                            this.a.showToast(responseUserPermissionMessage.f());
-                            return;
-                        }
-                        GroupPermData d = responseUserPermissionMessage.d();
-                        if (d != null) {
-                            if (d.isCreatePersonal()) {
-                                CreateGroupStepActivity.a(this.a, 2, 0, 1011, d.getCanCreateNormalNum(), d.getCanCreateOfficialNum(), d.getCanCreatePersonalNum());
-                            } else if (!TextUtils.isEmpty(d.getCreatePersonalTip())) {
-                                this.a.showToast(d.getCreatePersonalTip());
-                            }
-                        }
-                    } catch (Exception e) {
-                    } finally {
-                        this.a.hideProgressBar();
-                    }
-                }
-            } else {
-                ayVar = this.a.c;
-                ayVar.a(false);
-                if (!(socketResponsedMessage2 instanceof ResponseNearbyGroupsMessage)) {
-                    mVar4 = this.a.b;
-                    mVar4.g();
-                    return;
-                }
-                p.a();
-                p.a(System.currentTimeMillis());
-                ResponseNearbyGroupsMessage responseNearbyGroupsMessage = (ResponseNearbyGroupsMessage) socketResponsedMessage2;
-                if (responseNearbyGroupsMessage.e() > 0) {
-                    this.a.showToast(responseNearbyGroupsMessage.f());
-                } else {
-                    NearbyGroupsData d2 = responseNearbyGroupsMessage.d();
-                    if (d2 != null) {
-                        ayVar2 = this.a.c;
-                        ayVar2.b(d2.getHasMore());
-                        ayVar3 = this.a.c;
-                        ayVar3.a(d2.getGeo());
-                    } else {
-                        d2 = new NearbyGroupsData();
-                    }
-                    mVar = this.a.b;
-                    mVar.a(d2);
-                    if (d2 != null && d2.size() > 0) {
-                        mVar2 = this.a.b;
-                        mVar2.a();
-                    }
-                }
-                mVar3 = this.a.b;
-                mVar3.g();
             }
+        } else if (socketResponsedMessage.getCmd() != 103009) {
+            if (socketResponsedMessage.getCmd() == 103008 && (socketResponsedMessage instanceof ResponseUserPermissionMessage)) {
+                try {
+                    ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage;
+                    if (responseUserPermissionMessage.getError() > 0) {
+                        this.a.showToast(responseUserPermissionMessage.getErrorString());
+                        return;
+                    }
+                    GroupPermData groupPermData = responseUserPermissionMessage.getGroupPermData();
+                    if (groupPermData != null) {
+                        if (groupPermData.isCreatePersonal()) {
+                            CreateGroupStepActivity.a(this.a, 2, 0, 1011, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
+                        } else if (!TextUtils.isEmpty(groupPermData.getCreatePersonalTip())) {
+                            this.a.showToast(groupPermData.getCreatePersonalTip());
+                        }
+                    }
+                } catch (Exception e) {
+                } finally {
+                    this.a.hideProgressBar();
+                }
+            }
+        } else {
+            bdVar = this.a.c;
+            bdVar.a(false);
+            if (!(socketResponsedMessage instanceof ResponseNearbyGroupsMessage)) {
+                mVar4 = this.a.b;
+                mVar4.e();
+                return;
+            }
+            com.baidu.tieba.im.e.a().a(System.currentTimeMillis());
+            ResponseNearbyGroupsMessage responseNearbyGroupsMessage = (ResponseNearbyGroupsMessage) socketResponsedMessage;
+            if (responseNearbyGroupsMessage.getError() > 0) {
+                this.a.showToast(responseNearbyGroupsMessage.getErrorString());
+            } else {
+                NearbyGroupsData nearbyGroups = responseNearbyGroupsMessage.getNearbyGroups();
+                if (nearbyGroups != null) {
+                    bdVar2 = this.a.c;
+                    bdVar2.b(nearbyGroups.getHasMore());
+                    bdVar3 = this.a.c;
+                    bdVar3.a(nearbyGroups.getGeo());
+                } else {
+                    nearbyGroups = new NearbyGroupsData();
+                }
+                mVar = this.a.b;
+                mVar.a(nearbyGroups);
+                if (nearbyGroups != null && nearbyGroups.size() > 0) {
+                    mVar2 = this.a.b;
+                    mVar2.a();
+                }
+            }
+            mVar3 = this.a.b;
+            mVar3.e();
         }
     }
 }

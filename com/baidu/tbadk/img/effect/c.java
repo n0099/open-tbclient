@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class c {
+public class c {
     private static c a = new c();
     private final HashMap<String, Class<? extends b>> b = new HashMap<>();
 
@@ -19,7 +19,7 @@ public final class c {
         a(e.class);
     }
 
-    public final Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list) {
+    public Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list) {
         d dVar;
         Bitmap bitmap2;
         int i;
@@ -71,7 +71,7 @@ public final class c {
         return bitmap;
     }
 
-    public final Bitmap a(String str, List<ImageOperation> list) {
+    public Bitmap a(String str, List<ImageOperation> list) {
         d dVar;
         int i;
         int i2 = 0;
@@ -121,7 +121,7 @@ public final class c {
         }
     }
 
-    private b a(ImageOperation imageOperation) {
+    protected b a(ImageOperation imageOperation) {
         b b;
         Class<? extends b> cls = this.b.get(imageOperation.actionName);
         if (cls != null && (b = b(cls)) != null) {
@@ -138,7 +138,7 @@ public final class c {
         }
     }
 
-    private static b b(Class<? extends b> cls) {
+    private b b(Class<? extends b> cls) {
         try {
             return cls.newInstance();
         } catch (IllegalAccessException e) {

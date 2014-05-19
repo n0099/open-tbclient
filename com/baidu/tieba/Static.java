@@ -1,14 +1,17 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 /* loaded from: classes.dex */
 public class Static {
-    private static final com.baidu.adp.framework.c.a a = new j(0);
+    private static final CustomMessageListener a = new x(0);
 
     static {
-        p.a();
-        com.baidu.adp.framework.c.a().a(2005009, a);
-        com.baidu.adp.framework.c.a().a(2005010, a);
-        com.baidu.adp.framework.c.a().a(2005011, a);
-        com.baidu.adp.framework.c.a().a(2005012, a);
-        com.baidu.adp.framework.c.a().a(2005013, a);
+        ad.a();
+        MessageManager.getInstance().registerListener(2007009, a);
+        MessageManager.getInstance().registerListener(2007010, a);
+        MessageManager.getInstance().registerListener(2007011, a);
+        MessageManager.getInstance().registerListener(2007012, a);
+        MessageManager.getInstance().registerListener(2007013, a);
     }
 }

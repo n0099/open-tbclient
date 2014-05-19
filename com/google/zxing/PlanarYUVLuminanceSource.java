@@ -24,7 +24,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public final byte[] getRow(int i, byte[] bArr) {
+    public byte[] getRow(int i, byte[] bArr) {
         if (i < 0 || i >= getHeight()) {
             throw new IllegalArgumentException("Requested row is outside the image: " + i);
         }
@@ -37,7 +37,7 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public final byte[] getMatrix() {
+    public byte[] getMatrix() {
         int width = getWidth();
         int height = getHeight();
         if (width == this.dataWidth && height == this.dataHeight) {
@@ -59,16 +59,16 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public final boolean isCropSupported() {
+    public boolean isCropSupported() {
         return true;
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public final LuminanceSource crop(int i, int i2, int i3, int i4) {
+    public LuminanceSource crop(int i, int i2, int i3, int i4) {
         return new PlanarYUVLuminanceSource(this.yuvData, this.dataWidth, this.dataHeight, this.left + i, this.top + i2, i3, i4, false);
     }
 
-    public final int[] renderThumbnail() {
+    public int[] renderThumbnail() {
         int width = getWidth() / 2;
         int height = getHeight() / 2;
         int[] iArr = new int[width * height];
@@ -84,11 +84,11 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         return iArr;
     }
 
-    public final int getThumbnailWidth() {
+    public int getThumbnailWidth() {
         return getWidth() / 2;
     }
 
-    public final int getThumbnailHeight() {
+    public int getThumbnailHeight() {
         return getHeight() / 2;
     }
 

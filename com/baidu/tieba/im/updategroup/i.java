@@ -2,7 +2,7 @@ package com.baidu.tieba.im.updategroup;
 
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
-final class i implements DialogInterface.OnClickListener {
+class i implements DialogInterface.OnClickListener {
     final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ final class i implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         DialogInterface.OnClickListener onClickListener;
         DialogInterface.OnClickListener onClickListener2;
         onClickListener = this.a.a;

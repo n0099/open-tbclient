@@ -27,8 +27,18 @@ public class a {
         g = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, -9, -9, -9, -9, 37, -9, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
     }
 
+    private static final byte[] b(int i) {
+        if ((i & 16) == 16) {
+            return d;
+        }
+        if ((i & 32) == 32) {
+            return f;
+        }
+        return b;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public static final byte[] b(int i) {
+    public static final byte[] c(int i) {
         if ((i & 16) == 16) {
             return e;
         }
@@ -41,29 +51,34 @@ public class a {
     private a() {
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [571=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    public static byte[] a(byte[] bArr, int i, int i2, byte[] bArr2, int i3, int i4) {
-        byte[] bArr3 = (i4 & 16) == 16 ? d : (i4 & 32) == 32 ? f : b;
+    public static byte[] b(byte[] bArr, byte[] bArr2, int i, int i2) {
+        a(bArr2, 0, i, bArr, 0, i2);
+        return bArr;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [571=4] */
+    private static byte[] a(byte[] bArr, int i, int i2, byte[] bArr2, int i3, int i4) {
+        byte[] b2 = b(i4);
         int i5 = (i2 > 2 ? (bArr[i + 2] << 24) >>> 24 : 0) | (i2 > 1 ? (bArr[i + 1] << 24) >>> 16 : 0) | (i2 > 0 ? (bArr[i] << 24) >>> 8 : 0);
         switch (i2) {
             case 1:
-                bArr2[i3] = bArr3[i5 >>> 18];
-                bArr2[i3 + 1] = bArr3[(i5 >>> 12) & 63];
+                bArr2[i3] = b2[i5 >>> 18];
+                bArr2[i3 + 1] = b2[(i5 >>> 12) & 63];
                 bArr2[i3 + 2] = 61;
                 bArr2[i3 + 3] = 61;
                 break;
             case 2:
-                bArr2[i3] = bArr3[i5 >>> 18];
-                bArr2[i3 + 1] = bArr3[(i5 >>> 12) & 63];
-                bArr2[i3 + 2] = bArr3[(i5 >>> 6) & 63];
+                bArr2[i3] = b2[i5 >>> 18];
+                bArr2[i3 + 1] = b2[(i5 >>> 12) & 63];
+                bArr2[i3 + 2] = b2[(i5 >>> 6) & 63];
                 bArr2[i3 + 3] = 61;
                 break;
             case 3:
-                bArr2[i3] = bArr3[i5 >>> 18];
-                bArr2[i3 + 1] = bArr3[(i5 >>> 12) & 63];
-                bArr2[i3 + 2] = bArr3[(i5 >>> 6) & 63];
-                bArr2[i3 + 3] = bArr3[i5 & 63];
+                bArr2[i3] = b2[i5 >>> 18];
+                bArr2[i3 + 1] = b2[(i5 >>> 12) & 63];
+                bArr2[i3 + 2] = b2[(i5 >>> 6) & 63];
+                bArr2[i3 + 3] = b2[i5 & 63];
                 break;
         }
         return bArr2;
@@ -84,8 +99,8 @@ public class a {
         throw new AssertionError();
     }
 
-    private static String a(byte[] bArr, int i, int i2, int i3) {
-        byte[] b2 = b(bArr, 0, i2, 0);
+    public static String a(byte[] bArr, int i, int i2, int i3) {
+        byte[] b2 = b(bArr, i, i2, i3);
         try {
             return new String(b2, "US-ASCII");
         } catch (UnsupportedEncodingException e2) {
@@ -93,7 +108,7 @@ public class a {
         }
     }
 
-    private static byte[] b(byte[] bArr, int i, int i2, int i3) {
+    public static byte[] b(byte[] bArr, int i, int i2, int i3) {
         b bVar;
         ByteArrayOutputStream byteArrayOutputStream;
         ByteArrayOutputStream byteArrayOutputStream2;
@@ -238,17 +253,17 @@ public class a {
         if (i2 < 0 || i2 + 2 >= bArr2.length) {
             throw new IllegalArgumentException(String.format("Destination array with length %d cannot have offset of %d and still store three bytes.", Integer.valueOf(bArr2.length), Integer.valueOf(i2)));
         }
-        byte[] b2 = b(i3);
+        byte[] c2 = c(i3);
         if (bArr[i + 2] == 61) {
-            bArr2[i2] = (byte) ((((b2[bArr[i]] & 255) << 18) | ((b2[bArr[i + 1]] & 255) << 12)) >>> 16);
+            bArr2[i2] = (byte) ((((c2[bArr[i]] & 255) << 18) | ((c2[bArr[i + 1]] & 255) << 12)) >>> 16);
             return 1;
         } else if (bArr[i + 3] == 61) {
-            int i4 = ((b2[bArr[i]] & 255) << 18) | ((b2[bArr[i + 1]] & 255) << 12) | ((b2[bArr[i + 2]] & 255) << 6);
+            int i4 = ((c2[bArr[i]] & 255) << 18) | ((c2[bArr[i + 1]] & 255) << 12) | ((c2[bArr[i + 2]] & 255) << 6);
             bArr2[i2] = (byte) (i4 >>> 16);
             bArr2[i2 + 1] = (byte) (i4 >>> 8);
             return 2;
         } else {
-            int i5 = ((b2[bArr[i]] & 255) << 18) | ((b2[bArr[i + 1]] & 255) << 12) | ((b2[bArr[i + 2]] & 255) << 6) | (b2[bArr[i + 3]] & 255);
+            int i5 = ((c2[bArr[i]] & 255) << 18) | ((c2[bArr[i + 1]] & 255) << 12) | ((c2[bArr[i + 2]] & 255) << 6) | (c2[bArr[i + 3]] & 255);
             bArr2[i2] = (byte) (i5 >> 16);
             bArr2[i2 + 1] = (byte) (i5 >> 8);
             bArr2[i2 + 2] = (byte) i5;
@@ -256,25 +271,25 @@ public class a {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0065, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x006a, code lost:
         r2 = new byte[r0];
         java.lang.System.arraycopy(r6, 0, r2, 0, r0);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:?, code lost:
         return r2;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static byte[] c(byte[] bArr, int i, int i2, int i3) {
+    public static byte[] c(byte[] bArr, int i, int i2, int i3) {
         int i4;
         int i5;
         int i6;
         if (bArr == null) {
             throw new NullPointerException("Cannot decode null source array.");
         }
-        if (i2 + 0 > bArr.length) {
-            throw new IllegalArgumentException(String.format("Source array with length %d cannot have offset of %d and process %d bytes.", Integer.valueOf(bArr.length), 0, Integer.valueOf(i2)));
+        if (i < 0 || i + i2 > bArr.length) {
+            throw new IllegalArgumentException(String.format("Source array with length %d cannot have offset of %d and process %d bytes.", Integer.valueOf(bArr.length), Integer.valueOf(i), Integer.valueOf(i2)));
         }
         if (i2 == 0) {
             return new byte[0];
@@ -282,20 +297,20 @@ public class a {
         if (i2 < 4) {
             throw new IllegalArgumentException("Base64-encoded string must have at least four characters, but length specified was " + i2);
         }
-        byte[] b2 = b(i3);
+        byte[] c2 = c(i3);
         byte[] bArr2 = new byte[(i2 * 3) / 4];
         byte[] bArr3 = new byte[4];
-        int i7 = 0;
+        int i7 = i;
         int i8 = 0;
         int i9 = 0;
         while (true) {
-            if (i7 >= i2 + 0) {
+            if (i7 >= i + i2) {
                 i4 = i9;
                 break;
             }
-            byte b3 = b2[bArr[i7] & 255];
-            if (b3 >= -5) {
-                if (b3 >= -1) {
+            byte b2 = c2[bArr[i7] & 255];
+            if (b2 >= -5) {
+                if (b2 >= -1) {
                     i5 = i8 + 1;
                     bArr3[i8] = bArr[i7];
                     if (i5 > 3) {
@@ -325,7 +340,7 @@ public class a {
         return a(str, 0);
     }
 
-    private static byte[] a(String str, int i) {
+    public static byte[] a(String str, int i) {
         byte[] bytes;
         ByteArrayOutputStream byteArrayOutputStream;
         ByteArrayInputStream byteArrayInputStream;
@@ -339,8 +354,9 @@ public class a {
         } catch (UnsupportedEncodingException e2) {
             bytes = str.getBytes();
         }
-        byte[] c2 = c(bytes, 0, bytes.length, 0);
-        if (c2 != null && c2.length >= 4 && 35615 == ((c2[0] & 255) | ((c2[1] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK))) {
+        byte[] c2 = c(bytes, 0, bytes.length, i);
+        boolean z = (i & 4) != 0;
+        if (c2 != null && c2.length >= 4 && !z && 35615 == ((c2[0] & 255) | ((c2[1] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK))) {
             byte[] bArr = new byte[2048];
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream();

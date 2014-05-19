@@ -4,7 +4,7 @@ import android.widget.PopupWindow;
 import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class z implements PopupWindow.OnDismissListener {
+public class z implements PopupWindow.OnDismissListener {
     final /* synthetic */ w a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,12 +13,12 @@ public final class z implements PopupWindow.OnDismissListener {
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
-    public final void onDismiss() {
+    public void onDismiss() {
         this.a.C = false;
-        if (TbadkApplication.j().l() == 1) {
-            this.a.A.setImageResource(com.baidu.tieba.a.g.btn_allsproutpop_down_1);
+        if (TbadkApplication.m252getInst().getSkinType() == 1) {
+            this.a.A.setImageResource(com.baidu.tieba.q.btn_allsproutpop_down_1);
         } else {
-            this.a.A.setImageResource(com.baidu.tieba.a.g.btn_allsproutpop_down);
+            this.a.A.setImageResource(com.baidu.tieba.q.btn_allsproutpop_down);
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget.richText;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
     private String a;
     private String b;
 
@@ -23,23 +23,23 @@ public final class b {
         this.b = str2;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.a = str;
     }
 
-    public final void b(String str) {
+    public void b(String str) {
         this.b = str;
     }
 
-    public final String a() {
+    public String a() {
         return this.a;
     }
 
-    public final String b() {
+    public String b() {
         return this.b;
     }
 
-    public final void c() {
+    public void c() {
         if (this.a != null) {
             this.a = this.a.replaceAll(IOUtils.LINE_SEPARATOR_UNIX, "");
         }

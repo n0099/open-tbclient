@@ -1,59 +1,15 @@
 package com.baidu.tbadk.core.data;
 
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class h {
-    private UserData a = new UserData();
-    private AntiData b = new AntiData();
-    private ArrayList<String> c;
-    private int d;
+public class h extends o {
+    private ArrayList<LiveCardData> c;
 
-    public h() {
-        this.c = null;
-        this.d = 0;
-        this.c = new ArrayList<>();
-        this.d = 0;
-    }
-
-    public final UserData a() {
-        return this.a;
-    }
-
-    public final AntiData b() {
-        return this.b;
-    }
-
-    public final void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("LoginData", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public final void a(JSONObject jSONObject) {
-        try {
-            this.a.parserJson(jSONObject.optJSONObject("user"));
-            this.b.parserJson(jSONObject.optJSONObject("anti"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.c.add(optJSONArray.optString(i, null));
-                }
-            }
-            this.d = jSONObject.optInt("retrytime");
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("LoginData", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public final ArrayList<String> c() {
+    public ArrayList<LiveCardData> a() {
         return this.c;
     }
 
-    public final int d() {
-        return this.d;
+    public void a(ArrayList<LiveCardData> arrayList) {
+        this.c = arrayList;
     }
 }

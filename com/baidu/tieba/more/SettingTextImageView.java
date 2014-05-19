@@ -23,46 +23,35 @@ public class SettingTextImageView extends FrameLayout {
         super(context, attributeSet);
         this.a = context;
         d();
-        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tieba.a.m.TbSettingView);
-        String string = obtainStyledAttributes.getString(0);
-        int color = obtainStyledAttributes.getColor(1, -1);
-        obtainStyledAttributes.recycle();
-        if (string != null) {
-            this.c.setText(string);
-        }
-        if (color >= 0) {
-            this.c.setTextColor(color);
-        }
-        this.b.setClickable(false);
-        this.b.setFocusable(false);
-        a(TbadkApplication.j().l());
+        a(attributeSet);
+        a(TbadkApplication.m252getInst().getSkinType());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.a = context;
         d();
-        a(TbadkApplication.j().l());
+        a(TbadkApplication.m252getInst().getSkinType());
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (i == 1) {
-            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.about_tip_color_1));
-            this.e.setImageResource(com.baidu.tieba.a.g.icon_arrow_right_1);
+            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.about_tip_color_1));
+            this.e.setImageResource(com.baidu.tieba.q.icon_arrow_right_1);
         } else {
-            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.about_tip_color));
-            this.e.setImageResource(com.baidu.tieba.a.g.icon_arrow_right);
+            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.about_tip_color));
+            this.e.setImageResource(com.baidu.tieba.q.icon_arrow_right);
         }
         this.d.invalidate();
     }
 
-    public final void a() {
+    public void a() {
         if (this.d != null) {
             this.d.setVisibility(8);
         }
     }
 
-    public final void b() {
+    public void b() {
         if (this.d != null) {
             this.d.setVisibility(0);
         }
@@ -72,15 +61,9 @@ public class SettingTextImageView extends FrameLayout {
         this.c.setText(str);
     }
 
-    public void setIcon(String str) {
-        if (this.d != null) {
-            this.d.a(str, 1);
-        }
-    }
-
-    public void setIcon(com.baidu.adp.widget.ImageView.b bVar) {
-        if (this.d != null && bVar != null) {
-            bVar.a(this.d);
+    public void setIcon(com.baidu.adp.widget.a.a aVar) {
+        if (this.d != null && aVar != null) {
+            aVar.a(this.d);
         }
     }
 
@@ -89,18 +72,33 @@ public class SettingTextImageView extends FrameLayout {
             this.d.setDefaultResource(0);
             this.d.setIsRound(true);
             this.d.setNightDefaultResource(0);
-            this.d.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.a.g.person_photo));
+            this.d.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.person_photo));
         }
     }
 
-    public static void c() {
+    public void c() {
     }
 
     private void d() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.setting_text_image_view, (ViewGroup) this, true);
-        this.b = (LinearLayout) findViewById(com.baidu.tieba.a.h.container);
-        this.c = (TextView) findViewById(com.baidu.tieba.a.h.text);
-        this.d = (HeadImageView) findViewById(com.baidu.tieba.a.h.icon);
-        this.e = (ImageView) findViewById(com.baidu.tieba.a.h.arrow);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.setting_text_image_view, (ViewGroup) this, true);
+        this.b = (LinearLayout) findViewById(com.baidu.tieba.r.container);
+        this.c = (TextView) findViewById(com.baidu.tieba.r.text);
+        this.d = (HeadImageView) findViewById(com.baidu.tieba.r.icon);
+        this.e = (ImageView) findViewById(com.baidu.tieba.r.arrow);
+    }
+
+    private void a(AttributeSet attributeSet) {
+        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tieba.w.TbSettingView);
+        String string = obtainStyledAttributes.getString(0);
+        int color = obtainStyledAttributes.getColor(1, -1);
+        obtainStyledAttributes.recycle();
+        if (string != null) {
+            this.c.setText(string);
+        }
+        if (color > -1) {
+            this.c.setTextColor(color);
+        }
+        this.b.setClickable(false);
+        this.b.setFocusable(false);
     }
 }

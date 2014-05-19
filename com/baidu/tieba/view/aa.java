@@ -1,28 +1,26 @@
 package com.baidu.tieba.view;
 
-import com.baidu.tbadk.core.view.HeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public final class aa implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ UserPhotoLayout a;
-    private final /* synthetic */ HeadImageView b;
-    private final /* synthetic */ String c;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(UserPhotoLayout userPhotoLayout, HeadImageView headImageView, String str) {
-        this.a = userPhotoLayout;
-        this.b = headImageView;
-        this.c = str;
+public class aa extends com.baidu.adp.widget.ScrollView.p {
+    public aa(Context context) {
+        super(context);
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null) {
-            this.b.setTag(null);
-            bVar.a(this.b);
-            return;
+    public void a(int i) {
+        TextView d = d();
+        TextView c = c();
+        if (d != null && c != null) {
+            if (i == 1) {
+                int color = h().getResources().getColor(com.baidu.tieba.o.adp_pullview_night);
+                d.setTextColor(color);
+                c.setTextColor(color);
+                return;
+            }
+            int color2 = h().getResources().getColor(com.baidu.tieba.o.adp_pullview_day);
+            d.setTextColor(color2);
+            c.setTextColor(color2);
         }
-        this.b.setTag(this.c);
-        this.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.a.g.photo));
     }
 }

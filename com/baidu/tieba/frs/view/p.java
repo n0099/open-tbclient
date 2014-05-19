@@ -1,32 +1,64 @@
 package com.baidu.tieba.frs.view;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.tbadk.browser.TbWebViewActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class p implements View.OnClickListener {
-    final /* synthetic */ n a;
+class p {
+    int a = 0;
+    ArrayList<int[]> b = new ArrayList<>();
+    final /* synthetic */ WaterFallView c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(n nVar) {
-        this.a = nVar;
+    public p(WaterFallView waterFallView) {
+        this.c = waterFallView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        String str;
-        Activity activity;
-        Activity activity2;
-        String str2;
-        str = this.a.ar;
-        if (!TextUtils.isEmpty(str)) {
-            activity = this.a.y;
-            activity2 = this.a.y;
-            String string = activity2.getString(com.baidu.tieba.a.k.frs_badge_intro);
-            str2 = this.a.ar;
-            TbWebViewActivity.b(activity, string, str2);
+    public void a(int i) {
+        this.a += i;
+        this.b.add(new int[]{this.a, this.a});
+    }
+
+    public void a() {
+        this.a = 0;
+        this.b.clear();
+    }
+
+    public int b() {
+        return this.a;
+    }
+
+    public int b(int i) {
+        int size = this.b.size();
+        for (int i2 = 0; i2 < size; i2++) {
+            if (this.b.get(i2)[1] > i) {
+                return i2;
+            }
         }
+        return -1;
+    }
+
+    public int c(int i) {
+        int i2;
+        int size = this.b.size();
+        if (size <= 0) {
+            return -1;
+        }
+        int i3 = 0;
+        while (true) {
+            if (i3 >= size) {
+                i2 = i3;
+                break;
+            } else if (this.b.get(i3)[0] <= i) {
+                i3++;
+            } else {
+                i2 = i3 - 1;
+                break;
+            }
+        }
+        if (i2 < 0) {
+            i2 = 0;
+        }
+        if (i2 >= size) {
+            return size - 1;
+        }
+        return i2;
     }
 }

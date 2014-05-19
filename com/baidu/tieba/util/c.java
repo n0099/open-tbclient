@@ -5,7 +5,7 @@ import android.content.DialogInterface;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tieba.account.appeal.AppealActivity;
 /* loaded from: classes.dex */
-final class c implements DialogInterface.OnClickListener {
+class c implements DialogInterface.OnClickListener {
     private final /* synthetic */ Context a;
     private final /* synthetic */ AntiData b;
 
@@ -16,7 +16,7 @@ final class c implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         dialogInterface.dismiss();
         AppealActivity.a(this.a, this.b.getBlock_forum_id(), this.b.getUser_id(), this.b.getUser_name());
     }

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat.personaltalk;
 import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class n extends com.baidu.tieba.im.m<PersonalSettingItemData> {
+public class n extends com.baidu.tieba.im.b<PersonalSettingItemData> {
     final /* synthetic */ k b;
     private final /* synthetic */ long c;
 
@@ -13,9 +13,10 @@ public final class n extends com.baidu.tieba.im.m<PersonalSettingItemData> {
         this.c = j;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ PersonalSettingItemData a() {
-        return a.a().b(TbadkApplication.E(), String.valueOf(this.c));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public PersonalSettingItemData a() {
+        return a.a().b(TbadkApplication.getCurrentAccount(), String.valueOf(this.c));
     }
 }

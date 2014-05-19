@@ -1,46 +1,47 @@
 package com.baidu.tieba.model;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.ForumData;
 import java.util.ArrayList;
 import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class d {
+public class d {
     private int e = 0;
     private ArrayList<ForumData> a = new ArrayList<>();
-    private com.baidu.tbadk.core.data.l b = new com.baidu.tbadk.core.data.l();
+    private com.baidu.tbadk.core.data.m b = new com.baidu.tbadk.core.data.m();
     private Date c = null;
     private boolean d = true;
 
-    public final int a() {
+    public int a() {
         return this.e;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.e = i;
     }
 
-    public final ArrayList<ForumData> b() {
+    public ArrayList<ForumData> b() {
         return this.a;
     }
 
-    public final void a(ArrayList<ForumData> arrayList) {
+    public void a(ArrayList<ForumData> arrayList) {
         this.a = arrayList;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         if (str != null) {
             try {
                 a(new JSONObject(str));
             } catch (Exception e) {
                 this.d = false;
-                com.baidu.adp.lib.util.f.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+                BdLog.e("BarlistModel", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    private void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         try {
             JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
             if (optJSONObject != null) {
@@ -71,7 +72,7 @@ public final class d {
             }
         } catch (Exception e) {
             this.d = false;
-            com.baidu.adp.lib.util.f.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            BdLog.e("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

@@ -16,6 +16,8 @@ public class a extends IPackageInstallObserver.Stub {
 
     @Override // android.content.pm.IPackageInstallObserver
     public void packageInstalled(String str, int i) {
+        if (i == 1) {
+        }
         if (e.a(this.a).a()) {
             e.a(this.a).b(this.a, this.b);
         }

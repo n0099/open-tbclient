@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public final class d implements x {
+public class d implements x {
     private CreateGroupStepActivity a;
     private int b;
     private View c;
@@ -15,60 +15,60 @@ public final class d implements x {
 
     public d(CreateGroupStepActivity createGroupStepActivity, int i, int i2) {
         this.a = createGroupStepActivity;
-        this.c = createGroupStepActivity.getLayoutInflater().inflate(com.baidu.tieba.im.i.create_group_lbs_tips, (ViewGroup) null);
-        this.e = (Button) this.c.findViewById(com.baidu.tieba.im.h.create_group_tips_btn);
-        this.d = (ImageView) this.c.findViewById(com.baidu.tieba.im.h.create_group_tips_image);
+        this.c = createGroupStepActivity.getLayoutInflater().inflate(com.baidu.tieba.s.create_group_lbs_tips, (ViewGroup) null);
+        this.e = (Button) this.c.findViewById(com.baidu.tieba.r.create_group_tips_btn);
+        this.d = (ImageView) this.c.findViewById(com.baidu.tieba.r.create_group_tips_image);
         this.b = i;
-        this.e.setText(String.format(createGroupStepActivity.getString(com.baidu.tieba.im.j.group_create_can_create_num), Integer.valueOf(i2)));
+        this.e.setText(String.format(createGroupStepActivity.getString(com.baidu.tieba.u.group_create_can_create_num), Integer.valueOf(i2)));
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public final void g() {
+    public void h() {
         this.d.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public final void h() {
-        this.a.getLayoutMode().a(TbadkApplication.j().l() == 1);
+    public void i() {
+        this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
         this.a.getLayoutMode().a(this.c);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public final View a() {
+    public View a() {
         return this.c;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public final int b() {
+    public int b() {
         return this.b;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public final String i() {
-        return this.a.getString(com.baidu.tieba.im.j.group_create_tips_lbs);
+    public String j() {
+        return this.a.getString(com.baidu.tieba.u.group_create_tips_lbs);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public final String j() {
+    public String k() {
         return "";
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public final boolean k() {
+    public boolean l() {
         return false;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public final String l() {
+    public String m() {
         return null;
     }
 
-    public final Button c() {
+    public Button c() {
         return this.e;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public final boolean m() {
+    public boolean n() {
         return false;
     }
 }

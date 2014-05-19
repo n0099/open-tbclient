@@ -1,43 +1,57 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.MetaData;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class r {
+public class r {
     private final ArrayList<MetaData> a = new ArrayList<>();
     private HashMap<String, String> b = null;
 
-    public final void a(JSONObject jSONObject, boolean z) {
+    public void a(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
-            try {
-                if (this.b == null) {
-                    this.b = new HashMap<>();
+            if (z) {
+                try {
+                    if (this.b == null) {
+                        this.b = new HashMap<>();
+                    }
+                } catch (Exception e) {
+                    BdLog.e("FriendData", "parserFreindJson", "error = " + e.getMessage());
+                    return;
                 }
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        MetaData metaData = new MetaData();
-                        metaData.parserJson(optJSONArray.getJSONObject(i));
-                        if (metaData.getName_show() != null) {
-                            this.a.add(metaData);
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    MetaData metaData = new MetaData();
+                    metaData.parserJson(optJSONArray.getJSONObject(i));
+                    if (metaData.getName_show() != null) {
+                        this.a.add(metaData);
+                        if (z) {
                             this.b.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
             }
         }
     }
 
-    public final ArrayList<MetaData> a() {
+    public void a(String str) {
+        try {
+            a(new JSONObject(str), true);
+        } catch (Exception e) {
+            BdLog.e("FriendData", "parserFreindJson", "error = " + e.getMessage());
+        }
+    }
+
+    public ArrayList<MetaData> a() {
         return this.a;
     }
 
-    public final HashMap<String, String> b() {
+    public HashMap<String, String> b() {
         return this.b;
     }
 }

@@ -2,14 +2,18 @@ package com.baidu.tieba.frs;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.frs.view.FrsHeaderView;
 /* loaded from: classes.dex */
-final class r implements View.OnClickListener {
+class r implements View.OnClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,151 +22,162 @@ final class r implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        cm cmVar;
-        cm cmVar2;
-        cm cmVar3;
-        cm cmVar4;
-        cm cmVar5;
-        cm cmVar6;
-        cm cmVar7;
-        cm cmVar8;
-        cm cmVar9;
-        cm cmVar10;
-        cm cmVar11;
-        cm cmVar12;
+    public void onClick(View view) {
+        cs csVar;
+        cs csVar2;
+        cs csVar3;
+        cs csVar4;
+        cs csVar5;
+        cs csVar6;
+        cs csVar7;
+        cs csVar8;
+        cs csVar9;
+        cs csVar10;
+        cs csVar11;
+        cs csVar12;
         String str;
-        ax axVar;
-        ax axVar2;
-        cm cmVar13;
+        az azVar;
+        az azVar2;
+        cs csVar13;
         g gVar;
         String str2;
-        cm cmVar14;
-        cm cmVar15;
+        cs csVar14;
+        cs csVar15;
         boolean z;
-        cm cmVar16;
-        cm cmVar17;
-        cm cmVar18;
+        cs csVar16;
+        cs csVar17;
+        cs csVar18;
         boolean z2;
-        cm cmVar19;
-        cm cmVar20;
-        cm cmVar21;
-        cm cmVar22;
-        boolean z3;
-        cm cmVar23;
-        String str3;
-        String str4;
-        cm cmVar24;
-        cm cmVar25;
+        cs csVar19;
+        cs csVar20;
+        cs csVar21;
         g gVar2;
         g gVar3;
         g gVar4;
         g gVar5;
         g gVar6;
         g gVar7;
-        String str5;
-        cm cmVar26;
-        cm cmVar27;
         g gVar8;
-        String str6;
+        cs csVar22;
+        cs csVar23;
+        boolean z3;
+        cs csVar24;
+        String str3;
+        String str4;
+        cs csVar25;
+        cs csVar26;
         g gVar9;
         g gVar10;
-        cm cmVar28;
-        cm cmVar29;
+        g gVar11;
+        g gVar12;
+        g gVar13;
+        g gVar14;
+        String str5;
+        cs csVar27;
+        cs csVar28;
+        g gVar15;
+        String str6;
+        g gVar16;
+        g gVar17;
+        cs csVar29;
+        cs csVar30;
         String str7;
-        cm cmVar30;
-        cm cmVar31;
-        cm cmVar32;
-        UtilHelper.NetworkStateInfo d = UtilHelper.d(this.a);
-        cmVar = this.a.r;
-        if (view != cmVar.j()) {
-            cmVar2 = this.a.r;
-            if (view != cmVar2.d()) {
-                cmVar3 = this.a.r;
-                if (view != cmVar3.i()) {
-                    cmVar4 = this.a.r;
-                    if (view != cmVar4.l()) {
-                        cmVar5 = this.a.r;
-                        if (view != cmVar5.k()) {
-                            cmVar6 = this.a.r;
-                            if (view == cmVar6.e()) {
-                                cmVar17 = this.a.r;
-                                cmVar17.b();
-                                cmVar18 = this.a.r;
-                                if (cmVar18.o().isMenuShowing()) {
-                                    cmVar19 = this.a.r;
-                                    cmVar19.o().toggle(true);
+        cs csVar31;
+        cs csVar32;
+        cs csVar33;
+        UtilHelper.NetworkStateInfo netStatusInfo = UtilHelper.getNetStatusInfo(this.a);
+        csVar = this.a.w;
+        if (view != csVar.j()) {
+            csVar2 = this.a.w;
+            if (view != csVar2.d()) {
+                csVar3 = this.a.w;
+                if (view != csVar3.i()) {
+                    csVar4 = this.a.w;
+                    if (view != csVar4.l()) {
+                        csVar5 = this.a.w;
+                        if (view != csVar5.k()) {
+                            csVar6 = this.a.w;
+                            if (view == csVar6.e()) {
+                                csVar17 = this.a.w;
+                                csVar17.b();
+                                csVar18 = this.a.w;
+                                if (csVar18.o().isMenuShowing()) {
+                                    csVar19 = this.a.w;
+                                    csVar19.o().toggle(true);
                                 }
-                                z2 = this.a.z;
+                                z2 = this.a.E;
                                 if (z2) {
-                                    this.a.z = false;
-                                    this.a.n();
+                                    this.a.E = false;
+                                    this.a.D();
                                 }
                             } else {
-                                cmVar7 = this.a.r;
-                                if (view != cmVar7.f()) {
-                                    cmVar8 = this.a.r;
-                                    if (view != cmVar8.g()) {
-                                        cmVar9 = this.a.r;
-                                        if (view != cmVar9.h()) {
-                                            cmVar10 = this.a.r;
-                                            FrsHeaderView v = cmVar10.v();
-                                            cmVar11 = this.a.r;
-                                            com.baidu.tieba.frs.view.n w = cmVar11.w();
-                                            if ((v != null && v.b(view)) || (w != null && w.b(view))) {
+                                csVar7 = this.a.w;
+                                if (view != csVar7.f()) {
+                                    csVar8 = this.a.w;
+                                    if (view != csVar8.g()) {
+                                        csVar9 = this.a.w;
+                                        if (view != csVar9.h()) {
+                                            csVar10 = this.a.w;
+                                            FrsHeaderView w = csVar10.w();
+                                            csVar11 = this.a.w;
+                                            com.baidu.tieba.frs.view.j x = csVar11.x();
+                                            if ((w != null && w.b(view)) || (x != null && x.b(view))) {
                                                 com.baidu.tbadk.core.g.a(this.a.getParent(), "forum_fortune_click");
-                                                if (!TbadkApplication.F()) {
+                                                if (!TbadkApplication.isLogin()) {
                                                     LoginActivity.a((Activity) this.a, (String) null, true, 18004);
                                                 } else {
-                                                    this.a.q();
+                                                    this.a.J();
                                                 }
                                             }
                                         } else {
-                                            TiebaStatic.a(this.a, "frs_add_shortcut", "frsclick", 1, new Object[0]);
-                                            cmVar12 = this.a.r;
-                                            cmVar12.b();
+                                            TiebaStatic.eventStat(this.a, "frs_add_shortcut", "frsclick", 1, new Object[0]);
+                                            csVar12 = this.a.w;
+                                            csVar12.b();
                                             FrsActivity frsActivity = this.a;
                                             FrsActivity frsActivity2 = this.a;
-                                            str = this.a.i;
-                                            frsActivity.R = new ax(frsActivity2, str);
-                                            axVar = this.a.R;
-                                            axVar.setSelfExecute(true);
-                                            axVar2 = this.a.R;
-                                            axVar2.execute(new String[0]);
+                                            str = this.a.n;
+                                            frsActivity.Y = new az(frsActivity2, str);
+                                            azVar = this.a.Y;
+                                            azVar.setSelfExecute(true);
+                                            azVar2 = this.a.Y;
+                                            azVar2.execute(new String[0]);
                                         }
                                     } else {
-                                        TiebaStatic.a(this.a, "frs_image_threads", "frsclick", 1, new Object[0]);
-                                        cmVar13 = this.a.r;
-                                        cmVar13.b();
-                                        TbadkApplication j = TbadkApplication.j();
-                                        gVar = this.a.D;
-                                        j.n(gVar.f().getName());
+                                        TiebaStatic.eventStat(this.a, "frs_image_threads", "frsclick", 1, new Object[0]);
+                                        csVar13 = this.a.w;
+                                        csVar13.b();
+                                        TbadkApplication m252getInst = TbadkApplication.m252getInst();
+                                        gVar = this.a.I;
+                                        m252getInst.addFrsImageForum(gVar.g().getName());
                                         FrsActivity frsActivity3 = this.a;
-                                        com.baidu.tbadk.core.b.l lVar = new com.baidu.tbadk.core.b.l(this.a);
-                                        str2 = this.a.i;
-                                        frsActivity3.sendMessage(new com.baidu.adp.framework.message.a(2003002, lVar.b(str2, null, 0)));
-                                        this.a.h();
+                                        com.baidu.tbadk.core.atomData.m mVar = new com.baidu.tbadk.core.atomData.m(this.a);
+                                        str2 = this.a.n;
+                                        frsActivity3.sendMessage(new CustomMessage(2005002, mVar.b(str2, null, 0)));
+                                        this.a.g();
                                     }
                                 } else {
-                                    TiebaStatic.a(this.a, "frs_good_threads", "frsclick", 1, new Object[0]);
-                                    cmVar14 = this.a.r;
-                                    cmVar14.b();
-                                    cmVar15 = this.a.r;
-                                    if (cmVar15.o().isMenuShowing()) {
-                                        cmVar16 = this.a.r;
-                                        cmVar16.o().toggle(true);
+                                    TiebaStatic.eventStat(this.a, "frs_good_threads", "frsclick", 1, new Object[0]);
+                                    csVar14 = this.a.w;
+                                    csVar14.b();
+                                    csVar15 = this.a.w;
+                                    if (csVar15.o().isMenuShowing()) {
+                                        csVar16 = this.a.w;
+                                        csVar16.o().toggle(true);
                                     }
-                                    z = this.a.z;
+                                    z = this.a.E;
                                     if (!z) {
-                                        this.a.z = true;
-                                        this.a.n();
+                                        this.a.E = true;
+                                        this.a.D();
                                     }
                                 }
                             }
                         } else {
-                            TiebaStatic.a(this.a, "frs_more", "frsclick", 1, new Object[0]);
-                            cmVar20 = this.a.r;
-                            cmVar20.a(true);
+                            TiebaStatic.eventStat(this.a, "frs_more", "frsclick", 1, new Object[0]);
+                            csVar20 = this.a.w;
+                            csVar20.Q();
+                            FrsActivity.b = false;
+                            csVar21 = this.a.w;
+                            csVar21.a(true);
                         }
                     } else {
                         this.a.closeActivity();
@@ -171,125 +186,160 @@ final class r implements View.OnClickListener {
                     this.a.closeActivity();
                 }
             } else {
-                this.a.r.a();
-                TiebaStatic.a(this.a, "frs_forum_name", "frsclick", 1, new Object[0]);
+                this.a.I();
+                TiebaStatic.eventStat(this.a, "frs_forum_name", "frsclick", 1, new Object[0]);
             }
         } else {
-            TiebaStatic.a(this.a, "frs_post_thread", "frsclick", 1, new Object[0]);
+            TiebaStatic.eventStat(this.a, "frs_post_thread", "frsclick", 1, new Object[0]);
             this.a.b(0);
         }
         int id = view.getId();
-        if (id == com.baidu.tieba.a.h.frs_bt_create) {
-            this.a.m();
-        } else if (id == com.baidu.tieba.a.h.btn_love) {
-            cmVar32 = this.a.r;
-            if (!cmVar32.t() && d != UtilHelper.NetworkStateInfo.UNAVAIL) {
+        if (id == com.baidu.tieba.r.frs_bt_create) {
+            this.a.C();
+        } else if (id == com.baidu.tieba.r.btn_love) {
+            csVar33 = this.a.w;
+            if (!csVar33.u() && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
                 this.a.j();
             }
-        } else if (id == com.baidu.tieba.a.h.btn_sign) {
-            cmVar30 = this.a.r;
-            if (!cmVar30.t() && d != UtilHelper.NetworkStateInfo.UNAVAIL) {
-                cmVar31 = this.a.r;
-                if (!cmVar31.F()) {
-                    this.a.k();
+        } else if (id == com.baidu.tieba.r.btn_sign) {
+            csVar31 = this.a.w;
+            if (!csVar31.u() && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                csVar32 = this.a.w;
+                if (!csVar32.H()) {
+                    this.a.l();
                 }
             }
-        } else if (id == com.baidu.tieba.a.h.add_fan) {
-            cmVar29 = this.a.r;
-            if (!cmVar29.t() && d != UtilHelper.NetworkStateInfo.UNAVAIL) {
+        } else if (id == com.baidu.tieba.r.add_fan) {
+            csVar30 = this.a.w;
+            if (!csVar30.u() && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
                 f a = f.a();
-                str7 = this.a.i;
+                str7 = this.a.n;
                 a.b(str7);
                 this.a.i();
             }
-        } else if (id == com.baidu.tieba.a.h.refresh_layout) {
-            TiebaStatic.a(this.a, "frs_refresh", "frsclick", 1, new Object[0]);
-            cmVar28 = this.a.r;
-            cmVar28.P();
-        } else if (id == com.baidu.tieba.a.h.message_layout) {
-            String E = TbadkApplication.E();
-            if (E != null && E.length() > 0) {
-                TiebaStatic.a(this.a, "frs_message", "frsclick", 1, new Object[0]);
-                this.a.sendMessage(new com.baidu.adp.framework.message.a(2015003, new com.baidu.tbadk.core.frameworkData.a(this.a)));
+        } else if (id == com.baidu.tieba.r.refresh_layout) {
+            TiebaStatic.eventStat(this.a, "frs_refresh", "frsclick", 1, new Object[0]);
+            csVar29 = this.a.w;
+            csVar29.S();
+        } else if (id == com.baidu.tieba.r.message_layout) {
+            FrsActivity.c = false;
+            FrsActivity.b = false;
+            this.a.f();
+            String currentAccount = TbadkApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
+                TiebaStatic.eventStat(this.a, "frs_message", "frsclick", 1, new Object[0]);
+                this.a.sendMessage(new CustomMessage(2017003, new com.baidu.tbadk.core.frameworkData.a(this.a)));
             }
-        } else if (id == com.baidu.tieba.a.h.forum_manager_center) {
+        } else if (id == com.baidu.tieba.r.forum_manager_center) {
             String str8 = "";
-            gVar8 = this.a.D;
-            if (gVar8 != null) {
-                gVar9 = this.a.D;
-                if (gVar9.f() != null) {
-                    gVar10 = this.a.D;
-                    str8 = gVar10.f().getId();
+            gVar15 = this.a.I;
+            if (gVar15 != null) {
+                gVar16 = this.a.I;
+                if (gVar16.g() != null) {
+                    gVar17 = this.a.I;
+                    str8 = gVar17.g().getId();
                 }
             }
             StringBuilder sb = new StringBuilder("http://tieba.baidu.com/mo/q/bawuindex?fn=");
-            str6 = this.a.i;
+            str6 = this.a.n;
             com.baidu.tbadk.browser.a.a(this.a, sb.append(str6).append("&fid=").append(str8).toString());
-        } else if (id == com.baidu.tieba.a.h.recommend_forum_item_layout) {
-            dk dkVar = (dk) view.getTag();
-            if (dkVar != null) {
-                String str9 = dkVar.a;
-                TiebaStatic.a(this.a, "sidebar_show", "sidebar_click", 1, "st_param", dkVar.b);
-                str5 = this.a.i;
+        } else if (id == com.baidu.tieba.r.recommend_forum_item_layout) {
+            ds dsVar = (ds) view.getTag();
+            if (dsVar != null) {
+                String str9 = dsVar.a;
+                TiebaStatic.eventStat(this.a, "sidebar_show", "sidebar_click", 1, "st_param", dsVar.b);
+                str5 = this.a.n;
                 if (str9.equals(str5)) {
-                    cmVar26 = this.a.r;
-                    if (cmVar26.o().isMenuShowing()) {
-                        cmVar27 = this.a.r;
-                        cmVar27.o().toggle(true);
+                    csVar27 = this.a.w;
+                    if (csVar27.o().isMenuShowing()) {
+                        csVar28 = this.a.w;
+                        csVar28.o().toggle(true);
                         return;
                     }
                     return;
                 }
-                this.a.s = "sidebar";
-                this.a.t = dkVar.b;
-                FrsActivity.g(this.a, str9);
+                this.a.x = "sidebar";
+                this.a.y = dsVar.b;
+                this.a.c(str9);
             }
-        } else if (id == com.baidu.tieba.a.h.frs_header_groups) {
-            gVar2 = this.a.D;
-            if (gVar2 != null) {
-                gVar3 = this.a.D;
-                if (gVar3.f() != null) {
-                    gVar4 = this.a.D;
-                    if (!com.baidu.adp.lib.util.h.b(gVar4.f().getId())) {
-                        gVar5 = this.a.D;
-                        if (gVar5.o() != null) {
-                            TiebaStatic.a(this.a, "im_e_glist_from_frs", "click", 1, new Object[0]);
+        } else if (id == com.baidu.tieba.r.frs_header_groups) {
+            gVar9 = this.a.I;
+            if (gVar9 != null) {
+                gVar10 = this.a.I;
+                if (gVar10.g() != null) {
+                    gVar11 = this.a.I;
+                    if (!com.baidu.adp.lib.util.g.b(gVar11.g().getId())) {
+                        gVar12 = this.a.I;
+                        if (gVar12.p() != null) {
+                            TiebaStatic.eventStat(this.a, "im_e_glist_from_frs", "click", 1, new Object[0]);
                             FrsActivity frsActivity4 = this.a;
-                            gVar6 = this.a.D;
-                            String id2 = gVar6.f().getId();
-                            gVar7 = this.a.D;
-                            this.a.sendMessage(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.m(frsActivity4, id2, gVar7.o().b() != 1)));
+                            gVar13 = this.a.I;
+                            String id2 = gVar13.g().getId();
+                            gVar14 = this.a.I;
+                            this.a.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.n(frsActivity4, id2, gVar14.p().b() != 1)));
                         }
                     }
                 }
             }
-        } else if (id == com.baidu.tieba.a.h.btn_love_content) {
-            cmVar22 = this.a.r;
-            if (!cmVar22.t()) {
-                z3 = this.a.N;
+        } else if (id == com.baidu.tieba.r.btn_love_content) {
+            csVar23 = this.a.w;
+            if (!csVar23.u()) {
+                z3 = this.a.U;
                 if (!z3) {
-                    cmVar23 = this.a.r;
-                    if (cmVar23 != null) {
-                        str3 = this.a.J;
+                    csVar24 = this.a.w;
+                    if (csVar24 != null) {
+                        str3 = this.a.O;
                         if (str3.equals("normal_page")) {
-                            cmVar25 = this.a.r;
-                            cmVar25.a(view);
+                            csVar26 = this.a.w;
+                            csVar26.a(view);
                             return;
                         }
-                        str4 = this.a.J;
+                        str4 = this.a.O;
                         if (str4.equals("frs_page")) {
-                            cmVar24 = this.a.r;
-                            cmVar24.b(view);
+                            csVar25 = this.a.w;
+                            csVar25.b(view);
                         }
                     }
                 }
             }
-        } else if (id == com.baidu.tieba.a.h.frs_new_guide) {
-            SharedPreferences.Editor edit = this.a.getSharedPreferences("settings", 0).edit();
+        } else if (id == com.baidu.tieba.r.frs_new_guide) {
+            SharedPreferences.Editor edit = this.a.getSharedPreferences(TbConfig.SETTINGFILE, 0).edit();
             edit.putBoolean(FrsActivity.a, true);
             edit.commit();
-            cmVar21 = this.a.r;
-            cmVar21.O();
+            csVar22 = this.a.w;
+            csVar22.R();
+        } else if (id == com.baidu.tieba.r.nb_item_live_text_btn) {
+            if (Build.VERSION.SDK_INT >= 9) {
+                gVar2 = this.a.I;
+                if (gVar2 != null) {
+                    gVar3 = this.a.I;
+                    if (gVar3.g() != null) {
+                        gVar4 = this.a.I;
+                        if (gVar4.g().getAnchorPower() != null) {
+                            gVar5 = this.a.I;
+                            if (gVar5.g().getAnchorPower().have_power.intValue() == 1) {
+                                com.baidu.tbadk.core.g.a(this.a.getBaseContext(), "start_live_bt");
+                                MessageManager messageManager = MessageManager.getInstance();
+                                FrsActivity frsActivity5 = this.a;
+                                gVar7 = this.a.I;
+                                int a2 = com.baidu.adp.lib.f.b.a(gVar7.g().getId(), 0);
+                                gVar8 = this.a.I;
+                                messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.af(frsActivity5, a2, gVar8.g().getName())));
+                                return;
+                            }
+                            FrsActivity frsActivity6 = this.a;
+                            gVar6 = this.a.I;
+                            frsActivity6.showToast(gVar6.g().getAnchorPower().anchor_message);
+                            return;
+                        }
+                        this.a.showToast(com.baidu.tieba.u.error);
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            this.a.showToast(com.baidu.tieba.u.live_error_system_not_support);
         }
     }
 }

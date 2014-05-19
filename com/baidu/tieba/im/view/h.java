@@ -10,8 +10,9 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HaloView;
+import com.baidu.tieba.s;
 /* loaded from: classes.dex */
-public final class h extends FrameLayout {
+public class h extends FrameLayout {
     public LinearLayout a;
     public Button b;
     public Context c;
@@ -35,17 +36,21 @@ public final class h extends FrameLayout {
         this.h = null;
         this.i = null;
         this.j = false;
-        this.c = context;
-        LayoutInflater.from(context).inflate(com.baidu.tieba.im.i.chatterbox_view, (ViewGroup) this, true);
-        this.b = (Button) findViewById(com.baidu.tieba.im.h.chat_select_btn);
-        this.d = (HaloView) findViewById(com.baidu.tieba.im.h.haloView);
-        this.e = (LinearLayout) findViewById(com.baidu.tieba.im.h.chat_view);
-        this.f = (TextView) findViewById(com.baidu.tieba.im.h.chat_view_content_1);
-        this.g = (TextView) findViewById(com.baidu.tieba.im.h.chat_view_content_2);
-        this.h = (TextView) findViewById(com.baidu.tieba.im.h.chat_view_content_3);
+        a(context);
     }
 
-    public final void a(boolean z, boolean z2) {
+    private void a(Context context) {
+        this.c = context;
+        LayoutInflater.from(context).inflate(s.chatterbox_view, (ViewGroup) this, true);
+        this.b = (Button) findViewById(com.baidu.tieba.r.chat_select_btn);
+        this.d = (HaloView) findViewById(com.baidu.tieba.r.haloView);
+        this.e = (LinearLayout) findViewById(com.baidu.tieba.r.chat_view);
+        this.f = (TextView) findViewById(com.baidu.tieba.r.chat_view_content_1);
+        this.g = (TextView) findViewById(com.baidu.tieba.r.chat_view_content_2);
+        this.h = (TextView) findViewById(com.baidu.tieba.r.chat_view_content_3);
+    }
+
+    public void a(boolean z, boolean z2) {
         boolean z3 = this.j;
         this.j = z;
         if (z2 || (!z3 && z3 != this.j)) {
@@ -70,7 +75,7 @@ public final class h extends FrameLayout {
         this.b.setVisibility(8);
     }
 
-    public final void setTitle(String str) {
+    public void setTitle(String str) {
         if (str == null || !str.equals(this.i)) {
             if (TextUtils.isEmpty(str)) {
                 b();
@@ -108,7 +113,7 @@ public final class h extends FrameLayout {
         }
     }
 
-    public final boolean a(View view) {
+    public boolean a(View view) {
         if (this.j) {
             return view == this.b || view == this.e;
         }
@@ -116,13 +121,13 @@ public final class h extends FrameLayout {
     }
 
     @Override // android.view.View
-    public final void setOnClickListener(View.OnClickListener onClickListener) {
+    public void setOnClickListener(View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
         this.b.setOnClickListener(onClickListener);
         this.e.setOnClickListener(onClickListener);
     }
 
-    public final void a() {
+    public void a() {
         this.d.a();
     }
 }

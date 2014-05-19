@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class r implements com.baidu.adp.lib.d.c<bg> {
+class r implements com.baidu.adp.lib.d.c<bb> {
     final /* synthetic */ m a;
     private final /* synthetic */ Context b;
 
@@ -13,36 +12,33 @@ public final class r implements com.baidu.adp.lib.d.c<bg> {
         this.b = context;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* synthetic */ bg a() {
-        return new bg(this.b);
+    /* renamed from: b */
+    public bb a() {
+        return new bb(this.b);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* bridge */ /* synthetic */ void a(bg bgVar) {
-        bg bgVar2 = bgVar;
-        if (bgVar2 instanceof bg) {
-            bgVar2.a();
+    public void a(bb bbVar) {
+        if (bbVar instanceof bb) {
+            bbVar.a();
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* bridge */ /* synthetic */ bg b(bg bgVar) {
-        return bgVar;
+    public bb b(bb bbVar) {
+        return bbVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* synthetic */ bg c(bg bgVar) {
-        bg bgVar2 = bgVar;
-        if (bgVar2 instanceof bg) {
-            bgVar2.a();
+    public bb c(bb bbVar) {
+        if (bbVar instanceof bb) {
+            bbVar.a();
         }
-        return bgVar2;
+        return bbVar;
     }
 }

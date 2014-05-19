@@ -2,23 +2,23 @@ package com.baidu.tieba.square;
 
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.br;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-final class l implements bp {
+class l implements br {
     final /* synthetic */ k a;
     private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
+    private final /* synthetic */ com.baidu.adp.widget.a.a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
+    public l(k kVar, String str, com.baidu.adp.widget.a.a aVar) {
         this.a = kVar;
         this.b = str;
-        this.c = bVar;
+        this.c = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.bp
-    public final boolean a(View view) {
+    @Override // com.baidu.tbadk.core.util.br
+    public boolean a(View view) {
         if (view != null && (view instanceof ImageView) && this.b != null && this.b.equals(view.getTag())) {
             HeadImageView headImageView = (HeadImageView) view;
             headImageView.setImageBitmap(this.c.h());

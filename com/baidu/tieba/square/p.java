@@ -1,25 +1,13 @@
 package com.baidu.tieba.square;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class p extends BdAsyncTask<Object, Integer, t> {
+public class p extends BdAsyncTask<Object, Integer, t> {
     final /* synthetic */ BarFolderSecondDirActivity a;
-    private com.baidu.tbadk.core.util.ak b;
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ t a(Object... objArr) {
-        return a();
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ void a(t tVar) {
-        this.a.a(tVar, false);
-    }
+    private com.baidu.tbadk.core.util.al b;
 
     private p(BarFolderSecondDirActivity barFolderSecondDirActivity) {
         this.a = barFolderSecondDirActivity;
@@ -27,11 +15,15 @@ public final class p extends BdAsyncTask<Object, Integer, t> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(BarFolderSecondDirActivity barFolderSecondDirActivity, byte b) {
+    public /* synthetic */ p(BarFolderSecondDirActivity barFolderSecondDirActivity, p pVar) {
         this(barFolderSecondDirActivity);
     }
 
-    private t a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public t doInBackground(Object... objArr) {
         q qVar;
         String str;
         String str2;
@@ -39,16 +31,16 @@ public final class p extends BdAsyncTask<Object, Integer, t> {
         qVar = this.a.i;
         t a = qVar.a();
         try {
-            this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/f/forum/seconddir");
-            com.baidu.tbadk.core.util.ak akVar = this.b;
+            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/seconddir");
+            com.baidu.tbadk.core.util.al alVar = this.b;
             str = this.a.k;
-            akVar.a("menu_name", str);
-            com.baidu.tbadk.core.util.ak akVar2 = this.b;
+            alVar.a("menu_name", str);
+            com.baidu.tbadk.core.util.al alVar2 = this.b;
             str2 = this.a.l;
-            akVar2.a("menu_type", str2);
-            com.baidu.tbadk.core.util.ak akVar3 = this.b;
+            alVar2.a("menu_type", str2);
+            com.baidu.tbadk.core.util.al alVar3 = this.b;
             str3 = this.a.m;
-            akVar3.a("menu_id", str3);
+            alVar3.a("menu_id", str3);
             String i = this.b.i();
             if (this.b.a().b().b()) {
                 a.b(i);
@@ -57,13 +49,21 @@ public final class p extends BdAsyncTask<Object, Integer, t> {
             }
         } catch (Exception e) {
             a.a(e.getMessage());
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
         }
         return a;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
+    /* renamed from: a */
+    public void onPostExecute(t tVar) {
+        this.a.a(tVar, false);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
         super.cancel(true);
         if (this.b != null) {
             this.b.g();

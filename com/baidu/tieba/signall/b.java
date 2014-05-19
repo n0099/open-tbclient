@@ -1,8 +1,9 @@
 package com.baidu.tieba.signall;
 
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
     private int a;
     private String b;
     private String c;
@@ -19,113 +20,113 @@ public final class b {
     private int n;
     private String o;
 
-    public final int a() {
+    public int a() {
         return this.a;
     }
 
-    public final String b() {
+    public String b() {
         return this.b;
     }
 
-    public final String c() {
+    public String c() {
         return this.c;
     }
 
-    public final int d() {
+    public int d() {
         return this.d;
     }
 
-    public final int e() {
+    public int e() {
         return this.e;
     }
 
-    public final int f() {
+    public int f() {
         return this.f;
     }
 
-    public final int g() {
+    public int g() {
         return this.g;
     }
 
-    public final int h() {
+    public int h() {
         return this.h;
     }
 
-    public final void a(int i) {
-        this.d = 1;
+    public void a(int i) {
+        this.d = i;
     }
 
-    public final void b(int i) {
+    public void b(int i) {
         this.e = i;
     }
 
-    public final void c(int i) {
+    public void c(int i) {
         this.f = i;
     }
 
-    public final boolean i() {
+    public boolean i() {
         return this.i;
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         this.i = z;
         this.d = 1;
     }
 
-    public final boolean j() {
+    public boolean j() {
         return this.k;
     }
 
-    public final void b(boolean z) {
+    public void b(boolean z) {
         this.k = z;
         this.d = 0;
     }
 
-    public final boolean k() {
+    public boolean k() {
         return this.l;
     }
 
-    public final void c(boolean z) {
+    public void c(boolean z) {
         this.l = z;
     }
 
-    public final boolean l() {
+    public boolean l() {
         return this.m;
     }
 
-    public final void d(boolean z) {
-        this.m = true;
+    public void d(boolean z) {
+        this.m = z;
     }
 
-    public final int m() {
+    public int m() {
         return this.n;
     }
 
-    public final void d(int i) {
+    public void d(int i) {
         this.n = i;
     }
 
-    public final String n() {
+    public String n() {
         return this.o;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.o = str;
     }
 
-    public final boolean o() {
+    public boolean o() {
         return this.j;
     }
 
-    public final void e(boolean z) {
-        this.j = true;
+    public void e(boolean z) {
+        this.j = z;
     }
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("forum_id");
-                this.b = jSONObject.optString("forum_name");
+                this.a = jSONObject.optInt(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
+                this.b = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
                 this.c = jSONObject.optString("avatar");
                 this.d = jSONObject.optInt("is_sign_in");
                 this.e = jSONObject.optInt("cont_sign_num");
@@ -137,7 +138,7 @@ public final class b {
                     this.k = false;
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

@@ -1,21 +1,21 @@
 package com.baidu.tieba.guide;
 
-import android.widget.ImageView;
+import android.view.View;
 /* loaded from: classes.dex */
-final class r implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ o a;
-    private final /* synthetic */ ImageView b;
+class r implements t {
+    final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(o oVar, ImageView imageView) {
-        this.a = oVar;
-        this.b = imageView;
+    public r(q qVar) {
+        this.a = qVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null) {
-            bVar.a(this.b);
-        }
+    @Override // com.baidu.tieba.guide.t
+    public void a() {
+        p pVar;
+        View view;
+        pVar = this.a.a;
+        view = pVar.c;
+        view.setVisibility(8);
     }
 }

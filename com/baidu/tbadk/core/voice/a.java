@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.voice;
 
 import android.os.Handler;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private static c b;
     private static String c;
     private static j d;

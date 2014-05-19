@@ -2,52 +2,50 @@ package com.baidu.tieba.frs;
 
 import android.app.NotificationManager;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes.dex */
-public final class a implements com.baidu.tieba.download.b {
+public class a implements com.baidu.tbadk.download.a {
     private NotificationManager a = null;
 
-    @Override // com.baidu.tieba.download.b
-    public final void a(com.baidu.tieba.download.a aVar) {
-        if (aVar != null) {
-            if (aVar.f() == 1) {
-                b.a().b(aVar);
+    @Override // com.baidu.tbadk.download.a
+    public void b(DownloadData downloadData) {
+        if (downloadData != null) {
+            if (downloadData.getStatus() == 1) {
+                b.a().b(downloadData);
             }
-            b.a();
-            b.a(aVar);
+            b.a().a(downloadData);
         }
     }
 
-    @Override // com.baidu.tieba.download.b
-    public final boolean b(com.baidu.tieba.download.a aVar) {
-        if (aVar == null) {
+    @Override // com.baidu.tbadk.download.a
+    public boolean c(DownloadData downloadData) {
+        if (downloadData == null) {
             return false;
         }
-        aVar.e((String) null);
+        downloadData.setStatusMsg(null);
         return true;
     }
 
-    @Override // com.baidu.tieba.download.b
-    public final boolean c(com.baidu.tieba.download.a aVar) {
-        if (aVar == null) {
+    @Override // com.baidu.tbadk.download.a
+    public boolean d(DownloadData downloadData) {
+        if (downloadData == null) {
             return false;
         }
-        aVar.e((String) null);
+        downloadData.setStatusMsg(null);
         return true;
     }
 
-    @Override // com.baidu.tieba.download.b
-    public final void d(com.baidu.tieba.download.a aVar) {
+    @Override // com.baidu.tbadk.download.a
+    public void a(DownloadData downloadData) {
         if (this.a == null) {
-            this.a = b.a().b();
+            this.a = b.a().c();
         }
-        this.a.cancel(aVar.o());
-        String replace = aVar.a().replace(".", "_");
-        com.baidu.tieba.p.c();
-        UtilHelper.b(com.baidu.tieba.p.d(), replace);
+        this.a.cancel(downloadData.getNotifyId());
+        UtilHelper.install_apk(com.baidu.tieba.ad.c().d(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
     }
 
-    @Override // com.baidu.tieba.download.b
-    public final void a(com.baidu.tieba.download.a aVar, int i) {
-        b.a().c(aVar);
+    @Override // com.baidu.tbadk.download.a
+    public void a(DownloadData downloadData, int i, String str) {
+        b.a().c(downloadData);
     }
 }

@@ -7,13 +7,18 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tieba.model.al;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public final class m {
+public class m {
     private Fragment b;
     private Activity c;
     private int i;
@@ -43,75 +48,75 @@ public final class m {
         this.j = tVar;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.n = i;
     }
 
-    public final void a(BdListView bdListView) {
+    public void a(BdListView bdListView) {
         this.e = bdListView;
     }
 
-    public final void a(ViewGroup viewGroup) {
+    public void a(ViewGroup viewGroup) {
         this.d = viewGroup;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.o = str;
     }
 
-    public final void a(com.baidu.tbadk.core.view.k kVar) {
+    public void a(com.baidu.tbadk.core.view.k kVar) {
         this.m = kVar;
     }
 
-    public final void a() {
+    public void a() {
         this.f.a();
     }
 
-    public final void b() {
+    public void b() {
         this.h = 1;
         this.n = 3;
         d();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(m mVar, com.baidu.tieba.data.o oVar) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(com.baidu.tieba.data.o oVar) {
         if (oVar != null) {
-            if (!oVar.m()) {
-                if (mVar.i == 2) {
-                    com.baidu.tbadk.core.g.a(mVar.c, "new_at_me_visit_pb");
-                } else if (mVar.i == 1) {
-                    com.baidu.tbadk.core.g.a(mVar.c, "new_my_reply_visit_pb");
+            if (oVar.m()) {
+                if (this.i == 2) {
+                    com.baidu.tbadk.core.g.a(this.c, "new_at_me_visit_post");
+                } else if (this.i == 1) {
+                    com.baidu.tbadk.core.g.a(this.c, "new_my_reply_visit_post");
                     if ("zan".equals(oVar.a())) {
-                        com.baidu.tbadk.core.g.a(mVar.c, "zan_mlist");
+                        com.baidu.tbadk.core.g.a(this.c, "zan_mlist");
                     }
                 }
-                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(mVar.c).a(oVar.j(), oVar.k(), "mention")));
+                b(oVar);
                 return;
             }
-            if (mVar.i == 2) {
-                com.baidu.tbadk.core.g.a(mVar.c, "new_at_me_visit_post");
-            } else if (mVar.i == 1) {
-                com.baidu.tbadk.core.g.a(mVar.c, "new_my_reply_visit_post");
+            if (this.i == 2) {
+                com.baidu.tbadk.core.g.a(this.c, "new_at_me_visit_pb");
+            } else if (this.i == 1) {
+                com.baidu.tbadk.core.g.a(this.c, "new_my_reply_visit_pb");
                 if ("zan".equals(oVar.a())) {
-                    com.baidu.tbadk.core.g.a(mVar.c, "zan_mlist");
+                    com.baidu.tbadk.core.g.a(this.c, "zan_mlist");
                 }
             }
-            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(mVar.c).b(oVar.j(), oVar.k(), "mention")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(this.c).a(oVar.j(), oVar.k(), "mention")));
         }
     }
 
-    public final void c() {
+    public void c() {
         this.h = 1;
         this.f = new g(this.c, null);
         this.f.a(this.i);
-        this.f.b(TbadkApplication.j().L());
+        this.f.b(TbadkApplication.m252getInst().getFontSize());
         this.e.setAdapter((ListAdapter) this.f);
         this.e.setOnItemClickListener(new p(this));
         this.e.setOnScrollListener(new q(this));
         this.e.setOnSrollToBottomListener(new r(this));
     }
 
-    public final void d() {
+    public void d() {
         boolean z;
         ArrayList<com.baidu.tieba.data.o> b;
         switch (this.n) {
@@ -142,16 +147,16 @@ public final class m {
             this.h = 1;
         }
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tbadk.core.data.n.a);
+        stringBuffer.append(TbConfig.SERVER_ADDRESS);
         stringBuffer.append(this.o);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("uid", TbadkApplication.E()));
+        arrayList.add(new BasicNameValuePair(SapiAccountManager.SESSION_UID, TbadkApplication.getCurrentAccount()));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.h)));
         if (this.n == 4 && this.g != null && (b = this.g.b()) != null && b.size() > 0) {
             com.baidu.tieba.data.o oVar = b.get(b.size() - 1);
             arrayList.add(new BasicNameValuePair("ids", String.format("%s,%s", oVar.j(), oVar.k())));
         }
-        h();
+        i();
         if (this.k != null) {
             this.k.cancel();
             this.k = null;
@@ -161,14 +166,13 @@ public final class m {
         this.k.execute(stringBuffer.toString(), arrayList);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void i(m mVar) {
-        if (mVar.g == null || mVar.g.c().f() != 1) {
-            return;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void h() {
+        if (this.g != null && this.g.c().f() == 1) {
+            this.h++;
+            this.n = 4;
+            d();
         }
-        mVar.h++;
-        mVar.n = 4;
-        mVar.d();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -179,8 +183,10 @@ public final class m {
                 b.addAll(alVar.b());
                 alVar.a(b);
                 this.g = null;
+                this.g = alVar;
+            } else {
+                this.g = alVar;
             }
-            this.g = alVar;
             if (this.g != null) {
                 if (this.g.c().f() == 1) {
                     this.f.a(true);
@@ -204,37 +210,42 @@ public final class m {
                     }
                     if (this.b.isAdded()) {
                         if (this.b instanceof a) {
-                            ((a) this.b).c(TbadkApplication.j().l());
+                            ((a) this.b).c(TbadkApplication.m252getInst().getSkinType());
                         } else if (this.b instanceof af) {
-                            ((af) this.b).c(TbadkApplication.j().l());
+                            ((af) this.b).c(TbadkApplication.m252getInst().getSkinType());
                         }
                     }
                 }
             }
             c cVar = (c) this.b.getParentFragment();
             if (cVar != null) {
-                if ((this.n == 3 || this.n == 2) && !z) {
-                    cVar.a(this.i, true);
-                } else {
-                    cVar.a(this.i, false);
+                if (this.n == 3 || this.n == 2) {
+                    if (z) {
+                        cVar.a(this.i, false);
+                        return;
+                    } else {
+                        cVar.a(this.i, true);
+                        return;
+                    }
                 }
+                cVar.a(this.i, false);
             }
         }
     }
 
-    public final void e() {
-        if (this.f != null && this.f.d() != TbadkApplication.j().L()) {
-            this.f.b(TbadkApplication.j().L());
+    public void e() {
+        if (this.f != null && this.f.d() != TbadkApplication.m252getInst().getFontSize()) {
+            this.f.b(TbadkApplication.m252getInst().getFontSize());
             this.f.notifyDataSetChanged();
         }
     }
 
-    public final void f() {
-        this.p.removeCallbacks(this.q);
-        h();
+    public void f() {
+        j();
+        i();
     }
 
-    private void h() {
+    private void i() {
         if (this.k != null) {
             this.k.cancel();
             this.k = null;
@@ -248,7 +259,15 @@ public final class m {
         this.f.notifyDataSetChanged();
     }
 
-    public final void g() {
+    private void j() {
+        this.p.removeCallbacks(this.q);
+    }
+
+    private void b(com.baidu.tieba.data.o oVar) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(this.c).b(oVar.j(), oVar.k(), "mention")));
+    }
+
+    public void g() {
         if (this.f != null) {
             this.f.notifyDataSetChanged();
         }

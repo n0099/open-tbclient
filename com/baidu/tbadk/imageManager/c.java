@@ -1,6 +1,6 @@
 package com.baidu.tbadk.imageManager;
 /* loaded from: classes.dex */
-public final class c {
+public class c {
     private int a;
     private int b;
 
@@ -11,11 +11,11 @@ public final class c {
         this.b = i2;
     }
 
-    public final int a() {
+    public int a() {
         return this.a;
     }
 
-    public final int b() {
+    public int b() {
         return this.b;
     }
 }

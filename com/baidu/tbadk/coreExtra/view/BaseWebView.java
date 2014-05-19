@@ -4,15 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
     private WebViewClient a;
-    private f b;
+    private g b;
     private Context c;
-    private f d;
-    private h e;
-    private g f;
+    private g d;
+    private i e;
+    private h f;
 
     public BaseWebView(Context context) {
         super(context);
@@ -28,7 +27,7 @@ public class BaseWebView extends WebView {
     public void setDownloadEnabled(boolean z) {
         if (z) {
             if (this.d == null) {
-                this.d = new d(this);
+                b();
             }
             setOnLoadUrlListener(this.d);
             return;
@@ -47,24 +46,28 @@ public class BaseWebView extends WebView {
         a();
     }
 
-    private void a() {
+    public void a() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
-        CompatibleUtile.getInstance().WebViewNoDataBase(getSettings());
-        this.a = new e(this);
+        com.baidu.tbadk.browser.a.a(getSettings());
+        this.a = new f(this);
         setWebViewClient(this.a);
-        setOnLongClickListener(new c(this));
+        setOnLongClickListener(new d(this));
     }
 
-    public void setOnLoadUrlListener(f fVar) {
-        this.b = fVar;
+    public void setOnLoadUrlListener(g gVar) {
+        this.b = gVar;
     }
 
-    public void setOnPageStartedListener(h hVar) {
-        this.e = hVar;
+    public void setOnPageStartedListener(i iVar) {
+        this.e = iVar;
     }
 
-    public void setOnPageFinishedListener(g gVar) {
-        this.f = gVar;
+    public void setOnPageFinishedListener(h hVar) {
+        this.f = hVar;
+    }
+
+    private void b() {
+        this.d = new e(this);
     }
 }

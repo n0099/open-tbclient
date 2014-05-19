@@ -1,33 +1,30 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public final class ax extends BdAsyncTask<String, Integer, Boolean> {
+class ax extends CustomMessageListener {
     final /* synthetic */ FrsActivity a;
-    private final String b;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Boolean a(String... strArr) {
-        return Boolean.valueOf(FrsActivity.h(this.a, this.b));
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(Boolean bool) {
-        if (bool.booleanValue()) {
-            this.a.showToast(com.baidu.tieba.a.k.shortcut_has_add);
-        } else {
-            FrsActivity.i(this.a, this.b);
-        }
-    }
-
-    public ax(FrsActivity frsActivity, String str) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ax(FrsActivity frsActivity, int i) {
+        super(i);
         this.a = frsActivity;
-        this.b = str;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        cs csVar;
+        cs csVar2;
+        if (customResponsedMessage != null) {
+            csVar = this.a.w;
+            if (csVar != null) {
+                csVar2 = this.a.w;
+                csVar2.S();
+            }
+        }
     }
 }

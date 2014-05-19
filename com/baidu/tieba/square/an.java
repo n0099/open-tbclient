@@ -4,7 +4,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ListView;
 /* loaded from: classes.dex */
-final class an implements View.OnKeyListener {
+class an implements View.OnKeyListener {
     final /* synthetic */ ak a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ final class an implements View.OnKeyListener {
     }
 
     @Override // android.view.View.OnKeyListener
-    public final boolean onKey(View view, int i, KeyEvent keyEvent) {
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
         if (view instanceof ListView) {
             ListView listView = (ListView) view;
             if (keyEvent.getAction() == 0) {

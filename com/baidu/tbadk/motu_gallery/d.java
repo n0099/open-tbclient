@@ -14,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +23,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class d extends com.baidu.tbadk.a {
+public class d extends BaseActivity {
     private static boolean n = false;
     private static boolean o = true;
     TextView a;
@@ -55,162 +57,146 @@ public class d extends com.baidu.tbadk.a {
         }
     }
 
+    public boolean a() {
+        return n;
+    }
+
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (n) {
+        if (a()) {
             n = false;
             finish();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(com.baidu.tbadk.k.motu_albums_activity);
+            setContentView(com.baidu.tieba.s.motu_albums_activity);
         } catch (Exception e) {
             e.printStackTrace();
             finish();
-            z.a(com.baidu.tbadk.l.oom_retry);
+            aa.a(com.baidu.tieba.u.oom_retry);
         }
-        this.a = (TextView) findViewById(com.baidu.tbadk.j.jigsaw_selected_text);
+        this.a = (TextView) findViewById(com.baidu.tieba.r.jigsaw_selected_text);
         this.k = w.a();
         this.k.b(this);
-        this.j = (ListView) findViewById(com.baidu.tbadk.j.albums_list);
-        this.m = (NavigationBar) findViewById(com.baidu.tbadk.j.view_navigation_bar);
-        this.m.a(getString(com.baidu.tbadk.l.jigsaw_photo_storage));
+        this.j = (ListView) findViewById(com.baidu.tieba.r.albums_list);
+        this.m = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.m.a(getString(com.baidu.tieba.u.jigsaw_photo_storage));
         this.m.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
-        ((Button) this.m.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tbadk.k.widget_nb_item_textbtn, new h(this))).setText(com.baidu.tbadk.l.jigsaw_start);
+        ((Button) this.m.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.s.widget_nb_item_textbtn, new h(this))).setText(com.baidu.tieba.u.jigsaw_start);
         this.i = new k(this, this);
         this.u.sendMessage(this.u.obtainMessage(1));
         this.j.setAdapter((ListAdapter) this.i);
         this.j.setOnItemClickListener(new i(this));
-        this.v = (LinearLayout) findViewById(com.baidu.tbadk.j.selected_ll);
+        this.v = (LinearLayout) findViewById(com.baidu.tieba.r.selected_ll);
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         o = true;
         this.t = false;
-        this.a.setText(this.k.c(this));
-        if (this.k.f()) {
+        this.a.setText(this.k.e(this));
+        if (this.k.e()) {
             this.u.sendMessage(this.u.obtainMessage(1));
         }
-        this.v.removeAllViews();
-        for (Uri uri : this.k.d()) {
-            y yVar = new y(this);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(com.baidu.tbadk.h.jigsawSelectedWidth), (int) getResources().getDimension(com.baidu.tbadk.h.jigsawSelectedHeight));
-            layoutParams.setMargins(0, 0, 0, 0);
-            yVar.setLayoutParams(layoutParams);
-            if (yVar.a(uri)) {
-                this.v.addView(yVar);
-                yVar.setOnClickListener(new j(this, yVar));
-            }
-        }
+        b();
         super.onResume();
     }
 
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.m.b(i);
+        this.m.c(i);
     }
 
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    private void b() {
+        this.v.removeAllViews();
+        for (Uri uri : this.k.c(this)) {
+            z zVar = new z(this);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(com.baidu.tieba.p.jigsawSelectedWidth), (int) getResources().getDimension(com.baidu.tieba.p.jigsawSelectedHeight));
+            layoutParams.setMargins(0, 0, 0, 0);
+            zVar.setLayoutParams(layoutParams);
+            if (zVar.a(uri)) {
+                this.v.addView(zVar);
+                zVar.setOnClickListener(new j(this, zVar));
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         this.h.clear();
         super.onDestroy();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x006b A[EDGE_INSN: B:106:0x006b->B:15:0x006b ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x0246 A[LOOP:0: B:101:0x004c->B:98:0x0246, LOOP_END] */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x01d8 A[LOOP:0: B:70:0x004f->B:65:0x01d8, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x0070 A[EDGE_INSN: B:73:0x0070->B:15:0x0070 ?: BREAK  , SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static /* synthetic */ void e(d dVar) {
+    public void c() {
         int i;
-        boolean z;
-        synchronized (dVar.s) {
+        synchronized (this.s) {
             try {
-                dVar.e.clear();
-                dVar.f.clear();
-                dVar.d = null;
-                dVar.d = dVar.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new String[]{"_data", "_id", "title", "_display_name"}, null, null, "datetaken desc");
-                if (dVar.d != null && dVar.d.getCount() > 0) {
-                    dVar.d.moveToFirst();
+                this.e.clear();
+                this.f.clear();
+                this.d = null;
+                this.d = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new String[]{"_data", "_id", "title", "_display_name"}, null, null, "datetaken desc");
+                if (this.d != null && this.d.getCount() > 0) {
+                    this.d.moveToFirst();
                     int i2 = 0;
                     while (true) {
                         try {
-                            String string = dVar.d.getString(dVar.d.getColumnIndexOrThrow("_data"));
+                            String string = this.d.getString(this.d.getColumnIndexOrThrow("_data"));
                             if (string.equals("")) {
                                 i = i2;
                             } else {
-                                int i3 = dVar.d.getInt(dVar.d.getColumnIndexOrThrow("_id"));
-                                String string2 = dVar.d.getString(dVar.d.getColumnIndexOrThrow("_display_name"));
-                                String substring = string2.substring(string2.lastIndexOf(".") + 1);
-                                if (((substring.equalsIgnoreCase("jpg") || substring.equalsIgnoreCase("jpeg") || substring.equalsIgnoreCase("jpe")) ? (char) 0 : substring.equalsIgnoreCase("png") ? (char) 1 : substring.equalsIgnoreCase("bmp") ? (char) 2 : (char) 65535) < 0) {
+                                int i3 = this.d.getInt(this.d.getColumnIndexOrThrow("_id"));
+                                if (b(this.d.getString(this.d.getColumnIndexOrThrow("_display_name"))) < 0) {
                                     i = i2;
                                 } else {
-                                    String substring2 = string.substring(0, string.lastIndexOf("/"));
-                                    int i4 = 0;
-                                    while (true) {
-                                        if (i4 >= dVar.f.size()) {
-                                            z = false;
-                                            break;
-                                        } else if (dVar.f.get(i4).b.equals(substring2)) {
-                                            z = true;
-                                            break;
-                                        } else {
-                                            i4++;
-                                        }
-                                    }
-                                    if (z) {
-                                        i = i2;
-                                        int i5 = 0;
-                                        while (i5 < dVar.f.size()) {
-                                            if (dVar.f.get(i5).b.equals(substring2)) {
-                                                i = dVar.f.get(i5).a;
-                                                dVar.g.put(String.valueOf(i), Integer.valueOf(dVar.g.get(String.valueOf(i)).intValue() + 1));
-                                            }
-                                            i5++;
-                                            i = i;
-                                        }
-                                        dVar.e.add(new c(i, string, i3));
-                                    } else if (substring2 == null || !substring2.endsWith(com.baidu.tbadk.core.data.n.f()) || dVar.f.isEmpty()) {
-                                        i = dVar.f.size();
-                                        dVar.f.add(new c(i, substring2, 0));
-                                        dVar.g.put(String.valueOf(i), 1);
-                                        dVar.e.add(new c(i, string, i3));
-                                    } else {
-                                        c remove = dVar.f.remove(0);
-                                        dVar.f.add(0, new c(0, substring2, 0));
-                                        int intValue = dVar.g.get(String.valueOf(0)).intValue();
-                                        dVar.g.put(String.valueOf(0), 1);
-                                        i = dVar.f.size();
-                                        try {
-                                            remove.a = i;
-                                            dVar.f.add(remove);
-                                            dVar.g.put(String.valueOf(i), Integer.valueOf(intValue));
-                                            if (dVar.e != null) {
-                                                Iterator<c> it = dVar.e.iterator();
-                                                while (it.hasNext()) {
-                                                    c next = it.next();
-                                                    if (next.a == 0) {
-                                                        next.a = i;
-                                                    } else if (next.a == i) {
-                                                        next.a = 0;
-                                                    }
+                                    String substring = string.substring(0, string.lastIndexOf("/"));
+                                    if (!a(substring)) {
+                                        if (substring != null && substring.endsWith(TbConfig.getTempDirName()) && !this.f.isEmpty()) {
+                                            c remove = this.f.remove(0);
+                                            this.f.add(0, new c(0, substring, 0));
+                                            int intValue = this.g.get(String.valueOf(0)).intValue();
+                                            this.g.put(String.valueOf(0), 1);
+                                            i = this.f.size();
+                                            try {
+                                                remove.a = i;
+                                                this.f.add(remove);
+                                                this.g.put(String.valueOf(i), Integer.valueOf(intValue));
+                                                a(0, i);
+                                                this.e.add(new c(0, string, i3));
+                                            } catch (Exception e) {
+                                                e = e;
+                                                e.printStackTrace();
+                                                if (this.d.moveToNext()) {
                                                 }
                                             }
-                                            dVar.e.add(new c(0, string, i3));
-                                        } catch (Exception e) {
-                                            e = e;
-                                            e.printStackTrace();
-                                            if (dVar.d.moveToNext()) {
-                                            }
+                                        } else {
+                                            i = this.f.size();
+                                            this.f.add(new c(i, substring, 0));
+                                            this.g.put(String.valueOf(i), 1);
+                                            this.e.add(new c(i, string, i3));
                                         }
+                                    } else {
+                                        i = i2;
+                                        int i4 = 0;
+                                        while (i4 < this.f.size()) {
+                                            if (this.f.get(i4).b.equals(substring)) {
+                                                i = this.f.get(i4).a;
+                                                this.g.put(String.valueOf(i), Integer.valueOf(this.g.get(String.valueOf(i)).intValue() + 1));
+                                            }
+                                            i4++;
+                                            i = i;
+                                        }
+                                        this.e.add(new c(i, string, i3));
                                     }
                                 }
                             }
@@ -218,29 +204,66 @@ public class d extends com.baidu.tbadk.a {
                             e = e2;
                             i = i2;
                         }
-                        if (dVar.d.moveToNext()) {
+                        if (this.d.moveToNext()) {
                             break;
                         }
                         i2 = i;
                     }
                 }
-                if (dVar.d != null) {
-                    dVar.d.close();
+                if (this.d != null) {
+                    this.d.close();
                 }
-                dVar.d = null;
+                this.d = null;
             } catch (Exception e3) {
                 e3.printStackTrace();
-                if (dVar.d != null) {
-                    dVar.d.close();
+                if (this.d != null) {
+                    this.d.close();
                 }
-                dVar.d = null;
+                this.d = null;
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ String b(d dVar, int i) {
-        Iterator<c> it = dVar.e.iterator();
+    private void a(int i, int i2) {
+        if (this.e != null) {
+            Iterator<c> it = this.e.iterator();
+            while (it.hasNext()) {
+                c next = it.next();
+                if (next.a == i) {
+                    next.a = i2;
+                } else if (next.a == i2) {
+                    next.a = i;
+                }
+            }
+        }
+    }
+
+    private boolean a(String str) {
+        for (int i = 0; i < this.f.size(); i++) {
+            if (this.f.get(i).b.equals(str)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int b(String str) {
+        String substring = str.substring(str.lastIndexOf(".") + 1);
+        if (substring.equalsIgnoreCase("jpg") || substring.equalsIgnoreCase("jpeg") || substring.equalsIgnoreCase("jpe")) {
+            return 0;
+        }
+        if (substring.equalsIgnoreCase("png")) {
+            return 1;
+        }
+        if (substring.equalsIgnoreCase("bmp")) {
+            return 2;
+        }
+        return -1;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a(int i) {
+        Iterator<c> it = this.e.iterator();
         while (it.hasNext()) {
             c next = it.next();
             if (next.a == i) {
@@ -250,9 +273,9 @@ public class d extends com.baidu.tbadk.a {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ c a(d dVar, int i) {
-        Iterator<c> it = dVar.e.iterator();
+    /* JADX INFO: Access modifiers changed from: private */
+    public c b(int i) {
+        Iterator<c> it = this.e.iterator();
         while (it.hasNext()) {
             c next = it.next();
             if (next.a == i) {
@@ -263,23 +286,23 @@ public class d extends com.baidu.tbadk.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
+    public void d() {
         if (o) {
             o = false;
-            setResult(-1, w.a().g());
+            setResult(-1, w.a().f());
             finish();
         }
     }
 
-    public final int a(float f) {
-        return (int) ((getResources().getDisplayMetrics().density * 70.0f) + 0.5f);
+    public int a(float f) {
+        return (int) ((getResources().getDisplayMetrics().density * f) + 0.5f);
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (10 == i && 2 == i2) {
-            a();
+            d();
         }
     }
 }

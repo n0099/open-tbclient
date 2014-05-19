@@ -3,7 +3,7 @@ package com.baidu.tieba.forumdetail;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class j implements com.baidu.tbadk.imageManager.d {
+public class j implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ ItemHeaderView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,12 +12,12 @@ public final class j implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         HeadImageView headImageView;
         HeadImageView headImageView2;
-        if (bVar != null) {
+        if (aVar != null) {
             headImageView = this.a.b;
-            headImageView.setImageBitmap(bVar.h());
+            headImageView.setImageBitmap(aVar.h());
             headImageView2 = this.a.b;
             headImageView2.invalidate();
         }

@@ -2,6 +2,7 @@ package com.baidu.android.defense.push;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.tbadk.TbConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -21,10 +22,10 @@ public final class f {
         return b;
     }
 
-    public final i a(String str) {
+    public i a(String str) {
         String str2;
         try {
-            str2 = new JSONObject(str).getString("cmd");
+            str2 = new JSONObject(str).getString(com.baidu.tbadk.core.frameworkData.a.CMD);
         } catch (JSONException e) {
             str2 = null;
         }
@@ -46,7 +47,7 @@ public final class f {
         if ("filepush".equals(str2)) {
             return new g(str, this.a);
         }
-        if ("settings".equals(str2)) {
+        if (TbConfig.SETTINGFILE.equals(str2)) {
             return new k(str, this.a);
         }
         return null;

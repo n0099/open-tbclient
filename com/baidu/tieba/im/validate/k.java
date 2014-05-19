@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class k implements View.OnClickListener {
+public class k implements View.OnClickListener {
     final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,13 +13,13 @@ public final class k implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         ValidateActivity validateActivity;
+        HeadImageView headImageView;
         ValidateItemData validateItemData;
-        HeadImageView unused;
-        validateActivity = this.a.i;
-        unused = this.a.d;
-        validateItemData = this.a.j;
-        validateActivity.a(101, validateItemData);
+        validateActivity = this.a.h;
+        headImageView = this.a.c;
+        validateItemData = this.a.i;
+        validateActivity.a(headImageView, 101, 0, 0L, validateItemData);
     }
 }

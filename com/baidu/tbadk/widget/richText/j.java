@@ -13,15 +13,17 @@ public interface j {
 
     void a(Context context, String str);
 
-    void a(String str);
+    void a(Context context, String str, String str2);
 
-    void a(String str, String str2);
+    void b(Context context, String str);
 
-    void b(String str);
+    void c(Context context, String str);
 
-    void c(String str);
+    void d(Context context, String str);
 
     int e();
+
+    void e(Context context, String str);
 
     com.baidu.adp.lib.d.b<ImageView> f();
 

@@ -75,7 +75,7 @@ public enum CharacterSetECI {
         this.otherEncodingNames = strArr;
     }
 
-    public final int getValue() {
+    public int getValue() {
         return this.values[0];
     }
 

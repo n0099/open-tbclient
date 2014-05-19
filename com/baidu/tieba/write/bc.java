@@ -1,8 +1,12 @@
 package com.baidu.tieba.write;
 
-import java.util.ArrayList;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
-final class bc extends com.baidu.adp.a.h {
+class bc implements View.OnFocusChangeListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,26 +14,67 @@ final class bc extends com.baidu.adp.a.h {
         this.a = writeActivity;
     }
 
-    @Override // com.baidu.adp.a.h
-    public final void a(Object obj) {
-        FeedBackTopListView feedBackTopListView;
-        FeedBackTopListView feedBackTopListView2;
-        FeedBackTopListView feedBackTopListView3;
-        this.a.hideProgressBar();
-        if (obj == null || !(obj instanceof s)) {
-            feedBackTopListView = this.a.k;
-            feedBackTopListView.setVisibility(8);
-            this.a.showToast(com.baidu.tieba.a.k.neterror);
-            return;
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
+        if (r3 == r0) goto L22;
+     */
+    @Override // android.view.View.OnFocusChangeListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onFocusChange(View view, boolean z) {
+        EditText editText;
+        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditText editText2;
+        EditText editText3;
+        WriteData writeData;
+        EditText editText4;
+        WriteData writeData2;
+        WriteEditorToolButtonContainer writeEditorToolButtonContainer2;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        EditText editText5;
+        EditText editText6;
+        View view2;
+        TextView textView;
+        editText = this.a.e;
+        if (view != editText) {
+            view2 = this.a.o;
+            if (view != view2) {
+                textView = this.a.p;
+            }
         }
-        s sVar = (s) obj;
-        if (sVar.b() != 0) {
-            feedBackTopListView2 = this.a.k;
-            feedBackTopListView2.setVisibility(8);
-            return;
+        if (z) {
+            this.a.X = true;
+            this.a.n();
+            writeEditorToolButtonContainer = this.a.z;
+            writeEditorToolButtonContainer.c();
+            editorToolComponetContainer = this.a.A;
+            editText2 = this.a.e;
+            editorToolComponetContainer.c(editText2);
         }
-        ArrayList<com.baidu.tbadk.core.data.o> a = sVar.a();
-        feedBackTopListView3 = this.a.k;
-        feedBackTopListView3.setData(a);
+        editText3 = this.a.h;
+        if (view == editText3) {
+            if (!z) {
+                writeData = this.a.a;
+                if (writeData.getType() == 0) {
+                    editText4 = this.a.h;
+                    editText4.setHint(com.baidu.tieba.u.content);
+                    return;
+                }
+                return;
+            }
+            this.a.X = false;
+            writeData2 = this.a.a;
+            if (writeData2.getType() == 0) {
+                editText6 = this.a.h;
+                editText6.setHint((CharSequence) null);
+            }
+            this.a.n();
+            writeEditorToolButtonContainer2 = this.a.z;
+            writeEditorToolButtonContainer2.c();
+            editorToolComponetContainer2 = this.a.A;
+            editText5 = this.a.h;
+            editorToolComponetContainer2.c(editText5);
+        }
     }
 }

@@ -1,48 +1,25 @@
 package com.baidu.tieba.frs.view;
 
 import android.app.Activity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import com.baidu.tieba.frs.bm;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.flist.ForumListActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f {
-    private View a;
-    private GoodGridView b;
-    private ImageView c;
+public class f implements View.OnClickListener {
+    final /* synthetic */ FrsHeaderView a;
 
-    public f(Activity activity) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = LayoutInflater.from(activity).inflate(com.baidu.tieba.a.i.dialog_good, (ViewGroup) null);
-        this.b = (GoodGridView) this.a.findViewById(com.baidu.tieba.a.h.good_gridview);
-        this.c = (ImageView) this.a.findViewById(com.baidu.tieba.a.h.divider_line);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(FrsHeaderView frsHeaderView) {
+        this.a = frsHeaderView;
     }
 
-    public final void a(bm bmVar) {
-        this.b.setAdapter((ListAdapter) bmVar);
-    }
-
-    public final void a(AdapterView.OnItemClickListener onItemClickListener) {
-        this.b.setOnItemClickListener(onItemClickListener);
-    }
-
-    public final View a() {
-        return this.a;
-    }
-
-    public final void a(int i) {
-        if (i == 1) {
-            this.b.setBackgroundResource(com.baidu.tieba.a.e.frs_goodheader_bg_1);
-            this.c.setBackgroundResource(com.baidu.tieba.a.e.frs_goodheader_line_end_1);
-            return;
-        }
-        this.b.setBackgroundDrawable(null);
-        this.b.setBackgroundColor(-1);
-        this.c.setBackgroundResource(com.baidu.tieba.a.e.frs_goodheader_line_end);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        String str;
+        activity = this.a.B;
+        str = this.a.H;
+        ForumListActivity.a(activity, str, TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
     }
 }

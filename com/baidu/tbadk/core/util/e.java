@@ -4,13 +4,13 @@ import android.graphics.Bitmap;
 import java.util.HashSet;
 import java.util.Map;
 /* loaded from: classes.dex */
-public final class e {
+public class e {
     public HashSet<com.baidu.tbadk.imageManager.d> b;
     public String c;
     public volatile int d;
     public volatile Bitmap e;
     public boolean g;
-    public volatile com.baidu.adp.widget.ImageView.b i;
+    public volatile com.baidu.adp.widget.a.a i;
     public boolean o;
     public boolean p;
     public Map<String, Object> q;
@@ -24,12 +24,12 @@ public final class e {
     public boolean n = false;
     private boolean r = false;
 
-    public final boolean a() {
+    public boolean a() {
         return this.r;
     }
 
-    public final void a(boolean z) {
-        this.r = true;
+    public void a(boolean z) {
+        this.r = z;
     }
 
     public e(String str, int i, com.baidu.tbadk.imageManager.d dVar, boolean z, boolean z2, boolean z3, Map<String, Object> map) {
@@ -51,8 +51,26 @@ public final class e {
         this.q = map;
     }
 
-    public final String b() {
+    public String b() {
         Object obj;
         return (this.d != 6 || this.q == null || (obj = this.q.get("em_sharp_text")) == null) ? this.c : obj.toString();
+    }
+
+    public void a(com.baidu.tbadk.imageManager.d dVar) {
+        if (this.b == null) {
+            this.b = new HashSet<>();
+        }
+        this.b.add(dVar);
+    }
+
+    public void c() {
+        this.n = true;
+        if (this.a != null) {
+            this.a.a();
+        }
+    }
+
+    public String d() {
+        return this.c;
     }
 }

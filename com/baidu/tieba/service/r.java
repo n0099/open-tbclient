@@ -2,49 +2,20 @@ package com.baidu.tieba.service;
 
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.data.VersionData;
 import java.io.File;
 /* loaded from: classes.dex */
-final class r extends BdAsyncTask<String, Integer, Boolean> {
+class r extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ TiebaUpdateService a;
     private VersionData b;
-    private ak c = null;
+    private al c = null;
     private volatile boolean d = false;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ Boolean a(String... strArr) {
-        return a();
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(Boolean bool) {
-        Handler handler;
-        Handler handler2;
-        Boolean bool2 = bool;
-        super.a((r) bool2);
-        this.a.d = null;
-        try {
-            if (bool2.booleanValue()) {
-                this.a.s = true;
-                handler = this.a.u;
-                handler2 = this.a.u;
-                handler.sendMessageDelayed(handler2.obtainMessage(1, this.b), 100L);
-                return;
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "onPostExecute", e.getMessage());
-        }
-        this.a.stopSelf();
-    }
 
     public r(TiebaUpdateService tiebaUpdateService, VersionData versionData) {
         this.a = tiebaUpdateService;
@@ -52,7 +23,11 @@ final class r extends BdAsyncTask<String, Integer, Boolean> {
         this.b = versionData;
     }
 
-    private Boolean a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(String... strArr) {
         Boolean bool;
         Exception e;
         File e2;
@@ -62,26 +37,30 @@ final class r extends BdAsyncTask<String, Integer, Boolean> {
         Boolean bool2 = false;
         while (!this.d) {
             try {
-                this.c = new ak(this.b.getUrl());
+                this.c = new al(this.b.getUrl());
                 handler = this.a.u;
-                bool2 = Boolean.valueOf(this.c.a(String.valueOf(this.b.getNew_file()) + ".tmp", handler, 900002));
-                if (bool2.booleanValue() || this.c.d() == -2) {
+                bool2 = Boolean.valueOf(this.c.a(String.valueOf(this.b.getNewFile()) + ".tmp", handler, TbConfig.NET_MSG_GETLENTH));
+                if (bool2.booleanValue()) {
                     break;
-                }
-                if (!this.c.a().b().c()) {
-                    try {
-                        Thread.sleep(10000L);
-                    } catch (Exception e3) {
+                } else if (this.c.d() == -2) {
+                    bool = bool2;
+                    break;
+                } else {
+                    if (!this.c.a().b().c()) {
+                        try {
+                            Thread.sleep(10000L);
+                        } catch (Exception e3) {
+                        }
                     }
-                }
-                z = this.a.t;
-                if (z && UtilHelper.a()) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    j = this.a.q;
-                    if (currentTimeMillis - j > 20000) {
-                        this.a.a("showToast", "other_error");
-                        bool = bool2;
-                        break;
+                    z = this.a.t;
+                    if (z && UtilHelper.isNetOk()) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        j = this.a.q;
+                        if (currentTimeMillis - j > 20000) {
+                            this.a.a("showToast", "other_error");
+                            bool = bool2;
+                            break;
+                        }
                     }
                 }
             } catch (Exception e4) {
@@ -92,28 +71,51 @@ final class r extends BdAsyncTask<String, Integer, Boolean> {
         bool = bool2;
         try {
             if (bool.booleanValue()) {
-                w.j(this.b.getNew_file());
-                File d = w.d(String.valueOf(this.b.getNew_file()) + ".tmp");
-                if (d != null && (e2 = w.e(this.b.getNew_file())) != null && !d.renameTo(e2)) {
-                    com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", "renameTo error");
-                    TiebaStatic.a("renameTo erro", "TiebaUpdateService.DownLoadingAsyncTask");
+                x.j(this.b.getNewFile());
+                File d = x.d(String.valueOf(this.b.getNewFile()) + ".tmp");
+                if (d != null && (e2 = x.e(this.b.getNewFile())) != null && !d.renameTo(e2)) {
+                    BdLog.e(getClass().getName(), "doInBackground", "renameTo error");
+                    TiebaStatic.file("renameTo erro", "TiebaUpdateService.DownLoadingAsyncTask");
                 }
             }
         } catch (Exception e5) {
             e = e5;
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
             return bool;
         }
         return bool;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
+    public void cancel() {
         super.cancel(true);
         this.a.d = null;
         this.d = true;
         if (this.c != null) {
             this.c.g();
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        Handler handler;
+        Handler handler2;
+        super.onPostExecute(bool);
+        this.a.d = null;
+        try {
+            if (bool.booleanValue()) {
+                this.a.s = true;
+                handler = this.a.u;
+                handler2 = this.a.u;
+                handler.sendMessageDelayed(handler2.obtainMessage(1, this.b), 100L);
+                return;
+            }
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "onPostExecute", e.getMessage());
+        }
+        this.a.stopSelf();
     }
 }

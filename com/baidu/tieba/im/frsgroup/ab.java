@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.frsgroup;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ab implements af {
+public class ab implements af {
     final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +10,7 @@ final class ab implements af {
     }
 
     @Override // com.baidu.tieba.im.frsgroup.af
-    public final void a(int i) {
+    public void a(int i) {
         ah ahVar;
         ahVar = this.a.b;
         ahVar.b(i);

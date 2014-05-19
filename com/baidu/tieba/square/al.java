@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class al implements av {
+public class al implements av {
     final /* synthetic */ ak a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public final class al implements av {
     }
 
     @Override // com.baidu.tieba.square.av
-    public final void a(boolean z, String str, aq aqVar) {
+    public void a(boolean z, String str, aq aqVar) {
         ay ayVar;
         boolean z2;
         long j;
@@ -36,7 +36,7 @@ public final class al implements av {
         Handler handler2;
         Runnable runnable2;
         ayVar = this.a.c;
-        ayVar.d();
+        ayVar.a(true, "");
         if (z && aqVar != null) {
             ayVar5 = this.a.c;
             auVar5 = this.a.d;
@@ -48,13 +48,13 @@ public final class al implements av {
             runnable2 = this.a.j;
             handler2.postDelayed(runnable2, 0L);
             this.a.e = true;
-            r0.c.b(this.a.m);
+            this.a.i();
         }
         z2 = this.a.f;
         if (z2) {
             this.a.f = false;
             ayVar4 = this.a.c;
-            ayVar4.f();
+            ayVar4.d();
         } else {
             j = this.a.g;
             if (j > -1) {
@@ -69,23 +69,23 @@ public final class al implements av {
                 auVar3 = this.a.d;
                 long c = auVar3.c();
                 auVar4 = this.a.d;
-                TiebaStatic.a("op_square_enter", currentTimeMillis - j2, j4, b, c, currentTimeMillis - auVar4.a());
+                TiebaStatic.page("op_square_enter", currentTimeMillis - j2, j4, b, c, currentTimeMillis - auVar4.a());
                 this.a.g = -1L;
             }
         }
-        if (!UtilHelper.a()) {
+        if (!UtilHelper.isNetOk()) {
             ayVar3 = this.a.c;
-            ayVar3.g();
+            ayVar3.e();
             z3 = this.a.e;
             if (z3) {
                 return;
             }
-            r0.c.a(this.a.m);
+            this.a.h();
             return;
         }
         eVar = this.a.h;
         eVar.a(str);
         ayVar2 = this.a.c;
-        ayVar2.h();
+        ayVar2.f();
     }
 }

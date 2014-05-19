@@ -1,64 +1,73 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.GroupLevelInfo;
+import com.squareup.wire.Wire;
 import java.util.ArrayList;
-import protobuf.Im;
-import protobuf.QueryGroupGrade.QueryGroupGradeRes;
+import java.util.List;
+import protobuf.GradeInfo;
+import protobuf.QueryGroupGrade.QueryGroupGradeResIdl;
 /* loaded from: classes.dex */
 public class ResponseGroupLevelMessage extends SocketResponsedMessage {
-    private GroupLevelInfo a;
-
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        QueryGroupGradeRes.QueryGroupGradeResIdl parseFrom = QueryGroupGradeRes.QueryGroupGradeResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.a = new GroupLevelInfo();
-            this.a.setGroupId(parseFrom.getData().getGroupInfo().getGroupId());
-            this.a.setName(parseFrom.getData().getGroupInfo().getName());
-            this.a.setGrade(parseFrom.getData().getGroupInfo().getGrade());
-            this.a.setActiveDay(parseFrom.getData().getGroupInfo().getActiveDay());
-            this.a.setLevelInfos(new ArrayList());
-            this.a.setVipLevelInfos(new ArrayList());
-            this.a.setMemGroup(parseFrom.getData().getGroupInfo().getIsMemberGroup() == 1);
-            this.a.setGroupAuthor(parseFrom.getData().getMemberPerm().getIsAuthor() == 1);
-            this.a.setCanCreateMember(parseFrom.getData().getMemberPerm().getCanCreateMember() == 1);
-            this.a.setAlreadyCreateMemGroup(parseFrom.getData().getMemberPerm().getAlreadyCreateNum());
-            this.a.setLeftCreateMemGroup(parseFrom.getData().getMemberPerm().getLeftCreateNum());
-            int gradeInfosCount = parseFrom.getData().getGradeInfosCount();
-            for (int i2 = 0; i2 < gradeInfosCount; i2++) {
-                GroupLevelInfo.LevelInfo levelInfo = new GroupLevelInfo.LevelInfo();
-                this.a.getLevelInfos().add(levelInfo);
-                Im.GradeInfo gradeInfos = parseFrom.getData().getGradeInfos(i2);
-                levelInfo.setGrade(gradeInfos.getGrade());
-                levelInfo.setIntro(gradeInfos.getIntro());
-                levelInfo.setThresholdDay(gradeInfos.getThresholdDay());
-                levelInfo.setMaxMemberNum(gradeInfos.getMaxMemberNum());
-            }
-            int memberGradeInfosCount = parseFrom.getData().getMemberGradeInfosCount();
-            for (int i3 = 0; i3 < memberGradeInfosCount; i3++) {
-                GroupLevelInfo.LevelInfo levelInfo2 = new GroupLevelInfo.LevelInfo();
-                this.a.getVipLevelInfos().add(levelInfo2);
-                Im.GradeInfo memberGradeInfos = parseFrom.getData().getMemberGradeInfos(i3);
-                levelInfo2.setGrade(memberGradeInfos.getGrade());
-                levelInfo2.setIntro(memberGradeInfos.getIntro());
-                levelInfo2.setThresholdDay(memberGradeInfos.getThresholdDay());
-                levelInfo2.setMaxMemberNum(memberGradeInfos.getMaxMemberNum());
-            }
-        }
-    }
+    private GroupLevelInfo groupLevelInfo;
 
     public ResponseGroupLevelMessage() {
-        super(103006);
+        super(MessageTypes.CMD_REQUEST_GROUPLEVEL_BY_ID);
     }
 
     public ResponseGroupLevelMessage(int i) {
         super(i);
     }
 
-    public final GroupLevelInfo d() {
-        return this.a;
+    public GroupLevelInfo getGroupLevelInfo() {
+        return this.groupLevelInfo;
+    }
+
+    public void setGroupLevelInfo(GroupLevelInfo groupLevelInfo) {
+        this.groupLevelInfo = groupLevelInfo;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        QueryGroupGradeResIdl queryGroupGradeResIdl = (QueryGroupGradeResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryGroupGradeResIdl.class);
+        setError(queryGroupGradeResIdl.error.errorno.intValue());
+        setErrorString(queryGroupGradeResIdl.error.usermsg);
+        if (getError() == 0) {
+            setGroupLevelInfo(new GroupLevelInfo());
+            getGroupLevelInfo().setGroupId(queryGroupGradeResIdl.data.groupInfo.groupId.intValue());
+            getGroupLevelInfo().setName(queryGroupGradeResIdl.data.groupInfo.name);
+            getGroupLevelInfo().setGrade(queryGroupGradeResIdl.data.groupInfo.grade.intValue());
+            getGroupLevelInfo().setActiveDay(queryGroupGradeResIdl.data.groupInfo.activeDay.intValue());
+            getGroupLevelInfo().setLevelInfos(new ArrayList());
+            getGroupLevelInfo().setVipLevelInfos(new ArrayList());
+            getGroupLevelInfo().setMemGroup(queryGroupGradeResIdl.data.groupInfo.isMemberGroup.intValue() == 1);
+            getGroupLevelInfo().setGroupAuthor(queryGroupGradeResIdl.data.memberPerm.isAuthor.intValue() == 1);
+            getGroupLevelInfo().setCanCreateMember(queryGroupGradeResIdl.data.memberPerm.canCreateMember.intValue() == 1);
+            getGroupLevelInfo().setAlreadyCreateMemGroup(queryGroupGradeResIdl.data.memberPerm.alreadyCreateNum.intValue());
+            getGroupLevelInfo().setLeftCreateMemGroup(queryGroupGradeResIdl.data.memberPerm.leftCreateNum.intValue());
+            List<GradeInfo> list = queryGroupGradeResIdl.data.gradeInfos;
+            if (list != null) {
+                for (GradeInfo gradeInfo : list) {
+                    GroupLevelInfo.LevelInfo levelInfo = new GroupLevelInfo.LevelInfo();
+                    getGroupLevelInfo().getLevelInfos().add(levelInfo);
+                    levelInfo.setGrade(gradeInfo.grade.intValue());
+                    levelInfo.setIntro(gradeInfo.intro);
+                    levelInfo.setThresholdDay(gradeInfo.thresholdDay.intValue());
+                    levelInfo.setMaxMemberNum(gradeInfo.maxMemberNum.intValue());
+                }
+            }
+            if (queryGroupGradeResIdl.data.memberGradeInfos != null) {
+                for (GradeInfo gradeInfo2 : queryGroupGradeResIdl.data.memberGradeInfos) {
+                    GroupLevelInfo.LevelInfo levelInfo2 = new GroupLevelInfo.LevelInfo();
+                    getGroupLevelInfo().getVipLevelInfos().add(levelInfo2);
+                    levelInfo2.setGrade(gradeInfo2.grade.intValue());
+                    levelInfo2.setIntro(gradeInfo2.intro);
+                    levelInfo2.setThresholdDay(gradeInfo2.thresholdDay.intValue());
+                    levelInfo2.setMaxMemberNum(gradeInfo2.maxMemberNum.intValue());
+                }
+            }
+        }
     }
 }

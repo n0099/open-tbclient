@@ -3,7 +3,7 @@ package com.baidu.tieba.im.friend;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class g implements View.OnClickListener {
+public class g implements View.OnClickListener {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,12 +12,12 @@ public final class g implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         IMBlackListActivity iMBlackListActivity;
         Object tag = view.getTag();
         if (tag != null && (tag instanceof com.baidu.tieba.im.data.a)) {
             iMBlackListActivity = this.a.a;
-            iMBlackListActivity.a((com.baidu.tieba.im.data.a) tag);
+            iMBlackListActivity.a(view, (com.baidu.tieba.im.data.a) tag);
         }
     }
 }

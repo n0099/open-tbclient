@@ -1,11 +1,12 @@
 package com.baidu.tieba.square;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.forumdetail.ForumDetailData;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class aq {
+public class aq {
     private ArrayList<at> a = new ArrayList<>();
     private ArrayList<at> b = new ArrayList<>();
     private af c = new af();
@@ -13,47 +14,50 @@ public final class aq {
     private as e = null;
     private boolean f = true;
 
-    public final boolean a() {
+    public boolean a() {
         return this.f;
     }
 
-    public final ArrayList<at> b() {
+    public ArrayList<at> b() {
         return this.a;
     }
 
-    public final ArrayList<at> c() {
+    public ArrayList<at> c() {
         return this.b;
     }
 
-    public final af d() {
+    public af d() {
         return this.c;
     }
 
-    public final as e() {
+    public as e() {
         return this.e;
     }
 
-    public final void a(String str) {
-        if (str == null || str.length() <= 0) {
+    public void a(String str) {
+        if (str == null || str.length() < 1) {
             this.f = false;
             return;
         }
         try {
-            JSONObject jSONObject = new JSONObject(str);
-            try {
-                a(jSONObject.optJSONArray("banner"));
-                b(jSONObject.optJSONArray("forum_list_recommend_img"));
-                this.c.a(jSONObject.optJSONArray("forum_list_recommend"));
-                c(jSONObject.optJSONArray("thread_list"));
-                this.e = new as();
-                this.e.b(jSONObject);
-            } catch (Exception e) {
-                this.f = false;
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
-            }
-        } catch (Exception e2) {
+            a(new JSONObject(str));
+        } catch (Exception e) {
             this.f = false;
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e2.toString());
+            BdLog.e(getClass().getName(), "parserJson", e.toString());
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        try {
+            a(jSONObject.optJSONArray("banner"));
+            b(jSONObject.optJSONArray("forum_list_recommend_img"));
+            this.c.a(jSONObject.optJSONArray("forum_list_recommend"));
+            c(jSONObject.optJSONArray("thread_list"));
+            this.e = new as();
+            this.e.b(jSONObject);
+        } catch (Exception e) {
+            this.f = false;
+            BdLog.e(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -70,7 +74,7 @@ public final class aq {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parseCarouselRecommendData", e.toString());
+                BdLog.e(getClass().getName(), "parseCarouselRecommendData", e.toString());
             }
         }
     }
@@ -88,7 +92,7 @@ public final class aq {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parseForumTopicRecommendData", e.toString());
+                BdLog.e(getClass().getName(), "parseForumTopicRecommendData", e.toString());
             }
         }
     }
@@ -105,7 +109,7 @@ public final class aq {
                         threadInfo.title = jSONObject.optString("title");
                         threadInfo.viewNum = jSONObject.optLong("view_num");
                         threadInfo.replyNum = jSONObject.optLong("reply_num");
-                        threadInfo.forumName = jSONObject.optString("forum_name", "");
+                        threadInfo.forumName = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME, "");
                         threadInfo.postAuthor = jSONObject.optString("post_author", "");
                         JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
                         if (optJSONArray != null) {
@@ -124,12 +128,12 @@ public final class aq {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parseRecommendPostData", e.toString());
+                BdLog.e(getClass().getName(), "parseRecommendPostData", e.toString());
             }
         }
     }
 
-    public final boolean f() {
+    public boolean f() {
         boolean z = false;
         if (this.f) {
             if (this.a == null || this.e == null || this.b == null || this.c == null || this.d == null) {

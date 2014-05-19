@@ -3,7 +3,7 @@ package com.baidu.tieba.im.updategroup;
 import android.text.Editable;
 import android.text.TextWatcher;
 /* loaded from: classes.dex */
-final class h implements TextWatcher {
+class h implements TextWatcher {
     final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,15 +12,15 @@ final class h implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         this.a.g();
     }
 
     @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
+    public void afterTextChanged(Editable editable) {
     }
 }

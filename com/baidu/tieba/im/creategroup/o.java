@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.creategroup;
 
 import android.content.DialogInterface;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.bb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class o implements DialogInterface.OnClickListener {
+public class o implements DialogInterface.OnClickListener {
     final /* synthetic */ n a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,11 +13,11 @@ public final class o implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         if (i == 0) {
-            az.a(this.a.a);
+            bb.a(this.a.a);
         } else if (i == 1) {
-            az.b(this.a.a);
+            bb.b(this.a.a);
         }
     }
 }

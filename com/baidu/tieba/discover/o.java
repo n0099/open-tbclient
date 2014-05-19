@@ -1,7 +1,7 @@
 package com.baidu.tieba.discover;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class o {
+public class o {
     String a;
     boolean b;
 

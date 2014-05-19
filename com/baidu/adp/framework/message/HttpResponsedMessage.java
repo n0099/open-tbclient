@@ -1,77 +1,89 @@
 package com.baidu.adp.framework.message;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+import com.baidu.adp.lib.network.http.e;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public abstract class HttpResponsedMessage extends f<byte[]> {
-    private int a;
-    private Map<String, List<String>> b;
-    private String c;
-    private String d;
-    private String e;
+public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
+    private String contentEncoding;
+    private String contentLength;
+    private String contentType;
+    private int mDownSize;
+    private Map<String, List<String>> mHeader;
+    private int mStatusCode;
 
     public HttpResponsedMessage(int i) {
         super(i);
-        this.a = -1;
-        this.b = null;
-        this.c = "";
-        this.d = "";
-        this.e = "";
+        this.mStatusCode = -1;
+        this.mHeader = null;
+        this.contentEncoding = "";
+        this.contentType = "";
+        this.contentLength = "";
+        this.mDownSize = 0;
     }
 
-    public final void a(String str) {
-        this.c = str;
+    public int getDownSize() {
+        return this.mDownSize;
     }
 
-    public final String a() {
-        return this.d;
+    public void setDownSize(int i) {
+        this.mDownSize = i;
     }
 
-    public final void b(String str) {
-        this.d = str;
+    public String getContentEncoding() {
+        return this.contentEncoding;
     }
 
-    public final String b() {
-        return this.e;
+    public void setContentEncoding(String str) {
+        this.contentEncoding = str;
     }
 
-    public final void c(String str) {
-        this.e = str;
+    public String getContentType() {
+        return this.contentType;
     }
 
-    public final synchronized void a(Map<String, List<String>> map) {
-        this.b = map;
+    public void setContentType(String str) {
+        this.contentType = str;
     }
 
-    public final boolean c() {
-        return this.a == 200 || this.a / 100 == 3;
+    public String getContentLength() {
+        return this.contentLength;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final byte[] a(byte[] bArr) {
-        if (this.c != null && this.c.toLowerCase().contains("gzip")) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-            com.baidu.adp.lib.util.e.a(byteArrayInputStream, byteArrayOutputStream);
-            return byteArrayOutputStream.toByteArray();
+    public void setContentLength(String str) {
+        this.contentLength = str;
+    }
+
+    public synchronized void setHeader(Map<String, List<String>> map) {
+        this.mHeader = map;
+    }
+
+    public synchronized List<String> getHeader(String str) {
+        return this.mHeader != null ? Collections.unmodifiableList(this.mHeader.get(str)) : null;
+    }
+
+    public boolean isSuccess() {
+        return this.mStatusCode == 200 || this.mStatusCode / 100 == 3;
+    }
+
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public boolean hasError() {
+        return !isSuccess();
+    }
+
+    public int getStatusCode() {
+        return this.mStatusCode;
+    }
+
+    public void setStatusCode(int i, String str) {
+        this.mStatusCode = i;
+        if (!isSuccess()) {
+            setError(-1);
+            setErrorString(str);
         }
-        return bArr;
     }
 
-    public final int d() {
-        return this.a;
-    }
-
-    public final void a(int i, String str) {
-        this.a = i;
-        if (!c()) {
-            a(-1);
-            d(str);
-        }
-    }
-
-    public void a(int i, com.baidu.adp.lib.network.http.e eVar) {
+    public void logStatInBackground(int i, e eVar) {
     }
 }

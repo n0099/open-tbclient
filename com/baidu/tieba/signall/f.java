@@ -1,41 +1,42 @@
 package com.baidu.tieba.signall;
 
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 /* loaded from: classes.dex */
-public final class f {
-    private static final String b = String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/forum/msign";
-    private ak a = null;
+public class f {
+    private static final String b = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/msign";
+    private al a = null;
 
-    public final String a(String str) {
-        AccountData N = TbadkApplication.N();
+    public String a(String str) {
+        AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
-        if (N != null) {
-            str2 = N.getID();
+        if (currentAccountObj != null) {
+            str2 = currentAccountObj.getID();
         }
-        this.a = new ak(b);
-        this.a.a("user_id", str2);
+        this.a = new al(b);
+        this.a.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, str2);
         this.a.a("forum_ids", str);
         this.a.a().a().b = true;
         this.a.a().a().a = true;
         return this.a.i();
     }
 
-    public final void a() {
+    public void a() {
         if (this.a != null) {
             this.a.g();
         }
     }
 
-    public final boolean b() {
+    public boolean b() {
         if (this.a != null) {
             return this.a.a().b().b();
         }
         return false;
     }
 
-    public final String c() {
+    public String c() {
         if (this.a != null) {
             return this.a.f();
         }

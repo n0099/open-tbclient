@@ -1,8 +1,9 @@
 package com.baidu.tbadk.widget.richText;
 
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class g {
+public class g {
     private String a;
     private String b;
     private String c;
@@ -29,7 +30,7 @@ public final class g {
                 this.d = Integer.valueOf(split[0]).intValue();
                 this.e = Integer.valueOf(split[1]).intValue();
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(e.getMessage());
+                BdLog.e(e.getMessage());
             }
             if (this.d <= 0) {
                 this.d = 1;
@@ -43,27 +44,27 @@ public final class g {
         }
     }
 
-    public final String a() {
+    public String a() {
         return this.c;
     }
 
-    public final int b() {
+    public int b() {
         return this.e;
     }
 
-    public final int c() {
+    public int c() {
         return this.d;
     }
 
-    public final boolean d() {
+    public boolean d() {
         return this.f;
     }
 
-    public final String e() {
+    public String e() {
         return this.a;
     }
 
-    public final String f() {
+    public String f() {
         return this.b;
     }
 }

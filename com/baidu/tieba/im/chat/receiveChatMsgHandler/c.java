@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-final class c extends com.baidu.tieba.im.m<Boolean> {
+class c extends com.baidu.tieba.im.b<Boolean> {
     private final /* synthetic */ String b;
     private final /* synthetic */ LinkedList c;
 
@@ -12,9 +12,10 @@ final class c extends com.baidu.tieba.im.m<Boolean> {
         this.c = linkedList;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Boolean a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
         return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(this.b, this.c, true));
     }
 }

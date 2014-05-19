@@ -2,7 +2,7 @@ package com.baidu.tieba.mention;
 
 import android.widget.ImageView;
 /* loaded from: classes.dex */
-final class h implements com.baidu.tbadk.imageManager.d {
+class h implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ g a;
     private final /* synthetic */ ImageView b;
     private final /* synthetic */ String c;
@@ -15,13 +15,13 @@ final class h implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null) {
             this.b.setTag(null);
-            bVar.a(this.b);
+            aVar.a(this.b);
             return;
         }
         this.b.setTag(this.c);
-        this.b.setImageResource(com.baidu.tieba.a.g.photo);
+        this.b.setImageResource(com.baidu.tieba.q.photo);
     }
 }

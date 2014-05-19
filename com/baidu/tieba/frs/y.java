@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 /* loaded from: classes.dex */
-final class y implements AdapterView.OnItemClickListener {
+class y implements AdapterView.OnItemClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,16 +13,16 @@ final class y implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        cm cmVar;
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        cs csVar;
         if (i >= 0) {
-            cmVar = this.a.r;
-            cmVar.i(i);
-            this.a.z = true;
-            this.a.y = ((com.baidu.tbadk.core.data.g) ((GridView) adapterView).getAdapter().getItem(i)).b();
-            this.a.l = 1;
-            this.a.h = 3;
-            this.a.o();
+            csVar = this.a.w;
+            csVar.i(i);
+            this.a.E = true;
+            this.a.D = ((com.baidu.tbadk.core.data.g) ((GridView) adapterView).getAdapter().getItem(i)).b();
+            this.a.q = 1;
+            this.a.m = 3;
+            this.a.E();
         }
     }
 }

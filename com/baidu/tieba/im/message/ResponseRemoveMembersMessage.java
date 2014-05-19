@@ -1,26 +1,33 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import protobuf.DelGroupUsers.DelGroupUsersRes;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.squareup.wire.Wire;
+import protobuf.DelGroupUsers.DelGroupUsersResIdl;
 /* loaded from: classes.dex */
 public class ResponseRemoveMembersMessage extends SocketResponsedMessage {
-    private String a;
+    private String groupId;
 
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        DelGroupUsersRes.DelGroupUsersResIdl parseFrom = DelGroupUsersRes.DelGroupUsersResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.a = String.valueOf(parseFrom.getData().getGroupId());
-        }
+    public String getGroupId() {
+        return this.groupId;
     }
 
-    public final String d() {
-        return this.a;
+    public void setGroupId(String str) {
+        this.groupId = str;
     }
 
     public ResponseRemoveMembersMessage() {
-        super(103112);
+        super(MessageTypes.CMD_REMOVE_MEMBERS);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        DelGroupUsersResIdl delGroupUsersResIdl = (DelGroupUsersResIdl) new Wire(new Class[0]).parseFrom(bArr, DelGroupUsersResIdl.class);
+        setError(delGroupUsersResIdl.error.errorno.intValue());
+        setErrorString(delGroupUsersResIdl.error.usermsg);
+        if (getError() == 0) {
+            setGroupId(String.valueOf(delGroupUsersResIdl.data.groupId));
+        }
     }
 }

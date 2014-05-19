@@ -2,7 +2,7 @@ package com.baidu.tieba.img.view;
 
 import android.widget.Scroller;
 /* loaded from: classes.dex */
-final class b implements Runnable {
+class b implements Runnable {
     final /* synthetic */ DragHorizonScrollView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ final class b implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         int i;
         Scroller scroller;
         int i2;

@@ -2,7 +2,7 @@ package com.baidu.tieba.mainentrance;
 
 import android.widget.EditText;
 /* loaded from: classes.dex */
-final class z implements Runnable {
+class z implements Runnable {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,13 +11,13 @@ final class z implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         EditText editText;
         EditText editText2;
         editText = this.a.c;
         editText.requestFocus();
         SquareSearchActivity squareSearchActivity = this.a;
         editText2 = this.a.c;
-        com.baidu.adp.lib.util.i.b(squareSearchActivity, editText2);
+        com.baidu.adp.lib.util.h.b(squareSearchActivity, editText2);
     }
 }

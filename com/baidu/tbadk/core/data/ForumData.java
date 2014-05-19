@@ -1,12 +1,26 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.FrsPage.AnchorPower;
+import tbclient.FrsPage.Badges;
+import tbclient.FrsPage.Classify;
+import tbclient.FrsPage.ForumInfo;
+import tbclient.FrsPage.Manager;
+import tbclient.FrsPage.RankInfo;
+import tbclient.FrsPage.RecommendForum;
+import tbclient.FrsPage.SignForum;
+import tbclient.FrsPage.SignInfo;
+import tbclient.FrsPage.SignUser;
+import tbclient.FrsPage.TagInfo;
 /* loaded from: classes.dex */
 public class ForumData implements Serializable {
     private static final long serialVersionUID = -5446966999595522426L;
+    private AnchorPower anchorPower;
     private int cur_score;
     private int favo_type;
     private String image_url;
@@ -18,7 +32,7 @@ public class ForumData implements Serializable {
     private final c mBannerListData;
     private final f mFrsBannerData;
     private final PostPrefixData mPrefixData;
-    private ArrayList<m> mRecommendForumData;
+    private ArrayList<n> mRecommendForumData;
     private String slogan;
     private String tag_color;
     private String tag_id;
@@ -53,6 +67,14 @@ public class ForumData implements Serializable {
         this.mBannerListData = new c();
         this.mRecommendForumData = new ArrayList<>();
         this.mPrefixData = new PostPrefixData();
+    }
+
+    public AnchorPower getAnchorPower() {
+        return this.anchorPower;
+    }
+
+    public void setAnchorPower(AnchorPower anchorPower) {
+        this.anchorPower = anchorPower;
     }
 
     public void setId(String str) {
@@ -223,15 +245,109 @@ public class ForumData implements Serializable {
         return this.mBannerListData;
     }
 
-    public ArrayList<m> getRecommendForumData() {
+    public ArrayList<n> getRecommendForumData() {
         return this.mRecommendForumData;
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0041: IGET  (r3v11 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.tag_id java.lang.Integer)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0052: IGET  (r0v73 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.color java.lang.Integer)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x0009: IGET  (r2v1 java.lang.Long A[REMOVE]) = (r6v0 tbclient.FrsPage.ForumInfo) tbclient.FrsPage.ForumInfo.id java.lang.Long)] */
+    public void parserProtobuf(ForumInfo forumInfo) {
+        if (forumInfo != null) {
+            try {
+                this.id = new StringBuilder().append(forumInfo.id).toString();
+                this.name = forumInfo.name;
+                this.slogan = forumInfo.slogan;
+                this.is_support_local = forumInfo.is_support_local.intValue();
+                this.is_local_effect = forumInfo.is_local_effect.intValue();
+                this.top_notice_data.a(forumInfo.top_notice);
+                TagInfo tagInfo = forumInfo.tag_info;
+                if (tagInfo != null) {
+                    this.tag_name = tagInfo.tag_name;
+                    this.tag_id = new StringBuilder().append(tagInfo.tag_id).toString();
+                    this.tag_color = new StringBuilder().append(tagInfo.color).toString();
+                }
+                this.image_url = forumInfo.avatar;
+                this.cur_score = forumInfo.cur_score.intValue();
+                this.levelup_score = forumInfo.levelup_score.intValue();
+                this.first_class = forumInfo.first_class;
+                this.second_class = forumInfo.second_class;
+                this.is_exists = forumInfo.is_exists.intValue();
+                this.is_forbidden = forumInfo.is_forbidden.intValue();
+                this.thread_num = forumInfo.thread_num.intValue();
+                this.post_num = forumInfo.post_num.intValue();
+                this.member_num = forumInfo.member_num.intValue();
+                this.is_like = forumInfo.is_like.intValue();
+                this.user_level = forumInfo.user_level.intValue();
+                this.level_name = forumInfo.level_name;
+                this.album_open_photo_frs = forumInfo.album_open_photo_frs.intValue();
+                setFavo_type(forumInfo.favo_type.intValue());
+                List<Manager> list = forumInfo.managers;
+                if (list != null) {
+                    for (int i = 0; i < list.size(); i++) {
+                        this.managers.add(list.get(i).name);
+                    }
+                }
+                List<Classify> list2 = forumInfo.good_classify;
+                if (list2 != null) {
+                    for (int i2 = 0; i2 < list2.size(); i2++) {
+                        g gVar = new g();
+                        gVar.a(list2.get(i2));
+                        this.good_classify.add(gVar);
+                    }
+                }
+                SignInfo signInfo = forumInfo.sign_in_info;
+                if (signInfo != null) {
+                    SignUser signUser = signInfo.user_info;
+                    if (signUser != null) {
+                        this.mSignData.setIsSigned(signUser.is_sign_in.intValue());
+                        this.mSignData.setUserSignRank(signUser.user_sign_rank.intValue());
+                        this.mSignData.setCountSignNum(signUser.cont_sign_num.intValue());
+                    }
+                    SignForum signForum = signInfo.forum_info;
+                    if (signForum != null) {
+                        if (signForum.is_on.intValue() == 0) {
+                            this.mSignData.setForumRank(-2);
+                        } else {
+                            RankInfo rankInfo = signForum.current_rank_info;
+                            if (rankInfo != null) {
+                                this.mSignData.setForumRank(rankInfo.sign_rank.intValue());
+                                this.mSignData.setSignCount(rankInfo.sign_count.intValue());
+                            }
+                        }
+                    }
+                }
+                List<Badges> list3 = forumInfo.badges;
+                if (list3 != null && list3.size() > 0) {
+                    for (int i3 = 0; i3 < list3.size(); i3++) {
+                        a aVar = new a();
+                        aVar.a(list3.get(i3));
+                        this.mBadgeData.add(aVar);
+                    }
+                }
+                List<RecommendForum> list4 = forumInfo.recommend_forum;
+                if (list4 != null && list4.size() > 0) {
+                    for (int i4 = 0; i4 < list4.size(); i4++) {
+                        n nVar = new n();
+                        nVar.a(list4.get(i4));
+                        this.mRecommendForumData.add(nVar);
+                    }
+                }
+                this.mFrsBannerData.a(forumInfo.banner);
+                this.mBannerListData.a(forumInfo.banner_list);
+                this.mPrefixData.parserProtobuf(forumInfo.post_prefix);
+                this.anchorPower = forumInfo.anchor_power;
+            } catch (Exception e) {
+                BdLog.e("ForumData", "parserProtobuf", "error = " + e.getMessage());
+            }
+        }
     }
 
     public void parserJson(String str) {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("ForumData", "parserJson", "error = " + e.getMessage());
+            BdLog.e("ForumData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -314,56 +430,49 @@ public class ForumData implements Serializable {
                 JSONArray optJSONArray4 = jSONObject.optJSONArray("recommend_forum");
                 if (optJSONArray4 != null && optJSONArray4.length() > 0) {
                     for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        m mVar = new m();
-                        JSONObject optJSONObject7 = optJSONArray4.optJSONObject(i4);
-                        if (optJSONObject7 != null) {
-                            mVar.a = optJSONObject7.optString("name");
-                            mVar.b = optJSONObject7.optString("avatar");
-                            mVar.c = optJSONObject7.optString("link");
-                            mVar.d = optJSONObject7.optString("st_param");
-                            com.baidu.adp.lib.util.f.e("Recommend:name:" + mVar.a + " link:" + mVar.c + "imageurl:" + mVar.b + "st_param" + mVar.d);
-                        }
-                        this.mRecommendForumData.add(mVar);
+                        n nVar = new n();
+                        nVar.a(optJSONArray4.optJSONObject(i4));
+                        this.mRecommendForumData.add(nVar);
                     }
                 }
                 try {
                     this.mFrsBannerData.a(jSONObject.getJSONObject("banner"));
                 } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b("ForumData", "banner parserJson", "error = " + e.getMessage());
+                    BdLog.e("ForumData", "banner parserJson", "error = " + e.getMessage());
                 }
                 try {
                     this.mBannerListData.a(jSONObject.optJSONObject("banner_list"));
                 } catch (Exception e2) {
-                    com.baidu.adp.lib.util.f.b("ForumData", "banner_list parserJson", "error = " + e2.getMessage());
+                    BdLog.e("ForumData", "banner_list parserJson", "error = " + e2.getMessage());
                 }
                 try {
                     this.mPrefixData.parserJson(jSONObject.optJSONObject("post_prefix"));
                 } catch (Exception e3) {
-                    com.baidu.adp.lib.util.f.b("ForumData", "banner_list parserJson", "error = " + e3.getMessage());
+                    BdLog.e("ForumData", "banner_list parserJson", "error = " + e3.getMessage());
                 }
             } catch (Exception e4) {
-                com.baidu.adp.lib.util.f.b("ForumData", "parserJson", "error = " + e4.getMessage());
+                BdLog.e("ForumData", "parserJson", "error = " + e4.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.adp.lib.util.f.d("ForumData", "logPrint", "id = " + this.id);
-        com.baidu.adp.lib.util.f.d("ForumData", "logPrint", "name = " + this.name);
-        com.baidu.adp.lib.util.f.d("ForumData", "logPrint", "first_class = " + this.first_class);
-        com.baidu.adp.lib.util.f.d("ForumData", "logPrint", "second_class = " + this.second_class);
-        com.baidu.adp.lib.util.f.d("ForumData", "logPrint", "is_exists = " + String.valueOf(this.is_exists));
-        com.baidu.adp.lib.util.f.d("ForumData", "logPrint", "is_forbidden = " + String.valueOf(this.is_forbidden));
-        com.baidu.adp.lib.util.f.d("ForumData", "logPrint", "thread_num = " + String.valueOf(this.thread_num));
-        com.baidu.adp.lib.util.f.d("ForumData", "logPrint", "post_num = " + String.valueOf(this.post_num));
-        com.baidu.adp.lib.util.f.d("ForumData", "logPrint", "member_num = " + String.valueOf(this.member_num));
-        com.baidu.adp.lib.util.f.d("ForumData", "logPrint", "is_like = " + String.valueOf(this.is_like));
-        com.baidu.adp.lib.util.f.d("ForumData", "logPrint", "user_level = " + String.valueOf(this.user_level));
+        BdLog.v("ForumData", "logPrint", "id = " + this.id);
+        BdLog.v("ForumData", "logPrint", "name = " + this.name);
+        BdLog.v("ForumData", "logPrint", "first_class = " + this.first_class);
+        BdLog.v("ForumData", "logPrint", "second_class = " + this.second_class);
+        BdLog.v("ForumData", "logPrint", "is_exists = " + String.valueOf(this.is_exists));
+        BdLog.v("ForumData", "logPrint", "is_forbidden = " + String.valueOf(this.is_forbidden));
+        BdLog.v("ForumData", "logPrint", "thread_num = " + String.valueOf(this.thread_num));
+        BdLog.v("ForumData", "logPrint", "post_num = " + String.valueOf(this.post_num));
+        BdLog.v("ForumData", "logPrint", "member_num = " + String.valueOf(this.member_num));
+        BdLog.v("ForumData", "logPrint", "is_like = " + String.valueOf(this.is_like));
+        BdLog.v("ForumData", "logPrint", "user_level = " + String.valueOf(this.user_level));
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.managers.size()) {
-                com.baidu.adp.lib.util.f.d("ForumData", "logPrint", "managers" + String.valueOf(i2) + " = " + this.managers.get(i2));
+                BdLog.v("ForumData", "logPrint", "managers" + String.valueOf(i2) + " = " + this.managers.get(i2));
                 this.managers.get(i2);
                 i = i2 + 1;
             } else {

@@ -130,9 +130,11 @@ public final class a {
                 if (properties.getProperty("moplus_enable") != null) {
                     r = Integer.valueOf(properties.getProperty("moplus_enable")).intValue();
                 }
-                try {
-                    fileInputStream.close();
-                } catch (IOException e2) {
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException e2) {
+                    }
                 }
             } catch (Exception e3) {
                 if (fileInputStream != null) {

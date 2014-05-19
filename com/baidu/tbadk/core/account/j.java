@@ -1,0 +1,39 @@
+package com.baidu.tbadk.core.account;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsoluteLayout;
+import android.widget.ProgressBar;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.tieba.p;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+/* loaded from: classes.dex */
+public class j {
+    public static void a(Context context, SapiWebView sapiWebView) {
+        d(context, sapiWebView);
+        b(context, sapiWebView);
+        c(context, sapiWebView);
+    }
+
+    public static void b(Context context, SapiWebView sapiWebView) {
+        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(s.layout_sapi_network_unavailable, (ViewGroup) null);
+        inflate.findViewById(r.btn_network_settings).setOnClickListener(new k(context));
+        sapiWebView.setNoNetworkView(inflate);
+    }
+
+    public static void c(Context context, SapiWebView sapiWebView) {
+        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(s.layout_sapi_loading_timeout, (ViewGroup) null);
+        inflate.findViewById(r.btn_retry).setOnClickListener(new l(sapiWebView, inflate));
+        sapiWebView.setTimeoutView(inflate);
+    }
+
+    public static void d(Context context, SapiWebView sapiWebView) {
+        int dimensionPixelSize = context.getResources().getDimensionPixelSize(p.ds8);
+        ProgressBar progressBar = new ProgressBar(context, null, 16842872);
+        progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, dimensionPixelSize, 0, 0));
+        sapiWebView.setProgressBar(progressBar);
+    }
+}

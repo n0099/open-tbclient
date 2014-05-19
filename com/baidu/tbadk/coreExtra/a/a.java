@@ -1,19 +1,19 @@
 package com.baidu.tbadk.coreExtra.a;
 
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private static a b;
     private boolean a;
 
     private a() {
         this.a = false;
         try {
-            if (!bc.c(new BufferedReader(new InputStreamReader(TbadkApplication.j().b().getAssets().open("apk_ab_test.txt"))).readLine())) {
+            if (!be.c(new BufferedReader(new InputStreamReader(TbadkApplication.m252getInst().getApp().getAssets().open("apk_ab_test.txt"))).readLine())) {
                 this.a = true;
             }
         } catch (Throwable th) {
@@ -32,18 +32,18 @@ public final class a {
         return aVar;
     }
 
-    public final boolean b() {
+    public boolean b() {
         return this.a;
     }
 
-    public final HttpURLConnection a(HttpURLConnection httpURLConnection) {
+    public HttpURLConnection a(HttpURLConnection httpURLConnection) {
         if (this.a && httpURLConnection != null) {
             httpURLConnection.setRequestProperty("Cookie", "pub_env=3;");
         }
         return httpURLConnection;
     }
 
-    public final String c() {
+    public String c() {
         return this.a ? "pub_env=3;" : "";
     }
 }

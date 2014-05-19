@@ -6,12 +6,14 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i extends ViewGroup {
+public class i extends ViewGroup {
     private final RectF a;
     private final RectF b;
     private final RectF c;
@@ -21,17 +23,12 @@ public final class i extends ViewGroup {
     private final Paint g;
     private final Paint h;
 
-    @Override // android.view.ViewGroup
-    protected final /* synthetic */ ViewGroup.LayoutParams generateDefaultLayoutParams() {
-        return new j(-2, -2);
-    }
-
     public i(Context context) {
         this(context, null, 0);
     }
 
-    private i(Context context, AttributeSet attributeSet, int i) {
-        super(context, null, 0);
+    public i(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         this.a = new RectF();
         this.b = new RectF();
         this.c = new RectF();
@@ -51,13 +48,13 @@ public final class i extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected final void onDetachedFromWindow() {
+    protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         clearFocus();
     }
 
     @Override // android.view.View
-    protected final void onMeasure(int i, int i2) {
+    protected void onMeasure(int i, int i2) {
         int i3 = i & 1073741823;
         int i4 = i2 & 1073741823;
         setMeasuredDimension(i3, i4);
@@ -79,7 +76,7 @@ public final class i extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected final void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         j jVar;
         int childCount = getChildCount();
         float f = getResources().getDisplayMetrics().density;
@@ -116,7 +113,7 @@ public final class i extends ViewGroup {
                         break;
                 }
                 this.c.offset((int) ((jVar.c * f) + 0.5f), (int) ((jVar.d * f) + 0.5f));
-                com.baidu.adp.lib.util.f.e("MaskView", "onLayout", "child layout to: " + this.c);
+                BdLog.d("MaskView", "onLayout", "child layout to: " + this.c);
                 childAt.layout((int) this.c.left, (int) this.c.top, (int) this.c.right, (int) this.c.bottom);
             }
         }
@@ -128,7 +125,7 @@ public final class i extends ViewGroup {
                 rectF.left = this.a.left;
                 rectF.right = rectF.left + view.getMeasuredWidth();
                 return;
-            case 32:
+            case AccessibilityNodeInfoCompat.ACTION_LONG_CLICK /* 32 */:
                 rectF.left = (this.a.width() - view.getMeasuredWidth()) / 2.0f;
                 rectF.right = (this.a.width() + view.getMeasuredWidth()) / 2.0f;
                 rectF.offset(this.a.left, 0.0f);
@@ -148,7 +145,7 @@ public final class i extends ViewGroup {
                 rectF.top = this.a.top;
                 rectF.bottom = rectF.top + view.getMeasuredHeight();
                 return;
-            case 32:
+            case AccessibilityNodeInfoCompat.ACTION_LONG_CLICK /* 32 */:
                 rectF.top = (this.a.width() - view.getMeasuredHeight()) / 2.0f;
                 rectF.bottom = (this.a.width() + view.getMeasuredHeight()) / 2.0f;
                 rectF.offset(0.0f, this.a.top);
@@ -165,41 +162,49 @@ public final class i extends ViewGroup {
     private void b() {
         this.e.reset();
         this.e.addRect(this.a, Path.Direction.CW);
-        com.baidu.adp.lib.util.f.e("MaskView", "resetOutPath", "target rect = " + this.a);
+        BdLog.d("MaskView", "resetOutPath", "target rect = " + this.a);
         this.e.addRect(this.b, Path.Direction.CW);
-        com.baidu.adp.lib.util.f.e("MaskView", "resetOutPath", "fulling rect = " + this.b);
+        BdLog.d("MaskView", "resetOutPath", "fulling rect = " + this.b);
     }
 
-    public final void a(Rect rect) {
+    public void a(Rect rect) {
         this.a.set(rect);
         b();
-        com.baidu.adp.lib.util.f.e("MaskView", "settargetRect", "target rect = " + this.a);
+        BdLog.d("MaskView", "settargetRect", "target rect = " + this.a);
         invalidate();
     }
 
-    public final void b(Rect rect) {
+    public void b(Rect rect) {
         this.b.set(rect);
         b();
-        com.baidu.adp.lib.util.f.e("MaskView", "setFullingRect", "fulling rect = " + this.b);
+        BdLog.d("MaskView", "setFullingRect", "fulling rect = " + this.b);
         this.f = true;
         invalidate();
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.d.setAlpha(i);
         invalidate();
     }
 
-    public final void b(int i) {
+    public void b(int i) {
         this.d.setColor(i);
         invalidate();
     }
 
-    public static void a() {
+    public void a(boolean z) {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.view.ViewGroup
+    /* renamed from: a */
+    public j generateDefaultLayoutParams() {
+        return new j(-2, -2);
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected final void dispatchDraw(Canvas canvas) {
+    protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
         canvas.save();
         canvas.drawRect(this.b, this.d);

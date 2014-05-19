@@ -1,6 +1,7 @@
 package com.baidu.android.systemmonitor.devicestatistic;
 
 import android.os.Handler;
+import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
@@ -18,6 +19,6 @@ public class b implements Runnable {
         this.a.e();
         handler = this.a.e;
         runnable = this.a.i;
-        handler.postDelayed(runnable, 60000L);
+        handler.postDelayed(runnable, TbConfig.USE_TIME_INTERVAL);
     }
 }

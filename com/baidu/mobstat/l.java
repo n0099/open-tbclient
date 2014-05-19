@@ -1,21 +1,56 @@
 package com.baidu.mobstat;
+
+import android.content.Context;
+import android.os.Handler;
+import com.baidu.location.LocationClientOption;
+import java.util.Timer;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l {
-    final /* synthetic */ k a;
-    private String b;
-    private long c;
+public class l implements Runnable {
+    final /* synthetic */ Context a;
+    final /* synthetic */ k b;
 
-    public l(k kVar, String str, long j) {
-        this.a = kVar;
-        this.b = str;
-        this.c = j;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(k kVar, Context context) {
+        this.b = kVar;
+        this.a = context;
     }
 
-    public String a() {
-        return this.b;
-    }
-
-    public long b() {
-        return this.c;
+    @Override // java.lang.Runnable
+    public void run() {
+        boolean z;
+        Timer timer;
+        SendStrategyEnum sendStrategyEnum;
+        SendStrategyEnum sendStrategyEnum2;
+        Handler handler;
+        int i;
+        Timer timer2;
+        this.b.g = BasicStoreTools.getInstance().getExceptionTurn(this.a);
+        z = this.b.g;
+        if (z) {
+            i.a().b(this.a);
+        }
+        timer = this.b.e;
+        if (timer != null) {
+            timer2 = this.b.e;
+            timer2.cancel();
+            this.b.e = null;
+        }
+        this.b.c = SendStrategyEnum.values()[BasicStoreTools.getInstance().getSendStrategy(this.a)];
+        this.b.d = BasicStoreTools.getInstance().getSendStrategyTime(this.a);
+        this.b.b = BasicStoreTools.getInstance().getOnlyWifiChannel(this.a);
+        sendStrategyEnum = this.b.c;
+        if (sendStrategyEnum.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
+            this.b.d(this.a);
+        } else {
+            sendStrategyEnum2 = this.b.c;
+            if (sendStrategyEnum2.equals(SendStrategyEnum.ONCE_A_DAY)) {
+                this.b.d(this.a);
+            }
+        }
+        handler = k.i;
+        m mVar = new m(this);
+        i = this.b.f;
+        handler.postDelayed(mVar, i * LocationClientOption.MIN_SCAN_SPAN);
     }
 }

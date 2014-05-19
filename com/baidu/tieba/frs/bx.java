@@ -1,6 +1,9 @@
 package com.baidu.tieba.frs;
+
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-final class bx implements com.baidu.tieba.model.bd {
+class bx implements SlidingMenu.OnOpenedListener {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,14 +11,8 @@ final class bx implements com.baidu.tieba.model.bd {
         this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.tieba.model.bd
-    public final void a(String str, long j) {
-        da daVar;
-        daVar = this.a.q;
-        daVar.b().setLike(0);
-    }
-
-    @Override // com.baidu.tieba.model.bd
-    public final void a() {
+    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
+    public void onOpened() {
+        TiebaStatic.eventStat(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
     }
 }

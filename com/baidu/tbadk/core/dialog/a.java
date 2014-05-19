@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.dialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +11,13 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.j;
-import com.baidu.tbadk.k;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private String b;
     private View c;
     private String d;
@@ -33,19 +35,19 @@ public final class a {
     private boolean o = false;
     private boolean p = true;
 
-    public final a a(String str) {
+    public a a(String str) {
         this.d = str;
         return this;
     }
 
-    public final a a(int i) {
+    public a a(int i) {
         if (this.l != null) {
             this.d = this.l.getResources().getString(i);
         }
         return this;
     }
 
-    public final a a(int i, c cVar) {
+    public a a(int i, c cVar) {
         if (this.l != null) {
             this.e = this.l.getResources().getString(i);
             this.h = cVar;
@@ -53,7 +55,7 @@ public final class a {
         return this;
     }
 
-    public final a b(int i, c cVar) {
+    public a b(int i, c cVar) {
         if (this.l != null) {
             this.f = this.l.getResources().getString(i);
             this.i = cVar;
@@ -64,31 +66,22 @@ public final class a {
     public a(Activity activity) {
         this.l = activity;
         this.n = (LayoutInflater) activity.getSystemService("layout_inflater");
-        this.m = (ViewGroup) this.n.inflate(k.dialog_bdalert, (ViewGroup) null);
+        this.m = (ViewGroup) this.n.inflate(s.dialog_bdalert, (ViewGroup) null);
     }
 
-    public final a a() {
+    public a a() {
         boolean z;
         boolean z2;
-        boolean z3;
+        boolean z3 = true;
         if (!this.o) {
             this.o = true;
-            int l = TbadkApplication.j().l();
-            if (this.l instanceof com.baidu.tbadk.a) {
-                com.baidu.tbadk.a aVar = (com.baidu.tbadk.a) this.l;
-                aVar.getLayoutMode().a(l == 1);
-                aVar.getLayoutMode().a(this.m);
-            } else if (this.l instanceof com.baidu.tbadk.core.e) {
-                com.baidu.tbadk.core.e eVar = (com.baidu.tbadk.core.e) this.l;
-                eVar.b().a(l == 1);
-                eVar.b().a(this.m);
-            }
-            TextView textView = (TextView) this.m.findViewById(j.title);
-            LinearLayout linearLayout = (LinearLayout) this.m.findViewById(j.content);
-            TextView textView2 = (TextView) this.m.findViewById(j.message);
-            Button button = (Button) this.m.findViewById(j.yes);
-            Button button2 = (Button) this.m.findViewById(j.no);
-            Button button3 = (Button) this.m.findViewById(j.cancel);
+            d();
+            TextView textView = (TextView) this.m.findViewById(r.title);
+            LinearLayout linearLayout = (LinearLayout) this.m.findViewById(r.content);
+            TextView textView2 = (TextView) this.m.findViewById(r.message);
+            Button button = (Button) this.m.findViewById(r.yes);
+            Button button2 = (Button) this.m.findViewById(r.no);
+            Button button3 = (Button) this.m.findViewById(r.cancel);
             if (!TextUtils.isEmpty(this.b)) {
                 textView.setText(this.b);
             } else {
@@ -126,48 +119,72 @@ public final class a {
                 if (this.j != null) {
                     button3.setOnClickListener(new b(this, this, this.j));
                 }
-                z3 = true;
             }
-            boolean[] zArr = {z2, z, z3};
-            Button[] buttonArr = {button2, button, button3};
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < 3; i++) {
-                if (zArr[i]) {
-                    arrayList.add(buttonArr[i]);
-                    buttonArr[i].setVisibility(0);
-                } else {
-                    buttonArr[i].setVisibility(8);
-                }
-            }
-            if (arrayList.size() == 3) {
-                int i2 = 0;
-                while (i2 < 3) {
-                    a((Button) arrayList.get(i2), 70, i2 == 2 ? 0 : 10);
-                    i2++;
-                }
-            }
-            if (arrayList.size() == 2) {
-                int i3 = 0;
-                while (i3 < 2) {
-                    a((Button) arrayList.get(i3), 110, i3 == 1 ? 0 : 10);
-                    i3++;
-                }
-            }
-            if (arrayList.size() == 1) {
-                a((Button) arrayList.get(0), 230, 0);
-            }
+            a(z, z2, z3, button, button2, button3);
         }
         return this;
     }
 
+    private void d() {
+        int skinType = TbadkApplication.m252getInst().getSkinType();
+        if (this.l instanceof BaseActivity) {
+            BaseActivity baseActivity = (BaseActivity) this.l;
+            baseActivity.getLayoutMode().a(skinType == 1);
+            baseActivity.getLayoutMode().a((View) this.m);
+        } else if (this.l instanceof com.baidu.tbadk.core.e) {
+            com.baidu.tbadk.core.e eVar = (com.baidu.tbadk.core.e) this.l;
+            eVar.a().a(skinType == 1);
+            eVar.a().a((View) this.m);
+        }
+    }
+
+    private void a(boolean z, boolean z2, boolean z3, Button button, Button button2, Button button3) {
+        boolean[] zArr = {z2, z, z3};
+        Button[] buttonArr = {button2, button, button3};
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < 3; i++) {
+            if (zArr[i]) {
+                arrayList.add(buttonArr[i]);
+                buttonArr[i].setVisibility(0);
+            } else {
+                buttonArr[i].setVisibility(8);
+            }
+        }
+        if (arrayList.size() == 3) {
+            int i2 = 0;
+            while (true) {
+                int i3 = i2;
+                if (i3 >= 3) {
+                    break;
+                }
+                a((Button) arrayList.get(i3), 70, i3 == 2 ? 0 : 10);
+                i2 = i3 + 1;
+            }
+        }
+        if (arrayList.size() == 2) {
+            int i4 = 0;
+            while (true) {
+                int i5 = i4;
+                if (i5 >= 2) {
+                    break;
+                }
+                a((Button) arrayList.get(i5), 110, i5 == 1 ? 0 : 10);
+                i4 = i5 + 1;
+            }
+        }
+        if (arrayList.size() == 1) {
+            a((Button) arrayList.get(0), 230, 0);
+        }
+    }
+
     private void a(Button button, int i, int i2) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) button.getLayoutParams();
-        layoutParams.width = (int) ((this.l.getResources().getDisplayMetrics().density * i) + 0.5f);
+        layoutParams.width = a(this.l, i);
         layoutParams.rightMargin = i2;
         button.setLayoutParams(layoutParams);
     }
 
-    public final a b() {
+    public a b() {
         if (!this.o) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -188,9 +205,13 @@ public final class a {
         return this;
     }
 
-    public final void c() {
+    public void c() {
         if (this.k != null) {
             this.k.dismiss();
         }
+    }
+
+    private int a(Context context, float f) {
+        return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
     }
 }

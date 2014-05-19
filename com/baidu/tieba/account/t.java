@@ -1,6 +1,8 @@
 package com.baidu.tieba.account;
+
+import com.baidu.tbadk.core.account.AccountLoginHelper;
 /* loaded from: classes.dex */
-final class t implements com.baidu.tbadk.core.a.k {
+class t implements AccountLoginHelper.LoginHelperCallBack {
     final /* synthetic */ NotLoginGuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,8 +10,16 @@ final class t implements com.baidu.tbadk.core.a.k {
         this.a = notLoginGuideActivity;
     }
 
-    @Override // com.baidu.tbadk.core.a.k
-    public final void a() {
-        this.a.a();
+    @Override // com.baidu.tbadk.core.account.AccountLoginHelper.LoginHelperCallBack
+    public void onSuccess() {
+        this.a.b();
+    }
+
+    @Override // com.baidu.tbadk.core.account.AccountLoginHelper.LoginHelperCallBack
+    public void onFail() {
+    }
+
+    @Override // com.baidu.tbadk.core.account.AccountLoginHelper.LoginHelperCallBack
+    public void onBeforeLogin(String str) {
     }
 }

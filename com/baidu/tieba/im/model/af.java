@@ -1,23 +1,21 @@
 package com.baidu.tieba.im.model;
 
-import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 /* loaded from: classes.dex */
-public final class af extends com.baidu.tieba.im.m<Boolean> {
-    final /* synthetic */ MsglistModel b;
-    private final /* synthetic */ com.baidu.tieba.im.message.a.b c;
-    private final /* synthetic */ LinkedList d;
+class af extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ ae b;
+    private final /* synthetic */ CommonGroupChatMessage c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(MsglistModel msglistModel, com.baidu.tieba.im.message.a.b bVar, LinkedList linkedList) {
-        this.b = msglistModel;
-        this.c = bVar;
-        this.d = linkedList;
+    public af(ae aeVar, CommonGroupChatMessage commonGroupChatMessage) {
+        this.b = aeVar;
+        this.c = commonGroupChatMessage;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(this.c.i(), this.d, false));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().b(this.c.getGroupId(), String.valueOf(this.c.getRecordId()), String.valueOf(this.c.getMsgId()), 2));
     }
 }

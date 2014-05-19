@@ -18,7 +18,7 @@ public class ForumInfoData extends com.baidu.tbadk.core.util.a implements Serial
         return "Forum{forum_name='" + this.forum_name + "', forum_id=" + this.forum_id + ", avatar='" + this.avatar + "', slogan='" + this.slogan + "', member_count=" + this.member_count + ", thread_count=" + this.thread_count + ", is_like=" + this.is_like + ", mbr_inter_rank=" + this.mbr_inter_rank + '}';
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ab
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
     public LinkedList<String> getForumPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.avatar);

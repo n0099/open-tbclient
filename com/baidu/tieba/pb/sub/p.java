@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.sub;
 
 import android.view.View;
 /* loaded from: classes.dex */
-final class p implements Runnable {
+class p implements Runnable {
     final /* synthetic */ o a;
     private final /* synthetic */ String b;
     private final /* synthetic */ int c;
@@ -17,7 +17,7 @@ final class p implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         n nVar;
         m mVar;
         n nVar2;

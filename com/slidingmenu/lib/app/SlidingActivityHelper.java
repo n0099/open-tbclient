@@ -36,17 +36,17 @@ public class SlidingActivityHelper {
         this.mOnPostCreateCalled = true;
         this.mSlidingMenu.attachToActivity(this.mActivity, this.mEnableSlide ? 0 : 1);
         if (bundle != null) {
-            z2 = bundle.getBoolean("SlidingActivityHelper.open");
-            z = bundle.getBoolean("SlidingActivityHelper.secondary");
+            z = bundle.getBoolean("SlidingActivityHelper.open");
+            z2 = bundle.getBoolean("SlidingActivityHelper.secondary");
         } else {
             z = false;
         }
         new Handler().post(new Runnable() { // from class: com.slidingmenu.lib.app.SlidingActivityHelper.1
             @Override // java.lang.Runnable
             public void run() {
-                if (!z2) {
+                if (!z) {
                     SlidingActivityHelper.this.mSlidingMenu.showContent(false);
-                } else if (z) {
+                } else if (z2) {
                     SlidingActivityHelper.this.mSlidingMenu.showSecondaryMenu(false);
                 } else {
                     SlidingActivityHelper.this.mSlidingMenu.showMenu(false);

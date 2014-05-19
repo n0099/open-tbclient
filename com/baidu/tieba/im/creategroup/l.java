@@ -3,8 +3,9 @@ package com.baidu.tieba.im.creategroup;
 import android.content.DialogInterface;
 import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.baidu.tieba.im.groupCard.GroupCardActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class l implements DialogInterface.OnClickListener {
+public class l implements DialogInterface.OnClickListener {
     final /* synthetic */ j a;
     private final /* synthetic */ AddGroupInfoData b;
 
@@ -15,8 +16,12 @@ final class l implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        this.a.a.finish();
-        GroupCardActivity.a(this.a.a, this.b.getGroupId(), this.b.getName(), this.b.getPortrait());
+    public void onClick(DialogInterface dialogInterface, int i) {
+        CreateGroupStepActivity createGroupStepActivity;
+        CreateGroupStepActivity createGroupStepActivity2;
+        createGroupStepActivity = this.a.a;
+        createGroupStepActivity.finish();
+        createGroupStepActivity2 = this.a.a;
+        GroupCardActivity.a(createGroupStepActivity2, this.b.getGroupId(), this.b.getName(), this.b.getPortrait());
     }
 }

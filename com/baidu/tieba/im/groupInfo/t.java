@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupInfo;
 import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class t implements com.baidu.tbadk.coreExtra.view.i {
+public class t implements com.baidu.tbadk.coreExtra.view.j {
     final /* synthetic */ r a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,16 +11,16 @@ public final class t implements com.baidu.tbadk.coreExtra.view.i {
         this.a = rVar;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.i
-    public final void a(boolean z) {
+    @Override // com.baidu.tbadk.coreExtra.view.j
+    public void a(boolean z) {
         TextView textView;
         TextView textView2;
         if (z) {
-            textView2 = this.a.ac;
+            textView2 = this.a.ab;
             textView2.setVisibility(0);
             return;
         }
-        textView = this.a.ac;
+        textView = this.a.ab;
         textView.setVisibility(8);
     }
 }

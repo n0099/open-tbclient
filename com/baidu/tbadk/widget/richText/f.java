@@ -5,10 +5,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
-public final class f extends BitmapDrawable {
+public class f extends BitmapDrawable {
     private int a;
     private Context b;
     private String d;
@@ -25,46 +26,46 @@ public final class f extends BitmapDrawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public final void setBounds(int i, int i2, int i3, int i4) {
+    public void setBounds(int i, int i2, int i3, int i4) {
         this.c = new Rect(i, i2, i3, i4);
         this.e = null;
         super.setBounds(i, i2, i3, i4);
     }
 
     @Override // android.graphics.drawable.Drawable
-    public final void setBounds(Rect rect) {
+    public void setBounds(Rect rect) {
         this.c = new Rect(rect);
         this.e = null;
         super.setBounds(rect);
     }
 
-    public final void a(int i, int i2) {
+    public void a(int i, int i2) {
         if (this.c != null) {
-            super.setBounds(this.c.left, this.c.top, this.c.right + 0, this.c.bottom + i2);
+            super.setBounds(this.c.left, this.c.top, this.c.right + i, this.c.bottom + i2);
         }
     }
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public final void draw(Canvas canvas) {
-        com.baidu.adp.widget.ImageView.b bVar;
+    public void draw(Canvas canvas) {
+        com.baidu.adp.widget.a.a aVar;
         if (this.a > 0 && this.b != null) {
             com.baidu.tbadk.imageManager.e a = com.baidu.tbadk.imageManager.e.a();
-            com.baidu.adp.widget.ImageView.b c = (a == null || this.d == null) ? null : a.c(this.d);
+            com.baidu.adp.widget.a.a c = (a == null || this.d == null) ? null : a.c(this.d);
             if (c == null) {
                 Bitmap decodeResource = BitmapFactory.decodeResource(this.b.getResources(), this.a);
                 if (decodeResource != null) {
-                    c = new com.baidu.adp.widget.ImageView.b(decodeResource, false, null);
+                    c = new com.baidu.adp.widget.a.a(decodeResource, false, null);
                 }
                 if (a != null && c != null && this.d != null) {
-                    a.d(this.d, c);
+                    a.b(this.d, c);
                 }
-                bVar = c;
+                aVar = c;
             } else {
-                bVar = c;
+                aVar = c;
             }
-            if (bVar != null) {
-                int c2 = bVar.c();
-                int d = bVar.d();
+            if (aVar != null) {
+                int c2 = aVar.c();
+                int d = aVar.d();
                 if (c2 > 0 && d > 0 && this.c != null) {
                     canvas.save();
                     canvas.clipRect(super.getBounds());
@@ -79,9 +80,9 @@ public final class f extends BitmapDrawable {
                             }
                             this.e.postScale(f, f);
                         }
-                        bVar.a(canvas, this.e, null);
+                        aVar.a(canvas, this.e, null);
                     } else {
-                        bVar.a(canvas, 0.0f, 0.0f, null);
+                        aVar.a(canvas, 0.0f, 0.0f, (Paint) null);
                     }
                     canvas.restore();
                 }

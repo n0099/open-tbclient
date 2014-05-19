@@ -9,8 +9,7 @@ public class LogSwitchStatic extends a {
     public static final int ON_TYPE = 0;
 
     static {
-        f.a();
-        f.a(LogSwitchStatic.class);
+        f.a().a(LogSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

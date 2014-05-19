@@ -1,77 +1,33 @@
 package com.baidu.tieba.person;
+
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class bw extends com.baidu.adp.a.h {
-    final /* synthetic */ bn a;
+public class bw implements DialogInterface.OnClickListener {
+    final /* synthetic */ bm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(bn bnVar) {
-        this.a = bnVar;
+    public bw(bm bmVar) {
+        this.a = bmVar;
     }
 
-    @Override // com.baidu.adp.a.h
-    public final void a(Object obj) {
-        ag agVar;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
         com.baidu.tieba.model.av avVar;
-        ak akVar;
-        com.baidu.tieba.model.av avVar2;
-        ak akVar2;
-        com.baidu.tieba.model.av avVar3;
-        ak akVar3;
-        com.baidu.tbadk.core.e eVar;
-        com.baidu.tieba.model.av avVar4;
-        com.baidu.tieba.model.av avVar5;
-        com.baidu.tieba.model.av avVar6;
-        ak akVar4;
-        com.baidu.tbadk.core.e eVar2;
-        com.baidu.tbadk.core.e eVar3;
-        ag agVar2;
-        agVar = this.a.o;
-        if (agVar != null) {
-            agVar2 = this.a.o;
-            agVar2.c();
-        }
+        com.baidu.tieba.model.e eVar;
+        com.baidu.tieba.model.e eVar2;
+        com.baidu.tieba.model.e eVar3;
         avVar = this.a.c;
-        if (avVar.getLoadDataMode() != 1) {
-            avVar5 = this.a.c;
-            if (avVar5.getLoadDataMode() != 2) {
-                avVar6 = this.a.c;
-                if (avVar6.getLoadDataMode() == 3) {
-                    akVar4 = this.a.l;
-                    if (akVar4 != null) {
-                        if (((Boolean) obj).booleanValue()) {
-                            eVar2 = this.a.f;
-                            eVar3 = this.a.f;
-                            eVar2.a(eVar3.getResources().getString(com.baidu.tieba.a.k.success));
-                            this.a.f();
-                            return;
-                        }
-                        eVar = this.a.f;
-                        avVar4 = this.a.c;
-                        eVar.a(avVar4.getErrorString());
-                        return;
-                    }
-                    return;
-                }
+        int a = com.baidu.adp.lib.f.b.a(avVar.e(), -1);
+        if (a > 0) {
+            eVar = this.a.d;
+            if (eVar.a() == 1) {
+                eVar3 = this.a.d;
+                eVar3.b(a);
                 return;
             }
+            eVar2 = this.a.d;
+            eVar2.a(a);
         }
-        if (!((Boolean) obj).booleanValue()) {
-            akVar = this.a.l;
-            akVar.g();
-            eVar = this.a.f;
-            avVar4 = this.a.c;
-            eVar.a(avVar4.getErrorString());
-            return;
-        }
-        bn.j(this.a);
-        avVar2 = this.a.c;
-        if (avVar2.b()) {
-            akVar3 = this.a.l;
-            akVar3.b();
-            return;
-        }
-        akVar2 = this.a.l;
-        avVar3 = this.a.c;
-        akVar2.a(avVar3);
     }
 }

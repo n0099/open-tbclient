@@ -1,11 +1,14 @@
 package com.baidu.tbadk.core.view;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.PopupWindow;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
-public final class i extends PopupWindow {
+public class i extends PopupWindow {
     private int a;
     private int b;
     private int c;
@@ -36,7 +39,7 @@ public final class i extends PopupWindow {
         this.e = null;
         this.f = null;
         this.g = 0;
-        a(activity, view, drawable, (h) null);
+        a(activity, view, drawable, hVar);
     }
 
     private void a(Activity activity, View view, Drawable drawable, h hVar) {
@@ -49,10 +52,10 @@ public final class i extends PopupWindow {
         int measuredWidth = this.f.getMeasuredWidth();
         int measuredHeight = this.f.getMeasuredHeight();
         setWidth(measuredWidth);
-        this.c = measuredHeight + ((int) activity.getResources().getDimension(com.baidu.tbadk.h.ds4));
+        this.c = measuredHeight + ((int) activity.getResources().getDimension(com.baidu.tieba.p.ds4));
         setHeight(this.c);
         setBackgroundDrawable(drawable);
-        int[] e = com.baidu.adp.lib.util.i.e(activity);
+        int[] e = com.baidu.adp.lib.util.h.e(activity);
         if (e != null && e.length > 1 && e[1] > measuredWidth) {
             this.a = e[1] - measuredWidth;
         }
@@ -60,12 +63,12 @@ public final class i extends PopupWindow {
         this.b = -(measuredWidth + this.g);
     }
 
-    public final void a(com.baidu.tbadk.a aVar, int i, Drawable drawable, Drawable drawable2) {
-        a(aVar.getLayoutMode(), i, drawable, drawable2);
+    public void a(BaseActivity baseActivity, int i, Drawable drawable, Drawable drawable2) {
+        a(baseActivity.getLayoutMode(), i, drawable, drawable2);
     }
 
-    public final void a(com.baidu.tbadk.core.e eVar, int i, Drawable drawable, Drawable drawable2) {
-        a(eVar.b(), i, drawable, drawable2);
+    public void a(com.baidu.tbadk.core.e eVar, int i, Drawable drawable, Drawable drawable2) {
+        a(eVar.a(), i, drawable, drawable2);
     }
 
     private void a(com.baidu.tbadk.core.c cVar, int i, Drawable drawable, Drawable drawable2) {
@@ -79,19 +82,29 @@ public final class i extends PopupWindow {
             try {
                 cVar.a(this.f);
             } catch (IllegalArgumentException e) {
-                com.baidu.adp.lib.util.f.b(e.toString());
+                BdLog.e(e.toString());
             }
         }
     }
 
-    public final void a() {
+    public void a() {
         this.f.measure(0, 0);
         int measuredWidth = this.f.getMeasuredWidth();
         this.b = -(this.g + measuredWidth);
         setWidth(measuredWidth);
     }
 
-    public final void b() {
+    public void a(Context context) {
+        int b = com.baidu.adp.lib.util.h.b(context);
+        this.f.getLayoutParams().width = b;
+        setWidth(b);
+    }
+
+    public void a(int i) {
+        setHeight(i);
+    }
+
+    public void b() {
         if (isShowing()) {
             dismiss();
         } else if (this.d != null) {
@@ -99,9 +112,9 @@ public final class i extends PopupWindow {
         }
     }
 
-    public final void a(View view, boolean z) {
-        setAnimationStyle(com.baidu.tbadk.m.pop_window_anim);
-        setFocusable(false);
+    public void a(View view, boolean z) {
+        setAnimationStyle(com.baidu.tieba.v.pop_window_anim);
+        setFocusable(z);
         showAsDropDown(view, this.b, (-this.c) + ((this.c - view.getHeight()) / 2));
     }
 }

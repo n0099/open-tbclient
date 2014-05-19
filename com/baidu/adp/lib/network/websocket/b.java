@@ -1,12 +1,13 @@
 package com.baidu.adp.lib.network.websocket;
 
 import android.os.Handler;
-import com.baidu.adp.lib.webSocket.q;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.lib.webSocket.r;
 import java.util.Map;
 /* loaded from: classes.dex */
-final class b extends q {
-    @Override // com.baidu.adp.lib.webSocket.q, com.baidu.adp.lib.webSocket.k
-    public final void a(byte[] bArr) {
+class b extends r {
+    @Override // com.baidu.adp.lib.webSocket.r, com.baidu.adp.lib.webSocket.l
+    public void a(byte[] bArr) {
         c cVar;
         c cVar2;
         cVar = BdSocketLinkService.c;
@@ -16,8 +17,8 @@ final class b extends q {
         }
     }
 
-    @Override // com.baidu.adp.lib.webSocket.q, com.baidu.adp.lib.webSocket.k
-    public final void a(String str) {
+    @Override // com.baidu.adp.lib.webSocket.r, com.baidu.adp.lib.webSocket.l
+    public void a(String str) {
         c cVar;
         c cVar2;
         cVar = BdSocketLinkService.c;
@@ -27,8 +28,8 @@ final class b extends q {
         }
     }
 
-    @Override // com.baidu.adp.lib.webSocket.q, com.baidu.adp.lib.webSocket.k
-    public final void a(com.baidu.adp.lib.webSocket.d dVar) {
+    @Override // com.baidu.adp.lib.webSocket.r, com.baidu.adp.lib.webSocket.l
+    public void a(com.baidu.adp.lib.webSocket.d dVar) {
         c cVar;
         c cVar2;
         cVar = BdSocketLinkService.c;
@@ -38,12 +39,12 @@ final class b extends q {
         }
     }
 
-    @Override // com.baidu.adp.lib.webSocket.q, com.baidu.adp.lib.webSocket.k
-    public final void a(Map<String, String> map) {
+    @Override // com.baidu.adp.lib.webSocket.r, com.baidu.adp.lib.webSocket.l
+    public void a(Map<String, String> map) {
         Handler handler;
         c cVar;
         c cVar2;
-        j.a().b();
+        j.a().c();
         handler = BdSocketLinkService.d;
         handler.removeMessages(1);
         cVar = BdSocketLinkService.c;
@@ -53,29 +54,26 @@ final class b extends q {
         }
     }
 
-    @Override // com.baidu.adp.lib.webSocket.q, com.baidu.adp.lib.webSocket.k
-    public final void a(int i, String str) {
+    @Override // com.baidu.adp.lib.webSocket.r, com.baidu.adp.lib.webSocket.l
+    public void a(int i, String str) {
         Handler handler;
         c cVar;
         e eVar;
         c cVar2;
         handler = BdSocketLinkService.d;
         handler.removeMessages(1);
+        boolean z = false;
         cVar = BdSocketLinkService.c;
         if (cVar != null) {
-            if (i != 0) {
-                if (com.baidu.adp.framework.e.c.a().i() != null) {
-                    com.baidu.adp.framework.e.c.a().i().a("TiebaSocketLinkService", "close():" + str, i, (com.baidu.adp.framework.message.d<?>) null);
-                }
-                str = "你的网络状况不大好，请稍后重试";
+            if (i != 0 && com.baidu.adp.framework.c.c.a().i() != null) {
+                com.baidu.adp.framework.c.c.a().i().a("TiebaSocketLinkService", "close():" + str, i, (Message<?>) null);
             }
             cVar2 = BdSocketLinkService.c;
-            cVar2.a(i, str);
+            z = cVar2.a(i, str);
         }
-        if (com.baidu.adp.lib.util.i.d()) {
+        if (!z && com.baidu.adp.lib.util.h.d()) {
             eVar = BdSocketLinkService.b;
-            String str2 = "onClose:" + i + ":" + str;
-            eVar.a();
+            eVar.a("onClose:" + i + ":" + str);
         }
     }
 }

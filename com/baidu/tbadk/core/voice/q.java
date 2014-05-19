@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.voice;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class q implements Runnable {
+public class q implements Runnable {
     final /* synthetic */ VoiceManager a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,8 +10,8 @@ public final class q implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
-        if (!this.a.d()) {
+    public void run() {
+        if (!this.a.e()) {
             this.a.w();
         }
     }

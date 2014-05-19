@@ -5,32 +5,35 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import com.baidu.adp.a.f;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.adp.base.e;
+import com.baidu.adp.lib.util.h;
+import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.share.g;
-import com.baidu.tieba.im.h;
-import com.baidu.tieba.im.i;
-import com.baidu.tieba.im.j;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public final class d extends f {
+public class d extends e {
     private View a;
-    private GroupCardActivity c;
+    private GroupCardActivity b;
+    private LinearLayout c;
     private LinearLayout d;
     private LinearLayout e;
-    private LinearLayout f;
-    private View g;
-    private ProgressBar h;
-    private NavigationBar i;
+    private View f;
+    private ProgressBar g;
+    private NavigationBar h;
+    private ImageView i;
     private ImageView j;
     private ImageView k;
     private ImageView l;
     private ImageView m;
-    private ImageView n;
 
-    public d(GroupCardActivity groupCardActivity) {
+    public d(GroupCardActivity groupCardActivity, View.OnClickListener onClickListener) {
         super(groupCardActivity);
         this.a = null;
+        this.c = null;
         this.d = null;
         this.e = null;
         this.f = null;
@@ -41,141 +44,84 @@ public final class d extends f {
         this.k = null;
         this.l = null;
         this.m = null;
-        this.n = null;
-        this.c = groupCardActivity;
-        this.c.setContentView(i.group_card_activity);
-        this.a = this.c.findViewById(h.parent);
-        this.d = (LinearLayout) this.c.findViewById(h.groud_card_save);
-        this.d.setOnClickListener(this.c);
-        this.e = (LinearLayout) this.c.findViewById(h.group_card_share);
-        if (g.a(this.c)) {
-            this.e.setOnClickListener(this.c);
+        this.b = groupCardActivity;
+        i();
+    }
+
+    private void i() {
+        this.b.setContentView(s.group_card_activity);
+        this.a = this.b.findViewById(r.parent);
+        this.c = (LinearLayout) this.b.findViewById(r.groud_card_save);
+        this.c.setOnClickListener(this.b);
+        this.d = (LinearLayout) this.b.findViewById(r.group_card_share);
+        if (g.a(this.b)) {
+            this.d.setOnClickListener(this.b);
         } else {
-            this.e.setVisibility(8);
+            this.d.setVisibility(8);
         }
-        this.f = (LinearLayout) this.c.findViewById(h.group_card_setting);
-        this.h = (ProgressBar) this.c.findViewById(h.progress);
-        this.j = (ImageView) this.c.findViewById(h.group_card_inner_image);
-        this.i = (NavigationBar) this.c.findViewById(h.group_card_topbar);
-        this.i.setSystemClickable(false);
-        this.i.a(this.c.getResources().getString(j.group_card_name));
-        this.g = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.g.setOnClickListener(this.c);
+        this.e = (LinearLayout) this.b.findViewById(r.group_card_setting);
+        this.g = (ProgressBar) this.b.findViewById(r.progress);
+        this.i = (ImageView) this.b.findViewById(r.group_card_inner_image);
+        this.h = (NavigationBar) this.b.findViewById(r.group_card_topbar);
+        this.h.setSystemClickable(false);
+        this.h.a(this.b.getResources().getString(u.group_card_name));
+        this.f = this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f.setOnClickListener(this.b);
     }
 
-    public final void a(com.baidu.adp.widget.ImageView.b bVar) {
-        if (bVar != null) {
-            bVar.a(this.j);
+    public void a(com.baidu.adp.widget.a.a aVar) {
+        if (aVar != null) {
+            aVar.a(this.i);
         }
     }
 
-    public final void a(int i, String str) {
-        String str2;
+    public void a(int i, String str) {
         if (str != null) {
-            com.baidu.adp.lib.util.i.a((Context) this.c, str);
+            h.a((Context) this.b, str);
             return;
         }
-        boolean z = false;
-        switch (z) {
-            case true:
-                str2 = "定位失败了，右上角点下刷新吧~";
-                break;
-            case true:
-                str2 = "录音发生错误";
-                break;
-            case true:
-            case true:
-            case true:
-            case true:
-                str2 = "你的网络状况不大好，请稍后重试";
-                break;
-            case true:
-                str2 = "未知错误";
-                break;
-            case true:
-                str2 = "创建私聊不成功，请稍后再试";
-                break;
-            case true:
-                str2 = "内容不合适，请修改下吧";
-                break;
-            case true:
-                str2 = "内容不能为空，请修改下吧";
-                break;
-            case true:
-                str2 = "最多允许20个表情，请修改下吧";
-                break;
-            case true:
-                str2 = "发的太频繁啦";
-                break;
-            case true:
-                str2 = "录音太短啦";
-                break;
-            case true:
-                str2 = "操作违规";
-                break;
-            case true:
-                str2 = "存储卡已满，请清理文件";
-                break;
-            case true:
-                str2 = "存储卡读写失败";
-                break;
-            case true:
-                str2 = "你的存储卡被USB占用，请更改数据线连接方式";
-                break;
-            case true:
-                str2 = "无法找到存储卡";
-                break;
-            case true:
-                str2 = "数据转换失败";
-                break;
-            case false:
-                str2 = null;
-                break;
-            default:
-                str2 = "未定义错误";
-                break;
-        }
-        if (str2 != null && str2.length() > 0) {
-            com.baidu.adp.lib.util.i.a((Context) this.c, str2);
+        String errMsg = TbErrInfo.getErrMsg(i);
+        if (errMsg != null && errMsg.length() > 0) {
+            h.a((Context) this.b, errMsg);
         }
     }
 
-    public final void a() {
-        this.h.setVisibility(0);
+    public void a() {
+        this.g.setVisibility(0);
     }
 
-    public final void d() {
-        this.h.setVisibility(8);
+    public void b() {
+        this.g.setVisibility(8);
     }
 
-    public final void e() {
-        this.j.setVisibility(0);
+    public void c() {
+        this.i.setVisibility(0);
     }
 
-    public final View f() {
+    public View d() {
+        return this.c;
+    }
+
+    public View e() {
         return this.d;
     }
 
-    public final View g() {
-        return this.e;
-    }
-
-    public final View h() {
-        return this.g;
-    }
-
-    public final View i() {
-        return this.i;
-    }
-
-    public final LinearLayout j() {
+    public View f() {
         return this.f;
     }
 
-    public final void a(int i) {
-        this.c.getLayoutMode().a(i == 1);
-        this.c.getLayoutMode().a(this.a);
-        ba.a(this.a, i);
-        this.i.b(i);
+    public View g() {
+        return this.h;
+    }
+
+    public LinearLayout h() {
+        return this.e;
+    }
+
+    public void a(int i) {
+        this.b.getLayoutMode().a(i == 1);
+        this.b.getLayoutMode().a(this.a);
+        bc.a(this.a, i);
+        this.h.c(i);
     }
 }

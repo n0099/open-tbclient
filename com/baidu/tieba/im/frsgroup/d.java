@@ -1,27 +1,30 @@
 package com.baidu.tieba.im.frsgroup;
 
 import android.text.TextUtils;
+import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.frsgroup.GroupListAdapter;
+import com.baidu.tieba.im.message.RequestFrsGroupsMessage;
 import com.baidu.tieba.im.message.ResponseFrsGroupsMessage;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d extends com.baidu.adp.framework.c.g {
+public class d extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar, int i) {
-        super(103002);
+        super(i);
         this.a = bVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         k kVar;
         com.baidu.tieba.im.model.k kVar2;
         com.baidu.tieba.im.model.k kVar3;
@@ -39,59 +42,58 @@ public final class d extends com.baidu.adp.framework.c.g {
         GroupListAdapter groupListAdapter7;
         GroupListAdapter groupListAdapter8;
         com.baidu.tieba.im.model.k kVar9;
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        if (socketResponsedMessage2 == null || !(socketResponsedMessage2 instanceof ResponseFrsGroupsMessage)) {
-            this.a.a(com.baidu.tieba.im.j.neterror);
+        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseFrsGroupsMessage)) {
+            this.a.a(com.baidu.tieba.u.neterror);
             return;
         }
-        ResponseFrsGroupsMessage responseFrsGroupsMessage = (ResponseFrsGroupsMessage) socketResponsedMessage2;
-        com.baidu.adp.framework.message.d<?> h = responseFrsGroupsMessage.h();
-        if (h != null && (h instanceof com.baidu.tieba.im.message.ag)) {
-            String j = ((com.baidu.tieba.im.message.ag) h).j();
+        ResponseFrsGroupsMessage responseFrsGroupsMessage = (ResponseFrsGroupsMessage) socketResponsedMessage;
+        Message<?> orginalMessage = responseFrsGroupsMessage.getOrginalMessage();
+        if (orginalMessage != null && (orginalMessage instanceof RequestFrsGroupsMessage)) {
+            String type = ((RequestFrsGroupsMessage) orginalMessage).getType();
             kVar9 = this.a.c;
-            if (!j.equals(String.valueOf(kVar9.g()))) {
+            if (!type.equals(String.valueOf(kVar9.g()))) {
                 return;
             }
         }
-        b.d(this.a);
+        this.a.l();
         kVar = this.a.d;
         kVar.b(true);
         kVar2 = this.a.c;
         kVar2.a(this.a.getTag());
-        if (responseFrsGroupsMessage.e() != 0) {
-            if (responseFrsGroupsMessage.e() <= 0) {
-                this.a.a(com.baidu.tieba.im.j.neterror);
-                return;
-            } else if (TextUtils.isEmpty(responseFrsGroupsMessage.f())) {
-                return;
-            } else {
-                this.a.a(responseFrsGroupsMessage.f());
+        if (responseFrsGroupsMessage.getError() != 0) {
+            if (responseFrsGroupsMessage.getError() > 0) {
+                if (!TextUtils.isEmpty(responseFrsGroupsMessage.getErrorString())) {
+                    this.a.b(responseFrsGroupsMessage.getErrorString());
+                    return;
+                }
                 return;
             }
+            this.a.a(com.baidu.tieba.u.neterror);
+            return;
         }
-        List<GroupInfoData> d = responseFrsGroupsMessage.d();
-        GroupPermData i = responseFrsGroupsMessage.i();
+        List<GroupInfoData> groups = responseFrsGroupsMessage.getGroups();
+        GroupPermData groupPerm = responseFrsGroupsMessage.getGroupPerm();
         kVar3 = this.a.c;
-        kVar3.a(i);
-        if (d != null) {
+        kVar3.a(groupPerm);
+        if (groups != null) {
             kVar4 = this.a.c;
             if (kVar4.h()) {
                 groupListAdapter8 = this.a.i;
                 groupListAdapter8.a(true);
                 this.a.c(true);
             }
-            this.a.k = com.baidu.adp.lib.util.i.a();
-            int size = d.size();
+            this.a.k = com.baidu.adp.lib.util.h.a();
+            int size = groups.size();
             kVar5 = this.a.c;
-            if (size != kVar5.k()) {
+            if (size != kVar5.l()) {
                 kVar8 = this.a.c;
                 if (!kVar8.h()) {
                     groupListAdapter5 = this.a.i;
                     groupListAdapter5.a(GroupListAdapter.BOTTOM_TYPE.NO_MORE);
-                } else if (d.size() == 0) {
+                } else if (groups.size() == 0) {
                     groupListAdapter7 = this.a.i;
                     groupListAdapter7.b(false);
-                    b.f(this.a);
+                    this.a.o();
                     return;
                 } else {
                     groupListAdapter6 = this.a.i;
@@ -101,18 +103,18 @@ public final class d extends com.baidu.adp.framework.c.g {
                 groupListAdapter = this.a.i;
                 groupListAdapter.a(GroupListAdapter.BOTTOM_TYPE.HAVE_MORE);
             }
-            b.g(this.a);
+            this.a.m();
             groupListAdapter2 = this.a.i;
             groupListAdapter2.b(true);
             kVar6 = this.a.c;
-            kVar6.c(d.size());
+            kVar6.c(groups.size());
             kVar7 = this.a.c;
             kVar7.d(20);
             groupListAdapter3 = this.a.i;
-            groupListAdapter3.a(d);
+            groupListAdapter3.a(groups);
             groupListAdapter4 = this.a.i;
             groupListAdapter4.notifyDataSetChanged();
-            b.h(this.a);
+            this.a.n();
         }
     }
 }

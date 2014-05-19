@@ -1,21 +1,21 @@
 package com.baidu.adp.lib.asyncTask;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
+import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
-public abstract class l<V> extends FutureTask<V> {
-    private BdAsyncTask<?, ?, ?> a;
+public final class l {
+    private static int a = LocationClientOption.MIN_SCAN_SPAN;
+    private int b = 0;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void a();
-
-    public final BdAsyncTask<?, ?, ?> b() {
-        return this.a;
+    public static synchronized l a() {
+        l lVar;
+        synchronized (l.class) {
+            lVar = new l();
+            lVar.b = a;
+            a++;
+        }
+        return lVar;
     }
 
-    public l(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        super(callable);
-        this.a = null;
-        this.a = bdAsyncTask;
+    private l() {
     }
 }

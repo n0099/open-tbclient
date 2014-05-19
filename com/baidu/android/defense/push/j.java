@@ -30,7 +30,10 @@ public class j extends a {
                 break;
             }
         }
-        return cVar2 == null || cVar.b() == 0 || cVar2.b() == cVar.b();
+        if (cVar2 != null && cVar.b() != 0 && cVar2.b() != cVar.b()) {
+            return false;
+        }
+        return true;
     }
 
     @Override // com.baidu.android.defense.push.a, com.baidu.android.defense.push.i

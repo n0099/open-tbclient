@@ -1,9 +1,10 @@
 package com.baidu.tieba.im.validate;
 
 import android.view.View;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class l implements View.OnLongClickListener {
+public class l implements View.OnLongClickListener {
     final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,14 +13,14 @@ public final class l implements View.OnLongClickListener {
     }
 
     @Override // android.view.View.OnLongClickListener
-    public final boolean onLongClick(View view) {
+    public boolean onLongClick(View view) {
         ValidateActivity validateActivity;
         View view2;
         ValidateItemData validateItemData;
-        validateActivity = this.a.i;
-        view2 = this.a.c;
-        validateItemData = this.a.j;
-        validateActivity.a(view2, 200, validateItemData);
+        validateActivity = this.a.h;
+        view2 = this.a.b;
+        validateItemData = this.a.i;
+        validateActivity.b(view2, Constants.MEDIA_INFO, 0, 0L, validateItemData);
         return true;
     }
 }

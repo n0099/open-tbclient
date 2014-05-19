@@ -1,31 +1,27 @@
 package com.baidu.tieba.frs.view;
 
-import android.widget.PopupWindow;
+import android.os.Handler;
+import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class o implements Runnable {
-    final /* synthetic */ n a;
+public class o extends Handler {
+    final /* synthetic */ WaterFallView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(n nVar) {
-        this.a = nVar;
+    public o(WaterFallView waterFallView) {
+        this.a = waterFallView;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        PopupWindow popupWindow;
-        PopupWindow popupWindow2;
-        boolean z;
-        PopupWindow popupWindow3;
-        popupWindow = this.a.K;
-        if (popupWindow != null) {
-            popupWindow2 = this.a.K;
-            if (popupWindow2.isShowing()) {
-                z = this.a.at;
-                if (!z) {
-                    popupWindow3 = this.a.K;
-                    popupWindow3.dismiss();
-                }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        q qVar;
+        q qVar2;
+        super.handleMessage(message);
+        if (message.what == 101) {
+            qVar = this.a.o;
+            if (qVar != null) {
+                qVar2 = this.a.o;
+                qVar2.d();
             }
         }
     }

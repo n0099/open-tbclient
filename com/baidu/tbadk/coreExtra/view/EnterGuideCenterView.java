@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
 public class EnterGuideCenterView extends RelativeLayout {
     private ImageView a;
@@ -38,10 +38,10 @@ public class EnterGuideCenterView extends RelativeLayout {
         a(context);
     }
 
-    private void a(Context context) {
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tbadk.k.enter_forum_guide_center, this);
-        this.a = (ImageView) findViewById(com.baidu.tbadk.j.img_bg_center);
-        this.b = (TextView) findViewById(com.baidu.tbadk.j.tip_center);
+    public void a(Context context) {
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.enter_forum_guide_center, this);
+        this.a = (ImageView) findViewById(com.baidu.tieba.r.img_bg_center);
+        this.b = (TextView) findViewById(com.baidu.tieba.r.tip_center);
     }
 
     public void setTipText(int i) {
@@ -58,29 +58,36 @@ public class EnterGuideCenterView extends RelativeLayout {
         return this.c;
     }
 
-    private boolean a(int i) {
+    private boolean b(int i) {
         if (i == getSkinType()) {
             return false;
         }
-        this.c = i;
+        setSkinType(i);
         return true;
     }
 
-    public final void a() {
-        int l = TbadkApplication.j().l();
-        if (a(l)) {
-            ba.a(this, l);
-            if (l != 1) {
-                this.a.setBackgroundResource(com.baidu.tbadk.i.pic_go_ba);
-                this.b.setTextColor(-5065030);
+    public void a(int i) {
+        if (b(i)) {
+            bc.a(this, i);
+            if (i == 1) {
+                this.a.setBackgroundResource(com.baidu.tieba.q.pic_go_ba_1);
+                this.b.setTextColor(-8815226);
                 return;
             }
-            this.a.setBackgroundResource(com.baidu.tbadk.i.pic_go_ba_1);
-            this.b.setTextColor(-8815226);
+            this.a.setBackgroundResource(com.baidu.tieba.q.pic_go_ba);
+            this.b.setTextColor(-5065030);
         }
     }
 
-    public final void b() {
+    public void a() {
+        a(TbadkApplication.m252getInst().getSkinType());
+    }
+
+    public void b() {
+        a();
+    }
+
+    public void c() {
         this.c = -1;
         this.a.setBackgroundDrawable(null);
     }

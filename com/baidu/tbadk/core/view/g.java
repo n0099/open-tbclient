@@ -5,7 +5,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-public final class g extends LinearLayout {
+public class g extends LinearLayout {
     private h a;
 
     public g(Context context, View view, h hVar) {
@@ -18,13 +18,13 @@ public final class g extends LinearLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public final boolean dispatchKeyEvent(KeyEvent keyEvent) {
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
             if (this.a != null) {
                 this.a.a();
             }
         } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.a != null) {
-            h hVar = this.a;
+            this.a.b();
         }
         return super.dispatchKeyEvent(keyEvent);
     }

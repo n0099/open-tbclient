@@ -2,8 +2,9 @@ package com.baidu.tieba.pb.image;
 
 import android.text.InputFilter;
 import android.text.Spanned;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class i implements InputFilter {
+public class i implements InputFilter {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +13,10 @@ final class i implements InputFilter {
     }
 
     @Override // android.text.InputFilter
-    public final CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-        boolean a;
-        a = this.a.a();
-        if (a) {
+    public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+        boolean g;
+        g = this.a.g();
+        if (g) {
             if (charSequence.length() <= 0 && spanned.length() > 0) {
                 return spanned.subSequence(i3, i4 - 1);
             }

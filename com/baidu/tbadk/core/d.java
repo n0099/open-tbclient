@@ -10,14 +10,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import com.baidu.adp.lib.util.i;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.o;
 /* loaded from: classes.dex */
 public abstract class d extends Fragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
-    private n c;
+    private o c;
     private boolean d;
+    private String e;
     private int b = 0;
     protected int a = -1;
 
@@ -33,8 +37,8 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
 
     @Override // android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
-        this.b = com.baidu.adp.framework.f.a().b();
-        this.c = n.a();
+        this.b = com.baidu.adp.framework.d.a().b();
+        this.c = o.a();
         super.onCreate(bundle);
     }
 
@@ -43,26 +47,34 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
         super.onActivityCreated(bundle);
     }
 
-    public final void a(String str) {
+    public String b() {
+        return this.e;
+    }
+
+    public void a(String str) {
+        this.e = str;
+    }
+
+    public void b(String str) {
         if (getActivity() != null) {
             String name = getClass().getName();
             String str2 = String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".chat";
             if (name.startsWith(String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".im") || name.startsWith(str2)) {
-                this.c.a(str, 2000);
+                this.c.a(str, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
             } else {
-                i.a((Context) getActivity(), str);
+                com.baidu.adp.lib.util.h.a((Context) getActivity(), str);
             }
         }
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (getActivity() != null) {
             String name = getClass().getName();
             String str = String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".chat";
             if (name.startsWith(String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".im") || name.startsWith(str)) {
-                this.c.a(i, 2000);
+                this.c.a(i, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
             } else {
-                i.a((Context) getActivity(), i);
+                com.baidu.adp.lib.util.h.a((Context) getActivity(), i);
             }
         }
     }
@@ -78,16 +90,16 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
             this.c.c();
         }
         super.onResume();
-        if (c_()) {
-            b(TbadkApplication.j().l());
-            be.a(getClass().getName());
+        if (d_()) {
+            b(TbadkApplication.m252getInst().getSkinType());
+            bg.a(getClass().getName());
             if (this.d) {
-                d();
+                e();
             }
         }
     }
 
-    public final void b(int i) {
+    public void b(int i) {
         if (i != this.a) {
             this.a = i;
             c(this.a);
@@ -118,8 +130,8 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
     @Override // android.support.v4.app.Fragment
     public void onDetach() {
         super.onDetach();
-        com.baidu.adp.framework.c.a().f(this.b);
-        com.baidu.adp.framework.c.a().c(this.b);
+        MessageManager.getInstance().unRegisterListener(this.b);
+        MessageManager.getInstance().removeMessage(this.b);
     }
 
     public void c(int i) {
@@ -166,26 +178,37 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean c_() {
+    public boolean d_() {
         return !isHidden();
     }
 
-    public final void a(com.baidu.adp.framework.message.d<?> dVar) {
-        if (dVar != null) {
-            if (dVar.f() == 0) {
-                dVar.b(this.b);
+    public void a(Message<?> message) {
+        if (message != null) {
+            if (message.getTag() == 0) {
+                message.setTag(this.b);
             }
-            com.baidu.adp.framework.c.a().a(dVar);
+            MessageManager.getInstance().sendMessage(message);
         }
     }
 
-    public final void b(boolean z) {
+    public void a(MessageListener<?> messageListener) {
+        if (messageListener != null && messageListener.getTag() == 0) {
+            messageListener.setTag(this.b);
+        }
+        MessageManager.getInstance().registerListener(messageListener);
+    }
+
+    public int d() {
+        return this.b;
+    }
+
+    public void b(boolean z) {
         this.d = z;
         if (isResumed()) {
-            d();
+            e();
         }
     }
 
-    public void d() {
+    public void e() {
     }
 }

@@ -4,8 +4,9 @@ import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.BdListView;
 import java.util.Iterator;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class n implements o {
+public class n implements o {
     final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +15,11 @@ final class n implements o {
     }
 
     @Override // com.baidu.tieba.album.o
-    public final void a(List<a> list) {
+    public void a() {
+    }
+
+    @Override // com.baidu.tieba.album.o
+    public void a(List<a> list) {
         j jVar;
         p pVar;
         p pVar2;

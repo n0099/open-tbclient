@@ -4,8 +4,10 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class ao extends g {
@@ -23,19 +25,19 @@ public class ao extends g {
     public ao(Context context) {
         super(context);
         this.a = context;
-        m();
+        d();
     }
 
     public ao(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = context;
-        m();
+        d();
     }
 
     public ao(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.a = context;
-        m();
+        d();
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
@@ -43,56 +45,56 @@ public class ao extends g {
         super.onLayout(z, i, i2, i3, i4);
         if (this.f.getTip() != null) {
             TextView tip = this.f.getTip();
-            int right = this.f.getRight() - com.baidu.adp.lib.util.i.a(this.a, 14.0f);
-            int top = this.f.getTop() - com.baidu.adp.lib.util.i.a(this.a, 2.0f);
+            int right = this.f.getRight() - com.baidu.adp.lib.util.h.a(this.a, 14.0f);
+            int top = this.f.getTop() - com.baidu.adp.lib.util.h.a(this.a, 2.0f);
             tip.layout(right, top, tip.getMeasuredWidth() + right, tip.getMeasuredHeight() + top);
         }
         if (this.d.getTip() != null) {
             TextView tip2 = this.d.getTip();
-            int right2 = this.d.getRight() - com.baidu.adp.lib.util.i.a(this.a, 14.0f);
-            int top2 = this.d.getTop() - com.baidu.adp.lib.util.i.a(this.a, 2.0f);
+            int right2 = this.d.getRight() - com.baidu.adp.lib.util.h.a(this.a, 14.0f);
+            int top2 = this.d.getTop() - com.baidu.adp.lib.util.h.a(this.a, 2.0f);
             tip2.layout(right2, top2, tip2.getMeasuredWidth() + right2, tip2.getMeasuredHeight() + top2);
         }
         if (this.g.getTip() != null) {
             TextView tip3 = this.g.getTip();
-            int right3 = this.g.getRight() - com.baidu.adp.lib.util.i.a(this.a, 14.0f);
-            int top3 = this.g.getTop() - com.baidu.adp.lib.util.i.a(this.a, 2.0f);
+            int right3 = this.g.getRight() - com.baidu.adp.lib.util.h.a(this.a, 14.0f);
+            int top3 = this.g.getTop() - com.baidu.adp.lib.util.h.a(this.a, 2.0f);
             tip3.layout(right3, top3, tip3.getMeasuredWidth() + right3, tip3.getMeasuredHeight() + top3);
         }
     }
 
-    private void m() {
-        d();
-        this.b = (EditorToolButton) findViewById(com.baidu.tieba.a.h.select_face);
-        this.c = (EditorToolButton) findViewById(com.baidu.tieba.a.h.select_at);
-        this.d = (EditorToolButton) findViewById(com.baidu.tieba.a.h.select_image_albumn);
-        this.e = (EditorToolButton) findViewById(com.baidu.tieba.a.h.select_image);
-        this.f = (EditorToolButton) findViewById(com.baidu.tieba.a.h.select_audio);
-        this.g = (EditorToolButton) findViewById(com.baidu.tieba.a.h.select_privilege);
+    protected void d() {
+        e();
+        this.b = (EditorToolButton) findViewById(com.baidu.tieba.r.select_face);
+        this.c = (EditorToolButton) findViewById(com.baidu.tieba.r.select_at);
+        this.d = (EditorToolButton) findViewById(com.baidu.tieba.r.select_image_albumn);
+        this.e = (EditorToolButton) findViewById(com.baidu.tieba.r.select_image);
+        this.f = (EditorToolButton) findViewById(com.baidu.tieba.r.select_audio);
+        this.g = (EditorToolButton) findViewById(com.baidu.tieba.r.select_privilege);
     }
 
-    protected void d() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.editor_tool_button_container, (ViewGroup) this, true);
+    protected void e() {
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.editor_tool_button_container, (ViewGroup) this, true);
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.x xVar) {
         if (xVar != null) {
-            ap apVar = new ap(this, xVar);
-            this.b.setOnClickListener(apVar);
-            this.c.setOnClickListener(apVar);
-            this.e.setOnClickListener(apVar);
-            this.f.setOnClickListener(apVar);
-            this.d.setOnClickListener(apVar);
-            this.g.setOnClickListener(apVar);
+            View.OnClickListener a = a(xVar);
+            this.b.setOnClickListener(a);
+            this.c.setOnClickListener(a);
+            this.e.setOnClickListener(a);
+            this.f.setOnClickListener(a);
+            this.d.setOnClickListener(a);
+            this.g.setOnClickListener(a);
         }
     }
 
-    public final void e() {
+    public void f() {
         c();
         this.d.h();
     }
 
-    public final void f() {
+    public void g() {
         this.d.i();
     }
 
@@ -148,42 +150,42 @@ public class ao extends g {
         this.g.setEnabled(z);
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         if (this.h == null) {
             this.h = a(this.d, true);
         }
         this.d.a(str);
     }
 
-    public final void g() {
+    public void h() {
         if (this.h != null) {
             this.d.f();
         }
     }
 
-    public final void h() {
+    public void i() {
         if (this.i == null) {
             this.i = a(this.f, false);
         }
         this.f.e();
     }
 
-    public final void i() {
+    public void j() {
         this.f.f();
     }
 
-    public final void j() {
+    public void k() {
         if (this.j == null) {
             this.j = a(this.g, false);
         }
         this.g.e();
     }
 
-    public final void k() {
+    public void l() {
         this.g.f();
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         if (z) {
             this.f.a();
         } else {
@@ -191,7 +193,7 @@ public class ao extends g {
         }
     }
 
-    public final void b(boolean z) {
+    public void b(boolean z) {
         if (z) {
             this.g.a();
         } else {
@@ -199,21 +201,21 @@ public class ao extends g {
         }
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         boolean z = i == 1;
         if (this.i != null) {
-            this.i.setBackgroundResource(z ? com.baidu.tieba.a.g.icon_news_head_prompt_one_1 : com.baidu.tieba.a.g.icon_news_head_prompt_one);
+            this.i.setBackgroundResource(z ? com.baidu.tieba.q.icon_news_head_prompt_one_1 : com.baidu.tieba.q.icon_news_head_prompt_one);
         }
         if (this.h != null) {
-            this.h.setBackgroundResource(z ? com.baidu.tieba.a.g.icon_news_head_prompt_one_1 : com.baidu.tieba.a.g.icon_news_head_prompt_one);
+            this.h.setBackgroundResource(z ? com.baidu.tieba.q.icon_news_head_prompt_one_1 : com.baidu.tieba.q.icon_news_head_prompt_one);
         }
         if (this.j != null) {
-            this.j.setBackgroundResource(z ? com.baidu.tieba.a.g.icon_news_list_prompt_1 : com.baidu.tieba.a.g.icon_news_list_prompt);
+            this.j.setBackgroundResource(z ? com.baidu.tieba.q.icon_news_list_prompt_1 : com.baidu.tieba.q.icon_news_list_prompt);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void a(EditorToolButton editorToolButton, com.baidu.tbadk.editortool.x xVar) {
+    public void a(EditorToolButton editorToolButton, com.baidu.tbadk.editortool.x xVar) {
         if (editorToolButton == this.b) {
             xVar.a(1, null);
         } else if (editorToolButton == this.c) {
@@ -225,7 +227,7 @@ public class ao extends g {
         } else if (editorToolButton == this.d) {
             xVar.a(23, null);
         } else if (editorToolButton == this.g) {
-            com.baidu.adp.lib.util.f.e("Privilege click");
+            BdLog.d("Privilege click");
             xVar.a(43, null);
         }
         if (editorToolButton.g()) {
@@ -244,7 +246,7 @@ public class ao extends g {
                     xVar.a(6, null);
                     return;
                 } else if (editorToolButton == this.g) {
-                    com.baidu.adp.lib.util.f.e("Privilege blur");
+                    BdLog.d("Privilege blur");
                     xVar.a(45, null);
                     return;
                 } else {
@@ -264,17 +266,21 @@ public class ao extends g {
             } else if (editorToolButton == this.f) {
                 xVar.a(5, null);
             } else if (editorToolButton == this.g) {
-                com.baidu.adp.lib.util.f.e("Privilege focus");
+                BdLog.d("Privilege focus");
                 xVar.a(44, null);
             }
         }
     }
 
-    public final void l() {
-        if (TextUtils.isEmpty(TbadkApplication.j().aC())) {
-            this.g.f();
+    protected View.OnClickListener a(com.baidu.tbadk.editortool.x xVar) {
+        return new ap(this, xVar);
+    }
+
+    public void m() {
+        if (TextUtils.isEmpty(TbadkApplication.m252getInst().getDefaultBubble())) {
+            l();
         } else {
-            j();
+            k();
         }
     }
 }

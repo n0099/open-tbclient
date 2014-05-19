@@ -5,10 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public final class af extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.ListView.d {
+public class af extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.ListView.d {
     private com.baidu.tbadk.core.view.q d;
     private LinearLayout e;
     private com.baidu.tbadk.core.view.b f;
@@ -18,18 +19,18 @@ public final class af extends com.baidu.tbadk.core.d implements com.baidu.adp.wi
     private boolean h = false;
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(com.baidu.tieba.a.i.reply_me_activity, (ViewGroup) null);
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        View inflate = layoutInflater.inflate(com.baidu.tieba.s.reply_me_activity, (ViewGroup) null);
         this.d = new com.baidu.tbadk.core.view.q(getActivity());
         this.d.a(this);
-        this.e = (LinearLayout) inflate.findViewById(com.baidu.tieba.a.h.bodyNotLogin);
-        this.g = new com.baidu.tbadk.core.view.k(inflate, com.baidu.tieba.a.g.pic_blank_page_search, com.baidu.tieba.a.g.pic_blank_page_search_1, com.baidu.tieba.a.h.no_data_container, com.baidu.tieba.a.h.no_data_image, com.baidu.tieba.a.h.no_data_image_text);
-        this.c = (BdListView) inflate.findViewById(com.baidu.tieba.a.h.replyme_lv);
+        this.e = (LinearLayout) inflate.findViewById(com.baidu.tieba.r.bodyNotLogin);
+        this.g = new com.baidu.tbadk.core.view.k(inflate, com.baidu.tieba.q.pic_blank_page_search, com.baidu.tieba.q.pic_blank_page_search_1, com.baidu.tieba.r.no_data_container, com.baidu.tieba.r.no_data_image, com.baidu.tieba.r.no_data_image_text);
+        this.c = (BdListView) inflate.findViewById(com.baidu.tieba.r.replyme_lv);
         this.c.setDividerHeight(0);
         this.c.setPullRefresh(this.d);
         this.b = new m(this, 1, new ag(this));
         this.b.a(this.c);
-        this.b.a((ViewGroup) inflate.findViewById(com.baidu.tieba.a.h.mention_layout_replyme1));
+        this.b.a((ViewGroup) inflate.findViewById(com.baidu.tieba.r.mention_layout_replyme1));
         this.b.a(this.g);
         this.b.a("c/u/feed/replyme");
         this.b.c();
@@ -37,7 +38,7 @@ public final class af extends com.baidu.tbadk.core.d implements com.baidu.adp.wi
     }
 
     @Override // com.baidu.tbadk.core.d
-    public final void c(int i) {
+    public void c(int i) {
         super.c(i);
         if (isAdded()) {
             this.g.a(i);
@@ -45,7 +46,7 @@ public final class af extends com.baidu.tbadk.core.d implements com.baidu.adp.wi
                 this.d.a(i);
             }
             if (this.f != null) {
-                this.f.a(i);
+                this.f.b(i);
             }
             if (this.b != null) {
                 this.b.g();
@@ -54,9 +55,9 @@ public final class af extends com.baidu.tbadk.core.d implements com.baidu.adp.wi
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final void onResume() {
+    public void onResume() {
         super.onResume();
-        if (TbadkApplication.F()) {
+        if (TbadkApplication.isLogin()) {
             this.c.setVisibility(0);
             this.e.setVisibility(8);
             if (this.h) {
@@ -67,19 +68,19 @@ public final class af extends com.baidu.tbadk.core.d implements com.baidu.adp.wi
             return;
         }
         this.g.b(8);
-        b();
+        g();
     }
 
-    public final void a() {
+    public void a() {
         if (this.b == null) {
             this.h = true;
             return;
         }
         this.h = false;
-        if (TbadkApplication.F()) {
+        if (TbadkApplication.isLogin()) {
             this.c.setVisibility(0);
             this.e.setVisibility(8);
-            if (com.baidu.tbadk.coreExtra.messageCenter.a.a().i() > 0) {
+            if (com.baidu.tbadk.coreExtra.messageCenter.a.a().k() > 0) {
                 this.b.a(2);
             } else {
                 this.b.a(1);
@@ -88,37 +89,37 @@ public final class af extends com.baidu.tbadk.core.d implements com.baidu.adp.wi
             this.b.e();
             return;
         }
-        b();
+        g();
     }
 
-    private void b() {
+    private void g() {
         if (this.f == null) {
-            this.f = new com.baidu.tbadk.core.view.b(getActivity(), getString(com.baidu.tieba.a.k.login_msg_tab), getString(com.baidu.tieba.a.k.login_msg_form), 3);
-            this.e.addView(this.f.a());
-            this.f.a(TbadkApplication.j().l());
+            this.f = new com.baidu.tbadk.core.view.b(getActivity(), getString(com.baidu.tieba.u.login_msg_tab), getString(com.baidu.tieba.u.login_msg_form), 3);
+            this.e.addView(this.f.b());
+            this.f.b(TbadkApplication.m252getInst().getSkinType());
         } else {
-            ((ViewGroup) this.f.a().getParent()).removeAllViews();
-            this.e.addView(this.f.a());
-            this.f.a(TbadkApplication.j().l());
+            ((ViewGroup) this.f.b().getParent()).removeAllViews();
+            this.e.addView(this.f.b());
+            this.f.b(TbadkApplication.m252getInst().getSkinType());
         }
         this.c.setVisibility(8);
         this.e.setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final void onStop() {
+    public void onStop() {
         super.onStop();
         this.g.b();
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final void onStart() {
+    public void onStart() {
         super.onStart();
         this.g.a();
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public final void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         try {
             if (this.b != null) {
@@ -127,14 +128,18 @@ public final class af extends com.baidu.tbadk.core.d implements com.baidu.adp.wi
             }
             System.gc();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "onDestroy", e.toString());
+            BdLog.e(getClass().getName(), "onDestroy", e.toString());
         }
     }
 
+    public void f() {
+        this.b.b();
+    }
+
     @Override // com.baidu.adp.widget.ListView.d
-    public final void a(boolean z) {
+    public void a(boolean z) {
         if (!z) {
-            this.b.b();
+            f();
         }
     }
 }

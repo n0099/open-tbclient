@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public final class c extends OutputStream {
+public class c extends OutputStream {
     private final int a;
     private final int b;
     private ByteBuffer c;
@@ -21,23 +21,23 @@ public final class c extends OutputStream {
         this.c.clear();
     }
 
-    public final ByteBuffer a() {
+    public ByteBuffer a() {
         return this.c;
     }
 
-    public final Buffer b() {
+    public Buffer b() {
         return this.c.flip();
     }
 
-    public final Buffer c() {
+    public Buffer c() {
         return this.c.clear();
     }
 
-    public final int d() {
+    public int d() {
         return this.c.remaining();
     }
 
-    private synchronized void a(int i) {
+    public synchronized void a(int i) {
         if (i > this.c.capacity()) {
             ByteBuffer byteBuffer = this.c;
             int position = this.c.position();
@@ -50,7 +50,7 @@ public final class c extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public final synchronized void write(int i) {
+    public synchronized void write(int i) {
         if (this.c.position() + 1 > this.c.capacity()) {
             a(this.c.capacity() + 1);
         }
@@ -58,7 +58,7 @@ public final class c extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public final synchronized void write(byte[] bArr, int i, int i2) {
+    public synchronized void write(byte[] bArr, int i, int i2) {
         if (this.c.position() + i2 > this.c.capacity()) {
             a(this.c.capacity() + i2);
         }
@@ -66,15 +66,15 @@ public final class c extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public final synchronized void write(byte[] bArr) {
+    public synchronized void write(byte[] bArr) {
         write(bArr, 0, bArr.length);
     }
 
-    public final synchronized void a(String str) {
+    public synchronized void a(String str) {
         write(str.getBytes("UTF-8"));
     }
 
-    public final synchronized void e() {
+    public synchronized void e() {
         write(13);
         write(10);
     }

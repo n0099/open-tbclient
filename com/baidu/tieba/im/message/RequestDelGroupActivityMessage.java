@@ -1,0 +1,41 @@
+package com.baidu.tieba.im.message;
+
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tbadk.message.websockt.TbSocketMessage;
+import protobuf.DelGroupActivity.DataReq;
+import protobuf.DelGroupActivity.DelGroupActivityReqIdl;
+/* loaded from: classes.dex */
+public class RequestDelGroupActivityMessage extends TbSocketMessage {
+    private int activityId;
+    private int groupId;
+
+    public RequestDelGroupActivityMessage() {
+        super(MessageTypes.CMD_DEL_GROUP_ACTIVITY);
+    }
+
+    public int getActivityId() {
+        return this.activityId;
+    }
+
+    public void setActivityId(int i) {
+        this.activityId = i;
+    }
+
+    public int getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(int i) {
+        this.groupId = i;
+    }
+
+    @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
+    public Object encode() {
+        DataReq.Builder builder = new DataReq.Builder();
+        builder.activityId = Integer.valueOf(getActivityId());
+        builder.groupId = Integer.valueOf(getGroupId());
+        DelGroupActivityReqIdl.Builder builder2 = new DelGroupActivityReqIdl.Builder();
+        builder2.data = builder.build(false);
+        return builder2.build(false);
+    }
+}

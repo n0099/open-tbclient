@@ -1,78 +1,35 @@
 package com.baidu.tbadk.core.util;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-public final class ax extends Thread {
-    private String a;
-    private String b;
-    private String c;
-    private String d;
-    private boolean e;
+public class ax extends BdAsyncTask<String, String, String> {
+    final /* synthetic */ aw a;
+    private final String b;
+    private final String c;
+    private final boolean d;
+    private final boolean e;
+    private final boolean f;
 
-    public ax(String str) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = false;
-        this.a = str;
-        this.e = false;
-    }
-
-    public ax(String str, String str2) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = false;
-        this.a = str;
-        this.b = str2;
-    }
-
-    public ax(String str, String str2, String str3) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = false;
-        this.a = str;
+    public ax(aw awVar, String str, String str2, boolean z, boolean z2, boolean z3) {
+        this.a = awVar;
+        this.b = str;
         this.c = str2;
-        this.d = str3;
+        this.d = z;
+        this.e = z2;
+        this.f = z3;
+        setParallel(ba.a);
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public final void run() {
-        String str;
-        String str2;
-        super.run();
-        if (this.e) {
-            str = "c/s/inpv";
-        } else {
-            str = "c/s/pv";
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        try {
+            this.a.a(this.b, this.c, this.d, this.e, this.f);
+        } catch (Throwable th) {
+            TiebaStatic.imgError("", TbErrInfo.ERR_IMG_CACHE, "pic cache img err: " + th.toString(), null);
         }
-        ak akVar = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + str);
-        if (this.e) {
-            str2 = null;
-        } else {
-            str2 = aq.a().d();
-            if (!bc.c(str2)) {
-                aq.a().c();
-                akVar.a("st_record", str2);
-            }
-        }
-        akVar.a("st_type", this.a);
-        if (this.b != null) {
-            akVar.a("st_param", this.b);
-        }
-        if (this.c != null) {
-            akVar.a("obj", this.c);
-        }
-        if (this.d != null) {
-            akVar.a("obj_tp", this.d);
-        }
-        akVar.i();
-        if (!this.e) {
-            if (!akVar.a().b().b() || akVar.d() != 0) {
-                aq.a().b(str2);
-            }
-        }
+        return null;
     }
 }

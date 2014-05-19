@@ -4,7 +4,7 @@ import android.content.DialogInterface;
 import android.os.Handler;
 import android.view.View;
 /* loaded from: classes.dex */
-final class o implements DialogInterface.OnClickListener {
+class o implements DialogInterface.OnClickListener {
     final /* synthetic */ n a;
     private final /* synthetic */ String b;
     private final /* synthetic */ int c;
@@ -19,7 +19,7 @@ final class o implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         dialogInterface.dismiss();
         new Handler().postDelayed(new p(this, this.b, this.c, this.d), 200L);
     }

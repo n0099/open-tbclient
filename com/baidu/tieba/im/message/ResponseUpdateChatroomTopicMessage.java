@@ -1,19 +1,22 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import protobuf.UpdateChatroomTopic.UpdateChatroomTopicRes;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.squareup.wire.Wire;
+import protobuf.UpdateChatroomTopic.UpdateChatroomTopicResIdl;
 /* loaded from: classes.dex */
 public class ResponseUpdateChatroomTopicMessage extends SocketResponsedMessage {
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        UpdateChatroomTopicRes.UpdateChatroomTopicResIdl parseFrom = UpdateChatroomTopicRes.UpdateChatroomTopicResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() != 0) {
-        }
+    public ResponseUpdateChatroomTopicMessage() {
+        super(MessageTypes.CMD_UPDATE_CHATROOM_TOPIC);
     }
 
-    public ResponseUpdateChatroomTopicMessage() {
-        super(106103);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        UpdateChatroomTopicResIdl updateChatroomTopicResIdl = (UpdateChatroomTopicResIdl) new Wire(new Class[0]).parseFrom(bArr, UpdateChatroomTopicResIdl.class);
+        setError(updateChatroomTopicResIdl.error.errorno.intValue());
+        setErrorString(updateChatroomTopicResIdl.error.usermsg);
+        if (getError() != 0) {
+        }
     }
 }

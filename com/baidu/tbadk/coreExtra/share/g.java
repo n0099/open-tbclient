@@ -3,10 +3,10 @@ package com.baidu.tbadk.coreExtra.share;
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.l;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public final class g {
+public class g {
     private static c a = null;
     private static boolean b = false;
     private final Context c;
@@ -41,41 +41,41 @@ public final class g {
         return a != null;
     }
 
-    public final void a(f fVar) {
+    public void a(f fVar) {
         if (this.e != null) {
             this.e.a(a(fVar, "weixin"), 3, false);
         }
     }
 
-    public final void b(f fVar) {
+    public void b(f fVar) {
         if (this.e != null) {
             fVar.a = fVar.b;
             this.e.a(a(fVar, "weixin_timeline"), 2, false);
         }
     }
 
-    public final void c(f fVar) {
+    public void c(f fVar) {
         if (this.e != null) {
             fVar.b = a(fVar.b, 80, 32);
             this.e.a(a(fVar, "qzone"), 4, true);
         }
     }
 
-    public final void d(f fVar) {
+    public void d(f fVar) {
         if (this.e != null) {
             fVar.b = a(fVar.b, 140, 20);
             this.e.a(a(fVar, "tencent_weibo"), 5, true);
         }
     }
 
-    public final void e(f fVar) {
+    public void e(f fVar) {
         if (this.e != null) {
             fVar.b = a(fVar.b, 140, 20);
             this.e.a(a(fVar, "sina_weibo"), 6, true);
         }
     }
 
-    public final void f(f fVar) {
+    public void f(f fVar) {
         if (this.e != null) {
             fVar.b = a(fVar.b, 140, 20);
             this.e.a(a(fVar, "renren"), 7, true);
@@ -83,7 +83,7 @@ public final class g {
     }
 
     private String a(String str, int i, int i2) {
-        String string = this.c.getString(l.share_tail);
+        String string = this.c.getString(u.share_tail);
         if (str != null) {
             int min = Math.min((i - string.length()) - i2, str.length());
             if (min < str.length()) {
@@ -105,12 +105,12 @@ public final class g {
         if (fVar.d != null) {
             fVar.d = Uri.parse(a(fVar.d.toString(), "sfc=" + str));
         }
-        fVar.c = a(bc.c(fVar.c) ? "http://tieba.baidu.com" : fVar.c, "sfc=" + str);
+        fVar.c = a(be.c(fVar.c) ? "http://tieba.baidu.com" : fVar.c, "sfc=" + str);
         return fVar;
     }
 
-    private static String a(String str, String str2) {
-        if (bc.c(Uri.parse(str).getQuery())) {
+    private String a(String str, String str2) {
+        if (be.c(Uri.parse(str).getQuery())) {
             str = String.valueOf(str) + "?";
         }
         return String.valueOf(str) + "&" + str2;

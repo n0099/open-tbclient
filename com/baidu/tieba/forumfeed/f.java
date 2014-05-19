@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumfeed;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements com.baidu.tbadk.core.view.m {
+public class f implements com.baidu.tbadk.core.view.m {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public final class f implements com.baidu.tbadk.core.view.m {
     }
 
     @Override // com.baidu.tbadk.core.view.m
-    public final void a(boolean z) {
+    public void a(boolean z) {
         j jVar;
         if (z) {
             jVar = this.a.d;

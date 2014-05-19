@@ -1,7 +1,7 @@
 package com.baidu.tieba.more;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b extends com.baidu.adp.a.h {
+public class b extends com.baidu.adp.base.g {
     final /* synthetic */ AboutActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,8 +9,8 @@ public final class b extends com.baidu.adp.a.h {
         this.a = aboutActivity;
     }
 
-    @Override // com.baidu.adp.a.h
-    public final void a(Object obj) {
-        AboutActivity.a(this.a, obj);
+    @Override // com.baidu.adp.base.g
+    public void a(Object obj) {
+        this.a.a(obj);
     }
 }

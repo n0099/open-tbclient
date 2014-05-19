@@ -1,84 +1,95 @@
 package com.baidu.tieba.more;
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* loaded from: classes.dex */
-public final class d extends com.baidu.adp.a.f {
+public class d extends com.baidu.adp.base.e {
     protected ImageView a;
-    protected TextView c;
-    private com.baidu.tbadk.a d;
-    private NavigationBar e;
-    private RelativeLayout f;
-    private TextView g;
-    private SettingTextTestNewView h;
-    private TbSettingTextTipView i;
-    private SettingTextFunctionIntroView j;
-    private ProgressBar k;
+    protected TextView b;
+    private BaseActivity c;
+    private NavigationBar d;
+    private RelativeLayout e;
+    private TextView f;
+    private SettingTextTestNewView g;
+    private TbSettingTextTipView h;
+    private SettingTextFunctionIntroView i;
+    private ProgressBar j;
 
-    public d(com.baidu.tbadk.a aVar, p pVar) {
-        super(aVar);
-        this.d = aVar;
-        this.d.setContentView(com.baidu.tieba.a.i.about_activity);
-        this.f = (RelativeLayout) this.d.findViewById(com.baidu.tieba.a.h.parent);
-        this.e = (NavigationBar) this.d.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e.a(this.d.getString(com.baidu.tieba.a.k.version_info));
-        this.g = (TextView) this.d.findViewById(com.baidu.tieba.a.h.text_versioninfo);
-        this.a = (ImageView) this.d.findViewById(com.baidu.tieba.a.h.text_description);
-        this.h = (SettingTextTestNewView) this.d.findViewById(com.baidu.tieba.a.h.about_version_update);
-        this.h.d();
-        this.j = (SettingTextFunctionIntroView) this.d.findViewById(com.baidu.tieba.a.h.about_function_intro);
-        this.i = (TbSettingTextTipView) this.d.findViewById(com.baidu.tieba.a.h.about_guide);
-        this.k = (ProgressBar) this.d.findViewById(com.baidu.tieba.a.h.about_progress);
-        String c = com.baidu.tbadk.core.data.n.c();
-        if (com.baidu.tbadk.core.data.n.e() == 1 && !bc.c(com.baidu.tbadk.core.data.n.d())) {
-            c = String.valueOf(c) + "." + com.baidu.tbadk.core.data.n.d();
+    public d(BaseActivity baseActivity, p pVar) {
+        super(baseActivity);
+        this.c = baseActivity;
+        d();
+        a(pVar);
+    }
+
+    public void a() {
+        if (this.j != null) {
+            this.j.setVisibility(0);
         }
-        this.g.setText(String.valueOf(this.d.getString(com.baidu.tieba.a.k.setting_version_text)) + " " + c);
-        this.c = (TextView) this.d.findViewById(com.baidu.tieba.a.h.text_version_protoco);
-        a(TbadkApplication.j().l());
+    }
+
+    public void b() {
+        if (this.j != null) {
+            this.j.setVisibility(8);
+        }
+    }
+
+    private void d() {
+        this.c.setContentView(com.baidu.tieba.s.about_activity);
+        this.e = (RelativeLayout) this.c.findViewById(com.baidu.tieba.r.parent);
+        this.d = (NavigationBar) this.c.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.a(this.c.getString(com.baidu.tieba.u.version_info));
+        this.f = (TextView) this.c.findViewById(com.baidu.tieba.r.text_versioninfo);
+        this.a = (ImageView) this.c.findViewById(com.baidu.tieba.r.text_description);
+        this.g = (SettingTextTestNewView) this.c.findViewById(com.baidu.tieba.r.about_version_update);
+        this.g.e();
+        this.i = (SettingTextFunctionIntroView) this.c.findViewById(com.baidu.tieba.r.about_function_intro);
+        this.h = (TbSettingTextTipView) this.c.findViewById(com.baidu.tieba.r.about_guide);
+        this.j = (ProgressBar) this.c.findViewById(com.baidu.tieba.r.about_progress);
+        String version = TbConfig.getVersion();
+        if (TbConfig.getVersionType() == 1 && !be.c(TbConfig.getSubVersion())) {
+            version = String.valueOf(version) + "." + TbConfig.getSubVersion();
+        }
+        this.f.setText(String.valueOf(this.c.getString(com.baidu.tieba.u.setting_version_text)) + " " + version);
+        this.b = (TextView) this.c.findViewById(com.baidu.tieba.r.text_version_protoco);
+        a(TbadkApplication.m252getInst().getSkinType());
+    }
+
+    private void a(p pVar) {
         e eVar = new e(this, pVar);
+        this.g.setOnClickListener(eVar);
         this.h.setOnClickListener(eVar);
         this.i.setOnClickListener(eVar);
-        this.j.setOnClickListener(eVar);
     }
 
-    public final void a() {
-        if (this.k != null) {
-            this.k.setVisibility(0);
+    public void c() {
+        if (this.g != null) {
+            this.g.a();
+        }
+        if (this.i != null) {
+            this.i.a();
         }
     }
 
-    public final void d() {
-        if (this.k != null) {
-            this.k.setVisibility(8);
-        }
-    }
-
-    public final void e() {
-        if (this.h != null) {
-            this.h.e();
-        }
-        if (this.j != null) {
-            this.j.e();
-        }
-    }
-
-    public final void a(int i) {
+    public void a(int i) {
         if (i == 1) {
-            this.f.setBackgroundColor(this.d.getResources().getColor(com.baidu.tieba.a.e.bg_page_setting_1));
+            this.e.setBackgroundColor(this.c.getResources().getColor(com.baidu.tieba.o.bg_page_setting_1));
         } else {
-            this.f.setBackgroundColor(this.d.getResources().getColor(com.baidu.tieba.a.e.bg_page_setting));
+            this.e.setBackgroundColor(this.c.getResources().getColor(com.baidu.tieba.o.bg_page_setting));
         }
-        this.e.b(i);
-        this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a(this.f);
-        e();
+        this.d.c(i);
+        this.c.getLayoutMode().a(i == 1);
+        this.c.getLayoutMode().a((View) this.e);
+        c();
     }
 }

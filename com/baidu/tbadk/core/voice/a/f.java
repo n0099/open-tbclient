@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.voice.a;
 
 import android.content.Context;
 /* loaded from: classes.dex */
-public final class f {
+public class f {
     private static f a;
     private com.baidu.adp.lib.e.b b = com.baidu.adp.lib.e.b.a();
 
@@ -20,11 +20,11 @@ public final class f {
         return fVar;
     }
 
-    public final void a(Context context, String str) {
+    public void a(Context context, String str) {
         this.b.a(str, context);
     }
 
-    public final d a(Context context, String str, String str2, com.baidu.adp.lib.e.a<d> aVar) {
+    public d a(Context context, String str, String str2, com.baidu.adp.lib.e.a<d> aVar) {
         try {
             com.baidu.adp.lib.e.e eVar = new com.baidu.adp.lib.e.e();
             eVar.a("from", str2);

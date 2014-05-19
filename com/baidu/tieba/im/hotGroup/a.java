@@ -6,7 +6,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-final class a {
+class a {
     LinearLayout a;
     LinearLayout b;
     TextView c;

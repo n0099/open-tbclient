@@ -1,54 +1,76 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import protobuf.QueryGroupCount.QueryGroupCountRes;
+import com.squareup.wire.Wire;
+import protobuf.QueryGroupCount.QueryGroupCountResIdl;
 /* loaded from: classes.dex */
 public class ResponseQueryGroupCountMessage extends TbSocketReponsedMessage {
-    private int a;
-    private int b;
-    private String c;
-    private String d;
-
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        QueryGroupCountRes.QueryGroupCountResIdl parseFrom = QueryGroupCountRes.QueryGroupCountResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.b = parseFrom.getData().getLocalGroupCount();
-            this.a = parseFrom.getData().getUserGroupCount();
-            this.d = parseFrom.getData().getBanner().getPicUrl();
-            this.c = parseFrom.getData().getBanner().getLink();
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, java.lang.Object] */
-    @Override // com.baidu.adp.framework.message.f
-    public final /* synthetic */ void b(int i, byte[] bArr) {
-        a(com.baidu.tbadk.core.c.b.a().t(), "p_enter_forum_group_info", bArr);
-    }
+    private static final String CACHE_KEY_PREFIX = "p_enter_forum_group_info";
+    private String link;
+    private int localGroupCount;
+    private String picUrl;
+    private int userGroupCount;
 
     public ResponseQueryGroupCountMessage() {
-        super(103011);
+        super(MessageTypes.CMD_QUERY_GROUP_COUNT);
     }
 
     public ResponseQueryGroupCountMessage(int i) {
         super(i);
     }
 
-    public final String d() {
-        return this.c;
+    public String getLink() {
+        return this.link;
     }
 
-    public final String i() {
-        return this.d;
+    public void setLink(String str) {
+        this.link = str;
     }
 
-    public final int j() {
-        return this.a;
+    public String getPicUrl() {
+        return this.picUrl;
     }
 
-    public final int k() {
-        return this.b;
+    public void setPicUrl(String str) {
+        this.picUrl = str;
+    }
+
+    public int getUserGroupCount() {
+        return this.userGroupCount;
+    }
+
+    public void setUserGroupCount(int i) {
+        this.userGroupCount = i;
+    }
+
+    public int getLocalGroupCount() {
+        return this.localGroupCount;
+    }
+
+    public void setLocalGroupCount(int i) {
+        this.localGroupCount = i;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        QueryGroupCountResIdl queryGroupCountResIdl = (QueryGroupCountResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryGroupCountResIdl.class);
+        setError(queryGroupCountResIdl.error.errorno.intValue());
+        setErrorString(queryGroupCountResIdl.error.usermsg);
+        if (getError() == 0) {
+            setLocalGroupCount(queryGroupCountResIdl.data.localGroupCount.intValue());
+            setUserGroupCount(queryGroupCountResIdl.data.userGroupCount.intValue());
+            if (queryGroupCountResIdl.data.banner != null) {
+                setPicUrl(queryGroupCountResIdl.data.banner.picUrl);
+                setLink(queryGroupCountResIdl.data.banner.link);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void processInBackGround(int i, byte[] bArr) {
+        saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().v(), CACHE_KEY_PREFIX, bArr);
     }
 }

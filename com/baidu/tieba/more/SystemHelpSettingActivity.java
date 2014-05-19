@@ -9,31 +9,32 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.plugins.PluginCenterActivity;
 /* loaded from: classes.dex */
-public class SystemHelpSettingActivity extends com.baidu.tbadk.a implements com.baidu.adp.widget.BdSwitchView.c {
+public class SystemHelpSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
     private an a = null;
     private aj b = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.a = new an(this);
         this.b = new aj(this);
-        if (TbadkApplication.j().V()) {
-            this.a.d().a();
+        if (TbadkApplication.m252getInst().isHeadsetModeOn()) {
+            this.a.b().a();
         } else {
-            this.a.d().b();
+            this.a.b().b();
         }
-        TbadkApplication.j();
-        if (TbadkApplication.X()) {
+        if (TbadkApplication.m252getInst().getLocationShared()) {
             this.a.a().a();
         } else {
             this.a.a().b();
         }
-        this.a.e().setTip(getString(com.baidu.tieba.a.k.calc_cache_size));
-        this.a.e().a();
+        this.a.c().setTip(getString(com.baidu.tieba.u.calc_cache_size));
+        this.a.c().b();
         this.b.a(new ae(this, this));
     }
 
@@ -42,60 +43,63 @@ public class SystemHelpSettingActivity extends com.baidu.tbadk.a implements com.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.b != null) {
             this.b.c();
         }
+        a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.a.a(i);
     }
 
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
+    private void a() {
+        this.a.e().a();
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.a.e()) {
+        if (view == this.a.c()) {
             if (this.b != null) {
-                if (TextUtils.isEmpty(this.a.e().getTip())) {
-                    showToast(com.baidu.tieba.a.k.no_cache_delete);
+                if (TextUtils.isEmpty(this.a.c().getTip())) {
+                    showToast(com.baidu.tieba.u.no_cache_delete);
                 } else {
-                    new AlertDialog.Builder(this).setTitle(com.baidu.tieba.a.k.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.a.k.alert_clear_all_cache).setPositiveButton(com.baidu.tieba.a.k.alert_yes_button, new af(this)).setNegativeButton(com.baidu.tieba.a.k.alert_no_button, new ag(this)).create().show();
+                    new AlertDialog.Builder(this).setTitle(com.baidu.tieba.u.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.u.alert_clear_all_cache).setPositiveButton(com.baidu.tieba.u.alert_yes_button, new af(this)).setNegativeButton(com.baidu.tieba.u.alert_no_button, new ag(this)).create().show();
                 }
             }
-        } else if (view == this.a.f()) {
-            new AlertDialog.Builder(this).setTitle(com.baidu.tieba.a.k.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.a.k.alert_clear_cache).setPositiveButton(com.baidu.tieba.a.k.alert_yes_button, new ah(this)).setNegativeButton(com.baidu.tieba.a.k.alert_no_button, new ai(this)).create().show();
+        } else if (view == this.a.d()) {
+            new AlertDialog.Builder(this).setTitle(com.baidu.tieba.u.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.u.alert_clear_cache).setPositiveButton(com.baidu.tieba.u.alert_yes_button, new ah(this)).setNegativeButton(com.baidu.tieba.u.alert_no_button, new ai(this)).create().show();
+        } else if (view == this.a.e()) {
+            startActivity(new Intent(this, PluginCenterActivity.class));
         }
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         return super.onKeyDown(i, keyEvent);
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
-    public final void a(View view, BdSwitchView.SwitchState switchState) {
+    public void a(View view, BdSwitchView.SwitchState switchState) {
         if (view != null) {
-            if (view.equals(this.a.d())) {
+            if (view.equals(this.a.b())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
-                    aj ajVar = this.b;
-                    TbadkApplication.j().d(true);
-                    return;
+                    this.b.a(true);
+                } else {
+                    this.b.a(false);
                 }
-                aj ajVar2 = this.b;
-                TbadkApplication.j().d(false);
             } else if (view.equals(this.a.a())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
-                    TbadkApplication.j();
-                    TbadkApplication.e(true);
-                    return;
+                    TbadkApplication.m252getInst().setLocationShared(true);
+                } else {
+                    TbadkApplication.m252getInst().setLocationShared(false);
                 }
-                TbadkApplication.j();
-                TbadkApplication.e(false);
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.baidu.adp.framework.message;
 
 import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -8,12 +9,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public final class HttpMessage extends d<List<Map.Entry<String, Object>>> {
-    private HashMap<String, String> a;
-    private HashMap<String, Object> b;
-    private Comparator<Map.Entry<String, Object>> c;
-    private int d;
-    private boolean e;
+public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
+    private Comparator<Map.Entry<String, Object>> mComparator;
+    private HashMap<String, String> mHeaders;
+    private boolean mNeedProgress;
+    private HashMap<String, Object> mParams;
+    private int mRawNum;
 
     /* loaded from: classes.dex */
     public enum SORT {
@@ -34,32 +35,66 @@ public final class HttpMessage extends d<List<Map.Entry<String, Object>>> {
 
     public HttpMessage(int i) {
         super(i);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = 0;
-        this.e = false;
-        this.b = new HashMap<>();
-        this.a = new HashMap<>();
-        a(SORT.ASCEND);
+        this.mHeaders = null;
+        this.mParams = null;
+        this.mComparator = null;
+        this.mRawNum = 0;
+        this.mNeedProgress = false;
+        initial();
     }
 
-    private synchronized void a(SORT sort) {
+    public HttpMessage(int i, int i2) {
+        super(i, i2);
+        this.mHeaders = null;
+        this.mParams = null;
+        this.mComparator = null;
+        this.mRawNum = 0;
+        this.mNeedProgress = false;
+        initial();
+    }
+
+    protected synchronized void setSort(SORT sort) {
         if (sort == SORT.NONE) {
-            this.c = null;
+            this.mComparator = null;
         } else {
-            this.c = new b(sort);
+            this.mComparator = new a(sort);
         }
     }
 
-    public final String a(String str, String str2) {
+    public byte[] addParam(String str, byte[] bArr) {
+        if (str == null || bArr == null) {
+            return null;
+        }
+        Object put = this.mParams.put(str, bArr);
+        this.mRawNum++;
+        if (put == null || !(put instanceof byte[])) {
+            return null;
+        }
+        this.mRawNum--;
+        return (byte[]) put;
+    }
+
+    public Object addParam(String str, Object obj) {
+        if (str == null || obj == null) {
+            return null;
+        }
+        Object put = this.mParams.put(str, obj);
+        this.mRawNum++;
+        if (put != null) {
+            this.mRawNum--;
+            return put;
+        }
+        return put;
+    }
+
+    public String addParam(String str, String str2) {
         if (str == null || str2 == null) {
             return null;
         }
-        Object put = this.b.put(str, str2);
+        Object put = this.mParams.put(str, str2);
         if (put != null) {
             if (put instanceof byte[]) {
-                this.d--;
+                this.mRawNum--;
                 return null;
             } else if (put instanceof String) {
                 return (String) put;
@@ -68,53 +103,80 @@ public final class HttpMessage extends d<List<Map.Entry<String, Object>>> {
         return null;
     }
 
-    public final void a() {
-        this.b.clear();
-        this.d = 0;
+    public Object removeParam(String str) {
+        Object remove = this.mParams.remove(str);
+        if (remove != null && (remove instanceof byte[])) {
+            this.mRawNum--;
+        }
+        return remove;
     }
 
-    public final String b(String str, String str2) {
-        return this.a.put(str, str2);
+    public void removeAllParams() {
+        this.mParams.clear();
+        this.mRawNum = 0;
     }
 
-    public final HashMap<String, String> b() {
-        return this.a;
+    public String addHeader(String str, String str2) {
+        return this.mHeaders.put(str, str2);
     }
 
-    public final boolean c() {
-        return this.d > 0;
+    public String removeHeader(String str) {
+        return this.mHeaders.remove(str);
     }
 
-    public final List<Map.Entry<String, Object>> d() {
-        ArrayList arrayList = new ArrayList(this.b.entrySet());
-        if (this.c != null) {
-            Collections.sort(arrayList, this.c);
+    public HashMap<String, String> getHeaders() {
+        return this.mHeaders;
+    }
+
+    public boolean hasRaw() {
+        return this.mRawNum > 0;
+    }
+
+    private void initial() {
+        this.mParams = new HashMap<>();
+        this.mHeaders = new HashMap<>();
+        setSort(SORT.ASCEND);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public List<Map.Entry<String, Object>> encodeInBackGround() {
+        ArrayList arrayList = new ArrayList(this.mParams.entrySet());
+        if (this.mComparator != null) {
+            Collections.sort(arrayList, this.mComparator);
         }
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
             Map.Entry entry = (Map.Entry) arrayList.get(i);
             Object value = entry.getValue();
             if (!(value instanceof String) && !(value instanceof byte[])) {
-                entry.setValue(a(value));
+                entry.setValue(getByte(value));
             }
         }
         return arrayList;
     }
 
-    private static byte[] a(Object obj) {
+    private byte[] getByte(Object obj) {
         try {
             Object invoke = obj.getClass().getMethod("toByteArray", new Class[0]).invoke(obj, new Object[0]);
             if (invoke != null && (invoke instanceof byte[])) {
                 return (byte[]) invoke;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("getByte error");
+            BdLog.e("getByte error");
         }
         return null;
     }
 
-    @Override // com.baidu.adp.framework.message.d
-    public final boolean a(int i) {
-        return FrameHelper.c(i) || FrameHelper.b(i);
+    @Override // com.baidu.adp.framework.message.Message
+    public boolean checkCmd(int i) {
+        return FrameHelper.b(i);
+    }
+
+    public boolean setNeedProgress() {
+        return this.mNeedProgress;
+    }
+
+    public void setNeedProgress(boolean z) {
+        this.mNeedProgress = z;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.groupInfo;
 /* loaded from: classes.dex */
-final class h implements com.baidu.tbadk.core.view.a {
+class h implements com.baidu.tbadk.core.view.a {
     final /* synthetic */ GroupImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,6 +9,6 @@ final class h implements com.baidu.tbadk.core.view.a {
     }
 
     @Override // com.baidu.tbadk.core.view.a
-    public final void a(int i) {
+    public void a(int i) {
     }
 }

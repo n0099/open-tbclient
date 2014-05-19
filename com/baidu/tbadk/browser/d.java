@@ -3,7 +3,7 @@ package com.baidu.tbadk.browser;
 import android.content.Context;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
-final class d implements DialogInterface.OnClickListener {
+class d implements DialogInterface.OnClickListener {
     final /* synthetic */ c a;
     private final /* synthetic */ Context b;
     private final /* synthetic */ String c;
@@ -16,7 +16,7 @@ final class d implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         a.a(this.b, this.c);
     }
 }

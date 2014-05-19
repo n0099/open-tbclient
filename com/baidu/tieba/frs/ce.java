@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs;
 
-import android.content.Intent;
-import android.view.View;
+import com.baidu.tieba.frs.FrsImageActivity;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-final class ce implements View.OnClickListener {
+class ce implements co {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,21 +11,41 @@ final class ce implements View.OnClickListener {
         this.a = frsImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        String str;
-        if (view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.data.aq)) {
-            com.baidu.tieba.data.aq aqVar = (com.baidu.tieba.data.aq) view.getTag();
-            FrsImageActivity frsImageActivity = this.a;
-            com.baidu.tbadk.core.b.s sVar = new com.baidu.tbadk.core.b.s(this.a);
-            String d = aqVar.d();
-            str = this.a.b;
-            String c = aqVar.c();
-            Intent d2 = sVar.d();
-            d2.putExtra("thread_id", d);
-            d2.putExtra("forum", str);
-            d2.putExtra("title", c);
-            frsImageActivity.sendMessage(new com.baidu.adp.framework.message.a(2004002, sVar));
+    @Override // com.baidu.tieba.frs.co
+    public void a(int i, JSONObject jSONObject, dk dkVar) {
+        int i2;
+        de deVar;
+        de deVar2;
+        int i3;
+        dh dhVar;
+        dh dhVar2;
+        this.a.d();
+        this.a.a(FrsImageActivity.FooterType.NORMAL);
+        if (jSONObject == null) {
+            if (dkVar != null && dkVar.a) {
+                this.a.showToast(dkVar.d);
+                return;
+            }
+            return;
+        }
+        FrsImageActivity frsImageActivity = this.a;
+        i2 = frsImageActivity.k;
+        frsImageActivity.k = i2 + 30;
+        this.a.u = new de();
+        deVar = this.a.u;
+        deVar.a(jSONObject);
+        FrsImageActivity frsImageActivity2 = this.a;
+        deVar2 = this.a.u;
+        frsImageActivity2.a(deVar2.a());
+        i3 = this.a.k;
+        dhVar = this.a.t;
+        if (i3 >= dhVar.d().size()) {
+            dhVar2 = this.a.t;
+            if (dhVar2.e() == 0) {
+                this.a.a(FrsImageActivity.FooterType.LAST);
+            } else {
+                this.a.a(FrsImageActivity.FooterType.NEXT);
+            }
         }
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.model;
 
+import com.baidu.tieba.im.message.RequestAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 /* loaded from: classes.dex */
-public final class a extends com.baidu.adp.a.e {
+public class a extends com.baidu.adp.base.d {
     private int c;
     private String d;
     private String e;
@@ -13,99 +14,103 @@ public final class a extends com.baidu.adp.a.e {
     private String j;
     private int k;
     private int l;
-    private com.baidu.tieba.im.message.y a = null;
+    private RequestAddGroupMessage a = null;
     private ResponseAddGroupMessage b = null;
     private int m = -1;
 
-    public final void a(int i) {
+    public void a(int i) {
         this.c = i;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.d = str;
     }
 
-    public final void b(String str) {
+    public void b(String str) {
         this.e = str;
     }
 
-    public final void c(String str) {
+    public void c(String str) {
         this.f = str;
     }
 
-    public final void d(String str) {
+    public void d(String str) {
         this.g = str;
     }
 
-    public final void e(String str) {
+    public void e(String str) {
         this.h = str;
     }
 
-    public final void f(String str) {
+    public void f(String str) {
         this.i = str;
     }
 
-    public final void g(String str) {
+    public void g(String str) {
         this.j = str;
     }
 
-    public final void b(int i) {
+    public void b(int i) {
         this.k = i;
     }
 
-    public final void c(int i) {
+    public void c(int i) {
         this.l = i;
     }
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         return false;
     }
 
-    public final void d(int i) {
+    public void d(int i) {
         this.m = i;
     }
 
-    public final void a() {
-        com.baidu.tieba.im.message.y yVar = new com.baidu.tieba.im.message.y();
-        yVar.d(this.c);
-        yVar.a(this.d);
-        yVar.b(this.e);
-        yVar.c(this.f);
-        yVar.d(this.g);
-        yVar.e(this.h);
-        yVar.f(this.i);
-        yVar.g(this.j);
-        yVar.e(this.k);
-        yVar.f(this.l);
+    private RequestAddGroupMessage b() {
+        RequestAddGroupMessage requestAddGroupMessage = new RequestAddGroupMessage();
+        requestAddGroupMessage.setForumId(this.c);
+        requestAddGroupMessage.setName(this.d);
+        requestAddGroupMessage.setIntro(this.e);
+        requestAddGroupMessage.setPortrait(this.f);
+        requestAddGroupMessage.setPosition(this.g);
+        requestAddGroupMessage.setBusiness(this.h);
+        requestAddGroupMessage.setLng(this.i);
+        requestAddGroupMessage.setLat(this.j);
+        requestAddGroupMessage.setGroupType(this.k);
+        requestAddGroupMessage.setFlag(this.l);
         switch (this.m) {
             case 1011:
-                yVar.h("neargp");
+                requestAddGroupMessage.setPage_from_dim("neargp");
                 break;
             case 1012:
-                yVar.h("mygp");
+                requestAddGroupMessage.setPage_from_dim("mygp");
                 break;
             case 1013:
-                yVar.h("bargp");
+                requestAddGroupMessage.setPage_from_dim("bargp");
                 break;
             case 1014:
-                yVar.h("");
+                requestAddGroupMessage.setPage_from_dim("");
                 break;
             default:
-                yVar.h("");
+                requestAddGroupMessage.setPage_from_dim("");
                 break;
         }
-        this.a = yVar;
+        return requestAddGroupMessage;
+    }
+
+    public void a() {
+        this.a = b();
         super.sendMessage(this.a);
     }
 
-    @Override // com.baidu.adp.a.e
-    public final void cancelMessage() {
+    @Override // com.baidu.adp.base.d
+    public void cancelMessage() {
         super.cancelMessage();
     }
 }

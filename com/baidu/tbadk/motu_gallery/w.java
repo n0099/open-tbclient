@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class w {
+public class w {
     private static w a = null;
-    private String d;
     private List<c> b = new ArrayList();
-    private List<Uri> c = new ArrayList();
-    private boolean e = false;
+    private List<Uri> c;
+    private String d;
+    private boolean e;
 
     public static w a() {
         if (a == null) {
@@ -26,13 +26,15 @@ public final class w {
     }
 
     private w() {
+        a(new ArrayList());
+        this.e = false;
     }
 
-    public final int b() {
+    public int b() {
         return this.b.size();
     }
 
-    public final int a(Uri uri) {
+    public int a(Uri uri) {
         if (uri == null || this.b == null) {
             return -1;
         }
@@ -50,34 +52,34 @@ public final class w {
         }
     }
 
-    public final void a(c cVar) {
+    public void a(c cVar) {
         this.b.add(cVar);
     }
 
-    public final void c() {
+    public void c() {
         this.b.clear();
     }
 
-    public final c a(int i) {
+    public c a(int i) {
         return this.b.get(i);
     }
 
-    public final int a(Context context) {
-        return d().size();
+    public int a(Context context) {
+        return c(context).size();
     }
 
-    public final boolean a(Context context, Uri uri) {
+    public boolean a(Context context, Uri uri) {
         boolean z;
         if (a(context) >= 10) {
             return false;
         }
         try {
-            int dimension = (int) context.getResources().getDimension(com.baidu.tbadk.h.jigsawSelectedImageWidth);
+            int dimension = (int) context.getResources().getDimension(com.baidu.tieba.p.jigsawSelectedImageWidth);
             if (b.b(context, uri, dimension, dimension) == null) {
-                z.a(com.baidu.tbadk.l.open_error);
+                aa.a(com.baidu.tieba.u.open_error);
                 return false;
             }
-            Iterator<Uri> it = d().iterator();
+            Iterator<Uri> it = c(context).iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -90,53 +92,59 @@ public final class w {
             if (z) {
                 return false;
             }
-            d().add(uri);
+            c(context).add(uri);
             return true;
         } catch (OtherException e) {
             e.printStackTrace();
-            z.a(com.baidu.tbadk.l.open_error);
+            aa.a(com.baidu.tieba.u.open_error);
             return false;
         } catch (FileNotFoundException e2) {
             e2.printStackTrace();
-            z.a(com.baidu.tbadk.l.open_error);
+            aa.a(com.baidu.tieba.u.open_error);
             return false;
         } catch (OutOfMemoryError e3) {
             e3.printStackTrace();
-            z.a(com.baidu.tbadk.l.open_error);
+            aa.a(com.baidu.tieba.u.open_error);
             return false;
         }
     }
 
-    public final void b(Context context, Uri uri) {
-        d().remove(uri);
+    public void b(Context context, Uri uri) {
+        c(context).remove(uri);
+        f(context);
     }
 
-    public final void b(Context context) {
-        d().clear();
+    public void b(Context context) {
+        c(context).clear();
+        f(context);
     }
 
-    public final List<Uri> d() {
+    private void a(List<Uri> list) {
+        this.c = list;
+    }
+
+    public List<Uri> c(Context context) {
         this.c.size();
         return this.c;
     }
 
-    private int d(Context context) {
-        return d().size();
+    public int d(Context context) {
+        return c(context).size();
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.d = str;
     }
 
-    public final String e() {
+    public String d() {
         return this.d;
     }
 
-    public final String c(Context context) {
-        return String.format(context.getResources().getString(com.baidu.tbadk.l.jigsaw_selected_text), Integer.valueOf(d(context)), Integer.valueOf(10 - d(context)));
+    public String e(Context context) {
+        return String.format(context.getResources().getString(com.baidu.tieba.u.jigsaw_selected_text), Integer.valueOf(d(context)), Integer.valueOf(10 - d(context)));
     }
 
-    public static Bitmap a(Context context, c cVar, int i) {
+    public Bitmap a(Context context, c cVar, int i) {
         Bitmap bitmap;
         Bitmap bitmap2;
         Uri parse = Uri.parse(String.valueOf(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)) + "/" + String.valueOf(cVar.c));
@@ -146,7 +154,7 @@ public final class w {
                 return null;
             }
             try {
-                int a3 = x.a(context, parse);
+                int a3 = y.a(context, parse, false);
                 if (a3 != 0) {
                     Matrix matrix = new Matrix();
                     matrix.setRotate(a3);
@@ -169,13 +177,16 @@ public final class w {
         }
     }
 
-    public final boolean f() {
+    public boolean e() {
         boolean z = this.e;
         this.e = false;
         return z;
     }
 
-    public final boolean b(Uri uri) {
+    private void f(Context context) {
+    }
+
+    public boolean b(Uri uri) {
         for (Uri uri2 : this.c) {
             if (uri2.equals(uri)) {
                 return true;
@@ -184,7 +195,7 @@ public final class w {
         return false;
     }
 
-    public final Intent g() {
+    public Intent f() {
         Intent intent = new Intent();
         ArrayList<String> arrayList = new ArrayList<>();
         for (Uri uri : this.c) {

@@ -1,46 +1,33 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class co implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ bm a;
+public class co implements View.OnClickListener {
+    final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public co(bm bmVar) {
-        this.a = bmVar;
+    public co(bj bjVar) {
+        this.a = bjVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        BdListView bdListView;
-        com.baidu.tieba.pb.sub.m mVar;
-        com.baidu.tieba.pb.sub.m mVar2;
-        bdListView = this.a.o;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        if (bVar == null) {
-            if (imageView != null && (imageView instanceof bd)) {
-                ((bd) imageView).a(false);
-                return;
-            }
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
+        View view3;
+        View view4;
+        if (this.a.j != null) {
+            this.a.j.m();
+            this.a.y();
+            this.a.aR = false;
         }
-        if (imageView != null) {
-            if (imageView instanceof bd) {
-                ((bd) imageView).a(true);
-            }
-            imageView.invalidate();
-        }
-        if (this.a.D()) {
-            mVar = this.a.N;
-            if (mVar != null) {
-                mVar2 = this.a.N;
-                ImageView imageView2 = (ImageView) mVar2.l().findViewWithTag(str);
-                if (imageView2 != null) {
-                    imageView2.invalidate();
-                }
-            }
+        view2 = this.a.aL;
+        if (view2 != null) {
+            view3 = this.a.aL;
+            view3.setVisibility(8);
+            view4 = this.a.aK;
+            view4.setVisibility(8);
+            this.a.aR = false;
         }
     }
 }

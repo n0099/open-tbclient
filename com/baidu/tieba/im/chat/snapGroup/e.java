@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.chat.snapGroup;
 
-import com.baidu.tbadk.coreExtra.view.ac;
+import com.baidu.tbadk.coreExtra.view.ap;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-final class e implements ac {
+class e implements ap {
     final /* synthetic */ SnapGroupChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,14 +11,16 @@ final class e implements ac {
         this.a = snapGroupChatActivity;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.ac
-    public final void a() {
+    @Override // com.baidu.tbadk.coreExtra.view.ap
+    public void a() {
         h hVar;
-        SnapGroupChatActivity.l(this.a);
-        this.a.showToast(this.a.getString(com.baidu.tieba.im.j.snap_group_chat_finished));
-        hVar = this.a.p;
+        SnapGroupChatView x;
+        this.a.z();
+        this.a.showToast(this.a.getString(u.snap_group_chat_finished));
+        hVar = this.a.q;
         hVar.a();
-        SnapGroupChatActivity.d(this.a).U().setVisibility(4);
-        this.a.t = true;
+        x = this.a.x();
+        x.T().setVisibility(4);
+        this.a.u = true;
     }
 }

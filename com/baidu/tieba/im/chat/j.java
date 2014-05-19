@@ -1,12 +1,10 @@
 package com.baidu.tieba.im.chat;
 
-import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class j implements View.OnTouchListener {
+public class j implements View.OnTouchListener {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,18 +13,16 @@ public final class j implements View.OnTouchListener {
     }
 
     @Override // android.view.View.OnTouchListener
-    public final boolean onTouch(View view, MotionEvent motionEvent) {
-        EditText editText;
+    public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 1) {
-            editText = this.a.H;
-            editText.setCursorVisible(true);
-            this.a.R();
+            this.a.d.setCursorVisible(true);
+            this.a.g();
         } else if (motionEvent.getAction() == 0) {
-            this.a.W();
-            if (this.a.d.getVisibility() == 0) {
-                this.a.S();
-                this.a.V();
-                new Handler().postDelayed(new l(this.a), 100L);
+            this.a.U();
+            if (this.a.e.getVisibility() == 0) {
+                this.a.h();
+                this.a.i();
+                this.a.T();
                 return true;
             }
         }

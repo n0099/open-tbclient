@@ -1,40 +1,47 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.GroupPermData;
-import protobuf.Im;
-import protobuf.QueryUserPermission.QueryUserPermissionRes;
+import com.squareup.wire.Wire;
+import protobuf.GroupPermission;
+import protobuf.QueryUserPermission.QueryUserPermissionResIdl;
 /* loaded from: classes.dex */
 public class ResponseUserPermissionMessage extends SocketResponsedMessage {
-    private GroupPermData a;
-
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        QueryUserPermissionRes.QueryUserPermissionResIdl parseFrom = QueryUserPermissionRes.QueryUserPermissionResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            Im.GroupPermission groupPerm = parseFrom.getData().getGroupPerm();
-            GroupPermData groupPermData = new GroupPermData();
-            groupPermData.setCanCreateNormal(groupPerm.getCanCreateNormal());
-            groupPermData.setCanCreateOfficial(groupPerm.getCanCreateOfficial());
-            groupPermData.setCanCreatePersonal(groupPerm.getCanCreatePersonal());
-            groupPermData.setCreateNormalTip(groupPerm.getCreateNormalTip());
-            groupPermData.setCreateOfficialTip(groupPerm.getCreateOfficialTip());
-            groupPermData.setCreatePersonalTip(groupPerm.getCreatePersonalTip());
-            groupPermData.setIsManager(groupPerm.getIsForumManager());
-            groupPermData.setCanCreateNormalNum(groupPerm.getCanCreateNormalNum());
-            groupPermData.setCanCreateOfficialNum(groupPerm.getCanCreateOfficialNum());
-            groupPermData.setCanCreatePersonalNum(groupPerm.getCanCreatePersonalNum());
-            this.a = groupPermData;
-        }
-    }
+    private GroupPermData groupPermData;
 
     public ResponseUserPermissionMessage() {
-        super(103008);
+        super(MessageTypes.CMD_GET_USER_PERMISSION);
     }
 
-    public final GroupPermData d() {
-        return this.a;
+    public GroupPermData getGroupPermData() {
+        return this.groupPermData;
+    }
+
+    public void setGroupPermData(GroupPermData groupPermData) {
+        this.groupPermData = groupPermData;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        QueryUserPermissionResIdl queryUserPermissionResIdl = (QueryUserPermissionResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryUserPermissionResIdl.class);
+        setError(queryUserPermissionResIdl.error.errorno.intValue());
+        setErrorString(queryUserPermissionResIdl.error.usermsg);
+        if (getError() == 0) {
+            GroupPermission groupPermission = queryUserPermissionResIdl.data.groupPerm;
+            GroupPermData groupPermData = new GroupPermData();
+            groupPermData.setCanCreateNormal(groupPermission.canCreateNormal.intValue());
+            groupPermData.setCanCreateOfficial(groupPermission.canCreateOfficial.intValue());
+            groupPermData.setCanCreatePersonal(groupPermission.canCreatePersonal.intValue());
+            groupPermData.setCreateNormalTip(groupPermission.createNormalTip);
+            groupPermData.setCreateOfficialTip(groupPermission.createOfficialTip);
+            groupPermData.setCreatePersonalTip(groupPermission.createPersonalTip);
+            groupPermData.setIsManager(groupPermission.isForumManager.intValue());
+            groupPermData.setCanCreateNormalNum(groupPermission.canCreateNormalNum.intValue());
+            groupPermData.setCanCreateOfficialNum(groupPermission.canCreateOfficialNum.intValue());
+            groupPermData.setCanCreatePersonalNum(groupPermission.canCreatePersonalNum.intValue());
+            setGroupPermData(groupPermData);
+        }
     }
 }

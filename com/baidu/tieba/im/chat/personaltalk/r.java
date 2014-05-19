@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
 import com.baidu.tbadk.core.view.HeadImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class r implements com.baidu.tbadk.imageManager.d {
+public class r implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,14 +12,14 @@ final class r implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         HeadImageView headImageView;
         HeadImageView headImageView2;
-        if (bVar != null) {
+        if (aVar != null) {
             headImageView = this.a.f;
             headImageView.setImageResource(0);
             headImageView2 = this.a.f;
-            bVar.a(headImageView2);
+            aVar.a(headImageView2);
         }
     }
 }

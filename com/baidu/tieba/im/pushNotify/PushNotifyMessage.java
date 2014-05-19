@@ -1,50 +1,62 @@
 package com.baidu.tieba.im.pushNotify;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class PushNotifyMessage extends SocketResponsedMessage {
-    private long a;
-    private long b;
-    private long c;
-    private int d;
+    private static final long serialVersionUID = 7053886389487061173L;
+    private String content;
+    private long groupId;
+    private long newestMsgId;
+    private long pushTime;
+    private int type;
 
-    @Override // com.baidu.adp.framework.message.c
-    public final /* bridge */ /* synthetic */ void a(int i, Object obj) {
+    public int getType() {
+        return this.type;
     }
 
-    public final int d() {
-        return this.d;
+    public void setType(int i) {
+        this.type = i;
     }
 
-    public final void d(int i) {
-        this.d = i;
+    public long getPushTime() {
+        return this.pushTime;
     }
 
-    public final long i() {
-        return this.c;
+    public void setPushTime(long j) {
+        this.pushTime = j;
     }
 
-    public final void b(long j) {
-        this.c = j;
+    public long getNewestMsgId() {
+        return this.newestMsgId;
     }
 
-    public final long j() {
-        return this.b;
+    public void setNewestMsgId(long j) {
+        this.newestMsgId = j;
     }
 
-    public final void c(long j) {
-        this.b = j;
+    public long getGroupId() {
+        return this.groupId;
     }
 
-    public final long k() {
-        return this.a;
+    public void setGroupId(long j) {
+        this.groupId = j;
     }
 
-    public final void d(long j) {
-        this.a = j;
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String str) {
+        this.content = str;
     }
 
     public PushNotifyMessage() {
-        super(202006);
+        super(MessageTypes.CMD_PUSH_NOTIFY);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
     }
 }

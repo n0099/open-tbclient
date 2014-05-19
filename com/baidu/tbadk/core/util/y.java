@@ -1,73 +1,94 @@
 package com.baidu.tbadk.core.util;
 
-import android.database.Cursor;
-import java.util.ArrayList;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbadkApplication;
+import java.io.File;
 /* loaded from: classes.dex */
-public final class y {
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0052 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static ArrayList<String> a() {
-        Cursor cursor;
-        Exception e;
-        ArrayList<String> arrayList;
-        Cursor cursor2 = null;
+public class y {
+    public static final String a = TbadkApplication.m252getInst().getApp().getFileStreamPath("").getAbsolutePath();
+
+    public static boolean a(String str) {
         try {
-            try {
-                cursor = new DatabaseManager().a("select * from frs_image_forums", (String[]) null);
-                if (cursor == null) {
-                    return null;
-                }
-                try {
-                    arrayList = new ArrayList<>();
-                    while (cursor.moveToNext()) {
-                        try {
-                            arrayList.add(cursor.getString(0));
-                        } catch (Exception e2) {
-                            e = e2;
-                            com.baidu.adp.lib.util.f.b("DatabaseManager", "getAllFrsImageForums", e.getMessage());
-                            TiebaStatic.a(e, "DatabaseManager.getAllFrsImageForums", new Object[0]);
-                            if (cursor == null) {
-                                return arrayList;
-                            }
-                            try {
-                                cursor.close();
-                                return arrayList;
-                            } catch (Exception e3) {
-                                TiebaStatic.a(e3, "DatabaseManager.getAllFrsImageForums close cursor", new Object[0]);
-                                e3.printStackTrace();
-                                return arrayList;
-                            }
+            return new File(new StringBuilder(String.valueOf(a)).append("/").append(str).toString()).exists();
+        } catch (Exception e) {
+            BdLog.e("FileHelper", "checkFile", "error = " + e.getMessage());
+            TiebaStatic.file(e, "FileHelper.checkFile " + str);
+            return false;
+        }
+    }
+
+    public static boolean b(String str) {
+        try {
+            File file = new File(String.valueOf(a) + "/" + str);
+            if (file.exists()) {
+                return false;
+            }
+            return file.createNewFile();
+        } catch (Exception e) {
+            BdLog.e("FileHelper", "createFile", "error = " + e.getMessage());
+            TiebaStatic.file(e, "FileHelper.createFile " + str);
+            return false;
+        }
+    }
+
+    public static void a(File file) {
+        try {
+            if (file.exists()) {
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    int length = listFiles.length;
+                    for (int i = 0; i < length; i++) {
+                        if (listFiles[i].isFile()) {
+                            listFiles[i].delete();
+                        } else {
+                            a(listFiles[i]);
                         }
                     }
-                    cursor.close();
-                    return arrayList;
-                } catch (Exception e4) {
-                    arrayList = null;
-                    e = e4;
                 }
-            } catch (Throwable th) {
-                th = th;
-                if (0 != 0) {
-                    try {
-                        cursor2.close();
-                    } catch (Exception e5) {
-                        TiebaStatic.a(e5, "DatabaseManager.getAllFrsImageForums close cursor", new Object[0]);
-                        e5.printStackTrace();
+                file.delete();
+            }
+        } catch (Exception e) {
+            BdLog.e("FileHelper", "deleteFileOrDir", "error = " + e.getMessage());
+            TiebaStatic.file(e, "FileHelper.deleteFileOrDir");
+        }
+    }
+
+    public static boolean c(String str) {
+        try {
+            File file = new File(String.valueOf(a) + "/" + str);
+            if (file.exists()) {
+                if (!file.isDirectory()) {
+                    return false;
+                }
+                a(file);
+            }
+            return file.mkdirs();
+        } catch (Exception e) {
+            BdLog.e("FileHelper", "cleanDirectory", "error = " + e.getMessage());
+            TiebaStatic.file(e, "FileHelper.cleanDirectory " + str);
+            return false;
+        }
+    }
+
+    public static String d(String str) {
+        String str2 = null;
+        try {
+            File file = new File(String.valueOf(a) + "/" + str);
+            if (file.exists() && file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                int length = listFiles.length;
+                long j = 0;
+                for (int i = 0; i < length; i++) {
+                    if (j > listFiles[i].lastModified()) {
+                        j = listFiles[i].lastModified();
+                        str2 = listFiles[i].getName();
                     }
                 }
-                throw th;
             }
-        } catch (Exception e6) {
-            cursor = null;
-            e = e6;
-            arrayList = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (0 != 0) {
-            }
-            throw th;
+        } catch (Exception e) {
+            BdLog.e("FileHelper", "getLatestFileName", "error = " + e.getMessage());
+            TiebaStatic.file(e, "FileHelper.getLatestFileName " + str);
         }
+        return str2;
     }
 }

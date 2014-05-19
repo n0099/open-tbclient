@@ -1,38 +1,20 @@
 package com.baidu.tieba.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
-import android.view.View;
+import android.widget.CompoundButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bw implements View.OnClickListener {
-    final /* synthetic */ bm a;
+public class bw implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(bm bmVar) {
-        this.a = bmVar;
+    public bw(bj bjVar) {
+        this.a = bjVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        Dialog dialog;
-        ay ayVar;
-        ay ayVar2;
-        Dialog dialog2;
-        dialog = this.a.ae;
-        if (dialog != null) {
-            dialog2 = this.a.ae;
-            dialog2.dismiss();
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        if (z) {
+            this.a.aB = (String) compoundButton.getTag();
         }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray == null) {
-            return;
-        }
-        ayVar = this.a.aX;
-        if (ayVar == null) {
-            return;
-        }
-        ayVar2 = this.a.aX;
-        ayVar2.a(new Object[]{sparseArray.get(com.baidu.tieba.a.h.tag_manage_user_identity), sparseArray.get(com.baidu.tieba.a.h.tag_forbid_user_name)});
     }
 }

@@ -4,75 +4,79 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public final class f extends com.baidu.adp.a.f {
+public class f extends com.baidu.adp.base.e {
     private View a;
-    private WaittingActivity c;
-    private NavigationBar d;
-    private RingLayoutView e;
-    private WaitingTipView f;
-    private View g;
-    private TextView h;
+    private WaittingActivity b;
+    private NavigationBar c;
+    private RingLayoutView d;
+    private WaitingTipView e;
+    private View f;
+    private TextView g;
 
     public f(WaittingActivity waittingActivity) {
         super(waittingActivity);
-        this.c = waittingActivity;
-        this.c.setContentView(com.baidu.tieba.im.i.im_waitting_activity);
-        this.d = (NavigationBar) this.c.findViewById(com.baidu.tieba.im.h.view_navigation_bar);
-        this.e = (RingLayoutView) this.c.findViewById(com.baidu.tieba.im.h.waittingView);
-        this.g = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.a(com.baidu.tieba.im.j.rand_chat_waiting_title);
-        this.h = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.c.getString(com.baidu.tieba.im.j.rand_chat_waiting_button_change));
-        this.f = (WaitingTipView) this.c.findViewById(com.baidu.tieba.im.h.tipView);
-        this.g.setOnClickListener(this.c);
-        this.h.setOnClickListener(this.c);
+        this.b = waittingActivity;
+        this.b.setContentView(com.baidu.tieba.s.im_waitting_activity);
+        h();
     }
 
-    public final void a(int i) {
-        this.c.getLayoutMode().a(i == 1);
-        this.c.getLayoutMode().a(this.a);
-        this.d.b(i);
+    private void h() {
+        this.c = (NavigationBar) this.b.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.d = (RingLayoutView) this.b.findViewById(com.baidu.tieba.r.waittingView);
+        this.f = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.c.a(com.baidu.tieba.u.rand_chat_waiting_title);
+        this.g = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.b.getString(com.baidu.tieba.u.rand_chat_waiting_button_change));
+        this.e = (WaitingTipView) this.b.findViewById(com.baidu.tieba.r.tipView);
+        this.f.setOnClickListener(this.b);
+        this.g.setOnClickListener(this.b);
     }
 
-    public final void a() {
+    public void a(int i) {
+        this.b.getLayoutMode().a(i == 1);
+        this.b.getLayoutMode().a(this.a);
+        this.c.c(i);
+    }
+
+    public void a() {
         if (com.baidu.tbadk.core.sharedPref.b.a().a("is_show_randchat_create", true)) {
             com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-            gVar.a(this.h).a(178).b(true);
+            gVar.a(this.g).a(178).b(true);
             gVar.a(new g(this));
-            gVar.a().a(this.c);
+            gVar.a().a(this.b);
             com.baidu.tbadk.core.sharedPref.b.a().b("is_show_randchat_create", false);
         }
     }
 
-    public final RingLayoutView d() {
-        return this.e;
+    public RingLayoutView b() {
+        return this.d;
     }
 
-    public final void a(View.OnClickListener onClickListener) {
-        if (this.e != null) {
-            this.e.setChatClickListener(onClickListener);
+    public void a(View.OnClickListener onClickListener) {
+        if (this.d != null) {
+            this.d.setChatClickListener(onClickListener);
         }
     }
 
-    public final com.baidu.tieba.im.view.h e() {
-        if (this.e == null) {
+    public com.baidu.tieba.im.view.h c() {
+        if (this.d == null) {
             return null;
         }
-        return this.e.getChatterboxView();
+        return this.d.getChatterboxView();
     }
 
-    public final TextView f() {
-        return this.h;
-    }
-
-    public final WaitingTipView g() {
-        return this.f;
-    }
-
-    public final View h() {
+    public TextView d() {
         return this.g;
     }
 
-    public final void i() {
-        this.e.d();
+    public WaitingTipView e() {
+        return this.e;
+    }
+
+    public View f() {
+        return this.f;
+    }
+
+    public void g() {
+        this.d.d();
     }
 }

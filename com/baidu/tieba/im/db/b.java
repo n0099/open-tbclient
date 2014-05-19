@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.db;
 
-import com.baidu.tieba.im.chat.officialBar.bb;
+import com.baidu.tieba.im.chat.officialBar.az;
 import com.baidu.tieba.im.groupInfo.aa;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
     private static b a = new b();
 
     public static b a() {
@@ -13,10 +13,10 @@ public final class b {
     private b() {
     }
 
-    public final synchronized void b() {
+    public synchronized void b() {
         com.baidu.tieba.im.chat.personaltalk.a.a().b();
-        bb.a().b();
+        az.a().b();
         aa.a().b();
-        com.baidu.tieba.im.b.e.a();
+        com.baidu.tieba.im.b.e.b();
     }
 }

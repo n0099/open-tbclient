@@ -3,8 +3,9 @@ package com.baidu.tieba.album;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import com.baidu.tbadk.img.ImageFileInfo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ae implements View.OnClickListener {
+public class ae implements View.OnClickListener {
     final /* synthetic */ ab a;
     private final /* synthetic */ af b;
     private final /* synthetic */ p c;
@@ -25,7 +26,7 @@ final class ae implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         aa aaVar;
         aa aaVar2;
         AlbumActivity albumActivity;
@@ -36,16 +37,16 @@ final class ae implements View.OnClickListener {
             if (aaVar2.onClick(this.e, this.d, !c)) {
                 if (!c) {
                     if (this.f == 1) {
-                        this.g.b.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_s_1);
+                        this.g.b.setBackgroundResource(com.baidu.tieba.q.btn_choose_photo_s_1);
                     } else {
-                        this.g.b.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_s);
+                        this.g.b.setBackgroundResource(com.baidu.tieba.q.btn_choose_photo_s);
                     }
                     albumActivity = this.a.b;
-                    this.g.b.startAnimation(AnimationUtils.loadAnimation(albumActivity, com.baidu.tieba.a.b.album_choose_icon));
+                    this.g.b.startAnimation(AnimationUtils.loadAnimation(albumActivity, com.baidu.tieba.l.album_choose_icon));
                 } else if (this.f == 1) {
-                    this.g.b.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_n_1);
+                    this.g.b.setBackgroundResource(com.baidu.tieba.q.btn_choose_photo_n_1);
                 } else {
-                    this.g.b.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_n);
+                    this.g.b.setBackgroundResource(com.baidu.tieba.q.btn_choose_photo_n);
                 }
             }
         }

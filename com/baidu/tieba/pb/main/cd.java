@@ -1,24 +1,34 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.os.Handler;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-final class cd implements Runnable {
-    final /* synthetic */ cc a;
-    private final /* synthetic */ ImageView b;
+class cd implements Animation.AnimationListener {
+    final /* synthetic */ bj a;
+    private final /* synthetic */ com.baidu.tieba.data.ao b;
+    private final /* synthetic */ boolean c;
+    private final /* synthetic */ String d;
+    private final /* synthetic */ String e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(cc ccVar, ImageView imageView) {
-        this.a = ccVar;
-        this.b = imageView;
+    public cd(bj bjVar, com.baidu.tieba.data.ao aoVar, boolean z, String str, String str2) {
+        this.a = bjVar;
+        this.b = aoVar;
+        this.c = z;
+        this.d = str;
+        this.e = str2;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        bm bmVar;
-        FrameLayout frameLayout;
-        bmVar = this.a.a;
-        frameLayout = bmVar.n;
-        frameLayout.removeView(this.b);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new ce(this, this.b, this.c, this.d, this.e));
     }
 }

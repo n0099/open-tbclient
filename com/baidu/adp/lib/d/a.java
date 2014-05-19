@@ -48,25 +48,25 @@ public class a<K, V> {
         if (put != null) {
             a(false, k, put, v);
         }
-        c(this.c);
+        b(this.c);
         return put;
     }
 
-    public final synchronized boolean a(int i) {
+    public synchronized boolean a(int i) {
         int i2 = this.b - i;
         if (i2 > this.c * 0.6d) {
-            c(i2);
+            b(i2);
         }
         return true;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0031, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0032, code lost:
         throw new java.lang.IllegalStateException(java.lang.String.valueOf(getClass().getName()) + ".sizeOf() is reporting inconsistent results!");
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void c(int i) {
+    public void b(int i) {
         K key;
         V value;
         while (true) {
@@ -121,25 +121,29 @@ public class a<K, V> {
     }
 
     public final void a() {
-        c(-1);
+        b(-1);
+    }
+
+    public final void b() {
+        a();
         this.d = 0;
         this.e = 0;
         this.f = 0;
         this.g = 0;
     }
 
-    public final synchronized int b() {
+    public final synchronized int c() {
         return this.b;
     }
 
-    public final synchronized int c() {
+    public final synchronized int d() {
         return this.c;
     }
 
-    public final void b(int i) {
+    public final void c(int i) {
         synchronized (this) {
             this.c = i;
-            c(i);
+            b(i);
         }
     }
 }

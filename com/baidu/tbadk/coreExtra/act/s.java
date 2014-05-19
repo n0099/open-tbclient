@@ -1,29 +1,17 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.TextView;
+import com.baidu.sapi2.SapiWebView;
 /* loaded from: classes.dex */
-final class s implements TextView.OnEditorActionListener {
-    final /* synthetic */ LoginActivity a;
+class s implements SapiWebView.OnFinishCallback {
+    final /* synthetic */ FillUProfileActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(LoginActivity loginActivity) {
-        this.a = loginActivity;
+    public s(FillUProfileActivity fillUProfileActivity) {
+        this.a = fillUProfileActivity;
     }
 
-    @Override // android.widget.TextView.OnEditorActionListener
-    public final boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-        View view;
-        View view2;
-        view = this.a.B;
-        if (view.getVisibility() != 8 || i != 4) {
-            view2 = this.a.B;
-            if (view2.getVisibility() != 0 || i != 6) {
-                return false;
-            }
-        }
-        LoginActivity.t(this.a);
-        return true;
+    @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
+    public void onFinish() {
+        this.a.finish();
     }
 }

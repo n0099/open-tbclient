@@ -1,797 +1,1223 @@
 package com.baidu.tieba;
-
-import android.app.AlarmManager;
-import android.app.Application;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Handler;
-import android.text.TextUtils;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.android.pushservice.PushManager;
-import com.baidu.location.LocationClientOption;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.DatabaseManager;
-import com.baidu.tbadk.core.util.NetWorkCore;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.bn;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.data.BannerData;
-import com.baidu.tieba.data.CombineDownload;
-import com.baidu.tieba.data.PersonChangeData;
-import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.more.AppsActivity;
-import com.baidu.tieba.pb.main.bj;
-import com.baidu.tieba.service.ClearTempService;
-import com.baidu.tieba.service.SDCardChangeReceiver;
-import com.baidu.tieba.service.SignAlertReceiver;
-import com.baidu.tieba.service.TiebaActiveService;
-import com.baidu.tieba.service.TiebaSyncService;
-import com.baidu.tieba.switchs.features.LogSwitchStatic;
-import java.lang.ref.SoftReference;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Hashtable;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class p {
-    private int A;
-    private PersonChangeData I;
-    private static p f = new p();
-    private static final byte[] J = new byte[0];
-    private static volatile Boolean K = null;
-    private int e = 0;
-    private HashMap<String, SoftReference<com.baidu.adp.widget.ImageView.b>> g = null;
-    private int h = 1;
-    private boolean i = false;
-    private com.baidu.tieba.util.p j = null;
-    private com.baidu.tieba.util.p k = null;
-    private long l = 0;
-    private boolean m = false;
-    private VersionData n = null;
-    private CombineDownload o = null;
-    private BannerData p = null;
-    public long a = 0;
-    private int q = 0;
-    private boolean r = true;
-    private boolean s = true;
-    private boolean t = false;
-    private boolean u = false;
-    private com.baidu.adp.lib.cache.s<String> v = null;
-    private int w = 10;
-    private int x = 0;
-    private boolean y = false;
-    private boolean z = true;
-    private boolean B = false;
-    private Boolean C = false;
-    private int D = 0;
-    private Hashtable<String, Integer> E = null;
-    private Hashtable<String, Integer> F = null;
-    private Hashtable<String, Integer> G = null;
-    private boolean H = false;
-    public Handler b = new Handler(new q(this));
-    com.baidu.adp.lib.c.d c = new t(this);
-    boolean d = false;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2005005, new u());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask);
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2005006, new v());
-        customMessageTask2.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask2);
-        CustomMessageTask customMessageTask3 = new CustomMessageTask(2005007, new x());
-        customMessageTask3.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask3);
-    }
-
-    public final void a(boolean z) {
-        this.B = z;
-    }
-
-    public final boolean b() {
-        return this.B;
-    }
-
-    public static p c() {
-        return f;
-    }
-
-    public final void a(Application application) {
-        if (application != null) {
-            DatabaseManager.a(new y());
-            new ac((byte) 0).execute(new String[0]);
-            NetWorkCore.h();
-            com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
-            a.a(new com.baidu.tbadk.b.d(0));
-            a.a(new com.baidu.tbadk.b.a(0));
-            a.a(new com.baidu.tbadk.b.c(0));
-            a.a(new com.baidu.tbadk.b.b(0));
-            if (TbadkApplication.j().m()) {
-                com.baidu.tbadk.core.sharedPref.b.a();
-                com.baidu.tbadk.core.sharedPref.b.b();
-            }
-            com.baidu.tbadk.s.a();
-            this.q = com.baidu.tbadk.s.a("image_quality", 0);
-            TbadkApplication j = TbadkApplication.j();
-            com.baidu.tbadk.s.a();
-            j.y = com.baidu.tbadk.s.a("view_image_quality", 0);
-            com.baidu.tbadk.s.a();
-            this.r = com.baidu.tbadk.s.a("show_images", true);
-            com.baidu.tbadk.s.a();
-            this.h = com.baidu.tbadk.s.a("new_display_photo", 1);
-            TbadkApplication j2 = TbadkApplication.j();
-            com.baidu.tbadk.s.a();
-            j2.b(com.baidu.tbadk.s.a("skin", 0));
-            com.baidu.tbadk.s.a();
-            this.l = com.baidu.tbadk.s.a("message_id", 0L);
-            com.baidu.tbadk.s.a();
-            this.u = com.baidu.tbadk.s.a("app_switcher", false);
-            com.baidu.tbadk.s.a();
-            this.y = com.baidu.tbadk.s.a("manage_mode", false);
-            com.baidu.tbadk.s.a();
-            this.s = com.baidu.tbadk.s.a("location_on", true);
-            com.baidu.tbadk.s.a();
-            this.t = com.baidu.tbadk.s.a("has_showed_del_ga_tip", false);
-            com.baidu.tbadk.s.a();
-            this.x = com.baidu.tbadk.s.a("new_vcode_webview_crash_count", 0);
-            com.baidu.tbadk.s.a();
-            this.z = com.baidu.tbadk.s.a("search_mode", true);
-            com.baidu.tbadk.s.a();
-            this.A = com.baidu.tbadk.s.a("search_mode_int", 0);
-            com.baidu.tbadk.s.a();
-            this.w = com.baidu.tbadk.s.a("perform_sample_count", 0);
-            com.baidu.tbadk.s.a();
-            boolean a2 = com.baidu.tbadk.s.a("bd_loc_switcher", true);
-            if (Build.VERSION.SDK_INT <= 4) {
-                a2 = false;
-            }
-            com.baidu.adp.lib.c.a.a().a(a2);
-            com.baidu.tbadk.core.h.a().b();
-            com.baidu.adp.lib.a.f.a().b(LogSwitchStatic.LOG);
-            com.baidu.tbadk.core.log.a.a();
-            com.baidu.tbadk.s.a();
-            this.H = com.baidu.tbadk.s.a("has_show_mutiimage_tip", false);
-            bn.a(TbadkApplication.j());
-            com.baidu.tbadk.core.data.n.c(TbadkApplication.j());
-            com.baidu.tbadk.core.data.n.b(TbadkApplication.j());
-            try {
-                Thread.setDefaultUncaughtExceptionHandler(new com.baidu.tieba.util.q());
-            } catch (SecurityException e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onCreate", e.getMessage());
-            }
-            PushManager.initFromAKSK(application, "GXGROE8KmWiRmcWFpiWTmUbE");
-            this.b.sendEmptyMessageDelayed(LocationClientOption.MIN_SCAN_SPAN, 1000L);
-            if (TbadkApplication.j().m()) {
-                TiebaStatic.a(TbadkApplication.j());
-                if (TbadkApplication.j().T()) {
-                    com.baidu.adp.lib.a.f.a().b();
-                    if (!TbadkApplication.j().aw()) {
-                        TiebaStatic.a(TbadkApplication.j().b(), "LocalWebpUnSupport", "");
-                    } else {
-                        TiebaStatic.a(TbadkApplication.j().b(), "LocalWebpSupport", "");
-                    }
-                }
-                com.baidu.tbadk.imageManager.e.a().a(50, com.baidu.tbadk.core.data.n.i());
-                this.g = new HashMap<>();
-                com.baidu.tbadk.core.a.l.a().a(TbadkApplication.j());
-                com.baidu.tieba.util.k.n();
-                TbadkApplication.j().ao();
-                this.j = new com.baidu.tieba.util.p(300);
-                this.k = new com.baidu.tieba.util.p(100);
-                com.baidu.tbadk.coreExtra.messageCenter.a.a().b();
-                r();
-                if (this.E == null) {
-                    this.E = new Hashtable<>();
-                }
-                if (this.F == null) {
-                    this.F = new Hashtable<>();
-                }
-                if (this.G == null) {
-                    this.G = new Hashtable<>();
-                }
-                E();
-                new ax("open").start();
-                SDCardChangeReceiver sDCardChangeReceiver = new SDCardChangeReceiver();
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
-                intentFilter.addAction("android.intent.action.MEDIA_EJECT");
-                TbadkApplication.j().registerReceiver(sDCardChangeReceiver, intentFilter);
-            } else {
-                TbadkApplication.j().r = new ArrayList<>();
-            }
-            com.baidu.tbadk.c.a aVar = new com.baidu.tbadk.c.a(2012000, new z(this));
-            aVar.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            com.baidu.adp.framework.c.a().a(aVar);
-            com.baidu.tbadk.c.a aVar2 = new com.baidu.tbadk.c.a(2012100, new aa(this));
-            aVar2.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            com.baidu.adp.framework.c.a().a(aVar2);
-            TbImageView.setSkinMode(TbadkApplication.j().l());
-            if (TbadkApplication.j().m()) {
-                TbadkApplication.j().p();
-                com.baidu.adp.lib.c.a.a().a(true, this.c);
-            }
-        }
-    }
-
-    public static Application d() {
-        return TbadkApplication.j().b();
-    }
-
-    public static Context e() {
-        return TbadkApplication.j();
-    }
-
-    public final void f() {
-        a(TbadkApplication.j());
-    }
-
-    public final boolean a(String str) {
-        return (this.E == null || str == null || !this.E.containsKey(str)) ? false : true;
-    }
-
-    public final void a(String str, int i, int i2) {
-        if (!a(str) && this.E != null && str != null) {
-            if (this.E.size() > 100) {
-                this.E.clear();
-                this.F.clear();
-            }
-            this.E.put(str, Integer.valueOf(i));
-            this.F.put(str, Integer.valueOf(i2));
-        }
-    }
-
-    public final void g() {
-        if (this.E != null) {
-            this.E.clear();
-        }
-        if (this.F != null) {
-            this.F.clear();
-        }
-    }
-
-    public final int b(String str) {
-        if (a(str)) {
-            return this.E.get(str).intValue();
-        }
-        return 0;
-    }
-
-    public final int c(String str) {
-        if (a(str)) {
-            return this.F.get(str).intValue();
-        }
-        return -1;
-    }
-
-    public final int h() {
-        if (this.E != null) {
-            return this.E.size();
-        }
-        return 0;
-    }
-
-    public final int d(String str) {
-        if (this.G == null || str == null || !this.G.containsKey(str)) {
-            return 0;
-        }
-        return this.G.get(str).intValue();
-    }
-
-    public final void e(String str) {
-        if (this.G != null && str != null) {
-            this.G.put(str, 1);
-            this.i = true;
-            if (this.G.size() > 200) {
-                this.G.clear();
-            }
-        }
-    }
-
-    public final void f(String str) {
-        if (this.G != null && str != null) {
-            this.G.put(str, -1);
-            this.i = true;
-            if (this.G.size() > 200) {
-                this.G.clear();
-            }
-        }
-    }
-
-    public final void b(boolean z) {
-        this.z = z;
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("search_mode", z);
-    }
-
-    public final boolean i() {
-        return this.z;
-    }
-
-    public final boolean j() {
-        return this.s;
-    }
-
-    public static void c(boolean z) {
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("moplus_service", z);
-    }
-
-    public final void d(boolean z) {
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("app_switcher", z);
-        this.u = z;
-    }
-
-    public final boolean k() {
-        return this.u;
-    }
-
-    public final com.baidu.adp.widget.ImageView.b g(String str) {
-        SoftReference<com.baidu.adp.widget.ImageView.b> softReference = this.g.get(str);
-        if (softReference != null && softReference.get() != null) {
-            return softReference.get();
-        }
-        com.baidu.adp.widget.ImageView.b a = TbFaceManager.a().a(str);
-        if (a != null) {
-            this.g.put(str, new SoftReference<>(a));
-            return a;
-        }
-        return a;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public static void a(AccountData accountData) {
-        com.baidu.tbadk.coreExtra.messageCenter.a.a().d();
-        if (accountData != null) {
-            TiebaStatic.a(accountData.getAccount(), accountData.getID(), TbadkApplication.D());
-        }
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2005002));
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2005001));
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2006001, "start_once"));
-        com.baidu.tbadk.editortool.ac.a().b();
-        bj.a().f();
-    }
-
-    public static void l() {
-        Date date = new Date();
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("tdatabasecreatetime", date.getTime());
-    }
-
-    public final void e(boolean z) {
-        this.i = z;
-    }
-
-    public final boolean m() {
-        return this.i;
-    }
-
-    public static void f(boolean z) {
-        if (TbadkApplication.j().A != z) {
-            TbadkApplication.j().A = z;
-        }
-    }
-
-    public static void g(boolean z) {
-        TbadkApplication.j().B = z;
-    }
-
-    public static void h(String str) {
-        TbadkApplication.j().C = str;
-    }
-
-    public static void i(String str) {
-        TbadkApplication.j().D = str;
-    }
-
-    public static void h(boolean z) {
-        TbadkApplication.j().z = z;
-    }
-
-    public static int n() {
-        if (!TbadkApplication.j().A && !TbadkApplication.j().z) {
-            return 0;
-        }
-        if (TbadkApplication.j().A && !TbadkApplication.j().z) {
-            return 1;
-        }
-        if (!TbadkApplication.j().A && TbadkApplication.j().z) {
-            return 2;
-        }
-        return 3;
-    }
-
-    public static void a(int i) {
-        if (i == 0) {
-            p pVar = f;
-            f(false);
-            p pVar2 = f;
-            TbadkApplication.j().z = false;
-        } else if (i == 1) {
-            p pVar3 = f;
-            f(true);
-            p pVar4 = f;
-            TbadkApplication.j().z = false;
-        } else if (i == 2) {
-            p pVar5 = f;
-            f(false);
-            p pVar6 = f;
-            TbadkApplication.j().z = true;
-        } else {
-            p pVar7 = f;
-            f(true);
-            p pVar8 = f;
-            TbadkApplication.j().z = true;
-        }
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 int)] */
-    public final void b(int i) {
-        com.baidu.adp.lib.util.f.a(getClass().getName(), "setMsgFrequence", new StringBuilder().append(i).toString());
-        if (i == 0) {
-            TbadkApplication.j().t = i;
-            com.baidu.tbadk.coreExtra.messageCenter.a.a().a(true);
-            this.b.sendMessage(this.b.obtainMessage(3));
-            return;
-        }
-        TbadkApplication.j().t = 300;
-        this.b.sendMessage(this.b.obtainMessage(2));
-    }
-
-    public static void i(boolean z) {
-        TbadkApplication.j().u = z;
-        if (!z) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.a().d(0);
-        }
-    }
-
-    public static void j(boolean z) {
-        TbadkApplication.j().v = z;
-        if (!z) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.a().c(0);
-        }
-    }
-
-    public static void k(boolean z) {
-        TbadkApplication.j().x = z;
-    }
-
-    public static void l(boolean z) {
-        TbadkApplication.j().w = z;
-        if (!z) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.a().b(0);
-        }
-    }
-
-    public static void m(boolean z) {
-        TbadkApplication.j().s = z;
-        if (!z) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.a().e(0);
-        }
-    }
-
-    public static boolean o() {
-        com.baidu.tbadk.s.a();
-        return com.baidu.tbadk.s.a("alert_sign_on", false);
-    }
-
-    public final void n(boolean z) {
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("alert_sign_on", z);
-        r();
-    }
-
-    public final int p() {
-        com.baidu.tbadk.s.a();
-        int a = com.baidu.tbadk.s.a("alert_sign_hours", -1);
-        if (a == -1) {
-            P();
-            com.baidu.tbadk.s.a();
-            return com.baidu.tbadk.s.a("alert_sign_hours", 12);
-        }
-        return a;
-    }
-
-    private void P() {
-        Calendar calendar = Calendar.getInstance();
-        a(calendar.get(11), calendar.get(12));
-    }
-
-    public final int q() {
-        com.baidu.tbadk.s.a();
-        int a = com.baidu.tbadk.s.a("alert_sign_mins", -1);
-        if (a == -1) {
-            P();
-            com.baidu.tbadk.s.a();
-            return com.baidu.tbadk.s.a("alert_sign_mins", 30);
-        }
-        return a;
-    }
-
-    public final void a(int i, int i2) {
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("alert_sign_hours", i);
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("alert_sign_mins", i2);
-        r();
-    }
-
-    public final void r() {
-        AlarmManager alarmManager = (AlarmManager) TbadkApplication.j().getSystemService("alarm");
-        Intent intent = new Intent(com.baidu.tieba.data.d.e());
-        intent.setData(Uri.parse("tieba_sign://alert"));
-        intent.setClass(TbadkApplication.j(), SignAlertReceiver.class);
-        if (o()) {
-            Calendar calendar = Calendar.getInstance();
-            int p = p();
-            int i = calendar.get(11);
-            int q = q();
-            int i2 = calendar.get(12);
-            calendar.set(11, p);
-            calendar.set(12, q);
-            calendar.set(13, 0);
-            calendar.set(14, 0);
-            if (i >= p && (i != p || i2 >= q)) {
-                calendar.set(6, calendar.get(6) + 1);
-            }
-            alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(TbadkApplication.j(), 0, intent, 268435456));
-            if (com.baidu.adp.lib.util.f.a()) {
-                com.baidu.adp.lib.util.f.e("sign-alert alarm set to :" + bc.a(calendar.getTime()));
-                return;
-            }
-            return;
-        }
-        PendingIntent broadcast = PendingIntent.getBroadcast(TbadkApplication.j(), 0, intent, 536870912);
-        if (broadcast != null) {
-            alarmManager.cancel(broadcast);
-            if (com.baidu.adp.lib.util.f.a()) {
-                com.baidu.adp.lib.util.f.e("sign-alert alarm cancelled.");
-            }
-        }
-    }
-
-    public final boolean s() {
-        return this.r;
-    }
-
-    public final void c(int i) {
-        AppsActivity.a();
-        TbadkApplication.j().b(i);
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("skin", i);
-        TbImageView.setSkinMode(i);
-        Intent intent = new Intent();
-        intent.setAction(com.baidu.tieba.data.d.c());
-        intent.putExtra("skin_type", i);
-        TbadkApplication.j().sendBroadcast(intent);
-    }
-
-    public final int t() {
-        return this.w;
-    }
-
-    public final void d(int i) {
-        this.w = i;
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("perform_sample_count", i);
-    }
-
-    public final int u() {
-        return this.x;
-    }
-
-    public final void e(int i) {
-        this.x = i;
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("new_vcode_webview_crash_count", i);
-    }
-
-    public final void v() {
-        com.baidu.tbadk.s.a();
-        int a = com.baidu.tbadk.s.a("bd_loc_crash_count", 0) + 1;
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("bd_loc_crash_count", a);
-        if (a > 3) {
-            com.baidu.adp.lib.c.a.a().a(false);
-            com.baidu.tbadk.s.a();
-            com.baidu.tbadk.s.b("bd_loc_switcher", false);
-        }
-    }
-
-    public final boolean w() {
-        return this.m;
-    }
-
-    public final void o(boolean z) {
-        this.m = true;
-    }
-
-    public final void a(CombineDownload combineDownload) {
-        this.o = combineDownload;
-    }
-
-    public final CombineDownload x() {
-        return this.o;
-    }
-
-    public final VersionData y() {
-        return this.n;
-    }
-
-    public final void a(VersionData versionData) {
-        this.n = versionData;
-    }
-
-    public final com.baidu.tieba.util.p z() {
-        return this.j;
-    }
-
-    public static String A() {
-        String d;
-        if (!com.baidu.tbadk.core.util.x.a("/package.last")) {
-            com.baidu.tbadk.s.a();
-            d = com.baidu.tbadk.s.b("active_version", "");
-        } else {
-            d = com.baidu.tbadk.core.util.x.d("/package.last");
-        }
-        if ("active_clear".equals(d)) {
-            return null;
-        }
-        return d;
-    }
-
-    public static void B() {
-    }
-
-    public static boolean C() {
-        com.baidu.tbadk.s.a();
-        return com.baidu.tbadk.s.a("first_sync_image_quality", true);
-    }
-
-    public static void D() {
-        TbadkApplication.j();
-        TbadkApplication.g("active_clear");
-    }
-
-    public static void f(int i) {
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("kn_vote_cd", i);
-    }
-
-    public static void j(String str) {
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.a("socket_reconn_strategy", str);
-    }
-
-    public static void k(String str) {
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.a("socket_heartbeat_strategy", str);
-    }
-
-    public static void l(String str) {
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.a("socket_getmsg_strategy", str);
-    }
-
-    public static void m(String str) {
-        if (str == null) {
-            str = "";
-        }
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.a("lcs_switch_strategy", str);
-    }
-
-    public static void E() {
-        com.baidu.tbadk.s.a();
-        String b = com.baidu.tbadk.s.b("lcs_switch_strategy", (String) null);
-        if (!TextUtils.isEmpty(b)) {
-            com.baidu.tieba.model.ae aeVar = new com.baidu.tieba.model.ae();
-            try {
-                aeVar.a(new JSONObject(b));
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(aeVar.getClass().getName(), "parserJson", e.getMessage());
-            }
-            com.baidu.tbadk.coreExtra.d.g d = com.baidu.tbadk.coreExtra.d.g.d();
-            d.a(aeVar.a() == 1);
-            d.b(aeVar.b());
-            d.a(aeVar.c() * LocationClientOption.MIN_SCAN_SPAN);
-            if (aeVar.d() != null) {
-                d.a(aeVar.d());
-            }
-        }
-    }
-
-    public final void a(int[] iArr) {
-        if (iArr != null && iArr.length == 3) {
-            StringBuilder sb = new StringBuilder(20);
-            for (int i : iArr) {
-                sb.append(i);
-                sb.append("|");
-            }
-            com.baidu.tbadk.s.a();
-            com.baidu.tbadk.s.a("socket_time_out", sb.toString());
-            this.b.post(new ab(this, iArr));
-        }
-    }
-
-    public static void g(int i) {
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("kn_vote_max", i);
-    }
-
-    public static void h(int i) {
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("kn_vote_rate", i);
-    }
-
-    public static void a(long j) {
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("banner_date", j);
-    }
-
-    public static long F() {
-        com.baidu.tbadk.s.a();
-        return com.baidu.tbadk.s.a("banner_date", 0L);
-    }
-
-    public final com.baidu.adp.lib.cache.s<String> G() {
-        if (this.v == null) {
-            this.v = BdCacheService.a().a("tb.global", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
-        }
-        return this.v;
-    }
-
-    public static void H() {
-        try {
-            TbadkApplication.j().startService(new Intent(TbadkApplication.j(), ClearTempService.class));
-        } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b(th.getMessage());
-        }
-    }
-
-    public static void I() {
-        TbadkApplication.j().startService(new Intent(TbadkApplication.j(), TiebaSyncService.class));
-    }
-
-    public static void J() {
-        TbadkApplication.j().stopService(new Intent(TbadkApplication.j(), TiebaSyncService.class));
-    }
-
-    public static void K() {
-        TbadkApplication.j().startService(new Intent(TbadkApplication.j(), TiebaActiveService.class));
-    }
-
-    public static void L() {
-        TbadkApplication.j().stopService(new Intent(TbadkApplication.j(), TiebaActiveService.class));
-    }
-
-    public final void a(PersonChangeData personChangeData) {
-        this.I = personChangeData;
-    }
-
-    public final PersonChangeData M() {
-        return this.I;
-    }
-
-    public final void p(boolean z) {
-        this.H = true;
-        com.baidu.tbadk.s.a();
-        com.baidu.tbadk.s.b("has_show_mutiimage_tip", true);
-    }
-
-    public final boolean N() {
-        return this.H;
-    }
+    public static final int Pb_header_managebutton_margin_left = 2131165672;
+    public static final int activity_horizontal_margin = 2131165814;
+    public static final int activity_vertical_margin = 2131165815;
+    public static final int ad_image_height = 2131165192;
+    public static final int ad_image_width = 2131165191;
+    public static final int adk_default_image_height = 2131165187;
+    public static final int adp_foot_need_refresh_delta = 2131165185;
+    public static final int adp_head_need_refresh_delta = 2131165184;
+    public static final int adp_head_view_height = 2131165186;
+    public static final int album_add_finish_padding_right = 2131166151;
+    public static final int album_bottom_add_margin_bottom = 2131166161;
+    public static final int album_bottom_height = 2131166145;
+    public static final int album_bottom_item_height = 2131166157;
+    public static final int album_bottom_item_margin_bottom = 2131166158;
+    public static final int album_bottom_item_margin_left = 2131166160;
+    public static final int album_bottom_item_margin_top = 2131166159;
+    public static final int album_bottom_margin_left = 2131166162;
+    public static final int album_bottom_margin_right = 2131166156;
+    public static final int album_divider_height = 2131166146;
+    public static final int album_done_btn_height = 2131166152;
+    public static final int album_done_btn_margin_bottom = 2131166154;
+    public static final int album_done_btn_margin_left = 2131166155;
+    public static final int album_done_btn_width = 2131166153;
+    public static final int album_gridview_item_choose_margin = 2131166150;
+    public static final int album_gridview_item_height = 2131166148;
+    public static final int album_gridview_item_select_height = 2131166149;
+    public static final int album_gridview_space = 2131166147;
+    public static final int album_image_height = 2131166142;
+    public static final int album_item_padding_right = 2131166143;
+    public static final int album_item_padding_top = 2131166144;
+    public static final int apply_join_group_edittext_height = 2131165365;
+    public static final int apply_join_group_edittext_margin = 2131165363;
+    public static final int apply_join_group_edittext_pading = 2131165364;
+    public static final int apply_join_group_tip_margintop = 2131165362;
+    public static final int auto_group_tab_left_icon_margin = 2131166224;
+    public static final int auto_group_tab_right_arraw_margin_right = 2131166225;
+    public static final int bar_code_center_rect_size = 2131165818;
+    public static final int bar_code_tip_text = 2131165816;
+    public static final int bar_code_tip_text_margin_top = 2131165817;
+    public static final int big_icon_height = 2131166093;
+    public static final int big_icon_margin = 2131166094;
+    public static final int big_icon_width = 2131166092;
+    public static final int black_list_item_remove_button_height = 2131166087;
+    public static final int black_list_item_remove_button_width = 2131166086;
+    public static final int browser__progress_bar_height = 2131166390;
+    public static final int browser_about_margin_horizontal = 2131166366;
+    public static final int browser_about_margin_vertical = 2131166365;
+    public static final int browser_about_product_more = 2131166389;
+    public static final int browser_ad_browser_tip = 2131166396;
+    public static final int browser_ad_browser_tip_cancel = 2131166398;
+    public static final int browser_ad_browser_tip_ok = 2131166397;
+    public static final int browser_addview_height = 2131166368;
+    public static final int browser_addview_top_margin = 2131166369;
+    public static final int browser_bottom_toolbar_height = 2131166362;
+    public static final int browser_browser_float_searchbox_shadow = 2131166361;
+    public static final int browser_checkmark_area = 2131166364;
+    public static final int browser_clear_content_icon_size = 2131166371;
+    public static final int browser_clear_content_icon_size_right = 2131166373;
+    public static final int browser_context_menu_item_height = 2131166393;
+    public static final int browser_context_menu_item_tv_font_size = 2131166394;
+    public static final int browser_digital_clock_time_divider_top = 2131166382;
+    public static final int browser_digital_clock_time_height = 2131166384;
+    public static final int browser_digital_clock_time_height_half = 2131166385;
+    public static final int browser_digital_clock_time_margin_left = 2131166380;
+    public static final int browser_digital_clock_time_margin_right = 2131166381;
+    public static final int browser_digital_clock_time_margin_top = 2131166379;
+    public static final int browser_digital_clock_time_textoffset = 2131166387;
+    public static final int browser_digital_clock_time_textsize = 2131166386;
+    public static final int browser_digital_clock_time_width = 2131166383;
+    public static final int browser_ding_manager_item_single_padding_left = 2131166388;
+    public static final int browser_float_searchbox_height = 2131166360;
+    public static final int browser_newding_pop_in_home_right = 2131166376;
+    public static final int browser_newding_pop_in_home_top = 2131166375;
+    public static final int browser_newding_pop_in_manager_top = 2131166377;
+    public static final int browser_popup_window_padding = 2131166374;
+    public static final int browser_progress_bar_height = 2131166363;
+    public static final int browser_stop_loading_icon_margin_right = 2131166372;
+    public static final int browser_stop_loading_icon_size = 2131166370;
+    public static final int browser_tabwindow_height = 2131166359;
+    public static final int browser_workspace_dot_margin = 2131166367;
+    public static final int browser_wv_select_popwindow_height = 2131166392;
+    public static final int browser_wv_select_popwindow_position = 2131166395;
+    public static final int browser_wv_select_popwindow_width = 2131166391;
+    public static final int carousel_topics_image_height = 2131165215;
+    public static final int carousel_topics_image_width = 2131165214;
+    public static final int chatlist_item_bell_top = 2131165660;
+    public static final int chatlist_item_content_top = 2131165659;
+    public static final int chatlist_item_name_marginbottom = 2131165658;
+    public static final int chatlist_item_name_margintop = 2131165657;
+    public static final int chatlist_item_photo_container_height = 2131165653;
+    public static final int chatlist_item_photo_container_width = 2131165652;
+    public static final int chatlist_item_photo_height = 2131165655;
+    public static final int chatlist_item_photo_width = 2131165654;
+    public static final int chatlist_item_right_padding = 2131165656;
+    public static final int common_content = 2131165287;
+    public static final int common_forum_title = 2131165286;
+    public static final int common_gradetext_padding_top = 2131165288;
+    public static final int common_navi_title = 2131165285;
+    public static final int create_group_btn_height = 2131166117;
+    public static final int create_group_padding_bottom = 2131166115;
+    public static final int create_group_padding_left = 2131166114;
+    public static final int create_group_text_height = 2131166113;
+    public static final int create_group_tips_height = 2131166116;
+    public static final int daily_recommend_advice_height = 2131165197;
+    public static final int daily_recommend_advice_width = 2131165196;
+    public static final int daily_recommend_banner_X_DIS = 2131165199;
+    public static final int daily_recommend_banner_Y_DIS = 2131165198;
+    public static final int daily_recommend_banner_height = 2131165195;
+    public static final int daily_recommend_banner_width = 2131165194;
+    public static final int daily_recommend_line = 2131166402;
+    public static final int default_gap_0 = 2131165284;
+    public static final int default_gap_10 = 2131165279;
+    public static final int default_gap_14 = 2131165278;
+    public static final int default_gap_16 = 2131165277;
+    public static final int default_gap_2 = 2131165283;
+    public static final int default_gap_20 = 2131165276;
+    public static final int default_gap_24 = 2131165275;
+    public static final int default_gap_26 = 2131165274;
+    public static final int default_gap_27 = 2131165273;
+    public static final int default_gap_30 = 2131165272;
+    public static final int default_gap_34 = 2131165271;
+    public static final int default_gap_4 = 2131165282;
+    public static final int default_gap_50 = 2131165270;
+    public static final int default_gap_6 = 2131165281;
+    public static final int default_gap_70 = 2131165269;
+    public static final int default_gap_71 = 2131165268;
+    public static final int default_gap_8 = 2131165280;
+    public static final int default_size_10 = 2131165265;
+    public static final int default_size_12 = 2131165264;
+    public static final int default_size_14 = 2131165263;
+    public static final int default_size_15 = 2131165262;
+    public static final int default_size_16 = 2131165261;
+    public static final int default_size_18 = 2131165260;
+    public static final int default_size_20 = 2131165259;
+    public static final int default_size_21 = 2131165258;
+    public static final int default_size_22 = 2131165257;
+    public static final int default_size_24 = 2131165256;
+    public static final int default_size_26 = 2131165255;
+    public static final int default_size_6 = 2131165267;
+    public static final int default_size_8 = 2131165266;
+    public static final int ds1 = 2131166249;
+    public static final int ds10 = 2131166254;
+    public static final int ds100 = 2131166299;
+    public static final int ds102 = 2131166300;
+    public static final int ds104 = 2131166301;
+    public static final int ds110 = 2131166302;
+    public static final int ds112 = 2131166303;
+    public static final int ds114 = 2131166304;
+    public static final int ds116 = 2131166305;
+    public static final int ds12 = 2131166255;
+    public static final int ds120 = 2131166306;
+    public static final int ds122 = 2131166307;
+    public static final int ds126 = 2131166308;
+    public static final int ds128 = 2131166309;
+    public static final int ds130 = 2131166310;
+    public static final int ds134 = 2131166311;
+    public static final int ds138 = 2131166312;
+    public static final int ds14 = 2131166256;
+    public static final int ds140 = 2131166313;
+    public static final int ds144 = 2131166314;
+    public static final int ds146 = 2131166315;
+    public static final int ds150 = 2131166316;
+    public static final int ds152 = 2131166317;
+    public static final int ds156 = 2131166318;
+    public static final int ds16 = 2131166257;
+    public static final int ds160 = 2131166319;
+    public static final int ds162 = 2131166320;
+    public static final int ds164 = 2131166321;
+    public static final int ds168 = 2131166322;
+    public static final int ds170 = 2131166323;
+    public static final int ds18 = 2131166258;
+    public static final int ds180 = 2131166324;
+    public static final int ds184 = 2131166325;
+    public static final int ds186 = 2131166326;
+    public static final int ds188 = 2131166327;
+    public static final int ds190 = 2131166328;
+    public static final int ds2 = 2131166250;
+    public static final int ds20 = 2131166259;
+    public static final int ds200 = 2131166329;
+    public static final int ds204 = 2131166330;
+    public static final int ds210 = 2131166331;
+    public static final int ds212 = 2131166332;
+    public static final int ds22 = 2131166260;
+    public static final int ds220 = 2131166333;
+    public static final int ds228 = 2131166334;
+    public static final int ds24 = 2131166261;
+    public static final int ds240 = 2131166335;
+    public static final int ds242 = 2131166336;
+    public static final int ds246 = 2131166337;
+    public static final int ds252 = 2131166338;
+    public static final int ds26 = 2131166262;
+    public static final int ds260 = 2131166339;
+    public static final int ds272 = 2131166340;
+    public static final int ds28 = 2131166263;
+    public static final int ds30 = 2131166264;
+    public static final int ds314 = 2131166341;
+    public static final int ds32 = 2131166265;
+    public static final int ds321 = 2131166342;
+    public static final int ds34 = 2131166266;
+    public static final int ds356 = 2131166343;
+    public static final int ds36 = 2131166267;
+    public static final int ds372 = 2131166344;
+    public static final int ds374 = 2131166345;
+    public static final int ds376 = 2131166346;
+    public static final int ds38 = 2131166268;
+    public static final int ds386 = 2131166347;
+    public static final int ds396 = 2131166348;
+    public static final int ds4 = 2131166251;
+    public static final int ds40 = 2131166269;
+    public static final int ds42 = 2131166270;
+    public static final int ds428 = 2131166349;
+    public static final int ds44 = 2131166271;
+    public static final int ds450 = 2131166350;
+    public static final int ds46 = 2131166272;
+    public static final int ds464 = 2131166351;
+    public static final int ds478 = 2131166352;
+    public static final int ds48 = 2131166273;
+    public static final int ds484 = 2131166353;
+    public static final int ds50 = 2131166274;
+    public static final int ds504 = 2131166354;
+    public static final int ds52 = 2131166275;
+    public static final int ds520 = 2131166355;
+    public static final int ds54 = 2131166276;
+    public static final int ds56 = 2131166277;
+    public static final int ds58 = 2131166278;
+    public static final int ds594 = 2131166356;
+    public static final int ds6 = 2131166252;
+    public static final int ds60 = 2131166279;
+    public static final int ds600 = 2131166357;
+    public static final int ds62 = 2131166280;
+    public static final int ds64 = 2131166281;
+    public static final int ds640 = 2131166358;
+    public static final int ds66 = 2131166282;
+    public static final int ds68 = 2131166283;
+    public static final int ds70 = 2131166284;
+    public static final int ds72 = 2131166285;
+    public static final int ds74 = 2131166286;
+    public static final int ds76 = 2131166287;
+    public static final int ds78 = 2131166288;
+    public static final int ds8 = 2131166253;
+    public static final int ds80 = 2131166289;
+    public static final int ds82 = 2131166290;
+    public static final int ds84 = 2131166291;
+    public static final int ds86 = 2131166292;
+    public static final int ds88 = 2131166293;
+    public static final int ds90 = 2131166294;
+    public static final int ds92 = 2131166295;
+    public static final int ds94 = 2131166296;
+    public static final int ds96 = 2131166297;
+    public static final int ds98 = 2131166298;
+    public static final int editor_more_btns_height = 2131165796;
+    public static final int editor_more_btns_marginleft = 2131165797;
+    public static final int editor_more_btns_marginright = 2131165798;
+    public static final int editor_more_btns_paddingtop = 2131165799;
+    public static final int editor_more_btns_width = 2131165795;
+    public static final int editor_more_drawable_padding = 2131165800;
+    public static final int editor_more_image_paddinglr = 2131165801;
+    public static final int editor_more_image_paddingtb = 2131165802;
+    public static final int editor_muti_image_upload_paddingbottom = 2131165804;
+    public static final int editor_muti_image_upload_paddingtop = 2131165803;
+    public static final int editor_muti_image_upload_scrollview_paddingleft = 2131165806;
+    public static final int editor_muti_image_upload_scrollview_paddingright = 2131165805;
+    public static final int egg_breaker_height = 2131166132;
+    public static final int egg_breaker_width = 2131166131;
+    public static final int emotion_manage_enter_face_purchase_record_height = 2131166040;
+    public static final int emotion_manage_enter_face_purchase_record_margintop = 2131166037;
+    public static final int emotion_manage_enter_face_purchase_record_paddingleft = 2131166038;
+    public static final int emotion_manage_enter_face_purchase_record_paddingright = 2131166039;
+    public static final int emotion_manage_list_item_photo_height = 2131166044;
+    public static final int emotion_manage_list_item_photo_margintb = 2131166041;
+    public static final int emotion_manage_list_item_photo_width = 2131166043;
+    public static final int emotion_manage_list_item_text_marginleft = 2131166042;
+    public static final int emotion_manage_main_text_size = 2131166033;
+    public static final int emotion_manage_marginleft = 2131166035;
+    public static final int emotion_manage_select_marginright = 2131166036;
+    public static final int emotion_manege_title_height = 2131166034;
+    public static final int enter_forum_head_arrow_right = 2131165961;
+    public static final int enter_forum_head_hol = 2131165960;
+    public static final int enter_forum_header = 2131165839;
+    public static final int enter_forum_header_image_right = 2131165963;
+    public static final int enter_forum_header_image_ver = 2131165962;
+    public static final int enter_forum_nearby_title_hei = 2131165964;
+    public static final int enter_group_my_forum = 2131165861;
+    public static final int enterforum_grade_padding_top = 2131165337;
+    public static final int enterforum_grade_text = 2131165336;
+    public static final int enterforum_guidebottom_margin_bottom = 2131165332;
+    public static final int enterforum_guidebottom_margin_top = 2131165331;
+    public static final int enterforum_list_first_margin_right = 2131165333;
+    public static final int enterforum_list_text = 2131165335;
+    public static final int enterforum_sign_text = 2131165334;
+    public static final int enterforum_title_height = 2131165330;
+    public static final int enterforum_title_width = 2131165329;
+    public static final int face_detail_brn_height = 2131166100;
+    public static final int face_image_bottombanner_height = 2131165975;
+    public static final int face_image_height = 2131165977;
+    public static final int face_image_width = 2131165976;
+    public static final int face_tab_content_float_height = 2131165970;
+    public static final int face_tab_content_float_space = 2131165972;
+    public static final int face_tab_content_float_width = 2131165971;
+    public static final int face_tab_widget_height = 2131165969;
+    public static final int face_tab_widget_lr_padding = 2131165974;
+    public static final int face_tab_widget_tb_padding = 2131165973;
+    public static final int face_tab_widget_width = 2131165968;
+    public static final int faceshop_btn_height = 2131165985;
+    public static final int faceshop_btn_marginTop = 2131165986;
+    public static final int faceshop_btn_text = 2131166032;
+    public static final int faceshop_btn_width = 2131165984;
+    public static final int faceshop_buy_dialog_fail_height = 2131166020;
+    public static final int faceshop_buy_dialog_height = 2131166019;
+    public static final int faceshop_buy_dialog_loading_marginBottom = 2131166022;
+    public static final int faceshop_buy_dialog_loading_marginTop = 2131166021;
+    public static final int faceshop_buy_dialog_width = 2131166018;
+    public static final int faceshop_buy_fail_btn_height = 2131166029;
+    public static final int faceshop_buy_fail_btn_marginBottom = 2131166027;
+    public static final int faceshop_buy_fail_btn_marginTop = 2131166026;
+    public static final int faceshop_buy_fail_btn_width = 2131166028;
+    public static final int faceshop_buy_fail_tel_marginBottom = 2131166025;
+    public static final int faceshop_buy_fail_title_marginBottom = 2131166024;
+    public static final int faceshop_buy_fail_title_marginTop = 2131166023;
+    public static final int faceshop_cover_height = 2131165991;
+    public static final int faceshop_cover_marginBottom = 2131165994;
+    public static final int faceshop_cover_marginLeft = 2131165992;
+    public static final int faceshop_cover_marginRight = 2131165993;
+    public static final int faceshop_cover_width = 2131165990;
+    public static final int faceshop_img_marginBottom = 2131165982;
+    public static final int faceshop_info_marginTop = 2131165983;
+    public static final int faceshop_intro_marginRight = 2131165987;
+    public static final int faceshop_intro_text = 2131166031;
+    public static final int faceshop_item_icon_size = 2131165989;
+    public static final int faceshop_item_marginHorizontal = 2131165979;
+    public static final int faceshop_item_paddingBottom = 2131165980;
+    public static final int faceshop_item_paddingHorizontal = 2131165981;
+    public static final int faceshop_list_gap = 2131165988;
+    public static final int faceshop_package_btn_height = 2131166002;
+    public static final int faceshop_package_btn_marginBottom = 2131166003;
+    public static final int faceshop_package_btn_width = 2131166001;
+    public static final int faceshop_package_divider_marginTop = 2131166009;
+    public static final int faceshop_package_face_padding = 2131166005;
+    public static final int faceshop_package_header_paddingBottom = 2131165998;
+    public static final int faceshop_package_header_paddingHorizontal = 2131165997;
+    public static final int faceshop_package_header_paddingTop = 2131165996;
+    public static final int faceshop_package_line_marginBottom = 2131166004;
+    public static final int faceshop_package_padding = 2131165995;
+    public static final int faceshop_package_tip_paddingBottom = 2131166008;
+    public static final int faceshop_package_tip_paddingHorizontal = 2131166007;
+    public static final int faceshop_package_tip_paddingTop = 2131166006;
+    public static final int faceshop_package_title_marginBottom = 2131166000;
+    public static final int faceshop_package_title_marginTop = 2131165999;
+    public static final int faceshop_page_padding = 2131165978;
+    public static final int faceshop_purchase_cover_height = 2131166013;
+    public static final int faceshop_purchase_cover_spaceRight = 2131166014;
+    public static final int faceshop_purchase_cover_width = 2131166012;
+    public static final int faceshop_purchase_empty_paddingLeft = 2131166017;
+    public static final int faceshop_purchase_empty_paddingTop = 2131166016;
+    public static final int faceshop_purchase_item_height = 2131166010;
+    public static final int faceshop_purchase_item_paddingHorizontal = 2131166011;
+    public static final int faceshop_purchase_title_margin = 2131166015;
+    public static final int faceshop_title_text = 2131166030;
+    public static final int fontsize20 = 2131166248;
+    public static final int fontsize24 = 2131166247;
+    public static final int fontsize28 = 2131166246;
+    public static final int fontsize32 = 2131166245;
+    public static final int fontsize36 = 2131166244;
+    public static final int fontsize40 = 2131166243;
+    public static final int fontsize42 = 2131166242;
+    public static final int forum_detail_content_big_ts = 2131166216;
+    public static final int forum_detail_content_small_ts = 2131166217;
+    public static final int forum_detail_footer_drawable_padding = 2131166214;
+    public static final int forum_detail_footer_height = 2131166208;
+    public static final int forum_detail_footer_left_margin_left = 2131166210;
+    public static final int forum_detail_footer_left_margin_right = 2131166211;
+    public static final int forum_detail_footer_right_margin_left = 2131166212;
+    public static final int forum_detail_footer_right_margin_right = 2131166213;
+    public static final int forum_detail_footer_txt_size = 2131166209;
+    public static final int forum_detail_num_ts = 2131166218;
+    public static final int forum_detail_title_ts = 2131166215;
+    public static final int forum_list_enter_forum = 2131166219;
+    public static final int forum_my_like_head_size = 2131166193;
+    public static final int forum_my_like_item_height = 2131166192;
+    public static final int forumfeed_btngo_padding = 2131165452;
+    public static final int forumfeed_btngo_text = 2131165461;
+    public static final int forumfeed_first_item_margin_top = 2131165456;
+    public static final int forumfeed_icon_height = 2131165454;
+    public static final int forumfeed_icon_margin = 2131165455;
+    public static final int forumfeed_icon_width = 2131165453;
+    public static final int forumfeed_item_name_text = 2131165457;
+    public static final int forumfeed_listmore_text = 2131165458;
+    public static final int forumfeed_nodata_image_margin_top = 2131165447;
+    public static final int forumfeed_tip1_margin_bottom = 2131165449;
+    public static final int forumfeed_tip1_margin_top = 2131165448;
+    public static final int forumfeed_tip1_padding_right = 2131165450;
+    public static final int forumfeed_tip1_text = 2131165459;
+    public static final int forumfeed_tip2_padding_left = 2131165451;
+    public static final int forumfeed_tip2_text = 2131165460;
+    public static final int forumrank_image_height = 2131166099;
+    public static final int forumrank_image_width = 2131166098;
+    public static final int frs_commenticon_margin_top = 2131165615;
+    public static final int frs_goodheader_line_bottom_height = 2131165643;
+    public static final int frs_goodheader_line_bottom_s_height = 2131165644;
+    public static final int frs_goodheader_line_bottom_s_width = 2131165645;
+    public static final int frs_goodheader_line_right_height = 2131165642;
+    public static final int frs_goodheader_line_right_width = 2131165641;
+    public static final int frs_goodheader_padding = 2131165637;
+    public static final int frs_goodheader_text = 2131165646;
+    public static final int frs_goodheader_text_height = 2131165639;
+    public static final int frs_goodheader_text_padding = 2131165638;
+    public static final int frs_goodheader_text_width = 2131165640;
+    public static final int frs_header_attention_done_marginTop = 2131165541;
+    public static final int frs_header_attention_done_padding = 2131165540;
+    public static final int frs_header_attention_done_text = 2131165558;
+    public static final int frs_header_attention_level_margin = 2131165538;
+    public static final int frs_header_attention_level_paddingTop = 2131165539;
+    public static final int frs_header_badge_height = 2131165529;
+    public static final int frs_header_badge_margin = 2131165525;
+    public static final int frs_header_badge_paddingRight = 2131165527;
+    public static final int frs_header_badge_paddingTop = 2131165526;
+    public static final int frs_header_badge_width = 2131165528;
+    public static final int frs_header_banner_height = 2131165516;
+    public static final int frs_header_btn_drawable_padding = 2131165537;
+    public static final int frs_header_btn_height = 2131165535;
+    public static final int frs_header_btn_margin = 2131165536;
+    public static final int frs_header_btn_normal_text = 2131165557;
+    public static final int frs_header_btn_width = 2131165534;
+    public static final int frs_header_divider_height = 2131165545;
+    public static final int frs_header_divider_margin_top = 2131165546;
+    public static final int frs_header_exp_height = 2131165543;
+    public static final int frs_header_exp_text = 2131165560;
+    public static final int frs_header_exp_text_paddingTop = 2131165544;
+    public static final int frs_header_groups_arrow_padding = 2131165550;
+    public static final int frs_header_groups_height = 2131165547;
+    public static final int frs_header_groups_icon_margin = 2131165548;
+    public static final int frs_header_groups_text = 2131165561;
+    public static final int frs_header_groups_txt_margin = 2131165549;
+    public static final int frs_header_height = 2131165517;
+    public static final int frs_header_info_margin_bottom = 2131165531;
+    public static final int frs_header_info_margin_top = 2131165530;
+    public static final int frs_header_info_num_text = 2131165556;
+    public static final int frs_header_info_text = 2131165555;
+    public static final int frs_header_info_txt_margin = 2131165532;
+    public static final int frs_header_info_txt_num_margin = 2131165533;
+    public static final int frs_header_level_text = 2131165559;
+    public static final int frs_header_padding_left = 2131165518;
+    public static final int frs_header_padding_right = 2131165519;
+    public static final int frs_header_padding_top = 2131165520;
+    public static final int frs_header_photo_height = 2131165522;
+    public static final int frs_header_photo_margin_right = 2131165523;
+    public static final int frs_header_photo_width = 2131165521;
+    public static final int frs_header_sign_progress_marginRight = 2131165542;
+    public static final int frs_header_tag_paddingHorizontal = 2131165551;
+    public static final int frs_header_tag_paddingVertical = 2131165552;
+    public static final int frs_header_tag_text = 2131165554;
+    public static final int frs_header_title_margin_right = 2131165524;
+    public static final int frs_header_title_text = 2131165553;
+    public static final int frs_icon_height = 2131165648;
+    public static final int frs_icon_margin = 2131165649;
+    public static final int frs_icon_width = 2131165647;
+    public static final int frs_image_block = 2131165813;
+    public static final int frs_listmore_height = 2131165612;
+    public static final int frs_listmore_margin_left_right = 2131165613;
+    public static final int frs_listmore_padding = 2131165611;
+    public static final int frs_listmore_progressbar_margin_left = 2131165614;
+    public static final int frs_listmore_text = 2131165616;
+    public static final int frs_refresh_height = 2131165651;
+    public static final int frs_refresh_width = 2131165650;
+    public static final int frs_slidebar_content_height = 2131165626;
+    public static final int frs_slidebar_line_height = 2131165628;
+    public static final int frs_slidebar_message_height = 2131165632;
+    public static final int frs_slidebar_message_margin_left = 2131165630;
+    public static final int frs_slidebar_message_width = 2131165631;
+    public static final int frs_slidebar_padding_left = 2131165627;
+    public static final int frs_slidebar_switch_padding_right = 2131165629;
+    public static final int frs_slidebar_title_height = 2131165625;
+    public static final int frs_slidebar_top_btn_minheight = 2131165621;
+    public static final int frs_slidebar_top_btn_minwidth = 2131165622;
+    public static final int frs_slidebar_top_height = 2131165617;
+    public static final int frs_slidebar_top_margin_bottom = 2131165618;
+    public static final int frs_slidebar_top_margin_right = 2131165619;
+    public static final int frs_slidebar_top_margin_top = 2131165620;
+    public static final int frs_slidebar_top_text_drawablepadding = 2131165623;
+    public static final int frs_slidebar_top_text_padding = 2131165624;
+    public static final int frs_sliderbar_message_text = 2131165636;
+    public static final int frs_sliderbar_text = 2131165633;
+    public static final int frs_sliderbar_title_text = 2131165634;
+    public static final int frs_sliderbar_top_text = 2131165635;
+    public static final int frs_starheader_add_fan_text = 2131165601;
+    public static final int frs_starheader_attention_done_text = 2131165597;
+    public static final int frs_starheader_badge_height = 2131165577;
+    public static final int frs_starheader_badge_margin = 2131165574;
+    public static final int frs_starheader_badge_paddingLeft = 2131165575;
+    public static final int frs_starheader_badge_width = 2131165576;
+    public static final int frs_starheader_btn_height = 2131165581;
+    public static final int frs_starheader_btn_margin = 2131165582;
+    public static final int frs_starheader_btn_normal_text = 2131165596;
+    public static final int frs_starheader_btn_width = 2131165580;
+    public static final int frs_starheader_countdown_num_text = 2131165604;
+    public static final int frs_starheader_countdown_text = 2131165603;
+    public static final int frs_starheader_exp_text = 2131165599;
+    public static final int frs_starheader_fan_bottom_marginLeft = 2131165583;
+    public static final int frs_starheader_fan_num_text = 2131165602;
+    public static final int frs_starheader_fans_icon_marginRight = 2131165589;
+    public static final int frs_starheader_fans_icon_marginTop = 2131165588;
+    public static final int frs_starheader_get_fans_height = 2131165585;
+    public static final int frs_starheader_get_fans_marginRight = 2131165586;
+    public static final int frs_starheader_get_fans_width = 2131165584;
+    public static final int frs_starheader_groups_text = 2131165600;
+    public static final int frs_starheader_info_num_text = 2131165595;
+    public static final int frs_starheader_info_text = 2131165594;
+    public static final int frs_starheader_info_txt_margin = 2131165578;
+    public static final int frs_starheader_info_txt_num_margin = 2131165579;
+    public static final int frs_starheader_level_text = 2131165598;
+    public static final int frs_starheader_paddingLeft = 2131165562;
+    public static final int frs_starheader_paddingRight = 2131165563;
+    public static final int frs_starheader_photo_height = 2131165565;
+    public static final int frs_starheader_photo_layout_height = 2131165568;
+    public static final int frs_starheader_photo_layout_width = 2131165567;
+    public static final int frs_starheader_photo_marginBottom = 2131165571;
+    public static final int frs_starheader_photo_marginRight = 2131165570;
+    public static final int frs_starheader_photo_marginTop = 2131165569;
+    public static final int frs_starheader_photo_padding = 2131165566;
+    public static final int frs_starheader_photo_width = 2131165564;
+    public static final int frs_starheader_tag_marginRight = 2131165587;
+    public static final int frs_starheader_tag_paddingHorizontal = 2131165590;
+    public static final int frs_starheader_tag_paddingVertical = 2131165591;
+    public static final int frs_starheader_tag_text = 2131165593;
+    public static final int frs_starheader_title_marginBottom = 2131165573;
+    public static final int frs_starheader_title_marginTop = 2131165572;
+    public static final int frs_starheader_title_text = 2131165592;
+    public static final int frs_top_icon_margin = 2131165606;
+    public static final int frs_top_item_divider = 2131165608;
+    public static final int frs_top_item_height = 2131165607;
+    public static final int frs_top_margin_bottom = 2131165609;
+    public static final int frs_top_padding = 2131165605;
+    public static final int frs_top_text = 2131165610;
+    public static final int group_chat_button_marigintop = 2131165229;
+    public static final int group_chat_tip_marigintop = 2131165230;
+    public static final int group_list_group_num_margin_left = 2131165866;
+    public static final int group_tab_heigh = 2131166228;
+    public static final int group_tab_line_padding_hol = 2131166227;
+    public static final int group_tab_spaceing_heigh = 2131166226;
+    public static final int group_tab_text_size = 2131165967;
+    public static final int guide_btn_marginBottom = 2131165328;
+    public static final int head_image_shader_height = 2131165188;
+    public static final int head_view_circle_bg = 2131165252;
+    public static final int horizontal_panel_view_cooldown_height = 2131166222;
+    public static final int horizontal_panel_view_height = 2131166220;
+    public static final int horizontal_panel_view_item = 2131166223;
+    public static final int horizontal_panel_view_list_height = 2131166221;
+    public static final int hot_group_divider_height = 2131165965;
+    public static final int hot_group_start_padding = 2131165966;
+    public static final int iamge_icon_width_height = 2131165193;
+    public static final int im_create_group_bigbtn_height = 2131165876;
+    public static final int im_create_group_grouphead_height = 2131165878;
+    public static final int im_create_group_grouphead_width = 2131165877;
+    public static final int im_frsgroup_listitem_height = 2131165338;
+    public static final int im_frsgroup_listitem_image_height = 2131165345;
+    public static final int im_frsgroup_listitem_image_margin = 2131165341;
+    public static final int im_frsgroup_listitem_image_width = 2131165344;
+    public static final int im_frsgroup_listitem_next_star_left = 2131165340;
+    public static final int im_frsgroup_listitem_star_left = 2131165339;
+    public static final int im_frsgroup_listitem_text_marginbottom = 2131165343;
+    public static final int im_frsgroup_listitem_text_margintop = 2131165342;
+    public static final int im_frsgroup_tab_bottom_line_height = 2131165351;
+    public static final int im_frsgroup_tab_check_line_height = 2131165350;
+    public static final int im_frsgroup_tab_check_line_width = 2131165349;
+    public static final int im_frsgroup_tab_height = 2131165346;
+    public static final int im_frsgroup_tab_middle_line_height = 2131165347;
+    public static final int im_frsgroup_tab_middle_line_width = 2131165348;
+    public static final int im_group_activity_author_margin_l = 2131166179;
+    public static final int im_group_activity_content_h = 2131166181;
+    public static final int im_group_activity_content_input_height = 2131166163;
+    public static final int im_group_activity_content_margin_t = 2131166180;
+    public static final int im_group_activity_createbtn_margintop = 2131166165;
+    public static final int im_group_activity_createbtn_paddingtop = 2131166166;
+    public static final int im_group_activity_date_w = 2131166169;
+    public static final int im_group_activity_del_tip_margin_r = 2131166184;
+    public static final int im_group_activity_del_tip_margin_t = 2131166185;
+    public static final int im_group_activity_del_tip_padding_lrb = 2131166187;
+    public static final int im_group_activity_del_tip_padding_t = 2131166186;
+    public static final int im_group_activity_headpic_margin_r = 2131166175;
+    public static final int im_group_activity_headpic_margin_t = 2131166176;
+    public static final int im_group_activity_headpic_wh = 2131166174;
+    public static final int im_group_activity_icon_margin_r = 2131166183;
+    public static final int im_group_activity_margin_lr = 2131166171;
+    public static final int im_group_activity_margin_t = 2131166172;
+    public static final int im_group_activity_padding_lr = 2131166173;
+    public static final int im_group_activity_place_h = 2131166182;
+    public static final int im_group_activity_place_input_paddingleft = 2131166164;
+    public static final int im_group_activity_place_padding = 2131166168;
+    public static final int im_group_activity_time_margin_l = 2131166188;
+    public static final int im_group_activity_time_paddingtop = 2131166167;
+    public static final int im_group_activity_title_h = 2131166170;
+    public static final int im_group_activity_titletext_margin_b = 2131166178;
+    public static final int im_group_activity_titletext_margin_t = 2131166177;
+    public static final int im_group_create_info_input_height = 2131165872;
+    public static final int im_group_headimgview_height = 2131165841;
+    public static final int im_group_headimgview_padding = 2131165842;
+    public static final int im_group_headimgview_width = 2131165840;
+    public static final int im_group_info_arrow_paddingleft = 2131165889;
+    public static final int im_group_info_bottom_bar_paddinglr = 2131165897;
+    public static final int im_group_info_bottom_bar_txt_join_drawablepadding = 2131165898;
+    public static final int im_group_info_group_member_count_marginleft = 2131165892;
+    public static final int im_group_info_group_name_paddingleft = 2131165888;
+    public static final int im_group_info_group_type_icon_marginright = 2131165896;
+    public static final int im_group_info_icon_padding_left = 2131165903;
+    public static final int im_group_info_icon_padding_top = 2131165904;
+    public static final int im_group_info_icon_paddingleft = 2131165890;
+    public static final int im_group_info_item_bigside_paddinglr = 2131165883;
+    public static final int im_group_info_item_layout_height = 2131165881;
+    public static final int im_group_info_item_paddinglr = 2131165879;
+    public static final int im_group_info_item_paddingtb = 2131165880;
+    public static final int im_group_info_item_side_paddinglr = 2131165882;
+    public static final int im_group_info_item_text_max_width = 2131165887;
+    public static final int im_group_info_items_paddingtop = 2131165884;
+    public static final int im_group_info_light_text = 2131165886;
+    public static final int im_group_info_line_height = 2131165891;
+    public static final int im_group_info_main_text = 2131165885;
+    public static final int im_group_info_photo_layout_min_width = 2131165895;
+    public static final int im_group_info_photo_margin = 2131165894;
+    public static final int im_group_info_photo_wall_line_margin = 2131165901;
+    public static final int im_group_info_photo_wall_paddingtb = 2131165899;
+    public static final int im_group_info_photo_wall_per_margin = 2131165900;
+    public static final int im_group_info_photo_wall_text = 2131165902;
+    public static final int im_group_info_photo_width = 2131165893;
+    public static final int im_group_item_creater_icon_padding = 2131165850;
+    public static final int im_group_item_creater_icon_padding_hol = 2131165852;
+    public static final int im_group_item_creater_icon_padding_ver = 2131165851;
+    public static final int im_group_item_creator_size = 2131165856;
+    public static final int im_group_item_distance_margin_left = 2131165865;
+    public static final int im_group_item_divider_height = 2131165864;
+    public static final int im_group_item_divier_height = 2131165849;
+    public static final int im_group_item_group_desc = 2131165855;
+    public static final int im_group_item_group_name = 2131165853;
+    public static final int im_group_item_group_num = 2131165854;
+    public static final int im_group_item_header_margin_top_or_bottom = 2131165863;
+    public static final int im_group_item_padding_left_or_right = 2131165862;
+    public static final int im_group_line = 2131165857;
+    public static final int im_group_line_height = 2131165858;
+    public static final int im_group_line_left = 2131165859;
+    public static final int im_group_line_right = 2131165860;
+    public static final int im_group_txt_margin_ver = 2131165843;
+    public static final int im_group_txt_padding_bottom = 2131165845;
+    public static final int im_group_txt_padding_top = 2131165844;
+    public static final int im_group_txt_right_margin = 2131165846;
+    public static final int im_group_txt_star_left_margin = 2131165847;
+    public static final int im_group_txt_star_margin = 2131165848;
+    public static final int im_group_update_info_input_height = 2131165873;
+    public static final int im_group_update_info_input_paddingleft = 2131165874;
+    public static final int im_group_update_info_input_paddingtop = 2131165875;
+    public static final int im_group_update_name_input_delbtn_marginright = 2131165871;
+    public static final int im_group_update_name_input_followbtn_height = 2131165869;
+    public static final int im_group_update_name_input_height = 2131165868;
+    public static final int im_group_update_name_input_paddingleft = 2131165870;
+    public static final int im_grouplevel_active_condition_margin_bottom = 2131165938;
+    public static final int im_grouplevel_active_condition_margin_top = 2131165937;
+    public static final int im_grouplevel_active_day_margin_right = 2131165936;
+    public static final int im_grouplevel_active_day_margin_top = 2131165935;
+    public static final int im_grouplevel_active_day_progress_height = 2131165940;
+    public static final int im_grouplevel_active_day_progress_width = 2131165939;
+    public static final int im_grouplevel_big_star_margin_right = 2131165933;
+    public static final int im_grouplevel_current_level_margin_right = 2131165934;
+    public static final int im_grouplevel_explain_grid_height = 2131165946;
+    public static final int im_grouplevel_explain_grid_members_limit_marign_right = 2131165950;
+    public static final int im_grouplevel_explain_grid_spacing = 2131165951;
+    public static final int im_grouplevel_explain_grid_star1_magin_left = 2131165948;
+    public static final int im_grouplevel_explain_grid_star2_magin_left = 2131165949;
+    public static final int im_grouplevel_explain_grid_width = 2131165945;
+    public static final int im_grouplevel_explain_line_margin_left = 2131165943;
+    public static final int im_grouplevel_explain_line_margin_right = 2131165944;
+    public static final int im_grouplevel_explain_margin_bottom = 2131165942;
+    public static final int im_grouplevel_explain_margin_top = 2131165941;
+    public static final int im_grouplevel_explain_type_height = 2131165947;
+    public static final int im_grouplevel_margin_bottom = 2131165932;
+    public static final int im_grouplevel_margin_top = 2131165931;
+    public static final int im_members_bottom_cancel_marginleft = 2131165360;
+    public static final int im_members_bottom_cancel_paddingleft = 2131165361;
+    public static final int im_members_listitem_checkbox_margigright = 2131165359;
+    public static final int im_members_listitem_checkbox_marginleft = 2131165358;
+    public static final int im_members_listitem_image_paddingleft = 2131165352;
+    public static final int im_members_listitem_image_paddingtop = 2131165353;
+    public static final int im_members_listitem_image_range = 2131165354;
+    public static final int im_members_listitem_line_height = 2131165357;
+    public static final int im_members_listitem_sex_marginleft = 2131165355;
+    public static final int im_members_listitem_time_marginright = 2131165356;
+    public static final int im_msg_btn_send_height = 2131165923;
+    public static final int im_msg_btn_send_marginleft = 2131165924;
+    public static final int im_msg_btn_send_paddingleft = 2131165925;
+    public static final int im_msg_btn_send_paddingright = 2131165926;
+    public static final int im_msg_btn_send_voice_height = 2131165915;
+    public static final int im_msg_face_layer_height = 2131165917;
+    public static final int im_msg_face_layer_points_marginbottom = 2131165919;
+    public static final int im_msg_face_layer_points_margintop = 2131165918;
+    public static final int im_msg_head_photo_inner_size = 2131165953;
+    public static final int im_msg_head_photo_size = 2131165952;
+    public static final int im_msg_last_msg_layer_height = 2131165912;
+    public static final int im_msg_last_msg_layer_paddingleft = 2131165913;
+    public static final int im_msg_last_msg_layer_paddingright = 2131165914;
+    public static final int im_msg_more_btns_height = 2131165906;
+    public static final int im_msg_more_btns_marginleft = 2131165907;
+    public static final int im_msg_more_btns_marginright = 2131165908;
+    public static final int im_msg_more_btns_paddingtop = 2131165909;
+    public static final int im_msg_more_btns_width = 2131165905;
+    public static final int im_msg_more_layer_height = 2131165916;
+    public static final int im_msg_send_btns_marginleft = 2131165927;
+    public static final int im_msg_send_btns_marginright = 2131165928;
+    public static final int im_msg_send_text_min_height = 2131165920;
+    public static final int im_msg_send_text_paddingbottom = 2131165921;
+    public static final int im_msg_send_text_paddingtop = 2131165922;
+    public static final int im_msg_tempview_height = 2131165929;
+    public static final int im_msg_tempview_maginbottom = 2131165930;
+    public static final int im_msg_voice_layer_height = 2131165911;
+    public static final int im_msg_voice_layer_width = 2131165910;
+    public static final int index_width = 2131165190;
+    public static final int invite_friend_candidate_button_margin_left = 2131166050;
+    public static final int invite_friend_candidate_button_margin_right = 2131166051;
+    public static final int invite_friend_candidate_button_min_height = 2131166048;
+    public static final int invite_friend_candidate_button_min_width = 2131166049;
+    public static final int invite_friend_candidate_button_text_size = 2131166055;
+    public static final int invite_friend_candidate_item_height = 2131166046;
+    public static final int invite_friend_candidate_item_margin = 2131166047;
+    public static final int invite_friend_candidate_item_width = 2131166045;
+    public static final int invite_friend_candidate_padding_bottom = 2131166053;
+    public static final int invite_friend_candidate_padding_left = 2131166054;
+    public static final int invite_friend_candidate_padding_top = 2131166052;
+    public static final int invite_friend_list_candidate_border_height = 2131166069;
+    public static final int invite_friend_list_item_divider = 2131166063;
+    public static final int invite_friend_list_item_header_height = 2131166060;
+    public static final int invite_friend_list_item_header_width = 2131166059;
+    public static final int invite_friend_list_item_height = 2131166056;
+    public static final int invite_friend_list_item_padding_left = 2131166057;
+    public static final int invite_friend_list_item_padding_right = 2131166058;
+    public static final int invite_friend_list_item_user_padding_left = 2131166061;
+    public static final int invite_friend_list_item_user_padding_right = 2131166062;
+    public static final int invite_friend_list_nodata_margin_top = 2131166064;
+    public static final int invite_friend_list_nodata_text_margin_bottom = 2131166066;
+    public static final int invite_friend_list_nodata_text_margin_left = 2131166067;
+    public static final int invite_friend_list_nodata_text_margin_right = 2131166068;
+    public static final int invite_friend_list_nodata_text_margin_top = 2131166065;
+    public static final int invite_view_detail_group_photo_marging_right = 2131166241;
+    public static final int invite_view_detail_group_photo_size = 2131166240;
+    public static final int invite_view_detail_margin_bottom = 2131166239;
+    public static final int invite_view_detail_margin_top = 2131166238;
+    public static final int jigsawDelWidth = 2131165226;
+    public static final int jigsawImageWidth = 2131165221;
+    public static final int jigsawSelectedHeight = 2131165223;
+    public static final int jigsawSelectedImageWidth = 2131165225;
+    public static final int jigsawSelectedWidth = 2131165222;
+    public static final int listview_divider_height = 2131165440;
+    public static final int listview_item_abstract_margin_bottom = 2131165435;
+    public static final int listview_item_abstract_text = 2131165445;
+    public static final int listview_item_bottom_drawable_padding = 2131165442;
+    public static final int listview_item_bottom_height = 2131165441;
+    public static final int listview_item_bottom_num_margin_right = 2131165437;
+    public static final int listview_item_bottom_text = 2131165446;
+    public static final int listview_item_bottom_time_margin_left = 2131165436;
+    public static final int listview_item_image_margin = 2131165434;
+    public static final int listview_item_margin = 2131165433;
+    public static final int listview_item_margin_half = 2131165443;
+    public static final int listview_item_padding = 2131165439;
+    public static final int listview_item_title_text = 2131165444;
+    public static final int listview_item_voice_margin = 2131165438;
+    public static final int live_room_setting_lay_photo_height = 2131166205;
+    public static final int live_room_setting_lay_photo_width = 2131166206;
+    public static final int live_room_setting_photo_hegiht = 2131166207;
+    public static final int loading_circle_distance = 2131165243;
+    public static final int loading_circle_radius = 2131165239;
+    public static final int loading_circle_stroke = 2131165240;
+    public static final int loading_small_light_circle_radius = 2131165242;
+    public static final int loading_small_normal_circle_radius = 2131165241;
+    public static final int loading_view_height = 2131165238;
+    public static final int loading_view_width = 2131165237;
+    public static final int maintab_bottom_font = 2131165322;
+    public static final int maintab_bottomicon_drawable_padding = 2131165325;
+    public static final int maintab_bottomicon_margin = 2131165326;
+    public static final int maintab_bottomicon_padding_bottom = 2131165324;
+    public static final int maintab_bottomicon_padding_top = 2131165323;
+    public static final int mark_item_content_padding_right = 2131166112;
+    public static final int mark_item_del_height = 2131166110;
+    public static final int mark_item_del_width = 2131166109;
+    public static final int mark_item_divider_height = 2131166111;
+    public static final int mark_item_padding_bottom = 2131166102;
+    public static final int mark_item_padding_del_left = 2131166108;
+    public static final int mark_item_padding_forum = 2131166107;
+    public static final int mark_item_padding_icon = 2131166106;
+    public static final int mark_item_padding_left = 2131166103;
+    public static final int mark_item_padding_right = 2131166104;
+    public static final int mark_item_padding_title = 2131166105;
+    public static final int mark_item_padding_top = 2131166101;
+    public static final int more_userinfo_height = 2131165819;
+    public static final int more_userinfo_img_height = 2131165823;
+    public static final int more_userinfo_img_marginRight = 2131165824;
+    public static final int more_userinfo_img_width = 2131165822;
+    public static final int more_userinfo_paddingBottom = 2131165821;
+    public static final int more_userinfo_paddingLeft = 2131165825;
+    public static final int more_userinfo_paddingRight = 2131165826;
+    public static final int more_userinfo_paddingTop = 2131165820;
+    public static final int more_userinfo_text = 2131165837;
+    public static final int more_userinfo_title = 2131165836;
+    public static final int more_userinfo_title_marginBottom = 2131165827;
+    public static final int more_userlyout_marginRight = 2131165828;
+    public static final int more_widget_height = 2131165830;
+    public static final int more_widget_icon_marginRight = 2131165833;
+    public static final int more_widget_margin = 2131165829;
+    public static final int more_widget_paddingLeft = 2131165831;
+    public static final int more_widget_paddingRight = 2131165832;
+    public static final int more_widget_remind_marginRight = 2131165835;
+    public static final int more_widget_text = 2131165838;
+    public static final int more_widget_text_marginRight = 2131165834;
+    public static final int motu_image_size_height = 2131166191;
+    public static final int motu_image_size_width = 2131166190;
+    public static final int motu_preview_size = 2131166189;
+    public static final int msg_tab_padding = 2131165217;
+    public static final int multi_bottom_height = 2131166197;
+    public static final int multi_bottom_pic_height = 2131166196;
+    public static final int multi_bottom_text_padding_right = 2131166203;
+    public static final int multi_msg_padding = 2131166204;
+    public static final int multi_padding_left_right = 2131166200;
+    public static final int multi_time_bottom_margin = 2131166199;
+    public static final int multi_time_top_margin = 2131166198;
+    public static final int multi_top_height = 2131166195;
+    public static final int multi_top_padding_bottom = 2131166201;
+    public static final int multi_top_title_height = 2131166194;
+    public static final int navi_bottom_line_height = 2131165290;
+    public static final int navi_btn_height = 2131165301;
+    public static final int navi_btn_margin_bottom = 2131165298;
+    public static final int navi_btn_margin_right = 2131165299;
+    public static final int navi_btn_margin_top = 2131165297;
+    public static final int navi_btn_padding_bottom = 2131165305;
+    public static final int navi_btn_padding_left = 2131165302;
+    public static final int navi_btn_padding_right = 2131165303;
+    public static final int navi_btn_padding_top = 2131165304;
+    public static final int navi_btn_text = 2131165318;
+    public static final int navi_btn_width = 2131165300;
+    public static final int navi_height = 2131165289;
+    public static final int navi_item_height = 2131165291;
+    public static final int navi_item_width = 2131165292;
+    public static final int navi_more_text = 2131165320;
+    public static final int navi_multititle_margin_left = 2131165316;
+    public static final int navi_multititle_margin_right = 2131165317;
+    public static final int navi_multititle_padding_bottom = 2131165315;
+    public static final int navi_multititle_padding_left = 2131165312;
+    public static final int navi_multititle_padding_right = 2131165313;
+    public static final int navi_multititle_padding_top = 2131165314;
+    public static final int navi_multititle_text = 2131165319;
+    public static final int navi_padding_bottom = 2131165296;
+    public static final int navi_padding_left = 2131165293;
+    public static final int navi_padding_right = 2131165295;
+    public static final int navi_padding_top = 2131165294;
+    public static final int navi_signall_text = 2131165321;
+    public static final int navi_textbtn_padding_bottom = 2131165309;
+    public static final int navi_textbtn_padding_left = 2131165306;
+    public static final int navi_textbtn_padding_right = 2131165307;
+    public static final int navi_textbtn_padding_top = 2131165308;
+    public static final int navi_title_padding_left = 2131165310;
+    public static final int navi_title_padding_right = 2131165311;
+    public static final int navigation_bar_height = 2131165208;
+    public static final int navigation_bar_item_height = 2131165209;
+    public static final int navigation_bar_padding_bottom = 2131165213;
+    public static final int navigation_bar_padding_left = 2131165210;
+    public static final int navigation_bar_padding_right = 2131165212;
+    public static final int navigation_bar_padding_top = 2131165211;
+    public static final int nearby_group_icon_margin = 2131165867;
+    public static final int newding_pop_in_manager_right = 2131166378;
+    public static final int num_count_down_min_height = 2131166138;
+    public static final int num_count_down_notice_line_space = 2131166140;
+    public static final int num_count_down_notice_marginleft = 2131166136;
+    public static final int num_count_down_notice_paddingtb = 2131166139;
+    public static final int num_count_down_num_marginleft = 2131166135;
+    public static final int num_count_down_width = 2131166137;
+    public static final int onedip = 2131165228;
+    public static final int pb_drawable_text_drawable_padding = 2131165959;
+    public static final int pb_drawable_text_min_height = 2131165958;
+    public static final int pb_drawable_text_min_width = 2131165957;
+    public static final int pb_editor_button_distance = 2131165772;
+    public static final int pb_editor_button_height = 2131165771;
+    public static final int pb_editor_button_width = 2131165770;
+    public static final int pb_editor_edittext_height = 2131165760;
+    public static final int pb_editor_edittext_margin_left = 2131165761;
+    public static final int pb_editor_edittext_padding_left = 2131165762;
+    public static final int pb_editor_edittext_padding_right = 2131165763;
+    public static final int pb_editor_edittext_padding_top = 2131165764;
+    public static final int pb_editor_edittext_textsize = 2131165765;
+    public static final int pb_editor_extern_tool_height = 2131165794;
+    public static final int pb_editor_faceview_height = 2131165790;
+    public static final int pb_editor_faceview_horizontal_spacing = 2131165791;
+    public static final int pb_editor_faceview_spacing_width = 2131165789;
+    public static final int pb_editor_faceview_vertical_spacing = 2131165792;
+    public static final int pb_editor_height = 2131165759;
+    public static final int pb_editor_horizontalscroll_height = 2131165786;
+    public static final int pb_editor_horizontalscroll_margin_top = 2131165787;
+    public static final int pb_editor_imageupload_button_height = 2131165781;
+    public static final int pb_editor_imageupload_button_min_width = 2131165782;
+    public static final int pb_editor_imageupload_button_text_size = 2131165783;
+    public static final int pb_editor_imageupload_height = 2131165788;
+    public static final int pb_editor_imageupload_middleweight_min_width = 2131165785;
+    public static final int pb_editor_imageupload_paddinb_bottom = 2131165780;
+    public static final int pb_editor_imageupload_padding_top = 2131165779;
+    public static final int pb_editor_imageupload_sideweight_min_width = 2131165784;
+    public static final int pb_editor_line1_padding_bottom = 2131165774;
+    public static final int pb_editor_line1_padding_left = 2131165775;
+    public static final int pb_editor_line1_padding_right = 2131165776;
+    public static final int pb_editor_line1_padding_top = 2131165773;
+    public static final int pb_editor_line2_padding_bottom = 2131165778;
+    public static final int pb_editor_line2_padding_top = 2131165777;
+    public static final int pb_editor_postbutton_height = 2131165768;
+    public static final int pb_editor_postbutton_margin_left = 2131165766;
+    public static final int pb_editor_postbutton_text_size = 2131165769;
+    public static final int pb_editor_postbutton_width = 2131165767;
+    public static final int pb_editor_recordview_height = 2131165793;
+    public static final int pb_header_bawu_button_height = 2131165678;
+    public static final int pb_header_bawu_distance = 2131165677;
+    public static final int pb_header_bawubutton_padding_bottom = 2131165673;
+    public static final int pb_header_bawubutton_padding_top = 2131165674;
+    public static final int pb_header_border_bottom = 2131165665;
+    public static final int pb_header_border_margin_top = 2131165662;
+    public static final int pb_header_gofrs_button_height = 2131165667;
+    public static final int pb_header_gofrs_button_width = 2131165666;
+    public static final int pb_header_line2_width = 2131165675;
+    public static final int pb_header_little_icon_drawable_padding = 2131165669;
+    public static final int pb_header_littleicon_text_size = 2131165676;
+    public static final int pb_header_long_button_height = 2131165679;
+    public static final int pb_header_padding_left = 2131165663;
+    public static final int pb_header_padding_right = 2131165664;
+    public static final int pb_header_padding_top = 2131165661;
+    public static final int pb_header_time_padding_right = 2131165671;
+    public static final int pb_header_title_margin_bottom = 2131165668;
+    public static final int pb_header_weightlayout_height = 2131165670;
+    public static final int pb_hold_margin_bottom = 2131165682;
+    public static final int pb_hold_width = 2131165681;
+    public static final int pb_icon_height = 2131165955;
+    public static final int pb_icon_margin = 2131165956;
+    public static final int pb_icon_width = 2131165954;
+    public static final int pb_img_text_tip = 2131165216;
+    public static final int pb_list_item_border_bottom_height = 2131165723;
+    public static final int pb_list_item_border_bottom_margin_top = 2131165724;
+    public static final int pb_list_item_bottomcontainer_padding_bottom = 2131165715;
+    public static final int pb_list_item_bottomcontainer_padding_left = 2131165713;
+    public static final int pb_list_item_bottomcontainer_padding_right = 2131165714;
+    public static final int pb_list_item_column_spacing_left = 2131165701;
+    public static final int pb_list_item_column_spacing_right = 2131165702;
+    public static final int pb_list_item_floor_margin_top = 2131165710;
+    public static final int pb_list_item_floor_padding_left = 2131165708;
+    public static final int pb_list_item_floor_padding_right = 2131165709;
+    public static final int pb_list_item_floornumber_padding_right = 2131165725;
+    public static final int pb_list_item_floorowner_height = 2131165706;
+    public static final int pb_list_item_floorowner_margin_top = 2131165707;
+    public static final int pb_list_item_header_margin_right = 2131165726;
+    public static final int pb_list_item_headerphoto_height = 2131165694;
+    public static final int pb_list_item_headerphoto_margin_right = 2131165695;
+    public static final int pb_list_item_headerphoto_width = 2131165693;
+    public static final int pb_list_item_icon_distance = 2131165697;
+    public static final int pb_list_item_icon_height = 2131165700;
+    public static final int pb_list_item_icon_width = 2131165699;
+    public static final int pb_list_item_managebutton_margin_left = 2131165718;
+    public static final int pb_list_item_padding_bottom = 2131165692;
+    public static final int pb_list_item_padding_left = 2131165690;
+    public static final int pb_list_item_padding_right = 2131165691;
+    public static final int pb_list_item_padding_top = 2131165689;
+    public static final int pb_list_item_post_time_margin_top = 2131165696;
+    public static final int pb_list_item_replybutton_drawle_padding = 2131165717;
+    public static final int pb_list_item_replybutton_margin_left = 2131165716;
+    public static final int pb_list_item_richtext_margin_top = 2131165711;
+    public static final int pb_list_item_richtext_segment_margin = 2131165712;
+    public static final int pb_list_item_subpb_padding_bottom = 2131165722;
+    public static final int pb_list_item_subpb_padding_left = 2131165719;
+    public static final int pb_list_item_subpb_padding_right = 2131165720;
+    public static final int pb_list_item_subpb_padding_top = 2131165721;
+    public static final int pb_list_item_textdrawable_padding = 2131165698;
+    public static final int pb_list_item_user_layout_margin_top = 2131165703;
+    public static final int pb_list_item_usericonbox_padding_top = 2131165705;
+    public static final int pb_list_item_userrank_padding_bottom = 2131165704;
+    public static final int pb_list_load_more_height = 2131165727;
+    public static final int pb_list_load_more_image_margin_left = 2131165730;
+    public static final int pb_list_load_more_progress_margin_left = 2131165731;
+    public static final int pb_list_load_more_text_padding_bottom = 2131165729;
+    public static final int pb_list_load_more_text_padding_top = 2131165728;
+    public static final int pb_listview_fadingedge_length = 2131165680;
+    public static final int pb_more_button_drawable_padding = 2131165686;
+    public static final int pb_more_button_padding_bottom = 2131165685;
+    public static final int pb_more_button_padding_top = 2131165684;
+    public static final int pb_more_layout_height = 2131165683;
+    public static final int pb_more_reommend_bar_line_width = 2131165687;
+    public static final int pb_more_text_size = 2131165688;
+    public static final int person_account_exception_padding_left = 2131165478;
+    public static final int person_account_exception_padding_right = 2131165479;
+    public static final int person_account_exception_padding_top = 2131165480;
+    public static final int person_attention_margin_left = 2131165488;
+    public static final int person_attention_margin_right = 2131165489;
+    public static final int person_attention_margin_top = 2131165490;
+    public static final int person_attention_progress_margin_left = 2131165491;
+    public static final int person_bigbtn_height = 2131165498;
+    public static final int person_bigbtn_margin = 2131165500;
+    public static final int person_bigbtn_margin_top = 2131165501;
+    public static final int person_bigbtn_width = 2131165499;
+    public static final int person_bigbtnicon_margin_top = 2131165502;
+    public static final int person_bigbtntext_font = 2131165515;
+    public static final int person_bigbtntext_margin_top = 2131165503;
+    public static final int person_bookmark_icon_margin_right = 2131165506;
+    public static final int person_bookmark_icon_margin_top = 2131165505;
+    public static final int person_btnicon_margin_top = 2131165504;
+    public static final int person_center_attenbtn_margin_left = 2131165472;
+    public static final int person_center_btn_drawable_left = 2131165486;
+    public static final int person_center_btn_height = 2131165471;
+    public static final int person_center_btn_margin_left = 2131165474;
+    public static final int person_center_btn_margin_right = 2131165487;
+    public static final int person_center_btn_padding_bottom = 2131165485;
+    public static final int person_center_btn_padding_left = 2131165482;
+    public static final int person_center_btn_padding_right = 2131165483;
+    public static final int person_center_btn_padding_top = 2131165484;
+    public static final int person_center_btn_width = 2131165470;
+    public static final int person_center_btntext_margin_left = 2131165476;
+    public static final int person_center_btntext_margin_right = 2131165477;
+    public static final int person_center_height = 2131165463;
+    public static final int person_center_info_minheight = 2131165481;
+    public static final int person_center_msgbtn_margin_left = 2131165473;
+    public static final int person_centerbtn_font = 2131165514;
+    public static final int person_edit_margin_left = 2131165475;
+    public static final int person_fans_icon_margin_right = 2131165508;
+    public static final int person_fans_icon_margin_top = 2131165507;
+    public static final int person_icon_height = 2131165511;
+    public static final int person_icon_margin = 2131165512;
+    public static final int person_icon_width = 2131165510;
+    public static final int person_image_height = 2131165469;
+    public static final int person_image_layout_height = 2131165465;
+    public static final int person_image_layout_width = 2131165464;
+    public static final int person_image_width = 2131165468;
+    public static final int person_imagebg_height = 2131165467;
+    public static final int person_imagebg_width = 2131165466;
+    public static final int person_intro_margin_bottom = 2131165497;
+    public static final int person_intro_margin_top = 2131165496;
+    public static final int person_name_font = 2131165513;
+    public static final int person_notlogin_edge = 2131165509;
+    public static final int person_post_reply_ori_padding = 2131165200;
+    public static final int person_talk_button_gap = 2131166233;
+    public static final int person_talk_button_margin_hol = 2131166235;
+    public static final int person_talk_gap = 2131166232;
+    public static final int person_talk_head_size = 2131166237;
+    public static final int person_talk_height = 2131166231;
+    public static final int person_talk_padding = 2131166229;
+    public static final int person_talk_padding_inside = 2131166230;
+    public static final int person_talk_setting_margin_top = 2131166234;
+    public static final int person_talk_txt_margiin_vel = 2131166236;
+    public static final int person_topimage_height = 2131165462;
+    public static final int person_usericon_padding_bottom = 2131165495;
+    public static final int person_usericon_padding_left = 2131165492;
+    public static final int person_usericon_padding_right = 2131165493;
+    public static final int person_usericon_padding_top = 2131165494;
+    public static final int progress_count_down_height = 2131166133;
+    public static final int progress_count_down_text_size = 2131166134;
+    public static final int recommed_dis = 2131165189;
+    public static final int record_voice_btn_channel_paddingtop = 2131166123;
+    public static final int record_voice_btn_dot_glow_padding = 2131166127;
+    public static final int record_voice_btn_duration_time_offset_y = 2131166126;
+    public static final int record_voice_btn_marginbottom = 2131166121;
+    public static final int record_voice_btn_marginleft = 2131166118;
+    public static final int record_voice_btn_marginright = 2131166120;
+    public static final int record_voice_btn_margintop = 2131166119;
+    public static final int record_voice_btn_paddingtop = 2131166122;
+    public static final int record_voice_btn_paint_stroke_width = 2131166128;
+    public static final int record_voice_btn_play_glow_padding = 2131166129;
+    public static final int record_voice_btn_progress_padding = 2131166130;
+    public static final int record_voice_btn_restart_button_paddingbottom = 2131166125;
+    public static final int record_voice_btn_restart_button_paddingleft = 2131166124;
+    public static final int record_voice_text_size = 2131166141;
+    public static final int search_bar_default_text = 2131165417;
+    public static final int search_bar_edit_layout_margin_bottom = 2131166070;
+    public static final int search_bar_edit_layout_margin_left = 2131166071;
+    public static final int search_bar_edit_layout_margin_top = 2131166072;
+    public static final int search_bar_edit_text_padding_left = 2131166076;
+    public static final int search_bar_edit_text_padding_right = 2131166077;
+    public static final int search_bar_icon_del_margin_left = 2131166074;
+    public static final int search_bar_icon_del_margin_right = 2131166075;
+    public static final int search_bar_icon_search_margin_left = 2131166073;
+    public static final int search_bar_quick_response = 2131165418;
+    public static final int search_bar_send_button_margin_bottom = 2131166078;
+    public static final int search_bar_send_button_margin_left = 2131166079;
+    public static final int search_bar_send_button_margin_right = 2131166080;
+    public static final int search_bar_send_button_margin_top = 2131166081;
+    public static final int search_bar_send_button_padding_bottom = 2131166082;
+    public static final int search_bar_send_button_padding_left = 2131166083;
+    public static final int search_bar_send_button_padding_right = 2131166084;
+    public static final int search_bar_send_button_padding_top = 2131166085;
+    public static final int search_btn_height = 2131165422;
+    public static final int search_from_qr = 2131165419;
+    public static final int search_hol = 2131165420;
+    public static final int search_tab_edge_padding = 2131165219;
+    public static final int search_tab_height = 2131165415;
+    public static final int search_tab_padding = 2131165218;
+    public static final int search_tab_text = 2131165416;
+    public static final int search_vel = 2131165421;
+    public static final int secret_black_address_list_margintop = 2131166091;
+    public static final int secret_chat_set_title_height = 2131166088;
+    public static final int secret_left_margin = 2131166090;
+    public static final int secret_only_send_me = 2131166089;
+    public static final int single_bottom_height = 2131166202;
+    public static final int small_icon_height = 2131166096;
+    public static final int small_icon_margin = 2131166097;
+    public static final int small_icon_width = 2131166095;
+    public static final int sqaure_all_text = 2131165408;
+    public static final int sqaure_block_title_all_drawablePadding = 2131165373;
+    public static final int sqaure_block_title_all_marginRight = 2131165372;
+    public static final int sqaure_block_title_height = 2131165371;
+    public static final int sqaure_block_title_marginLeft = 2131165370;
+    public static final int sqaure_block_title_text = 2131165406;
+    public static final int sqaure_browse_sub_title_text = 2131165413;
+    public static final int sqaure_browse_title_text = 2131165412;
+    public static final int sqaure_forum_title_text = 2131165407;
+    public static final int sqaure_post_content_text = 2131165410;
+    public static final int sqaure_post_info_text = 2131165411;
+    public static final int sqaure_post_title_text = 2131165409;
+    public static final int square_arrow_paddingleft = 2131165405;
+    public static final int square_block_padding = 2131165369;
+    public static final int square_browse_item_height = 2131165397;
+    public static final int square_browse_item_padding = 2131165396;
+    public static final int square_browse_pic_height = 2131165395;
+    public static final int square_browse_pic_width = 2131165394;
+    public static final int square_caroucel_paddingBottom = 2131165375;
+    public static final int square_caroucel_paddingTop = 2131165374;
+    public static final int square_forum_height = 2131165389;
+    public static final int square_forum_list_divider_height = 2131165403;
+    public static final int square_forum_list_divider_width = 2131165402;
+    public static final int square_forum_list_height = 2131165400;
+    public static final int square_forum_list_paddingBottom = 2131165404;
+    public static final int square_forum_list_text_padding = 2131165401;
+    public static final int square_forum_list_title_text = 2131165414;
+    public static final int square_forum_marginBottom = 2131165392;
+    public static final int square_forum_marginLeft = 2131165391;
+    public static final int square_forum_marginTop = 2131165390;
+    public static final int square_forum_topic_margin = 2131165398;
+    public static final int square_forum_topic_paddingBottom = 2131165399;
+    public static final int square_forum_width = 2131165388;
+    public static final int square_indicator_spacing = 2131165387;
+    public static final int square_line_padding = 2131165368;
+    public static final int square_page_more_padding = 2131165367;
+    public static final int square_page_padding = 2131165366;
+    public static final int square_post_block_height = 2131165376;
+    public static final int square_post_content_marginBottom = 2131165383;
+    public static final int square_post_ht_marginTop = 2131165384;
+    public static final int square_post_indicator_marginBottom = 2131165386;
+    public static final int square_post_line_marginLR = 2131165385;
+    public static final int square_post_paddingBottom = 2131165380;
+    public static final int square_post_paddingLeftRight = 2131165379;
+    public static final int square_post_paddingTop = 2131165378;
+    public static final int square_post_reply_marginRight = 2131165377;
+    public static final int square_post_title_marginBottom = 2131165382;
+    public static final int square_post_title_marginTop = 2131165381;
+    public static final int square_scroll_paddingBottom = 2131165393;
+    public static final int square_search_line_divider = 2131166400;
+    public static final int square_search_line_divider_2 = 2131166401;
+    public static final int square_search_view_width = 2131166399;
+    public static final int subpb_body_margin_left = 2131165733;
+    public static final int subpb_body_margin_right = 2131165734;
+    public static final int subpb_body_padding_bottom = 2131165735;
+    public static final int subpb_header_bottom_layout_height = 2131165741;
+    public static final int subpb_header_floorowner_margin_top = 2131165756;
+    public static final int subpb_header_user_layout_margin_left = 2131165739;
+    public static final int subpb_header_usericon_padding_top = 2131165757;
+    public static final int subpb_header_weight_layout_height = 2131165740;
+    public static final int subpb_list_item_element_segment = 2131165758;
+    public static final int subpb_list_item_minheight = 2131165732;
+    public static final int subpb_listitem_loadmore_padding_bottom = 2131165749;
+    public static final int subpb_listitem_loadmore_padding_top = 2131165748;
+    public static final int subpb_listitem_loadmore_text_size = 2131165750;
+    public static final int subpb_listitem_margin_left = 2131165744;
+    public static final int subpb_listitem_margin_right = 2131165745;
+    public static final int subpb_listitem_packup_divider_height = 2131165747;
+    public static final int subpb_listitem_packup_min_height = 2131165746;
+    public static final int subpb_listitem_padding_bottom = 2131165743;
+    public static final int subpb_listitem_padding_top = 2131165742;
+    public static final int subpb_listitem_time_text_size = 2131165751;
+    public static final int subpb_packup_text_drawable_padding = 2131165737;
+    public static final int subpb_packup_text_height = 2131165736;
+    public static final int subpb_packup_text_size = 2131165738;
+    public static final int subpb_reply_loadPrevious_padding_bottom = 2131165755;
+    public static final int subpb_reply_loadPrevious_padding_top = 2131165754;
+    public static final int subpb_reply_loadprevious_height = 2131165753;
+    public static final int subpb_reply_loadprevious_margin_top = 2131165752;
+    public static final int tip_view_button_height = 2131165250;
+    public static final int tip_view_button_marginright = 2131165251;
+    public static final int tip_view_button_width = 2131165327;
+    public static final int tip_view_height = 2131165244;
+    public static final int tip_view_image_height = 2131165246;
+    public static final int tip_view_image_width = 2131165245;
+    public static final int tip_view_padding_left = 2131165247;
+    public static final int tip_view_padding_right = 2131165248;
+    public static final int tip_view_text_marginleft = 2131165249;
+    public static final int top_btn_height = 2131165224;
+    public static final int top_layout_height = 2131165220;
+    public static final int top_layout_title_icon_size = 2131165227;
+    public static final int toprec_finishbox_width = 2131165423;
+    public static final int voice_play_bnt_height_0 = 2131165204;
+    public static final int voice_play_bnt_height_1 = 2131165206;
+    public static final int voice_play_bnt_padding = 2131165207;
+    public static final int voice_play_bnt_text_size_0 = 2131165201;
+    public static final int voice_play_bnt_text_size_1 = 2131165202;
+    public static final int voice_play_bnt_width_0 = 2131165203;
+    public static final int voice_play_bnt_width_1 = 2131165205;
+    public static final int wait_chat_large_circle_marginbottom = 2131165254;
+    public static final int wait_chat_large_circle_margintop = 2131165253;
+    public static final int wait_chat_large_circle_radius = 2131165231;
+    public static final int wait_chat_large_circle_stroke = 2131165232;
+    public static final int wait_chat_person_circle_height = 2131165234;
+    public static final int wait_chat_person_circle_lheight = 2131165236;
+    public static final int wait_chat_person_circle_lwidth = 2131165235;
+    public static final int wait_chat_person_circle_width = 2131165233;
+    public static final int write_addition_height = 2131165432;
+    public static final int write_content_font = 2131165431;
+    public static final int write_content_padding_left = 2131165425;
+    public static final int write_content_padding_right = 2131165426;
+    public static final int write_content_padding_top = 2131165427;
+    public static final int write_line_height = 2131165429;
+    public static final int write_title_font = 2131165430;
+    public static final int write_title_height = 2131165428;
+    public static final int write_title_padding = 2131165424;
+    public static final int write_tool_buton_container_padding_left = 2131165812;
+    public static final int write_tool_button_container_height = 2131165810;
+    public static final int write_tool_button_distance = 2131165809;
+    public static final int write_tool_button_height = 2131165808;
+    public static final int write_tool_button_width = 2131165807;
+    public static final int write_tool_image_preview_padding_left = 2131165811;
 }

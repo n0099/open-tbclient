@@ -2,7 +2,7 @@ package com.baidu.tieba.mainentrance;
 
 import android.view.View;
 /* loaded from: classes.dex */
-final class s implements View.OnClickListener {
+class s implements View.OnClickListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,14 +10,14 @@ final class s implements View.OnClickListener {
         this.a = squareSearchActivity;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0050, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0051, code lost:
         if (r0.equals(r1) == false) goto L16;
      */
     @Override // android.view.View.OnClickListener
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void onClick(View view) {
+    public void onClick(View view) {
         String str;
         String str2;
         int i;
@@ -29,7 +29,7 @@ final class s implements View.OnClickListener {
         str = this.a.y;
         if (str != null) {
             str2 = this.a.y;
-            if (str2.trim().length() > 0) {
+            if (str2.trim().length() >= 1) {
                 i = this.a.z;
                 if (i != 0) {
                     str3 = this.a.A;
@@ -45,10 +45,10 @@ final class s implements View.OnClickListener {
                     squareSearchActivity2.A = str5;
                     return;
                 }
-                this.a.b();
+                this.a.d();
                 return;
             }
         }
-        this.a.showToast(this.a.getResources().getString(com.baidu.tieba.a.k.write_keyword));
+        this.a.showToast(this.a.getResources().getString(com.baidu.tieba.u.write_keyword));
     }
 }

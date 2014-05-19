@@ -1,10 +1,10 @@
 package com.baidu.tbadk.core.dialog;
 
-import com.baidu.tbadk.i;
+import com.baidu.tieba.q;
 import java.util.HashMap;
 /* loaded from: classes.dex */
-public final class BdToast {
-    private static HashMap<DefaultIcon, Integer> a;
+public class BdToast {
+    private static HashMap<DefaultIcon, Integer> a = new HashMap<>(2);
 
     /* loaded from: classes.dex */
     public enum DefaultIcon {
@@ -23,9 +23,7 @@ public final class BdToast {
     }
 
     static {
-        HashMap<DefaultIcon, Integer> hashMap = new HashMap<>(2);
-        a = hashMap;
-        hashMap.put(DefaultIcon.SUCCESS, Integer.valueOf(i.icon_unite_pass));
-        a.put(DefaultIcon.FAILURE, Integer.valueOf(i.icon_unite_lose));
+        a.put(DefaultIcon.SUCCESS, Integer.valueOf(q.icon_unite_pass));
+        a.put(DefaultIcon.FAILURE, Integer.valueOf(q.icon_unite_lose));
     }
 }

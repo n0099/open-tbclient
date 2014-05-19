@@ -1,8 +1,10 @@
 package com.baidu.tieba.mainentrance;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-final class u implements Runnable {
+class u implements Runnable {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +13,7 @@ final class u implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         String str;
         String str2;
         String str3;
@@ -23,12 +25,12 @@ final class u implements Runnable {
                 str2 = this.a.y;
                 if (str2.length() > 0) {
                     StringBuffer stringBuffer = new StringBuffer(30);
-                    stringBuffer.append(com.baidu.tbadk.core.data.n.a);
+                    stringBuffer.append(TbConfig.SERVER_ADDRESS);
                     stringBuffer.append("c/f/forum/search");
                     str3 = this.a.y;
                     BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", str3.trim());
                     this.a.a();
-                    this.a.w = new ab(this.a, stringBuffer.toString(), basicNameValuePair);
+                    this.a.w = new ab(this.a, stringBuffer.toString(), basicNameValuePair, true);
                     abVar = this.a.w;
                     abVar.setPriority(3);
                     abVar2 = this.a.w;
@@ -36,7 +38,7 @@ final class u implements Runnable {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "mSuggestRunnble.run", "error = " + e.getMessage());
+            BdLog.e(getClass().getName(), "mSuggestRunnble.run", "error = " + e.getMessage());
         }
     }
 }

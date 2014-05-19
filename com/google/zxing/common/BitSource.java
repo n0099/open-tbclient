@@ -11,18 +11,18 @@ public final class BitSource {
         this.bytes = bArr;
     }
 
-    public final int getBitOffset() {
+    public int getBitOffset() {
         return this.bitOffset;
     }
 
-    public final int getByteOffset() {
+    public int getByteOffset() {
         return this.byteOffset;
     }
 
-    public final int readBits(int i) {
+    public int readBits(int i) {
         int i2;
         int i3;
-        if (i <= 0 || i > 32 || i > available()) {
+        if (i < 1 || i > 32 || i > available()) {
             throw new IllegalArgumentException(String.valueOf(i));
         }
         if (this.bitOffset > 0) {
@@ -59,7 +59,7 @@ public final class BitSource {
         return i2;
     }
 
-    public final int available() {
+    public int available() {
         return ((this.bytes.length - this.byteOffset) * 8) - this.bitOffset;
     }
 }

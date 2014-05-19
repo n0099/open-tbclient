@@ -3,7 +3,7 @@ package com.baidu.tbadk.editortool;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ae implements f {
+public class ae implements f {
     final /* synthetic */ ac a;
     private final /* synthetic */ ArrayList b;
 
@@ -14,7 +14,7 @@ public final class ae implements f {
     }
 
     @Override // com.baidu.tbadk.editortool.f
-    public final void a(ag agVar) {
+    public void a(ag agVar) {
         this.b.add(agVar);
     }
 }

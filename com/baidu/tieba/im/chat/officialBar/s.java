@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class s {
+public class s {
     public static List<t> a(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;

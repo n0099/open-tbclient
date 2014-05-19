@@ -3,7 +3,7 @@ package com.baidu.tieba.square;
 import android.view.View;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
-final class m implements com.baidu.tbadk.imageManager.d {
+class m implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ i a;
     private final /* synthetic */ View b;
 
@@ -14,11 +14,11 @@ final class m implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         View findViewWithTag = this.b.findViewWithTag(str);
-        if ((findViewWithTag instanceof ImageView) && bVar != null) {
+        if ((findViewWithTag instanceof ImageView) && aVar != null) {
             ImageView imageView = (ImageView) findViewWithTag;
-            imageView.setImageBitmap(bVar.h());
+            imageView.setImageBitmap(aVar.h());
             imageView.invalidate();
         }
     }

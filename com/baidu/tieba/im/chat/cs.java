@@ -1,17 +1,28 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-final class cs implements View.OnClickListener {
-    final /* synthetic */ MsgrightView a;
+class cs implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ cq a;
+    private final /* synthetic */ CustomMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cs(MsgrightView msgrightView) {
-        this.a = msgrightView;
+    public cs(cq cqVar, CustomMessage customMessage) {
+        this.a = cqVar;
+        this.b = customMessage;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        this.a.c.a(view, 1, this.a.f, 0L);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r6) {
+        ((com.baidu.tbadk.core.atomData.au) this.b.getData()).getIntent().setClass(((com.baidu.tbadk.core.atomData.au) this.b.getData()).getContext(), PersonalChatActivity.class);
+        UserData a = ((com.baidu.tbadk.core.atomData.au) this.b.getData()).a();
+        if (a.getUserIdLong() == 0) {
+            BdLog.d("userid = " + a.getUserId());
+        } else {
+            ((com.baidu.tbadk.core.atomData.au) this.b.getData()).startActivity();
+        }
     }
 }

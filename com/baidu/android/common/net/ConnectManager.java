@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
-import com.baidu.loginshare.e;
 /* loaded from: classes.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
@@ -25,7 +24,7 @@ public class ConnectManager {
             if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
                 this.mUseWap = true;
                 this.mApn = lowerCase;
-                this.mProxy = e.h;
+                this.mProxy = "10.0.0.172";
                 this.mPort = "80";
                 return;
             } else if (lowerCase.startsWith("ctwap")) {
@@ -47,7 +46,7 @@ public class ConnectManager {
             return;
         }
         this.mProxy = defaultHost;
-        if (e.h.equals(this.mProxy.trim())) {
+        if ("10.0.0.172".equals(this.mProxy.trim())) {
             this.mUseWap = true;
             this.mPort = "80";
         } else if ("10.0.0.200".equals(this.mProxy.trim())) {

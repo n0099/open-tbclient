@@ -1,26 +1,29 @@
 package com.baidu.tieba.im.e.a;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tieba.im.message.RequestGroupInfoLocalMessage;
 import com.baidu.tieba.im.message.ResponseGroupInfoLocalMessage;
-import com.baidu.tieba.im.message.aj;
 /* loaded from: classes.dex */
-public class i implements com.baidu.adp.framework.task.a<Object> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<Object> aVar) {
-        if (aVar == null || !(aVar instanceof aj)) {
+public class i implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof RequestGroupInfoLocalMessage)) {
             return a();
         }
-        aj ajVar = (aj) aVar;
+        RequestGroupInfoLocalMessage requestGroupInfoLocalMessage = (RequestGroupInfoLocalMessage) customMessage;
         String str = "";
-        if (TbadkApplication.N() != null) {
-            str = TbadkApplication.N().getID();
+        if (TbadkApplication.getCurrentAccountObj() != null) {
+            str = TbadkApplication.getCurrentAccountObj().getID();
         }
-        byte[] a = com.baidu.tbadk.core.c.b.a().q().a("group_info" + str + ajVar.b());
+        byte[] a = com.baidu.tbadk.core.a.b.a().s().a("group_info" + str + requestGroupInfoLocalMessage.getGroupId());
         if (a != null) {
             ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = new ResponseGroupInfoLocalMessage();
             try {
-                responseGroupInfoLocalMessage.a(a);
+                responseGroupInfoLocalMessage.decodeInBackGround(MessageTypes.CMD_REQUEST_GROUP_INFO_BY_ID_LOCAL, a);
                 return responseGroupInfoLocalMessage;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -29,9 +32,9 @@ public class i implements com.baidu.adp.framework.task.a<Object> {
         return a();
     }
 
-    private static CustomResponsedMessage<?> a() {
+    private CustomResponsedMessage<?> a() {
         ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = new ResponseGroupInfoLocalMessage();
-        responseGroupInfoLocalMessage.a(-18);
+        responseGroupInfoLocalMessage.setError(-18);
         return responseGroupInfoLocalMessage;
     }
 }

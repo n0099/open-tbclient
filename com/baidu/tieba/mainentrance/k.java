@@ -5,8 +5,9 @@ import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class k implements TextWatcher {
+public class k implements TextWatcher {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +16,7 @@ final class k implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         String str;
         int i4;
         int i5;
@@ -27,24 +28,24 @@ final class k implements TextWatcher {
             if (i5 != 0) {
                 return;
             }
-            this.a.e();
+            this.a.k();
             return;
         }
         this.a.a();
         i4 = this.a.z;
         if (i4 == 0) {
-            this.a.c();
+            this.a.i();
         } else {
-            this.a.d();
+            this.a.j();
         }
     }
 
     @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
+    public void afterTextChanged(Editable editable) {
         Button button;
         TextView textView;
         TextView textView2;
@@ -56,12 +57,12 @@ final class k implements TextWatcher {
             button = this.a.d;
             button.setVisibility(0);
         }
-        if (TbadkApplication.j().l() == 1) {
+        if (TbadkApplication.m252getInst().getSkinType() == 1) {
             textView2 = this.a.e;
-            textView2.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.a.e.common_new_page_title_1));
+            textView2.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.o.common_new_page_title_1));
             return;
         }
         textView = this.a.e;
-        textView.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.a.e.white));
+        textView.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.o.white));
     }
 }

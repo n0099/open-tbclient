@@ -1,19 +1,6 @@
 package com.baidu.tbadk.widget.richText;
 /* loaded from: classes.dex */
-public final class e {
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public int f;
-    public int g;
-    public String h;
-    public String i;
-    public boolean j;
-    public boolean k = false;
-
-    public final String toString() {
-        return "TbRichTextEmotionInfo{mStatic='" + this.a + "', mDynamic='" + this.b + "', mC='" + this.c + "', mType=" + this.d + ", mGroupId='" + this.e + "', mWidth=" + this.f + ", mHeight=" + this.g + ", mPacketName='" + this.h + "', mIcon='" + this.i + "', mFailed=" + this.j + '}';
-    }
+public class e {
+    public int a;
+    public com.baidu.tbadk.gif.a b = new com.baidu.tbadk.gif.a();
 }

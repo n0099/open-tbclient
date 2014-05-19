@@ -1,15 +1,18 @@
 package com.baidu.tieba.im.db;
 
 import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tieba.im.chat.bw;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.r;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class i {
+public class i {
     private static i a = new i();
-    private com.baidu.adp.framework.c.g b = new j(this, 0);
+    private com.baidu.adp.framework.listener.b b = new j(this, 0);
 
     private i() {
     }
@@ -18,12 +21,16 @@ public final class i {
         return a;
     }
 
-    public final void b() {
-        com.baidu.adp.framework.c.a().a(103112, this.b);
-        com.baidu.adp.framework.c.a().a(103101, this.b);
+    public void b() {
+        c();
     }
 
-    public final synchronized void a(ImMessageCenterPojo imMessageCenterPojo) {
+    private void c() {
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_REMOVE_MEMBERS, this.b);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_ADD_GROUP, this.b);
+    }
+
+    public synchronized void a(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
             String gid = imMessageCenterPojo.getGid();
             if (!TextUtils.isEmpty(gid)) {
@@ -56,7 +63,7 @@ public final class i {
                     long last_rid2 = imMessageCenterPojo.getLast_rid();
                     if (last_rid <= last_rid2) {
                         a2.setLast_rid(last_rid2);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.a().a(com.baidu.adp.lib.f.b.a(a2.getGid(), 0), a2.getPulled_msgId() / 100);
+                        com.baidu.tbadk.coreExtra.messageCenter.e.a().a(com.baidu.adp.lib.f.b.a(a2.getGid(), 0), bw.c(a2.getPulled_msgId()));
                         com.baidu.tieba.im.b.a.a().a(a2);
                     }
                 }
@@ -64,23 +71,23 @@ public final class i {
         }
     }
 
-    public final synchronized void a(String str) {
+    public synchronized void a(String str) {
         ImMessageCenterPojo a2 = com.baidu.tieba.im.b.e.a(str);
         if (a2 != null) {
             a2.setLast_rid(0L);
             a2.setPulled_msgId(0L);
             a2.setIs_delete(1);
         } else {
-            com.baidu.adp.lib.util.f.b("删除gid失败");
+            BdLog.e("删除gid失败");
         }
     }
 
-    public final synchronized void b(String str) {
-        com.baidu.tbadk.coreExtra.messageCenter.d.a().a(com.baidu.adp.lib.f.b.a(str, 0));
+    public synchronized void b(String str) {
+        com.baidu.tbadk.coreExtra.messageCenter.e.a().a(com.baidu.adp.lib.f.b.a(str, 0));
         com.baidu.tieba.im.b.a.a().b(str);
     }
 
-    public final synchronized void b(ImMessageCenterPojo imMessageCenterPojo) {
+    public synchronized void b(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
             ImMessageCenterPojo a2 = com.baidu.tieba.im.b.a.a().a(imMessageCenterPojo.getGid());
             if (a2 == null) {
@@ -100,14 +107,14 @@ public final class i {
         }
     }
 
-    public static void c(String str) {
+    public void c(String str) {
         ImMessageCenterPojo a2;
         if (!TextUtils.isEmpty(str) && (a2 = com.baidu.tieba.im.b.e.a(str)) != null) {
             a2.setUnread_count(0);
         }
     }
 
-    public final void a(LinkedList<ImMessageCenterPojo> linkedList) {
+    public void a(LinkedList<ImMessageCenterPojo> linkedList) {
         if (linkedList != null) {
             HashSet hashSet = new HashSet();
             com.baidu.tieba.im.b.e.a(new l(this, hashSet));
@@ -132,7 +139,7 @@ public final class i {
                     com.baidu.tieba.im.b.a.a().a(next);
                 }
             }
-            r.a(new m(this, linkedList), null);
+            com.baidu.tieba.im.i.a(new m(this, linkedList), null);
         }
     }
 }

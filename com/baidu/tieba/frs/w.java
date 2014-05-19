@@ -3,7 +3,7 @@ package com.baidu.tieba.frs;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-final class w implements SlidingMenu.OnOpenedListener {
+class w implements SlidingMenu.OnOpenedListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ final class w implements SlidingMenu.OnOpenedListener {
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
-    public final void onOpened() {
-        TiebaStatic.a(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
+    public void onOpened() {
+        TiebaStatic.eventStat(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
     }
 }

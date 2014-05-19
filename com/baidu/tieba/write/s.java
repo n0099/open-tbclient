@@ -1,10 +1,11 @@
 package com.baidu.tieba.write;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class s extends com.baidu.adp.a.e {
+public class s extends com.baidu.adp.base.d {
     private ArrayList<com.baidu.tbadk.core.data.o> b;
     private t a = null;
     private int c = 0;
@@ -15,26 +16,34 @@ public final class s extends com.baidu.adp.a.e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final ArrayList<com.baidu.tbadk.core.data.o> a() {
+    public ArrayList<com.baidu.tbadk.core.data.o> a() {
         return this.b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final int b() {
+    public int b() {
         return this.c;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(String str) {
+    public void a(String str) {
         if (this.a == null) {
-            this.a = new t(this, (byte) 0);
+            this.a = new t(this, null);
             this.a.setPriority(3);
             this.a.execute(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(JSONObject jSONObject) {
+    public void b(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
+        }
+    }
+
+    void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.c = jSONObject.optInt("error_code", 0);
@@ -50,18 +59,18 @@ public final class s extends com.baidu.adp.a.e {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();
             return true;

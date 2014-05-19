@@ -45,8 +45,8 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
             while (this.mFragments.size() <= i) {
                 this.mFragments.add(null);
             }
-            FragmentCompat.setMenuVisibility(item, DEBUG);
-            FragmentCompat.setUserVisibleHint(item, DEBUG);
+            FragmentCompat.setMenuVisibility(item, false);
+            FragmentCompat.setUserVisibleHint(item, false);
             this.mFragments.set(i, item);
             this.mCurTransaction.add(viewGroup.getId(), item);
             return item;
@@ -73,8 +73,8 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
         Fragment fragment = (Fragment) obj;
         if (fragment != this.mCurrentPrimaryItem) {
             if (this.mCurrentPrimaryItem != null) {
-                FragmentCompat.setMenuVisibility(this.mCurrentPrimaryItem, DEBUG);
-                FragmentCompat.setUserVisibleHint(this.mCurrentPrimaryItem, DEBUG);
+                FragmentCompat.setMenuVisibility(this.mCurrentPrimaryItem, false);
+                FragmentCompat.setUserVisibleHint(this.mCurrentPrimaryItem, false);
             }
             if (fragment != null) {
                 FragmentCompat.setMenuVisibility(fragment, true);
@@ -95,10 +95,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public boolean isViewFromObject(View view, Object obj) {
-        if (((Fragment) obj).getView() == view) {
-            return true;
-        }
-        return DEBUG;
+        return ((Fragment) obj).getView() == view;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -144,7 +141,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
                         while (this.mFragments.size() <= parseInt) {
                             this.mFragments.add(null);
                         }
-                        FragmentCompat.setMenuVisibility(fragment, DEBUG);
+                        FragmentCompat.setMenuVisibility(fragment, false);
                         this.mFragments.set(parseInt, fragment);
                     } else {
                         Log.w(TAG, "Bad fragment at key " + str);

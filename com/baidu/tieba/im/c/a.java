@@ -1,6 +1,8 @@
 package com.baidu.tieba.im.c;
+
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     public static int a(int i) {
         switch (i) {
             case 1:
@@ -10,6 +12,14 @@ public final class a {
             case 4:
             case 5:
             case 9:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            case 18:
+            case 19:
+            case 20:
             default:
                 return 1;
             case 6:
@@ -22,6 +32,8 @@ public final class a {
             case 11:
             case 12:
                 return 6;
+            case TbConfig.NOTIFY_LIVE_NOTIFY /* 21 */:
+                return 7;
         }
     }
 }

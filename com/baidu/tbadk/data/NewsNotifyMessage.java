@@ -1,62 +1,73 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
-    private a a;
+    private a mData;
 
     public NewsNotifyMessage() {
-        super(2001124);
-        this.a = new a(this);
+        super(MessageTypes.CMD_MESSAGE_NOTIFY_LOCAL);
+        this.mData = new a(this);
     }
 
-    public final int b() {
+    public NewsNotifyMessage(int i, int i2, int i3, int i4, int i5) {
+        super(MessageTypes.CMD_MESSAGE_NOTIFY_LOCAL);
+        this.mData = new a(this);
+        this.mData.b = i;
+        this.mData.c = i2;
+        this.mData.d = i3;
+        this.mData.e = i4;
+        this.mData.f = i5;
+    }
+
+    public int getMsgReplyme() {
         int i;
-        i = this.a.b;
+        i = this.mData.b;
         return i;
     }
 
-    public final void b(int i) {
-        this.a.b = i;
+    public void setMsgReplyme(int i) {
+        this.mData.b = i;
     }
 
-    public final int c() {
+    public int getMsgAtme() {
         int i;
-        i = this.a.c;
+        i = this.mData.c;
         return i;
     }
 
-    public final void c(int i) {
-        this.a.c = i;
+    public void setMsgAtme(int i) {
+        this.mData.c = i;
     }
 
-    public final int d() {
+    public int getMsgFans() {
         int i;
-        i = this.a.d;
+        i = this.mData.d;
         return i;
     }
 
-    public final void d(int i) {
-        this.a.d = i;
+    public void setMsgFans(int i) {
+        this.mData.d = i;
     }
 
-    public final int i() {
+    public int getMsgChat() {
         int i;
-        i = this.a.e;
+        i = this.mData.e;
         return i;
     }
 
-    public final void e(int i) {
-        this.a.e = i;
+    public void setMsgChat(int i) {
+        this.mData.e = i;
     }
 
-    public final int j() {
+    public int getMsgBookmark() {
         int i;
-        i = this.a.f;
+        i = this.mData.f;
         return i;
     }
 
-    public final void f(int i) {
-        this.a.f = i;
+    public void setMsgBookmark(int i) {
+        this.mData.f = i;
     }
 }

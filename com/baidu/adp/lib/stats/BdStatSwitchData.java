@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.stats;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.location.LocationClientOption;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -8,7 +9,9 @@ import org.json.JSONObject;
 public class BdStatSwitchData implements Serializable {
     private static final long serialVersionUID = -4426491450548432115L;
     private BdStatFirstSwitchData error;
+    private String mAppVersion;
     private int uploadInterval;
+    private long specifiedExpired = 0;
     private int error_code = -1;
     private String error_msg = null;
     private BdStatFirstSwitchData debug = new BdStatFirstSwitchData();
@@ -78,17 +81,37 @@ public class BdStatSwitchData implements Serializable {
         this.uploadInterval = i;
     }
 
+    public long getSpecifiedExpired() {
+        return this.specifiedExpired;
+    }
+
+    public void setSpecifiedExpired(long j) {
+        this.specifiedExpired = j;
+    }
+
+    public boolean inSpecStrategy() {
+        return this.specifiedExpired > System.currentTimeMillis();
+    }
+
+    public String getAppVersion() {
+        return this.mAppVersion;
+    }
+
+    public void setAppVersion(String str) {
+        this.mAppVersion = str;
+    }
+
     public void parserJson(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                parserJson(new JSONObject(str));
+                a(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.a(getClass(), "parserJson", e);
+                BdLog.e(getClass(), "parserJson", e);
             }
         }
     }
 
-    public void parserJson(JSONObject jSONObject) {
+    private void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 setError_code(jSONObject.optInt("error_code", 0));
@@ -97,14 +120,23 @@ public class BdStatSwitchData implements Serializable {
                 if (optInt > 0) {
                     setUploadInterval(optInt);
                 }
+                long optInt2 = jSONObject.optInt("expire", 0);
+                if (optInt2 > 0) {
+                    setSpecifiedExpired((optInt2 * 1000) + System.currentTimeMillis());
+                } else {
+                    setSpecifiedExpired(0L);
+                }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.debug.parserJson(optJSONObject.optJSONObject("debug"));
-                    this.stat.parserJson(optJSONObject.optJSONObject("stat"));
-                    this.error.parserJson(optJSONObject.optJSONObject("error"));
+                    this.debug.setAppVersion(this.mAppVersion);
+                    this.stat.setAppVersion(this.mAppVersion);
+                    this.error.setAppVersion(this.mAppVersion);
+                    this.debug.parserJson(optJSONObject.optJSONArray("debug"));
+                    this.stat.parserJson(optJSONObject.optJSONArray("stat"));
+                    this.error.parserJson(optJSONObject.optJSONArray("error"));
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.a(getClass(), "parserJson", e);
+                BdLog.e(getClass(), "parserJson", e);
             }
         }
     }

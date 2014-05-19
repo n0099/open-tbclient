@@ -85,12 +85,12 @@ public final class MultiFormatWriter implements Writer {
     }
 
     @Override // com.google.zxing.Writer
-    public final BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) {
         return encode(str, barcodeFormat, i, i2, null);
     }
 
     @Override // com.google.zxing.Writer
-    public final BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) {
         switch ($SWITCH_TABLE$com$google$zxing$BarcodeFormat()[barcodeFormat.ordinal()]) {
             case 12:
                 return new QRCodeWriter().encode(str, barcodeFormat, i, i2, map);

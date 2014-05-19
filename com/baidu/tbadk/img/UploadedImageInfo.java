@@ -1,5 +1,6 @@
 package com.baidu.tbadk.img;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -47,7 +48,7 @@ public class UploadedImageInfo implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("InfoData", "parserJson", "error = " + e.getMessage());
+            BdLog.e("InfoData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -58,14 +59,14 @@ public class UploadedImageInfo implements Serializable {
                 this.width = jSONObject.optInt("width", 0);
                 this.height = jSONObject.optInt("height", 0);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("InfoData", "parserJson", "error = " + e.getMessage());
+                BdLog.e("InfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.adp.lib.util.f.d("InfoData", "logPrint", "pic_id = " + this.pic_id);
-        com.baidu.adp.lib.util.f.d("InfoData", "logPrint", "width = " + String.valueOf(this.width));
-        com.baidu.adp.lib.util.f.d("InfoData", "logPrint", "height = " + String.valueOf(this.height));
+        BdLog.v("InfoData", "logPrint", "pic_id = " + this.pic_id);
+        BdLog.v("InfoData", "logPrint", "width = " + String.valueOf(this.width));
+        BdLog.v("InfoData", "logPrint", "height = " + String.valueOf(this.height));
     }
 }

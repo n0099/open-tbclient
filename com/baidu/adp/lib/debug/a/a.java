@@ -3,7 +3,7 @@ package com.baidu.adp.lib.debug.a;
 public class a {
     private boolean a = false;
 
-    public final boolean a() {
+    public boolean a() {
         return this.a;
     }
 

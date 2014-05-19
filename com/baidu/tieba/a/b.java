@@ -1,53 +1,66 @@
 package com.baidu.tieba.a;
+
+import com.baidu.adp.lib.util.h;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.NewErrorData;
+import com.baidu.tbadk.core.f;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public final class b {
-    public static final int adp_down_to_up = 2130968576;
-    public static final int adp_up_to_down = 2130968577;
-    public static final int album_choose_icon = 2130968578;
-    public static final int bdsocialshare_sharedialog_in = 2130968579;
-    public static final int bdsocialshare_sharedialog_out = 2130968580;
-    public static final int bdsocialshare_sharemenu_in = 2130968581;
-    public static final int bdsocialshare_sharemenu_out = 2130968582;
-    public static final int big_image_anim = 2130968583;
-    public static final int bottom_fold_down = 2130968584;
-    public static final int bottom_fold_up = 2130968585;
-    public static final int custom_home_text_info = 2130968586;
-    public static final int custom_menu_close = 2130968587;
-    public static final int custom_menu_open = 2130968588;
-    public static final int dialog_ani_b2t_enter = 2130968589;
-    public static final int dialog_ani_b2t_exit = 2130968590;
-    public static final int dialog_ani_l2r_enter = 2130968591;
-    public static final int dialog_ani_l2r_exit = 2130968592;
-    public static final int dialog_ani_r2l_enter = 2130968593;
-    public static final int dialog_ani_r2l_exit = 2130968594;
-    public static final int dialog_ani_t2b_enter = 2130968595;
-    public static final int dialog_ani_t2b_exit = 2130968596;
-    public static final int down = 2130968597;
-    public static final int frs_browser_enter = 2130968598;
-    public static final int frs_like = 2130968599;
-    public static final int frs_praise_animation = 2130968600;
-    public static final int frs_sign = 2130968601;
-    public static final int hold = 2130968602;
-    public static final int left = 2130968605;
-    public static final int loading_rotate = 2130968606;
-    public static final int no_effect = 2130968608;
-    public static final int pb_exit_anim = 2130968611;
-    public static final int pop_window_close = 2130968612;
-    public static final int pop_window_open = 2130968613;
-    public static final int praise_animation_scale1 = 2130968614;
-    public static final int praise_animation_scale2 = 2130968615;
-    public static final int praise_animation_scale3 = 2130968616;
-    public static final int refresh_rotate = 2130968617;
-    public static final int share_dialog_enter = 2130968618;
-    public static final int share_dialog_exit = 2130968619;
-    public static final int sub_pb_enter = 2130968620;
-    public static final int tb_image_anim = 2130968621;
-    public static final int top_fold_down = 2130968622;
-    public static final int top_fold_up = 2130968623;
-    public static final int top_recommended_finish_a = 2130968624;
-    public static final int top_recommended_finish_b = 2130968625;
-    public static final int user_info_center_head_rotate = 2130968626;
-    public static final int voice_btn_play_anim = 2130968627;
-    public static final int voice_btn_play_anim_1 = 2130968628;
-    public static final int voice_play = 2130968629;
+public class b extends f {
+    private static final String e = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/feed/forum";
+    private int c = 0;
+    private String d;
+
+    public String b(String str) {
+        a("pn", str);
+        a("rn", String.valueOf(20));
+        this.a.a().a().a = true;
+        a(e);
+        int b = h.b(ad.c().d());
+        int c = h.c(ad.c().d());
+        float f = b / 320.0f;
+        int i = bf.a().b() ? 2 : 1;
+        this.a.a("scr_w", String.valueOf(b));
+        this.a.a("scr_h", String.valueOf(c));
+        this.a.a("scr_dip", String.valueOf(f));
+        this.a.a("q_type", String.valueOf(i));
+        String i2 = this.a.i();
+        if (this.a.a().b().b()) {
+            this.b = new NewErrorData();
+            this.b.parserJson(i2);
+            return i2;
+        } else if (this.a.c()) {
+            this.c = this.a.d();
+            this.d = this.a.f();
+            return null;
+        } else {
+            this.c = -1;
+            this.d = ad.c().d().getResources().getString(u.neterror);
+            return null;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.f
+    public int e() {
+        if (this.b != null) {
+            return this.b.getErrorNumber();
+        }
+        if (this.c == 0) {
+            return this.c;
+        }
+        return -1;
+    }
+
+    @Override // com.baidu.tbadk.core.f
+    public String f() {
+        if (this.b != null) {
+            return this.b.getErrorMsg();
+        }
+        if (this.d != null) {
+            return this.d;
+        }
+        return "";
+    }
 }

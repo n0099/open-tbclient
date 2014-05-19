@@ -9,7 +9,7 @@ public final class d extends a {
     }
 
     @Override // com.baidu.android.defense.a.a
-    protected final void a() {
+    protected void a() {
         Intent intent = new Intent("action_appinstall");
         intent.putExtra("file_path", this.c);
         this.a.sendBroadcast(intent);

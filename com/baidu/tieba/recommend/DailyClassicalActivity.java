@@ -3,20 +3,27 @@ package com.baidu.tieba.recommend;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tieba.u;
 import java.net.URLDecoder;
 @Deprecated
 /* loaded from: classes.dex */
-public class DailyClassicalActivity extends com.baidu.tbadk.a implements com.baidu.tbadk.coreExtra.view.f {
+public class DailyClassicalActivity extends BaseActivity implements com.baidu.tbadk.coreExtra.view.g {
     private static boolean o = false;
     private static long p = 0;
     private ImageView a = null;
@@ -33,64 +40,68 @@ public class DailyClassicalActivity extends com.baidu.tbadk.a implements com.bai
     private TextView l = null;
     private TextView m = null;
     private boolean n = false;
-    private String q = "1";
+    private String q = TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2010021, new a());
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfig.DAILY_CLASSICLA_CUSTOM_CMD, new a());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public boolean getGpuSwitch() {
-        return TbadkApplication.j().az();
+        return TbadkApplication.m252getInst().isGpuOpen();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.a.i.day_classical_activity);
-        this.b = (RelativeLayout) findViewById(com.baidu.tieba.a.h.parent);
-        this.c = (RelativeLayout) findViewById(com.baidu.tieba.a.h.title);
-        this.d = (TextView) findViewById(com.baidu.tieba.a.h.title_text);
-        this.h = (LinearLayout) findViewById(com.baidu.tieba.a.h.tag_webview_item);
-        this.a = (ImageView) findViewById(com.baidu.tieba.a.h.back);
-        this.l = (TextView) this.h.findViewById(com.baidu.tieba.a.h.webview_fail);
-        this.m = (TextView) this.h.findViewById(com.baidu.tieba.a.h.webview_crash_tip);
-        this.g = (ProgressBar) findViewById(com.baidu.tieba.a.h.tag_progress);
+        setContentView(com.baidu.tieba.s.day_classical_activity);
+        d();
+    }
+
+    private void d() {
+        this.b = (RelativeLayout) findViewById(com.baidu.tieba.r.parent);
+        this.c = (RelativeLayout) findViewById(com.baidu.tieba.r.title);
+        this.d = (TextView) findViewById(com.baidu.tieba.r.title_text);
+        this.h = (LinearLayout) findViewById(com.baidu.tieba.r.tag_webview_item);
+        this.a = (ImageView) findViewById(com.baidu.tieba.r.back);
+        this.l = (TextView) this.h.findViewById(com.baidu.tieba.r.webview_fail);
+        this.m = (TextView) this.h.findViewById(com.baidu.tieba.r.webview_crash_tip);
+        this.g = (ProgressBar) findViewById(com.baidu.tieba.r.tag_progress);
         this.e = new b(this);
         this.a.setOnClickListener(this.e);
-        if (!d()) {
-            this.m.setVisibility(0);
+        if (f()) {
+            this.m.setVisibility(8);
+            a();
             return;
         }
-        this.m.setVisibility(8);
-        a();
+        this.m.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ba.a(this.b, i);
-        ba.d(this.c, i);
-        ba.d(this.d, i);
-        ba.a(this.a, i);
+        bc.a(this.b, i);
+        bc.d(this.c, i);
+        bc.d(this.d, i);
+        bc.a(this.a, i);
         if (this.f != null) {
-            ba.a(this.f, i);
+            bc.a(this.f, i);
             a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
-    public final void a() {
-        if (TbadkApplication.j().aF() == 0 && !d()) {
+    public void a() {
+        if (TbadkApplication.m252getInst().getWebviewCrashCount() == 0 && !f()) {
             this.m.setVisibility(0);
             return;
         }
@@ -100,66 +111,66 @@ public class DailyClassicalActivity extends com.baidu.tbadk.a implements com.bai
             this.g.setVisibility(0);
             this.j = false;
             this.k = true;
-            if (this.i != null) {
-                this.i.cancel();
-            }
-            this.i = new c(this, (byte) 0);
+            g();
+            this.i = new c(this, null);
             this.i.setPriority(3);
             this.i.execute(new Object[0]);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void f(DailyClassicalActivity dailyClassicalActivity) {
-        if (dailyClassicalActivity.j) {
-            if (!dailyClassicalActivity.k) {
-                dailyClassicalActivity.showToast(dailyClassicalActivity.getResources().getString(com.baidu.tieba.a.k.neterror));
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e() {
+        if (this.j) {
+            if (!this.k) {
+                showToast(getResources().getString(u.neterror));
             }
-            dailyClassicalActivity.n = false;
-            dailyClassicalActivity.g.setVisibility(8);
+            this.n = false;
+            this.g.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.f
-    public final boolean a(String str) {
-        String str2;
-        if (!com.baidu.tbadk.d.d.a(this, str)) {
+    @Override // com.baidu.tbadk.coreExtra.view.g
+    public boolean a(WebView webView, String str) {
+        if (!com.baidu.tbadk.c.e.a(this, str)) {
             if (str.contains("jumptoapp_browser=classic_everyday")) {
                 if (str.contains("pn=")) {
-                    int indexOf = str.indexOf("pn=");
-                    if (indexOf != -1) {
-                        int length = indexOf + "pn=".length();
-                        int i = length;
-                        while (i < str.length() && str.charAt(i) != '&') {
-                            i++;
-                        }
-                        str2 = URLDecoder.decode(str.substring(length, i));
-                    } else {
-                        str2 = "";
-                    }
-                    if (str2 != null && str2.length() >= 0) {
-                        this.q = str2;
+                    String a = a(str, "pn=");
+                    if (a != null && a.length() >= 0) {
+                        this.q = a;
                     }
                 } else {
-                    this.q = "1";
+                    this.q = TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
                 }
                 a();
             } else {
-                com.baidu.tbadk.browser.a.b(this, String.valueOf(str) + "&_client_version=" + com.baidu.tbadk.core.data.n.c());
+                com.baidu.tbadk.browser.a.b(this, String.valueOf(str) + "&_client_version=" + TbConfig.getVersion());
             }
         }
         return true;
     }
 
-    private boolean d() {
+    private String a(String str, String str2) {
+        int indexOf = str.indexOf(str2);
+        if (indexOf != -1) {
+            int length = str2.length() + indexOf;
+            int i = length;
+            while (i < str.length() && str.charAt(i) != '&') {
+                i++;
+            }
+            return URLDecoder.decode(str.substring(length, i));
+        }
+        return "";
+    }
+
+    private boolean f() {
         boolean z = false;
         if (this.f == null) {
             try {
-                if (UtilHelper.h(this)) {
-                    super.showToast(getString(com.baidu.tieba.a.k.web_view_corrupted));
+                if (UtilHelper.webViewIsProbablyCorrupt(this)) {
+                    super.showToast(getString(u.web_view_corrupted));
                 } else {
                     this.f = new BaseWebView(this);
-                    ba.a(this.f, TbadkApplication.j().l());
+                    bc.a(this.f, TbadkApplication.m252getInst().getSkinType());
                     this.f.setOnLoadUrlListener(this);
                     this.f.setHorizontalScrollBarEnabled(false);
                     this.f.setHorizontalScrollbarOverlay(false);
@@ -170,10 +181,16 @@ public class DailyClassicalActivity extends com.baidu.tbadk.a implements com.bai
                 }
                 return z;
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "", "TabContentActivity.refreshFrs error = " + e.getMessage());
+                BdLog.e(getClass().getName(), "", "TabContentActivity.refreshFrs error = " + e.getMessage());
                 return z;
             }
         }
         return true;
+    }
+
+    private void g() {
+        if (this.i != null) {
+            this.i.cancel();
+        }
     }
 }

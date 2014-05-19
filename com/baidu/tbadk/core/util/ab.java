@@ -1,15 +1,19 @@
 package com.baidu.tbadk.core.util;
-
-import java.util.LinkedList;
 /* loaded from: classes.dex */
-public interface ab {
-    LinkedList<String> getForumPhotoUrl();
+public class ab {
+    public String a;
+    public int b;
+    public int c;
+    public com.baidu.tbadk.widget.richText.e d;
+    public String e;
 
-    LinkedList<String> getImageUrl();
-
-    LinkedList<aa> getImagesWithEmotions();
-
-    LinkedList<String> getPhotoUrl();
-
-    boolean isSupportImageSize();
+    public String a() {
+        if (this.d != null) {
+            return this.d.b.b;
+        }
+        if (this.e != null) {
+            return this.e;
+        }
+        return this.a;
+    }
 }

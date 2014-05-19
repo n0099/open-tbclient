@@ -1,9 +1,19 @@
 package com.baidu.adp.framework.c;
-
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public abstract class a extends c<CustomResponsedMessage<?>> {
-    public a(int i) {
-        super(i);
+public class a extends f {
+    private static a c = null;
+
+    public static a a() {
+        if (c == null) {
+            synchronized (a.class) {
+                if (c == null) {
+                    c = new a();
+                }
+            }
+        }
+        return c;
+    }
+
+    private a() {
     }
 }

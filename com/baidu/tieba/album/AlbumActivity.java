@@ -1,6 +1,5 @@
 package com.baidu.tieba.album;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
@@ -21,47 +21,22 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
     private com.baidu.tbadk.img.e h;
 
     static {
-        TbadkApplication.j().a(com.baidu.tbadk.core.b.a.class, AlbumActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.a.class, AlbumActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
             this.h = new com.baidu.tbadk.img.e(this);
-            this.e = new v(this);
-            this.e.a();
-            this.d = new p();
-            if (bundle != null) {
-                WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-                writeImagesInfo.parseJson(bundle.getString("write_images_info"));
-                this.d.a(writeImagesInfo);
-            } else {
-                Intent intent = getIntent();
-                if (intent != null) {
-                    WriteImagesInfo writeImagesInfo2 = new WriteImagesInfo();
-                    writeImagesInfo2.parseJson(intent.getStringExtra("write_images_info"));
-                    this.d.a(writeImagesInfo2);
-                }
-            }
-            if (this.d == null || TextUtils.isEmpty(this.d.c())) {
-                d(0);
-            } else {
-                d(1);
-            }
-            if (this.e != null && this.d != null) {
-                this.e.a(this.d.d());
-                if (this.d.a() != null) {
-                    for (ImageFileInfo imageFileInfo : this.d.a()) {
-                        this.e.a(imageFileInfo);
-                    }
-                }
-                j();
-            }
             h();
+            a(bundle);
+            i();
+            j();
+            e();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(c, "oncreate", "error = " + e.getMessage());
+            BdLog.e(c, "oncreate", "error = " + e.getMessage());
         }
     }
 
@@ -72,20 +47,61 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
         bundle.putString("write_images_info", this.d.b().toJsonString());
     }
 
+    private void a(Bundle bundle) {
+        this.d = new p();
+        if (bundle != null) {
+            WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
+            writeImagesInfo.parseJson(bundle.getString("write_images_info"));
+            this.d.a(writeImagesInfo);
+            return;
+        }
+        Intent intent = getIntent();
+        if (intent != null) {
+            WriteImagesInfo writeImagesInfo2 = new WriteImagesInfo();
+            writeImagesInfo2.parseJson(intent.getStringExtra("write_images_info"));
+            this.d.a(writeImagesInfo2);
+        }
+    }
+
     private void h() {
+        this.e = new v(this);
+        this.e.a();
+    }
+
+    private void i() {
+        if (this.d != null && !TextUtils.isEmpty(this.d.c())) {
+            d(1);
+        } else {
+            d(0);
+        }
+    }
+
+    private void j() {
+        if (this.e != null && this.d != null) {
+            this.e.a(this.d.d());
+            if (this.d.a() != null) {
+                for (ImageFileInfo imageFileInfo : this.d.a()) {
+                    this.e.a(imageFileInfo);
+                }
+            }
+            l();
+        }
+    }
+
+    void e() {
         int d = this.d.d();
         int h = this.d.h();
-        this.e.a(h != 0, getString(com.baidu.tieba.a.k.album_finish_btn, new Object[]{Integer.valueOf(h), Integer.valueOf(d)}));
+        this.e.a(h != 0, getString(com.baidu.tieba.u.album_finish_btn, new Object[]{Integer.valueOf(h), Integer.valueOf(d)}));
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void b(int i) {
+    protected void b(int i) {
         this.e.d(i);
     }
 
-    @Override // com.baidu.adp.a.c, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.b, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.e.d()) {
+        if (view == this.e.b()) {
             if (this.f == 0) {
                 this.d.a((String) null);
             }
@@ -93,39 +109,27 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
             intent.putExtra("album_result", this.d.b().toJsonString());
             setResult(-1, intent);
             finish();
-            return;
-        }
-        Fragment b = this.e.b(0);
-        if (view == ((b == null || !(b instanceof m)) ? null : ((m) b).a())) {
+        } else if (view == this.e.c()) {
             if (this.d != null) {
                 this.d.a((String) null);
             }
-            i();
-            return;
-        }
-        Fragment b2 = this.e.b(1);
-        if (view == ((b2 == null || !(b2 instanceof ah)) ? null : ((ah) b2).a())) {
+            k();
+        } else if (view == this.e.d()) {
             d(0);
-            return;
-        }
-        Fragment b3 = this.e.b(2);
-        if (view == ((b3 == null || !(b3 instanceof b)) ? null : ((b) b3).a())) {
+        } else if (view == this.e.e()) {
             d(1);
-            return;
-        }
-        Fragment b4 = this.e.b(1);
-        if (view == ((b4 == null || !(b4 instanceof ah)) ? null : ((ah) b4).b())) {
-            i();
+        } else if (view == this.e.f()) {
+            k();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final p f() {
+    public p f() {
         return this.d;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final com.baidu.tbadk.img.e g() {
+    public com.baidu.tbadk.img.e g() {
         if (this.h == null) {
             this.h = new com.baidu.tbadk.img.e(this);
         }
@@ -133,7 +137,7 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void d(int i) {
+    public void d(int i) {
         if (!this.g) {
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
             Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.e.c(this.f));
@@ -148,7 +152,7 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
             if (getSupportFragmentManager().findFragmentByTag(this.e.c(i)) != null) {
                 beginTransaction.show(this.e.b(i));
             } else {
-                beginTransaction.add(com.baidu.tieba.a.h.fragment, this.e.b(i), this.e.c(i));
+                beginTransaction.add(com.baidu.tieba.r.fragment, this.e.b(i), this.e.c(i));
             }
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
@@ -156,7 +160,7 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean a(ImageFileInfo imageFileInfo) {
+    public boolean a(ImageFileInfo imageFileInfo) {
         if (imageFileInfo == null) {
             return false;
         }
@@ -166,23 +170,23 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
             imageFileInfo2.setAlbumnId(imageFileInfo.getAlbumId());
             imageFileInfo2.setFilePath(imageFileInfo.getFilePath());
             this.d.a(imageFileInfo2);
-            h();
-            j();
+            e();
+            l();
             this.e.a(imageFileInfo2);
             return true;
         }
-        com.baidu.adp.lib.util.i.a((Context) this, String.format(getString(com.baidu.tieba.a.k.album_beyond_max_choose), Integer.valueOf(d)));
+        a(String.format(getString(com.baidu.tieba.u.album_beyond_max_choose), Integer.valueOf(d)));
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean b(ImageFileInfo imageFileInfo) {
+    public boolean b(ImageFileInfo imageFileInfo) {
         if (imageFileInfo == null) {
             return false;
         }
         this.d.b(imageFileInfo);
-        h();
-        j();
+        e();
+        l();
         this.e.b(imageFileInfo);
         return true;
     }
@@ -194,7 +198,7 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
                 if (this.d != null) {
                     this.d.a((String) null);
                 }
-                i();
+                k();
                 return true;
             } else if (this.f == 1) {
                 d(0);
@@ -210,7 +214,7 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(int i, boolean z) {
+    public void a(int i, boolean z) {
         Fragment b;
         if (this.e != null && (b = this.e.b(1)) != null && (b instanceof ah)) {
             ((ah) b).a(i, z);
@@ -218,22 +222,22 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(ImageFileInfo imageFileInfo, boolean z) {
+    public void a(ImageFileInfo imageFileInfo, boolean z) {
         Fragment b;
         if (this.e != null && (b = this.e.b(1)) != null && (b instanceof ah)) {
-            ((ah) b).a(imageFileInfo, false);
+            ((ah) b).a(imageFileInfo, z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void b(ImageFileInfo imageFileInfo, boolean z) {
+    public void b(ImageFileInfo imageFileInfo, boolean z) {
         Fragment b;
         if (this.e != null && (b = this.e.b(2)) != null && (b instanceof b)) {
-            ((b) b).a(imageFileInfo, false);
+            ((b) b).a(imageFileInfo, z);
         }
     }
 
-    private void i() {
+    private void k() {
         Intent intent = new Intent();
         String c2 = this.d.c();
         if (TextUtils.isEmpty(c2)) {
@@ -244,7 +248,7 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
         finish();
     }
 
-    private void j() {
+    private void l() {
         if (this.d != null && this.e != null) {
             if (this.d.h() == this.d.d()) {
                 this.e.a(false);
@@ -255,14 +259,14 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.g = true;
         if (this.e != null) {
-            this.e.e();
+            this.e.g();
         }
         this.h.b();
-        q.a().b();
+        q.a().c();
     }
 }

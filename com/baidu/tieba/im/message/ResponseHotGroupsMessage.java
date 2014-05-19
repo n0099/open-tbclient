@@ -1,69 +1,84 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.im.data.GroupInfoData;
+import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
-import protobuf.Im;
-import protobuf.QueryHotGroups.QueryHotGroupsRes;
+import protobuf.GroupInfo;
+import protobuf.QueryHotGroups.QueryHotGroupsResIdl;
 /* loaded from: classes.dex */
 public class ResponseHotGroupsMessage extends TbSocketReponsedMessage {
-    private List<GroupInfoData> a;
-    private boolean b;
-
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        QueryHotGroupsRes.QueryHotGroupsResIdl parseFrom = QueryHotGroupsRes.QueryHotGroupsResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.a = new ArrayList();
-            int groupsCount = parseFrom.getData().getGroupsCount();
-            for (int i2 = 0; i2 < groupsCount; i2++) {
-                GroupInfoData groupInfoData = new GroupInfoData();
-                this.a.add(groupInfoData);
-                Im.GroupInfo groups = parseFrom.getData().getGroups(i2);
-                groupInfoData.setGroupId(groups.getGroupId());
-                groupInfoData.setForumId(groups.getForumId());
-                groupInfoData.setForumName(groups.getForumName());
-                groupInfoData.setName(groups.getName());
-                groupInfoData.setIntro(groups.getIntro());
-                groupInfoData.setPortrait(groups.getPortrait());
-                groupInfoData.setMaxMemberNum(groups.getMaxMemberNum());
-                groupInfoData.setMemberNum(groups.getMemberNum());
-                groupInfoData.setAuthorId(groups.getAuthorId());
-                groupInfoData.setAuthorName(groups.getAuthorName());
-                groupInfoData.setGrade(groups.getGrade());
-                groupInfoData.setForumShowName(groups.getForumShowName());
-                groupInfoData.setMemGroup(groups.getIsMemberGroup() == 1);
-            }
-            if (parseFrom.getData().getHasMore() == 1) {
-                this.b = true;
-            } else {
-                this.b = false;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, java.lang.Object] */
-    @Override // com.baidu.adp.framework.message.f
-    public final /* synthetic */ void b(int i, byte[] bArr) {
-        byte[] bArr2 = bArr;
-        if (e() == 0 && (h() instanceof an) && ((an) h()).i()) {
-            a(com.baidu.tbadk.core.c.b.a().f(), "p_hot_groups_info" + (TbadkApplication.N() != null ? TbadkApplication.N().getID() : ""), bArr2);
-        }
-    }
+    private static final String CACHE_KEY_PREFIX = "p_hot_groups_info";
+    private List<GroupInfoData> groups;
+    private boolean hasMore;
 
     public ResponseHotGroupsMessage() {
-        super(103012);
+        super(MessageTypes.CMD_HOT_GROUPS);
     }
 
-    public final List<GroupInfoData> d() {
-        return this.a;
+    public List<GroupInfoData> getGroups() {
+        return this.groups;
     }
 
-    public final boolean i() {
-        return this.b;
+    public void setGroups(List<GroupInfoData> list) {
+        this.groups = list;
+    }
+
+    public boolean getHasMore() {
+        return this.hasMore;
+    }
+
+    public void setHasMore(boolean z) {
+        this.hasMore = z;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        QueryHotGroupsResIdl queryHotGroupsResIdl = (QueryHotGroupsResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHotGroupsResIdl.class);
+        setError(queryHotGroupsResIdl.error.errorno.intValue());
+        setErrorString(queryHotGroupsResIdl.error.usermsg);
+        if (getError() == 0) {
+            setGroups(new ArrayList());
+            int size = queryHotGroupsResIdl.data.groups == null ? 0 : queryHotGroupsResIdl.data.groups.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                GroupInfoData groupInfoData = new GroupInfoData();
+                getGroups().add(groupInfoData);
+                GroupInfo groupInfo = queryHotGroupsResIdl.data.groups.get(i2);
+                groupInfoData.setGroupId(groupInfo.groupId.intValue());
+                groupInfoData.setForumId(groupInfo.forumId.intValue());
+                groupInfoData.setForumName(groupInfo.forumName);
+                groupInfoData.setName(groupInfo.name);
+                groupInfoData.setIntro(groupInfo.intro);
+                groupInfoData.setPortrait(groupInfo.portrait);
+                groupInfoData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
+                groupInfoData.setMemberNum(groupInfo.memberNum.intValue());
+                groupInfoData.setAuthorId(groupInfo.authorId.intValue());
+                groupInfoData.setAuthorName(groupInfo.authorName);
+                groupInfoData.setGrade(groupInfo.grade.intValue());
+                groupInfoData.setForumShowName(groupInfo.forumShowName);
+                groupInfoData.setMemGroup(groupInfo.isMemberGroup.intValue() == 1);
+            }
+            if (queryHotGroupsResIdl.data.hasMore.intValue() == 1) {
+                setHasMore(true);
+            } else {
+                setHasMore(false);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void processInBackGround(int i, byte[] bArr) {
+        if (getError() == 0 && (getOrginalMessage() instanceof RequestHotGroupsMessage) && ((RequestHotGroupsMessage) getOrginalMessage()).isFirstPage()) {
+            String str = "";
+            if (TbadkApplication.getCurrentAccountObj() != null) {
+                str = TbadkApplication.getCurrentAccountObj().getID();
+            }
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().h(), CACHE_KEY_PREFIX + str, bArr);
+        }
     }
 }

@@ -1,37 +1,34 @@
 package com.baidu.tbadk.core.voice;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class w extends BdAsyncTask<Void, Void, Void> {
+public class w extends BdAsyncTask<Void, Void, Void> {
     final /* synthetic */ VoiceManager a;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ Void a(Void... voidArr) {
-        return a();
-    }
 
     private w(VoiceManager voiceManager) {
         this.a = voiceManager;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ w(VoiceManager voiceManager, byte b) {
+    public /* synthetic */ w(VoiceManager voiceManager, w wVar) {
         this(voiceManager);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1768=4] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00a5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1781=4, 1782=4] */
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x00ae A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private Void a() {
+    public Void doInBackground(Void... voidArr) {
         FileReader fileReader;
         FileReader fileReader2 = null;
         try {
@@ -39,19 +36,21 @@ public final class w extends BdAsyncTask<Void, Void, Void> {
                 fileReader = new FileReader("/sys/class/switch/h2w/state");
                 try {
                     char[] cArr = new char[1024];
-                    this.a.l = Integer.valueOf(new String(cArr, 0, fileReader.read(cArr, 0, 1024)).trim()).intValue() != 0;
-                    if (this.a.l) {
-                        this.a.c(false);
+                    this.a.k = Integer.valueOf(new String(cArr, 0, fileReader.read(cArr, 0, 1024)).trim()).intValue() != 0;
+                    if (this.a.k) {
+                        this.a.d(false);
                     }
-                    try {
-                        fileReader.close();
-                    } catch (Exception e) {
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (Exception e) {
+                        }
                     }
                 } catch (FileNotFoundException e2) {
                     e = e2;
-                    com.baidu.tbadk.core.util.v vVar = new com.baidu.tbadk.core.util.v();
-                    vVar.a("path", "/sys/class/switch/h2w/state");
-                    TiebaStatic.b("", -1111, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), vVar.toString());
+                    com.baidu.tbadk.core.util.w wVar = new com.baidu.tbadk.core.util.w();
+                    wVar.a("path", "/sys/class/switch/h2w/state");
+                    TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_HEADSET, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), wVar.toString());
                     if (fileReader != null) {
                         try {
                             fileReader.close();
@@ -61,9 +60,9 @@ public final class w extends BdAsyncTask<Void, Void, Void> {
                     return null;
                 } catch (Exception e4) {
                     e = e4;
-                    com.baidu.tbadk.core.util.v vVar2 = new com.baidu.tbadk.core.util.v();
-                    vVar2.a("path", "/sys/class/switch/h2w/state");
-                    TiebaStatic.b("", -1111, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), vVar2.toString());
+                    com.baidu.tbadk.core.util.w wVar2 = new com.baidu.tbadk.core.util.w();
+                    wVar2.a("path", "/sys/class/switch/h2w/state");
+                    TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_HEADSET, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), wVar2.toString());
                     if (fileReader != null) {
                         try {
                             fileReader.close();

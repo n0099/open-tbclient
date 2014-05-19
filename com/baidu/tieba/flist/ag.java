@@ -3,9 +3,10 @@ package com.baidu.tieba.flist;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.al;
 /* loaded from: classes.dex */
-public final class ag extends com.baidu.adp.a.e {
+public class ag extends com.baidu.adp.base.d {
     private String a;
     private ah b = null;
     private String c;
@@ -14,35 +15,35 @@ public final class ag extends com.baidu.adp.a.e {
         this.a = null;
         this.c = null;
         this.a = bundle.getString("id");
-        this.c = bundle.getString("st_type");
+        this.c = bundle.getString(com.baidu.tbadk.core.frameworkData.a.ST_TYPE);
     }
 
     public ag(Intent intent) {
         this.a = null;
         this.c = null;
         this.a = intent.getStringExtra("id");
-        this.c = intent.getStringExtra("st_type");
+        this.c = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE);
     }
 
-    public final void a(Bundle bundle) {
+    public void a(Bundle bundle) {
         bundle.putString("id", this.a);
-        bundle.putString("st_type", this.c);
+        bundle.putString(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.c);
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean LoadData() {
         if (this.a == null) {
             return false;
         }
         if (this.b == null) {
-            this.b = new ah(this, (byte) 0);
+            this.b = new ah(this, null);
             this.b.execute(new Void[0]);
         }
         return true;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         if (this.b != null) {
             this.b.cancel();
             return false;
@@ -50,10 +51,10 @@ public final class ag extends com.baidu.adp.a.e {
         return false;
     }
 
-    public static /* synthetic */ ForumRankData a(ag agVar) {
-        ak akVar = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/f/forum/forumsquarelist");
-        akVar.a("list_id", agVar.a);
-        akVar.a("st_type", agVar.c);
-        return (ForumRankData) new GsonBuilder().create().fromJson(akVar.i(), (Class<Object>) ForumRankData.class);
+    public ForumRankData a() {
+        al alVar = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumsquarelist");
+        alVar.a("list_id", this.a);
+        alVar.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.c);
+        return (ForumRankData) new GsonBuilder().create().fromJson(alVar.i(), (Class<Object>) ForumRankData.class);
     }
 }

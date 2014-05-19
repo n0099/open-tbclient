@@ -4,12 +4,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.a.f;
 import com.baidu.tieba.data.BubbleListData;
+import com.baidu.tieba.p;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class d extends BaseAdapter {
+public class d extends BaseAdapter {
     private List<BubbleListData.BubbleData> a = new ArrayList();
     private BubbleChooseActivity b;
     private ab c;
@@ -17,24 +17,24 @@ public final class d extends BaseAdapter {
     private int e;
     private boolean f;
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         this.f = z;
     }
 
     public d(BubbleChooseActivity bubbleChooseActivity) {
         this.b = bubbleChooseActivity;
         this.c = new ab(this.b);
-        this.c.a(true);
-        this.d = (int) this.b.getResources().getDimension(f.ds30);
-        this.e = (int) this.b.getResources().getDimension(f.ds30);
+        this.c.d(true);
+        this.d = (int) this.b.getResources().getDimension(p.ds30);
+        this.e = (int) this.b.getResources().getDimension(p.ds30);
     }
 
-    public final List<BubbleListData.BubbleData> a() {
+    public List<BubbleListData.BubbleData> a() {
         return this.a;
     }
 
     @Override // android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         if (this.a == null) {
             return 0;
         }
@@ -44,7 +44,7 @@ public final class d extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public final BubbleListData.BubbleData getItem(int i) {
+    public BubbleListData.BubbleData getItem(int i) {
         if (this.a == null || (i < 0 && i >= this.a.size())) {
             return null;
         }
@@ -52,12 +52,12 @@ public final class d extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final long getItemId(int i) {
+    public long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.view.a aVar;
         if (view == null) {
             aVar = new com.baidu.tieba.view.a(this.b);
@@ -80,11 +80,11 @@ public final class d extends BaseAdapter {
             aVar.setShowName(true);
             aVar.a(item, this.c, this.f);
         }
-        aVar.a();
+        aVar.b();
         return view;
     }
 
-    public final void a(List<BubbleListData.BubbleData> list) {
+    public void a(List<BubbleListData.BubbleData> list) {
         this.a.clear();
         BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
         bubbleData.setBcode(0);

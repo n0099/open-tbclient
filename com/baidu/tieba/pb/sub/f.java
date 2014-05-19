@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.data.am;
+import com.baidu.tieba.data.ao;
 /* loaded from: classes.dex */
-public final class f extends com.baidu.adp.a.e {
+public class f extends com.baidu.adp.base.d {
     protected Context e;
-    protected am f;
+    protected ao f;
     protected int a = 0;
     protected String b = null;
     protected String c = null;
@@ -18,88 +18,88 @@ public final class f extends com.baidu.adp.a.e {
     protected h h = null;
     protected ab i = null;
 
-    public final void a(Intent intent) {
-        this.b = intent.getStringExtra("thread_id");
-        this.c = intent.getStringExtra("post_id");
-        this.d = intent.getStringExtra("st_type");
+    public void a(Intent intent) {
+        this.b = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID);
+        this.c = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.POST_ID);
+        this.d = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE);
     }
 
-    public final void a(Bundle bundle) {
-        this.b = bundle.getString("thread_id");
-        this.c = bundle.getString("post_id");
-        this.d = bundle.getString("st_type");
+    public void a(Bundle bundle) {
+        this.b = bundle.getString(com.baidu.tbadk.core.frameworkData.a.THREAD_ID);
+        this.c = bundle.getString(com.baidu.tbadk.core.frameworkData.a.POST_ID);
+        this.d = bundle.getString(com.baidu.tbadk.core.frameworkData.a.ST_TYPE);
     }
 
-    public final void b(Bundle bundle) {
-        bundle.putString("thread_id", this.b);
-        bundle.putString("post_id", this.c);
-        bundle.putString("st_type", this.d);
+    public void b(Bundle bundle) {
+        bundle.putString(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, this.b);
+        bundle.putString(com.baidu.tbadk.core.frameworkData.a.POST_ID, this.c);
+        bundle.putString(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.d);
     }
 
     public f(Context context) {
         this.e = null;
         this.f = null;
         this.e = context;
-        this.f = new am();
+        this.f = new ao();
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.b = str;
     }
 
-    public final String a() {
+    public String a() {
         return this.b;
     }
 
-    public final void b(String str) {
+    public void b(String str) {
         this.c = str;
     }
 
-    public final String b() {
+    public String b() {
         return this.c;
     }
 
-    public final String c() {
+    public String c() {
         return this.d;
     }
 
-    public final void d() {
-        this.f = new am();
+    public void d() {
+        this.f = new ao();
     }
 
-    public final am e() {
+    public ao e() {
         return this.f;
     }
 
-    public final WriteData f() {
-        if (this.f == null || this.f.g() == null || this.f.l() == null || this.f.a() == null) {
+    public WriteData f() {
+        if (this.f == null || this.f.h() == null || this.f.m() == null || this.f.a() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
-        writeData.setForumName(this.f.g().getName());
-        writeData.setForumId(this.f.g().getId());
+        writeData.setForumName(this.f.h().getName());
+        writeData.setForumId(this.f.h().getId());
         writeData.setFloor(this.f.a().d());
         writeData.setType(2);
-        writeData.setThreadId(this.f.l().l());
+        writeData.setThreadId(this.f.m().k());
         writeData.setFloorNum(0);
         return writeData;
     }
 
-    public final void a(h hVar) {
+    public void a(h hVar) {
         this.h = hVar;
     }
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    public final int g() {
+    public int g() {
         return this.a;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         if (this.g != null) {
             this.g.cancel();
             return true;
@@ -107,7 +107,7 @@ public final class f extends com.baidu.adp.a.e {
         return true;
     }
 
-    public final boolean h() {
+    public boolean h() {
         cancelLoadData();
         if (this.b == null || this.c == null || this.g != null) {
             return false;
@@ -117,9 +117,9 @@ public final class f extends com.baidu.adp.a.e {
         return true;
     }
 
-    public final boolean i() {
+    public boolean i() {
         cancelLoadData();
-        if (this.b == null || this.c == null || this.f.k() || this.g != null) {
+        if (this.b == null || this.c == null || this.f.l() || this.g != null) {
             return false;
         }
         this.a = 2;
@@ -127,21 +127,21 @@ public final class f extends com.baidu.adp.a.e {
         return true;
     }
 
-    public final boolean j() {
+    public boolean j() {
         cancelLoadData();
         this.a = 1;
         a(1);
         return true;
     }
 
-    public final boolean k() {
+    public boolean k() {
         cancelLoadData();
         this.a = 3;
         a(3);
         return true;
     }
 
-    private void a(int i) {
+    protected void a(int i) {
         this.g = new g(this, i);
         this.g.setPriority(3);
         this.g.execute(new Object[0]);

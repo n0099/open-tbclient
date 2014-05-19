@@ -5,8 +5,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import com.baidu.adp.framework.message.CustomMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class o implements AdapterView.OnItemClickListener {
+public class o implements AdapterView.OnItemClickListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +17,7 @@ final class o implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         int i2;
         a aVar;
         a aVar2;
@@ -26,7 +28,7 @@ final class o implements AdapterView.OnItemClickListener {
         i2 = this.a.z;
         if (i2 == 0) {
             com.baidu.tieba.util.k.f(str);
-            this.a.sendMessage(new com.baidu.adp.framework.message.a(2003000, new com.baidu.tbadk.core.b.l(this.a).a(str, "tb_searchlist")));
+            this.a.sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.a).a(str, "tb_searchlist")));
         } else if (str != null && str.length() > 0) {
             aVar = this.a.l;
             aVar.a(i);

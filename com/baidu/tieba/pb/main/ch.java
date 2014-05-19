@@ -1,44 +1,24 @@
 package com.baidu.tieba.pb.main;
+
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ch implements Runnable {
-    final /* synthetic */ cg a;
-    private final /* synthetic */ com.baidu.tieba.data.am b;
-    private final /* synthetic */ boolean c;
-    private final /* synthetic */ String d;
-    private final /* synthetic */ String e;
+public class ch implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(cg cgVar, com.baidu.tieba.data.am amVar, boolean z, String str, String str2) {
-        this.a = cgVar;
-        this.b = amVar;
-        this.c = z;
-        this.d = str;
-        this.e = str2;
+    public ch(bj bjVar) {
+        this.a = bjVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        bm bmVar;
-        ct ctVar;
-        bm bmVar2;
-        bm bmVar3;
-        com.baidu.tieba.pb.sub.m mVar;
-        bm bmVar4;
-        ct ctVar2;
-        bmVar = this.a.a;
-        ctVar = bmVar.aC;
-        if (ctVar != null) {
-            bmVar4 = this.a.a;
-            ctVar2 = bmVar4.aC;
-            com.baidu.tieba.data.am amVar = this.b;
-            ctVar2.a();
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        BdListView bdListView;
+        if (aVar != null && !TextUtils.isEmpty(str)) {
+            bdListView = this.a.o;
+            com.baidu.tbadk.core.util.bp.a((ViewGroup) bdListView, false, (com.baidu.tbadk.core.util.br) new ci(this, str, aVar));
         }
-        if (this.c) {
-            bmVar3 = this.a.a;
-            mVar = bmVar3.N;
-            mVar.a(this.d, this.e);
-        }
-        bmVar2 = this.a.a;
-        bmVar2.aj();
     }
 }

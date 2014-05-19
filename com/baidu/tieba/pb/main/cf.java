@@ -1,24 +1,32 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
+import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class cf implements Runnable {
-    final /* synthetic */ ce a;
-    private final /* synthetic */ ImageView b;
+public class cf implements DialogInterface.OnKeyListener {
+    final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cf(ce ceVar, ImageView imageView) {
-        this.a = ceVar;
-        this.b = imageView;
+    public cf(bj bjVar) {
+        this.a = bjVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        bm bmVar;
-        FrameLayout frameLayout;
-        bmVar = this.a.a;
-        frameLayout = bmVar.n;
-        frameLayout.removeView(this.b);
+    @Override // android.content.DialogInterface.OnKeyListener
+    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+        PbActivity pbActivity;
+        EditText editText;
+        Dialog dialog;
+        if (i == 4) {
+            pbActivity = this.a.m;
+            editText = this.a.P;
+            com.baidu.adp.lib.util.h.a(pbActivity, editText);
+            dialog = this.a.L;
+            dialog.dismiss();
+            return true;
+        }
+        return false;
     }
 }

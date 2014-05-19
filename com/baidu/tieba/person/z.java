@@ -1,9 +1,10 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class z implements View.OnClickListener {
+public class z implements View.OnClickListener {
     final /* synthetic */ y a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,23 +13,23 @@ public final class z implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         com.baidu.tbadk.core.e eVar;
         com.baidu.tbadk.core.e eVar2;
         com.baidu.tbadk.core.e eVar3;
         com.baidu.tbadk.core.e eVar4;
-        if (view.getId() == com.baidu.tieba.a.h.textHomeListFrsName) {
+        if (view.getId() == com.baidu.tieba.r.textHomeListFrsName) {
             String obj = view.getTag().toString();
-            eVar3 = this.a.a;
-            eVar4 = this.a.a;
-            eVar3.a(new com.baidu.adp.framework.message.a(2003000, new com.baidu.tbadk.core.b.l(eVar4).a(obj, "")));
+            eVar3 = this.a.b;
+            eVar4 = this.a.b;
+            eVar3.a(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(eVar4).a(obj, "")));
             return;
         }
         aa aaVar = (aa) view.getTag();
         if (aaVar != null) {
-            eVar = this.a.a;
-            eVar2 = this.a.a;
-            eVar.a(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(eVar2).a(aaVar.l, null, null)));
+            eVar = this.a.b;
+            eVar2 = this.a.b;
+            eVar.a(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(eVar2).a(aaVar.l, null, null)));
         }
     }
 }

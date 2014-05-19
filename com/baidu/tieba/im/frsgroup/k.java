@@ -11,153 +11,161 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public final class k extends com.baidu.adp.a.f {
+public class k extends com.baidu.adp.base.e {
     private FrsGroupActivity a;
+    private View b;
     private View c;
-    private View d;
-    private TextView e;
-    private NavigationBar f;
-    private RadioGroup g;
+    private TextView d;
+    private NavigationBar e;
+    private RadioGroup f;
+    private RadioButton g;
     private RadioButton h;
     private RadioButton i;
-    private RadioButton j;
+    private ViewGroup j;
     private ViewGroup k;
     private ViewGroup l;
-    private ViewGroup m;
-    private Fragment[] n;
-    private String[] o;
-    private ViewGroup[] p;
-    private ProgressBar q;
-    private boolean r;
-    private NoNetworkView s;
+    private Fragment[] m;
+    private String[] n;
+    private ViewGroup[] o;
+    private ProgressBar p;
+    private boolean q;
+    private NoNetworkView r;
 
     public k(FrsGroupActivity frsGroupActivity) {
         super(frsGroupActivity);
         this.a = frsGroupActivity;
-        frsGroupActivity.setContentView(com.baidu.tieba.im.i.im_frsgroup_activity);
-        this.c = frsGroupActivity.findViewById(com.baidu.tieba.im.h.view_root);
-        this.f = (NavigationBar) frsGroupActivity.findViewById(com.baidu.tieba.im.h.view_navigation_bar);
-        this.d = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f.a(this.a.getString(com.baidu.tieba.im.j.frsgroup_title));
-        this.e = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(com.baidu.tieba.im.j.frsgroup_create));
-        this.d.setOnClickListener(frsGroupActivity);
-        this.e.setOnClickListener(frsGroupActivity);
-        this.s = (NoNetworkView) frsGroupActivity.findViewById(com.baidu.tieba.im.h.view_no_network);
-        this.g = (RadioGroup) frsGroupActivity.findViewById(com.baidu.tieba.im.h.raidos_change);
-        this.h = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.im.h.radio_recommend);
-        this.h.setChecked(true);
-        this.i = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.im.h.radio_hot);
-        this.j = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.im.h.radio_official);
-        this.k = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.im.h.radio_recommend_line);
-        this.l = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.im.h.radio_hot_line);
-        this.m = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.im.h.radio_official_line);
-        this.q = (ProgressBar) frsGroupActivity.findViewById(com.baidu.tieba.im.h.progress_loading);
-        this.n = new Fragment[3];
-        this.o = new String[3];
-        this.o[0] = "f1";
-        this.o[1] = "f2";
-        this.o[2] = "f3";
-        this.p = new ViewGroup[3];
-        this.p[0] = this.k;
-        this.p[1] = this.l;
-        this.p[2] = this.m;
+        frsGroupActivity.setContentView(com.baidu.tieba.s.im_frsgroup_activity);
+        a(frsGroupActivity);
+        b(frsGroupActivity);
     }
 
-    public final void a(int i) {
-        for (int i2 = this.r ? 0 : 1; i2 < 3; i2++) {
+    private void a(FrsGroupActivity frsGroupActivity) {
+        this.b = frsGroupActivity.findViewById(com.baidu.tieba.r.view_root);
+        this.e = (NavigationBar) frsGroupActivity.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.c = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e.a(this.a.getString(com.baidu.tieba.u.frsgroup_title));
+        this.d = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(com.baidu.tieba.u.frsgroup_create));
+        this.c.setOnClickListener(frsGroupActivity);
+        this.d.setOnClickListener(frsGroupActivity);
+        this.r = (NoNetworkView) frsGroupActivity.findViewById(com.baidu.tieba.r.view_no_network);
+    }
+
+    private void b(FrsGroupActivity frsGroupActivity) {
+        this.f = (RadioGroup) frsGroupActivity.findViewById(com.baidu.tieba.r.raidos_change);
+        this.g = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.r.radio_recommend);
+        this.g.setChecked(true);
+        this.h = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.r.radio_hot);
+        this.i = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.r.radio_official);
+        this.j = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.r.radio_recommend_line);
+        this.k = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.r.radio_hot_line);
+        this.l = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.r.radio_official_line);
+        this.p = (ProgressBar) frsGroupActivity.findViewById(com.baidu.tieba.r.progress_loading);
+        this.m = new Fragment[3];
+        this.n = new String[3];
+        this.n[0] = "f1";
+        this.n[1] = "f2";
+        this.n[2] = "f3";
+        this.o = new ViewGroup[3];
+        this.o[0] = this.j;
+        this.o[1] = this.k;
+        this.o[2] = this.l;
+    }
+
+    public void a(int i) {
+        for (int i2 = this.q ? 0 : 1; i2 < 3; i2++) {
             if (i == i2) {
-                this.p[i2].setVisibility(0);
+                this.o[i2].setVisibility(0);
             } else {
-                this.p[i2].setVisibility(4);
+                this.o[i2].setVisibility(4);
             }
         }
     }
 
-    public final String[] a() {
-        return this.o;
+    public String[] a() {
+        return this.n;
     }
 
-    public final void b(int i) {
+    public void b(int i) {
         switch (i) {
             case 1:
-                this.h.setChecked(true);
+                this.g.setChecked(true);
                 return;
             case 2:
-                this.i.setChecked(true);
+                this.h.setChecked(true);
                 return;
             case 3:
-                this.j.setChecked(true);
+                this.i.setChecked(true);
                 return;
             default:
                 return;
         }
     }
 
-    public final void d() {
-        this.g.setOnCheckedChangeListener(this.a);
+    public void b() {
+        this.f.setOnCheckedChangeListener(this.a);
     }
 
-    public final void e() {
+    public void c() {
         for (int i = 0; i < 3; i++) {
-            this.n[i] = new b();
+            this.m[i] = new b();
         }
     }
 
-    public final void c(int i) {
-        this.a.b().a(i == 1);
-        this.a.b().a(this.c);
-        this.f.b(i);
-        if (this.s != null) {
-            this.s.a(i);
+    public void c(int i) {
+        this.a.a().a(i == 1);
+        this.a.a().a(this.b);
+        this.e.c(i);
+        if (this.r != null) {
+            this.r.a(i);
         }
     }
 
-    @Override // com.baidu.adp.a.f
-    public final void c() {
-        super.c();
-        if (this.n != null) {
+    @Override // com.baidu.adp.base.e
+    public void destroy() {
+        super.destroy();
+        if (this.m != null) {
             FragmentTransaction beginTransaction = this.a.getSupportFragmentManager().beginTransaction();
-            for (int i = 0; i < this.n.length; i++) {
-                beginTransaction.remove(this.n[i]);
+            for (int i = 0; i < this.m.length; i++) {
+                beginTransaction.remove(this.m[i]);
             }
             beginTransaction.commitAllowingStateLoss();
         }
     }
 
-    public final Fragment[] f() {
-        return this.n;
+    public Fragment[] d() {
+        return this.m;
     }
 
-    public final void a(boolean z) {
-        this.r = z;
+    public void a(boolean z) {
+        this.q = z;
         if (z) {
-            this.g.check(com.baidu.tieba.im.h.radio_recommend);
-            this.h.setVisibility(0);
-            this.k.setVisibility(0);
+            this.f.check(com.baidu.tieba.r.radio_recommend);
+            this.g.setVisibility(0);
+            this.j.setVisibility(0);
             return;
         }
-        this.g.check(com.baidu.tieba.im.h.radio_hot);
-        this.h.setVisibility(8);
-        this.k.setVisibility(8);
+        this.f.check(com.baidu.tieba.r.radio_hot);
+        this.g.setVisibility(8);
+        this.j.setVisibility(8);
     }
 
-    public final void b(boolean z) {
-        this.e.setEnabled(true);
+    public void b(boolean z) {
+        this.d.setEnabled(z);
     }
 
-    public final void c(boolean z) {
-        this.h.setVisibility(z ? 0 : 8);
+    public void c(boolean z) {
+        this.g.setVisibility(z ? 0 : 8);
     }
 
-    public final View g() {
+    public View e() {
+        return this.c;
+    }
+
+    public void d(boolean z) {
+        this.p.setVisibility(z ? 0 : 8);
+    }
+
+    public TextView f() {
         return this.d;
-    }
-
-    public final void d(boolean z) {
-        this.q.setVisibility(z ? 0 : 8);
-    }
-
-    public final TextView h() {
-        return this.e;
     }
 }

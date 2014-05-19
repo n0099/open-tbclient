@@ -9,12 +9,18 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
+import com.baidu.tieba.o;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class ForbidActivity extends com.baidu.tbadk.a {
+public class ForbidActivity extends BaseActivity {
     private NavigationBar a;
     private RadioGroup b;
     private String c;
@@ -29,70 +35,74 @@ public class ForbidActivity extends com.baidu.tbadk.a {
 
     public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
         Intent intent = new Intent(context, ForbidActivity.class);
-        intent.putExtra("forum_id", str);
-        intent.putExtra("forum_name", str2);
-        intent.putExtra("thread_id", str3);
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, str);
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME, str2);
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, str3);
         intent.putExtra("bar_manager_user_id", str4);
-        intent.putExtra("user_name", str5);
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.USER_NAME, str5);
         context.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.a.i.account_forbid_activity);
-        String E = TbadkApplication.E();
-        if (E == null || E.length() <= 0) {
-            LoginActivity.a((Activity) this, getString(com.baidu.tieba.a.k.login_to_use), true, 11018);
+        setContentView(s.account_forbid_activity);
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (currentAccount == null || currentAccount.length() <= 0) {
+            LoginActivity.a((Activity) this, getString(u.login_to_use), true, 11018);
             return;
         }
-        this.a = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.a.a(getString(com.baidu.tieba.a.k.forbid_page_title));
+        this.a = (NavigationBar) findViewById(r.view_navigation_bar);
+        this.a.a(getString(u.forbid_page_title));
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.a.k.forbid_btn_txt), this.k);
-        this.h = (TextView) findViewById(com.baidu.tieba.a.h.forbid_id);
-        this.i = (BdListView) findViewById(com.baidu.tieba.a.h.listview_forbid_reason);
-        this.b = (RadioGroup) findViewById(com.baidu.tieba.a.h.forbid_days);
+        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(u.forbid_btn_txt), this.k);
+        this.h = (TextView) findViewById(r.forbid_id);
+        this.i = (BdListView) findViewById(r.listview_forbid_reason);
+        this.b = (RadioGroup) findViewById(r.forbid_days);
         this.b.setOnCheckedChangeListener(new c(this));
+        a();
+    }
+
+    private void a() {
         Intent intent = getIntent();
-        this.c = intent.getStringExtra("forum_id");
-        this.d = intent.getStringExtra("forum_name");
-        this.e = intent.getStringExtra("thread_id");
+        this.c = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
+        this.d = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
+        this.e = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID);
         this.f = intent.getStringExtra("bar_manager_user_id");
-        this.g = intent.getStringExtra("user_name");
+        this.g = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
         l.a(this.c, this.f, new d(this));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(ForbidActivity forbidActivity, int i) {
-        boolean z = TbadkApplication.j().l() == 1;
-        int i2 = !z ? com.baidu.tieba.a.g.btn_prohibit_day_n : com.baidu.tieba.a.g.btn_prohibit_day_n_1;
-        int i3 = !z ? com.baidu.tieba.a.e.appeal_com_text : com.baidu.tieba.a.e.appeal_com_text_1;
-        int i4 = !z ? com.baidu.tieba.a.g.btn_prohibit_day_s : com.baidu.tieba.a.g.btn_prohibit_day_s_1;
-        int i5 = !z ? com.baidu.tieba.a.e.forbid_time_selected : com.baidu.tieba.a.e.forbid_time_selected_1;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i) {
+        boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
+        int i2 = !z ? q.btn_prohibit_day_n : q.btn_prohibit_day_n_1;
+        int i3 = !z ? o.appeal_com_text : o.appeal_com_text_1;
+        int i4 = !z ? q.btn_prohibit_day_s : q.btn_prohibit_day_s_1;
+        int i5 = !z ? o.forbid_time_selected : o.forbid_time_selected_1;
         for (int i6 = 0; i6 < 3; i6++) {
-            RadioButton radioButton = (RadioButton) forbidActivity.b.getChildAt(i6);
+            RadioButton radioButton = (RadioButton) this.b.getChildAt(i6);
             if (radioButton.getId() == i) {
-                ba.e((View) radioButton, i4);
-                radioButton.setTextColor(forbidActivity.getResources().getColor(i5));
+                bc.e((View) radioButton, i4);
+                radioButton.setTextColor(getResources().getColor(i5));
             } else {
-                ba.e((View) radioButton, i2);
-                radioButton.setTextColor(forbidActivity.getResources().getColor(i3));
+                bc.e((View) radioButton, i2);
+                radioButton.setTextColor(getResources().getColor(i3));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         boolean z = i == 1;
-        View findViewById = findViewById(com.baidu.tieba.a.h.root);
+        View findViewById = findViewById(r.root);
         getLayoutMode().a(z);
         getLayoutMode().a(findViewById);
-        this.a.b(i);
-        this.i.setDivider(getResources().getDrawable(z ? com.baidu.tieba.a.g.forbid_list_divider_1 : com.baidu.tieba.a.g.forbid_list_divider));
-        this.i.setDividerHeight(com.baidu.adp.lib.util.i.a((Context) this, 1.0f));
+        this.a.c(i);
+        this.i.setDivider(getResources().getDrawable(z ? q.forbid_list_divider_1 : q.forbid_list_divider));
+        this.i.setDividerHeight(com.baidu.adp.lib.util.h.a((Context) this, 1.0f));
     }
 }

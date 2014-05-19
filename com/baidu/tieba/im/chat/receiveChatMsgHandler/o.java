@@ -1,21 +1,24 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.data.GroupMsgData;
 /* loaded from: classes.dex */
-public final class o extends com.baidu.adp.framework.c.a {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 instanceof GroupMsgData) {
-            GroupMsgData groupMsgData = (GroupMsgData) customResponsedMessage2;
-            com.baidu.tieba.im.pushNotify.a.d().a(m.a(groupMsgData), m.a, new p(this));
-            com.baidu.tieba.im.chat.x.b().a(groupMsgData);
-        }
+public class o extends CustomMessageListener {
+    public o() {
+        super(2015003);
     }
 
-    public o() {
-        super(2013001);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof GroupMsgData) {
+            GroupMsgData groupMsgData = (GroupMsgData) customResponsedMessage;
+            BdLog.d("GET Personal Gid PULLMSG=" + groupMsgData.getGroupInfo().getGroupId());
+            com.baidu.tieba.im.pushNotify.a.f().a(l.a(groupMsgData), l.a, new p(this));
+            com.baidu.tieba.im.chat.x.b().a(groupMsgData);
+        }
     }
 }

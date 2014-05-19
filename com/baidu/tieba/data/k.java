@@ -1,19 +1,28 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class k {
+public class k {
     private ArrayList<j> a = new ArrayList<>();
     private ArrayList<m> b = new ArrayList<>();
 
-    public final ArrayList<m> a() {
+    public ArrayList<m> a() {
         return this.b;
     }
 
-    public final void a(JSONObject jSONObject) {
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "parserJson", e.toString());
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("banner");
             if (optJSONArray != null) {
@@ -34,13 +43,13 @@ public final class k {
                 }
             }
         } catch (JSONException e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+            BdLog.e(getClass().getName(), "parserJson", e.toString());
         }
     }
 
-    public final void a(k kVar) {
+    public void a(k kVar) {
         if (kVar != null) {
-            this.b.addAll(kVar.b);
+            this.b.addAll(kVar.a());
         }
     }
 }

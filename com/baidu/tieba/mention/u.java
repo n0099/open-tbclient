@@ -4,58 +4,28 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.model.al;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class u extends BdAsyncTask<Object, Integer, al> {
+public class u extends BdAsyncTask<Object, Integer, al> {
     final /* synthetic */ m a;
     private String c;
     private ArrayList<BasicNameValuePair> d;
     private g e;
-    private ak b = null;
+    private com.baidu.tbadk.core.util.al b = null;
     private al f = null;
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ al a(Object... objArr) {
-        return a();
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(al alVar) {
-        Fragment fragment;
-        int i;
-        al alVar2 = alVar;
-        a(false);
-        if (this.b != null) {
-            if (!this.b.c() || alVar2 == null) {
-                fragment = this.a.b;
-                FragmentActivity activity = fragment.getActivity();
-                if (activity != null && (activity instanceof com.baidu.tbadk.core.e)) {
-                    com.baidu.adp.lib.util.i.a((Context) ((com.baidu.tbadk.core.e) activity), this.b.f());
-                }
-            } else {
-                m mVar = this.a;
-                i = this.a.n;
-                mVar.a(alVar2, i == 4);
-            }
-        }
-        this.a.k = null;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void b(Integer... numArr) {
-        super.b((Object[]) numArr);
+    /* renamed from: a */
+    public void onProgressUpdate(Integer... numArr) {
+        super.onProgressUpdate(numArr);
         if (this.f != null) {
             this.a.a(this.f, true);
         }
@@ -73,11 +43,15 @@ public final class u extends BdAsyncTask<Object, Integer, al> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
+    public void onPreExecute() {
         a(true);
     }
 
-    private al a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public al doInBackground(Object... objArr) {
         t tVar;
         String str;
         int i;
@@ -92,25 +66,25 @@ public final class u extends BdAsyncTask<Object, Integer, al> {
                 this.f = new al();
                 this.f.a(a);
                 if (!this.f.a()) {
-                    com.baidu.adp.lib.util.f.e("MentionAsyncTask", "doInBackground", "cache data format err");
+                    BdLog.d("MentionAsyncTask", "doInBackground", "cache data format err");
                     this.f = null;
                     tVar3 = this.a.j;
                     tVar3.b();
                 } else {
-                    com.baidu.adp.lib.util.f.e("MentionAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a.length()));
-                    c((Object[]) new Integer[]{0});
+                    BdLog.d("MentionAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a.length()));
+                    publishProgress(0);
                 }
             }
         }
         try {
             str = this.a.o;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            BdLog.e(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
-        if (bc.c(str)) {
+        if (be.c(str)) {
             return null;
         }
-        this.b = new ak(this.c);
+        this.b = new com.baidu.tbadk.core.util.al(this.c);
         this.b.a(this.d);
         String i3 = this.b.i();
         if (this.b.a().b().b() && i3 != null) {
@@ -145,7 +119,7 @@ public final class u extends BdAsyncTask<Object, Integer, al> {
                     bdListView3 = this.a.e;
                     if (bdListView3 != null) {
                         bdListView4 = this.a.e;
-                        bdListView4.c();
+                        bdListView4.d();
                         return;
                     }
                     return;
@@ -165,7 +139,7 @@ public final class u extends BdAsyncTask<Object, Integer, al> {
                 bdListView = this.a.e;
                 if (bdListView != null) {
                     bdListView2 = this.a.e;
-                    bdListView2.b();
+                    bdListView2.c();
                     return;
                 }
                 return;
@@ -178,8 +152,32 @@ public final class u extends BdAsyncTask<Object, Integer, al> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
+    /* renamed from: a */
+    public void onPostExecute(al alVar) {
+        Fragment fragment;
+        int i;
+        a(false);
+        if (this.b != null) {
+            if (!this.b.c() || alVar == null) {
+                fragment = this.a.b;
+                FragmentActivity activity = fragment.getActivity();
+                if (activity != null && (activity instanceof com.baidu.tbadk.core.e)) {
+                    com.baidu.adp.lib.util.h.a((Context) ((com.baidu.tbadk.core.e) activity), this.b.f());
+                }
+            } else {
+                m mVar = this.a;
+                i = this.a.n;
+                mVar.a(alVar, i == 4);
+            }
+        }
+        this.a.k = null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
         if (this.b != null) {
             this.b.g();
         }

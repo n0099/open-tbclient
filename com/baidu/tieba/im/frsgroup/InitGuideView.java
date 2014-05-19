@@ -36,11 +36,11 @@ public class InitGuideView extends RelativeLayout {
         a(context);
     }
 
-    private void a(Context context) {
-        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.im.i.im_frsgroup_guide, (ViewGroup) null));
-        this.a = (ImageView) findViewById(com.baidu.tieba.im.h.guide_img);
-        this.b = (TextView) findViewById(com.baidu.tieba.im.h.guide_tip1);
-        this.c = (TextView) findViewById(com.baidu.tieba.im.h.guide_tip2);
+    public void a(Context context) {
+        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.im_frsgroup_guide, (ViewGroup) null));
+        this.a = (ImageView) findViewById(com.baidu.tieba.r.guide_img);
+        this.b = (TextView) findViewById(com.baidu.tieba.r.guide_tip1);
+        this.c = (TextView) findViewById(com.baidu.tieba.r.guide_tip2);
     }
 
     private void setSkinType(int i) {
@@ -51,52 +51,75 @@ public class InitGuideView extends RelativeLayout {
         return this.e;
     }
 
-    private boolean a(int i) {
+    private boolean b(int i) {
         if (i == getSkinType()) {
             return false;
         }
-        this.e = i;
+        setSkinType(i);
         return true;
     }
 
-    public final void a() {
+    public void a() {
         setVisibility(8);
         if (this.d != null) {
             this.d.setVisibility(8);
         }
     }
 
-    public final boolean b() {
+    public boolean b() {
         return getVisibility() == 0;
     }
 
-    public final void c() {
+    public void a(int i) {
+        if (b(i)) {
+            if (i == 1) {
+                this.a.setBackgroundResource(com.baidu.tieba.q.pic_go_ba_1);
+                this.b.setTextColor(-8815226);
+                this.c.setTextColor(-8815226);
+                if (this.d != null) {
+                    this.d.setBackgroundResource(com.baidu.tieba.q.btn_blue_square_1);
+                    this.d.setTextColor(TbadkApplication.m252getInst().getApp().getResources().getColor(com.baidu.tieba.o.c_acc5e0));
+                    return;
+                }
+                return;
+            }
+            this.a.setBackgroundResource(com.baidu.tieba.q.pic_go_ba);
+            this.b.setTextColor(-5065030);
+            this.c.setTextColor(-5065030);
+            if (this.d != null) {
+                this.d.setBackgroundResource(com.baidu.tieba.q.btn_blue_square);
+                this.d.setTextColor(TbadkApplication.m252getInst().getApp().getResources().getColor(com.baidu.tieba.o.white));
+            }
+        }
+    }
+
+    public void c() {
         setVisibility(0);
         getTip1().setVisibility(4);
-        getTip2().setText(com.baidu.tieba.im.j.frsgroup_no_recommend_tip);
+        getTip2().setText(com.baidu.tieba.u.frsgroup_no_recommend_tip);
         if (this.d != null) {
             this.d.setVisibility(8);
         }
     }
 
-    public final void a(GroupPermData groupPermData) {
+    public void a(GroupPermData groupPermData) {
         setVisibility(0);
         getTip1().setVisibility(4);
-        getTip2().setText(com.baidu.tieba.im.j.frsgroup_no_hot_tip);
+        getTip2().setText(com.baidu.tieba.u.frsgroup_no_hot_tip);
         if (groupPermData != null && this.d != null) {
-            this.d.setText(com.baidu.tieba.im.j.frsgroup_hot_create_group);
+            this.d.setText(com.baidu.tieba.u.frsgroup_hot_create_group);
             this.d.setVisibility(0);
         }
     }
 
-    public final void b(GroupPermData groupPermData) {
+    public void b(GroupPermData groupPermData) {
         setVisibility(0);
         if (groupPermData != null && groupPermData.isManager()) {
             getTip1().setVisibility(4);
             getTip2().setVisibility(0);
-            getTip2().setText(com.baidu.tieba.im.j.frsgroup_office_no_tip1_owner);
+            getTip2().setText(com.baidu.tieba.u.frsgroup_office_no_tip1_owner);
             if (this.d != null) {
-                this.d.setText(com.baidu.tieba.im.j.frsgroup_official_create_group);
+                this.d.setText(com.baidu.tieba.u.frsgroup_official_create_group);
                 this.d.setVisibility(0);
                 return;
             }
@@ -104,17 +127,17 @@ public class InitGuideView extends RelativeLayout {
         }
         getTip1().setVisibility(0);
         getTip2().setVisibility(0);
-        getTip1().setText(com.baidu.tieba.im.j.frsgroup_office_no_tip1_leaguer);
-        getTip2().setText(com.baidu.tieba.im.j.frsgroup_office_no_tip2_leaguer);
+        getTip1().setText(com.baidu.tieba.u.frsgroup_office_no_tip1_leaguer);
+        getTip2().setText(com.baidu.tieba.u.frsgroup_office_no_tip2_leaguer);
         if (this.d != null) {
             this.d.setVisibility(8);
         }
     }
 
-    public final void d() {
+    public void d() {
         setVisibility(0);
         getTip1().setVisibility(4);
-        getTip2().setText(com.baidu.tieba.im.j.members_no_person);
+        getTip2().setText(com.baidu.tieba.u.members_no_person);
         if (this.d != null) {
             this.d.setVisibility(8);
         }
@@ -136,31 +159,15 @@ public class InitGuideView extends RelativeLayout {
         this.d = button;
     }
 
-    public final void e() {
-        int l = TbadkApplication.j().l();
-        if (a(l)) {
-            if (l == 1) {
-                this.a.setBackgroundResource(com.baidu.tieba.im.g.pic_go_ba_1);
-                this.b.setTextColor(-8815226);
-                this.c.setTextColor(-8815226);
-                if (this.d != null) {
-                    this.d.setBackgroundResource(com.baidu.tieba.im.g.btn_blue_square_1);
-                    this.d.setTextColor(TbadkApplication.j().b().getResources().getColor(com.baidu.tieba.im.e.c_acc5e0));
-                    return;
-                }
-                return;
-            }
-            this.a.setBackgroundResource(com.baidu.tieba.im.g.pic_go_ba);
-            this.b.setTextColor(-5065030);
-            this.c.setTextColor(-5065030);
-            if (this.d != null) {
-                this.d.setBackgroundResource(com.baidu.tieba.im.g.btn_blue_square);
-                this.d.setTextColor(TbadkApplication.j().b().getResources().getColor(com.baidu.tieba.im.e.white));
-            }
-        }
+    public void e() {
+        a(TbadkApplication.m252getInst().getSkinType());
     }
 
-    public final void f() {
+    public void f() {
+        e();
+    }
+
+    public void g() {
         this.e = -1;
         this.a.setBackgroundDrawable(null);
     }

@@ -1,12 +1,13 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class t {
-    private ai e;
+public class t {
+    private ah e;
     private ArrayList<f> f;
     private Context n;
     private String a = null;
@@ -26,56 +27,56 @@ public final class t {
         this.f = null;
         this.n = null;
         this.n = context;
-        this.e = new ai();
+        this.e = new ah();
         this.f = new ArrayList<>();
     }
 
-    public final ai a() {
+    public ah a() {
         return this.e;
     }
 
-    public final String b() {
+    public String b() {
         return this.b;
     }
 
-    public final String c() {
+    public String c() {
         return this.a;
     }
 
-    public final String d() {
+    public String d() {
         return this.i;
     }
 
-    public final String e() {
+    public String e() {
         return this.k;
     }
 
-    public final int f() {
+    public int f() {
         return this.g;
     }
 
-    public final int g() {
+    public int g() {
         return this.h;
     }
 
-    public final int h() {
+    public int h() {
         return this.m;
     }
 
-    public final String i() {
+    public String i() {
         return this.l;
     }
 
-    public final String j() {
+    public String j() {
         return this.d;
     }
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         JSONObject optJSONObject;
         try {
-            this.i = jSONObject.optString("post_id");
-            this.k = jSONObject.optString("user_name");
-            this.l = jSONObject.optString("user_id");
+            this.i = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.POST_ID);
+            this.k = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
+            this.l = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_ID);
             this.j = jSONObject.optString("comment_amount");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
             this.m = jSONObject.optInt("index", -1);
@@ -103,7 +104,7 @@ public final class t {
                 this.e.b(this.n);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "paserJson", e.toString());
+            BdLog.e(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

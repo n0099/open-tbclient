@@ -39,8 +39,8 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
             this.mCurTransaction.add(viewGroup.getId(), findFragmentByTag, makeFragmentName(viewGroup.getId(), itemId));
         }
         if (findFragmentByTag != this.mCurrentPrimaryItem) {
-            FragmentCompat.setMenuVisibility(findFragmentByTag, DEBUG);
-            FragmentCompat.setUserVisibleHint(findFragmentByTag, DEBUG);
+            FragmentCompat.setMenuVisibility(findFragmentByTag, false);
+            FragmentCompat.setUserVisibleHint(findFragmentByTag, false);
         }
         return findFragmentByTag;
     }
@@ -58,8 +58,8 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
         Fragment fragment = (Fragment) obj;
         if (fragment != this.mCurrentPrimaryItem) {
             if (this.mCurrentPrimaryItem != null) {
-                FragmentCompat.setMenuVisibility(this.mCurrentPrimaryItem, DEBUG);
-                FragmentCompat.setUserVisibleHint(this.mCurrentPrimaryItem, DEBUG);
+                FragmentCompat.setMenuVisibility(this.mCurrentPrimaryItem, false);
+                FragmentCompat.setUserVisibleHint(this.mCurrentPrimaryItem, false);
             }
             if (fragment != null) {
                 FragmentCompat.setMenuVisibility(fragment, true);
@@ -80,10 +80,7 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public boolean isViewFromObject(View view, Object obj) {
-        if (((Fragment) obj).getView() == view) {
-            return true;
-        }
-        return DEBUG;
+        return ((Fragment) obj).getView() == view;
     }
 
     @Override // android.support.v4.view.PagerAdapter

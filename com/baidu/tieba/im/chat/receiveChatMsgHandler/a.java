@@ -1,104 +1,110 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
 import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.message.LiveChatRoomEventResponseMessage;
 import com.baidu.tieba.im.data.SystemMsgData;
 import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.message.ChatRoomEventResponseMessage;
 import com.baidu.tieba.im.message.GroupMemberChangeResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-    public static boolean a(com.baidu.tieba.im.message.a.a aVar) {
-        if (aVar.t() != 11) {
-            return (aVar.r() == null || aVar.r().getUserId() == null || !aVar.r().getUserId().equals(TbadkApplication.E())) ? false : true;
+    private static void b(ChatMessage chatMessage) {
+        VoiceMsgData g = com.baidu.tieba.im.f.r.g(chatMessage);
+        if (g != null) {
+            if (com.baidu.tieba.im.f.r.d(chatMessage)) {
+                g.setHas_read(1);
+            } else {
+                g.setHas_read(0);
+            }
+            chatMessage.setContent("[" + new Gson().toJson(g) + "]");
         }
-        SystemMsgData i = com.baidu.tieba.im.f.q.i(aVar);
-        return (i == null || i.getIsSelf()) ? false : true;
     }
 
-    public static void a(String str, com.baidu.tieba.im.message.a.a aVar) {
-        if (aVar != null) {
+    public static boolean a(ChatMessage chatMessage) {
+        if (chatMessage.getMsgType() != 11) {
+            return (chatMessage.getUserInfo() == null || chatMessage.getUserInfo().getUserId() == null || !chatMessage.getUserInfo().getUserId().equals(TbadkApplication.getCurrentAccount())) ? false : true;
+        }
+        SystemMsgData j = com.baidu.tieba.im.f.r.j(chatMessage);
+        return (j == null || j.getIsSelf()) ? false : true;
+    }
+
+    public static void a(String str, ChatMessage chatMessage) {
+        if (chatMessage != null) {
             try {
-                switch (aVar.t()) {
+                switch (chatMessage.getMsgType()) {
                     case 3:
-                        VoiceMsgData f = com.baidu.tieba.im.f.q.f(aVar);
-                        if (f != null) {
-                            if (com.baidu.tieba.im.f.q.d(aVar)) {
-                                f.setHas_read(1);
-                            } else {
-                                f.setHas_read(0);
-                            }
-                            aVar.d("[" + new Gson().toJson(f) + "]");
-                            return;
-                        }
-                        return;
+                        b(chatMessage);
+                        break;
                     case 10:
-                        if (aVar != null) {
-                            String v = aVar.v();
-                            if (!TextUtils.isEmpty(v)) {
-                                String E = TbadkApplication.E();
-                                try {
-                                    JSONObject jSONObject = new JSONObject(v);
-                                    int optInt = jSONObject.optInt("replyme");
-                                    int optInt2 = jSONObject.optInt("zan");
-                                    if (optInt2 > 0) {
-                                        optInt += optInt2;
-                                    }
-                                    int optInt3 = jSONObject.optInt("fans");
-                                    int optInt4 = jSONObject.optInt("atme");
-                                    if (optInt < 0 || optInt3 < 0 || optInt4 < 0) {
-                                        return;
-                                    }
-                                    if (TbadkApplication.j().ai() <= 0) {
-                                        optInt3 = 0;
-                                        optInt = 0;
-                                        optInt4 = 0;
-                                    }
-                                    if (!TbadkApplication.j().al()) {
-                                        optInt -= optInt2;
-                                    }
-                                    if (!TbadkApplication.j().ak()) {
-                                        optInt = 0;
-                                    }
-                                    if (!TbadkApplication.j().aj()) {
-                                        optInt4 = 0;
-                                    }
-                                    int i = TbadkApplication.j().am() ? optInt3 : 0;
-                                    if (E == null || E.length() <= 0) {
-                                        return;
-                                    }
-                                    com.baidu.tbadk.coreExtra.messageCenter.a.a().a(optInt, optInt4, i, com.baidu.tbadk.coreExtra.messageCenter.a.a().l(), com.baidu.tbadk.coreExtra.messageCenter.a.a().n());
-                                    return;
-                                } catch (Exception e) {
-                                    com.baidu.adp.lib.util.f.b("ChatMsgHelper", "parseContent error ", e.getMessage());
-                                    return;
-                                }
-                            }
-                            return;
-                        }
-                        return;
+                        c(chatMessage);
+                        break;
                     case 11:
-                        if (aVar.t() == 11) {
-                            String v2 = aVar.v();
-                            String optString = new JSONObject(v2).optString("eventId");
-                            if ("105".equals(optString) || "106".equals(optString)) {
-                                com.baidu.adp.framework.c.a().b(new GroupMemberChangeResponsedMessage(str));
-                                return;
-                            } else if ("201".equals(optString) || "202".equals(optString) || "203".equals(optString) || "205".equals(optString)) {
-                                com.baidu.adp.framework.c.a().b(new ChatRoomEventResponseMessage(v2));
-                                return;
-                            } else {
-                                return;
-                            }
-                        }
-                        return;
-                    default:
-                        return;
+                        b(str, chatMessage);
+                        break;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static void b(String str, ChatMessage chatMessage) {
+        if (chatMessage.getMsgType() == 11) {
+            String content = chatMessage.getContent();
+            String optString = new JSONObject(content).optString("eventId");
+            if ("105".equals(optString) || "106".equals(optString)) {
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new GroupMemberChangeResponsedMessage(str));
+            } else if ("201".equals(optString) || "202".equals(optString) || "203".equals(optString) || "205".equals(optString)) {
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new ChatRoomEventResponseMessage(content));
+            } else if ("302".equals(optString) || "306".equals(optString) || "310".equals(optString) || "307".equals(optString) || "308".equals(optString) || "309".equals(optString) || "304".equals(optString)) {
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new LiveChatRoomEventResponseMessage(content));
+            }
+        }
+    }
+
+    private static void c(ChatMessage chatMessage) {
+        if (chatMessage != null) {
+            String content = chatMessage.getContent();
+            if (!TextUtils.isEmpty(content)) {
+                String currentAccount = TbadkApplication.getCurrentAccount();
+                try {
+                    JSONObject jSONObject = new JSONObject(content);
+                    int optInt = jSONObject.optInt("replyme");
+                    int optInt2 = jSONObject.optInt("zan");
+                    if (optInt2 > 0) {
+                        optInt += optInt2;
+                    }
+                    int optInt3 = jSONObject.optInt("fans");
+                    int optInt4 = jSONObject.optInt("atme");
+                    if (optInt >= 0 && optInt3 >= 0 && optInt4 >= 0) {
+                        if (TbadkApplication.m252getInst().getMsgFrequency() <= 0) {
+                            optInt4 = 0;
+                            optInt3 = 0;
+                            optInt = 0;
+                        }
+                        if (!TbadkApplication.m252getInst().isMsgZanOn()) {
+                            optInt -= optInt2;
+                        }
+                        if (!TbadkApplication.m252getInst().isMsgReplymeOn()) {
+                            optInt = 0;
+                        }
+                        if (!TbadkApplication.m252getInst().isMsgAtmeOn()) {
+                            optInt4 = 0;
+                        }
+                        int i = TbadkApplication.m252getInst().isMsgFansOn() ? optInt3 : 0;
+                        if (currentAccount != null && currentAccount.length() > 0) {
+                            com.baidu.tbadk.coreExtra.messageCenter.a.a().a(optInt, optInt4, i, com.baidu.tbadk.coreExtra.messageCenter.a.a().n(), com.baidu.tbadk.coreExtra.messageCenter.a.a().p());
+                        }
+                    }
+                } catch (Exception e) {
+                    BdLog.e("ChatMsgHelper", "parseContent error ", e.getMessage());
+                }
             }
         }
     }

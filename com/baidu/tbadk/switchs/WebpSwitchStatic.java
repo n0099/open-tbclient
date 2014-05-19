@@ -5,8 +5,7 @@ import com.baidu.adp.lib.a.f;
 /* loaded from: classes.dex */
 public class WebpSwitchStatic extends a {
     static {
-        f.a();
-        f.a(WebpSwitchStatic.class);
+        f.a().a(WebpSwitchStatic.class);
     }
 
     @Override // com.baidu.adp.lib.a.a

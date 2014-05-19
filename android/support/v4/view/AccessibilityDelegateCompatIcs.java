@@ -34,37 +34,37 @@ class AccessibilityDelegateCompatIcs {
     public static Object newAccessibilityDelegateBridge(final AccessibilityDelegateBridge accessibilityDelegateBridge) {
         return new View.AccessibilityDelegate() { // from class: android.support.v4.view.AccessibilityDelegateCompatIcs.1
             @Override // android.view.View.AccessibilityDelegate
-            public final boolean dispatchPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+            public boolean dispatchPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
                 return AccessibilityDelegateBridge.this.dispatchPopulateAccessibilityEvent(view, accessibilityEvent);
             }
 
             @Override // android.view.View.AccessibilityDelegate
-            public final void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+            public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
                 AccessibilityDelegateBridge.this.onInitializeAccessibilityEvent(view, accessibilityEvent);
             }
 
             @Override // android.view.View.AccessibilityDelegate
-            public final void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfo accessibilityNodeInfo) {
+            public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfo accessibilityNodeInfo) {
                 AccessibilityDelegateBridge.this.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfo);
             }
 
             @Override // android.view.View.AccessibilityDelegate
-            public final void onPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+            public void onPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
                 AccessibilityDelegateBridge.this.onPopulateAccessibilityEvent(view, accessibilityEvent);
             }
 
             @Override // android.view.View.AccessibilityDelegate
-            public final boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
+            public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
                 return AccessibilityDelegateBridge.this.onRequestSendAccessibilityEvent(viewGroup, view, accessibilityEvent);
             }
 
             @Override // android.view.View.AccessibilityDelegate
-            public final void sendAccessibilityEvent(View view, int i) {
+            public void sendAccessibilityEvent(View view, int i) {
                 AccessibilityDelegateBridge.this.sendAccessibilityEvent(view, i);
             }
 
             @Override // android.view.View.AccessibilityDelegate
-            public final void sendAccessibilityEventUnchecked(View view, AccessibilityEvent accessibilityEvent) {
+            public void sendAccessibilityEventUnchecked(View view, AccessibilityEvent accessibilityEvent) {
                 AccessibilityDelegateBridge.this.sendAccessibilityEventUnchecked(view, accessibilityEvent);
             }
         };

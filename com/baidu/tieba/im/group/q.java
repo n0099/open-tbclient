@@ -4,8 +4,9 @@ import android.view.View;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public final class q {
+public class q {
     private com.baidu.tbadk.core.e a;
     private b b;
     private View c;
@@ -19,49 +20,49 @@ public final class q {
         this.b = bVar;
         this.c = this.b.getView();
         this.f = new com.baidu.tbadk.core.view.q(this.a);
-        this.d = (BdListView) this.c.findViewById(com.baidu.tieba.im.h.list_view);
+        this.d = (BdListView) this.c.findViewById(r.list_view);
         this.d.setPullRefresh(this.f);
         this.e = new l(bVar);
         this.d.setAdapter((ListAdapter) this.e);
         this.d.setOnScrollListener(this.e);
-        this.g = (NoNetworkView) this.c.findViewById(com.baidu.tieba.im.h.view_no_network_group);
+        this.g = (NoNetworkView) this.c.findViewById(r.view_no_network_group);
     }
 
-    public final l a() {
+    public l a() {
         return this.e;
     }
 
-    public final BdListView b() {
+    public BdListView b() {
         return this.d;
     }
 
-    public final void c() {
-        this.d.b();
-    }
-
-    public final void a(com.baidu.adp.widget.ListView.d dVar) {
-        this.f.a(dVar);
-    }
-
-    public final void d() {
+    public void c() {
         this.d.c();
     }
 
-    public final void a(int i) {
-        this.a.b().a(i == 1);
-        this.a.b().a(this.c);
+    public void a(com.baidu.adp.widget.ListView.d dVar) {
+        this.f.a(dVar);
+    }
+
+    public void d() {
+        this.d.d();
+    }
+
+    public void a(int i) {
+        this.a.a().a(i == 1);
+        this.a.a().a(this.c);
         this.g.a(i);
-        this.e.a();
+        this.e.b(i);
         this.f.a(i);
     }
 
-    public final void b(int i) {
+    public void b(int i) {
         if (this.e != null) {
             this.e.a(i);
         }
     }
 
-    public final void a(String str, String str2) {
+    public void a(String str, String str2) {
         if (this.e != null) {
             this.e.a(str2, str);
         }

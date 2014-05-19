@@ -1,28 +1,22 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import com.baidu.tbadk.TbadkApplication;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
-public final class x extends com.baidu.tbadk.widget.k {
-    private int b;
+class x implements View.OnClickListener {
+    final /* synthetic */ SearchBoxView a;
 
-    public x(Context context) {
-        super(context);
-        this.b = -1;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public x(SearchBoxView searchBoxView) {
+        this.a = searchBoxView;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.widget.k, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.BDImageView, android.widget.ImageView, android.view.View
-    public final void onDraw(Canvas canvas) {
-        if (TbadkApplication.j().l() == 1) {
-            this.b = getResources().getColor(com.baidu.tieba.a.e.pb_default_image_bg_1);
-        } else {
-            this.b = getResources().getColor(com.baidu.tieba.a.e.pb_default_image_bg);
-        }
-        if (getImage() == null && this.b != -1) {
-            canvas.drawColor(this.b);
-        }
-        super.onDraw(canvas);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        activity = this.a.a;
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.f(activity, 16003)));
     }
 }

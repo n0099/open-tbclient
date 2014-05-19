@@ -1,18 +1,40 @@
 package com.baidu.tieba.frs;
+
+import android.view.LayoutInflater;
+import android.view.View;
 /* loaded from: classes.dex */
-final class bp implements com.baidu.tbadk.core.view.m {
-    final /* synthetic */ FrsImageActivity a;
+class bp implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ bo a;
+    private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public bp(bo boVar, View view) {
+        this.a = boVar;
+        this.b = view;
     }
 
-    @Override // com.baidu.tbadk.core.view.m
-    public final void a(boolean z) {
-        if (z) {
-            this.a.q = null;
-            this.a.b(1);
-        }
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        return this.b;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int a() {
+        return 5;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int b() {
+        return 32;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int c() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int d() {
+        return 0;
     }
 }

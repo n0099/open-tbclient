@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
-public final class e {
+public class e {
     public static void a(InputStream inputStream, OutputStream outputStream) {
         GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
         byte[] bArr = new byte[1024];
@@ -33,6 +33,16 @@ public final class e {
                 gZIPOutputStream.close();
                 return;
             }
+        }
+    }
+
+    public static void a(byte[] bArr, OutputStream outputStream) {
+        if (bArr != null && bArr.length != 0) {
+            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+            gZIPOutputStream.write(bArr, 0, bArr.length);
+            gZIPOutputStream.flush();
+            gZIPOutputStream.finish();
+            gZIPOutputStream.close();
         }
     }
 }

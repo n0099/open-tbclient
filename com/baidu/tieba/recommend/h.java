@@ -1,6 +1,7 @@
 package com.baidu.tieba.recommend;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class h implements q {
+public class h implements q {
     final /* synthetic */ DailyRecommendActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +10,11 @@ final class h implements q {
     }
 
     @Override // com.baidu.tieba.recommend.q
-    public final void a(boolean z, String str, com.baidu.tieba.data.k kVar, int i) {
+    public void a() {
+    }
+
+    @Override // com.baidu.tieba.recommend.q
+    public void a(boolean z, String str, com.baidu.tieba.data.k kVar, int i) {
         r rVar;
         r rVar2;
         r rVar3;
@@ -21,7 +26,7 @@ final class h implements q {
             rVar3.a(kVar);
             if (i == 0) {
                 rVar4 = this.a.b;
-                rVar4.f();
+                rVar4.d();
             }
         } else {
             rVar2 = this.a.b;

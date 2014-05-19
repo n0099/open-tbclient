@@ -10,6 +10,7 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Handler;
+import com.baidu.tbadk.TbConfig;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -32,7 +33,7 @@ public class e {
 
     /* renamed from: new  reason: not valid java name */
     private final long f124new = 3000;
-    private final long a = 5000;
+    private final long a = TbConfig.NOTIFY_SOUND_INTERVAL;
 
     /* renamed from: void  reason: not valid java name */
     private WifiManager f125void = null;
@@ -73,7 +74,7 @@ public class e {
             if (context == null || e.this.f121if == null) {
                 return;
             }
-            e.this.m121goto();
+            e.this.m123goto();
         }
     }
 
@@ -87,7 +88,7 @@ public class e {
             if (context == null || e.this.f121if == null) {
                 return;
             }
-            e.this.m123if();
+            e.this.m125if();
             e.this.f121if.obtainMessage(41).sendToTarget();
             j.a(e.f114try, "wifi manager receive new wifi...");
         }
@@ -113,16 +114,16 @@ public class e {
             this.f126do = list;
             this.f127for = System.currentTimeMillis();
             a();
-            j.m241if(e.f114try, m136for());
+            j.m243if(e.f114try, m138for());
         }
 
         private void a() {
             boolean z;
-            if (m141new() <= 0) {
+            if (m143new() < 1) {
                 return;
             }
             boolean z2 = true;
-            for (int size = this.f126do.size() - 1; size > 0 && z2; size--) {
+            for (int size = this.f126do.size() - 1; size >= 1 && z2; size--) {
                 int i = 0;
                 z2 = false;
                 while (i < size) {
@@ -140,67 +141,67 @@ public class e {
         }
 
         public String a(int i) {
-            boolean z;
             int i2;
-            if (m141new() <= 0) {
+            boolean z;
+            if (m143new() < 1) {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer(512);
-            String m126char = e.this.m126char();
+            String m128char = e.this.m128char();
             int size = this.f126do.size();
             if (size <= i) {
                 i = size;
             }
-            boolean z2 = true;
             int i3 = 0;
+            boolean z2 = true;
             int i4 = 0;
             int i5 = 0;
-            while (i5 < i) {
-                if (((ScanResult) this.f126do.get(i5)).level == 0) {
+            while (i3 < i) {
+                if (((ScanResult) this.f126do.get(i3)).level == 0) {
                     z = z2;
-                    i2 = i4;
+                    i2 = i5;
                 } else if (z2) {
                     stringBuffer.append("&wf=");
-                    String replace = ((ScanResult) this.f126do.get(i5)).BSSID.replace(":", "");
+                    String replace = ((ScanResult) this.f126do.get(i3)).BSSID.replace(":", "");
                     stringBuffer.append(replace);
-                    int i6 = ((ScanResult) this.f126do.get(i5)).level;
+                    int i6 = ((ScanResult) this.f126do.get(i3)).level;
                     if (i6 < 0) {
                         i6 = -i6;
                     }
                     stringBuffer.append(String.format(";%d;", Integer.valueOf(i6)));
-                    i2 = i4 + 1;
-                    i3 = (m126char == null || !m126char.equals(replace)) ? i3 : i2;
+                    i2 = i5 + 1;
+                    i4 = (m128char == null || !m128char.equals(replace)) ? i4 : i2;
                     z = false;
                 } else {
                     stringBuffer.append("|");
-                    String replace2 = ((ScanResult) this.f126do.get(i5)).BSSID.replace(":", "");
+                    String replace2 = ((ScanResult) this.f126do.get(i3)).BSSID.replace(":", "");
                     stringBuffer.append(replace2);
-                    int i7 = ((ScanResult) this.f126do.get(i5)).level;
+                    int i7 = ((ScanResult) this.f126do.get(i3)).level;
                     if (i7 < 0) {
                         i7 = -i7;
                     }
                     stringBuffer.append(String.format(";%d;", Integer.valueOf(i7)));
-                    int i8 = i4 + 1;
-                    if (m126char == null || !m126char.equals(replace2)) {
+                    int i8 = i5 + 1;
+                    if (m128char == null || !m128char.equals(replace2)) {
                         boolean z3 = z2;
                         i2 = i8;
                         z = z3;
                     } else {
-                        i3 = i8;
+                        i4 = i8;
                         boolean z4 = z2;
                         i2 = i8;
                         z = z4;
                     }
                 }
-                i5++;
-                i4 = i2;
+                i3++;
+                i5 = i2;
                 z2 = z;
             }
             if (z2) {
                 return null;
             }
-            j.a(e.f114try, m126char + i3);
-            stringBuffer.append("&wf_n=" + i3);
+            j.a(e.f114try, m128char + i4);
+            stringBuffer.append("&wf_n=" + i4);
             stringBuffer.append("&wf_st=");
             stringBuffer.append(this.f128if);
             stringBuffer.append("&wf_et=");
@@ -239,14 +240,21 @@ public class e {
             while (i2 < size) {
                 String str = ((ScanResult) list.get(i2)).BSSID;
                 if (str != null) {
-                    for (int i4 = 0; i4 < size2; i4++) {
-                        if (str.equals(((ScanResult) list2.get(i4)).BSSID)) {
+                    int i4 = 0;
+                    while (true) {
+                        if (i4 >= size2) {
+                            i = i3;
+                            break;
+                        } else if (str.equals(((ScanResult) list2.get(i4)).BSSID)) {
                             i = i3 + 1;
                             break;
+                        } else {
+                            i4++;
                         }
                     }
+                } else {
+                    i = i3;
                 }
-                i = i3;
                 i2++;
                 i3 = i;
             }
@@ -255,7 +263,7 @@ public class e {
         }
 
         /* renamed from: byte  reason: not valid java name */
-        public String m132byte() {
+        public String m134byte() {
             try {
                 return a(j.F);
             } catch (Exception e) {
@@ -264,11 +272,11 @@ public class e {
         }
 
         /* renamed from: case  reason: not valid java name */
-        public String m133case() {
+        public String m135case() {
             boolean z;
             StringBuffer stringBuffer = new StringBuffer(512);
             stringBuffer.append("wifi info:");
-            if (m141new() <= 0) {
+            if (m143new() < 1) {
                 return stringBuffer.toString();
             }
             int size = this.f126do.size();
@@ -278,21 +286,19 @@ public class e {
             int i = 0;
             boolean z2 = true;
             while (i < size) {
-                if (((ScanResult) this.f126do.get(i)).level != 0) {
-                    if (z2) {
-                        stringBuffer.append("wifi=");
-                        stringBuffer.append(((ScanResult) this.f126do.get(i)).BSSID.replace(":", ""));
-                        stringBuffer.append(String.format(";%d;", Integer.valueOf(((ScanResult) this.f126do.get(i)).level)));
-                        z = false;
-                        i++;
-                        z2 = z;
-                    } else {
-                        stringBuffer.append(";");
-                        stringBuffer.append(((ScanResult) this.f126do.get(i)).BSSID.replace(":", ""));
-                        stringBuffer.append(String.format(",%d;", Integer.valueOf(((ScanResult) this.f126do.get(i)).level)));
-                    }
+                if (((ScanResult) this.f126do.get(i)).level == 0) {
+                    z = z2;
+                } else if (z2) {
+                    stringBuffer.append("wifi=");
+                    stringBuffer.append(((ScanResult) this.f126do.get(i)).BSSID.replace(":", ""));
+                    stringBuffer.append(String.format(";%d;", Integer.valueOf(((ScanResult) this.f126do.get(i)).level)));
+                    z = false;
+                } else {
+                    stringBuffer.append(";");
+                    stringBuffer.append(((ScanResult) this.f126do.get(i)).BSSID.replace(":", ""));
+                    stringBuffer.append(String.format(",%d;", Integer.valueOf(((ScanResult) this.f126do.get(i)).level)));
+                    z = z2;
                 }
-                z = z2;
                 i++;
                 z2 = z;
             }
@@ -300,12 +306,12 @@ public class e {
         }
 
         /* renamed from: do  reason: not valid java name */
-        public boolean m134do() {
+        public boolean m136do() {
             return System.currentTimeMillis() - this.f127for < 3000;
         }
 
         /* renamed from: do  reason: not valid java name */
-        public boolean m135do(c cVar) {
+        public boolean m137do(c cVar) {
             if (this.f126do == null || cVar == null || cVar.f126do == null) {
                 return false;
             }
@@ -323,7 +329,7 @@ public class e {
         }
 
         /* renamed from: for  reason: not valid java name */
-        public String m136for() {
+        public String m138for() {
             StringBuilder sb = new StringBuilder();
             sb.append("wifi=");
             if (this.f126do == null) {
@@ -338,9 +344,9 @@ public class e {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public String m137if(int i) {
+        public String m139if(int i) {
             int i2 = 0;
-            if (i == 0 || m141new() <= 0) {
+            if (i == 0 || m143new() < 1) {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer(256);
@@ -368,12 +374,12 @@ public class e {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public boolean m138if() {
+        public boolean m140if() {
             return System.currentTimeMillis() - this.f128if < 3000;
         }
 
         /* renamed from: if  reason: not valid java name */
-        public boolean m139if(c cVar) {
+        public boolean m141if(c cVar) {
             if (this.f126do == null || cVar == null || cVar.f126do == null) {
                 return false;
             }
@@ -387,12 +393,12 @@ public class e {
         }
 
         /* renamed from: int  reason: not valid java name */
-        public boolean m140int() {
-            return System.currentTimeMillis() - this.f127for < 5000;
+        public boolean m142int() {
+            return System.currentTimeMillis() - this.f127for < TbConfig.NOTIFY_SOUND_INTERVAL;
         }
 
         /* renamed from: new  reason: not valid java name */
-        public int m141new() {
+        public int m143new() {
             if (this.f126do == null) {
                 return 0;
             }
@@ -400,7 +406,7 @@ public class e {
         }
 
         /* renamed from: try  reason: not valid java name */
-        public String m142try() {
+        public String m144try() {
             try {
                 return a(15);
             } catch (Exception e) {
@@ -435,7 +441,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: goto  reason: not valid java name */
-    public void m121goto() {
+    public void m123goto() {
         NetworkInfo.State state;
         NetworkInfo.State state2 = NetworkInfo.State.UNKNOWN;
         try {
@@ -455,14 +461,14 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
-    public void m123if() {
+    public void m125if() {
         if (this.f125void == null) {
             return;
         }
         try {
             c cVar = new c(this.f125void.getScanResults(), this.b);
             this.b = 0L;
-            if (this.f115case == null || !cVar.m139if(this.f115case)) {
+            if (this.f115case == null || !cVar.m141if(this.f115case)) {
                 this.f115case = cVar;
             }
         } catch (Exception e) {
@@ -475,12 +481,12 @@ public class e {
             return false;
         }
         this.f123long = currentTimeMillis;
-        return m130new();
+        return m132new();
     }
 
     /* renamed from: byte  reason: not valid java name */
-    public c m124byte() {
-        if ((this.f115case == null || !this.f115case.m140int()) && this.f125void != null) {
+    public c m126byte() {
+        if ((this.f115case == null || !this.f115case.m142int()) && this.f125void != null) {
             try {
                 return new c(this.f125void.getScanResults(), 0L);
             } catch (Exception e) {
@@ -491,7 +497,7 @@ public class e {
     }
 
     /* renamed from: case  reason: not valid java name */
-    public void m125case() {
+    public void m127case() {
         if (this.c == null) {
             this.c = new a();
         }
@@ -502,14 +508,14 @@ public class e {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
             this.f120goto.registerReceiver(this.c, intentFilter);
-            m121goto();
+            m123goto();
             this.f118else = true;
         } catch (Exception e) {
         }
     }
 
     /* renamed from: char  reason: not valid java name */
-    public String m126char() {
+    public String m128char() {
         WifiInfo connectionInfo = this.f125void.getConnectionInfo();
         if (connectionInfo == null) {
             return null;
@@ -526,7 +532,7 @@ public class e {
     }
 
     /* renamed from: else  reason: not valid java name */
-    public void m127else() {
+    public void m129else() {
         if (this.f122int) {
             try {
                 this.f120goto.unregisterReceiver(this.f116char);
@@ -544,7 +550,7 @@ public class e {
     }
 
     /* renamed from: for  reason: not valid java name */
-    public void m128for() {
+    public void m130for() {
         if (!this.f117do && j.f205try && j.J) {
             this.f121if.postDelayed(new d(), j.h);
             this.f117do = true;
@@ -552,8 +558,8 @@ public class e {
     }
 
     /* renamed from: int  reason: not valid java name */
-    public c m129int() {
-        if ((this.f115case == null || !this.f115case.m134do()) && this.f125void != null) {
+    public c m131int() {
+        if ((this.f115case == null || !this.f115case.m136do()) && this.f125void != null) {
             try {
                 return new c(this.f125void.getScanResults(), 0L);
             } catch (Exception e) {
@@ -564,7 +570,7 @@ public class e {
     }
 
     /* renamed from: new  reason: not valid java name */
-    public boolean m130new() {
+    public boolean m132new() {
         if (this.f125void == null) {
             return false;
         }
@@ -596,7 +602,7 @@ public class e {
     }
 
     /* renamed from: try  reason: not valid java name */
-    public void m131try() {
+    public void m133try() {
         if (this.f122int) {
             return;
         }
@@ -610,7 +616,7 @@ public class e {
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
                 this.f120goto.registerReceiver(this.c, intentFilter);
                 this.f118else = true;
-                m121goto();
+                m123goto();
             }
         } catch (Exception e) {
         }

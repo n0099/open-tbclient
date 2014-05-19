@@ -1,29 +1,27 @@
 package com.baidu.tbadk.b;
 
-import com.baidu.adp.framework.b.f;
+import com.baidu.adp.framework.a.f;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public final class d extends f {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.d, com.baidu.adp.framework.task.b] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.d' to match base method */
-    @Override // com.baidu.adp.framework.b.h
-    public final /* synthetic */ HttpMessage a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        HttpMessage httpMessage2 = httpMessage;
-        HttpMessageTask httpMessageTask2 = httpMessageTask;
-        if (httpMessageTask2 == null || !(httpMessageTask2 instanceof com.baidu.tbadk.c.b)) {
-            return httpMessage2;
-        }
-        com.baidu.tbadk.c.b bVar = (com.baidu.tbadk.c.b) httpMessageTask2;
-        if (ReloginManager.a().b() && bVar.s()) {
-            ReloginManager.a().a(httpMessage2);
-            return null;
-        }
-        return httpMessage2;
+public class d extends f {
+    public d(int i) {
+        super(i);
     }
 
-    public d(int i) {
-        super(0);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.h
+    public HttpMessage a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
+            TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
+            if (ReloginManager.a().b() && tbHttpMessageTask.isNeedLogin()) {
+                ReloginManager.a().a(httpMessage);
+                return null;
+            }
+            return httpMessage;
+        }
+        return httpMessage;
     }
 }

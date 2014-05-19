@@ -3,7 +3,8 @@ package com.baidu.tbadk.img;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.bf;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -110,11 +111,11 @@ public class WriteImagesInfo implements Parcelable, Serializable {
     }
 
     public void parseJson(String str) {
-        if (!com.baidu.adp.lib.util.h.b(str)) {
+        if (!com.baidu.adp.lib.util.g.b(str)) {
             try {
                 parseJson(new JSONObject(str));
             } catch (JSONException e) {
-                com.baidu.adp.lib.util.f.b(e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -165,7 +166,7 @@ public class WriteImagesInfo implements Parcelable, Serializable {
             }
             return jSONObject;
         } catch (JSONException e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            BdLog.e(e.getMessage());
             return null;
         }
     }
@@ -176,7 +177,7 @@ public class WriteImagesInfo implements Parcelable, Serializable {
             for (int size = chosedFiles.size() - 1; size >= 0; size--) {
                 ImageFileInfo imageFileInfo = chosedFiles.get(size);
                 if (!imageFileInfo.isHasAddPostQualityAction()) {
-                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.a(bd.a().e(), bd.a().e()));
+                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.a(bf.a().e(), bf.a().e()));
                     imageFileInfo.setHasAddPostQualityAction(true);
                 }
             }

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.validate;
 import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements DialogInterface.OnClickListener {
+public class f implements DialogInterface.OnClickListener {
     final /* synthetic */ ValidateActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public final class f implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         t tVar;
         ValidateItemData validateItemData;
         switch (i) {
@@ -21,7 +21,7 @@ public final class f implements DialogInterface.OnClickListener {
                 tVar.a(true);
                 ValidateActivity validateActivity = this.a;
                 validateItemData = this.a.f;
-                ValidateActivity.a(validateActivity, validateItemData);
+                validateActivity.c(validateItemData);
                 return;
             default:
                 return;

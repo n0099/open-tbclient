@@ -1,8 +1,9 @@
 package com.baidu.tieba.flist;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class m implements View.OnClickListener {
+public class m implements View.OnClickListener {
     final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +12,7 @@ final class m implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        ForumListActivity.w(this.a);
+    public void onClick(View view) {
+        this.a.d();
     }
 }

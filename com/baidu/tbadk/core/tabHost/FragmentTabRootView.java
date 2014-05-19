@@ -43,11 +43,11 @@ public class FragmentTabRootView extends LinearLayout {
         this.c.set(0, 0, i, i2);
     }
 
-    public final void a(float f, float f2, float f3, float f4, float f5, float f6, int i) {
+    public void a(float f, float f2, float f3, float f4, float f5, float f6, int i) {
         this.a.reset();
-        this.a.postTranslate(0.0f, 0.0f);
-        this.a.postScale(1.0f, 1.0f, 0.0f, 0.0f);
-        this.b.setAlpha(0);
+        this.a.postTranslate(f, f2);
+        this.a.postScale(f3, f4, f5, f6);
+        this.b.setAlpha(i);
         postInvalidateDelayed(16L);
     }
 

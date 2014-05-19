@@ -30,9 +30,8 @@ public class JsonWriter implements Closeable, Flushable {
         REPLACEMENT_CHARS[10] = "\\n";
         REPLACEMENT_CHARS[13] = "\\r";
         REPLACEMENT_CHARS[12] = "\\f";
-        String[] strArr = (String[]) REPLACEMENT_CHARS.clone();
-        HTML_SAFE_REPLACEMENT_CHARS = strArr;
-        strArr[60] = "\\u003c";
+        HTML_SAFE_REPLACEMENT_CHARS = (String[]) REPLACEMENT_CHARS.clone();
+        HTML_SAFE_REPLACEMENT_CHARS[60] = "\\u003c";
         HTML_SAFE_REPLACEMENT_CHARS[62] = "\\u003e";
         HTML_SAFE_REPLACEMENT_CHARS[38] = "\\u0026";
         HTML_SAFE_REPLACEMENT_CHARS[61] = "\\u003d";
@@ -248,7 +247,7 @@ public class JsonWriter implements Closeable, Flushable {
         this.stackSize = 0;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0041  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0044  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

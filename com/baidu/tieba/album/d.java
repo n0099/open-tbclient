@@ -4,7 +4,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.ImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
-final class d implements ViewPager.OnPageChangeListener {
+class d implements ViewPager.OnPageChangeListener {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ final class d implements ViewPager.OnPageChangeListener {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageSelected(int i) {
+    public void onPageSelected(int i) {
         int i2;
         h hVar;
         p pVar;
@@ -37,21 +37,21 @@ final class d implements ViewPager.OnPageChangeListener {
                 if (pVar2.c(a)) {
                     b bVar2 = this.a;
                     imageView2 = this.a.l;
-                    b.a(imageView2, true);
+                    bVar2.a(imageView2, true);
                     return;
                 }
                 b bVar3 = this.a;
                 imageView = this.a.l;
-                b.a(imageView, false);
+                bVar3.a(imageView, false);
             }
         }
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageScrolled(int i, float f, int i2) {
+    public void onPageScrolled(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageScrollStateChanged(int i) {
+    public void onPageScrollStateChanged(int i) {
     }
 }

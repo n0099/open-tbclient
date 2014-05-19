@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 /* loaded from: classes.dex */
-final class s implements AbsListView.OnScrollListener {
+class s implements AbsListView.OnScrollListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,60 +13,60 @@ final class s implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScrollStateChanged(AbsListView absListView, int i) {
+    public void onScrollStateChanged(AbsListView absListView, int i) {
         Handler handler;
         Handler handler2;
-        cm cmVar;
-        cm cmVar2;
-        cm cmVar3;
+        cs csVar;
+        cs csVar2;
+        cs csVar3;
         Handler handler3;
         Runnable runnable;
         Handler handler4;
-        cm cmVar4;
+        cs csVar4;
         AdapterView.OnItemLongClickListener onItemLongClickListener;
-        cm cmVar5;
+        cs csVar5;
         Handler handler5;
         Runnable runnable2;
         Handler handler6;
         Runnable runnable3;
-        handler = this.a.Z;
+        handler = this.a.ag;
         if (handler != null) {
-            handler6 = this.a.Z;
-            runnable3 = this.a.ab;
+            handler6 = this.a.ag;
+            runnable3 = this.a.ai;
             handler6.removeCallbacks(runnable3);
         }
-        this.a.am = i;
+        this.a.ar = i;
         if (i == 0) {
-            handler4 = this.a.Z;
+            handler4 = this.a.ag;
             if (handler4 != null) {
-                handler5 = this.a.Z;
-                runnable2 = this.a.ab;
-                handler5.postDelayed(runnable2, 300L);
+                handler5 = this.a.ag;
+                runnable2 = this.a.ai;
+                handler5.postDelayed(runnable2, 90L);
             }
-            cmVar4 = this.a.r;
-            onItemLongClickListener = this.a.aj;
-            cmVar4.a(onItemLongClickListener);
-            cmVar5 = this.a.r;
-            cmVar5.f(false);
-            this.a.N = false;
+            csVar4 = this.a.w;
+            onItemLongClickListener = this.a.ao;
+            csVar4.a(onItemLongClickListener);
+            csVar5 = this.a.w;
+            csVar5.e(false);
+            this.a.U = false;
             return;
         }
-        handler2 = this.a.Z;
+        handler2 = this.a.ag;
         if (handler2 != null && i == 1) {
-            handler3 = this.a.Z;
-            runnable = this.a.ab;
-            handler3.postDelayed(runnable, 300L);
+            handler3 = this.a.ag;
+            runnable = this.a.ai;
+            handler3.postDelayed(runnable, 90L);
         }
-        cmVar = this.a.r;
-        cmVar.a((AdapterView.OnItemLongClickListener) null);
-        cmVar2 = this.a.r;
-        cmVar2.f(true);
-        this.a.N = true;
-        cmVar3 = this.a.r;
-        cmVar3.Q();
+        csVar = this.a.w;
+        csVar.a((AdapterView.OnItemLongClickListener) null);
+        csVar2 = this.a.w;
+        csVar2.e(true);
+        this.a.U = true;
+        csVar3 = this.a.w;
+        csVar3.U();
     }
 }

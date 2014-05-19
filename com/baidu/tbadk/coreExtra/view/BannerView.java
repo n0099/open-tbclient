@@ -12,105 +12,104 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    View.OnClickListener a;
-    private String b;
+    public boolean a;
+    View.OnClickListener b;
     private String c;
     private String d;
-    private Button e;
-    private Context f;
-    private com.baidu.tbadk.core.util.b g;
-    private boolean h;
-    private float i;
-    private String j;
+    private String e;
+    private Button f;
+    private Context g;
+    private com.baidu.tbadk.core.util.b h;
+    private boolean i;
+    private float j;
+    private String k;
+    private c l;
 
-    public final void a(String str, String str2) {
+    public void a(String str, String str2) {
         if (str != null && str2 != null) {
-            this.b = str;
-            this.c = str2;
+            this.c = str;
+            this.d = str2;
         }
-    }
-
-    public BannerView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.g = null;
-        this.h = false;
-        this.i = 0.1388889f;
-        this.a = new a(this);
-        a(context);
     }
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = "";
         this.c = "";
         this.d = "";
-        this.g = null;
-        this.h = false;
-        this.i = 0.1388889f;
-        this.a = new a(this);
+        this.e = "";
+        this.h = null;
+        this.i = false;
+        this.j = 0.1388889f;
+        this.a = false;
+        this.b = new a(this);
         a(context);
     }
 
     public BannerView(Context context) {
-        super(context);
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.g = null;
-        this.h = false;
-        this.i = 0.1388889f;
-        this.a = new a(this);
-        a(context);
+        this(context, null);
     }
 
     private void a(Context context) {
-        this.f = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tbadk.k.bannerview, this);
-        this.e = (Button) findViewById(com.baidu.tbadk.j.btn_close);
-        this.e.setOnClickListener(this.a);
-        setOnClickListener(this.a);
+        this.g = context;
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.bannerview, this);
+        this.f = (Button) findViewById(com.baidu.tieba.r.btn_close);
+        this.f.setOnClickListener(this.b);
+        setOnClickListener(this.b);
     }
 
-    public final void a(String str, String str2, String str3, long j) {
-        this.d = str3;
-        this.j = str2;
-        if (this.h) {
+    public void a(String str, String str2, String str3, long j) {
+        this.e = str3;
+        this.k = str2;
+        this.a = false;
+        if (this.i) {
             setVisibility(8);
             return;
         }
-        if (!TextUtils.isEmpty(this.d) || 259200000 == 0) {
-            com.baidu.tbadk.s.a();
-            if (System.currentTimeMillis() - com.baidu.tbadk.s.a(this.d, 0L) < 259200000) {
+        if (!TextUtils.isEmpty(this.e) || j == 0) {
+            if (System.currentTimeMillis() - com.baidu.tbadk.f.a().a(this.e, 0L) < j) {
                 setVisibility(8);
                 return;
             }
         }
         setVisibility(8);
-        if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+        if (!TextUtils.isEmpty(str)) {
+            this.a = true;
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.i.b(getContext()) * this.i) + 0.5d);
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.h.b(getContext()) * this.j) + 0.5d);
             setLayoutParams(layoutParams);
             setImageUrl(str);
         }
     }
 
+    public void a(String str, String str2, long j) {
+        a(str, "", str2, j);
+    }
+
     private void setImageUrl(String str) {
-        if (this.g == null) {
-            this.g = new com.baidu.tbadk.core.util.b(this.f);
-            this.g.a(720, 100);
-            this.g.a(true);
+        if (this.h == null) {
+            this.h = new com.baidu.tbadk.core.util.b(this.g);
+            this.h.a(720, 100);
+            this.h.d(true);
         }
-        this.g.b(str, new b(this));
+        this.h.b(str, new b(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setImg(com.baidu.adp.widget.ImageView.b bVar) {
+    public void setImg(com.baidu.adp.widget.a.a aVar) {
         Bitmap h;
-        if (bVar != null && (h = bVar.h()) != null) {
+        if (aVar != null && (h = aVar.h()) != null) {
             setBackgroundDrawable(new BitmapDrawable(h));
         }
+    }
+
+    public void a() {
+        if (this.h != null) {
+            this.h.d();
+            this.h = null;
+        }
+    }
+
+    public void setBannerViewClickListener(c cVar) {
+        this.l = cVar;
     }
 }

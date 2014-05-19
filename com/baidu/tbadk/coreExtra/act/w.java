@@ -1,17 +1,26 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.view.View;
+import com.baidu.sapi2.SapiWebView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class w implements View.OnClickListener {
-    final /* synthetic */ LoginActivity a;
+public class w implements SapiWebView.OnBackCallback {
+    final /* synthetic */ ForgetPwdActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(LoginActivity loginActivity) {
-        this.a = loginActivity;
+    public w(ForgetPwdActivity forgetPwdActivity) {
+        this.a = forgetPwdActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        LoginActivity.t(this.a);
+    @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
+    public void onBack() {
+        SapiWebView sapiWebView;
+        SapiWebView sapiWebView2;
+        sapiWebView = this.a.a;
+        if (sapiWebView.canGoBack()) {
+            sapiWebView2 = this.a.a;
+            sapiWebView2.goBack();
+            return;
+        }
+        this.a.finish();
     }
 }

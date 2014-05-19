@@ -1,67 +1,113 @@
 package com.baidu.adp.widget;
 
-import android.content.res.Resources;
-import android.graphics.Bitmap;
+import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.ColorFilter;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Region;
+import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
-import android.widget.ImageView;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.text.style.DynamicDrawableSpan;
+import android.util.Log;
+import java.io.InputStream;
 /* loaded from: classes.dex */
-public final class r extends BitmapDrawable implements q {
-    private int a;
-    private int b;
+public class r extends DynamicDrawableSpan {
+    private Drawable a;
+    private Uri b;
     private int c;
-    private final Paint d;
-    private final Path e;
-    private final ImageView f;
+    private Context d;
+    private s e;
+    private Rect f;
 
-    public r(Resources resources, ImageView imageView, Bitmap bitmap, int i, ColorFilter colorFilter) {
-        super(resources, bitmap);
-        this.a = 0;
-        this.b = 0;
-        this.e = new Path();
-        this.f = imageView;
-        this.c = Math.max(0, i);
-        this.d = new Paint();
-        this.d.setAntiAlias(true);
-        this.d.setFilterBitmap(true);
-        if (colorFilter != null) {
-            this.d.setColorFilter(colorFilter);
+    public void a(Drawable drawable) {
+        this.a = drawable;
+    }
+
+    public r(s sVar, int i, int i2) {
+        super(i2);
+        this.f = new Rect();
+        this.c = i;
+        this.e = sVar;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        if (this.a != null || this.e == null) {
+            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+        }
+        if (fontMetricsInt != null) {
+            fontMetricsInt.ascent = -this.f.bottom;
+            fontMetricsInt.descent = 0;
+            fontMetricsInt.top = fontMetricsInt.ascent;
+            fontMetricsInt.bottom = 0;
+        }
+        return this.f.right;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan
+    public Drawable getDrawable() {
+        Drawable drawable;
+        Drawable drawable2;
+        Exception e;
+        InputStream openInputStream;
+        Drawable drawable3 = null;
+        if (this.a != null) {
+            drawable3 = this.a;
+        } else if (this.e != null) {
+            drawable3 = this.e.a(this);
+        }
+        if (drawable3 != null) {
+            return drawable3;
+        }
+        if (this.b != null) {
+            try {
+                openInputStream = this.d.getContentResolver().openInputStream(this.b);
+                drawable2 = new BitmapDrawable(this.d.getResources(), BitmapFactory.decodeStream(openInputStream));
+            } catch (Exception e2) {
+                drawable2 = drawable3;
+                e = e2;
+            }
+            try {
+                drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+                openInputStream.close();
+                return drawable2;
+            } catch (Exception e3) {
+                e = e3;
+                Log.e("sms", "Failed to loaded content " + this.b, e);
+                return drawable2;
+            }
+        }
+        try {
+            drawable = this.d.getResources().getDrawable(this.c);
+            try {
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                return drawable;
+            } catch (Exception e4) {
+                Log.e("sms", "Unable to find resource: " + this.c);
+                return drawable;
+            }
+        } catch (Exception e5) {
+            drawable = drawable3;
         }
     }
 
-    @Override // android.graphics.drawable.Drawable, com.baidu.adp.widget.q
-    public final void setBounds(int i, int i2, int i3, int i4) {
-        super.setBounds(i, i2, i3, i4);
-        this.a = this.f.getMeasuredWidth();
-        this.b = this.f.getMeasuredHeight();
-        this.e.moveTo(0.0f, this.c);
-        this.e.quadTo(0.0f, 0.0f, this.c, 0.0f);
-        this.e.lineTo(this.a - this.c, 0.0f);
-        this.e.quadTo(this.a, 0.0f, this.a, this.c);
-        this.e.lineTo(this.a, this.b - this.c);
-        this.e.quadTo(this.a, this.b, this.a - this.c, this.b);
-        this.e.lineTo(this.c, this.b);
-        this.e.quadTo(0.0f, this.b, 0.0f, this.b - this.c);
-        this.e.lineTo(0.0f, this.c);
-        this.e.close();
-    }
-
-    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable, com.baidu.adp.widget.q
-    public final void draw(Canvas canvas) {
-        if (this.a != 0 && this.b != 0) {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable drawable = getDrawable();
+        if (drawable != null) {
             canvas.save();
-            canvas.clipPath(this.e, Region.Op.INTERSECT);
-            super.draw(canvas);
+            int i6 = i5 - drawable.getBounds().bottom;
+            if (this.mVerticalAlignment != 0) {
+                i5 = i4;
+            }
+            canvas.translate(f, i5 - (drawable.getBounds().bottom - 4));
+            drawable.draw(canvas);
             canvas.restore();
         }
     }
 
-    @Override // com.baidu.adp.widget.q
-    public final void a(ColorFilter colorFilter) {
-        this.d.setColorFilter(colorFilter);
+    public void a(int i, int i2, int i3, int i4) {
+        this.f.set(i, i2, i3, i4);
     }
 }

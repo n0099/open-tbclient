@@ -2,10 +2,10 @@ package com.baidu.tieba.square;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bi;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class z implements View.OnClickListener {
+public class z implements View.OnClickListener {
     final /* synthetic */ y a;
     private final /* synthetic */ at b;
     private final /* synthetic */ int c;
@@ -18,11 +18,11 @@ public final class z implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         Context context;
         String b = this.b.b();
         String a = ak.a("carousel_recommend", String.valueOf(this.c));
-        bg a2 = bg.a();
+        bi a2 = bi.a();
         context = this.a.f;
         String[] strArr = new String[3];
         strArr[0] = b;

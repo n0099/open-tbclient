@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.voice;
 
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.stats.h;
+import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public class Amrnb {
@@ -26,14 +27,20 @@ public class Amrnb {
     private static final native void native_init();
 
     static {
-        String str = null;
+        String str;
         bLoadLibrary = false;
         try {
-            if (com.baidu.adp.a.b.a().b() != null && com.baidu.adp.a.b.a().b().getApplicationInfo() != null) {
-                String str2 = String.valueOf(com.baidu.adp.a.b.a().b().getApplicationInfo().dataDir) + File.separator + "lib/libamrnb.so";
+            if (com.baidu.adp.base.a.getInst().getApp() != null && com.baidu.adp.base.a.getInst().getApp().getApplicationInfo() != null) {
+                String str2 = String.valueOf(com.baidu.adp.base.a.getInst().getApp().getApplicationInfo().dataDir) + File.separator + "lib" + File.separator + "libamrnb.so";
                 if (new File(str2).exists()) {
                     str = str2;
+                } else {
+                    h.a().a("so", "loadAmrnbFile", "", "", -9101, String.valueOf(str2) + "FileNotFound", new Object[0]);
+                    str = null;
                 }
+            } else {
+                h.a().a("so", "loadAmrnbFile", "", "", -9101, "CannotGetApp", new Object[0]);
+                str = null;
             }
             if (str != null) {
                 System.load(str);
@@ -42,13 +49,15 @@ public class Amrnb {
             }
             bLoadLibrary = true;
         } catch (Throwable th) {
-            f.d("----load amrnb so failed.");
+            BdLog.i("----load amrnb so failed.");
+            h.a().a("so", "loadAmrnb", "", "", -9102, String.valueOf(th.getClass().getName()) + "-" + th.getMessage(), new Object[0]);
             try {
                 System.loadLibrary("amrnb");
                 bLoadLibrary = true;
             } catch (Throwable th2) {
                 bLoadLibrary = false;
-                f.d("----load amrnb so failed2.");
+                h.a().a("so", "reloadAmrnb", "", "", -9103, String.valueOf(th2.getClass().getName()) + "-" + th2.getMessage(), new Object[0]);
+                BdLog.i("----load amrnb so failed2.");
             }
         }
         if (bLoadLibrary) {
@@ -57,7 +66,8 @@ public class Amrnb {
                 bLoadLibrary = true;
             } catch (Throwable th3) {
                 bLoadLibrary = false;
-                f.d("----load amrnb so failed2.");
+                h.a().a("so", "initAmrnb", "", "", -9104, String.valueOf(th3.getClass().getName()) + " " + th3.getMessage(), new Object[0]);
+                BdLog.i("----load amrnb so failed2.");
             }
         }
     }

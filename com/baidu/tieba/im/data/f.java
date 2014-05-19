@@ -1,14 +1,46 @@
 package com.baidu.tieba.im.data;
+
+import com.baidu.adp.lib.util.BdLog;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    private int a = 1;
+    private ArrayList<e> b;
+    private int a = 0;
+    private boolean c = false;
 
-    public final int b() {
-        return this.a;
+    public ArrayList<e> a() {
+        return this.b;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void a(int i) {
-        this.a = i;
+    public void a(String str) {
+        e a;
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.a = jSONObject.optInt("total_count", 0);
+            JSONArray optJSONArray = jSONObject.optJSONArray("res_user_infos");
+            if (optJSONArray != null) {
+                this.b = new ArrayList<>();
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null && (a = e.a(optJSONObject)) != null) {
+                        this.b.add(a);
+                    }
+                }
+            }
+        } catch (JSONException e) {
+            BdLog.e("InviteFriendListData", "parserJson", "error = " + e.getMessage());
+        }
+    }
+
+    public boolean b() {
+        return this.c;
+    }
+
+    public void a(boolean z) {
+        this.c = z;
     }
 }

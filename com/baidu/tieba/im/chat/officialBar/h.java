@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public final class h extends RelativeLayout {
+public class h extends RelativeLayout {
     private Context a;
     private TbImageView b;
     private TextView c;
@@ -22,23 +22,27 @@ public final class h extends RelativeLayout {
         this(context, null);
     }
 
-    private h(Context context, AttributeSet attributeSet) {
-        this(context, null, 0);
+    public h(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
     }
 
-    private h(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, 0);
+    public h(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         this.e = null;
         this.a = context;
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.im.i.msg_multi_pic_text_top_view, (ViewGroup) this, true);
-        this.b = (TbImageView) findViewById(com.baidu.tieba.im.h.top_content_pic);
-        this.c = (TextView) findViewById(com.baidu.tieba.im.h.top_title);
-        this.d = (TextView) findViewById(com.baidu.tieba.im.h.show_time);
+        b();
+    }
+
+    private void b() {
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.msg_multi_pic_text_top_view, (ViewGroup) this, true);
+        this.b = (TbImageView) findViewById(com.baidu.tieba.r.top_content_pic);
+        this.c = (TextView) findViewById(com.baidu.tieba.r.top_title);
+        this.d = (TextView) findViewById(com.baidu.tieba.r.show_time);
         setOnLongClickListener(new i(this));
     }
 
-    public final void a(t tVar, View view) {
-        setPadding((int) this.a.getResources().getDimension(com.baidu.tieba.im.f.multi_padding_left_right), (int) this.a.getResources().getDimension(com.baidu.tieba.im.f.multi_padding_left_right), (int) this.a.getResources().getDimension(com.baidu.tieba.im.f.multi_padding_left_right), (int) this.a.getResources().getDimension(com.baidu.tieba.im.f.multi_top_padding_bottom));
+    public void a(t tVar, View view) {
+        setPadding((int) this.a.getResources().getDimension(com.baidu.tieba.p.multi_padding_left_right), (int) this.a.getResources().getDimension(com.baidu.tieba.p.multi_padding_left_right), (int) this.a.getResources().getDimension(com.baidu.tieba.p.multi_padding_left_right), (int) this.a.getResources().getDimension(com.baidu.tieba.p.multi_top_padding_bottom));
         if (tVar != null) {
             String str = "";
             if (!TextUtils.isEmpty(tVar.a)) {
@@ -48,18 +52,18 @@ public final class h extends RelativeLayout {
             if (!TextUtils.isEmpty(tVar.d)) {
                 setOnClickListener(new j(this, tVar));
             }
-            this.b.setDefaultResource(com.baidu.tieba.im.g.pic_baidu_logo_d);
-            this.b.setNightDefaultResource(com.baidu.tieba.im.g.pic_baidu_logo_d_1);
+            this.b.setDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d);
+            this.b.setNightDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d_1);
             if (!TextUtils.isEmpty(tVar.c)) {
                 this.b.setTag(tVar.c);
                 com.baidu.tbadk.editortool.ab abVar = new com.baidu.tbadk.editortool.ab(this.a);
-                abVar.a(true);
+                abVar.d(true);
                 abVar.b(tVar.c, new k(this, view));
             }
         }
     }
 
-    public final void setTime(String str) {
+    public void setTime(String str) {
         if (TextUtils.isEmpty(str)) {
             this.d.setVisibility(8);
             this.d.setText("");
@@ -69,7 +73,7 @@ public final class h extends RelativeLayout {
         this.d.setText(str);
     }
 
-    public final void a() {
+    public void a() {
         this.c.setText("");
         this.b.setBackgroundDrawable(null);
         this.b.setImageBitmap(null);
@@ -77,21 +81,21 @@ public final class h extends RelativeLayout {
         this.d.setText("");
     }
 
-    public final void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
+    public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
         this.e = bVar;
     }
 
-    public final void setPosition(int i) {
+    public void setPosition(int i) {
         this.f = i;
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         if (z) {
-            this.c.setTextColor(getResources().getColor(com.baidu.tieba.im.e.official_msg_top_text_1));
-            this.d.setTextColor(getResources().getColor(com.baidu.tieba.im.e.official_time_text_1));
+            this.c.setTextColor(getResources().getColor(com.baidu.tieba.o.official_msg_top_text_1));
+            this.d.setTextColor(getResources().getColor(com.baidu.tieba.o.official_time_text_1));
             return;
         }
-        this.c.setTextColor(getResources().getColor(com.baidu.tieba.im.e.official_msg_top_text));
-        this.d.setTextColor(getResources().getColor(com.baidu.tieba.im.e.official_time_text));
+        this.c.setTextColor(getResources().getColor(com.baidu.tieba.o.official_msg_top_text));
+        this.d.setTextColor(getResources().getColor(com.baidu.tieba.o.official_time_text));
     }
 }

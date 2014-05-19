@@ -18,11 +18,11 @@ public class TransparentNavigationBar extends NavigationBar {
     }
 
     @Override // com.baidu.tbadk.core.view.NavigationBar
-    public final void b(int i) {
+    public void c(int i) {
         if (i == 1) {
-            setBackgroundColor(getResources().getColor(com.baidu.tieba.a.e.navi_transparent_bg_1));
+            setBackgroundColor(getResources().getColor(com.baidu.tieba.o.navi_transparent_bg_1));
         } else {
-            setBackgroundColor(getResources().getColor(com.baidu.tieba.a.e.navi_transparent_bg));
+            setBackgroundColor(getResources().getColor(com.baidu.tieba.o.navi_transparent_bg));
         }
         a();
     }

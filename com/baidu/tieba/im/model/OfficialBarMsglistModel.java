@@ -1,190 +1,206 @@
 package com.baidu.tieba.im.model;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.snapGroup.SnapGroupChatActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
+import com.baidu.tieba.im.message.LoadOfficialBarDraftMessage;
+import com.baidu.tieba.im.message.LoadOfficialHistoryMessage;
+import com.baidu.tieba.im.message.OfficialBarSaveDraftMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
-    private final int e;
-    private boolean f;
-    private com.baidu.adp.framework.c.a g;
+    private final int b;
+    private boolean c;
+    private CustomMessageListener d;
 
     public OfficialBarMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
-        this.e = 10;
-        this.f = false;
-        this.g = new az(this, 0);
-        com.baidu.adp.framework.c.a().a(2013003, this.g);
-        com.baidu.adp.framework.c.a().a(2001148, this.g);
-        com.baidu.adp.framework.c.a().a(2001151, this.g);
-        com.baidu.adp.framework.c.a().a(2001155, this.g);
+        this.b = 10;
+        this.c = false;
+        this.d = new be(this, 0);
+        f();
     }
 
     @Override // com.baidu.tieba.im.model.CommonPersonalMsglistModel, com.baidu.tieba.im.model.MsglistModel
-    public final void a() {
+    public void a() {
         super.a();
-        com.baidu.adp.framework.c.a().b(this.g);
+        m();
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected final com.baidu.tieba.im.message.a.a f() {
+    protected ChatMessage g() {
         if (this.a == null) {
             return null;
         }
-        com.baidu.tieba.im.message.a.e eVar = new com.baidu.tieba.im.message.a.e();
-        eVar.b(System.currentTimeMillis());
-        eVar.c(this.a.getUserIdLong());
+        OfficialChatMessage officialChatMessage = new OfficialChatMessage();
+        officialChatMessage.setBornTime(System.currentTimeMillis());
+        officialChatMessage.setToUserId(this.a.getUserIdLong());
         UserData userData = new UserData();
         userData.setUserId(String.valueOf(this.a.getUserId()));
         userData.setUserName(this.a.getUserName());
         userData.setPortrait(this.a.getPortrait());
         userData.setUserType(1);
-        eVar.b(userData);
-        return eVar;
+        officialChatMessage.setToUserInfo(userData);
+        return officialChatMessage;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean f_() {
+    public boolean g_() {
         if (this.a == null) {
             return false;
         }
-        com.baidu.tieba.im.message.m mVar = new com.baidu.tieba.im.message.m();
-        mVar.c = 10;
-        mVar.a = null;
-        mVar.b = null;
-        mVar.d = new StringBuilder(String.valueOf(this.a.getUserIdLong())).toString();
-        super.sendMessage(new com.baidu.tieba.im.message.p(mVar));
+        com.baidu.tieba.im.message.c cVar = new com.baidu.tieba.im.message.c();
+        cVar.c = 10;
+        cVar.a = null;
+        cVar.b = null;
+        cVar.d = new StringBuilder(String.valueOf(this.a.getUserIdLong())).toString();
+        super.sendMessage(new LoadOfficialHistoryMessage(cVar));
         return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean d() {
+    public boolean d() {
         long j;
         long j2 = 0;
         if (this.a == null) {
             return false;
         }
-        com.baidu.tieba.im.message.m mVar = new com.baidu.tieba.im.message.m();
-        mVar.c = 10;
-        if (this.b == null || this.b.getChatMessages() == null || this.b.getChatMessages().size() <= 0 || this.b.getChatMessages().get(0) == null) {
+        com.baidu.tieba.im.message.c cVar = new com.baidu.tieba.im.message.c();
+        cVar.c = 10;
+        if (this.s == null || this.s.getChatMessages() == null || this.s.getChatMessages().size() <= 0 || this.s.getChatMessages().get(0) == null) {
             j = 0;
         } else {
-            j = this.b.getChatMessages().get(0).w();
-            j2 = this.b.getChatMessages().get(0).u();
+            j = this.s.getChatMessages().get(0).getMsgId();
+            j2 = this.s.getChatMessages().get(0).getRecordId();
         }
-        mVar.a = String.valueOf(j);
-        mVar.b = String.valueOf(j2);
-        mVar.d = new StringBuilder(String.valueOf(this.a.getUserIdLong())).toString();
-        super.sendMessage(new com.baidu.tieba.im.message.p(mVar));
+        cVar.a = String.valueOf(j);
+        cVar.b = String.valueOf(j2);
+        cVar.d = new StringBuilder(String.valueOf(this.a.getUserIdLong())).toString();
+        super.sendMessage(new LoadOfficialHistoryMessage(cVar));
         return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean e() {
+    public boolean e() {
         if (this.a == null) {
             return false;
         }
-        com.baidu.tieba.im.message.h hVar = new com.baidu.tieba.im.message.h();
-        hVar.a = this.a.getUserId();
-        super.sendMessage(new com.baidu.tieba.im.message.o(hVar));
+        com.baidu.tieba.im.message.a aVar = new com.baidu.tieba.im.message.a();
+        aVar.a = this.a.getUserId();
+        super.sendMessage(new LoadOfficialBarDraftMessage(aVar));
         return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean a(String str) {
-        com.baidu.tieba.im.message.bm bmVar = new com.baidu.tieba.im.message.bm();
+    public boolean a(String str) {
+        com.baidu.tieba.im.message.g gVar = new com.baidu.tieba.im.message.g();
         if (this.a == null) {
             return false;
         }
-        bmVar.b = String.valueOf(String.valueOf(this.a.getUserId()));
-        bmVar.a = str;
-        super.sendMessage(new com.baidu.tieba.im.message.t(bmVar));
+        gVar.b = String.valueOf(String.valueOf(this.a.getUserId()));
+        gVar.a = str;
+        super.sendMessage(new OfficialBarSaveDraftMessage(gVar));
         return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected final ImMessageCenterPojo a(com.baidu.tieba.im.db.e eVar) {
+    protected ImMessageCenterPojo a(com.baidu.tieba.im.db.e eVar) {
         return null;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final void a(com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.db.i.a();
-        com.baidu.tieba.im.db.i.c(SnapGroupChatActivity.b);
+    public void a(com.baidu.tieba.im.a<Void> aVar) {
+        com.baidu.tieba.im.db.i.a().c(SnapGroupChatActivity.b);
         aVar.a(null);
-        com.baidu.tieba.im.r.a(new ba(this), aVar);
+        com.baidu.tieba.im.i.a(new bf(this), aVar);
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected final void a(com.baidu.tieba.im.message.a.a aVar) {
-        if (this.a != null && aVar != null) {
-            com.baidu.tieba.im.r.a(new bb(this, aVar), null);
+    protected void a(ChatMessage chatMessage) {
+        if (this.a != null && chatMessage != null) {
+            com.baidu.tieba.im.i.a(new bg(this, chatMessage), null);
         }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected final void b(com.baidu.tieba.im.message.a.a aVar) {
-        if (this.a != null && aVar != null) {
-            com.baidu.tieba.im.r.a(new bc(this, aVar), null);
+    protected void b(ChatMessage chatMessage) {
+        if (this.a != null && chatMessage != null) {
+            com.baidu.tieba.im.i.a(new bh(this, chatMessage), null);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void b(OfficialBarMsglistModel officialBarMsglistModel, CustomResponsedMessage customResponsedMessage) {
-        com.baidu.tieba.im.message.a.a a;
-        if (customResponsedMessage == null || !(customResponsedMessage instanceof LoadHistoryResponsedMessage)) {
-            return;
-        }
-        LoadHistoryResponsedMessage loadHistoryResponsedMessage = (LoadHistoryResponsedMessage) customResponsedMessage;
-        if (loadHistoryResponsedMessage.a() != null) {
-            List list = loadHistoryResponsedMessage.a().b;
-            if (list == null) {
-                list = new LinkedList();
-            }
-            if (list.size() < 10 && !officialBarMsglistModel.f) {
-                if (officialBarMsglistModel.a == null) {
-                    a = null;
-                } else {
-                    String format = String.format(officialBarMsglistModel.c.getString(com.baidu.tieba.im.j.official_fake_message), officialBarMsglistModel.a.getUserName());
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("eventId", "-10001");
-                    hashMap.put("userMsg", format);
-                    a = officialBarMsglistModel.a((short) 11, new Gson().toJson(hashMap));
+    private void f() {
+        MessageManager.getInstance().registerListener(2015003, this.d);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_LOAD_DRAFT_OFFICIAL, this.d);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_LOAD_HISTORY_OFFICICAL, this.d);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_DEL_OFFICIAL_DB, this.d);
+    }
+
+    private void m() {
+        MessageManager.getInstance().unRegisterListener(this.d);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof LoadHistoryResponsedMessage)) {
+            LoadHistoryResponsedMessage loadHistoryResponsedMessage = (LoadHistoryResponsedMessage) customResponsedMessage;
+            if (loadHistoryResponsedMessage.getData() != null) {
+                List list = loadHistoryResponsedMessage.getData().b;
+                if (list == null) {
+                    list = new LinkedList();
                 }
-                a.e(-1L);
-                a.f(-1L);
-                list.add(0, a);
-                officialBarMsglistModel.f = true;
+                if (list.size() < 10 && !this.c) {
+                    ChatMessage n = n();
+                    n.setRecordId(-1L);
+                    n.setMsgId(-1L);
+                    list.add(0, n);
+                    this.c = true;
+                }
+                a((CustomResponsedMessage<?>) loadHistoryResponsedMessage);
             }
-            officialBarMsglistModel.a(loadHistoryResponsedMessage);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(OfficialBarMsglistModel officialBarMsglistModel, CustomResponsedMessage customResponsedMessage) {
+    private ChatMessage n() {
+        if (this.a == null) {
+            return null;
+        }
+        String format = String.format(this.t.getString(com.baidu.tieba.u.official_fake_message), this.a.getUserName());
+        HashMap hashMap = new HashMap();
+        hashMap.put("eventId", "-10001");
+        hashMap.put("userMsg", format);
+        return a((short) 11, new Gson().toJson(hashMap));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof GroupMsgData) {
             GroupMsgData groupMsgData = (GroupMsgData) customResponsedMessage;
-            if (officialBarMsglistModel.c() != null) {
-                LinkedList<com.baidu.tieba.im.message.a.a> c = groupMsgData.c();
+            if (c() != null) {
+                LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
                 LinkedList linkedList = new LinkedList();
-                for (com.baidu.tieba.im.message.a.a aVar : c) {
-                    if (aVar instanceof com.baidu.tieba.im.message.a.e) {
-                        if (aVar.l() == officialBarMsglistModel.c().getUserIdLong()) {
-                            linkedList.add(aVar);
-                        } else if (aVar.x() == officialBarMsglistModel.c().getUserIdLong()) {
-                            linkedList.add(aVar);
+                for (ChatMessage chatMessage : listMessage) {
+                    if (chatMessage instanceof OfficialChatMessage) {
+                        if (chatMessage.getToUserId() == c().getUserIdLong()) {
+                            linkedList.add(chatMessage);
+                        } else if (chatMessage.getUserId() == c().getUserIdLong()) {
+                            linkedList.add(chatMessage);
                         }
                     }
                 }
-                officialBarMsglistModel.a(linkedList);
+                a(linkedList);
             }
         }
     }

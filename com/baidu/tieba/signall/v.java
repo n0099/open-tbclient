@@ -2,9 +2,10 @@ package com.baidu.tieba.signall;
 
 import android.widget.ProgressBar;
 import android.widget.Scroller;
+import com.baidu.kirin.KirinConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class v implements Runnable {
+public class v implements Runnable {
     final /* synthetic */ u a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +14,7 @@ public final class v implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         Scroller scroller;
         ProgressBar progressBar;
         ProgressBar progressBar2;
@@ -33,7 +34,7 @@ public final class v implements Runnable {
             int max = (progressBar2.getMax() * 9) / 10;
             if (progress < max) {
                 scroller2 = this.a.i;
-                scroller2.startScroll(progress, 0, max - progress, 0, 5000);
+                scroller2.startScroll(progress, 0, max - progress, 0, KirinConfig.READ_TIME_OUT);
                 this.a.post(this);
                 return;
             }

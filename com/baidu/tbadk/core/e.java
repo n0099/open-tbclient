@@ -9,15 +9,16 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
-import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobstat.StatService;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.a.l;
-import com.baidu.tbadk.core.data.n;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tieba.q;
+import com.baidu.tieba.u;
 import com.compatible.menukey.MenuKeyUtils;
 /* loaded from: classes.dex */
-public abstract class e extends com.baidu.adp.a.c {
+public abstract class e extends com.baidu.adp.base.b {
     private ProgressBar d;
     private c e;
     protected ProgressDialog a = null;
@@ -27,19 +28,18 @@ public abstract class e extends com.baidu.adp.a.c {
     protected abstract void b(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         MenuKeyUtils.hideSmartBarMenu(this);
         super.onCreate(bundle);
-        l.a().c();
-        TbadkApplication.a(true);
-        be.a(getClass().getName());
+        TbadkApplication.setIsAppRunning(true);
+        bg.a(getClass().getName());
         this.e = new c();
-        if (TbadkApplication.j().x()) {
+        if (TbadkApplication.m252getInst().getIsUseBaiduStatOn()) {
             try {
-                StatService.setAppChannel(n.j());
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onCreate", e.getMessage());
+                StatService.setAppChannel(TbConfig.getFrom());
+            } catch (Throwable th) {
+                BdLog.e(getClass().getName(), "onCreate", th.getMessage());
             }
         }
     }
@@ -49,19 +49,19 @@ public abstract class e extends com.baidu.adp.a.c {
     public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
-        a(TbadkApplication.j().l());
-        if (TbadkApplication.j().x()) {
+        a(TbadkApplication.m252getInst().getSkinType());
+        if (TbadkApplication.m252getInst().getIsUseBaiduStatOn()) {
             try {
-                StatService.onResume(this);
+                StatService.onResume((Context) this);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onResume", e.getMessage());
+                BdLog.e(getClass().getName(), "onResume", e.getMessage());
             }
         }
-        TbadkApplication.j().n();
-        be.a(getClass().getName());
+        TbadkApplication.m252getInst().AddResumeNum();
+        bg.a(getClass().getName());
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (i != this.b) {
             this.b = i;
             b(this.b);
@@ -69,21 +69,21 @@ public abstract class e extends com.baidu.adp.a.c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        TbadkApplication.j().o();
-        if (TbadkApplication.j().x()) {
+        TbadkApplication.m252getInst().DelResumeNum();
+        if (TbadkApplication.m252getInst().getIsUseBaiduStatOn()) {
             try {
-                StatService.onPause(this);
+                StatService.onPause((Context) this);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onPause", e.getMessage());
+                BdLog.e(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         if (this.e != null) {
             this.e.b();
@@ -91,38 +91,38 @@ public abstract class e extends com.baidu.adp.a.c {
         super.onDestroy();
     }
 
-    public final c b() {
+    public c a() {
         return this.e;
     }
 
-    public final void a(String str, DialogInterface.OnCancelListener onCancelListener) {
+    public void a(String str, DialogInterface.OnCancelListener onCancelListener) {
         if (str != null) {
             this.a = ProgressDialog.show(this, "", str, true, true, onCancelListener);
         } else {
-            this.a = ProgressDialog.show(this, "", getResources().getString(com.baidu.tbadk.l.Waiting), true, true, onCancelListener);
+            this.a = ProgressDialog.show(this, "", getResources().getString(u.Waiting), true, true, onCancelListener);
         }
     }
 
-    public final void c() {
+    public void b() {
         if (this.a != null) {
             try {
                 if (this.a.isShowing()) {
                     this.a.dismiss();
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
+                BdLog.e(getClass().getName(), "closeLoadingDialog", e.getMessage());
             }
             this.a = null;
         }
     }
 
-    @Override // com.baidu.adp.a.c
-    public final void a(String str) {
-        i.a((Context) this, str);
+    @Override // com.baidu.adp.base.b
+    public void a(String str) {
+        com.baidu.adp.lib.util.h.a((Context) this, str);
     }
 
-    public final void c(int i) {
-        i.a((Context) this, i);
+    public void c(int i) {
+        com.baidu.adp.lib.util.h.a((Context) this, i);
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory
@@ -134,17 +134,21 @@ public abstract class e extends com.baidu.adp.a.c {
         return super.onCreateView(str, context, attributeSet);
     }
 
-    public final void d_() {
+    public void c() {
+        a(0, 0);
+    }
+
+    public void a(int i, int i2) {
         if (this.d == null) {
             this.d = new ProgressBar(this);
-            this.d.setIndeterminateDrawable(getResources().getDrawable(com.baidu.tbadk.i.progressbar));
+            this.d.setIndeterminateDrawable(getResources().getDrawable(q.progressbar));
             ((FrameLayout) findViewById(16908290)).addView(this.d, new FrameLayout.LayoutParams(-2, -2, 17));
         }
-        this.d.setPadding(i.a((Context) this, 0.0f), i.a((Context) this, 0.0f), 0, 0);
+        this.d.setPadding(com.baidu.adp.lib.util.h.a(this, i), com.baidu.adp.lib.util.h.a(this, i2), 0, 0);
         this.d.setVisibility(0);
     }
 
-    public final void e() {
+    public void e_() {
         if (this.d != null) {
             this.d.setVisibility(8);
         }

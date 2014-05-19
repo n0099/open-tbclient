@@ -1,39 +1,30 @@
 package com.baidu.tieba.im.model;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public final class bo extends com.baidu.adp.a.e {
-    private int a;
-    private int b;
-    private com.baidu.tieba.im.message.aw c;
+class bo extends CustomMessageListener {
+    final /* synthetic */ PersonalMsglistModel a;
 
-    public final void a(int i) {
-        this.a = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bo(PersonalMsglistModel personalMsglistModel, int i) {
+        super(i);
+        this.a = personalMsglistModel;
     }
 
-    public final void b(int i) {
-        this.b = i;
-    }
-
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
-        return false;
-    }
-
-    public final void a() {
-        com.baidu.tieba.im.message.aw awVar = new com.baidu.tieba.im.message.aw();
-        awVar.d(this.a);
-        awVar.e(this.b);
-        this.c = awVar;
-        super.sendMessage(this.c);
-    }
-
-    @Override // com.baidu.adp.a.e
-    public final void cancelMessage() {
-        super.cancelMessage();
-        this.c = null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() == 2015001) {
+                this.a.c(customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2003147) {
+                this.a.b(customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2003150) {
+                this.a.a(customResponsedMessage);
+            }
+        }
     }
 }

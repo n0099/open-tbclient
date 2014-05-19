@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class GroupChatView extends CommonGroupMsglistView {
-    protected TextView l;
-    protected ImageView m;
+    protected TextView k;
+    protected ImageView l;
 
     public GroupChatView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
@@ -15,25 +15,30 @@ public class GroupChatView extends CommonGroupMsglistView {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.h
-    public final void a(dj djVar, boolean z) {
-        super.a(djVar, z);
-        String string = djVar.getString(com.baidu.tieba.im.j.msglist_groupinfo);
+    public void a(dd ddVar, boolean z) {
+        super.a(ddVar, z);
+        String string = ddVar.getString(com.baidu.tieba.u.msglist_groupinfo);
         if (string != null) {
-            String stringExtra = djVar.getIntent().getStringExtra("group_author_id");
-            this.c = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.im.i.group_info_btn, djVar);
-            this.l = (TextView) this.c.findViewById(com.baidu.tieba.im.h.group_info_btn_txt);
-            this.l.setText(string);
-            this.m = (ImageView) this.c.findViewById(com.baidu.tieba.im.h.red_dot);
-            this.m.setVisibility(8);
-            if (!TbadkApplication.E().equals(stringExtra) || com.baidu.tbadk.core.sharedPref.b.a().a("has_shown_group_btn_dot", false)) {
-                return;
+            String stringExtra = ddVar.getIntent().getStringExtra("group_author_id");
+            this.b = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.s.group_info_btn, ddVar);
+            this.k = (TextView) this.b.findViewById(com.baidu.tieba.r.group_info_btn_txt);
+            this.k.setText(string);
+            this.l = (ImageView) this.b.findViewById(com.baidu.tieba.r.red_dot);
+            this.l.setVisibility(8);
+            if (TbadkApplication.getCurrentAccount().equals(stringExtra)) {
+                Q();
             }
-            this.m.setVisibility(0);
         }
     }
 
-    public final void R() {
-        this.m.setVisibility(8);
+    public void Q() {
+        if (!com.baidu.tbadk.core.sharedPref.b.a().a("has_shown_group_btn_dot", false)) {
+            this.l.setVisibility(0);
+        }
+    }
+
+    public void R() {
+        this.l.setVisibility(8);
         com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_group_btn_dot", true);
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public final class e {
+public class e {
     private ArrayList<b> a = new ArrayList<>();
     private Context b;
 
@@ -12,7 +12,7 @@ public final class e {
         this.b = context;
     }
 
-    public final void a(b bVar) {
+    public void a(b bVar) {
         if (bVar != null && bVar.b() != null) {
             Iterator<b> it = this.a.iterator();
             while (it.hasNext()) {
@@ -25,11 +25,11 @@ public final class e {
         }
     }
 
-    public final ArrayList<b> a() {
+    public ArrayList<b> a() {
         return this.a;
     }
 
-    public final Context b() {
+    public Context b() {
         return this.b;
     }
 }

@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-public final class e extends LinearLayout.LayoutParams {
+public class e extends LinearLayout.LayoutParams {
     private int a;
 
     public e(Context context, AttributeSet attributeSet) {
@@ -27,9 +27,9 @@ public final class e extends LinearLayout.LayoutParams {
     }
 
     public e(int i, int i2, int i3) {
-        super(-2, -2);
+        super(i, i2);
         this.a = 0;
-        this.a = 0;
+        this.a = i3;
     }
 
     public e(ViewGroup.LayoutParams layoutParams) {

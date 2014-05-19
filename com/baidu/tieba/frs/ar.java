@@ -1,8 +1,12 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import android.os.Environment;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ar implements Runnable {
+public class ar extends BdAsyncTask<Void, Integer, Void> {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,49 +14,15 @@ final class ar implements Runnable {
         this.a = frsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        cm cmVar;
-        cm cmVar2;
-        cm cmVar3;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Void doInBackground(Void... voidArr) {
         String str;
-        String str2;
-        g gVar;
-        cm cmVar4;
-        cm cmVar5;
-        com.baidu.tbadk.imageManager.d dVar;
-        try {
-            cmVar = this.a.r;
-            cmVar.u().a().a();
-            cmVar2 = this.a.r;
-            cmVar2.w().a().a();
-            cmVar3 = this.a.r;
-            cmVar3.v().a().a();
-            str = this.a.J;
-            if (!str.equals("frs_page")) {
-                str2 = this.a.J;
-                if (str2.equals("normal_page")) {
-                    gVar = this.a.D;
-                    String image_url = gVar.f().getImage_url();
-                    if (image_url != null && image_url.length() > 0) {
-                        this.a.e();
-                    }
-                }
-            } else {
-                this.a.f();
-            }
-            this.a.l();
-            int i = com.baidu.tbadk.core.h.a().f() ? 0 : 1;
-            int i2 = com.baidu.tbadk.core.h.a().d() ? 0 : -1;
-            cmVar4 = this.a.r;
-            BdListView J = cmVar4.J();
-            cmVar5 = this.a.r;
-            com.baidu.tbadk.editortool.ab a = cmVar5.u().a();
-            com.baidu.tbadk.imageManager.d dVar2 = this.a.c;
-            dVar = this.a.ac;
-            com.baidu.tbadk.core.util.ac.a(J, a, dVar2, dVar, null, i, i2);
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("FrsActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
-        }
+        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
+        str = this.a.aa;
+        com.baidu.tbadk.core.util.x.c(new File(append.append(str).toString()));
+        return null;
     }
 }

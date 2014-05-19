@@ -139,7 +139,8 @@ public class e {
                         break;
                     }
                 case 3:
-                    newPullParser.getName().equalsIgnoreCase("appcommand");
+                    if (newPullParser.getName().equalsIgnoreCase("appcommand")) {
+                    }
                     break;
             }
         }

@@ -2,10 +2,10 @@ package com.baidu.tieba.square;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bi;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ad implements View.OnClickListener {
+public class ad implements View.OnClickListener {
     final /* synthetic */ ac a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public final class ad implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         af afVar;
         Context context;
         Object tag = view.getTag();
@@ -25,7 +25,7 @@ public final class ad implements View.OnClickListener {
         }
         String a = ak.a("forum_list_recommend", afVar.c());
         if (afVar != null) {
-            bg a2 = bg.a();
+            bi a2 = bi.a();
             context = this.a.b;
             String[] strArr = new String[3];
             strArr[0] = afVar.b();

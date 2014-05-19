@@ -6,7 +6,7 @@ import android.widget.ProgressBar;
 import com.baidu.tbadk.widget.EditHeadsImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class h implements View.OnClickListener {
+public class h implements View.OnClickListener {
     final /* synthetic */ EditHeadActivity a;
     private final /* synthetic */ String b;
     private final /* synthetic */ int c;
@@ -19,7 +19,7 @@ public final class h implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         ProgressBar progressBar;
         EditHeadsImageView editHeadsImageView;
         Bitmap bitmap;
@@ -29,7 +29,7 @@ public final class h implements View.OnClickListener {
             bitmap = this.a.h;
             editHeadsImageView.a(bitmap);
             this.a.D = false;
-            this.a.a(this.b);
+            this.a.b(this.b);
             this.a.z = this.c;
         }
     }

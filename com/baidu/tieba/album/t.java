@@ -4,7 +4,7 @@ import android.database.ContentObserver;
 import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class t extends ContentObserver {
+public class t extends ContentObserver {
     final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public final class t extends ContentObserver {
     }
 
     @Override // android.database.ContentObserver
-    public final void onChange(boolean z) {
+    public void onChange(boolean z) {
         Handler handler;
         Runnable runnable;
         Handler handler2;

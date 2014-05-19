@@ -4,64 +4,93 @@ import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 /* loaded from: classes.dex */
-public final class p extends com.baidu.adp.a.f {
+public class p extends com.baidu.adp.base.e {
     NavigationBar a;
-    View c;
-    GroupAddressEditActivity d;
-    TextView e;
-    BdListView f;
-    q g;
-    private View h;
-    private TextView i;
-    private String[] j;
-    private boolean k;
+    View b;
+    GroupAddressEditActivity c;
+    TextView d;
+    BdListView e;
+    q f;
+    private View g;
+    private TextView h;
+    private String[] i;
+    private boolean j;
 
-    public final View a() {
-        return this.h;
+    public View a() {
+        return this.d;
+    }
+
+    public View b() {
+        return this.g;
     }
 
     public p(GroupAddressEditActivity groupAddressEditActivity, String[] strArr, boolean z) {
         super(groupAddressEditActivity);
         this.a = null;
+        this.b = null;
         this.c = null;
         this.d = null;
+        this.g = null;
         this.e = null;
         this.h = null;
-        this.f = null;
         this.i = null;
-        this.j = null;
-        this.k = false;
-        this.g = null;
-        this.j = strArr;
-        this.k = z;
-        this.d = groupAddressEditActivity;
-        groupAddressEditActivity.setContentView(com.baidu.tieba.im.i.group_address_activity);
-        this.c = groupAddressEditActivity.findViewById(com.baidu.tieba.im.h.parent);
-        this.f = (BdListView) groupAddressEditActivity.findViewById(com.baidu.tieba.im.h.lv_address);
-        this.g = new q(this.d, this.j);
-        this.f.setAdapter((ListAdapter) this.g);
-        this.f.setOnItemClickListener(this.d);
-        this.i = (TextView) groupAddressEditActivity.findViewById(com.baidu.tieba.im.h.address_title_poslist);
-        if (this.j == null || this.j.length <= 0) {
-            this.f.setVisibility(8);
-            this.i.setText(com.baidu.tieba.im.j.address_locate_noaddresslist);
+        this.j = false;
+        this.f = null;
+        this.i = strArr;
+        this.j = z;
+        b(groupAddressEditActivity);
+        a(groupAddressEditActivity);
+    }
+
+    private void a(GroupAddressEditActivity groupAddressEditActivity) {
+        this.g.setOnClickListener(groupAddressEditActivity);
+        this.d.setOnClickListener(groupAddressEditActivity);
+    }
+
+    private void b(GroupAddressEditActivity groupAddressEditActivity) {
+        this.c = groupAddressEditActivity;
+        groupAddressEditActivity.setContentView(com.baidu.tieba.s.group_address_activity);
+        this.b = groupAddressEditActivity.findViewById(com.baidu.tieba.r.parent);
+        this.e = (BdListView) groupAddressEditActivity.findViewById(com.baidu.tieba.r.lv_address);
+        this.f = new q(this.c, this.i);
+        this.e.setAdapter((ListAdapter) this.f);
+        this.e.setOnItemClickListener(this.c);
+        this.h = (TextView) groupAddressEditActivity.findViewById(com.baidu.tieba.r.address_title_poslist);
+        if (this.i == null || this.i.length < 1) {
+            this.e.setVisibility(8);
+            this.h.setText(com.baidu.tieba.u.address_locate_noaddresslist);
         }
-        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) groupAddressEditActivity.findViewById(com.baidu.tieba.im.h.address_showorhidden);
-        settingTextSwitchView.setSwitchStateChangeListener(this.d);
-        if (this.k) {
+        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) groupAddressEditActivity.findViewById(com.baidu.tieba.r.address_showorhidden);
+        settingTextSwitchView.setSwitchStateChangeListener(this.c);
+        if (this.j) {
             settingTextSwitchView.b();
         } else {
             settingTextSwitchView.a();
         }
-        this.a = (NavigationBar) groupAddressEditActivity.findViewById(com.baidu.tieba.im.h.view_navigation_bar);
-        this.a.a(groupAddressEditActivity.getResources().getString(com.baidu.tieba.im.j.group_address_edit));
+        this.a = (NavigationBar) groupAddressEditActivity.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.a.a(groupAddressEditActivity.getResources().getString(com.baidu.tieba.u.group_address_edit));
         this.a.setSystemClickable(false);
-        this.h = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressEditActivity.getResources().getString(com.baidu.tieba.im.j.save));
-        this.h.setOnClickListener(groupAddressEditActivity);
-        this.e.setOnClickListener(groupAddressEditActivity);
+        this.g = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressEditActivity.getResources().getString(com.baidu.tieba.u.save));
+    }
+
+    public void c() {
+        this.f.notifyDataSetChanged();
+    }
+
+    public void a(int i) {
+        this.c.getLayoutMode().a(i == 1);
+        this.c.getLayoutMode().a(this.b);
+        bc.b(this.b, i);
+        this.a.c(i);
+        if (i == 1) {
+            this.b.setBackgroundResource(com.baidu.tieba.o.group_info_bg_1);
+        } else {
+            this.b.setBackgroundResource(com.baidu.tieba.o.group_info_bg);
+        }
     }
 }

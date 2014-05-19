@@ -1,9 +1,10 @@
 package com.baidu.tbadk.core.log;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements Runnable {
+public class c implements Runnable {
     final /* synthetic */ a a;
     private final /* synthetic */ String b;
 
@@ -14,17 +15,17 @@ public final class c implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         AtomicBoolean atomicBoolean;
         AtomicBoolean atomicBoolean2;
         AtomicBoolean atomicBoolean3;
         try {
             try {
-                a.b(this.a, this.b);
+                this.a.f(this.b);
                 atomicBoolean3 = this.a.a;
                 atomicBoolean3.set(false);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.a("BdLogger", "write error ", e);
+                BdLog.e("BdLogger", "write error ", e);
                 atomicBoolean = this.a.a;
                 atomicBoolean.set(false);
             }

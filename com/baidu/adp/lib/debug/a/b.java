@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
 /* loaded from: classes.dex */
-public final class b extends a {
+public class b extends a {
     BroadcastReceiver a = null;
     Context b;
 
@@ -14,14 +14,14 @@ public final class b extends a {
     }
 
     @Override // com.baidu.adp.lib.debug.a.a
-    public final void b() {
+    public void b() {
         super.b();
         this.a = new c(this);
         this.b.registerReceiver(this.a, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     @Override // com.baidu.adp.lib.debug.a.a
-    public final void c() {
+    public void c() {
         super.c();
     }
 }

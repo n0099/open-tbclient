@@ -1,103 +1,57 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.gson.GsonBuilder;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
 /* loaded from: classes.dex */
-public final class bv extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
-    final /* synthetic */ bu a;
-    private int b;
-    private com.baidu.tbadk.core.util.ak c;
-    private volatile boolean d;
+public class bv extends com.baidu.adp.base.d {
+    private String d;
+    private int f;
+    private int g;
+    private float h;
+    private bw b = null;
+    private FaceShopData a = null;
+    private boolean e = false;
+    private int c = 0;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(FaceShopData faceShopData) {
-        com.baidu.adp.a.h hVar;
-        FaceShopData faceShopData2;
-        FaceShopData faceShopData3;
-        FaceShopData faceShopData4 = faceShopData;
-        super.a((bv) faceShopData4);
-        this.a.b = null;
-        if (faceShopData4 != null) {
-            this.a.e = faceShopData4.hasMore == 1;
-            if (this.b == 1) {
-                this.a.a = faceShopData4;
-            } else if (this.b == 2) {
-                faceShopData3 = this.a.a;
-                faceShopData3.add(faceShopData4);
-            }
+    public bv() {
+        this.f = 0;
+        this.g = 0;
+        Context e = com.baidu.tieba.ad.c().e();
+        this.f = com.baidu.adp.lib.util.h.b(e);
+        this.g = com.baidu.adp.lib.util.h.c(e);
+        this.h = e.getResources().getDisplayMetrics().density;
+    }
+
+    public FaceShopData a() {
+        return this.a;
+    }
+
+    public boolean b() {
+        return this.e;
+    }
+
+    public void a(String str) {
+        this.d = str;
+    }
+
+    public void a(int i) {
+        if (this.b == null) {
+            this.b = new bw(this, null);
+            this.b.setPriority(3);
+            this.b.execute(Integer.valueOf(i));
         }
-        hVar = this.a.mLoadDataCallBack;
-        faceShopData2 = this.a.a;
-        hVar.a(faceShopData2);
     }
 
-    private bv(bu buVar) {
-        this.a = buVar;
-        this.d = false;
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
+        return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bv(bu buVar, byte b) {
-        this(buVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: private */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public FaceShopData a(Object... objArr) {
-        int i;
-        int i2;
-        int i3;
-        float f;
-        int i4;
-        String str;
-        this.b = ((Integer) objArr[0]).intValue();
-        try {
-            if (!this.d) {
-                this.c = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/e/faces/getpacklist");
-                if (this.b == 1) {
-                    this.a.c = 0;
-                } else if (this.b == 2) {
-                    bu buVar = this.a;
-                    i = buVar.c;
-                    buVar.c = i + 1;
-                }
-                com.baidu.tbadk.core.util.ak akVar = this.c;
-                i2 = this.a.f;
-                akVar.a("scr_w", String.valueOf(i2));
-                com.baidu.tbadk.core.util.ak akVar2 = this.c;
-                i3 = this.a.g;
-                akVar2.a("scr_h", String.valueOf(i3));
-                com.baidu.tbadk.core.util.ak akVar3 = this.c;
-                f = this.a.h;
-                akVar3.a("scr_dip", String.valueOf(f));
-                com.baidu.tbadk.core.util.ak akVar4 = this.c;
-                i4 = this.a.c;
-                akVar4.a("offset", String.valueOf(i4));
-                this.c.a("limit", String.valueOf(10));
-                com.baidu.tbadk.core.util.ak akVar5 = this.c;
-                str = this.a.d;
-                akVar5.a("st_type", str);
-                return (FaceShopData) new GsonBuilder().create().fromJson(this.c.i(), (Class<Object>) FaceShopData.class);
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.toString());
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
+        if (this.b != null) {
+            this.b.cancel();
+            return true;
         }
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        super.cancel(true);
-        this.d = true;
-        if (this.c != null) {
-            this.c.g();
-            this.c = null;
-        }
-        this.a.b = null;
+        return true;
     }
 }

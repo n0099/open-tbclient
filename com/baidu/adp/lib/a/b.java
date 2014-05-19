@@ -1,6 +1,6 @@
 package com.baidu.adp.lib.a;
 /* loaded from: classes.dex */
-final class b implements d {
+class b implements d {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ final class b implements d {
     }
 
     @Override // com.baidu.adp.lib.a.d
-    public final void a(int i) {
+    public void a(String str, int i) {
         this.a.changeSettingByType(i);
     }
 }

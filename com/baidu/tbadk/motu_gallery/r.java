@@ -3,18 +3,18 @@ package com.baidu.tbadk.motu_gallery;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class r implements View.OnClickListener {
+public class r implements View.OnClickListener {
     final /* synthetic */ n a;
-    private final /* synthetic */ y b;
+    private final /* synthetic */ z b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(n nVar, y yVar) {
+    public r(n nVar, z zVar) {
         this.a = nVar;
-        this.b = yVar;
+        this.b = zVar;
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        n.a(this.a, this.b.getUri());
+    public void onClick(View view) {
+        this.a.a(this.b.getUri());
     }
 }

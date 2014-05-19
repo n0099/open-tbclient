@@ -32,13 +32,13 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.support.v4.content.ModernAsyncTask
-        public final D doInBackground(Void... voidArr) {
+        public D doInBackground(Void... voidArr) {
             this.result = (D) AsyncTaskLoader.this.onLoadInBackground();
             return this.result;
         }
 
         @Override // android.support.v4.content.ModernAsyncTask
-        protected final void onPostExecute(D d) {
+        protected void onPostExecute(D d) {
             try {
                 AsyncTaskLoader.this.dispatchOnLoadComplete(this, d);
             } finally {
@@ -47,7 +47,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
 
         @Override // android.support.v4.content.ModernAsyncTask
-        protected final void onCancelled() {
+        protected void onCancelled() {
             try {
                 AsyncTaskLoader.this.dispatchOnCancelled(this, this.result);
             } finally {
@@ -56,8 +56,8 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
 
         @Override // java.lang.Runnable
-        public final void run() {
-            this.waiting = AsyncTaskLoader.DEBUG;
+        public void run() {
+            this.waiting = false;
             AsyncTaskLoader.this.executePendingTask();
         }
     }
@@ -84,20 +84,20 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
     }
 
     public boolean cancelLoad() {
-        boolean z = DEBUG;
+        boolean z = false;
         if (this.mTask != null) {
             if (this.mCancellingTask != null) {
                 if (this.mTask.waiting) {
-                    this.mTask.waiting = DEBUG;
+                    this.mTask.waiting = false;
                     this.mHandler.removeCallbacks(this.mTask);
                 }
                 this.mTask = null;
             } else if (this.mTask.waiting) {
-                this.mTask.waiting = DEBUG;
+                this.mTask.waiting = false;
                 this.mHandler.removeCallbacks(this.mTask);
                 this.mTask = null;
             } else {
-                z = this.mTask.cancel(DEBUG);
+                z = this.mTask.cancel(false);
                 if (z) {
                     this.mCancellingTask = this.mTask;
                 }
@@ -113,7 +113,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
     void executePendingTask() {
         if (this.mCancellingTask == null && this.mTask != null) {
             if (this.mTask.waiting) {
-                this.mTask.waiting = DEBUG;
+                this.mTask.waiting = false;
                 this.mHandler.removeCallbacks(this.mTask);
             }
             if (this.mUpdateThrottle > 0 && SystemClock.uptimeMillis() < this.mLastLoadCompleteTime + this.mUpdateThrottle) {

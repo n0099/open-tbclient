@@ -13,12 +13,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tbadk.editortool.w;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.forumdetail.ForumDetailData;
+import com.baidu.tieba.o;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class ItemInfoView extends RelativeLayout {
@@ -48,44 +53,44 @@ public class ItemInfoView extends RelativeLayout {
         a(context);
     }
 
-    private void a(Context context) {
+    public void a(Context context) {
         this.a = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.forum_detail_info, (ViewGroup) this, true);
-        this.b = (ViewGroup) findViewById(com.baidu.tieba.a.h.info_brief_box);
-        this.c = (TextView) findViewById(com.baidu.tieba.a.h.info_brief_content);
-        this.d = (ViewGroup) findViewById(com.baidu.tieba.a.h.info_dir_box);
-        this.e = (TextView) findViewById(com.baidu.tieba.a.h.info_dir_name);
-        this.f = (TextView) findViewById(com.baidu.tieba.a.h.info_rank_divider_line);
-        this.g = (ViewGroup) findViewById(com.baidu.tieba.a.h.info_rank_box);
-        this.h = (TextView) findViewById(com.baidu.tieba.a.h.info_rank_content);
-        this.i = (TextView) findViewById(com.baidu.tieba.a.h.info_badge_divider_line);
-        this.j = (ViewGroup) findViewById(com.baidu.tieba.a.h.info_badge_box);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(s.forum_detail_info, (ViewGroup) this, true);
+        this.b = (ViewGroup) findViewById(r.info_brief_box);
+        this.c = (TextView) findViewById(r.info_brief_content);
+        this.d = (ViewGroup) findViewById(r.info_dir_box);
+        this.e = (TextView) findViewById(r.info_dir_name);
+        this.f = (TextView) findViewById(r.info_rank_divider_line);
+        this.g = (ViewGroup) findViewById(r.info_rank_box);
+        this.h = (TextView) findViewById(r.info_rank_content);
+        this.i = (TextView) findViewById(r.info_badge_divider_line);
+        this.j = (ViewGroup) findViewById(r.info_badge_box);
     }
 
-    public final boolean a(ForumDetailData forumDetailData, com.baidu.tbadk.a aVar) {
+    public boolean a(ForumDetailData forumDetailData, BaseActivity baseActivity) {
         boolean z;
-        if (forumDetailData == null || (forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents.length == 0 && bc.c(forumDetailData.forumInfo.slogan) && forumDetailData.badges.length == 0 && forumDetailData.forumDir == null)) {
+        if (forumDetailData == null || (forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents.length == 0 && be.c(forumDetailData.forumInfo.slogan) && forumDetailData.badges.length == 0 && forumDetailData.forumDir == null)) {
             return false;
         }
-        boolean equals = aVar.getIntent().getStringExtra("from_type").equals(ForumDetailActivity.FromType.BAR_DIR.toString());
+        boolean equals = baseActivity.getIntent().getStringExtra("from_type").equals(ForumDetailActivity.FromType.BAR_DIR.toString());
         if (forumDetailData.forumDir != null) {
             String str = forumDetailData.forumDir.levelTwoName;
             String str2 = forumDetailData.forumDir.levelOneName;
             String valueOf = String.valueOf(forumDetailData.forumDir.levelOneMenuType);
             String valueOf2 = String.valueOf(forumDetailData.forumDir.levelOneMenuID);
-            if (bc.c(str)) {
+            if (be.c(str)) {
                 z = false;
             } else {
                 this.e.setText(str);
                 this.d.setVisibility(0);
-                this.d.setOnClickListener(new m(this, equals, str2, valueOf2, valueOf, str, aVar));
+                this.d.setOnClickListener(new m(this, equals, str2, valueOf2, valueOf, str, baseActivity));
                 z = true;
             }
             if (forumDetailData.forumDir.rank != 0 || this.d.getVisibility() == 0) {
                 if (forumDetailData.forumDir.rank != 0) {
                     this.h.setText(String.valueOf(forumDetailData.forumDir.rank));
                 } else {
-                    this.h.setText(getResources().getString(com.baidu.tieba.a.k.forum_detail_info_no_rank));
+                    this.h.setText(getResources().getString(u.forum_detail_info_no_rank));
                 }
                 if (this.d.getVisibility() == 8 && this.b.getVisibility() == 0) {
                     this.f.setVisibility(0);
@@ -96,32 +101,12 @@ public class ItemInfoView extends RelativeLayout {
         } else {
             z = false;
         }
-        if ((forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents != null && forumDetailData.forumInfo.contents.length > 0) || !bc.c(forumDetailData.forumInfo.slogan)) {
-            TextView textView = this.c;
-            ForumDetailData.ForumContent[] forumContentArr = forumDetailData.forumInfo.contents;
-            String str3 = forumDetailData.forumInfo.slogan;
-            w wVar = new w();
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(str3) + IOUtils.LINE_SEPARATOR_UNIX);
-            int length = forumContentArr.length;
-            for (int i = 0; i < length; i++) {
-                if (forumContentArr[i].type == 2) {
-                    Bitmap a = com.baidu.tbadk.core.util.g.a(wVar.a(forumContentArr[i].text));
-                    if (a != null) {
-                        BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
-                        bitmapDrawable.setBounds(0, 0, a.getWidth(), a.getHeight());
-                        ImageSpan imageSpan = new ImageSpan(bitmapDrawable, 0);
-                        int length2 = spannableStringBuilder.length() - 1;
-                        spannableStringBuilder.setSpan(imageSpan, length2, length2 + 1, 33);
-                    }
-                } else {
-                    spannableStringBuilder.append((CharSequence) forumContentArr[i].text);
-                }
-            }
-            textView.setText(spannableStringBuilder);
+        if ((forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents != null && forumDetailData.forumInfo.contents.length > 0) || !be.c(forumDetailData.forumInfo.slogan)) {
+            this.c.setText(a(forumDetailData.forumInfo.contents, forumDetailData.forumInfo.slogan));
             this.b.setVisibility(0);
             z = true;
         } else if (this.d.getVisibility() == 0) {
-            this.c.setText(getResources().getString(com.baidu.tieba.a.k.forum_detail_info_no_brief));
+            this.c.setText(getResources().getString(u.forum_detail_info_no_brief));
             this.b.setVisibility(0);
             z = true;
         }
@@ -135,12 +120,33 @@ public class ItemInfoView extends RelativeLayout {
         return z;
     }
 
+    private SpannableStringBuilder a(ForumDetailData.ForumContent[] forumContentArr, String str) {
+        w wVar = new w();
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(str) + IOUtils.LINE_SEPARATOR_UNIX);
+        int length = forumContentArr.length;
+        for (int i = 0; i < length; i++) {
+            if (forumContentArr[i].type == 2) {
+                Bitmap a = com.baidu.tbadk.core.util.g.a(wVar.a(forumContentArr[i].text));
+                if (a != null) {
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
+                    bitmapDrawable.setBounds(0, 0, a.getWidth(), a.getHeight());
+                    ImageSpan imageSpan = new ImageSpan(bitmapDrawable, 0);
+                    int length2 = spannableStringBuilder.length() - 1;
+                    spannableStringBuilder.setSpan(imageSpan, length2, length2 + 1, 33);
+                }
+            } else {
+                spannableStringBuilder.append((CharSequence) forumContentArr[i].text);
+            }
+        }
+        return spannableStringBuilder;
+    }
+
     private void a(ForumDetailData forumDetailData) {
         ab abVar = new ab(this.a);
-        int a = com.baidu.adp.lib.util.i.a(this.a, 20.0f);
+        int a = com.baidu.adp.lib.util.h.a(this.a, 20.0f);
         abVar.a(a, a);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(a, a);
-        layoutParams.rightMargin = com.baidu.adp.lib.util.i.a(this.a, 6.0f);
+        layoutParams.rightMargin = com.baidu.adp.lib.util.h.a(this.a, 6.0f);
         int length = forumDetailData.badges.length;
         for (int i = 0; i < length; i++) {
             HeadImageView headImageView = new HeadImageView(this.a);
@@ -157,13 +163,13 @@ public class ItemInfoView extends RelativeLayout {
         this.d.setOnClickListener(onClickListener);
     }
 
-    public final void a(com.baidu.tbadk.a aVar, int i) {
+    public void a(BaseActivity baseActivity, int i) {
         if (i == 1) {
-            this.c.setTextColor(getResources().getColor(com.baidu.tieba.a.e.forum_detail_brief_txt_color_1));
+            this.c.setTextColor(getResources().getColor(o.forum_detail_brief_txt_color_1));
         } else {
-            this.c.setTextColor(getResources().getColor(com.baidu.tieba.a.e.forum_detail_brief_txt_color));
+            this.c.setTextColor(getResources().getColor(o.forum_detail_brief_txt_color));
         }
-        aVar.getLayoutMode().a(i == 1);
-        aVar.getLayoutMode().a(this);
+        baseActivity.getLayoutMode().a(i == 1);
+        baseActivity.getLayoutMode().a((View) this);
     }
 }

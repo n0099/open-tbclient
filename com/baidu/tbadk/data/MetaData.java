@@ -1,10 +1,15 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.f.b;
+import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import java.util.LinkedList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.Icon;
+import tbclient.TshowInfo;
+import tbclient.User;
 /* loaded from: classes.dex */
 public class MetaData implements Serializable {
     private static final long serialVersionUID = -2658065756886586092L;
@@ -42,7 +47,7 @@ public class MetaData implements Serializable {
     }
 
     public long getUserIdLong() {
-        return com.baidu.adp.lib.f.b.a(this.userId, 0L);
+        return b.a(this.userId, 0L);
     }
 
     public void setType(int i) {
@@ -58,6 +63,12 @@ public class MetaData implements Serializable {
     }
 
     public String getUserName() {
+        if (this.userName != null && this.userName.length() > 0) {
+            return this.userName;
+        }
+        if (this.name_show != null) {
+            return this.name_show;
+        }
         return this.userName;
     }
 
@@ -66,6 +77,12 @@ public class MetaData implements Serializable {
     }
 
     public String getName_show() {
+        if (this.name_show != null && this.name_show.length() > 0) {
+            return this.name_show;
+        }
+        if (this.userName != null) {
+            return this.userName;
+        }
         return this.name_show;
     }
 
@@ -125,11 +142,46 @@ public class MetaData implements Serializable {
         this.bawu_type = str;
     }
 
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0009: IGET  (r1v0 java.lang.Integer A[REMOVE]) = (r7v0 tbclient.User) tbclient.User.id java.lang.Integer)] */
+    public void parserProtobuf(User user) {
+        if (user != null) {
+            this.userId = new StringBuilder().append(user.id).toString();
+            this.type = user.type.intValue();
+            this.userName = user.name;
+            this.level_id = user.level_id.intValue();
+            this.is_like = user.is_like.intValue();
+            this.is_bawu = user.is_bawu.intValue();
+            this.bawu_type = user.bawu_type;
+            if (this.userName != null && this.userName.length() <= 0) {
+                this.userName = null;
+            }
+            this.name_show = user.name_show;
+            this.portrait = user.portrait;
+            this.portraith = user.portraith;
+            List<Icon> list = user.iconinfo;
+            List<TshowInfo> list2 = user.tshow_icon;
+            if (list != null) {
+                for (int i = 0; i < list.size(); i++) {
+                    IconData iconData = new IconData();
+                    iconData.parserProtobuf(list.get(i));
+                    this.mIconInfo.add(iconData);
+                }
+            }
+            if (list2 != null) {
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    IconData iconData2 = new IconData();
+                    iconData2.parserProtobuf(list2.get(i2));
+                    this.mTShowIconInfo.add(iconData2);
+                }
+            }
+        }
+    }
+
     public void parserJson(String str) {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            f.b("MetaData", "parserJson", "error = " + e.getMessage());
+            BdLog.e("MetaData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -146,8 +198,8 @@ public class MetaData implements Serializable {
                 if (this.userName != null && this.userName.length() <= 0) {
                     this.userName = null;
                 }
-                this.name_show = jSONObject.optString("name_show");
-                this.portrait = jSONObject.optString("portrait");
+                this.name_show = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+                this.portrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
                 this.portraith = jSONObject.optString("portraith");
                 JSONArray optJSONArray = jSONObject.optJSONArray("iconinfo");
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("tshow_icon");
@@ -166,19 +218,19 @@ public class MetaData implements Serializable {
                     }
                 }
             } catch (Exception e) {
-                f.b("MetaData", "parserJson", "error = " + e.getMessage());
+                BdLog.e("MetaData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        f.d("MetaData", "logPrint", "id = " + this.userId);
-        f.d("MetaData", "logPrint", "type = " + String.valueOf(this.type));
-        f.d("MetaData", "logPrint", "name = " + this.userName);
-        f.d("MetaData", "logPrint", "name_show = " + this.name_show);
-        f.d("MetaData", "logPrint", "portrait = " + this.portrait);
-        f.d("MetaData", "logPrint", "portraith = " + this.portraith);
-        f.d("MetaData", "logPrint", "level_id = " + String.valueOf(this.level_id));
+        BdLog.v("MetaData", "logPrint", "id = " + this.userId);
+        BdLog.v("MetaData", "logPrint", "type = " + String.valueOf(this.type));
+        BdLog.v("MetaData", "logPrint", "name = " + this.userName);
+        BdLog.v("MetaData", "logPrint", "name_show = " + this.name_show);
+        BdLog.v("MetaData", "logPrint", "portrait = " + this.portrait);
+        BdLog.v("MetaData", "logPrint", "portraith = " + this.portraith);
+        BdLog.v("MetaData", "logPrint", "level_id = " + String.valueOf(this.level_id));
     }
 
     public String toString() {

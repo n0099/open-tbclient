@@ -1,9 +1,11 @@
 package com.baidu.tieba.image;
 
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
+import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-final class e implements c {
+class e implements c {
     final /* synthetic */ ImageViewerActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +14,7 @@ final class e implements c {
     }
 
     @Override // com.baidu.tieba.image.c
-    public final void a(ArrayList<String> arrayList, int i, int i2, boolean z, String str, boolean z2) {
+    public void a(ArrayList<String> arrayList, int i, int i2, boolean z, String str, boolean z2) {
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         MultiImageView multiImageView3;
@@ -67,24 +69,24 @@ final class e implements c {
                 multiImageView5.setUrlData(arrayList);
                 ImageViewerActivity imageViewerActivity = this.a;
                 i3 = imageViewerActivity.b;
-                imageViewerActivity.b = i3 + 200;
+                imageViewerActivity.b = i3 + Constants.MEDIA_INFO;
                 multiImageView6 = this.a.m;
                 multiImageView7 = this.a.m;
-                multiImageView6.a(multiImageView7.getCurrentItem() - 200, false);
+                multiImageView6.a(multiImageView7.getCurrentItem() + SapiErrorCode.NETWORK_FAILED, false);
             }
         }
-        this.a.d();
+        this.a.f();
     }
 
     @Override // com.baidu.tieba.image.c
-    public final void a(int i, String str) {
+    public void a(int i, String str) {
         ArrayList arrayList;
         this.a.showToast(str);
         if (i == 40) {
             ImageViewerActivity imageViewerActivity = this.a;
             arrayList = this.a.c;
             imageViewerActivity.e = arrayList.size();
-            this.a.d();
+            this.a.f();
         }
     }
 }

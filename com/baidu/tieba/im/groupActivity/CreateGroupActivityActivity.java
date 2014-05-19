@@ -1,19 +1,20 @@
 package com.baidu.tieba.im.groupActivity;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.GroupActivityData;
 /* loaded from: classes.dex */
 public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implements View.OnClickListener {
     private e c;
     private d d;
     private boolean e = false;
-    private com.baidu.adp.framework.c.g f = new a(this, 103120);
+    private com.baidu.adp.framework.listener.b f = new a(this, MessageTypes.CMD_CREATE_GROUP_ACTIVITY);
 
     public static void a(Context context, int i) {
         if (context != null) {
@@ -34,15 +35,15 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
             intent.putExtra("time", groupActivityData.getgActivityTime());
             intent.putExtra("area", groupActivityData.getgActivityArea());
             intent.putExtra("content", groupActivityData.getgActivityContent());
-            activity.startActivityForResult(intent, 23001);
+            activity.startActivityForResult(intent, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        f();
+        e();
         this.d = new d(this);
         this.c = new e(this);
         if (this.d.a() != null) {
@@ -75,7 +76,7 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        f();
+        e();
         if (this.d == null) {
             this.d = new d(this);
         }
@@ -108,47 +109,47 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
             i = this.d.a().getGroupId();
         }
         bundle.putInt("gid", i);
-        bundle.putString("name", this.c.e());
-        bundle.putString("content", this.c.g());
-        bundle.putString("area", this.c.f());
-        bundle.putLong("time", this.c.h());
+        bundle.putString("name", this.c.c());
+        bundle.putString("content", this.c.e());
+        bundle.putString("area", this.c.d());
+        bundle.putLong("time", this.c.f());
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void b(int i) {
+    protected void b(int i) {
         if (this.c != null) {
             this.c.a(i);
         }
     }
 
-    private void f() {
+    private void e() {
         a(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.d.cancelMessage();
-        this.c.c();
-        com.baidu.adp.framework.c.a().b(this.f);
+        this.c.destroy();
+        MessageManager.getInstance().unRegisterListener(this.f);
     }
 
-    @Override // com.baidu.adp.a.c, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.b, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.c.a()) {
-            g();
-        } else if (view == this.c.d() && this.d != null && this.d.a() != null) {
-            long h = this.c.h();
-            if ((!this.e || this.c.i()) && 1000 * h < System.currentTimeMillis()) {
-                com.baidu.adp.lib.util.i.a((Context) this, com.baidu.tieba.im.j.group_activity_time_val);
+            f();
+        } else if (view == this.c.b() && this.d != null && this.d.a() != null) {
+            long f = this.c.f();
+            if ((!this.e || this.c.g()) && 1000 * f < System.currentTimeMillis()) {
+                c(com.baidu.tieba.u.group_activity_time_val);
                 return;
             }
-            this.d.a().setgActivityArea(this.c.f());
-            this.d.a().setgActivityContent(this.c.g());
-            this.d.a().setgActivityTime(h);
-            this.d.a().setgActivityTitle(this.c.e());
-            d_();
+            this.d.a().setgActivityArea(this.c.d());
+            this.d.a().setgActivityContent(this.c.e());
+            this.d.a().setgActivityTime(f);
+            this.d.a().setgActivityTitle(this.c.c());
+            c();
             this.d.a(this.e);
         }
     }
@@ -156,14 +157,13 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
     @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            g();
+            f();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void g() {
-        boolean z = this.e;
-        new AlertDialog.Builder(this).setTitle(com.baidu.tieba.im.j.quit).setMessage(z ? com.baidu.tieba.im.j.group_activity_edit_quit : com.baidu.tieba.im.j.group_activity_create_quit).setPositiveButton(com.baidu.tieba.im.j.confirm, new b(this)).setNegativeButton(com.baidu.tieba.im.j.cancel, new c(this)).create().show();
+    private void f() {
+        com.baidu.tieba.im.f.b.a(this, this.e, new b(this), new c(this));
     }
 }

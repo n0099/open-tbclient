@@ -3,14 +3,15 @@ package com.baidu.tieba.tiebasdk;
 import android.app.Application;
 import android.content.Context;
 import android.util.Log;
-import com.baidu.adp.framework.c;
-import com.baidu.adp.framework.message.a;
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.b.l;
-import com.baidu.tbadk.core.data.n;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tieba.p;
+import com.baidu.tbadk.core.atomData.m;
+import com.baidu.tbadk.core.frameworkData.a;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.ad;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -22,44 +23,43 @@ public class TiebaSDK implements Serializable {
     private static final long serialVersionUID = -3424378401905406520L;
 
     public static void init(Application application) {
-        p.c().a(application);
+        ad.c().a(application);
     }
 
     public static void openBar(Context context, String str) {
-        c.a().a(new a(2003001, new l(context).a(str, null)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2005001, new m(context).a(str, null)));
     }
 
     public static String getBarData(String str) {
         BasicNameValuePair basicNameValuePair;
-        ak akVar;
+        al alVar;
         if (str == null || str.trim().length() == 0) {
             return "";
         }
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(n.a);
+        stringBuffer.append(TbConfig.SERVER_ADDRESS);
         stringBuffer.append("c/f/frs/page");
         ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
         arrayList.add(new BasicNameValuePair("kw", str));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(1)));
-        if (p.c().s()) {
+        if (ad.c().x()) {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(35));
         } else {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(50));
         }
         arrayList.add(basicNameValuePair);
-        arrayList.add(new BasicNameValuePair("st_type", "tb_forumlist"));
+        arrayList.add(new BasicNameValuePair(a.ST_TYPE, "tb_forumlist"));
         try {
-            akVar = new ak(stringBuffer.toString());
-            akVar.a(arrayList);
+            alVar = new al(stringBuffer.toString());
+            alVar.a(arrayList);
         } catch (Exception e) {
-            f.b("TiebaSDK.getBarData error = " + e.getMessage());
+            BdLog.e("TiebaSDK.getBarData error = " + e.getMessage());
         }
-        return !akVar.a().b().b() ? "" : akVar.i();
+        return !alVar.a().b().b() ? "" : alVar.i();
     }
 
     public static void setFrom(String str) {
-        TbadkApplication.j();
-        TbadkApplication.h(str);
+        TbadkApplication.m252getInst().setFrom(str);
     }
 
     public static int getResIdByName(Context context, String str) {

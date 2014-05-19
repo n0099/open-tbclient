@@ -3,30 +3,14 @@ package com.baidu.tieba.model;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b extends BdAsyncTask<String, Integer, bb> {
-    com.baidu.tbadk.core.util.ak a;
+public class b extends BdAsyncTask<String, Integer, bb> {
+    com.baidu.tbadk.core.util.al a;
     final /* synthetic */ a b;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ bb a(String... strArr) {
-        return a();
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ void a(bb bbVar) {
-        bb bbVar2 = bbVar;
-        super.a((b) bbVar2);
-        this.b.b = null;
-        this.b.a.a(bbVar2);
-    }
 
     private b(a aVar) {
         this.b = aVar;
@@ -34,34 +18,36 @@ public final class b extends BdAsyncTask<String, Integer, bb> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ b(a aVar, byte b) {
+    public /* synthetic */ b(a aVar, b bVar) {
         this(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
-        super.c();
+    public void onPreExecute() {
+        super.onPreExecute();
     }
 
-    private bb a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public bb doInBackground(String... strArr) {
         bb bbVar;
         Exception e;
-        Context unused;
+        Context context;
         try {
-            this.a = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/s/sync");
+            this.a = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
             this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            com.baidu.tieba.p.c();
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.i.b(com.baidu.tieba.p.d())));
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.h.b(com.baidu.tieba.ad.c().d())));
             stringBuffer.append(",");
-            com.baidu.tieba.p.c();
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.i.c(com.baidu.tieba.p.d())));
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.h.c(com.baidu.tieba.ad.c().d())));
             this.a.a("_phone_screen", stringBuffer.toString());
-            if (TbadkApplication.j().ai() > 0) {
+            if (TbadkApplication.m252getInst().getMsgFrequency() > 0) {
                 this.a.a("_msg_status", "0");
             } else {
-                this.a.a("_msg_status", "1");
+                this.a.a("_msg_status", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             }
             String i = this.a.i();
             if (!this.a.a().b().b()) {
@@ -70,16 +56,16 @@ public final class b extends BdAsyncTask<String, Integer, bb> {
             bbVar = new bb();
             try {
                 bbVar.a(i);
-                if (TbadkApplication.B() == null && bbVar.d().a() != null && bbVar.d().a().length() > 0) {
-                    unused = this.b.c;
-                    TbadkApplication.b(bbVar.d().a());
-                    TbadkApplication.c(bbVar.d().a());
+                if (TbadkApplication.getClientId() == null && bbVar.d().a() != null && bbVar.d().a().length() > 0) {
+                    context = this.b.c;
+                    TbadkApplication.saveClientId(context, bbVar.d().a());
+                    TbadkApplication.setClientId(bbVar.d().a());
                     return bbVar;
                 }
                 return bbVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
                 return bbVar;
             }
         } catch (Exception e3) {
@@ -89,11 +75,21 @@ public final class b extends BdAsyncTask<String, Integer, bb> {
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
+    public void cancel() {
         this.b.b = null;
         if (this.a != null) {
             this.a.g();
         }
         super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(bb bbVar) {
+        super.onPostExecute(bbVar);
+        this.b.b = null;
+        this.b.a.a(bbVar);
     }
 }

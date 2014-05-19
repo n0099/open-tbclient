@@ -1,25 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.data.VersionData;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class af implements DialogInterface.OnDismissListener {
-    final /* synthetic */ UpdateDialog a;
+public class af implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.data.l> {
+    final /* synthetic */ ad a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(UpdateDialog updateDialog) {
-        this.a = updateDialog;
+    public af(ad adVar) {
+        this.a = adVar;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public final void onDismiss(DialogInterface dialogInterface) {
-        k kVar;
-        VersionData versionData;
-        kVar = this.a.c;
-        kVar.dismiss();
-        versionData = this.a.a;
-        if (versionData.getForce_update() == 1) {
-            com.baidu.tbadk.core.d.b.a(this.a, 200);
-        }
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.data.l> customMessage) {
+        UtilHelper.showNotification(TbadkApplication.m252getInst(), customMessage.getData(), 13);
+        return null;
     }
 }

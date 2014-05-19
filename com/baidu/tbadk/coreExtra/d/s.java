@@ -1,39 +1,37 @@
 package com.baidu.tbadk.coreExtra.d;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class s extends com.baidu.adp.framework.b.m {
+public class s extends com.baidu.adp.framework.a.m {
     final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(q qVar, int i) {
-        super(1001);
+        super(i);
         this.a = qVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.f' to match base method */
-    @Override // com.baidu.adp.framework.b.i
-    public final /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        if (!(socketResponsedMessage2 instanceof ResponseOnlineMessage)) {
-            q.a(this.a, socketResponsedMessage2.g(), -1, null);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.i
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage instanceof ResponseOnlineMessage) {
+            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+            if (responseOnlineMessage.getError() == 0) {
+                this.a.h();
+                TiebaStatic.imLog((int) MessageTypes.CMD_UPDATE_CLIENT_INFO, 0, (String) null, "online succ", (String) null, responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
+                BdLog.i("----online succ");
+                return socketResponsedMessage;
+            }
+            this.a.a(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
             return null;
         }
-        ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage2;
-        if (responseOnlineMessage.e() != 0) {
-            q.a(this.a, socketResponsedMessage2.g(), responseOnlineMessage.e(), responseOnlineMessage.f());
-            return null;
-        }
-        q.c(this.a);
-        TiebaStatic.a(1001, 0, null, "online succ", null, responseOnlineMessage.e(), responseOnlineMessage.f());
-        com.baidu.adp.framework.e.c.a();
-        com.baidu.adp.framework.e.c.a(false);
-        com.baidu.adp.lib.util.f.d("----online succ");
-        return socketResponsedMessage2;
+        this.a.a(socketResponsedMessage.getCmd(), -1, (String) null);
+        return null;
     }
 }

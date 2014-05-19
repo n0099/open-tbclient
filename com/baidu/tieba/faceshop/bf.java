@@ -1,104 +1,72 @@
 package com.baidu.tieba.faceshop;
 
-import android.os.Handler;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.gson.GsonBuilder;
+import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bf {
-    private final com.baidu.tbadk.a b;
-    private final LinearLayout c;
-    private final NavigationBar d;
-    private final NoNetworkView e;
-    private final BdListView f;
-    private final com.baidu.tbadk.core.view.q g;
-    private final TextView h;
-    private bb i;
-    private final Handler j;
-    private com.baidu.tbadk.editortool.ab k;
-    private final Runnable l = new bg(this);
-    AbsListView.OnScrollListener a = new bh(this);
+public class bf extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchaseRecordsData> {
+    final /* synthetic */ be a;
+    private com.baidu.tbadk.core.util.al b;
 
-    public bf(com.baidu.tbadk.a aVar) {
-        this.b = aVar;
-        aVar.setContentView(com.baidu.tieba.a.i.face_purchase_records_layout);
-        this.c = (LinearLayout) aVar.findViewById(com.baidu.tieba.a.h.purchase_record);
-        this.d = (NavigationBar) this.c.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.d.a(aVar.getResources().getString(com.baidu.tieba.a.k.purchase_record));
-        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = (NoNetworkView) this.c.findViewById(com.baidu.tieba.a.h.view_no_network);
-        this.h = (TextView) this.c.findViewById(com.baidu.tieba.a.h.empty);
-        this.f = (BdListView) this.c.findViewById(com.baidu.tieba.a.h.purchase_record_list);
-        this.g = new com.baidu.tbadk.core.view.q(aVar);
-        this.f.setPullRefresh(this.g);
-        this.f.setOnScrollListener(this.a);
-        this.j = new Handler();
+    private bf(be beVar) {
+        this.a = beVar;
     }
 
-    public final void a(FacePurchaseRecordsData facePurchaseRecordsData) {
-        if (this.i == null) {
-            this.i = new bb(this.b);
-            this.f.setAdapter((ListAdapter) this.i);
-        }
-        this.k = this.i.a();
-        this.i.a(facePurchaseRecordsData);
-        if (facePurchaseRecordsData == null || facePurchaseRecordsData.packList == null || facePurchaseRecordsData.packList.size() == 0) {
-            c();
-        }
-        if (this.j != null) {
-            this.j.removeCallbacks(this.l);
-            this.j.postDelayed(this.l, 300L);
-        }
-        this.f.b();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bf(be beVar, bf bfVar) {
+        this(beVar);
     }
 
-    public final bb a() {
-        return this.i;
-    }
-
-    public final void b() {
-        this.f.b();
-    }
-
-    public final void c() {
-        if (this.f != null) {
-            this.f.setEmptyView(this.h);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public FacePurchaseRecordsData doInBackground(Object... objArr) {
+        String str;
+        int i;
+        int i2;
+        float f;
+        try {
+            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/getpackhis");
+            com.baidu.tbadk.core.util.al alVar = this.b;
+            str = this.a.b;
+            alVar.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str);
+            com.baidu.tbadk.core.util.al alVar2 = this.b;
+            i = this.a.c;
+            alVar2.a("scr_w", String.valueOf(i));
+            com.baidu.tbadk.core.util.al alVar3 = this.b;
+            i2 = this.a.d;
+            alVar3.a("scr_h", String.valueOf(i2));
+            com.baidu.tbadk.core.util.al alVar4 = this.b;
+            f = this.a.e;
+            alVar4.a("scr_dip", String.valueOf(f));
+            return (FacePurchaseRecordsData) new GsonBuilder().create().fromJson(this.b.i(), (Class<Object>) FacePurchaseRecordsData.class);
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "doInBackground", e.toString());
+            return null;
         }
     }
 
-    public final void a(AdapterView.OnItemClickListener onItemClickListener) {
-        this.f.setOnItemClickListener(onItemClickListener);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(FacePurchaseRecordsData facePurchaseRecordsData) {
+        com.baidu.adp.base.g gVar;
+        this.a.a = null;
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(facePurchaseRecordsData);
+        super.onPostExecute(facePurchaseRecordsData);
     }
 
-    public final void a(com.baidu.adp.widget.ListView.d dVar) {
-        this.g.a(dVar);
-    }
-
-    public final void d() {
-        if (this.k != null) {
-            this.k.a();
-            this.k.c();
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.g();
         }
-    }
-
-    public final void a(com.baidu.tbadk.core.view.m mVar) {
-        this.e.a(mVar);
-    }
-
-    public final void b(com.baidu.tbadk.core.view.m mVar) {
-        this.e.b(mVar);
-    }
-
-    public final void a(int i) {
-        this.b.getLayoutMode().a(i == 1);
-        this.b.getLayoutMode().a(this.c);
-        this.d.b(i);
-        this.e.a(i);
-        this.g.a(i);
+        this.a.a = null;
     }
 }

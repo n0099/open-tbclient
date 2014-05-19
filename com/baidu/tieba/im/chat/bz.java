@@ -1,8 +1,10 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
-final class bz implements View.OnClickListener {
+class bz implements View.OnClickListener {
     final /* synthetic */ MsgActivityView a;
     private final /* synthetic */ String b;
     private final /* synthetic */ String c;
@@ -15,7 +17,7 @@ final class bz implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new com.baidu.tbadk.core.b.ag(this.a.b(), this.b, this.c)));
+    public void onClick(View view) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(this.a.getContext(), this.b, this.c)));
     }
 }

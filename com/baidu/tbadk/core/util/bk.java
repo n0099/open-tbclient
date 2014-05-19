@@ -1,5 +1,7 @@
 package com.baidu.tbadk.core.util;
+
+import android.content.Context;
 /* loaded from: classes.dex */
 public interface bk {
-    void a();
+    boolean a(Context context, String[] strArr);
 }

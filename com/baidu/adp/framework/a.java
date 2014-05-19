@@ -1,10 +1,10 @@
 package com.baidu.adp.framework;
 
-import com.baidu.adp.framework.message.d;
-import com.baidu.adp.framework.task.b;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.task.MessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public interface a<M extends com.baidu.adp.framework.message.d<?>, T extends com.baidu.adp.framework.task.b> {
+public interface a<M extends Message<?>, T extends MessageTask> {
     LinkedList<M> a(int i, int i2);
 
     void a(M m, T t);

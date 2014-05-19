@@ -2,10 +2,11 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.widget.AdapterView;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class n implements AdapterView.OnItemClickListener {
+public class n implements AdapterView.OnItemClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,28 +15,28 @@ public final class n implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        cm cmVar;
-        cm cmVar2;
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        cs csVar;
+        cs csVar2;
         String str;
         int i2;
         int i3;
         int i4;
         if (i >= 0) {
-            cmVar = this.a.r;
-            long itemId = cmVar.u().getItemId(i);
+            csVar = this.a.w;
+            long itemId = csVar.v().getItemId(i);
             if (itemId == -1) {
-                i3 = this.a.l;
+                i3 = this.a.q;
                 if (i3 > 1) {
                     FrsActivity frsActivity = this.a;
-                    i4 = frsActivity.l;
-                    frsActivity.l = i4 - 1;
-                    this.a.h = 2;
-                    this.a.o();
+                    i4 = frsActivity.q;
+                    frsActivity.q = i4 - 1;
+                    this.a.m = 2;
+                    this.a.E();
                 }
             } else if (itemId != -2) {
-                cmVar2 = this.a.r;
-                com.baidu.tbadk.core.data.o oVar = (com.baidu.tbadk.core.data.o) cmVar2.u().getItem(i);
+                csVar2 = this.a.w;
+                com.baidu.tbadk.core.data.o oVar = (com.baidu.tbadk.core.data.o) csVar2.v().getItem(i);
                 if (oVar != null) {
                     if (oVar instanceof com.baidu.tbadk.core.data.b) {
                         com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) oVar;
@@ -50,41 +51,41 @@ public final class n implements AdapterView.OnItemClickListener {
                             return;
                         }
                     }
-                    com.baidu.tieba.util.p z = com.baidu.tieba.p.c().z();
-                    if (z != null && !z.b(oVar.l())) {
-                        z.a(oVar.l());
+                    com.baidu.tieba.util.p C = com.baidu.tieba.ad.c().C();
+                    if (C != null && !C.b(oVar.k())) {
+                        C.a(oVar.k());
                     }
-                    boolean z2 = false;
-                    String v = oVar.v();
-                    if (v != null && !v.equals("")) {
-                        z2 = true;
-                        new Thread(new o(this, v)).start();
+                    boolean z = false;
+                    String w = oVar.w();
+                    if (w != null && !w.equals("")) {
+                        z = true;
+                        new Thread(new o(this, w)).start();
                     }
-                    String m = oVar.m();
-                    if (oVar.q() == 2 && !m.startsWith("pb:")) {
-                        com.baidu.tbadk.core.util.bg a = com.baidu.tbadk.core.util.bg.a();
+                    String l = oVar.l();
+                    if (oVar.p() == 2 && !l.startsWith("pb:")) {
+                        com.baidu.tbadk.core.util.bi a = com.baidu.tbadk.core.util.bi.a();
                         FrsActivity frsActivity2 = this.a;
                         String[] strArr = new String[3];
-                        strArr[0] = m;
+                        strArr[0] = l;
                         strArr[1] = "";
                         a.a(frsActivity2, strArr);
                         return;
                     }
-                    if (m.startsWith("pb:")) {
-                        oVar.a(m.substring(3));
+                    if (l.startsWith("pb:")) {
+                        oVar.a(l.substring(3));
                     }
                     FrsActivity frsActivity3 = this.a;
-                    com.baidu.tbadk.core.b.af afVar = new com.baidu.tbadk.core.b.af(this.a);
-                    str = this.a.i;
-                    frsActivity3.sendMessage(new com.baidu.adp.framework.message.a(2004001, afVar.a(oVar, str, null, 18003, true, false, z2)));
+                    com.baidu.tbadk.core.atomData.as asVar = new com.baidu.tbadk.core.atomData.as(this.a);
+                    str = this.a.n;
+                    frsActivity3.sendMessage(new CustomMessage(2006001, asVar.a(oVar, str, null, 18003, true, false, z)));
                 }
             } else {
-                TiebaStatic.a(this.a, "frs_nextpage", "frsclick", 1, new Object[0]);
+                TiebaStatic.eventStat(this.a, "frs_nextpage", "frsclick", 1, new Object[0]);
                 FrsActivity frsActivity4 = this.a;
-                i2 = frsActivity4.l;
-                frsActivity4.l = i2 + 1;
-                this.a.h = 1;
-                this.a.o();
+                i2 = frsActivity4.q;
+                frsActivity4.q = i2 + 1;
+                this.a.m = 1;
+                this.a.E();
             }
         }
     }

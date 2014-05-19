@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.network.websocket;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class h implements Runnable {
+public class h implements Runnable {
     final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public final class h implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
-        g.a(this.a);
+    public void run() {
+        this.a.s();
     }
 }

@@ -1,37 +1,12 @@
 package com.baidu.tieba.square;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b extends BdAsyncTask<Object, h, h> {
+public class b extends BdAsyncTask<Object, h, h> {
     final /* synthetic */ BarFolderFirstDirActivity a;
-    private com.baidu.tbadk.core.util.ak b;
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ h a(Object... objArr) {
-        return a();
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ void a(h hVar) {
-        h hVar2 = hVar;
-        if (hVar2 != null) {
-            this.a.a(hVar2, false);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void b(h... hVarArr) {
-        h[] hVarArr2 = hVarArr;
-        super.b((Object[]) hVarArr2);
-        this.a.a(hVarArr2[0], false);
-    }
+    private com.baidu.tbadk.core.util.al b;
 
     private b(BarFolderFirstDirActivity barFolderFirstDirActivity) {
         this.a = barFolderFirstDirActivity;
@@ -39,42 +14,55 @@ public final class b extends BdAsyncTask<Object, h, h> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ b(BarFolderFirstDirActivity barFolderFirstDirActivity, byte b) {
+    public /* synthetic */ b(BarFolderFirstDirActivity barFolderFirstDirActivity, b bVar) {
         this(barFolderFirstDirActivity);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onProgressUpdate(h... hVarArr) {
+        super.onProgressUpdate(hVarArr);
+        this.a.a(hVarArr[0], false);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Can't wrap try/catch for region: R(10:1|(3:21|22|(8:24|4|5|(1:7)|8|(2:10|(1:(1:13))(1:17))(1:18)|15|16))|3|4|5|(0)|8|(0)(0)|15|16) */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x00ba, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x00be, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x00bb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x00bf, code lost:
         r1.a(r0.getMessage());
-        com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", r0.getMessage());
+        com.baidu.adp.lib.util.BdLog.e(getClass().getName(), "doInBackground", r0.getMessage());
      */
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0074 A[Catch: Exception -> 0x00ba, TryCatch #0 {Exception -> 0x00ba, blocks: (B:7:0x002d, B:9:0x0051, B:10:0x005e, B:12:0x0074, B:19:0x00a6, B:21:0x00b0), top: B:25:0x002d }] */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x00b0 A[Catch: Exception -> 0x00ba, TRY_LEAVE, TryCatch #0 {Exception -> 0x00ba, blocks: (B:7:0x002d, B:9:0x0051, B:10:0x005e, B:12:0x0074, B:19:0x00a6, B:21:0x00b0), top: B:25:0x002d }] */
-    /* JADX WARN: Removed duplicated region for block: B:9:0x0051 A[Catch: Exception -> 0x00ba, TryCatch #0 {Exception -> 0x00ba, blocks: (B:7:0x002d, B:9:0x0051, B:10:0x005e, B:12:0x0074, B:19:0x00a6, B:21:0x00b0), top: B:25:0x002d }] */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0077 A[Catch: Exception -> 0x00be, TryCatch #0 {Exception -> 0x00be, blocks: (B:7:0x002f, B:9:0x0054, B:10:0x0061, B:12:0x0077, B:19:0x00a9, B:21:0x00b4), top: B:25:0x002f }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x00b4 A[Catch: Exception -> 0x00be, TRY_LEAVE, TryCatch #0 {Exception -> 0x00be, blocks: (B:7:0x002f, B:9:0x0054, B:10:0x0061, B:12:0x0077, B:19:0x00a9, B:21:0x00b4), top: B:25:0x002f }] */
+    /* JADX WARN: Removed duplicated region for block: B:9:0x0054 A[Catch: Exception -> 0x00be, TryCatch #0 {Exception -> 0x00be, blocks: (B:7:0x002f, B:9:0x0054, B:10:0x0061, B:12:0x0077, B:19:0x00a9, B:21:0x00b4), top: B:25:0x002f }] */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private h a() {
+    public h doInBackground(Object... objArr) {
         String str;
         String str2;
         boolean z = true;
         h hVar = new h();
-        com.baidu.adp.lib.cache.s<String> p = com.baidu.tbadk.core.c.b.a().p();
-        String a = p.a("first_dir_cache_key");
+        com.baidu.adp.lib.cache.s<String> r = com.baidu.tbadk.core.a.b.a().r();
+        String a = r.a("first_dir_cache_key");
         if (a != null) {
             if (!a.equals("")) {
                 hVar.b(a);
-                c((Object[]) new h[]{hVar});
-                this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/f/forum/forumdir");
+                publishProgress(hVar);
+                this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumdir");
                 str = this.a.g;
                 if (str != null) {
-                    com.baidu.tbadk.core.util.ak akVar = this.b;
+                    com.baidu.tbadk.core.util.al alVar = this.b;
                     String str3 = BarFolderFirstDirActivity.c;
                     str2 = this.a.g;
-                    akVar.a(str3, str2);
+                    alVar.a(str3, str2);
                 }
                 String i = this.b.i();
                 if (!this.b.a().b().b()) {
@@ -84,7 +72,7 @@ public final class b extends BdAsyncTask<Object, h, h> {
                             return null;
                         }
                     } else {
-                        p.a("first_dir_cache_key", i, 86400000L);
+                        r.a("first_dir_cache_key", i, 86400000L);
                     }
                 } else {
                     hVar.a(this.b.f());
@@ -93,7 +81,7 @@ public final class b extends BdAsyncTask<Object, h, h> {
             }
         }
         z = false;
-        this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/f/forum/forumdir");
+        this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumdir");
         str = this.a.g;
         if (str != null) {
         }
@@ -103,8 +91,18 @@ public final class b extends BdAsyncTask<Object, h, h> {
         return hVar;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
+    /* renamed from: a */
+    public void onPostExecute(h hVar) {
+        if (hVar != null) {
+            this.a.a(hVar, false);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
         super.cancel(true);
         if (this.b != null) {
             this.b.g();

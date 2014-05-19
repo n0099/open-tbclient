@@ -1,7 +1,7 @@
 package com.baidu.tieba.square;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class am implements com.baidu.tbadk.core.view.m {
+public class am implements com.baidu.tbadk.core.view.m {
     final /* synthetic */ ak a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public final class am implements com.baidu.tbadk.core.view.m {
     }
 
     @Override // com.baidu.tbadk.core.view.m
-    public final void a(boolean z) {
+    public void a(boolean z) {
         if (!z) {
             return;
         }

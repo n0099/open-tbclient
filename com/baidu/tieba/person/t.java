@@ -1,11 +1,12 @@
 package com.baidu.tieba.person;
 
 import android.content.Context;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.data.PersonChangeData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class t extends com.baidu.adp.a.e {
+public class t extends com.baidu.adp.base.d {
     private u b;
     private String c;
     private final Context e;
@@ -23,114 +24,117 @@ public final class t extends com.baidu.adp.a.e {
         this.e = context;
     }
 
-    public final UserData a() {
+    public UserData a() {
         return this.a;
     }
 
-    public final void a(UserData userData) {
+    public void a(UserData userData) {
         this.a = userData;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.c = str;
     }
 
-    public final String b() {
+    public String b() {
         return this.c;
     }
 
-    public final void b(String str) {
+    public void b(String str) {
         this.d = str;
     }
 
-    public final long c() {
+    public long c() {
         return this.g;
     }
 
-    public final void a(long j) {
+    public void a(long j) {
         this.g = j;
     }
 
-    public final long d() {
+    public long d() {
         return this.h;
     }
 
-    public final void b(long j) {
+    public void b(long j) {
         this.h = j;
     }
 
-    public final void a(boolean z) {
-        this.i = true;
+    public void a(boolean z) {
+        this.i = z;
     }
 
-    public final boolean e() {
+    public boolean e() {
         return this.i;
     }
 
-    public final void b(boolean z) {
-        this.j = true;
+    public void b(boolean z) {
+        this.j = z;
     }
 
-    public final boolean f() {
+    public boolean f() {
         return this.j;
     }
 
-    public final void a(PersonChangeData personChangeData) {
+    public void a(PersonChangeData personChangeData) {
         if (this.a != null) {
             this.a.setUserName(personChangeData.getName());
             this.a.setIntro(personChangeData.getIntro());
         }
     }
 
-    public final void a(boolean z, boolean z2) {
+    public void a(boolean z, boolean z2) {
         if (this.b == null) {
-            this.b = new u(this, (byte) 0);
+            this.b = new u(this, null);
             this.b.setPriority(3);
-            this.b.execute(true, true);
+            this.b.execute(Boolean.valueOf(z), Boolean.valueOf(z2));
         }
     }
 
-    public final com.baidu.tbadk.editortool.ab g() {
+    public com.baidu.tbadk.editortool.ab g() {
         return this.f;
     }
 
-    public final void c(String str) {
+    public void c(String str) {
         try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject != null) {
-                try {
-                    this.a = new UserData();
-                    this.a.parserJson(jSONObject.optJSONObject("user"));
-                    this.k = true;
-                } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
-                }
-            }
-        } catch (Exception e2) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e2.getMessage());
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
         }
     }
 
-    public final boolean h() {
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = new UserData();
+                this.a.parserJson(jSONObject.optJSONObject("user"));
+                this.k = true;
+            } catch (Exception e) {
+                BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            }
+        }
+    }
+
+    public boolean h() {
         return this.k;
     }
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         return false;
     }
 
-    public final void i() {
+    public void i() {
         if (this.b != null) {
             this.b.cancel();
         }
         if (this.f != null) {
-            this.f.c();
+            this.f.d();
         }
     }
 }

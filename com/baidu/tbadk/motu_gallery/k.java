@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public final class k extends BaseAdapter {
+public class k extends BaseAdapter {
     public List<c> a;
     final /* synthetic */ d b;
     private Context c;
@@ -22,12 +22,12 @@ public final class k extends BaseAdapter {
         this.c = context;
     }
 
-    public final void a(List<c> list) {
+    public void a(List<c> list) {
         this.a = list;
     }
 
     @Override // android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         if (this.a != null) {
             return this.a.size();
         }
@@ -35,7 +35,7 @@ public final class k extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final Object getItem(int i) {
+    public Object getItem(int i) {
         if (this.a == null || i < 0 || i >= this.a.size()) {
             return null;
         }
@@ -43,29 +43,30 @@ public final class k extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final long getItemId(int i) {
+    public long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         l lVar;
         ArrayList arrayList;
         Map map;
         ArrayList arrayList2;
         ArrayList arrayList3;
+        String a;
         Map map2;
         ArrayList arrayList4;
-        Bitmap a;
+        c b;
+        w wVar;
+        Bitmap a2;
         Map map3;
         Map map4;
-        w unused;
         if (view == null) {
-            view = LayoutInflater.from(this.c).inflate(com.baidu.tbadk.k.motu_albums_activity_item, (ViewGroup) null);
-            lVar = new l(this);
-            lVar.b = (ImageView) view.findViewById(com.baidu.tbadk.j.albums_item_photo_iv);
-            lVar.c = (TextView) view.findViewById(com.baidu.tbadk.j.albums_name_tv);
-            view.setTag(lVar);
+            view = LayoutInflater.from(this.c).inflate(com.baidu.tieba.s.motu_albums_activity_item, (ViewGroup) null);
+            l a3 = a(view);
+            view.setTag(a3);
+            lVar = a3;
         } else {
             lVar = (l) view.getTag();
         }
@@ -77,26 +78,33 @@ public final class k extends BaseAdapter {
         String sb = append.append(String.valueOf(map.get(String.valueOf(((c) arrayList2.get(i)).a)))).append(")").toString();
         d dVar = this.b;
         arrayList3 = this.b.f;
-        String b = d.b(dVar, ((c) arrayList3.get(i)).a);
+        a = dVar.a(((c) arrayList3.get(i)).a);
         lVar.c.setText(sb);
         lVar.a = String.valueOf(i);
         map2 = this.b.h;
-        if (map2.containsKey(b)) {
+        if (map2.containsKey(a)) {
             map4 = this.b.h;
-            a = (Bitmap) map4.get(b);
+            a2 = (Bitmap) map4.get(a);
         } else {
             d dVar2 = this.b;
             arrayList4 = this.b.f;
-            c a2 = d.a(dVar2, ((c) arrayList4.get(i)).a);
-            unused = this.b.k;
-            a = w.a(this.b, a2, this.b.a(70.0f));
-            if (a != null) {
+            b = dVar2.b(((c) arrayList4.get(i)).a);
+            wVar = this.b.k;
+            a2 = wVar.a(this.b, b, this.b.a(70.0f));
+            if (a2 != null) {
                 map3 = this.b.h;
-                map3.put(b, a);
+                map3.put(a, a2);
             }
         }
-        lVar.b.setImageBitmap(a);
+        lVar.b.setImageBitmap(a2);
         lVar.b.setTag(this.a.get(i));
         return view;
+    }
+
+    private l a(View view) {
+        l lVar = new l(this);
+        lVar.b = (ImageView) view.findViewById(com.baidu.tieba.r.albums_item_photo_iv);
+        lVar.c = (TextView) view.findViewById(com.baidu.tieba.r.albums_name_tv);
+        return lVar;
     }
 }

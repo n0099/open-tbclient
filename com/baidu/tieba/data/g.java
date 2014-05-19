@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class g extends com.baidu.tieba.util.l {
+public class g extends com.baidu.tieba.util.l {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public final class g extends com.baidu.tieba.util.l {
     }
 
     @Override // com.baidu.tieba.util.l, android.text.style.ClickableSpan
-    public final void onClick(View view) {
+    public void onClick(View view) {
         String str;
         str = this.a.b;
         a(str);

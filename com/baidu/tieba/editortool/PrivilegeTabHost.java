@@ -39,28 +39,36 @@ public class PrivilegeTabHost extends LinearLayout implements an {
         a(context);
     }
 
+    private void a() {
+        this.e.clear();
+        this.e.add(new a(this.i));
+    }
+
     private void a(Context context) {
         this.h = context;
         removeAllViews();
         this.a = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.a.inflate(com.baidu.tieba.a.i.privilege_tab_host, (ViewGroup) this, true);
-        this.b = (PrivilegeTabContentView) findViewById(com.baidu.tieba.a.h.privilege_tab_content);
-        this.c = (PrivilegeTabWidgetView) findViewById(com.baidu.tieba.a.h.privilege_tab_widget);
-        this.d = (ProgressBar) findViewById(com.baidu.tieba.a.h.privilege_progress);
+        this.a.inflate(com.baidu.tieba.s.privilege_tab_host, (ViewGroup) this, true);
+        this.b = (PrivilegeTabContentView) findViewById(com.baidu.tieba.r.privilege_tab_content);
+        this.c = (PrivilegeTabWidgetView) findViewById(com.baidu.tieba.r.privilege_tab_widget);
+        this.d = (ProgressBar) findViewById(com.baidu.tieba.r.privilege_progress);
         this.c.setOnTabSelectedListener(this);
         setOrientation(1);
-        this.g = TbadkApplication.j().l();
+        this.g = TbadkApplication.m252getInst().getSkinType();
         b(this.g);
-        this.e.clear();
-        this.e.add(new a(this.i));
+        b();
+    }
+
+    private void b() {
+        a();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
-        int l = TbadkApplication.j().l();
-        if (l != this.g) {
-            this.g = l;
+        int skinType = TbadkApplication.m252getInst().getSkinType();
+        if (skinType != this.g) {
+            this.g = skinType;
             b(this.g);
         }
         if (i != 8 && i != 4) {
@@ -69,6 +77,11 @@ public class PrivilegeTabHost extends LinearLayout implements an {
                 it.next().a(this.h);
             }
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(ai aiVar) {
+        this.c.a(aiVar);
     }
 
     public void setCurrentTab(int i) {
@@ -81,11 +94,21 @@ public class PrivilegeTabHost extends LinearLayout implements an {
     }
 
     @Override // com.baidu.tieba.editortool.an
-    public final void a(int i) {
+    public void a(int i) {
         setCurrentTab(i);
     }
 
-    public final void b(int i) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
+        this.d.setVisibility(0);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        this.d.setVisibility(8);
+    }
+
+    public void b(int i) {
         this.c.a(i);
         this.b.a(i);
     }

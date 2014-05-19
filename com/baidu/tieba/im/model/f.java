@@ -1,10 +1,11 @@
 package com.baidu.tieba.im.model;
 
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
 import com.baidu.tieba.im.message.ResponseCommitMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements com.baidu.tieba.im.chat.bu {
+public class f implements com.baidu.tieba.im.chat.bu {
     final /* synthetic */ CommonGroupMsglistModel a;
 
     private f(CommonGroupMsglistModel commonGroupMsglistModel) {
@@ -12,15 +13,17 @@ public final class f implements com.baidu.tieba.im.chat.bu {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(CommonGroupMsglistModel commonGroupMsglistModel, byte b) {
+    public /* synthetic */ f(CommonGroupMsglistModel commonGroupMsglistModel, f fVar) {
         this(commonGroupMsglistModel);
     }
 
     @Override // com.baidu.tieba.im.chat.bu
-    public final void a(com.baidu.adp.framework.message.f<?> fVar) {
-        if (fVar != null && fVar.g() == 202001 && (fVar instanceof ResponseCommitGroupMessage)) {
-            ResponseCommitGroupMessage responseCommitGroupMessage = (ResponseCommitGroupMessage) fVar;
-            if (CommonGroupMsglistModel.a(this.a, responseCommitGroupMessage)) {
+    public void a(ResponsedMessage<?> responsedMessage) {
+        boolean a;
+        if (responsedMessage != null && responsedMessage.getCmd() == 202001 && (responsedMessage instanceof ResponseCommitGroupMessage)) {
+            ResponseCommitGroupMessage responseCommitGroupMessage = (ResponseCommitGroupMessage) responsedMessage;
+            a = this.a.a(responseCommitGroupMessage);
+            if (a) {
                 this.a.a((ResponseCommitMessage) responseCommitGroupMessage);
             }
         }

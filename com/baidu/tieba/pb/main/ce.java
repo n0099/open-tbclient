@@ -1,30 +1,43 @@
 package com.baidu.tieba.pb.main;
-
-import android.os.Handler;
-import android.view.animation.Animation;
-import android.widget.ImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ce implements Animation.AnimationListener {
-    final /* synthetic */ bm a;
-    private final /* synthetic */ ImageView b;
+class ce implements Runnable {
+    final /* synthetic */ cd a;
+    private final /* synthetic */ com.baidu.tieba.data.ao b;
+    private final /* synthetic */ boolean c;
+    private final /* synthetic */ String d;
+    private final /* synthetic */ String e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ce(bm bmVar, ImageView imageView) {
-        this.a = bmVar;
-        this.b = imageView;
+    public ce(cd cdVar, com.baidu.tieba.data.ao aoVar, boolean z, String str, String str2) {
+        this.a = cdVar;
+        this.b = aoVar;
+        this.c = z;
+        this.d = str;
+        this.e = str2;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationEnd(Animation animation) {
-        new Handler().post(new cf(this, this.b));
+    @Override // java.lang.Runnable
+    public void run() {
+        bj bjVar;
+        cp cpVar;
+        bj bjVar2;
+        bj bjVar3;
+        com.baidu.tieba.pb.sub.m mVar;
+        bj bjVar4;
+        cp cpVar2;
+        bjVar = this.a.a;
+        cpVar = bjVar.aC;
+        if (cpVar != null) {
+            bjVar4 = this.a.a;
+            cpVar2 = bjVar4.aC;
+            cpVar2.a(this.b);
+        }
+        if (this.c) {
+            bjVar3 = this.a.a;
+            mVar = bjVar3.N;
+            mVar.a(this.d, this.e);
+        }
+        bjVar2 = this.a.a;
+        bjVar2.ak();
     }
 }

@@ -14,6 +14,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.adp.lib.debug.service.SwitchDebugService;
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
@@ -28,9 +29,11 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
         this.a = null;
         this.a = context;
         a();
-        c = new boolean[b.size()];
-        for (int i = 0; i < c.length; i++) {
-            c[i] = false;
+        if (b != null) {
+            c = new boolean[b.size()];
+            for (int i = 0; i < c.length; i++) {
+                c[i] = false;
+            }
         }
     }
 
@@ -38,7 +41,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
         if (b == null) {
             Properties properties = SwitchDebugService.a;
             if (properties == null) {
-                com.baidu.adp.lib.util.f.c("File of config is null!");
+                BdLog.w("File of config is null!");
                 return;
             }
             synchronized (b.class) {
@@ -113,7 +116,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
         return inflate;
     }
 
-    private static void a(ListView listView) {
+    public static void a(ListView listView) {
         ListAdapter adapter = listView.getAdapter();
         if (adapter != null) {
             int i = 0;
@@ -154,7 +157,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
                     cls.getMethod(d, String.class).invoke(cls, charSequence);
                     z = true;
                 } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b(e.getMessage());
+                    BdLog.e(e.getMessage());
                     z = false;
                 }
                 if (z) {

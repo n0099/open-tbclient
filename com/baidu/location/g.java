@@ -8,6 +8,7 @@ import android.net.Proxy;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -60,14 +61,14 @@ public class g {
     private static boolean f158char = false;
     private static boolean g = false;
     private static ArrayList e = null;
-    private static int a = 12000;
+    private static int a = LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_12;
 
     /* renamed from: if  reason: not valid java name */
     private static Uri f163if = null;
 
     /* renamed from: try  reason: not valid java name */
     private static int f167try = 4;
-    private static String j = com.baidu.loginshare.e.h;
+    private static String j = "10.0.0.172";
     private static int f = 80;
 
     /* renamed from: goto  reason: not valid java name */
@@ -85,10 +86,7 @@ public class g {
         if (networkInfo != null && networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
             if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
                 String defaultHost = Proxy.getDefaultHost();
-                if (defaultHost == null || defaultHost.equals("") || defaultHost.equals("null")) {
-                    defaultHost = com.baidu.loginshare.e.h;
-                }
-                j = defaultHost;
+                j = (defaultHost == null || defaultHost.equals("") || defaultHost.equals("null")) ? "10.0.0.172" : "10.0.0.172";
                 return 1;
             } else if (lowerCase.startsWith("ctwap")) {
                 String defaultHost2 = Proxy.getDefaultHost();
@@ -102,8 +100,8 @@ public class g {
         if (defaultHost3 == null || defaultHost3.length() <= 0) {
             return 2;
         }
-        if (com.baidu.loginshare.e.h.equals(defaultHost3.trim())) {
-            j = com.baidu.loginshare.e.h;
+        if ("10.0.0.172".equals(defaultHost3.trim())) {
+            j = "10.0.0.172";
             return 1;
         } else if ("10.0.0.200".equals(defaultHost3.trim())) {
             j = "10.0.0.200";
@@ -118,16 +116,16 @@ public class g {
         if (f158char || str == null) {
             return;
         }
-        f165long = Jni.m2if(str);
+        f165long = Jni.m4if(str);
         g = z;
         f158char = true;
         new Thread() { // from class: com.baidu.location.g.4
             @Override // java.lang.Thread, java.lang.Runnable
-            public final void run() {
+            public void run() {
                 Long valueOf;
                 boolean z2 = true;
                 try {
-                    HttpPost httpPost = new HttpPost(j.m235do());
+                    HttpPost httpPost = new HttpPost(j.m237do());
                     ArrayList arrayList = new ArrayList();
                     if (g.g) {
                         arrayList.add(new BasicNameValuePair("qt", "grid"));
@@ -167,12 +165,12 @@ public class g {
                                 }
                             }
                             if (z2) {
-                                g.m202for();
+                                g.m204for();
                             }
                         } else {
                             String entityUtils = EntityUtils.toString(execute.getEntity(), "utf-8");
                             j.a(g.f166new, "req config value:" + entityUtils);
-                            if (g.m209if(entityUtils)) {
+                            if (g.m211if(entityUtils)) {
                                 j.a(g.f166new, "Save to config");
                                 g.c();
                             }
@@ -193,7 +191,7 @@ public class g {
         if (context == null) {
             return false;
         }
-        m197do(context);
+        m199do(context);
         return f167try == 3;
     }
 
@@ -204,7 +202,7 @@ public class g {
         }
         i = true;
         j.a(f166new, "bloc : " + k);
-        k = Jni.m2if(str);
+        k = Jni.m4if(str);
         j.a(f166new, "NUMBER_e : " + k.length());
         f164int = handler;
         if (f159do == null) {
@@ -212,14 +210,14 @@ public class g {
         }
         new Thread() { // from class: com.baidu.location.g.1
             @Override // java.lang.Thread, java.lang.Runnable
-            public final void run() {
+            public void run() {
                 HttpPost httpPost;
                 HttpResponse execute;
                 int statusCode;
                 int i2 = g.f168void;
                 while (i2 > 0) {
                     try {
-                        httpPost = new HttpPost(j.m235do());
+                        httpPost = new HttpPost(j.m237do());
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(new BasicNameValuePair("bloc", g.k));
                         if (g.f159do != null) {
@@ -268,7 +266,7 @@ public class g {
     }
 
     /* renamed from: byte  reason: not valid java name */
-    public static void m194byte() {
+    public static void m196byte() {
         try {
             File file = new File(f.aa + "/config.dat");
             if (file.exists()) {
@@ -278,16 +276,15 @@ public class g {
                     int readInt = randomAccessFile.readInt();
                     byte[] bArr = new byte[readInt];
                     randomAccessFile.read(bArr, 0, readInt);
-                    m209if(new String(bArr));
+                    m211if(new String(bArr));
                 }
                 randomAccessFile.seek(1L);
                 if (randomAccessFile.readBoolean()) {
                     randomAccessFile.seek(FileUtils.ONE_KB);
                     j.s = randomAccessFile.readDouble();
                     j.f194byte = randomAccessFile.readDouble();
-                    boolean readBoolean = randomAccessFile.readBoolean();
-                    j.e = readBoolean;
-                    if (readBoolean) {
+                    j.e = randomAccessFile.readBoolean();
+                    if (j.e) {
                         j.o = new byte[625];
                         randomAccessFile.read(j.o, 0, 625);
                     }
@@ -335,10 +332,9 @@ public class g {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public static int m197do(Context context) {
-        int m206if = m206if(context);
-        f167try = m206if;
-        return m206if;
+    public static int m199do(Context context) {
+        f167try = m208if(context);
+        return f167try;
     }
 
     /* JADX WARN: Type inference failed for: r0v7, types: [com.baidu.location.g$3] */
@@ -359,12 +355,12 @@ public class g {
                     f162goto = 2;
                     try {
                         if (j.E == 0) {
-                            a2 = f.m176new();
+                            a2 = f.m178new();
                             if (a2 == null) {
                                 a2 = b.e();
                             }
                         } else if (j.E == 1 && (a2 = b.e()) == null) {
-                            a2 = f.m176new();
+                            a2 = f.m178new();
                         }
                     } catch (Exception e2) {
                         a2 = null;
@@ -378,13 +374,13 @@ public class g {
                 j.a(f166new, "upload data size:" + i2);
             } while (i2 < c);
         }
-        if (e != null && e.size() > 0) {
+        if (e != null && e.size() >= 1) {
             j.a(f166new, "Beging upload data...");
             new Thread() { // from class: com.baidu.location.g.3
                 @Override // java.lang.Thread, java.lang.Runnable
-                public final void run() {
+                public void run() {
                     try {
-                        HttpPost httpPost = new HttpPost(j.m235do());
+                        HttpPost httpPost = new HttpPost(j.m237do());
                         ArrayList arrayList = new ArrayList();
                         for (int i3 = 0; i3 < g.e.size(); i3++) {
                             if (g.f162goto == 1) {
@@ -418,7 +414,7 @@ public class g {
     }
 
     /* renamed from: for  reason: not valid java name */
-    public static void m202for() {
+    public static void m204for() {
         try {
             File file = new File(f.aa + "/config.dat");
             if (!file.exists()) {
@@ -452,16 +448,16 @@ public class g {
     }
 
     /* renamed from: for  reason: not valid java name */
-    public static boolean m203for(Context context) {
+    public static boolean m205for(Context context) {
         if (context == null) {
             return false;
         }
-        m197do(context);
+        m199do(context);
         return f167try == 1;
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static int m206if(Context context) {
+    private static int m208if(Context context) {
         NetworkInfo networkInfo;
         try {
             try {
@@ -488,12 +484,9 @@ public class g {
                                         query.close();
                                     }
                                     return 1;
-                                } else if (string != null && string.toLowerCase().contains(com.baidu.loginshare.e.d)) {
+                                } else if (string != null && string.toLowerCase().contains("wap")) {
                                     String defaultHost2 = Proxy.getDefaultHost();
-                                    if (defaultHost2 == null || defaultHost2.equals("") || defaultHost2.equals("null")) {
-                                        defaultHost2 = com.baidu.loginshare.e.h;
-                                    }
-                                    j = defaultHost2;
+                                    j = (defaultHost2 == null || defaultHost2.equals("") || defaultHost2.equals("null")) ? "10.0.0.172" : "10.0.0.172";
                                     f = 80;
                                     if (query != null) {
                                         query.close();
@@ -517,17 +510,17 @@ public class g {
                     }
                 }
                 return 4;
-            } catch (SecurityException e4) {
-                networkInfo = null;
+            } catch (Exception e4) {
+                e4.printStackTrace();
+                return 4;
             }
-        } catch (Exception e5) {
-            e5.printStackTrace();
-            return 4;
+        } catch (SecurityException e5) {
+            networkInfo = null;
         }
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static boolean m209if(String str) {
+    public static boolean m211if(String str) {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -654,11 +647,9 @@ public class g {
                             if (split5[4] != null && !split5[4].equals("")) {
                                 int parseInt2 = Integer.parseInt(split5[4]);
                                 if (parseInt2 > 0) {
-                                    long j2 = parseInt2;
-                                    j.B = j2;
-                                    long j3 = j2 * 1000 * 60;
-                                    j.z = j3;
-                                    j.q = j3 >> 2;
+                                    j.B = parseInt2;
+                                    j.z = j.B * 1000 * 60;
+                                    j.q = j.z >> 2;
                                 } else {
                                     j.M = false;
                                 }
@@ -684,12 +675,12 @@ public class g {
 
     /* JADX WARN: Type inference failed for: r1v4, types: [com.baidu.location.g$2] */
     /* renamed from: if  reason: not valid java name */
-    public static boolean m210if(String str, Handler handler) {
+    public static boolean m212if(String str, Handler handler) {
         if (f160else || str == null) {
             return false;
         }
         f160else = true;
-        d = Jni.m2if(str);
+        d = Jni.m4if(str);
         j.a(f166new, "bloc : " + d);
         l = handler;
         if (f161for == null) {
@@ -697,14 +688,14 @@ public class g {
         }
         new Thread() { // from class: com.baidu.location.g.2
             @Override // java.lang.Thread, java.lang.Runnable
-            public final void run() {
+            public void run() {
                 HttpPost httpPost;
                 HttpResponse execute;
                 int statusCode;
                 int i2 = g.f168void;
                 while (i2 > 0) {
                     try {
-                        httpPost = new HttpPost(j.m235do());
+                        httpPost = new HttpPost(j.m237do());
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(new BasicNameValuePair("bloc", g.d));
                         if (g.f161for != null) {

@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.im.groupUpdates.p;
-import com.baidu.tieba.im.message.a.a;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.validate.ValidateItemData;
 import com.baidu.tieba.im.validate.n;
 import java.io.Serializable;
@@ -24,14 +24,14 @@ public class GroupNewsPojo implements Serializable {
     String gid;
     String notice_id;
     private CommonMsgPojo originalChatMsgPojo;
-    private a originalPushMsg;
+    private ChatMessage originalPushMsg;
     long time;
 
     public GroupNewsPojo() {
     }
 
-    public GroupNewsPojo(a aVar, String str) {
-        if (aVar != null && !TextUtils.isEmpty(str)) {
+    public GroupNewsPojo(ChatMessage chatMessage, String str) {
+        if (chatMessage != null && !TextUtils.isEmpty(str)) {
             String str2 = "000";
             setContent_status(1);
             if (str.equals("001")) {
@@ -60,32 +60,18 @@ public class GroupNewsPojo implements Serializable {
                 str2 = "group_event_info";
             } else if (str.equals("124")) {
                 str2 = "group_activitys_change";
+            } else if (str.equals("306")) {
+                str2 = "live_room_info_change";
+            } else if (str.equals("301")) {
+                str2 = "live_notify";
+            } else if (str.equals("311")) {
+                str2 = "live_user_mute";
             }
             setCmd(str2);
-            setContent(aVar.v());
-            setTime(aVar.A() * 1000);
-            setNotice_id(String.valueOf(aVar.w()));
-            f.e("begin");
-            if (!TextUtils.isEmpty(getCmd())) {
-                if (getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) {
-                    UpdatesItemData a = p.a(this);
-                    if (a != null) {
-                        String E = TbadkApplication.E();
-                        if (!TextUtils.isEmpty(E)) {
-                            String authorId = a.getAuthorId();
-                            if (!TextUtils.isEmpty(authorId)) {
-                                f.e("curUid:" + E + " uid:" + authorId);
-                                if (E.equals(authorId)) {
-                                    setContent_status(2);
-                                } else {
-                                    setContent_status(1);
-                                }
-                            }
-                        }
-                    }
-                }
-                f.e("end");
-            }
+            setContent(chatMessage.getContent());
+            setTime(chatMessage.getTime() * 1000);
+            setNotice_id(String.valueOf(chatMessage.getMsgId()));
+            a();
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {
                 try {
@@ -100,6 +86,36 @@ public class GroupNewsPojo implements Serializable {
             if (str2.equals("apply_join_group")) {
                 a(n.a(this));
             }
+        }
+    }
+
+    private void a() {
+        BdLog.d("begin");
+        if (!TextUtils.isEmpty(getCmd())) {
+            if (getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) {
+                UpdatesItemData a = p.a(this);
+                if (a != null) {
+                    String currentAccount = TbadkApplication.getCurrentAccount();
+                    if (!TextUtils.isEmpty(currentAccount)) {
+                        String authorId = a.getAuthorId();
+                        if (!TextUtils.isEmpty(authorId)) {
+                            BdLog.d("curUid:" + currentAccount + " uid:" + authorId);
+                            if (currentAccount.equals(authorId)) {
+                                setContent_status(2);
+                            } else {
+                                setContent_status(1);
+                            }
+                        } else {
+                            return;
+                        }
+                    } else {
+                        return;
+                    }
+                } else {
+                    return;
+                }
+            }
+            BdLog.d("end");
         }
     }
 
@@ -188,12 +204,12 @@ public class GroupNewsPojo implements Serializable {
         return "GroupNewsPojo [notice_id=" + this.notice_id + ", cmd=" + this.cmd + ", gid=" + this.gid + ", time=" + this.time + ", content=" + this.content + ", content_status=" + this.content_status + ", ext=" + this.ext + "]";
     }
 
-    public a getOriginalPushMsg() {
+    public ChatMessage getOriginalPushMsg() {
         return this.originalPushMsg;
     }
 
-    public void setOriginalPushMsg(a aVar) {
-        this.originalPushMsg = aVar;
+    public void setOriginalPushMsg(ChatMessage chatMessage) {
+        this.originalPushMsg = chatMessage;
     }
 
     public CommonMsgPojo getOriginalChatMsgPojo() {

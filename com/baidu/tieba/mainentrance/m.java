@@ -2,7 +2,7 @@ package com.baidu.tieba.mainentrance;
 
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
-final class m implements DialogInterface.OnClickListener {
+class m implements DialogInterface.OnClickListener {
     final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ final class m implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         SquareSearchActivity squareSearchActivity;
         int i2;
         SquareSearchActivity squareSearchActivity2;
@@ -21,11 +21,11 @@ final class m implements DialogInterface.OnClickListener {
         if (i2 == 0) {
             com.baidu.tieba.util.k.j();
             squareSearchActivity3 = this.a.a;
-            squareSearchActivity3.c();
+            squareSearchActivity3.i();
             return;
         }
         com.baidu.tieba.util.k.k();
         squareSearchActivity2 = this.a.a;
-        squareSearchActivity2.d();
+        squareSearchActivity2.j();
     }
 }

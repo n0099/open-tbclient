@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m extends Thread {
+public class m extends Thread {
     final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,25 +15,26 @@ public final class m extends Thread {
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
-    public final void run() {
+    public void run() {
         byte[] bArr;
         ArrayList arrayList;
+        c b;
         Map map;
+        w wVar;
         Map map2;
-        w unused;
         bArr = this.a.s;
         synchronized (bArr) {
             try {
                 arrayList = this.a.f;
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
-                    c a = d.a(this.a, ((c) it.next()).a);
+                    b = this.a.b(((c) it.next()).a);
                     map = this.a.h;
-                    if (!map.containsKey(a.b)) {
-                        unused = this.a.k;
-                        Bitmap a2 = w.a(this.a, a, this.a.a(70.0f));
+                    if (!map.containsKey(b.b)) {
+                        wVar = this.a.k;
+                        Bitmap a = wVar.a(this.a, b, this.a.a(70.0f));
                         map2 = this.a.h;
-                        map2.put(a.b, a2);
+                        map2.put(b.b, a);
                     }
                 }
             } catch (Exception e) {

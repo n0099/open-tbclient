@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.AbsListView;
 import android.widget.Scroller;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 /* loaded from: classes.dex */
 public class BdExpandListView extends BdListView {
     public a a;
@@ -49,15 +50,8 @@ public class BdExpandListView extends BdListView {
                     break;
                 case 1:
                 case 3:
-                    if (this.h && this.g != null) {
-                        if (this.d.getHeight() >= this.g.d - (this.l / 2)) {
-                            a();
-                        } else {
-                            this.a.a();
-                        }
-                        this.c.startScroll(0, this.d.getHeight(), 0, this.g.b - this.d.getHeight(), 200);
-                        invalidate();
-                        this.h = false;
+                    if (this.h) {
+                        a();
                     }
                     this.h = false;
                     break;
@@ -66,12 +60,14 @@ public class BdExpandListView extends BdListView {
                     float f2 = this.f - this.e;
                     this.i = this.j;
                     if (this.d.getParent() == this && this.g != null && this.d.isShown() && this.d.getTop() >= 0 && Math.abs(f2) >= this.k && Math.abs(f) < this.k) {
-                        int i = (int) (this.g.b + ((this.f - this.e) / 2.5f));
-                        if (i > this.g.b && i <= this.g.d) {
+                        int a = this.g.a(this.f - this.e);
+                        if (a > this.g.b && a <= this.g.d) {
                             this.h = true;
-                            this.d.setLayoutParams(new AbsListView.LayoutParams(this.d.getWidth(), i));
-                            this.a.a(360.0f - (((i - this.g.b) * 360.0f) / this.l));
-                        } else if (i > this.g.b && i > this.g.d) {
+                            this.d.setLayoutParams(new AbsListView.LayoutParams(this.d.getWidth(), a));
+                            a(a - this.g.b);
+                        } else if (a <= this.g.b) {
+                            this.h = false;
+                        } else if (a > this.g.d) {
                             this.h = true;
                         } else {
                             this.h = false;
@@ -108,7 +104,20 @@ public class BdExpandListView extends BdListView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public final void a() {
+    public void a() {
+        if (this.g != null) {
+            if (this.d.getHeight() >= this.g.d - (this.l / 2)) {
+                b();
+            } else {
+                this.a.a();
+            }
+            this.c.startScroll(0, this.d.getHeight(), 0, this.g.b - this.d.getHeight(), Constants.MEDIA_INFO);
+            invalidate();
+            this.h = false;
+        }
+    }
+
+    public void b() {
         if (this.a != null) {
             this.a.b();
         }
@@ -125,5 +134,9 @@ public class BdExpandListView extends BdListView {
             return;
         }
         super.computeScroll();
+    }
+
+    private void a(float f) {
+        this.a.a(360.0f - ((f * 360.0f) / this.l));
     }
 }

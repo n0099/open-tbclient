@@ -1,24 +1,24 @@
 package com.baidu.tieba.discover;
 
 import android.widget.ImageView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-final class g extends com.baidu.adp.framework.c.a {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        ImageView imageView;
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 == null || customResponsedMessage2.g() != 2007004 || customResponsedMessage2.a() == null || !(customResponsedMessage2.a() instanceof com.baidu.tbadk.mainTab.a)) {
-            return;
-        }
-        boolean z = ((com.baidu.tbadk.mainTab.a) customResponsedMessage2.a()).a;
-        imageView = DiscoverDelegateStatic.c;
-        imageView.setVisibility(z ? 0 : 8);
-    }
-
+class g extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(int i) {
-        super(2007004);
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ImageView imageView;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2009004 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
+            boolean z = ((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).a;
+            imageView = DiscoverDelegateStatic.c;
+            imageView.setVisibility(z ? 0 : 8);
+        }
     }
 }

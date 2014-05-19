@@ -1,17 +1,23 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes.dex */
-final class as {
-    int a;
-    int b;
-    int c;
-    final /* synthetic */ aq d;
 
-    private as(aq aqVar) {
-        this.d = aqVar;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+/* loaded from: classes.dex */
+class as extends BroadcastReceiver {
+    final /* synthetic */ ar a;
+
+    private as(ar arVar) {
+        this.a = arVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ as(aq aqVar, byte b) {
-        this(aqVar);
+    public /* synthetic */ as(ar arVar, as asVar) {
+        this(arVar);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        this.a.b();
     }
 }

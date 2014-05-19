@@ -1,22 +1,22 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public final class c {
+public class c {
     private com.baidu.tieba.data.r a = null;
-    private com.baidu.tieba.data.an b = null;
+    private com.baidu.tieba.data.ap b = null;
 
-    public final com.baidu.tieba.data.r a() {
+    public com.baidu.tieba.data.r a() {
         return this.a;
     }
 
-    public final void a(com.baidu.tieba.data.r rVar) {
+    public void a(com.baidu.tieba.data.r rVar) {
         this.a = rVar;
     }
 
-    public final com.baidu.tieba.data.an b() {
+    public com.baidu.tieba.data.ap b() {
         return this.b;
     }
 
-    public final void a(com.baidu.tieba.data.an anVar) {
-        this.b = anVar;
+    public void a(com.baidu.tieba.data.ap apVar) {
+        this.b = apVar;
     }
 }

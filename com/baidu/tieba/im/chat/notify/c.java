@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat.notify;
 import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements com.baidu.tieba.im.a<Void> {
+public class c implements com.baidu.tieba.im.a<Void> {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,24 +11,24 @@ public final class c implements com.baidu.tieba.im.a<Void> {
         this.a = bVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Void r3) {
+    public void a(Void r3) {
         BdListView bdListView;
-        q qVar;
-        q qVar2;
-        com.baidu.tieba.im.model.p pVar;
+        s sVar;
+        s sVar2;
+        com.baidu.tieba.im.model.r rVar;
         BdListView bdListView2;
-        bdListView = this.a.j;
-        if (bdListView != null) {
-            bdListView2 = this.a.j;
-            bdListView2.b();
+        bdListView = this.a.k;
+        if (bdListView != null && com.baidu.tieba.im.b.e.d()) {
+            bdListView2 = this.a.k;
+            bdListView2.c();
         }
-        qVar = this.a.k;
-        if (qVar != null) {
-            qVar2 = this.a.k;
-            pVar = this.a.c;
-            qVar2.a(pVar.b());
+        sVar = this.a.l;
+        if (sVar != null) {
+            sVar2 = this.a.l;
+            rVar = this.a.d;
+            sVar2.a(rVar.b());
         }
     }
 }

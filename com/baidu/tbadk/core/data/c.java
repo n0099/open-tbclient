@@ -1,17 +1,21 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.FrsPage.App;
+import tbclient.FrsPage.BannerList;
 /* loaded from: classes.dex */
-public final class c {
+public class c {
     private ArrayList<b> a = new ArrayList<>();
 
-    public final ArrayList<b> a() {
+    public ArrayList<b> a() {
         return this.a;
     }
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("app");
@@ -23,7 +27,25 @@ public final class c {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            }
+        }
+    }
+
+    public void a(BannerList bannerList) {
+        List<App> list;
+        if (bannerList != null && (list = bannerList.app) != null && list.size() > 0) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < list.size()) {
+                    b bVar = new b();
+                    bVar.a(list.get(i2));
+                    this.a.add(bVar);
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
             }
         }
     }

@@ -3,8 +3,9 @@ package com.baidu.tieba.topRec;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.tieba.s;
 /* loaded from: classes.dex */
-final class p implements com.baidu.adp.lib.guide.b {
+class p implements com.baidu.adp.lib.guide.b {
     final /* synthetic */ o a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,27 +14,27 @@ final class p implements com.baidu.adp.lib.guide.b {
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public final View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(com.baidu.tieba.a.i.top_cover, (ViewGroup) null);
+    public View a(LayoutInflater layoutInflater) {
+        return layoutInflater.inflate(s.top_cover, (ViewGroup) null);
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public final int a() {
+    public int a() {
         return 5;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public final int b() {
+    public int b() {
         return 32;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public final int c() {
+    public int c() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public final int d() {
+    public int d() {
         return 0;
     }
 }

@@ -40,7 +40,11 @@ public final class Base64 {
         int i12 = 0;
         while (i9 < i) {
             byte b2 = bArr[i9];
-            if (b2 == 10 || b2 == 13 || b2 == 32 || b2 == 9) {
+            if (b2 == 10 || b2 == 13 || b2 == 32) {
+                i2 = i10;
+                i3 = i12;
+                i4 = i11;
+            } else if (b2 == 9) {
                 i2 = i10;
                 i3 = i12;
                 i4 = i11;

@@ -1,9 +1,8 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public final class bu implements View.OnClickListener {
+class bu implements SlidingMenu.OnClosedListener {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,15 +10,14 @@ public final class bu implements View.OnClickListener {
         this.a = frsImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        int i;
-        int i2;
-        i = this.a.i;
-        if (i > 240) {
-            FrsImageActivity frsImageActivity = this.a;
-            i2 = this.a.i;
-            frsImageActivity.b(i2 - 240);
+    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
+    public void onClosed() {
+        boolean z;
+        z = this.a.r;
+        if (z) {
+            this.a.r = false;
+            this.a.t = null;
+            this.a.c(1);
         }
     }
 }

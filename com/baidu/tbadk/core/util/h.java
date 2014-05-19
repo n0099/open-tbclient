@@ -1,128 +1,150 @@
 package com.baidu.tbadk.core.util;
+
+import android.os.Handler;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class h {
-    private static Object m = new Object();
-    private static h n;
-    private com.baidu.tbadk.core.data.e g;
-    private int h;
-    private int i;
-    private int j;
+    private static Object r = new Object();
+    private static h s;
+    private com.baidu.tbadk.core.data.e h;
     private int k;
-    private final int a = 2;
-    private final int b = 10;
-    private final int c = 0;
-    private final int d = 1;
-    private final int e = 2;
-    private final int f = 3;
-    private final j l = new j(this, (byte) 0);
+    private int l;
+    private int m;
+    private int n;
+    private Handler q;
+    private final int a = 10;
+    private final int b = 0;
+    private final int c = 1;
+    private final int d = 2;
+    private final int e = 3;
+    private final byte f = 0;
+    private final byte g = 1;
+    private int i = 0;
+    private final int j = 5;
+    private BdAsyncTaskParallel o = null;
+    private final k p = new k(this, null);
 
     public static h a() {
-        if (n == null) {
+        if (s == null) {
             synchronized (h.class) {
-                if (n == null) {
-                    n = new h();
+                if (s == null) {
+                    s = new h();
                 }
             }
         }
-        return n;
+        return s;
     }
 
     private h() {
+        this.q = null;
+        this.q = new i(this);
     }
 
-    public final com.baidu.tbadk.core.data.e b() {
-        return this.g;
+    public com.baidu.tbadk.core.data.e b() {
+        return this.h;
     }
 
-    public final void a(com.baidu.tbadk.core.data.e eVar) {
-        synchronized (m) {
-            this.g = eVar;
+    public void a(com.baidu.tbadk.core.data.e eVar) {
+        synchronized (r) {
+            this.h = eVar;
         }
     }
 
-    public final void a(int i) {
+    public void a(int i, String str) {
+        this.q.sendMessage(this.q.obtainMessage(1, i, 0, str));
+    }
+
+    public void a(long j, String str) {
+        this.q.sendMessage(this.q.obtainMessage(0, (int) j, 0, str));
+    }
+
+    public void b(int i, String str) {
         int i2;
         int i3;
         int i4;
         int i5;
-        String jVar;
+        String kVar;
         int i6 = 0;
-        if (this.g != null && this.g.a()) {
-            synchronized (m) {
-                this.j++;
-                this.i++;
-                j jVar2 = this.l;
-                if (jVar2.a.length() != 0) {
-                    jVar2.a.append(",");
-                }
-                jVar2.a.append(i);
-                i2 = this.j;
-                i3 = this.i;
-                i4 = this.h;
-                i5 = this.h != 0 ? this.k / this.h : 0;
-                jVar = this.l.toString();
-                if (this.j >= this.g.b() && this.j >= 10) {
-                    if (this.i >= this.g.e() && this.h >= this.g.c()) {
+        if (b() != null && b().a()) {
+            synchronized (r) {
+                this.m++;
+                this.l++;
+                this.p.a(i);
+                i2 = this.m;
+                i3 = this.l;
+                i4 = this.k;
+                i5 = this.k != 0 ? this.n / this.k : 0;
+                kVar = this.p.toString();
+                if (this.m >= 10) {
+                    if (this.l >= b().d() && this.k >= b().b()) {
                         i6 = 1;
-                    } else if (this.i >= this.g.e()) {
+                        c();
+                    } else if (this.l >= b().d()) {
                         i6 = 2;
-                    } else if (this.h >= this.g.c()) {
+                        c();
+                    } else if (this.k >= b().b()) {
                         i6 = 3;
+                        c();
                     }
-                    c();
                 }
             }
-            a(i6, i2, i3, jVar, i4, i5);
+            a(i6, i2, i3, kVar, i4, i5);
         }
     }
 
-    public final void a(long j) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        String jVar;
-        int i5 = 0;
-        if (this.g != null && this.g.a()) {
-            synchronized (m) {
-                this.j++;
-                if (j >= this.g.d()) {
-                    this.h++;
-                    this.k = (int) (this.k + j);
-                }
-                i = this.j;
-                i2 = this.i;
-                i3 = this.h;
-                i4 = this.h != 0 ? this.k / this.h : 0;
-                jVar = this.l.toString();
-                if (this.j >= this.g.b() && this.j >= 10) {
-                    if (this.i >= this.g.e() && this.h >= this.g.c()) {
-                        i5 = 1;
-                    } else if (this.i >= this.g.e()) {
-                        i5 = 2;
-                    } else if (this.h >= this.g.c()) {
-                        i5 = 3;
+    public void b(long j, String str) {
+        int i = 0;
+        if (b() != null && b().a()) {
+            synchronized (r) {
+                if (j >= b().c()) {
+                    this.k++;
+                    this.n = (int) (this.n + j);
+                    this.m++;
+                    int i2 = this.m;
+                    int i3 = this.l;
+                    int i4 = this.k;
+                    int i5 = this.k != 0 ? this.n / this.k : 0;
+                    String kVar = this.p.toString();
+                    if (this.m >= 10) {
+                        if (this.l >= b().d() && this.k >= b().b()) {
+                            i = 1;
+                            c();
+                        } else if (this.l >= b().d()) {
+                            i = 2;
+                            c();
+                        } else if (this.k >= b().b()) {
+                            i = 3;
+                            c();
+                        }
                     }
-                    c();
+                    a(i, i2, i3, kVar, i4, i5);
+                    return;
                 }
+                c();
             }
-            a(i5, i, i2, jVar, i3, i4);
         }
     }
 
     private void a(int i, int i2, int i3, String str, int i4, int i5) {
-        if (this.g != null && this.g.a() && i != 0) {
-            i iVar = new i(this, i, i2, i3, str, i4, new StringBuilder(String.valueOf(i5)).toString());
-            iVar.setParallelTag(2);
-            iVar.execute(new Object[0]);
+        if (b() != null && b().a() && i != 0) {
+            a(i, i2, i3, str, i4, new StringBuilder(String.valueOf(i5)).toString());
         }
     }
 
+    private void a(int i, int i2, int i3, String str, int i4, String str2) {
+        if (this.o == null) {
+            this.o = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, com.baidu.adp.lib.asyncTask.l.a());
+        }
+        j jVar = new j(this, i, i2, i3, str, i4, str2);
+        jVar.setParallel(this.o);
+        jVar.execute(new Object[0]);
+    }
+
     private void c() {
-        this.j = 0;
-        this.h = 0;
-        this.i = 0;
+        this.m = 0;
         this.k = 0;
-        this.l.a.setLength(0);
+        this.l = 0;
+        this.n = 0;
+        this.p.a();
     }
 }

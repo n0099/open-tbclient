@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class m extends PagerAdapter {
+public class m extends PagerAdapter {
     final /* synthetic */ EmotionTabContentView a;
     private ArrayList<View> b;
 
@@ -16,22 +16,22 @@ public final class m extends PagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final int getCount() {
+    public int getCount() {
         return this.b.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final boolean isViewFromObject(View view, Object obj) {
+    public boolean isViewFromObject(View view, Object obj) {
         return view == obj;
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         viewGroup.removeView(this.b.get(i));
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final Object instantiateItem(ViewGroup viewGroup, int i) {
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
         View view = this.b.get(i);
         viewGroup.addView(view);
         return view;

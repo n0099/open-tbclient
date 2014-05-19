@@ -1,8 +1,9 @@
 package com.baidu.tieba.pb.image;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class n implements View.OnClickListener {
+public class n implements View.OnClickListener {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +12,7 @@ final class n implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         this.a.b(true);
     }
 }

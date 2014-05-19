@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.nearbygroups;
 /* loaded from: classes.dex */
-public final class i {
+public class i {
     public static a a(NearbyGroupsActivity nearbyGroupsActivity, int i) {
         if (i == 4) {
             return new k(nearbyGroupsActivity);

@@ -1,18 +1,30 @@
 package com.baidu.tbadk;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public final class b implements DialogInterface.OnCancelListener {
-    final /* synthetic */ a a;
+class b implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
+    final /* synthetic */ TbadkApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.a = aVar;
+    public b(TbadkApplication tbadkApplication) {
+        this.a = tbadkApplication;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public final void onCancel(DialogInterface dialogInterface) {
-        this.a.mWaitingDialog = null;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<com.baidu.tbadk.core.frameworkData.a> run(CustomMessage<com.baidu.tbadk.core.frameworkData.a> customMessage) {
+        HashMap hashMap;
+        if (customMessage != null && customMessage.getData() != null) {
+            com.baidu.tbadk.core.frameworkData.a data = customMessage.getData();
+            hashMap = this.a.mActicyConfig;
+            Class<?> cls = (Class) hashMap.get(data.getClass());
+            if (cls != null) {
+                data.getIntent().setClass(customMessage.getData().getContext(), cls);
+                data.run();
+            }
+        }
+        return null;
     }
 }

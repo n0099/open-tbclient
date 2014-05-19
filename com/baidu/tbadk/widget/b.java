@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget;
 import java.io.ByteArrayInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b extends Thread {
+public class b extends Thread {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +18,7 @@ public final class b extends Thread {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void run() {
+    public void run() {
         int i;
         h hVar;
         byte[] bArr;
@@ -42,7 +42,7 @@ public final class b extends Thread {
                             if (hVar5.d != 0) {
                                 this.a.B = 1;
                                 hVar3 = this.a.C;
-                                if (!hVar3.c()) {
+                                if (!hVar3.e()) {
                                     this.a.postInvalidate();
                                 }
                                 this.a.F = System.currentTimeMillis();
@@ -61,7 +61,7 @@ public final class b extends Thread {
                         }
                         this.a.B = 0;
                         hVar3 = this.a.C;
-                        if (!hVar3.c()) {
+                        if (!hVar3.e()) {
                         }
                         this.a.F = System.currentTimeMillis();
                         this.a.a = 2;

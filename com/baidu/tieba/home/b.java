@@ -5,8 +5,9 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class b implements TextWatcher {
+public class b implements TextWatcher {
     final /* synthetic */ CreateBarActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,11 +16,11 @@ final class b implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0068  */
@@ -28,7 +29,7 @@ final class b implements TextWatcher {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void afterTextChanged(Editable editable) {
+    public void afterTextChanged(Editable editable) {
         EditText editText;
         RelativeLayout relativeLayout;
         TextView textView;
@@ -46,13 +47,13 @@ final class b implements TextWatcher {
                 relativeLayout2.setEnabled(true);
                 if (length < 32) {
                     textView3 = this.a.t;
-                    textView3.setText(this.a.getString(com.baidu.tieba.a.k.bar_name_long));
+                    textView3.setText(this.a.getString(com.baidu.tieba.u.bar_name_long));
                     textView4 = this.a.t;
                     textView4.setTextColor(-65536);
                     return;
                 }
                 textView = this.a.t;
-                textView.setText(this.a.getString(com.baidu.tieba.a.k.bar_name_rule));
+                textView.setText(this.a.getString(com.baidu.tieba.u.bar_name_rule));
                 textView2 = this.a.t;
                 textView2.setTextColor(-6250336);
                 return;

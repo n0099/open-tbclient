@@ -6,123 +6,128 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.u;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class t extends com.baidu.adp.a.f {
+public class t extends com.baidu.adp.base.e {
     private View a;
-    private View c;
-    private UpdatesActivity d;
-    private BdListView e;
-    private h f;
-    private ProgressBar g;
+    private View b;
+    private UpdatesActivity c;
+    private BdListView d;
+    private h e;
+    private ProgressBar f;
+    private Button g;
     private Button h;
     private Button i;
-    private Button j;
-    private NavigationBar k;
+    private NavigationBar j;
+    private View k;
     private View l;
-    private View m;
 
     public t(UpdatesActivity updatesActivity) {
         super(updatesActivity);
-        this.d = updatesActivity;
-        this.a = View.inflate(this.d, com.baidu.tieba.im.i.updates_activity, null);
-        this.d.setContentView(this.a);
-        this.k = (NavigationBar) this.d.findViewById(com.baidu.tieba.im.h.view_navigation_bar);
-        this.c = this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.k.a(this.d.getString(com.baidu.tieba.im.j.updates_activity_title));
-        this.l = this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, com.baidu.tieba.im.i.updates_activity_nav_left, (View.OnClickListener) null);
-        this.m = this.k.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.im.i.updates_activity_nav_right, (View.OnClickListener) null);
-        this.j = (Button) this.l.findViewById(com.baidu.tieba.im.h.btn_delete);
-        this.j.setOnClickListener(this.d);
-        this.c.setOnClickListener(this.d);
-        this.e = (BdListView) this.a.findViewById(com.baidu.tieba.im.h.updates_list);
-        this.g = (ProgressBar) this.a.findViewById(com.baidu.tieba.im.h.pro_load);
-        this.h = (Button) this.m.findViewById(com.baidu.tieba.im.h.btn_edit);
-        this.h.setOnClickListener(this.d);
-        this.i = (Button) this.m.findViewById(com.baidu.tieba.im.h.btn_cancel);
-        this.i.setOnClickListener(this.d);
+        this.c = updatesActivity;
+        a();
+        this.e = new h(this.c);
+        this.d.setAdapter((ListAdapter) this.e);
+        this.d.setOnScrollListener(this.c);
+    }
+
+    void a() {
+        this.a = View.inflate(this.c, com.baidu.tieba.s.updates_activity, null);
+        this.c.setContentView(this.a);
+        this.j = (NavigationBar) this.c.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.b = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.j.a(this.c.getString(u.updates_activity_title));
+        this.k = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, com.baidu.tieba.s.updates_activity_nav_left, (View.OnClickListener) null);
+        this.l = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.s.updates_activity_nav_right, (View.OnClickListener) null);
+        this.i = (Button) this.k.findViewById(com.baidu.tieba.r.btn_delete);
+        this.i.setOnClickListener(this.c);
+        this.b.setOnClickListener(this.c);
+        this.d = (BdListView) this.a.findViewById(com.baidu.tieba.r.updates_list);
+        this.f = (ProgressBar) this.a.findViewById(com.baidu.tieba.r.pro_load);
+        this.g = (Button) this.l.findViewById(com.baidu.tieba.r.btn_edit);
+        this.g.setOnClickListener(this.c);
+        this.h = (Button) this.l.findViewById(com.baidu.tieba.r.btn_cancel);
+        this.h.setOnClickListener(this.c);
         a(0);
         a(false);
-        this.f = new h(this.d);
-        this.e.setAdapter((ListAdapter) this.f);
-        this.e.setOnScrollListener(this.d);
     }
 
-    @Override // com.baidu.adp.a.f
-    public final void c() {
-        super.c();
-        if (this.f != null) {
-            this.f.a();
-            this.f = null;
+    @Override // com.baidu.adp.base.e
+    public void destroy() {
+        super.destroy();
+        if (this.e != null) {
+            this.e.a();
+            this.e = null;
         }
-        this.d = null;
+        this.c = null;
     }
 
-    public final void a() {
-        this.h.setVisibility(8);
-        this.c.setVisibility(8);
-        this.i.setVisibility(0);
-        this.l.setVisibility(0);
-        e();
-    }
-
-    public final void d() {
+    public void b() {
+        this.g.setVisibility(8);
+        this.b.setVisibility(8);
         this.h.setVisibility(0);
-        this.c.setVisibility(0);
-        this.i.setVisibility(8);
-        this.l.setVisibility(8);
+        this.k.setVisibility(0);
+        d();
+    }
+
+    public void c() {
+        this.g.setVisibility(0);
+        this.b.setVisibility(0);
+        this.h.setVisibility(8);
+        this.k.setVisibility(8);
         a(0);
-        e();
+        d();
     }
 
-    public final void e() {
-        if (this.f != null) {
-            this.f.notifyDataSetChanged();
+    public void d() {
+        if (this.e != null) {
+            this.e.notifyDataSetChanged();
         }
     }
 
-    public final void a(List<UpdatesItemData> list) {
-        if (this.f != null) {
-            this.f.a(list);
+    public void a(List<UpdatesItemData> list) {
+        if (this.e != null) {
+            this.e.a(list);
         }
     }
 
-    public final void a(int i) {
-        this.j.setText(String.format(this.d.getString(com.baidu.tieba.im.j.del_count), Integer.valueOf(i)));
+    public void a(int i) {
+        this.i.setText(String.format(this.c.getString(u.del_count), Integer.valueOf(i)));
         if (i == 0) {
-            this.j.setEnabled(false);
+            this.i.setEnabled(false);
         } else {
-            this.j.setEnabled(true);
+            this.i.setEnabled(true);
         }
     }
 
-    public final void a(boolean z) {
-        this.g.setVisibility(z ? 0 : 8);
+    public void a(boolean z) {
+        this.f.setVisibility(z ? 0 : 8);
     }
 
-    public final void b(int i) {
-        this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a(this.a);
-        this.k.b(i);
+    public void b(int i) {
+        this.c.getLayoutMode().a(i == 1);
+        this.c.getLayoutMode().a(this.a);
+        this.j.c(i);
     }
 
-    public final View f() {
-        return this.c;
+    public View e() {
+        return this.b;
     }
 
-    public final BdListView g() {
-        return this.e;
+    public BdListView f() {
+        return this.d;
     }
 
-    public final Button h() {
+    public Button g() {
+        return this.g;
+    }
+
+    public Button h() {
         return this.h;
     }
 
-    public final Button i() {
+    public Button i() {
         return this.i;
-    }
-
-    public final Button j() {
-        return this.j;
     }
 }

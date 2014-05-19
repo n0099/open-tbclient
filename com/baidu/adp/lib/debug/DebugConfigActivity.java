@@ -10,12 +10,16 @@ public class DebugConfigActivity extends Activity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         c.c = true;
-        this.a = new com.baidu.adp.lib.debug.b.c(this);
+        a(new com.baidu.adp.lib.debug.b.c(this));
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
         c.c = false;
         super.onDestroy();
+    }
+
+    public void a(com.baidu.adp.lib.debug.b.c cVar) {
+        this.a = cVar;
     }
 }

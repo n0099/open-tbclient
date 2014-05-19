@@ -1,56 +1,64 @@
 package com.baidu.tieba.im.c;
 
 import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.GroupUpdateMessage;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import com.baidu.tieba.im.chat.bw;
 import com.baidu.tieba.im.chat.x;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.pushNotify.o;
-import com.baidu.tieba.im.r;
+import com.baidu.tieba.im.pushNotify.p;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f extends com.baidu.adp.framework.c.g {
+public class f extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(b bVar, int i) {
-        super(0);
+        super(i);
         this.a = bVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        boolean z;
         Handler handler;
         Handler handler2;
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        if (socketResponsedMessage2 != null) {
-            if (socketResponsedMessage2.g() == 1003) {
-                if ((socketResponsedMessage2 instanceof com.baidu.adp.framework.message.f) && socketResponsedMessage2.e() == 0) {
-                    this.a.i();
+        int i;
+        Handler handler3;
+        Handler handler4;
+        if (socketResponsedMessage != null) {
+            if (socketResponsedMessage.getCmd() == 1003) {
+                if (!(socketResponsedMessage instanceof ResponsedMessage) || socketResponsedMessage.getError() != 0) {
+                    return;
                 }
-            } else if (socketResponsedMessage2.g() == 1001 && (socketResponsedMessage2 instanceof ResponseOnlineMessage)) {
-                ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage2;
-                TiebaStatic.a(responseOnlineMessage);
-                if (responseOnlineMessage.e() == 0) {
+                this.a.k();
+            } else if (socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+                ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+                TiebaStatic.imNet(responseOnlineMessage);
+                if (responseOnlineMessage.getError() == 0) {
                     LinkedList linkedList = new LinkedList();
                     LinkedHashMap linkedHashMap = new LinkedHashMap();
                     LinkedList<ImMessageCenterPojo> linkedList2 = new LinkedList<>();
                     LinkedHashMap linkedHashMap2 = new LinkedHashMap();
-                    if (responseOnlineMessage.d() != null) {
-                        com.baidu.tieba.im.pushNotify.a.d().a(responseOnlineMessage.d());
-                        for (GroupUpdateMessage groupUpdateMessage : responseOnlineMessage.d()) {
+                    if (responseOnlineMessage.getGroupInfos() != null) {
+                        com.baidu.tieba.im.pushNotify.a.f().a(responseOnlineMessage.getGroupInfos());
+                        for (GroupUpdateMessage groupUpdateMessage : responseOnlineMessage.getGroupInfos()) {
                             if (groupUpdateMessage != null) {
                                 linkedList.add(String.valueOf(groupUpdateMessage.getGroupId()));
                                 if (groupUpdateMessage.getGroupType() == 6) {
                                     if (groupUpdateMessage.getGroupId() != 0 && x.a != groupUpdateMessage.getGroupId()) {
                                         x.a(groupUpdateMessage.getGroupId());
-                                        com.baidu.adp.lib.util.f.e("see online1 gid Online=" + groupUpdateMessage.getGroupId());
+                                        BdLog.d("see online1 gid Online=" + groupUpdateMessage.getGroupId());
                                     }
                                 } else if (groupUpdateMessage.getGroupType() == 11 || groupUpdateMessage.getGroupType() == 12) {
                                     linkedHashMap2.put(String.valueOf(groupUpdateMessage.getGroupId()), Long.valueOf(groupUpdateMessage.getLastMsgId()));
@@ -58,14 +66,14 @@ public final class f extends com.baidu.adp.framework.c.g {
                                     linkedHashMap.put(String.valueOf(groupUpdateMessage.getGroupId()), Long.valueOf(groupUpdateMessage.getLastMsgId()));
                                 }
                                 if (groupUpdateMessage.getGroupType() == 1) {
-                                    o.a().a(String.valueOf(groupUpdateMessage.getGroupId()));
+                                    p.a().a(String.valueOf(groupUpdateMessage.getGroupId()));
                                 }
                             }
                         }
-                        r.a(new g(this, linkedHashMap2, linkedHashMap), null);
+                        com.baidu.tieba.im.i.a(new g(this, linkedHashMap2, linkedHashMap), null);
                     }
-                    if (responseOnlineMessage.d() != null) {
-                        for (GroupUpdateMessage groupUpdateMessage2 : responseOnlineMessage.d()) {
+                    if (responseOnlineMessage.getGroupInfos() != null) {
+                        for (GroupUpdateMessage groupUpdateMessage2 : responseOnlineMessage.getGroupInfos()) {
                             if (groupUpdateMessage2 != null) {
                                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                                 linkedList2.add(imMessageCenterPojo);
@@ -74,9 +82,9 @@ public final class f extends com.baidu.adp.framework.c.g {
                                 imMessageCenterPojo.setCustomGroupType(a.a(groupUpdateMessage2.getGroupType()));
                                 ImMessageCenterPojo a = com.baidu.tieba.im.b.e.a(new StringBuilder(String.valueOf(groupUpdateMessage2.getGroupId())).toString());
                                 if (a == null || a.getPulled_msgId() == 0 || a.getLast_rid() == 0) {
-                                    long lastMsgId = groupUpdateMessage2.getLastMsgId() * 100;
-                                    imMessageCenterPojo.setPulled_msgId(lastMsgId);
-                                    imMessageCenterPojo.setLast_rid(lastMsgId);
+                                    long b = bw.b(groupUpdateMessage2.getLastMsgId());
+                                    imMessageCenterPojo.setPulled_msgId(b);
+                                    imMessageCenterPojo.setLast_rid(b);
                                 }
                                 if (a != null) {
                                     imMessageCenterPojo.setIs_hidden(a.getIs_hidden());
@@ -87,9 +95,26 @@ public final class f extends com.baidu.adp.framework.c.g {
                     }
                     com.baidu.tieba.im.b.e.a(new h(this, linkedList, linkedList2));
                     com.baidu.tieba.im.db.i.a().a(linkedList2);
-                    handler = this.a.l;
-                    handler2 = this.a.l;
-                    handler.sendMessage(handler2.obtainMessage(3));
+                    if (responseOnlineMessage.getGroupInfos() != null) {
+                        for (GroupUpdateMessage groupUpdateMessage3 : responseOnlineMessage.getGroupInfos()) {
+                            if (com.baidu.tbadk.coreExtra.messageCenter.e.a().c(groupUpdateMessage3.getGroupId()) < groupUpdateMessage3.getLastMsgId()) {
+                                z = true;
+                                break;
+                            }
+                        }
+                    }
+                    z = false;
+                    if (z) {
+                        handler3 = this.a.l;
+                        handler4 = this.a.l;
+                        handler3.sendMessage(handler4.obtainMessage(3));
+                        return;
+                    }
+                    handler = b.a().l;
+                    handler2 = b.a().l;
+                    Message obtainMessage = handler2.obtainMessage(3);
+                    i = b.a().d;
+                    handler.sendMessageDelayed(obtainMessage, i);
                 }
             }
         }

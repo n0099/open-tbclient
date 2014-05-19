@@ -3,7 +3,7 @@ package com.baidu.tieba.mainentrance;
 import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-final class b {
+class b {
     TextView a;
     View b;
     final /* synthetic */ a c;
@@ -13,7 +13,7 @@ final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ b(a aVar, byte b) {
+    public /* synthetic */ b(a aVar, b bVar) {
         this(aVar);
     }
 }

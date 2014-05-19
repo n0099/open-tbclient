@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.voice.service;
 
 import android.media.MediaPlayer;
 /* loaded from: classes.dex */
-public final class f extends MediaPlayer implements c {
+public class f extends MediaPlayer implements c {
     private static Object a = new Object();
     private static f b = null;
     private boolean c = false;
@@ -24,7 +24,7 @@ public final class f extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public final int a() {
+    public int a() {
         return getCurrentPosition();
     }
 }

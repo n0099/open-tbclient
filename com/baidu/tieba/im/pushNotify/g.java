@@ -1,26 +1,19 @@
 package com.baidu.tieba.im.pushNotify;
-
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class g implements com.baidu.tieba.im.b.d {
-    final /* synthetic */ a a;
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.b.c b;
+public class g extends com.baidu.tieba.im.b<Void> {
+    private final /* synthetic */ boolean b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(a aVar, com.baidu.tbadk.coreExtra.b.c cVar) {
-        this.a = aVar;
-        this.b = cVar;
+    public g(boolean z) {
+        this.b = z;
     }
 
-    @Override // com.baidu.tieba.im.b.d
-    public final void a(ImMessageCenterPojo imMessageCenterPojo) {
-        if (a.a(this.a, imMessageCenterPojo)) {
-            if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                a.a(this.a, imMessageCenterPojo.getGid(), imMessageCenterPojo);
-                return;
-            }
-            a.a(this.a, a.b(this.a, imMessageCenterPojo.getGid(), imMessageCenterPojo), this.b);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        a.a((String) null, this.b);
+        return null;
     }
 }

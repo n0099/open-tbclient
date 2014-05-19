@@ -10,7 +10,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class GroupTabWidget extends RelativeLayout {
     boolean a;
@@ -76,15 +80,15 @@ public class GroupTabWidget extends RelativeLayout {
     }
 
     private void a(AttributeSet attributeSet) {
-        LayoutInflater.from(getContext()).inflate(com.baidu.tieba.im.i.group_tab_widget, this);
-        this.d = findViewById(com.baidu.tieba.im.h.blank);
-        this.e = (ImageView) findViewById(com.baidu.tieba.im.h.left_icon);
-        this.f = (TextView) findViewById(com.baidu.tieba.im.h.text);
-        this.g = (ImageView) findViewById(com.baidu.tieba.im.h.right_arraw);
-        this.h = (ImageView) findViewById(com.baidu.tieba.im.h.diver_top);
-        this.i = (ImageView) findViewById(com.baidu.tieba.im.h.diver_top_px);
-        this.j = (ImageView) findViewById(com.baidu.tieba.im.h.diver_bottom_px);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.im.l.groupTabWidget);
+        LayoutInflater.from(getContext()).inflate(s.group_tab_widget, this);
+        this.d = findViewById(r.blank);
+        this.e = (ImageView) findViewById(r.left_icon);
+        this.f = (TextView) findViewById(r.text);
+        this.g = (ImageView) findViewById(r.right_arraw);
+        this.h = (ImageView) findViewById(r.diver_top);
+        this.i = (ImageView) findViewById(r.diver_top_px);
+        this.j = (ImageView) findViewById(r.diver_bottom_px);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, w.groupTabWidget);
         this.f.setText(obtainStyledAttributes.getString(1));
         this.e.setImageDrawable(obtainStyledAttributes.getDrawable(0));
         this.k[0] = obtainStyledAttributes.getResourceId(0, 0);
@@ -103,7 +107,7 @@ public class GroupTabWidget extends RelativeLayout {
         } else {
             this.k[1] = this.k[0];
         }
-        if (1 == TbadkApplication.j().l()) {
+        if (1 == TbadkApplication.m252getInst().getSkinType()) {
             this.e.setImageResource(this.k[1]);
         } else {
             this.e.setImageResource(this.k[0]);
@@ -117,7 +121,7 @@ public class GroupTabWidget extends RelativeLayout {
         this.f.setText(str);
     }
 
-    public final void a(String str, int i, int i2) {
+    public void a(String str, int i, int i2) {
         boolean z;
         this.a = true;
         this.b = i;
@@ -125,35 +129,35 @@ public class GroupTabWidget extends RelativeLayout {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         if (str.length() > i) {
             Context context = getContext();
-            if (context instanceof com.baidu.tbadk.a) {
-                z = ((com.baidu.tbadk.a) context).getLayoutMode().a();
+            if (context instanceof BaseActivity) {
+                z = ((BaseActivity) context).getLayoutMode().a();
             } else if (!(context instanceof com.baidu.tbadk.core.e)) {
                 z = false;
             } else {
-                z = ((com.baidu.tbadk.core.e) getContext()).b().a();
+                z = ((com.baidu.tbadk.core.e) getContext()).a().a();
             }
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(z ? getResources().getColor(com.baidu.tieba.im.e.im_near_group_count_1) : getResources().getColor(com.baidu.tieba.im.e.im_near_group_count)), i, i2, 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(z ? getResources().getColor(com.baidu.tieba.o.im_near_group_count_1) : getResources().getColor(com.baidu.tieba.o.im_near_group_count)), i, i2, 33);
         }
         this.f.setText(spannableStringBuilder);
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (1 == i) {
             this.e.setImageResource(this.k[1]);
-            this.h.setImageResource(com.baidu.tieba.im.e.cp_bg_line_b_1);
-            this.i.setImageResource(com.baidu.tieba.im.e.cp_bg_line_b_1);
-            this.j.setImageResource(com.baidu.tieba.im.e.cp_bg_line_b_1);
+            this.h.setImageResource(com.baidu.tieba.o.cp_bg_line_b_1);
+            this.i.setImageResource(com.baidu.tieba.o.cp_bg_line_b_1);
+            this.j.setImageResource(com.baidu.tieba.o.cp_bg_line_b_1);
         } else {
             this.e.setImageResource(this.k[0]);
-            this.h.setImageResource(com.baidu.tieba.im.e.cp_bg_line_b);
-            this.i.setImageResource(com.baidu.tieba.im.e.cp_bg_line_b);
-            this.j.setImageResource(com.baidu.tieba.im.e.cp_bg_line_b);
+            this.h.setImageResource(com.baidu.tieba.o.cp_bg_line_b);
+            this.i.setImageResource(com.baidu.tieba.o.cp_bg_line_b);
+            this.j.setImageResource(com.baidu.tieba.o.cp_bg_line_b);
         }
         Context context = getContext();
-        if (context instanceof com.baidu.tbadk.a) {
-            ((com.baidu.tbadk.a) context).getLayoutMode().a(this);
+        if (context instanceof BaseActivity) {
+            ((BaseActivity) context).getLayoutMode().a((View) this);
         } else if (context instanceof com.baidu.tbadk.core.e) {
-            ((com.baidu.tbadk.core.e) getContext()).b().a(this);
+            ((com.baidu.tbadk.core.e) getContext()).a().a((View) this);
         }
         if (this.a) {
             a(this.f.getText().toString(), this.b, this.c);

@@ -73,37 +73,37 @@ public class FileWriterWithEncoding extends Writer {
         boolean exists = file.exists();
         try {
             fileOutputStream = new FileOutputStream(file, z);
-        } catch (IOException e) {
-            e = e;
-            fileOutputStream = null;
-        } catch (RuntimeException e2) {
-            e = e2;
-            fileOutputStream = null;
-        }
-        try {
-            if (obj instanceof Charset) {
-                return new OutputStreamWriter(fileOutputStream, (Charset) obj);
+            try {
+                if (obj instanceof Charset) {
+                    return new OutputStreamWriter(fileOutputStream, (Charset) obj);
+                }
+                if (obj instanceof CharsetEncoder) {
+                    return new OutputStreamWriter(fileOutputStream, (CharsetEncoder) obj);
+                }
+                return new OutputStreamWriter(fileOutputStream, (String) obj);
+            } catch (IOException e) {
+                e = e;
+                IOUtils.closeQuietly((Writer) null);
+                IOUtils.closeQuietly((OutputStream) fileOutputStream);
+                if (!exists) {
+                    FileUtils.deleteQuietly(file);
+                }
+                throw e;
+            } catch (RuntimeException e2) {
+                e = e2;
+                IOUtils.closeQuietly((Writer) null);
+                IOUtils.closeQuietly((OutputStream) fileOutputStream);
+                if (!exists) {
+                    FileUtils.deleteQuietly(file);
+                }
+                throw e;
             }
-            if (obj instanceof CharsetEncoder) {
-                return new OutputStreamWriter(fileOutputStream, (CharsetEncoder) obj);
-            }
-            return new OutputStreamWriter(fileOutputStream, (String) obj);
         } catch (IOException e3) {
             e = e3;
-            IOUtils.closeQuietly((Writer) null);
-            IOUtils.closeQuietly((OutputStream) fileOutputStream);
-            if (!exists) {
-                FileUtils.deleteQuietly(file);
-            }
-            throw e;
+            fileOutputStream = null;
         } catch (RuntimeException e4) {
             e = e4;
-            IOUtils.closeQuietly((Writer) null);
-            IOUtils.closeQuietly((OutputStream) fileOutputStream);
-            if (!exists) {
-                FileUtils.deleteQuietly(file);
-            }
-            throw e;
+            fileOutputStream = null;
         }
     }
 

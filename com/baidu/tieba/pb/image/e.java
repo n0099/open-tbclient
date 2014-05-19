@@ -5,9 +5,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import com.baidu.tbadk.editortool.EmotionTabHost;
-import com.baidu.tieba.view.KeyboardLayout;
+import com.baidu.tbadk.widget.KeyboardLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class e implements View.OnClickListener {
+public class e implements View.OnClickListener {
     final /* synthetic */ ImagePbActivity a;
     private final /* synthetic */ Handler b;
     private final /* synthetic */ Runnable c;
@@ -20,7 +21,7 @@ final class e implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         EmotionTabHost emotionTabHost;
         KeyboardLayout keyboardLayout;
         EditText editText;
@@ -37,18 +38,18 @@ final class e implements View.OnClickListener {
             emotionTabHost2.setVisibility(8);
             ImagePbActivity imagePbActivity = this.a;
             editText3 = this.a.k;
-            com.baidu.adp.lib.util.i.b(imagePbActivity, editText3);
+            com.baidu.adp.lib.util.h.b(imagePbActivity, editText3);
             button2 = this.a.m;
-            button2.setBackgroundResource(com.baidu.tieba.a.g.sub_pb_face);
+            button2.setBackgroundResource(com.baidu.tieba.q.sub_pb_face);
             return;
         }
         keyboardLayout = this.a.r;
         keyboardLayout.setOnkbdStateListener(null);
         ImagePbActivity imagePbActivity2 = this.a;
         editText = this.a.k;
-        com.baidu.adp.lib.util.i.a(imagePbActivity2, editText);
+        com.baidu.adp.lib.util.h.a(imagePbActivity2, editText);
         this.b.postDelayed(this.c, 200L);
         button = this.a.m;
-        button.setBackgroundResource(com.baidu.tieba.a.g.sub_pb_keyboard);
+        button.setBackgroundResource(com.baidu.tieba.q.sub_pb_keyboard);
     }
 }

@@ -1,33 +1,23 @@
 package com.baidu.tbadk.core.frameworkData;
 
-import android.content.pm.ComponentInfo;
-import android.content.pm.PackageInfo;
-import com.baidu.adp.lib.util.f;
-import com.baidu.adp.lib.util.n;
+import com.baidu.adp.framework.a.n;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tbadk.coreExtra.d.g;
 /* loaded from: classes.dex */
-public final class b {
-    public static void a() {
-        String packageName = com.baidu.adp.a.b.a().b().getPackageName();
-        try {
-            n.a();
-            PackageInfo packageInfo = com.baidu.adp.a.b.a().b().getPackageManager().getPackageInfo(packageName, 7);
-            a(packageInfo.activities);
-            a(packageInfo.services);
-            a(packageInfo.receivers);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+class b extends n {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(int i) {
+        super(i);
     }
 
-    private static void a(ComponentInfo[] componentInfoArr) {
-        if (componentInfoArr != null) {
-            for (ComponentInfo componentInfo : componentInfoArr) {
-                try {
-                    Class.forName(componentInfo.name);
-                } catch (Exception e) {
-                    f.d(e.getMessage());
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.h
+    public SocketMessage a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !g.a().a(socketMessage.getCmd())) {
+            return null;
         }
+        return socketMessage;
     }
 }

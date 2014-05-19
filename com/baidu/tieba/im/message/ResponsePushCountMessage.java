@@ -1,19 +1,32 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import protobuf.CommitPusherCount.CommitPusherCountRes;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.squareup.wire.Wire;
+import protobuf.CommitPusherCount.CommitPusherCountResIdl;
 /* loaded from: classes.dex */
 public class ResponsePushCountMessage extends SocketResponsedMessage {
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        CommitPusherCountRes.CommitPusherCountResIdl parseFrom = CommitPusherCountRes.CommitPusherCountResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() != 0) {
-        }
+    private String groupId;
+
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String str) {
+        this.groupId = str;
     }
 
     public ResponsePushCountMessage() {
-        super(202101);
+        super(MessageTypes.CMD_PUSH_COUNT);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        CommitPusherCountResIdl commitPusherCountResIdl = (CommitPusherCountResIdl) new Wire(new Class[0]).parseFrom(bArr, CommitPusherCountResIdl.class);
+        setError(commitPusherCountResIdl.error.errorno.intValue());
+        setErrorString(commitPusherCountResIdl.error.usermsg);
+        if (getError() != 0) {
+        }
     }
 }

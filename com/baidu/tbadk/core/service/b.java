@@ -1,35 +1,26 @@
 package com.baidu.tbadk.core.service;
 
-import android.net.Uri;
-import android.os.Handler;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.tbplugin.PluginsConfig;
+import com.baidu.tbadk.tbplugin.m;
 /* loaded from: classes.dex */
-final class b implements Runnable {
-    final /* synthetic */ TiebaPrepareImageService a;
+class b extends d {
+    final /* synthetic */ PluginDownloadService a;
+    private final /* synthetic */ PluginsConfig.PluginConfig c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(TiebaPrepareImageService tiebaPrepareImageService) {
-        this.a = tiebaPrepareImageService;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(PluginDownloadService pluginDownloadService, PluginDownloadService pluginDownloadService2, PluginsConfig.PluginConfig pluginConfig) {
+        super(pluginDownloadService, null, null);
+        this.a = pluginDownloadService2;
+        this.c = pluginConfig;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        Handler handler;
-        Runnable runnable;
-        int i;
-        Uri uri;
-        c cVar;
-        if (TiebaPrepareImageService.a) {
-            handler = this.a.e;
-            runnable = this.a.h;
-            handler.postDelayed(runnable, 1000L);
-            return;
-        }
-        TiebaPrepareImageService tiebaPrepareImageService = this.a;
-        TiebaPrepareImageService tiebaPrepareImageService2 = this.a;
-        i = this.a.b;
-        uri = this.a.c;
-        tiebaPrepareImageService.d = new c(tiebaPrepareImageService2, i, uri);
-        cVar = this.a.d;
-        cVar.execute(new Object[0]);
+    @Override // com.baidu.tbadk.core.service.d, com.baidu.tbadk.download.a
+    public void a(DownloadData downloadData) {
+        super.a(downloadData);
+        BdLog.d("install file plugin");
+        new com.baidu.tbadk.tbplugin.f(this.a, m.a().a(this.c.name), downloadData.getPath(), this.a).a();
     }
 }

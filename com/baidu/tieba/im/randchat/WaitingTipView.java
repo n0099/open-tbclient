@@ -60,21 +60,21 @@ public class WaitingTipView extends RelativeLayout {
 
     private void a(Context context) {
         this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.im.i.im_waitting_tip, (ViewGroup) null);
-        this.b = (CircleBgView) inflate.findViewById(com.baidu.tieba.im.h.tip_head_layout);
-        this.c = (HeadImageView) inflate.findViewById(com.baidu.tieba.im.h.tip_head_image);
-        this.d = (TextView) inflate.findViewById(com.baidu.tieba.im.h.tip_head_text);
-        this.e = (TextView) inflate.findViewById(com.baidu.tieba.im.h.tip_text);
-        this.f = (Button) inflate.findViewById(com.baidu.tieba.im.h.tip_wait);
-        this.g = (Button) inflate.findViewById(com.baidu.tieba.im.h.tip_quit);
+        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.s.im_waitting_tip, (ViewGroup) null);
+        this.b = (CircleBgView) inflate.findViewById(com.baidu.tieba.r.tip_head_layout);
+        this.c = (HeadImageView) inflate.findViewById(com.baidu.tieba.r.tip_head_image);
+        this.d = (TextView) inflate.findViewById(com.baidu.tieba.r.tip_head_text);
+        this.e = (TextView) inflate.findViewById(com.baidu.tieba.r.tip_text);
+        this.f = (Button) inflate.findViewById(com.baidu.tieba.r.tip_wait);
+        this.g = (Button) inflate.findViewById(com.baidu.tieba.r.tip_quit);
         this.c.setIsRound(true);
         addView(inflate);
     }
 
-    public final void a(HeadImageView headImageView, boolean z) {
-        int c = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.head_view_circle_bg);
-        int c2 = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.tip_view_image_width);
-        int c3 = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.tip_view_image_height);
+    public void a(HeadImageView headImageView, boolean z) {
+        int c = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.head_view_circle_bg);
+        int c2 = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.tip_view_image_width);
+        int c3 = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.tip_view_image_height);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) headImageView.getLayoutParams();
         if (z) {
             layoutParams.width = c2 - c;

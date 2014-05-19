@@ -1,81 +1,80 @@
 package com.baidu.tieba.view;
 
-import android.os.Handler;
-import android.os.Message;
-import android.widget.ImageView;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class p extends Handler {
-    final /* synthetic */ GoOnAnimView a;
+public class p implements View.OnClickListener {
+    final /* synthetic */ FrsCommonImageLayout a;
+    private final int b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(GoOnAnimView goOnAnimView) {
-        this.a = goOnAnimView;
+    private p(FrsCommonImageLayout frsCommonImageLayout, int i) {
+        this.a = frsCommonImageLayout;
+        this.b = i;
     }
 
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
-        int i;
-        int i2;
-        ImageView imageView;
-        ImageView imageView2;
-        ImageView imageView3;
-        ImageView imageView4;
-        ImageView imageView5;
-        ImageView imageView6;
-        ImageView imageView7;
-        ImageView imageView8;
-        ImageView imageView9;
-        ImageView imageView10;
-        ImageView imageView11;
-        ImageView imageView12;
-        int i3;
-        Handler handler;
-        Handler handler2;
-        super.handleMessage(message);
-        GoOnAnimView goOnAnimView = this.a;
-        i = goOnAnimView.e;
-        goOnAnimView.e = i % 4;
-        i2 = this.a.e;
-        switch (i2) {
-            case 0:
-                imageView10 = this.a.b;
-                imageView10.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_1);
-                imageView11 = this.a.c;
-                imageView11.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_2);
-                imageView12 = this.a.d;
-                imageView12.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_3);
-                break;
-            case 1:
-                imageView7 = this.a.b;
-                imageView7.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_3);
-                imageView8 = this.a.c;
-                imageView8.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_1);
-                imageView9 = this.a.d;
-                imageView9.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_2);
-                break;
-            case 2:
-                imageView4 = this.a.b;
-                imageView4.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_2);
-                imageView5 = this.a.c;
-                imageView5.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_3);
-                imageView6 = this.a.d;
-                imageView6.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_1);
-                break;
-            case 3:
-                imageView = this.a.b;
-                imageView.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_2);
-                imageView2 = this.a.c;
-                imageView2.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_2);
-                imageView3 = this.a.d;
-                imageView3.setImageResource(com.baidu.tieba.a.g.pic_startpage1_next_2);
-                break;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ p(FrsCommonImageLayout frsCommonImageLayout, int i, p pVar) {
+        this(frsCommonImageLayout, i);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        q qVar;
+        com.baidu.tbadk.core.data.k[] kVarArr;
+        com.baidu.tbadk.core.data.k[] kVarArr2;
+        com.baidu.tbadk.core.data.k[] kVarArr3;
+        Context context;
+        String str;
+        String str2;
+        String str3;
+        boolean z;
+        Context context2;
+        Context context3;
+        com.baidu.tbadk.core.data.k[] kVarArr4;
+        q qVar2;
+        qVar = this.a.a;
+        if (qVar != null) {
+            qVar2 = this.a.a;
+            qVar2.a(this.b);
+            return;
         }
-        GoOnAnimView goOnAnimView2 = this.a;
-        i3 = goOnAnimView2.e;
-        goOnAnimView2.e = i3 + 1;
-        handler = this.a.f;
-        handler.removeMessages(0);
-        handler2 = this.a.f;
-        handler2.sendEmptyMessageDelayed(0, 300L);
+        kVarArr = this.a.c;
+        if (kVarArr[this.b].b() != 5) {
+            kVarArr2 = this.a.c;
+            if (kVarArr2 != null) {
+                ArrayList<String> arrayList = new ArrayList<>();
+                kVarArr3 = this.a.c;
+                for (com.baidu.tbadk.core.data.k kVar : kVarArr3) {
+                    if (TextUtils.isEmpty(kVar.a())) {
+                        arrayList.add(kVar.c());
+                    } else {
+                        arrayList.add(kVar.a());
+                    }
+                }
+                MessageManager messageManager = MessageManager.getInstance();
+                context = this.a.d;
+                com.baidu.tbadk.core.atomData.w wVar = new com.baidu.tbadk.core.atomData.w(context);
+                int i = this.b;
+                str = this.a.n;
+                str2 = this.a.m;
+                str3 = this.a.o;
+                z = this.a.b;
+                messageManager.sendMessage(new CustomMessage((int) CmdConfig.IMAGE_VIEWER_CUSTOM_CMD, wVar.a(arrayList, i, str, str2, str3, z, arrayList.size() > 0 ? arrayList.get(arrayList.size() - 1) : "")));
+                context2 = this.a.d;
+                TiebaStatic.eventStat(context2, "pic_frs", "");
+                return;
+            }
+            return;
+        }
+        context3 = this.a.d;
+        kVarArr4 = this.a.c;
+        com.baidu.tbadk.browser.a.a(context3, kVarArr4[this.b].d());
     }
 }

@@ -13,6 +13,8 @@ import android.graphics.RectF;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -20,13 +22,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
-public final class g {
+public class g {
     public static final Object a = new Object();
     private static volatile Hashtable<Integer, Bitmap> b = new Hashtable<>();
 
     public static Bitmap a(int i) {
         Bitmap bitmap = b.get(Integer.valueOf(i));
-        if (bitmap == null && (bitmap = b(TbadkApplication.j().b(), i)) != null) {
+        if (bitmap == null && (bitmap = b(TbadkApplication.m252getInst().getApp(), i)) != null) {
             b.put(Integer.valueOf(i), bitmap);
         }
         return bitmap;
@@ -46,10 +48,10 @@ public final class g {
     public static Bitmap a(Context context, int i) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = com.baidu.tbadk.core.data.n.b;
+            options.inPreferredConfig = TbConfig.BitmapConfig;
             return BitmapFactory.decodeResource(context.getResources(), i, options);
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+            BdLog.e("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
             return null;
         }
     }
@@ -58,7 +60,7 @@ public final class g {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, new BitmapFactory.Options());
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+            BdLog.e("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
             return null;
         }
     }
@@ -158,9 +160,9 @@ public final class g {
             r3.<init>(r4)     // Catch: java.lang.Throwable -> L5b
             r2 = 0
             android.graphics.BitmapFactory.decodeStream(r3, r2, r6)     // Catch: java.lang.Throwable -> L70
-            android.graphics.Bitmap$Config r2 = com.baidu.tbadk.core.data.n.b     // Catch: java.lang.Throwable -> L70
+            android.graphics.Bitmap$Config r2 = com.baidu.tbadk.TbConfig.BitmapConfig     // Catch: java.lang.Throwable -> L70
             r6.inPreferredConfig = r2     // Catch: java.lang.Throwable -> L70
-            com.baidu.tbadk.core.util.l.a(r3)     // Catch: java.lang.Throwable -> L70
+            com.baidu.tbadk.core.util.m.a(r3)     // Catch: java.lang.Throwable -> L70
         L35:
             int r2 = r6.outWidth     // Catch: java.lang.Throwable -> L70
             int r7 = r1 * 2
@@ -178,7 +180,7 @@ public final class g {
             r1 = 0
             android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r2, r1, r6)     // Catch: java.lang.Throwable -> L73
             monitor-exit(r5)     // Catch: java.lang.Throwable -> L73
-            com.baidu.tbadk.core.util.l.a(r2)
+            com.baidu.tbadk.core.util.m.a(r2)
             r0 = r1
             goto Le
         L58:
@@ -188,19 +190,19 @@ public final class g {
             r1 = move-exception
             r2 = r0
         L5d:
-            monitor-exit(r5)     // Catch: java.lang.Throwable -> L5f
+            monitor-exit(r5)     // Catch: java.lang.Throwable -> L73
             throw r1     // Catch: java.lang.Throwable -> L5f
         L5f:
             r1 = move-exception
         L60:
-            com.baidu.tbadk.core.util.l.a(r2)
+            com.baidu.tbadk.core.util.m.a(r2)
             goto Le
         L64:
             r1 = move-exception
             r2 = r0
             r0 = r1
         L67:
-            com.baidu.tbadk.core.util.l.a(r2)
+            com.baidu.tbadk.core.util.m.a(r2)
             throw r0
         L6b:
             r0 = move-exception
@@ -245,7 +247,7 @@ public final class g {
             monitor-enter(r3)     // Catch: java.lang.Throwable -> L46
             android.graphics.BitmapFactory$Options r4 = new android.graphics.BitmapFactory$Options     // Catch: java.lang.Throwable -> L34
             r4.<init>()     // Catch: java.lang.Throwable -> L34
-            android.graphics.Bitmap$Config r2 = com.baidu.tbadk.core.data.n.b     // Catch: java.lang.Throwable -> L34
+            android.graphics.Bitmap$Config r2 = com.baidu.tbadk.TbConfig.BitmapConfig     // Catch: java.lang.Throwable -> L34
             r4.inPreferredConfig = r2     // Catch: java.lang.Throwable -> L34
             r2 = 0
             r4.inJustDecodeBounds = r2     // Catch: java.lang.Throwable -> L34
@@ -254,26 +256,26 @@ public final class g {
             r1 = 0
             android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r2, r1, r4)     // Catch: java.lang.Throwable -> L49
             monitor-exit(r3)     // Catch: java.lang.Throwable -> L49
-            com.baidu.tbadk.core.util.l.a(r2)
+            com.baidu.tbadk.core.util.m.a(r2)
             r0 = r1
             goto L9
         L34:
             r1 = move-exception
             r2 = r0
         L36:
-            monitor-exit(r3)     // Catch: java.lang.Throwable -> L38
+            monitor-exit(r3)     // Catch: java.lang.Throwable -> L49
             throw r1     // Catch: java.lang.Throwable -> L38
         L38:
             r1 = move-exception
         L39:
-            com.baidu.tbadk.core.util.l.a(r2)
+            com.baidu.tbadk.core.util.m.a(r2)
             goto L9
         L3d:
             r1 = move-exception
             r2 = r0
             r0 = r1
         L40:
-            com.baidu.tbadk.core.util.l.a(r2)
+            com.baidu.tbadk.core.util.m.a(r2)
             throw r0
         L44:
             r0 = move-exception
@@ -299,19 +301,19 @@ public final class g {
             synchronized (a) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream h = w.h(str);
+                InputStream h = x.h(str);
                 BitmapFactory.decodeStream(h, null, options);
-                options.inPreferredConfig = com.baidu.tbadk.core.data.n.b;
-                l.a(h);
+                options.inPreferredConfig = TbConfig.BitmapConfig;
+                m.a(h);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream h2 = w.h(str);
+                        InputStream h2 = x.h(str);
                         decodeStream = BitmapFactory.decodeStream(h2, null, options);
-                        l.a(h2);
+                        m.a(h2);
                     }
                 }
             }
@@ -333,7 +335,7 @@ public final class g {
         }
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = com.baidu.tbadk.core.data.n.b;
+            options.inPreferredConfig = TbConfig.BitmapConfig;
             options.inDither = false;
             options.inJustDecodeBounds = true;
             synchronized (a) {
@@ -382,6 +384,7 @@ public final class g {
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0054, code lost:
         if (r13 == false) goto L20;
      */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:12:0x005a -> B:13:0x005b). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -405,17 +408,16 @@ public final class g {
                     } catch (Throwable th) {
                         bitmap2 = createBitmap;
                         th = th;
-                        try {
-                            throw th;
-                        } catch (Throwable th2) {
-                            return bitmap2;
-                        }
                     }
-                } catch (Throwable th3) {
-                    th = th3;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
             }
-            throw th;
+            try {
+                throw th;
+            } catch (Throwable th3) {
+                return bitmap2;
+            }
         } catch (Throwable th4) {
             return null;
         }
@@ -456,7 +458,7 @@ public final class g {
             return null;
         }
         BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPreferredConfig = com.baidu.tbadk.core.data.n.b;
+        options.inPreferredConfig = TbConfig.BitmapConfig;
         try {
             synchronized (a) {
                 try {
@@ -466,74 +468,95 @@ public final class g {
                     } catch (Throwable th2) {
                         bitmap = decodeByteArray;
                         th = th2;
-                        try {
-                            throw th;
-                        } catch (OutOfMemoryError e) {
-                            return bitmap;
+                        while (true) {
+                            try {
+                                break;
+                            } catch (Throwable th3) {
+                                th = th3;
+                            }
                         }
+                        throw th;
                     }
-                } catch (Throwable th3) {
+                } catch (Throwable th4) {
                     bitmap = null;
-                    th = th3;
+                    th = th4;
                 }
             }
-            throw th;
+            try {
+                break;
+                throw th;
+            } catch (OutOfMemoryError e) {
+                return bitmap;
+            }
         } catch (OutOfMemoryError e2) {
             return null;
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [537=4] */
     public static Bitmap a(byte[] bArr, Rect rect) {
         Bitmap bitmap;
-        OutOfMemoryError outOfMemoryError;
+        Throwable th;
         Bitmap bitmap2 = null;
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inDither = false;
-        options.inScreenDensity = TbadkApplication.j().getResources().getDisplayMetrics().densityDpi;
-        options.inTargetDensity = options.inScreenDensity;
-        options.inDensity = options.inScreenDensity;
-        try {
+        if (byteArrayInputStream != null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inDither = false;
+            options.inScreenDensity = TbadkApplication.m252getInst().getResources().getDisplayMetrics().densityDpi;
+            options.inTargetDensity = options.inScreenDensity;
+            options.inDensity = options.inScreenDensity;
             try {
-            } finally {
                 try {
-                    byteArrayInputStream.close();
-                } catch (IOException e) {
-                    com.baidu.adp.lib.util.f.e(e.getMessage());
-                }
-            }
-        } catch (OutOfMemoryError e2) {
-            bitmap = null;
-            outOfMemoryError = e2;
-        }
-        synchronized (a) {
-            try {
-                bitmap = BitmapFactory.decodeStream(byteArrayInputStream, rect, options);
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                return bitmap;
-            } catch (Throwable th2) {
-                bitmap2 = bitmap;
-                th = th2;
-                try {
-                    throw th;
-                } catch (OutOfMemoryError e3) {
-                    bitmap = bitmap2;
-                    outOfMemoryError = e3;
-                    com.baidu.adp.lib.util.f.b("nine patch remote get image error:" + outOfMemoryError.getMessage());
-                    try {
-                        byteArrayInputStream.close();
-                    } catch (IOException e4) {
-                        com.baidu.adp.lib.util.f.e(e4.getMessage());
+                    synchronized (a) {
+                        try {
+                            bitmap2 = BitmapFactory.decodeStream(byteArrayInputStream, rect, options);
+                            try {
+                            } catch (Throwable th2) {
+                                bitmap = bitmap2;
+                                th = th2;
+                                while (true) {
+                                    try {
+                                        try {
+                                            break;
+                                        } catch (OutOfMemoryError e) {
+                                            bitmap2 = bitmap;
+                                            e = e;
+                                            BdLog.e("nine patch remote get image error:" + e.getMessage());
+                                            if (byteArrayInputStream != null) {
+                                                try {
+                                                    byteArrayInputStream.close();
+                                                } catch (IOException e2) {
+                                                    BdLog.d(e2.getMessage());
+                                                }
+                                            }
+                                            return bitmap2;
+                                        }
+                                    } catch (Throwable th3) {
+                                        th = th3;
+                                    }
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th4) {
+                            bitmap = null;
+                            th = th4;
+                        }
                     }
-                    return bitmap;
+                } finally {
+                    if (byteArrayInputStream != null) {
+                        try {
+                            byteArrayInputStream.close();
+                        } catch (IOException e3) {
+                            BdLog.d(e3.getMessage());
+                        }
+                    }
                 }
+            } catch (OutOfMemoryError e4) {
+                e = e4;
             }
         }
+        return bitmap2;
     }
 
     public static Bitmap d(Bitmap bitmap, int i) {
@@ -630,27 +653,27 @@ public final class g {
     }
 
     public static int b(int i) {
-        int l = TbadkApplication.j().l();
+        int skinType = TbadkApplication.m252getInst().getSkinType();
         if (i > 15) {
-            if (l == 1) {
-                return com.baidu.tbadk.i.icon_grade_yellow_1;
+            if (skinType == 1) {
+                return com.baidu.tieba.q.icon_grade_yellow_1;
             }
-            return com.baidu.tbadk.i.icon_grade_yellow;
+            return com.baidu.tieba.q.icon_grade_yellow;
         } else if (i > 9) {
-            if (l == 1) {
-                return com.baidu.tbadk.i.icon_grade_red_1;
+            if (skinType == 1) {
+                return com.baidu.tieba.q.icon_grade_red_1;
             }
-            return com.baidu.tbadk.i.icon_grade_red;
+            return com.baidu.tieba.q.icon_grade_red;
         } else if (i > 3) {
-            if (l == 1) {
-                return com.baidu.tbadk.i.icon_grade_blue_1;
+            if (skinType == 1) {
+                return com.baidu.tieba.q.icon_grade_blue_1;
             }
-            return com.baidu.tbadk.i.icon_grade_blue;
+            return com.baidu.tieba.q.icon_grade_blue;
         } else if (i > 0) {
-            if (l == 1) {
-                return com.baidu.tbadk.i.icon_grade_green_1;
+            if (skinType == 1) {
+                return com.baidu.tieba.q.icon_grade_green_1;
             }
-            return com.baidu.tbadk.i.icon_grade_green;
+            return com.baidu.tieba.q.icon_grade_green;
         } else {
             return 0;
         }

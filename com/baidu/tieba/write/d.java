@@ -4,20 +4,20 @@ import android.view.View;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes.dex */
-final class d implements com.baidu.tbadk.core.util.bp {
+class d implements com.baidu.tbadk.core.util.br {
     final /* synthetic */ c a;
     private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
+    private final /* synthetic */ com.baidu.adp.widget.a.a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
+    public d(c cVar, String str, com.baidu.adp.widget.a.a aVar) {
         this.a = cVar;
         this.b = str;
-        this.c = bVar;
+        this.c = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.bp
-    public final boolean a(View view) {
+    @Override // com.baidu.tbadk.core.util.br
+    public boolean a(View view) {
         if ((view instanceof ImageView) && view.getTag() != null) {
             Object tag = view.getTag();
             if (tag instanceof MetaData) {

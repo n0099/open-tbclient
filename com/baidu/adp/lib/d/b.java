@@ -1,6 +1,6 @@
 package com.baidu.adp.lib.d;
 
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.BdLog;
 import java.security.InvalidParameterException;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -32,7 +32,7 @@ public class b<T> {
                 try {
                     t = this.d.b(this.d.a());
                 } catch (Exception e) {
-                    f.b(e.getMessage());
+                    BdLog.e(e.getMessage());
                     t = null;
                 }
                 if (t != null) {
@@ -42,7 +42,7 @@ public class b<T> {
         }
     }
 
-    public final T a() {
+    public T a() {
         T t = null;
         synchronized (this) {
             try {
@@ -53,20 +53,20 @@ public class b<T> {
                 }
                 a(this.b - this.c.size());
             } catch (Exception e) {
-                f.b(e.getMessage());
+                BdLog.e(e.getMessage());
             }
         }
         return t;
     }
 
-    public final void a(T t) {
+    public void a(T t) {
         T t2;
         synchronized (this) {
             if (this.c.size() < this.a) {
                 try {
                     t2 = this.d.c(t);
                 } catch (Exception e) {
-                    f.b(e.getMessage());
+                    BdLog.e(e.getMessage());
                     t2 = null;
                 }
                 if (t2 != null) {
@@ -78,7 +78,7 @@ public class b<T> {
         }
     }
 
-    public final void b() {
+    public void b() {
         synchronized (this) {
             this.c.clear();
         }

@@ -1,11 +1,27 @@
 package com.baidu.tieba.a;
+
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.f;
 /* loaded from: classes.dex */
-public final class c {
-    public static final int delete_account = 2131361798;
-    public static final int fiter_name = 2131361792;
-    public static final int menu_on_off = 2131361796;
-    public static final int menu_recommend_push = 2131361795;
-    public static final int menu_remind_tone = 2131361794;
-    public static final int menu_view_images = 2131361793;
-    public static final int voice_black_frs_list = 2131361797;
+public class c extends f {
+    private static final String c = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumsquare";
+
+    public String g() {
+        a(c);
+        return b();
+    }
+
+    public long h() {
+        if (this.a != null) {
+            return this.a.a().c().a.d;
+        }
+        return 0L;
+    }
+
+    public long i() {
+        if (this.a != null) {
+            return this.a.a().c().a.c;
+        }
+        return 0L;
+    }
 }

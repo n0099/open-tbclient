@@ -1,5 +1,6 @@
 package com.google.zxing.qrcode.encoder;
 
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.qrcode.decoder.Mode;
 import com.google.zxing.qrcode.decoder.Version;
@@ -12,28 +13,28 @@ public final class QRCode {
     private Mode mode;
     private Version version;
 
-    public final Mode getMode() {
+    public Mode getMode() {
         return this.mode;
     }
 
-    public final ErrorCorrectionLevel getECLevel() {
+    public ErrorCorrectionLevel getECLevel() {
         return this.ecLevel;
     }
 
-    public final Version getVersion() {
+    public Version getVersion() {
         return this.version;
     }
 
-    public final int getMaskPattern() {
+    public int getMaskPattern() {
         return this.maskPattern;
     }
 
-    public final ByteMatrix getMatrix() {
+    public ByteMatrix getMatrix() {
         return this.matrix;
     }
 
-    public final String toString() {
-        StringBuilder sb = new StringBuilder(200);
+    public String toString() {
+        StringBuilder sb = new StringBuilder((int) Constants.MEDIA_INFO);
         sb.append("<<\n");
         sb.append(" mode: ");
         sb.append(this.mode);
@@ -53,23 +54,23 @@ public final class QRCode {
         return sb.toString();
     }
 
-    public final void setMode(Mode mode) {
+    public void setMode(Mode mode) {
         this.mode = mode;
     }
 
-    public final void setECLevel(ErrorCorrectionLevel errorCorrectionLevel) {
+    public void setECLevel(ErrorCorrectionLevel errorCorrectionLevel) {
         this.ecLevel = errorCorrectionLevel;
     }
 
-    public final void setVersion(Version version) {
+    public void setVersion(Version version) {
         this.version = version;
     }
 
-    public final void setMaskPattern(int i) {
+    public void setMaskPattern(int i) {
         this.maskPattern = i;
     }
 
-    public final void setMatrix(ByteMatrix byteMatrix) {
+    public void setMatrix(ByteMatrix byteMatrix) {
         this.matrix = byteMatrix;
     }
 

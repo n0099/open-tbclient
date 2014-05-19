@@ -1,18 +1,25 @@
 package com.baidu.adp.framework.task;
 
 import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class CustomMessageTask extends b {
-    private a<?> e;
-    private TASK_TYPE f;
-    private boolean g;
+public class CustomMessageTask extends MessageTask {
+    private CustomRunnable<?> a;
+    private TASK_TYPE b;
+    private boolean c;
+
+    /* loaded from: classes.dex */
+    public interface CustomRunnable<T> {
+        CustomResponsedMessage<?> run(CustomMessage<T> customMessage);
+    }
 
     /* loaded from: classes.dex */
     public enum TASK_TYPE {
         SYNCHRONIZED,
         ASYNCHRONIZED;
 
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static TASK_TYPE[] valuesCustom() {
             TASK_TYPE[] valuesCustom = values();
@@ -23,32 +30,32 @@ public class CustomMessageTask extends b {
         }
     }
 
-    public CustomMessageTask(int i, a<?> aVar) {
+    public CustomMessageTask(int i, CustomRunnable<?> customRunnable) {
         super(i);
-        this.e = null;
-        this.f = TASK_TYPE.ASYNCHRONIZED;
-        this.g = false;
-        this.e = aVar;
+        this.a = null;
+        this.b = TASK_TYPE.ASYNCHRONIZED;
+        this.c = false;
+        this.a = customRunnable;
     }
 
-    public final a<?> a() {
-        return this.e;
+    public CustomRunnable<?> a() {
+        return this.a;
     }
 
-    @Override // com.baidu.adp.framework.task.b
-    public final boolean b() {
-        return FrameHelper.d(this.a);
+    @Override // com.baidu.adp.framework.task.MessageTask
+    public boolean checkCmd() {
+        return FrameHelper.d(this.mCmd);
     }
 
-    public final TASK_TYPE c() {
-        return this.f;
+    public TASK_TYPE b() {
+        return this.b;
     }
 
-    public final void a(TASK_TYPE task_type) {
-        this.f = task_type;
+    public void a(TASK_TYPE task_type) {
+        this.b = task_type;
     }
 
-    public final boolean d() {
-        return this.g;
+    public boolean c() {
+        return this.c;
     }
 }

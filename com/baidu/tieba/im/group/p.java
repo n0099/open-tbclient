@@ -6,13 +6,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
 /* loaded from: classes.dex */
-final class p {
-    private View a = LayoutInflater.from(TbadkApplication.j().b().getApplicationContext()).inflate(com.baidu.tieba.im.i.title_view_of_tab_group, (ViewGroup) null);
-    private TextView b = (TextView) this.a.findViewById(com.baidu.tieba.im.h.title_view_of_tab_group_text);
-    private ImageView c = (ImageView) this.a.findViewById(com.baidu.tieba.im.h.diver_top);
-    private ImageView d = (ImageView) this.a.findViewById(com.baidu.tieba.im.h.diver_bottom);
+class p {
+    private View a = LayoutInflater.from(TbadkApplication.m252getInst().getApp().getApplicationContext()).inflate(s.title_view_of_tab_group, (ViewGroup) null);
+    private TextView b = (TextView) this.a.findViewById(r.title_view_of_tab_group_text);
+    private ImageView c = (ImageView) this.a.findViewById(r.diver_top);
+    private ImageView d = (ImageView) this.a.findViewById(r.diver_bottom);
 
     private p() {
         this.a.setTag(this);
@@ -29,20 +31,20 @@ final class p {
         return null;
     }
 
-    public final View a() {
+    public View a() {
         return this.a;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.b.setText(i);
     }
 
-    public final void a(boolean z, boolean z2) {
-        this.c.setVisibility(8);
-        this.d.setVisibility(8);
+    public void a(boolean z, boolean z2) {
+        this.c.setVisibility(z ? 0 : 8);
+        this.d.setVisibility(z2 ? 0 : 8);
     }
 
-    public final void b() {
-        ba.a(this.b, com.baidu.tieba.im.e.cp_cont_c, 1);
+    public void b() {
+        bc.a(this.b, com.baidu.tieba.o.cp_cont_c, 1);
     }
 }

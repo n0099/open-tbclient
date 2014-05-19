@@ -3,15 +3,15 @@ package com.baidu.tbadk.coreExtra.b;
 import java.util.HashMap;
 import java.util.Set;
 /* loaded from: classes.dex */
-public final class c {
+public class c {
     private String A;
     private String B;
-    private String o;
-    private String p;
+    private String C;
+    private String D;
     private String q;
     private String r;
-    private String u;
-    private String v;
+    private String s;
+    private String t;
     private String w;
     private String x;
     private String y;
@@ -28,220 +28,256 @@ public final class c {
     private int j = 0;
     private int k = 0;
     private int l = 0;
-    private boolean m = true;
-    private boolean n = true;
-    private HashMap<String, String> s = new HashMap<>();
-    private HashMap<String, String> t = new HashMap<>();
+    private int m = 0;
+    private int n = 0;
+    private boolean o = true;
+    private boolean p = true;
+    private HashMap<String, String> u = new HashMap<>();
+    private HashMap<String, String> v = new HashMap<>();
+    private String E = null;
+    private String F = null;
 
-    public final void a() {
-        HashMap<String, String> hashMap = this.s;
-        Set<String> keySet = hashMap.keySet();
+    public void a() {
+        HashMap<String, String> s = s();
+        Set<String> keySet = s.keySet();
         if (keySet.size() != 1) {
-            this.u = null;
+            d((String) null);
         } else {
-            this.u = hashMap.get(keySet.iterator().next());
+            d(s.get(keySet.iterator().next()));
         }
     }
 
-    public final void b() {
-        HashMap<String, String> hashMap = this.t;
-        Set<String> keySet = hashMap.keySet();
+    public void b() {
+        HashMap<String, String> y = y();
+        Set<String> keySet = y.keySet();
         if (keySet.size() != 1) {
-            this.x = null;
+            l((String) null);
         } else {
-            this.x = hashMap.get(keySet.iterator().next());
+            l(y.get(keySet.iterator().next()));
         }
     }
 
-    public final int c() {
+    public int c() {
         return this.a;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.a = i;
     }
 
-    public final int d() {
+    public int d() {
         return this.d;
     }
 
-    public final void b(int i) {
+    public void b(int i) {
         this.d = i;
     }
 
-    public final int e() {
+    public int e() {
         return this.e;
     }
 
-    public final void c(int i) {
+    public void c(int i) {
         this.e = i;
     }
 
-    public final int f() {
-        return this.g;
-    }
-
-    public final void d(int i) {
-        this.g = i;
-    }
-
-    public final int g() {
-        return this.k;
-    }
-
-    public final void e(int i) {
-        this.k = i;
-    }
-
-    public final int h() {
-        return this.j;
-    }
-
-    public final void f(int i) {
-        this.j = i;
-    }
-
-    public final int i() {
-        return this.a;
-    }
-
-    public final String j() {
-        return this.A;
-    }
-
-    public final void a(String str) {
-        this.A = str;
-    }
-
-    public final String k() {
-        return this.B;
-    }
-
-    public final void b(String str) {
-        this.B = str;
-    }
-
-    public final int l() {
-        return this.c;
-    }
-
-    public final void g(int i) {
-        this.c = i;
-    }
-
-    public final boolean m() {
-        return this.m;
-    }
-
-    public final void a(boolean z) {
-        this.m = z;
-    }
-
-    public final void b(boolean z) {
-        this.n = z;
-    }
-
-    public final String n() {
-        return this.o;
-    }
-
-    public final void c(String str) {
-        this.o = str;
-    }
-
-    public final String o() {
-        return this.u;
-    }
-
-    public final void d(String str) {
-        this.v = str;
-    }
-
-    public final int p() {
-        return this.b;
-    }
-
-    public final void h(int i) {
-        this.b = i;
-    }
-
-    public final void e(String str) {
-        this.w = str;
-    }
-
-    public final String q() {
-        return this.y;
-    }
-
-    public final void f(String str) {
-        this.y = str;
-    }
-
-    public final String r() {
-        return this.z;
-    }
-
-    public final void g(String str) {
-        this.z = str;
-    }
-
-    public final HashMap<String, String> s() {
-        return this.s;
-    }
-
-    public final int t() {
-        return this.f;
-    }
-
-    public final void i(int i) {
-        this.f = i;
-    }
-
-    public final int u() {
-        return this.h;
-    }
-
-    public final void j(int i) {
-        this.h = i;
-    }
-
-    public final int v() {
-        return this.l;
-    }
-
-    public final void k(int i) {
-        this.l = i;
-    }
-
-    public final void h(String str) {
-        this.p = str;
-    }
-
-    public final void i(String str) {
-        this.q = str;
-    }
-
-    public final int w() {
+    public int f() {
         return this.i;
     }
 
-    public final void l(int i) {
+    public void d(int i) {
         this.i = i;
     }
 
-    public final String x() {
-        return this.r;
+    public int g() {
+        return this.m;
     }
 
-    public final void j(String str) {
+    public void e(int i) {
+        this.m = i;
+    }
+
+    public int h() {
+        return this.l;
+    }
+
+    public void f(int i) {
+        this.l = i;
+    }
+
+    public int i() {
+        return this.a;
+    }
+
+    public String j() {
+        return this.C;
+    }
+
+    public void a(String str) {
+        this.C = str;
+    }
+
+    public String k() {
+        return this.D;
+    }
+
+    public void b(String str) {
+        this.D = str;
+    }
+
+    public int l() {
+        return this.c;
+    }
+
+    public void g(int i) {
+        this.c = i;
+    }
+
+    public boolean m() {
+        return this.o;
+    }
+
+    public void a(boolean z) {
+        this.o = z;
+    }
+
+    public void b(boolean z) {
+        this.p = z;
+    }
+
+    public String n() {
+        return this.q;
+    }
+
+    public void c(String str) {
+        this.q = str;
+    }
+
+    public String o() {
+        return this.w;
+    }
+
+    public void d(String str) {
+        this.w = str;
+    }
+
+    public void e(String str) {
+        this.x = str;
+    }
+
+    public int p() {
+        return this.b;
+    }
+
+    public void h(int i) {
+        this.b = i;
+    }
+
+    public void f(String str) {
+        this.y = str;
+    }
+
+    public String q() {
+        return this.A;
+    }
+
+    public void g(String str) {
+        this.A = str;
+    }
+
+    public String r() {
+        return this.B;
+    }
+
+    public void h(String str) {
+        this.B = str;
+    }
+
+    public HashMap<String, String> s() {
+        return this.u;
+    }
+
+    public int t() {
+        return this.f;
+    }
+
+    public void i(int i) {
+        this.f = i;
+    }
+
+    public int u() {
+        return this.j;
+    }
+
+    public void j(int i) {
+        this.j = i;
+    }
+
+    public int v() {
+        return this.n;
+    }
+
+    public void k(int i) {
+        this.n = i;
+    }
+
+    public void i(String str) {
         this.r = str;
     }
 
-    public final HashMap<String, String> y() {
+    public void j(String str) {
+        this.s = str;
+    }
+
+    public int w() {
+        return this.k;
+    }
+
+    public void l(int i) {
+        this.k = i;
+    }
+
+    public String x() {
         return this.t;
     }
 
-    public final String z() {
-        return this.x;
+    public void k(String str) {
+        this.t = str;
+    }
+
+    public HashMap<String, String> y() {
+        return this.v;
+    }
+
+    public String z() {
+        return this.z;
+    }
+
+    public void l(String str) {
+        this.z = str;
+    }
+
+    public int A() {
+        return this.g;
+    }
+
+    public int B() {
+        return this.h;
+    }
+
+    public void m(int i) {
+        this.g = i;
+    }
+
+    public void n(int i) {
+        this.h = i;
+    }
+
+    public void m(String str) {
+        this.E = str;
+    }
+
+    public void n(String str) {
+        this.F = str;
     }
 }

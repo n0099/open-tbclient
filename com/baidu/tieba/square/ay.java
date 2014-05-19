@@ -5,120 +5,135 @@ import android.net.NetworkInfo;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.view.SearchBoxView;
 /* loaded from: classes.dex */
-public final class ay extends com.baidu.adp.a.f {
+public class ay extends com.baidu.adp.base.e {
     com.baidu.tbadk.core.view.q a;
-    private com.baidu.tbadk.core.e c;
-    private View d;
-    private BdListView e;
-    private LinearLayout f;
-    private SearchBoxView g;
-    private NoNetworkView h;
-    private ax i;
+    private com.baidu.tbadk.core.e b;
+    private View c;
+    private BdListView d;
+    private LinearLayout e;
+    private SearchBoxView f;
+    private NoNetworkView g;
+    private ax h;
 
     public ay(com.baidu.tbadk.core.e eVar, com.baidu.tbadk.core.d dVar, View.OnKeyListener onKeyListener) {
         super(eVar);
-        this.c = null;
+        this.b = null;
+        this.d = null;
         this.e = null;
-        this.f = null;
         this.a = null;
-        this.i = null;
-        this.c = eVar;
-        this.d = dVar.getView();
-        this.f = (LinearLayout) this.d.findViewById(com.baidu.tieba.a.h.container);
-        this.g = (SearchBoxView) this.d.findViewById(com.baidu.tieba.a.h.view_searchbox);
-        this.e = (BdListView) this.d.findViewById(com.baidu.tieba.a.h.square_list);
-        this.e.setOnKeyListener(onKeyListener);
-        this.e.setOnItemClickListener(dVar);
-        this.e.setOnScrollListener(dVar);
-        this.i = new ax(eVar);
-        this.e.setAdapter((ListAdapter) this.i);
+        this.h = null;
+        this.b = eVar;
+        this.c = dVar.getView();
+        this.e = (LinearLayout) this.c.findViewById(com.baidu.tieba.r.container);
+        this.f = (SearchBoxView) this.c.findViewById(com.baidu.tieba.r.view_searchbox);
+        this.d = (BdListView) this.c.findViewById(com.baidu.tieba.r.square_list);
+        this.d.setOnKeyListener(onKeyListener);
+        this.d.setOnItemClickListener(dVar);
+        this.d.setOnScrollListener(dVar);
+        this.h = new ax(eVar);
+        this.d.setAdapter((ListAdapter) this.h);
         this.a = new com.baidu.tbadk.core.view.q(eVar);
-        this.e.setPullRefresh(this.a);
-        this.h = (NoNetworkView) this.d.findViewById(com.baidu.tieba.a.h.view_no_network);
-        com.baidu.tieba.view.i iVar = new com.baidu.tieba.view.i(this.b);
-        iVar.setHeightDip(30);
-        this.e.addFooterView(iVar);
+        this.d.setPullRefresh(this.a);
+        this.g = (NoNetworkView) this.c.findViewById(com.baidu.tieba.r.view_no_network);
+        com.baidu.tieba.view.j jVar = new com.baidu.tieba.view.j(this.mContext);
+        jVar.setHeightDip(30);
+        this.d.addFooterView(jVar);
     }
 
-    public final void a(aq aqVar) {
+    public void a(aq aqVar) {
         if (aqVar != null) {
             try {
-                this.i.a(aqVar);
-                this.i.notifyDataSetChanged();
+                this.h.a(aqVar);
+                this.h.notifyDataSetChanged();
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "refresh", e.getMessage());
+                BdLog.e(getClass().getName(), "refresh", e.getMessage());
             }
         }
     }
 
-    public final void a() {
-        if (this.e != null) {
-            int headerViewsCount = this.e.getHeaderViewsCount() + 1;
-            int firstVisiblePosition = this.e.getFirstVisiblePosition();
-            int lastVisiblePosition = this.e.getLastVisiblePosition();
+    public void a() {
+        if (this.d != null) {
+            int headerViewsCount = this.d.getHeaderViewsCount() + 1;
+            int firstVisiblePosition = this.d.getFirstVisiblePosition();
+            int lastVisiblePosition = this.d.getLastVisiblePosition();
             if (firstVisiblePosition > 0) {
                 firstVisiblePosition -= headerViewsCount;
                 lastVisiblePosition -= headerViewsCount;
             }
-            this.i.a(this.e, firstVisiblePosition, lastVisiblePosition);
+            this.h.a(this.d, firstVisiblePosition, lastVisiblePosition);
         }
     }
 
-    public final void d() {
-        this.e.b();
+    public void b() {
+        this.d.c();
     }
 
-    public final SearchBoxView e() {
-        return this.g;
+    public void a(boolean z, String str) {
+        b();
+        if (!z && str != null) {
+            this.b.a(str);
+        }
     }
 
-    public final void f() {
-        this.e.c();
+    public SearchBoxView c() {
+        return this.f;
     }
 
-    public final void g() {
-        this.h.setVisibility(0);
+    public void d() {
+        this.d.d();
     }
 
-    public final void h() {
-        this.h.setVisibility(8);
+    public void e() {
+        this.g.setVisibility(0);
     }
 
-    public final void a(com.baidu.tbadk.core.view.m mVar) {
-        this.h.a(mVar);
+    public void f() {
+        this.g.setVisibility(8);
     }
 
-    public final void b(com.baidu.tbadk.core.view.m mVar) {
-        this.h.b(mVar);
+    public void a(com.baidu.tbadk.core.view.m mVar) {
+        this.g.a(mVar);
     }
 
-    public final void i() {
-        this.i.b();
+    public void b(com.baidu.tbadk.core.view.m mVar) {
+        this.g.b(mVar);
     }
 
-    public final void j() {
+    public void g() {
+        this.h.b();
+    }
+
+    public void h() {
         NetworkInfo activeNetworkInfo;
-        com.baidu.adp.lib.util.f.e("SquareView", "onResume", "onResume");
-        this.i.a();
-        if (this.h != null && this.h.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.c.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
-            this.h.setVisible(false);
+        BdLog.d("SquareView", "onResume", "onResume");
+        this.h.a();
+        if (this.g != null && this.g.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.b.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
+            this.g.setVisible(false);
         }
     }
 
-    public final void k() {
-        this.i.c();
+    public void i() {
+        this.h.c();
     }
 
-    public final void a(int i) {
-        this.c.b().a(i == 1);
-        this.c.b().a(this.f);
-        this.i.a(i);
-        this.a.a(i);
+    public void j() {
+    }
+
+    public void a(int i) {
+        this.b.a().a(i == 1);
+        this.b.a().a((View) this.e);
         this.h.a(i);
+        this.a.a(i);
         this.g.a(i);
+        this.f.a(i);
+    }
+
+    public void a(com.baidu.adp.widget.ListView.d dVar) {
+        this.a.a(dVar);
     }
 }

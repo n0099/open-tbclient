@@ -11,7 +11,7 @@ public class BOMInputStream extends ProxyInputStream {
     private static final Comparator<ByteOrderMark> ByteOrderMarkLengthComparator = new Comparator<ByteOrderMark>() { // from class: org.apache.commons.io.input.BOMInputStream.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
-        public final int compare(ByteOrderMark byteOrderMark, ByteOrderMark byteOrderMark2) {
+        public int compare(ByteOrderMark byteOrderMark, ByteOrderMark byteOrderMark2) {
             int length = byteOrderMark.length();
             int length2 = byteOrderMark2.length();
             if (length > length2) {

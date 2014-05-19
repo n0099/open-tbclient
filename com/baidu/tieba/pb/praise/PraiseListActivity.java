@@ -6,40 +6,42 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.b.af;
-import com.baidu.tbadk.core.b.ag;
+import com.baidu.tbadk.core.atomData.as;
+import com.baidu.tbadk.core.atomData.at;
 import java.util.List;
 /* loaded from: classes.dex */
-public class PraiseListActivity extends com.baidu.tbadk.a implements View.OnClickListener, AdapterView.OnItemClickListener, h {
+public class PraiseListActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener, h {
     private i a = null;
     private f b = null;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001007, new d());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2003007, new d());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(Context context, String str, String str2, String str3, boolean z) {
-        if (com.baidu.adp.lib.util.h.b(str2)) {
-            return;
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void b(Context context, String str, String str2, String str3, boolean z) {
+        if (!com.baidu.adp.lib.util.g.b(str2)) {
+            Intent intent = new Intent(context, PraiseListActivity.class);
+            intent.putExtra("KeyIntentThreadId", str);
+            intent.putExtra("KeyIntentPostId", str2);
+            intent.putExtra("KeyIntentPostDesc", str3);
+            intent.putExtra("KeyIntentIsFromPb", z);
+            if (!(context instanceof Activity)) {
+                intent.setFlags(268435456);
+            }
+            context.startActivity(intent);
         }
-        Intent intent = new Intent(context, PraiseListActivity.class);
-        intent.putExtra("KeyIntentThreadId", str);
-        intent.putExtra("KeyIntentPostId", str2);
-        intent.putExtra("KeyIntentPostDesc", str3);
-        intent.putExtra("KeyIntentIsFromPb", z);
-        if (!(context instanceof Activity)) {
-            intent.setFlags(268435456);
-        }
-        context.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
@@ -52,33 +54,37 @@ public class PraiseListActivity extends com.baidu.tbadk.a implements View.OnClic
             this.b = new f();
         }
         this.a = new i(this, this.b.d());
-        this.a.d();
+        this.a.b();
         this.b.e();
     }
 
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.a.g()) {
-            if (this.b != null) {
-                this.b.c();
-            }
+        if (view == this.a.f()) {
+            a();
             if (this.b.b()) {
                 finish();
                 return;
             }
-            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2004001, new af(this).a(this.b.a(), null, "praise_list")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(this).a(this.b.a(), null, "praise_list")));
             finish();
-        } else if (view == this.a.h() && !this.a.f()) {
-            this.a.d();
+        } else if (view == this.a.g() && !this.a.d()) {
+            this.a.b();
             this.b.e();
         }
     }
 
-    @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         a b = this.b.b(i);
         if (b != null) {
-            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new ag(this, b.a(), b.d())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new at(this, b.a(), b.d())));
+        }
+    }
+
+    private void a() {
+        if (this.b != null) {
+            this.b.c();
         }
     }
 
@@ -93,33 +99,33 @@ public class PraiseListActivity extends com.baidu.tbadk.a implements View.OnClic
     }
 
     @Override // com.baidu.tieba.pb.praise.h
-    public final void a(String str) {
-        if (!com.baidu.adp.lib.util.h.b(str)) {
+    public void a(String str) {
+        if (!com.baidu.adp.lib.util.g.b(str)) {
             showToast(str, true);
         }
-        this.a.e();
+        this.a.c();
     }
 
     @Override // com.baidu.tieba.pb.praise.h
-    public final void a(int i, List<a> list, int i2, int i3) {
+    public void a(int i, List<a> list, int i2, int i3) {
         this.a.a(i, list, i2, i3);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.a.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         this.a.a(getLayoutMode(), i);
     }
 
     public void changSkinType(View view) {
-        getLayoutMode().a(TbadkApplication.j().l() == 1);
+        getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
         getLayoutMode().a(view);
     }
 }

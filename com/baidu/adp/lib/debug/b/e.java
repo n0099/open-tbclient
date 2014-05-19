@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class e implements View.OnClickListener {
+public class e implements View.OnClickListener {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public final class e implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         TextView textView;
         Context context;
         TextView textView2;
@@ -25,13 +25,13 @@ public final class e implements View.OnClickListener {
             textView2 = this.a.i;
             context2 = this.a.k;
             textView2.setText(((Activity) context2).getText(com.baidu.adp.f.item_open));
-            this.a.a();
+            this.a.b();
             return;
         }
         com.baidu.adp.lib.debug.c.d = false;
         textView = this.a.i;
         context = this.a.k;
         textView.setText(((Activity) context).getText(com.baidu.adp.f.item_close));
-        this.a.b();
+        this.a.c();
     }
 }

@@ -1,43 +1,29 @@
 package com.baidu.tieba.faceshop;
 
-import android.content.Context;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class at extends com.baidu.adp.a.e {
-    private int c;
-    private int d;
-    private float e;
-    private FacePackageDownloadData b = null;
-    private au a = null;
+public class at implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ ap a;
 
-    public at() {
-        this.c = 0;
-        this.d = 0;
-        com.baidu.tieba.p.c();
-        Context e = com.baidu.tieba.p.e();
-        this.c = com.baidu.adp.lib.util.i.b(e);
-        this.d = com.baidu.adp.lib.util.i.c(e);
-        this.e = e.getResources().getDisplayMetrics().density;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public at(ap apVar) {
+        this.a = apVar;
     }
 
-    public final void a(String str) {
-        if (this.a == null) {
-            this.a = new au(this, str);
-            this.a.setPriority(3);
-            this.a.execute(new Object[0]);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        TbImageView tbImageView3;
+        if (aVar != null) {
+            tbImageView2 = this.a.I;
+            tbImageView2.setVisibility(0);
+            tbImageView3 = this.a.I;
+            tbImageView3.invalidate();
+            return;
         }
-    }
-
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
-            return false;
-        }
-        return false;
+        tbImageView = this.a.I;
+        tbImageView.setVisibility(8);
     }
 }

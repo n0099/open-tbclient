@@ -1,23 +1,21 @@
 package com.baidu.tieba.im.model;
+
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ai implements com.baidu.tieba.im.a<Boolean> {
+public class ai implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ MsglistModel a;
-    private final /* synthetic */ com.baidu.tieba.im.message.a.f b;
-    private final /* synthetic */ String c;
-    private final /* synthetic */ com.baidu.tbadk.img.b d;
+    private final /* synthetic */ OfficialChatMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(MsglistModel msglistModel, com.baidu.tieba.im.message.a.f fVar, String str, com.baidu.tbadk.img.b bVar) {
+    public ai(MsglistModel msglistModel, OfficialChatMessage officialChatMessage) {
         this.a = msglistModel;
-        this.b = fVar;
-        this.c = str;
-        this.d = bVar;
+        this.b = officialChatMessage;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public final /* bridge */ /* synthetic */ void a(Boolean bool) {
-        this.a.a(this.b, this.c, this.d);
+    public void a(Boolean bool) {
+        this.a.c(this.b);
     }
 }

@@ -1,17 +1,17 @@
 package com.baidu.tieba.write;
-
-import android.view.View;
 /* loaded from: classes.dex */
-final class br implements View.OnClickListener {
-    final /* synthetic */ WriteMultiImgsActivity a;
+class br implements Runnable {
+    final /* synthetic */ bq a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(WriteMultiImgsActivity writeMultiImgsActivity) {
-        this.a = writeMultiImgsActivity;
+    public br(bq bqVar) {
+        this.a = bqVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        WriteMultiImgsActivity.b(this.a);
+    @Override // java.lang.Runnable
+    public void run() {
+        WriteImageActivity writeImageActivity;
+        writeImageActivity = this.a.a;
+        writeImageActivity.c("normal");
     }
 }

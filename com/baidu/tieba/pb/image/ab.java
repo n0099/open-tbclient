@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.image;
 import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
-final class ab extends Handler {
+class ab extends Handler {
     final /* synthetic */ ImagePbImageView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ final class ab extends Handler {
     }
 
     @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    public void handleMessage(Message message) {
         int i;
         int i2;
         Handler handler;

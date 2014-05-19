@@ -1,15 +1,18 @@
 package com.baidu.tieba.mention;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.am;
 /* loaded from: classes.dex */
-final class ah implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.frameworkData.a> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.frameworkData.a> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            aVar.a().d().setClass(aVar.a().c(), SingleMentionActivity.class);
-            aVar.a().d().putExtra("NotifiIdKey", 16);
-            com.baidu.tbadk.core.b.ab.a = true;
-            aVar.a().f();
+class ah implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.frameworkData.a> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), SingleMentionActivity.class);
+            customMessage.getData().getIntent().putExtra("NotifiIdKey", 16);
+            am.a = true;
+            customMessage.getData().startActivity();
         }
         return null;
     }

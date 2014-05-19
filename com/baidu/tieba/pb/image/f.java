@@ -5,8 +5,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import com.baidu.tbadk.editortool.EmotionTabHost;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class f implements View.OnTouchListener {
+public class f implements View.OnTouchListener {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +16,7 @@ final class f implements View.OnTouchListener {
     }
 
     @Override // android.view.View.OnTouchListener
-    public final boolean onTouch(View view, MotionEvent motionEvent) {
+    public boolean onTouch(View view, MotionEvent motionEvent) {
         EmotionTabHost emotionTabHost;
         EditText editText;
         EmotionTabHost emotionTabHost2;
@@ -29,9 +30,9 @@ final class f implements View.OnTouchListener {
             emotionTabHost2.setVisibility(8);
             ImagePbActivity imagePbActivity = this.a;
             editText2 = this.a.k;
-            com.baidu.adp.lib.util.i.b(imagePbActivity, editText2);
+            com.baidu.adp.lib.util.h.b(imagePbActivity, editText2);
             button = this.a.m;
-            button.setBackgroundResource(com.baidu.tieba.a.g.sub_pb_face);
+            button.setBackgroundResource(com.baidu.tieba.q.sub_pb_face);
             return true;
         }
         return false;

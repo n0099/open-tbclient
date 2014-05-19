@@ -4,38 +4,36 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
-public class InviteFriendListActivity extends com.baidu.tbadk.a implements View.OnClickListener {
+public class InviteFriendListActivity extends BaseActivity implements View.OnClickListener {
     private y a;
     private af b;
-    private final com.baidu.adp.a.h c = new n(this);
-    private final com.baidu.adp.framework.c.g d = new o(this, 205002);
+    private final com.baidu.adp.base.g c = new n(this);
+    private final com.baidu.adp.framework.listener.b d = new o(this, MessageTypes.CMD_COMMIT_INVITE);
 
     public static void a(Context context, int i, int i2) {
         Intent intent = new Intent(context, InviteFriendListActivity.class);
-        intent.putExtra("gid", 0);
+        intent.putExtra("gid", i);
         intent.putExtra("groupid", i2);
         context.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         registerListener(this.d);
         Intent intent = getIntent();
-        this.b = new af();
-        this.b.setLoadDataCallBack(this.c);
+        b();
         if (intent != null) {
             this.b.a(intent);
         } else {
             this.b.a(bundle);
         }
-        this.a = new y(this);
-        this.a.a(100);
-        this.a.a(new q(this));
-        this.b.a((String) null);
-        this.a.j();
+        c();
+        d();
     }
 
     @Override // android.app.Activity
@@ -45,32 +43,48 @@ public class InviteFriendListActivity extends com.baidu.tbadk.a implements View.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.b.cancelLoadData();
     }
 
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
+    private void b() {
+        this.b = new af();
+        this.b.setLoadDataCallBack(this.c);
+    }
+
+    private void c() {
+        this.a = new y(this);
+        this.a.a(100);
+        this.a.a(new q(this));
+    }
+
+    private void d() {
+        this.b.a((String) null);
+        this.a.i();
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.a != null) {
-            this.a.i();
-            if (view.getId() == this.a.e()) {
+            this.a.h();
+            if (view.getId() == this.a.d()) {
                 a();
-                this.b.b(this.a.h());
-            } else if (view.getId() == this.a.f()) {
-                this.b.a(this.a.g());
+                this.b.b(this.a.g());
+            } else if (view.getId() == this.a.e()) {
+                this.b.a(this.a.f());
                 a();
             }
         }
     }
 
-    public final void a() {
+    public void a() {
         showLoadingDialog(null, new r(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         this.a.a();
     }

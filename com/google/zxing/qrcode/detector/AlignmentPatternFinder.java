@@ -29,7 +29,7 @@ final class AlignmentPatternFinder {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final AlignmentPattern find() {
+    public AlignmentPattern find() {
         AlignmentPattern handlePossibleCenter;
         AlignmentPattern handlePossibleCenter2;
         int i = this.startX;
@@ -49,24 +49,26 @@ final class AlignmentPatternFinder {
             int i8 = 0;
             for (int i9 = i7; i9 < i3; i9++) {
                 if (this.image.get(i9, i6)) {
-                    if (i8 != 1) {
-                        if (i8 == 2) {
-                            if (foundPatternCross(iArr) && (handlePossibleCenter2 = handlePossibleCenter(iArr, i6, i9)) != null) {
-                                return handlePossibleCenter2;
-                            }
-                            iArr[0] = iArr[2];
-                            iArr[1] = 1;
-                            iArr[2] = 0;
-                            i8 = 1;
-                        } else {
-                            i8++;
-                            iArr[i8] = iArr[i8] + 1;
+                    if (i8 == 1) {
+                        iArr[i8] = iArr[i8] + 1;
+                    } else if (i8 == 2) {
+                        if (foundPatternCross(iArr) && (handlePossibleCenter2 = handlePossibleCenter(iArr, i6, i9)) != null) {
+                            return handlePossibleCenter2;
                         }
+                        iArr[0] = iArr[2];
+                        iArr[1] = 1;
+                        iArr[2] = 0;
+                        i8 = 1;
+                    } else {
+                        i8++;
+                        iArr[i8] = iArr[i8] + 1;
                     }
-                } else if (i8 == 1) {
-                    i8++;
+                } else {
+                    if (i8 == 1) {
+                        i8++;
+                    }
+                    iArr[i8] = iArr[i8] + 1;
                 }
-                iArr[i8] = iArr[i8] + 1;
             }
             if (foundPatternCross(iArr) && (handlePossibleCenter = handlePossibleCenter(iArr, i6, i3)) != null) {
                 return handlePossibleCenter;

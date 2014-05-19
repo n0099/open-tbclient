@@ -1,18 +1,25 @@
 package com.baidu.adp.lib.stats;
 
-import java.io.File;
-import java.io.FilenameFilter;
+import android.content.Context;
 /* loaded from: classes.dex */
-final class g implements FilenameFilter {
-    final /* synthetic */ f a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.a = fVar;
+public class g extends c {
+    public g(Context context, String str) {
+        super(context, str);
+        this.h = 10;
+        this.a = "stat";
+        this.b = ".log";
+        this.c = false;
+        this.d = false;
     }
 
-    @Override // java.io.FilenameFilter
-    public final boolean accept(File file, String str) {
-        return str.endsWith("stat");
+    @Override // com.baidu.adp.lib.stats.c, com.baidu.adp.lib.stats.f
+    public String c() {
+        return "stat";
+    }
+
+    @Override // com.baidu.adp.lib.stats.c, com.baidu.adp.lib.stats.f
+    public void a(String str) {
+        super.a(str);
+        n.a().a(this.r, this.p);
     }
 }

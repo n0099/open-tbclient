@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class RandChatRoomData implements Parcelable {
-    public static final Parcelable.Creator<RandChatRoomData> CREATOR = new h();
+    public static final Parcelable.Creator<RandChatRoomData> CREATOR = new m();
     private int a;
     private int b;
     private int c;
@@ -25,93 +25,93 @@ public class RandChatRoomData implements Parcelable {
         this.j = null;
     }
 
-    public final void a(ChatRoomTopicData chatRoomTopicData) {
+    public void a(ChatRoomTopicData chatRoomTopicData) {
         this.i = chatRoomTopicData;
     }
 
-    public final void a(List<ChatRoomTopicData> list) {
+    public void a(List<ChatRoomTopicData> list) {
         this.j = list;
     }
 
-    public final String a() {
+    public String a() {
         if (this.i == null) {
             return null;
         }
         return this.i.getTitle();
     }
 
-    public final String b() {
+    public String b() {
         if (this.i == null) {
             return null;
         }
         return this.i.getContent();
     }
 
-    public final List<ChatRoomTopicData> c() {
+    public List<ChatRoomTopicData> c() {
         return this.j;
     }
 
-    public final int d() {
+    public int d() {
         return this.a;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.a = i;
     }
 
-    public final int e() {
+    public int e() {
         return this.b;
     }
 
-    public final void b(int i) {
+    public void b(int i) {
         this.b = i;
     }
 
-    public final int f() {
+    public int f() {
         return this.c;
     }
 
-    public final void c(int i) {
+    public void c(int i) {
         this.c = i;
     }
 
-    public final long g() {
+    public long g() {
         return this.d;
     }
 
-    public final void a(long j) {
+    public void a(long j) {
         this.d = j;
     }
 
-    public final long h() {
+    public long h() {
         return this.e;
     }
 
-    public final void b(long j) {
+    public void b(long j) {
         this.e = j;
     }
 
-    public final long i() {
+    public long i() {
         return this.f;
     }
 
-    public final void c(long j) {
+    public void c(long j) {
         this.f = j;
     }
 
-    public final List<UserData> j() {
+    public List<UserData> j() {
         return this.h;
     }
 
-    public final void b(List<UserData> list) {
+    public void b(List<UserData> list) {
         this.h = list;
     }
 
-    public final long k() {
+    public long k() {
         return this.g;
     }
 
-    public final void d(long j) {
+    public void d(long j) {
         this.g = j;
     }
 
@@ -141,7 +141,7 @@ public class RandChatRoomData implements Parcelable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ RandChatRoomData(Parcel parcel, byte b) {
+    public /* synthetic */ RandChatRoomData(Parcel parcel, RandChatRoomData randChatRoomData) {
         this(parcel);
     }
 

@@ -1,77 +1,116 @@
 package com.baidu.adp.lib.stats;
 
-import com.baidu.tieba.switchs.features.VoiceSwitchStatic;
-import java.util.HashMap;
+import android.text.TextUtils;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public final class n {
-    private static n c;
-    private HashMap<String, o> a = new HashMap<>();
-    private HashMap<String, p> b = new HashMap<>();
+public class n {
+    private static n b;
+    private com.baidu.adp.lib.cache.s<String> a = null;
 
     public static n a() {
-        if (c == null) {
-            synchronized (BdStatSwitchData.class) {
-                if (c == null) {
-                    c = new n();
+        if (b == null) {
+            synchronized (n.class) {
+                if (b == null) {
+                    b = new n();
                 }
             }
         }
-        return c;
+        return b;
     }
 
-    public n() {
-        p pVar = new p(this, (byte) 0);
-        pVar.a(3000);
-        pVar.b(120000);
-        pVar.c(500);
-        this.b.put(com.baidu.loginshare.e.e, pVar);
-        this.b.put("op", pVar);
-        this.b.put("stat", pVar);
-        p pVar2 = new p(this, (byte) 0);
-        pVar2.a(60000);
-        pVar2.b(120000);
-        pVar2.c(100);
-        this.b.put("file", pVar2);
-        this.b.put("db", pVar2);
-        this.b.put("img", pVar2);
-        this.b.put(VoiceSwitchStatic.VOICE, pVar2);
+    private com.baidu.adp.lib.cache.s<String> c() {
+        if (this.a == null) {
+            this.a = BdCacheService.c().a("adp.stat.uploadtime", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 100);
+        }
+        return this.a;
     }
 
-    public final boolean a(String str) {
-        p pVar = this.b.get(str);
-        if (pVar == null) {
-            return false;
+    public void a(String str) {
+        if (!com.baidu.adp.lib.util.g.b(str)) {
+            c().a("adp.stat.switch_data", str);
         }
-        o oVar = this.a.get(str);
-        long currentTimeMillis = System.currentTimeMillis();
-        if (oVar == null) {
-            oVar = new o(this, (byte) 0);
-            oVar.b(false);
-            oVar.a(false);
-            oVar.b(currentTimeMillis);
-            this.a.put(str, oVar);
-        }
-        if (oVar.a()) {
-            return true;
-        }
-        if (oVar.e()) {
-            oVar.a(oVar.c() + 1);
-            if (currentTimeMillis - oVar.b() < pVar.b()) {
-                if (oVar.c() >= pVar.c()) {
-                    oVar.a(true);
-                    i.a().a(false, "d", "logfast", null, null, 0L, 99999, str, new Object[0]);
-                    return true;
-                }
-                return false;
+    }
+
+    public String b() {
+        return c().a("adp.stat.switch_data");
+    }
+
+    public void a(long j, String str) {
+        if (j > 0) {
+            String str2 = "adp.stat.stat_upload_time ";
+            if (!TextUtils.isEmpty(str)) {
+                str2 = String.valueOf("adp.stat.stat_upload_time ") + str;
             }
-            oVar.b(false);
-            oVar.a(0);
-        } else if (currentTimeMillis - oVar.d() < pVar.a()) {
-            oVar.b(true);
-            oVar.a(currentTimeMillis);
-            return false;
+            c().a(str2, String.valueOf(j));
         }
-        oVar.b(currentTimeMillis);
-        return false;
+    }
+
+    public long b(String str) {
+        String str2 = "adp.stat.stat_upload_time ";
+        if (!TextUtils.isEmpty(str)) {
+            str2 = String.valueOf("adp.stat.stat_upload_time ") + str;
+        }
+        String a = c().a(str2);
+        if (!TextUtils.isEmpty(a)) {
+            try {
+                return Long.parseLong(a);
+            } catch (Exception e) {
+                BdLog.i(e.getMessage());
+            }
+        }
+        return 0L;
+    }
+
+    public void b(long j, String str) {
+        if (j > 0) {
+            String str2 = "adp.stat.stat_debug_time";
+            if (!TextUtils.isEmpty(str)) {
+                str2 = String.valueOf("adp.stat.stat_debug_time") + str;
+            }
+            c().a(str2, String.valueOf(j));
+        }
+    }
+
+    public long c(String str) {
+        String str2 = "adp.stat.stat_debug_time";
+        if (!TextUtils.isEmpty(str)) {
+            str2 = String.valueOf("adp.stat.stat_debug_time") + str;
+        }
+        String a = c().a(str2);
+        if (!TextUtils.isEmpty(a)) {
+            try {
+                return Long.parseLong(a);
+            } catch (Exception e) {
+                BdLog.i(e.getMessage());
+            }
+        }
+        return 0L;
+    }
+
+    public void c(long j, String str) {
+        if (j > 0) {
+            String str2 = "adp.stat.stat_error_time";
+            if (!TextUtils.isEmpty(str)) {
+                str2 = String.valueOf("adp.stat.stat_error_time") + str;
+            }
+            c().a(str2, String.valueOf(j));
+        }
+    }
+
+    public long d(String str) {
+        String str2 = "adp.stat.stat_error_time";
+        if (!TextUtils.isEmpty(str)) {
+            str2 = String.valueOf("adp.stat.stat_error_time") + str;
+        }
+        String a = c().a(str2);
+        if (!TextUtils.isEmpty(a)) {
+            try {
+                return Long.parseLong(a);
+            } catch (Exception e) {
+                BdLog.i(e.getMessage());
+            }
+        }
+        return 0L;
     }
 }

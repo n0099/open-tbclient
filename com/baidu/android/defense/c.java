@@ -85,7 +85,7 @@ public final class c {
         com.baidu.android.defense.a.b.b();
     }
 
-    public final void a(Intent intent) {
+    public void a(Intent intent) {
         byte[] bytes;
         i a2;
         if (intent == null) {

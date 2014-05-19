@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 /* loaded from: classes.dex */
-public final class n extends Animation {
+public class n extends Animation {
     private Camera a = new Camera();
     private View b;
 
@@ -15,7 +15,7 @@ public final class n extends Animation {
     }
 
     @Override // android.view.animation.Animation
-    protected final void applyTransformation(float f, Transformation transformation) {
+    protected void applyTransformation(float f, Transformation transformation) {
         int width = this.b.getWidth() / 2;
         int height = this.b.getHeight() / 2;
         Matrix matrix = transformation.getMatrix();

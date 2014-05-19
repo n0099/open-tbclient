@@ -4,7 +4,7 @@ import android.content.DialogInterface;
 import android.view.View;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-final class c implements DialogInterface.OnClickListener {
+class c implements DialogInterface.OnClickListener {
     final /* synthetic */ b a;
     private final /* synthetic */ View b;
 
@@ -15,7 +15,7 @@ final class c implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         AccountActivity accountActivity;
         AccountActivity accountActivity2;
         AccountActivity accountActivity3;

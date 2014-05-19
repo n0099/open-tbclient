@@ -1,8 +1,9 @@
 package com.baidu.tieba.pb.main;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-final class aj implements com.baidu.adp.lib.d.c<GifView> {
+class aj implements com.baidu.adp.lib.d.c<GifView> {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,35 +11,32 @@ final class aj implements com.baidu.adp.lib.d.c<GifView> {
         this.a = pbActivity;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* synthetic */ GifView a() {
-        com.baidu.adp.lib.util.f.e("PbActivity", "GifViewPool", "makeObject");
+    /* renamed from: b */
+    public GifView a() {
+        BdLog.d("PbActivity", "GifViewPool", "makeObject");
         return new GifView(this.a);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* synthetic */ void a(GifView gifView) {
-        com.baidu.adp.lib.util.f.e("PbActivity", "GifViewPool", "destroyObject");
-        gifView.b();
+    public void a(GifView gifView) {
+        BdLog.d("PbActivity", "GifViewPool", "destroyObject");
+        gifView.e();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* synthetic */ GifView b(GifView gifView) {
-        GifView gifView2 = gifView;
-        com.baidu.adp.lib.util.f.e("PbActivity", "GifViewPool", "activateObject");
-        return gifView2;
+    public GifView b(GifView gifView) {
+        BdLog.d("PbActivity", "GifViewPool", "activateObject");
+        return gifView;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* synthetic */ GifView c(GifView gifView) {
-        GifView gifView2 = gifView;
-        com.baidu.adp.lib.util.f.e("PbActivity", "GifViewPool", "passivateObject");
-        return gifView2;
+    public GifView c(GifView gifView) {
+        BdLog.d("PbActivity", "GifViewPool", "passivateObject");
+        return gifView;
     }
 }

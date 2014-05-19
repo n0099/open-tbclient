@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.tieba.u;
 import com.google.zxing.ResultPoint;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,43 +48,43 @@ public final class ViewfinderView extends View {
         this.v = false;
         this.c = new Paint(1);
         Resources resources = getResources();
-        this.e = resources.getColor(com.baidu.tieba.a.e.viewfinder_mask);
-        this.f = resources.getColor(com.baidu.tieba.a.e.result_view);
-        this.g = resources.getColor(com.baidu.tieba.a.e.viewfinder_laser);
-        this.h = resources.getColor(com.baidu.tieba.a.e.possible_result_points);
-        this.i = resources.getColor(com.baidu.tieba.a.e.viewfinder_tip_text);
-        this.t = resources.getString(com.baidu.tieba.a.k.bar_code_tip_text1);
-        this.s = resources.getString(com.baidu.tieba.a.k.bar_code_tip_text2);
+        this.e = resources.getColor(com.baidu.tieba.o.viewfinder_mask);
+        this.f = resources.getColor(com.baidu.tieba.o.result_view);
+        this.g = resources.getColor(com.baidu.tieba.o.viewfinder_laser);
+        this.h = resources.getColor(com.baidu.tieba.o.possible_result_points);
+        this.i = resources.getColor(com.baidu.tieba.o.viewfinder_tip_text);
+        this.t = resources.getString(u.bar_code_tip_text1);
+        this.s = resources.getString(u.bar_code_tip_text2);
         this.j = 0;
         this.k = new ArrayList(5);
         this.l = null;
-        this.m = BitmapFactory.decodeResource(resources, com.baidu.tieba.a.g.bg_scanning_code);
-        this.o = BitmapFactory.decodeResource(resources, com.baidu.tieba.a.g.cursor_scanning_code);
+        this.m = BitmapFactory.decodeResource(resources, com.baidu.tieba.q.bg_scanning_code);
+        this.o = BitmapFactory.decodeResource(resources, com.baidu.tieba.q.cursor_scanning_code);
         this.n = new Rect(0, 0, this.m.getWidth(), this.m.getHeight());
-        this.u = resources.getDimensionPixelSize(com.baidu.tieba.a.f.bar_code_tip_text_margin_top);
-        this.q = resources.getDimensionPixelSize(com.baidu.tieba.a.f.bar_code_tip_text);
+        this.u = resources.getDimensionPixelSize(com.baidu.tieba.p.bar_code_tip_text_margin_top);
+        this.q = resources.getDimensionPixelSize(com.baidu.tieba.p.bar_code_tip_text);
     }
 
-    public final void setCameraManager(com.baidu.tieba.barcode.a.e eVar) {
+    public void setCameraManager(com.baidu.tieba.barcode.a.e eVar) {
         this.b = eVar;
         this.r.removeMessages(1);
         this.r.sendMessage(this.r.obtainMessage(1));
     }
 
-    public final void a() {
+    public void a() {
         this.p = 0;
         this.v = true;
         this.r.removeMessages(1);
     }
 
-    public final void b() {
+    public void b() {
         this.v = false;
         this.r.removeMessages(1);
         this.r.sendMessage(this.r.obtainMessage(1));
     }
 
     @Override // android.view.View
-    public final void onDraw(Canvas canvas) {
+    public void onDraw(Canvas canvas) {
         Rect e;
         if (this.b != null && (e = this.b.e()) != null) {
             int width = canvas.getWidth();
@@ -150,7 +151,7 @@ public final class ViewfinderView extends View {
         }
     }
 
-    public final void c() {
+    public void c() {
         Bitmap bitmap = this.d;
         this.d = null;
         if (bitmap != null) {
@@ -159,7 +160,7 @@ public final class ViewfinderView extends View {
         invalidate();
     }
 
-    public final void a(ResultPoint resultPoint) {
+    public void a(ResultPoint resultPoint) {
         List<ResultPoint> list = this.k;
         synchronized (list) {
             list.add(resultPoint);
@@ -170,11 +171,11 @@ public final class ViewfinderView extends View {
         }
     }
 
-    public final void d() {
+    public void d() {
         this.r.removeMessages(1);
     }
 
-    public final void e() {
+    public void e() {
         if (this.m != null && !this.m.isRecycled()) {
             this.m.recycle();
             this.m = null;

@@ -6,22 +6,22 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public abstract class BdAsyncTask<Params, Progress, Result> {
-    private static final f a = f.a();
-    private static d b = new d((byte) 0);
-    private static /* synthetic */ int[] p;
-    private volatile BdAsyncTaskStatus e = BdAsyncTaskStatus.PENDING;
-    private int f = 1;
-    private int g = 0;
-    private int h = 0;
-    private String i = null;
-    private BdAsyncTaskParallelType j = BdAsyncTaskParallelType.MAX_PARALLEL;
-    private boolean k = false;
-    private int l = 120000;
-    private boolean m = false;
-    private boolean n = false;
-    private final AtomicBoolean o = new AtomicBoolean();
-    private final e<Params, Result> c = new a(this);
-    private final l<Result> d = new b(this, this.c, this);
+    private static /* synthetic */ int[] $SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus = null;
+    private static final int MESSAGE_POST_PROGRESS = 2;
+    private static final int MESSAGE_POST_RESULT = 1;
+    private static final f sDefaultExecutor = f.a();
+    private static final d sHandler = new d(null);
+    private final k<Result> mFuture;
+    private final e<Params, Result> mWorker;
+    private volatile BdAsyncTaskStatus mStatus = BdAsyncTaskStatus.PENDING;
+    private int mPriority = 1;
+    private int mTag = 0;
+    private String mKey = null;
+    private BdAsyncTaskParallel mParallel = null;
+    private boolean isSelfExecute = false;
+    private final AtomicBoolean mTaskInvoked = new AtomicBoolean(false);
+    private final AtomicBoolean mPreCancelInvoked = new AtomicBoolean(false);
+    private boolean mIsTimeout = false;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskStatus {
@@ -41,10 +41,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract Result a(Params... paramsArr);
+    public abstract Result doInBackground(Params... paramsArr);
 
-    private static /* synthetic */ int[] a() {
-        int[] iArr = p;
+    static /* synthetic */ int[] $SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus() {
+        int[] iArr = $SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus;
         if (iArr == null) {
             iArr = new int[BdAsyncTaskStatus.valuesCustom().length];
             try {
@@ -59,142 +59,100 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                 iArr[BdAsyncTaskStatus.RUNNING.ordinal()] = 2;
             } catch (NoSuchFieldError e3) {
             }
-            p = iArr;
+            $SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus = iArr;
         }
         return iArr;
     }
 
-    public void setIsTimeout(boolean z) {
-        this.n = z;
-    }
-
-    public boolean getIsTimeout() {
-        return this.n;
-    }
-
-    public boolean getNeedImmediatelyCancel() {
-        return this.m;
-    }
-
-    public void setNeedImmediatelyCancel(boolean z) {
-        this.m = z;
-    }
-
-    public void setTaskMaxTime(int i) {
-        this.l = i;
-    }
-
-    public int getTaskMaxTime() {
-        return this.l;
-    }
-
-    public static void updateInternalHandler() {
-        b = new d((byte) 0);
-    }
-
-    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllTask(int i) {
-        return a.a(i);
-    }
-
-    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllTask(int i, String str) {
-        return a.a(i, str);
-    }
-
-    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllQueueTask(int i) {
-        return a.b(i);
-    }
-
-    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllQueueTask(int i, String str) {
-        return a.b(i, str);
-    }
-
-    public static LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(int i) {
-        return a.c(i);
-    }
-
-    public static LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(int i, String str) {
-        return a.c(i, str);
-    }
-
-    public static BdAsyncTask<?, ?, ?> searchTask(String str) {
-        return a.a(str);
-    }
-
-    public static BdAsyncTask<?, ?, ?> searchWaitingTask(String str) {
-        return a.b(str);
-    }
-
-    public static BdAsyncTask<?, ?, ?> searchActivTask(String str) {
-        return a.c(str);
+    public BdAsyncTask() {
+        com.baidu.adp.lib.util.h.b();
+        this.mWorker = new a(this);
+        this.mFuture = new b(this, this.mWorker, this);
     }
 
     public int setPriority(int i) {
-        if (this.e != BdAsyncTaskStatus.PENDING) {
+        if (this.mStatus != BdAsyncTaskStatus.PENDING) {
             throw new IllegalStateException("the task is already running");
         }
-        int i2 = this.f;
-        this.f = i;
+        int i2 = this.mPriority;
+        this.mPriority = i;
         return i2;
     }
 
     public int getPriority() {
-        return this.f;
+        return this.mPriority;
     }
 
     public int getTag() {
-        return this.g;
+        return this.mTag;
     }
 
     public int setTag(int i) {
-        if (this.e != BdAsyncTaskStatus.PENDING) {
+        if (this.mStatus != BdAsyncTaskStatus.PENDING) {
             throw new IllegalStateException("the task is already running");
         }
-        int i2 = this.g;
-        this.g = i;
+        int i2 = this.mTag;
+        this.mTag = i;
         return i2;
     }
 
     public String getKey() {
-        return this.i;
+        return this.mKey;
     }
 
     public String setKey(String str) {
-        if (this.e != BdAsyncTaskStatus.PENDING) {
+        if (this.mStatus != BdAsyncTaskStatus.PENDING) {
             throw new IllegalStateException("the task is already running");
         }
-        String str2 = this.i;
-        this.i = str;
+        String str2 = this.mKey;
+        this.mKey = str;
         return str2;
     }
 
-    public BdAsyncTaskParallelType getType() {
-        return this.j;
+    public BdAsyncTaskParallel getParallel() {
+        return this.mParallel;
     }
 
-    public void setType(BdAsyncTaskParallelType bdAsyncTaskParallelType) {
-        if (this.e != BdAsyncTaskStatus.PENDING) {
+    public void setParallel(BdAsyncTaskParallel bdAsyncTaskParallel) {
+        if (this.mStatus != BdAsyncTaskStatus.PENDING) {
             throw new IllegalStateException("the task is already running");
         }
-        if (this.h == 0) {
-            throw new IllegalStateException("ParallelTag hasn't setted!");
+        if (bdAsyncTaskParallel != null) {
+            this.mParallel = bdAsyncTaskParallel;
         }
-        this.j = bdAsyncTaskParallelType;
+    }
+
+    public boolean isSelfExecute() {
+        return this.isSelfExecute;
+    }
+
+    public void setSelfExecute(boolean z) {
+        if (this.mStatus != BdAsyncTaskStatus.PENDING) {
+            throw new IllegalStateException("the task is already running");
+        }
+        this.isSelfExecute = z;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setTimeout(boolean z) {
+        this.mIsTimeout = z;
+    }
+
+    public boolean isTimeout() {
+        return this.mIsTimeout;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Result c(Result result) {
-        synchronized (this) {
-            if (this.o.get()) {
-                return null;
-            }
-            this.o.set(true);
-            b.obtainMessage(1, new c(this, result)).sendToTarget();
+    public Result postResult(Result result) {
+        if (this.mTaskInvoked.compareAndSet(false, true)) {
+            sHandler.obtainMessage(1, new c(this, result)).sendToTarget();
             return result;
         }
+        return null;
     }
 
     public final BdAsyncTaskStatus getStatus() {
-        return this.e;
+        return this.mStatus;
     }
 
     public void cancel() {
@@ -202,113 +160,132 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void b() {
+    public void onPreCancel() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void c() {
+    public void onPreExecute() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(Result result) {
+    public void onPostExecute(Result result) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void b(Progress... progressArr) {
+    public void onProgressUpdate(Progress... progressArr) {
     }
 
-    protected void b(Result result) {
-        d();
+    protected void onCancelled(Result result) {
+        onCancelled();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void d() {
+    public void onCancelled() {
     }
 
     public final boolean isCancelled() {
-        return this.d.isCancelled();
+        return this.mFuture.isCancelled();
     }
 
     public final boolean cancel(boolean z) {
-        if (!this.k) {
-            a.a((BdAsyncTask<?, ?, ?>) this);
+        com.baidu.adp.lib.util.h.b();
+        if (!this.isSelfExecute) {
+            sDefaultExecutor.a((BdAsyncTask<?, ?, ?>) this);
         }
-        boolean cancel = this.d.cancel(z);
-        b();
+        boolean cancel = this.mFuture.cancel(z);
+        if (this.mPreCancelInvoked.compareAndSet(false, true)) {
+            onPreCancel();
+        }
         return cancel;
     }
 
     public final Result get() {
-        return this.d.get();
+        return this.mFuture.get();
     }
 
     public final Result get(long j, TimeUnit timeUnit) {
-        return this.d.get(j, timeUnit);
+        return this.mFuture.get(j, timeUnit);
     }
 
     public final BdAsyncTask<Params, Progress, Result> execute(Params... paramsArr) {
-        return executeOnExecutor(a, paramsArr);
+        return executeOnExecutor(sDefaultExecutor, paramsArr);
     }
 
     public final BdAsyncTask<Params, Progress, Result> executeOnExecutor(Executor executor, Params... paramsArr) {
-        if (this.e != BdAsyncTaskStatus.PENDING) {
-            switch (a()[this.e.ordinal()]) {
+        com.baidu.adp.lib.util.h.b();
+        if (this.mStatus != BdAsyncTaskStatus.PENDING) {
+            switch ($SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus()[this.mStatus.ordinal()]) {
                 case 2:
                     throw new IllegalStateException("Cannot execute task: the task is already running.");
                 case 3:
                     throw new IllegalStateException("Cannot execute task: the task has already been executed (a task can be executed only once)");
             }
         }
-        this.e = BdAsyncTaskStatus.RUNNING;
-        c();
-        this.c.b = paramsArr;
-        executor.execute(this.d);
+        this.mStatus = BdAsyncTaskStatus.RUNNING;
+        onPreExecute();
+        this.mWorker.b = paramsArr;
+        executor.execute(this.mFuture);
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void c(Progress... progressArr) {
+    public final void publishProgress(Progress... progressArr) {
         if (!isCancelled()) {
-            b.obtainMessage(2, new c(this, progressArr)).sendToTarget();
+            sHandler.obtainMessage(2, new c(this, progressArr)).sendToTarget();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(BdAsyncTask bdAsyncTask, Object obj) {
-        if (bdAsyncTask.isCancelled()) {
-            bdAsyncTask.b((BdAsyncTask) obj);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void finish(Result result) {
+        if (isCancelled()) {
+            onCancelled(result);
         } else {
-            bdAsyncTask.a((BdAsyncTask) obj);
+            onPostExecute(result);
         }
-        bdAsyncTask.e = BdAsyncTaskStatus.FINISHED;
+        this.mStatus = BdAsyncTaskStatus.FINISHED;
     }
 
-    public boolean isSelfExecute() {
-        return this.k;
+    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllTask(int i) {
+        return sDefaultExecutor.a(i);
     }
 
-    public void setSelfExecute(boolean z) {
-        if (this.e != BdAsyncTaskStatus.PENDING) {
-            throw new IllegalStateException("the task is already running");
-        }
-        this.k = z;
+    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllTask(int i, String str) {
+        return sDefaultExecutor.a(i, str);
     }
 
-    public void setImmediatelyExecut(boolean z) {
-        if (z) {
-            this.f = 4;
-        }
+    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllQueueTask(int i) {
+        return sDefaultExecutor.b(i);
     }
 
-    public boolean isImmediatelyExecut() {
-        return this.f == 4;
+    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllQueueTask(int i, String str) {
+        return sDefaultExecutor.b(i, str);
     }
 
-    public int getParallelTag() {
-        return this.h;
+    public static LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(int i) {
+        return sDefaultExecutor.d(i);
     }
 
-    public void setParallelTag(int i) {
-        this.h = i;
+    public static LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(int i, String str) {
+        return sDefaultExecutor.c(i, str);
+    }
+
+    public static BdAsyncTask<?, ?, ?> searchTask(String str) {
+        return sDefaultExecutor.a(str);
+    }
+
+    public static BdAsyncTask<?, ?, ?> searchWaitingTask(String str) {
+        return sDefaultExecutor.b(str);
+    }
+
+    public static LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask(int i) {
+        return sDefaultExecutor.e(i);
+    }
+
+    public static BdAsyncTask<?, ?, ?> searchActivTask(String str) {
+        return sDefaultExecutor.c(str);
+    }
+
+    public static int findTaskNum(int i) {
+        return sDefaultExecutor.c(i);
     }
 }

@@ -43,18 +43,20 @@ public class e implements Runnable {
             try {
                 HttpResponse execute = proxyHttpClient.execute(httpPost);
                 r0 = execute.getStatusLine().getStatusCode() == 200 ? EntityUtils.toString(execute.getEntity()) : null;
-                proxyHttpClient.close();
-            } catch (IOException e) {
+                if (proxyHttpClient != null) {
+                    proxyHttpClient.close();
+                }
+            } catch (Exception e) {
                 if (proxyHttpClient != null) {
                     proxyHttpClient.close();
                 }
                 return r0;
-            } catch (Exception e2) {
+            } catch (ClientProtocolException e2) {
                 if (proxyHttpClient != null) {
                     proxyHttpClient.close();
                 }
                 return r0;
-            } catch (ClientProtocolException e3) {
+            } catch (IOException e3) {
                 if (proxyHttpClient != null) {
                     proxyHttpClient.close();
                 }

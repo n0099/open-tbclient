@@ -2,9 +2,10 @@ package com.baidu.tieba;
 
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-final class e extends Handler {
+class e extends Handler {
     final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,17 +14,15 @@ final class e extends Handler {
     }
 
     @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    public void handleMessage(Message message) {
         boolean z;
         this.a.b = true;
         z = this.a.a;
         if (z) {
-            if (!this.a.getDatabasePath("baidu_tieba.db").exists()) {
-                TbadkApplication.a(com.baidu.tbadk.core.a.o.c(), this.a.getBaseContext());
+            if (!this.a.getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
+                TbadkApplication.setCurrentAccount(com.baidu.tbadk.core.account.a.c(), this.a.getBaseContext());
             }
-            LogoActivity logoActivity = this.a;
-            this.a.getBaseContext();
-            logoActivity.a();
+            this.a.a(this.a.getBaseContext());
         }
         super.handleMessage(message);
     }

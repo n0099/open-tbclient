@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumfeed;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class k implements Runnable {
+public class k implements Runnable {
     final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,11 +10,11 @@ public final class k implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         boolean z;
-        z = this.a.o;
+        z = this.a.n;
         if (z) {
-            this.a.k();
+            this.a.i();
         }
     }
 }

@@ -3,45 +3,14 @@ package com.baidu.tieba.image;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class k extends BdAsyncTask<String, Integer, String> {
+public class k extends BdAsyncTask<String, Integer, String> {
     String a;
     byte[] b;
     final /* synthetic */ ImageViewerActivity c;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ String a(String... strArr) {
-        switch (w.a(this.a, this.b, this.c)) {
-            case -2:
-                return w.b();
-            case -1:
-            default:
-                return this.c.getString(com.baidu.tieba.a.k.save_error);
-            case 0:
-                return this.c.getString(com.baidu.tieba.a.k.save_image_to_album);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(String str) {
-        TextView textView;
-        ProgressBar progressBar;
-        String str2 = str;
-        super.a((k) str2);
-        this.c.showToast(str2);
-        this.c.h = null;
-        textView = this.c.i;
-        textView.setVisibility(0);
-        progressBar = this.c.a;
-        progressBar.setVisibility(8);
-    }
 
     public k(ImageViewerActivity imageViewerActivity, String str, byte[] bArr) {
         this.c = imageViewerActivity;
@@ -51,14 +20,46 @@ public final class k extends BdAsyncTask<String, Integer, String> {
         this.b = bArr;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void d() {
-        super.d();
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        switch (x.a(this.a, this.b, this.c)) {
+            case -2:
+                return x.b();
+            case -1:
+            default:
+                return this.c.getString(u.save_error);
+            case 0:
+                return this.c.getString(u.save_image_to_album);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(String str) {
+        TextView textView;
+        ProgressBar progressBar;
+        super.onPostExecute(str);
+        this.c.showToast(str);
+        this.c.h = null;
+        textView = this.c.i;
+        textView.setVisibility(0);
+        progressBar = this.c.a;
+        progressBar.setVisibility(8);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onCancelled() {
+        super.onCancelled();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
+    public void cancel() {
         TextView textView;
         ProgressBar progressBar;
         this.c.h = null;

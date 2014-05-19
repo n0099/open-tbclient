@@ -1,8 +1,9 @@
 package com.baidu.tieba.write;
 
 import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ac implements DialogInterface.OnCancelListener {
+public class ac implements DialogInterface.OnCancelListener {
     final /* synthetic */ VcodeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +12,7 @@ final class ac implements DialogInterface.OnCancelListener {
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
-    public final void onCancel(DialogInterface dialogInterface) {
+    public void onCancel(DialogInterface dialogInterface) {
         af afVar;
         af afVar2;
         this.a.DeinitWaitingDialog();

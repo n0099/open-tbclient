@@ -1,23 +1,25 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class bq implements DialogInterface.OnClickListener {
-    final /* synthetic */ bn a;
+public class bq extends com.baidu.adp.framework.listener.b {
+    final /* synthetic */ bm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(bn bnVar) {
-        this.a = bnVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bq(bm bmVar, int i) {
+        super(i);
+        this.a = bmVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        if (i == 0) {
-            this.a.j();
-        } else if (i == 1) {
-            com.baidu.tbadk.core.util.az.a(this.a.getActivity());
-        } else if (i == 2) {
-            com.baidu.tbadk.core.util.az.b(this.a.getActivity());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 2003124) {
+            return;
         }
+        this.a.a(socketResponsedMessage);
     }
 }

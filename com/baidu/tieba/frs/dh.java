@@ -1,186 +1,162 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.frameworkData.CmdConfig;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class dh extends com.baidu.adp.a.f {
-    public LinearLayout a;
-    private LinearLayout c;
-    private BdSwitchView d;
-    private BdSwitchView e;
-    private View f;
-    private TextView g;
-    private LinearLayout h;
-    private LinearLayout i;
-    private TextView j;
-    private View.OnClickListener k;
-    private boolean l;
-    private final com.baidu.adp.widget.BdSwitchView.c m;
+public class dh {
+    private ForumData a;
+    private ArrayList<com.baidu.tieba.data.as> b;
+    private ArrayList<String> c;
+    private int d;
+    private int e;
+    private int f;
+    private AntiData g;
+    private com.baidu.tieba.data.ad h;
+    private String i = null;
+    private String j = null;
+    private co k = null;
+    private co l = null;
+    private int m = com.baidu.adp.framework.d.a().b();
+    private HttpMessageListener n = new di(this, CmdConfig.FRS_WATER_FALL_PHOTO_HTTP_CMD);
+    private HttpMessageListener o = new dj(this, CmdConfig.FRS_WATER_FALL_LIST_HTTP_CMD);
 
-    public dh(Context context) {
-        super(context);
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.a = null;
-        this.j = null;
-        this.k = null;
-        this.m = new di(this);
-        this.f = LayoutInflater.from(this.b).inflate(com.baidu.tieba.a.i.frs_sidebar, (ViewGroup) null);
-        this.j = (TextView) this.f.findViewById(com.baidu.tieba.a.h.add_recommend);
-        this.a = (LinearLayout) this.f.findViewById(com.baidu.tieba.a.h.forum_manager_center);
-        this.a.setVisibility(8);
-        this.e = (BdSwitchView) this.f.findViewById(com.baidu.tieba.a.h.thrift_mode_switch);
-        this.e.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
-        this.c = (LinearLayout) this.f.findViewById(com.baidu.tieba.a.h.eyeshield_mode);
-        this.d = (BdSwitchView) this.f.findViewById(com.baidu.tieba.a.h.eyeshield_mode_switch);
-        this.d.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.b);
-        this.d.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
-        this.g = (TextView) this.f.findViewById(com.baidu.tieba.a.h.message_btn);
-        this.h = (LinearLayout) this.f.findViewById(com.baidu.tieba.a.h.message_layout);
-        this.i = (LinearLayout) this.f.findViewById(com.baidu.tieba.a.h.recommend_forum_layout);
+    public dh() {
+        i();
+        g();
     }
 
-    public final View a() {
-        return this.f;
+    private void i() {
+        this.a = new ForumData();
+        this.b = new ArrayList<>();
+        this.c = new ArrayList<>();
+        this.d = 0;
+        this.e = 0;
+        this.f = 0;
+        this.g = new AntiData();
+        this.h = new com.baidu.tieba.data.ad();
     }
 
-    public final void d() {
-        if (TbadkApplication.j().l() == 1) {
-            this.d.a();
-        } else {
-            this.d.b();
-        }
-        this.e.setOnSwitchStateChangeListener(null);
-        if (com.baidu.tbadk.core.h.a().f()) {
-            this.e.a();
-        } else {
-            this.e.b();
-        }
-        this.e.setOnSwitchStateChangeListener(this.m);
+    public com.baidu.tieba.data.ad a() {
+        return this.h;
     }
 
-    public final void a(boolean z) {
-        if (z) {
-            this.a.setVisibility(0);
-        } else {
-            this.a.setVisibility(8);
-        }
+    public ForumData b() {
+        return this.a;
     }
 
-    public final BdSwitchView e() {
+    public ArrayList<com.baidu.tieba.data.as> c() {
+        return this.b;
+    }
+
+    public ArrayList<String> d() {
+        return this.c;
+    }
+
+    public int e() {
         return this.d;
     }
 
-    public final boolean f() {
-        return this.l;
+    public AntiData f() {
+        return this.g;
     }
 
-    public final void b(boolean z) {
-        this.l = false;
+    public void g() {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfig.FRS_WATER_FALL_LIST_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/photolist");
+        tbHttpMessageTask.setResponsedClass(ImageForumListResponsedMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
+        messageManager.registerListener(this.o);
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfig.FRS_WATER_FALL_PHOTO_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/photo");
+        tbHttpMessageTask2.setResponsedClass(ImageForumResponsedMessage.class);
+        messageManager.registerTask(tbHttpMessageTask2);
+        messageManager.registerListener(this.n);
     }
 
-    public final void a(cw cwVar) {
-        long a = cwVar.a() + cwVar.b();
-        boolean z = TbadkApplication.j().l() == 1;
-        if (a > 0) {
-            this.g.setVisibility(0);
-            if (a < 10) {
-                this.g.setText(String.valueOf(a));
-                this.g.setBackgroundResource(z ? com.baidu.tieba.a.g.icon_news_head_prompt_one_1 : com.baidu.tieba.a.g.icon_news_head_prompt_one);
-                return;
-            } else if (a < 100) {
-                this.g.setText(String.valueOf(a));
-                this.g.setBackgroundResource(z ? com.baidu.tieba.a.g.icon_news_head_prompt_two_1 : com.baidu.tieba.a.g.icon_news_head_prompt_two);
-                return;
-            } else {
-                this.g.setText("   ");
-                this.g.setBackgroundResource(z ? com.baidu.tieba.a.g.icon_news_head_prompt_more_1 : com.baidu.tieba.a.g.icon_news_head_prompt_more);
-                return;
+    /* JADX INFO: Access modifiers changed from: private */
+    public int a(HttpResponsedMessage httpResponsedMessage) {
+        Object extra = httpResponsedMessage.getOrginalMessage().getExtra();
+        if (extra != null) {
+            return com.baidu.adp.lib.f.b.a(extra.toString(), 0);
+        }
+        return 0;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public dk a(HttpResponsedMessage httpResponsedMessage, int i, int i2) {
+        dk dkVar = new dk(this);
+        dkVar.a = true;
+        dkVar.b = i == 200;
+        dkVar.c = i2;
+        dkVar.d = httpResponsedMessage.getErrorString();
+        dkVar.e = com.baidu.adp.lib.f.b.a(httpResponsedMessage.getContentLength(), 0L);
+        return dkVar;
+    }
+
+    public void a(int i, int i2, int i3) {
+        if (MessageManager.getInstance().findMessage(CmdConfig.FRS_WATER_FALL_LIST_HTTP_CMD, this.m).size() <= 0) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfig.FRS_WATER_FALL_LIST_HTTP_CMD);
+            if (this.i != null) {
+                httpMessage.addParam(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.i);
             }
+            httpMessage.setExtra(Integer.valueOf(i));
+            httpMessage.addParam("kw", this.j);
+            httpMessage.addParam("bs", String.valueOf(i));
+            httpMessage.addParam("be", String.valueOf((i + 240) - 1));
+            httpMessage.addParam("an", String.valueOf(30));
+            httpMessage.addParam("scr_w", String.valueOf(i2));
+            httpMessage.addParam("scr_h", String.valueOf(i3));
+            httpMessage.setTag(this.m);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        this.g.setVisibility(4);
     }
 
-    public final void a(View.OnClickListener onClickListener) {
-        this.k = onClickListener;
-        this.h.setOnClickListener(this.k);
-        this.a.setOnClickListener(this.k);
-    }
-
-    public final void a(ArrayList<com.baidu.tbadk.core.data.m> arrayList) {
-        this.i.removeAllViews();
-        if (arrayList == null || arrayList.size() == 0) {
-            this.j.setVisibility(8);
-            return;
-        }
-        this.j.setVisibility(0);
-        LayoutInflater from = LayoutInflater.from(this.b);
-        com.baidu.tbadk.core.util.b bVar = new com.baidu.tbadk.core.util.b(this.b);
-        int size = arrayList.size();
-        if (size != 0) {
-            int i = size > 10 ? 10 : size;
-            int l = TbadkApplication.j().l();
-            com.baidu.tbadk.core.c layoutMode = ((com.baidu.tbadk.a) this.b).getLayoutMode();
-            layoutMode.a(l == 1);
-            for (int i2 = 0; i2 < i; i2++) {
-                LinearLayout linearLayout = (LinearLayout) from.inflate(com.baidu.tieba.a.i.frs_sidebar_item, (ViewGroup) null);
-                layoutMode.a(linearLayout);
-                String str = arrayList.get(i2).a;
-                String str2 = arrayList.get(i2).b;
-                String str3 = arrayList.get(i2).d;
-                dk dkVar = new dk(this);
-                dkVar.a = str;
-                dkVar.b = str3;
-                LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(com.baidu.tieba.a.h.recommend_forum_item_layout);
-                ((TextView) linearLayout.findViewById(com.baidu.tieba.a.h.recommend_forum_name)).setText(str);
-                linearLayout2.setOnClickListener(this.k);
-                linearLayout2.setTag(dkVar);
-                bVar.b(str2, new dj(this, (HeadImageView) linearLayout.findViewById(com.baidu.tieba.a.h.recommend_forum_image)));
-                this.i.addView(linearLayout);
+    public void a(int i) {
+        if (MessageManager.getInstance().findMessage(CmdConfig.FRS_WATER_FALL_PHOTO_HTTP_CMD, this.m).size() <= 0) {
+            if (i < 0) {
+                i = 0;
             }
-        }
-    }
-
-    public final void b(ArrayList<com.baidu.tieba.data.x> arrayList) {
-        if (arrayList != null) {
-            this.i.removeAllViews();
-            LayoutInflater from = LayoutInflater.from(this.b);
-            int size = arrayList.size();
-            if (size != 0) {
-                int i = size > 10 ? 10 : size;
-                int l = TbadkApplication.j().l();
-                com.baidu.tbadk.core.c layoutMode = ((com.baidu.tbadk.a) this.b).getLayoutMode();
-                layoutMode.a(l == 1);
-                for (int i2 = 0; i2 < i; i2++) {
-                    LinearLayout linearLayout = (LinearLayout) from.inflate(com.baidu.tieba.a.i.frs_sidebar_item, (ViewGroup) null);
-                    layoutMode.a(linearLayout);
-                    TextView textView = (TextView) linearLayout.findViewById(com.baidu.tieba.a.h.recommend_forum_name);
-                    String b = arrayList.get(i2).b();
-                    textView.setText(b);
-                    textView.setTag(b);
-                    textView.setOnClickListener(this.k);
-                    this.i.addView(linearLayout);
-                }
+            HttpMessage httpMessage = new HttpMessage(CmdConfig.FRS_WATER_FALL_PHOTO_HTTP_CMD);
+            httpMessage.setExtra(Integer.valueOf(i));
+            StringBuilder sb = new StringBuilder();
+            int size = d().size();
+            for (int i2 = i; i2 < size && i2 < i + 30; i2++) {
+                sb.append(d().get(i2));
+                sb.append(",");
             }
+            int length = sb.length();
+            if (length > 1 && sb.charAt(length - 1) == ',') {
+                sb.deleteCharAt(length - 1);
+            }
+            httpMessage.addParam("alb_ids", sb.toString());
+            httpMessage.addParam("kw", this.j);
+            httpMessage.setTag(this.m);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public final void a(int i) {
-        com.baidu.tbadk.core.c layoutMode = ((com.baidu.tbadk.a) this.b).getLayoutMode();
-        layoutMode.a(i == 1);
-        layoutMode.a(this.f);
+    public void h() {
+        MessageManager.getInstance().removeMessage(CmdConfig.FRS_WATER_FALL_LIST_HTTP_CMD, this.m);
+        MessageManager.getInstance().removeMessage(CmdConfig.FRS_WATER_FALL_PHOTO_HTTP_CMD, this.m);
+    }
+
+    public void a(String str, String str2) {
+        this.i = str;
+        this.j = str2;
+    }
+
+    public void a(co coVar) {
+        this.k = coVar;
+    }
+
+    public void b(co coVar) {
+        this.l = coVar;
     }
 }

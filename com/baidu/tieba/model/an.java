@@ -1,15 +1,16 @@
 package com.baidu.tieba.model;
 
 import android.content.Context;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ForumData;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class an {
+public class an {
     private Context a;
-    private com.baidu.tieba.data.am b = new com.baidu.tieba.data.am();
+    private com.baidu.tieba.data.ao b = new com.baidu.tieba.data.ao();
 
     public an(Context context, String str) {
         this.a = context;
@@ -33,18 +34,18 @@ public final class an {
             ForumData forumData = new ForumData();
             forumData.parserJson(optJSONObject2);
             this.b.a(forumData);
-            com.baidu.tieba.data.ai aiVar = new com.baidu.tieba.data.ai();
-            aiVar.a(optJSONObject);
-            aiVar.a(this.a);
-            this.b.a(aiVar);
+            com.baidu.tieba.data.ah ahVar = new com.baidu.tieba.data.ah();
+            ahVar.a(optJSONObject);
+            ahVar.a(this.a);
+            this.b.a(ahVar);
             int length = optJSONArray.length();
-            ArrayList<com.baidu.tieba.data.ai> arrayList = new ArrayList<>();
+            ArrayList<com.baidu.tieba.data.ah> arrayList = new ArrayList<>();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                com.baidu.tieba.data.ai aiVar2 = new com.baidu.tieba.data.ai();
-                aiVar2.a(jSONObject2);
-                aiVar2.a(this.a);
-                arrayList.add(aiVar2);
+                com.baidu.tieba.data.ah ahVar2 = new com.baidu.tieba.data.ah();
+                ahVar2.a(jSONObject2);
+                ahVar2.a(this.a);
+                arrayList.add(ahVar2);
             }
             this.b.a(arrayList);
             JSONObject optJSONObject5 = jSONObject.optJSONObject("page");
@@ -52,16 +53,16 @@ public final class an {
             int optInt2 = optJSONObject5.optInt("page_size");
             int optInt3 = optJSONObject5.optInt("current_page");
             int optInt4 = optJSONObject5.optInt("total_count");
-            this.b.d(optInt3);
-            this.b.c(optInt2);
-            this.b.b(optInt4);
-            this.b.a(optInt);
+            this.b.e(optInt3);
+            this.b.d(optInt2);
+            this.b.c(optInt4);
+            this.b.b(optInt);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("MentionSubPbModel", "parseJson", "error = " + e.getMessage());
+            BdLog.e("MentionSubPbModel", "parseJson", "error = " + e.getMessage());
         }
     }
 
-    public final com.baidu.tieba.data.am a() {
+    public com.baidu.tieba.data.ao a() {
         return this.b;
     }
 }

@@ -1,13 +1,15 @@
 package com.baidu.tieba.im.messageCenter;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.b.w;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.x;
 /* loaded from: classes.dex */
-final class k implements com.baidu.adp.framework.task.a<w> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<w> a(com.baidu.adp.framework.message.a<w> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            com.baidu.tieba.im.pushNotify.a.d().b(aVar.a().d().getBooleanExtra("isNeedShowNotify", false), null);
+class k implements CustomMessageTask.CustomRunnable<x> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<x> run(CustomMessage<x> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            com.baidu.tieba.im.e.a(customMessage.getData().getContext());
         }
         return null;
     }

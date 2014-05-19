@@ -1,5 +1,6 @@
 package com.baidu.tbadk.editortool;
 
+import android.content.Context;
 import com.baidu.tbadk.TbadkApplication;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,12 +9,10 @@ public class w implements com.baidu.tbadk.imageManager.b {
     protected static final HashMap<String, Integer> a = new HashMap<>();
     public static final ArrayList<Integer> b = new ArrayList<>();
     public static final HashMap<String, Integer> c = new HashMap<>();
-    private static final HashMap<String, String> d;
+    private static final HashMap<String, String> d = new HashMap<>();
 
     static {
-        HashMap<String, String> hashMap = new HashMap<>();
-        d = hashMap;
-        hashMap.put("B_0001", "HI");
+        d.put("B_0001", "HI");
         d.put("B_0002", "KISS");
         d.put("B_0003", "不说");
         d.put("B_0004", "不要");
@@ -423,10 +422,10 @@ public class w implements com.baidu.tbadk.imageManager.b {
     }
 
     @Override // com.baidu.tbadk.imageManager.b
-    public final int a(String str) {
+    public int a(String str) {
         Integer num = a.get(str);
         if ("video_icon".equals(str)) {
-            return Integer.valueOf(TbadkApplication.j().l() == 1 ? com.baidu.tbadk.i.ico_link_video_1 : com.baidu.tbadk.i.ico_link_video).intValue();
+            return Integer.valueOf(TbadkApplication.m252getInst().getSkinType() == 1 ? com.baidu.tieba.q.ico_link_video_1 : com.baidu.tieba.q.ico_link_video).intValue();
         } else if (num != null) {
             return num.intValue();
         } else {
@@ -435,7 +434,7 @@ public class w implements com.baidu.tbadk.imageManager.b {
     }
 
     @Override // com.baidu.tbadk.imageManager.b
-    public final int b(String str) {
+    public int b(String str) {
         Integer num = c.get(str);
         if (num != null) {
             return num.intValue();
@@ -444,12 +443,17 @@ public class w implements com.baidu.tbadk.imageManager.b {
     }
 
     @Override // com.baidu.tbadk.imageManager.b
-    public final String c(String str) {
+    public String c(String str) {
         return d.get(str);
     }
 
     @Override // com.baidu.tbadk.imageManager.b
-    public final int a() {
+    public int a() {
         return b.size();
+    }
+
+    @Override // com.baidu.tbadk.imageManager.b
+    public com.baidu.tbadk.imageManager.c a(Context context, String str) {
+        return null;
     }
 }

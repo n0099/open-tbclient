@@ -11,7 +11,7 @@ public class CombineDownload implements Serializable {
     private int isShow;
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null && jSONObject != null) {
+        if (jSONObject != null) {
             this.appdesc = jSONObject.optString("app_name");
             this.appUrl = jSONObject.optString("app_url");
             this.appProc = jSONObject.optString("app_proc");

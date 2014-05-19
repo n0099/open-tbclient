@@ -3,6 +3,8 @@ package com.baidu.android.nebula.cmd;
 import android.content.Context;
 import com.baidu.android.moplus.util.NoProGuard;
 import com.baidu.android.nebula.util.BDLocationManager;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
+import com.baidu.tbadk.TbConfig;
 import java.util.Map;
 import java.util.Timer;
 import org.json.JSONException;
@@ -20,7 +22,7 @@ public class GeoLocation implements NoProGuard, n {
     private BDLocationManager mLocMgr = null;
     private com.baidu.android.nebula.util.e mLocListener = null;
     private Timer mTimeoutTm = null;
-    private boolean mGpsEnabled = DEBUG;
+    private boolean mGpsEnabled = false;
 
     public GeoLocation() {
         a.a();
@@ -57,7 +59,7 @@ public class GeoLocation implements NoProGuard, n {
                 str = (String) a.get("callback");
                 try {
                     a.d((String) a.get("mcmdf"));
-                    this.mGpsEnabled = "1".equals(a.get("gps"));
+                    this.mGpsEnabled = TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK.equals(a.get("gps"));
                 } catch (NumberFormatException e) {
                     j = j2;
                     j2 = j;
@@ -107,7 +109,7 @@ public class GeoLocation implements NoProGuard, n {
             this.mLocMgr.b(this.mLocListener);
         }
         if (this.mLocMgr != null) {
-            this.mLocMgr.a(DEBUG);
+            this.mLocMgr.a(false);
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -124,7 +126,7 @@ public class GeoLocation implements NoProGuard, n {
         aVar.a("text/javascript");
         aVar.a().put("Cache-Control", "no-cache");
         aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
-        aVar.a(200);
+        aVar.a(Constants.MEDIA_INFO);
         a.a(this.mErrcode);
     }
 

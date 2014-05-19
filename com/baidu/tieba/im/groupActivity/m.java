@@ -6,7 +6,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m implements TextWatcher {
+public class m implements TextWatcher {
     final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,25 +15,25 @@ public final class m implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         EditText editText;
         ImageButton imageButton;
         ImageButton imageButton2;
-        editText = this.a.i;
+        editText = this.a.h;
         if (editText.getText().length() > 0) {
-            imageButton2 = this.a.j;
+            imageButton2 = this.a.i;
             imageButton2.setVisibility(0);
             return;
         }
-        imageButton = this.a.j;
+        imageButton = this.a.i;
         imageButton.setVisibility(8);
     }
 
     @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
+    public void afterTextChanged(Editable editable) {
     }
 }

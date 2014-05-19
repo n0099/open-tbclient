@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-final class z implements com.baidu.tbadk.core.view.m {
+class z implements com.baidu.tbadk.core.view.m {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,21 +9,21 @@ final class z implements com.baidu.tbadk.core.view.m {
     }
 
     @Override // com.baidu.tbadk.core.view.m
-    public final void a(boolean z) {
-        cm cmVar;
+    public void a(boolean z) {
+        cs csVar;
         g gVar;
         g gVar2;
         if (z) {
-            cmVar = this.a.r;
-            if (!cmVar.t()) {
-                gVar = this.a.D;
+            csVar = this.a.w;
+            if (!csVar.u()) {
+                gVar = this.a.I;
                 if (gVar != null) {
-                    gVar2 = this.a.D;
-                    if (gVar2.g().size() != 0) {
+                    gVar2 = this.a.I;
+                    if (gVar2.h().size() != 0) {
                         return;
                     }
                 }
-                this.a.n();
+                this.a.D();
             }
         }
     }

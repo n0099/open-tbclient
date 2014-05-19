@@ -2,7 +2,7 @@ package com.baidu.tbadk.motu_gallery;
 
 import android.view.View;
 /* loaded from: classes.dex */
-final class h implements View.OnClickListener {
+class h implements View.OnClickListener {
     final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ final class h implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        this.a.a();
+    public void onClick(View view) {
+        this.a.d();
     }
 }

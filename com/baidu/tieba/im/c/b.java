@@ -2,14 +2,19 @@ package com.baidu.tieba.im.c;
 
 import android.content.Context;
 import android.os.Handler;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.webSocket.m;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.LocalViewSize;
 import com.baidu.tbadk.coreExtra.d.q;
-import com.baidu.tieba.im.message.s;
-import com.baidu.tieba.im.message.v;
+import com.baidu.tieba.im.message.MessageSyncMessage;
+import com.baidu.tieba.im.message.PushCountMessage;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
     private static b a;
     private boolean n;
     private int b = 900000;
@@ -21,16 +26,28 @@ public final class b {
     private long h = 0;
     private int i = 0;
     private long j = 0;
-    private final int k = com.baidu.adp.framework.f.a().b();
-    private final Handler l = new j((byte) 0);
+    private final int k = com.baidu.adp.framework.d.a().b();
+    private final Handler l = new j(null);
     private final com.baidu.adp.lib.network.websocket.c m = new d(this);
     private final com.baidu.tieba.im.a<com.baidu.tieba.im.db.e> o = new e(this);
-    private final com.baidu.adp.framework.c.g p = new f(this, 0);
-    private final com.baidu.adp.framework.c.a q = new i(this, 2001011);
+    private final com.baidu.adp.framework.listener.b p = new f(this, 0);
+    private final CustomMessageListener q = new i(this, MessageTypes.CMD_BACKGROUND_SWTICH);
 
     static {
-        com.baidu.adp.framework.c.a().a(new c(2008017));
+        MessageManager.getInstance().registerListener(new c(2010017));
         a = null;
+    }
+
+    private void i() {
+        if (this.e) {
+            g();
+            this.e = false;
+        }
+    }
+
+    private void j() {
+        this.l.removeMessages(3);
+        this.l.removeMessages(2);
     }
 
     public static synchronized b a() {
@@ -44,116 +61,117 @@ public final class b {
         return bVar;
     }
 
-    public final void a(Context context) {
+    public void a(Context context) {
         if (context == null) {
             throw new IllegalArgumentException("MessageSync init param illegal");
         }
-        com.baidu.adp.framework.c.a().a(this.q);
+        MessageManager.getInstance().registerListener(this.q);
         q.a().a(this.m);
-        com.baidu.adp.framework.c.a().a(1003, this.p);
-        com.baidu.adp.framework.c.a().a(1001, this.p);
-        com.baidu.adp.framework.c.a().a(202101, this.p);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_PING, this.p);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_UPDATE_CLIENT_INFO, this.p);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_PUSH_COUNT, this.p);
         b();
     }
 
-    public final void b() {
-        TbadkApplication.j();
-        int[] aa = TbadkApplication.aa();
-        if (aa.length == 2) {
-            int i = aa[0] * LocationClientOption.MIN_SCAN_SPAN;
-            if (i > 0) {
-                this.c = i;
-            }
-            int i2 = aa[1] * LocationClientOption.MIN_SCAN_SPAN;
-            if (i2 > 0) {
-                this.b = i2;
-            }
+    public void b() {
+        int[] socketGetMsgStratgy = TbadkApplication.m252getInst().getSocketGetMsgStratgy();
+        if (socketGetMsgStratgy.length == 2) {
+            a(socketGetMsgStratgy[0] * LocationClientOption.MIN_SCAN_SPAN);
+            b(socketGetMsgStratgy[1] * LocationClientOption.MIN_SCAN_SPAN);
         }
     }
 
-    public final void c() {
+    public void c() {
         this.e = false;
-        com.baidu.adp.lib.stats.i.a().a("lc_con", (String) null, (String) null, com.baidu.adp.lib.webSocket.l.a().l(), 0, (String) null, "dns", Long.valueOf(com.baidu.adp.lib.webSocket.l.a().j()), "ip", com.baidu.adp.lib.webSocket.l.a().k(), com.baidu.loginshare.e.e, com.baidu.adp.lib.stats.i.a().b());
+        com.baidu.adp.lib.stats.h.a().a("lc_con", (String) null, (String) null, m.a().l(), 0, (String) null, "dns", Long.valueOf(m.a().j()), "ip", m.a().k(), "net", com.baidu.adp.lib.stats.h.a().c());
     }
 
-    public final void d() {
+    public void d() {
         this.e = false;
-        com.baidu.adp.lib.util.f.d("----msg sync stop");
-        this.l.removeMessages(3);
-        this.l.removeMessages(2);
+        BdLog.i("----msg sync stop");
+        j();
     }
 
-    public final void e() {
-        com.baidu.adp.lib.util.f.d("----switchToForeground");
+    public void e() {
+        BdLog.i("----switchToForeground");
         this.d = this.c;
         if (this.g > 0) {
             g();
         }
     }
 
-    public final void f() {
-        com.baidu.adp.lib.util.f.d("----switchToBackground");
+    public void f() {
+        BdLog.i("----switchToBackground");
         this.h = System.currentTimeMillis();
         a().d = a().b;
     }
 
-    public synchronized void i() {
-        if (System.currentTimeMillis() - this.j >= 180000) {
-            v vVar = new v();
-            vVar.e(this.i);
-            vVar.b(com.baidu.adp.lib.webSocket.l.a().g());
-            vVar.c(com.baidu.adp.lib.webSocket.l.a().i());
-            vVar.d(TbadkApplication.j().s());
-            com.baidu.adp.framework.c.a().a(vVar);
-            this.j = System.currentTimeMillis();
-            this.i = 0;
-            com.baidu.adp.lib.webSocket.l.a().h();
-            com.baidu.adp.lib.webSocket.l.a().f();
-            TbadkApplication.j().t();
+    public void a(int i) {
+        if (i > 0) {
+            this.c = i;
         }
     }
 
-    public static /* synthetic */ s f(b bVar) {
-        s sVar = new s();
-        sVar.a(com.baidu.tbadk.coreExtra.messageCenter.d.a().b());
-        sVar.a(bVar.n);
+    public void b(int i) {
+        if (i > 0) {
+            this.b = i;
+        }
+    }
+
+    public synchronized void k() {
+        if (System.currentTimeMillis() - this.j >= 180000) {
+            PushCountMessage pushCountMessage = new PushCountMessage();
+            pushCountMessage.setPusherCount(this.i);
+            pushCountMessage.setUpFlowSize(m.a().g());
+            pushCountMessage.setDownFlowSize(m.a().i());
+            pushCountMessage.setEnterForeCount(TbadkApplication.m252getInst().getEnterForeCount());
+            MessageManager.getInstance().sendMessage(pushCountMessage);
+            this.j = System.currentTimeMillis();
+            this.i = 0;
+            m.a().h();
+            m.a().f();
+            TbadkApplication.m252getInst().clearEnterForeCount();
+        }
+    }
+
+    public MessageSyncMessage l() {
+        MessageSyncMessage messageSyncMessage = new MessageSyncMessage();
+        messageSyncMessage.setGroupMids(com.baidu.tbadk.coreExtra.messageCenter.e.a().b());
+        messageSyncMessage.setForTimer(this.n);
         LocalViewSize.ImageSize d = LocalViewSize.a().d();
         if (d != null) {
-            sVar.d(d.width);
-            sVar.e(d.height);
+            messageSyncMessage.setWidth(d.width);
+            messageSyncMessage.setHeight(d.height);
         }
         LocalViewSize.ImageSize c = LocalViewSize.a().c();
         if (c != null) {
-            sVar.h(c.height);
-            sVar.f(c.width);
+            messageSyncMessage.setSmallHeight(c.height);
+            messageSyncMessage.setSmallWidth(c.width);
         }
-        return sVar;
+        return messageSyncMessage;
     }
 
-    public final synchronized void a(long j, long j2, long j3) {
+    public synchronized void a(long j, long j2, long j3) {
         this.i++;
-        a(false);
+        a(j, j2, j3, false);
     }
 
-    public final synchronized void g() {
-        a(true);
+    public synchronized void g() {
+        a(0L, 0L, 0L, true);
     }
 
-    public final void h() {
+    public void h() {
         this.f = System.currentTimeMillis();
-        if (this.e) {
-            g();
-            this.e = false;
-        }
+        i();
     }
 
-    private synchronized void a(boolean z) {
+    private synchronized void a(long j, long j2, long j3, boolean z) {
         this.n = z;
         if (!z) {
             this.l.removeMessages(3);
             a().l.sendMessageDelayed(a().l.obtainMessage(3), a().d);
         }
-        com.baidu.adp.lib.util.f.d("----begin pullMessageForNewRemind");
+        BdLog.i("----begin pullMessageForNewRemind");
         this.o.a(null);
     }
 }

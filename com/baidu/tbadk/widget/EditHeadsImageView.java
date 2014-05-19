@@ -5,7 +5,10 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.o;
 /* loaded from: classes.dex */
 public class EditHeadsImageView extends a {
     private Paint b;
@@ -23,7 +26,7 @@ public class EditHeadsImageView extends a {
         this.e = 0;
         this.f = 0.42857143f;
         this.g = 0;
-        q();
+        r();
     }
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet) {
@@ -34,7 +37,7 @@ public class EditHeadsImageView extends a {
         this.e = 0;
         this.f = 0.42857143f;
         this.g = 0;
-        q();
+        r();
     }
 
     public EditHeadsImageView(Context context) {
@@ -45,17 +48,17 @@ public class EditHeadsImageView extends a {
         this.e = 0;
         this.f = 0.42857143f;
         this.g = 0;
-        q();
+        r();
     }
 
-    private void q() {
+    private void r() {
         this.b = new Paint();
         this.b.setColor(-16777216);
         this.b.setAlpha(153);
         this.c = new Paint();
         this.c.setStyle(Paint.Style.STROKE);
         this.c.setColor(-1);
-        this.g = getResources().getColor(com.baidu.tbadk.g.editimage_bg);
+        this.g = getResources().getColor(o.editimage_bg);
         setDrawingCacheEnabled(true);
         setImageMode(1);
         CompatibleUtile.getInstance().noneViewGpu(this);
@@ -72,7 +75,7 @@ public class EditHeadsImageView extends a {
         super.onLayout(z, i, i2, i3, i4);
         this.d = (int) (((i4 - i2) - (i3 - i)) * this.f);
         this.e = (int) (((i4 - i2) - (i3 - i)) * (1.0f - this.f));
-        a(this.d, this.e);
+        a(0, this.d, 0, this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -86,19 +89,19 @@ public class EditHeadsImageView extends a {
         canvas.drawRect(0.0f, this.d, getWidth() - 1, getHeight() - this.e, this.c);
     }
 
-    public final Bitmap a(boolean z) {
+    public Bitmap a(boolean z) {
         Bitmap bitmap = null;
         try {
             Bitmap visableBitmap = getVisableBitmap();
             if (visableBitmap != null) {
                 Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.d, getWidth(), getWidth());
-                bitmap = z ? Bitmap.createScaledBitmap(createBitmap, 960, 960, false) : createBitmap;
+                bitmap = z ? Bitmap.createScaledBitmap(createBitmap, TbConfig.HEAD_IMG_SIZE, TbConfig.HEAD_IMG_SIZE, false) : createBitmap;
                 if (bitmap != createBitmap) {
                     createBitmap.recycle();
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "getVisableBitmap", e.toString());
+            BdLog.e(getClass().getName(), "getVisableBitmap", e.toString());
         }
         return bitmap;
     }

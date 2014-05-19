@@ -109,7 +109,7 @@ public class ReversedLinesFileReader implements Closeable {
 
         /* JADX INFO: Access modifiers changed from: private */
         public FilePart rollOver() {
-            if (this.currentLastBytePos >= 0) {
+            if (this.currentLastBytePos > -1) {
                 throw new IllegalStateException("Current currentLastCharPos unexpectedly positive... last readLine() should have returned something! currentLastCharPos=" + this.currentLastBytePos);
             }
             if (this.no > 1) {
@@ -127,17 +127,20 @@ public class ReversedLinesFileReader implements Closeable {
             boolean z = this.no == 1;
             int i = this.currentLastBytePos;
             while (true) {
-                if (i >= 0) {
-                    if (!z && i < ReversedLinesFileReader.this.avoidNewlineSplitBufferSize) {
-                        createLeftOver();
-                        str = null;
-                        break;
-                    }
+                if (i <= -1) {
+                    str = null;
+                    break;
+                } else if (!z && i < ReversedLinesFileReader.this.avoidNewlineSplitBufferSize) {
+                    createLeftOver();
+                    str = null;
+                    break;
+                } else {
                     int newLineMatchByteCount = getNewLineMatchByteCount(this.data, i);
                     if (newLineMatchByteCount <= 0) {
                         i -= ReversedLinesFileReader.this.byteDecrement;
                         if (i < 0) {
                             createLeftOver();
+                            str = null;
                             break;
                         }
                     } else {
@@ -151,11 +154,8 @@ public class ReversedLinesFileReader implements Closeable {
                         str = new String(bArr, ReversedLinesFileReader.this.encoding);
                         this.currentLastBytePos = i - newLineMatchByteCount;
                     }
-                } else {
-                    break;
                 }
             }
-            str = null;
             if (!z || this.leftOver == null) {
                 return str;
             }

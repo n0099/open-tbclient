@@ -2,11 +2,10 @@ package com.baidu.tieba.discover;
 
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.ah;
-import com.baidu.tbadk.s;
+import com.baidu.tbadk.core.util.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class h implements View.OnClickListener {
+public class h implements View.OnClickListener {
     final /* synthetic */ DiscoverItemView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +14,7 @@ public final class h implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         View.OnClickListener onClickListener;
         boolean z;
         boolean z2;
@@ -30,11 +29,9 @@ public final class h implements View.OnClickListener {
         if (z) {
             z2 = this.a.o;
             if (z2) {
-                String a = ah.a(this.a.c);
-                s.a();
-                if (!s.a(a, false)) {
-                    s.a();
-                    s.b(a, true);
+                String a = ai.a(this.a.c);
+                if (!com.baidu.tbadk.f.a().a(a, false)) {
+                    com.baidu.tbadk.f.a().b(a, true);
                     imageView = this.a.k;
                     imageView.setVisibility(8);
                 }

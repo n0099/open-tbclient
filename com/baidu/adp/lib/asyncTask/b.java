@@ -5,7 +5,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b extends l<Result> {
+public class b extends k<Result> {
     final /* synthetic */ BdAsyncTask a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,22 +16,22 @@ public final class b extends l<Result> {
     }
 
     @Override // java.util.concurrent.FutureTask
-    protected final void done() {
+    protected void done() {
         try {
-            this.a.c((BdAsyncTask) get());
+            this.a.postResult(get());
         } catch (InterruptedException e) {
         } catch (CancellationException e2) {
-            this.a.c((BdAsyncTask) null);
+            this.a.postResult(null);
         } catch (ExecutionException e3) {
-            this.a.c((BdAsyncTask) null);
+            this.a.postResult(null);
         } catch (Throwable th) {
             throw new RuntimeException("An error occured while executing doInBackground()", th);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.l
-    public final void a() {
+    @Override // com.baidu.adp.lib.asyncTask.k
+    public void a() {
         this.a.cancel();
     }
 }

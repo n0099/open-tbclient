@@ -1,108 +1,169 @@
 package com.baidu.tieba.a;
+
+import android.location.Address;
+import com.baidu.adp.lib.util.g;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.h;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.u;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class d {
-    public static final int adpFooterDurationTime = 2130771979;
-    public static final int adpFooterNeedRefreshDelta = 2130771976;
-    public static final int adpHeaderDurationTime = 2130771978;
-    public static final int adpHeaderHeight = 2130771977;
-    public static final int adpHeaderNeedRefreshDelta = 2130771975;
-    public static final int adpMode = 2130771974;
-    public static final int audioDayBackground = 2130772052;
-    public static final int audioDayKeyBoard = 2130772054;
-    public static final int audioHeight = 2130772057;
-    public static final int audioNightBackground = 2130772053;
-    public static final int audioNightKeyBoard = 2130772055;
-    public static final int audioWidth = 2130772056;
-    public static final int autoHide = 2130771989;
-    public static final int background = 2130771997;
-    public static final int beforeExpandHeight = 2130772010;
-    public static final int border_color = 2130771971;
-    public static final int border_width = 2130771970;
-    public static final int bottomHeight = 2130772001;
-    public static final int bottomOffset = 2130771999;
-    public static final int color_dark = 2130772065;
-    public static final int columnOrientation = 2130772002;
-    public static final int corner_radius = 2130771969;
-    public static final int count = 2130771990;
-    public static final int custom_state_focused = 2130772061;
-    public static final int custom_state_skin = 2130772060;
-    public static final int defaultImage = 2130772023;
-    public static final int direction = 2130771980;
-    public static final int drawable = 2130771987;
-    public static final int empty_view = 2130771985;
-    public static final int expandDistance = 2130772011;
-    public static final int faceHeight = 2130772025;
-    public static final int faceWidth = 2130772024;
-    public static final int hideAt = 2130772051;
-    public static final int hideAudio = 2130772049;
-    public static final int hideCamera = 2130772048;
-    public static final int hideFace = 2130772050;
-    public static final int isRadius = 2130772046;
-    public static final int isShowGifTag = 2130772014;
-    public static final int is_left = 2130772013;
-    public static final int is_oval = 2130771973;
-    public static final int is_support_offline = 2130772044;
-    public static final int isblack = 2130772012;
-    public static final int layout_clear = 2130772006;
-    public static final int layout_column = 2130772005;
-    public static final int left = 2130772062;
-    public static final int leftOffset = 2130771991;
-    public static final int leftText = 2130772066;
-    public static final int leftWidth = 2130771993;
-    public static final int lineSpacing = 2130772020;
-    public static final int linkColor = 2130772019;
-    public static final int maxImageHeight = 2130772022;
-    public static final int maxImageWidth = 2130772021;
-    public static final int max_height = 2130771981;
-    public static final int measuretext = 2130772059;
-    public static final int mid = 2130772063;
-    public static final int nightBackground = 2130772007;
-    public static final int nightSrc = 2130772009;
-    public static final int nightTextColor = 2130772008;
-    public static final int percent = 2130772045;
-    public static final int play_type = 2130772058;
-    public static final int radius = 2130771968;
-    public static final int refresher_content = 2130771984;
-    public static final int refresher_head = 2130771983;
-    public static final int right = 2130772064;
-    public static final int rightOffset = 2130771992;
-    public static final int rightText = 2130772067;
-    public static final int rightWidth = 2130771994;
-    public static final int round_background = 2130771972;
-    public static final int segmentMargin = 2130772015;
-    public static final int selector = 2130771988;
-    public static final int settingShowArraw = 2130772032;
-    public static final int settingText = 2130772027;
-    public static final int settingTextColor = 2130772028;
-    public static final int settingTextSize = 2130772029;
-    public static final int settingTip = 2130772030;
-    public static final int settingTipColor = 2130772031;
-    public static final int showGifTag = 2130772047;
-    public static final int spacing = 2130771986;
-    public static final int spacingLeft = 2130772003;
-    public static final int spacingRight = 2130772004;
-    public static final int tapBack = 2130771996;
-    public static final int tb_background = 2130772033;
-    public static final int tb_button = 2130772037;
-    public static final int tb_divider = 2130772039;
-    public static final int tb_drawableLeft = 2130772041;
-    public static final int tb_drawableRight = 2130772042;
-    public static final int tb_drawableTop = 2130772040;
-    public static final int tb_progressDrawable = 2130772043;
-    public static final int tb_src = 2130772035;
-    public static final int tb_style = 2130772036;
-    public static final int tb_textColor = 2130772034;
-    public static final int tb_textColorHint = 2130772038;
-    public static final int textColor = 2130772018;
-    public static final int textPadding = 2130772016;
-    public static final int textSize = 2130772017;
-    public static final int threshold_height = 2130771982;
-    public static final int titleDrawable = 2130772069;
-    public static final int titleText = 2130772068;
-    public static final int topHeight = 2130772000;
-    public static final int topOffset = 2130771998;
-    public static final int track = 2130771995;
-    public static final int videoImage = 2130772026;
-    public static final int widget_icon = 2130772070;
-    public static final int widget_text = 2130772071;
+public class d {
+    private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/thread/add";
+    private static final String b = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/add";
+    private al c = null;
+    private ErrorData d;
+    private AntiData e;
+    private h f;
+
+    public d() {
+        this.d = null;
+        this.d = new ErrorData();
+    }
+
+    public String a(WriteData writeData, boolean z) {
+        String str = null;
+        if (writeData == null) {
+            return null;
+        }
+        if (z && writeData.isHasImages()) {
+            if (this.f == null) {
+                this.f = new h("HTTPWriteService.postWriteData");
+            }
+            this.f.a(writeData.getWriteImagesInfo());
+        }
+        String voice = writeData.getVoice();
+        int voiceDuringTime = writeData.getVoiceDuringTime();
+        if (voice != null) {
+            com.baidu.tbadk.coreExtra.service.b bVar = new com.baidu.tbadk.coreExtra.service.b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
+            String a2 = x.a(voice, 1);
+            com.baidu.tbadk.coreExtra.data.c a3 = bVar.a(a2);
+            if (a3 != null && a3.b()) {
+                com.baidu.tbadk.coreExtra.data.b a4 = a3.a();
+                if (a4 != null) {
+                    str = a4.a();
+                    com.baidu.tbadk.core.voice.a.e.a(writeData.getVoice(), str);
+                } else {
+                    w wVar = new w();
+                    wVar.a("ErrCode", Integer.valueOf(a3.c()));
+                    wVar.a("ErrMsg", a3.d());
+                    TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_SEND, "audioUploadData is null", wVar.toString());
+                    return null;
+                }
+            } else {
+                w wVar2 = new w();
+                wVar2.a("audioFile", a2);
+                TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_SEND, "uploadService.upload null or fail", wVar2.toString());
+                return null;
+            }
+        }
+        this.c = new al();
+        this.c.a().a().a = true;
+        this.c.a("anonymous", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+        this.c.a("fid", writeData.getForumId());
+        if (str != null) {
+            this.c.a("voice_md5", str);
+            this.c.a("during_time", String.valueOf(voiceDuringTime));
+        }
+        String imagesCodeForPost = writeData.getImagesCodeForPost();
+        if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
+            this.c.a("vcode", writeData.getVcode());
+        }
+        if (ad.c().z() < 3) {
+            this.c.a("vcode_tag", "11");
+        }
+        Address b2 = com.baidu.adp.lib.c.a.a().b(false);
+        this.c.a("new_vcode", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+        this.c.a("content", String.valueOf(writeData.getContent()) + imagesCodeForPost);
+        switch (writeData.getType()) {
+            case 0:
+                this.c.a(a);
+                this.c.a("kw", writeData.getForumName());
+                this.c.a("title", writeData.getTitle());
+                this.c.a("is_ntitle", writeData.isNoTitle() ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
+                if (writeData.isNoTitle()) {
+                    this.c.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, "notitle");
+                }
+                if (writeData.getLiveCardData() != null) {
+                    this.c.a(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, String.valueOf(writeData.getLiveCardData().getGroupId()));
+                    this.c.a("start_time", String.valueOf(writeData.getLiveCardData().getStartTime()));
+                }
+                if (b2 != null && ad.c().m() && !TbConfig.getPositionPagerId().equals(writeData.getForumId())) {
+                    this.c.a("lbs", String.valueOf(String.valueOf(b2.getLatitude())) + "," + String.valueOf(b2.getLongitude()));
+                    break;
+                }
+                break;
+            case 1:
+                this.c.a(b);
+                this.c.a("tid", writeData.getThreadId());
+                this.c.a("kw", writeData.getForumName());
+                this.c.a("is_ad", writeData.getIsAd() ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
+                if (writeData.isFrsReply()) {
+                    this.c.a("st_param", "frs");
+                    break;
+                }
+                break;
+            case 2:
+                this.c.a(b);
+                this.c.a("tid", writeData.getThreadId());
+                this.c.a("kw", writeData.getForumName());
+                this.c.a("quote_id", String.valueOf(writeData.getFloor()));
+                this.c.a("floor_num", String.valueOf(writeData.getFloorNum()));
+                this.c.a("is_ad", writeData.getIsAd() ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
+                this.c.a("is_addition", writeData.isAddition() ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
+                if (writeData.isAddition()) {
+                    this.c.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, "conadd");
+                    break;
+                }
+                break;
+        }
+        String i = this.c.i();
+        if (this.c.a().b().b()) {
+            this.d.parserJson(i);
+        } else {
+            this.d.setError_code(this.c.c() ? this.c.d() : this.c.e());
+            this.d.setError_msg(this.c.f());
+        }
+        if (this.d.error_code != 0 && writeData.isHasImages() && g.b(String.valueOf(writeData.getContent()) + imagesCodeForPost)) {
+            this.d.setError_msg(ad.c().d().getString(u.img_upload_error));
+        }
+        try {
+            this.e = new AntiData();
+            this.e.parserJson(new JSONObject(i).optJSONObject("anti_stat"));
+        } catch (Exception e) {
+        }
+        return i;
+    }
+
+    public boolean a() {
+        if (this.c == null) {
+            return false;
+        }
+        return this.c.a().b().b();
+    }
+
+    public void b() {
+        if (this.c != null) {
+            this.c.g();
+        }
+        if (this.f != null) {
+            this.f.a();
+        }
+    }
+
+    public AntiData c() {
+        return this.e;
+    }
+
+    public ErrorData d() {
+        return this.d;
+    }
 }

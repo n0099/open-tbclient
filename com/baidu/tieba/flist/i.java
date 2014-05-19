@@ -1,8 +1,10 @@
 package com.baidu.tieba.flist;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tieba.flist.ForumListModel;
 /* loaded from: classes.dex */
-final class i implements com.baidu.adp.widget.ListView.d {
+class i implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +13,7 @@ final class i implements com.baidu.adp.widget.ListView.d {
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public final void a(boolean z) {
+    public void a(boolean z) {
         r rVar;
         r rVar2;
         boolean z2;
@@ -31,7 +33,7 @@ final class i implements com.baidu.adp.widget.ListView.d {
                     requestParams = this.a.A;
                     requestParams.recommend_type = 0;
                     requestParams2 = this.a.A;
-                    requestParams2.rn = 200;
+                    requestParams2.rn = Constants.MEDIA_INFO;
                     tVar = this.a.G;
                     requestParams3 = this.a.A;
                     tVar.a(requestParams3);
@@ -43,19 +45,19 @@ final class i implements com.baidu.adp.widget.ListView.d {
                     if (z4) {
                         this.a.n = 50;
                     } else {
-                        this.a.n = 200;
+                        this.a.n = Constants.MEDIA_INFO;
                     }
-                    com.baidu.adp.lib.util.f.e("ForumListActivity", "pull down", "left refresh");
-                    new q(this.a, (byte) 0).execute(new Void[0]);
+                    BdLog.d("ForumListActivity", "pull down", "left refresh");
+                    new q(this.a, null).execute(new Void[0]);
                 } else if (this.a.c.d.getCurrentItem() == 1) {
                     z3 = this.a.C;
                     if (z3) {
                         this.a.o = 50;
                     } else {
-                        this.a.o = 200;
+                        this.a.o = Constants.MEDIA_INFO;
                     }
-                    com.baidu.adp.lib.util.f.e("ForumListActivity", "pull down", "right refresh");
-                    new p(this.a, (byte) 0).execute(new Void[0]);
+                    BdLog.d("ForumListActivity", "pull down", "right refresh");
+                    new p(this.a, null).execute(new Void[0]);
                 }
             }
         }

@@ -44,72 +44,72 @@ public final class AddressBookParsedResult extends ParsedResult {
         this.geo = strArr10;
     }
 
-    public final String[] getNames() {
+    public String[] getNames() {
         return this.names;
     }
 
-    public final String[] getNicknames() {
+    public String[] getNicknames() {
         return this.nicknames;
     }
 
-    public final String getPronunciation() {
+    public String getPronunciation() {
         return this.pronunciation;
     }
 
-    public final String[] getPhoneNumbers() {
+    public String[] getPhoneNumbers() {
         return this.phoneNumbers;
     }
 
-    public final String[] getPhoneTypes() {
+    public String[] getPhoneTypes() {
         return this.phoneTypes;
     }
 
-    public final String[] getEmails() {
+    public String[] getEmails() {
         return this.emails;
     }
 
-    public final String[] getEmailTypes() {
+    public String[] getEmailTypes() {
         return this.emailTypes;
     }
 
-    public final String getInstantMessenger() {
+    public String getInstantMessenger() {
         return this.instantMessenger;
     }
 
-    public final String getNote() {
+    public String getNote() {
         return this.note;
     }
 
-    public final String[] getAddresses() {
+    public String[] getAddresses() {
         return this.addresses;
     }
 
-    public final String[] getAddressTypes() {
+    public String[] getAddressTypes() {
         return this.addressTypes;
     }
 
-    public final String getTitle() {
+    public String getTitle() {
         return this.title;
     }
 
-    public final String getOrg() {
+    public String getOrg() {
         return this.f224org;
     }
 
-    public final String[] getURLs() {
+    public String[] getURLs() {
         return this.urls;
     }
 
-    public final String getBirthday() {
+    public String getBirthday() {
         return this.birthday;
     }
 
-    public final String[] getGeo() {
+    public String[] getGeo() {
         return this.geo;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public final String getDisplayResult() {
+    public String getDisplayResult() {
         StringBuilder sb = new StringBuilder(100);
         maybeAppend(this.names, sb);
         maybeAppend(this.nicknames, sb);

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.TrafficStats;
 import android.os.Build;
 import android.os.Handler;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public final class i {
     private static i b = null;
@@ -52,15 +53,15 @@ public final class i {
         }
     }
 
-    public final long a() {
+    public long a() {
         if (this.a) {
             return TrafficStats.getTotalRxBytes() + TrafficStats.getTotalTxBytes();
         }
         return -1L;
     }
 
-    public final void b() {
-        while (this.a) {
+    public void b() {
+        if (this.a) {
             int b2 = com.baidu.android.systemmonitor.c.d.b(this.d);
             if (b2 == 0) {
                 this.e.removeCallbacks(this.i);
@@ -73,17 +74,13 @@ public final class i {
                 this.g = 0L;
                 this.f = 0;
                 this.h = 0L;
-                return;
             } else if (this.c == null) {
                 this.f = b2;
                 this.c = new com.baidu.android.systemmonitor.devicestatistic.a.d(System.currentTimeMillis());
                 this.c.b = this.f;
                 this.g = a();
-                this.e.postDelayed(this.i, 60000L);
-                return;
-            } else if (b2 == this.f) {
-                return;
-            } else {
+                this.e.postDelayed(this.i, TbConfig.USE_TIME_INTERVAL);
+            } else if (b2 != this.f) {
                 this.e.removeCallbacks(this.i);
                 this.c.a = System.currentTimeMillis();
                 this.c.c = this.h - this.g;
@@ -92,11 +89,12 @@ public final class i {
                 this.g = 0L;
                 this.f = 0;
                 this.h = 0L;
+                b();
             }
         }
     }
 
-    public final void d() {
+    public void d() {
         if (this.e != null) {
             this.e.removeCallbacks(this.i);
         }

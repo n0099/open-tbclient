@@ -1,30 +1,78 @@
 package com.baidu.tieba.b;
 
-import com.baidu.tbadk.core.data.n;
-import com.baidu.tbadk.core.f;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-public final class a extends f {
-    private static final String c = String.valueOf(n.a) + "c/f/forum/forumrecommend";
+public class a implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
+    private GestureDetector a = new GestureDetector(this);
+    private b b;
+    private View c;
 
-    public final String g() {
-        a("like_forum", "1");
-        a("topic", "0");
-        a("recommend", "0");
-        a(c);
-        return this.a.i();
+    public a(b bVar) {
+        this.b = bVar;
     }
 
-    public final long h() {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        this.c = view;
         if (this.a != null) {
-            return this.a.a().c().a.d;
+            return this.a.onTouchEvent(motionEvent);
         }
-        return 0L;
+        return true;
     }
 
-    public final long i() {
-        if (this.a != null) {
-            return this.a.a().c().a.c;
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onDown(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public void onLongPress(MotionEvent motionEvent) {
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public void onShowPress(MotionEvent motionEvent) {
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnDoubleTapListener
+    public boolean onDoubleTap(MotionEvent motionEvent) {
+        Log.d("testGestureDetector", "onDoubleTap---->处理双击事件");
+        if (this.b != null) {
+            return this.b.a(this.c, motionEvent);
         }
-        return 0L;
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnDoubleTapListener
+    public boolean onDoubleTapEvent(MotionEvent motionEvent) {
+        if (this.b != null) {
+            return this.b.b(this.c, motionEvent);
+        }
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnDoubleTapListener
+    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
+        if (this.b != null) {
+            return this.b.c(this.c, motionEvent);
+        }
+        return false;
     }
 }

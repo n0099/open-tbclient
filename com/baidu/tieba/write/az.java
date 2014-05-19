@@ -1,10 +1,8 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.EditText;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
+import android.text.style.ImageSpan;
 /* loaded from: classes.dex */
-final class az implements View.OnClickListener {
+class az implements com.baidu.tbadk.imageManager.a {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,21 +10,18 @@ final class az implements View.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        EditText editText;
-        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
-        EditorToolComponetContainer editorToolComponetContainer;
-        EditorToolComponetContainer editorToolComponetContainer2;
-        EditText editText2;
-        editText = this.a.h;
-        editText.requestFocus();
-        writeEditorToolButtonContainer = this.a.z;
-        writeEditorToolButtonContainer.c();
-        editorToolComponetContainer = this.a.A;
-        editorToolComponetContainer.c();
-        editorToolComponetContainer2 = this.a.A;
-        editText2 = this.a.h;
-        editorToolComponetContainer2.a(editText2);
+    @Override // com.baidu.tbadk.imageManager.a
+    public ImageSpan a(String str) {
+        com.baidu.adp.widget.a.a b = com.baidu.tbadk.editortool.ac.a().b(str);
+        if (b == null) {
+            b = com.baidu.tbadk.editortool.ac.a().a((String) null, str);
+        }
+        if (b == null) {
+            return null;
+        }
+        com.baidu.tieba.view.w wVar = new com.baidu.tieba.view.w(b.h());
+        wVar.setBounds(0, 0, b.c() + 1, b.d());
+        wVar.setGravity(3);
+        return new ImageSpan(wVar, 0);
     }
 }

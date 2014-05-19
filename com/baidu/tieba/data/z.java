@@ -1,85 +1,107 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class z {
-    private int a = 0;
-    private int b = 0;
-    private int c = 0;
-    private int d = 0;
-    private String e = "";
-    private int f = 0;
-    private int g = 0;
+public class z {
+    private int a;
+    private int b;
+    private int c;
+    private int d;
+    private String e;
+    private int f;
+    private int g;
     private String h;
 
-    public final String a() {
+    public z() {
+        b(0);
+        c(0);
+        d(0);
+        this.d = 0;
+        c("");
+        e(0);
+        f(0);
+    }
+
+    public String a() {
         return this.h;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.h = str;
     }
 
-    public final int b() {
+    public int b() {
         return this.d;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (i >= 0) {
             this.d = i;
         }
     }
 
-    public final void b(String str) {
+    public void b(String str) {
         try {
-            JSONObject optJSONObject = new JSONObject(str).optJSONObject("info");
-            if (optJSONObject != null) {
-                try {
-                    this.a = optJSONObject.optInt("is_like", 0);
-                    this.b = optJSONObject.optInt("is_black", 0);
-                    this.c = optJSONObject.optInt("like_num", 0);
-                    this.d = optJSONObject.optInt("level_id", 0);
-                    this.e = optJSONObject.optString("level_name", "");
-                    this.g = optJSONObject.optInt("levelup_score", 0);
-                    this.f = optJSONObject.optInt("cur_score", 0);
-                } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
-                }
-            }
-        } catch (Exception e2) {
-            com.baidu.adp.lib.util.f.b("LikeReturnData", "parserJson", "error = " + e2.getMessage());
+            a(new JSONObject(str).optJSONObject("info"));
+        } catch (Exception e) {
+            BdLog.e("LikeReturnData", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    public final void b(int i) {
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                b(jSONObject.optInt("is_like", 0));
+                c(jSONObject.optInt("is_black", 0));
+                d(jSONObject.optInt("like_num", 0));
+                this.d = jSONObject.optInt("level_id", 0);
+                c(jSONObject.optString("level_name", ""));
+                f(jSONObject.optInt("levelup_score", 0));
+                e(jSONObject.optInt("cur_score", 0));
+            } catch (Exception e) {
+                BdLog.e("LikeReturnData", "parserJson", "error = " + e.getMessage());
+            }
+        }
+    }
+
+    public void b(int i) {
         this.a = i;
     }
 
-    public final int c() {
+    public int c() {
         return this.a;
     }
 
-    public final void c(String str) {
+    public void c(int i) {
+        this.b = i;
+    }
+
+    public void d(int i) {
+        this.c = i;
+    }
+
+    public void c(String str) {
         this.e = str;
     }
 
-    public final String d() {
+    public String d() {
         return this.e;
     }
 
-    public final void c(int i) {
+    public void e(int i) {
         this.f = i;
     }
 
-    public final int e() {
+    public int e() {
         return this.f;
     }
 
-    public final void d(int i) {
+    public void f(int i) {
         this.g = i;
     }
 
-    public final int f() {
+    public int f() {
         return this.g;
     }
 }

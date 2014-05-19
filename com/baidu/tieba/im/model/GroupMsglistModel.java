@@ -1,92 +1,108 @@
 package com.baidu.tieba.im.model;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.chat.MsglistActivity;
+import com.baidu.tieba.im.message.GroupSaveDraftMessage;
+import com.baidu.tieba.im.message.LoadGroupDraftMessage;
+import com.baidu.tieba.im.message.LoadGroupHistoryMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.GroupChatMessage;
 /* loaded from: classes.dex */
 public class GroupMsglistModel extends CommonGroupMsglistModel {
-    private final int e;
-    private com.baidu.adp.framework.c.a f;
+    private final int b;
+    private CustomMessageListener c;
 
     public GroupMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
-        this.e = 20;
-        this.f = new n(this, 0);
-        com.baidu.adp.framework.c.a().a(2013005, this.f);
-        com.baidu.adp.framework.c.a().a(2001146, this.f);
-        com.baidu.adp.framework.c.a().a(2001149, this.f);
+        this.b = 20;
+        this.c = new o(this, 0);
+        m();
     }
 
     @Override // com.baidu.tieba.im.model.CommonGroupMsglistModel, com.baidu.tieba.im.model.MsglistModel
-    public final void a() {
+    public void a() {
         super.a();
-        com.baidu.adp.framework.c.a().b(this.f);
+        f();
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean f_() {
+    public boolean g_() {
         if (this.a == null) {
             return false;
         }
-        com.baidu.tieba.im.message.m mVar = new com.baidu.tieba.im.message.m();
-        mVar.c = 20;
-        mVar.a = null;
-        mVar.b = null;
-        mVar.d = new StringBuilder(String.valueOf(this.a.getGroupId())).toString();
-        super.sendMessage(new com.baidu.tieba.im.message.k(mVar));
+        com.baidu.tieba.im.message.c cVar = new com.baidu.tieba.im.message.c();
+        cVar.c = 20;
+        cVar.a = null;
+        cVar.b = null;
+        cVar.d = new StringBuilder(String.valueOf(this.a.getGroupId())).toString();
+        super.sendMessage(new LoadGroupHistoryMessage(cVar));
         return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean d() {
+    public boolean d() {
         long j;
         long j2 = 0;
         if (this.a != null) {
-            com.baidu.tieba.im.message.m mVar = new com.baidu.tieba.im.message.m();
-            mVar.c = 20;
-            if (this.b == null || this.b.getChatMessages() == null || this.b.getChatMessages().size() <= 0 || this.b.getChatMessages().get(0) == null) {
+            com.baidu.tieba.im.message.c cVar = new com.baidu.tieba.im.message.c();
+            cVar.c = 20;
+            if (this.s == null || this.s.getChatMessages() == null || this.s.getChatMessages().size() <= 0 || this.s.getChatMessages().get(0) == null) {
                 j = 0;
             } else {
-                j = this.b.getChatMessages().get(0).w();
-                j2 = this.b.getChatMessages().get(0).u();
+                j = this.s.getChatMessages().get(0).getMsgId();
+                j2 = this.s.getChatMessages().get(0).getRecordId();
             }
-            mVar.a = String.valueOf(j);
-            mVar.b = String.valueOf(j2);
-            mVar.d = new StringBuilder(String.valueOf(this.a.getGroupId())).toString();
-            super.sendMessage(new com.baidu.tieba.im.message.k(mVar));
+            cVar.a = String.valueOf(j);
+            cVar.b = String.valueOf(j2);
+            cVar.d = new StringBuilder(String.valueOf(this.a.getGroupId())).toString();
+            super.sendMessage(new LoadGroupHistoryMessage(cVar));
         }
         return false;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean e() {
+    public boolean e() {
         if (this.a == null) {
             return false;
         }
-        com.baidu.tieba.im.message.h hVar = new com.baidu.tieba.im.message.h();
-        hVar.a = new StringBuilder(String.valueOf(this.a.getGroupId())).toString();
-        super.sendMessage(new com.baidu.tieba.im.message.j(hVar));
+        com.baidu.tieba.im.message.a aVar = new com.baidu.tieba.im.message.a();
+        aVar.a = new StringBuilder(String.valueOf(this.a.getGroupId())).toString();
+        super.sendMessage(new LoadGroupDraftMessage(aVar));
         return true;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final boolean a(String str) {
-        com.baidu.tieba.im.message.bm bmVar = new com.baidu.tieba.im.message.bm();
+    public boolean a(String str) {
+        com.baidu.tieba.im.message.g gVar = new com.baidu.tieba.im.message.g();
         if (this.a == null || this.a.getGroupId() == 0) {
             return false;
         }
-        bmVar.b = String.valueOf(this.a.getGroupId());
-        bmVar.a = str;
-        super.sendMessage(new com.baidu.tieba.im.message.c(bmVar));
+        gVar.b = String.valueOf(this.a.getGroupId());
+        gVar.a = str;
+        super.sendMessage(new GroupSaveDraftMessage(gVar));
         return true;
     }
 
+    private void m() {
+        MessageManager.getInstance().registerListener(2015005, this.c);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_LOAD_DRAFT_GROUP, this.c);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_LOAD_HISTORY_GROUP, this.c);
+    }
+
+    protected void f() {
+        MessageManager.getInstance().unRegisterListener(this.c);
+    }
+
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected final com.baidu.tieba.im.message.a.a f() {
-        com.baidu.tieba.im.message.a.c cVar = new com.baidu.tieba.im.message.a.c();
-        cVar.b(System.currentTimeMillis());
+    protected ChatMessage g() {
+        GroupChatMessage groupChatMessage = new GroupChatMessage();
+        groupChatMessage.setBornTime(System.currentTimeMillis());
         if (b() == null) {
             return null;
         }
-        cVar.a(String.valueOf(b().getGroupId()));
-        return cVar;
+        groupChatMessage.setGroupId(String.valueOf(b().getGroupId()));
+        return groupChatMessage;
     }
 }

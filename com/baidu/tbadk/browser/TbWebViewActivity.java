@@ -18,29 +18,35 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.b.as;
+import com.baidu.tbadk.core.account.AccountLoginHelper;
+import com.baidu.tbadk.core.atomData.be;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import java.util.Date;
 import java.util.HashMap;
 @SuppressLint({"SetJavaScriptEnabled"})
 /* loaded from: classes.dex */
-public class TbWebViewActivity extends com.baidu.tbadk.a implements com.baidu.tbadk.coreExtra.view.f {
-    private static HashMap<String, o> a = null;
+public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.coreExtra.view.g {
+    private static HashMap<String, r> a = null;
     private boolean j;
-    private com.baidu.tbadk.d.e k;
+    private com.baidu.tbadk.c.f k;
     private View l;
     private View m;
     private View n;
     private ImageView o;
     private ImageView p;
-    private com.baidu.tbadk.core.view.i q;
-    private NavigationBar t;
-    private RelativeLayout u;
+    private ImageView q;
+    private com.baidu.tbadk.core.view.i r;
+    private NavigationBar u;
+    private RelativeLayout v;
+    private com.baidu.adp.lib.guide.d w;
     private String b = null;
     private String c = null;
     private boolean d = false;
@@ -49,152 +55,182 @@ public class TbWebViewActivity extends com.baidu.tbadk.a implements com.baidu.tb
     private ProgressBar g = null;
     private LinearLayout h = null;
     private TextView i = null;
-    private final Handler r = new Handler();
-    private final Runnable s = new g(this);
+    private final Handler s = new Handler();
+    private final Runnable t = new g(this);
 
     static {
-        TbadkApplication.j().a(as.class, TbWebViewActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(be.class, TbWebViewActivity.class);
     }
 
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public boolean getGpuSwitch() {
-        return TbadkApplication.j().az();
+        return TbadkApplication.m252getInst().isGpuOpen();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
+        String str;
         super.onCreate(bundle);
-        setContentView(com.baidu.tbadk.k.tb_webview_activity);
+        setContentView(com.baidu.tieba.s.tb_webview_activity);
         Intent intent = getIntent();
         this.b = intent.getStringExtra("tag_title");
         this.c = intent.getStringExtra("tag_url");
+        if (this.c != null && !this.c.startsWith("http://") && !this.c.startsWith("https://")) {
+            this.c = "http://".concat(this.c);
+        }
         this.d = intent.getBooleanExtra("tag_cookie", false);
         this.j = intent.getBooleanExtra("tag_enable_js", false);
-        if (bc.c(this.c)) {
-            com.baidu.adp.lib.util.i.a((Context) this, getResources().getString(com.baidu.tbadk.l.url_is_null));
+        if (com.baidu.tbadk.core.util.be.c(this.c)) {
+            com.baidu.adp.lib.util.h.a((Context) this, getResources().getString(com.baidu.tieba.u.url_is_null));
             return;
         }
-        this.e = (RelativeLayout) findViewById(com.baidu.tbadk.j.parent);
-        this.t = (NavigationBar) findViewById(com.baidu.tbadk.j.view_navigation_bar);
-        this.t.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.t.a(this.b);
-        this.u = (RelativeLayout) findViewById(com.baidu.tbadk.j.webview_bottom_navigation_bar);
-        View inflate = getLayoutInflater().inflate(com.baidu.tbadk.k.tb_webview_pop_more, (ViewGroup) null);
-        this.q = new com.baidu.tbadk.core.view.i(this, inflate, this.t, getResources().getDrawable(com.baidu.tbadk.i.bg_pull_down_right_n), new h(this));
-        this.l = inflate.findViewById(com.baidu.tbadk.j.webview_more_pop_item_share_friend_layout);
+        c();
+        if (this.d) {
+            a.a(this);
+        }
+        d();
+        if (this.c != null) {
+            int indexOf = this.c.indexOf(47, 8);
+            if (indexOf > 8) {
+                str = this.c.substring(0, indexOf);
+            } else {
+                str = this.c;
+            }
+            if (!str.contains("lecai.com") && !str.contains("baidu.com")) {
+                i();
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        this.c = intent.getStringExtra("tag_url");
+        b();
+    }
+
+    private void c() {
+        this.e = (RelativeLayout) findViewById(com.baidu.tieba.r.parent);
+        this.u = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.u.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.u.a(this.b);
+        this.v = (RelativeLayout) findViewById(com.baidu.tieba.r.webview_bottom_navigation_bar);
+        View inflate = getLayoutInflater().inflate(com.baidu.tieba.s.tb_webview_pop_more, (ViewGroup) null);
+        this.r = new com.baidu.tbadk.core.view.i(this, inflate, this.u, getResources().getDrawable(com.baidu.tieba.q.bg_pull_down_right_n), new h(this));
+        this.l = inflate.findViewById(com.baidu.tieba.r.webview_more_pop_item_share_friend_layout);
         this.l.setOnClickListener(this);
-        this.n = inflate.findViewById(com.baidu.tbadk.j.webview_more_pop_item_open_browser_layout);
+        this.n = inflate.findViewById(com.baidu.tieba.r.webview_more_pop_item_open_browser_layout);
         this.n.setOnClickListener(this);
-        this.m = inflate.findViewById(com.baidu.tbadk.j.webview_more_pop_item_copy_link_layout);
+        this.m = inflate.findViewById(com.baidu.tieba.r.webview_more_pop_item_copy_link_layout);
         this.m.setOnClickListener(this);
-        this.t.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tbadk.k.widget_nb_item_more, new i(this));
-        this.h = (LinearLayout) findViewById(com.baidu.tbadk.j.webview_container);
-        this.i = (TextView) this.h.findViewById(com.baidu.tbadk.j.webview_crash_tip);
-        this.g = (ProgressBar) findViewById(com.baidu.tbadk.j.webview_progress);
-        if (d()) {
+        this.u.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.s.widget_nb_item_more, new i(this));
+        this.h = (LinearLayout) findViewById(com.baidu.tieba.r.webview_container);
+        this.i = (TextView) this.h.findViewById(com.baidu.tieba.r.webview_crash_tip);
+        this.g = (ProgressBar) findViewById(com.baidu.tieba.r.webview_progress);
+        if (f()) {
             this.i.setVisibility(8);
         } else {
             this.i.setVisibility(0);
         }
-        this.o = (ImageView) findViewById(com.baidu.tbadk.j.tb_webview_bottom_back_button);
+        this.o = (ImageView) findViewById(com.baidu.tieba.r.tb_webview_bottom_back_button);
         this.o.setEnabled(false);
         this.o.setOnClickListener(new j(this));
-        this.p = (ImageView) findViewById(com.baidu.tbadk.j.tb_webview_bottom_refresh_button);
+        this.p = (ImageView) findViewById(com.baidu.tieba.r.tb_webview_bottom_refresh_button);
         this.p.setOnClickListener(new k(this));
-        if (this.d) {
-            a.a(this);
+        this.q = (ImageView) findViewById(com.baidu.tieba.r.tb_webview_bottom_install_button);
+        this.q.setOnClickListener(this);
+    }
+
+    public void a() {
+        if (this.r != null) {
+            this.r.b();
         }
-        if (!bc.c(this.c)) {
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
+    public void onClick(View view) {
+        super.onClick(view);
+        this.r.dismiss();
+        if (view == this.l) {
+            com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
+            fVar.b = this.b;
+            fVar.c = this.c;
+            if (fVar != null) {
+                a(fVar);
+            }
+        } else if (view == this.n) {
+            a.c(this, this.c);
+        } else if (view == this.m) {
+            com.baidu.adp.lib.util.a.a(this.c);
+            com.baidu.adp.lib.util.h.a(view.getContext(), view.getResources().getString(com.baidu.tieba.u.copy_pb_url_success));
+        } else if (view == this.q && !this.q.isSelected()) {
+            this.q.setSelected(true);
+            if (this.q.isSelected()) {
+                h();
+            }
+        }
+    }
+
+    private void d() {
+        if (!com.baidu.tbadk.core.util.be.c(this.c)) {
             if (this.c.indexOf("_client_version") < 0) {
-                if (bc.c(Uri.parse(this.c).getQuery())) {
-                    this.c = String.valueOf(this.c) + "?_client_version=" + com.baidu.tbadk.core.data.n.c();
+                if (com.baidu.tbadk.core.util.be.c(Uri.parse(this.c).getQuery())) {
+                    this.c = String.valueOf(this.c) + "?_client_version=" + TbConfig.getVersion();
                 } else {
-                    this.c = String.valueOf(this.c) + "&_client_version=" + com.baidu.tbadk.core.data.n.c();
+                    this.c = String.valueOf(this.c) + "&_client_version=" + TbConfig.getVersion();
                 }
             }
             if (this.c.indexOf("nohead=1") < 0) {
                 this.c = String.valueOf(this.c) + "&nohead=1";
             }
         }
-        this.r.postDelayed(this.s, 500L);
+        this.s.postDelayed(this.t, 500L);
     }
 
-    public final void a() {
-        if (this.q != null) {
-            this.q.b();
-        }
-    }
-
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
-    public void onClick(View view) {
-        super.onClick(view);
-        this.q.dismiss();
-        if (view == this.l) {
-            com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
-            fVar.b = this.b;
-            fVar.c = this.c;
-            if (fVar != null) {
-                TiebaStatic.a(this, "share", "click", 1, new Object[0]);
-                com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this);
-                dVar.a(fVar, true);
-                SparseArray<String> sparseArray = new SparseArray<>(7);
-                sparseArray.put(2, "pb_wx_timeline");
-                sparseArray.put(3, "pb_wx_friend");
-                sparseArray.put(4, "pb_qq_zone");
-                sparseArray.put(5, "pb_tencent_weibo");
-                sparseArray.put(6, "pb_sina_weibo");
-                sparseArray.put(7, "pb_renren");
-                dVar.a(sparseArray);
-                dVar.a();
-            }
-        } else if (view == this.n) {
-            a.c(this, this.c);
-        } else if (view == this.m) {
-            com.baidu.adp.lib.util.a.a(this.c);
-            com.baidu.adp.lib.util.i.a(view.getContext(), view.getResources().getString(com.baidu.tbadk.l.copy_pb_url_success));
-        }
-    }
-
-    private static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, HashMap<String, o> hashMap) {
-        if (UtilHelper.h(context)) {
-            com.baidu.adp.lib.util.i.a(context, context.getString(com.baidu.tbadk.l.web_view_corrupted));
+    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, HashMap<String, r> hashMap) {
+        if (UtilHelper.webViewIsProbablyCorrupt(context)) {
+            com.baidu.adp.lib.util.h.a(context, context.getString(com.baidu.tieba.u.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, TbWebViewActivity.class);
         intent.putExtra("tag_title", str);
         intent.putExtra("tag_url", str2);
         intent.putExtra("tag_navigation_bar", true);
-        intent.putExtra("tag_back", true);
+        intent.putExtra("tag_back", z);
         intent.putExtra("tag_refresh", z2);
         intent.putExtra("tag_cookie", z3);
-        intent.putExtra("tag_enable_js", false);
-        a = null;
+        intent.putExtra("tag_enable_js", z4);
+        a = hashMap;
         if (!(context instanceof Activity)) {
             intent.addFlags(268435456);
         }
         context.startActivity(intent);
     }
 
-    public static void a(Context context, String str, boolean z, HashMap<String, o> hashMap) {
-        if (UtilHelper.h(context)) {
-            com.baidu.adp.lib.util.i.a(context, context.getString(com.baidu.tbadk.l.web_view_corrupted));
+    public static void a(Context context, String str, boolean z, HashMap<String, r> hashMap) {
+        if (UtilHelper.webViewIsProbablyCorrupt(context)) {
+            com.baidu.adp.lib.util.h.a(context, context.getString(com.baidu.tieba.u.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, TbWebViewActivity.class);
         intent.putExtra("tag_url", str);
         intent.putExtra("tag_navigation_bar", false);
-        intent.putExtra("tag_cookie", true);
+        intent.putExtra("tag_cookie", z);
         intent.putExtra("tag_enable_js", true);
-        a = null;
+        a = hashMap;
         if (!(context instanceof Activity)) {
             intent.addFlags(268435456);
         }
         context.startActivity(intent);
     }
 
+    public static void a(Context context, String str, String str2, boolean z) {
+        a(context, str, str2, true, z, true, false, null);
+    }
+
     public static void a(Context context, String str, String str2) {
-        a(context, str, str2, true, false, true, false, null);
+        a(context, str, str2, false);
     }
 
     public static void b(Context context, String str, String str2) {
@@ -202,46 +238,46 @@ public class TbWebViewActivity extends com.baidu.tbadk.a implements com.baidu.tb
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ba.a(this.e, i);
+        bc.a(this.e, i);
         if (this.f != null) {
-            ba.a(this.f, i);
+            bc.a(this.f, i);
         }
-        if (this.t != null && this.t.getVisibility() == 0) {
-            this.t.b(i);
+        if (this.u != null && this.u.getVisibility() == 0) {
+            this.u.c(i);
         }
         if (i == 1) {
-            this.u.setBackgroundResource(com.baidu.tbadk.i.bg_bar_1);
+            this.v.setBackgroundResource(com.baidu.tieba.q.bg_bar_1);
             if (this.f.canGoBack()) {
-                this.o.setImageDrawable(getResources().getDrawable(com.baidu.tbadk.i.icon_webview_return_n_1));
+                this.o.setImageDrawable(getResources().getDrawable(com.baidu.tieba.q.icon_webview_return_n_1));
             } else {
-                this.o.setImageDrawable(getResources().getDrawable(com.baidu.tbadk.i.icon_webview_return_dd));
+                this.o.setImageDrawable(getResources().getDrawable(com.baidu.tieba.q.icon_webview_return_dd));
             }
-            this.o.setBackgroundResource(com.baidu.tbadk.i.title_icon_bg_1);
-            this.p.setImageDrawable(getResources().getDrawable(com.baidu.tbadk.i.icon_webview_refresh_n_1));
-            this.p.setBackgroundResource(com.baidu.tbadk.i.title_icon_bg_1);
+            this.o.setBackgroundResource(com.baidu.tieba.q.title_icon_bg_1);
+            this.p.setImageDrawable(getResources().getDrawable(com.baidu.tieba.q.icon_webview_refresh_n_1));
+            this.p.setBackgroundResource(com.baidu.tieba.q.title_icon_bg_1);
         } else {
-            this.u.setBackgroundResource(com.baidu.tbadk.i.bg_bar);
+            this.v.setBackgroundResource(com.baidu.tieba.q.bg_bar);
             if (this.f.canGoBack()) {
-                this.o.setImageDrawable(getResources().getDrawable(com.baidu.tbadk.i.icon_webview_return_n));
+                this.o.setImageDrawable(getResources().getDrawable(com.baidu.tieba.q.icon_webview_return_n));
             } else {
-                this.o.setImageDrawable(getResources().getDrawable(com.baidu.tbadk.i.icon_webview_return_dd));
+                this.o.setImageDrawable(getResources().getDrawable(com.baidu.tieba.q.icon_webview_return_dd));
             }
-            this.o.setBackgroundResource(com.baidu.tbadk.i.title_icon_bg);
-            this.p.setImageDrawable(getResources().getDrawable(com.baidu.tbadk.i.icon_webview_refresh_n));
-            this.p.setBackgroundResource(com.baidu.tbadk.i.title_icon_bg);
+            this.o.setBackgroundResource(com.baidu.tieba.q.title_icon_bg);
+            this.p.setImageDrawable(getResources().getDrawable(com.baidu.tieba.q.icon_webview_refresh_n));
+            this.p.setBackgroundResource(com.baidu.tieba.q.title_icon_bg);
         }
-        this.q.a(this, i, getResources().getDrawable(com.baidu.tbadk.i.bg_pull_down_right_n), getResources().getDrawable(com.baidu.tbadk.i.bg_pull_down_right_n_1));
+        this.r.a(this, i, getResources().getDrawable(com.baidu.tieba.q.bg_pull_down_right_n), getResources().getDrawable(com.baidu.tieba.q.bg_pull_down_right_n_1));
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.f
-    public final boolean a(String str) {
-        if (bc.c(str)) {
+    @Override // com.baidu.tbadk.coreExtra.view.g
+    public boolean a(WebView webView, String str) {
+        if (com.baidu.tbadk.core.util.be.c(str)) {
             return false;
         }
-        if (com.baidu.tbadk.d.d.a(this, str)) {
+        if (com.baidu.tbadk.c.e.a(this, str)) {
             return true;
         }
         this.c = str;
@@ -250,7 +286,7 @@ public class TbWebViewActivity extends com.baidu.tbadk.a implements com.baidu.tb
     }
 
     @JavascriptInterface
-    private void c() {
+    private void e() {
         if (a == null) {
             a = new HashMap<>();
         }
@@ -262,11 +298,11 @@ public class TbWebViewActivity extends com.baidu.tbadk.a implements com.baidu.tb
         }
     }
 
-    private boolean d() {
+    private boolean f() {
         if (this.f == null) {
             try {
                 this.f = new BaseWebView(this);
-                ba.a(this.f, TbadkApplication.j().l());
+                bc.a(this.f, TbadkApplication.m252getInst().getSkinType());
                 this.f.getSettings().setJavaScriptEnabled(true);
                 this.f.getSettings().setAllowFileAccess(true);
                 this.f.getSettings().setDatabaseEnabled(true);
@@ -282,19 +318,19 @@ public class TbWebViewActivity extends com.baidu.tbadk.a implements com.baidu.tb
                 this.f.setWebChromeClient(new n(this));
                 this.h.addView(this.f);
                 if (this.j) {
-                    c();
+                    e();
                     return true;
                 }
                 return true;
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "", "TbWebViewActivity.createWebView error = " + e.getMessage());
+                BdLog.e(getClass().getName(), "", "TbWebViewActivity.createWebView error = " + e.getMessage());
                 return false;
             }
         }
         return true;
     }
 
-    public final void b() {
+    public void b() {
         this.i.setVisibility(8);
         if (this.f != null && URLUtil.isNetworkUrl(this.c)) {
             this.g.setVisibility(0);
@@ -302,83 +338,144 @@ public class TbWebViewActivity extends com.baidu.tbadk.a implements com.baidu.tb
         }
     }
 
+    private void a(com.baidu.tbadk.coreExtra.share.f fVar) {
+        if (fVar != null) {
+            TiebaStatic.eventStat(this, TbConfig.TMP_SHARE_DIR_NAME, "click", 1, new Object[0]);
+            com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this);
+            dVar.a(fVar, true);
+            dVar.a(g());
+            dVar.a();
+        }
+    }
+
+    private SparseArray<String> g() {
+        if (0 != 0) {
+            return null;
+        }
+        SparseArray<String> sparseArray = new SparseArray<>(7);
+        sparseArray.put(2, "pb_wx_timeline");
+        sparseArray.put(3, "pb_wx_friend");
+        sparseArray.put(4, "pb_qq_zone");
+        sparseArray.put(5, "pb_tencent_weibo");
+        sparseArray.put(6, "pb_sina_weibo");
+        sparseArray.put(7, "pb_renren");
+        return sparseArray;
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         String str;
         String str2;
         boolean z;
         super.onResume();
         if (this.f != null) {
-            this.f.resumeTimers();
-            b("onResume");
+            a("onResume");
             String str3 = "";
-            com.baidu.tbadk.core.a.n a2 = com.baidu.tbadk.core.a.a.a(TbadkApplication.D());
-            if (a2 != null) {
-                if (a2.a != null) {
-                    str3 = a2.a;
+            AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
+            if (parseBDUSS != null) {
+                if (parseBDUSS.mBduss != null) {
+                    str3 = parseBDUSS.mBduss;
                 }
-                if (a2.b != null) {
+                if (parseBDUSS.mPtoken != null) {
                     str = str3;
-                    str2 = a2.b;
-                    com.baidu.tbadk.d.e eVar = new com.baidu.tbadk.d.e(str, str2);
-                    if (this.k == null && (this.k == null || !this.k.equals(eVar))) {
+                    str2 = parseBDUSS.mPtoken;
+                    com.baidu.tbadk.c.f fVar = new com.baidu.tbadk.c.f(str, str2);
+                    if (this.k == null && (this.k == null || !this.k.equals(fVar))) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    this.k = eVar;
+                    this.k = fVar;
                     if (this.f == null && z) {
                         a.a(this);
-                        this.r.postDelayed(this.s, 100L);
+                        this.s.postDelayed(this.t, 100L);
                         return;
                     }
                 }
             }
             str = str3;
             str2 = "";
-            com.baidu.tbadk.d.e eVar2 = new com.baidu.tbadk.d.e(str, str2);
+            com.baidu.tbadk.c.f fVar2 = new com.baidu.tbadk.c.f(str, str2);
             if (this.k == null) {
             }
             z = false;
-            this.k = eVar2;
+            this.k = fVar2;
             if (this.f == null) {
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
         if (this.f != null) {
-            this.f.pauseTimers();
-            b("onPause");
+            a("onPause");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.r != null) {
-            this.r.removeCallbacks(this.s);
+        if (this.s != null) {
+            this.s.removeCallbacks(this.t);
         }
-        TbadkApplication.j().b(this);
+        TbadkApplication.m252getInst().delRemoteActivity(this);
     }
 
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
         super.releaseResouce();
         finish();
     }
 
-    private void b(String str) {
+    private void a(String str) {
         if (this.f != null) {
             try {
                 WebView.class.getMethod(str, new Class[0]).invoke(this.f, new Object[0]);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
+                BdLog.e(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
+            }
+        }
+    }
+
+    private void h() {
+        com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
+        gVar.a(0).a(false).b(com.baidu.tieba.r.webview_bottom_navigation_bar).c(true);
+        gVar.a(new o(this));
+        this.w = gVar.a();
+        this.w.a(this);
+        this.q.setSelected(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void i() {
+        if (!com.baidu.tbadk.tbplugin.m.a().b("browser")) {
+            this.q.setVisibility(0);
+            if (!com.baidu.tbadk.core.sharedPref.b.a().a("install_plugin_dialog_closed", false)) {
+                h();
+                return;
+            }
+            if (new Date().getTime() - com.baidu.tbadk.core.sharedPref.b.a().a("install_plugin_dialog_shown_time", new Date().getTime()) > 259200000) {
+                h();
+                return;
+            }
+            return;
+        }
+        this.q.setVisibility(8);
+    }
+
+    @Override // android.app.Activity
+    protected void onActivityResult(int i, int i2, Intent intent) {
+        if (i == 1) {
+            if (this.w != null) {
+                this.w.a();
+                this.q.setSelected(false);
+            }
+            if (i2 == -1) {
+                this.q.setVisibility(8);
             }
         }
     }

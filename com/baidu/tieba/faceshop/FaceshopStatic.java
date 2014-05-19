@@ -3,5 +3,6 @@ package com.baidu.tieba.faceshop;
 public class FaceshopStatic {
     static {
         com.baidu.adp.lib.e.b.a().a(3, new o());
+        com.baidu.adp.lib.resourceLoader.d.a().a(20, new p());
     }
 }

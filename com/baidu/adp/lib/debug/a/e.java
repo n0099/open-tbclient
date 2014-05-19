@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.WindowManager;
 /* loaded from: classes.dex */
-public final class e extends a {
+public class e extends a {
     private g a;
     private WindowManager b;
 
@@ -17,7 +17,7 @@ public final class e extends a {
     }
 
     @Override // com.baidu.adp.lib.debug.a.a
-    public final void c() {
+    public void c() {
         super.c();
         try {
             this.b.removeView(this.a);
@@ -26,7 +26,7 @@ public final class e extends a {
     }
 
     @Override // com.baidu.adp.lib.debug.a.a
-    public final void b() {
+    public void b() {
         super.b();
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-2, -2, 2006, 0, -3);
         layoutParams.gravity = 51;

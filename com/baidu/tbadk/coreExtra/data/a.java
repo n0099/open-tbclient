@@ -1,11 +1,12 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.UserData;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private UserData a;
     private ArrayList<String> b;
 
@@ -16,23 +17,23 @@ public final class a {
         this.b = new ArrayList<>(3);
     }
 
-    public final UserData a() {
+    public UserData a() {
         return this.a;
     }
 
-    public final ArrayList<String> b() {
+    public ArrayList<String> b() {
         return this.b;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
-    private void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         try {
             this.a.parserJson(jSONObject.optJSONObject("user"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
@@ -42,7 +43,7 @@ public final class a {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 }

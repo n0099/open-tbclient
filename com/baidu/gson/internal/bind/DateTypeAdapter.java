@@ -37,7 +37,7 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.gson.TypeAdapter
-    public final Date read(JsonReader jsonReader) {
+    public Date read(JsonReader jsonReader) {
         if (jsonReader.peek() == JsonToken.NULL) {
             jsonReader.nextNull();
             return null;
@@ -65,7 +65,7 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.gson.TypeAdapter
-    public final synchronized void write(JsonWriter jsonWriter, Date date) {
+    public synchronized void write(JsonWriter jsonWriter, Date date) {
         if (date == null) {
             jsonWriter.nullValue();
         } else {

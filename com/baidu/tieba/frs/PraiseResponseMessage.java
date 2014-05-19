@@ -4,26 +4,38 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PraiseResponseMessage extends JsonHttpResponsedMessage {
-    private int a;
-    private String b;
+    private int errCode;
+    private String errMsg;
 
-    public final String i() {
-        return this.b;
+    public int getErrCode() {
+        return this.errCode;
+    }
+
+    public void setErrCode(int i) {
+        this.errCode = i;
+    }
+
+    public String getErrMsg() {
+        return this.errMsg;
+    }
+
+    public void setErrMsg(String str) {
+        this.errMsg = str;
     }
 
     public PraiseResponseMessage(int i) {
         super(i);
-        this.a = 0;
-        this.b = "";
+        this.errCode = 0;
+        this.errMsg = "";
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public final void a(JSONObject jSONObject) {
-        int d = d();
-        int e = e();
-        if (d == 200 && e >= 0 && jSONObject != null) {
-            this.a = jSONObject.optInt("error_code");
-            this.b = jSONObject.optString("error_msg");
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+        int statusCode = getStatusCode();
+        int error = getError();
+        if (statusCode == 200 && error >= 0 && jSONObject != null) {
+            this.errCode = jSONObject.optInt("error_code");
+            this.errMsg = jSONObject.optString("error_msg");
         }
     }
 }

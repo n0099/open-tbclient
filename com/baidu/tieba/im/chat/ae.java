@@ -1,21 +1,25 @@
 package com.baidu.tieba.im.chat;
+
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ae implements com.baidu.tieba.im.a<Boolean> {
+public class ae implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ x a;
-    private final /* synthetic */ com.baidu.tieba.im.message.a.e b;
+    private final /* synthetic */ OfficialChatMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(x xVar, com.baidu.tieba.im.message.a.e eVar) {
+    public ae(x xVar, OfficialChatMessage officialChatMessage) {
         this.a = xVar;
-        this.b = eVar;
+        this.b = officialChatMessage;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
-        this.b.i(System.currentTimeMillis());
-        com.baidu.adp.framework.c.a().a(this.b);
-        com.baidu.adp.lib.util.f.e("SHANG sendMessage to queue");
+    public void a(Boolean bool) {
+        this.b.setLogTime(System.currentTimeMillis());
+        MessageManager.getInstance().sendMessage(this.b);
+        BdLog.d("SHANG sendMessage to queue");
     }
 }

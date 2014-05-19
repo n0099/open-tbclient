@@ -6,17 +6,21 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import java.util.Map;
 /* loaded from: classes.dex */
-public final class z extends ag {
+public class z extends ag {
     public z() {
+        b();
+    }
+
+    private void b() {
         super.b(7);
         super.c(3);
-        com.baidu.adp.widget.ImageView.b bVar = new com.baidu.adp.widget.ImageView.b(BitmapFactory.decodeResource(TbadkApplication.j().b().getResources(), com.baidu.tbadk.i.icon_face_original_s), false);
-        super.b(bVar);
-        super.a(bVar);
+        com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(BitmapFactory.decodeResource(TbadkApplication.m252getInst().getApp().getResources(), com.baidu.tieba.q.icon_face_original_s), false);
+        super.b(aVar);
+        super.a(aVar);
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final String a(int i) {
+    public String a(int i) {
         int i2;
         if (i < 0 || i >= w.b.size()) {
             i2 = 0;
@@ -32,56 +36,52 @@ public final class z extends ag {
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final boolean a(String str) {
+    public boolean a(String str) {
         return w.c.get(str) != null;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final com.baidu.adp.widget.ImageView.b b(String str) {
+    public com.baidu.adp.widget.a.a b(String str) {
+        Bitmap a;
         Integer num = w.c.get(str);
-        if (num == null) {
-            return null;
-        }
-        com.baidu.adp.lib.util.b.a();
-        Bitmap a = com.baidu.adp.lib.util.b.a(TbadkApplication.j().b(), num.intValue());
-        if (a != null) {
-            return new com.baidu.adp.widget.ImageView.b(a, false, str);
+        if (num != null && (a = com.baidu.adp.lib.util.b.a().a(TbadkApplication.m252getInst().getApp(), num.intValue())) != null) {
+            return new com.baidu.adp.widget.a.a(a, false, str);
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final int d() {
+    public int d() {
         return w.b.size();
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final com.baidu.adp.widget.ImageView.b c(String str) {
+    public com.baidu.adp.widget.a.a c(String str) {
         return b(str);
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final EmotionGroupType c() {
+    public EmotionGroupType c() {
         return EmotionGroupType.LOCAL;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final String e() {
+    public String e() {
         return "_local";
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final String f() {
+    public String f() {
         return "_local";
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final int g() {
+    public int g() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final int h() {
+    public int h() {
         return 0;
     }
 }

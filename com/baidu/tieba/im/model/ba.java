@@ -1,19 +1,30 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.chat.snapGroup.SnapGroupChatActivity;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import java.util.Comparator;
 /* loaded from: classes.dex */
-final class ba extends com.baidu.tieba.im.m<Void> {
-    final /* synthetic */ OfficialBarMsglistModel b;
+class ba implements Comparator<ChatMessage> {
+    final /* synthetic */ MsglistModel a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(OfficialBarMsglistModel officialBarMsglistModel) {
-        this.b = officialBarMsglistModel;
+    private ba(MsglistModel msglistModel) {
+        this.a = msglistModel;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Void a() {
-        com.baidu.tieba.im.db.n.d().b(SnapGroupChatActivity.b);
-        return null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ba(MsglistModel msglistModel, ba baVar) {
+        this(msglistModel);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(ChatMessage chatMessage, ChatMessage chatMessage2) {
+        if (chatMessage == null || chatMessage2 == null) {
+            return 0;
+        }
+        if (chatMessage.getRecordId() > chatMessage2.getRecordId()) {
+            return 1;
+        }
+        return chatMessage.getRecordId() < chatMessage2.getRecordId() ? -1 : 0;
     }
 }

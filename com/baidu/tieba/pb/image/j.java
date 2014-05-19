@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.image;
 /* loaded from: classes.dex */
-final class j implements t {
+class j implements t {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ final class j implements t {
     }
 
     @Override // com.baidu.tieba.pb.image.t
-    public final void a() {
+    public void a(int i, int i2, int i3) {
         r rVar;
         com.baidu.tieba.data.u uVar;
         rVar = this.a.b;

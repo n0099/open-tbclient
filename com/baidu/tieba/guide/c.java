@@ -1,11 +1,12 @@
 package com.baidu.tieba.guide;
 
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import com.baidu.tieba.data.InterestFrsData;
 import com.baidu.tieba.model.ao;
+import com.baidu.tieba.model.aq;
 import com.baidu.tieba.view.RightSlideViewPager;
 /* loaded from: classes.dex */
-final class c implements ViewPager.OnPageChangeListener {
+class c implements aq {
     final /* synthetic */ NewUserGuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,33 +14,27 @@ final class c implements ViewPager.OnPageChangeListener {
         this.a = newUserGuideActivity;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageSelected(int i) {
-        RightSlideViewPager rightSlideViewPager;
-        if (i == 1) {
-            rightSlideViewPager = this.a.h;
-            rightSlideViewPager.setTag(null);
-        }
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageScrolled(int i, float f, int i2) {
+    @Override // com.baidu.tieba.model.aq
+    public void a(InterestFrsData interestFrsData) {
         ao aoVar;
+        ao aoVar2;
+        RightSlideViewPager rightSlideViewPager;
         aoVar = this.a.c;
-        if (aoVar.a() && i == 0 && f > 0.0f) {
-            this.a.j();
-        }
+        aoVar.a(false);
+        aoVar2 = this.a.c;
+        aoVar2.a(interestFrsData);
+        rightSlideViewPager = this.a.h;
+        ((p) ((FragmentPagerAdapter) rightSlideViewPager.getAdapter()).getItem(1)).a(interestFrsData);
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageScrollStateChanged(int i) {
-        RightSlideViewPager rightSlideViewPager;
-        rightSlideViewPager = this.a.h;
-        l lVar = (l) ((FragmentPagerAdapter) rightSlideViewPager.getAdapter()).getItem(0);
-        if (i == 0) {
-            lVar.a();
-        } else {
-            lVar.b();
-        }
+    @Override // com.baidu.tieba.model.aq
+    public void b(InterestFrsData interestFrsData) {
+        ao aoVar;
+        ao aoVar2;
+        aoVar = this.a.c;
+        aoVar.a(true);
+        aoVar2 = this.a.c;
+        aoVar2.a((InterestFrsData) null);
+        this.a.c(com.baidu.tieba.u.neterror_interestfrs);
     }
 }

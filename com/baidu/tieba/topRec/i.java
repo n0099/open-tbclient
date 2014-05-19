@@ -2,9 +2,10 @@ package com.baidu.tieba.topRec;
 
 import android.view.animation.Animation;
 import android.widget.TextView;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i implements Animation.AnimationListener {
+public class i implements Animation.AnimationListener {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +14,7 @@ public final class i implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationEnd(Animation animation) {
+    public void onAnimationEnd(Animation animation) {
         int i;
         TextView textView;
         TopRecActivity topRecActivity;
@@ -29,13 +30,13 @@ public final class i implements Animation.AnimationListener {
         if (i < 100) {
             textView5 = this.a.m;
             topRecActivity2 = this.a.j;
-            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getString(com.baidu.tieba.a.k.done))).append("(");
+            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getString(u.done))).append("(");
             i2 = this.a.k;
             textView5.setText(append.append(i2).append(")").toString());
         } else {
             textView = this.a.m;
             topRecActivity = this.a.j;
-            textView.setText(String.valueOf(topRecActivity.getString(com.baidu.tieba.a.k.done)) + "(99+)");
+            textView.setText(String.valueOf(topRecActivity.getString(u.done)) + "(99+)");
         }
         textView2 = this.a.m;
         textView2.invalidate();
@@ -49,10 +50,10 @@ public final class i implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationRepeat(Animation animation) {
+    public void onAnimationRepeat(Animation animation) {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationStart(Animation animation) {
+    public void onAnimationStart(Animation animation) {
     }
 }

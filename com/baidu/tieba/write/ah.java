@@ -1,11 +1,13 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
+import android.app.TimePickerDialog;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import java.util.Date;
 /* loaded from: classes.dex */
-final class ah implements View.OnClickListener {
+class ah implements TimePickerDialog.OnTimeSetListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,23 +15,32 @@ final class ah implements View.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        InputMethodManager inputMethodManager;
-        EditText editText;
-        InputMethodManager inputMethodManager2;
-        EditText editText2;
-        EditorToolComponetContainer editorToolComponetContainer;
-        WriteActivity writeActivity = this.a;
-        inputMethodManager = this.a.c;
-        editText = this.a.e;
-        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.a;
-        inputMethodManager2 = this.a.c;
-        editText2 = this.a.h;
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        editorToolComponetContainer = this.a.A;
-        editorToolComponetContainer.b();
-        this.a.c();
+    @Override // android.app.TimePickerDialog.OnTimeSetListener
+    public void onTimeSet(TimePicker timePicker, int i, int i2) {
+        WriteData writeData;
+        WriteData writeData2;
+        WriteData writeData3;
+        WriteData writeData4;
+        TextView textView;
+        WriteData writeData5;
+        WriteData writeData6;
+        writeData = this.a.a;
+        if (writeData.getLiveCardData() != null) {
+            Date date = new Date();
+            Date date2 = new Date(date.getYear(), date.getMonth(), date.getDate(), i, i2);
+            writeData2 = this.a.a;
+            long startTime = writeData2.getLiveCardData().getStartTime();
+            writeData3 = this.a.a;
+            writeData3.getLiveCardData().setStartTime(date2.getTime() / 1000);
+            writeData4 = this.a.a;
+            if (startTime / 60 != writeData4.getLiveCardData().getStartTime() / 60) {
+                BdLog.i("更改了预告时间");
+                writeData6 = this.a.a;
+                writeData6.getLiveCardData().setModifyTime(true);
+            }
+            textView = this.a.R;
+            writeData5 = this.a.a;
+            textView.setText(com.baidu.tbadk.core.util.be.b(writeData5.getLiveCardData().getStartTime() * 1000));
+        }
     }
 }

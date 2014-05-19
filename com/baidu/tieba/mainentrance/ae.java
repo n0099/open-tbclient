@@ -2,7 +2,7 @@ package com.baidu.tieba.mainentrance;
 
 import android.widget.ImageView;
 /* loaded from: classes.dex */
-final class ae implements com.baidu.tbadk.imageManager.d {
+class ae implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ ad a;
     private final /* synthetic */ ImageView b;
 
@@ -13,8 +13,8 @@ final class ae implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null) {
             this.b.invalidate();
         }
     }

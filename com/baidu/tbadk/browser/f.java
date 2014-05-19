@@ -2,7 +2,7 @@ package com.baidu.tbadk.browser;
 
 import android.app.Activity;
 /* loaded from: classes.dex */
-public final class f {
+public class f {
     private final Activity a;
 
     public f(Activity activity) {

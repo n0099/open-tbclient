@@ -1,25 +1,28 @@
 package com.baidu.tieba.im.validate;
 
 import android.text.TextUtils;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.im.groupInfo.RequestAddGroupUserMessage;
+import com.baidu.tieba.im.groupInfo.RequestDelSystemMessage;
 import com.baidu.tieba.im.groupInfo.ResponseDelSystemMessage;
-import com.baidu.tieba.im.groupInfo.ak;
-import com.baidu.tieba.im.groupInfo.al;
 import java.util.List;
 /* loaded from: classes.dex */
-final class a extends com.baidu.adp.framework.c.g {
+class a extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ ValidateActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ValidateActivity validateActivity, int i) {
-        super(0);
+        super(i);
         this.a = validateActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         t tVar;
         ValidateItemData validateItemData;
         com.baidu.tieba.im.a aVar;
@@ -27,33 +30,70 @@ final class a extends com.baidu.adp.framework.c.g {
         int i2;
         t tVar2;
         ValidateItemData validateItemData2;
+        ValidateItemData a;
         com.baidu.tieba.im.a aVar2;
         t tVar3;
+        ValidateItemData a2;
         com.baidu.tieba.im.a aVar3;
         t tVar4;
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
         tVar = this.a.b;
         tVar.a(false);
         this.a.i = false;
-        if (socketResponsedMessage2 == null || !(socketResponsedMessage2 instanceof com.baidu.adp.framework.message.f)) {
-            return;
-        }
-        int g = socketResponsedMessage2.g();
-        if (g != 103111) {
-            if (202004 == g) {
-                ResponseDelSystemMessage responseDelSystemMessage = (ResponseDelSystemMessage) socketResponsedMessage2;
-                al alVar = (al) responseDelSystemMessage.h();
-                if (responseDelSystemMessage.e() != 0) {
-                    com.baidu.adp.lib.util.f.b("del group info err:" + responseDelSystemMessage.f());
+        if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage)) {
+            int cmd = socketResponsedMessage.getCmd();
+            if (cmd == 103111) {
+                RequestAddGroupUserMessage requestAddGroupUserMessage = (RequestAddGroupUserMessage) socketResponsedMessage.getOrginalMessage();
+                if (socketResponsedMessage.getError() != 0) {
+                    if (requestAddGroupUserMessage != null) {
+                        int error = socketResponsedMessage.getError();
+                        String errorString = socketResponsedMessage.getErrorString();
+                        if (TextUtils.isEmpty(errorString)) {
+                            this.a.showToast(com.baidu.tieba.u.validate_fail);
+                        } else {
+                            this.a.showToast(errorString);
+                        }
+                        BdLog.d("errCode:" + error + "errMsg:" + errorString);
+                        a2 = this.a.a(requestAddGroupUserMessage.getNotice_id());
+                        if (a2 != null) {
+                            a2.setPass(false);
+                            a2.setShown(true);
+                            aVar3 = this.a.d;
+                            n.a(aVar3, a2);
+                            tVar4 = this.a.b;
+                            tVar4.d().notifyDataSetChanged();
+                            BdLog.d("apply add group" + socketResponsedMessage.toString() + "err:" + error + " " + errorString);
+                            return;
+                        }
+                        return;
+                    }
                     return;
                 }
-                com.baidu.adp.lib.util.f.e("del group info: gid" + alVar.i() + " msgid:" + alVar.j());
+                a = this.a.a(requestAddGroupUserMessage.getNotice_id());
+                if (a != null) {
+                    a.setPass(true);
+                    a.setShown(true);
+                    aVar2 = this.a.d;
+                    n.a(aVar2, a);
+                    if (TextUtils.isEmpty(socketResponsedMessage.getErrorString())) {
+                        this.a.showToast(com.baidu.tieba.u.validate_succ);
+                    } else {
+                        this.a.showToast(socketResponsedMessage.getErrorString());
+                    }
+                    tVar3 = this.a.b;
+                    tVar3.d().notifyDataSetChanged();
+                    BdLog.d("apply add group" + socketResponsedMessage.toString());
+                }
+            } else if (202004 == cmd) {
+                ResponseDelSystemMessage responseDelSystemMessage = (ResponseDelSystemMessage) socketResponsedMessage;
+                RequestDelSystemMessage requestDelSystemMessage = (RequestDelSystemMessage) responseDelSystemMessage.getOrginalMessage();
+                if (responseDelSystemMessage.getError() != 0) {
+                    BdLog.e("del group info err:" + responseDelSystemMessage.getErrorString());
+                    return;
+                }
+                BdLog.d("del group info: gid" + requestDelSystemMessage.getGroupId() + " msgid:" + requestDelSystemMessage.getMsgIds());
                 validateItemData = this.a.f;
                 aVar = this.a.d;
-                if (validateItemData != null) {
-                    com.baidu.adp.lib.util.f.e("lastmid:" + validateItemData.getNotice_id());
-                    com.baidu.tieba.im.r.a(new q(validateItemData), aVar);
-                }
+                n.a(validateItemData, aVar);
                 ValidateActivity validateActivity = this.a;
                 i = validateActivity.l;
                 validateActivity.l = i - 1;
@@ -61,51 +101,12 @@ final class a extends com.baidu.adp.framework.c.g {
                 i2 = validateActivity2.j;
                 validateActivity2.j = i2 - 1;
                 tVar2 = this.a.b;
-                h e = tVar2.e();
-                List<ValidateItemData> b = e.b();
+                h d = tVar2.d();
+                List<ValidateItemData> b = d.b();
                 validateItemData2 = this.a.f;
                 b.remove(validateItemData2);
-                e.notifyDataSetChanged();
-                com.baidu.tieba.im.pushNotify.a.a((com.baidu.tieba.im.a<Void>) null);
-                return;
-            }
-            return;
-        }
-        ak akVar = (ak) socketResponsedMessage2.h();
-        if (socketResponsedMessage2.e() == 0) {
-            ValidateItemData a = ValidateActivity.a(this.a, akVar.l());
-            if (a != null) {
-                a.setPass(true);
-                a.setShown(true);
-                aVar2 = this.a.d;
-                n.a(aVar2, a);
-                if (TextUtils.isEmpty(socketResponsedMessage2.f())) {
-                    this.a.showToast(com.baidu.tieba.im.j.validate_succ);
-                } else {
-                    this.a.showToast(socketResponsedMessage2.f());
-                }
-                tVar3 = this.a.b;
-                tVar3.e().notifyDataSetChanged();
-                com.baidu.adp.lib.util.f.e("apply add group" + socketResponsedMessage2.toString());
-            }
-        } else if (akVar != null) {
-            int e2 = socketResponsedMessage2.e();
-            String f = socketResponsedMessage2.f();
-            if (TextUtils.isEmpty(f)) {
-                this.a.showToast(com.baidu.tieba.im.j.validate_fail);
-            } else {
-                this.a.showToast(f);
-            }
-            com.baidu.adp.lib.util.f.e("errCode:" + e2 + "errMsg:" + f);
-            ValidateItemData a2 = ValidateActivity.a(this.a, akVar.l());
-            if (a2 != null) {
-                a2.setPass(false);
-                a2.setShown(true);
-                aVar3 = this.a.d;
-                n.a(aVar3, a2);
-                tVar4 = this.a.b;
-                tVar4.e().notifyDataSetChanged();
-                com.baidu.adp.lib.util.f.e("apply add group" + socketResponsedMessage2.toString() + "err:" + e2 + " " + f);
+                d.notifyDataSetChanged();
+                com.baidu.tieba.im.pushNotify.a.b((com.baidu.tieba.im.a<Void>) null);
             }
         }
     }

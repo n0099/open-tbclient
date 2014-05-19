@@ -2,7 +2,7 @@ package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-final class h implements com.baidu.adp.widget.ListView.d {
+class h implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ final class h implements com.baidu.adp.widget.ListView.d {
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public final void a(boolean z) {
+    public void a(boolean z) {
         com.baidu.tieba.im.model.k kVar;
         com.baidu.tieba.im.model.k kVar2;
         int i;
@@ -19,16 +19,16 @@ final class h implements com.baidu.adp.widget.ListView.d {
         kVar = this.a.c;
         if (!kVar.h() || !z) {
             kVar2 = this.a.c;
-            if (kVar2.g() == 2) {
+            if (kVar2.i()) {
                 i = this.a.k;
-                if (i == com.baidu.adp.lib.util.i.a()) {
+                if (i == com.baidu.adp.lib.util.h.a()) {
                     bdListView = this.a.e;
-                    bdListView.b();
-                    this.a.a(com.baidu.tieba.im.j.frsgroup_hot_cannot_refresh_tip);
+                    bdListView.c();
+                    this.a.a(com.baidu.tieba.u.frsgroup_hot_cannot_refresh_tip);
                     return;
                 }
             }
-            this.a.a();
+            this.a.i();
             return;
         }
         this.a.a(false);

@@ -11,7 +11,7 @@ public final class URIResultParser extends ResultParser {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public final URIParsedResult parse(Result result) {
+    public URIParsedResult parse(Result result) {
         String massagedText = getMassagedText(result);
         if (massagedText.startsWith("URL:") || massagedText.startsWith("URI:")) {
             return new URIParsedResult(massagedText.substring(4).trim(), null);

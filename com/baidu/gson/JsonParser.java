@@ -9,11 +9,11 @@ import java.io.Reader;
 import java.io.StringReader;
 /* loaded from: classes.dex */
 public final class JsonParser {
-    public final JsonElement parse(String str) {
+    public JsonElement parse(String str) {
         return parse(new StringReader(str));
     }
 
-    public final JsonElement parse(Reader reader) {
+    public JsonElement parse(Reader reader) {
         try {
             JsonReader jsonReader = new JsonReader(reader);
             JsonElement parse = parse(jsonReader);
@@ -30,7 +30,7 @@ public final class JsonParser {
         }
     }
 
-    public final JsonElement parse(JsonReader jsonReader) {
+    public JsonElement parse(JsonReader jsonReader) {
         boolean isLenient = jsonReader.isLenient();
         jsonReader.setLenient(true);
         try {

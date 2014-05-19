@@ -1,34 +1,35 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
-public final class y {
+public class y {
     private ArrayList<x> a = new ArrayList<>();
     private boolean b;
     private int c;
 
-    public final ArrayList<x> a() {
+    public ArrayList<x> a() {
         return this.a;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.c = i;
     }
 
-    public final boolean b() {
+    public boolean b() {
         return this.b;
     }
 
-    public final void c() {
+    public void c() {
         Iterator<x> it = this.a.iterator();
         while (it.hasNext()) {
             it.next().a(0);
         }
     }
 
-    public final void a(JSONArray jSONArray) {
+    public void a(JSONArray jSONArray) {
         if (jSONArray != null) {
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
@@ -39,7 +40,7 @@ public final class y {
                     }
                     this.a.add(xVar);
                 } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
+                    BdLog.e("LikeForumListData", "parserJson", "error = " + e.getMessage());
                     return;
                 }
             }

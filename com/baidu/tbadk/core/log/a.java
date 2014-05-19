@@ -3,21 +3,22 @@ package com.baidu.tbadk.core.log;
 import android.os.Build;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.n;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private static a n;
     private StringBuffer e;
-    private static final String c = w.a + "/" + n.f() + "/log";
-    private static final String d = w.a + "/" + n.f() + "/logbak";
+    private static final String c = x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_LOG_DIR_NAME;
+    private static final String d = x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_LOGBAK_DIR_NAME;
     private static boolean o = false;
     private static boolean r = false;
     private final AtomicBoolean a = new AtomicBoolean(false);
@@ -33,11 +34,11 @@ public final class a {
     private f p = null;
     private d q = null;
 
-    public static void a() {
+    public static void a(boolean z) {
     }
 
-    private static boolean f() {
-        if (TbadkApplication.j().d()) {
+    public static boolean a() {
+        if (TbadkApplication.m252getInst().isDebugMode()) {
             return true;
         }
         if (Build.VERSION.SDK_INT < 16) {
@@ -51,14 +52,14 @@ public final class a {
     }
 
     public static void a(UtilHelper.NetworkStateInfo networkStateInfo) {
-        if (f()) {
+        if (a()) {
             g().b(networkStateInfo);
         }
     }
 
     public static void b() {
-        if (f()) {
-            g().a(true);
+        if (a()) {
+            g().b(true);
             o = false;
         }
     }
@@ -75,22 +76,26 @@ public final class a {
     }
 
     public static void a(String str) {
-        if (f()) {
+        if (a()) {
             g().c(str);
         }
     }
 
     public static void b(String str) {
-        if (f()) {
+        if (a()) {
             g().c(str);
         }
     }
 
     public static void c() {
+        g().d();
+    }
+
+    public void d() {
         try {
-            g().b(UtilHelper.d(TbadkApplication.j().b().getApplicationContext()));
+            b(UtilHelper.getNetStatusInfo(TbadkApplication.m252getInst().getApp().getApplicationContext()));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.a("BdLogger", "初始化日志组建失败 ", e);
+            BdLog.e("BdLogger", "初始化日志组建失败 ", e);
         }
     }
 
@@ -98,7 +103,7 @@ public final class a {
         try {
             this.e = new StringBuffer();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.a("BdLogger", "初始化日志组建失败 ", e);
+            BdLog.e("BdLogger", "初始化日志组建失败 ", e);
         }
     }
 
@@ -106,100 +111,110 @@ public final class a {
         try {
             this.l = networkStateInfo;
             g.a();
-            if (f() && this.q == null) {
-                this.q = new d(this, b(false));
+            if (a() && this.q == null) {
+                this.q = new d(this, c(false));
                 this.q.execute(new String[0]);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.a("BdLogger", "network", e);
+            BdLog.e("BdLogger", "network", e);
         }
     }
 
-    private synchronized void c(String str) {
+    public synchronized void c(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 this.e.append(str);
-                a(false);
+                b(false);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.a("BdLogger", "hashTableToMemoryList error ", e);
+                BdLog.e("BdLogger", "hashTableToMemoryList error ", e);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
+    public void b(boolean z) {
         if (!this.a.get()) {
             this.f++;
         } else if (z) {
-            com.baidu.adp.lib.f.d.a();
-            com.baidu.adp.lib.f.d.a(new b(this));
+            com.baidu.adp.lib.f.d.a().a(new b(this));
         }
         if (this.f >= 20 || z) {
             String stringBuffer = this.e.toString();
             this.e = new StringBuffer(stringBuffer.length());
             this.f = 0;
-            if (!TextUtils.isEmpty(stringBuffer)) {
-                if (TbadkApplication.j().d()) {
-                    com.baidu.adp.lib.util.f.e(stringBuffer);
-                }
-                this.a.set(true);
-                com.baidu.adp.lib.f.d.a();
-                com.baidu.adp.lib.f.d.a(new c(this, stringBuffer));
-            }
+            d(stringBuffer);
         }
     }
 
-    private String b(boolean z) {
+    public void d(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            if (TbadkApplication.m252getInst().isDebugMode()) {
+                BdLog.d(str);
+            }
+            this.a.set(true);
+            com.baidu.adp.lib.f.d.a().a(new c(this, str));
+        }
+    }
+
+    private String c(boolean z) {
         if (this.m == null || z) {
-            this.m = String.valueOf(DateFormat.format("yyyyMMddkkmmss", System.currentTimeMillis()).toString()) + "-" + String.valueOf(UUID.randomUUID()) + ".log";
+            this.m = h();
         }
         return this.m;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void b(a aVar, String str) {
-        boolean z = true;
-        if (aVar.g >= 6) {
+    private String h() {
+        return String.valueOf(DateFormat.format("yyyyMMddkkmmss", System.currentTimeMillis()).toString()) + "-" + String.valueOf(UUID.randomUUID()) + ".log";
+    }
+
+    private boolean e(String str) {
+        if (x.h(TbConfig.TMP_LOG_DIR_NAME, str) > 102400) {
+            if (this.l == UtilHelper.NetworkStateInfo.WIFI) {
+                this.p = new f(this, String.valueOf(c) + "/" + str);
+                this.p.execute(new String[0]);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f(String str) {
+        if (this.g >= 6) {
             r = false;
             return;
         }
         try {
-            String b = aVar.b(false);
-            if (w.h("log", b) <= 102400) {
-                z = false;
-            } else if (aVar.l == UtilHelper.NetworkStateInfo.WIFI) {
-                aVar.p = new f(aVar, String.valueOf(c) + "/" + b);
-                aVar.p.execute(new String[0]);
+            boolean e = e(c(false));
+            if (this.h == null) {
+                this.h = new File(String.valueOf(c) + "/" + c(e));
             }
-            if (aVar.h == null) {
-                aVar.h = new File(String.valueOf(c) + "/" + aVar.b(z));
-            }
-            if (!aVar.h.exists()) {
-                w.l(c);
-                aVar.h.createNewFile();
-                if (aVar.l != UtilHelper.NetworkStateInfo.WIFI) {
-                    aVar.d(c);
+            if (!this.h.exists()) {
+                x.l(c);
+                this.h.createNewFile();
+                if (this.l != UtilHelper.NetworkStateInfo.WIFI) {
+                    g(c);
                 }
             }
-            if (aVar.j == null) {
-                aVar.j = new FileWriter(aVar.h, true);
+            if (this.j == null) {
+                this.j = new FileWriter(this.h, true);
             }
-            if (aVar.k == null) {
-                aVar.k = new BufferedWriter(aVar.j);
+            if (this.k == null) {
+                this.k = new BufferedWriter(this.j);
             }
-            aVar.k.write(str);
-            aVar.k.flush();
-            aVar.j.flush();
-            aVar.g = 0;
-        } catch (Exception e) {
-            aVar.g++;
-            com.baidu.adp.lib.util.f.a("BdLogger", "write() ", e);
+            this.k.write(str);
+            this.k.flush();
+            this.j.flush();
+            this.g = 0;
+        } catch (Exception e2) {
+            this.g++;
+            BdLog.e("BdLogger", "write() ", e2);
         } finally {
-            aVar.h();
+            i();
         }
     }
 
-    private void h() {
+    private void i() {
         try {
             if (this.j != null) {
                 this.j.close();
@@ -213,34 +228,38 @@ public final class a {
                 this.h = null;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.a("BdLogger", "close() error  ", e);
+            BdLog.e("BdLogger", "close() error  ", e);
+        }
+    }
+
+    private void a(String str, long j) {
+        try {
+            File[] listFiles = new File(str).listFiles();
+            if (listFiles != null) {
+                long j2 = 0;
+                for (File file : listFiles) {
+                    if (file.isFile()) {
+                        long b = x.b(file);
+                        if (x.c(file)) {
+                            j2 += b;
+                            if (j2 >= j && j > 0) {
+                                return;
+                            }
+                        } else {
+                            continue;
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e("BdLogger", "check file error ", e);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(String str) {
-        if (w.a(str, true) > 26214400) {
-            try {
-                File[] listFiles = new File(str).listFiles();
-                if (listFiles != null) {
-                    long j = 0;
-                    for (File file : listFiles) {
-                        if (file.isFile()) {
-                            long b = w.b(file);
-                            if (w.c(file)) {
-                                j += b;
-                                if (j >= 10485760 && 10485760 > 0) {
-                                    return;
-                                }
-                            } else {
-                                continue;
-                            }
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.a("BdLogger", "check file error ", e);
-            }
+    public void g(String str) {
+        if (x.a(str, true) > 26214400) {
+            a(str, 10485760L);
         }
     }
 }

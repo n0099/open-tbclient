@@ -5,7 +5,7 @@ import android.content.Intent;
 /* loaded from: classes.dex */
 public class GroupMsgImageActivity extends a {
     @Override // com.baidu.tieba.im.chat.a
-    protected final void a(String str, bv bvVar) {
+    protected void a(String str, bv bvVar) {
         x.b().a(str, bvVar);
     }
 
@@ -14,7 +14,7 @@ public class GroupMsgImageActivity extends a {
             Intent intent = new Intent(context, GroupMsgImageActivity.class);
             intent.putExtra("current_url", str);
             intent.putExtra("id", String.valueOf(j));
-            intent.putExtra("isSingle", false);
+            intent.putExtra("isSingle", z);
             context.startActivity(intent);
         }
     }

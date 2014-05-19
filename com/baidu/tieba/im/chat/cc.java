@@ -6,47 +6,53 @@ import android.text.method.LinkMovementMethod;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tieba.im.message.TopicSystemGroupChatMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public final class cc extends com.baidu.adp.a.d<com.baidu.tieba.im.message.a.a> {
+public class cc extends com.baidu.adp.base.c<ChatMessage> {
+    private TextView b;
     private TextView c;
-    private TextView d;
-    private LinearLayout e;
-    private Context f;
+    private LinearLayout d;
+    private Context e;
 
     public cc(Context context) {
-        super(context, com.baidu.tieba.im.i.msg_msgtopic_view);
+        super(context, com.baidu.tieba.s.msg_msgtopic_view);
+        this.b = null;
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = null;
-        this.f = context;
-        this.d = (TextView) a(com.baidu.tieba.im.h.tex_content);
-        this.c = (TextView) a(com.baidu.tieba.im.h.tex_title);
-        this.d.setMovementMethod(LinkMovementMethod.getInstance());
-        this.c.setMovementMethod(LinkMovementMethod.getInstance());
-        this.e = (LinearLayout) a(com.baidu.tieba.im.h.topic_title_layout);
+        this.e = context;
+        b();
     }
 
-    public final void a(com.baidu.tieba.im.message.a.a aVar) {
-        if (aVar != null && (aVar instanceof com.baidu.tieba.im.message.bn)) {
-            com.baidu.tieba.im.message.bn bnVar = (com.baidu.tieba.im.message.bn) aVar;
-            if (!TextUtils.isEmpty(bnVar.a)) {
-                this.c.setText(bnVar.a);
+    private void b() {
+        this.c = (TextView) a(com.baidu.tieba.r.tex_content);
+        this.b = (TextView) a(com.baidu.tieba.r.tex_title);
+        this.c.setMovementMethod(LinkMovementMethod.getInstance());
+        this.b.setMovementMethod(LinkMovementMethod.getInstance());
+        this.d = (LinearLayout) a(com.baidu.tieba.r.topic_title_layout);
+    }
+
+    public void a(ChatMessage chatMessage) {
+        if (chatMessage != null && (chatMessage instanceof TopicSystemGroupChatMessage)) {
+            TopicSystemGroupChatMessage topicSystemGroupChatMessage = (TopicSystemGroupChatMessage) chatMessage;
+            if (!TextUtils.isEmpty(topicSystemGroupChatMessage.mSystemMsg)) {
+                this.b.setText(topicSystemGroupChatMessage.mSystemMsg);
             } else {
-                this.c.setText("");
+                this.b.setText("");
             }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
-            if (!TextUtils.isEmpty(bnVar.b)) {
-                this.d.setVisibility(0);
-                this.d.setText(bnVar.b);
-                layoutParams.topMargin = this.f.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.ds24);
-                this.e.setLayoutParams(layoutParams);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.d.getLayoutParams();
+            if (!TextUtils.isEmpty(topicSystemGroupChatMessage.mSystemContent)) {
+                this.c.setVisibility(0);
+                this.c.setText(topicSystemGroupChatMessage.mSystemContent);
+                layoutParams.topMargin = this.e.getResources().getDimensionPixelSize(com.baidu.tieba.p.ds24);
+                this.d.setLayoutParams(layoutParams);
                 return;
             }
-            this.d.setText("");
-            this.d.setVisibility(8);
+            this.c.setText("");
+            this.c.setVisibility(8);
             layoutParams.topMargin = 0;
-            this.e.setLayoutParams(layoutParams);
+            this.d.setLayoutParams(layoutParams);
         }
     }
 }

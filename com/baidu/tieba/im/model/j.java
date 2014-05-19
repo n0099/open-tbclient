@@ -1,32 +1,43 @@
 package com.baidu.tieba.im.model;
-/* loaded from: classes.dex */
-public final class j extends com.baidu.adp.a.e {
-    private int a;
-    private com.baidu.tieba.im.message.ae b;
 
-    public final int a() {
+import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tieba.im.message.RequestEnterChatRoomMessage;
+/* loaded from: classes.dex */
+public class j extends com.baidu.adp.base.d {
+    private int a;
+    private RequestEnterChatRoomMessage b;
+
+    public int a() {
         return this.a;
     }
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         return false;
     }
 
-    public final void a(long j) {
-        com.baidu.tieba.im.message.ae aeVar = new com.baidu.tieba.im.message.ae();
-        aeVar.b(j);
-        this.b = aeVar;
+    private RequestEnterChatRoomMessage b(long j) {
+        RequestEnterChatRoomMessage requestEnterChatRoomMessage = new RequestEnterChatRoomMessage();
+        requestEnterChatRoomMessage.setLastGroupId(j);
+        return requestEnterChatRoomMessage;
+    }
+
+    public void a(long j) {
+        this.b = b(j);
         super.sendMessage(this.b);
     }
 
-    @Override // com.baidu.adp.a.e
-    public final void registerListener(com.baidu.adp.framework.c.c<?> cVar) {
-        super.registerListener(106101, cVar);
+    public void b() {
+    }
+
+    @Override // com.baidu.adp.base.d
+    public void registerListener(MessageListener<?> messageListener) {
+        super.registerListener(MessageTypes.CMD_REQUEST_ENTER_CHAT_ROOM, messageListener);
     }
 }

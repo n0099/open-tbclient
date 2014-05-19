@@ -1,20 +1,21 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.View;
+import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class db implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ da a;
+public class db implements com.baidu.tbadk.imageManager.d {
+    private final /* synthetic */ View a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public db(da daVar) {
-        this.a = daVar;
+    public db(View view) {
+        this.a = view;
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null) {
-            this.a.a(da.a(this.a, str, bVar.k()));
-        } else {
-            this.a.a(this.a.b.getString(com.baidu.tieba.im.j.save_error));
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null && this.a != null && (this.a instanceof ViewGroup)) {
+            com.baidu.tbadk.core.util.bp.a((ViewGroup) this.a, false, (com.baidu.tbadk.core.util.br) new dc(this, str, aVar));
         }
     }
 }

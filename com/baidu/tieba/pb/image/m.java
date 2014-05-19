@@ -2,8 +2,9 @@ package com.baidu.tieba.pb.image;
 
 import android.view.View;
 import android.widget.LinearLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class m implements View.OnClickListener {
+public class m implements View.OnClickListener {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +13,7 @@ final class m implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         LinearLayout linearLayout;
         linearLayout = this.a.p;
         if (linearLayout.getVisibility() != 0) {

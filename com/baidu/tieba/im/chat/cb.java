@@ -4,25 +4,32 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public final class cb extends com.baidu.adp.a.d<com.baidu.tieba.im.message.a.a> {
-    private TextView c;
+public class cb extends com.baidu.adp.base.c<ChatMessage> {
+    private TextView b;
 
     public cb(Context context) {
-        super(context, com.baidu.tieba.im.i.msg_msgmid_view);
-        this.c = null;
-        this.c = (TextView) a(com.baidu.tieba.im.h.tex_msgcontent);
-        this.c.setMovementMethod(LinkMovementMethod.getInstance());
+        super(context, com.baidu.tieba.s.msg_msgmid_view);
+        this.b = null;
+        b();
     }
 
-    public final void a(com.baidu.tieba.im.message.a.a aVar) {
-        if (aVar != null) {
-            String g = com.baidu.tieba.im.f.q.g(aVar);
-            if (!TextUtils.isEmpty(g)) {
-                this.c.setText(g);
-                return;
-            }
+    private void b() {
+        this.b = (TextView) a(com.baidu.tieba.r.tex_msgcontent);
+        this.b.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    public void a(ChatMessage chatMessage) {
+        if (chatMessage == null) {
+            this.b.setText("");
+            return;
         }
-        this.c.setText("");
+        String h = com.baidu.tieba.im.f.r.h(chatMessage);
+        if (!TextUtils.isEmpty(h)) {
+            this.b.setText(h);
+        } else {
+            this.b.setText("");
+        }
     }
 }

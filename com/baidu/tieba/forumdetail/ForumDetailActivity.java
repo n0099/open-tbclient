@@ -3,9 +3,11 @@ package com.baidu.tieba.forumdetail;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class ForumDetailActivity extends com.baidu.tbadk.a {
+public class ForumDetailActivity extends BaseActivity {
     private e a = null;
     private String b = "0";
     private String c = "0";
@@ -30,31 +32,39 @@ public class ForumDetailActivity extends com.baidu.tbadk.a {
 
     public static void a(Context context, String str, FromType fromType) {
         Intent intent = new Intent(context, ForumDetailActivity.class);
-        intent.putExtra("forum_id", str);
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, str);
         intent.putExtra("from_type", fromType.toString());
         context.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new e(this);
-        this.b = getIntent().getStringExtra("forum_id");
-        this.c = getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "0" : "1";
-        b.a(this.b, this.c, this.d);
-        TiebaStatic.a(this, getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "detail_from_frs" : "detail_from_bar_dir", "click", 1, new Object[0]);
+        a();
+        b();
+        TiebaStatic.eventStat(this, getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "detail_from_frs" : "detail_from_bar_dir", "click", 1, new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.a.a();
     }
 
+    private void a() {
+        this.a = new e(this);
+    }
+
+    private void b() {
+        this.b = getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
+        this.c = getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "0" : TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
+        b.a(this.b, this.c, this.d);
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.a.a(i);

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
-final class b implements Runnable {
+class b implements Runnable {
     final /* synthetic */ MediaService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ final class b implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         long j;
         int i;
         Handler handler;

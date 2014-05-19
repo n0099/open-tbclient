@@ -2,9 +2,11 @@ package com.baidu.tieba.data;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i extends com.baidu.tieba.util.l {
+public class i extends com.baidu.tieba.util.l {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +17,7 @@ public final class i extends com.baidu.tieba.util.l {
     }
 
     @Override // com.baidu.tieba.util.l, android.text.style.ClickableSpan
-    public final void onClick(View view) {
+    public void onClick(View view) {
         String str;
         String str2;
         String str3;
@@ -25,9 +27,9 @@ public final class i extends com.baidu.tieba.util.l {
             str3 = this.a.b;
             str4 = str3.replace("@", "").replace(" ", "");
         }
-        com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
-        Context a2 = a();
+        MessageManager messageManager = MessageManager.getInstance();
+        Context a = a();
         str2 = this.a.g;
-        a.a(new com.baidu.adp.framework.message.a(2001003, new com.baidu.tbadk.core.b.ag(a2, str2, str4)));
+        messageManager.sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(a, str2, str4)));
     }
 }

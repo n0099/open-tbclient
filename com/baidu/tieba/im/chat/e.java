@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.chat;
 /* loaded from: classes.dex */
-final class e implements com.baidu.tbadk.core.view.a {
+class e implements com.baidu.tbadk.core.view.a {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,6 +9,6 @@ final class e implements com.baidu.tbadk.core.view.a {
     }
 
     @Override // com.baidu.tbadk.core.view.a
-    public final void a(int i) {
+    public void a(int i) {
     }
 }

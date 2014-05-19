@@ -1,8 +1,10 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import java.io.Serializable;
 import org.json.JSONObject;
+import tbclient.Anti;
 /* loaded from: classes.dex */
 public class AntiData implements Serializable {
     private static final long serialVersionUID = 2355009973517935888L;
@@ -147,11 +149,35 @@ public class AntiData implements Serializable {
         this.block_forum_name = str;
     }
 
+    public void parserProtobuf(Anti anti) {
+        if (anti != null) {
+            this.ifpost = anti.ifpost.intValue();
+            this.ifposta = anti.ifposta.intValue();
+            this.forbid_flag = anti.forbid_flag.intValue();
+            this.tbs = anti.tbs;
+            if (TbadkApplication.m252getInst() != null && this.tbs != null && this.tbs.length() > 0) {
+                TbadkApplication.m252getInst().setTbs(this.tbs);
+            }
+            this.need_vcode = anti.need_vcode.intValue();
+            this.vcode_md5 = anti.vcode_md5;
+            this.vcode_pic_url = anti.vcode_pic_url;
+            this.forbid_info = anti.forbid_info;
+            this.ifvoice = anti.ifvoice.intValue();
+            this.voice_message = anti.voice_message;
+            this.block_stat = anti.block_stat.intValue();
+            this.hide_stat = anti.hide_stat.intValue();
+            this.vcode_stat = anti.vcode_stat.intValue();
+            this.days_tofree = anti.days_tofree.intValue();
+            this.has_chance = anti.has_chance.intValue() == 1;
+            this.ifaddition = anti.ifaddition.intValue();
+        }
+    }
+
     public void parserJson(String str) {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("AntiData", "parserJson", "error = " + e.getMessage());
+            BdLog.e("AntiData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -162,8 +188,8 @@ public class AntiData implements Serializable {
                 this.ifposta = jSONObject.optInt("ifposta", 0);
                 this.forbid_flag = jSONObject.optInt("forbid_flag", 0);
                 this.tbs = jSONObject.optString("tbs");
-                if (TbadkApplication.j() != null && this.tbs != null && this.tbs.length() > 0) {
-                    TbadkApplication.j().a(this.tbs);
+                if (TbadkApplication.m252getInst() != null && this.tbs != null && this.tbs.length() > 0) {
+                    TbadkApplication.m252getInst().setTbs(this.tbs);
                 }
                 this.need_vcode = jSONObject.optInt("need_vcode", 0);
                 this.vcode_md5 = jSONObject.optString("vcode_md5");
@@ -178,18 +204,18 @@ public class AntiData implements Serializable {
                 this.has_chance = jSONObject.optInt("has_chance", 1) == 1;
                 this.ifaddition = jSONObject.optInt("ifaddition", 0);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("AntiData", "parserJson", "error = " + e.getMessage());
+                BdLog.e("AntiData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.adp.lib.util.f.d("AntiData", "logPrint", "ifpost = " + String.valueOf(this.ifpost));
-        com.baidu.adp.lib.util.f.d("AntiData", "logPrint", "ifposta = " + String.valueOf(this.ifposta));
-        com.baidu.adp.lib.util.f.d("AntiData", "logPrint", "forbid_flag = " + String.valueOf(this.forbid_flag));
-        com.baidu.adp.lib.util.f.d("AntiData", "logPrint", "tbs = " + this.tbs);
-        com.baidu.adp.lib.util.f.d("AntiData", "logPrint", "need_vcode = " + String.valueOf(this.need_vcode));
-        com.baidu.adp.lib.util.f.d("AntiData", "logPrint", "vcode_md5 = " + this.vcode_md5);
+        BdLog.v("AntiData", "logPrint", "ifpost = " + String.valueOf(this.ifpost));
+        BdLog.v("AntiData", "logPrint", "ifposta = " + String.valueOf(this.ifposta));
+        BdLog.v("AntiData", "logPrint", "forbid_flag = " + String.valueOf(this.forbid_flag));
+        BdLog.v("AntiData", "logPrint", "tbs = " + this.tbs);
+        BdLog.v("AntiData", "logPrint", "need_vcode = " + String.valueOf(this.need_vcode));
+        BdLog.v("AntiData", "logPrint", "vcode_md5 = " + this.vcode_md5);
     }
 
     public void setForbid_info(String str) {

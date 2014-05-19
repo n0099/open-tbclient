@@ -3,6 +3,7 @@ package com.baidu.tbadk.editortool;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import java.io.File;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class ac {
+public class ac {
     private static ac a = new ac();
     private ArrayList<ag> b = new ArrayList<>();
     private List<e> c = new ArrayList();
@@ -22,29 +23,32 @@ public final class ac {
     private ac() {
     }
 
-    public final void a(e eVar) {
-        if (!this.c.contains(eVar)) {
-            this.c.add(eVar);
-            Collections.sort(this.c);
+    public void a(e eVar) {
+        synchronized (this.c) {
+            if (!this.c.contains(eVar)) {
+                this.c.add(eVar);
+                Collections.sort(this.c);
+            }
         }
     }
 
-    public final void b() {
-        com.baidu.adp.lib.f.d.a();
-        com.baidu.adp.lib.f.d.a(new ad(this));
+    public void b() {
+        com.baidu.adp.lib.f.d.a().a(new ad(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final synchronized void c() {
+    public synchronized void c() {
         ArrayList arrayList = new ArrayList();
         ae aeVar = new ae(this, arrayList);
-        for (e eVar : this.c) {
-            eVar.a(aeVar);
+        synchronized (this.c) {
+            for (int i = 0; i < this.c.size(); i++) {
+                this.c.get(i).a(aeVar);
+            }
         }
         new Handler(Looper.getMainLooper()).post(new af(this, arrayList));
     }
 
-    public final boolean a(String str) {
+    public boolean a(String str) {
         Iterator<ag> it = this.b.iterator();
         while (it.hasNext()) {
             if (it.next().a(str)) {
@@ -54,11 +58,15 @@ public final class ac {
         return false;
     }
 
-    public static com.baidu.adp.widget.ImageView.b b(String str) {
+    public com.baidu.adp.widget.a.a b(String str) {
         return com.baidu.tbadk.imageManager.e.a().c(str);
     }
 
-    public static String a(String str, boolean z) {
+    public com.baidu.adp.widget.a.a c(String str) {
+        return com.baidu.tbadk.imageManager.e.a().c(b(str, true));
+    }
+
+    public String a(String str, boolean z) {
         long hashCode = str.hashCode();
         if (hashCode < 0) {
             hashCode *= -1;
@@ -66,61 +74,61 @@ public final class ac {
         return String.valueOf(z ? "d_" : "s_") + hashCode;
     }
 
-    public final com.baidu.adp.widget.ImageView.b a(String str, String str2) {
-        com.baidu.adp.widget.ImageView.b bVar;
+    public com.baidu.adp.widget.a.a a(String str, String str2) {
+        com.baidu.adp.widget.a.a aVar;
         Bitmap c;
-        com.baidu.adp.widget.ImageView.b c2 = com.baidu.tbadk.imageManager.e.a().c(str2);
+        com.baidu.adp.widget.a.a c2 = com.baidu.tbadk.imageManager.e.a().c(str2);
         if (c2 != null) {
             return c2;
         }
         Iterator<ag> it = this.b.iterator();
         while (true) {
             if (!it.hasNext()) {
-                bVar = c2;
+                aVar = c2;
                 break;
             }
             ag next = it.next();
             if (next.a(str2)) {
-                bVar = next.b(str2);
+                aVar = next.b(str2);
                 break;
             }
         }
-        if (bVar == null && str != null && (c = c(str, a(str2, false))) != null) {
-            bVar = new com.baidu.adp.widget.ImageView.b(c, false, str2);
+        if (aVar == null && str != null && (c = c(str, a(str2, false))) != null) {
+            aVar = new com.baidu.adp.widget.a.a(c, false, str2);
         }
-        a(str2, bVar, false);
-        return bVar;
+        a(str2, aVar, false);
+        return aVar;
     }
 
-    public final com.baidu.adp.widget.ImageView.b b(String str, String str2) {
-        com.baidu.adp.widget.ImageView.b bVar;
+    public com.baidu.adp.widget.a.a b(String str, String str2) {
+        com.baidu.adp.widget.a.a aVar;
         if (aa.c().e()) {
             return null;
         }
-        com.baidu.adp.widget.ImageView.b c = com.baidu.tbadk.imageManager.e.a().c(b(str2, true));
+        com.baidu.adp.widget.a.a c = c(str2);
         if (c != null) {
             return c;
         }
         Iterator<ag> it = this.b.iterator();
         while (true) {
             if (!it.hasNext()) {
-                bVar = c;
+                aVar = c;
                 break;
             }
             ag next = it.next();
             if (next.a(str2)) {
-                bVar = next.c(str2);
+                aVar = next.c(str2);
                 break;
             }
         }
-        if (bVar == null && str != null) {
-            bVar = d(str, a(str2, true));
+        if (aVar == null && str != null) {
+            aVar = d(str, a(str2, true));
         }
-        a(str2, bVar, true);
-        return bVar;
+        a(str2, aVar, true);
+        return aVar;
     }
 
-    public static String b(String str, boolean z) {
+    public String b(String str, boolean z) {
         if (!aa.c().e()) {
             List<ag> d = aa.c().d();
             if (z) {
@@ -136,21 +144,21 @@ public final class ac {
         return str;
     }
 
-    public final void a(String str, com.baidu.adp.widget.ImageView.b bVar, boolean z) {
-        if (bVar != null) {
+    public void a(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
+        if (aVar != null) {
             if (z) {
-                com.baidu.tbadk.imageManager.e.a().c(b(str, z), bVar);
+                com.baidu.tbadk.imageManager.e.a().b(b(str, z), aVar, true);
                 return;
             }
-            com.baidu.tbadk.imageManager.e.a().c(str, bVar);
+            com.baidu.tbadk.imageManager.e.a().b(str, aVar, false);
         }
     }
 
-    public final ArrayList<ag> d() {
+    public ArrayList<ag> d() {
         return this.b;
     }
 
-    public final ag c(String str) {
+    public ag d(String str) {
         Iterator<ag> it = this.b.iterator();
         while (it.hasNext()) {
             ag next = it.next();
@@ -161,17 +169,17 @@ public final class ac {
         return null;
     }
 
-    public static Bitmap c(String str, String str2) {
-        return com.baidu.tbadk.core.util.w.c(".emotions/" + str, str2);
+    public Bitmap c(String str, String str2) {
+        return com.baidu.tbadk.core.util.x.c(".emotions/" + str, str2);
     }
 
-    public final com.baidu.adp.widget.ImageView.b d(String str, String str2) {
-        File file = new File(com.baidu.tbadk.core.util.w.a + "/" + com.baidu.tbadk.core.data.n.f() + "/.emotions/" + str + "/", str2);
+    public com.baidu.adp.widget.a.a d(String str, String str2) {
+        File file = new File(com.baidu.tbadk.core.util.x.a + "/" + TbConfig.getTempDirName() + "/.emotions/" + str + "/", str2);
         if (file.exists()) {
-            if (!UtilHelper.a(1024)) {
+            if (!UtilHelper.hasAvaiableSDCardSpace(1024)) {
                 Bitmap c = c(str, str2);
                 if (c != null) {
-                    return new com.baidu.adp.widget.ImageView.b(c, false, str2);
+                    return new com.baidu.adp.widget.a.a(c, false, str2);
                 }
                 return null;
             }

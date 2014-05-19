@@ -1,7 +1,18 @@
 package com.baidu.tbadk.widget.richText;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface q {
-    void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2);
+public class q implements Runnable {
+    final /* synthetic */ TbRichTextView a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(TbRichTextView tbRichTextView) {
+        this.a = tbRichTextView;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        if (this.a.performLongClick()) {
+            this.a.B = true;
+        }
+    }
 }

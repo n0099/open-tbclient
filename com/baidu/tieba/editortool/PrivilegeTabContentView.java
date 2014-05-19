@@ -48,14 +48,14 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
     private void a(Context context) {
         setOrientation(1);
         this.i = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.i.inflate(com.baidu.tieba.a.i.privilege_tab_content, (ViewGroup) this, true);
-        this.a = (ViewPager) findViewById(com.baidu.tieba.a.h.privilege_tab_viewpager);
+        this.i.inflate(com.baidu.tieba.s.privilege_tab_content, (ViewGroup) this, true);
+        this.a = (ViewPager) findViewById(com.baidu.tieba.r.privilege_tab_viewpager);
         this.a.setFadingEdgeLength(0);
         this.a.setOnPageChangeListener(this);
-        this.e = (IndicatorView) findViewById(com.baidu.tieba.a.h.privilege_tab_indicator);
+        this.e = (IndicatorView) findViewById(com.baidu.tieba.r.privilege_tab_indicator);
     }
 
-    public final void a(ag agVar) {
+    public void a(ag agVar) {
         int i;
         int i2 = 0;
         if (agVar != null) {
@@ -82,15 +82,14 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
                         gridView.setVerticalSpacing(agVar.g());
                         gridView.setGravity(17);
                         gridView.setHorizontalSpacing(agVar.h());
-                        gridView.setSelector(com.baidu.tieba.a.e.transparent);
+                        gridView.setSelector(com.baidu.tieba.o.transparent);
                         gridView.setSelection(-1);
                         if (i5 < i4 - 1) {
                             i = e * f;
                         } else {
                             i = a - ((e * f) * (i4 - 1));
                         }
-                        getContext();
-                        gridView.setAdapter((ListAdapter) new ae(this, i, i5 * e * f, agVar.d()));
+                        gridView.setAdapter((ListAdapter) new ae(this, getContext(), i, i5 * e * f, agVar.d()));
                         arrayList.add(gridView);
                     }
                     this.a.setAdapter(new af(this, arrayList));
@@ -113,6 +112,17 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
         }
     }
 
+    private void a() {
+        if (this.b && this.c != null) {
+            this.c.setSelection(-1);
+            if (this.d != -1) {
+                ((LinearLayout) this.c.getChildAt(this.d - this.c.getFirstVisiblePosition())).getChildAt(0).setSelected(false);
+            }
+            this.d = -1;
+            this.c = null;
+        }
+    }
+
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
@@ -124,15 +134,7 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
                 break;
             case 1:
             case 3:
-                if (this.b && this.c != null) {
-                    this.c.setSelection(-1);
-                    if (this.d != -1) {
-                        ((LinearLayout) this.c.getChildAt(this.d - this.c.getFirstVisiblePosition())).getChildAt(0).setSelected(false);
-                    }
-                    this.d = -1;
-                    this.c = null;
-                    break;
-                }
+                a();
                 break;
             case 2:
                 this.f.set(x, y);
@@ -159,8 +161,8 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
     public void onPageScrollStateChanged(int i) {
     }
 
-    public final void a(int i) {
-        setBackgroundColor(getResources().getColor(i == 1 ? com.baidu.tieba.a.e.editor_tool_container_bg_1 : com.baidu.tieba.a.e.editor_tool_container_bg));
+    public void a(int i) {
+        setBackgroundColor(getResources().getColor(i == 1 ? com.baidu.tieba.o.editor_tool_container_bg_1 : com.baidu.tieba.o.editor_tool_container_bg));
         int i2 = 0;
         while (true) {
             int i3 = i2;

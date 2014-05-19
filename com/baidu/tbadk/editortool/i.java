@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i implements AdapterView.OnItemClickListener {
+public class i implements AdapterView.OnItemClickListener {
     final /* synthetic */ EmotionTabContentView a;
     private final /* synthetic */ int b;
 
@@ -15,7 +15,7 @@ public final class i implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         x xVar;
         ag agVar;
         ag agVar2;

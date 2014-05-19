@@ -1,8 +1,9 @@
 package com.baidu.tieba.faceshop;
 
-import android.view.View;
+import android.webkit.URLUtil;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* loaded from: classes.dex */
-final class ad implements View.OnClickListener {
+class ad implements Runnable {
     final /* synthetic */ FaceBuyWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,8 +11,15 @@ final class ad implements View.OnClickListener {
         this.a = faceBuyWebViewActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        this.a.c();
+    @Override // java.lang.Runnable
+    public void run() {
+        String str;
+        BaseWebView baseWebView;
+        str = this.a.c;
+        String guessUrl = URLUtil.guessUrl(str);
+        if (URLUtil.isNetworkUrl(guessUrl)) {
+            baseWebView = this.a.a;
+            baseWebView.loadUrl(guessUrl);
+        }
     }
 }

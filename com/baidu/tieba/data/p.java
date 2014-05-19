@@ -1,10 +1,11 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class p {
+public class p {
     private String g;
     private String h;
     private int a = 0;
@@ -15,26 +16,26 @@ public final class p {
     private boolean f = false;
     private ArrayList<q> i = new ArrayList<>();
 
-    public final void a(String str) {
+    public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
+            BdLog.e("ForumFeedData", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    private void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.d = jSONObject.optInt("is_new_url", 0);
+                a(jSONObject.optInt("is_new_url", 0));
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
                     this.a = optJSONObject.optInt("errno", 0);
                     this.b = optJSONObject.optString("errmsg", "");
                     this.c = optJSONObject.optString("usermsg", "");
                 }
-                this.g = jSONObject.optString("total");
-                this.e = jSONObject.optInt("has_more");
+                b(jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.TOTAL));
+                b(jSONObject.optInt("has_more"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("feed_thread_list");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
@@ -42,41 +43,77 @@ public final class p {
                         qVar.a(optJSONArray.optJSONObject(i));
                         this.i.add(qVar);
                     }
-                    this.f = optJSONArray.length() == 0;
+                    a(optJSONArray.length() == 0);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
+                BdLog.e("ForumFeedData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    public final void a(p pVar, boolean z) {
+    public void a(p pVar, boolean z) {
         if (pVar != null) {
-            this.e = pVar.e;
-            this.g = pVar.g;
-            this.h = pVar.h;
-            this.f = pVar.i == null || pVar.i.size() == 0;
-            this.i.addAll(pVar.i);
+            b(pVar.c());
+            b(pVar.e());
+            c(pVar.f());
+            a(pVar.b() == null || pVar.b().size() == 0);
+            if (z) {
+                this.i.addAll(pVar.b());
+            } else {
+                this.i = pVar.b();
+            }
         }
     }
 
-    public final int a() {
+    public int a() {
         return this.d;
     }
 
-    public final ArrayList<q> b() {
+    public void a(int i) {
+        this.d = i;
+    }
+
+    public void a(boolean z) {
+        this.f = z;
+    }
+
+    public ArrayList<q> b() {
         return this.i;
     }
 
-    public final boolean c() {
+    public void b(int i) {
+        this.e = i;
+    }
+
+    public int c() {
+        return this.e;
+    }
+
+    public boolean d() {
         return this.e > 0;
     }
 
-    public final int d() {
+    public void b(String str) {
+        this.g = str;
+    }
+
+    public String e() {
+        return this.g;
+    }
+
+    public void c(String str) {
+        this.h = str;
+    }
+
+    public String f() {
+        return this.h;
+    }
+
+    public int g() {
         return this.a;
     }
 
-    public final String e() {
+    public String h() {
         return this.c;
     }
 }

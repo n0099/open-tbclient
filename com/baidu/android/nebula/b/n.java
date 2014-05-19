@@ -84,7 +84,7 @@ public class n {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[[mMaxUpdloadAppsNum=").append(this.c).append("]mResponseStatus=").append(this.d).append("]mChannelId=").append(this.b).append("]mNeedsToken=").append(this.a).append("]mRandomCheckAppsSize=").append(this.e).append("[mRetSuccesslist=").append(this.g).append("[mRetFailedlist=").append(this.f).append("]]");
+        sb.append("[").append("[mMaxUpdloadAppsNum=").append(this.c).append("]mResponseStatus=").append(this.d).append("]mChannelId=").append(this.b).append("]mNeedsToken=").append(this.a).append("]mRandomCheckAppsSize=").append(this.e).append("[mRetSuccesslist=").append(this.g).append("[mRetFailedlist=").append(this.f).append("]]");
         return sb.toString();
     }
 }

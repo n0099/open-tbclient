@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-final class bv extends com.baidu.adp.a.h {
+class bv implements com.baidu.tbadk.core.view.m {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,8 +8,11 @@ final class bv extends com.baidu.adp.a.h {
         this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.adp.a.h
-    public final void a(Object obj) {
-        FrsImageActivity.p(this.a);
+    @Override // com.baidu.tbadk.core.view.m
+    public void a(boolean z) {
+        if (z) {
+            this.a.t = null;
+            this.a.c(1);
+        }
     }
 }

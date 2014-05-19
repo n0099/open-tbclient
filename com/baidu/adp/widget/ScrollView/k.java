@@ -3,7 +3,7 @@ package com.baidu.adp.widget.ScrollView;
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class k implements i {
+public class k implements i {
     final /* synthetic */ BdPullRefreshScrollView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public final class k implements i {
     }
 
     @Override // com.baidu.adp.widget.ScrollView.i
-    public final void a() {
+    public void a() {
         BdPullRefreshScrollView.State state;
         BdPullRefreshScrollView.State state2;
         b bVar;

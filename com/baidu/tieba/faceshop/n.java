@@ -1,8 +1,11 @@
 package com.baidu.tieba.faceshop;
 
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class n implements View.OnClickListener {
+public class n implements View.OnClickListener {
     final /* synthetic */ EmotionImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +14,7 @@ final class n implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         int i;
         String str;
         String str2;
@@ -32,6 +35,6 @@ final class n implements View.OnClickListener {
         }
         EmotionImageActivity emotionImageActivity = this.a;
         str2 = this.a.f;
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.i(emotionImageActivity, str2, false, str)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.j(emotionImageActivity, str2, false, str)));
     }
 }

@@ -1,9 +1,12 @@
 package com.baidu.tieba.write;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class al implements TextWatcher {
+public class al implements View.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,16 +14,23 @@ final class al implements TextWatcher {
         this.a = writeActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
-        this.a.j();
-    }
-
-    @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        InputMethodManager inputMethodManager;
+        EditText editText;
+        InputMethodManager inputMethodManager2;
+        EditText editText2;
+        EditorToolComponetContainer editorToolComponetContainer;
+        WriteActivity writeActivity = this.a;
+        inputMethodManager = this.a.c;
+        editText = this.a.e;
+        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        WriteActivity writeActivity2 = this.a;
+        inputMethodManager2 = this.a.c;
+        editText2 = this.a.h;
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
+        editorToolComponetContainer = this.a.A;
+        editorToolComponetContainer.m();
+        this.a.l();
     }
 }

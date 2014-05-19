@@ -3,21 +3,21 @@ package com.baidu.tieba.model;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class y extends BdAsyncTask<String, Integer, String> {
+public class y extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ v a;
-    private com.baidu.tbadk.core.util.ak b;
+    private com.baidu.tbadk.core.util.al b;
     private String c;
     private String d;
     private String e;
     private String f;
     private String g;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ String a(String... strArr) {
-        this.b = new com.baidu.tbadk.core.util.ak(strArr[0]);
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        this.b = new com.baidu.tbadk.core.util.al(strArr[0]);
         this.b.a("day", this.g);
         this.b.a("un", this.f);
         this.b.a("fid", this.c);
@@ -32,40 +32,40 @@ public final class y extends BdAsyncTask<String, Integer, String> {
         return this.b.f();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(String str) {
-        com.baidu.adp.a.h hVar;
-        com.baidu.adp.a.h hVar2;
-        String str2 = str;
-        super.a((y) str2);
-        this.a.b = null;
-        if (this.b == null) {
-            hVar2 = this.a.mLoadDataCallBack;
-            hVar2.a(null);
-            return;
-        }
-        z zVar = new z(this.a);
-        if (str2 == null) {
-            zVar.a = true;
-        } else {
-            zVar.a = false;
-            zVar.b = str2;
-        }
-        hVar = this.a.mLoadDataCallBack;
-        hVar.a(zVar);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        com.baidu.adp.a.h hVar;
+    public void cancel() {
+        com.baidu.adp.base.g gVar;
         if (this.b != null) {
             this.b.g();
         }
         this.a.b = null;
         super.cancel(true);
-        hVar = this.a.mLoadDataCallBack;
-        hVar.a(null);
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(String str) {
+        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.g gVar2;
+        super.onPostExecute(str);
+        this.a.b = null;
+        if (this.b == null) {
+            gVar2 = this.a.mLoadDataCallBack;
+            gVar2.a(null);
+            return;
+        }
+        z zVar = new z(this.a);
+        if (str == null) {
+            zVar.a = true;
+        } else {
+            zVar.a = false;
+            zVar.b = str;
+        }
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(zVar);
     }
 }

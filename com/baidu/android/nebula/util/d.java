@@ -10,6 +10,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.android.common.util.CommonParam;
+import com.baidu.tbadk.TbConfig;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,7 +35,7 @@ public final class d {
     private String h = "";
     private String l = "xcloud";
     private String n = "app_moblie_txt";
-    private String o = "1";
+    private String o = TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
 
     private d(Context context) {
         b(context);
@@ -94,6 +95,7 @@ public final class d {
         return TextUtils.isEmpty(str) ? "" : str;
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
     private String e(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(context.getPackageName() + ".push_sync", 1);
         String string = sharedPreferences.getString("xboss_appid", "000000");
@@ -105,19 +107,25 @@ public final class d {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(resourceAsStream));
             try {
                 string = bufferedReader.readLine();
-                try {
-                    bufferedReader.close();
-                } catch (IOException e) {
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException e) {
+                    }
                 }
             } catch (IOException e2) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException e3) {
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException e3) {
+                    }
                 }
             } catch (Throwable th) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException e4) {
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException e4) {
+                    }
                 }
                 throw th;
             }
@@ -145,11 +153,11 @@ public final class d {
         }
     }
 
-    public final String a() {
+    public String a() {
         return this.i;
     }
 
-    public final String a(String str) {
+    public String a(String str) {
         if (str.indexOf("?") < 0) {
             str = str + "?";
         }
@@ -174,7 +182,7 @@ public final class d {
         return stringBuffer.toString();
     }
 
-    public final String a(String str, boolean z) {
+    public String a(String str, boolean z) {
         if (str.indexOf("?") < 0) {
             str = str + "?";
         }
@@ -202,18 +210,18 @@ public final class d {
         stringBuffer2.append("ver=" + b(String.valueOf(this.e)));
         stringBuffer2.append("&");
         if (z) {
-            stringBuffer2.append("vfrom=" + b("1"));
+            stringBuffer2.append("vfrom=" + b(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK));
             stringBuffer2.append("&");
         }
         stringBuffer2.append("pu=" + b8);
         return stringBuffer2.toString();
     }
 
-    public final String b() {
+    public String b() {
         return this.h;
     }
 
-    public final void b(Context context) {
+    public void b(Context context) {
         this.c = context.getApplicationContext();
         PackageInfo b2 = com.baidu.android.systemmonitor.c.c.b(context, context.getPackageName());
         this.e = b2.versionCode;
@@ -228,7 +236,7 @@ public final class d {
         this.m = CommonParam.getCUID(this.c);
     }
 
-    public final String c() {
+    public String c() {
         return this.d;
     }
 }

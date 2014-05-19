@@ -1,21 +1,17 @@
 package com.baidu.tieba.im.messageCenter;
-
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 /* loaded from: classes.dex */
-final class e implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ c a;
+class e extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ d b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar) {
-        this.a = cVar;
+    public e(d dVar) {
+        this.b = dVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Void r4) {
-        com.baidu.tieba.im.pushNotify.a.d().b();
-        com.baidu.tieba.im.pushNotify.a.d().a((ImMessageCenterShowItemData) null);
-        com.baidu.tieba.im.pushNotify.a.d().b((ImMessageCenterShowItemData) null);
-        com.baidu.tieba.im.pushNotify.a.d().b(false, null);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        return null;
     }
 }

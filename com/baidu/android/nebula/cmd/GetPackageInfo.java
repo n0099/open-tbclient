@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import com.baidu.android.moplus.util.NoProGuard;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONArray;
@@ -27,7 +28,7 @@ public class GetPackageInfo implements NoProGuard, n {
         ArrayList<PackageInfo> arrayList;
         a.a(System.currentTimeMillis());
         Map a = dVar.a();
-        if (a == null || a.size() <= 0) {
+        if (a == null || a.size() < 1) {
             a.a(-1);
             return;
         }
@@ -81,7 +82,7 @@ public class GetPackageInfo implements NoProGuard, n {
         aVar.a("text/javascript");
         aVar.a().put("Cache-Control", "no-cache");
         aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
-        aVar.a(200);
+        aVar.a(Constants.MEDIA_INFO);
         a.a(this.mErrcode);
     }
 

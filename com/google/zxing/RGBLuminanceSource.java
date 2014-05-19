@@ -45,7 +45,7 @@ public final class RGBLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public final byte[] getRow(int i, byte[] bArr) {
+    public byte[] getRow(int i, byte[] bArr) {
         if (i < 0 || i >= getHeight()) {
             throw new IllegalArgumentException("Requested row is outside the image: " + i);
         }
@@ -58,7 +58,7 @@ public final class RGBLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public final byte[] getMatrix() {
+    public byte[] getMatrix() {
         int width = getWidth();
         int height = getHeight();
         if (width == this.dataWidth && height == this.dataHeight) {
@@ -80,12 +80,12 @@ public final class RGBLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public final boolean isCropSupported() {
+    public boolean isCropSupported() {
         return true;
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public final LuminanceSource crop(int i, int i2, int i3, int i4) {
+    public LuminanceSource crop(int i, int i2, int i3, int i4) {
         return new RGBLuminanceSource(this.luminances, this.dataWidth, this.dataHeight, this.left + i, this.top + i2, i3, i4);
     }
 }

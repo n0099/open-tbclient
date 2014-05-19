@@ -1,17 +1,19 @@
 package com.baidu.tieba.image;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.b.t;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.w;
 /* loaded from: classes.dex */
-final class d implements com.baidu.adp.framework.task.a<t> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<t> aVar) {
-        if (aVar != null && aVar.a() != null && "data_valid".equals(aVar.a().d().getStringExtra("is_data_valid"))) {
-            aVar.a().d().setClass(aVar.a().c(), ImageViewerActivity.class);
-            if ("start_activity_normal".equals(aVar.a().d().getStringExtra("start_activity_type"))) {
-                aVar.a().f();
+class d implements CustomMessageTask.CustomRunnable<w> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<w> customMessage) {
+        if (customMessage != null && customMessage.getData() != null && "data_valid".equals(customMessage.getData().getIntent().getStringExtra("is_data_valid"))) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), ImageViewerActivity.class);
+            if ("start_activity_normal".equals(customMessage.getData().getIntent().getStringExtra("start_activity_type"))) {
+                customMessage.getData().startActivity();
             } else {
-                aVar.a().b(14001);
+                customMessage.getData().startActivityForResult(14001);
             }
         }
         return null;

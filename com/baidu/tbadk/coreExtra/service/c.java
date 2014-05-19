@@ -1,17 +1,18 @@
 package com.baidu.tbadk.coreExtra.service;
 
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.k;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.l;
 import java.io.File;
 import java.io.RandomAccessFile;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c {
+public class c {
     final /* synthetic */ b a;
     private String b;
     private String c;
     private com.baidu.tbadk.coreExtra.data.b d;
-    private ak e;
+    private al e;
     private boolean f = false;
     private String g;
 
@@ -27,14 +28,14 @@ public final class c {
         this.g = str3;
     }
 
-    public final com.baidu.tbadk.coreExtra.data.c a() {
+    public com.baidu.tbadk.coreExtra.data.c a() {
         com.baidu.tbadk.coreExtra.data.c cVar = new com.baidu.tbadk.coreExtra.data.c();
         long b = this.d.b();
         long j = b % 30720 == 0 ? b / 30720 : (b / 30720) + 1;
         int c = this.d.c();
         if (c < j) {
             RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
-            if (randomAccessFile.skipBytes(c * 30720) < c * 30720) {
+            if (randomAccessFile.skipBytes(c * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) < c * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) {
                 cVar.a(false);
                 randomAccessFile.close();
                 return cVar;
@@ -42,18 +43,18 @@ public final class c {
             while (true) {
                 int i = c;
                 if (i < j) {
-                    int i2 = 30720;
+                    int i2 = TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
                     if (i == j - 1) {
                         i2 = (int) (b - (30720 * (j - 1)));
                     }
                     byte[] bArr = new byte[i2];
                     int read = randomAccessFile.read(bArr, 0, i2);
                     if (read != -1) {
-                        this.e = new ak(this.c);
+                        this.e = new al(this.c);
                         this.e.a("voice_chunk", bArr);
                         this.e.a("chunk_md5", this.d.a());
                         this.e.a("length", String.valueOf(read));
-                        this.e.a("offset", String.valueOf(i * 30720));
+                        this.e.a("offset", String.valueOf(i * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
                         this.e.a("total_length", String.valueOf(b));
                         this.e.a("chunk_no", String.valueOf(i + 1));
                         this.e.a("total_num", String.valueOf(j));
@@ -63,7 +64,7 @@ public final class c {
                             z = true;
                         } else if (this.e.j() == null || !this.e.a().b().b()) {
                             this.d.a(i);
-                            k.a(this.d);
+                            l.a(this.d);
                             randomAccessFile.close();
                             z = true;
                         }

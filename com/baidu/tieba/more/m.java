@@ -1,10 +1,10 @@
 package com.baidu.tieba.more;
 
 import android.content.DialogInterface;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m implements DialogInterface.OnClickListener {
+public class m implements DialogInterface.OnClickListener {
     final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public final class m implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         switch (i) {
             case 0:
                 com.baidu.tbadk.core.h.a().b(0);
@@ -28,8 +28,8 @@ public final class m implements DialogInterface.OnClickListener {
                 com.baidu.tbadk.core.h.a().b(3);
                 break;
         }
-        this.a.q();
-        this.a.m();
-        bd.a().h();
+        this.a.y();
+        this.a.n();
+        bf.a().h();
     }
 }

@@ -1,62 +1,49 @@
 package com.baidu.tbadk.c;
 
-import com.baidu.adp.framework.task.HttpMessageTask;
+import android.os.Build;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import java.lang.reflect.Field;
+import tbclient.CommonReq;
 /* loaded from: classes.dex */
-public final class b extends HttpMessageTask {
-    private boolean e;
-    private boolean f;
-    private boolean g;
-    private boolean h;
-    private boolean i;
-    private boolean j;
-    private boolean k;
-
-    public b(int i, String str) {
-        super(i, str);
-        this.g = false;
-        this.h = true;
-        this.i = true;
-        this.j = true;
-        this.k = false;
+public class b {
+    public static void a(Object obj, boolean z) {
+        a(obj, z, false);
     }
 
-    public final boolean m() {
-        return this.e;
-    }
-
-    public final boolean n() {
-        return this.f;
-    }
-
-    public final boolean o() {
-        return this.g;
-    }
-
-    public final boolean p() {
-        return this.h;
-    }
-
-    public final void b(boolean z) {
-        this.h = false;
-    }
-
-    public final boolean q() {
-        return this.i;
-    }
-
-    public final void c(boolean z) {
-        this.i = false;
-    }
-
-    public final boolean r() {
-        return this.j;
-    }
-
-    public final boolean s() {
-        return this.k;
-    }
-
-    public final void d(boolean z) {
-        this.k = z;
+    public static void a(Object obj, boolean z, boolean z2) {
+        if (obj != null) {
+            try {
+                Field field = obj.getClass().getField("common");
+                if (!field.isAccessible()) {
+                    field.setAccessible(true);
+                }
+                CommonReq.Builder builder = new CommonReq.Builder();
+                builder._client_type = 2;
+                builder._client_version = TbConfig.getVersion();
+                builder._client_id = TbadkApplication.getClientId();
+                if (!TbadkApplication.m252getInst().isOfficial()) {
+                    builder.apid = TbConfig.SW_APID;
+                }
+                builder._phone_imei = TbadkApplication.m252getInst().getImei();
+                builder.from = TbadkApplication.getFrom();
+                builder.cuid = TbadkApplication.m252getInst().getCuid();
+                builder._timestamp = Long.valueOf(System.currentTimeMillis());
+                builder.model = Build.MODEL;
+                if (z) {
+                    builder.BDUSS = TbadkApplication.getCurrentBduss();
+                }
+                if (z2) {
+                    builder.tbs = TbadkApplication.m252getInst().getTbs();
+                }
+                builder.pversion = "1.0.3";
+                field.set(obj, builder.build(false));
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    th.printStackTrace();
+                }
+            }
+        }
     }
 }

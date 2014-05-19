@@ -1,28 +1,27 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.View;
+import com.baidu.sapi2.SapiWebView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class v implements TextWatcher {
-    final /* synthetic */ LoginActivity a;
+public class v implements View.OnClickListener {
+    final /* synthetic */ ForgetPwdActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(LoginActivity loginActivity) {
-        this.a = loginActivity;
+    public v(ForgetPwdActivity forgetPwdActivity) {
+        this.a = forgetPwdActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.a.n = true;
-        this.a.g();
-    }
-
-    @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
-        this.a.c();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        SapiWebView sapiWebView;
+        SapiWebView sapiWebView2;
+        sapiWebView = this.a.a;
+        if (sapiWebView.canGoBack()) {
+            sapiWebView2 = this.a.a;
+            sapiWebView2.goBack();
+            return;
+        }
+        this.a.finish();
     }
 }

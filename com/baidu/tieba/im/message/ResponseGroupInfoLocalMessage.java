@@ -2,115 +2,135 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.GroupData;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.data.MemberData;
+import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import java.util.List;
-import protobuf.Im;
-import protobuf.QueryGroupDetail.QueryGroupDetailRes;
+import protobuf.ActivityInfo;
+import protobuf.GroupInfo;
+import protobuf.Photo;
+import protobuf.QueryGroupDetail.QueryGroupDetailResIdl;
+import protobuf.UserInfo;
 /* loaded from: classes.dex */
-public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<bk> {
-    private QueryGroupDetailRes.QueryGroupDetailResIdl a;
-    private bk b;
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.adp.framework.message.CustomResponsedMessage
-    public final /* bridge */ /* synthetic */ bk a() {
-        return this.b;
-    }
+public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<f> {
+    private QueryGroupDetailResIdl mResData;
+    private f selfData;
 
     public ResponseGroupInfoLocalMessage() {
-        super(2001102);
-        this.a = null;
-        this.b = null;
+        super(MessageTypes.CMD_REQUEST_GROUP_INFO_BY_ID_LOCAL);
+        this.mResData = null;
+        this.selfData = null;
     }
 
     public ResponseGroupInfoLocalMessage(int i) {
         super(i);
-        this.a = null;
-        this.b = null;
+        this.mResData = null;
+        this.selfData = null;
     }
 
-    public final bk b() {
-        return this.b;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.adp.framework.message.CustomResponsedMessage
+    public f getData() {
+        return this.selfData;
     }
 
-    public final void a(byte[] bArr) {
-        Im.ActivityInfo activityInfo;
-        this.b = new bk();
-        this.a = QueryGroupDetailRes.QueryGroupDetailResIdl.parseFrom(bArr);
-        a(this.a.getError().getErrorno());
-        d(this.a.getError().getUsermsg());
-        if (e() == 0) {
-            this.b.b(this.a.getData().getCanJoinGroupNum());
-            this.b.b(this.a.getData().getIsGroupManager() != 0);
-            this.b.c(this.a.getData().getHideRecommendGroup() != 0);
-            this.b.a(this.a.getData().getIsJoin() != 0);
-            this.b.a(this.a.getData().getJoinGroupNum());
-            this.b.d(this.a.getData().getGroup().getIsMemberGroup() == 1);
-            this.b.e(this.a.getData().getCanCreateMember() == 1);
-            Im.GroupInfo group = this.a.getData().getGroup();
+    public void decodeInBackGround(int i, byte[] bArr) {
+        ActivityInfo activityInfo;
+        Wire wire = new Wire(new Class[0]);
+        this.selfData = new f();
+        this.mResData = (QueryGroupDetailResIdl) wire.parseFrom(bArr, QueryGroupDetailResIdl.class);
+        setError(this.mResData.error.errorno.intValue());
+        setErrorString(this.mResData.error.usermsg);
+        if (getError() == 0) {
+            this.selfData.b(this.mResData.data.canJoinGroupNum.intValue());
+            this.selfData.b(this.mResData.data.isGroupManager.intValue() != 0);
+            this.selfData.c(this.mResData.data.hideRecommendGroup.intValue() != 0);
+            this.selfData.a(this.mResData.data.isJoin.intValue() != 0);
+            this.selfData.a(this.mResData.data.joinGroupNum.intValue());
+            this.selfData.d(this.mResData.data.group.isMemberGroup.intValue() == 1);
+            this.selfData.e(this.mResData.data.canCreateMember.intValue() == 1);
+            GroupInfo groupInfo = this.mResData.data.group;
             GroupData groupData = new GroupData();
-            if (groupData != null && group != null) {
-                groupData.setAlbum(group.getAlbum());
-                groupData.setAuthorId(group.getAuthorId());
-                groupData.setAuthorName(group.getAuthorName());
-                groupData.setAuthorPortrait(group.getAuthorPortrait());
-                groupData.setCreateTime(group.getCreateTime());
-                groupData.setFlag(group.getFlag());
-                groupData.setForumId(group.getForumId());
-                groupData.setForumName(group.getForumName());
-                groupData.setGrade(group.getGrade());
-                groupData.setGroupId(group.getGroupId());
-                groupData.setGroupType(group.getGroupType());
-                groupData.setIntro(group.getIntro());
-                groupData.setIsHidePosition(group.getIsHidePosition());
-                groupData.setLat(String.valueOf(group.getLat()));
-                groupData.setLng(String.valueOf(group.getLng()));
-                groupData.setMaxMemberNum(group.getMaxMemberNum());
-                groupData.setMemberNum(group.getMemberNum());
-                groupData.setName(group.getName());
-                groupData.setNickName(group.getNickName());
-                groupData.setNotice(group.getNotice());
-                groupData.setPortrait(group.getPortrait());
-                groupData.setPosition(group.getPosition());
-                groupData.setStatus(group.getStatus());
-                groupData.setMeizhi(group.getAuthorIsMeizhi() != 0);
-            }
-            this.b.a(groupData);
-            List<Im.UserInfo> memberList = this.a.getData().getMemberList();
+            GroupInfo2GroupData(groupInfo, groupData);
+            this.selfData.a(groupData);
             LinkedList linkedList = new LinkedList();
-            for (Im.UserInfo userInfo : memberList) {
-                MemberData memberData = new MemberData();
-                if (userInfo != null && memberData != null) {
-                    memberData.setPortrait(userInfo.getPortrait());
-                    memberData.setUserId(userInfo.getUserId());
-                    memberData.setUserName(userInfo.getUserName());
+            List<UserInfo> list = this.mResData.data.member;
+            if (list != null) {
+                for (UserInfo userInfo : list) {
+                    MemberData memberData = new MemberData();
+                    UserInfo2MemberData(userInfo, memberData);
+                    linkedList.add(memberData);
                 }
-                linkedList.add(memberData);
             }
-            this.b.a(linkedList);
-            List<Im.Photo> photoList = this.a.getData().getPhotoList();
+            this.selfData.a(linkedList);
+            List<Photo> list2 = this.mResData.data.photo;
             LinkedList linkedList2 = new LinkedList();
-            for (Im.Photo photo : photoList) {
-                PhotoUrlData photoUrlData = new PhotoUrlData();
-                if (photo != null && photoUrlData != null) {
-                    photoUrlData.setBigurl(photo.getBigurl());
-                    photoUrlData.setPicId(photo.getPicId());
-                    photoUrlData.setSmallurl(photo.getSmallurl());
+            if (list2 != null) {
+                for (Photo photo : list2) {
+                    PhotoUrlData photoUrlData = new PhotoUrlData();
+                    Photo2PhotoUrlData(photo, photoUrlData);
+                    linkedList2.add(photoUrlData);
                 }
-                linkedList2.add(photoUrlData);
             }
-            this.b.b(linkedList2);
-            List<Im.ActivityInfo> activityList = this.a.getData().getActivityList();
-            if (activityList != null && activityList.size() > 0 && (activityInfo = activityList.get(0)) != null) {
+            this.selfData.b(linkedList2);
+            List<ActivityInfo> list3 = this.mResData.data.activity;
+            if (list3 != null && list3.size() > 0 && (activityInfo = list3.get(0)) != null) {
                 GroupActivityData groupActivityData = new GroupActivityData();
-                this.b.a(groupActivityData);
-                groupActivityData.setActivityId(activityInfo.getActivityId());
-                groupActivityData.setIsEnd(activityInfo.getIsEnd());
-                groupActivityData.setgActivityTitle(activityInfo.getActivityTitle());
+                this.selfData.a(groupActivityData);
+                groupActivityData.setActivityId(activityInfo.activityId.intValue());
+                groupActivityData.setIsEnd(activityInfo.isEnd.intValue());
+                groupActivityData.setgActivityTitle(activityInfo.activityTitle);
             }
+        }
+    }
+
+    public static void GroupInfo2GroupData(GroupInfo groupInfo, GroupData groupData) {
+        if (groupData != null && groupInfo != null) {
+            groupData.setAlbum(groupInfo.album);
+            groupData.setAuthorId(groupInfo.authorId.intValue());
+            groupData.setAuthorName(groupInfo.authorName);
+            groupData.setAuthorPortrait(groupInfo.authorPortrait);
+            groupData.setCreateTime(groupInfo.createTime.intValue());
+            groupData.setFlag(groupInfo.flag.intValue());
+            groupData.setForumId(groupInfo.forumId.intValue());
+            groupData.setForumName(groupInfo.forumName);
+            groupData.setGrade(groupInfo.grade.intValue());
+            groupData.setGroupId(groupInfo.groupId.intValue());
+            groupData.setGroupType(groupInfo.groupType.intValue());
+            groupData.setIntro(groupInfo.intro);
+            groupData.setIsHidePosition(groupInfo.isHidePosition.intValue());
+            groupData.setLat(String.valueOf(groupInfo.lat));
+            groupData.setLng(String.valueOf(groupInfo.lng));
+            groupData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
+            groupData.setMemberNum(groupInfo.memberNum.intValue());
+            groupData.setName(groupInfo.name);
+            groupData.setNickName(groupInfo.nickName);
+            groupData.setNotice(groupInfo.notice);
+            groupData.setPortrait(groupInfo.portrait);
+            groupData.setPosition(groupInfo.position);
+            groupData.setBusiness(groupInfo.business);
+            groupData.setStatus(groupInfo.status.intValue());
+            groupData.setMeizhi(groupInfo.authorIsMeizhi.intValue() != 0);
+        }
+    }
+
+    public static void Photo2PhotoUrlData(Photo photo, PhotoUrlData photoUrlData) {
+        if (photo != null && photoUrlData != null) {
+            photoUrlData.setBigurl(photo.bigurl);
+            photoUrlData.setPicId(photo.picId);
+            photoUrlData.setSmallurl(photo.smallurl);
+        }
+    }
+
+    public static void UserInfo2MemberData(UserInfo userInfo, MemberData memberData) {
+        if (userInfo != null && memberData != null) {
+            memberData.setPortrait(userInfo.portrait);
+            memberData.setUserId(userInfo.userId.intValue());
+            memberData.setUserName(userInfo.userName);
         }
     }
 }

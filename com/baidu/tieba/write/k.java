@@ -4,8 +4,9 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.view.TbCheckBox;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class k implements r {
+public class k implements r {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +15,7 @@ final class k implements r {
     }
 
     @Override // com.baidu.tieba.write.r
-    public final void a(Object obj) {
+    public void a(View view, Object obj) {
         BdListView bdListView;
         if (obj != null) {
             if (obj instanceof com.baidu.tbadk.core.view.p) {
@@ -26,7 +27,7 @@ final class k implements r {
                 ((TbCheckBox) findViewWithTag).setChecked(false);
             } else if (!(obj instanceof MetaData)) {
             } else {
-                this.a.c((MetaData) obj);
+                this.a.b((MetaData) obj);
             }
         }
     }

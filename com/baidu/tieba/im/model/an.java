@@ -1,80 +1,25 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.img.ImageUploadResult;
-import java.util.HashMap;
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class an implements com.baidu.tbadk.img.d {
-    final /* synthetic */ MsglistModel a;
+public class an extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ MsglistModel b;
+    private final /* synthetic */ OfficialChatMessage c;
+    private final /* synthetic */ LinkedList d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(MsglistModel msglistModel) {
-        this.a = msglistModel;
+    public an(MsglistModel msglistModel, OfficialChatMessage officialChatMessage, LinkedList linkedList) {
+        this.b = msglistModel;
+        this.c = officialChatMessage;
+        this.d = linkedList;
     }
 
-    @Override // com.baidu.tbadk.img.d
-    public final synchronized void a(String str, ImageUploadResult imageUploadResult) {
-        HashMap hashMap;
-        com.baidu.tbadk.img.a aVar;
-        com.baidu.tieba.im.message.a.a aVar2;
-        String str2;
-        int i;
-        String str3;
-        ax axVar;
-        ax axVar2;
-        int i2 = 0;
-        synchronized (this) {
-            synchronized (MsglistModel.class) {
-                hashMap = this.a.h;
-                aVar = (com.baidu.tbadk.img.a) hashMap.remove(str);
-            }
-            if (aVar != null && (aVar2 = (com.baidu.tieba.im.message.a.a) aVar.a) != null) {
-                if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
-                    long currentTimeMillis = System.currentTimeMillis() - aVar2.E();
-                    if (imageUploadResult != null) {
-                        TiebaStatic.a(aVar2.e(), 0, "", "", "upload pic http fail", imageUploadResult.error_code, imageUploadResult.error_msg, currentTimeMillis);
-                    } else {
-                        TiebaStatic.a(aVar2.e(), 0, "", "", "upload pic http fail", -1, "resutl is null", currentTimeMillis);
-                    }
-                    this.a.d(aVar2);
-                    if (aVar2 instanceof com.baidu.tieba.im.message.a.b) {
-                        com.baidu.tieba.im.r.a(new ao(this, (com.baidu.tieba.im.message.a.b) aVar2), null);
-                    } else if (aVar2 instanceof com.baidu.tieba.im.message.a.f) {
-                        com.baidu.tieba.im.r.a(new ap(this, (com.baidu.tieba.im.message.a.f) aVar2), null);
-                    } else if (aVar2 instanceof com.baidu.tieba.im.message.a.e) {
-                        com.baidu.tieba.im.r.a(new aq(this, (com.baidu.tieba.im.message.a.e) aVar2), null);
-                    }
-                } else {
-                    long currentTimeMillis2 = System.currentTimeMillis() - aVar2.E();
-                    if (imageUploadResult.picInfo.bigPic == null) {
-                        str2 = "";
-                    } else {
-                        str2 = imageUploadResult.picInfo.bigPic.picUrl;
-                    }
-                    TiebaStatic.a(aVar2.e(), 0, "", "", "upload pic http suc bigUrl: " + str2, imageUploadResult.error_code, imageUploadResult.error_msg, currentTimeMillis2);
-                    String str4 = imageUploadResult.picInfo.bigPic == null ? null : imageUploadResult.picInfo.bigPic.picUrl;
-                    if (imageUploadResult.picInfo.smallPic != null) {
-                        str3 = imageUploadResult.picInfo.smallPic.picUrl;
-                        i2 = imageUploadResult.picInfo.smallPic.width;
-                        int i3 = imageUploadResult.picInfo.smallPic.height;
-                        com.baidu.tbadk.core.util.av.a().a(str3, str, true, true, true);
-                        i = i3;
-                    } else {
-                        i = 0;
-                        str3 = null;
-                    }
-                    MsglistModel msglistModel = this.a;
-                    aVar2.d(MsglistModel.a(str4, str3, i2, i));
-                    com.baidu.tieba.im.chat.x.b().a(aVar2);
-                    axVar = this.a.k;
-                    if (axVar != null) {
-                        com.baidu.adp.lib.util.f.e("simon", "send callback", "picture");
-                        axVar2 = this.a.k;
-                        axVar2.t();
-                    }
-                }
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.c.getUserId(), this.c.getToUserId(), this.d, false));
     }
 }

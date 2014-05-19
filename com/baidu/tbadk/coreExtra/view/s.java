@@ -2,46 +2,46 @@ package com.baidu.tbadk.coreExtra.view;
 
 import android.view.View;
 import android.widget.EditText;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class s implements View.OnClickListener {
-    final /* synthetic */ p a;
+public class s implements View.OnClickListener {
+    final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(p pVar) {
-        this.a = pVar;
+    public s(q qVar) {
+        this.a = qVar;
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         EditText editText;
-        com.baidu.tbadk.a aVar;
-        v vVar;
+        BaseActivity baseActivity;
+        x xVar;
         w wVar;
         w wVar2;
         w wVar3;
-        v vVar2;
         editText = this.a.c;
         String editable = editText.getText().toString();
         if (editable != null && editable.length() > 0) {
-            vVar = this.a.m;
-            if (vVar != null) {
-                vVar2 = this.a.m;
-                vVar2.cancel();
-            }
-            wVar = this.a.l;
-            if (wVar == null) {
-                this.a.l = new w(this.a, String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/s/filluname", editable);
-                wVar2 = this.a.l;
-                wVar2.setPriority(3);
-                wVar3 = this.a.l;
-                wVar3.execute(new String[0]);
+            xVar = this.a.l;
+            if (xVar == null) {
+                wVar = this.a.m;
+                if (wVar == null) {
+                    this.a.m = new w(this.a, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.DETECT_USERNAME_ADDRESS, editable);
+                    wVar2 = this.a.m;
+                    wVar2.setPriority(3);
+                    wVar3 = this.a.m;
+                    wVar3.execute(new String[0]);
+                    return;
+                }
                 return;
             }
             return;
         }
-        p pVar = this.a;
-        aVar = this.a.j;
-        pVar.b(aVar.getString(com.baidu.tbadk.l.input_name));
+        q qVar = this.a;
+        baseActivity = this.a.j;
+        qVar.b(baseActivity.getString(com.baidu.tieba.u.input_name));
     }
 }

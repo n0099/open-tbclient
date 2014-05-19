@@ -1,6 +1,6 @@
 package com.baidu.adp.lib.network.http;
 /* loaded from: classes.dex */
-public final class d {
+public class d {
     public int a = -1;
     public int b = -1;
     public long c = -1;

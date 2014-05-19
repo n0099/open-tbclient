@@ -1,50 +1,24 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.TextView;
+import com.baidu.tieba.forumdetail.ForumDetailActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class e {
-    View a;
-    private View b;
-    private FrameLayout c;
-    private TextView d;
-    private Context e;
+public class e implements View.OnClickListener {
+    final /* synthetic */ FrsHeaderView a;
 
-    public e(View view, Context context) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.e = context;
-        this.a = view;
-        this.b = this.a.findViewById(com.baidu.tieba.a.h.frs_header_divider_fortune);
-        this.c = (FrameLayout) this.a.findViewById(com.baidu.tieba.a.h.frs_fortune_layout);
-        this.d = (TextView) this.a.findViewById(com.baidu.tieba.a.h.frs_header_fortune_arrow);
-        this.d.setText("");
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(FrsHeaderView frsHeaderView) {
+        this.a = frsHeaderView;
     }
 
-    public final void a(String str) {
-        this.d.setText(String.format(this.e.getResources().getString(com.baidu.tieba.a.k.frs_fu_text), str));
-    }
-
-    public final void a() {
-        this.b.setVisibility(0);
-        this.c.setVisibility(0);
-    }
-
-    public final void b() {
-        this.b.setVisibility(8);
-        this.c.setVisibility(8);
-    }
-
-    public final void a(View.OnClickListener onClickListener) {
-        this.c.setOnClickListener(onClickListener);
-    }
-
-    public final boolean a(View view) {
-        return view != null && view.equals(this.c);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        String str;
+        activity = this.a.B;
+        str = this.a.D;
+        ForumDetailActivity.a(activity, str, ForumDetailActivity.FromType.FRS);
     }
 }

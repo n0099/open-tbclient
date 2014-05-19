@@ -5,53 +5,15 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class s extends BdAsyncTask<String, Integer, Boolean> {
+public class s extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ ActivationActivity a;
-    private com.baidu.tbadk.core.util.ak b;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ Boolean a(String... strArr) {
-        return a();
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(Boolean bool) {
-        ProgressBar progressBar;
-        EditText editText;
-        TextView textView;
-        TextView textView2;
-        RelativeLayout relativeLayout;
-        Boolean bool2 = bool;
-        super.a((s) bool2);
-        this.a.m = null;
-        progressBar = this.a.f;
-        progressBar.setVisibility(8);
-        editText = this.a.j;
-        if (editText.length() == 6) {
-            relativeLayout = this.a.k;
-            relativeLayout.setEnabled(true);
-        }
-        if (bool2.booleanValue()) {
-            this.a.a();
-            return;
-        }
-        String f = this.b.f();
-        if (f == null || f.length() <= 0) {
-            return;
-        }
-        textView = this.a.i;
-        textView.setVisibility(0);
-        textView2 = this.a.i;
-        textView2.setText(f);
-    }
+    private al b;
 
     private s(ActivationActivity activationActivity) {
         this.a = activationActivity;
@@ -59,12 +21,12 @@ public final class s extends BdAsyncTask<String, Integer, Boolean> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ s(ActivationActivity activationActivity, byte b) {
+    public /* synthetic */ s(ActivationActivity activationActivity, s sVar) {
         this(activationActivity);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
+    public void cancel() {
         ProgressBar progressBar;
         EditText editText;
         RelativeLayout relativeLayout;
@@ -82,27 +44,63 @@ public final class s extends BdAsyncTask<String, Integer, Boolean> {
         super.cancel(true);
     }
 
-    private Boolean a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(String... strArr) {
         RegistData registData;
         boolean z = false;
         try {
-            this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/s/getsmscode");
-            com.baidu.tbadk.core.util.ak akVar = this.b;
+            this.b = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
+            al alVar = this.b;
             registData = this.a.q;
-            akVar.a("phonenum", registData.getPhone());
+            alVar.a("phonenum", registData.getPhone());
             this.b.i();
             if (this.b.a().b().b()) {
                 z = true;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
         }
         return Boolean.valueOf(z);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        ProgressBar progressBar;
+        EditText editText;
+        TextView textView;
+        TextView textView2;
+        RelativeLayout relativeLayout;
+        super.onPostExecute(bool);
+        this.a.m = null;
+        progressBar = this.a.f;
+        progressBar.setVisibility(8);
+        editText = this.a.j;
+        if (editText.length() == 6) {
+            relativeLayout = this.a.k;
+            relativeLayout.setEnabled(true);
+        }
+        if (bool.booleanValue()) {
+            this.a.a();
+            return;
+        }
+        String f = this.b.f();
+        if (f != null && f.length() > 0) {
+            textView = this.a.i;
+            textView.setVisibility(0);
+            textView2 = this.a.i;
+            textView2.setText(f);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
         ProgressBar progressBar;
         TextView textView;
         TextView textView2;
@@ -115,6 +113,6 @@ public final class s extends BdAsyncTask<String, Integer, Boolean> {
         textView2.setText((CharSequence) null);
         relativeLayout = this.a.k;
         relativeLayout.setEnabled(false);
-        super.c();
+        super.onPreExecute();
     }
 }

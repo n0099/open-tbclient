@@ -5,7 +5,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-final class m {
+class m {
     TextView a;
     TextView b;
     ImageView c;
@@ -18,7 +18,7 @@ final class m {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(l lVar, byte b) {
+    public /* synthetic */ m(l lVar, m mVar) {
         this(lVar);
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.topRec;
 /* loaded from: classes.dex */
-final class b implements com.baidu.adp.widget.ListView.d {
+class b implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ TopRecActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ final class b implements com.baidu.adp.widget.ListView.d {
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public final void a(boolean z) {
+    public void a(boolean z) {
         l lVar;
         lVar = this.a.c;
         lVar.LoadData();

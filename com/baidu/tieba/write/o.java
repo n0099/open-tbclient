@@ -5,7 +5,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.TbCheckBox;
 /* loaded from: classes.dex */
-final class o {
+class o {
     public View a;
     public HeadImageView b;
     public TextView c;
@@ -17,7 +17,7 @@ final class o {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ o(n nVar, byte b) {
+    public /* synthetic */ o(n nVar, o oVar) {
         this(nVar);
     }
 }

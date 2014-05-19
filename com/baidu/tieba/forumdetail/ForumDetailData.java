@@ -60,9 +60,9 @@ public class ForumDetailData implements Serializable {
     /* loaded from: classes.dex */
     public class ForumInfo implements Serializable {
         private static final long serialVersionUID = 1;
-        @SerializedName("forum_id")
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.FORUM_ID)
         public int forumID = 0;
-        @SerializedName("forum_name")
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME)
         public String forumName = "";
         @SerializedName("member_count")
         public long memberCount = 0;

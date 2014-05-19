@@ -5,7 +5,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-final class h {
+class h {
     public View a;
     public HeadImageView b;
     public TextView c;
@@ -17,7 +17,7 @@ final class h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ h(f fVar, byte b) {
+    public /* synthetic */ h(f fVar, h hVar) {
         this(fVar);
     }
 }

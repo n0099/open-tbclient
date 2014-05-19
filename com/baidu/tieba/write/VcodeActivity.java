@@ -9,11 +9,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
-public class VcodeActivity extends com.baidu.tbadk.a {
+public class VcodeActivity extends BaseActivity {
     private WriteData b = null;
     private TextView c = null;
     private ImageView d = null;
@@ -30,24 +31,20 @@ public class VcodeActivity extends com.baidu.tbadk.a {
     private final View.OnClickListener n = new ab(this);
 
     static {
-        TbadkApplication.j().a(com.baidu.tbadk.core.b.au.class, VcodeActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bg.class, VcodeActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.a.i.vcode_activity);
-        this.k = (RelativeLayout) findViewById(com.baidu.tieba.a.h.parent);
-        this.a = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.l = (TextView) findViewById(com.baidu.tieba.a.h.info);
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.m);
-        this.c = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.a.k.send), this.n);
-        this.e = (EditText) findViewById(com.baidu.tieba.a.h.input);
-        this.d = (ImageView) findViewById(com.baidu.tieba.a.h.vcode_image);
-        this.d.setImageBitmap(null);
-        this.d.setOnClickListener(new ad(this));
-        this.f = (ProgressBar) findViewById(com.baidu.tieba.a.h.progress);
+        setContentView(com.baidu.tieba.s.vcode_activity);
+        a();
+        a(bundle);
+        a(this.b.getVcodeUrl());
+    }
+
+    private void a(Bundle bundle) {
         this.j = new ac(this);
         if (bundle != null) {
             this.b = (WriteData) bundle.getSerializable("model");
@@ -55,11 +52,10 @@ public class VcodeActivity extends com.baidu.tbadk.a {
             this.b = (WriteData) getIntent().getSerializableExtra("model");
         }
         this.i = (InputMethodManager) getSystemService("input_method");
-        a(this.b.getVcodeUrl());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.g != null) {
@@ -80,19 +76,32 @@ public class VcodeActivity extends com.baidu.tbadk.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         int i2;
         super.onChangeSkinType(i);
-        com.baidu.tbadk.core.util.ba.a(this.k, i);
-        this.a.b(i);
-        com.baidu.tbadk.core.util.ba.g(this.c, i);
+        com.baidu.tbadk.core.util.bc.a(this.k, i);
+        this.a.c(i);
+        com.baidu.tbadk.core.util.bc.g(this.c, i);
         if (i == 1) {
-            i2 = com.baidu.tbadk.core.util.ba.a(i);
+            i2 = com.baidu.tbadk.core.util.bc.a(i);
         } else {
             i2 = -12895429;
         }
         this.l.setTextColor(i2);
+    }
+
+    private void a() {
+        this.k = (RelativeLayout) findViewById(com.baidu.tieba.r.parent);
+        this.a = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.l = (TextView) findViewById(com.baidu.tieba.r.info);
+        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.m);
+        this.c = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.u.send), this.n);
+        this.e = (EditText) findViewById(com.baidu.tieba.r.input);
+        this.d = (ImageView) findViewById(com.baidu.tieba.r.vcode_image);
+        this.d.setImageBitmap(null);
+        this.d.setOnClickListener(new ad(this));
+        this.f = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -102,7 +111,7 @@ public class VcodeActivity extends com.baidu.tbadk.a {
         }
         this.f.setVisibility(0);
         this.d.setImageBitmap(null);
-        this.h = new ae(this, (byte) 0);
+        this.h = new ae(this, null);
         this.h.setPriority(3);
         this.h.execute(str);
     }

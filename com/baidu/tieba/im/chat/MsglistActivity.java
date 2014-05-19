@@ -2,91 +2,97 @@ package com.baidu.tieba.im.chat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public abstract class MsglistActivity extends dj {
+public abstract class MsglistActivity extends dd {
     public static boolean a;
     public static String b = "";
 
-    protected abstract boolean b(Bundle bundle);
+    protected abstract boolean c(Bundle bundle);
 
     protected abstract void o();
 
     protected abstract boolean p();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.dd, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            if (!b(bundle)) {
+            if (!c(bundle)) {
                 finish();
             } else {
                 o();
-                q();
-                p();
-                this.e.e();
-                m();
-                dc.a = com.baidu.tbadk.core.util.b.b();
+                r();
+                if (p()) {
+                    q();
+                    m();
+                    cz.a = com.baidu.tbadk.editortool.ab.b();
+                }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.dj, android.app.Activity
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        try {
-            com.baidu.adp.lib.util.f.d("----onNewIntent start-----");
-            setIntent(intent);
-            if (!b((Bundle) null)) {
-                finish();
-            } else {
-                o();
-                q();
-                p();
-                this.e.e();
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            BdLog.e(e.getMessage());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tieba.im.chat.dd, android.app.Activity
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        try {
+            BdLog.i("----onNewIntent start-----");
+            setIntent(intent);
+            if (!c(null)) {
+                finish();
+            } else {
+                o();
+                r();
+                if (p()) {
+                    q();
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.d != null) {
-            this.d.O();
+            this.d.a(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.dd, com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.d != null) {
-            h hVar = this.d;
-            TbadkApplication.j().l();
-            hVar.O();
+            this.d.a(TbadkApplication.m252getInst().getSkinType());
             c();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void c() {
-        if (TbadkApplication.j().V()) {
-            this.d.J();
+        if (TbadkApplication.m252getInst().isHeadsetModeOn()) {
+            this.d.K();
         } else {
-            this.d.I();
+            this.d.J();
         }
     }
 
+    protected boolean q() {
+        return this.e.e();
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dj, com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.dd, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        com.baidu.adp.lib.util.f.e("----ondestroy---");
+        BdLog.d("----ondestroy---");
         super.onDestroy();
         n();
     }

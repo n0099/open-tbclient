@@ -2,16 +2,16 @@ package com.baidu.tieba.person.post;
 
 import java.util.TimerTask;
 /* loaded from: classes.dex */
-final class w extends TimerTask {
-    final /* synthetic */ u a;
+class w extends TimerTask {
+    final /* synthetic */ s a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(u uVar) {
-        this.a = uVar;
+    public w(s sVar) {
+        this.a = sVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
-    public final void run() {
+    public void run() {
         if (this.a.getActivity() != null && !this.a.getActivity().isFinishing()) {
             this.a.getActivity().finish();
         }

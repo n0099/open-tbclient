@@ -1,67 +1,82 @@
 package com.baidu.tieba.guide;
 
-import android.app.Dialog;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.ScaleAnimation;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.tieba.data.InterestFrsData;
-import com.baidu.tieba.model.af;
-import com.baidu.tieba.model.bc;
 /* loaded from: classes.dex */
-public final class w implements View.OnClickListener {
-    private NewUserGuideActivity a;
-    private InterestFrsData.Tag b;
-    private a c;
-    private af d;
-    private bc e;
+class w {
+    View a;
+    TextView b;
+    TextView c;
+    final /* synthetic */ v d;
+    private ImageView e;
+    private LinearLayout f;
 
-    public w(NewUserGuideActivity newUserGuideActivity, InterestFrsData.Tag tag, s sVar) {
-        this.a = newUserGuideActivity;
-        this.b = tag;
-        int btype = tag.getBtype();
-        if (btype == 1) {
-            this.c = new u(this.a, com.baidu.tieba.a.l.NewUserDialog);
-        } else if (btype == 2) {
-            this.c = new d(this.a, com.baidu.tieba.a.l.NewUserDialog);
-        } else if (btype == 3) {
-            this.c = new k(this.a, com.baidu.tieba.a.l.NewUserDialog);
-        }
-        this.c.a(newUserGuideActivity.h());
-        this.d = new af();
-        this.d.setLoadDataCallBack(new x(this));
-        this.e = new bc();
-        this.e.a(new y(this));
-        this.c.a(this);
-        this.c.a(this.b);
-        ((Dialog) this.c).setOnDismissListener(new z(this, sVar));
+    public View a() {
+        return this.a;
     }
 
-    public final void a(int i, boolean z) {
-        for (int i2 = 0; i2 < this.b.getCard_list().size(); i2++) {
-            if (this.b.getCard_list().get(i2).getFid() == i) {
-                this.b.getCard_list().get(i2).setIs_like(z ? 1 : 0);
-                return;
-            }
-        }
+    public w(v vVar, InterestFrsData.Card card, View.OnClickListener onClickListener) {
+        Context context;
+        this.d = vVar;
+        context = vVar.a;
+        this.a = LayoutInflater.from(context).inflate(com.baidu.tieba.s.new_user_text_item, (ViewGroup) null);
+        this.a.setTag(Integer.valueOf(card.getFid()));
+        a(card, onClickListener);
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        if (view.getId() == com.baidu.tieba.a.h.box_close_layout) {
-            this.c.hide();
-        } else if ((view.getId() == com.baidu.tieba.a.h.ll_like || view.getId() == com.baidu.tieba.a.h.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
-            InterestFrsData.Card card = (InterestFrsData.Card) view.getTag();
-            if (card.getIs_like() == 1) {
-                this.e.a(card.getFname(), card.getFid());
-            } else {
-                this.d.a(card.getFname(), String.valueOf(card.getFid()), "newuser");
-            }
-        }
+    public w(v vVar, View view) {
+        this.d = vVar;
+        this.a = view;
+        b();
     }
 
-    public final void a() {
-        ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 2, 0.5f, 2, 0.5f);
-        scaleAnimation.setDuration(350L);
-        this.c.a().setAnimation(scaleAnimation);
-        this.c.show();
+    public void b() {
+        this.b = (TextView) this.a.findViewById(com.baidu.tieba.r.tv_fname);
+        this.c = (TextView) this.a.findViewById(com.baidu.tieba.r.tv_cdesc);
+        this.e = (ImageView) this.a.findViewById(com.baidu.tieba.r.iv_like);
+        this.f = (LinearLayout) this.a.findViewById(com.baidu.tieba.r.ll_like);
+    }
+
+    public void a(boolean z) {
+        Context context;
+        Context context2;
+        if (!z) {
+            ImageView imageView = this.e;
+            context2 = this.d.a;
+            imageView.setBackgroundDrawable(context2.getResources().getDrawable(com.baidu.tieba.q.icon_startpage2_add_ba_n));
+            return;
+        }
+        ImageView imageView2 = this.e;
+        context = this.d.a;
+        imageView2.setBackgroundDrawable(context.getResources().getDrawable(com.baidu.tieba.q.icon_startpage2_add_ba_s));
+    }
+
+    private void a(InterestFrsData.Card card, View.OnClickListener onClickListener) {
+        Drawable drawable;
+        Context context;
+        Context context2;
+        b();
+        this.f.setOnClickListener(onClickListener);
+        this.f.setTag(card);
+        this.b.setText(card.getFname());
+        if (card.getOrder() == 1) {
+            context2 = this.d.a;
+            drawable = context2.getResources().getDrawable(com.baidu.tieba.q.icon_startpage2_add_ba_rise);
+        } else if (card.getOrder() == 2) {
+            context = this.d.a;
+            drawable = context.getResources().getDrawable(com.baidu.tieba.q.icon_startpage2_add_ba_decline);
+        } else {
+            drawable = null;
+        }
+        this.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, drawable, (Drawable) null);
+        this.c.setText(card.getCdesc());
+        a(card.getIs_like() != 0);
     }
 }

@@ -113,7 +113,7 @@ public class a implements Comparable {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[[key=").append(this.n).append("]appname=").append(this.j).append("]packagename=").append(this.o).append("]versionname=").append(this.b).append("]versioncode=").append(this.f).append("]signmd5=").append(this.q).append("[mUpdatebleDate=[mFilePath=").append(this.d).append("]serversignmd5=]downloadType=").append(this.m).append("]mIsSilentInstalling=]mApksize=").append(this.p).append("]mInstalledApkDir=").append(this.v).append("]md5=").append(this.l).append("]]");
+        sb.append("[").append("[key=").append(this.n).append("]appname=").append(this.j).append("]packagename=").append(this.o).append("]versionname=").append(this.b).append("]versioncode=").append(this.f).append("]signmd5=").append(this.q).append("[mUpdatebleDate=").append("[mFilePath=").append(this.d).append("]serversignmd5=").append("]downloadType=").append(this.m).append("]mIsSilentInstalling=").append("]mApksize=").append(this.p).append("]mInstalledApkDir=").append(this.v).append("]md5=").append(this.l).append("]]");
         return sb.toString();
     }
 }

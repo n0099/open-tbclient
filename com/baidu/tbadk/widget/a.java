@@ -17,8 +17,10 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.ImageView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.q;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends ImageView {
@@ -100,8 +102,8 @@ public class a extends ImageView {
         this.K = 0;
         this.L = 0;
         this.N = AnimationUtils.loadInterpolator(getContext(), 17432582);
-        this.O = new GestureDetector(new g(this, (byte) 0));
-        s();
+        this.O = new GestureDetector(new g(this, null));
+        u();
     }
 
     public a(Context context, AttributeSet attributeSet) {
@@ -136,8 +138,8 @@ public class a extends ImageView {
         this.K = 0;
         this.L = 0;
         this.N = AnimationUtils.loadInterpolator(getContext(), 17432582);
-        this.O = new GestureDetector(new g(this, (byte) 0));
-        s();
+        this.O = new GestureDetector(new g(this, null));
+        u();
     }
 
     public a(Context context, AttributeSet attributeSet, int i) {
@@ -172,8 +174,8 @@ public class a extends ImageView {
         this.K = 0;
         this.L = 0;
         this.N = AnimationUtils.loadInterpolator(getContext(), 17432582);
-        this.O = new GestureDetector(new g(this, (byte) 0));
-        s();
+        this.O = new GestureDetector(new g(this, null));
+        u();
     }
 
     @Override // android.view.View
@@ -189,46 +191,23 @@ public class a extends ImageView {
         this.p = i;
     }
 
-    public final void a(int i, int i2) {
-        this.I = i;
-        this.J = i2;
+    public void a(int i, int i2, int i3, int i4) {
+        this.I = i2;
+        this.J = i4;
     }
 
     public void setGifMaxUseableMem(int i) {
         this.n = i;
     }
 
-    public final void a() {
+    public void a() {
         this.A = false;
         this.l = false;
         this.y = 0;
-        int scrollX = getScrollX();
-        if (this.e >= getWidth()) {
-            if (scrollX < 0) {
-                scrollX = 0;
-            }
-            if (getWidth() + scrollX > this.e) {
-                scrollX = (int) (this.e - getWidth());
-            }
-        }
-        int scrollY = getScrollY();
-        if (this.f + this.I + this.J >= getHeight()) {
-            if (scrollY < (-this.K)) {
-                scrollY = -this.K;
-            }
-            if (getHeight() + scrollY > this.f + this.J + this.L) {
-                scrollY = (int) ((this.f - getHeight()) + this.J + this.L);
-            }
-        } else {
-            scrollY = 0;
-        }
-        if (scrollX != getScrollX() || scrollY != getScrollY()) {
-            scrollTo(scrollX, scrollY);
-            invalidate();
-        }
+        v();
         if (this.j < this.h) {
             this.j = this.h;
-            a(false, -1);
+            w();
         }
     }
 
@@ -256,7 +235,7 @@ public class a extends ImageView {
         if (action == CompatibleUtile.getInstance().getActionPointerUp()) {
             this.y = 1;
         } else if (action == CompatibleUtile.getInstance().getActionPointerDown()) {
-            this.w = CompatibleUtile.getInstance().getSpacing(motionEvent);
+            this.w = a(motionEvent);
             if (this.w > 10.0f) {
                 this.y = 2;
             }
@@ -268,14 +247,14 @@ public class a extends ImageView {
                         this.z = true;
                         this.A = true;
                         if (this.x != 1 && this.x != 2) {
-                            float spacing = CompatibleUtile.getInstance().getSpacing(motionEvent);
-                            if (spacing >= 0.0f && Math.abs(this.w - spacing) >= 10.0f) {
-                                if (Math.abs(this.w - spacing) > 100.0f) {
-                                    this.w = spacing;
+                            float a = a(motionEvent);
+                            if (a >= 0.0f && Math.abs(this.w - a) >= 10.0f) {
+                                if (Math.abs(this.w - a) > 100.0f) {
+                                    this.w = a;
                                     break;
                                 } else {
-                                    float f = spacing / this.w;
-                                    this.w = spacing;
+                                    float f = a / this.w;
+                                    this.w = a;
                                     this.k = this.j;
                                     this.j *= f;
                                     if (this.j > this.i) {
@@ -284,7 +263,7 @@ public class a extends ImageView {
                                     if (this.j < this.h / 4.0f) {
                                         this.j = this.h / 4.0f;
                                     }
-                                    a(false, -1);
+                                    w();
                                     break;
                                 }
                             }
@@ -297,21 +276,25 @@ public class a extends ImageView {
         return true;
     }
 
+    public float a(MotionEvent motionEvent) {
+        return CompatibleUtile.getInstance().getSpacing(motionEvent);
+    }
+
     @Override // android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         if (z) {
             this.c = i3 - i;
             this.d = i4 - i2;
-            q();
+            r();
         }
         super.onLayout(z, i, i2, i3, i4);
     }
 
-    public final boolean b() {
+    public boolean b() {
         return this.h == this.j;
     }
 
-    private void q() {
+    private void r() {
         Bitmap imageBitmap = getImageBitmap();
         if (imageBitmap != null && !imageBitmap.isRecycled() && imageBitmap.getWidth() > 0 && imageBitmap.getHeight() > 0) {
             if (this.p == 0) {
@@ -338,8 +321,8 @@ public class a extends ImageView {
             this.g.add(Float.valueOf(this.h));
             this.j = this.h;
             this.k = this.j;
-            a(false, -1);
-            r();
+            w();
+            s();
             return;
         }
         this.e = 0.0f;
@@ -359,12 +342,9 @@ public class a extends ImageView {
         return ((BitmapDrawable) drawable).getBitmap();
     }
 
-    public void r() {
+    public void s() {
         if (this.q != null) {
-            f fVar = this.q;
-            o();
-            p();
-            fVar.a(this);
+            this.q.a(this, p(), q());
         }
     }
 
@@ -377,12 +357,22 @@ public class a extends ImageView {
         super.onMeasure(i, i2);
     }
 
-    public final void c() {
+    public void c() {
         if (this.C != null) {
-            this.C.d();
+            this.C.r();
             this.C = null;
         }
         this.H = false;
+    }
+
+    public void d() {
+        c();
+        this.E = 0;
+        if (this.m != null) {
+            this.a = 1;
+            invalidate();
+            new b(this).start();
+        }
     }
 
     public byte[] getImageData() {
@@ -403,48 +393,32 @@ public class a extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        boolean z;
         super.onDraw(canvas);
         if (this.x == 1 && this.D != null && !this.D.isRecycled()) {
             int width = this.D.getWidth();
             int height = this.D.getHeight();
             int width2 = getWidth();
             int height2 = getHeight();
-            int i5 = (width2 - width) >> 1;
-            int i6 = (height2 - height) >> 1;
-            if (i5 < 0 || i6 < 0) {
+            int i = (width2 - width) >> 1;
+            int i2 = (height2 - height) >> 1;
+            boolean z = false;
+            if (i < 0 || i2 < 0) {
                 float min = Math.min(width2 / width, height2 / height);
                 this.b.setScale(min, min);
-                int i7 = (int) ((width2 - (width * min)) / 2.0f);
-                int i8 = (int) ((height2 - (height * min)) / 2.0f);
-                this.b.postTranslate(i7, i8);
-                i = i7;
-                i2 = i8;
-                i3 = (int) (width * min);
-                i4 = (int) (height * min);
-                z = false;
+                i = (int) ((width2 - (width * min)) / 2.0f);
+                i2 = (int) ((height2 - (height * min)) / 2.0f);
+                this.b.postTranslate(i, i2);
+                width = (int) (width * min);
+                height = (int) (height * min);
             } else {
-                i = i5;
-                i2 = i6;
-                i3 = width;
-                i4 = height;
                 z = true;
             }
-            canvas.clipRect(i, i2, i3 + i, i4 + i2);
+            canvas.clipRect(i, i2, width + i, height + i2);
             canvas.drawColor(-1);
             if (this.a == 2 && this.B == 1 && this.H && this.C != null) {
                 if (this.F + this.C.a(this.E) < System.currentTimeMillis()) {
                     this.F += this.C.a(this.E);
-                    if (this.C != null) {
-                        this.E++;
-                        if (this.E >= this.C.b()) {
-                            this.E = 0;
-                        }
-                    }
+                    t();
                 }
                 Bitmap b = this.C.b(this.E);
                 if (b != null) {
@@ -463,16 +437,19 @@ public class a extends ImageView {
         }
     }
 
-    public final void d() {
+    private void t() {
+        if (this.C != null) {
+            this.E++;
+            if (this.E >= this.C.b()) {
+                this.E = 0;
+            }
+        }
+    }
+
+    public void e() {
         if (this.x == 1) {
             if (this.a == 0) {
-                c();
-                this.E = 0;
-                if (this.m != null) {
-                    this.a = 1;
-                    invalidate();
-                    new b(this).start();
-                }
+                d();
             } else {
                 this.F = System.currentTimeMillis();
                 invalidate();
@@ -481,15 +458,15 @@ public class a extends ImageView {
         }
     }
 
-    public final void e() {
+    public void f() {
         if (this.x == 1) {
-            com.baidu.adp.lib.util.f.e(getClass().getName(), "pause", null);
+            BdLog.d(getClass().getName(), "pause", (String) null);
             this.H = false;
             invalidate();
         }
     }
 
-    public final void f() {
+    public void g() {
         if (this.x == 1) {
             super.setImageBitmap(null);
             this.H = false;
@@ -500,8 +477,8 @@ public class a extends ImageView {
         }
     }
 
-    private void s() {
-        this.o = com.baidu.adp.lib.util.i.c(getContext()) * com.baidu.adp.lib.util.i.b(getContext()) * 2;
+    private void u() {
+        this.o = com.baidu.adp.lib.util.h.c(getContext()) * com.baidu.adp.lib.util.h.b(getContext()) * 2;
         if (this.o < 1690000) {
             this.o = 1690000;
         }
@@ -524,6 +501,30 @@ public class a extends ImageView {
         this.v = new GestureDetector(new c(this));
     }
 
+    private void v() {
+        int i = 0;
+        int scrollX = getScrollX();
+        if (this.e >= getWidth()) {
+            if (scrollX < 0) {
+                scrollX = 0;
+            }
+            if (getWidth() + scrollX > this.e) {
+                scrollX = (int) (this.e - getWidth());
+            }
+        }
+        int scrollY = getScrollY();
+        if (this.f + this.I + this.J >= getHeight()) {
+            i = scrollY < (-this.K) ? -this.K : scrollY;
+            if (getHeight() + i > this.f + this.J + this.L) {
+                i = (int) ((this.f - getHeight()) + this.J + this.L);
+            }
+        }
+        if (scrollX != getScrollX() || i != getScrollY()) {
+            scrollTo(scrollX, i);
+            invalidate();
+        }
+    }
+
     @Override // android.view.View
     protected int computeHorizontalScrollRange() {
         return (int) this.e;
@@ -534,14 +535,14 @@ public class a extends ImageView {
         return (int) this.f;
     }
 
-    public final boolean g() {
+    public boolean h() {
         if (this.x == 1 || this.x == 2) {
             return true;
         }
         return !this.A && getScrollX() >= ((int) (this.e - ((float) getWidth()))) + (-1);
     }
 
-    public final boolean h() {
+    public boolean i() {
         if (this.x == 1 || this.x == 2) {
             return true;
         }
@@ -554,11 +555,11 @@ public class a extends ImageView {
             this.u.b();
         }
         super.setImageBitmap(bitmap);
-        q();
+        r();
         this.x = 0;
     }
 
-    public final void a(Bitmap bitmap) {
+    public void a(Bitmap bitmap) {
         Bitmap imageBitmap = getImageBitmap();
         if (bitmap != null && !bitmap.isRecycled()) {
             if (imageBitmap != null && (imageBitmap.getWidth() != bitmap.getWidth() || imageBitmap.getHeight() != bitmap.getHeight())) {
@@ -577,13 +578,13 @@ public class a extends ImageView {
         }
     }
 
-    public final void a(byte[] bArr, Bitmap bitmap) {
+    public void a(byte[] bArr, Bitmap bitmap) {
         if (this.u.a()) {
             this.u.b();
         }
         super.setImageBitmap(null);
         c();
-        q();
+        r();
         this.x = 1;
         this.a = 0;
         this.D = bitmap;
@@ -593,7 +594,7 @@ public class a extends ImageView {
         }
     }
 
-    public final void i() {
+    public void j() {
         if (this.u.a()) {
             this.u.b();
         }
@@ -605,7 +606,7 @@ public class a extends ImageView {
         this.H = false;
     }
 
-    public final void j() {
+    public void k() {
         if (this.u.a()) {
             this.u.b();
         }
@@ -616,22 +617,22 @@ public class a extends ImageView {
         this.H = false;
     }
 
-    public final void k() {
+    public void l() {
         if (this.u.a()) {
             this.u.b();
         }
         if (this.M) {
-            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tbadk.i.pic_baidu_logo_black));
-        } else if (TbadkApplication.j().l() == 1) {
-            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tbadk.i.pic_baidu_logo_d_1));
+            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(q.pic_baidu_logo_black));
+        } else if (TbadkApplication.m252getInst().getSkinType() == 1) {
+            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(q.pic_baidu_logo_d_1));
         } else {
-            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tbadk.i.pic_baidu_logo_d));
+            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(q.pic_baidu_logo_d));
         }
         this.x = 2;
-        q();
+        r();
     }
 
-    public final void l() {
+    public void m() {
         if (this.x != 1 && this.x != 2) {
             int size = this.g.size();
             if (size > 0) {
@@ -639,34 +640,34 @@ public class a extends ImageView {
             } else {
                 this.g.add(Float.valueOf(this.h));
             }
-            a(false, -1);
-            r();
+            w();
+            s();
         }
     }
 
-    public final void m() {
+    public void n() {
         if (this.x != 1 && this.x != 2) {
             int size = this.g.size();
             if (size > 1) {
                 this.g.remove(size - 1);
             }
-            a(false, -1);
-            r();
+            w();
+            s();
         }
     }
 
-    public final void n() {
-        r();
+    public void o() {
+        s();
         if (this.x != 1 && this.x != 2 && this.j != this.h) {
             this.g.clear();
             this.g.add(Float.valueOf(this.h));
             this.j = this.h;
             this.k = this.j;
-            a(false, -1);
+            w();
         }
     }
 
-    public final boolean o() {
+    public boolean p() {
         if (this.x == 1 || this.x == 2) {
             return false;
         }
@@ -679,7 +680,7 @@ public class a extends ImageView {
         return (((float) ((int) ((((float) (imageBitmap.getHeight() * imageBitmap.getWidth())) * floatValue) * floatValue))) * 1.25f) * 1.25f <= ((float) this.o) && floatValue <= 5.0f;
     }
 
-    public final boolean p() {
+    public boolean q() {
         if (this.x == 1 || this.x == 2) {
             return false;
         }
@@ -691,15 +692,11 @@ public class a extends ImageView {
         return size > 1;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:111:0x00e4 A[Catch: Exception -> 0x0122, TryCatch #0 {Exception -> 0x0122, blocks: (B:80:0x0012, B:82:0x0016, B:84:0x001e, B:85:0x002c, B:126:0x013f, B:86:0x002e, B:88:0x006c, B:89:0x0076, B:91:0x007f, B:93:0x008d, B:95:0x0094, B:96:0x0097, B:97:0x00a5, B:99:0x00b4, B:101:0x00be, B:102:0x00c2, B:104:0x00c9, B:106:0x00d0, B:108:0x00d8, B:109:0x00e0, B:111:0x00e4, B:112:0x00ea, B:114:0x00f5, B:116:0x0101, B:117:0x010a, B:122:0x0118, B:127:0x0143, B:129:0x0147, B:130:0x014d, B:132:0x0158, B:134:0x0164), top: B:141:0x0012 }] */
-    /* JADX WARN: Removed duplicated region for block: B:114:0x00f5 A[Catch: Exception -> 0x0122, TryCatch #0 {Exception -> 0x0122, blocks: (B:80:0x0012, B:82:0x0016, B:84:0x001e, B:85:0x002c, B:126:0x013f, B:86:0x002e, B:88:0x006c, B:89:0x0076, B:91:0x007f, B:93:0x008d, B:95:0x0094, B:96:0x0097, B:97:0x00a5, B:99:0x00b4, B:101:0x00be, B:102:0x00c2, B:104:0x00c9, B:106:0x00d0, B:108:0x00d8, B:109:0x00e0, B:111:0x00e4, B:112:0x00ea, B:114:0x00f5, B:116:0x0101, B:117:0x010a, B:122:0x0118, B:127:0x0143, B:129:0x0147, B:130:0x014d, B:132:0x0158, B:134:0x0164), top: B:141:0x0012 }] */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x0114  */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x0117  */
-    /* JADX WARN: Removed duplicated region for block: B:137:0x0172  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(boolean z, int i) {
+    public void w() {
+        a(false, -1, -1);
+    }
+
+    public void a(boolean z, int i, int i2) {
         float f;
         float f2;
         Bitmap imageBitmap = getImageBitmap();
@@ -738,78 +735,41 @@ public class a extends ImageView {
                 if (z) {
                     int screenWidth = getScreenWidth();
                     scrollX = i > getWidth() ? getWidth() : i;
-                    if (this.e > screenWidth) {
-                        if (this.e > screenWidth && this.e / 2.0f < screenWidth) {
-                            scrollX = (int) (scrollX - (this.e / 4.0f));
-                        }
-                        if (this.y == 2) {
-                            scrollY += (int) ((this.f - height) / 2.0f);
-                        }
-                        if (this.f > getHeight()) {
-                            scrollY = 0;
-                        } else if (getHeight() + scrollY > this.f) {
-                            scrollY = (int) (this.f - getHeight());
-                        }
-                        setHorizontalScrollBarEnabled(false);
-                        setVerticalScrollBarEnabled(false);
-                        if (scrollX < 0) {
-                            scrollX = 0;
-                        }
-                        if (scrollY < 0) {
-                            scrollY = 0;
-                        }
-                        scrollTo(scrollX, scrollY);
-                        setImageMatrix(this.b);
+                    if (this.e <= screenWidth) {
+                        scrollX = 0;
+                    } else if (this.e > screenWidth && this.e / 2.0f < screenWidth) {
+                        scrollX = (int) (scrollX - (this.e / 4.0f));
                     }
-                    scrollX = 0;
+                } else {
                     if (this.y == 2) {
+                        scrollX += (int) ((this.e - width) / 2.0f);
                     }
-                    if (this.f > getHeight()) {
-                    }
-                    setHorizontalScrollBarEnabled(false);
-                    setVerticalScrollBarEnabled(false);
-                    if (scrollX < 0) {
-                    }
-                    if (scrollY < 0) {
-                    }
-                    scrollTo(scrollX, scrollY);
-                    setImageMatrix(this.b);
-                }
-                if (this.y == 2) {
-                    scrollX += (int) ((this.e - width) / 2.0f);
-                }
-                if (this.e > getWidth()) {
-                    if (getWidth() + scrollX > this.e) {
+                    if (this.e <= getWidth()) {
+                        scrollX = 0;
+                    } else if (getWidth() + scrollX > this.e) {
                         scrollX = (int) (this.e - getWidth());
                     }
-                    if (this.y == 2) {
-                    }
-                    if (this.f > getHeight()) {
-                    }
-                    setHorizontalScrollBarEnabled(false);
-                    setVerticalScrollBarEnabled(false);
-                    if (scrollX < 0) {
-                    }
-                    if (scrollY < 0) {
-                    }
-                    scrollTo(scrollX, scrollY);
-                    setImageMatrix(this.b);
                 }
-                scrollX = 0;
                 if (this.y == 2) {
+                    scrollY += (int) ((this.f - height) / 2.0f);
                 }
-                if (this.f > getHeight()) {
+                if (this.f <= getHeight()) {
+                    scrollY = 0;
+                } else if (getHeight() + scrollY > this.f) {
+                    scrollY = (int) (this.f - getHeight());
                 }
                 setHorizontalScrollBarEnabled(false);
                 setVerticalScrollBarEnabled(false);
                 if (scrollX < 0) {
+                    scrollX = 0;
                 }
                 if (scrollY < 0) {
+                    scrollY = 0;
                 }
                 scrollTo(scrollX, scrollY);
                 setImageMatrix(this.b);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("DragImageView", "resizeBitmap", "error = " + e.getMessage());
+                BdLog.e("DragImageView", "resizeBitmap", "error = " + e.getMessage());
             }
         }
     }

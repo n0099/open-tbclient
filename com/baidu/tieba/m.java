@@ -1,19 +1,14 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes.dex */
-final class m implements View.OnClickListener {
-    final /* synthetic */ k a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(k kVar) {
-        this.a = kVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        o oVar;
-        oVar = this.a.k;
-        oVar.a();
-    }
+public final class m {
+    public static final int delete_account = 2131427337;
+    public static final int domain_without_baidu_browser_notification = 2131427329;
+    public static final int fiter_name = 2131427328;
+    public static final int members_order_by = 2131427331;
+    public static final int members_order_by_short = 2131427330;
+    public static final int menu_on_off = 2131427335;
+    public static final int menu_recommend_push = 2131427334;
+    public static final int menu_remind_tone = 2131427333;
+    public static final int menu_view_images = 2131427332;
+    public static final int voice_black_frs_list = 2131427336;
 }

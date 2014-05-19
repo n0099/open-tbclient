@@ -1,8 +1,9 @@
 package com.baidu.tieba.mainentrance;
 
 import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class q implements AbsListView.OnScrollListener {
+public class q implements AbsListView.OnScrollListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,13 +12,13 @@ final class q implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScrollStateChanged(AbsListView absListView, int i) {
+    public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 2 || i == 1) {
-            com.baidu.adp.lib.util.i.a(this.a, absListView);
+            com.baidu.adp.lib.util.h.a(this.a, absListView);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

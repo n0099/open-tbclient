@@ -4,14 +4,18 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
-public final class d {
+public class d {
     Context a;
 
     public d(Context context) {
+        a(context);
+    }
+
+    private void a(Context context) {
         this.a = context;
     }
 
-    public final void a() {
+    public void a() {
         Intent intent = new Intent();
         intent.setAction("android.settings.LOCATION_SOURCE_SETTINGS");
         intent.setFlags(268435456);

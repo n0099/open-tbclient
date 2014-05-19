@@ -4,8 +4,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.tieba.flist.ForumListActivity;
 import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class a implements AdapterView.OnItemClickListener {
+public class a implements AdapterView.OnItemClickListener {
     final /* synthetic */ BarFolderFirstDirActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +15,7 @@ final class a implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         c cVar;
         ab abVar;
         cVar = this.a.e;

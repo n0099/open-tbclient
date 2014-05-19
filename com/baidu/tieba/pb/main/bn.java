@@ -1,26 +1,22 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.view.PbListView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bn implements View.OnClickListener {
-    final /* synthetic */ bm a;
+public class bn implements Runnable {
+    final /* synthetic */ bj a;
+    private final /* synthetic */ boolean b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(bm bmVar) {
-        this.a = bmVar;
+    public bn(bj bjVar, boolean z) {
+        this.a = bjVar;
+        this.b = z;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        PbListView pbListView;
-        boolean z;
-        pbListView = this.a.aU;
-        pbListView.d();
-        az azVar = this.a.l;
-        z = this.a.aV;
-        azVar.a(z);
-        this.a.ai();
+    @Override // java.lang.Runnable
+    public void run() {
+        BdListView bdListView;
+        bdListView = this.a.o;
+        bdListView.setEnabled(this.b);
     }
 }

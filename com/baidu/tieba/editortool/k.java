@@ -1,7 +1,7 @@
 package com.baidu.tieba.editortool;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class k implements com.baidu.tbadk.editortool.x {
+public class k implements com.baidu.tbadk.editortool.x {
     final /* synthetic */ EditorToolComponetContainer a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public final class k implements com.baidu.tbadk.editortool.x {
     }
 
     @Override // com.baidu.tbadk.editortool.x
-    public final void a(int i, Object obj) {
+    public void a(int i, Object obj) {
         com.baidu.tbadk.editortool.x xVar;
         xVar = this.a.t;
         xVar.a(i, obj);

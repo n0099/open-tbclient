@@ -3,7 +3,9 @@ package com.baidu.tieba.util;
 import android.content.Context;
 import android.text.style.ClickableSpan;
 import android.view.View;
-import com.baidu.tbadk.core.b.af;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.as;
 /* loaded from: classes.dex */
 public class l extends ClickableSpan {
     private Context a;
@@ -17,15 +19,15 @@ public class l extends ClickableSpan {
     public void onClick(View view) {
     }
 
-    public final Context a() {
+    public Context a() {
         return this.a;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         com.baidu.tbadk.browser.a.a(this.a, str);
     }
 
-    public final void b(String str) {
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2004001, new af(this.a).a(str, null, null)));
+    public void b(String str) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(this.a).a(str, null, null)));
     }
 }

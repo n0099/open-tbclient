@@ -5,129 +5,165 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
+import com.baidu.tieba.im.live.room.LiveRoomChatActivity;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.view.HeadImageShaderView;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class MsgleftView extends cd {
-    private static final String q = MsgleftView.class.getName();
-    View.OnLongClickListener p;
-    private HeadImageShaderView r;
-    private TextView s;
-    private ImageView t;
-    private ViewGroup u;
-    private UserIconBox v;
+    private static final String p = MsgleftView.class.getName();
+    View.OnLongClickListener o;
+    private HeadImageShaderView q;
+    private TextView r;
+    private ImageView s;
+    private ViewGroup t;
+    private UserIconBox u;
+    private ImageView v;
     private final TouchType w;
+    private Context x;
 
     public MsgleftView(Context context) {
-        super(context, com.baidu.tieba.im.i.msg_msgleft_view);
+        super(context, com.baidu.tieba.s.msg_msgleft_view);
         this.w = new TouchType();
-        this.p = new ck(this);
-        d();
-        this.s = (TextView) a(com.baidu.tieba.im.h.tex_msgitem_name);
-        this.t = (ImageView) a(com.baidu.tieba.im.h.iv_sex);
-        this.u = (ViewGroup) a(com.baidu.tieba.im.h.box_msgitem_bubble);
-        this.r = (HeadImageShaderView) a(com.baidu.tieba.im.h.img_msgitem_photo);
-        this.r.setAutoChangeStyle(false);
-        this.v = (UserIconBox) a(com.baidu.tieba.im.h.user_tshow_icon_box);
-        this.r.setOnClickListener(new cl(this));
-        this.r.setLongClickable(true);
-        this.r.setOnLongClickListener(this.p);
-        this.r.setOnTouchListener(new cm(this));
+        this.o = new ck(this);
+        this.x = context;
+        b();
+        this.v = (ImageView) a(com.baidu.tieba.r.iv_live_group_host);
+        this.r = (TextView) a(com.baidu.tieba.r.tex_msgitem_name);
+        this.s = (ImageView) a(com.baidu.tieba.r.iv_sex);
+        this.t = (ViewGroup) a(com.baidu.tieba.r.box_msgitem_bubble);
+        this.q = (HeadImageShaderView) a(com.baidu.tieba.r.img_msgitem_photo);
+        this.q.setAutoChangeStyle(false);
+        this.u = (UserIconBox) a(com.baidu.tieba.r.user_tshow_icon_box);
+        this.q.setOnClickListener(new cl(this));
+        this.q.setLongClickable(true);
+        this.q.setOnLongClickListener(this.o);
+        this.q.setOnTouchListener(new cm(this));
     }
 
     @Override // com.baidu.tieba.im.chat.cd
-    public final void a(View view, com.baidu.tieba.im.message.a.a aVar) {
+    public void b(View view, ChatMessage chatMessage) {
         String str = null;
-        super.a(view, aVar);
-        LinkedList<IconData> tShowInfo = aVar != null ? aVar.r().getTShowInfo() : null;
-        if (this.o) {
-            this.s.setVisibility(0);
-            this.t.setVisibility(0);
-            this.v.setVisibility(0);
-        } else {
-            this.t.setVisibility(8);
-            this.s.setVisibility(8);
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.u.getLayoutParams();
-            marginLayoutParams.topMargin = 0;
-            this.u.setLayoutParams(marginLayoutParams);
-            this.v.setVisibility(8);
+        super.b(view, chatMessage);
+        LinkedList<IconData> tShowInfo = chatMessage != null ? chatMessage.getUserInfo().getTShowInfo() : null;
+        c();
+        if (this.u != null && this.n) {
+            this.u.setVisibility(0);
+            this.u.a(tShowInfo, 2, this.x.getResources().getDimensionPixelSize(com.baidu.tieba.p.small_icon_width), this.x.getResources().getDimensionPixelSize(com.baidu.tieba.p.small_icon_height), this.x.getResources().getDimensionPixelSize(com.baidu.tieba.p.small_icon_margin), true);
         }
-        if (this.v != null && this.o) {
-            this.v.setVisibility(0);
-            this.v.a(tShowInfo, 2, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.small_icon_width), this.b.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.small_icon_height), this.b.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.small_icon_margin), true);
-        }
-        if (aVar == null) {
-            this.s.setText((CharSequence) null);
-            this.j.setVisibility(0);
-            this.j.setText(null);
+        if (chatMessage == null) {
+            this.r.setText((CharSequence) null);
+            this.i.setVisibility(0);
+            this.i.setText(null);
             c(8);
+            this.j.setTag(null);
+            this.k.setVisibility(8);
             this.k.setTag(null);
-            this.l.setVisibility(8);
-            this.l.setTag(null);
-            this.n.setVisibility(8);
-            this.n.setTag(null);
+            this.m.setVisibility(8);
+            this.m.setTag(null);
+            this.v.setVisibility(8);
             return;
         }
-        c(aVar);
-        if (aVar != null) {
-            if (this.o) {
-                this.t.setVisibility(0);
-                UserData r = aVar.r();
-                if (r != null) {
-                    int sex = r.getSex();
-                    if (sex == 1) {
-                        this.t.setImageResource(com.baidu.tieba.im.g.icon_pop_qz_boy);
-                        this.t.setVisibility(0);
-                    } else if (sex == 2) {
-                        this.t.setImageResource(com.baidu.tieba.im.g.icon_pop_qz_girl);
-                        this.t.setVisibility(0);
-                    }
-                }
-            }
-            this.t.setVisibility(8);
-        }
-        this.s.setText("");
+        b(chatMessage);
+        c(chatMessage);
+        this.r.setText("");
+        a(chatMessage);
         try {
-            if (aVar.r() != null) {
-                this.s.setText(aVar.r().getUserName());
-                this.r.setUserId(aVar.r().getUserId());
-                str = aVar.r().getPortrait();
+            if (chatMessage.getUserInfo() != null) {
+                this.r.setText(chatMessage.getUserInfo().getUserName());
+                this.q.setUserId(chatMessage.getUserInfo().getUserId());
+                str = chatMessage.getUserInfo().getPortrait();
             }
-            if (aVar.r().getUserType() == 1) {
-                this.e.b(str, new cn(this));
+            if (chatMessage.getUserInfo().getUserType() == 1) {
+                this.q.getHeadImageView().a(str, 10, false);
             } else {
-                this.e.c(str, new co(this));
+                this.q.getHeadImageView().a(str, 12, false);
             }
-            this.j.setVisibility(8);
+            this.i.setVisibility(8);
             c(8);
+            this.k.setVisibility(8);
             this.l.setVisibility(8);
             this.m.setVisibility(8);
-            this.n.setVisibility(8);
-            switch (aVar.t()) {
+            switch (chatMessage.getMsgType()) {
                 case 1:
-                    a(aVar, q);
+                    a(chatMessage, p);
                     return;
                 case 2:
-                    a(view, aVar, q);
+                    a(view, chatMessage, p);
                     return;
                 case 3:
-                    b(aVar, q);
+                    b(chatMessage, p);
                     return;
                 case 4:
-                    a(aVar, false);
+                    a(chatMessage, false);
                     return;
                 case 5:
-                    b(view, aVar, q);
+                    b(view, chatMessage, p);
                     return;
                 default:
                     return;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("MsgleftView", "setData", "error = " + e.getMessage());
+            BdLog.e("MsgleftView", "setData", "error = " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    private void a(ChatMessage chatMessage) {
+        if (this.x instanceof LiveRoomChatActivity) {
+            LiveRoomChatActivity liveRoomChatActivity = (LiveRoomChatActivity) this.x;
+            if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId().equals(liveRoomChatActivity.m)) {
+                this.v.setVisibility(0);
+                return;
+            } else {
+                this.v.setVisibility(8);
+                return;
+            }
+        }
+        this.v.setVisibility(8);
+    }
+
+    private void c(ChatMessage chatMessage) {
+        if (chatMessage != null) {
+            if (!this.n) {
+                this.s.setVisibility(8);
+                return;
+            }
+            this.s.setVisibility(0);
+            UserData userInfo = chatMessage.getUserInfo();
+            if (userInfo == null) {
+                this.s.setVisibility(8);
+                return;
+            }
+            int sex = userInfo.getSex();
+            if (sex == 1) {
+                this.s.setImageResource(com.baidu.tieba.q.icon_pop_qz_boy);
+                this.s.setVisibility(0);
+            } else if (sex == 2) {
+                this.s.setImageResource(com.baidu.tieba.q.icon_pop_qz_girl);
+                this.s.setVisibility(0);
+            } else {
+                this.s.setVisibility(8);
+            }
+        }
+    }
+
+    public void c() {
+        if (this.n) {
+            this.r.setVisibility(0);
+            this.s.setVisibility(0);
+            this.u.setVisibility(0);
+            return;
+        }
+        this.s.setVisibility(8);
+        this.r.setVisibility(8);
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.t.getLayoutParams();
+        marginLayoutParams.topMargin = 0;
+        this.t.setLayoutParams(marginLayoutParams);
+        this.u.setVisibility(8);
     }
 }

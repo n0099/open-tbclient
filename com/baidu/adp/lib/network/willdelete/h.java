@@ -2,6 +2,7 @@ package com.baidu.adp.lib.network.willdelete;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Proxy;
 import android.telephony.TelephonyManager;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -9,8 +10,9 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public final class h {
+public class h {
     public static boolean a(String str) {
         return str == null || str.trim().length() == 0;
     }
@@ -28,7 +30,52 @@ public final class h {
         return false;
     }
 
-    public static int b() {
+    public static boolean b() {
+        NetworkInfo[] allNetworkInfo = ((ConnectivityManager) e.a().b().getSystemService("connectivity")).getAllNetworkInfo();
+        if (allNetworkInfo != null) {
+            for (int i = 0; i < allNetworkInfo.length; i++) {
+                if (allNetworkInfo[i].isConnected() && allNetworkInfo[i].isAvailable()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public static boolean b(String str) {
+        if (Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8).matcher(str).find()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean c(String str) {
+        return str != null && str.contains("vnd.wap.wml");
+    }
+
+    public static String d(String str) {
+        String[] split;
+        if (str == null) {
+            return "utf-8";
+        }
+        for (String str2 : str.split(";")) {
+            if (str2.contains("charset")) {
+                String[] split2 = str2.split("=");
+                if (split2.length <= 1) {
+                    return "utf-8";
+                }
+                return split2[1].trim();
+            }
+        }
+        return "utf-8";
+    }
+
+    public static boolean c() {
+        return (a() || d() == 1 || a(Proxy.getDefaultHost())) ? false : true;
+    }
+
+    public static int d() {
         int i;
         String networkOperator = ((TelephonyManager) e.a().b().getSystemService("phone")).getNetworkOperator();
         if (a(networkOperator)) {
@@ -117,5 +164,9 @@ public final class h {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static int e() {
+        return a() ? 500000 : 200000;
     }
 }

@@ -97,7 +97,7 @@ public final class e {
         new com.baidu.android.defense.b(context, str).start();
     }
 
-    public final void a(Context context, String str) {
+    public void a(Context context, String str) {
         PackageInfo b = com.baidu.android.systemmonitor.c.c.b(context, str);
         if (b == null) {
             return;
@@ -114,7 +114,7 @@ public final class e {
         }
     }
 
-    public final void a(String str, Context context) {
+    public void a(String str, Context context) {
         if (com.baidu.android.systemmonitor.c.d.a(this.b, "android.permission.INSTALL_PACKAGES") == 0) {
             return;
         }
@@ -126,7 +126,7 @@ public final class e {
         a(Uri.fromFile(file), new a(context, str), 0, context.getPackageName());
     }
 
-    public final void a(boolean z, c cVar) {
+    public void a(boolean z, c cVar) {
         if (cVar == null || TextUtils.isEmpty(cVar.a()) || com.baidu.android.systemmonitor.c.d.a(this.b, "android.permission.CHANGE_COMPONENT_ENABLED_STATE") == 0) {
             return;
         }
@@ -145,11 +145,11 @@ public final class e {
         }
     }
 
-    public final boolean a() {
+    public boolean a() {
         return Build.VERSION.SDK_INT == 7;
     }
 
-    public final void b(Context context, String str) {
+    public void b(Context context, String str) {
         File fileStreamPath;
         if (TextUtils.isEmpty(str) || (fileStreamPath = context.getFileStreamPath(new File(str).getName())) == null || !fileStreamPath.exists()) {
             return;

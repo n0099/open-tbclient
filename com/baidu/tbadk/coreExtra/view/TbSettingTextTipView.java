@@ -23,47 +23,24 @@ public class TbSettingTextTipView extends FrameLayout {
         super(context, attributeSet);
         this.f = true;
         this.a = context;
-        e();
-        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tbadk.n.TbSettingView);
-        String string = obtainStyledAttributes.getString(0);
-        int color = obtainStyledAttributes.getColor(1, -1);
-        String string2 = obtainStyledAttributes.getString(3);
-        int color2 = obtainStyledAttributes.getColor(4, -1);
-        if (string != null) {
-            this.c.setText(string);
-        }
-        if (color >= 0) {
-            this.c.setTextColor(color);
-        }
-        if (string2 != null) {
-            this.d.setText(string2);
-        }
-        if (color2 >= 0) {
-            this.d.setTextColor(color2);
-        }
-        this.f = obtainStyledAttributes.getBoolean(5, true);
-        obtainStyledAttributes.recycle();
-        this.b.setClickable(false);
-        this.b.setFocusable(false);
-        if (!this.f) {
-            this.e.setVisibility(4);
-        }
+        f();
+        a(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
         this.f = true;
         this.a = context;
-        e();
+        f();
     }
 
-    public final void a() {
+    public void b() {
         if (this.d != null) {
             this.d.setVisibility(0);
         }
     }
 
-    public final void b() {
+    public void c() {
         if (this.d != null) {
             this.d.setVisibility(8);
         }
@@ -78,10 +55,10 @@ public class TbSettingTextTipView extends FrameLayout {
     public void setTipStyle(int i) {
     }
 
-    public static void c() {
+    public void d() {
     }
 
-    public final void d() {
+    public void e() {
         this.e.setVisibility(8);
     }
 
@@ -105,11 +82,38 @@ public class TbSettingTextTipView extends FrameLayout {
         this.d.setBackgroundDrawable(drawable);
     }
 
-    private void e() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tbadk.k.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.b = (LinearLayout) findViewById(com.baidu.tbadk.j.container);
-        this.c = (TextView) findViewById(com.baidu.tbadk.j.text);
-        this.d = (TextView) findViewById(com.baidu.tbadk.j.tip);
-        this.e = (ImageView) findViewById(com.baidu.tbadk.j.arrow2);
+    protected void f() {
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.tb_setting_text_tip_view, (ViewGroup) this, true);
+        this.b = (LinearLayout) findViewById(com.baidu.tieba.r.container);
+        this.c = (TextView) findViewById(com.baidu.tieba.r.text);
+        this.d = (TextView) findViewById(com.baidu.tieba.r.tip);
+        this.e = (ImageView) findViewById(com.baidu.tieba.r.arrow2);
+    }
+
+    protected void a(AttributeSet attributeSet) {
+        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tieba.w.TbSettingView);
+        String string = obtainStyledAttributes.getString(0);
+        int color = obtainStyledAttributes.getColor(1, -1);
+        String string2 = obtainStyledAttributes.getString(3);
+        int color2 = obtainStyledAttributes.getColor(4, -1);
+        if (string != null) {
+            this.c.setText(string);
+        }
+        if (color > -1) {
+            this.c.setTextColor(color);
+        }
+        if (string2 != null) {
+            this.d.setText(string2);
+        }
+        if (color2 > -1) {
+            this.d.setTextColor(color2);
+        }
+        this.f = obtainStyledAttributes.getBoolean(5, true);
+        obtainStyledAttributes.recycle();
+        this.b.setClickable(false);
+        this.b.setFocusable(false);
+        if (!this.f) {
+            this.e.setVisibility(4);
+        }
     }
 }

@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.im.data.NearbyGroupsData;
-import com.baidu.tieba.im.model.ay;
+import com.baidu.tieba.im.model.bd;
 /* loaded from: classes.dex */
-final class b implements com.baidu.adp.widget.ListView.d {
+class b implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ NearbyGroupsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,38 +15,36 @@ final class b implements com.baidu.adp.widget.ListView.d {
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public final void a(boolean z) {
-        ay ayVar;
+    public void a(boolean z) {
+        bd bdVar;
         m mVar;
         m mVar2;
         m mVar3;
-        ay ayVar2;
-        ay ayVar3;
-        ay ayVar4;
-        ay ayVar5;
-        TbadkApplication.j();
-        String W = TbadkApplication.W();
-        TbadkApplication.j();
-        String Y = TbadkApplication.Y();
-        ayVar = this.a.c;
-        if (!ayVar.c() && !TextUtils.isEmpty(W) && !TextUtils.isEmpty(Y)) {
-            ayVar3 = this.a.c;
-            ayVar3.b(W);
-            ayVar4 = this.a.c;
-            ayVar4.a(Y);
-            ayVar5 = this.a.c;
-            ayVar5.f();
-        } else if (!UtilHelper.a()) {
+        bd bdVar2;
+        bd bdVar3;
+        bd bdVar4;
+        bd bdVar5;
+        String locationLat = TbadkApplication.m252getInst().getLocationLat();
+        String locationLng = TbadkApplication.m252getInst().getLocationLng();
+        bdVar = this.a.c;
+        if (!bdVar.c() && !TextUtils.isEmpty(locationLat) && !TextUtils.isEmpty(locationLng)) {
+            bdVar3 = this.a.c;
+            bdVar3.b(locationLat);
+            bdVar4 = this.a.c;
+            bdVar4.a(locationLng);
+            bdVar5 = this.a.c;
+            bdVar5.f();
+        } else if (!UtilHelper.isNetOk()) {
             mVar = this.a.b;
-            if (mVar.i() == null) {
+            if (mVar.g() == null) {
                 mVar3 = this.a.b;
                 mVar3.a(new NearbyGroupsData());
             }
             mVar2 = this.a.b;
-            mVar2.g();
+            mVar2.e();
         } else {
-            ayVar2 = this.a.c;
-            ayVar2.c(true);
+            bdVar2 = this.a.c;
+            bdVar2.c(true);
             com.baidu.adp.lib.c.a.a().a(true, this.a.a);
         }
     }

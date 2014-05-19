@@ -5,7 +5,7 @@ import android.net.NetworkInfo;
 import android.net.Proxy;
 import android.telephony.TelephonyManager;
 /* loaded from: classes.dex */
-public final class BdNetUtil {
+public class BdNetUtil {
 
     /* loaded from: classes.dex */
     public enum NetTpyeEnmu {
@@ -43,7 +43,7 @@ public final class BdNetUtil {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0079 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x008a */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0002 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.adp.lib.util.BdNetUtil$NetworkStateInfo] */
@@ -55,27 +55,27 @@ public final class BdNetUtil {
         NetworkStateInfo networkStateInfo;
         ?? e = NetworkStateInfo.UNAVAIL;
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) com.baidu.adp.a.b.a().b().getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) com.baidu.adp.base.a.getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo();
             if (!activeNetworkInfo.isAvailable()) {
                 networkStateInfo = NetworkStateInfo.UNAVAIL;
                 try {
                     e = "NetWorkCore";
-                    f.a("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
+                    BdLog.i("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
                 } catch (Exception e2) {
                     e = e2;
                 }
             } else if (activeNetworkInfo.getType() == 1) {
-                f.a("NetWorkCore", "NetworkStateInfo", "WIFI");
+                BdLog.i("NetWorkCore", "NetworkStateInfo", "WIFI");
                 networkStateInfo = NetworkStateInfo.WIFI;
             } else {
-                switch (((TelephonyManager) com.baidu.adp.a.b.a().b().getSystemService("phone")).getNetworkType()) {
+                switch (((TelephonyManager) com.baidu.adp.base.a.getInst().getApp().getSystemService("phone")).getNetworkType()) {
                     case 0:
                     case 1:
                     case 2:
                     case 4:
                     case 7:
                     case 11:
-                        f.a("NetWorkCore", "NetworkStateInfo", "TwoG");
+                        BdLog.i("NetWorkCore", "NetworkStateInfo", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                     case 3:
@@ -88,11 +88,11 @@ public final class BdNetUtil {
                     case 13:
                     case 14:
                     case 15:
-                        f.a("NetWorkCore", "NetworkStateInfo", "ThreeG");
+                        BdLog.i("NetWorkCore", "NetworkStateInfo", "ThreeG");
                         networkStateInfo = NetworkStateInfo.ThreeG;
                         break;
                     default:
-                        f.a("NetWorkCore", "NetworkStateInfo-default", "TwoG");
+                        BdLog.i("NetWorkCore", "NetworkStateInfo-default", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                 }
@@ -107,7 +107,7 @@ public final class BdNetUtil {
         NetTpyeEnmu netTpyeEnmu;
         NetTpyeEnmu netTpyeEnmu2 = NetTpyeEnmu.UNAVAIL;
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) com.baidu.adp.a.b.a().b().getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) com.baidu.adp.base.a.getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo();
             if (!activeNetworkInfo.isAvailable()) {
                 netTpyeEnmu = NetTpyeEnmu.UNAVAIL;
             } else if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {

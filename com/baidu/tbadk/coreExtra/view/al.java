@@ -1,0 +1,86 @@
+package com.baidu.tbadk.coreExtra.view;
+
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class al implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ MultiImageView a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public al(MultiImageView multiImageView) {
+        this.a = multiImageView;
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
+        ViewPager.OnPageChangeListener onPageChangeListener;
+        ViewPager.OnPageChangeListener onPageChangeListener2;
+        onPageChangeListener = this.a.g;
+        if (onPageChangeListener != null) {
+            onPageChangeListener2 = this.a.g;
+            onPageChangeListener2.onPageScrollStateChanged(i);
+        }
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+        ViewPager.OnPageChangeListener onPageChangeListener;
+        ViewPager.OnPageChangeListener onPageChangeListener2;
+        onPageChangeListener = this.a.g;
+        if (onPageChangeListener != null) {
+            onPageChangeListener2 = this.a.g;
+            onPageChangeListener2.onPageScrolled(i, f, i2);
+        }
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        o oVar;
+        o oVar2;
+        boolean z;
+        ViewPager.OnPageChangeListener onPageChangeListener;
+        ViewPager.OnPageChangeListener onPageChangeListener2;
+        o oVar3;
+        boolean z2;
+        o oVar4;
+        com.baidu.tbadk.widget.a imageView;
+        o oVar5;
+        BdLog.d(getClass().getName(), "onPageSelected", "postion = " + String.valueOf(i));
+        oVar = this.a.e;
+        View findViewWithTag = oVar.findViewWithTag(String.valueOf(i));
+        if (findViewWithTag != null && (findViewWithTag instanceof au) && (imageView = ((au) findViewWithTag).getImageView()) != null) {
+            oVar5 = this.a.e;
+            oVar5.setSelectedView(imageView);
+            imageView.o();
+        }
+        oVar2 = this.a.e;
+        int childCount = oVar2.getChildCount();
+        for (int i2 = 0; i2 < childCount; i2++) {
+            oVar4 = this.a.e;
+            View childAt = oVar4.getChildAt(i2);
+            if (childAt != null && (childAt instanceof au)) {
+                ((au) childAt).e();
+            }
+        }
+        UtilHelper.NetworkStateInfo netStatusInfo = UtilHelper.getNetStatusInfo(this.a.getContext());
+        z = this.a.l;
+        if (z && (netStatusInfo == UtilHelper.NetworkStateInfo.WIFI || netStatusInfo == UtilHelper.NetworkStateInfo.ThreeG)) {
+            for (int i3 = 0; i3 < childCount; i3++) {
+                oVar3 = this.a.e;
+                View childAt2 = oVar3.getChildAt(i3);
+                if (childAt2 != null && (childAt2 instanceof au)) {
+                    z2 = this.a.n;
+                    ((au) childAt2).a(z2);
+                }
+            }
+        }
+        onPageChangeListener = this.a.g;
+        if (onPageChangeListener != null) {
+            onPageChangeListener2 = this.a.g;
+            onPageChangeListener2.onPageSelected(i);
+        }
+    }
+}

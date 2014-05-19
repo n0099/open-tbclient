@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat;
 
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 /* loaded from: classes.dex */
-public final class az {
+public class az {
     public String a;
     public CommonMsgPojo b;
     public int c;

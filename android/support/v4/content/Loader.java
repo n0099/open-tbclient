@@ -28,12 +28,12 @@ public class Loader<D> {
         }
 
         @Override // android.database.ContentObserver
-        public final boolean deliverSelfNotifications() {
+        public boolean deliverSelfNotifications() {
             return true;
         }
 
         @Override // android.database.ContentObserver
-        public final void onChange(boolean z) {
+        public void onChange(boolean z) {
             Loader.this.onContentChanged();
         }
     }

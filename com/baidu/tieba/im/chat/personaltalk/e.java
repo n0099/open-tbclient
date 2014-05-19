@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.chat.personaltalk;
 /* loaded from: classes.dex */
-final class e extends com.baidu.tieba.im.m<Boolean> {
+class e extends com.baidu.tieba.im.b<Boolean> {
     final /* synthetic */ d b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,9 +8,10 @@ final class e extends com.baidu.tieba.im.m<Boolean> {
         this.b = dVar;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Boolean a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
         PersonalTalkSettingActivity personalTalkSettingActivity;
         long j;
         com.baidu.tieba.im.db.o d = com.baidu.tieba.im.db.o.d();

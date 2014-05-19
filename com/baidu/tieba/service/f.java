@@ -1,6 +1,6 @@
 package com.baidu.tieba.service;
 /* loaded from: classes.dex */
-final class f implements Runnable {
+class f implements Runnable {
     final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,9 @@ final class f implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
-        PerformMonitorService.c(this.a.a);
+    public void run() {
+        PerformMonitorService performMonitorService;
+        performMonitorService = this.a.a;
+        performMonitorService.c();
     }
 }

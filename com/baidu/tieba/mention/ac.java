@@ -3,59 +3,18 @@ package com.baidu.tieba.mention;
 import android.app.AlertDialog;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.model.am;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ac extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ae> {
+public class ac extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ae> {
     ArrayList<BasicNameValuePair> a;
     final /* synthetic */ PostActivity b;
-    private ak c = null;
+    private al c = null;
     private String d;
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ com.baidu.tieba.data.ae a(Object... objArr) {
-        return a();
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(com.baidu.tieba.data.ae aeVar) {
-        ProgressBar progressBar;
-        am amVar;
-        com.baidu.tieba.data.ae aeVar2 = aeVar;
-        try {
-            progressBar = this.b.f;
-            progressBar.setVisibility(8);
-            if (aeVar2 != null) {
-                amVar = this.b.l;
-                amVar.a(aeVar2);
-            } else if (this.c != null) {
-                if (this.c.c()) {
-                    this.b.showToast(this.c.f());
-                    if (this.c.d() == 4 || this.c.d() == 28 || this.c.d() == 29) {
-                        this.b.finish();
-                        return;
-                    }
-                } else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this.b);
-                    builder.setTitle(this.b.getString(com.baidu.tieba.a.k.error));
-                    builder.setMessage(this.c.f());
-                    builder.setPositiveButton(this.b.getString(com.baidu.tieba.a.k.retry), new ad(this));
-                    builder.setNegativeButton(this.b.getString(com.baidu.tieba.a.k.cancel), new ae(this));
-                    builder.create().show();
-                }
-            }
-            this.b.b();
-        } catch (Exception e) {
-        }
-        this.b.k = null;
-    }
 
     public ac(PostActivity postActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
         this.b = postActivity;
@@ -67,16 +26,20 @@ public final class ac extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
+    public void onPreExecute() {
         ProgressBar progressBar;
         progressBar = this.b.f;
         progressBar.setVisibility(0);
     }
 
-    private com.baidu.tieba.data.ae a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public com.baidu.tieba.data.ae doInBackground(Object... objArr) {
         com.baidu.tieba.data.ae aeVar = null;
         try {
-            this.c = new ak(this.d);
+            this.c = new al(this.d);
             this.c.a(this.a);
             String i = this.c.i();
             if (this.c.a().b().b()) {
@@ -92,7 +55,7 @@ public final class ac extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.
                 } catch (Exception e) {
                     aeVar = aeVar2;
                     e = e;
-                    com.baidu.adp.lib.util.f.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
+                    BdLog.e("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
                     return aeVar;
                 }
             }
@@ -102,14 +65,49 @@ public final class ac extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void d() {
-        super.d();
+    /* renamed from: a */
+    public void onPostExecute(com.baidu.tieba.data.ae aeVar) {
+        ProgressBar progressBar;
+        am amVar;
+        try {
+            progressBar = this.b.f;
+            progressBar.setVisibility(8);
+            if (aeVar != null) {
+                amVar = this.b.l;
+                amVar.a(aeVar);
+            } else if (this.c != null) {
+                if (this.c.c()) {
+                    this.b.showToast(this.c.f());
+                    if (this.c.d() == 4 || this.c.d() == 28 || this.c.d() == 29) {
+                        this.b.finish();
+                        return;
+                    }
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this.b);
+                    builder.setTitle(this.b.getString(com.baidu.tieba.u.error));
+                    builder.setMessage(this.c.f());
+                    builder.setPositiveButton(this.b.getString(com.baidu.tieba.u.retry), new ad(this));
+                    builder.setNegativeButton(this.b.getString(com.baidu.tieba.u.cancel), new ae(this));
+                    builder.create().show();
+                }
+            }
+            this.b.d();
+        } catch (Exception e) {
+        }
+        this.b.k = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onCancelled() {
+        super.onCancelled();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
+    public void cancel() {
         ProgressBar progressBar;
         if (this.c != null) {
             this.c.g();

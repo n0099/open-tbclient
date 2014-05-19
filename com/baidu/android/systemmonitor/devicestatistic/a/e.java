@@ -48,7 +48,7 @@ public final class e extends f {
     }
 
     @Override // com.baidu.android.systemmonitor.devicestatistic.a.f
-    public final String toString() {
+    public String toString() {
         return "ChargeEvent : startStamp =" + this.n + " stopStamp =" + this.e + " chargeType =" + this.f + " startBtLevel =" + this.b + " stopBtLevel =" + this.c + " netType =" + this.d + " location =" + this.a;
     }
 }

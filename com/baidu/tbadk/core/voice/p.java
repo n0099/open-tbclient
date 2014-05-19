@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.voice;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class p implements Runnable {
+public class p implements Runnable {
     final /* synthetic */ VoiceManager a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,16 +10,16 @@ public final class p implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         Boolean bool;
         Boolean bool2;
-        bool = this.a.A;
+        bool = this.a.D;
         if (bool != null) {
-            bool2 = this.a.A;
+            bool2 = this.a.D;
             if (bool2.booleanValue()) {
-                this.a.l();
+                this.a.j();
             } else {
-                this.a.m();
+                this.a.k();
             }
         }
     }

@@ -23,7 +23,7 @@ public enum ErrorCorrectionLevel {
         this.bits = i;
     }
 
-    public final int getBits() {
+    public int getBits() {
         return this.bits;
     }
 

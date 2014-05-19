@@ -2,9 +2,11 @@ package com.baidu.tieba.pb.image;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.b.ag;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.at;
 /* loaded from: classes.dex */
-final class y implements View.OnClickListener {
+class y implements View.OnClickListener {
     final /* synthetic */ x a;
     private final /* synthetic */ String b;
     private final /* synthetic */ String c;
@@ -17,10 +19,10 @@ final class y implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         Context context;
-        com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
+        MessageManager messageManager = MessageManager.getInstance();
         context = this.a.c;
-        a.a(new com.baidu.adp.framework.message.a(2001003, new ag(context, String.valueOf(this.b), this.c)));
+        messageManager.sendMessage(new CustomMessage(2003003, new at(context, String.valueOf(this.b), this.c)));
     }
 }

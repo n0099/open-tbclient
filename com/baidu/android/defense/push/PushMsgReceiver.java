@@ -30,7 +30,7 @@ public class PushMsgReceiver extends BroadcastReceiver {
                     try {
                         JSONObject jSONObject = (JSONObject) new JSONObject(str).get("response_params");
                         String string = jSONObject.getString("channel_id");
-                        String string2 = jSONObject.getString("user_id");
+                        String string2 = jSONObject.getString(com.baidu.tbadk.core.frameworkData.a.USER_ID);
                         if ("543540".equals(jSONObject.getString("appid"))) {
                             b.b(b, string);
                             b.c(b, string2);

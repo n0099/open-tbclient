@@ -1,9 +1,10 @@
 package com.baidu.tieba.signall;
 
 import android.view.View;
+import com.baidu.tbadk.BaseActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class z implements View.OnClickListener {
+public class z implements View.OnClickListener {
     final /* synthetic */ y a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,9 +13,9 @@ public final class z implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        com.baidu.tbadk.a aVar;
-        aVar = this.a.c;
-        aVar.finish();
+    public void onClick(View view) {
+        BaseActivity baseActivity;
+        baseActivity = this.a.b;
+        baseActivity.finish();
     }
 }

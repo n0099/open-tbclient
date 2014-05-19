@@ -1,32 +1,43 @@
 package com.baidu.tieba.im.chat.officialBar;
 
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import protobuf.QueryForumDetail.QueryForumDetailRes;
+import com.squareup.wire.Wire;
+import protobuf.QueryForumDetail.QueryForumDetailResIdl;
 /* loaded from: classes.dex */
 public class ResponseOfficialBarInfoMessage extends TbSocketReponsedMessage {
-    private String a;
-    private String b;
+    private String authen;
+    private String portrait;
 
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        QueryForumDetailRes.QueryForumDetailResIdl parseFrom = QueryForumDetailRes.QueryForumDetailResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        this.a = parseFrom.getData().getPortrait();
-        this.b = parseFrom.getData().getAuthen();
+    public String getPortrait() {
+        return this.portrait;
     }
 
-    public final String d() {
-        return this.a;
+    private void setPortrait(String str) {
+        this.portrait = str;
     }
 
-    public final String i() {
-        return this.b;
+    public String getAuthen() {
+        return this.authen;
+    }
+
+    public void setAuthen(String str) {
+        this.authen = str;
     }
 
     public ResponseOfficialBarInfoMessage() {
-        super(208001);
-        this.a = null;
-        this.b = null;
+        super(MessageTypes.CMD_QUERY_OFFICIAL_BAR_INFO);
+        this.portrait = null;
+        this.authen = null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        QueryForumDetailResIdl queryForumDetailResIdl = (QueryForumDetailResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryForumDetailResIdl.class);
+        setError(queryForumDetailResIdl.error.errorno.intValue());
+        setErrorString(queryForumDetailResIdl.error.usermsg);
+        setPortrait(queryForumDetailResIdl.data.portrait);
+        setAuthen(queryForumDetailResIdl.data.authen);
     }
 }

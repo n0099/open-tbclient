@@ -1,8 +1,9 @@
 package com.baidu.tieba.pb.image;
 
 import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class g implements DialogInterface.OnCancelListener {
+public class g implements DialogInterface.OnCancelListener {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +12,7 @@ final class g implements DialogInterface.OnCancelListener {
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
-    public final void onCancel(DialogInterface dialogInterface) {
+    public void onCancel(DialogInterface dialogInterface) {
         v vVar;
         v vVar2;
         this.a.DeinitWaitingDialog();

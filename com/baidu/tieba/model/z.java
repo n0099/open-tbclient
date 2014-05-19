@@ -1,6 +1,6 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public final class z {
+public class z {
     public boolean a;
     public String b;
     final /* synthetic */ v c;

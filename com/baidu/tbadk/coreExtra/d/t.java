@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.d;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class t implements b {
+public class t implements b {
     final /* synthetic */ q a;
     private final /* synthetic */ String b;
     private final /* synthetic */ int c;
@@ -16,13 +16,10 @@ public final class t implements b {
     }
 
     @Override // com.baidu.tbadk.coreExtra.d.b
-    public final void a() {
-        a aVar;
+    public void a() {
         List list;
         this.a.d = 0;
-        q qVar = this.a;
-        aVar = d.a;
-        qVar.g = aVar.a();
+        this.a.g = a.a().b();
         list = this.a.g;
         if (list == null) {
             this.a.h = false;

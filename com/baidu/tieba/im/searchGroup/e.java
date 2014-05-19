@@ -10,19 +10,23 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class e extends BaseAdapter {
+public class e extends BaseAdapter {
     private Activity a;
     private ab b;
     private List<BaseGroupData> c = new ArrayList();
 
-    public final ab a() {
+    public ab a() {
         return this.b;
     }
 
-    public final void a(List<BaseGroupData> list) {
+    public void a(List<BaseGroupData> list) {
         this.c = list;
         notifyDataSetChanged();
     }
@@ -30,22 +34,22 @@ public final class e extends BaseAdapter {
     public e(Activity activity) {
         this.a = activity;
         this.b = new ab(activity);
-        this.b.a(true);
+        this.b.d(true);
     }
 
-    public final boolean a(int i) {
+    public boolean a(int i) {
         return this.c != null && i >= 0 && i < this.c.size();
     }
 
     @Override // android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         return this.c.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: b */
-    public final BaseGroupData getItem(int i) {
+    public BaseGroupData getItem(int i) {
         int itemId = (int) getItemId(i);
         if (itemId < 0 || itemId >= this.c.size()) {
             return null;
@@ -54,31 +58,31 @@ public final class e extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final long getItemId(int i) {
+    public long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         f fVar;
         if (view == null || view.getTag() == null) {
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.im.i.im_search_group_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.a).inflate(s.im_search_group_list_item, viewGroup, false);
             fVar = new f();
-            fVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.im.h.item_head);
-            fVar.b = (TextView) view.findViewById(com.baidu.tieba.im.h.item_name);
-            fVar.c = (TextView) view.findViewById(com.baidu.tieba.im.h.item_count);
+            fVar.a = (HeadImageView) view.findViewById(r.item_head);
+            fVar.b = (TextView) view.findViewById(r.item_name);
+            fVar.c = (TextView) view.findViewById(r.item_count);
             view.setTag(fVar);
         } else {
             fVar = (f) view.getTag();
         }
         BaseGroupData baseGroupData = this.c.get(i);
         fVar.a.setTag(null);
-        fVar.a.setDefaultResource(com.baidu.tieba.im.g.avatar_poto_defaul50);
+        fVar.a.setDefaultResource(q.avatar_poto_defaul50);
         fVar.a.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         if (baseGroupData != null) {
             fVar.a.setTag(baseGroupData.getPortrait());
             fVar.b.setText(baseGroupData.getName());
-            fVar.c.setText(this.a.getResources().getString(com.baidu.tieba.im.j.mem_count, String.valueOf(baseGroupData.getMemberNum())));
+            fVar.c.setText(this.a.getResources().getString(u.mem_count, String.valueOf(baseGroupData.getMemberNum())));
         }
         return view;
     }

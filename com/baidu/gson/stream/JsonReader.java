@@ -1,13 +1,15 @@
 package com.baidu.gson.stream;
 
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.gson.internal.JsonReaderInternalAccess;
 import com.baidu.gson.internal.bind.JsonTreeReader;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.location.BDLocation;
+import com.baidu.tbadk.TbConfig;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Reader;
-import protobuf.Im;
 /* loaded from: classes.dex */
 public class JsonReader implements Closeable {
     private static final long MIN_INCOMPLETE_INTEGER = -922337203685477580L;
@@ -67,7 +69,7 @@ public class JsonReader implements Closeable {
                     } else if (i == 12) {
                         jsonReader.peeked = 8;
                         return;
-                    } else if (i == 14) {
+                    } else if (i == JsonReader.PEEKED_UNQUOTED_NAME) {
                         jsonReader.peeked = 10;
                         return;
                     } else {
@@ -185,7 +187,7 @@ public class JsonReader implements Closeable {
                 return JsonToken.STRING;
             case 12:
             case 13:
-            case 14:
+            case PEEKED_UNQUOTED_NAME /* 14 */:
                 return JsonToken.NAME;
             case 15:
             case 16:
@@ -234,7 +236,7 @@ public class JsonReader implements Closeable {
             }
             int nextNonWhitespace = nextNonWhitespace(true);
             switch (nextNonWhitespace) {
-                case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
+                case 34:
                     this.peeked = 13;
                     return 13;
                 case 39:
@@ -251,8 +253,8 @@ public class JsonReader implements Closeable {
                     checkLenient();
                     this.pos--;
                     if (isLiteral((char) nextNonWhitespace)) {
-                        this.peeked = 14;
-                        return 14;
+                        this.peeked = PEEKED_UNQUOTED_NAME;
+                        return PEEKED_UNQUOTED_NAME;
                     }
                     throw syntaxError("Expected name");
             }
@@ -289,7 +291,7 @@ public class JsonReader implements Closeable {
             throw new IllegalStateException("JsonReader is closed");
         }
         switch (nextNonWhitespace(true)) {
-            case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
+            case 34:
                 if (this.stackSize == 1) {
                     checkLenient();
                 }
@@ -381,62 +383,9 @@ public class JsonReader implements Closeable {
         return i;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:111:?, code lost:
-        return 15;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:112:?, code lost:
-        return 16;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0045, code lost:
-        if (isLiteral(r3) == false) goto L10;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0047, code lost:
-        return 0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x00ec, code lost:
-        if (r4 != 2) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:70:0x00ee, code lost:
-        if (r5 == false) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:72:0x00f4, code lost:
-        if (r7 != Long.MIN_VALUE) goto L16;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:73:0x00f6, code lost:
-        if (r6 == false) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:74:0x00f8, code lost:
-        if (r6 == false) goto L20;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:75:0x00fa, code lost:
-        r19.peekedLong = r7;
-        r19.pos += r11;
-        r19.peeked = 15;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x010f, code lost:
-        r7 = -r7;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:78:0x0112, code lost:
-        if (r4 == 2) goto L28;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:80:0x0115, code lost:
-        if (r4 == 4) goto L28;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x0118, code lost:
-        if (r4 != 7) goto L27;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x011a, code lost:
-        r19.peekedNumberLength = r11;
-        r19.peeked = 16;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:84:0x0126, code lost:
-        return 0;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private int peekNumber() {
         char c;
+        char c2;
         boolean z;
         boolean z2;
         long j;
@@ -445,7 +394,7 @@ public class JsonReader implements Closeable {
         long j2 = 0;
         boolean z3 = false;
         boolean z4 = true;
-        char c2 = 0;
+        char c3 = 0;
         int i2 = 0;
         int i3 = this.limit;
         int i4 = i;
@@ -459,11 +408,11 @@ public class JsonReader implements Closeable {
                     i3 = this.limit;
                 }
             }
-            char c3 = cArr[i4 + i2];
-            switch (c3) {
+            c = cArr[i4 + i2];
+            switch (c) {
                 case '+':
-                    if (c2 == 5) {
-                        c = 6;
+                    if (c3 == 5) {
+                        c2 = 6;
                         z = z4;
                         z2 = z3;
                         j = j2;
@@ -471,16 +420,16 @@ public class JsonReader implements Closeable {
                     } else {
                         return 0;
                     }
-                case '-':
-                    if (c2 == 0) {
-                        c = 1;
+                case TbConfig.VIEW_IMAGE_QUALITY_LOW_VALUE /* 45 */:
+                    if (c3 == 0) {
+                        c2 = 1;
                         boolean z5 = z4;
                         z2 = true;
                         z = z5;
                         j = j2;
                         break;
-                    } else if (c2 == 5) {
-                        c = 6;
+                    } else if (c3 == 5) {
+                        c2 = 6;
                         z = z4;
                         z2 = z3;
                         j = j2;
@@ -489,8 +438,8 @@ public class JsonReader implements Closeable {
                         return 0;
                     }
                 case '.':
-                    if (c2 == 2) {
-                        c = 3;
+                    if (c3 == 2) {
+                        c2 = 3;
                         z = z4;
                         z2 = z3;
                         j = j2;
@@ -500,8 +449,8 @@ public class JsonReader implements Closeable {
                     }
                 case 'E':
                 case 'e':
-                    if (c2 == 2 || c2 == 4) {
-                        c = 5;
+                    if (c3 == 2 || c3 == 4) {
+                        c2 = 5;
                         z = z4;
                         z2 = z3;
                         j = j2;
@@ -510,44 +459,44 @@ public class JsonReader implements Closeable {
                         return 0;
                     }
                 default:
-                    if (c3 >= '0' && c3 <= '9') {
-                        if (c2 != 1 && c2 != 0) {
-                            if (c2 == 2) {
+                    if (c >= '0' && c <= '9') {
+                        if (c3 != 1 && c3 != 0) {
+                            if (c3 == 2) {
                                 if (j2 == 0) {
                                     return 0;
                                 }
-                                long j3 = (10 * j2) - (c3 - '0');
+                                long j3 = (10 * j2) - (c - '0');
                                 boolean z6 = (j2 > MIN_INCOMPLETE_INTEGER || (j2 == MIN_INCOMPLETE_INTEGER && j3 < j2)) & z4;
                                 z2 = z3;
                                 j = j3;
-                                char c4 = c2;
+                                char c4 = c3;
                                 z = z6;
-                                c = c4;
+                                c2 = c4;
                                 break;
-                            } else if (c2 != 3) {
-                                if (c2 != 5 && c2 != 6) {
-                                    c = c2;
+                            } else if (c3 != 3) {
+                                if (c3 != 5 && c3 != 6) {
+                                    c2 = c3;
                                     z = z4;
                                     z2 = z3;
                                     j = j2;
                                     break;
                                 } else {
-                                    c = 7;
+                                    c2 = 7;
                                     z = z4;
                                     z2 = z3;
                                     j = j2;
                                     break;
                                 }
                             } else {
-                                c = 4;
+                                c2 = 4;
                                 z = z4;
                                 z2 = z3;
                                 j = j2;
                                 break;
                             }
                         } else {
-                            long j4 = -(c3 - '0');
-                            c = 2;
+                            long j4 = -(c - '0');
+                            c2 = 2;
                             z = z4;
                             z2 = z3;
                             j = j4;
@@ -558,11 +507,29 @@ public class JsonReader implements Closeable {
             }
             i2++;
             boolean z7 = z;
-            c2 = c;
+            c3 = c2;
             boolean z8 = z2;
             z4 = z7;
             j2 = j;
             z3 = z8;
+        }
+        if (isLiteral(c)) {
+            return 0;
+        }
+        if (c3 == 2 && z4 && (j2 != Long.MIN_VALUE || z3)) {
+            if (!z3) {
+                j2 = -j2;
+            }
+            this.peekedLong = j2;
+            this.pos += i2;
+            this.peeked = 15;
+            return 15;
+        } else if (c3 == 2 || c3 == 4 || c3 == 7) {
+            this.peekedNumberLength = i2;
+            this.peeked = 16;
+            return 16;
+        } else {
+            return 0;
         }
     }
 
@@ -572,7 +539,7 @@ public class JsonReader implements Closeable {
             case '\n':
             case '\f':
             case '\r':
-            case ' ':
+            case AccessibilityNodeInfoCompat.ACTION_LONG_CLICK /* 32 */:
             case ',':
             case ':':
             case '[':
@@ -599,7 +566,7 @@ public class JsonReader implements Closeable {
         if (i == 0) {
             i = doPeek();
         }
-        if (i == 14) {
+        if (i == PEEKED_UNQUOTED_NAME) {
             nextQuotedValue = nextUnquotedValue();
         } else if (i == 12) {
             nextQuotedValue = nextQuotedValue('\'');
@@ -766,17 +733,19 @@ public class JsonReader implements Closeable {
     }
 
     private String nextUnquotedValue() {
-        String sb;
-        StringBuilder sb2 = null;
-        int i = 0;
+        StringBuilder sb;
+        int i;
+        String sb2;
+        StringBuilder sb3 = null;
+        int i2 = 0;
         while (true) {
-            if (this.pos + i < this.limit) {
-                switch (this.buffer[this.pos + i]) {
+            if (this.pos + i2 < this.limit) {
+                switch (this.buffer[this.pos + i2]) {
                     case '\t':
                     case '\n':
                     case '\f':
                     case '\r':
-                    case ' ':
+                    case AccessibilityNodeInfoCompat.ACTION_LONG_CLICK /* 32 */:
                     case ',':
                     case ':':
                     case '[':
@@ -792,32 +761,42 @@ public class JsonReader implements Closeable {
                         checkLenient();
                         break;
                     default:
-                        i++;
+                        i2++;
                 }
-            } else if (i < this.buffer.length) {
-                if (!fillBuffer(i + 1)) {
+            } else if (i2 < this.buffer.length) {
+                if (fillBuffer(i2 + 1)) {
+                    int i3 = i2;
+                    sb = sb3;
+                    i = i3;
+                    int i4 = i;
+                    sb3 = sb;
+                    i2 = i4;
                 }
             } else {
-                if (sb2 == null) {
-                    sb2 = new StringBuilder();
+                if (sb3 == null) {
+                    sb3 = new StringBuilder();
                 }
-                sb2.append(this.buffer, this.pos, i);
-                this.pos = i + this.pos;
+                sb3.append(this.buffer, this.pos, i2);
+                this.pos = i2 + this.pos;
                 if (fillBuffer(1)) {
+                    sb = sb3;
                     i = 0;
+                    int i42 = i;
+                    sb3 = sb;
+                    i2 = i42;
                 } else {
-                    i = 0;
+                    i2 = 0;
                 }
             }
         }
-        if (sb2 == null) {
-            sb = new String(this.buffer, this.pos, i);
+        if (sb3 == null) {
+            sb2 = new String(this.buffer, this.pos, i2);
         } else {
-            sb2.append(this.buffer, this.pos, i);
-            sb = sb2.toString();
+            sb3.append(this.buffer, this.pos, i2);
+            sb2 = sb3.toString();
         }
-        this.pos = i + this.pos;
-        return sb;
+        this.pos = i2 + this.pos;
+        return sb2;
     }
 
     private void skipQuotedValue(char c) {
@@ -858,7 +837,7 @@ public class JsonReader implements Closeable {
                     case '\n':
                     case '\f':
                     case '\r':
-                    case ' ':
+                    case AccessibilityNodeInfoCompat.ACTION_LONG_CLICK /* 32 */:
                     case ',':
                     case ':':
                     case '[':
@@ -948,7 +927,7 @@ public class JsonReader implements Closeable {
             } else if (i2 == 2) {
                 this.stackSize--;
                 i--;
-            } else if (i2 == 14 || i2 == 10) {
+            } else if (i2 == PEEKED_UNQUOTED_NAME || i2 == 10) {
                 skipUnquotedValue();
             } else if (i2 == 8 || i2 == 12) {
                 skipQuotedValue('\'');
@@ -1030,7 +1009,9 @@ public class JsonReader implements Closeable {
                 this.lineNumber++;
                 this.lineStart = i3;
                 i = i3;
-            } else if (c == ' ' || c == '\r' || c == '\t') {
+            } else if (c == ' ' || c == '\r') {
+                i = i3;
+            } else if (c == '\t') {
                 i = i3;
             } else if (c == '/') {
                 this.pos = i3;
@@ -1142,7 +1123,7 @@ public class JsonReader implements Closeable {
                 return '\f';
             case 'n':
                 return '\n';
-            case 'r':
+            case Constants.MEDIA_CLOSED /* 114 */:
                 return '\r';
             case 't':
                 return '\t';

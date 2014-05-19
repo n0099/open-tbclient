@@ -3,7 +3,7 @@ package com.baidu.tieba.editortool;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
-final class ar implements Animation.AnimationListener {
+class ar implements Animation.AnimationListener {
     private final /* synthetic */ as a;
     private final /* synthetic */ ViewGroup b;
 
@@ -14,7 +14,7 @@ final class ar implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationEnd(Animation animation) {
+    public void onAnimationEnd(Animation animation) {
         if (this.a != null) {
             this.a.a();
         }
@@ -22,14 +22,14 @@ final class ar implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationRepeat(Animation animation) {
+    public void onAnimationRepeat(Animation animation) {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationStart(Animation animation) {
+    public void onAnimationStart(Animation animation) {
         this.b.setVisibility(8);
         if (this.a != null) {
-            as asVar = this.a;
+            this.a.b();
         }
     }
 }

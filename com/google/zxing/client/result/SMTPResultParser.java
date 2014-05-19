@@ -5,7 +5,7 @@ import com.google.zxing.Result;
 public final class SMTPResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public final EmailAddressParsedResult parse(Result result) {
+    public EmailAddressParsedResult parse(Result result) {
         String str;
         String str2 = null;
         String massagedText = getMassagedText(result);

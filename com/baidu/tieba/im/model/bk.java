@@ -1,18 +1,19 @@
 package com.baidu.tieba.im.model;
 /* loaded from: classes.dex */
-final class bk extends com.baidu.tieba.im.m<Boolean> {
-    final /* synthetic */ PersonalMsglistModel b;
-    private final /* synthetic */ com.baidu.tieba.im.message.a.a c;
+class bk implements com.baidu.tieba.im.a<Void> {
+    private final /* synthetic */ String a;
+    private final /* synthetic */ com.baidu.tieba.im.a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(PersonalMsglistModel personalMsglistModel, com.baidu.tieba.im.message.a.a aVar) {
-        this.b = personalMsglistModel;
-        this.c = aVar;
+    public bk(String str, com.baidu.tieba.im.a aVar) {
+        this.a = str;
+        this.b = aVar;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.o.d().b(String.valueOf(this.b.a.getUserId()), String.valueOf(this.c.w())));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r4) {
+        com.baidu.tieba.im.pushNotify.a.f().c(this.a);
+        com.baidu.tieba.im.pushNotify.a.f().b(false, this.b);
     }
 }

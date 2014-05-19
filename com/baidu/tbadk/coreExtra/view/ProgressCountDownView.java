@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ProgressCountDownView extends FrameLayout {
     private View a;
@@ -14,8 +15,8 @@ public class ProgressCountDownView extends FrameLayout {
     private ProgressBar c;
     private String d;
     private String e;
-    private com.baidu.tbadk.coreExtra.c.b f;
-    private ac g;
+    private com.baidu.tbadk.coreExtra.c.c f;
+    private ap g;
     private long h;
     private long i;
     private boolean j;
@@ -37,64 +38,71 @@ public class ProgressCountDownView extends FrameLayout {
     }
 
     private void a(Context context) {
-        this.a = LayoutInflater.from(context).inflate(com.baidu.tbadk.k.progress_count_down_view, this);
-        this.b = (TextView) this.a.findViewById(com.baidu.tbadk.j.progress_count_down_text);
-        this.c = (ProgressBar) this.a.findViewById(com.baidu.tbadk.j.progress_count_down_progress);
+        this.a = LayoutInflater.from(context).inflate(com.baidu.tieba.s.progress_count_down_view, this);
+        this.b = (TextView) this.a.findViewById(com.baidu.tieba.r.progress_count_down_text);
+        this.c = (ProgressBar) this.a.findViewById(com.baidu.tieba.r.progress_count_down_progress);
     }
 
     public void setFinalText(String str) {
         this.d = String.valueOf(str) + "： ";
     }
 
-    public final void a(long j, long j2, long j3) {
+    public void a(long j, long j2, long j3) {
         this.h = j;
-        this.i = 60000L;
-        this.f = new ab(this, j, 500L);
+        this.i = j3;
+        this.f = new ao(this, j, j2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(ProgressCountDownView progressCountDownView, long j) {
-        long max = (progressCountDownView.c.getMax() * j) / progressCountDownView.h;
-        if (j > progressCountDownView.i) {
-            progressCountDownView.c.setProgress((int) max);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(long j) {
+        long max = (this.c.getMax() * j) / this.h;
+        if (j <= this.i) {
+            if (this.j) {
+                this.c.setSecondaryProgress((int) max);
+                this.j = false;
+            } else {
+                this.c.setSecondaryProgress(0);
+                this.j = true;
+            }
+            this.c.setProgress(0);
             return;
         }
-        if (progressCountDownView.j) {
-            progressCountDownView.c.setSecondaryProgress((int) max);
-            progressCountDownView.j = false;
-        } else {
-            progressCountDownView.c.setSecondaryProgress(0);
-            progressCountDownView.j = true;
-        }
-        progressCountDownView.c.setProgress(0);
+        this.c.setProgress((int) max);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void b(ProgressCountDownView progressCountDownView, long j) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(long j) {
+        this.e = String.valueOf(this.d) + c(j);
+        this.b.setText(this.e);
+    }
+
+    private String c(long j) {
         long j2;
         long j3;
-        StringBuilder sb = new StringBuilder(String.valueOf(progressCountDownView.d));
-        String str = String.valueOf(j / 60000 < 10 ? String.valueOf("") + "0" : "") + String.valueOf(j2) + "'";
-        if ((j % 60000) / 1000 < 10) {
-            str = String.valueOf(str) + "0";
+        String str = "";
+        if (j / TbConfig.USE_TIME_INTERVAL < 10) {
+            str = String.valueOf("") + "0";
         }
-        progressCountDownView.e = sb.append(String.valueOf(str) + String.valueOf(j3) + "\"").toString();
-        progressCountDownView.b.setText(progressCountDownView.e);
+        String str2 = String.valueOf(str) + String.valueOf(j2) + "'";
+        if ((j % TbConfig.USE_TIME_INTERVAL) / 1000 < 10) {
+            str2 = String.valueOf(str2) + "0";
+        }
+        return String.valueOf(str2) + String.valueOf(j3) + "\"";
     }
 
-    public final void a() {
+    public void a() {
         if (this.f != null) {
             this.f.b();
         }
     }
 
-    public final void b() {
+    public void b() {
         if (this.f != null) {
             this.f.a();
         }
     }
 
-    public void setOnFinishlistener(ac acVar) {
-        this.g = acVar;
+    public void setOnFinishlistener(ap apVar) {
+        this.g = apVar;
     }
 }

@@ -1,18 +1,19 @@
 package com.baidu.tieba.im.friend;
 
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.NewErrorData;
 /* loaded from: classes.dex */
-final class a extends com.baidu.tbadk.core.f {
-    private static final String c = String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/u/user/get_double_follows";
-    private static final String d = String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/u/user/search_double_follows";
+class a extends com.baidu.tbadk.core.f {
+    private static final String c = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/get_double_follows";
+    private static final String d = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/search_double_follows";
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final String b(String str) {
+    public String b(String str) {
         if (str == null || str.trim().equals("")) {
             a(c);
         } else {
             a(d);
-            this.a.a("user_name", str);
+            this.a.a(com.baidu.tbadk.core.frameworkData.a.USER_NAME, str);
         }
         this.a.a("offset", "0");
         this.a.a("limit", String.valueOf(100));
@@ -25,7 +26,7 @@ final class a extends com.baidu.tbadk.core.f {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.f
-    public final String b() {
+    public String b() {
         String i = this.a.i();
         if (this.a.a().b().b()) {
             this.b = new NewErrorData();
@@ -39,13 +40,13 @@ final class a extends com.baidu.tbadk.core.f {
     }
 
     @Override // com.baidu.tbadk.core.f
-    public final void a() {
+    public void a() {
         if (this.a != null) {
             this.a.g();
         }
     }
 
-    public final String g() {
+    public String g() {
         if (this.b != null) {
             return this.b.getErrorMsg();
         }
@@ -53,7 +54,7 @@ final class a extends com.baidu.tbadk.core.f {
     }
 
     @Override // com.baidu.tbadk.core.f
-    public final int e() {
+    public int e() {
         if (this.b != null) {
             return this.b.getErrorNumber();
         }

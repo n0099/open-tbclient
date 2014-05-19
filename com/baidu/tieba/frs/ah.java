@@ -1,11 +1,7 @@
 package com.baidu.tieba.frs;
-
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tieba.view.CustomTimerView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ah extends Handler {
+public class ah implements com.baidu.tieba.model.bd {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,53 +9,34 @@ final class ah extends Handler {
         this.a = frsActivity;
     }
 
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    @Override // com.baidu.tieba.model.bd
+    public void a(String str, long j) {
+        String str2;
         g gVar;
-        g gVar2;
-        long j;
-        g gVar3;
-        boolean z;
-        cm cmVar;
-        g gVar4;
-        g gVar5;
-        cm cmVar2;
-        switch (message.what) {
-            case 1:
-                removeMessages(1);
-                gVar = this.a.D;
-                if (gVar != null) {
-                    gVar2 = this.a.D;
-                    long g = gVar2.k().g();
-                    j = this.a.I;
-                    long nanoTime = g - ((System.nanoTime() / 1000000000) - j);
-                    if (nanoTime > 0) {
-                        cmVar2 = this.a.r;
-                        CustomTimerView customTimerView = (CustomTimerView) cmVar2.a(com.baidu.tieba.a.h.open_timer);
-                        if (customTimerView != null) {
-                            customTimerView.setTime(nanoTime);
-                        }
-                        sendMessageDelayed(obtainMessage(1), 1000L);
-                        return;
-                    }
-                    gVar3 = this.a.D;
-                    gVar3.k().a(1);
-                    z = this.a.g;
-                    if (!z) {
-                        cmVar = this.a.r;
-                        com.baidu.tieba.frs.view.n w = cmVar.w();
-                        gVar4 = this.a.D;
-                        ForumData f = gVar4.f();
-                        gVar5 = this.a.D;
-                        w.a(f, gVar5);
-                        return;
-                    }
-                    return;
-                }
-                return;
-            default:
-                super.handleMessage(message);
-                return;
+        String str3;
+        String str4;
+        cs csVar;
+        cs csVar2;
+        f a = f.a();
+        str2 = this.a.n;
+        a.b(str2);
+        gVar = this.a.I;
+        gVar.g().setLike(0);
+        str3 = this.a.O;
+        if (str3.equals("normal_page")) {
+            csVar2 = this.a.w;
+            csVar2.g(0);
+        } else {
+            str4 = this.a.O;
+            if (str4.equals("frs_page")) {
+                csVar = this.a.w;
+                csVar.h(0);
+            }
         }
+        com.baidu.tieba.ad.c().f(str);
+    }
+
+    @Override // com.baidu.tieba.model.bd
+    public void b(String str, long j) {
     }
 }

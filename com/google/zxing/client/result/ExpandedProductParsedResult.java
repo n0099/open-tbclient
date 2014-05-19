@@ -40,7 +40,7 @@ public final class ExpandedProductParsedResult extends ParsedResult {
         this.uncommonAIs = map;
     }
 
-    public final boolean equals(Object obj) {
+    public boolean equals(Object obj) {
         if (obj instanceof ExpandedProductParsedResult) {
             ExpandedProductParsedResult expandedProductParsedResult = (ExpandedProductParsedResult) obj;
             return equalsOrNull(this.productID, expandedProductParsedResult.productID) && equalsOrNull(this.sscc, expandedProductParsedResult.sscc) && equalsOrNull(this.lotNumber, expandedProductParsedResult.lotNumber) && equalsOrNull(this.productionDate, expandedProductParsedResult.productionDate) && equalsOrNull(this.bestBeforeDate, expandedProductParsedResult.bestBeforeDate) && equalsOrNull(this.expirationDate, expandedProductParsedResult.expirationDate) && equalsOrNull(this.weight, expandedProductParsedResult.weight) && equalsOrNull(this.weightType, expandedProductParsedResult.weightType) && equalsOrNull(this.weightIncrement, expandedProductParsedResult.weightIncrement) && equalsOrNull(this.price, expandedProductParsedResult.price) && equalsOrNull(this.priceIncrement, expandedProductParsedResult.priceIncrement) && equalsOrNull(this.priceCurrency, expandedProductParsedResult.priceCurrency) && equalsOrNull(this.uncommonAIs, expandedProductParsedResult.uncommonAIs);
@@ -52,8 +52,8 @@ public final class ExpandedProductParsedResult extends ParsedResult {
         return obj == null ? obj2 == null : obj.equals(obj2);
     }
 
-    public final int hashCode() {
-        return ((((((((((((hashNotNull(this.productID) ^ 0) ^ hashNotNull(this.sscc)) ^ hashNotNull(this.lotNumber)) ^ hashNotNull(this.productionDate)) ^ hashNotNull(this.bestBeforeDate)) ^ hashNotNull(this.expirationDate)) ^ hashNotNull(this.weight)) ^ hashNotNull(this.weightType)) ^ hashNotNull(this.weightIncrement)) ^ hashNotNull(this.price)) ^ hashNotNull(this.priceIncrement)) ^ hashNotNull(this.priceCurrency)) ^ hashNotNull(this.uncommonAIs);
+    public int hashCode() {
+        return ((((((((((((0 ^ hashNotNull(this.productID)) ^ hashNotNull(this.sscc)) ^ hashNotNull(this.lotNumber)) ^ hashNotNull(this.productionDate)) ^ hashNotNull(this.bestBeforeDate)) ^ hashNotNull(this.expirationDate)) ^ hashNotNull(this.weight)) ^ hashNotNull(this.weightType)) ^ hashNotNull(this.weightIncrement)) ^ hashNotNull(this.price)) ^ hashNotNull(this.priceIncrement)) ^ hashNotNull(this.priceCurrency)) ^ hashNotNull(this.uncommonAIs);
     }
 
     private static int hashNotNull(Object obj) {
@@ -63,68 +63,68 @@ public final class ExpandedProductParsedResult extends ParsedResult {
         return obj.hashCode();
     }
 
-    public final String getRawText() {
+    public String getRawText() {
         return this.rawText;
     }
 
-    public final String getProductID() {
+    public String getProductID() {
         return this.productID;
     }
 
-    public final String getSscc() {
+    public String getSscc() {
         return this.sscc;
     }
 
-    public final String getLotNumber() {
+    public String getLotNumber() {
         return this.lotNumber;
     }
 
-    public final String getProductionDate() {
+    public String getProductionDate() {
         return this.productionDate;
     }
 
-    public final String getPackagingDate() {
+    public String getPackagingDate() {
         return this.packagingDate;
     }
 
-    public final String getBestBeforeDate() {
+    public String getBestBeforeDate() {
         return this.bestBeforeDate;
     }
 
-    public final String getExpirationDate() {
+    public String getExpirationDate() {
         return this.expirationDate;
     }
 
-    public final String getWeight() {
+    public String getWeight() {
         return this.weight;
     }
 
-    public final String getWeightType() {
+    public String getWeightType() {
         return this.weightType;
     }
 
-    public final String getWeightIncrement() {
+    public String getWeightIncrement() {
         return this.weightIncrement;
     }
 
-    public final String getPrice() {
+    public String getPrice() {
         return this.price;
     }
 
-    public final String getPriceIncrement() {
+    public String getPriceIncrement() {
         return this.priceIncrement;
     }
 
-    public final String getPriceCurrency() {
+    public String getPriceCurrency() {
         return this.priceCurrency;
     }
 
-    public final Map<String, String> getUncommonAIs() {
+    public Map<String, String> getUncommonAIs() {
         return this.uncommonAIs;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public final String getDisplayResult() {
+    public String getDisplayResult() {
         return String.valueOf(this.rawText);
     }
 }

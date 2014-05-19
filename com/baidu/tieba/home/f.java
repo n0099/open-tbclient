@@ -3,9 +3,10 @@ package com.baidu.tieba.home;
 import android.os.Handler;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements com.baidu.tieba.model.r {
+public class f implements com.baidu.tieba.model.r {
     final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,58 +15,58 @@ public final class f implements com.baidu.tieba.model.r {
     }
 
     @Override // com.baidu.tieba.model.r
-    public final void a(com.baidu.tieba.model.p pVar) {
+    public void a(com.baidu.tieba.model.p pVar) {
         com.baidu.tbadk.core.e eVar;
-        o oVar;
-        o oVar2;
+        p pVar2;
+        p pVar3;
         com.baidu.tbadk.core.e eVar2;
-        com.baidu.tieba.model.o oVar3;
+        com.baidu.tieba.model.o oVar;
         com.baidu.tbadk.core.e eVar3;
         long j;
         long j2;
-        com.baidu.tieba.model.o oVar4;
+        com.baidu.tieba.model.o oVar2;
         long j3;
+        com.baidu.tieba.model.o oVar3;
+        com.baidu.tieba.model.o oVar4;
         com.baidu.tieba.model.o oVar5;
+        boolean d_;
+        p pVar4;
         com.baidu.tieba.model.o oVar6;
-        com.baidu.tieba.model.o oVar7;
-        boolean c_;
-        o oVar8;
-        com.baidu.tieba.model.o oVar9;
-        o oVar10;
-        o oVar11;
-        o oVar12;
+        p pVar5;
+        p pVar6;
+        p pVar7;
         eVar = this.a.h;
-        UtilHelper.NetworkStateInfo d = UtilHelper.d(eVar);
-        if (d == UtilHelper.NetworkStateInfo.UNAVAIL) {
-            oVar12 = this.a.b;
-            oVar12.j();
+        UtilHelper.NetworkStateInfo netStatusInfo = UtilHelper.getNetStatusInfo(eVar);
+        if (netStatusInfo == UtilHelper.NetworkStateInfo.UNAVAIL) {
+            pVar7 = this.a.b;
+            pVar7.k();
         }
-        oVar = this.a.b;
-        oVar.a(true, "");
+        pVar2 = this.a.b;
+        pVar2.a(true, "");
         if (!pVar.b) {
-            oVar2 = this.a.b;
-            oVar2.d();
+            pVar3 = this.a.b;
+            pVar3.c();
             if (pVar.a != null && pVar.a.equals("")) {
                 eVar2 = this.a.h;
                 eVar2.a(pVar.a);
             }
         } else {
-            oVar9 = this.a.d;
-            com.baidu.tieba.data.n e = oVar9.e();
-            oVar10 = this.a.b;
-            oVar10.a(e);
-            oVar11 = this.a.b;
-            oVar11.g();
+            oVar6 = this.a.d;
+            com.baidu.tieba.data.n e = oVar6.e();
+            pVar5 = this.a.b;
+            pVar5.a(e);
+            pVar6 = this.a.b;
+            pVar6.h();
         }
-        if (pVar.c == 0 && d != UtilHelper.NetworkStateInfo.UNAVAIL) {
+        if (pVar.c == 0 && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
             new Handler().postDelayed(new g(this), 600L);
         }
-        if (pVar.c == 1 && com.baidu.tieba.p.c().b()) {
-            c_ = this.a.c_();
-            if (c_) {
-                oVar8 = this.a.b;
-                oVar8.f();
-                com.baidu.tieba.p.c().a(false);
+        if (pVar.c == 1 && ad.c().b()) {
+            d_ = this.a.d_();
+            if (d_) {
+                pVar4 = this.a.b;
+                pVar4.g();
+                ad.c().a(false);
             }
         }
         if (pVar.c == 1) {
@@ -73,29 +74,29 @@ public final class f implements com.baidu.tieba.model.r {
             if (j > -1) {
                 long currentTimeMillis = System.currentTimeMillis();
                 j2 = this.a.i;
-                oVar4 = this.a.d;
-                long d2 = oVar4.d();
+                oVar2 = this.a.d;
+                long d = oVar2.d();
                 j3 = this.a.i;
-                long j4 = d2 - j3;
+                long j4 = d - j3;
+                oVar3 = this.a.d;
+                long b = oVar3.b();
+                oVar4 = this.a.d;
+                long c = oVar4.c();
                 oVar5 = this.a.d;
-                long b = oVar5.b();
-                oVar6 = this.a.d;
-                long c = oVar6.c();
-                oVar7 = this.a.d;
-                TiebaStatic.a("op_forum_enter", currentTimeMillis - j2, j4, b, c, currentTimeMillis - oVar7.a());
+                TiebaStatic.page("op_forum_enter", currentTimeMillis - j2, j4, b, c, currentTimeMillis - oVar5.a());
                 this.a.i = -1L;
             }
         }
-        oVar3 = this.a.d;
-        com.baidu.tieba.data.n e2 = oVar3.e();
-        if (e2.b() == 1) {
-            if (!e2.i()) {
+        oVar = this.a.d;
+        com.baidu.tieba.data.n e2 = oVar.e();
+        if (e2.c() == 1) {
+            if (!e2.j()) {
                 eVar3 = this.a.h;
-                String.format(eVar3.getString(com.baidu.tieba.a.k.signallforum_warning), Integer.valueOf(e2.c()));
+                String.format(eVar3.getString(com.baidu.tieba.u.signallforum_warning), Integer.valueOf(e2.d()));
                 return;
             }
             return;
         }
-        e2.d();
+        e2.e();
     }
 }

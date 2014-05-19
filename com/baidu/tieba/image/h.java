@@ -2,12 +2,13 @@ package com.baidu.tieba.image;
 
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
-import com.baidu.tbadk.core.data.n;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import java.util.ArrayList;
 import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class h implements ViewPager.OnPageChangeListener {
+public class h implements ViewPager.OnPageChangeListener {
     final /* synthetic */ ImageViewerActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +17,7 @@ final class h implements ViewPager.OnPageChangeListener {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageSelected(int i) {
+    public void onPageSelected(int i) {
         boolean z;
         a aVar;
         MultiImageView multiImageView;
@@ -33,7 +34,7 @@ final class h implements ViewPager.OnPageChangeListener {
                 }
             }
         } else {
-            Intent intent = new Intent(n.s());
+            Intent intent = new Intent(TbConfig.getBroadcastActionPageChanged());
             intent.putExtra("index", i);
             this.a.sendBroadcast(intent);
         }
@@ -41,15 +42,15 @@ final class h implements ViewPager.OnPageChangeListener {
         i2 = this.a.d;
         imageViewerActivity.a(i2, i);
         this.a.d = i;
-        this.a.d();
+        this.a.f();
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageScrolled(int i, float f, int i2) {
+    public void onPageScrolled(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageScrollStateChanged(int i) {
+    public void onPageScrollStateChanged(int i) {
         long j;
         ArrayList arrayList;
         int i2;

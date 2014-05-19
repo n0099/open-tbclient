@@ -7,6 +7,8 @@ import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
+import com.baidu.sapi2.shell.SapiErrorCode;
+import com.baidu.tbadk.TbConfig;
 import java.util.List;
 /* loaded from: classes.dex */
 public class VerticalTranslateLayout extends FrameLayout {
@@ -31,12 +33,12 @@ public class VerticalTranslateLayout extends FrameLayout {
     private int r;
     private int s;
     private boolean t;
-    private final u u;
-    private final v v;
+    private final t u;
+    private final u v;
     private final z w;
     private x x;
-    private w y;
-    private final List<OnOpenAnimationListener> z;
+    private v y;
+    private final List<w> z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -78,7 +80,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                 this.m = 10004;
             } else if (f == -1.0f) {
                 this.d -= this.c;
-                this.m = 10000;
+                this.m = TbConfig.BIG_IMAGE_MIN_CAPACITY;
             } else if (f == 1.0f) {
                 this.d = this.c - this.f;
                 this.m = 10001;
@@ -111,8 +113,8 @@ public class VerticalTranslateLayout extends FrameLayout {
         this.x = xVar;
     }
 
-    public void setBottomAnimationListener(w wVar) {
-        this.y = wVar;
+    public void setBottomAnimationListener(v vVar) {
+        this.y = vVar;
     }
 
     public void setVerticalTrackListener(y yVar) {
@@ -147,9 +149,9 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.q = x;
                     this.r = y;
                     this.u.removeMessages(-100);
-                    this.u.removeMessages(-104);
+                    this.u.removeMessages(SapiErrorCode.GETTING_CERT);
                     this.u.removeMessages(-101);
-                    this.u.removeMessages(-105);
+                    this.u.removeMessages(SapiErrorCode.GET_CERT_FAIL);
                     return false;
                 case 1:
                 default:
@@ -157,14 +159,15 @@ public class VerticalTranslateLayout extends FrameLayout {
                 case 2:
                     Log.d("VerticalTranslateLayout", "@interceptInterceptTouchEvent");
                     motionEvent.offsetLocation(0.0f, -this.h);
-                    if (x < this.q - this.i || x > this.q + this.i) {
-                        return false;
-                    }
-                    return (y < this.r - this.i || y > this.r + this.i) && this.w.a(y - this.r);
+                    return a(x, y);
             }
         }
         Log.d("VerticalTranslateLayout", "Intercepted to onTouch()");
         return true;
+    }
+
+    private boolean a(int i, int i2) {
+        return i >= this.q - this.i && i <= this.q + this.i && (i2 < this.r - this.i || i2 > this.r + this.i) && this.w.a(i2 - this.r);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -181,7 +184,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.t = false;
                     if (this.w.b) {
                         Log.d("VerticalTranslateLayout", "@onTouchEvent tracking");
-                        this.w.b = false;
+                        this.w.a();
                         z.a(this.w);
                         return true;
                     }
@@ -221,7 +224,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             case 1:
             case 3:
                 if (this.w.b) {
-                    this.w.b = false;
+                    this.w.a();
                     z.a(this.w);
                     return true;
                 }
@@ -279,7 +282,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         switch (this.m) {
-            case 10000:
+            case TbConfig.BIG_IMAGE_MIN_CAPACITY /* 10000 */:
                 this.h = (int) (this.d - this.c);
                 invalidate();
                 return;

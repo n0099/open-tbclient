@@ -4,7 +4,7 @@ import android.util.Log;
 import android.view.VelocityTracker;
 import com.baidu.adp.widget.VerticalTranslateLayout;
 /* loaded from: classes.dex */
-final class z {
+public class z {
     private static /* synthetic */ int[] f;
     VelocityTracker a;
     boolean b;
@@ -12,7 +12,7 @@ final class z {
     final int d;
     final /* synthetic */ VerticalTranslateLayout e;
 
-    private static /* synthetic */ int[] a() {
+    static /* synthetic */ int[] b() {
         int[] iArr = f;
         if (iArr == null) {
             iArr = new int[VerticalTranslateLayout.TrackDirection.valuesCustom().length];
@@ -37,17 +37,17 @@ final class z {
         return iArr;
     }
 
-    public final boolean a(int i) {
+    public boolean a(int i) {
         VerticalTranslateLayout.TrackDirection trackDirection;
         y yVar;
+        y yVar2;
         int i2;
         int i3;
         int i4;
         int i5;
-        y unused;
-        int[] a = a();
+        int[] b = b();
         trackDirection = this.e.l;
-        switch (a[trackDirection.ordinal()]) {
+        switch (b[trackDirection.ordinal()]) {
             case 1:
                 i4 = this.e.m;
                 if (i4 != 10004) {
@@ -69,7 +69,8 @@ final class z {
             case 3:
                 yVar = this.e.A;
                 if (yVar != null) {
-                    unused = this.e.A;
+                    yVar2 = this.e.A;
+                    yVar2.a(i);
                     break;
                 }
                 break;
@@ -79,7 +80,11 @@ final class z {
         return true;
     }
 
-    public final void b(int i) {
+    public void a() {
+        this.b = false;
+    }
+
+    public void b(int i) {
         int i2;
         VerticalTranslateLayout.TrackDirection trackDirection;
         float f2;
@@ -96,9 +101,9 @@ final class z {
         if (this.b) {
             i2 = this.e.h;
             int i10 = i2 - i;
-            int[] a = a();
+            int[] b = b();
             trackDirection = this.e.l;
-            switch (a[trackDirection.ordinal()]) {
+            switch (b[trackDirection.ordinal()]) {
                 case 1:
                     Log.d("VerticalTranslateLayout", "@move top");
                     f5 = this.e.d;
@@ -146,86 +151,98 @@ final class z {
         }
     }
 
-    public static /* synthetic */ void a(z zVar) {
+    public void c() {
+        float max;
         VerticalTranslateLayout.TrackDirection trackDirection;
-        v vVar;
-        v vVar2;
-        v vVar3;
-        v vVar4;
-        int i;
-        int i2;
-        float f2;
-        v vVar5;
-        v vVar6;
-        float f3;
-        int i3;
-        v vVar7;
-        v vVar8;
-        zVar.a.computeCurrentVelocity(zVar.c);
-        float yVelocity = zVar.a.getYVelocity();
+        this.a.computeCurrentVelocity(this.c);
+        float yVelocity = this.a.getYVelocity();
         Log.d("VerticalTranslateLayout", "@fling y " + yVelocity);
-        float min = yVelocity < 0.0f ? Math.min(yVelocity, -zVar.d) : Math.max(yVelocity, zVar.d);
-        int[] a = a();
-        trackDirection = zVar.e.l;
-        switch (a[trackDirection.ordinal()]) {
+        if (yVelocity < 0.0f) {
+            max = Math.min(yVelocity, -this.d);
+        } else {
+            max = Math.max(yVelocity, this.d);
+        }
+        int[] b = b();
+        trackDirection = this.e.l;
+        switch (b[trackDirection.ordinal()]) {
             case 1:
-                Log.d("VerticalTranslateLayout", "@topFling");
-                if (min < 0.0f) {
-                    vVar4 = zVar.e.v;
-                    vVar4.c(min);
-                    break;
-                } else {
-                    vVar3 = zVar.e.v;
-                    vVar3.a(min);
-                    break;
-                }
+                b(max);
+                break;
             case 2:
-                Log.d("VerticalTranslateLayout", "@bottomFling");
-                if (min < 0.0f) {
-                    vVar2 = zVar.e.v;
-                    vVar2.b(min);
-                    break;
-                } else {
-                    vVar = zVar.e.v;
-                    vVar.d(min);
-                    break;
-                }
+                c(max);
+                break;
             case 3:
-                Log.d("VerticalTranslateLayout", "@verticalFling");
-                i = zVar.e.h;
-                if (i <= 0) {
-                    f3 = zVar.e.d;
-                    i3 = zVar.e.c;
-                    if (i >= f3 - i3) {
-                        if (min < 0.0f) {
-                            vVar8 = zVar.e.v;
-                            vVar8.c(min);
-                            break;
-                        } else {
-                            vVar7 = zVar.e.v;
-                            vVar7.a(min);
-                            break;
-                        }
-                    }
-                }
-                if (i >= 0) {
-                    i2 = zVar.e.c;
-                    f2 = zVar.e.f;
-                    if (i <= i2 - f2) {
-                        if (min < 0.0f) {
-                            vVar6 = zVar.e.v;
-                            vVar6.b(min);
-                            break;
-                        } else {
-                            vVar5 = zVar.e.v;
-                            vVar5.d(min);
-                            break;
-                        }
-                    }
-                }
+                a(max);
                 break;
         }
-        zVar.a.recycle();
-        zVar.a = null;
+        this.a.recycle();
+        this.a = null;
+    }
+
+    private void a(float f2) {
+        int i;
+        int i2;
+        float f3;
+        u uVar;
+        u uVar2;
+        float f4;
+        int i3;
+        u uVar3;
+        u uVar4;
+        Log.d("VerticalTranslateLayout", "@verticalFling");
+        i = this.e.h;
+        if (i <= 0) {
+            f4 = this.e.d;
+            i3 = this.e.c;
+            if (i >= f4 - i3) {
+                if (f2 < 0.0f) {
+                    uVar4 = this.e.v;
+                    uVar4.c(f2);
+                    return;
+                }
+                uVar3 = this.e.v;
+                uVar3.a(f2);
+                return;
+            }
+        }
+        if (i >= 0) {
+            i2 = this.e.c;
+            f3 = this.e.f;
+            if (i <= i2 - f3) {
+                if (f2 < 0.0f) {
+                    uVar2 = this.e.v;
+                    uVar2.b(f2);
+                    return;
+                }
+                uVar = this.e.v;
+                uVar.d(f2);
+            }
+        }
+    }
+
+    private void b(float f2) {
+        u uVar;
+        u uVar2;
+        Log.d("VerticalTranslateLayout", "@topFling");
+        if (f2 < 0.0f) {
+            uVar2 = this.e.v;
+            uVar2.c(f2);
+            return;
+        }
+        uVar = this.e.v;
+        uVar.a(f2);
+    }
+
+    private void c(float f2) {
+        u uVar;
+        u uVar2;
+        Log.d("VerticalTranslateLayout", "@bottomFling");
+        if (f2 < 0.0f) {
+            uVar2 = this.e.v;
+            uVar2.b(f2);
+            return;
+        }
+        uVar = this.e.v;
+        uVar.d(f2);
     }
 }

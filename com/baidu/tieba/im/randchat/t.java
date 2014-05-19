@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.randchat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class t implements e {
+public class t implements e {
     final /* synthetic */ WaittingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public final class t implements e {
     }
 
     @Override // com.baidu.tieba.im.randchat.e
-    public final void a(String str) {
-        WaittingActivity.a(this.a, str);
+    public void a(String str) {
+        this.a.a(str);
     }
 }

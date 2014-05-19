@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class w implements com.baidu.adp.widget.ListView.d {
+public class w implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ MembersActivity a;
     private final /* synthetic */ BdListView b;
 
@@ -13,32 +14,32 @@ final class w implements com.baidu.adp.widget.ListView.d {
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public final void a(boolean z) {
+    public void a(boolean z) {
         ah ahVar;
-        boolean d;
-        com.baidu.tieba.im.model.z zVar;
-        com.baidu.tieba.im.model.z zVar2;
-        com.baidu.tieba.im.model.z zVar3;
-        com.baidu.tieba.im.model.z zVar4;
-        com.baidu.tieba.im.model.z zVar5;
+        boolean i;
+        com.baidu.tieba.im.model.ad adVar;
+        com.baidu.tieba.im.model.ad adVar2;
+        com.baidu.tieba.im.model.ad adVar3;
+        com.baidu.tieba.im.model.ad adVar4;
+        com.baidu.tieba.im.model.ad adVar5;
         ahVar = this.a.b;
-        if (ahVar.h().d()) {
-            this.b.b();
+        if (ahVar.f().d()) {
+            this.b.c();
             return;
         }
-        d = this.a.d();
-        if (d) {
-            zVar = this.a.c;
-            zVar2 = this.a.c;
-            long f = zVar2.f();
-            zVar3 = this.a.c;
-            int d2 = zVar3.d();
-            zVar4 = this.a.c;
-            int e = zVar4.e();
-            zVar5 = this.a.c;
-            zVar.a(f, d2, e, zVar5.a());
+        i = this.a.i();
+        if (i) {
+            adVar = this.a.c;
+            adVar2 = this.a.c;
+            long f = adVar2.f();
+            adVar3 = this.a.c;
+            int d = adVar3.d();
+            adVar4 = this.a.c;
+            int e = adVar4.e();
+            adVar5 = this.a.c;
+            adVar.a(f, d, e, adVar5.a());
             return;
         }
-        MembersActivity.f(this.a);
+        this.a.g();
     }
 }

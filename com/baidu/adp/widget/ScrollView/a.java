@@ -7,7 +7,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-public final class a extends RelativeLayout implements b {
+public class a extends RelativeLayout implements b {
     private TextView a;
     private ProgressBar b;
 
@@ -15,37 +15,37 @@ public final class a extends RelativeLayout implements b {
         this(context, null);
     }
 
-    private a(Context context, AttributeSet attributeSet) {
-        super(context, null);
+    public a(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         inflate(context, com.baidu.adp.e.adp_detault_footer_layout, this);
         this.a = (TextView) findViewById(com.baidu.adp.d.foot_layout_text);
         this.b = (ProgressBar) findViewById(com.baidu.adp.d.foot_layout_progress);
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b
-    public final void a_() {
+    public void a_() {
         this.a.setText(getResources().getString(com.baidu.adp.f.adp_pull_up_to_get_more));
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b
-    public final void e() {
+    public void e() {
         this.a.setText(getResources().getString(com.baidu.adp.f.adp_release_to_get_more));
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b
-    public final void f() {
+    public void f() {
         this.a.setText(getResources().getString(com.baidu.adp.f.adp_refreshing));
         this.b.setVisibility(0);
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b
-    public final void b_() {
+    public void b_() {
         this.a.setText(getResources().getString(com.baidu.adp.f.adp_pull_up_to_get_more));
         this.b.setVisibility(8);
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b
-    public final View getRealView() {
+    public View getRealView() {
         return this;
     }
 }

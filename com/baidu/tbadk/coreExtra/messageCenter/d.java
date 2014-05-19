@@ -1,51 +1,22 @@
 package com.baidu.tbadk.coreExtra.messageCenter;
 
-import android.util.SparseArray;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public final class d {
-    private static d a = null;
-    private SparseArray<Long> b = new SparseArray<>();
-
-    public static synchronized d a() {
-        d dVar;
-        synchronized (d.class) {
-            if (a == null) {
-                a = new d();
-            }
-            dVar = a;
-        }
-        return dVar;
+class d extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(int i) {
+        super(i);
     }
 
-    public final void a(int i, long j) {
-        synchronized (this.b) {
-            Long l = this.b.get(i);
-            if (l == null || l.longValue() <= j) {
-                this.b.put(i, Long.valueOf(j));
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Object data;
+        if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof Boolean)) {
+            return;
         }
-    }
-
-    public final void b(int i, long j) {
-        synchronized (this.b) {
-            Long l = this.b.get(i);
-            if (l == null || l.longValue() == 0) {
-                this.b.put(i, Long.valueOf(j));
-            }
-        }
-    }
-
-    public final synchronized void a(int i) {
-        synchronized (this.b) {
-            this.b.remove(i);
-        }
-    }
-
-    public final SparseArray<Long> b() {
-        if (!TbadkApplication.F()) {
-            this.b.remove(10);
-        }
-        return this.b;
+        a.n = ((Boolean) data).booleanValue();
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.adp.lib.a;
 /* loaded from: classes.dex */
 public interface d {
-    void a(int i);
+    void a(String str, int i);
 }

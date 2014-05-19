@@ -2,7 +2,7 @@ package com.baidu.tieba.account.forbid;
 
 import com.baidu.gson.annotations.SerializedName;
 /* loaded from: classes.dex */
-public final class k {
+public class k {
     @SerializedName("errno")
     public int a = 0;
     @SerializedName("errmsg")

@@ -5,12 +5,14 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import java.util.regex.Pattern;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class f {
+public class f {
     private static final Pattern j = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
     private static final Pattern k = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private String c;
@@ -31,31 +33,31 @@ public final class f {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.a = i;
     }
 
-    public final int a() {
+    public int a() {
         return this.a;
     }
 
-    public final String b() {
+    public String b() {
         return this.b;
     }
 
-    public final String c() {
+    public String c() {
         return this.c;
     }
 
-    public final void a(SpannableStringBuilder spannableStringBuilder) {
+    public void a(SpannableStringBuilder spannableStringBuilder) {
         this.i = spannableStringBuilder;
     }
 
-    public final SpannableStringBuilder d() {
+    public SpannableStringBuilder d() {
         return this.i;
     }
 
-    public final SpannableStringBuilder a(SpannableString spannableString) {
+    public SpannableStringBuilder a(SpannableString spannableString) {
         if (this.i == null) {
             this.i = new SpannableStringBuilder();
         }
@@ -63,7 +65,7 @@ public final class f {
         return this.i;
     }
 
-    public final SpannableString a(Context context) {
+    public SpannableString a(Context context) {
         String str;
         switch (this.a) {
             case 0:
@@ -77,11 +79,11 @@ public final class f {
                 return spannableString;
             case 2:
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.b) + " ");
-                com.baidu.adp.widget.ImageView.b g = com.baidu.tieba.p.c().g(this.b);
+                com.baidu.adp.widget.a.a g = com.baidu.tieba.ad.c().g(this.b);
                 if (g != null) {
-                    BitmapDrawable i = g.i();
-                    i.setBounds(0, 0, g.c(), g.d());
-                    spannableString2.setSpan(new ImageSpan(i, 1), 0, this.b.length(), 33);
+                    BitmapDrawable j2 = g.j();
+                    j2.setBounds(0, 0, g.c(), g.d());
+                    spannableString2.setSpan(new ImageSpan(j2, 1), 0, this.b.length(), 33);
                     return spannableString2;
                 }
                 return spannableString2;
@@ -105,38 +107,38 @@ public final class f {
                 if (!this.b.endsWith(" ")) {
                     this.b = String.valueOf(this.b) + " ";
                 }
-                String string = context.getString(com.baidu.tieba.a.k.video);
+                String string = context.getString(com.baidu.tieba.u.video);
                 SpannableString spannableString4 = new SpannableString(String.valueOf(string) + this.b);
                 spannableString4.setSpan(new g(this, context), string.length(), str.length() - 1, 33);
                 return spannableString4;
         }
     }
 
-    public final SpannableString c(int i, int i2) {
+    public SpannableString a(Context context, int i, int i2) {
         int d;
         if (this.a != 2) {
             return null;
         }
         SpannableString spannableString = new SpannableString(String.valueOf(this.b) + " ");
-        com.baidu.adp.widget.ImageView.b g = com.baidu.tieba.p.c().g(this.b);
+        com.baidu.adp.widget.a.a g = com.baidu.tieba.ad.c().g(this.b);
         if (g != null) {
-            BitmapDrawable i3 = g.i();
+            BitmapDrawable j2 = g.j();
             if (i - i2 > 0) {
                 d = g.d() + ((i - i2) >> 1);
             } else {
                 d = g.d();
             }
-            i3.setBounds(0, 0, g.c(), d);
-            spannableString.setSpan(new ImageSpan(i3, 1), 0, this.b.length(), 33);
+            j2.setBounds(0, 0, g.c(), d);
+            spannableString.setSpan(new ImageSpan(j2, 1), 0, this.b.length(), 33);
         }
         return spannableString;
     }
 
-    public final String e() {
+    public String e() {
         return this.g;
     }
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optInt("type", 0);
@@ -164,7 +166,7 @@ public final class f {
                     }
                 } else if (this.a == 4) {
                     this.b = jSONObject.optString("text");
-                    this.g = jSONObject.optString("uid");
+                    this.g = jSONObject.optString(SapiAccountManager.SESSION_UID);
                 } else if (this.a == 11) {
                     this.c = jSONObject.optString("c");
                 } else {
@@ -180,7 +182,7 @@ public final class f {
                     this.g = this.g.replaceAll(IOUtils.LINE_SEPARATOR_UNIX, "");
                 }
             } catch (Exception e2) {
-                com.baidu.adp.lib.util.f.b("ContentData", "parserJson", "error = " + e2.getMessage());
+                BdLog.e("ContentData", "parserJson", "error = " + e2.getMessage());
             }
         }
     }

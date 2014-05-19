@@ -7,15 +7,21 @@ import android.net.Uri;
 import android.os.Build;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
+import android.webkit.WebSettings;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.account.AccountLoginHelper;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(String str, String str2) {
         String str3;
-        if (!str.startsWith(com.baidu.loginshare.e.f)) {
-            str = com.baidu.loginshare.e.f.concat(str);
+        if (!str.startsWith("http://")) {
+            str = "http://".concat(str);
         }
         if (str.contains("?")) {
             str3 = "&st_type=" + str2;
@@ -26,31 +32,30 @@ public final class a {
     }
 
     public static void a(Context context, String str, boolean z) {
-        com.baidu.tbadk.core.a.n a = com.baidu.tbadk.core.a.a.a(TbadkApplication.D());
-        String b = b(a(str));
-        if (a != null) {
-            WebTbActivity.a(context, b, a.a, a.b);
-        } else {
-            WebTbActivity.a(context, b, null, null);
+        if (z) {
+            AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
+            TbWebViewActivity.b(context, "", b(a(str)));
+            return;
         }
+        a(context, str);
     }
 
     public static void a(Context context, String str) {
         try {
             int b = com.baidu.adp.lib.a.f.a().b("baidu_webview");
-            com.baidu.tbadk.core.a.n a = com.baidu.tbadk.core.a.a.a(TbadkApplication.D());
+            AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
             String b2 = b(a(str));
             if (b2.indexOf("tbwebview=1") > 0) {
-                TbWebViewActivity.a(context, b2, true, null);
+                TbWebViewActivity.a(context, b2, true, (HashMap<String, r>) null);
             } else if (b == 1) {
-                if (a != null) {
-                    WebTbActivity.a(context, b2, a.a, a.b);
+                if (parseBDUSS != null) {
+                    WebTbActivity.a(context, b2, parseBDUSS.mBduss, parseBDUSS.mPtoken);
                 } else {
                     WebTbActivity.a(context, b2, null, null);
                 }
             } else if (Build.VERSION.SDK_INT >= 7 && b == 0) {
-                if (a != null) {
-                    WebBdActivity.a(context, b2, a.a, a.b);
+                if (parseBDUSS != null) {
+                    WebBdActivity.a(context, b2, parseBDUSS.mBduss, parseBDUSS.mPtoken);
                 } else {
                     WebBdActivity.a(context, b2, null, null);
                 }
@@ -58,7 +63,7 @@ public final class a {
                 c(context, b2);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("UtilHelper", "startWebActivity", e.getMessage());
+            BdLog.e("UtilHelper", "startWebActivity", e.getMessage());
         }
     }
 
@@ -66,20 +71,20 @@ public final class a {
         String b = b(a(str));
         try {
             int b2 = com.baidu.adp.lib.a.f.a().b("baidu_webview");
-            com.baidu.tbadk.core.a.n a = com.baidu.tbadk.core.a.a.a(TbadkApplication.D());
+            AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
             if (!(b.indexOf("tbwebview=1") > 0) && Build.VERSION.SDK_INT > 7 && b2 == 0) {
-                if (a != null) {
-                    WebBdActivity.a(context, b, a.a, a.b);
+                if (parseBDUSS != null) {
+                    WebBdActivity.a(context, b, parseBDUSS.mBduss, parseBDUSS.mPtoken);
                 } else {
                     WebBdActivity.a(context, b, null, null);
                 }
-            } else if (a != null) {
-                WebTbActivity.a(context, b, a.a, a.b);
+            } else if (parseBDUSS != null) {
+                WebTbActivity.a(context, b, parseBDUSS.mBduss, parseBDUSS.mPtoken);
             } else {
                 WebTbActivity.a(context, b, null, null);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("UtilHelper", "startInternalWebActivity", e.getMessage());
+            BdLog.e("UtilHelper", "startInternalWebActivity", e.getMessage());
         }
     }
 
@@ -93,12 +98,12 @@ public final class a {
             }
             context.startActivity(intent);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("UtilHelper", "startExternWebActivity", e.getMessage());
+            BdLog.e("UtilHelper", "startExternWebActivity", e.getMessage());
         }
     }
 
-    private static String a(String str) {
-        if (bc.c(str) || str.indexOf("cuid=") < 0) {
+    public static String a(String str) {
+        if (be.c(str) || str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -107,7 +112,7 @@ public final class a {
                 sb.append("?");
             }
             sb.append("cuid=");
-            sb.append(TbadkApplication.j().z());
+            sb.append(TbadkApplication.m252getInst().getCuid());
             sb.append("&timestamp=");
             sb.append(Long.toString(System.currentTimeMillis()));
             return sb.toString();
@@ -115,21 +120,25 @@ public final class a {
         return str;
     }
 
-    private static String b(String str) {
-        return (bc.c(str) || str.indexOf("_client_version=") < 0) ? String.valueOf(str) + "&_client_version=" + com.baidu.tbadk.core.data.n.c() : str;
+    public static String b(String str) {
+        return (be.c(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     public static void a(Context context) {
-        com.baidu.tbadk.core.a.n a = com.baidu.tbadk.core.a.a.a(TbadkApplication.D());
+        AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
         CookieSyncManager.createInstance(context);
         CookieManager cookieManager = CookieManager.getInstance();
-        if (a != null) {
+        if (parseBDUSS != null) {
             cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "BDUSS=" + a.a + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + a.b + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "BDUSS=" + parseBDUSS.mBduss + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + parseBDUSS.mPtoken + "; domain=.baidu.com;");
         } else {
             cookieManager.removeAllCookie();
         }
         CookieSyncManager.getInstance().sync();
+    }
+
+    public static void a(WebSettings webSettings) {
+        CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 }

@@ -9,57 +9,77 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
+import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes.dex */
-public class FacePackageDetailActivity extends com.baidu.tbadk.a {
-    private am a;
-    private ao b;
-    private at c;
-    private z d;
+public class FacePackageDetailActivity extends BaseActivity {
+    private an a;
+    private ap b;
+    private au c;
+    private aa d;
     private boolean e = false;
     private final Rect f = new Rect();
-    private final com.baidu.tbadk.core.view.m g = new ag(this);
-    private final com.baidu.tbadk.d h = new ah(this, this);
-    private final com.baidu.adp.framework.c.a i = new ai(this, 2001122);
+    private final com.baidu.tbadk.core.view.m g = new ah(this);
+    private final BaseActivity.LoadDataCallBack h = new ai(this, this);
+    private final CustomMessageListener i = new aj(this, MessageTypes.CMD_FILE_DOWNLOAD);
 
     static {
-        TbadkApplication.j().a(com.baidu.tbadk.core.b.i.class, FacePackageDetailActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.j.class, FacePackageDetailActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new am();
-        if (bundle != null) {
-            this.a.c(bundle.getString("st_type"));
-            this.a.b(bundle.getString("pkg_id"));
-            this.a.a(bundle.getBoolean("is_downloading"));
-        } else {
-            this.a.c(getIntent().getStringExtra("st_type"));
-            this.a.b(getIntent().getStringExtra("pkg_id"));
-            this.a.a(getIntent().getBooleanExtra("is_downloading", false));
-            com.baidu.tbadk.core.g.a(this, getIntent().getStringExtra("st_type"));
-        }
-        this.a.a(this.h);
-        this.b = new ao(this);
-        this.b.a(this.g);
-        registerListener(this.i);
-        g.a();
+        a(bundle);
+        e();
         a();
     }
 
-    public final void a() {
+    private void e() {
+        this.b = new ap(this);
+        f();
+        registerListener(this.i);
+        g.a();
+    }
+
+    private void a(Bundle bundle) {
+        this.a = new an();
+        if (bundle != null) {
+            this.a.c(bundle.getString(com.baidu.tbadk.core.frameworkData.a.ST_TYPE));
+            this.a.b(bundle.getString(com.baidu.tbadk.core.frameworkData.a.PKG_ID));
+            this.a.a(bundle.getBoolean(com.baidu.tbadk.core.frameworkData.a.IS_DOWNLOADING));
+        } else {
+            this.a.c(getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE));
+            this.a.b(getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.PKG_ID));
+            this.a.a(getIntent().getBooleanExtra(com.baidu.tbadk.core.frameworkData.a.IS_DOWNLOADING, false));
+            com.baidu.tbadk.core.g.a(this, getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE));
+        }
+        this.a.a(this.h);
+    }
+
+    public void a() {
         showProgressBar();
         this.a.g();
     }
 
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
+    private void f() {
+        this.b.a(this.g);
+    }
+
+    private void g() {
+        this.b.b(this.g);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.a != null && this.b != null) {
-            if (view == this.b.h()) {
-                if (!TbadkApplication.F()) {
+            if (view == this.b.j()) {
+                if (!TbadkApplication.isLogin()) {
                     LoginActivity.a((Activity) this, (String) null, true, 11003);
                     return;
                 } else if (this.e) {
@@ -68,13 +88,12 @@ public class FacePackageDetailActivity extends com.baidu.tbadk.a {
                         case 3:
                             com.baidu.tbadk.core.g.a(this, "emotion_package_detail_free");
                             String b = this.a.b();
-                            com.baidu.tieba.download.a aVar = new com.baidu.tieba.download.a(this.a.e());
-                            aVar.a(1);
-                            aVar.e((String) null);
-                            aVar.b(11);
-                            g.a();
-                            g.a(aVar);
-                            if (!com.baidu.tbadk.core.util.bc.c(b)) {
+                            DownloadData downloadData = new DownloadData(this.a.e());
+                            downloadData.setStatus(1);
+                            downloadData.setStatusMsg(null);
+                            downloadData.setType(11);
+                            g.a().a(downloadData);
+                            if (!com.baidu.tbadk.core.util.be.c(b)) {
                                 if (this.a.a() != null && this.a.a().facePackage != null) {
                                     a(this.a.e(), this.a.a().facePackage.pname, b);
                                     break;
@@ -82,70 +101,68 @@ public class FacePackageDetailActivity extends com.baidu.tbadk.a {
                                     return;
                                 }
                             } else {
-                                d();
+                                h();
                                 break;
                             }
                             break;
                         case 4:
                             com.baidu.tbadk.core.g.a(this, "emotion_package_detail_buy");
-                            e();
+                            b();
                             break;
                     }
                 } else {
                     return;
                 }
-            } else if (view == this.b.i()) {
-                com.baidu.tieba.download.a aVar2 = new com.baidu.tieba.download.a(this.a.e());
-                aVar2.a(4);
-                aVar2.e((String) null);
-                aVar2.b(11);
-                g.a();
-                g.a(aVar2);
+            } else if (view == this.b.k()) {
+                DownloadData downloadData2 = new DownloadData(this.a.e());
+                downloadData2.setStatus(4);
+                downloadData2.setStatusMsg(null);
+                downloadData2.setType(11);
+                g.a().a(downloadData2);
                 this.a.a(false);
-                g.a();
-                g.a(this.a.e());
+                g.a().a(this.a.e());
             }
             super.onClick(view);
         }
     }
 
-    private void d() {
-        this.c = new at();
+    private void h() {
+        this.c = new au();
         this.c.a(this.a.e());
-        com.baidu.tieba.download.a aVar = new com.baidu.tieba.download.a(this.a.e());
-        aVar.b(11);
-        aVar.a(2);
-        aVar.e(getResources().getString(com.baidu.tieba.a.k.neterror));
-        this.c.setLoadDataCallBack(new aj(this, aVar));
+        DownloadData downloadData = new DownloadData(this.a.e());
+        downloadData.setType(11);
+        downloadData.setStatus(2);
+        downloadData.setStatusMsg(getResources().getString(com.baidu.tieba.u.neterror));
+        this.c.setLoadDataCallBack(new ak(this, downloadData));
     }
 
-    public static void a(String str, String str2, String str3) {
+    public void a(String str, String str2, String str3) {
         g.a().a(str, str2, str3);
     }
 
-    private void e() {
+    public void b() {
         showProgressBar();
         String e = this.a.e();
-        this.d = new z();
-        this.d.setLoadDataCallBack(new ak(this));
+        this.d = new aa();
+        this.d.setLoadDataCallBack(new al(this));
         this.d.a(e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         if (this.b != null) {
-            this.b.f();
+            this.b.h();
         }
         super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.b != null) {
-            this.b.g();
+            this.b.i();
         }
         if (this.a != null) {
             this.a.cancelLoadData();
@@ -156,11 +173,11 @@ public class FacePackageDetailActivity extends com.baidu.tbadk.a {
         if (this.d != null) {
             this.d.cancelLoadData();
         }
-        this.b.b(this.g);
+        g();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         if (this.b != null) {
             this.b.a(i);
@@ -168,13 +185,13 @@ public class FacePackageDetailActivity extends com.baidu.tbadk.a {
         super.onChangeSkinType(i);
     }
 
-    public final void b() {
-        this.b.e();
-        d();
+    public void c() {
+        this.b.g();
+        h();
     }
 
-    public final void c() {
-        this.b.d();
+    public void d() {
+        this.b.f();
     }
 
     @Override // android.app.Activity
@@ -184,25 +201,25 @@ public class FacePackageDetailActivity extends com.baidu.tbadk.a {
             if (i == 10001) {
                 String stringExtra = intent.getStringExtra("tag_order_id");
                 if (this.a.a().facePackage != null) {
-                    if (com.baidu.tbadk.core.util.bc.c(stringExtra)) {
+                    if (com.baidu.tbadk.core.util.be.c(stringExtra)) {
                         stringExtra = this.a.f();
                     }
-                    this.b.c();
-                    this.d = new z();
-                    this.d.setLoadDataCallBack(new al(this));
+                    this.b.e();
+                    this.d = new aa();
+                    this.d.setLoadDataCallBack(new am(this));
                     this.d.b(stringExtra);
                 }
             } else if (i == 11003) {
                 if (this.a.a().facePackage.canDownload == 1) {
-                    d();
+                    h();
                 } else {
-                    e();
+                    b();
                 }
             }
         }
     }
 
-    @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemLongClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         a(view, i);
         return true;
@@ -219,23 +236,23 @@ public class FacePackageDetailActivity extends com.baidu.tbadk.a {
         }
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.Window.Callback
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.b.j()) {
+        if (this.b.l()) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
-                    this.b.k();
+                    this.b.m();
                     break;
                 case 2:
                     int x = (int) motionEvent.getX();
                     int y = (int) motionEvent.getY();
                     this.f.set(x, y, x + 1, y + 1);
-                    GridView m = this.b.m();
-                    ((ViewGroup) getWindow().getDecorView()).offsetRectIntoDescendantCoords(m, this.f);
-                    int pointToPosition = m.pointToPosition(this.f.left, this.f.top);
+                    GridView o = this.b.o();
+                    ((ViewGroup) getWindow().getDecorView()).offsetRectIntoDescendantCoords(o, this.f);
+                    int pointToPosition = o.pointToPosition(this.f.left, this.f.top);
                     if (pointToPosition != -1) {
-                        a(m.getChildAt(pointToPosition - m.getFirstVisiblePosition()), pointToPosition);
+                        a(o.getChildAt(pointToPosition - o.getFirstVisiblePosition()), pointToPosition);
                         break;
                     }
                     break;
@@ -248,6 +265,6 @@ public class FacePackageDetailActivity extends com.baidu.tbadk.a {
     @Override // android.app.Activity, android.view.Window.Callback
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.b.l();
+        this.b.n();
     }
 }

@@ -1,23 +1,24 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
-public class UpdateAttentionMessage extends CustomResponsedMessage<d> {
-    public UpdateAttentionMessage(d dVar) {
-        super(2001118, dVar);
+public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
+    public UpdateAttentionMessage(a aVar) {
+        super(MessageTypes.CMD_UPDATE_ATTENTION, aVar);
     }
 
-    public final boolean b() {
-        if (a() == null || !(a() instanceof d)) {
+    public boolean isSucc() {
+        if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return a().a;
+        return getData().a;
     }
 
-    public final boolean c() {
-        if (a() == null || !(a() instanceof d)) {
+    public boolean isAttention() {
+        if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return a().d;
+        return getData().d;
     }
 }

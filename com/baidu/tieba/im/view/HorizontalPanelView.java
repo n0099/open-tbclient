@@ -9,11 +9,15 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.b.ag;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.at;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bn;
 import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.br;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.s;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -51,30 +55,30 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
         a(context);
     }
 
-    public final boolean a() {
+    public boolean a() {
         return this.h;
     }
 
-    public final void b() {
+    public void b() {
         if (this.e == null) {
-            this.e = AnimationUtils.loadAnimation(this.a, com.baidu.tieba.im.c.panel_fold_up);
+            this.e = AnimationUtils.loadAnimation(this.a, com.baidu.tieba.l.panel_fold_up);
             this.e.setAnimationListener(new i(this));
         }
         startAnimation(this.e);
         this.h = true;
     }
 
-    public final void c() {
+    public void c() {
         if (this.f == null) {
-            this.f = AnimationUtils.loadAnimation(this.a, com.baidu.tieba.im.c.panel_fold_down);
+            this.f = AnimationUtils.loadAnimation(this.a, com.baidu.tieba.l.panel_fold_down);
         }
         this.d.setVisibility(0);
         startAnimation(this.f);
         this.h = false;
     }
 
-    public final void a(UserData userData) {
-        bn.a((ViewGroup) this.d, false, (bp) new j(this, userData));
+    public void a(UserData userData) {
+        bp.a((ViewGroup) this.d, false, (br) new j(this, userData));
     }
 
     public void setData(List<UserData> list) {
@@ -91,9 +95,9 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
                     headImageView.setUserId(String.valueOf(userData.getUserId()));
                     headImageView.setUserName(userData.getUserName());
                     headImageView.setUrl(userData.getPortrait());
-                    int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.horizontal_panel_view_item);
+                    int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.horizontal_panel_view_item);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
-                    layoutParams.rightMargin = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.default_gap_6);
+                    layoutParams.rightMargin = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.default_gap_6);
                     layoutParams.gravity = 16;
                     headImageView.setOnClickListener(this);
                     this.d.addView(headImageView, layoutParams);
@@ -104,32 +108,36 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
                         }
                         this.b.c(userData.getPortrait(), new k(this));
                     } else {
-                        com.baidu.adp.lib.util.f.b("HorizontalPanelView not Portrait");
+                        BdLog.e("HorizontalPanelView not Portrait");
                     }
                 }
             }
         }
     }
 
-    private void a(Context context) {
+    public void a(Context context) {
         this.a = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.im.i.horizontal_panel_view, (ViewGroup) this, true);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(s.horizontal_panel_view, (ViewGroup) this, true);
         setOrientation(1);
-        this.d = (LinearLayout) findViewById(com.baidu.tieba.im.h.user_layout);
+        this.d = (LinearLayout) findViewById(com.baidu.tieba.r.user_layout);
         this.b = new com.baidu.tbadk.core.util.b(this.a);
         setHorizontalScrollBarEnabled(false);
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
+    public void d() {
         if (this.b != null) {
-            this.b.c();
+            this.b.d();
             this.b = null;
         }
         if (this.g != null) {
             this.g.clear();
         }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        d();
     }
 
     @Override // android.view.View.OnClickListener
@@ -139,13 +147,13 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
                 HeadImageView headImageView = (HeadImageView) view;
                 if (!TextUtils.isEmpty(headImageView.getUserId())) {
                     com.baidu.tbadk.core.g.a(getContext(), "snap_chat_member_head_click");
-                    com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new ag(this.a, headImageView.getUserId(), headImageView.getUserName())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new at(this.a, headImageView.getUserId(), headImageView.getUserName())));
                     return;
                 }
-                com.baidu.adp.lib.util.f.e("no user id");
+                BdLog.d("no user id");
                 return;
             }
-            com.baidu.adp.lib.util.f.e("not image view");
+            BdLog.d("not image view");
         }
     }
 }

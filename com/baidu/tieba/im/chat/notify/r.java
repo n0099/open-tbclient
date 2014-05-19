@@ -1,43 +1,29 @@
 package com.baidu.tieba.im.chat.notify;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.chat.snapGroup.SnapGroupChatActivity;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.message.PushMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class r {
-    ViewGroup a;
-    HeadImageView b;
-    TextView c;
-    TextView d;
-    TextView e;
-    TextView f;
-    View g;
-    ViewGroup h;
-    TextView i;
-    ProgressBar j;
-    ImageView k;
-    final /* synthetic */ q l;
-
-    private r(q qVar) {
-        this.l = qVar;
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-    }
+public class r extends CustomMessageListener {
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ r(q qVar, byte b) {
-        this(qVar);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r(b bVar, int i) {
+        super(i);
+        this.a = bVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        GroupNewsPojo p;
+        if (customResponsedMessage == null || !(customResponsedMessage instanceof PushMessage) || (p = ((PushMessage) customResponsedMessage).getP()) == null || !p.getGid().equals(SnapGroupChatActivity.b)) {
+            this.a.j();
+        }
     }
 }

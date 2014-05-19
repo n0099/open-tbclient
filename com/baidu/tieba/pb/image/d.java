@@ -1,9 +1,10 @@
 package com.baidu.tieba.pb.image;
 
 import com.baidu.tbadk.editortool.EmotionTabHost;
-import com.baidu.tieba.view.KeyboardLayout;
+import com.baidu.tbadk.widget.KeyboardLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class d implements Runnable {
+public class d implements Runnable {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +13,10 @@ final class d implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         EmotionTabHost emotionTabHost;
         KeyboardLayout keyboardLayout;
-        com.baidu.tieba.view.s sVar;
+        com.baidu.tbadk.widget.j jVar;
         EmotionTabHost emotionTabHost2;
         emotionTabHost = this.a.n;
         if (emotionTabHost.getVisibility() != 0) {
@@ -23,7 +24,7 @@ final class d implements Runnable {
             emotionTabHost2.setVisibility(0);
         }
         keyboardLayout = this.a.r;
-        sVar = this.a.T;
-        keyboardLayout.setOnkbdStateListener(sVar);
+        jVar = this.a.T;
+        keyboardLayout.setOnkbdStateListener(jVar);
     }
 }

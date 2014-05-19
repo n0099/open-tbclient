@@ -3,8 +3,9 @@ package com.baidu.tieba.frs;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
-final class u implements bf {
+class u implements bj {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,44 +13,36 @@ final class u implements bf {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.bf
-    public final void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.o oVar) {
-        cm cmVar;
-        cm cmVar2;
-        cm cmVar3;
+    @Override // com.baidu.tieba.frs.bj
+    public void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.o oVar) {
+        cs csVar;
+        cs csVar2;
+        cs csVar3;
         String str;
-        cm cmVar4;
         boolean z;
-        de unused;
-        cmVar = this.a.r;
-        cmVar.u();
-        if (i != ay.g() || view2 == null || view == null) {
-            cmVar2 = this.a.r;
-            cmVar2.u();
-            if (i == ay.f()) {
-                this.a.f = oVar;
-                z = this.a.e;
+        dm dmVar;
+        csVar = this.a.w;
+        if (i != csVar.v().f() || view2 == null || view == null) {
+            csVar2 = this.a.w;
+            if (i == csVar2.v().e()) {
+                this.a.j = oVar;
+                z = this.a.i;
                 if (!z) {
-                    this.a.e = true;
-                    unused = this.a.aq;
-                    de.a(oVar.j(), oVar.m(), oVar.k().getIsLike(), "frs");
+                    this.a.i = true;
+                    dmVar = this.a.av;
+                    dmVar.a(oVar.i(), oVar.l(), oVar.j().getIsLike(), "frs");
                     return;
                 }
                 return;
             }
-            cmVar3 = this.a.r;
-            cmVar3.u();
-            if (i != ay.h()) {
-                cmVar4 = this.a.r;
-                cmVar4.u();
-                if (i != ay.i()) {
-                    return;
-                }
+            csVar3 = this.a.w;
+            if (i == csVar3.v().g()) {
+                FrsActivity frsActivity = this.a;
+                com.baidu.tbadk.core.atomData.as asVar = new com.baidu.tbadk.core.atomData.as(this.a);
+                str = this.a.n;
+                frsActivity.sendMessage(new CustomMessage(2006001, asVar.a(oVar, str, null, 18003, true, false, false)));
+                return;
             }
-            FrsActivity frsActivity = this.a;
-            com.baidu.tbadk.core.b.af afVar = new com.baidu.tbadk.core.b.af(this.a);
-            str = this.a.i;
-            frsActivity.sendMessage(new com.baidu.adp.framework.message.a(2004001, afVar.a(oVar, str, null, 18003, true, false, false)));
             return;
         }
         Rect rect = new Rect();

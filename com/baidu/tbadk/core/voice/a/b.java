@@ -1,12 +1,12 @@
 package com.baidu.tbadk.core.voice.a;
 
 import android.content.Context;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.l;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.u;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b extends com.baidu.adp.lib.e.a<d> {
+public class b extends com.baidu.adp.lib.e.a<d> {
     final /* synthetic */ a a;
     private final /* synthetic */ c b;
 
@@ -16,20 +16,19 @@ public final class b extends com.baidu.adp.lib.e.a<d> {
         this.b = cVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.String, com.baidu.adp.lib.e.e] */
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.e.a
-    public final /* synthetic */ void a(d dVar, String str, com.baidu.adp.lib.e.e eVar) {
+    public void a(d dVar, String str, com.baidu.adp.lib.e.e eVar) {
         Context context;
         LinkedList linkedList;
-        d dVar2 = dVar;
-        super.a(dVar2, str, eVar);
-        if (dVar2 != null) {
-            this.b.a(dVar2.b, dVar2.a, dVar2.c, dVar2.d);
+        super.a((b) dVar, str, eVar);
+        if (dVar != null) {
+            this.b.a(dVar.b, dVar.a, dVar.c, dVar.d);
         } else {
             c cVar = this.b;
             context = this.a.b;
-            cVar.a(null, null, 1, context.getString(l.voice_cache_error_internal));
+            cVar.a(null, null, 1, context.getString(u.voice_cache_error_internal));
         }
         linkedList = this.a.a;
         linkedList.remove(str);
@@ -37,12 +36,12 @@ public final class b extends com.baidu.adp.lib.e.a<d> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.e.a
-    public final void b(String str, com.baidu.adp.lib.e.e eVar) {
+    public void c(String str, com.baidu.adp.lib.e.e eVar) {
         LinkedList linkedList;
-        ak akVar;
-        super.b(str, eVar);
-        if (eVar != null && (akVar = (ak) eVar.a("network")) != null) {
-            akVar.g();
+        al alVar;
+        super.c(str, eVar);
+        if (eVar != null && (alVar = (al) eVar.a("network")) != null) {
+            alVar.g();
         }
         linkedList = this.a.a;
         linkedList.remove(str);

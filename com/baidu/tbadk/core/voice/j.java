@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.voice;
 /* loaded from: classes.dex */
 public interface j extends com.baidu.adp.lib.voice.b {
-    void b(int i);
+    void a(int i);
 }

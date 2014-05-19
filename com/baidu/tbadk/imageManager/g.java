@@ -1,38 +1,41 @@
 package com.baidu.tbadk.imageManager;
+
+import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class g extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.b> {
+public class g extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.a.a> {
     final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(e eVar, int i) {
-        super(0);
+        super(i);
         this.a = eVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [boolean, java.lang.Object, java.lang.Object, java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.d.a
-    protected final /* synthetic */ void a(boolean z, String str, com.baidu.adp.widget.ImageView.b bVar, com.baidu.adp.widget.ImageView.b bVar2) {
-        com.baidu.adp.lib.d.a aVar;
-        com.baidu.adp.widget.ImageView.b bVar3 = bVar;
-        if (bVar3 != null) {
-            if (com.baidu.adp.lib.util.f.a()) {
-                StringBuilder append = new StringBuilder("pic removed from cache:").append(bVar3.j()).append(", size:").append(bVar3.f()).append("/");
-                aVar = this.a.c;
-                com.baidu.adp.lib.util.f.e(append.append(aVar.b()).toString());
-            }
-            bVar3.g();
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
-    @Override // com.baidu.adp.lib.d.a
-    protected final /* synthetic */ int b(String str, com.baidu.adp.widget.ImageView.b bVar) {
-        com.baidu.adp.widget.ImageView.b bVar2 = bVar;
-        if (bVar2 != null) {
-            return bVar2.f();
+    /* renamed from: a */
+    public int b(String str, com.baidu.adp.widget.a.a aVar) {
+        if (aVar != null) {
+            return aVar.f();
         }
         return 0;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.d.a
+    public void a(boolean z, String str, com.baidu.adp.widget.a.a aVar, com.baidu.adp.widget.a.a aVar2) {
+        com.baidu.adp.lib.d.a aVar3;
+        if (aVar != null) {
+            if (BdLog.isDebugMode()) {
+                StringBuilder append = new StringBuilder("pic removed from cache:").append(aVar.k()).append(", size:").append(aVar.f()).append("/");
+                aVar3 = this.a.c;
+                BdLog.d(append.append(aVar3.c()).toString());
+            }
+            aVar.g();
+        }
     }
 }

@@ -12,10 +12,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Scroller;
 import android.widget.TextView;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import java.util.Random;
 /* loaded from: classes.dex */
-public final class u extends FrameLayout {
+public class u extends FrameLayout {
     private int a;
     private final int b;
     private Context c;
@@ -34,41 +35,45 @@ public final class u extends FrameLayout {
         super(context);
         this.a = 0;
         this.b = 180;
-        this.j = 2000;
+        this.j = TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI;
         this.k = new v(this);
         this.l = new w(this);
         this.m = new x(this);
-        this.c = getContext();
-        ((LayoutInflater) this.c.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.signallforum_progress_view, this);
-        this.d = (ProgressBar) findViewById(com.baidu.tieba.a.h.signallforum_progress);
-        this.e = (ImageView) findViewById(com.baidu.tieba.a.h.signallforum_icon);
-        this.f = (TextView) findViewById(com.baidu.tieba.a.h.signallforun_status);
-        this.g = (TextView) findViewById(com.baidu.tieba.a.h.signallforun_message1);
-        this.h = (TextView) findViewById(com.baidu.tieba.a.h.signallforun_message2);
         b();
+    }
+
+    private void b() {
+        this.c = getContext();
+        ((LayoutInflater) this.c.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.signallforum_progress_view, this);
+        this.d = (ProgressBar) findViewById(com.baidu.tieba.r.signallforum_progress);
+        this.e = (ImageView) findViewById(com.baidu.tieba.r.signallforum_icon);
+        this.f = (TextView) findViewById(com.baidu.tieba.r.signallforun_status);
+        this.g = (TextView) findViewById(com.baidu.tieba.r.signallforun_message1);
+        this.h = (TextView) findViewById(com.baidu.tieba.r.signallforun_message2);
+        c();
         this.i = new Scroller(this.c, new DecelerateInterpolator());
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), com.baidu.tieba.a.g.bg_all_sign));
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), com.baidu.tieba.q.bg_all_sign));
         bitmapDrawable.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
         setBackgroundDrawable(bitmapDrawable);
     }
 
     @Override // android.view.View
-    protected final void onSizeChanged(int i, int i2, int i3, int i4) {
+    protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    protected final void onMeasure(int i, int i2) {
-        super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.util.i.a(this.c, 180.0f), 1073741824));
+    protected void onMeasure(int i, int i2) {
+        super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.util.h.a(this.c, 180.0f), 1073741824));
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    protected final void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5 = (i3 - i) / 2;
         int measuredWidth = this.d.getMeasuredWidth();
         int measuredHeight = this.d.getMeasuredHeight();
         int i6 = i5 - (measuredWidth / 2);
-        int a = com.baidu.adp.lib.util.i.a(this.c, 16.0f);
+        int a = com.baidu.adp.lib.util.h.a(this.c, 16.0f);
         int i7 = measuredHeight + a;
         this.d.layout(i6, a, measuredWidth + i6, i7);
         int measuredWidth2 = this.e.getMeasuredWidth();
@@ -80,12 +85,12 @@ public final class u extends FrameLayout {
         int measuredWidth3 = this.f.getMeasuredWidth();
         int measuredHeight4 = this.f.getMeasuredHeight();
         int i10 = i5 - (measuredWidth3 / 2);
-        int a2 = i9 + com.baidu.adp.lib.util.i.a(this.c, 10.0f);
+        int a2 = i9 + com.baidu.adp.lib.util.h.a(this.c, 10.0f);
         this.f.layout(i10, a2, measuredWidth3 + i10, measuredHeight4 + a2);
         int measuredWidth4 = this.g.getMeasuredWidth();
         int measuredHeight5 = this.g.getMeasuredHeight();
         int i11 = i5 - (measuredWidth4 / 2);
-        int a3 = com.baidu.adp.lib.util.i.a(this.c, 125.0f);
+        int a3 = com.baidu.adp.lib.util.h.a(this.c, 125.0f);
         int i12 = measuredHeight5 + a3;
         this.g.layout(i11, a3, measuredWidth4 + i11, i12);
         int measuredWidth5 = this.h.getMeasuredWidth();
@@ -94,27 +99,27 @@ public final class u extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected final void dispatchSetPressed(boolean z) {
+    protected void dispatchSetPressed(boolean z) {
     }
 
-    private void b() {
+    private void c() {
         removeCallbacks(this.k);
         removeCallbacks(this.l);
-        boolean z = TbadkApplication.j().l() == 1;
+        boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
         switch (this.a) {
             case 0:
                 this.d.setClickable(true);
                 this.d.setProgress(0);
                 this.d.setSecondaryProgress(0);
-                this.d.setBackgroundResource(com.baidu.tieba.a.g.btn_all_sign);
-                this.f.setText(com.baidu.tieba.a.k.signallforum_begin);
+                this.d.setBackgroundResource(com.baidu.tieba.q.btn_all_sign);
+                this.f.setText(com.baidu.tieba.u.signallforum_begin);
                 return;
             case 1:
                 post(this.m);
                 this.d.setClickable(false);
-                this.d.setBackgroundResource(com.baidu.tieba.a.g.bg_all_sign_conduct);
-                this.e.setImageResource(z ? com.baidu.tieba.a.g.icon_all_sign_d_1 : com.baidu.tieba.a.g.icon_all_sign_d);
-                this.f.setText(com.baidu.tieba.a.k.signallforum_ing);
+                this.d.setBackgroundResource(com.baidu.tieba.q.bg_all_sign_conduct);
+                this.e.setImageResource(z ? com.baidu.tieba.q.icon_all_sign_d_1 : com.baidu.tieba.q.icon_all_sign_d);
+                this.f.setText(com.baidu.tieba.u.signallforum_ing);
                 int nextInt = ((new Random(System.currentTimeMillis()).nextInt(30) + 50) * this.d.getMax()) / 100;
                 if (nextInt - this.d.getProgress() < 0) {
                     this.i.startScroll(nextInt, 0, this.d.getProgress() - nextInt, 0, this.j);
@@ -125,60 +130,60 @@ public final class u extends FrameLayout {
                 return;
             case 2:
                 this.d.setClickable(true);
-                this.d.setBackgroundResource(z ? com.baidu.tieba.a.g.bg_all_sign_d_1 : com.baidu.tieba.a.g.bg_all_sign_d);
+                this.d.setBackgroundResource(z ? com.baidu.tieba.q.bg_all_sign_d_1 : com.baidu.tieba.q.bg_all_sign_d);
                 this.d.setProgress(0);
-                this.e.setImageResource(z ? com.baidu.tieba.a.g.bg_all_sign_ok_1 : com.baidu.tieba.a.g.bg_all_sign_ok);
-                this.f.setText(com.baidu.tieba.a.k.signallforum_success);
+                this.e.setImageResource(z ? com.baidu.tieba.q.bg_all_sign_ok_1 : com.baidu.tieba.q.bg_all_sign_ok);
+                this.f.setText(com.baidu.tieba.u.signallforum_success);
                 return;
             default:
                 return;
         }
     }
 
-    public final int getCurrentStatus() {
+    public int getCurrentStatus() {
         return this.a;
     }
 
-    public final void setSigning(int i) {
+    public void setSigning(int i) {
         if (this.a != 1 && this.a == 0) {
             this.d.setProgress(i);
             this.a = 1;
-            b();
+            c();
         }
     }
 
-    public final void a() {
+    public void a() {
         if (this.a != 2) {
             this.a = 2;
-            b();
+            c();
         }
     }
 
-    public final ProgressBar getProgressBar() {
+    public ProgressBar getProgressBar() {
         return this.d;
     }
 
-    public final ImageView getIcon() {
+    public ImageView getIcon() {
         return this.e;
     }
 
-    public final TextView getmStatus() {
+    public TextView getmStatus() {
         return this.f;
     }
 
-    public final TextView getMessage1() {
+    public TextView getMessage1() {
         return this.g;
     }
 
-    public final TextView getMessage2() {
+    public TextView getMessage2() {
         return this.h;
     }
 
-    public final int getProgress() {
+    public int getProgress() {
         return this.d.getProgress();
     }
 
-    public final void setDuration(int i) {
+    public void setDuration(int i) {
         this.j = i;
     }
 }

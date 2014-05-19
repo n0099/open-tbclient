@@ -12,138 +12,143 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class y extends com.baidu.adp.a.f {
+public class y extends com.baidu.adp.base.e {
     public static int a;
-    private com.baidu.tbadk.a c;
-    private NavigationBar d;
-    private RelativeLayout e;
-    private u f;
-    private ProgressBar g;
-    private BdListView h;
-    private com.baidu.tbadk.core.view.q i;
-    private k j;
-    private a k;
-    private View l;
+    private BaseActivity b;
+    private NavigationBar c;
+    private RelativeLayout d;
+    private u e;
+    private ProgressBar f;
+    private BdListView g;
+    private com.baidu.tbadk.core.view.q h;
+    private k i;
+    private a j;
+    private View k;
+    private TextView l;
     private TextView m;
     private TextView n;
-    private TextView o;
 
-    public y(com.baidu.tbadk.a aVar) {
-        super(aVar);
-        this.i = null;
-        this.c = aVar;
-        this.c.setContentView(com.baidu.tieba.a.i.signallforum_view);
-        this.e = (RelativeLayout) this.c.findViewById(com.baidu.tieba.a.h.parent);
-        this.d = (NavigationBar) this.c.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.d.a(this.c.getString(com.baidu.tieba.a.k.signallforum));
-        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new z(this));
-        this.h = (BdListView) this.c.findViewById(com.baidu.tieba.a.h.signallforum_list);
-        this.h.setOnItemClickListener(aVar);
-        this.i = new com.baidu.tbadk.core.view.q(aVar);
-        this.h.setPullRefresh(this.i);
-        this.o = (TextView) this.c.getLayoutInflater().inflate(com.baidu.tieba.a.i.signallforum_maxcount_warning, (ViewGroup) null);
-        this.h.addFooterView(this.o);
-        this.f = new u(this.c);
-        this.g = this.f.getProgressBar();
-        this.g.setOnClickListener(this.c);
-        this.h.addHeaderView(this.f);
-        this.f.setVisibility(8);
-        this.l = this.c.getLayoutInflater().inflate(com.baidu.tieba.a.i.signallforum_header, (ViewGroup) null);
-        this.m = (TextView) this.l.findViewById(com.baidu.tieba.a.h.signallforum_head_title);
-        this.n = (TextView) this.l.findViewById(com.baidu.tieba.a.h.signallforum_head_res);
-        this.h.addHeaderView(this.l);
-        this.l.setVisibility(8);
-        this.j = new k(this.c, this.n);
-        this.h.setAdapter((ListAdapter) this.j);
-        this.h.setOnScrollListener(this.j);
+    public y(BaseActivity baseActivity) {
+        super(baseActivity);
+        this.h = null;
+        this.b = baseActivity;
+        this.b.setContentView(com.baidu.tieba.s.signallforum_view);
+        this.d = (RelativeLayout) this.b.findViewById(com.baidu.tieba.r.parent);
+        this.c = (NavigationBar) this.b.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.c.a(this.b.getString(com.baidu.tieba.u.signallforum));
+        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new z(this));
+        this.g = (BdListView) this.b.findViewById(com.baidu.tieba.r.signallforum_list);
+        this.g.setOnItemClickListener(baseActivity);
+        this.h = new com.baidu.tbadk.core.view.q(baseActivity);
+        this.g.setPullRefresh(this.h);
+        this.n = (TextView) this.b.getLayoutInflater().inflate(com.baidu.tieba.s.signallforum_maxcount_warning, (ViewGroup) null);
+        this.g.addFooterView(this.n);
+        this.e = new u(this.b);
+        this.f = this.e.getProgressBar();
+        this.f.setOnClickListener(this.b);
+        this.g.addHeaderView(this.e);
+        this.e.setVisibility(8);
+        this.k = this.b.getLayoutInflater().inflate(com.baidu.tieba.s.signallforum_header, (ViewGroup) null);
+        this.l = (TextView) this.k.findViewById(com.baidu.tieba.r.signallforum_head_title);
+        this.m = (TextView) this.k.findViewById(com.baidu.tieba.r.signallforum_head_res);
+        this.g.addHeaderView(this.k);
+        this.k.setVisibility(8);
+        this.i = new k(this.b, this.m);
+        this.g.setAdapter((ListAdapter) this.i);
+        this.g.setOnScrollListener(this.i);
     }
 
-    public final void a(int i) {
-        Resources resources = this.c.getResources();
-        this.c.getLayoutMode().a(i == 1);
-        this.c.getLayoutMode().a(this.e);
-        this.c.getLayoutMode().a(this.o);
+    public void a(int i) {
+        Resources resources = this.b.getResources();
+        this.b.getLayoutMode().a(i == 1);
+        this.b.getLayoutMode().a((View) this.d);
+        this.b.getLayoutMode().a(this.n);
         if (i == 1) {
-            this.e.setBackgroundColor(-13618114);
+            this.d.setBackgroundColor(-13618114);
         } else {
-            this.e.setBackgroundColor(-197380);
+            this.d.setBackgroundColor(-197380);
         }
-        this.d.b(i);
-        this.i.a(i);
-        int i2 = i == 1 ? com.baidu.tieba.a.g.bg_ba_catalogue_1 : com.baidu.tieba.a.g.bg_ba_catalogue;
-        int i3 = i == 1 ? com.baidu.tieba.a.e.forum_detail_ht_title_color_1 : com.baidu.tieba.a.e.forum_detail_ht_title_color;
-        this.l.setBackgroundResource(i2);
+        this.c.c(i);
+        this.h.a(i);
+        int i2 = i == 1 ? com.baidu.tieba.q.bg_ba_catalogue_1 : com.baidu.tieba.q.bg_ba_catalogue;
+        int i3 = i == 1 ? com.baidu.tieba.o.forum_detail_ht_title_color_1 : com.baidu.tieba.o.forum_detail_ht_title_color;
+        this.k.setBackgroundResource(i2);
+        this.l.setTextColor(resources.getColor(i3));
         this.m.setTextColor(resources.getColor(i3));
-        this.n.setTextColor(resources.getColor(i3));
-        this.j.notifyDataSetChanged();
+        this.i.notifyDataSetChanged();
     }
 
-    public final void a(a aVar) {
-        this.k = aVar;
-        if (this.k.i() == 0 || this.k.l().size() == this.k.j().size()) {
-            this.f.a();
-            int size = this.k.j().size();
-            int size2 = this.k.l().size();
-            this.n.setText(this.c.getString(com.baidu.tieba.a.k.signallforum_res, new Object[]{Integer.valueOf(size2), Integer.valueOf(size - size2)}));
-        } else {
-            this.n.setText(String.format(this.c.getString(com.baidu.tieba.a.k.signallforum_count), Integer.valueOf(this.k.j().size())));
-        }
-        TextView message1 = this.f.getMessage1();
-        SpannableString spannableString = new SpannableString(String.valueOf(this.k.b()) + this.k.c() + this.k.d());
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.parseColor("#56aeff"));
-        int length = this.k.b().length();
-        spannableString.setSpan(foregroundColorSpan, length, this.k.c().length() + length, 33);
-        message1.setText(spannableString);
-        this.f.getMessage2().setText(this.k.e());
-        this.m.setText(this.k.a());
-        this.l.setVisibility(0);
-        this.f.setVisibility(0);
+    public void a(a aVar) {
+        this.j = aVar;
+        h();
         ArrayList<b> j = aVar.j();
-        this.j.a(this.k);
+        this.i.a(this.j);
         if (j.size() == a) {
-            this.o.setVisibility(0);
-            this.o.setText(aVar.f());
+            this.n.setVisibility(0);
+            this.n.setText(aVar.f());
             return;
         }
-        this.o.setVisibility(8);
+        this.n.setVisibility(8);
     }
 
-    public final void a() {
-        this.h.c();
+    private void h() {
+        if (this.j.i() == 0 || this.j.l().size() == this.j.j().size()) {
+            this.e.a();
+            int size = this.j.j().size();
+            int size2 = this.j.l().size();
+            this.m.setText(this.b.getString(com.baidu.tieba.u.signallforum_res, new Object[]{Integer.valueOf(size2), Integer.valueOf(size - size2)}));
+        } else {
+            this.m.setText(String.format(this.b.getString(com.baidu.tieba.u.signallforum_count), Integer.valueOf(this.j.j().size())));
+        }
+        TextView message1 = this.e.getMessage1();
+        SpannableString spannableString = new SpannableString(String.valueOf(this.j.b()) + this.j.c() + this.j.d());
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.parseColor("#56aeff"));
+        int length = this.j.b().length();
+        spannableString.setSpan(foregroundColorSpan, length, this.j.c().length() + length, 33);
+        message1.setText(spannableString);
+        this.e.getMessage2().setText(this.j.e());
+        this.l.setText(this.j.a());
+        this.k.setVisibility(0);
+        this.e.setVisibility(0);
     }
 
-    public final void d() {
-        this.h.b();
+    public void a() {
+        this.g.d();
     }
 
-    public final void a(com.baidu.adp.widget.ListView.d dVar) {
-        this.i.a(dVar);
+    public void b() {
+        this.g.c();
     }
 
-    public final void a(AdapterView.OnItemClickListener onItemClickListener) {
-        this.h.setOnItemClickListener(onItemClickListener);
+    public void a(com.baidu.adp.widget.ListView.d dVar) {
+        this.h.a(dVar);
     }
 
-    public final u e() {
+    public void a(AdapterView.OnItemClickListener onItemClickListener) {
+        this.g.setOnItemClickListener(onItemClickListener);
+    }
+
+    public u c() {
+        return this.e;
+    }
+
+    public ProgressBar d() {
         return this.f;
     }
 
-    public final ProgressBar f() {
-        return this.g;
-    }
-
-    public final a g() {
-        return this.k;
-    }
-
-    public final k h() {
+    public a e() {
         return this.j;
     }
 
-    public final TextView i() {
-        return this.n;
+    public k f() {
+        return this.i;
+    }
+
+    public TextView g() {
+        return this.m;
     }
 }

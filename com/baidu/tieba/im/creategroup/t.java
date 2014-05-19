@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public final class t extends BaseAdapter {
+public class t extends BaseAdapter {
     private String[] a;
     private GroupAddressLocateActivity b;
 
@@ -17,7 +17,7 @@ public final class t extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         if (this.a != null) {
             return this.a.length;
         }
@@ -25,17 +25,17 @@ public final class t extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final Object getItem(int i) {
-        return (this.a == null || i < 0 || i >= this.a.length) ? "" : this.a[i];
+    public Object getItem(int i) {
+        return (this.a == null || i <= -1 || i >= this.a.length) ? "" : this.a[i];
     }
 
     @Override // android.widget.Adapter
-    public final long getItemId(int i) {
+    public long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
             aVar = new a(this.b);
@@ -49,8 +49,12 @@ public final class t extends BaseAdapter {
         } else {
             aVar.a(false);
         }
-        this.b.getLayoutMode().a(TbadkApplication.j().l() == 1);
-        this.b.getLayoutMode().a(view);
+        a(view);
         return view;
+    }
+
+    private void a(View view) {
+        this.b.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
+        this.b.getLayoutMode().a(view);
     }
 }

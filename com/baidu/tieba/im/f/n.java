@@ -1,20 +1,24 @@
 package com.baidu.tieba.im.f;
+
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class n extends com.baidu.tieba.im.m<Void> {
+public class n implements com.baidu.tieba.im.a<Void> {
+    private final /* synthetic */ String a;
     private final /* synthetic */ String b;
-    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(String str, String str2) {
-        this.b = str;
-        this.c = str2;
+        this.a = str;
+        this.b = str2;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Void a() {
-        com.baidu.tieba.im.db.h.a();
-        com.baidu.tieba.im.db.h.b(this.b, this.c);
-        return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r3) {
+        ImMessageCenterPojo a = com.baidu.tieba.im.b.e.a(this.a);
+        if (a != null) {
+            a.setGroup_name(this.b);
+        }
     }
 }

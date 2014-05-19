@@ -1,36 +1,84 @@
 package com.baidu.tieba.im.messageCenter;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 public class InvokeMessageCenterStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2005001, new c());
+        a();
+        b();
+        f();
+        d();
+        e();
+        c();
+        g();
+        h();
+        i();
+        j();
+        k();
+    }
+
+    private static void a() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2007001, new d());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask);
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2005002, new f());
-        customMessageTask2.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask2);
-        CustomMessageTask customMessageTask3 = new CustomMessageTask(2008002, new l());
-        customMessageTask3.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask3);
-        CustomMessageTask customMessageTask4 = new CustomMessageTask(2005004, new j());
-        customMessageTask4.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask4);
-        CustomMessageTask customMessageTask5 = new CustomMessageTask(2007001, new k());
-        customMessageTask5.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask5);
-        CustomMessageTask customMessageTask6 = new CustomMessageTask(2005003, new i());
-        customMessageTask6.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask6);
-        CustomMessageTask customMessageTask7 = new CustomMessageTask(2008003, new m());
-        customMessageTask7.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask7);
-        CustomMessageTask customMessageTask8 = new CustomMessageTask(2008004, new n());
-        customMessageTask8.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask8);
-        CustomMessageTask customMessageTask9 = new CustomMessageTask(2008005, new o());
-        customMessageTask9.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask9);
-        com.baidu.tieba.im.b.e.b();
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void b() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2007002, new h());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void c() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2007003, new k());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void d() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2007004, new l());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void e() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2009001, new m());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void f() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2010002, new n());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void g() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2010003, new o());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void h() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2010004, new p());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void i() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2010005, new q());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void j() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2010018, new g());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void k() {
+        com.baidu.tieba.im.b.e.c();
     }
 }

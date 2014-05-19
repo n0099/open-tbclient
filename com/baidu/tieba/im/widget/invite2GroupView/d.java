@@ -1,9 +1,10 @@
 package com.baidu.tieba.im.widget.invite2GroupView;
 
 import android.widget.Button;
+import com.baidu.tieba.o;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d implements com.baidu.tieba.im.a<Boolean> {
+public class d implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ Invite2GroupView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,21 +12,19 @@ public final class d implements com.baidu.tieba.im.a<Boolean> {
         this.a = invite2GroupView;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
+    public void a(Boolean bool) {
         Button button;
         Button button2;
-        Boolean bool2 = bool;
-        if (bool2 == null) {
-            bool2 = false;
+        if (bool == null) {
+            bool = false;
         }
-        if (bool2.booleanValue()) {
-            return;
+        if (!bool.booleanValue()) {
+            button = this.a.d;
+            button.setTextColor(this.a.getContext().getResources().getColor(o.group_info_join_disable_color));
+            button2 = this.a.d;
+            button2.setOnClickListener(new e(this));
         }
-        button = this.a.d;
-        button.setTextColor(this.a.getContext().getResources().getColor(com.baidu.tieba.im.e.group_info_join_disable_color));
-        button2 = this.a.d;
-        button2.setOnClickListener(new e(this));
     }
 }

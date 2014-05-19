@@ -1,74 +1,104 @@
 package com.baidu.tieba.forumdetail;
 
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public final class e extends com.baidu.adp.a.f {
-    com.baidu.tbadk.a a;
-    private ForumDetailData c;
-    private ViewGroup d;
-    private ProgressBar e;
-    private NavigationBar f;
-    private ItemHeaderView g;
-    private ItemInfoView h;
-    private ItemHotThreadView i;
-    private ItemFootNavView j;
+public class e extends com.baidu.adp.base.e {
+    BaseActivity a;
+    private ForumDetailData b;
+    private ViewGroup c;
+    private ProgressBar d;
+    private NavigationBar e;
+    private ItemHeaderView f;
+    private ItemInfoView g;
+    private ItemHotThreadView h;
+    private ItemFootNavView i;
 
-    public e(com.baidu.tbadk.a aVar) {
-        super(aVar);
+    public e(BaseActivity baseActivity) {
+        super(baseActivity);
         this.a = null;
+        this.b = null;
         this.c = null;
-        this.d = null;
-        this.a = aVar;
-        this.a.setContentView(com.baidu.tieba.a.i.forum_detail_activity);
-        this.f = (NavigationBar) this.a.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.f.a(this.a.getString(com.baidu.tieba.a.k.forum_detail_title));
-        this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.g = (ItemHeaderView) this.a.findViewById(com.baidu.tieba.a.h.item_header);
-        this.h = (ItemInfoView) this.a.findViewById(com.baidu.tieba.a.h.item_info);
-        this.i = (ItemHotThreadView) this.a.findViewById(com.baidu.tieba.a.h.item_hot_thread);
-        this.j = (ItemFootNavView) this.a.findViewById(com.baidu.tieba.a.h.item_foot_nav);
-        this.d = (ViewGroup) this.a.findViewById(com.baidu.tieba.a.h.parent);
-        this.e = new ProgressBar(this.a);
+        this.a = baseActivity;
+        b();
+    }
+
+    public void a(ForumDetailData forumDetailData) {
+        this.b = forumDetailData;
+        this.d.setVisibility(8);
+        d();
+        e();
+        f();
+        g();
+    }
+
+    private void b() {
+        this.a.setContentView(s.forum_detail_activity);
+        this.e = (NavigationBar) this.a.findViewById(r.view_navigation_bar);
+        this.e.a(this.a.getString(u.forum_detail_title));
+        this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f = (ItemHeaderView) this.a.findViewById(r.item_header);
+        this.g = (ItemInfoView) this.a.findViewById(r.item_info);
+        this.h = (ItemHotThreadView) this.a.findViewById(r.item_hot_thread);
+        this.i = (ItemFootNavView) this.a.findViewById(r.item_foot_nav);
+        this.c = (ViewGroup) this.a.findViewById(r.parent);
+        c().setVisibility(0);
+    }
+
+    private ProgressBar c() {
+        this.d = new ProgressBar(this.a);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        this.e.setLayoutParams(layoutParams);
-        this.e.setIndeterminateDrawable(this.a.getResources().getDrawable(com.baidu.tieba.a.g.progressbar));
-        this.e.setVisibility(8);
-        ((ViewGroup) this.a.findViewById(16908290)).addView(this.e);
-        this.e.setVisibility(0);
+        this.d.setLayoutParams(layoutParams);
+        this.d.setIndeterminateDrawable(this.a.getResources().getDrawable(q.progressbar));
+        this.d.setVisibility(8);
+        ((ViewGroup) this.a.findViewById(16908290)).addView(this.d);
+        return this.d;
     }
 
-    public final void a(ForumDetailData forumDetailData) {
-        this.c = forumDetailData;
-        this.e.setVisibility(8);
-        if (this.g.a(this.c)) {
+    private void d() {
+        if (this.f.a(this.b)) {
+            this.f.setVisibility(0);
+        }
+    }
+
+    private void e() {
+        if (this.g.a(this.b, this.a)) {
             this.g.setVisibility(0);
         }
-        if (this.h.a(this.c, this.a)) {
+    }
+
+    private void f() {
+        if (this.h.a(this.b)) {
             this.h.setVisibility(0);
-        }
-        if (this.i.a(this.c)) {
-            this.i.setVisibility(0);
-        }
-        if (this.j.a(this.c, this.a)) {
-            this.j.setVisibility(0);
         }
     }
 
-    public final void a(int i) {
+    private void g() {
+        if (this.i.a(this.b, this.a)) {
+            this.i.setVisibility(0);
+        }
+    }
+
+    public void a(int i) {
         this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a(this.d);
-        this.f.b(i);
+        this.a.getLayoutMode().a((View) this.c);
+        this.e.c(i);
+        this.f.a(this.a, i);
         this.g.a(this.a, i);
         this.h.a(this.a, i);
         this.i.a(this.a, i);
-        this.j.a(this.a, i);
     }
 
-    public final void a() {
-        this.j.a(this.a);
+    public void a() {
+        this.i.a(this.a);
     }
 }

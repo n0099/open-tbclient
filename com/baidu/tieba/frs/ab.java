@@ -1,20 +1,32 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
-final class ab implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.l> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.l> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            if (TbadkApplication.j().m(aVar.a().d().getStringExtra("name"))) {
-                aVar.a().d().putExtra("add_search", 0);
-                aVar.a().d().setClass(aVar.a().c(), FrsImageActivity.class);
-            } else {
-                aVar.a().d().setClass(aVar.a().c(), FrsActivity.class);
-            }
-            aVar.a().f();
+class ab extends com.baidu.adp.framework.listener.b {
+    final /* synthetic */ FrsActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(FrsActivity frsActivity, int i) {
+        super(i);
+        this.a = frsActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        dg dgVar;
+        if (socketResponsedMessage instanceof FRSPageSocketResponsedMessage) {
+            FRSPageSocketResponsedMessage fRSPageSocketResponsedMessage = (FRSPageSocketResponsedMessage) socketResponsedMessage;
+            j jVar = new j();
+            jVar.a = true;
+            jVar.b = fRSPageSocketResponsedMessage.hasNetworkError() ? false : true;
+            jVar.c = fRSPageSocketResponsedMessage.getError();
+            jVar.d = fRSPageSocketResponsedMessage.getErrorString();
+            jVar.e = fRSPageSocketResponsedMessage.getmDownSize();
+            dgVar = this.a.ae;
+            dgVar.a(fRSPageSocketResponsedMessage.getUpdateType(), false, jVar);
         }
-        return null;
     }
 }

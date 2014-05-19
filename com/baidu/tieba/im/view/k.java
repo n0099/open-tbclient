@@ -1,10 +1,11 @@
 package com.baidu.tieba.im.view;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class k implements com.baidu.tbadk.imageManager.d {
+public class k implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ HorizontalPanelView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,13 +14,13 @@ public final class k implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         List<HeadImageView> list;
-        if (bVar != null) {
+        if (aVar != null) {
             list = this.a.g;
             for (HeadImageView headImageView : list) {
                 if (str.equals(headImageView.getUrl())) {
-                    bVar.a(headImageView);
+                    aVar.a(headImageView);
                 }
             }
             return;
@@ -27,6 +28,6 @@ public final class k implements com.baidu.tbadk.imageManager.d {
         if (("HorizontalPanelView not Portrait" + str) == null) {
             str = "not url";
         }
-        com.baidu.adp.lib.util.f.b(str);
+        BdLog.e(str);
     }
 }

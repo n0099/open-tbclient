@@ -9,21 +9,13 @@ public class SingleMentionActivity extends com.baidu.tbadk.core.e {
     c c;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        Bundle bundle2 = new Bundle();
-        if (bundle != null) {
-            bundle2.putAll(bundle);
-        } else {
-            Intent intent = getIntent();
-            if (intent != null) {
-                bundle2.putAll(intent.getExtras());
-            }
-        }
+        Bundle a = a(bundle);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         this.c = new c();
-        this.c.setArguments(bundle2);
+        this.c.setArguments(a);
         FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
         beginTransaction.add(16908290, this.c);
         beginTransaction.commitAllowingStateLoss();
@@ -33,6 +25,19 @@ public class SingleMentionActivity extends com.baidu.tbadk.core.e {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+    }
+
+    private Bundle a(Bundle bundle) {
+        Bundle bundle2 = new Bundle();
+        if (bundle != null) {
+            bundle2.putAll(bundle);
+        } else {
+            Intent intent = getIntent();
+            if (intent != null) {
+                bundle2.putAll(intent.getExtras());
+            }
+        }
+        return bundle2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -48,7 +53,7 @@ public class SingleMentionActivity extends com.baidu.tbadk.core.e {
     }
 
     @Override // com.baidu.tbadk.core.e
-    protected final void b(int i) {
+    protected void b(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -2,19 +2,21 @@ package com.baidu.tieba.faceshop;
 
 import android.database.Cursor;
 import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.util.DatabaseManager;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class d {
+public class d {
     private static d a = new d();
 
     public static d a() {
         return a;
     }
 
-    public static int a(String str, InputStream inputStream) {
+    public int a(String str, InputStream inputStream) {
         com.baidu.tbadk.editortool.v a2 = com.baidu.tbadk.editortool.v.a();
         List<String> a3 = e.a(str, inputStream);
         int i = 0;
@@ -26,7 +28,7 @@ public final class d {
         return i;
     }
 
-    public static boolean a(MyEmotionGroupData myEmotionGroupData) {
+    public boolean a(MyEmotionGroupData myEmotionGroupData) {
         if (myEmotionGroupData == null) {
             return false;
         }
@@ -34,14 +36,14 @@ public final class d {
             DatabaseManager.a().delete("user_emotions", "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
             return true;
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b("BigEmotionsDBManager", "addToMyEmotion", th.getMessage());
+            BdLog.e("BigEmotionsDBManager", "addToMyEmotion", th.getMessage());
             DatabaseManager.a(th, "EmotionsDBManager.deleteMyEmotion");
             return false;
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [98=4] */
-    public final MyEmotionGroupData a(String str, String str2) {
+    public MyEmotionGroupData a(String str, String str2) {
         Cursor cursor;
         MyEmotionGroupData myEmotionGroupData = null;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
@@ -58,18 +60,18 @@ public final class d {
             } catch (Throwable th2) {
                 th = th2;
                 try {
-                    com.baidu.adp.lib.util.f.b("BigEmotionsDBManager", "getMyEmotion", th.getMessage());
+                    BdLog.e("BigEmotionsDBManager", "getMyEmotion", th.getMessage());
                     DatabaseManager.a(th, "EmotionsDBManager.getMyEmotion");
                     return myEmotionGroupData;
                 } finally {
-                    com.baidu.tbadk.core.util.l.a(cursor);
+                    com.baidu.tbadk.core.util.m.a(cursor);
                 }
             }
         }
         return myEmotionGroupData;
     }
 
-    public final List<MyEmotionGroupData> a(String str) {
+    public List<MyEmotionGroupData> a(String str) {
         LinkedList linkedList = new LinkedList();
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
@@ -80,20 +82,20 @@ public final class d {
                 }
             } catch (Throwable th) {
                 try {
-                    com.baidu.adp.lib.util.f.b("BigEmotionsDBManager", "listMyEmotions", th.getMessage());
+                    BdLog.e("BigEmotionsDBManager", "listMyEmotions", th.getMessage());
                     DatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
                 } finally {
-                    com.baidu.tbadk.core.util.l.a(cursor);
+                    com.baidu.tbadk.core.util.m.a(cursor);
                 }
             }
         }
         return linkedList;
     }
 
-    private static MyEmotionGroupData a(Cursor cursor) {
+    protected MyEmotionGroupData a(Cursor cursor) {
         MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
         myEmotionGroupData.id = cursor.getInt(cursor.getColumnIndex("id"));
-        myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex("uid"));
+        myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex(SapiAccountManager.SESSION_UID));
         myEmotionGroupData.groupId = cursor.getString(cursor.getColumnIndex("groupId"));
         myEmotionGroupData.updateTime = cursor.getLong(cursor.getColumnIndex("updateTime"));
         return myEmotionGroupData;

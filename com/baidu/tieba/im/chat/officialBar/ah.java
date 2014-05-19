@@ -1,19 +1,19 @@
 package com.baidu.tieba.im.chat.officialBar;
-
-import com.google.protobuf.MessageLite;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ah extends com.baidu.tieba.im.message.a.a {
-    final /* synthetic */ ae a;
+public class ah implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ OfficialBarInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ah(ae aeVar, int i) {
-        super(501126);
-        this.a = aeVar;
+    public ah(OfficialBarInfoActivity officialBarInfoActivity) {
+        this.a = officialBarInfoActivity;
     }
 
-    @Override // com.baidu.tbadk.message.websockt.d
-    protected final MessageLite h() {
-        return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        an anVar;
+        anVar = this.a.f;
+        anVar.a(bool.booleanValue());
     }
 }

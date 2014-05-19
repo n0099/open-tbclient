@@ -1,19 +1,24 @@
 package com.baidu.tieba.person;
+
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bp implements com.baidu.tbadk.core.dialog.g {
-    final /* synthetic */ bn a;
+public class bp implements DialogInterface.OnClickListener {
+    final /* synthetic */ bm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(bn bnVar) {
-        this.a = bnVar;
+    public bp(bm bmVar) {
+        this.a = bmVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.g
-    public final void a(com.baidu.tbadk.core.dialog.d dVar, int i) {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
         if (i == 0) {
-            bn.k(this.a);
+            this.a.t();
+        } else if (i == 1) {
+            com.baidu.tbadk.core.util.bb.a(this.a.getActivity());
+        } else if (i == 2) {
+            com.baidu.tbadk.core.util.bb.c(this.a.getActivity());
         }
-        dVar.c();
     }
 }

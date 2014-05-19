@@ -3,8 +3,10 @@ package com.baidu.tieba.pb.image;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.adp.lib.util.BdLog;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class u extends BroadcastReceiver {
+public class u extends BroadcastReceiver {
     final /* synthetic */ ImagePbActivity a;
 
     private u(ImagePbActivity imagePbActivity) {
@@ -12,12 +14,12 @@ final class u extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ u(ImagePbActivity imagePbActivity, byte b) {
+    public /* synthetic */ u(ImagePbActivity imagePbActivity, u uVar) {
         this(imagePbActivity);
     }
 
     @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
+    public void onReceive(Context context, Intent intent) {
         int i;
         int i2;
         com.baidu.tieba.data.u uVar;
@@ -73,6 +75,6 @@ final class u extends BroadcastReceiver {
         }
         int intExtra2 = intent.getIntExtra("state", -1);
         this.a.a(intExtra2);
-        com.baidu.adp.lib.util.f.a(getClass().getName(), "find_bug_onReceive", "state=" + String.valueOf(intExtra2));
+        BdLog.i(getClass().getName(), "find_bug_onReceive", "state=" + String.valueOf(intExtra2));
     }
 }

@@ -1,29 +1,49 @@
 package com.baidu.tieba.pb.main;
+
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
-final class aa implements com.baidu.tbadk.core.view.m {
-    final /* synthetic */ PbActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(PbActivity pbActivity) {
-        this.a = pbActivity;
-    }
-
-    @Override // com.baidu.tbadk.core.view.m
-    public final void a(boolean z) {
-        boolean z2;
-        bf bfVar;
-        bf bfVar2;
-        bm bmVar;
-        z2 = this.a.e;
-        if (!z2 && z) {
-            bfVar = this.a.x;
-            if (!bfVar.n()) {
-                bfVar2 = this.a.x;
-                if (bfVar2.s()) {
-                    bmVar = this.a.D;
-                    bmVar.t();
-                }
+class aa implements com.baidu.tbadk.core.util.bk {
+    @Override // com.baidu.tbadk.core.util.bk
+    public boolean a(Context context, String[] strArr) {
+        String str;
+        String str2;
+        if (strArr == null || strArr.length == 0) {
+            return false;
+        }
+        String str3 = strArr[0];
+        if (str3.startsWith("pb:")) {
+            String substring = str3.substring(3);
+            if (TextUtils.isEmpty(substring)) {
+                return false;
             }
+            if (strArr.length > 1) {
+                str = strArr[1];
+                str2 = substring;
+            } else {
+                str2 = substring;
+                str = null;
+            }
+        } else if (!str3.startsWith("tieba.baidu.com/p/")) {
+            return false;
+        } else {
+            String substring2 = str3.substring(str3.indexOf("tieba.baidu.com/p/") + "tieba.baidu.com/p/".length());
+            if (TextUtils.isEmpty(substring2)) {
+                return false;
+            }
+            str = "allthread";
+            str2 = substring2;
+        }
+        if (context instanceof com.baidu.tbadk.core.e) {
+            ((com.baidu.tbadk.core.e) context).a(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(context).a(str2, null, str)));
+            return true;
+        } else if (context instanceof BaseActivity) {
+            ((BaseActivity) context).sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(context).a(str2, null, str)));
+            return true;
+        } else {
+            return false;
         }
     }
 }

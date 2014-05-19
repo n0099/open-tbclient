@@ -2,22 +2,23 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class CommonImageLayout extends ViewGroup {
     private static com.baidu.tbadk.core.util.b j;
-    public x b;
-    public x c;
-    public x d;
-    private com.baidu.tbadk.core.data.j[] k;
+    public TbImageView b;
+    public TbImageView c;
+    public TbImageView d;
+    private com.baidu.tbadk.core.data.k[] k;
     private int l;
     private boolean m;
     private boolean n;
     private final Context o;
-    private String p;
     private static float[] e = {306.0f, 144.0f, 204.0f, 101.0f, 97.0f};
     private static float[] f = {138.0f, 144.0f, 204.0f, 101.0f, 97.0f};
     private static int g = 2;
@@ -29,9 +30,9 @@ public class CommonImageLayout extends ViewGroup {
         this(context, null);
     }
 
-    private void a() {
+    private void b() {
         if (a < 0.0f) {
-            a = com.baidu.adp.lib.util.i.b(this.o) / 320.0f;
+            a = com.baidu.adp.lib.util.h.b(this.o) / 320.0f;
             for (int i2 = 0; i2 < e.length; i2++) {
                 float[] fArr = e;
                 fArr[i2] = fArr[i2] * a;
@@ -45,18 +46,26 @@ public class CommonImageLayout extends ViewGroup {
 
     public CommonImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        Drawable drawable;
         this.l = 7;
         this.m = false;
         this.n = false;
-        this.p = "other";
         this.o = context;
-        a();
-        this.b = new x(context);
-        this.c = new x(context);
-        this.d = new x(context);
+        b();
+        if (TbadkApplication.m252getInst().getSkinType() == 1) {
+            drawable = getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg_1);
+        } else {
+            drawable = getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg);
+        }
+        this.b = new TbImageView(context);
+        this.c = new TbImageView(context);
+        this.d = new TbImageView(context);
         this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.b.setDefaultBg(drawable);
+        this.c.setDefaultBg(drawable);
+        this.d.setDefaultBg(drawable);
         addView(this.b);
         addView(this.c);
         addView(this.d);
@@ -89,8 +98,8 @@ public class CommonImageLayout extends ViewGroup {
         }
     }
 
-    public void setData(com.baidu.tbadk.core.data.j[] jVarArr) {
-        this.k = jVarArr;
+    public void setData(com.baidu.tbadk.core.data.k[] kVarArr) {
+        this.k = kVarArr;
         if (this.k == null || this.k.length <= 0) {
             if (this.b != null) {
                 this.b.setTag(null);
@@ -198,7 +207,7 @@ public class CommonImageLayout extends ViewGroup {
             switch (this.k.length) {
                 case 1:
                     if (this.m) {
-                        float[] fArr = e;
+                        int i6 = (int) (e[0] + 0.5f);
                         this.b.layout(0, 0, i4, i5 - i3);
                     } else {
                         this.b.layout(this.l, 0, ((int) (e[4] + 0.5f)) + this.l, i5 - i3);
@@ -208,29 +217,29 @@ public class CommonImageLayout extends ViewGroup {
                     return;
                 case 2:
                     if (this.m) {
-                        int i6 = (int) (e[1] + 0.5f);
-                        this.b.layout(this.l, 0, this.l + i6, i5 - i3);
-                        this.c.layout(i6 + this.l + h, 0, (i4 - this.l) - i2, i5 - i3);
-                    } else {
-                        int i7 = (int) (e[4] + 0.5f);
+                        int i7 = (int) (e[1] + 0.5f);
                         this.b.layout(this.l, 0, this.l + i7, i5 - i3);
-                        this.c.layout(this.l + i7 + g, 0, (i7 * 2) + this.l + g, i5 - i3);
+                        this.c.layout(i7 + this.l + h, 0, (i4 - this.l) - i2, i5 - i3);
+                    } else {
+                        int i8 = (int) (e[4] + 0.5f);
+                        this.b.layout(this.l, 0, this.l + i8, i5 - i3);
+                        this.c.layout(this.l + i8 + g, 0, (i8 * 2) + this.l + g, i5 - i3);
                     }
                     this.d.layout(0, 0, 0, 0);
                     return;
                 case 3:
                     if (this.m) {
-                        int i8 = (int) (e[2] + 0.5f);
-                        int i9 = (int) (e[3] + 0.5f);
-                        this.b.layout(0, 0, i8, i5 - i3);
-                        this.c.layout(g + i8, 0, i4, i9);
-                        this.d.layout(i8 + g, i9 + g, i4, i5 - i3);
+                        int i9 = (int) (e[2] + 0.5f);
+                        int i10 = (int) (e[3] + 0.5f);
+                        this.b.layout(0, 0, i9, i5 - i3);
+                        this.c.layout(g + i9, 0, i4, i10);
+                        this.d.layout(i9 + g, i10 + g, i4, i5 - i3);
                         return;
                     }
-                    int i10 = (int) (e[4] + 0.5f);
-                    this.b.layout(this.l, 0, this.l + i10, i5 - i3);
-                    this.c.layout(this.l + i10 + g, 0, (i10 * 2) + this.l + g, i5 - i3);
-                    this.d.layout((i10 * 2) + this.l + (g * 2), 0, (i4 - this.l) - i2, i5 - i3);
+                    int i11 = (int) (e[4] + 0.5f);
+                    this.b.layout(this.l, 0, this.l + i11, i5 - i3);
+                    this.c.layout(this.l + i11 + g, 0, (i11 * 2) + this.l + g, i5 - i3);
+                    this.d.layout((i11 * 2) + this.l + (g * 2), 0, (i4 - this.l) - i2, i5 - i3);
                     return;
                 default:
                     return;
@@ -269,17 +278,17 @@ public class CommonImageLayout extends ViewGroup {
         this.l = i2;
     }
 
-    private void a(TbImageView tbImageView, com.baidu.tbadk.core.data.j jVar) {
+    private void a(TbImageView tbImageView, com.baidu.tbadk.core.data.k kVar) {
         if (tbImageView != null) {
-            String c = jVar.c();
-            if (jVar.b() == 5) {
+            String c = kVar.c();
+            if (kVar.b() == 5) {
                 c = null;
-                tbImageView.setDefaultResource(com.baidu.tieba.a.g.pic_video);
-                tbImageView.setNightDefaultResource(com.baidu.tieba.a.g.pic_video_1);
-                tbImageView.setOnClickListener(new f(this, jVar));
+                tbImageView.setDefaultResource(com.baidu.tieba.q.pic_video);
+                tbImageView.setNightDefaultResource(com.baidu.tieba.q.pic_video_1);
+                tbImageView.setOnClickListener(new g(this, kVar));
             } else {
-                tbImageView.setDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d);
-                tbImageView.setNightDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d_1);
+                tbImageView.setDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d);
+                tbImageView.setNightDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d_1);
                 tbImageView.setClickable(false);
             }
             tbImageView.setTag(c);
@@ -289,28 +298,22 @@ public class CommonImageLayout extends ViewGroup {
     public void setFromCDN(boolean z) {
         this.n = z;
         if (j != null) {
-            j.a(this.n);
+            j.d(this.n);
         }
     }
 
     public void setImageFrom(String str) {
-        this.p = str;
         if (j != null) {
-            j.b(str);
+            j.f(str);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.b != null) {
-            this.b.c();
-        }
-        if (this.c != null) {
-            this.c.c();
-        }
-        if (this.d != null) {
-            this.d.c();
-        }
+        a();
+    }
+
+    public void a() {
     }
 }

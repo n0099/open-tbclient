@@ -1,22 +1,24 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.google.protobuf.MessageLite;
-import protobuf.QueryForumDetail.QueryForumDetailReq;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.br;
 /* loaded from: classes.dex */
-public final class be extends com.baidu.tbadk.message.websockt.d {
-    private int a;
-    private String b;
+class be implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ bb a;
+    private final /* synthetic */ View b;
 
-    public be(int i, String str) {
-        super(208001);
-        this.a = 0;
-        this.b = null;
-        this.a = i;
-        this.b = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public be(bb bbVar, View view) {
+        this.a = bbVar;
+        this.b = view;
     }
 
-    @Override // com.baidu.tbadk.message.websockt.d
-    protected final MessageLite h() {
-        return QueryForumDetailReq.QueryForumDetailReqIdl.newBuilder().a(QueryForumDetailReq.DataReq.newBuilder().a(this.a).a(this.b).build()).build();
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null && this.b != null && (this.b instanceof ViewGroup)) {
+            bp.a((ViewGroup) this.b, false, (br) new bf(this, str, aVar));
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.praise;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private String a;
     private String b;
     private String c;
@@ -20,23 +20,23 @@ public final class a {
         this.e = j;
     }
 
-    public final String a() {
+    public String a() {
         return this.a;
     }
 
-    public final String b() {
+    public String b() {
         return this.b;
     }
 
-    public final String c() {
+    public String c() {
         return this.c;
     }
 
-    public final String d() {
+    public String d() {
         return this.d;
     }
 
-    public final long e() {
+    public long e() {
         return this.e;
     }
 }

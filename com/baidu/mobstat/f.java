@@ -1,61 +1,49 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends Thread {
-    private static f a = new f();
-    private Context b;
-    private boolean c = false;
-    private boolean d = false;
+class f implements Runnable {
+    final /* synthetic */ String a;
+    final /* synthetic */ String b;
+    final /* synthetic */ long c;
+    final /* synthetic */ Context d;
+    final /* synthetic */ c e;
 
-    private f() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(c cVar, String str, String str2, long j, Context context) {
+        this.e = cVar;
+        this.a = str;
+        this.b = str2;
+        this.c = j;
+        this.d = context;
     }
 
-    public static f a() {
-        return a;
-    }
-
-    private void d() {
-        this.c = true;
-    }
-
-    private synchronized void e() {
-        this.d = true;
-    }
-
-    public void a(Context context) {
-        if (context == null || b()) {
-            return;
-        }
-        this.b = context;
-        this.c = true;
-        start();
-    }
-
-    public boolean b() {
-        return this.c;
-    }
-
-    public synchronized boolean c() {
-        return this.d;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
+    @Override // java.lang.Runnable
     public void run() {
-        g.a().b(this.b);
-        b.a().d(this.b);
-        b.a().c(this.b);
-        e();
-        synchronized (a) {
-            try {
-                notifyAll();
-            } catch (IllegalMonitorStateException e) {
-                com.baidu.mobstat.a.b.a("stat", e);
+        if (!j.a().c()) {
+            synchronized (j.a()) {
+                try {
+                    j.a().wait();
+                } catch (InterruptedException e) {
+                    com.baidu.mobstat.a.e.a("statsdk", e);
+                }
             }
         }
-        b.a().a(this.b);
-        b.a().b();
-        g.a().c(this.b);
+        String a = this.e.a(this.a, this.b);
+        h hVar = this.e.a.get(a);
+        if (hVar == null) {
+            com.baidu.mobstat.a.e.b("statsdk", "EventStat: event_id[" + this.a + "] with label[" + this.b + "] is not started or alread done.");
+        } else if (!this.a.equals(hVar.a) || !this.b.equals(hVar.b)) {
+            com.baidu.mobstat.a.e.a("statsdk", "EventStat: Wrong Case, eventId/label pair not match");
+        } else {
+            this.e.a.remove(a);
+            long j = this.c - hVar.c;
+            if (j <= 0) {
+                com.baidu.mobstat.a.e.a("statsdk", "EventStat: Wrong Case, Duration must be positive");
+                return;
+            }
+            DataCore.getInstance().putEvent(this.a, this.b, 1, hVar.c, j);
+            DataCore.getInstance().flush(this.d);
+        }
     }
 }

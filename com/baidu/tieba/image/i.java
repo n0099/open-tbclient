@@ -1,9 +1,10 @@
 package com.baidu.tieba.image;
 
 import android.content.Intent;
-import com.baidu.tbadk.core.data.n;
+import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class i implements com.baidu.tbadk.core.view.a {
+public class i implements com.baidu.tbadk.core.view.a {
     final /* synthetic */ ImageViewerActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,12 +13,12 @@ final class i implements com.baidu.tbadk.core.view.a {
     }
 
     @Override // com.baidu.tbadk.core.view.a
-    public final void a(int i) {
+    public void a(int i) {
         boolean z;
         a aVar;
         z = this.a.B;
         if (z) {
-            Intent intent = new Intent(n.s());
+            Intent intent = new Intent(TbConfig.getBroadcastActionPageChanged());
             intent.putExtra("index", -1);
             intent.putExtra("state", i);
             this.a.sendBroadcast(intent);

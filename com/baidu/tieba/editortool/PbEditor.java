@@ -10,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.TranslateAnimation;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class PbEditor extends LinearLayout {
         this.h = false;
         this.e = true;
         this.a = context;
-        u();
+        i();
     }
 
     public PbEditor(Context context, AttributeSet attributeSet) {
@@ -43,7 +43,7 @@ public class PbEditor extends LinearLayout {
         this.h = false;
         this.e = true;
         this.a = context;
-        u();
+        i();
     }
 
     public void setFrom(int i2) {
@@ -52,18 +52,18 @@ public class PbEditor extends LinearLayout {
         }
     }
 
-    public final void a() {
-        this.b.d();
-    }
-
-    public final void b() {
+    public void a() {
         this.b.e();
     }
 
-    public final boolean c() {
+    public void b() {
+        this.b.f();
+    }
+
+    public boolean c() {
         Editable text = this.b.getEditText().getText();
-        if ((text == null || text.length() <= 0) && !this.c.i()) {
-            return this.c.j();
+        if ((text == null || text.toString().trim().length() <= 0) && !this.c.t()) {
+            return this.c.u();
         }
         return true;
     }
@@ -72,7 +72,7 @@ public class PbEditor extends LinearLayout {
         return this.b.getEditText();
     }
 
-    public final void a(ArrayList<String> arrayList) {
+    public void a(ArrayList<String> arrayList) {
         this.b.a(arrayList);
     }
 
@@ -87,94 +87,95 @@ public class PbEditor extends LinearLayout {
         }
     }
 
-    public final void d() {
+    public void d() {
         this.b.getEditText().requestFocus();
         this.c.c(this.b.getEditText());
     }
 
-    public final void e() {
-        this.c.b();
-        this.b.j();
+    public void e() {
+        this.c.m();
+        this.b.k();
     }
 
-    public final void f() {
-        this.c.b();
-        this.b.j();
+    public void f() {
+        this.c.m();
+        this.b.k();
     }
 
-    public final void g() {
-        if (this.c.a() && !this.g) {
+    public void g() {
+        if (this.c.l() && !this.g) {
             this.g = true;
-            Context context = this.a;
-            t tVar = new t(this);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, 1.0f);
-            translateAnimation.setDuration(200L);
-            translateAnimation.setAnimationListener(new ar(tVar, this));
-            startAnimation(translateAnimation);
+            aq.a(this, this.a, new t(this));
             return;
         }
         e();
     }
 
-    public final boolean h() {
-        return this.c.a();
+    public boolean h() {
+        return this.c.l();
     }
 
-    private void u() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.pb_editor_view, (ViewGroup) this, true);
-        this.b = (PbEditorToolView) findViewById(com.baidu.tieba.a.h.pb_editor_tool_button);
-        this.c = (EditorToolComponetContainer) findViewById(com.baidu.tieba.a.h.pb_editor_tool_group);
+    protected void i() {
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.pb_editor_view, (ViewGroup) this, true);
+        this.b = (PbEditorToolView) findViewById(com.baidu.tieba.r.pb_editor_tool_button);
+        this.c = (EditorToolComponetContainer) findViewById(com.baidu.tieba.r.pb_editor_tool_group);
     }
 
-    public final boolean i() {
-        return this.c.o();
+    public boolean j() {
+        return this.c.z();
     }
 
-    public final void a(View view) {
+    public void a(View view) {
         this.c.a(view);
     }
 
-    public final void b(View view) {
+    public void b(View view) {
         this.c.b(view);
     }
 
-    public final void j() {
+    public void k() {
         this.b.getEditText().requestFocus();
         this.c.c(this.b.getEditText());
         this.b.getEditText().setSelection(this.b.getEditText().getText().length());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void a(int i2) {
+    public void a(int i2, as asVar) {
         this.b.getEditText().requestFocus();
         this.c.b(this.b.getEditText());
-        d(i2);
+        a(i2);
     }
 
-    private void d(int i2) {
+    protected void a(int i2) {
         if (i2 == 5) {
-            this.c.f();
+            this.c.q();
         } else if (i2 == 23 || i2 == 22) {
-            this.c.g();
+            this.c.r();
         } else if (i2 == 2) {
-            this.c.e();
+            this.c.p();
         } else if (i2 == 38) {
-            this.c.d();
+            this.c.o();
         } else if (i2 == 44) {
-            this.c.h();
+            this.c.s();
         }
     }
 
-    public final void b(int i2) {
-        if (this.c.a()) {
-            d(i2);
+    public void b(int i2) {
+        if (this.c.l()) {
+            a(i2);
             return;
         }
         this.e = false;
-        if (this.c.o()) {
+        if (this.c.z()) {
             this.c.b(this.b.getEditText());
         }
         new Handler().postDelayed(new u(this, i2), 200L);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean v() {
+        Editable text = this.b.getEditText().getText();
+        return (text == null ? 0 : text.length()) >= 1000;
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.x xVar) {
@@ -185,43 +186,43 @@ public class PbEditor extends LinearLayout {
         }
     }
 
-    public final void c(int i2) {
+    public void c(int i2) {
         this.b.a(i2);
         this.c.a(i2);
-        if (this.a instanceof com.baidu.tbadk.a) {
-            ((com.baidu.tbadk.a) this.a).getLayoutMode().a(i2 == 1);
-            ((com.baidu.tbadk.a) this.a).getLayoutMode().a(this.b);
-            ((com.baidu.tbadk.a) this.a).getLayoutMode().a(this.c);
+        if (this.a instanceof BaseActivity) {
+            ((BaseActivity) this.a).getLayoutMode().a(i2 == 1);
+            ((BaseActivity) this.a).getLayoutMode().a((View) this.b);
+            ((BaseActivity) this.a).getLayoutMode().a((View) this.c);
         } else if (this.a instanceof com.baidu.tbadk.core.e) {
-            ((com.baidu.tbadk.core.e) this.a).b().a(i2 == 1);
-            ((com.baidu.tbadk.core.e) this.a).b().a(this.b);
-            ((com.baidu.tbadk.core.e) this.a).b().a(this.c);
+            ((com.baidu.tbadk.core.e) this.a).a().a(i2 == 1);
+            ((com.baidu.tbadk.core.e) this.a).a().a((View) this.b);
+            ((com.baidu.tbadk.core.e) this.a).a().a((View) this.c);
         }
     }
 
-    public final void k() {
-        this.b.a();
-        this.c.l();
+    public void l() {
+        this.b.b();
+        this.c.w();
     }
 
-    public final void l() {
+    public void m() {
         if (this.d != null) {
             this.d.a(33, null);
         }
         setVisibility(0);
     }
 
-    public final void m() {
+    public void n() {
         if (this.d != null) {
             this.d.a(34, null);
         }
-        this.b.j();
-        this.c.b();
+        this.b.k();
+        this.c.m();
         b(getEditText());
         setVisibility(8);
     }
 
-    public final boolean n() {
+    public boolean o() {
         return getVisibility() == 0;
     }
 
@@ -233,31 +234,31 @@ public class PbEditor extends LinearLayout {
         this.b.setAudioFocusable(z);
     }
 
-    public final void o() {
+    public void p() {
+        this.b.d();
+    }
+
+    public void q() {
         this.b.c();
     }
 
-    public final void p() {
-        this.b.b();
-    }
-
-    public final void q() {
-        this.c.m();
+    public void r() {
+        this.c.x();
     }
 
     public VoiceData.VoiceModel getAudioData() {
         return this.c.getAudioData();
     }
 
-    public final void r() {
-        this.c.k();
+    public void s() {
+        this.c.v();
     }
 
-    public final void a(Bitmap bitmap) {
+    public void a(Bitmap bitmap) {
         this.c.setImage(bitmap);
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         this.h = z;
         this.c.a(z);
     }
@@ -280,18 +281,18 @@ public class PbEditor extends LinearLayout {
         return i2;
     }
 
-    public final void s() {
+    public void t() {
         if (this.h) {
-            this.b.i();
+            this.b.j();
             return;
         }
-        if (TextUtils.isEmpty(TbadkApplication.j().aC()) && !this.h) {
-            if (!this.c.i()) {
-                this.b.i();
+        if (TextUtils.isEmpty(TbadkApplication.m252getInst().getDefaultBubble()) && !this.h) {
+            if (!this.c.t()) {
+                this.b.j();
             }
         } else {
-            this.b.h();
+            this.b.i();
         }
-        this.c.q();
+        this.c.B();
     }
 }

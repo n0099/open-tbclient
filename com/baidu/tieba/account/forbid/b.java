@@ -1,6 +1,8 @@
 package com.baidu.tieba.account.forbid;
+
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-final class b implements j {
+class b implements j {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,23 +11,23 @@ final class b implements j {
     }
 
     @Override // com.baidu.tieba.account.forbid.j
-    public final void a() {
+    public void a(ForbidResultData forbidResultData) {
         ForbidActivity forbidActivity;
         ForbidActivity forbidActivity2;
         ForbidActivity forbidActivity3;
         forbidActivity = this.a.a;
         forbidActivity2 = this.a.a;
-        forbidActivity.showToast(forbidActivity2.getString(com.baidu.tieba.a.k.forbid_success));
+        forbidActivity.showToast(forbidActivity2.getString(u.forbid_success));
         forbidActivity3 = this.a.a;
         forbidActivity3.finish();
     }
 
     @Override // com.baidu.tieba.account.forbid.j
-    public final void b() {
+    public void b(ForbidResultData forbidResultData) {
         ForbidActivity forbidActivity;
         ForbidActivity forbidActivity2;
         forbidActivity = this.a.a;
         forbidActivity2 = this.a.a;
-        forbidActivity.showToast(forbidActivity2.getString(com.baidu.tieba.a.k.forbid_failure));
+        forbidActivity.showToast(forbidActivity2.getString(u.forbid_failure));
     }
 }

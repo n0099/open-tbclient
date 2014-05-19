@@ -3,7 +3,7 @@ package com.baidu.tieba.editortool;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class am implements View.OnClickListener {
+public class am implements View.OnClickListener {
     final /* synthetic */ PrivilegeTabWidgetView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public final class am implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         com.baidu.tbadk.editortool.x xVar;
         com.baidu.tbadk.editortool.x xVar2;
         xVar = this.a.c;

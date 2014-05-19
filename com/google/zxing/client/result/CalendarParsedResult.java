@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import com.baidu.tbadk.TbConfig;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,7 +12,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class CalendarParsedResult extends ParsedResult {
-    private static final DateFormat DATE_FORMAT;
     private static final DateFormat DATE_TIME_FORMAT;
     private final String[] attendees;
     private final String description;
@@ -25,13 +25,12 @@ public final class CalendarParsedResult extends ParsedResult {
     private final boolean startAllDay;
     private final String summary;
     private static final Pattern RFC2445_DURATION = Pattern.compile("P(?:(\\d+)W)?(?:(\\d+)D)?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+)S)?)?");
-    private static final long[] RFC2445_DURATION_FIELD_UNITS = {604800000, 86400000, 3600000, 60000, 1000};
+    private static final long[] RFC2445_DURATION_FIELD_UNITS = {604800000, 86400000, 3600000, TbConfig.USE_TIME_INTERVAL, 1000};
     private static final Pattern DATE_TIME = Pattern.compile("[0-9]{8}(T[0-9]{6}Z?)?");
+    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
 
     static {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
-        DATE_FORMAT = simpleDateFormat;
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+        DATE_FORMAT.setTimeZone(TimeZone.getTimeZone("GMT"));
         DATE_TIME_FORMAT = new SimpleDateFormat("yyyyMMdd'T'HHmmss", Locale.ENGLISH);
     }
 
@@ -63,52 +62,52 @@ public final class CalendarParsedResult extends ParsedResult {
         }
     }
 
-    public final String getSummary() {
+    public String getSummary() {
         return this.summary;
     }
 
-    public final Date getStart() {
+    public Date getStart() {
         return this.start;
     }
 
-    public final boolean isStartAllDay() {
+    public boolean isStartAllDay() {
         return this.startAllDay;
     }
 
-    public final Date getEnd() {
+    public Date getEnd() {
         return this.end;
     }
 
-    public final boolean isEndAllDay() {
+    public boolean isEndAllDay() {
         return this.endAllDay;
     }
 
-    public final String getLocation() {
+    public String getLocation() {
         return this.location;
     }
 
-    public final String getOrganizer() {
+    public String getOrganizer() {
         return this.organizer;
     }
 
-    public final String[] getAttendees() {
+    public String[] getAttendees() {
         return this.attendees;
     }
 
-    public final String getDescription() {
+    public String getDescription() {
         return this.description;
     }
 
-    public final double getLatitude() {
+    public double getLatitude() {
         return this.latitude;
     }
 
-    public final double getLongitude() {
+    public double getLongitude() {
         return this.longitude;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public final String getDisplayResult() {
+    public String getDisplayResult() {
         StringBuilder sb = new StringBuilder(100);
         maybeAppend(this.summary, sb);
         maybeAppend(format(this.startAllDay, this.start), sb);

@@ -10,6 +10,6 @@ class b implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        c.d(this.a.a);
+        this.a.a.h();
     }
 }

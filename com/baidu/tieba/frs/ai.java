@@ -1,50 +1,26 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-final class ai implements cy {
+class ai extends CustomMessageListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(FrsActivity frsActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ai(FrsActivity frsActivity, int i) {
+        super(i);
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.cy
-    public final void a(i iVar, j jVar) {
-        cm cmVar;
-        cm cmVar2;
-        cm cmVar3;
-        g gVar;
-        g gVar2;
-        cm cmVar4;
-        g gVar3;
-        g gVar4;
-        if (iVar.a) {
-            cmVar3 = this.a.r;
-            cmVar3.a(this.a.getString(com.baidu.tieba.a.k.add_fan_sucess));
-            gVar = this.a.D;
-            gVar.k().b(1);
-            gVar2 = this.a.D;
-            gVar2.k().c(iVar.c);
-            cmVar4 = this.a.r;
-            gVar3 = this.a.D;
-            ForumData f = gVar3.f();
-            gVar4 = this.a.D;
-            cmVar4.a(1, f, gVar4, false);
-            com.baidu.tieba.p.c().e(true);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2014111) {
+            FrsActivity.b = true;
+            FrsActivity.c = true;
+            this.a.f();
         }
-        if (jVar.d == null || jVar.d.length() <= 0) {
-            cmVar = this.a.r;
-            cmVar.a(this.a.getString(com.baidu.tieba.a.k.add_fan_error));
-        } else {
-            cmVar2 = this.a.r;
-            cmVar2.a(jVar.d);
-        }
-        if (jVar.c != 120002) {
-            return;
-        }
-        this.a.n();
     }
 }

@@ -2,8 +2,9 @@ package com.baidu.tieba.mainentrance;
 
 import android.view.KeyEvent;
 import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class i implements TextView.OnEditorActionListener {
+public class i implements TextView.OnEditorActionListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,13 +13,13 @@ final class i implements TextView.OnEditorActionListener {
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
-    public final boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
         int i2;
         String str;
         if (i == 2) {
             i2 = this.a.z;
             if (i2 == 0) {
-                this.a.b();
+                this.a.d();
                 return true;
             }
             SquareSearchActivity squareSearchActivity = this.a;

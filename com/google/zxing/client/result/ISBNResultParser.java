@@ -6,7 +6,7 @@ import com.google.zxing.Result;
 public final class ISBNResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public final ISBNParsedResult parse(Result result) {
+    public ISBNParsedResult parse(Result result) {
         if (result.getBarcodeFormat() != BarcodeFormat.EAN_13) {
             return null;
         }

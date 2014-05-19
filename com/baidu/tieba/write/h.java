@@ -2,8 +2,9 @@ package com.baidu.tieba.write;
 
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.view.TbCheckBox;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class h implements com.baidu.tbadk.core.view.o {
+public class h implements com.baidu.tbadk.core.view.o {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,21 +13,21 @@ final class h implements com.baidu.tbadk.core.view.o {
     }
 
     @Override // com.baidu.tbadk.core.view.o
-    public final void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
+    public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
         AtSelectFriendList atSelectFriendList;
         if (obj != null && (obj instanceof MetaData)) {
             if (z) {
                 atSelectFriendList = this.a.e;
                 if (5 <= atSelectFriendList.getItemLength()) {
-                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.a.k.invite_friend_exceed_max_count), 5));
+                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.u.invite_friend_exceed_max_count), 5));
                     tbCheckBox.setChecked(false);
                     ((MetaData) obj).setChecked(false);
                     return;
                 }
-                this.a.b((MetaData) obj);
+                this.a.a((MetaData) obj);
                 return;
             }
-            this.a.c((MetaData) obj);
+            this.a.b((MetaData) obj);
         }
     }
 }

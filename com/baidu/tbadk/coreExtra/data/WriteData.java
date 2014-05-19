@@ -1,6 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.g;
+import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import java.io.File;
@@ -15,6 +16,7 @@ public class WriteData implements Serializable {
     public static final int REPLY_FLOOR = 2;
     public static final String THREAD_TYPE_LBS = "7";
     private boolean isAd;
+    private LiveCardData liveCardData;
     private String mContent;
     private int mDuringTime;
     private String mFloor;
@@ -48,6 +50,7 @@ public class WriteData implements Serializable {
         this.mVcodeUrl = null;
         this.mVoiceMd5 = null;
         this.mHaveDraft = false;
+        this.liveCardData = null;
         setIsAd(false);
     }
 
@@ -58,8 +61,11 @@ public class WriteData implements Serializable {
     }
 
     public boolean hasContentToSave() {
-        if (h.b(this.mContent) && h.b(this.mTitle)) {
-            return this.writeImagesInfo != null && this.writeImagesInfo.size() > 0;
+        if (g.b(this.mContent) && g.b(this.mTitle)) {
+            if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
+                return this.liveCardData != null && this.liveCardData.isModifyTime();
+            }
+            return true;
         }
         return true;
     }
@@ -71,6 +77,9 @@ public class WriteData implements Serializable {
             jSONObject.put("mTitle", this.mTitle);
             jSONObject.put("mContent", this.mContent);
             jSONObject.put("mThreadId", this.mThreadId);
+            if (this.liveCardData != null) {
+                jSONObject.put("livePostInfo", this.liveCardData.toDraftJson());
+            }
             if (this.writeImagesInfo != null) {
                 jSONObject.put("writeImagesInfo", this.writeImagesInfo.toJson());
             }
@@ -80,7 +89,7 @@ public class WriteData implements Serializable {
     }
 
     public static WriteData fromDraftString(String str) {
-        if (h.b(str)) {
+        if (g.b(str)) {
             return null;
         }
         try {
@@ -90,10 +99,15 @@ public class WriteData implements Serializable {
             writeData.mTitle = jSONObject.optString("mTitle", null);
             writeData.mContent = jSONObject.optString("mContent", null);
             writeData.mThreadId = jSONObject.optString("mThreadId", null);
-            JSONObject optJSONObject = jSONObject.optJSONObject("writeImagesInfo");
+            JSONObject optJSONObject = jSONObject.optJSONObject("livePostInfo");
             if (optJSONObject != null) {
+                writeData.liveCardData = new LiveCardData();
+                writeData.liveCardData.parseDraftJson(optJSONObject);
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("writeImagesInfo");
+            if (optJSONObject2 != null) {
                 writeData.writeImagesInfo = new WriteImagesInfo();
-                writeData.writeImagesInfo.parseJson(optJSONObject);
+                writeData.writeImagesInfo.parseJson(optJSONObject2);
             }
             return writeData;
         } catch (Exception e) {
@@ -234,7 +248,13 @@ public class WriteData implements Serializable {
     }
 
     public boolean isHasImages() {
-        return (isAddition() || !isSubFloor()) && this.writeImagesInfo != null && this.writeImagesInfo.size() > 0;
+        boolean z;
+        if (isAddition()) {
+            z = true;
+        } else {
+            z = !isSubFloor();
+        }
+        return z && this.writeImagesInfo != null && this.writeImagesInfo.size() > 0;
     }
 
     public void deleteUploadedTempImages() {
@@ -245,7 +265,7 @@ public class WriteData implements Serializable {
                 int i2 = i;
                 if (i2 < chosedFiles.size()) {
                     ImageFileInfo imageFileInfo = chosedFiles.get(i2);
-                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !h.b(imageFileInfo.getFilePath())) {
+                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !g.b(imageFileInfo.getFilePath())) {
                         File file = new File(imageFileInfo.getFilePath());
                         if (file.exists()) {
                             file.delete();
@@ -307,5 +327,13 @@ public class WriteData implements Serializable {
 
     public void setIsFrsReply(boolean z) {
         this.mIsFrsReply = z;
+    }
+
+    public LiveCardData getLiveCardData() {
+        return this.liveCardData;
+    }
+
+    public void setLiveCardData(LiveCardData liveCardData) {
+        this.liveCardData = liveCardData;
     }
 }

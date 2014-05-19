@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class e implements View.OnClickListener {
+public class e implements View.OnClickListener {
     final /* synthetic */ d a;
     private final /* synthetic */ int b;
     private final /* synthetic */ Button c;
@@ -17,12 +17,9 @@ public final class e implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         g gVar;
         gVar = this.a.c;
-        d dVar = this.a;
-        int i = this.b;
-        Button button = this.c;
-        gVar.a(dVar, i);
+        gVar.a(this.a, this.b, this.c);
     }
 }

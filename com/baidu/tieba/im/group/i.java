@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.group;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class i implements com.baidu.adp.widget.ListView.d {
+public class i implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +10,7 @@ final class i implements com.baidu.adp.widget.ListView.d {
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public final void a(boolean z) {
+    public void a(boolean z) {
         com.baidu.tieba.im.mygroup.j jVar;
         q qVar;
         com.baidu.tieba.im.mygroup.j jVar2;

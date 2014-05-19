@@ -2,7 +2,7 @@ package com.baidu.tieba.im.friend;
 
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
-final class k implements AbsListView.OnScrollListener {
+class k implements AbsListView.OnScrollListener {
     final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,11 +11,11 @@ final class k implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScrollStateChanged(AbsListView absListView, int i) {
-        this.a.e();
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        this.a.c();
     }
 }

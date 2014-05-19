@@ -6,7 +6,7 @@ import android.widget.AdapterView;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-final class i implements AdapterView.OnItemClickListener {
+class i implements AdapterView.OnItemClickListener {
     final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ final class i implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         k kVar;
         w wVar;
         ArrayList arrayList;

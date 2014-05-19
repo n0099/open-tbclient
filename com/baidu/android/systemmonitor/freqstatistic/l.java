@@ -54,7 +54,7 @@ public final class l {
         this.a = str;
     }
 
-    public final String toString() {
+    public String toString() {
         return "apptrace :  packageName =" + this.a + "  startStamp =" + this.b + " stopStamp =" + this.c + " location =" + this.d + " startBtLevel =" + this.e + " stopBtLevel =" + this.f + " netType =" + this.g + " netFlow =" + this.h;
     }
 }

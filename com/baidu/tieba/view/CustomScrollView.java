@@ -8,6 +8,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.ScrollView;
 import android.widget.Scroller;
+import com.baidu.adp.lib.util.BdLog;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class CustomScrollView extends ScrollView {
@@ -20,24 +21,14 @@ public class CustomScrollView extends ScrollView {
         super(context, attributeSet);
         this.c = 0;
         this.d = 0;
-        this.b = new GestureDetector(context, new g(this));
+        this.b = new GestureDetector(context, new h(this));
         setFadingEdgeLength(0);
     }
 
     @Override // android.widget.ScrollView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            try {
-                if (this.a == null) {
-                    this.a = com.baidu.adp.lib.util.i.a(this, "mScroller");
-                }
-                Object obj = this.a.get(this);
-                if (obj != null) {
-                    obj.getClass().getMethod("abortAnimation", new Class[0]).invoke(obj, new Object[0]);
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "stopAnim", e.getMessage());
-            }
+            a();
         }
         return super.onInterceptTouchEvent(motionEvent) && this.b.onTouchEvent(motionEvent);
     }
@@ -51,7 +42,7 @@ public class CustomScrollView extends ScrollView {
         if (i2 == 0 || z) {
             try {
                 if (this.a == null) {
-                    this.a = com.baidu.adp.lib.util.i.a(this, "mScroller");
+                    this.a = com.baidu.adp.lib.util.h.a(this, "mScroller");
                 }
                 Object obj = this.a.get(this);
                 if (obj != null && (obj instanceof Scroller)) {
@@ -60,10 +51,24 @@ public class CustomScrollView extends ScrollView {
                     return;
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onScrollChanged", e.getMessage());
+                BdLog.e(getClass().getName(), "onScrollChanged", e.getMessage());
             }
         }
         super.onScrollChanged(i, i2, i3, i4);
+    }
+
+    private void a() {
+        try {
+            if (this.a == null) {
+                this.a = com.baidu.adp.lib.util.h.a(this, "mScroller");
+            }
+            Object obj = this.a.get(this);
+            if (obj != null) {
+                obj.getClass().getMethod("abortAnimation", new Class[0]).invoke(obj, new Object[0]);
+            }
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "stopAnim", e.getMessage());
+        }
     }
 
     @Override // android.widget.ScrollView, android.view.View

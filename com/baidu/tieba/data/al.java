@@ -1,68 +1,31 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bc;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.data.AntiData;
 /* loaded from: classes.dex */
-public final class al {
-    private String d;
-    private String a = null;
-    private String b = null;
-    private String c = null;
-    private boolean h = false;
-    private long e = 0;
-    private final UserData f = new UserData();
-    private String g = null;
-    private boolean i = true;
+public class al {
+    final int a;
+    final String b;
+    final AntiData c;
 
-    public final boolean a() {
-        return this.i;
+    public al(int i, String str, AntiData antiData) {
+        this.a = i;
+        this.b = str;
+        this.c = antiData;
     }
 
-    public final String b() {
+    public boolean a() {
+        return this.a != 0;
+    }
+
+    public boolean b() {
+        return this.a == 5 || this.a == 6;
+    }
+
+    public String c() {
         return this.b;
     }
 
-    public final String c() {
-        return this.a;
-    }
-
-    public final String d() {
-        return this.d;
-    }
-
-    public final String e() {
+    public AntiData d() {
         return this.c;
-    }
-
-    public final String f() {
-        return this.g;
-    }
-
-    public final long g() {
-        return this.e;
-    }
-
-    public final void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("tid");
-                this.c = jSONObject.optString("title");
-                this.b = jSONObject.optString("pid");
-                this.h = jSONObject.optInt("is_floor", 0) != 0;
-                this.e = jSONObject.optLong("time", 0L) * 1000;
-                this.f.parserJson(jSONObject.optJSONObject("author"));
-                this.g = jSONObject.optString("content");
-                this.d = jSONObject.optString("fname");
-                this.c = bc.g(this.c);
-                String g = bc.g(this.g);
-                if (!g.equals(this.g)) {
-                    this.g = g;
-                    this.i = false;
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("PostData", "parserJson", "error = " + e.getMessage());
-            }
-        }
     }
 }

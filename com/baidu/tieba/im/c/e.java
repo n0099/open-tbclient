@@ -1,12 +1,17 @@
 package com.baidu.tieba.im.c;
 
 import android.os.Handler;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.r;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tieba.im.message.MessageSyncMessage;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class e implements com.baidu.tieba.im.a<com.baidu.tieba.im.db.e> {
+public class e implements com.baidu.tieba.im.a<com.baidu.tieba.im.db.e> {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,10 +19,11 @@ public final class e implements com.baidu.tieba.im.a<com.baidu.tieba.im.db.e> {
         this.a = bVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(com.baidu.tieba.im.db.e eVar) {
+    public void a(com.baidu.tieba.im.db.e eVar) {
         int i;
+        MessageSyncMessage l;
         long j;
         long j2;
         int i2;
@@ -27,24 +33,24 @@ public final class e implements com.baidu.tieba.im.a<com.baidu.tieba.im.db.e> {
         Handler handler2;
         Handler handler3;
         Handler handler4;
-        if (r.a() > 10) {
-            com.baidu.adp.lib.util.f.d("----pull message, but TiebaIMSingleExecutor.QueueSize too big");
+        if (com.baidu.tieba.im.i.a() > 10) {
+            BdLog.i("----pull message, but TiebaIMSingleExecutor.QueueSize too big");
             handler3 = this.a.l;
             handler4 = this.a.l;
             handler3.sendMessageDelayed(handler4.obtainMessage(2), 2000L);
-        } else if (com.baidu.tieba.im.b.e.c()) {
+        } else if (com.baidu.tieba.im.b.e.d()) {
             this.a.e = false;
-            com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
+            MessageManager messageManager = MessageManager.getInstance();
             i = this.a.k;
-            LinkedList<? extends com.baidu.adp.framework.message.d> a2 = a.a(202003, i);
-            if (a2 != null && a2.size() > 0) {
+            LinkedList<? extends Message> findMessage = messageManager.findMessage(MessageTypes.CMD_MESSAGE_SYNC, i);
+            if (findMessage != null && findMessage.size() > 0) {
                 this.a.e = true;
                 return;
             }
-            if (TbadkApplication.j().q()) {
+            if (TbadkApplication.m252getInst().isInBackground()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 j = this.a.h;
-                if (currentTimeMillis - j > 60000) {
+                if (currentTimeMillis - j > TbConfig.USE_TIME_INTERVAL) {
                     j2 = this.a.f;
                     if (currentTimeMillis - j2 < 180000) {
                         i2 = this.a.g;
@@ -54,17 +60,18 @@ public final class e implements com.baidu.tieba.im.a<com.baidu.tieba.im.db.e> {
                             bVar.g = i3 + 1;
                             StringBuilder sb = new StringBuilder("----background pull skip. no pull count ");
                             i4 = this.a.g;
-                            com.baidu.adp.lib.util.f.d(sb.append(i4).toString());
+                            BdLog.i(sb.append(i4).toString());
                             return;
                         }
                     }
                 }
             }
-            com.baidu.adp.lib.util.f.d("----real pull msg.");
+            BdLog.i("----real pull msg.");
             this.a.g = 0;
-            com.baidu.adp.framework.c.a().a(b.f(this.a));
+            l = this.a.l();
+            MessageManager.getInstance().sendMessage(l);
         } else {
-            com.baidu.adp.lib.util.f.d("----pull message, but cache is initing... ");
+            BdLog.i("----pull message, but cache is initing... ");
             handler = this.a.l;
             handler2 = this.a.l;
             handler.sendMessageDelayed(handler2.obtainMessage(2), 2000L);

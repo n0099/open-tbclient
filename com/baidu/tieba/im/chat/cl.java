@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat;
 
 import android.view.View;
 /* loaded from: classes.dex */
-final class cl implements View.OnClickListener {
+class cl implements View.OnClickListener {
     final /* synthetic */ MsgleftView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ final class cl implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        this.a.c.a(view, 2, this.a.f, 0L);
+    public void onClick(View view) {
+        this.a.b.a(view, 2, this.a.e, 0L);
     }
 }

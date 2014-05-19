@@ -3,6 +3,7 @@ package com.baidu.adp.lib.network.willdelete;
 import android.net.Proxy;
 import android.text.TextUtils;
 import com.baidu.adp.lib.network.http.BdHttpCancelException;
+import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -24,11 +25,10 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.regex.Pattern;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
     public static boolean a = true;
     public static String b = "";
     public static String c = "";
@@ -37,18 +37,12 @@ public final class b {
     private static String f = "--";
     private static String g = "--------7da3d81520810*";
 
-    private static HttpURLConnection a(String str, LinkedList<BasicNameValuePair> linkedList) {
-        boolean z;
+    public static HttpURLConnection a(String str, LinkedList<BasicNameValuePair> linkedList) {
         HttpURLConnection httpURLConnection;
         String replaceFirst;
         URL url = new URL(str);
         String defaultHost = Proxy.getDefaultHost();
-        if (h.a()) {
-            z = false;
-        } else {
-            z = h.b() == 1 ? false : !h.a(Proxy.getDefaultHost());
-        }
-        if (!z) {
+        if (!h.c()) {
             HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
             if (!TextUtils.isEmpty(b)) {
                 httpURLConnection2.setRequestProperty("Cookie", b);
@@ -69,7 +63,7 @@ public final class b {
             defaultPort = 80;
         }
         java.net.Proxy proxy = new java.net.Proxy(Proxy.Type.HTTP, new InetSocketAddress(defaultHost, defaultPort));
-        if (Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8).matcher(defaultHost).find()) {
+        if (h.b(defaultHost)) {
             String host = url.getHost();
             int port = url.getPort();
             int i = port != -1 ? port : 80;
@@ -102,9 +96,9 @@ public final class b {
         return httpURLConnection;
     }
 
-    private static HttpURLConnection a(String str, long j, long j2, int i, LinkedList<BasicNameValuePair> linkedList) {
+    public static HttpURLConnection a(String str, long j, long j2, int i, LinkedList<BasicNameValuePair> linkedList) {
         HttpURLConnection a2 = a(str, linkedList);
-        a2.setConnectTimeout(10000);
+        a2.setConnectTimeout(TbConfig.BIG_IMAGE_MIN_CAPACITY);
         if (i < 0) {
             i = 30000;
         }
@@ -137,19 +131,20 @@ public final class b {
         }
     }
 
-    private static f a(HttpURLConnection httpURLConnection, boolean z, byte[] bArr, g gVar, d dVar, a aVar) {
-        return a(httpURLConnection, true, (byte[]) null, gVar, dVar, aVar, (com.baidu.adp.lib.network.http.d) null);
+    public static f a(HttpURLConnection httpURLConnection, boolean z, byte[] bArr, g gVar, d dVar, a aVar) {
+        return a(httpURLConnection, z, bArr, gVar, dVar, aVar, (com.baidu.adp.lib.network.http.d) null);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [507=4] */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x0019 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x001e  */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0023  */
+    /* JADX WARN: Removed duplicated region for block: B:133:0x0015 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x001a  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x001f  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static f a(HttpURLConnection httpURLConnection, boolean z, byte[] bArr, g gVar, d dVar, a aVar, com.baidu.adp.lib.network.http.d dVar2) {
+    public static f a(HttpURLConnection httpURLConnection, boolean z, byte[] bArr, g gVar, d dVar, a aVar, com.baidu.adp.lib.network.http.d dVar2) {
         DataOutputStream dataOutputStream;
+        f a2;
         DataOutputStream dataOutputStream2 = null;
         if (aVar != null) {
             try {
@@ -193,9 +188,18 @@ public final class b {
         if (a && !z && bArr != null && bArr.length != 0) {
             httpURLConnection.setRequestProperty("Post-Encoding", "gzip");
         }
-        System.currentTimeMillis();
+        long currentTimeMillis = System.currentTimeMillis();
+        if (dVar2 != null) {
+            dVar2.g = System.currentTimeMillis() - currentTimeMillis;
+        }
         httpURLConnection.connect();
+        if (dVar2 != null) {
+            dVar2.c = (System.currentTimeMillis() - currentTimeMillis) - dVar2.g;
+        }
         if (aVar == null || !aVar.c()) {
+            if (dVar != null) {
+                dVar.a();
+            }
             if (z || bArr == null || bArr.length == 0) {
                 dataOutputStream = null;
             } else {
@@ -258,7 +262,14 @@ public final class b {
                     }
                     throw new BdHttpErrorException("errorCode:" + responseCode, responseCode, true);
                 }
-                f a2 = (responseCode == 200 || responseCode == 206) ? a(httpURLConnection, z, gVar, dVar, aVar, (com.baidu.adp.lib.network.http.d) null) : new f();
+                if (responseCode == 200 || responseCode == 206) {
+                    a2 = a(httpURLConnection, z, gVar, dVar, aVar, dVar2);
+                    if (dVar2 != null) {
+                        dVar2.d = ((System.currentTimeMillis() - currentTimeMillis) - dVar2.c) - dVar2.g;
+                    }
+                } else {
+                    a2 = new f();
+                }
                 if (aVar == null || !aVar.c()) {
                     a2.a = responseCode;
                     if (dVar != null && responseCode != 206) {
@@ -480,13 +491,13 @@ public final class b {
         return a(false, z, str, bArr, i, i2, dVar, aVar, linkedList);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0044  */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0073 A[LOOP:0: B:3:0x000b->B:47:0x0073, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0050 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0046  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x0075 A[LOOP:0: B:3:0x000b->B:48:0x0075, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0052 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static f a(boolean z, boolean z2, String str, byte[] bArr, int i, int i2, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
+    public static f a(boolean z, boolean z2, String str, byte[] bArr, int i, int i2, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
         int i3;
         int i4;
         f fVar;
@@ -512,8 +523,10 @@ public final class b {
                     if (i3 < i) {
                         i4 = i3;
                         fVar = null;
-                        dVar2.e = i4;
-                        dVar2.f = new Date().getTime() - currentTimeMillis;
+                        if (dVar2 != null) {
+                            dVar2.e = i4;
+                            dVar2.f = new Date().getTime() - currentTimeMillis;
+                        }
                         if (fVar != null) {
                             fVar.c = dVar2;
                         }
@@ -605,7 +618,7 @@ public final class b {
                     if (z2) {
                         a2.setRequestProperty("Accept-Encoding", "gzip");
                     }
-                    a2.setConnectTimeout(10000);
+                    a2.setConnectTimeout(TbConfig.BIG_IMAGE_MIN_CAPACITY);
                     if (i < 0) {
                         i = 30000;
                     }
@@ -622,6 +635,9 @@ public final class b {
                             dVar2.c = (System.currentTimeMillis() - currentTimeMillis) - dVar2.g;
                         }
                         if (aVar == null || !aVar.c()) {
+                            if (dVar != null) {
+                                dVar.a();
+                            }
                             if (z || bArr == null || bArr.length == 0) {
                                 dataOutputStream2 = null;
                             } else {
@@ -663,16 +679,8 @@ public final class b {
                                         throw th;
                                     }
                                 } catch (Throwable th2) {
-                                    dataOutputStream3 = dataOutputStream4;
-                                    httpURLConnection2 = a2;
                                     th = th2;
-                                    if (dataOutputStream3 != null) {
-                                    }
-                                    if (httpURLConnection2 != null) {
-                                    }
-                                    if (aVar != null) {
-                                    }
-                                    throw th;
+                                    throw new BdHttpErrorException("open socket error:" + th.getMessage(), th);
                                 }
                             }
                             if (aVar != null) {
@@ -755,37 +763,33 @@ public final class b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0037  */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0040 A[LOOP:0: B:3:0x000b->B:19:0x0040, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0027 A[EDGE_INSN: B:52:0x0027->B:10:0x0027 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x003a  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0043 A[LOOP:0: B:5:0x000d->B:22:0x0043, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0028 A[EDGE_INSN: B:50:0x0028->B:12:0x0028 ?: BREAK  , SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static f a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, d dVar, a aVar, com.baidu.adp.lib.network.http.d dVar2, LinkedList<BasicNameValuePair> linkedList) {
         f fVar;
         int i3;
-        f fVar2;
         int i4 = 0;
-        f fVar3 = null;
+        f fVar2 = null;
         long currentTimeMillis = System.currentTimeMillis();
-        com.baidu.adp.lib.network.http.d dVar3 = new com.baidu.adp.lib.network.http.d();
+        com.baidu.adp.lib.network.http.d dVar3 = dVar2 == null ? new com.baidu.adp.lib.network.http.d() : dVar2;
         while (true) {
             try {
                 try {
-                    fVar2 = a(str, z, arrayList, hashMap, i2, dVar, aVar, dVar3, linkedList);
-                    if (fVar2 != null) {
+                    fVar = a(str, z, arrayList, hashMap, i2, dVar, aVar, dVar3, linkedList);
+                    if (fVar != null) {
                         try {
-                            if (fVar2.a == 200) {
+                            if (fVar.a == 200) {
                                 i3 = i4;
                                 break;
                             }
                         } catch (BdHttpErrorException e2) {
-                            fVar = fVar2;
                             e = e2;
                             if (e.needRetry() && i4 < i - 1) {
-                                f fVar4 = fVar;
                                 i3 = i4 + 1;
-                                fVar2 = fVar4;
                                 if (i3 < i - 1) {
                                 }
                                 if (i3 >= i) {
@@ -794,11 +798,9 @@ public final class b {
                                 throw e;
                             }
                         } catch (Exception e3) {
-                            fVar3 = fVar2;
                             e = e3;
                             if (i4 < i - 1) {
                                 i3 = i4 + 1;
-                                fVar2 = fVar3;
                                 if (i3 < i - 1) {
                                 }
                                 if (i3 >= i) {
@@ -814,9 +816,10 @@ public final class b {
                 }
             } catch (BdHttpErrorException e5) {
                 e = e5;
-                fVar = fVar3;
+                fVar = fVar2;
             } catch (Exception e6) {
                 e = e6;
+                fVar = fVar2;
             }
             if (i3 < i - 1) {
                 try {
@@ -827,22 +830,24 @@ public final class b {
             if (i3 >= i) {
                 break;
             }
-            fVar3 = fVar2;
+            fVar2 = fVar;
             i4 = i3;
         }
-        dVar3.e = i3;
-        dVar3.f = System.currentTimeMillis() - currentTimeMillis;
-        return fVar2;
+        if (dVar3 != null) {
+            dVar3.e = i3;
+            dVar3.f = System.currentTimeMillis() - currentTimeMillis;
+        }
+        return fVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1367=4, 1369=5] */
-    /* JADX WARN: Removed duplicated region for block: B:178:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:17:0x0024  */
+    /* JADX WARN: Removed duplicated region for block: B:180:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0029  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static f a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, d dVar, a aVar, com.baidu.adp.lib.network.http.d dVar2, LinkedList<BasicNameValuePair> linkedList) {
+    public static f a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, d dVar, a aVar, com.baidu.adp.lib.network.http.d dVar2, LinkedList<BasicNameValuePair> linkedList) {
         HttpURLConnection httpURLConnection;
         DataOutputStream dataOutputStream;
         DataOutputStream dataOutputStream2;
@@ -899,7 +904,7 @@ public final class b {
             if (z) {
                 a2.setRequestProperty("Accept-Encoding", "gzip");
             }
-            a2.setConnectTimeout(10000);
+            a2.setConnectTimeout(TbConfig.BIG_IMAGE_MIN_CAPACITY);
             if (i < 0) {
                 i = 30000;
             }
@@ -917,6 +922,9 @@ public final class b {
                     dVar2.c = (System.currentTimeMillis() - currentTimeMillis) - dVar2.g;
                 }
                 if (aVar == null || !aVar.c()) {
+                    if (dVar != null) {
+                        dVar.a();
+                    }
                     if (a) {
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         if (arrayList != null) {
@@ -960,6 +968,8 @@ public final class b {
                         DataOutputStream dataOutputStream4 = new DataOutputStream(a2.getOutputStream());
                         try {
                             dataOutputStream4.write(byteArrayOutputStream2.toByteArray());
+                            dataOutputStream4.flush();
+                            dataOutputStream4.close();
                             dataOutputStream2 = dataOutputStream4;
                         } catch (Exception e4) {
                             dataOutputStream = dataOutputStream4;
@@ -1031,63 +1041,67 @@ public final class b {
                                 }
                             }
                         }
+                        dataOutputStream5.flush();
+                        dataOutputStream5.close();
                         dataOutputStream2 = dataOutputStream5;
                     }
-                    try {
-                        dataOutputStream2.flush();
-                        dataOutputStream2.close();
-                        if (aVar == null || !aVar.c()) {
-                            int responseCode = a2.getResponseCode();
-                            if (aVar == null || !aVar.c()) {
-                                if (responseCode != 200 && responseCode != 204 && responseCode != 206 && responseCode != 416) {
-                                    if (responseCode == 202 || responseCode == 201 || responseCode == 205 || responseCode == 304 || responseCode == 305 || responseCode == 408) {
-                                        throw new BdHttpErrorException("retry, errorCode:" + responseCode, responseCode, true);
-                                    }
-                                    if (responseCode == 502 || responseCode == 503 || responseCode == 504) {
-                                        throw new BdHttpErrorException("close not retry, errorCode:" + responseCode, responseCode, false);
-                                    }
-                                    throw new BdHttpErrorException("errorCode:" + responseCode, responseCode, true);
-                                }
-                                f a3 = (responseCode == 200 || responseCode == 206) ? a(a2, false, (g) null, dVar, aVar, dVar2) : new f();
-                                if (aVar == null || !aVar.c()) {
-                                    a3.a = responseCode;
-                                    if (dVar2 != null) {
-                                        dVar2.d = ((System.currentTimeMillis() - currentTimeMillis) - dVar2.c) - dVar2.g;
-                                    }
-                                    try {
-                                        dataOutputStream2.close();
-                                    } catch (Exception e6) {
-                                    }
-                                    if (a2 != null) {
-                                        a2.disconnect();
-                                    }
-                                    if (aVar != null) {
-                                        aVar.b();
-                                    }
-                                    return a3;
-                                }
+                    if (aVar != null) {
+                        try {
+                            if (aVar.c()) {
                                 throw new BdHttpCancelException();
                             }
-                            throw new BdHttpCancelException();
+                        } catch (Exception e6) {
+                            httpURLConnection = a2;
+                            e = e6;
+                            dataOutputStream = dataOutputStream2;
+                            throw e;
+                        } catch (Throwable th5) {
+                            dataOutputStream3 = dataOutputStream2;
+                            httpURLConnection = a2;
+                            th = th5;
+                            if (dataOutputStream3 != null) {
+                            }
+                            if (httpURLConnection != null) {
+                            }
+                            if (aVar != null) {
+                            }
+                            throw th;
+                        }
+                    }
+                    int responseCode = a2.getResponseCode();
+                    if (aVar == null || !aVar.c()) {
+                        if (responseCode != 200 && responseCode != 204 && responseCode != 206 && responseCode != 416) {
+                            if (responseCode == 202 || responseCode == 201 || responseCode == 205 || responseCode == 304 || responseCode == 305 || responseCode == 408) {
+                                throw new BdHttpErrorException("retry, errorCode:" + responseCode, responseCode, true);
+                            }
+                            if (responseCode == 502 || responseCode == 503 || responseCode == 504) {
+                                throw new BdHttpErrorException("close not retry, errorCode:" + responseCode, responseCode, false);
+                            }
+                            throw new BdHttpErrorException("errorCode:" + responseCode, responseCode, true);
+                        }
+                        f a3 = (responseCode == 200 || responseCode == 206) ? a(a2, false, (g) null, dVar, aVar, dVar2) : new f();
+                        if (aVar == null || !aVar.c()) {
+                            a3.a = responseCode;
+                            if (dVar2 != null) {
+                                dVar2.d = ((System.currentTimeMillis() - currentTimeMillis) - dVar2.c) - dVar2.g;
+                            }
+                            if (dataOutputStream2 != null) {
+                                try {
+                                    dataOutputStream2.close();
+                                } catch (Exception e7) {
+                                }
+                            }
+                            if (a2 != null) {
+                                a2.disconnect();
+                            }
+                            if (aVar != null) {
+                                aVar.b();
+                            }
+                            return a3;
                         }
                         throw new BdHttpCancelException();
-                    } catch (Exception e7) {
-                        httpURLConnection = a2;
-                        e = e7;
-                        dataOutputStream = dataOutputStream2;
-                        throw e;
-                    } catch (Throwable th5) {
-                        dataOutputStream3 = dataOutputStream2;
-                        httpURLConnection = a2;
-                        th = th5;
-                        if (dataOutputStream3 != null) {
-                        }
-                        if (httpURLConnection != null) {
-                        }
-                        if (aVar != null) {
-                        }
-                        throw th;
                     }
+                    throw new BdHttpCancelException();
                 }
                 throw new BdHttpCancelException();
             }
@@ -1102,148 +1116,104 @@ public final class b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:111:0x0161 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x00df A[Catch: all -> 0x0037, TryCatch #1 {all -> 0x0037, blocks: (B:3:0x0001, B:5:0x000e, B:23:0x003e, B:25:0x0048, B:27:0x0052, B:28:0x005a, B:7:0x0018, B:10:0x001e, B:15:0x002b, B:17:0x0031, B:18:0x0036, B:30:0x005f, B:32:0x0064, B:34:0x006a, B:35:0x006f, B:36:0x0070, B:38:0x0075, B:40:0x007b, B:41:0x0080, B:42:0x0081, B:44:0x008b, B:46:0x0094, B:47:0x00a2, B:51:0x00ae, B:53:0x00bf, B:55:0x00c7, B:57:0x00cf, B:58:0x00d8, B:60:0x00df, B:61:0x00e2, B:63:0x00e8, B:66:0x00f2, B:68:0x00f8, B:70:0x00fe, B:71:0x0103, B:74:0x0109, B:75:0x0112, B:79:0x011d, B:81:0x0123, B:87:0x0134, B:83:0x0128, B:85:0x012e, B:86:0x0133, B:90:0x013d, B:92:0x0141, B:94:0x015a, B:98:0x0165, B:100:0x016a), top: B:110:0x0001 }] */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0109 A[Catch: all -> 0x0037, TryCatch #1 {all -> 0x0037, blocks: (B:3:0x0001, B:5:0x000e, B:23:0x003e, B:25:0x0048, B:27:0x0052, B:28:0x005a, B:7:0x0018, B:10:0x001e, B:15:0x002b, B:17:0x0031, B:18:0x0036, B:30:0x005f, B:32:0x0064, B:34:0x006a, B:35:0x006f, B:36:0x0070, B:38:0x0075, B:40:0x007b, B:41:0x0080, B:42:0x0081, B:44:0x008b, B:46:0x0094, B:47:0x00a2, B:51:0x00ae, B:53:0x00bf, B:55:0x00c7, B:57:0x00cf, B:58:0x00d8, B:60:0x00df, B:61:0x00e2, B:63:0x00e8, B:66:0x00f2, B:68:0x00f8, B:70:0x00fe, B:71:0x0103, B:74:0x0109, B:75:0x0112, B:79:0x011d, B:81:0x0123, B:87:0x0134, B:83:0x0128, B:85:0x012e, B:86:0x0133, B:90:0x013d, B:92:0x0141, B:94:0x015a, B:98:0x0165, B:100:0x016a), top: B:110:0x0001 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private static f a(HttpURLConnection httpURLConnection, boolean z, g gVar, d dVar, a aVar, com.baidu.adp.lib.network.http.d dVar2) {
         int i;
         int i2;
-        InputStream inputStream;
         int read;
         String headerField;
-        InputStream inputStream2 = null;
+        InputStream inputStream = null;
         try {
             f fVar = new f();
             String contentType = httpURLConnection.getContentType();
-            String str = "utf-8";
-            if (contentType != null) {
-                String[] split = contentType.split(";");
-                int length = split.length;
-                int i3 = 0;
-                while (true) {
-                    if (i3 >= length) {
-                        break;
-                    }
-                    String str2 = split[i3];
-                    if (str2.contains("charset")) {
-                        String[] split2 = str2.split("=");
-                        if (split2.length > 1) {
-                            str = split2[1].trim();
-                        }
-                    } else {
-                        i3++;
-                    }
+            fVar.e = h.d(contentType);
+            if (z && h.c(contentType)) {
+                if (aVar != null && aVar.c()) {
+                    throw new BdHttpCancelException();
+                }
+                httpURLConnection.disconnect();
+                if (aVar != null && aVar.c()) {
+                    throw new BdHttpCancelException();
+                }
+                httpURLConnection.connect();
+                if (aVar != null && aVar.c()) {
+                    throw new BdHttpCancelException();
                 }
             }
-            fVar.e = str;
-            if (z) {
-                if (contentType != null && contentType.contains("vnd.wap.wml")) {
-                    if (aVar != null && aVar.c()) {
-                        throw new BdHttpCancelException();
-                    }
-                    httpURLConnection.disconnect();
-                    if (aVar != null && aVar.c()) {
-                        throw new BdHttpCancelException();
-                    }
-                    httpURLConnection.connect();
-                    if (aVar != null && aVar.c()) {
-                        throw new BdHttpCancelException();
-                    }
-                }
-            }
-            int i4 = 0;
             String headerField2 = httpURLConnection.getHeaderField("Content-Range");
             if (headerField2 != null) {
                 int indexOf = headerField2.indexOf("/");
-                if (indexOf != -1) {
-                    i4 = Integer.valueOf(headerField2.substring(indexOf + 1)).intValue();
-                }
+                int intValue = indexOf != -1 ? Integer.valueOf(headerField2.substring(indexOf + 1)).intValue() : 0;
                 int indexOf2 = headerField2.indexOf("-");
-                if (indexOf2 != -1 && indexOf2 > 6) {
+                if (indexOf2 == -1 || indexOf2 <= 6) {
+                    i = 0;
+                    i2 = intValue;
+                } else {
                     i = Integer.valueOf(headerField2.substring(6, indexOf2)).intValue();
-                    i2 = i4;
-                    int intValue = (i2 == 0 || httpURLConnection.getResponseCode() != 200 || (headerField = httpURLConnection.getHeaderField("Content-Length")) == null) ? i2 : Integer.valueOf(headerField).intValue();
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    if (dVar != null) {
-                        dVar.a(intValue, httpURLConnection, byteArrayOutputStream);
+                    i2 = intValue;
+                }
+            } else {
+                i = 0;
+                i2 = 0;
+            }
+            int intValue2 = (i2 == 0 && httpURLConnection.getResponseCode() == 200 && (headerField = httpURLConnection.getHeaderField("Content-Length")) != null) ? Integer.valueOf(headerField).intValue() : i2;
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            if (dVar != null) {
+                dVar.a(intValue2, httpURLConnection, byteArrayOutputStream);
+            }
+            String contentEncoding = httpURLConnection.getContentEncoding();
+            boolean z2 = contentEncoding != null && contentEncoding.contains("gzip");
+            InputStream inputStream2 = httpURLConnection.getInputStream();
+            if (aVar != null && aVar.c()) {
+                throw new BdHttpCancelException();
+            }
+            if (inputStream2 != null && byteArrayOutputStream != null) {
+                byte[] bArr = new byte[4096];
+                int size = byteArrayOutputStream.size() + i;
+                do {
+                    read = inputStream2.read(bArr);
+                    size += read;
+                    if (read > 0) {
+                        if (!z2 && gVar != null) {
+                            gVar.a(bArr, 0, read);
+                        } else {
+                            byteArrayOutputStream.write(bArr, 0, read);
+                        }
+                        if (dVar != null) {
+                            dVar.a(size, intValue2, httpURLConnection);
+                        }
                     }
-                    String contentEncoding = httpURLConnection.getContentEncoding();
-                    boolean z2 = contentEncoding == null && contentEncoding.contains("gzip");
-                    inputStream = httpURLConnection.getInputStream();
-                    if (aVar == null && aVar.c()) {
+                    if (aVar != null && aVar.c()) {
                         throw new BdHttpCancelException();
                     }
-                    if (inputStream != null) {
-                        byte[] bArr = new byte[4096];
-                        int size = byteArrayOutputStream.size() + i;
-                        do {
-                            read = inputStream.read(bArr);
-                            size += read;
-                            if (read > 0) {
-                                if (!z2 && gVar != null) {
-                                    gVar.a(bArr, 0, read);
-                                } else {
-                                    byteArrayOutputStream.write(bArr, 0, read);
-                                }
-                                if (dVar != null) {
-                                    dVar.a(size, intValue);
-                                }
-                            }
-                            if (aVar != null && aVar.c()) {
-                                throw new BdHttpCancelException();
-                            }
-                        } while (read > 0);
-                        if (dVar2 != null) {
-                            dVar2.b = size;
-                        }
-                        if (z2) {
-                            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-                            ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(4096);
-                            com.baidu.adp.lib.util.e.a(byteArrayInputStream, byteArrayOutputStream2);
-                            byte[] byteArray = byteArrayOutputStream2.toByteArray();
-                            if (gVar != null) {
-                                gVar.a(byteArray, 0, byteArray.length);
-                            } else {
-                                fVar.d = byteArray;
-                            }
-                        } else if (gVar == null) {
-                            fVar.d = byteArrayOutputStream.toByteArray();
-                        }
+                } while (read > 0);
+                if (dVar2 != null) {
+                    dVar2.b = size;
+                }
+                if (z2) {
+                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+                    ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(4096);
+                    com.baidu.adp.lib.util.e.a(byteArrayInputStream, byteArrayOutputStream2);
+                    byte[] byteArray = byteArrayOutputStream2.toByteArray();
+                    if (gVar != null) {
+                        gVar.a(byteArray, 0, byteArray.length);
+                    } else {
+                        fVar.d = byteArray;
                     }
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (IOException e2) {
-                        }
-                    }
-                    return fVar;
+                } else if (gVar == null) {
+                    fVar.d = byteArrayOutputStream.toByteArray();
                 }
             }
-            i = 0;
-            i2 = i4;
-            if (i2 == 0) {
-            }
-            ByteArrayOutputStream byteArrayOutputStream3 = new ByteArrayOutputStream();
-            if (dVar != null) {
-            }
-            String contentEncoding2 = httpURLConnection.getContentEncoding();
-            if (contentEncoding2 == null) {
-            }
-            inputStream = httpURLConnection.getInputStream();
-            if (aVar == null) {
-            }
-            if (inputStream != null) {
-            }
-            if (inputStream != null) {
+            if (inputStream2 != null) {
+                try {
+                    inputStream2.close();
+                } catch (IOException e2) {
+                }
             }
             return fVar;
         } catch (Throwable th) {
             if (0 != 0) {
                 try {
-                    inputStream2.close();
+                    inputStream.close();
                 } catch (IOException e3) {
                 }
             }

@@ -1,6 +1,5 @@
 package com.google.zxing.client.result;
 
-import com.baidu.loginshare.e;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class URIParsedResult extends ParsedResult {
@@ -14,20 +13,20 @@ public final class URIParsedResult extends ParsedResult {
         this.title = str2;
     }
 
-    public final String getURI() {
+    public String getURI() {
         return this.uri;
     }
 
-    public final String getTitle() {
+    public String getTitle() {
         return this.title;
     }
 
-    public final boolean isPossiblyMaliciousURI() {
+    public boolean isPossiblyMaliciousURI() {
         return USER_IN_HOST.matcher(this.uri).find();
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public final String getDisplayResult() {
+    public String getDisplayResult() {
         StringBuilder sb = new StringBuilder(30);
         maybeAppend(this.title, sb);
         maybeAppend(this.uri, sb);
@@ -38,10 +37,10 @@ public final class URIParsedResult extends ParsedResult {
         String trim = str.trim();
         int indexOf = trim.indexOf(58);
         if (indexOf < 0) {
-            return e.f + trim;
+            return "http://" + trim;
         }
         if (isColonFollowedByPortNumber(trim, indexOf)) {
-            return e.f + trim;
+            return "http://" + trim;
         }
         return trim;
     }

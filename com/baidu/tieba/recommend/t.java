@@ -4,7 +4,7 @@ import android.view.animation.Animation;
 import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class t implements Animation.AnimationListener {
+public class t implements Animation.AnimationListener {
     final /* synthetic */ r a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,17 +13,17 @@ public final class t implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationStart(Animation animation) {
+    public void onAnimationStart(Animation animation) {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationRepeat(Animation animation) {
+    public void onAnimationRepeat(Animation animation) {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationEnd(Animation animation) {
+    public void onAnimationEnd(Animation animation) {
         TextView textView;
-        textView = this.a.i;
+        textView = this.a.h;
         textView.setVisibility(8);
     }
 }

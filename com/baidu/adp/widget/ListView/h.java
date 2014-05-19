@@ -3,7 +3,7 @@ package com.baidu.adp.widget.ListView;
 import android.database.DataSetObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class h extends DataSetObserver {
+public class h extends DataSetObserver {
     final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public final class h extends DataSetObserver {
     }
 
     @Override // android.database.DataSetObserver
-    public final void onChanged() {
+    public void onChanged() {
         DataSetObserver dataSetObserver;
         DataSetObserver dataSetObserver2;
         super.onChanged();
@@ -24,7 +24,7 @@ public final class h extends DataSetObserver {
     }
 
     @Override // android.database.DataSetObserver
-    public final void onInvalidated() {
+    public void onInvalidated() {
         DataSetObserver dataSetObserver;
         DataSetObserver dataSetObserver2;
         super.onInvalidated();

@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
-final class af implements Runnable {
+class af implements Runnable {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,9 +9,13 @@ final class af implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
-        bm bmVar;
-        bmVar = this.a.D;
-        bmVar.z();
+    public void run() {
+        bc bcVar;
+        bc bcVar2;
+        bcVar = this.a.y;
+        if (bcVar != null) {
+            bcVar2 = this.a.y;
+            bcVar2.s();
+        }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.sub;
 import android.content.Context;
 import android.view.View;
 /* loaded from: classes.dex */
-public final class i extends b {
+public class i extends b {
     private String j;
     private int k;
     private boolean l;
@@ -17,12 +17,12 @@ public final class i extends b {
         this.m = false;
     }
 
-    public final void b(boolean z) {
+    public void d(boolean z) {
         this.m = z;
     }
 
     @Override // com.baidu.tieba.pb.sub.b, android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         if (this.a == null) {
             return 0;
         }
@@ -30,20 +30,20 @@ public final class i extends b {
     }
 
     @Override // com.baidu.tieba.pb.sub.b, android.widget.Adapter
-    public final Object getItem(int i) {
+    public Object getItem(int i) {
         if (this.a == null || i < 0 || i >= this.a.size()) {
             return null;
         }
         return this.a.get(i);
     }
 
-    public final void a(String str, int i) {
+    public void a(String str, int i) {
         this.j = str;
         this.k = i;
     }
 
     @Override // com.baidu.tieba.pb.sub.b
-    public final int a(String str) {
+    public int a(String str) {
         if (this.a == null) {
             return -1;
         }

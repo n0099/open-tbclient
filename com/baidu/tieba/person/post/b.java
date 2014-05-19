@@ -3,7 +3,7 @@ package com.baidu.tieba.person.post;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b implements com.baidu.tbadk.imageManager.d {
+public class b implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ a a;
     private final /* synthetic */ String b;
 
@@ -14,14 +14,14 @@ public final class b implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        com.baidu.adp.widget.ImageView.b bVar2;
-        if (bVar != null) {
-            a.k = bVar;
-            a.l = this.b;
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        com.baidu.adp.widget.a.a aVar2;
+        if (aVar != null) {
+            a.l = aVar;
+            a.m = this.b;
             HeadImageView headImageView = this.a.b;
-            bVar2 = a.k;
-            headImageView.setImageBitmap(bVar2.h());
+            aVar2 = a.l;
+            headImageView.setImageBitmap(aVar2.h());
         }
     }
 }

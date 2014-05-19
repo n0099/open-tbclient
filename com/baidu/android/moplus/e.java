@@ -21,45 +21,46 @@ public final class e {
     private static void a() {
         FileInputStream fileInputStream;
         File file = new File(Environment.getExternalStorageDirectory(), "moplus.cfg");
-        if (!file.exists()) {
-            return;
-        }
-        Properties properties = new Properties();
-        FileInputStream fileInputStream2 = null;
-        try {
-            fileInputStream = new FileInputStream(file);
+        if (file.exists()) {
+            Properties properties = new Properties();
+            FileInputStream fileInputStream2 = null;
+            try {
+                fileInputStream = new FileInputStream(file);
+            } catch (Exception e) {
+                fileInputStream = null;
+            } catch (Throwable th) {
+                th = th;
+            }
             try {
                 properties.load(fileInputStream);
                 String property = properties.getProperty("server_host");
                 if (property != null && property.length() > 0) {
                     a = property;
                 }
-                try {
-                    fileInputStream.close();
-                } catch (IOException e) {
-                }
-            } catch (Exception e2) {
                 if (fileInputStream != null) {
                     try {
                         fileInputStream.close();
-                    } catch (IOException e3) {
+                    } catch (IOException e2) {
                     }
                 }
-            } catch (Throwable th) {
+            } catch (Exception e3) {
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException e4) {
+                    }
+                }
+            } catch (Throwable th2) {
                 fileInputStream2 = fileInputStream;
-                th = th;
+                th = th2;
                 if (fileInputStream2 != null) {
                     try {
                         fileInputStream2.close();
-                    } catch (IOException e4) {
+                    } catch (IOException e5) {
                     }
                 }
                 throw th;
             }
-        } catch (Exception e5) {
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
         }
     }
 }

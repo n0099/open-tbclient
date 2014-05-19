@@ -4,7 +4,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class z implements com.baidu.tbadk.imageManager.d {
+public class z implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ PostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,19 +13,18 @@ public final class z implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         LinearLayout linearLayout;
-        while (true) {
-            linearLayout = this.a.a;
-            ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
-            if (imageView != null) {
-                imageView.setTag(null);
-                if (imageView != null && bVar != null) {
-                    bVar.a(imageView);
-                }
-            } else {
-                return;
+        LinearLayout linearLayout2;
+        linearLayout = this.a.a;
+        ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
+        while (imageView != null) {
+            imageView.setTag(null);
+            if (imageView != null && aVar != null) {
+                aVar.a(imageView);
             }
+            linearLayout2 = this.a.a;
+            imageView = (ImageView) linearLayout2.findViewWithTag(str);
         }
     }
 }

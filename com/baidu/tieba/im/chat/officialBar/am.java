@@ -1,37 +1,24 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
-final class am extends BdAsyncTask<Void, Void, Void> {
+class am extends CustomMessageListener {
     final /* synthetic */ OfficialBarInfoActivity a;
-    private final /* synthetic */ BdSwitchView.SwitchState b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public am(OfficialBarInfoActivity officialBarInfoActivity, BdSwitchView.SwitchState switchState) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public am(OfficialBarInfoActivity officialBarInfoActivity) {
+        super(MessageTypes.CMD_DEL_OFFICIAL_DB);
         this.a = officialBarInfoActivity;
-        this.b = switchState;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Void a(Void... voidArr) {
-        int i;
-        int i2;
-        if (this.b == BdSwitchView.SwitchState.OFF) {
-            bb a = bb.a();
-            String E = TbadkApplication.E();
-            i2 = this.a.c;
-            a.d(E, String.valueOf(i2), false);
-            return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003155) {
+            this.a.showToast(com.baidu.tieba.u.cash_del_suc);
         }
-        bb a2 = bb.a();
-        String E2 = TbadkApplication.E();
-        i = this.a.c;
-        a2.d(E2, String.valueOf(i), true);
-        return null;
     }
 }

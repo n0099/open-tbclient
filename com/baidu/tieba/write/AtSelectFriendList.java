@@ -57,9 +57,9 @@ public class AtSelectFriendList extends HorizontalScrollView {
     }
 
     private void a() {
-        this.c = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.invite_friend_candidate_item_width);
-        this.d = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.invite_friend_candidate_item_height);
-        this.e = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.invite_friend_candidate_item_margin);
+        this.c = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.invite_friend_candidate_item_width);
+        this.d = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.invite_friend_candidate_item_height);
+        this.e = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.invite_friend_candidate_item_margin);
         this.b = new LinearLayout(this.a);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.width = -2;
@@ -75,15 +75,21 @@ public class AtSelectFriendList extends HorizontalScrollView {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.h == null) {
-            this.h = e();
+            this.h = f();
             this.h.setDrawBorder(false);
         }
-        this.h.setImageBitmap(com.baidu.tbadk.core.util.g.a(d() ? com.baidu.tieba.a.g.icon_add_pop_1 : com.baidu.tieba.a.g.icon_add_pop));
+        this.h.setImageBitmap(com.baidu.tbadk.core.util.g.a(e() ? com.baidu.tieba.q.icon_add_pop_1 : com.baidu.tieba.q.icon_add_pop));
         this.b.addView(this.h);
     }
 
+    private void c() {
+        if (d()) {
+            this.b.removeView(this.h);
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean c() {
+    public boolean d() {
         int childCount = this.b.getChildCount();
         return childCount > 0 && this.b.getChildAt(childCount + (-1)) == this.h;
     }
@@ -94,36 +100,34 @@ public class AtSelectFriendList extends HorizontalScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(MetaData metaData) {
+    public void a(MetaData metaData) {
         if (getItemLength() < this.g) {
-            HeadImageView e = e();
-            e.setIsRound(true);
+            HeadImageView f = f();
+            f.setIsRound(true);
             if (this.f != null) {
-                com.baidu.tbadk.editortool.ab abVar = this.f;
-                com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(metaData.getPortrait());
-                if (b != null) {
-                    b.a(e);
+                com.baidu.adp.widget.a.a c = this.f.c(metaData.getPortrait());
+                if (c != null) {
+                    c.a(f);
                 } else {
-                    e.setTag(metaData.getPortrait());
-                    e.setImageBitmap(com.baidu.tbadk.core.util.g.a(d() ? com.baidu.tieba.a.g.icon_add_pop_1 : com.baidu.tieba.a.g.icon_add_pop));
+                    f.setTag(metaData.getPortrait());
+                    f.setImageBitmap(com.baidu.tbadk.core.util.g.a(e() ? com.baidu.tieba.q.icon_add_pop_1 : com.baidu.tieba.q.icon_add_pop));
                 }
             }
-            if (c()) {
-                e.setTag(metaData);
-                e.setOnClickListener(this.j);
-                this.b.addView(e, getItemLength());
+            if (d()) {
+                f.setTag(metaData);
+                f.setOnClickListener(this.j);
+                this.b.addView(f, getItemLength());
                 scrollTo(getItemLength() * (this.c + this.e), 0);
                 this.b.requestLayout();
             }
-            if (getItemLength() < this.g || !c()) {
-                return;
+            if (getItemLength() >= this.g) {
+                c();
             }
-            this.b.removeView(this.h);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void b(MetaData metaData) {
+    public void b(MetaData metaData) {
         Object tag;
         int childCount = this.b.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -150,22 +154,22 @@ public class AtSelectFriendList extends HorizontalScrollView {
         return arrayList;
     }
 
-    private static boolean d() {
-        return TbadkApplication.j().l() == 1;
+    private boolean e() {
+        return TbadkApplication.m252getInst().getSkinType() == 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void c(MetaData metaData) {
+    public void c(MetaData metaData) {
         View findViewWithTag = this.b.findViewWithTag(metaData);
         if (findViewWithTag != null) {
             this.b.removeView(findViewWithTag);
-            if (!c()) {
+            if (!d()) {
                 b();
             }
         }
     }
 
-    private HeadImageView e() {
+    private HeadImageView f() {
         HeadImageView headImageView = new HeadImageView(this.a);
         headImageView.setIsRound(true);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.c, this.d);
@@ -177,6 +181,6 @@ public class AtSelectFriendList extends HorizontalScrollView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getItemLength() {
-        return c() ? this.b.getChildCount() - 1 : this.b.getChildCount();
+        return d() ? this.b.getChildCount() - 1 : this.b.getChildCount();
     }
 }

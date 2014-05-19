@@ -1,39 +1,65 @@
 package com.baidu.tieba.faceshop;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.editortool.EmotionGroupData;
-import java.util.LinkedList;
-import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ca extends com.baidu.tbadk.editortool.e {
-    private LinkedList<com.baidu.tbadk.editortool.ag> a = new LinkedList<>();
+public class ca extends com.baidu.adp.widget.ListView.e {
+    final /* synthetic */ bx a;
+    private final BaseActivity b;
+    private TextView c = null;
+    private ProgressBar d = null;
+    private View e = null;
+    private View f;
 
-    @Override // com.baidu.tbadk.editortool.e
-    public final int a() {
-        return 2;
+    public ca(bx bxVar, BaseActivity baseActivity) {
+        this.a = bxVar;
+        this.b = baseActivity;
     }
 
-    @Override // com.baidu.tbadk.editortool.e
-    public final void a(com.baidu.tbadk.editortool.f fVar) {
-        if (com.baidu.tbadk.core.util.w.a()) {
-            List<MyEmotionGroupData> a = d.a().a(TbadkApplication.E());
-            this.a.clear();
-            for (MyEmotionGroupData myEmotionGroupData : a) {
-                EmotionGroupData a2 = com.baidu.tbadk.editortool.v.a().a(myEmotionGroupData.getGroupId());
-                if (a2 != null) {
-                    com.baidu.tbadk.editortool.d dVar = new com.baidu.tbadk.editortool.d(a2);
-                    if (dVar.i() != null) {
-                        this.a.add(dVar);
-                        if (fVar != null) {
-                            fVar.a(dVar);
-                        }
-                    }
-                }
-            }
-        }
+    @Override // com.baidu.adp.widget.ListView.e
+    public View a() {
+        this.e = LayoutInflater.from(this.b).inflate(com.baidu.tieba.s.new_pb_list_more, (ViewGroup) null);
+        this.e.setPadding(0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.p.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.p.listview_item_margin));
+        this.c = (TextView) this.e.findViewById(com.baidu.tieba.r.pb_more_text);
+        this.f = this.e.findViewById(com.baidu.tieba.r.pb_more_view);
+        this.f.setVisibility(8);
+        this.d = (ProgressBar) this.e.findViewById(com.baidu.tieba.r.progress);
+        a(TbadkApplication.m252getInst().getSkinType());
+        this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        return this.e;
     }
 
-    @Override // com.baidu.tbadk.editortool.e
-    protected final void b() {
+    public void a(int i) {
+        this.b.getLayoutMode().a(i == 1);
+        this.b.getLayoutMode().a(this.f);
+    }
+
+    public void c() {
+        this.e.setVisibility(8);
+    }
+
+    public void d() {
+        this.e.setVisibility(0);
+    }
+
+    public void e() {
+        this.c.setText(this.b.getText(com.baidu.tieba.u.loading));
+        this.f.setVisibility(0);
+    }
+
+    public void f() {
+        this.d.setVisibility(8);
+        this.c.setText(com.baidu.tieba.u.load_more);
+    }
+
+    @Override // com.baidu.adp.widget.ListView.e
+    public void onClick() {
     }
 }

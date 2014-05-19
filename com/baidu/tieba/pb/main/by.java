@@ -1,34 +1,25 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class by implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ bm a;
+public class by implements com.baidu.tbadk.editortool.x {
+    final /* synthetic */ bj a;
+    private final /* synthetic */ com.baidu.tbadk.editortool.x b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public by(bm bmVar) {
-        this.a = bmVar;
+    public by(bj bjVar, com.baidu.tbadk.editortool.x xVar) {
+        this.a = bjVar;
+        this.b = xVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        BdListView bdListView;
-        BdListView bdListView2;
-        if (bVar != null) {
-            bdListView = this.a.o;
-            View findViewWithTag = bdListView.findViewWithTag(str);
-            while (findViewWithTag != null) {
-                if (findViewWithTag instanceof ImageView) {
-                    ImageView imageView = (ImageView) findViewWithTag;
-                    imageView.setTag(null);
-                    imageView.setImageBitmap(bVar.h());
-                }
-                bdListView2 = this.a.o;
-                findViewWithTag = bdListView2.findViewWithTag(str);
-            }
+    @Override // com.baidu.tbadk.editortool.x
+    public void a(int i, Object obj) {
+        PbActivity pbActivity;
+        if (i == 35 && !this.a.j.h() && !this.a.j.j()) {
+            pbActivity = this.a.m;
+            TiebaStatic.eventStat(pbActivity, "pb_reply", "pbclick", 1, new Object[0]);
         }
+        this.b.a(i, obj);
     }
 }

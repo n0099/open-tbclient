@@ -1,33 +1,43 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
+import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
-public final class f {
+public class f {
     private int a;
     private String b;
     private String c;
 
-    public final int a() {
+    public int a() {
         return this.a;
     }
 
-    public final String b() {
+    public String b() {
         return this.b;
     }
 
-    public final String c() {
+    public String c() {
         return this.c;
     }
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optInt("bannerType");
                 this.b = jSONObject.optString("bannerUrl");
                 this.c = jSONObject.optString("value");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error=" + e.toString());
+                BdLog.e(getClass().getName(), "parserJson", "error=" + e.toString());
             }
+        }
+    }
+
+    public void a(Banner banner) {
+        if (banner != null) {
+            this.a = banner.banner_type.intValue();
+            this.b = banner.banner_url;
+            this.c = banner.value;
         }
     }
 }

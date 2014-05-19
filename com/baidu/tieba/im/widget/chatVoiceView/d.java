@@ -3,7 +3,7 @@ package com.baidu.tieba.im.widget.chatVoiceView;
 import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d implements com.baidu.tieba.im.a<Boolean> {
+public class d implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ ChatVoiceView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,9 +11,9 @@ public final class d implements com.baidu.tieba.im.a<Boolean> {
         this.a = chatVoiceView;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
+    public void a(Boolean bool) {
         ImageView imageView;
         imageView = this.a.d;
         imageView.setVisibility(8);

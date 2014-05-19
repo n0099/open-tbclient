@@ -1,6 +1,9 @@
 package com.baidu.tieba.square;
+
+import com.baidu.adp.lib.util.BdLog;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ap implements Runnable {
+public class ap implements Runnable {
     final /* synthetic */ ak a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,13 +12,13 @@ final class ap implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         ay ayVar;
         try {
             ayVar = this.a.c;
             ayVar.a();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("SquareActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
+            BdLog.e("SquareActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
         }
     }
 }

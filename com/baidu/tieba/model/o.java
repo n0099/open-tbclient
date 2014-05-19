@@ -1,6 +1,6 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public final class o extends com.baidu.adp.a.e {
+public class o extends com.baidu.adp.base.d {
     private com.baidu.tieba.data.n b;
     private q a = null;
     private boolean c = true;
@@ -15,37 +15,37 @@ public final class o extends com.baidu.adp.a.e {
         this.b = new com.baidu.tieba.data.n();
     }
 
-    public final long a() {
+    public long a() {
         return this.h;
     }
 
-    public final long b() {
+    public long b() {
         return this.f;
     }
 
-    public final long c() {
+    public long c() {
         return this.g;
     }
 
-    public final long d() {
+    public long d() {
         return this.e;
     }
 
-    public final com.baidu.tieba.data.n e() {
+    public com.baidu.tieba.data.n e() {
         return this.b;
     }
 
-    public final void a(r rVar) {
+    public void a(r rVar) {
         this.d = rVar;
     }
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();
             return false;
@@ -53,7 +53,7 @@ public final class o extends com.baidu.adp.a.e {
         return false;
     }
 
-    public final boolean a(boolean z) {
+    public boolean a(boolean z) {
         this.c = z;
         if (this.a != null) {
             return false;
@@ -63,7 +63,7 @@ public final class o extends com.baidu.adp.a.e {
         return true;
     }
 
-    public final boolean b(boolean z) {
+    public boolean b(boolean z) {
         this.c = z;
         if (this.a != null) {
             return false;

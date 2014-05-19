@@ -1,5 +1,7 @@
 package com.baidu.tieba.im.d;
 
+import com.baidu.kirin.KirinConfig;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import java.util.HashMap;
@@ -14,39 +16,44 @@ public class a {
         if (a == null) {
             synchronized (a.class) {
                 if (a == null) {
-                    a aVar = new a();
-                    a = aVar;
-                    aVar.c = new HashMap();
-                    TbadkApplication.j();
-                    aVar.a(TbadkApplication.ab());
-                    aVar.b = UtilHelper.NetworkStateInfo.UNAVAIL;
+                    a = new a();
+                    a.b();
                 }
             }
         }
         return a;
     }
 
-    public final void a(int[] iArr) {
+    protected void b() {
+        this.c = new HashMap();
+        a(TbadkApplication.m252getInst().getImTimeOut());
+        this.b = UtilHelper.NetworkStateInfo.UNAVAIL;
+    }
+
+    public void a(int[] iArr) {
         int i;
         int i2;
-        int i3 = 0;
+        int i3 = KirinConfig.READ_TIME_OUT;
+        int i4 = 0;
         if (iArr == null || iArr.length != 3) {
             i = 0;
             i2 = 0;
         } else {
             i2 = iArr[0];
             i = iArr[1];
-            i3 = iArr[2];
+            i4 = iArr[2];
         }
         if (i2 < 5000) {
             i2 = 20000;
         }
         if (i < 5000) {
-            i = 10000;
+            i = TbConfig.BIG_IMAGE_MIN_CAPACITY;
         }
-        int i4 = i3 >= 5000 ? i3 : 5000;
+        if (i4 >= 5000) {
+            i3 = i4;
+        }
         this.c.put(UtilHelper.NetworkStateInfo.TwoG, Integer.valueOf(i2));
         this.c.put(UtilHelper.NetworkStateInfo.ThreeG, Integer.valueOf(i));
-        this.c.put(UtilHelper.NetworkStateInfo.WIFI, Integer.valueOf(i4));
+        this.c.put(UtilHelper.NetworkStateInfo.WIFI, Integer.valueOf(i3));
     }
 }

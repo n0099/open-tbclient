@@ -5,12 +5,12 @@ import android.text.SpannableStringBuilder;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public final class c {
+public class c {
     private int a;
     private SpannableStringBuilder b = null;
     private g c = null;
     private ArrayList<f> d = null;
-    private t e = null;
+    private u e = null;
     private d f;
     private e g;
 
@@ -21,18 +21,18 @@ public final class c {
         this.f = new d(this);
     }
 
-    public final int a() {
+    public int a() {
         return this.a;
     }
 
-    public final ArrayList<f> b() {
+    public ArrayList<f> b() {
         if (this.d == null) {
             this.d = new ArrayList<>();
         }
         return this.d;
     }
 
-    public final void a(int i, int i2) {
+    public void a(int i, int i2) {
         if (this.d != null) {
             Iterator<f> it = this.d.iterator();
             while (it.hasNext()) {
@@ -45,7 +45,7 @@ public final class c {
         }
     }
 
-    public final void b(int i, int i2) {
+    public void b(int i, int i2) {
         if (this.d != null) {
             Iterator<f> it = this.d.iterator();
             while (it.hasNext()) {
@@ -54,7 +54,7 @@ public final class c {
         }
     }
 
-    public final void a(CharSequence charSequence) {
+    public void a(CharSequence charSequence) {
         if ((this.a == 1 || this.a == 768) && charSequence != null) {
             if (this.b == null) {
                 this.b = new SpannableStringBuilder("");
@@ -64,43 +64,43 @@ public final class c {
         }
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         if (this.a == 32 && str != null) {
             this.b = new SpannableStringBuilder(str);
         }
     }
 
-    public final g c() {
+    public g c() {
         if (this.a != 8) {
             return null;
         }
         return this.c;
     }
 
-    public final void a(g gVar) {
+    public void a(g gVar) {
         if (this.a == 8) {
             this.c = gVar;
         }
     }
 
-    public final SpannableStringBuilder d() {
+    public SpannableStringBuilder d() {
         return this.b;
     }
 
-    public final t e() {
+    public u e() {
         if (this.a == 512 || this.a == 768) {
             return this.e;
         }
         return null;
     }
 
-    public final void a(t tVar) {
+    public void a(u uVar) {
         if (this.a == 512 || this.a == 768) {
-            this.e = tVar;
+            this.e = uVar;
         }
     }
 
-    public final String toString() {
+    public String toString() {
         if (this.a == 1) {
             if (this.b != null) {
                 return this.b.toString();
@@ -110,25 +110,25 @@ public final class c {
                 return this.c.f();
             }
         } else if (this.a == 17 && this.g != null) {
-            return this.g.c;
+            return this.g.b.b;
         }
         return "";
     }
 
-    public final d f() {
+    public d f() {
         if (this.a != 1) {
             return null;
         }
         return this.f;
     }
 
-    public final void a(e eVar) {
+    public void a(e eVar) {
         if (this.a == 17) {
             this.g = eVar;
         }
     }
 
-    public final e g() {
+    public e g() {
         return this.g;
     }
 }

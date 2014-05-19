@@ -2,11 +2,14 @@ package com.baidu.tbadk.browser;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfig;
+import com.baidu.tbadk.core.util.bk;
 /* loaded from: classes.dex */
-final class b implements bi {
-    @Override // com.baidu.tbadk.core.util.bi
-    public final boolean a(Context context, String[] strArr) {
+class b implements bk {
+    @Override // com.baidu.tbadk.core.util.bk
+    public boolean a(Context context, String[] strArr) {
         String str = strArr[0];
         String str2 = strArr.length > 1 ? strArr[1] : null;
         String str3 = strArr.length > 2 ? strArr[2] : null;
@@ -17,15 +20,15 @@ final class b implements bi {
         } else if (str.startsWith("topic:")) {
             TbWebViewActivity.a(context, str.substring(6), str2);
         } else if (str.startsWith("zb:")) {
-            TbWebViewActivity.b(context, context.getString(com.baidu.tbadk.l.kn_zhibo), str.substring(3));
+            TbWebViewActivity.b(context, context.getString(com.baidu.tieba.u.kn_zhibo), str.substring(3));
         } else if (str.startsWith("jctj:")) {
-            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2010020, new com.baidu.tbadk.core.b.g(context, null)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.DAILY_RECOMMEND_CUSTOM_CMD, new com.baidu.tbadk.core.atomData.h(context, null)));
         } else if (!str.startsWith("list:")) {
             return false;
         } else {
             String substring = str.substring(5);
             if (!TextUtils.isEmpty(substring)) {
-                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.k(context, substring, str3)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.l(context, substring, str3)));
             }
         }
         return true;

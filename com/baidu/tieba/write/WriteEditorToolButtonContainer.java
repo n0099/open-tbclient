@@ -15,7 +15,7 @@ public class WriteEditorToolButtonContainer extends com.baidu.tieba.editortool.a
     }
 
     @Override // com.baidu.tieba.editortool.ao
-    protected final void d() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.write_editor_tool_button_container, (ViewGroup) this, true);
+    protected void e() {
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.write_editor_tool_button_container, (ViewGroup) this, true);
     }
 }

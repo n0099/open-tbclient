@@ -9,23 +9,26 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ah;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.ai;
 import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.bn;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.s;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
 /* loaded from: classes.dex */
 public class DiscoverItemView extends LinearLayout {
-    public static final int e = com.baidu.tieba.a.g.icon_news_down_bar_one;
-    public static final int f = com.baidu.tieba.a.g.icon_news_head_new;
+    public static final int e = q.icon_news_down_bar_one;
+    public static final int f = q.icon_news_head_new;
     ViewGroup a;
     String b;
     String c;
     int d;
     com.baidu.tbadk.core.util.b g;
     private Context h;
-    private HeadImageView i;
+    private TbImageView i;
     private TextView j;
     private ImageView k;
     private TextView l;
@@ -62,132 +65,132 @@ public class DiscoverItemView extends LinearLayout {
 
     private void a(Context context) {
         this.h = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.discover_item, (ViewGroup) this, true);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(s.discover_item, (ViewGroup) this, true);
         setOrientation(1);
-        this.a = (ViewGroup) findViewById(com.baidu.tieba.a.h.item_container);
-        this.i = (HeadImageView) findViewById(com.baidu.tieba.a.h.item_image);
-        this.j = (TextView) findViewById(com.baidu.tieba.a.h.title);
-        this.k = (ImageView) findViewById(com.baidu.tieba.a.h.newIcon);
-        this.l = (TextView) findViewById(com.baidu.tieba.a.h.dis_divider_bottom);
-        this.m = (TextView) findViewById(com.baidu.tieba.a.h.dis_divider_top);
+        this.a = (ViewGroup) findViewById(r.item_container);
+        this.i = (TbImageView) findViewById(r.item_image);
+        this.j = (TextView) findViewById(r.title);
+        this.k = (ImageView) findViewById(r.newIcon);
+        this.l = (TextView) findViewById(r.dis_divider_bottom);
+        this.m = (TextView) findViewById(r.dis_divider_top);
     }
 
-    public final DiscoverItemView a(int i) {
+    public DiscoverItemView a(int i) {
         this.d = i;
-        ba.c((ImageView) this.i, this.d);
+        this.i.setAutoChangeStyle(false);
+        bc.c((ImageView) this.i, this.d);
         return this;
     }
 
-    public final DiscoverItemView a(String str) {
+    public DiscoverItemView a(String str) {
         if (this.g == null) {
             this.g = new com.baidu.tbadk.core.util.b(this.h);
-            int a = com.baidu.adp.lib.util.i.a(this.h, com.baidu.tieba.a.f.ds60);
+            int a = com.baidu.adp.lib.util.h.a(this.h, com.baidu.tieba.p.ds60);
             this.g.a(a, a);
         }
         this.i.setTag(str);
+        this.i.setAutoChangeStyle(true);
         this.g.b(str, new i(this));
         return this;
     }
 
-    public final DiscoverItemView b(String str) {
+    public DiscoverItemView b(String str) {
         this.b = str;
         return this;
     }
 
-    public final DiscoverItemView b(int i) {
+    public DiscoverItemView b(int i) {
         this.j.setText(i);
         return this;
     }
 
-    public final DiscoverItemView c(String str) {
+    public DiscoverItemView c(String str) {
         this.j.setText(str);
         return this;
     }
 
-    public final DiscoverItemView c(int i) {
+    public DiscoverItemView c(int i) {
         this.p = i;
         return this;
     }
 
-    public final DiscoverItemView a(boolean z) {
+    public DiscoverItemView a(boolean z) {
         this.n = z;
         this.k.setVisibility(z ? 0 : 8);
         return this;
     }
 
-    public final DiscoverItemView b(boolean z) {
-        this.o = true;
+    public DiscoverItemView b(boolean z) {
+        this.o = z;
         return this;
     }
 
-    public final DiscoverItemView a() {
+    public DiscoverItemView a() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.m.getLayoutParams();
-        layoutParams.height = com.baidu.adp.lib.util.i.a(this.h, 1.0f);
+        layoutParams.height = com.baidu.adp.lib.util.h.a(this.h, 1.0f);
         this.m.setLayoutParams(layoutParams);
         return this;
     }
 
-    public final DiscoverItemView c(boolean z) {
-        this.m.setVisibility(8);
+    public DiscoverItemView c(boolean z) {
+        this.m.setVisibility(z ? 0 : 8);
         return this;
     }
 
-    public final DiscoverItemView d(boolean z) {
+    public DiscoverItemView d(boolean z) {
         this.l.setVisibility(z ? 0 : 8);
         return this;
     }
 
-    public final DiscoverItemView b() {
+    public DiscoverItemView b() {
         int paddingLeft = this.a.getPaddingLeft();
         int paddingRight = this.a.getPaddingRight();
         int paddingBottom = this.a.getPaddingBottom();
-        this.a.setPadding(paddingLeft, (int) this.h.getResources().getDimension(com.baidu.tieba.a.f.ds40), paddingRight, paddingBottom);
+        this.a.setPadding(paddingLeft, (int) this.h.getResources().getDimension(com.baidu.tieba.p.ds40), paddingRight, paddingBottom);
         return this;
     }
 
-    public final DiscoverItemView d(String str) {
+    public DiscoverItemView d(String str) {
         this.c = str;
         return this;
     }
 
-    public final DiscoverItemView a(View.OnClickListener onClickListener) {
+    public DiscoverItemView a(View.OnClickListener onClickListener) {
         this.q = onClickListener;
         return this;
     }
 
-    public final void d(int i) {
-        if (this.h instanceof com.baidu.tbadk.a) {
-            com.baidu.tbadk.a aVar = (com.baidu.tbadk.a) this.h;
-            aVar.getLayoutMode().a(i == 1);
-            aVar.getLayoutMode().a(this);
+    public void d(int i) {
+        if (this.h instanceof BaseActivity) {
+            BaseActivity baseActivity = (BaseActivity) this.h;
+            baseActivity.getLayoutMode().a(i == 1);
+            baseActivity.getLayoutMode().a((View) this);
         } else if (this.h instanceof com.baidu.tbadk.core.e) {
             com.baidu.tbadk.core.e eVar = (com.baidu.tbadk.core.e) this.h;
-            eVar.b().a(i == 1);
-            eVar.b().a(this);
+            eVar.a().a(i == 1);
+            eVar.a().a((View) this);
         }
         if (this.d != 0) {
-            ba.c((ImageView) this.i, this.d);
+            bc.c((ImageView) this.i, this.d);
         }
-        this.i.c();
-        bn.a((ViewGroup) this, i);
-        ba.f(this, com.baidu.tieba.a.g.list_item_selector);
+        this.i.b();
+        bp.a((ViewGroup) this, i);
+        bc.f(this, q.list_item_selector);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (bc.c(this.c)) {
+        if (be.c(this.c)) {
             this.c = String.valueOf(this.j.getText());
         }
         boolean z = this.n;
         if (this.n) {
             if (this.p == e) {
-                ba.c(this.k, this.p);
+                bc.c(this.k, this.p);
             }
             if (this.o) {
-                String a = ah.a(this.c);
-                s.a();
-                z = !s.a(a, false);
+                z = !com.baidu.tbadk.f.a().a(ai.a(this.c), false);
             }
         }
         this.k.setVisibility(z ? 0 : 8);

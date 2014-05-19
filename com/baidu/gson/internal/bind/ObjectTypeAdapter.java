@@ -81,7 +81,7 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
     }
 
     @Override // com.baidu.gson.TypeAdapter
-    public final Object read(JsonReader jsonReader) {
+    public Object read(JsonReader jsonReader) {
         switch ($SWITCH_TABLE$com$baidu$gson$stream$JsonToken()[jsonReader.peek().ordinal()]) {
             case 1:
                 ArrayList arrayList = new ArrayList();
@@ -117,7 +117,7 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
     }
 
     @Override // com.baidu.gson.TypeAdapter
-    public final void write(JsonWriter jsonWriter, Object obj) {
+    public void write(JsonWriter jsonWriter, Object obj) {
         if (obj == null) {
             jsonWriter.nullValue();
             return;

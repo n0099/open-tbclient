@@ -4,17 +4,17 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GetForumResponsed extends JsonHttpResponsedMessage {
-    public a a;
+    public a listData;
 
     public GetForumResponsed(int i) {
         super(i);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public final void a(JSONObject jSONObject) {
-        if (e() == 0) {
-            this.a = new a();
-            this.a.a(jSONObject);
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+        if (getError() == 0) {
+            this.listData = new a();
+            this.listData.a(jSONObject);
         }
     }
 }

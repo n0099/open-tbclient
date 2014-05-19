@@ -2,7 +2,7 @@ package com.baidu.tieba.flist;
 
 import com.baidu.tieba.data.ForumInfoData;
 /* loaded from: classes.dex */
-final class n extends com.baidu.adp.a.h {
+class n extends com.baidu.adp.base.g {
     final /* synthetic */ ForumListActivity a;
     private final /* synthetic */ ForumInfoData[] b;
 
@@ -12,8 +12,8 @@ final class n extends com.baidu.adp.a.h {
         this.b = forumInfoDataArr;
     }
 
-    @Override // com.baidu.adp.a.h
-    public final void a(Object obj) {
+    @Override // com.baidu.adp.base.g
+    public void a(Object obj) {
         com.baidu.tieba.model.af afVar;
         com.baidu.tieba.model.af afVar2;
         int i;
@@ -25,7 +25,7 @@ final class n extends com.baidu.adp.a.h {
         com.baidu.tieba.model.af afVar3;
         afVar = this.a.q;
         if (afVar.getErrorCode() == 22) {
-            this.a.showToast(this.a.getString(com.baidu.tieba.a.k.had_liked_forum));
+            this.a.showToast(this.a.getString(com.baidu.tieba.u.had_liked_forum));
         } else if (obj != null) {
             afVar2 = this.a.q;
             if (afVar2.getErrorCode() != 0) {
@@ -33,14 +33,14 @@ final class n extends com.baidu.adp.a.h {
                 afVar3 = this.a.q;
                 forumListActivity.showToast(afVar3.getErrorString());
             } else if (((com.baidu.tieba.data.z) obj).c() == 1) {
-                this.a.showToast(this.a.getString(com.baidu.tieba.a.k.like_success));
+                this.a.showToast(this.a.getString(com.baidu.tieba.u.like_success));
                 i = this.a.p;
                 if (i != 0) {
                     i2 = this.a.p;
                     if (i2 == 1) {
                         rVar = this.a.E;
                         rVar.notifyDataSetChanged();
-                        com.baidu.tieba.p c = com.baidu.tieba.p.c();
+                        com.baidu.tieba.ad c = com.baidu.tieba.ad.c();
                         ForumInfoData[] forumInfoDataArr = this.b;
                         rVar2 = this.a.E;
                         c.e(forumInfoDataArr[rVar2.a].forum_name);
@@ -50,7 +50,7 @@ final class n extends com.baidu.adp.a.h {
                 }
                 rVar3 = this.a.D;
                 rVar3.notifyDataSetChanged();
-                com.baidu.tieba.p c2 = com.baidu.tieba.p.c();
+                com.baidu.tieba.ad c2 = com.baidu.tieba.ad.c();
                 ForumInfoData[] forumInfoDataArr2 = this.b;
                 rVar4 = this.a.D;
                 c2.e(forumInfoDataArr2[rVar4.a].forum_name);

@@ -29,6 +29,9 @@ public final class AppManager {
             a a;
             String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
             d dVar = new d(schemeSpecificPart);
+            if (dVar == null) {
+                return;
+            }
             dVar.b = System.currentTimeMillis();
             String action = intent.getAction();
             if (action.equals("android.intent.action.PACKAGE_ADDED")) {
@@ -103,70 +106,46 @@ public final class AppManager {
         }
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(13:4|(1:6)(2:41|(1:46)(8:45|8|9|10|(2:28|(1:30)(2:31|(1:33)(1:34)))(1:13)|14|(1:27)(2:16|(2:18|19)(2:21|(2:23|24)(2:25|26)))|20))|7|8|9|10|(0)|28|(0)(0)|14|(0)(0)|20|2) */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x006e A[Catch: NoSuchFieldException -> 0x00a7, IllegalArgumentException -> 0x00ad, IllegalAccessException -> 0x00b3, TRY_LEAVE, TryCatch #2 {IllegalAccessException -> 0x00b3, IllegalArgumentException -> 0x00ad, NoSuchFieldException -> 0x00a7, blocks: (B:10:0x0052, B:35:0x00af, B:13:0x006a, B:15:0x006e, B:27:0x009c, B:29:0x00a3, B:32:0x00a9), top: B:45:0x0052 }] */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0075  */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x009c A[Catch: NoSuchFieldException -> 0x00a7, IllegalArgumentException -> 0x00ad, IllegalAccessException -> 0x00b3, TRY_ENTER, TryCatch #2 {IllegalAccessException -> 0x00b3, IllegalArgumentException -> 0x00ad, NoSuchFieldException -> 0x00a7, blocks: (B:10:0x0052, B:35:0x00af, B:13:0x006a, B:15:0x006e, B:27:0x009c, B:29:0x00a3, B:32:0x00a9), top: B:45:0x0052 }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0084 A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private void d() {
-        a aVar;
-        boolean z;
-        a aVar2;
-        int intValue;
         System.currentTimeMillis();
         for (PackageInfo packageInfo : c.a(this.a)) {
-            a aVar3 = new a();
-            aVar3.c((String) packageInfo.applicationInfo.loadLabel(this.a.getPackageManager()));
-            aVar3.b = packageInfo.versionName;
-            aVar3.f = packageInfo.versionCode;
+            a aVar = new a();
+            aVar.c((String) packageInfo.applicationInfo.loadLabel(this.a.getPackageManager()));
+            aVar.b = packageInfo.versionName;
+            aVar.f = packageInfo.versionCode;
             if (Build.VERSION.SDK_INT < 8) {
-                aVar = aVar3;
-            } else if (packageInfo.applicationInfo == null || (packageInfo.applicationInfo.flags & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START) == 0) {
-                aVar = aVar3;
+                aVar.h = false;
             } else {
-                z = true;
-                aVar2 = aVar3;
-                aVar2.h = z;
-                aVar3.e(packageInfo.packageName);
-                c.a(this.a, packageInfo, aVar3);
-                intValue = ((Integer) packageInfo.getClass().getField("installLocation").get(packageInfo)).intValue();
-                if (intValue == 0 && intValue != 2) {
-                    aVar3.i = 1;
-                } else if (Build.VERSION.SDK_INT >= 8) {
-                    aVar3.i = 2;
+                aVar.h = (packageInfo.applicationInfo == null || (packageInfo.applicationInfo.flags & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START) == 0) ? false : true;
+            }
+            aVar.e(packageInfo.packageName);
+            c.a(this.a, packageInfo, aVar);
+            try {
+                int intValue = ((Integer) packageInfo.getClass().getField("installLocation").get(packageInfo)).intValue();
+                if (intValue != 0 && intValue != 2) {
+                    aVar.i = 1;
+                } else if (Build.VERSION.SDK_INT < 8) {
+                    aVar.i = 2;
                 } else if ((packageInfo.applicationInfo.flags & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START) != 0) {
-                    aVar3.i = 3;
+                    aVar.i = 3;
                 } else {
-                    aVar3.i = 2;
+                    aVar.i = 2;
                 }
-                if (packageInfo.applicationInfo != null) {
-                    if ((packageInfo.applicationInfo.flags & 128) == 128) {
-                        aVar3.g = true;
-                        aVar3.a(true);
-                    } else if ((packageInfo.applicationInfo.flags & 1) == 1) {
-                        aVar3.g = true;
-                    } else {
-                        aVar3.g = false;
-                    }
-                }
-                this.c.put(aVar3.a(), aVar3);
-            }
-            aVar2 = aVar;
-            z = false;
-            aVar2.h = z;
-            aVar3.e(packageInfo.packageName);
-            c.a(this.a, packageInfo, aVar3);
-            intValue = ((Integer) packageInfo.getClass().getField("installLocation").get(packageInfo)).intValue();
-            if (intValue == 0) {
-            }
-            if (Build.VERSION.SDK_INT >= 8) {
+            } catch (IllegalAccessException e) {
+            } catch (IllegalArgumentException e2) {
+            } catch (NoSuchFieldException e3) {
             }
             if (packageInfo.applicationInfo != null) {
+                if ((packageInfo.applicationInfo.flags & 128) == 128) {
+                    aVar.g = true;
+                    aVar.a(true);
+                } else if ((packageInfo.applicationInfo.flags & 1) == 1) {
+                    aVar.g = true;
+                } else {
+                    aVar.g = false;
+                }
             }
-            this.c.put(aVar3.a(), aVar3);
+            this.c.put(aVar.a(), aVar);
         }
     }
 
@@ -174,11 +153,11 @@ public final class AppManager {
         this.a.unregisterReceiver(this.d);
     }
 
-    public final ConcurrentHashMap a() {
+    public ConcurrentHashMap a() {
         return this.c;
     }
 
-    public final void b() {
+    public void b() {
         if (this.c == null || this.c.size() == 0) {
             return;
         }

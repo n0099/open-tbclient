@@ -1,13 +1,13 @@
 package com.baidu.tieba.bubble;
 
 import android.text.TextUtils;
-import com.baidu.tieba.a.k;
 import com.baidu.tieba.data.BubbleListData;
 import com.baidu.tieba.data.SetBubbleResultData;
 import com.baidu.tieba.model.f;
 import com.baidu.tieba.model.j;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-final class b implements j {
+class b implements j {
     final /* synthetic */ BubbleChooseActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,12 +16,12 @@ final class b implements j {
     }
 
     @Override // com.baidu.tieba.model.j
-    public final void a(SetBubbleResultData setBubbleResultData) {
+    public void a(SetBubbleResultData setBubbleResultData) {
         e eVar;
         f fVar;
         e eVar2;
         eVar = this.a.b;
-        eVar.g();
+        eVar.e();
         fVar = this.a.c;
         int a = fVar.a();
         eVar2 = this.a.b;
@@ -45,28 +45,28 @@ final class b implements j {
             a2.a(false);
             a2.notifyDataSetChanged();
         } else {
-            this.a.showToast(k.bubble_setdefualt_error);
+            this.a.showToast(u.bubble_setdefualt_error);
         }
     }
 
     @Override // com.baidu.tieba.model.j
-    public final void b(SetBubbleResultData setBubbleResultData) {
+    public void b(SetBubbleResultData setBubbleResultData) {
         e eVar;
         eVar = this.a.b;
-        eVar.g();
+        eVar.e();
         if (setBubbleResultData != null) {
             if (!setBubbleResultData.getError_code().equals("0")) {
                 if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
                     this.a.showToast(setBubbleResultData.getError_msg());
                     return;
                 } else {
-                    this.a.showToast(k.neterror);
+                    this.a.showToast(u.neterror);
                     return;
                 }
             }
-            this.a.showToast(k.neterror);
+            this.a.showToast(u.neterror);
             return;
         }
-        this.a.showToast(k.neterror);
+        this.a.showToast(u.neterror);
     }
 }

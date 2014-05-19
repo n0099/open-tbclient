@@ -6,11 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
     private View a;
     private HeadImageView b;
     private TextView c;
@@ -32,28 +34,27 @@ public final class b {
         this.d = null;
         this.e = null;
         this.f = null;
-        this.a = LayoutInflater.from(context).inflate(com.baidu.tieba.a.i.zan_list_item, (ViewGroup) null);
-        this.b = (HeadImageView) this.a.findViewById(com.baidu.tieba.a.h.zan_list_item_head);
-        this.c = (TextView) this.a.findViewById(com.baidu.tieba.a.h.zan_list_item_name);
-        this.d = (TextView) this.a.findViewById(com.baidu.tieba.a.h.zan_list_item_time);
-        this.e = (ImageView) this.a.findViewById(com.baidu.tieba.a.h.zan_list_item_line_bottom);
+        this.a = LayoutInflater.from(context).inflate(s.zan_list_item, (ViewGroup) null);
+        this.b = (HeadImageView) this.a.findViewById(r.zan_list_item_head);
+        this.c = (TextView) this.a.findViewById(r.zan_list_item_name);
+        this.d = (TextView) this.a.findViewById(r.zan_list_item_time);
+        this.e = (ImageView) this.a.findViewById(r.zan_list_item_line_bottom);
         this.e.setVisibility(0);
         this.a.setTag(this);
         this.f = new ab(context);
     }
 
-    public final View a() {
+    public View a() {
         return this.a;
     }
 
-    public final void a(String str, String str2, long j, boolean z) {
+    public void a(String str, String str2, long j, boolean z) {
         this.c.setText(str);
         this.b.setImageBitmap(null);
-        this.d.setText(bc.a(j));
-        ab abVar = this.f;
-        com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(str2);
-        if (b != null) {
-            b.a(this.b);
+        this.d.setText(be.a(j));
+        com.baidu.adp.widget.a.a c = this.f.c(str2);
+        if (c != null) {
+            c.a(this.b);
         } else if (!z) {
             this.b.setTag(str2);
             this.f.c(str2, new c(this));

@@ -4,51 +4,18 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.MetaData;
 import java.util.HashMap;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.an> {
+public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ap> {
     final /* synthetic */ AtListActivity a;
-    private com.baidu.tbadk.core.util.ak b;
+    private com.baidu.tbadk.core.util.al b;
     private String c;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(com.baidu.tieba.data.an anVar) {
-        ProgressBar progressBar;
-        EditText editText;
-        com.baidu.tieba.model.c cVar;
-        n nVar;
-        n nVar2;
-        BdListView bdListView;
-        com.baidu.tieba.data.an anVar2 = anVar;
-        this.a.i = null;
-        progressBar = this.a.n;
-        progressBar.setVisibility(8);
-        if (this.b.a().b().b() && this.c != null) {
-            editText = this.a.b;
-            if (editText.getText().toString().equals(this.c)) {
-                if (!anVar2.a().isEmpty()) {
-                    AtListActivity.a(this.a, false);
-                }
-                cVar = this.a.k;
-                cVar.a(anVar2);
-                nVar = this.a.l;
-                nVar.a(anVar2.a());
-                nVar2 = this.a.l;
-                nVar2.notifyDataSetInvalidated();
-                bdListView = this.a.d;
-                bdListView.setSelection(0);
-                super.a((l) anVar2);
-            }
-        }
-        this.a.showToast(this.b.f());
-        super.a((l) anVar2);
-    }
 
     private l(AtListActivity atListActivity) {
         this.a = atListActivity;
@@ -57,21 +24,21 @@ public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.a
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ l(AtListActivity atListActivity, byte b) {
+    public /* synthetic */ l(AtListActivity atListActivity, l lVar) {
         this(atListActivity);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
+    public void onPreExecute() {
         ProgressBar progressBar;
         progressBar = this.a.n;
         progressBar.setVisibility(0);
-        super.c();
+        super.onPreExecute();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
+    public void cancel() {
         ProgressBar progressBar;
         this.a.i = null;
         this.c = null;
@@ -81,30 +48,31 @@ public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.a
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.tieba.data.an a(String... strArr) {
+    /* renamed from: a */
+    public com.baidu.tieba.data.ap doInBackground(String... strArr) {
         com.baidu.tieba.model.c cVar;
         this.c = strArr[0];
-        this.b = new com.baidu.tbadk.core.util.ak();
+        this.b = new com.baidu.tbadk.core.util.al();
         if (this.c == null || this.c.length() <= 0) {
             return null;
         }
-        this.b.a(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/u/follow/sug");
-        this.b.a("uid", TbadkApplication.E());
+        this.b.a(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/sug");
+        this.b.a(SapiAccountManager.SESSION_UID, TbadkApplication.getCurrentAccount());
         this.b.a("q", this.c);
         String i = this.b.i();
         if (this.b.a().b().b()) {
-            com.baidu.tieba.data.an anVar = new com.baidu.tieba.data.an();
+            com.baidu.tieba.data.ap apVar = new com.baidu.tieba.data.ap();
             cVar = this.a.k;
             com.baidu.tieba.data.r a = cVar.a();
             if (a != null) {
-                anVar.a(i, a.b());
+                apVar.a(i, a.b());
             } else {
-                anVar.a(i, (HashMap<String, String>) null);
+                apVar.a(i, (HashMap<String, String>) null);
             }
             if (AtListActivity.a != null && AtListActivity.a.size() > 0) {
-                Iterator<MetaData> it = anVar.a().iterator();
+                Iterator<MetaData> it = apVar.a().iterator();
                 while (it.hasNext()) {
                     MetaData next = it.next();
                     Iterator<MetaData> it2 = AtListActivity.a.iterator();
@@ -120,8 +88,43 @@ public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.a
                     }
                 }
             }
-            return anVar;
+            return apVar;
         }
         return null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(com.baidu.tieba.data.ap apVar) {
+        ProgressBar progressBar;
+        EditText editText;
+        com.baidu.tieba.model.c cVar;
+        n nVar;
+        n nVar2;
+        BdListView bdListView;
+        this.a.i = null;
+        progressBar = this.a.n;
+        progressBar.setVisibility(8);
+        if (this.b.a().b().b() && this.c != null) {
+            editText = this.a.b;
+            if (editText.getText().toString().equals(this.c)) {
+                if (!apVar.a().isEmpty()) {
+                    this.a.a(false);
+                }
+                cVar = this.a.k;
+                cVar.a(apVar);
+                nVar = this.a.l;
+                nVar.a(apVar.a());
+                nVar2 = this.a.l;
+                nVar2.notifyDataSetInvalidated();
+                bdListView = this.a.d;
+                bdListView.setSelection(0);
+                super.onPostExecute(apVar);
+            }
+        }
+        this.a.showToast(this.b.f());
+        super.onPostExecute(apVar);
     }
 }

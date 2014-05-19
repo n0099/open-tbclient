@@ -10,7 +10,7 @@ public final class JsonObject extends JsonElement {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.gson.JsonElement
-    public final JsonObject deepCopy() {
+    public JsonObject deepCopy() {
         JsonObject jsonObject = new JsonObject();
         for (Map.Entry<String, JsonElement> entry : this.members.entrySet()) {
             jsonObject.add(entry.getKey(), entry.getValue().deepCopy());
@@ -18,30 +18,30 @@ public final class JsonObject extends JsonElement {
         return jsonObject;
     }
 
-    public final void add(String str, JsonElement jsonElement) {
+    public void add(String str, JsonElement jsonElement) {
         if (jsonElement == null) {
             jsonElement = JsonNull.INSTANCE;
         }
         this.members.put(str, jsonElement);
     }
 
-    public final JsonElement remove(String str) {
+    public JsonElement remove(String str) {
         return this.members.remove(str);
     }
 
-    public final void addProperty(String str, String str2) {
+    public void addProperty(String str, String str2) {
         add(str, createJsonElement(str2));
     }
 
-    public final void addProperty(String str, Number number) {
+    public void addProperty(String str, Number number) {
         add(str, createJsonElement(number));
     }
 
-    public final void addProperty(String str, Boolean bool) {
+    public void addProperty(String str, Boolean bool) {
         add(str, createJsonElement(bool));
     }
 
-    public final void addProperty(String str, Character ch) {
+    public void addProperty(String str, Character ch) {
         add(str, createJsonElement(ch));
     }
 
@@ -49,35 +49,35 @@ public final class JsonObject extends JsonElement {
         return obj == null ? JsonNull.INSTANCE : new JsonPrimitive(obj);
     }
 
-    public final Set<Map.Entry<String, JsonElement>> entrySet() {
+    public Set<Map.Entry<String, JsonElement>> entrySet() {
         return this.members.entrySet();
     }
 
-    public final boolean has(String str) {
+    public boolean has(String str) {
         return this.members.containsKey(str);
     }
 
-    public final JsonElement get(String str) {
+    public JsonElement get(String str) {
         return this.members.get(str);
     }
 
-    public final JsonPrimitive getAsJsonPrimitive(String str) {
+    public JsonPrimitive getAsJsonPrimitive(String str) {
         return (JsonPrimitive) this.members.get(str);
     }
 
-    public final JsonArray getAsJsonArray(String str) {
+    public JsonArray getAsJsonArray(String str) {
         return (JsonArray) this.members.get(str);
     }
 
-    public final JsonObject getAsJsonObject(String str) {
+    public JsonObject getAsJsonObject(String str) {
         return (JsonObject) this.members.get(str);
     }
 
-    public final boolean equals(Object obj) {
+    public boolean equals(Object obj) {
         return obj == this || ((obj instanceof JsonObject) && ((JsonObject) obj).members.equals(this.members));
     }
 
-    public final int hashCode() {
+    public int hashCode() {
         return this.members.hashCode();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.data;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
     public String a;
     public int b;
     public int c;
@@ -29,7 +29,7 @@ public final class b {
                 this.j = optJSONObject.optString("title");
                 this.i = optJSONObject.optString("content");
                 this.d = optJSONObject.optString("userName");
-                this.e = optJSONObject.optString("portrait");
+                this.e = optJSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
             }
         } catch (JSONException e) {
             e.printStackTrace();

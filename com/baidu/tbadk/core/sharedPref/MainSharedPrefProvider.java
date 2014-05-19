@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.n;
 /* loaded from: classes.dex */
 public class MainSharedPrefProvider extends ContentProvider {
     @Override // android.content.ContentProvider
@@ -73,15 +73,15 @@ public class MainSharedPrefProvider extends ContentProvider {
         return 0;
     }
 
-    private static void a(String str, String str2) {
+    private void a(String str, String str2) {
         Intent intent = new Intent();
-        intent.setAction(n.b());
+        intent.setAction(TbConfig.getBroadcastActionChangeSharedPref());
         intent.putExtra("intent_key", str);
         intent.putExtra("intent_value", str2);
-        TbadkApplication.j().b().sendBroadcast(intent);
+        TbadkApplication.m252getInst().getApp().sendBroadcast(intent);
     }
 
-    private static boolean a(String str) {
+    private boolean a(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
@@ -94,10 +94,10 @@ public class MainSharedPrefProvider extends ContentProvider {
         return false;
     }
 
-    private static SharedPreferences a() {
+    private SharedPreferences a() {
         try {
-            if (TbadkApplication.j().b() != null) {
-                return TbadkApplication.j().b().getSharedPreferences("common_settings", 0);
+            if (TbadkApplication.m252getInst().getApp() != null) {
+                return TbadkApplication.m252getInst().getApp().getSharedPreferences("common_settings", 0);
             }
             return null;
         } catch (Exception e) {

@@ -3,7 +3,7 @@ package com.baidu.tbadk.editortool;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
-public final class a extends ag {
+public class a extends ag {
     private final String a;
 
     public a(y yVar) {
@@ -12,13 +12,13 @@ public final class a extends ag {
         b(4);
     }
 
-    public final boolean a(y yVar, c cVar) {
+    public boolean a(y yVar, c cVar) {
         if (yVar instanceof AdsEmotionGroupData) {
-            ab abVar = new ab(TbadkApplication.j().b());
-            abVar.a(true);
+            ab abVar = new ab(TbadkApplication.m252getInst().getApp());
+            abVar.d(true);
             abVar.b(((AdsEmotionGroupData) yVar).getColorCoverUrl(), new b(this, cVar));
             if (b()) {
-                cVar.a();
+                cVar.a(this);
                 return true;
             }
             return false;
@@ -27,61 +27,61 @@ public final class a extends ag {
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final com.baidu.adp.widget.ImageView.b a() {
+    public com.baidu.adp.widget.a.a a() {
         return super.i();
     }
 
-    public final boolean b() {
+    public boolean b() {
         return i() != null;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final String a(int i) {
+    public String a(int i) {
         return null;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final boolean a(String str) {
+    public boolean a(String str) {
         return false;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final EmotionGroupType c() {
+    public EmotionGroupType c() {
         return EmotionGroupType.PROMOTION;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final com.baidu.adp.widget.ImageView.b b(String str) {
+    public com.baidu.adp.widget.a.a b(String str) {
         return null;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final com.baidu.adp.widget.ImageView.b c(String str) {
+    public com.baidu.adp.widget.a.a c(String str) {
         return null;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final int d() {
+    public int d() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final String e() {
+    public String e() {
         return this.a;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final String f() {
+    public String f() {
         return null;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final int g() {
+    public int g() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.editortool.ag
-    public final int h() {
+    public int h() {
         return 0;
     }
 }

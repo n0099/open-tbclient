@@ -14,9 +14,13 @@ public interface a {
 
     void a(boolean z);
 
+    String b();
+
     void b(int i);
 
     void b(DialogInterface.OnClickListener onClickListener);
+
+    View c();
 
     View d();
 
@@ -26,11 +30,7 @@ public interface a {
 
     void g();
 
-    View g_();
-
     int h();
-
-    String h_();
 
     boolean i();
 

@@ -1,47 +1,48 @@
 package com.baidu.tieba.model;
 
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.data.InterestFrsData;
 /* loaded from: classes.dex */
-public final class ao extends com.baidu.adp.a.e {
-    private static final String a = String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/s/gettaglist";
+public class ao extends com.baidu.adp.base.d {
+    private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/gettaglist";
     private boolean b;
     private InterestFrsData c;
     private ap d;
 
-    public final boolean a() {
+    public boolean a() {
         return this.b;
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         this.b = z;
     }
 
-    public final InterestFrsData b() {
+    public InterestFrsData b() {
         return this.c;
     }
 
-    public final void a(InterestFrsData interestFrsData) {
+    public void a(InterestFrsData interestFrsData) {
         this.c = interestFrsData;
     }
 
-    public final void a(int i, int i2, int i3, aq aqVar) {
-        this.d = new ap(i, 0, 100, aqVar);
+    public void a(int i, int i2, int i3, aq aqVar) {
+        this.d = new ap(i, i2, i3, aqVar);
         this.d.execute(new Void[0]);
     }
 
-    public final void c() {
+    public void c() {
         if (this.d != null) {
             this.d.cancel();
         }
     }
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         return false;
     }
 }

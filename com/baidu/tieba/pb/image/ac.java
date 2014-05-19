@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb.image;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,78 +9,63 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class ac extends PagerAdapter {
-    LayoutInflater a;
+public class ac extends PagerAdapter {
     private Context b;
     private com.baidu.tbadk.editortool.ab c;
-    private HashMap<String, com.baidu.tieba.data.v> h;
-    private ArrayList<af> j;
-    private int m;
-    private int n;
-    private int o;
-    private ArrayList<View> r;
-    private ArrayList<View> s;
     private String d = null;
     private String e = null;
     private com.baidu.tieba.data.u f = null;
     private LinkedList<com.baidu.tieba.data.t> g = null;
+    private HashMap<String, com.baidu.tieba.data.v> h = null;
     private t i = null;
+    private ArrayList<af> j = null;
     private boolean k = false;
     private x l = null;
+    private int m = 0;
+    private int n = 0;
+    private int o = 0;
     private boolean p = true;
     private int q = 0;
+    private ArrayList<View> r = null;
+    private ArrayList<View> s = null;
+    LayoutInflater a = null;
     private final View.OnClickListener t = new ad(this);
 
     public ac(Context context) {
         this.b = null;
-        this.h = null;
-        this.j = null;
-        this.m = 0;
-        this.n = 0;
-        this.o = 0;
-        this.r = null;
-        this.s = null;
-        this.a = null;
         this.b = context;
-        this.c = new com.baidu.tbadk.editortool.ab(this.b);
-        this.c.f = "_big";
-        this.c.b("pb");
-        this.m = com.baidu.adp.lib.util.i.b(this.b);
-        this.n = (com.baidu.adp.lib.util.i.c(this.b) * 3) / 5;
-        this.o = this.n >> 1;
-        int u = com.baidu.tbadk.core.data.n.u() < this.m ? com.baidu.tbadk.core.data.n.u() : this.m;
-        this.n = com.baidu.tbadk.core.data.n.u() < this.n ? com.baidu.tbadk.core.data.n.u() : this.n;
-        this.c.a(u - com.baidu.adp.lib.util.i.a(this.b, 8.0f), this.n);
-        this.a = LayoutInflater.from(this.b);
-        this.j = new ArrayList<>();
-        this.h = new HashMap<>();
-        this.r = new ArrayList<>();
-        this.s = new ArrayList<>();
+        f();
     }
 
-    public final void a() {
+    public void a() {
         this.h.clear();
     }
 
-    public final void b() {
+    public void b() {
         this.k = false;
         this.p = false;
         c();
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.d = str;
     }
 
-    public final void a(com.baidu.tieba.data.u uVar) {
+    public void a(com.baidu.tieba.data.u uVar) {
         if (uVar != null) {
             this.p = uVar.b();
             this.f = uVar;
@@ -90,7 +74,7 @@ public final class ac extends PagerAdapter {
         }
     }
 
-    public final void c() {
+    public void c() {
         if (this.j != null) {
             Iterator<af> it = this.j.iterator();
             if (it.hasNext()) {
@@ -102,12 +86,12 @@ public final class ac extends PagerAdapter {
             this.l.notifyDataSetChanged();
         }
         if (this.c != null) {
-            this.c.c();
+            this.c.d();
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final int getCount() {
+    public int getCount() {
         if (this.f == null) {
             return 0;
         }
@@ -118,12 +102,12 @@ public final class ac extends PagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final boolean isViewFromObject(View view, Object obj) {
+    public boolean isViewFromObject(View view, Object obj) {
         return view.equals(obj);
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         View view = (View) obj;
         if (view != null && view.getTag() != null && (view.getTag() instanceof x)) {
             ((x) view.getTag()).a();
@@ -131,38 +115,38 @@ public final class ac extends PagerAdapter {
                 this.r.add((View) obj);
             }
             this.s.remove(obj);
-            com.baidu.adp.lib.util.f.a(getClass().getName(), "destroyItem", String.valueOf(this.s.size()));
+            BdLog.i(getClass().getName(), "destroyItem", String.valueOf(this.s.size()));
         }
         viewGroup.removeView((View) obj);
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final int getItemPosition(Object obj) {
+    public int getItemPosition(Object obj) {
         return -2;
     }
 
-    public final void a(t tVar) {
+    public void a(t tVar) {
         this.i = tVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final Object instantiateItem(ViewGroup viewGroup, int i) {
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
         View inflate;
         if (i == this.f.j()) {
-            View inflate2 = this.a.inflate(com.baidu.tieba.a.i.image_pb_next, (ViewGroup) null);
-            ((TextView) inflate2.findViewById(com.baidu.tieba.a.h.thread_name)).setText(this.f.f());
+            View inflate2 = this.a.inflate(com.baidu.tieba.s.image_pb_next, (ViewGroup) null);
+            ((TextView) inflate2.findViewById(com.baidu.tieba.r.thread_name)).setText(this.f.f());
             viewGroup.addView(inflate2);
-            ImageView imageView = (ImageView) inflate2.findViewById(com.baidu.tieba.a.h.image);
-            TextView textView = (TextView) inflate2.findViewById(com.baidu.tieba.a.h.next);
-            TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.a.h.thread_name);
-            if (TbadkApplication.j().l() == 1) {
-                textView.setTextColor(ba.c(1));
-                textView2.setTextColor(ba.a(1));
-                imageView.setBackgroundResource(com.baidu.tieba.a.g.image_pb_next_default_1);
+            ImageView imageView = (ImageView) inflate2.findViewById(com.baidu.tieba.r.image);
+            TextView textView = (TextView) inflate2.findViewById(com.baidu.tieba.r.next);
+            TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.r.thread_name);
+            if (TbadkApplication.m252getInst().getSkinType() == 1) {
+                textView.setTextColor(bc.c(1));
+                textView2.setTextColor(bc.a(1));
+                imageView.setBackgroundResource(com.baidu.tieba.q.image_pb_next_default_1);
             } else {
                 textView.setTextColor(-9539986);
                 textView2.setTextColor(-6250336);
-                imageView.setBackgroundResource(com.baidu.tieba.a.g.image_pb_next_default);
+                imageView.setBackgroundResource(com.baidu.tieba.q.image_pb_next_default);
             }
             return inflate2;
         }
@@ -171,18 +155,18 @@ public final class ac extends PagerAdapter {
             this.r.remove(0);
             inflate = this.r.get(0);
         } else {
-            inflate = this.a.inflate(com.baidu.tieba.a.i.image_pb_list, (ViewGroup) null);
+            inflate = this.a.inflate(com.baidu.tieba.s.image_pb_list, (ViewGroup) null);
         }
         if (this.s.size() > 5) {
             this.s.clear();
         }
         this.s.add(inflate);
-        com.baidu.adp.lib.util.f.a(getClass().getName(), "instantiateItem", String.valueOf(this.s.size()));
-        ListView listView = (ListView) inflate.findViewById(com.baidu.tieba.a.h.image_pb_listview);
-        ba.a(listView, TbadkApplication.j().l());
+        BdLog.i(getClass().getName(), "instantiateItem", String.valueOf(this.s.size()));
+        ListView listView = (ListView) inflate.findViewById(com.baidu.tieba.r.image_pb_listview);
+        bc.a(listView, TbadkApplication.m252getInst().getSkinType());
         if (tVar == null) {
             if (this.i != null) {
-                this.i.a();
+                this.i.a(i, 0, 0);
             }
             if (inflate.getParent() == viewGroup) {
                 viewGroup.removeView(inflate);
@@ -214,21 +198,18 @@ public final class ac extends PagerAdapter {
         return inflate;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(ac acVar, int i) {
-        if (i < acVar.g.size()) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i) {
+        if (i < this.g.size()) {
             ArrayList<String> arrayList = new ArrayList<>();
-            int i2 = 0;
-            while (true) {
-                int i3 = i2;
-                if (i3 >= acVar.g.size()) {
-                    break;
-                }
-                com.baidu.tieba.data.t tVar = acVar.g.get(i3);
-                if (com.baidu.adp.lib.util.o.a(tVar.j())) {
+            for (int i2 = 0; i2 < this.g.size(); i2++) {
+                com.baidu.tieba.data.t tVar = this.g.get(i2);
+                if (!StringUtils.isNull(tVar.j())) {
+                    arrayList.add(tVar.j());
+                } else {
                     StringBuffer stringBuffer = new StringBuffer(100);
-                    if (tVar.g() * tVar.f() > com.baidu.tbadk.core.data.n.u() * com.baidu.tbadk.core.data.n.u()) {
-                        double sqrt = Math.sqrt((com.baidu.tbadk.core.data.n.u() * com.baidu.tbadk.core.data.n.u()) / (tVar.g() * tVar.f()));
+                    if (tVar.g() * tVar.f() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
+                        double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (tVar.g() * tVar.f()));
                         stringBuffer.append("width=");
                         stringBuffer.append(String.valueOf((int) (tVar.f() * sqrt)));
                         stringBuffer.append("&height=");
@@ -240,50 +221,16 @@ public final class ac extends PagerAdapter {
                         stringBuffer.append(String.valueOf(tVar.g()));
                     }
                     stringBuffer.append("&src=");
-                    stringBuffer.append(bc.d(tVar.b()));
+                    stringBuffer.append(be.d(tVar.b()));
                     arrayList.add(stringBuffer.toString());
-                } else {
-                    arrayList.add(tVar.j());
                 }
-                i2 = i3 + 1;
             }
-            boolean z = false;
-            if (acVar.f.j() == arrayList.size() && acVar.f.b()) {
-                z = true;
-            }
-            String h = acVar.f.h();
-            String i4 = acVar.f.i();
-            String c = acVar.f.c();
-            boolean z2 = acVar.f.l() == 1;
-            String f = acVar.f.f();
-            com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
-            com.baidu.tbadk.core.b.t tVar2 = new com.baidu.tbadk.core.b.t(acVar.b);
-            int j = acVar.f.j();
-            Intent d = tVar2.d();
-            d.putExtra("start_activity_type", "start_activity_result");
-            if (arrayList == null || arrayList.size() <= 0) {
-                d.putExtra("is_data_valid", "data_not_valid");
-            } else {
-                d.putExtra("is_data_valid", "data_valid");
-                d.putStringArrayListExtra("url", arrayList);
-                d.putExtra("index", i);
-                d.putExtra("need_broadcast", true);
-                d.putExtra("is_pv", true);
-                d.putExtra("pv_type", "pb");
-                d.putExtra("count", j);
-                d.putExtra("hasnext", z);
-                d.putExtra("fname", h);
-                d.putExtra("fid", i4);
-                d.putExtra("tid", c);
-                d.putExtra("nexttile", f);
-                d.putExtra("isCdn", z2);
-            }
-            a.a(new com.baidu.adp.framework.message.a(2010000, tVar2));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.IMAGE_VIEWER_CUSTOM_CMD, new com.baidu.tbadk.core.atomData.w(this.b).a(arrayList, i, this.f.j(), this.f.h(), this.f.i(), this.f.c(), this.f.l() == 1, this.f.j() == arrayList.size() && this.f.b(), this.f.f())));
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
         this.q = i;
         if (this.g != null) {
@@ -293,9 +240,9 @@ public final class ac extends PagerAdapter {
             }
             if (tVar != null) {
                 try {
-                    ((ListView) ((View) obj).findViewById(com.baidu.tieba.a.h.image_pb_listview)).setVerticalScrollBarEnabled(true);
+                    ((ListView) ((View) obj).findViewById(com.baidu.tieba.r.image_pb_listview)).setVerticalScrollBarEnabled(true);
                     this.l = (x) ((View) obj).getTag();
-                    ImagePbImageView imagePbImageView = (ImagePbImageView) ((View) obj).findViewById(com.baidu.tieba.a.h.image_pb_image);
+                    ImagePbImageView imagePbImageView = (ImagePbImageView) ((View) obj).findViewById(com.baidu.tieba.r.image_pb_image);
                     if (imagePbImageView != null) {
                         if (i == 0 && !this.k) {
                             imagePbImageView.setFirst(true);
@@ -305,20 +252,37 @@ public final class ac extends PagerAdapter {
                         }
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.a(getClass().getName(), "setPrimaryItem", e.toString());
+                    BdLog.i(getClass().getName(), "setPrimaryItem", e.toString());
                 }
             }
         }
     }
 
-    public final com.baidu.tbadk.editortool.ab d() {
+    public com.baidu.tbadk.editortool.ab d() {
         return this.c;
     }
 
-    public final void e() {
+    public void e() {
         if (this.l != null && this.l.c()) {
             a(this.l.d(), this.l.e().c(), 10, this.l);
         }
+    }
+
+    private void f() {
+        this.c = new com.baidu.tbadk.editortool.ab(this.b);
+        this.c.b("_big");
+        this.c.f("pb");
+        this.m = com.baidu.adp.lib.util.h.b(this.b);
+        this.n = (com.baidu.adp.lib.util.h.c(this.b) * 3) / 5;
+        this.o = this.n >> 1;
+        int threadImageMaxWidth = TbConfig.getThreadImageMaxWidth() < this.m ? TbConfig.getThreadImageMaxWidth() : this.m;
+        this.n = TbConfig.getThreadImageMaxWidth() < this.n ? TbConfig.getThreadImageMaxWidth() : this.n;
+        this.c.a(threadImageMaxWidth - com.baidu.adp.lib.util.h.a(this.b, 8.0f), this.n);
+        this.a = LayoutInflater.from(this.b);
+        this.j = new ArrayList<>();
+        this.h = new HashMap<>();
+        this.r = new ArrayList<>();
+        this.s = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

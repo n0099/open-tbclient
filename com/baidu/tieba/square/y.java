@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public final class y extends PagerAdapter implements com.baidu.tbadk.imageManager.d, com.baidu.tieba.view.q {
+public class y extends PagerAdapter implements com.baidu.tbadk.imageManager.d, com.baidu.tieba.view.t {
     final /* synthetic */ v b;
     private Context f;
     private com.baidu.tbadk.editortool.ab g;
@@ -34,28 +34,27 @@ public final class y extends PagerAdapter implements com.baidu.tbadk.imageManage
         this.f = context;
         this.k = LayoutInflater.from(context);
         this.g = new com.baidu.tbadk.editortool.ab(context);
-        this.h = com.baidu.adp.lib.util.i.b(context);
+        this.h = com.baidu.adp.lib.util.h.b(context);
         this.i = (int) (0.5f + (this.h * this.j));
         this.g.a(this.h, this.i);
     }
 
-    public final void a(ArrayList<at> arrayList) {
-        this.e.clear();
-        this.d = 0;
-        this.c = null;
-        notifyDataSetChanged();
+    private void a(HeadImageView headImageView, at atVar, int i) {
+        headImageView.setTag(atVar.a());
+        headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.h, this.i));
+        headImageView.setOnClickListener(new z(this, atVar, i));
+        this.a.add(headImageView);
+    }
+
+    public void a(ArrayList<at> arrayList) {
+        a();
         if (arrayList != null && arrayList.size() != 0) {
             this.d = arrayList.size();
             this.c = arrayList;
             int i = 0;
             while (i < this.d) {
-                HeadImageView headImageView = (HeadImageView) this.k.inflate(com.baidu.tieba.a.i.carousel_topics_recommend_item, (ViewGroup) null);
-                at atVar = arrayList.get(i);
-                int i2 = i > 0 ? i - 1 : 0;
-                headImageView.setTag(atVar.a());
-                headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.h, this.i));
-                headImageView.setOnClickListener(new z(this, atVar, i2));
-                this.a.add(headImageView);
+                HeadImageView headImageView = (HeadImageView) this.k.inflate(com.baidu.tieba.s.carousel_topics_recommend_item, (ViewGroup) null);
+                a(headImageView, arrayList.get(i), i > 0 ? i - 1 : 0);
                 this.e.add(headImageView);
                 i++;
             }
@@ -64,7 +63,7 @@ public final class y extends PagerAdapter implements com.baidu.tbadk.imageManage
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final int getCount() {
+    public int getCount() {
         if (this.e == null) {
             return 0;
         }
@@ -72,14 +71,14 @@ public final class y extends PagerAdapter implements com.baidu.tbadk.imageManage
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final Object instantiateItem(ViewGroup viewGroup, int i) {
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
         View view = this.e.get(i);
         view.invalidate();
         viewGroup.addView(view);
         return view;
     }
 
-    public final void a() {
+    public void a(int i) {
         if (this.a != null && this.a.size() > 0) {
             Iterator<HeadImageView> it = this.a.iterator();
             while (it.hasNext()) {
@@ -89,24 +88,31 @@ public final class y extends PagerAdapter implements com.baidu.tbadk.imageManage
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         viewGroup.removeView((View) obj);
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public final boolean isViewFromObject(View view, Object obj) {
+    public boolean isViewFromObject(View view, Object obj) {
         return view == obj;
     }
 
-    @Override // com.baidu.tieba.view.q
-    public final void b() {
+    private void a() {
+        this.e.clear();
+        this.d = 0;
+        this.c = null;
+        notifyDataSetChanged();
+    }
+
+    @Override // com.baidu.tieba.view.t
+    public void b() {
         if (this.g != null) {
-            this.g.c();
+            this.g.d();
         }
     }
 
-    @Override // com.baidu.tieba.view.q
-    public final void a(View view, int i, int i2) {
+    @Override // com.baidu.tieba.view.t
+    public void a(View view, int i, int i2) {
         this.l = view;
         if (this.g != null && this.c != null) {
             this.g.a();
@@ -128,10 +134,10 @@ public final class y extends PagerAdapter implements com.baidu.tbadk.imageManage
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         HeadImageView headImageView;
         if (this.l != null && (headImageView = (HeadImageView) this.l.findViewWithTag(str)) != null) {
-            headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+            headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER);
             headImageView.invalidate();
         }
     }

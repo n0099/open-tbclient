@@ -9,13 +9,17 @@ import android.os.Handler;
 import android.view.KeyEvent;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
+import android.webkit.WebView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.account.AccountLoginHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class FaceBuyWebViewActivity extends com.baidu.tbadk.a implements com.baidu.tbadk.coreExtra.view.f, com.baidu.tbadk.coreExtra.view.g, com.baidu.tbadk.coreExtra.view.h {
+public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tbadk.coreExtra.view.g, com.baidu.tbadk.coreExtra.view.h, com.baidu.tbadk.coreExtra.view.i {
     private static final Pattern h = Pattern.compile("[?|&]order_id=(\\w+)&+");
     private BaseWebView a;
     private NavigationBar b;
@@ -25,7 +29,7 @@ public class FaceBuyWebViewActivity extends com.baidu.tbadk.a implements com.bai
     private int f;
     private AlertDialog g;
     private final Handler i = new Handler();
-    private final Runnable j = new ac(this);
+    private final Runnable j = new ad(this);
 
     public static void a(Activity activity, String str, String str2, String str3, int i, int i2) {
         Intent intent = new Intent(activity, FaceBuyWebViewActivity.class);
@@ -37,18 +41,27 @@ public class FaceBuyWebViewActivity extends com.baidu.tbadk.a implements com.bai
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.a.i.face_buy_webview_activity);
-        this.a = (BaseWebView) findViewById(com.baidu.tieba.a.h.webview);
-        this.b = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ad(this));
+        b();
+        a(bundle);
+        a();
+    }
+
+    private void b() {
+        setContentView(com.baidu.tieba.s.face_buy_webview_activity);
+        this.a = (BaseWebView) findViewById(com.baidu.tieba.r.webview);
+        this.b = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ae(this));
         this.b.a("");
         this.a.setOnLoadUrlListener(this);
         this.a.setOnPageFinishedListener(this);
         this.a.setOnPageStartedListener(this);
         this.a.setHorizontalScrollBarEnabled(false);
+    }
+
+    private void a(Bundle bundle) {
         if (bundle != null) {
             this.c = bundle.getString("tag_url");
             this.d = bundle.getString("tag_hook_url");
@@ -62,17 +75,6 @@ public class FaceBuyWebViewActivity extends com.baidu.tbadk.a implements com.bai
         }
         this.b.a(this.e);
         this.i.postDelayed(this.j, 150L);
-        try {
-            com.baidu.tbadk.core.a.n a = com.baidu.tbadk.core.a.a.a(TbadkApplication.D());
-            CookieSyncManager.createInstance(this);
-            CookieManager cookieManager = CookieManager.getInstance();
-            cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "BDUSS=" + a.a + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + a.b + "; domain=.baidu.com;");
-            CookieSyncManager.getInstance().sync();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Override // android.app.Activity
@@ -85,39 +87,39 @@ public class FaceBuyWebViewActivity extends com.baidu.tbadk.a implements com.bai
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.a.resumeTimers();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
         this.a.pauseTimers();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.i.removeCallbacks(this.j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.b != null) {
-            this.b.b(i);
+            this.b.c(i);
         }
         if (this.a != null) {
-            com.baidu.tbadk.core.util.ba.a(this.a, i);
+            com.baidu.tbadk.core.util.bc.a(this.a, i);
         }
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             c();
@@ -126,25 +128,39 @@ public class FaceBuyWebViewActivity extends com.baidu.tbadk.a implements com.bai
         return super.onKeyDown(i, keyEvent);
     }
 
+    public void a() {
+        try {
+            AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
+            CookieSyncManager.createInstance(this);
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.setAcceptCookie(true);
+            cookieManager.setCookie("baidu.com", "BDUSS=" + parseBDUSS.mBduss + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + parseBDUSS.mPtoken + "; domain=.baidu.com;");
+            CookieSyncManager.getInstance().sync();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         if (this.g == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(com.baidu.tieba.a.k.alerm_title);
+            builder.setTitle(com.baidu.tieba.u.alerm_title);
             builder.setIcon((Drawable) null);
             builder.setCancelable(false);
-            builder.setMessage(com.baidu.tieba.a.k.quit_buy_confirm);
-            builder.setPositiveButton(com.baidu.tieba.a.k.alert_yes_button, new ae(this));
-            builder.setNegativeButton(com.baidu.tieba.a.k.alert_no_button, new af(this));
+            builder.setMessage(com.baidu.tieba.u.quit_buy_confirm);
+            builder.setPositiveButton(com.baidu.tieba.u.alert_yes_button, new af(this));
+            builder.setNegativeButton(com.baidu.tieba.u.alert_no_button, new ag(this));
             this.g = builder.create();
         }
         this.g.show();
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.f
-    public final boolean a(String str) {
+    @Override // com.baidu.tbadk.coreExtra.view.g
+    public boolean a(WebView webView, String str) {
         if (str != null) {
-            if (com.baidu.tbadk.core.util.bc.c(str) || com.baidu.tbadk.core.util.bc.c(this.d)) {
+            if (com.baidu.tbadk.core.util.be.c(str) || com.baidu.tbadk.core.util.be.c(this.d)) {
                 return false;
             }
             if (str.toLowerCase().contains(this.d.toLowerCase())) {
@@ -159,7 +175,7 @@ public class FaceBuyWebViewActivity extends com.baidu.tbadk.a implements com.bai
                         closeActivity();
                         return true;
                     } catch (Exception e) {
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
+                        BdLog.e(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
                     }
                 }
             }
@@ -167,13 +183,13 @@ public class FaceBuyWebViewActivity extends com.baidu.tbadk.a implements com.bai
         return false;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.g
-    public final void a() {
+    @Override // com.baidu.tbadk.coreExtra.view.h
+    public void b(WebView webView, String str) {
         hideProgressBar();
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.h
-    public final void b() {
+    @Override // com.baidu.tbadk.coreExtra.view.i
+    public void c(WebView webView, String str) {
         showProgressBar();
     }
 }

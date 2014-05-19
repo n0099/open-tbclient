@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.frsgroup;
 
-import com.baidu.tieba.im.message.bi;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.im.message.RequestUpgradeMemberGroupMessage;
 /* loaded from: classes.dex */
-final class l implements com.baidu.tbadk.core.dialog.c {
+class l implements com.baidu.tbadk.core.dialog.c {
     final /* synthetic */ GroupLevelActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,13 +12,13 @@ final class l implements com.baidu.tbadk.core.dialog.c {
     }
 
     @Override // com.baidu.tbadk.core.dialog.c
-    public final void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.im.model.m mVar;
-        bi biVar = new bi();
-        mVar = this.a.a;
-        biVar.b(mVar.a());
-        biVar.a(true);
-        com.baidu.adp.lib.util.f.e("send upgrade mem group msg:" + biVar.e() + " gid:" + biVar.i());
-        this.a.sendMessage(biVar);
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tieba.im.model.n nVar;
+        RequestUpgradeMemberGroupMessage requestUpgradeMemberGroupMessage = new RequestUpgradeMemberGroupMessage();
+        nVar = this.a.a;
+        requestUpgradeMemberGroupMessage.setGroupId(nVar.a());
+        requestUpgradeMemberGroupMessage.setUpOrDown(true);
+        BdLog.d("send upgrade mem group msg:" + requestUpgradeMemberGroupMessage.getCmd() + " gid:" + requestUpgradeMemberGroupMessage.getGroupId());
+        this.a.sendMessage(requestUpgradeMemberGroupMessage);
     }
 }

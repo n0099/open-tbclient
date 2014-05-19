@@ -5,7 +5,10 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -19,7 +22,7 @@ public class EmotionTabHost extends LinearLayout implements u {
     private int g;
     private boolean h;
     private boolean i;
-    private com.baidu.adp.framework.c.a j;
+    private CustomMessageListener j;
 
     public EmotionTabHost(Context context) {
         super(context);
@@ -28,7 +31,7 @@ public class EmotionTabHost extends LinearLayout implements u {
         this.f = null;
         this.g = -1;
         this.i = true;
-        this.j = new s(this, 2001120);
+        this.j = new s(this, MessageTypes.CMD_EMOTIONS_GROUP_CHANGED);
         a(context);
     }
 
@@ -39,19 +42,19 @@ public class EmotionTabHost extends LinearLayout implements u {
         this.f = null;
         this.g = -1;
         this.i = true;
-        this.j = new s(this, 2001120);
+        this.j = new s(this, MessageTypes.CMD_EMOTIONS_GROUP_CHANGED);
         a(context);
     }
 
     private void a(Context context) {
         removeAllViews();
         this.a = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.a.inflate(com.baidu.tbadk.k.emotion_tab_host, (ViewGroup) this, true);
-        this.b = (EmotionTabContentView) findViewById(com.baidu.tbadk.j.face_tab_content);
-        this.c = (EmotionTabWidgetView) findViewById(com.baidu.tbadk.j.face_tab_widget);
+        this.a.inflate(com.baidu.tieba.s.emotion_tab_host, (ViewGroup) this, true);
+        this.b = (EmotionTabContentView) findViewById(com.baidu.tieba.r.face_tab_content);
+        this.c = (EmotionTabWidgetView) findViewById(com.baidu.tieba.r.face_tab_widget);
         this.c.setOnTabSelectedListener(this);
         setOrientation(1);
-        this.g = TbadkApplication.j().l();
+        this.g = TbadkApplication.m252getInst().getSkinType();
         b(this.g);
         b();
     }
@@ -73,7 +76,7 @@ public class EmotionTabHost extends LinearLayout implements u {
             if (this.f != null && this.f.equals(agVar.e())) {
                 i = i2;
             }
-            this.c.a(agVar);
+            a(agVar);
         }
         setCurrentEmotionGroup(i);
     }
@@ -81,23 +84,27 @@ public class EmotionTabHost extends LinearLayout implements u {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.adp.framework.c.a().a(this.j);
+        MessageManager.getInstance().registerListener(this.j);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.adp.framework.c.a().b(this.j);
+        MessageManager.getInstance().unRegisterListener(this.j);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
-        int l = TbadkApplication.j().l();
-        if (l != this.g) {
-            this.g = l;
+        int skinType = TbadkApplication.m252getInst().getSkinType();
+        if (skinType != this.g) {
+            this.g = skinType;
             b(this.g);
         }
+    }
+
+    private void a(ag agVar) {
+        this.c.a(agVar);
     }
 
     public void setCurrentEmotionGroup(int i) {
@@ -117,7 +124,7 @@ public class EmotionTabHost extends LinearLayout implements u {
         }
     }
 
-    public final void a() {
+    public void a() {
         this.e = -1;
         this.d.clear();
         this.b.a();
@@ -139,11 +146,11 @@ public class EmotionTabHost extends LinearLayout implements u {
     }
 
     @Override // com.baidu.tbadk.editortool.u
-    public final void a(int i) {
+    public void a(int i) {
         setCurrentEmotionGroup(i);
     }
 
-    public final void b(int i) {
+    public void b(int i) {
         this.c.a(i);
         this.b.a(i);
     }

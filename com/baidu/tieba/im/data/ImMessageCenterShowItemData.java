@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.im.pushNotify.l;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -9,7 +8,7 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
     protected String friendId;
     protected String friendName;
     protected String friendPortrait;
-    private l groupSetting;
+    private com.baidu.tieba.im.pushNotify.m groupSetting;
     private boolean isSelf;
     protected String msgContent;
     protected String ownerId;
@@ -96,12 +95,12 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
         this.friendName = str;
     }
 
-    public l getGroupSetting() {
+    public com.baidu.tieba.im.pushNotify.m getGroupSetting() {
         return this.groupSetting;
     }
 
-    public void setGroupSetting(l lVar) {
-        this.groupSetting = lVar;
+    public void setGroupSetting(com.baidu.tieba.im.pushNotify.m mVar) {
+        this.groupSetting = mVar;
     }
 
     public int getUnReadCountExtra() {
@@ -128,7 +127,7 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
         this.isSelf = z;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ab
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getFriendPortrait());
@@ -137,7 +136,7 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ImMessageCenterShowItemData m251clone() {
+    public ImMessageCenterShowItemData m254clone() {
         try {
             return (ImMessageCenterShowItemData) super.clone();
         } catch (CloneNotSupportedException e) {

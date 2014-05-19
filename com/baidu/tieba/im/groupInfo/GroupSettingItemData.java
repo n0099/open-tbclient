@@ -2,7 +2,7 @@ package com.baidu.tieba.im.groupInfo;
 
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class GroupSettingItemData extends com.baidu.tieba.im.pushNotify.l implements Serializable {
+public class GroupSettingItemData extends com.baidu.tieba.im.pushNotify.m implements Serializable {
     private static final long serialVersionUID = -3083517174627940892L;
     private String gid;
     private boolean isAlreadyApply;

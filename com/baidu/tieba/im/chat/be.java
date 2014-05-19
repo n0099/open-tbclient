@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.data.GroupData;
 /* loaded from: classes.dex */
-final class be implements com.baidu.tieba.im.a<Boolean> {
+class be implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ GroupChatActivity a;
     private final /* synthetic */ GroupData b;
 
@@ -13,24 +13,21 @@ final class be implements com.baidu.tieba.im.a<Boolean> {
         this.b = groupData;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
-        Boolean bool2 = bool;
-        if (bool2 != null) {
-            if (bool2.booleanValue()) {
-                this.a.d.K();
-            } else {
+    public void a(Boolean bool) {
+        if (bool != null) {
+            if (bool.booleanValue()) {
                 this.a.d.L();
+            } else {
+                this.a.d.M();
             }
-            if (this.a.e == null || this.b == null) {
-                return;
+            if (this.a.e != null && this.b != null) {
+                String name = this.b.getName();
+                if (!TextUtils.isEmpty(name)) {
+                    this.a.d.a(name, true);
+                }
             }
-            String name = this.b.getName();
-            if (TextUtils.isEmpty(name)) {
-                return;
-            }
-            this.a.d.a(name);
         }
     }
 }

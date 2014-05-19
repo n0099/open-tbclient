@@ -143,7 +143,7 @@ public final class d {
         }
     }
 
-    public final void a() {
+    public void a() {
         long f = b.f(this.d);
         if (b.b(this.d) != this.e || (b.g(this.d) && System.currentTimeMillis() - f > 259200000)) {
             b.a(this.d, 0);
@@ -159,7 +159,7 @@ public final class d {
         }
     }
 
-    public final void b() {
+    public void b() {
         UrlEncodedFormEntity urlEncodedFormEntity;
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("grant_type", "client_credentials"));
@@ -175,14 +175,14 @@ public final class d {
         }
     }
 
-    public final void c() {
+    public void c() {
         UrlEncodedFormEntity g = g();
         if (g != null) {
             new Thread(new e(this, b, g, 1), "registerUserInfo").start();
         }
     }
 
-    public final void d() {
+    public void d() {
         if (this.f != null) {
             this.d.unregisterReceiver(this.f);
         }

@@ -1,17 +1,20 @@
 package com.baidu.tieba.im.groupInfo;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class n implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.o> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.o> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            aVar.a().d().setClass(aVar.a().c(), GroupInfoActivity.class);
-            int intExtra = aVar.a().d().getIntExtra("requestCode", -1);
+public class n implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.q> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.atomData.q> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), GroupInfoActivity.class);
+            int intExtra = customMessage.getData().getIntent().getIntExtra("requestCode", -1);
             if (intExtra != -1) {
-                aVar.a().b(intExtra);
+                customMessage.getData().startActivityForResult(intExtra);
             } else {
-                aVar.a().f();
+                customMessage.getData().startActivity();
             }
         }
         return null;

@@ -3,9 +3,10 @@ package com.baidu.tieba.account;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class d implements View.OnClickListener {
+public class d implements View.OnClickListener {
     final /* synthetic */ AccountActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +15,7 @@ final class d implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         l lVar;
         l lVar2;
         TextView textView;
@@ -29,9 +30,9 @@ final class d implements View.OnClickListener {
             lVar4 = this.a.b;
             lVar4.a(true);
             textView3 = this.a.f;
-            textView3.setText(com.baidu.tieba.a.k.done);
+            textView3.setText(com.baidu.tieba.u.done);
             textView4 = this.a.f;
-            ba.g(textView4, TbadkApplication.j().l());
+            bc.g(textView4, TbadkApplication.m252getInst().getSkinType());
             lVar5 = this.a.b;
             lVar5.notifyDataSetChanged();
             return;
@@ -39,9 +40,9 @@ final class d implements View.OnClickListener {
         lVar2 = this.a.b;
         lVar2.a(false);
         textView = this.a.f;
-        textView.setText(com.baidu.tieba.a.k.edit);
+        textView.setText(com.baidu.tieba.u.edit);
         textView2 = this.a.f;
-        ba.h(textView2, TbadkApplication.j().l());
+        bc.i(textView2, TbadkApplication.m252getInst().getSkinType());
         lVar3 = this.a.b;
         lVar3.notifyDataSetChanged();
     }

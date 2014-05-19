@@ -208,11 +208,11 @@ public class CustomViewBehind extends ViewGroup {
     public int getMenuPage(int i) {
         if (i > 1) {
             i = 2;
-        } else if (i <= 0) {
+        } else if (i < 1) {
             i = 0;
         }
         if (this.mMode != 0 || i <= 1) {
-            if (this.mMode != 1 || i > 0) {
+            if (this.mMode != 1 || i >= 1) {
                 return i;
             }
             return 2;
@@ -334,23 +334,23 @@ public class CustomViewBehind extends ViewGroup {
     }
 
     public void drawShadow(View view, Canvas canvas) {
-        int left;
+        int i;
         if (this.mShadowDrawable != null && this.mShadowWidth > 0) {
-            if (this.mMode != 0) {
-                if (this.mMode == 1) {
-                    left = view.getRight();
-                } else if (this.mMode != 2) {
-                    left = 0;
-                } else if (this.mSecondaryShadowDrawable != null) {
+            if (this.mMode == 0) {
+                i = view.getLeft() - this.mShadowWidth;
+            } else if (this.mMode == 1) {
+                i = view.getRight();
+            } else if (this.mMode == 2) {
+                if (this.mSecondaryShadowDrawable != null) {
                     int right = view.getRight();
                     this.mSecondaryShadowDrawable.setBounds(right, 0, this.mShadowWidth + right, getHeight());
                     this.mSecondaryShadowDrawable.draw(canvas);
                 }
-                this.mShadowDrawable.setBounds(left, 0, this.mShadowWidth + left, getHeight());
-                this.mShadowDrawable.draw(canvas);
+                i = view.getLeft() - this.mShadowWidth;
+            } else {
+                i = 0;
             }
-            left = view.getLeft() - this.mShadowWidth;
-            this.mShadowDrawable.setBounds(left, 0, this.mShadowWidth + left, getHeight());
+            this.mShadowDrawable.setBounds(i, 0, this.mShadowWidth + i, getHeight());
             this.mShadowDrawable.draw(canvas);
         }
     }

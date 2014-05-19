@@ -9,9 +9,9 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.widget.ImageView.BDImageView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.widget.TbImageView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
@@ -52,15 +52,15 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
         this.a.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         this.a.setBaselineAligned(false);
         addView(this.a);
-        this.f = getResources().getDimensionPixelSize(com.baidu.tieba.a.f.face_tab_widget_tb_padding);
-        this.g = getResources().getDimensionPixelSize(com.baidu.tieba.a.f.face_tab_widget_lr_padding);
-        this.a.setPadding(0, getResources().getDimensionPixelSize(com.baidu.tieba.a.f.default_gap_6), 0, 0);
-        this.e = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(com.baidu.tieba.a.f.face_tab_widget_width), -1);
+        this.f = getResources().getDimensionPixelSize(com.baidu.tieba.p.face_tab_widget_tb_padding);
+        this.g = getResources().getDimensionPixelSize(com.baidu.tieba.p.face_tab_widget_lr_padding);
+        this.a.setPadding(0, getResources().getDimensionPixelSize(com.baidu.tieba.p.default_gap_6), 0, 0);
+        this.e = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(com.baidu.tieba.p.face_tab_widget_width), -1);
         this.i = new View(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1);
         layoutParams.weight = 1.0f;
         this.i.setLayoutParams(layoutParams);
-        ba.f(this.i, com.baidu.tieba.a.g.bg_expression_bar_n);
+        bc.f(this.i, com.baidu.tieba.q.bg_expression_bar_n);
         this.a.addView(this.i);
     }
 
@@ -68,23 +68,29 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
         this.c = list;
     }
 
-    public final void a(ai aiVar) {
-        if (aiVar != null) {
-            LinearLayout linearLayout = new LinearLayout(getContext());
-            BDImageView bDImageView = new BDImageView(getContext());
-            linearLayout.addView(bDImageView, new LinearLayout.LayoutParams(-1, -1));
-            if (TbadkApplication.j().l() == 1) {
-                linearLayout.setBackgroundResource(com.baidu.tieba.a.g.bg_expression_bar_1);
-            } else {
-                linearLayout.setBackgroundResource(com.baidu.tieba.a.g.bg_expression_bar);
-            }
-            bDImageView.setPadding(this.g, this.f, this.g, this.f);
-            linearLayout.setClickable(true);
-            linearLayout.setFocusable(true);
-            ba.c((ImageView) bDImageView, aiVar.b);
-            linearLayout.setOnClickListener(new aj(this, this.a.getChildCount() - 1, (byte) 0));
-            this.a.addView(linearLayout, this.a.getChildCount() - 1, this.e);
+    private TbImageView b(ai aiVar) {
+        if (aiVar == null) {
+            return null;
         }
+        LinearLayout linearLayout = new LinearLayout(getContext());
+        TbImageView tbImageView = new TbImageView(getContext());
+        linearLayout.addView(tbImageView, new LinearLayout.LayoutParams(-1, -1));
+        if (TbadkApplication.m252getInst().getSkinType() == 1) {
+            linearLayout.setBackgroundResource(com.baidu.tieba.q.bg_expression_bar_1);
+        } else {
+            linearLayout.setBackgroundResource(com.baidu.tieba.q.bg_expression_bar);
+        }
+        tbImageView.setPadding(this.g, this.f, this.g, this.f);
+        linearLayout.setClickable(true);
+        linearLayout.setFocusable(true);
+        bc.c((ImageView) tbImageView, aiVar.b);
+        linearLayout.setOnClickListener(new aj(this, this.a.getChildCount() - 1, null));
+        this.a.addView(linearLayout, this.a.getChildCount() - 1, this.e);
+        return tbImageView;
+    }
+
+    public void a(ai aiVar) {
+        b(aiVar);
         invalidate();
     }
 
@@ -93,23 +99,23 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
             if (this.b != -1) {
                 LinearLayout linearLayout = (LinearLayout) this.a.getChildAt(this.b);
                 linearLayout.setSelected(false);
-                ((BDImageView) linearLayout.getChildAt(0)).setImageResource(this.c.get(this.b).c().b);
+                ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.c.get(this.b).c().b);
             }
             this.b = i;
             LinearLayout linearLayout2 = (LinearLayout) this.a.getChildAt(this.b);
             linearLayout2.setSelected(true);
-            ba.c((ImageView) ((BDImageView) linearLayout2.getChildAt(0)), this.c.get(this.b).c().a);
+            bc.c((ImageView) ((TbImageView) linearLayout2.getChildAt(0)), this.c.get(this.b).c().a);
         }
     }
 
-    public final void a() {
+    public void a() {
         this.b = -1;
         this.a.removeAllViews();
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (this.h != null) {
-            this.h.setBackgroundResource(i == 1 ? com.baidu.tieba.a.g.icon_news_head_prompt_one_1 : com.baidu.tieba.a.g.icon_news_head_prompt_one);
+            this.h.setBackgroundResource(i == 1 ? com.baidu.tieba.q.icon_news_head_prompt_one_1 : com.baidu.tieba.q.icon_news_head_prompt_one);
             this.h.setTextColor(i == 1 ? Color.parseColor("#ffd2d2d2") : -1);
         }
         int childCount = this.a.getChildCount();
@@ -117,17 +123,17 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
             View childAt = this.a.getChildAt(i2);
             if (childAt != null) {
                 if (i == 1) {
-                    childAt.setBackgroundResource(com.baidu.tieba.a.g.bg_expression_bar_1);
+                    childAt.setBackgroundResource(com.baidu.tieba.q.bg_expression_bar_1);
                 } else {
-                    childAt.setBackgroundResource(com.baidu.tieba.a.g.bg_expression_bar);
+                    childAt.setBackgroundResource(com.baidu.tieba.q.bg_expression_bar);
                 }
                 if (i2 != childCount - 1) {
-                    BDImageView bDImageView = (BDImageView) ((LinearLayout) childAt).getChildAt(0);
-                    if (bDImageView != null) {
+                    TbImageView tbImageView = (TbImageView) ((LinearLayout) childAt).getChildAt(0);
+                    if (tbImageView != null) {
                         if (i2 == this.b) {
-                            ba.c((ImageView) bDImageView, this.c.get(i2).c().a);
+                            bc.c((ImageView) tbImageView, this.c.get(i2).c().a);
                         } else {
-                            ba.c((ImageView) bDImageView, this.c.get(i2).c().b);
+                            bc.c((ImageView) tbImageView, this.c.get(i2).c().b);
                         }
                     }
                 } else {

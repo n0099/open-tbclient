@@ -4,7 +4,7 @@ import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d implements com.baidu.tieba.im.a<Boolean> {
+public class d implements com.baidu.tieba.im.a<Boolean> {
     private final /* synthetic */ GroupMsgData a;
     private final /* synthetic */ String b;
     private final /* synthetic */ CommonMsgPojo c;
@@ -20,9 +20,9 @@ public final class d implements com.baidu.tieba.im.a<Boolean> {
         this.e = z;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public final /* bridge */ /* synthetic */ void a(Boolean bool) {
-        b.a(this.a, this.b, this.c, this.d, this.e);
+    public void a(Boolean bool) {
+        b.b(this.a, this.b, this.c, this.d, this.e);
     }
 }

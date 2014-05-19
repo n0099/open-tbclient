@@ -28,7 +28,7 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // java.util.Iterator
-    public final JsonElement next() {
+    public JsonElement next() {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
@@ -47,7 +47,7 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
     }
 
     @Override // java.util.Iterator
-    public final boolean hasNext() {
+    public boolean hasNext() {
         boolean z;
         synchronized (this.lock) {
             try {
@@ -62,7 +62,7 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
     }
 
     @Override // java.util.Iterator
-    public final void remove() {
+    public void remove() {
         throw new UnsupportedOperationException();
     }
 }

@@ -1,5 +1,7 @@
 package com.baidu.tieba.im.friend;
+
+import android.view.View;
 /* loaded from: classes.dex */
 public interface m {
-    void a(Object obj);
+    void a(View view, Object obj);
 }

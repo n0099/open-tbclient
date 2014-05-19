@@ -4,14 +4,14 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ImageForumResponsedMessage extends JsonHttpResponsedMessage {
-    public JSONObject a;
+    public JSONObject mJSONObject;
 
     public ImageForumResponsedMessage(int i) {
         super(i);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public final void a(JSONObject jSONObject) {
-        this.a = jSONObject;
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+        this.mJSONObject = jSONObject;
     }
 }

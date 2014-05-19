@@ -1,43 +1,15 @@
 package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.SignData;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ac extends BdAsyncTask<Object, Integer, SignData> {
+public class ac extends BdAsyncTask<Object, Integer, SignData> {
     final /* synthetic */ aa a;
-    private volatile ak b;
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ SignData a(Object... objArr) {
-        return a();
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(SignData signData) {
-        ab abVar;
-        ab abVar2;
-        String str;
-        String str2;
-        SignData signData2 = signData;
-        this.a.c = null;
-        if (signData2 == null && this.b != null) {
-            this.a.mErrorCode = this.b.d();
-            this.a.mErrorString = this.b.f();
-            abVar2 = this.a.d;
-            str = this.a.b;
-            str2 = this.a.mErrorString;
-            abVar2.a(str, str2);
-            return;
-        }
-        abVar = this.a.d;
-        abVar.a(signData2);
-    }
+    private volatile al b;
 
     private ac(aa aaVar) {
         this.a = aaVar;
@@ -45,16 +17,20 @@ public final class ac extends BdAsyncTask<Object, Integer, SignData> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ac(aa aaVar, byte b) {
+    public /* synthetic */ ac(aa aaVar, ac acVar) {
         this(aaVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
+    public void onPreExecute() {
     }
 
-    private SignData a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public SignData doInBackground(Object... objArr) {
         SignData signData;
         Exception e;
         String str;
@@ -62,13 +38,13 @@ public final class ac extends BdAsyncTask<Object, Integer, SignData> {
         String str3;
         String str4;
         try {
-            this.b = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/forum/sign");
-            ak akVar = this.b;
+            this.b = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/sign");
+            al alVar = this.b;
             str = this.a.a;
-            akVar.a("kw", str);
-            ak akVar2 = this.b;
+            alVar.a("kw", str);
+            al alVar2 = this.b;
             str2 = this.a.b;
-            akVar2.a("fid", str2);
+            alVar2.a("fid", str2);
             this.b.a().a().a = true;
             String i = this.b.i();
             if (!this.b.c() || !this.b.a().b().b()) {
@@ -84,7 +60,7 @@ public final class ac extends BdAsyncTask<Object, Integer, SignData> {
                 return signData;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
                 return signData;
             }
         } catch (Exception e3) {
@@ -94,7 +70,7 @@ public final class ac extends BdAsyncTask<Object, Integer, SignData> {
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
+    public void cancel() {
         ab abVar;
         String str;
         if (this.b != null) {
@@ -105,5 +81,28 @@ public final class ac extends BdAsyncTask<Object, Integer, SignData> {
         abVar = this.a.d;
         str = this.a.b;
         abVar.a(str, null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(SignData signData) {
+        ab abVar;
+        ab abVar2;
+        String str;
+        String str2;
+        this.a.c = null;
+        if (signData != null || this.b == null) {
+            abVar = this.a.d;
+            abVar.a(signData);
+            return;
+        }
+        this.a.mErrorCode = this.b.d();
+        this.a.mErrorString = this.b.f();
+        abVar2 = this.a.d;
+        str = this.a.b;
+        str2 = this.a.mErrorString;
+        abVar2.a(str, str2);
     }
 }

@@ -1,53 +1,57 @@
 package com.baidu.tieba.im.e.a;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.im.message.LoadDraftMessage;
 import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
 /* loaded from: classes.dex */
-public class a implements com.baidu.adp.framework.task.a<com.baidu.tieba.im.message.h> {
-    private com.baidu.tieba.im.pushNotify.m a;
+public class a implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.message.a> {
+    private com.baidu.tieba.im.pushNotify.n a;
     private int b;
 
-    public a(com.baidu.tieba.im.pushNotify.m mVar, int i) {
-        this.a = mVar;
+    public a(com.baidu.tieba.im.pushNotify.n nVar, int i) {
+        this.a = nVar;
         this.b = i;
     }
 
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tieba.im.message.h> aVar) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tieba.im.message.a> customMessage) {
         String str;
         LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.b);
-        if (aVar == null || !(aVar instanceof com.baidu.tieba.im.message.g)) {
-            com.baidu.adp.lib.util.f.b("message error");
+        if (customMessage == null || !(customMessage instanceof LoadDraftMessage)) {
+            BdLog.e("message error");
             return a(this.b);
         }
-        com.baidu.tieba.im.message.g gVar = (com.baidu.tieba.im.message.g) aVar;
-        if (TbadkApplication.N() == null) {
+        LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
+        if (TbadkApplication.getCurrentAccountObj() == null) {
             str = "";
         } else {
-            str = TbadkApplication.N().getID();
+            str = TbadkApplication.getCurrentAccountObj().getID();
         }
-        com.baidu.tieba.im.message.h a = gVar.a();
-        com.baidu.tieba.im.pushNotify.l b = this.a.b(str, a.a);
+        com.baidu.tieba.im.message.a data = loadDraftMessage.getData();
+        com.baidu.tieba.im.pushNotify.m b = this.a.b(str, data.a);
         if (b == null) {
-            com.baidu.adp.lib.util.f.b("read DB error");
-            return a(gVar.e());
+            BdLog.e("read DB error");
+            return a(loadDraftMessage.getCmd());
         }
         String draft = b.getDraft();
-        com.baidu.tieba.im.message.i iVar = new com.baidu.tieba.im.message.i();
-        iVar.a = draft;
-        iVar.b = a.a;
+        com.baidu.tieba.im.message.b bVar = new com.baidu.tieba.im.message.b();
+        bVar.a = draft;
+        bVar.b = data.a;
         try {
-            loadDraftResponsedMessage.a(this.b, iVar);
+            loadDraftResponsedMessage.decodeInBackGround(this.b, bVar);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return loadDraftResponsedMessage;
     }
 
-    private static LoadDraftResponsedMessage a(int i) {
+    private LoadDraftResponsedMessage a(int i) {
         LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
-        loadDraftResponsedMessage.a(-18);
+        loadDraftResponsedMessage.setError(-18);
         return loadDraftResponsedMessage;
     }
 }

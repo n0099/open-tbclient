@@ -8,8 +8,12 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.widget.RemoteViews;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tieba.ad;
 import com.baidu.tieba.data.VersionData;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class TiebaUpdateService extends Service {
     private static boolean g = false;
@@ -35,30 +39,30 @@ public class TiebaUpdateService extends Service {
     private Handler u = new p(this);
     private Handler v = new q(this);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(TiebaUpdateService tiebaUpdateService, long j, long j2) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(long j, long j2) {
         if (j2 != 0) {
-            tiebaUpdateService.c.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, (int) ((100 * j) / j2), false);
+            this.c.contentView.setProgressBar(com.baidu.tieba.r.progress, 100, (int) ((100 * j) / j2), false);
             StringBuffer stringBuffer = new StringBuffer(20);
             stringBuffer.append(String.valueOf(j / 1000));
             stringBuffer.append("K/");
             stringBuffer.append(String.valueOf(j2 / 1000));
             stringBuffer.append("K");
-            tiebaUpdateService.c.contentView.setTextViewText(com.baidu.tieba.a.h.schedule, stringBuffer);
-            tiebaUpdateService.b.notify(10, tiebaUpdateService.c);
+            this.c.contentView.setTextViewText(com.baidu.tieba.r.schedule, stringBuffer);
+            this.b.notify(10, this.c);
         }
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         Intent intent = new Intent();
-        intent.setAction("com.baidu.tieba.NewsVersion");
+        intent.setAction(TbConfig.APP_UPDATE_ACTION);
         intent.putExtra("progress", i);
         sendBroadcast(intent);
     }
 
-    public final void a(String str, String str2) {
+    public void a(String str, String str2) {
         Intent intent = new Intent();
-        intent.setAction("com.baidu.tieba.NewsVersion");
+        intent.setAction(TbConfig.APP_UPDATE_ACTION);
         intent.putExtra(str, str2);
         sendBroadcast(intent);
     }
@@ -72,25 +76,27 @@ public class TiebaUpdateService extends Service {
     public void onCreate() {
         super.onCreate();
         this.b = (NotificationManager) getSystemService("notification");
-        com.baidu.tieba.p.c();
-        PendingIntent activity = PendingIntent.getActivity(com.baidu.tieba.p.d(), 0, new Intent(), 0);
-        Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-        com.baidu.tieba.p.c();
-        notification.contentView = new RemoteViews(com.baidu.tieba.p.d().getPackageName(), com.baidu.tieba.a.i.notify_item);
-        notification.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, 0, false);
-        notification.contentIntent = activity;
-        notification.flags = 32;
-        this.c = notification;
-        if (this.b == null) {
+        this.c = a();
+        if (this.b == null || this.c == null) {
             stopSelf();
         }
+    }
+
+    private Notification a() {
+        PendingIntent activity = PendingIntent.getActivity(ad.c().d(), 0, new Intent(), 0);
+        Notification notification = new Notification(17301633, null, System.currentTimeMillis());
+        notification.contentView = new RemoteViews(ad.c().d().getPackageName(), com.baidu.tieba.s.notify_item);
+        notification.contentView.setProgressBar(com.baidu.tieba.r.progress, 100, 0, false);
+        notification.contentIntent = activity;
+        notification.flags = 32;
+        return notification;
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
         this.t = false;
-        this.u.removeMessages(900002);
+        this.u.removeMessages(TbConfig.NET_MSG_GETLENTH);
         this.v.removeMessages(900003);
         if (this.d != null) {
             this.d.cancel();
@@ -107,13 +113,11 @@ public class TiebaUpdateService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         boolean z;
-        String str;
         boolean z2;
-        String[] split;
         this.t = true;
         this.q = System.currentTimeMillis();
         this.r = System.currentTimeMillis();
-        com.baidu.adp.lib.util.f.a(getClass().getName(), "onStart", "onStart");
+        BdLog.i(getClass().getName(), "onStart", "onStart");
         if (!g && intent != null) {
             this.h = intent.getStringExtra("other_url");
             if (this.h == null || this.h.length() == 0) {
@@ -122,16 +126,7 @@ public class TiebaUpdateService extends Service {
             } else {
                 z = true;
             }
-            String str2 = this.h;
-            if (str2 == null || str2.length() == 0) {
-                str = null;
-            } else {
-                if (str2.contains("?")) {
-                    str2 = str2.substring(0, str2.indexOf("?"));
-                }
-                str = str2.split("/")[split.length - 1];
-            }
-            this.a = str;
+            this.a = a(this.h);
             if (this.a == null || this.a.length() < 4) {
                 this.i = true;
                 z2 = false;
@@ -144,30 +139,54 @@ public class TiebaUpdateService extends Service {
                 VersionData versionData = (VersionData) intent.getSerializableExtra("version");
                 this.e = versionData;
                 if (versionData != null) {
-                    this.c.contentView.setTextViewText(com.baidu.tieba.a.h.info, String.format(getString(com.baidu.tieba.a.k.tieba_downloading), this.e.getNew_version()));
-                    this.c.contentView.setTextViewText(com.baidu.tieba.a.h.schedule, "0/0");
-                    a(0);
-                    if (w.d(this.e.getNew_file()) != null) {
-                        this.u.sendMessageDelayed(this.u.obtainMessage(1, this.e), 100L);
-                    } else if (this.d == null) {
-                        this.d = new r(this, this.e);
-                        this.d.execute(new String[0]);
-                        this.c.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, 0, false);
-                        this.b.notify(10, this.c);
-                    }
-                    if (z2) {
-                        if (w.d(this.a) != null) {
-                            this.n = false;
-                            this.v.sendMessageDelayed(this.v.obtainMessage(2, this.e), 100L);
-                        } else if (this.f == null) {
-                            this.n = true;
-                            this.f = new s(this, this.h);
-                            this.f.execute(new String[0]);
+                    String format = String.format(getString(u.tieba_downloading), this.e.getNewVersion());
+                    if (this.b != null && this.c != null && this.c.contentView != null) {
+                        this.c.contentView.setTextViewText(com.baidu.tieba.r.info, format);
+                        this.c.contentView.setTextViewText(com.baidu.tieba.r.schedule, "0/0");
+                        if (this.u != null && this.v != null) {
+                            a(0);
+                            if (x.d(this.e.getNewFile()) != null) {
+                                this.u.sendMessageDelayed(this.u.obtainMessage(1, this.e), 100L);
+                            } else if (this.d == null) {
+                                this.d = new r(this, this.e);
+                                if (this.d != null) {
+                                    this.d.execute(new String[0]);
+                                    this.c.contentView.setProgressBar(com.baidu.tieba.r.progress, 100, 0, false);
+                                    this.b.notify(10, this.c);
+                                }
+                            }
+                            if (z2) {
+                                if (x.d(this.a) != null) {
+                                    this.n = false;
+                                    this.v.sendMessageDelayed(this.v.obtainMessage(2, this.e), 100L);
+                                } else if (this.f == null) {
+                                    this.n = true;
+                                    this.f = new s(this, this.h);
+                                    if (this.f != null) {
+                                        this.f.execute(new String[0]);
+                                    }
+                                }
+                            }
+                        } else {
+                            return;
                         }
+                    } else {
+                        return;
                     }
                 }
             }
             super.onStart(intent, i);
         }
+    }
+
+    private String a(String str) {
+        if (str == null || str.length() == 0) {
+            return null;
+        }
+        if (str.contains("?")) {
+            str = str.substring(0, str.indexOf("?"));
+        }
+        String[] split = str.split("/");
+        return split[split.length - 1];
     }
 }

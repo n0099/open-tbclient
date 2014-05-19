@@ -7,204 +7,213 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.t;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ac;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.editortool.ab;
+import com.baidu.tieba.r;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public final class j extends com.baidu.adp.a.f {
+public class j extends com.baidu.adp.base.e {
     private g a;
-    private BdListView c;
-    private final com.baidu.tbadk.core.e d;
-    private com.baidu.tbadk.core.view.q e;
-    private final RelativeLayout f;
-    private final View g;
-    private Handler h;
-    private ab i;
-    private n j;
-    private final NoNetworkView k;
-    private final o l;
-    private final LinearLayout m;
-    private NavigationBar n;
-    private boolean o;
-    private final Runnable p;
+    private BdListView b;
+    private final com.baidu.tbadk.core.e c;
+    private com.baidu.tbadk.core.view.q d;
+    private final RelativeLayout e;
+    private final View f;
+    private Handler g;
+    private ab h;
+    private n i;
+    private final NoNetworkView j;
+    private final o k;
+    private final LinearLayout l;
+    private NavigationBar m;
+    private boolean n;
+    private final Runnable o;
 
     public j(com.baidu.tbadk.core.e eVar, com.baidu.tbadk.core.d dVar) {
         super(eVar);
-        this.o = false;
-        this.p = new k(this);
-        this.d = eVar;
-        this.g = dVar.getView();
-        this.f = (RelativeLayout) this.g.findViewById(com.baidu.tieba.a.h.content);
-        this.k = (NoNetworkView) this.g.findViewById(com.baidu.tieba.a.h.view_no_network);
-        this.n = (NavigationBar) this.d.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
-        this.n.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.n.a(this.d.getString(com.baidu.tieba.a.k.ba_dongtai));
-        this.m = (LinearLayout) this.g.findViewById(com.baidu.tieba.a.h.content_with_data);
-        this.l = new o(this, eVar, this.f);
-        this.e = new com.baidu.tbadk.core.view.q(this.d);
-        this.c = (BdListView) this.g.findViewById(com.baidu.tieba.a.h.forum_feed_list);
-        this.c.setPullRefresh(this.e);
-        this.j = new n(this, this.d);
-        this.c.setNextPage(this.j);
-        this.c.setRecyclerListener(new m(this));
-        a(TbadkApplication.j().l());
+        this.n = false;
+        this.o = new k(this);
+        this.c = eVar;
+        this.f = dVar.getView();
+        this.e = (RelativeLayout) this.f.findViewById(r.content);
+        this.j = (NoNetworkView) this.f.findViewById(r.view_no_network);
+        this.m = (NavigationBar) this.c.findViewById(r.view_navigation_bar);
+        this.m.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.m.a(this.c.getString(u.ba_dongtai));
+        this.l = (LinearLayout) this.f.findViewById(r.content_with_data);
+        this.k = new o(this, eVar, this.e);
+        o();
+        a(TbadkApplication.m252getInst().getSkinType());
     }
 
-    public final void a() {
+    public void a() {
         if (this.a == null) {
-            n();
-            o();
-        }
-        this.c.c();
-    }
-
-    public final void a(com.baidu.tbadk.core.view.m mVar) {
-        this.k.a(mVar);
-    }
-
-    public final void d() {
-        this.o = false;
-        m();
-        if (this.a == null) {
+            m();
             n();
         }
-        if (this.c != null) {
-            this.c.setBackgroundColor(0);
+        this.b.d();
+    }
+
+    public void a(com.baidu.tbadk.core.view.m mVar) {
+        this.j.a(mVar);
+    }
+
+    public void b() {
+        this.n = false;
+        l();
+        if (this.a == null) {
+            m();
         }
-        this.l.b();
+        if (this.b != null) {
+            this.b.setBackgroundColor(0);
+        }
+        this.k.b();
         this.a.a((com.baidu.tieba.data.p) null);
         this.a.notifyDataSetChanged();
-        if (this.j != null) {
-            this.j.c();
-        }
-    }
-
-    public final void e() {
-        if (this.c != null) {
-            this.c.setSelection(0);
-        }
-    }
-
-    public final void a(com.baidu.adp.widget.ListView.d dVar) {
-        this.e.a(dVar);
-    }
-
-    public final void a(t tVar) {
-        this.c.setOnSrollToBottomListener(tVar);
-    }
-
-    public final void f() {
-        this.j.g();
-        this.c.b();
-    }
-
-    public final void g() {
-        this.j.e();
-    }
-
-    public final void h() {
-        this.j.f();
-    }
-
-    public final void i() {
         if (this.i != null) {
-            this.i.a();
             this.i.c();
         }
     }
 
-    public final void a(View.OnClickListener onClickListener) {
-        this.j.a(onClickListener);
+    public void c() {
+        if (this.b != null) {
+            this.b.setSelection(0);
+        }
     }
 
-    public final void a(com.baidu.tieba.data.p pVar) {
+    public void a(com.baidu.adp.widget.ListView.d dVar) {
+        this.d.a(dVar);
+    }
+
+    public void a(com.baidu.adp.widget.ListView.u uVar) {
+        this.b.setOnSrollToBottomListener(uVar);
+    }
+
+    public void d() {
+        this.i.g();
+        this.b.c();
+    }
+
+    public void e() {
+        this.i.e();
+    }
+
+    public void f() {
+        this.i.f();
+    }
+
+    public void g() {
+        if (this.h != null) {
+            this.h.a();
+            this.h.d();
+        }
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        this.i.a(onClickListener);
+    }
+
+    public void a(com.baidu.tieba.data.p pVar) {
         if (pVar != null) {
             if (this.a == null) {
+                m();
                 n();
-                o();
             }
             if (pVar.a() == 1) {
                 this.a.a(true);
             } else {
                 this.a.a(false);
             }
-            this.l.a();
-            this.o = true;
+            this.k.a();
+            this.n = true;
             this.a.a(pVar);
             this.a.notifyDataSetChanged();
-            if (this.j != null) {
-                this.j.d();
+            if (this.i != null) {
+                this.i.d();
             }
-            j();
-            f();
+            h();
+            d();
             if (this.a.getCount() > 0) {
-                this.j.h();
+                this.i.h();
             }
         }
     }
 
-    public final void a(int i) {
-        ba.e(this.f, com.baidu.tieba.a.e.forumfeed_frs_bg);
-        this.d.b().a(i == 1);
-        this.d.b().a(this.f);
-        this.c.setBackgroundColor(0);
-        if (!this.l.a) {
-            this.m.setBackgroundResource(i == 1 ? com.baidu.tieba.a.e.forumfeed_frs_bg_1 : com.baidu.tieba.a.e.forumfeed_frs_bg);
+    public void a(int i) {
+        bc.e(this.e, com.baidu.tieba.o.forumfeed_frs_bg);
+        this.c.a().a(i == 1);
+        this.c.a().a((View) this.e);
+        this.b.setBackgroundColor(0);
+        if (!this.k.a) {
+            this.l.setBackgroundResource(i == 1 ? com.baidu.tieba.o.forumfeed_frs_bg_1 : com.baidu.tieba.o.forumfeed_frs_bg);
         }
         if (this.a != null) {
             this.a.notifyDataSetChanged();
         }
-        if (this.e != null) {
-            this.e.a(i);
+        if (this.d != null) {
+            this.d.a(i);
+        }
+        if (this.i != null) {
+            this.i.a(i);
         }
         if (this.j != null) {
             this.j.a(i);
         }
-        if (this.k != null) {
-            this.k.a(i);
+        if (this.m != null) {
+            this.m.c(i);
         }
-        if (this.n != null) {
-            this.n.b(i);
-        }
-        if (!this.o) {
-            m();
+        if (!this.n) {
+            l();
         }
     }
 
-    public final void j() {
-        if (this.h != null) {
-            this.h.removeCallbacks(this.p);
-            this.h.postDelayed(this.p, 0L);
+    public void h() {
+        if (this.g != null) {
+            this.g.removeCallbacks(this.o);
+            this.g.postDelayed(this.o, 0L);
         }
     }
 
-    public final void k() {
+    public void i() {
         if (com.baidu.tbadk.core.h.a().f()) {
-            ac.a(this.c, this.a.a(), 0, -1);
+            ae.a(this.b, this.a.b(), 0, -1);
+        }
+    }
+
+    private void l() {
+        if (this.b == null) {
         }
     }
 
     private void m() {
-        if (this.c == null) {
-        }
+        this.a = new g(this.c);
+        this.b.setAdapter((ListAdapter) this.a);
+        this.h = new ab(this.c);
     }
 
     private void n() {
-        this.a = new g(this.d);
-        this.c.setAdapter((ListAdapter) this.a);
-        this.i = new ab(this.d);
+        this.g = new Handler();
+        this.b.setOnScrollListener(new l(this));
     }
 
     private void o() {
-        this.h = new Handler();
-        this.c.setOnScrollListener(new l(this));
+        this.d = new com.baidu.tbadk.core.view.q(this.c);
+        this.b = (BdListView) this.f.findViewById(r.forum_feed_list);
+        this.b.setPullRefresh(this.d);
+        this.i = new n(this, this.c);
+        this.b.setNextPage(this.i);
+        this.b.setRecyclerListener(new m(this));
     }
 
-    public final ListView l() {
-        return this.c;
+    public ListView j() {
+        return this.b;
+    }
+
+    public int k() {
+        return r.user_icon_box;
     }
 }

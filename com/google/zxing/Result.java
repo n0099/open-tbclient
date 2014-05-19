@@ -24,34 +24,34 @@ public final class Result {
         this.timestamp = j;
     }
 
-    public final String getText() {
+    public String getText() {
         return this.text;
     }
 
-    public final byte[] getRawBytes() {
+    public byte[] getRawBytes() {
         return this.rawBytes;
     }
 
-    public final ResultPoint[] getResultPoints() {
+    public ResultPoint[] getResultPoints() {
         return this.resultPoints;
     }
 
-    public final BarcodeFormat getBarcodeFormat() {
+    public BarcodeFormat getBarcodeFormat() {
         return this.format;
     }
 
-    public final Map<ResultMetadataType, Object> getResultMetadata() {
+    public Map<ResultMetadataType, Object> getResultMetadata() {
         return this.resultMetadata;
     }
 
-    public final void putMetadata(ResultMetadataType resultMetadataType, Object obj) {
+    public void putMetadata(ResultMetadataType resultMetadataType, Object obj) {
         if (this.resultMetadata == null) {
             this.resultMetadata = new EnumMap(ResultMetadataType.class);
         }
         this.resultMetadata.put(resultMetadataType, obj);
     }
 
-    public final void putAllMetadata(Map<ResultMetadataType, Object> map) {
+    public void putAllMetadata(Map<ResultMetadataType, Object> map) {
         if (map != null) {
             if (this.resultMetadata == null) {
                 this.resultMetadata = map;
@@ -61,7 +61,7 @@ public final class Result {
         }
     }
 
-    public final void addResultPoints(ResultPoint[] resultPointArr) {
+    public void addResultPoints(ResultPoint[] resultPointArr) {
         ResultPoint[] resultPointArr2 = this.resultPoints;
         if (resultPointArr2 == null) {
             this.resultPoints = resultPointArr;
@@ -73,11 +73,11 @@ public final class Result {
         }
     }
 
-    public final long getTimestamp() {
+    public long getTimestamp() {
         return this.timestamp;
     }
 
-    public final String toString() {
+    public String toString() {
         return this.text;
     }
 }

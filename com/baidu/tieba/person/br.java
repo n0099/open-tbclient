@@ -1,25 +1,30 @@
 package com.baidu.tieba.person;
-
-import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class br extends com.baidu.adp.framework.c.g {
-    final /* synthetic */ bn a;
+public class br implements com.baidu.adp.widget.ListView.u {
+    final /* synthetic */ bm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public br(bn bnVar, int i) {
-        super(2001124);
-        this.a = bnVar;
+    public br(bm bmVar) {
+        this.a = bmVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        if (socketResponsedMessage2 == null || socketResponsedMessage2.g() != 2001124) {
-            return;
+    @Override // com.baidu.adp.widget.ListView.u
+    public void f_() {
+        com.baidu.tieba.model.av avVar;
+        aj ajVar;
+        aj ajVar2;
+        if (!this.a.a()) {
+            avVar = this.a.c;
+            if (avVar.b()) {
+                ajVar2 = this.a.k;
+                ajVar2.c();
+                return;
+            }
+            this.a.a(true);
+            ajVar = this.a.k;
+            ajVar.h();
+            this.a.n();
         }
-        bn.a(this.a, socketResponsedMessage2);
     }
 }

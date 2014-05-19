@@ -1,7 +1,9 @@
 package com.baidu.tieba.im.db;
+
+import com.baidu.adp.framework.MessageManager;
 /* loaded from: classes.dex */
 public class Static {
     static {
-        com.baidu.adp.framework.c.a().a(new p(2008015));
+        MessageManager.getInstance().registerListener(new p(2010015));
     }
 }

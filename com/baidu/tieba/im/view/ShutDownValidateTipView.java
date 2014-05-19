@@ -9,6 +9,7 @@ import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.tieba.s;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -20,7 +21,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     private TextView d;
     private TextView e;
     private boolean g;
-    private ArrayList<NetworkChangeListener> h;
+    private ArrayList<q> h;
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -40,12 +41,12 @@ public class ShutDownValidateTipView extends FrameLayout {
         a(context);
     }
 
-    private void a(Context context) {
-        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.im.i.shut_down_validate_tip, (ViewGroup) null));
-        this.c = (ImageView) findViewById(com.baidu.tieba.im.h.no_network_icon);
-        this.d = (TextView) findViewById(com.baidu.tieba.im.h.no_network_guide1);
-        this.e = (TextView) findViewById(com.baidu.tieba.im.h.no_network_guide2);
-        this.b = (TextView) findViewById(com.baidu.tieba.im.h.no_network_showmore);
+    public void a(Context context) {
+        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(s.shut_down_validate_tip, (ViewGroup) null));
+        this.c = (ImageView) findViewById(com.baidu.tieba.r.no_network_icon);
+        this.d = (TextView) findViewById(com.baidu.tieba.r.no_network_guide1);
+        this.e = (TextView) findViewById(com.baidu.tieba.r.no_network_guide2);
+        this.b = (TextView) findViewById(com.baidu.tieba.r.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
@@ -57,7 +58,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     public static void setIsHasNetwork(boolean z) {
         if (z != f) {
             f = z;
-            if (z) {
+            if (f) {
                 Iterator<ShutDownValidateTipView> it = a.iterator();
                 while (it.hasNext()) {
                     it.next().setVisible(false);
@@ -72,29 +73,26 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void setVisible(boolean z) {
-        int i = 0;
         if (z != this.g) {
             this.g = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
-                alphaAnimation.setAnimationListener(new n(this));
+                alphaAnimation.setAnimationListener(new o(this));
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                while (i < this.h.size()) {
-                    this.h.get(i);
-                    i++;
+                for (int i = 0; i < this.h.size(); i++) {
+                    this.h.get(i).a(false);
                 }
             } else if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);
-                alphaAnimation2.setAnimationListener(new o(this));
+                alphaAnimation2.setAnimationListener(new p(this));
                 startAnimation(alphaAnimation2);
-                while (i < this.h.size()) {
-                    this.h.get(i);
-                    i++;
+                for (int i2 = 0; i2 < this.h.size(); i2++) {
+                    this.h.get(i2).a(true);
                 }
             }
         }
@@ -113,17 +111,17 @@ public class ShutDownValidateTipView extends FrameLayout {
         this.h.clear();
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (i == 1) {
-            this.c.setImageResource(com.baidu.tieba.im.g.icon_error_1);
-            findViewById(com.baidu.tieba.im.h.no_network_parent).setBackgroundResource(com.baidu.tieba.im.g.bg_no_network_1);
+            this.c.setImageResource(com.baidu.tieba.q.icon_error_1);
+            findViewById(com.baidu.tieba.r.no_network_parent).setBackgroundResource(com.baidu.tieba.q.bg_no_network_1);
             this.d.setTextColor(-10523526);
             this.e.setTextColor(-8682095);
             this.b.setTextColor(-10523526);
             return;
         }
-        this.c.setImageResource(com.baidu.tieba.im.g.icon_error);
-        findViewById(com.baidu.tieba.im.h.no_network_parent).setBackgroundResource(com.baidu.tieba.im.g.bg_no_network);
+        this.c.setImageResource(com.baidu.tieba.q.icon_error);
+        findViewById(com.baidu.tieba.r.no_network_parent).setBackgroundResource(com.baidu.tieba.q.bg_no_network);
         this.d.setTextColor(-14277082);
         this.e.setTextColor(-5065030);
         this.b.setTextColor(-14277082);

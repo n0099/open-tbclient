@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Handler;
 import com.baidu.android.nebula.util.BDLocationManager;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public final class f {
     private static f a = null;
@@ -46,15 +47,15 @@ public final class f {
         this.c.removeCallbacks(this.e);
     }
 
-    public final void a() {
+    public void a() {
         this.d = new com.baidu.android.systemmonitor.devicestatistic.a.e(System.currentTimeMillis());
         this.d.a = BDLocationManager.d(this.b.getApplicationContext());
         this.d.d = com.baidu.android.systemmonitor.c.d.b(this.b);
         this.d.b = d();
-        this.c.postDelayed(this.e, 60000L);
+        this.c.postDelayed(this.e, TbConfig.USE_TIME_INTERVAL);
     }
 
-    public final void b() {
+    public void b() {
         this.c.removeCallbacks(this.e);
         if (this.d != null) {
             if (this.d.c == 0) {
@@ -65,7 +66,7 @@ public final class f {
         }
     }
 
-    public final void c() {
+    public void c() {
         Intent registerReceiver = this.b.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         int intExtra = registerReceiver.getIntExtra("status", -1);
         boolean z = intExtra == 2;
@@ -90,14 +91,14 @@ public final class f {
         }
     }
 
-    public final int d() {
-        System.currentTimeMillis();
+    public int d() {
+        long currentTimeMillis = System.currentTimeMillis();
         int intExtra = this.b.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED")).getIntExtra("level", 0);
-        System.currentTimeMillis();
+        long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
         return intExtra;
     }
 
-    public final void e() {
+    public void e() {
         if (this.c != null) {
             this.c.removeCallbacks(this.e);
         }

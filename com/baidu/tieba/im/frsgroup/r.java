@@ -2,8 +2,9 @@ package com.baidu.tieba.im.frsgroup;
 
 import android.content.DialogInterface;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class r implements DialogInterface.OnClickListener {
+public class r implements DialogInterface.OnClickListener {
     final /* synthetic */ MembersActivity a;
     private final /* synthetic */ List b;
 
@@ -14,21 +15,21 @@ final class r implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         ah ahVar;
         ah ahVar2;
         ah ahVar3;
-        com.baidu.tieba.im.model.z zVar;
+        com.baidu.tieba.im.model.ad adVar;
         ah ahVar4;
         ahVar = this.a.b;
         ahVar.c(false);
         ahVar2 = this.a.b;
-        ahVar2.h().d(false);
+        ahVar2.f().d(false);
         ahVar3 = this.a.b;
-        ahVar3.i();
+        ahVar3.g();
         MembersActivity membersActivity = this.a;
-        zVar = this.a.c;
-        MembersActivity.a(membersActivity, zVar.f(), this.b);
+        adVar = this.a.c;
+        membersActivity.a(adVar.f(), this.b);
         ahVar4 = this.a.b;
         ahVar4.d(true);
     }

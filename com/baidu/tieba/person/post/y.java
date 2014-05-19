@@ -1,28 +1,19 @@
 package com.baidu.tieba.person.post;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.b.af;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public final class y implements View.OnClickListener {
-    final /* synthetic */ ReplyLinearLayout a;
+public class y {
+    BdListView a;
+    TextView b;
+    ProgressBar c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(ReplyLinearLayout replyLinearLayout) {
-        this.a = replyLinearLayout;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        String[] strArr = (String[]) view.getTag();
-        if (strArr != null) {
-            Context context = this.a.getContext();
-            if ("0".equals(strArr[3])) {
-                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2004001, new af(context).a(strArr[1], strArr[2], "person_post_reply")));
-            } else {
-                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2004001, new af(context).b(strArr[1], strArr[2], "person_post_reply")));
-            }
-        }
+    public y(View view) {
+        this.a = (BdListView) view.findViewById(com.baidu.tieba.r.list);
+        this.b = (TextView) view.findViewById(com.baidu.tieba.r.no_post_view);
+        this.c = (ProgressBar) view.findViewById(com.baidu.tieba.r.progress);
     }
 }

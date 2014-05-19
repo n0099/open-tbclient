@@ -1,32 +1,33 @@
 package com.baidu.tieba.pb.main;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.view.KeyEvent;
-import android.widget.EditText;
+import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class cj implements DialogInterface.OnKeyListener {
-    final /* synthetic */ bm a;
+public class cj implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cj(bm bmVar) {
-        this.a = bmVar;
+    public cj(bj bjVar) {
+        this.a = bjVar;
     }
 
-    @Override // android.content.DialogInterface.OnKeyListener
-    public final boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-        PbActivity pbActivity;
-        EditText editText;
-        Dialog dialog;
-        if (i == 4) {
-            pbActivity = this.a.m;
-            editText = this.a.P;
-            com.baidu.adp.lib.util.i.a(pbActivity, editText);
-            dialog = this.a.L;
-            dialog.dismiss();
-            return true;
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        BdListView bdListView;
+        bdListView = this.a.o;
+        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+        if (aVar == null) {
+            if (imageView != null && (imageView instanceof TbImageView)) {
+                ((TbImageView) imageView).e();
+            }
+        } else if (imageView != null) {
+            if (imageView instanceof TbImageView) {
+                ((TbImageView) imageView).e();
+            } else {
+                imageView.invalidate();
+            }
         }
-        return false;
     }
 }

@@ -1,10 +1,12 @@
 package com.baidu.tbadk.editortool;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.message.EmptyMessage;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class af implements Runnable {
+public class af implements Runnable {
     final /* synthetic */ ac a;
     private final /* synthetic */ ArrayList b;
 
@@ -15,8 +17,8 @@ public final class af implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         this.a.b = this.b;
-        com.baidu.adp.framework.c.a().b(new EmptyMessage(2001120));
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new EmptyMessage(MessageTypes.CMD_EMOTIONS_GROUP_CHANGED));
     }
 }

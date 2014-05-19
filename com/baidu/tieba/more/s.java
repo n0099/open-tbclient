@@ -1,6 +1,6 @@
 package com.baidu.tieba.more;
 /* loaded from: classes.dex */
-final class s implements com.baidu.tbadk.imageManager.d {
+class s implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ MoreActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,9 +9,9 @@ final class s implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         w wVar;
         wVar = this.a.a;
-        wVar.a(bVar);
+        wVar.a(aVar);
     }
 }

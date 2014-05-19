@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class cg implements View.OnLongClickListener {
+public class cg implements View.OnLongClickListener {
     final /* synthetic */ cd a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,8 +12,8 @@ public final class cg implements View.OnLongClickListener {
     }
 
     @Override // android.view.View.OnLongClickListener
-    public final boolean onLongClick(View view) {
-        this.a.d.b(view, 4, this.a.f, 0L);
+    public boolean onLongClick(View view) {
+        this.a.c.b(view, 4, this.a.e, 0L);
         return true;
     }
 }

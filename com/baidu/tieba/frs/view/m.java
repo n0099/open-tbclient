@@ -1,30 +1,24 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.View;
-import com.baidu.tbadk.core.b.ag;
-import com.baidu.tbadk.core.data.FrsPostListData;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tieba.forumdetail.ForumDetailActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m implements View.OnClickListener {
-    final /* synthetic */ FrsReplyView a;
+public class m implements View.OnClickListener {
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(FrsReplyView frsReplyView) {
-        this.a = frsReplyView;
+    public m(j jVar) {
+        this.a = jVar;
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        FrsPostListData frsPostListData;
-        Context context;
-        frsPostListData = this.a.e;
-        MetaData author = frsPostListData.getAuthor();
-        if (author != null) {
-            com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
-            context = this.a.a;
-            a.a(new com.baidu.adp.framework.message.a(2001003, new ag(context, author.getUserId(), author.getName_show())));
-        }
+    public void onClick(View view) {
+        Activity activity;
+        String str;
+        activity = this.a.y;
+        str = this.a.A;
+        ForumDetailActivity.a(activity, str, ForumDetailActivity.FromType.FRS);
     }
 }

@@ -1,46 +1,75 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.data.MarkData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class aj extends BdAsyncTask<Boolean, Integer, Boolean> {
+public class aj extends BdAsyncTask<Boolean, Integer, Boolean> {
     final /* synthetic */ ai a;
-    private com.baidu.tbadk.core.util.ak b = null;
+    private com.baidu.tbadk.core.util.al b = null;
     private boolean c;
-    private com.baidu.tieba.data.ap d;
+    private com.baidu.tieba.data.ar d;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    public aj(ai aiVar, boolean z) {
+        this.a = aiVar;
+        this.c = true;
+        this.d = null;
+        this.c = z;
+        this.d = new com.baidu.tieba.data.ar();
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Boolean a(Boolean... boolArr) {
+    public void onPreExecute() {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(Boolean... boolArr) {
         MarkData markData;
         MarkData markData2;
         MarkData markData3;
         if (this.c) {
-            this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/post/addstore");
+            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/addstore");
             k kVar = new k();
             markData3 = this.a.b;
             kVar.a(markData3);
             this.b.a("data", kVar.a(0, 1));
         } else {
-            this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/post/rmstore");
-            com.baidu.tbadk.core.util.ak akVar = this.b;
+            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/rmstore");
+            com.baidu.tbadk.core.util.al alVar = this.b;
             markData = this.a.b;
-            akVar.a("user_id", markData.getAccount());
-            com.baidu.tbadk.core.util.ak akVar2 = this.b;
+            alVar.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, markData.getAccount());
+            com.baidu.tbadk.core.util.al alVar2 = this.b;
             markData2 = this.a.b;
-            akVar2.a("tid", markData2.getId());
+            alVar2.a("tid", markData2.getId());
         }
         this.d.a(this.b.i());
-        return this.b.a().b().b() && (this.d.a() == 0);
+        boolean z = this.d.a() == 0;
+        if (this.b.a().b().b() && z) {
+            return true;
+        }
+        return false;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.g();
+        }
+        this.a.c = null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(Boolean bool) {
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
         ak akVar;
         ak akVar2;
         ak akVar3;
@@ -51,49 +80,23 @@ public final class aj extends BdAsyncTask<Boolean, Integer, Boolean> {
                 akVar4 = this.a.d;
                 if (akVar4 != null) {
                     akVar5 = this.a.d;
-                    akVar5.a(true, this.c);
+                    akVar5.a(true, this.c, null);
                 }
             } else {
                 akVar = this.a.d;
                 if (akVar != null) {
                     if (this.b == null || this.b.a().b().b()) {
                         akVar2 = this.a.d;
-                        boolean z = this.c;
-                        this.d.b();
-                        akVar2.a(false, z);
+                        akVar2.a(false, this.c, this.d.b());
                     } else {
                         akVar3 = this.a.d;
-                        boolean z2 = this.c;
-                        this.b.f();
-                        akVar3.a(false, z2);
+                        akVar3.a(false, this.c, this.b.f());
                     }
                 }
             }
             this.a.c = null;
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b(th.toString());
+            BdLog.e(th.toString());
         }
-    }
-
-    public aj(ai aiVar, boolean z) {
-        this.a = aiVar;
-        this.c = true;
-        this.d = null;
-        this.c = z;
-        this.d = new com.baidu.tieba.data.ap();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.g();
-        }
-        this.a.c = null;
     }
 }

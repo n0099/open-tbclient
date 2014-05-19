@@ -3,68 +3,19 @@ package com.baidu.tieba.person;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class u extends BdAsyncTask<Boolean, t, t> {
+public class u extends BdAsyncTask<Boolean, t, t> {
     final /* synthetic */ t a;
-    private com.baidu.tbadk.core.util.ak b;
+    private com.baidu.tbadk.core.util.al b;
     private t c;
     private volatile boolean d;
     private boolean e;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(t tVar) {
-        Context context;
-        com.baidu.adp.a.h hVar;
-        com.baidu.adp.a.h hVar2;
-        com.baidu.tbadk.editortool.ab unused;
-        t tVar2 = tVar;
-        super.a((u) tVar2);
-        this.a.b = null;
-        this.a.mLoadDataMode = 1;
-        if (tVar2 != null) {
-            this.a.k = true;
-            this.a.a(tVar2.a());
-            unused = this.a.f;
-            com.baidu.tbadk.imageManager.e.a().a(tVar2.a().getPortrait());
-            hVar2 = this.a.mLoadDataCallBack;
-            hVar2.a(true);
-            return;
-        }
-        this.a.k = false;
-        if (this.b == null || !this.e) {
-            t tVar3 = this.a;
-            context = this.a.e;
-            tVar3.setErrorString(context.getString(com.baidu.tieba.a.k.neterror));
-        } else {
-            this.a.setErrorString(this.b.f());
-        }
-        hVar = this.a.mLoadDataCallBack;
-        hVar.a(false);
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void b(t... tVarArr) {
-        com.baidu.adp.a.h hVar;
-        boolean z = false;
-        t[] tVarArr2 = tVarArr;
-        super.b((Object[]) tVarArr2);
-        t tVar = tVarArr2[0];
-        if (tVar != null) {
-            this.a.a(tVar.a());
-            z = true;
-        }
-        this.a.mLoadDataMode = 2;
-        this.a.setErrorString(null);
-        hVar = this.a.mLoadDataCallBack;
-        hVar.a(Boolean.valueOf(z));
-    }
 
     private u(t tVar) {
         this.a = tVar;
@@ -74,14 +25,15 @@ public final class u extends BdAsyncTask<Boolean, t, t> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ u(t tVar, byte b) {
+    public /* synthetic */ u(t tVar, u uVar) {
         this(tVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public t a(Boolean... boolArr) {
+    /* renamed from: a */
+    public t doInBackground(Boolean... boolArr) {
         Context context;
         Context context2;
         boolean booleanValue = boolArr[0].booleanValue();
@@ -93,17 +45,17 @@ public final class u extends BdAsyncTask<Boolean, t, t> {
                     context = this.a.e;
                     this.c = new t(context);
                     this.c.c(b);
-                    c((Object[]) new t[]{this.c});
+                    publishProgress(this.c);
                     this.e = false;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
             }
         }
         if (!this.d && this.a.b() != null) {
-            this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/u/user/profile");
-            this.b.a("uid", this.a.b());
+            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/profile");
+            this.b.a(SapiAccountManager.SESSION_UID, this.a.b());
             this.b.a("has_plist", "0");
             String i = this.b.i();
             if (this.b.a().b().b()) {
@@ -112,13 +64,13 @@ public final class u extends BdAsyncTask<Boolean, t, t> {
                 this.c.c(i);
                 if (this.c.a() != null) {
                     com.baidu.tieba.util.k.c(i);
-                    AccountData N = TbadkApplication.N();
-                    if (N == null) {
+                    AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
+                    if (currentAccountObj == null) {
                         return null;
                     }
                     if (!TextUtils.isEmpty(this.c.a().getPortrait())) {
-                        com.baidu.tbadk.core.a.o.a(N.getAccount(), this.c.a().getPortrait());
-                        N.setPortrait(this.c.a().getPortrait());
+                        com.baidu.tbadk.core.account.a.a(currentAccountObj.getAccount(), this.c.a().getPortrait());
+                        currentAccountObj.setPortrait(this.c.a().getPortrait());
                     }
                 }
             }
@@ -126,9 +78,28 @@ public final class u extends BdAsyncTask<Boolean, t, t> {
         return this.c;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        com.baidu.adp.a.h hVar;
+    /* renamed from: a */
+    public void onProgressUpdate(t... tVarArr) {
+        com.baidu.adp.base.g gVar;
+        boolean z = false;
+        super.onProgressUpdate(tVarArr);
+        t tVar = tVarArr[0];
+        if (tVar != null) {
+            this.a.a(tVar.a());
+            z = true;
+        }
+        this.a.mLoadDataMode = 2;
+        this.a.setErrorString(null);
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(Boolean.valueOf(z));
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        com.baidu.adp.base.g gVar;
         super.cancel();
         this.d = true;
         if (this.b != null) {
@@ -136,7 +107,40 @@ public final class u extends BdAsyncTask<Boolean, t, t> {
             this.b = null;
         }
         this.a.b = null;
-        hVar = this.a.mLoadDataCallBack;
-        hVar.a(false);
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(false);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(t tVar) {
+        Context context;
+        com.baidu.adp.base.g gVar;
+        com.baidu.tbadk.editortool.ab abVar;
+        com.baidu.adp.base.g gVar2;
+        super.onPostExecute(tVar);
+        this.a.b = null;
+        this.a.mLoadDataMode = 1;
+        if (tVar != null) {
+            this.a.k = true;
+            this.a.a(tVar.a());
+            abVar = this.a.f;
+            abVar.e(tVar.a().getPortrait());
+            gVar2 = this.a.mLoadDataCallBack;
+            gVar2.a(true);
+            return;
+        }
+        this.a.k = false;
+        if (this.b != null && this.e) {
+            this.a.setErrorString(this.b.f());
+        } else {
+            t tVar2 = this.a;
+            context = this.a.e;
+            tVar2.setErrorString(context.getString(com.baidu.tieba.u.neterror));
+        }
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(false);
     }
 }

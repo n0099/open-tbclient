@@ -1,77 +1,90 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.adp.framework.message.Message;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
+import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
-import protobuf.Im;
-import protobuf.QueryGroupsByFid.QueryGroupsByFidRes;
+import protobuf.GroupInfo;
+import protobuf.GroupPermission;
+import protobuf.QueryGroupsByFid.QueryGroupsByFidResIdl;
 /* loaded from: classes.dex */
 public class ResponseFrsGroupsMessage extends TbSocketReponsedMessage {
-    private List<GroupInfoData> a;
-    private GroupPermData b;
-
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        QueryGroupsByFidRes.QueryGroupsByFidResIdl parseFrom = QueryGroupsByFidRes.QueryGroupsByFidResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.a = new ArrayList();
-            int groupsCount = parseFrom.getData().getGroupsCount();
-            for (int i2 = 0; i2 < groupsCount; i2++) {
-                Im.GroupInfo groups = parseFrom.getData().getGroups(i2);
-                GroupInfoData groupInfoData = new GroupInfoData();
-                groupInfoData.setAuthorId(groups.getAuthorId());
-                groupInfoData.setAuthorIsMeizhi(groups.getAuthorIsMeizhi());
-                groupInfoData.setAuthorName(groups.getAuthorName());
-                groupInfoData.setForumId(groups.getForumId());
-                groupInfoData.setForumName("");
-                groupInfoData.setGrade(groups.getGrade());
-                groupInfoData.setGroupId(groups.getGroupId());
-                groupInfoData.setIntro(groups.getIntro());
-                groupInfoData.setIsGroupManager(0);
-                groupInfoData.setMaxMemberNum(groups.getMaxMemberNum());
-                groupInfoData.setMemberNum(groups.getMemberNum());
-                groupInfoData.setName(groups.getName());
-                groupInfoData.setPortrait(groups.getPortrait());
-                groupInfoData.setMemGroup(groups.getIsMemberGroup() == 1);
-                this.a.add(groupInfoData);
-            }
-            Im.GroupPermission groupPerm = parseFrom.getData().getGroupPerm();
-            GroupPermData groupPermData = new GroupPermData();
-            groupPermData.setCanCreateNormal(groupPerm.getCanCreateNormal());
-            groupPermData.setCanCreateOfficial(groupPerm.getCanCreateOfficial());
-            groupPermData.setCanCreatePersonal(groupPerm.getCanCreatePersonal());
-            groupPermData.setCreateNormalTip(groupPerm.getCreateNormalTip());
-            groupPermData.setCreateOfficialTip(groupPerm.getCreateOfficialTip());
-            groupPermData.setCreatePersonalTip(groupPerm.getCreatePersonalTip());
-            groupPermData.setIsManager(groupPerm.getIsForumManager());
-            this.b = groupPermData;
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, java.lang.Object] */
-    @Override // com.baidu.adp.framework.message.f
-    public final /* synthetic */ void b(int i, byte[] bArr) {
-        byte[] bArr2 = bArr;
-        com.baidu.adp.framework.message.d<?> h = h();
-        if (h != null && (h instanceof ag) && e() == 0) {
-            ag agVar = (ag) h;
-            a(com.baidu.tbadk.core.c.b.a().e(), "frs_group_" + agVar.j() + "_" + agVar.i(), bArr2);
-        }
-    }
+    public static final String PB_KEY_PRE = "frs_group_";
+    private GroupPermData groupPerm;
+    private List<GroupInfoData> groups;
 
     public ResponseFrsGroupsMessage() {
-        super(103002);
+        super(MessageTypes.CMD_REQUEST_GROUPS_BYFID);
     }
 
-    public final List<GroupInfoData> d() {
-        return this.a;
+    public List<GroupInfoData> getGroups() {
+        return this.groups;
     }
 
-    public final GroupPermData i() {
-        return this.b;
+    public void setGroups(List<GroupInfoData> list) {
+        this.groups = list;
+    }
+
+    public GroupPermData getGroupPerm() {
+        return this.groupPerm;
+    }
+
+    public void setGroupPerm(GroupPermData groupPermData) {
+        this.groupPerm = groupPermData;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        QueryGroupsByFidResIdl queryGroupsByFidResIdl = (QueryGroupsByFidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryGroupsByFidResIdl.class);
+        setError(queryGroupsByFidResIdl.error.errorno.intValue());
+        setErrorString(queryGroupsByFidResIdl.error.usermsg);
+        if (getError() == 0) {
+            setGroups(new ArrayList());
+            if (queryGroupsByFidResIdl.data.groups != null) {
+                for (GroupInfo groupInfo : queryGroupsByFidResIdl.data.groups) {
+                    GroupInfoData groupInfoData = new GroupInfoData();
+                    groupInfoData.setAuthorId(groupInfo.authorId.intValue());
+                    groupInfoData.setAuthorIsMeizhi(groupInfo.authorIsMeizhi.intValue());
+                    groupInfoData.setAuthorName(groupInfo.authorName);
+                    groupInfoData.setForumId(groupInfo.forumId.intValue());
+                    groupInfoData.setForumName("");
+                    groupInfoData.setGrade(groupInfo.grade.intValue());
+                    groupInfoData.setGroupId(groupInfo.groupId.intValue());
+                    groupInfoData.setIntro(groupInfo.intro);
+                    groupInfoData.setIsGroupManager(0);
+                    groupInfoData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
+                    groupInfoData.setMemberNum(groupInfo.memberNum.intValue());
+                    groupInfoData.setName(groupInfo.name);
+                    groupInfoData.setPortrait(groupInfo.portrait);
+                    groupInfoData.setMemGroup(groupInfo.isMemberGroup.intValue() == 1);
+                    getGroups().add(groupInfoData);
+                }
+            }
+            GroupPermission groupPermission = queryGroupsByFidResIdl.data.groupPerm;
+            GroupPermData groupPermData = new GroupPermData();
+            groupPermData.setCanCreateNormal(groupPermission.canCreateNormal.intValue());
+            groupPermData.setCanCreateOfficial(groupPermission.canCreateOfficial.intValue());
+            groupPermData.setCanCreatePersonal(groupPermission.canCreatePersonal.intValue());
+            groupPermData.setCreateNormalTip(groupPermission.createNormalTip);
+            groupPermData.setCreateOfficialTip(groupPermission.createOfficialTip);
+            groupPermData.setCreatePersonalTip(groupPermission.createPersonalTip);
+            groupPermData.setIsManager(groupPermission.isForumManager.intValue());
+            setGroupPerm(groupPermData);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void processInBackGround(int i, byte[] bArr) {
+        Message<?> orginalMessage = getOrginalMessage();
+        if (orginalMessage != null && (orginalMessage instanceof RequestFrsGroupsMessage) && getError() == 0) {
+            RequestFrsGroupsMessage requestFrsGroupsMessage = (RequestFrsGroupsMessage) orginalMessage;
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().e(), PB_KEY_PRE + requestFrsGroupsMessage.getType() + "_" + requestFrsGroupsMessage.getForumId(), bArr);
+        }
     }
 }

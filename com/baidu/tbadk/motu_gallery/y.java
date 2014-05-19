@@ -1,56 +1,149 @@
 package com.baidu.tbadk.motu_gallery;
 
+import android.content.ContentResolver;
 import android.content.Context;
-import android.graphics.Bitmap;
+import android.database.Cursor;
+import android.media.ExifInterface;
 import android.net.Uri;
-import android.view.LayoutInflater;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import java.io.FileNotFoundException;
+import android.provider.MediaStore;
+import java.io.IOException;
 /* loaded from: classes.dex */
-public final class y extends LinearLayout {
-    ImageView a;
-    Uri b;
-    Context c;
-    Bitmap d;
+public class y {
+    private static final String[] b = {"image/jpeg", "image/png", "image/gif"};
+    static final String[] a = {"_id", "datetaken", "date_added", "orientation", "_data"};
 
-    public y(Context context) {
-        super(context);
-        this.c = context;
-        ((LayoutInflater) this.c.getSystemService("layout_inflater")).inflate(com.baidu.tbadk.k.motu_albums_selected_item, this);
-        this.a = (ImageView) findViewById(com.baidu.tbadk.j.image);
+    protected static String a() {
+        return "(mime_type in (?, ?, ?))";
     }
 
-    public final Uri getUri() {
-        return this.b;
+    protected static String[] b() {
+        return b;
     }
 
-    public final boolean a(Uri uri) {
-        boolean z = true;
-        this.b = uri;
-        int dimension = (int) this.c.getResources().getDimension(com.baidu.tbadk.h.jigsawSelectedImageWidth);
-        if (uri != null) {
+    protected static String c() {
+        return String.valueOf("case ifnull(datetaken,0) when 0 then date_modified*1000 else datetaken end") + " DESC, _id DESC";
+    }
+
+    protected static Cursor a(ContentResolver contentResolver, Uri uri) {
+        Cursor query;
+        try {
+            if (uri.getScheme().startsWith("file")) {
+                String[] strArr = {""};
+                strArr[0] = uri.getPath();
+                query = MediaStore.Images.Media.query(contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, a, "(_data=?)", strArr, c());
+            } else {
+                query = MediaStore.Images.Media.query(contentResolver, uri, a, a(), b(), c());
+            }
+            return query;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public static int a(Context context, Uri uri, boolean z) {
+        int i = 0;
+        Cursor a2 = a(context.getContentResolver(), uri);
+        if (a2 != null) {
             try {
-                this.d = b.b(this.c, uri, dimension, dimension);
-            } catch (OtherException e) {
-                e.printStackTrace();
-                z = false;
-            } catch (FileNotFoundException e2) {
-                e2.printStackTrace();
-                z = false;
-            } catch (OutOfMemoryError e3) {
-                e3.printStackTrace();
-                z = false;
+                a2.moveToFirst();
+                i = a2.getInt(3);
+                if (a2 != null) {
+                    try {
+                        a2.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e2) {
+                if (a2 != null) {
+                    try {
+                        a2.close();
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                    }
+                }
+            } catch (Throwable th) {
+                if (a2 != null) {
+                    try {
+                        a2.close();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
             }
         }
-        if (this.d != null) {
-            this.a.setImageBitmap(this.d);
-        } else {
-            z = false;
+        return i;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public static int b(Context context, Uri uri, boolean z) {
+        ContentResolver contentResolver = context.getContentResolver();
+        int b2 = b(contentResolver, uri);
+        if (b2 == 0) {
+            Cursor a2 = a(contentResolver, uri);
+            if (a2 == null) {
+                return 0;
+            }
+            try {
+                a2.moveToFirst();
+                int i = a2.getInt(3);
+                if (a2 == null) {
+                    return i;
+                }
+                try {
+                    a2.close();
+                    return i;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return i;
+                }
+            } catch (Exception e2) {
+                if (a2 != null) {
+                    try {
+                        a2.close();
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                return 0;
+            } catch (Throwable th) {
+                if (a2 != null) {
+                    try {
+                        a2.close();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
+            }
         }
-        if (!z) {
-            z.a(com.baidu.tbadk.l.open_error);
+        return b2;
+    }
+
+    private static int b(ContentResolver contentResolver, Uri uri) {
+        if (!uri.getScheme().startsWith("file")) {
+            return 0;
         }
-        return z;
+        try {
+            int intValue = Integer.valueOf(new ExifInterface(uri.getPath()).getAttribute("Orientation")).intValue();
+            if (6 == intValue) {
+                return 90;
+            }
+            if (3 == intValue) {
+                return 180;
+            }
+            if (8 != intValue) {
+                return 0;
+            }
+            return 270;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return -1;
+        }
     }
 }

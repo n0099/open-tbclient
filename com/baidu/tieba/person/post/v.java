@@ -1,21 +1,21 @@
 package com.baidu.tieba.person.post;
 /* loaded from: classes.dex */
-final class v implements com.baidu.adp.widget.ListView.d {
-    final /* synthetic */ u a;
+class v implements com.baidu.adp.widget.ListView.d {
+    final /* synthetic */ s a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(u uVar) {
-        this.a = uVar;
+    public v(s sVar) {
+        this.a = sVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public final void a(boolean z) {
-        r rVar;
-        r rVar2;
-        rVar = this.a.c;
-        if (rVar != null) {
-            rVar2 = this.a.c;
-            rVar2.a(true);
+    public void a(boolean z) {
+        p pVar;
+        p pVar2;
+        pVar = this.a.c;
+        if (pVar != null) {
+            pVar2 = this.a.c;
+            pVar2.a(true);
         }
     }
 }

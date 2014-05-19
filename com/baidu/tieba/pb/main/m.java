@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
-final class m implements az {
+class m implements ay {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,29 +8,29 @@ final class m implements az {
         this.a = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.main.az
-    public final void a(boolean z) {
-        bf bfVar;
-        bf bfVar2;
-        bf bfVar3;
-        bf bfVar4;
-        bf bfVar5;
-        bf bfVar6;
+    @Override // com.baidu.tieba.pb.main.ay
+    public void a(boolean z) {
+        bc bcVar;
+        bc bcVar2;
+        bc bcVar3;
+        bc bcVar4;
+        bc bcVar5;
+        bc bcVar6;
         if (z) {
-            bfVar6 = this.a.x;
-            bfVar6.b(true);
+            bcVar6 = this.a.y;
+            bcVar6.b(true);
             return;
         }
-        bfVar = this.a.x;
-        int d = bfVar.q().d();
-        bfVar2 = this.a.x;
-        if (d < bfVar2.q().a()) {
-            bfVar4 = this.a.x;
-            bfVar5 = this.a.x;
-            bfVar4.c(bfVar5.q().d() + 1);
+        bcVar = this.a.y;
+        int d = bcVar.q().d();
+        bcVar2 = this.a.y;
+        if (d < bcVar2.q().a()) {
+            bcVar4 = this.a.y;
+            bcVar5 = this.a.y;
+            bcVar4.c(bcVar5.q().d() + 1);
             return;
         }
-        bfVar3 = this.a.x;
-        bfVar3.a(true);
+        bcVar3 = this.a.y;
+        bcVar3.a(true);
     }
 }

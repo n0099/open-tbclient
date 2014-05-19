@@ -7,8 +7,7 @@ public class MotuSwitchStatic extends a {
     public static final String[] a;
 
     static {
-        f.a();
-        f.a(MotuSwitchStatic.class);
+        f.a().a(MotuSwitchStatic.class);
         a = new String[]{"cn.jingling.lib"};
     }
 

@@ -43,8 +43,8 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
             while (this.mFragments.size() <= i) {
                 this.mFragments.add(null);
             }
-            item.setMenuVisibility(DEBUG);
-            item.setUserVisibleHint(DEBUG);
+            item.setMenuVisibility(false);
+            item.setUserVisibleHint(false);
             this.mFragments.set(i, item);
             this.mCurTransaction.add(viewGroup.getId(), item);
             return item;
@@ -71,8 +71,8 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
         Fragment fragment = (Fragment) obj;
         if (fragment != this.mCurrentPrimaryItem) {
             if (this.mCurrentPrimaryItem != null) {
-                this.mCurrentPrimaryItem.setMenuVisibility(DEBUG);
-                this.mCurrentPrimaryItem.setUserVisibleHint(DEBUG);
+                this.mCurrentPrimaryItem.setMenuVisibility(false);
+                this.mCurrentPrimaryItem.setUserVisibleHint(false);
             }
             if (fragment != null) {
                 fragment.setMenuVisibility(true);
@@ -93,10 +93,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public boolean isViewFromObject(View view, Object obj) {
-        if (((Fragment) obj).getView() == view) {
-            return true;
-        }
-        return DEBUG;
+        return ((Fragment) obj).getView() == view;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -142,7 +139,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
                         while (this.mFragments.size() <= parseInt) {
                             this.mFragments.add(null);
                         }
-                        fragment.setMenuVisibility(DEBUG);
+                        fragment.setMenuVisibility(false);
                         this.mFragments.set(parseInt, fragment);
                     } else {
                         Log.w(TAG, "Bad fragment at key " + str);

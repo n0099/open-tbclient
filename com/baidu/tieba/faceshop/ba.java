@@ -1,6 +1,6 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
-final class ba implements com.baidu.adp.widget.ListView.d {
+class ba implements com.baidu.tbadk.core.view.m {
     final /* synthetic */ FacePurchaseRecordsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,8 +8,10 @@ final class ba implements com.baidu.adp.widget.ListView.d {
         this.a = facePurchaseRecordsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public final void a(boolean z) {
-        this.a.a(false);
+    @Override // com.baidu.tbadk.core.view.m
+    public void a(boolean z) {
+        if (z) {
+            this.a.a(true);
+        }
     }
 }

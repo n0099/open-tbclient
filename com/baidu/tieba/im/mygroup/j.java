@@ -1,28 +1,30 @@
 package com.baidu.tieba.im.mygroup;
 
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
+import com.baidu.tieba.im.message.GroupsByUidMessage;
 /* loaded from: classes.dex */
-public final class j extends com.baidu.adp.a.e {
+public class j extends com.baidu.adp.base.d {
     private boolean c = false;
-    public int a = com.baidu.adp.lib.util.i.a(TbadkApplication.j().c(), 70.0f);
-    public int b = com.baidu.adp.lib.util.i.a(TbadkApplication.j().c(), 70.0f);
+    public int a = com.baidu.adp.lib.util.h.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+    public int b = com.baidu.adp.lib.util.h.a(TbadkApplication.m252getInst().getContext(), 70.0f);
 
-    public final void a() {
+    public void a() {
         if (this.c) {
-            super.sendMessage(new com.baidu.tieba.im.message.f(this.a, this.b));
+            super.sendMessage(new GroupsByUidMessage(this.a, this.b));
             return;
         }
         this.c = true;
-        super.sendMessage(new com.baidu.tieba.im.message.e());
+        super.sendMessage(new GroupsByUidLocalMessage());
     }
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         return false;
     }
 }

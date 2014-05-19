@@ -28,7 +28,7 @@ public final class TimeTypeAdapter extends TypeAdapter<Time> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.gson.TypeAdapter
-    public final synchronized Time read(JsonReader jsonReader) {
+    public synchronized Time read(JsonReader jsonReader) {
         Time time;
         if (jsonReader.peek() == JsonToken.NULL) {
             jsonReader.nextNull();
@@ -45,7 +45,7 @@ public final class TimeTypeAdapter extends TypeAdapter<Time> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.gson.TypeAdapter
-    public final synchronized void write(JsonWriter jsonWriter, Time time) {
+    public synchronized void write(JsonWriter jsonWriter, Time time) {
         jsonWriter.value(time == null ? null : this.format.format((Date) time));
     }
 }

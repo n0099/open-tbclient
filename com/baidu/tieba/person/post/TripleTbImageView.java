@@ -5,6 +5,8 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class TripleTbImageView extends ViewGroup {
@@ -32,7 +34,7 @@ public class TripleTbImageView extends ViewGroup {
         addView(this.b);
         addView(this.c);
         addView(this.d);
-        this.f = com.baidu.adp.lib.util.i.a(context, 6.0f);
+        this.f = com.baidu.adp.lib.util.h.a(context, 6.0f);
         if (g == null) {
             g = new com.baidu.tbadk.editortool.ab(context);
         }
@@ -62,50 +64,49 @@ public class TripleTbImageView extends ViewGroup {
                 g.a(480, 480);
                 break;
             case 2:
-                g.a(300, 300);
+                g.a(TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI, TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
                 break;
             case 3:
-                g.a(200, 200);
+                g.a(Constants.MEDIA_INFO, Constants.MEDIA_INFO);
                 break;
         }
         if (length == 1) {
             String str = (String) objArr[0];
             this.b.setTag(str);
-            g.b(str, new z(this, str));
+            g.b(str, new aa(this, str));
             this.c.setTag(null);
             this.d.setTag(null);
         } else if (length == 2) {
             String str2 = (String) objArr[0];
             this.b.setTag(str2);
-            g.b(str2, new aa(this, str2));
+            g.b(str2, new ab(this, str2));
             String str3 = (String) objArr[1];
-            g.b(str3, new ab(this, str3));
+            g.b(str3, new ac(this, str3));
             this.d.setTag(null);
         } else if (length == 3) {
             String str4 = (String) objArr[0];
             this.b.setTag(str4);
-            g.b(str4, new ac(this, str4));
+            g.b(str4, new ad(this, str4));
             String str5 = (String) objArr[1];
-            g.b(str5, new ad(this, str5));
+            g.b(str5, new ae(this, str5));
             String str6 = (String) objArr[2];
-            g.b(str6, new ae(this, str6));
+            g.b(str6, new af(this, str6));
         }
         requestLayout();
         invalidate();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(TripleTbImageView tripleTbImageView, TbImageView tbImageView, com.baidu.adp.widget.ImageView.b bVar) {
-        if (tripleTbImageView.e == null || bVar == null || tbImageView == null) {
-            return;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(TbImageView tbImageView, com.baidu.adp.widget.a.a aVar) {
+        if (this.e != null && aVar != null && tbImageView != null) {
+            int length = (int) (h / this.e.length);
+            if (aVar.c() < length * 0.3f || aVar.d() < length * a[this.e.length - 1] * 0.3f) {
+                tbImageView.setScaleType(ImageView.ScaleType.FIT_START);
+            } else {
+                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            }
+            tbImageView.invalidate();
         }
-        int length = (int) (h / tripleTbImageView.e.length);
-        if (bVar.c() < length * 0.3f || bVar.d() < length * a[tripleTbImageView.e.length - 1] * 0.3f) {
-            tbImageView.setScaleType(ImageView.ScaleType.FIT_START);
-        } else {
-            tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        }
-        tbImageView.invalidate();
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */

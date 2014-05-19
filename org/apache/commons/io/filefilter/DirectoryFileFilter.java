@@ -4,14 +4,8 @@ import java.io.File;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class DirectoryFileFilter extends AbstractFileFilter implements Serializable {
-    public static final IOFileFilter DIRECTORY;
-    public static final IOFileFilter INSTANCE;
-
-    static {
-        DirectoryFileFilter directoryFileFilter = new DirectoryFileFilter();
-        DIRECTORY = directoryFileFilter;
-        INSTANCE = directoryFileFilter;
-    }
+    public static final IOFileFilter DIRECTORY = new DirectoryFileFilter();
+    public static final IOFileFilter INSTANCE = DIRECTORY;
 
     protected DirectoryFileFilter() {
     }

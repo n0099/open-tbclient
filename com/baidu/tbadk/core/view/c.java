@@ -2,9 +2,11 @@ package com.baidu.tbadk.core.view;
 
 import android.app.Activity;
 import android.view.View;
-import com.baidu.tbadk.core.b.y;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.aj;
 /* loaded from: classes.dex */
-final class c implements View.OnClickListener {
+class c implements View.OnClickListener {
     final /* synthetic */ b a;
     private final /* synthetic */ Activity b;
     private final /* synthetic */ int c;
@@ -19,7 +21,7 @@ final class c implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new y(this.b, this.c, this.d, 11003)));
+    public void onClick(View view) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new aj(this.b, this.c, this.d, 11003)));
     }
 }

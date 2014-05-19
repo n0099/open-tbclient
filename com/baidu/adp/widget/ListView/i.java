@@ -2,7 +2,7 @@ package com.baidu.adp.widget.ListView;
 
 import android.view.View;
 /* loaded from: classes.dex */
-public final class i {
+public class i {
     public View a;
     public Object b;
     public boolean c;

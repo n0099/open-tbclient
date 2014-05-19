@@ -1,29 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class dg implements com.baidu.tbadk.core.util.bp {
-    final /* synthetic */ df a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
+public class dg implements com.baidu.tbadk.img.b<ChatMessage> {
+    final /* synthetic */ dd a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dg(df dfVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
-        this.a = dfVar;
-        this.b = str;
-        this.c = bVar;
+    public dg(dd ddVar) {
+        this.a = ddVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.bp
-    public final boolean a(View view) {
-        if ((view instanceof HeadImageView) && this.b.equals(view.getTag())) {
-            view.setTag(null);
-            HeadImageView headImageView = (HeadImageView) view;
-            headImageView.a();
-            this.c.a(headImageView);
-            return false;
-        }
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.img.b
+    public void a(int i, ChatMessage chatMessage) {
+        this.a.d.a(i, chatMessage);
     }
 }

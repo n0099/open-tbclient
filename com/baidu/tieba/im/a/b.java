@@ -1,65 +1,65 @@
 package com.baidu.tieba.im.a;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.c.g;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseQueryGroupCountMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b extends g {
+public class b extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
-        super(103011);
+        super(i);
         this.a = aVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         e eVar;
         e eVar2;
         e eVar3;
         int i;
+        int i2;
         String str;
         String str2;
         e eVar4;
         e eVar5;
-        e unused;
-        e unused2;
-        int unused3;
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        if (socketResponsedMessage2.e() != 0) {
-            eVar4 = this.a.h;
-            if (eVar4 != null) {
-                unused = this.a.h;
-                if (socketResponsedMessage2.e() <= 0 || TextUtils.isEmpty(socketResponsedMessage2.f())) {
-                    return;
+        e eVar6;
+        e eVar7;
+        if (socketResponsedMessage.getError() != 0) {
+            eVar5 = this.a.h;
+            if (eVar5 != null) {
+                eVar6 = this.a.h;
+                eVar6.f();
+                if (socketResponsedMessage.getError() > 0 && !TextUtils.isEmpty(socketResponsedMessage.getErrorString())) {
+                    eVar7 = this.a.h;
+                    eVar7.c(socketResponsedMessage.getErrorString());
                 }
-                eVar5 = this.a.h;
-                eVar5.b(socketResponsedMessage2.f());
             }
-        } else if (socketResponsedMessage2 instanceof ResponseQueryGroupCountMessage) {
-            ResponseQueryGroupCountMessage responseQueryGroupCountMessage = (ResponseQueryGroupCountMessage) socketResponsedMessage2;
-            this.a.d = responseQueryGroupCountMessage.j();
-            this.a.e = responseQueryGroupCountMessage.k();
-            this.a.f = responseQueryGroupCountMessage.i();
-            this.a.g = responseQueryGroupCountMessage.d();
+        } else if (socketResponsedMessage instanceof ResponseQueryGroupCountMessage) {
+            ResponseQueryGroupCountMessage responseQueryGroupCountMessage = (ResponseQueryGroupCountMessage) socketResponsedMessage;
+            this.a.d = responseQueryGroupCountMessage.getUserGroupCount();
+            this.a.e = responseQueryGroupCountMessage.getLocalGroupCount();
+            this.a.f = responseQueryGroupCountMessage.getPicUrl();
+            this.a.g = responseQueryGroupCountMessage.getLink();
             a.a = false;
             eVar = this.a.h;
             if (eVar != null) {
-                unused2 = this.a.h;
+                eVar4 = this.a.h;
+                eVar4.f();
             }
             eVar2 = this.a.h;
             if (eVar2 != null) {
                 eVar3 = this.a.h;
-                unused3 = this.a.d;
-                i = this.a.e;
+                i = this.a.d;
+                i2 = this.a.e;
                 str = this.a.g;
                 str2 = this.a.f;
-                eVar3.a(i, str, str2);
+                eVar3.a(i, i2, str, str2);
             }
         }
     }

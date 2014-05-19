@@ -4,8 +4,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class e implements AdapterView.OnItemClickListener {
+public class e implements AdapterView.OnItemClickListener {
     final /* synthetic */ AccountActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +15,7 @@ final class e implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         l lVar;
         l lVar2;
         l lVar3;

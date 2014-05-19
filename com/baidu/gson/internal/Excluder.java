@@ -29,7 +29,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: clone */
-    public final Excluder m1clone() {
+    public Excluder m3clone() {
         try {
             return (Excluder) super.clone();
         } catch (CloneNotSupportedException e) {
@@ -37,48 +37,48 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         }
     }
 
-    public final Excluder withVersion(double d) {
-        Excluder m1clone = m1clone();
-        m1clone.version = d;
-        return m1clone;
+    public Excluder withVersion(double d) {
+        Excluder m3clone = m3clone();
+        m3clone.version = d;
+        return m3clone;
     }
 
-    public final Excluder withModifiers(int... iArr) {
-        Excluder m1clone = m1clone();
-        m1clone.modifiers = 0;
+    public Excluder withModifiers(int... iArr) {
+        Excluder m3clone = m3clone();
+        m3clone.modifiers = 0;
         for (int i : iArr) {
-            m1clone.modifiers = i | m1clone.modifiers;
+            m3clone.modifiers = i | m3clone.modifiers;
         }
-        return m1clone;
+        return m3clone;
     }
 
-    public final Excluder disableInnerClassSerialization() {
-        Excluder m1clone = m1clone();
-        m1clone.serializeInnerClasses = false;
-        return m1clone;
+    public Excluder disableInnerClassSerialization() {
+        Excluder m3clone = m3clone();
+        m3clone.serializeInnerClasses = false;
+        return m3clone;
     }
 
-    public final Excluder excludeFieldsWithoutExposeAnnotation() {
-        Excluder m1clone = m1clone();
-        m1clone.requireExpose = true;
-        return m1clone;
+    public Excluder excludeFieldsWithoutExposeAnnotation() {
+        Excluder m3clone = m3clone();
+        m3clone.requireExpose = true;
+        return m3clone;
     }
 
-    public final Excluder withExclusionStrategy(ExclusionStrategy exclusionStrategy, boolean z, boolean z2) {
-        Excluder m1clone = m1clone();
+    public Excluder withExclusionStrategy(ExclusionStrategy exclusionStrategy, boolean z, boolean z2) {
+        Excluder m3clone = m3clone();
         if (z) {
-            m1clone.serializationStrategies = new ArrayList(this.serializationStrategies);
-            m1clone.serializationStrategies.add(exclusionStrategy);
+            m3clone.serializationStrategies = new ArrayList(this.serializationStrategies);
+            m3clone.serializationStrategies.add(exclusionStrategy);
         }
         if (z2) {
-            m1clone.deserializationStrategies = new ArrayList(this.deserializationStrategies);
-            m1clone.deserializationStrategies.add(exclusionStrategy);
+            m3clone.deserializationStrategies = new ArrayList(this.deserializationStrategies);
+            m3clone.deserializationStrategies.add(exclusionStrategy);
         }
-        return m1clone;
+        return m3clone;
     }
 
     @Override // com.baidu.gson.TypeAdapterFactory
-    public final <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> typeToken) {
+    public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> typeToken) {
         Class<? super T> rawType = typeToken.getRawType();
         final boolean excludeClass = excludeClass(rawType, true);
         final boolean excludeClass2 = excludeClass(rawType, false);
@@ -119,7 +119,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         return null;
     }
 
-    public final boolean excludeField(Field field, boolean z) {
+    public boolean excludeField(Field field, boolean z) {
         Expose expose;
         if ((this.modifiers & field.getModifiers()) != 0) {
             return true;
@@ -145,7 +145,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         return true;
     }
 
-    public final boolean excludeClass(Class<?> cls, boolean z) {
+    public boolean excludeClass(Class<?> cls, boolean z) {
         if (this.version == IGNORE_VERSIONS || isValidVersion((Since) cls.getAnnotation(Since.class), (Until) cls.getAnnotation(Until.class))) {
             if ((this.serializeInnerClasses || !isInnerClass(cls)) && !isAnonymousOrLocal(cls)) {
                 for (ExclusionStrategy exclusionStrategy : z ? this.serializationStrategies : this.deserializationStrategies) {

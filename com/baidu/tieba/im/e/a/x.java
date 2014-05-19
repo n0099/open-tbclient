@@ -1,19 +1,27 @@
 package com.baidu.tieba.im.e.a;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
-import com.baidu.tieba.im.message.ax;
-import java.util.List;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tieba.im.message.QueryGroupCountLocalMessage;
+import com.baidu.tieba.im.message.ResponseQueryGroupCountLocalMessage;
 /* loaded from: classes.dex */
-public class x implements com.baidu.adp.framework.task.a<Object> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<Object> aVar) {
-        if (aVar == null || !(aVar instanceof ax)) {
+public class x implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof QueryGroupCountLocalMessage)) {
             return null;
         }
-        List<com.baidu.adp.lib.cache.t<String>> a = com.baidu.adp.lib.util.l.a(com.baidu.tbadk.core.c.b.a().h());
-        ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage();
-        responseSearchGroupLocalMessage.a(a);
-        return responseSearchGroupLocalMessage;
+        byte[] a = com.baidu.tbadk.core.a.b.a().u().a("p_enter_forum_group_info");
+        ResponseQueryGroupCountLocalMessage responseQueryGroupCountLocalMessage = new ResponseQueryGroupCountLocalMessage();
+        if (a != null) {
+            try {
+                responseQueryGroupCountLocalMessage.decodeInBackGround(MessageTypes.CMD_REQUEST_GROUP_COUNT_LOCAL, a);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return responseQueryGroupCountLocalMessage;
     }
 }

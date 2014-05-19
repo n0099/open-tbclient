@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.stats;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -30,7 +31,7 @@ public class BdStatSecondSwitchData implements Serializable {
                 setIs_open(jSONObject.optInt("is_open", 0) != 0);
                 setType(jSONObject.optString("type"));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.a(getClass(), "parserJson", e);
+                BdLog.e(getClass(), "parserJson", e);
             }
         }
     }

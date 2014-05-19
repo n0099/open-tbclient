@@ -1,6 +1,7 @@
 package com.baidu.tieba.home;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class j implements com.baidu.tbadk.core.view.m {
+public class j implements com.baidu.tbadk.core.view.m {
     final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,11 +10,11 @@ final class j implements com.baidu.tbadk.core.view.m {
     }
 
     @Override // com.baidu.tbadk.core.view.m
-    public final void a(boolean z) {
-        o oVar;
+    public void a(boolean z) {
+        p pVar;
         if (z) {
-            oVar = this.a.b;
-            oVar.a();
+            pVar = this.a.b;
+            pVar.b();
         }
     }
 }

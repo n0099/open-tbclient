@@ -2,7 +2,7 @@ package com.baidu.tieba.account;
 
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
-final class j implements DialogInterface.OnCancelListener {
+class j implements DialogInterface.OnCancelListener {
     final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ final class j implements DialogInterface.OnCancelListener {
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
-    public final void onCancel(DialogInterface dialogInterface) {
+    public void onCancel(DialogInterface dialogInterface) {
         AccountActivity accountActivity;
         accountActivity = this.a.a;
         accountActivity.DeinitWaitingDialog();

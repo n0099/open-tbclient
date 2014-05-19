@@ -10,25 +10,25 @@ public final class MultiFormatReader implements Reader {
     private Reader[] readers;
 
     @Override // com.google.zxing.Reader
-    public final Result decode(BinaryBitmap binaryBitmap) {
+    public Result decode(BinaryBitmap binaryBitmap) {
         setHints(null);
         return decodeInternal(binaryBitmap);
     }
 
     @Override // com.google.zxing.Reader
-    public final Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) {
+    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) {
         setHints(map);
         return decodeInternal(binaryBitmap);
     }
 
-    public final Result decodeWithState(BinaryBitmap binaryBitmap) {
+    public Result decodeWithState(BinaryBitmap binaryBitmap) {
         if (this.readers == null) {
             setHints(null);
         }
         return decodeInternal(binaryBitmap);
     }
 
-    public final void setHints(Map<DecodeHintType, ?> map) {
+    public void setHints(Map<DecodeHintType, ?> map) {
         this.hints = map;
         Collection collection = map == null ? null : (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
         ArrayList arrayList = new ArrayList();
@@ -42,7 +42,7 @@ public final class MultiFormatReader implements Reader {
     }
 
     @Override // com.google.zxing.Reader
-    public final void reset() {
+    public void reset() {
         if (this.readers != null) {
             for (Reader reader : this.readers) {
                 reader.reset();

@@ -3,15 +3,16 @@ package com.baidu.tieba.service;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 public class FatalErrorService extends Service {
     private d a = null;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2006003, new c());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008003, new c());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        com.baidu.adp.framework.c.a().a(customMessageTask);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     @Override // android.app.Service
@@ -36,7 +37,7 @@ public class FatalErrorService extends Service {
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
         if (this.a == null) {
-            this.a = new d(this, (byte) 0);
+            this.a = new d(this, null);
             this.a.execute(new String[0]);
         }
     }

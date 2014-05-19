@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class aw implements com.baidu.tieba.im.a<LinkedList<String>> {
+public class aw implements com.baidu.tieba.im.a<LinkedList<String>> {
     final /* synthetic */ x a;
     private final /* synthetic */ bv b;
 
@@ -14,13 +14,12 @@ public final class aw implements com.baidu.tieba.im.a<LinkedList<String>> {
         this.b = bvVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(LinkedList<String> linkedList) {
-        LinkedList<String> linkedList2 = linkedList;
+    public void a(LinkedList<String> linkedList) {
         ArrayList<String> arrayList = new ArrayList<>();
-        while (!linkedList2.isEmpty()) {
-            String a = com.baidu.tieba.im.f.q.a(linkedList2.removeLast(), true);
+        while (!linkedList.isEmpty()) {
+            String a = com.baidu.tieba.im.f.r.a(linkedList.removeLast(), true);
             if (a != null) {
                 arrayList.add(a);
             }

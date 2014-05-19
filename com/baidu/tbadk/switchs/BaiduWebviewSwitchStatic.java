@@ -7,8 +7,7 @@ public class BaiduWebviewSwitchStatic extends a {
     public static final String[] a;
 
     static {
-        f.a();
-        f.a(BaiduWebviewSwitchStatic.class);
+        f.a().a(BaiduWebviewSwitchStatic.class);
         a = new String[]{"com.baidu.browser"};
     }
 

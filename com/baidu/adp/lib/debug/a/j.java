@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public final class j extends a implements Runnable {
+public class j extends a implements Runnable {
     public static String a = "logcat ";
     private static Map<String, com.baidu.adp.lib.debug.b> f = new HashMap();
     private Process b;
@@ -21,7 +21,7 @@ public final class j extends a implements Runnable {
         a = String.valueOf(a) + " -s " + str;
     }
 
-    public static void a(String str) {
+    public void a(String str) {
         String[] split = str.split(IOUtils.LINE_SEPARATOR_UNIX);
         int i = 0;
         while (true) {
@@ -46,15 +46,14 @@ public final class j extends a implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         super.b();
         try {
             Runtime.getRuntime().exec("logcat -c");
             this.b = Runtime.getRuntime().exec(a);
             this.d = this.b.getOutputStream();
             this.c = this.b.getInputStream();
-            this.e = new k(this, this.c);
-            this.e.start();
+            d();
             this.d.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -63,8 +62,13 @@ public final class j extends a implements Runnable {
         }
     }
 
+    private void d() {
+        this.e = new k(this, this.c);
+        this.e.start();
+    }
+
     @Override // com.baidu.adp.lib.debug.a.a
-    public final void c() {
+    public void c() {
         super.c();
         try {
             if (this.b != null) {

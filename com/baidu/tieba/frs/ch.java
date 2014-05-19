@@ -1,23 +1,16 @@
 package com.baidu.tieba.frs;
 
-import com.slidingmenu.lib.SlidingMenu;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-final class ch implements SlidingMenu.OnClosedListener {
-    final /* synthetic */ FrsImageActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
-    }
-
-    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
-    public final void onClosed() {
-        boolean z;
-        z = this.a.o;
-        if (z) {
-            this.a.o = false;
-            this.a.q = null;
-            this.a.b(1);
+class ch implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.m> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.atomData.m> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), FrsImageActivity.class);
+            customMessage.getData().startActivity();
         }
+        return null;
     }
 }

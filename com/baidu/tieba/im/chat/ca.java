@@ -2,21 +2,23 @@ package com.baidu.tieba.im.chat;
 
 import android.content.Context;
 import android.widget.TextView;
+import com.baidu.tieba.im.message.FakeSystemGroupChatMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public final class ca extends com.baidu.adp.a.d<com.baidu.tieba.im.message.a.a> {
-    private TextView c;
+public class ca extends com.baidu.adp.base.c<ChatMessage> {
+    private TextView b;
 
     public ca(Context context) {
-        super(context, com.baidu.tieba.im.i.msg_msg_chat_rule_view);
-        this.c = (TextView) a(com.baidu.tieba.im.h.tex_msgcontent);
+        super(context, com.baidu.tieba.s.msg_msg_chat_rule_view);
+        this.b = (TextView) a(com.baidu.tieba.r.tex_msgcontent);
     }
 
-    public final void a(com.baidu.tieba.im.message.a.a aVar) {
+    public void a(ChatMessage chatMessage) {
         String str;
-        if (aVar == null) {
-            this.c = null;
-        } else if ((aVar instanceof com.baidu.tieba.im.message.b) && (str = ((com.baidu.tieba.im.message.b) aVar).a) != null) {
-            this.c.setText(str);
+        if (chatMessage == null) {
+            this.b = null;
+        } else if ((chatMessage instanceof FakeSystemGroupChatMessage) && (str = ((FakeSystemGroupChatMessage) chatMessage).mSystemMsg) != null) {
+            this.b.setText(str);
         }
     }
 }

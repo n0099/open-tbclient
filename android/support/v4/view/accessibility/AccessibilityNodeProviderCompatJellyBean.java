@@ -22,18 +22,18 @@ class AccessibilityNodeProviderCompatJellyBean {
     public static Object newAccessibilityNodeProviderBridge(final AccessibilityNodeInfoBridge accessibilityNodeInfoBridge) {
         return new AccessibilityNodeProvider() { // from class: android.support.v4.view.accessibility.AccessibilityNodeProviderCompatJellyBean.1
             @Override // android.view.accessibility.AccessibilityNodeProvider
-            public final AccessibilityNodeInfo createAccessibilityNodeInfo(int i) {
+            public AccessibilityNodeInfo createAccessibilityNodeInfo(int i) {
                 return (AccessibilityNodeInfo) AccessibilityNodeInfoBridge.this.createAccessibilityNodeInfo(i);
             }
 
             /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: java.util.List<java.lang.Object>, java.util.List<android.view.accessibility.AccessibilityNodeInfo> */
             @Override // android.view.accessibility.AccessibilityNodeProvider
-            public final List<AccessibilityNodeInfo> findAccessibilityNodeInfosByText(String str, int i) {
+            public List<AccessibilityNodeInfo> findAccessibilityNodeInfosByText(String str, int i) {
                 return AccessibilityNodeInfoBridge.this.findAccessibilityNodeInfosByText(str, i);
             }
 
             @Override // android.view.accessibility.AccessibilityNodeProvider
-            public final boolean performAction(int i, int i2, Bundle bundle) {
+            public boolean performAction(int i, int i2, Bundle bundle) {
                 return AccessibilityNodeInfoBridge.this.performAction(i, i2, bundle);
             }
         };

@@ -1,18 +1,18 @@
 package com.baidu.adp.framework.task;
 
 import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.e.f;
+import com.baidu.adp.framework.c.g;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallelType;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
-public class HttpMessageTask extends b {
-    private f e;
-    private Class<? extends HttpResponsedMessage> f;
-    private String g;
-    private HTTP_METHOD h;
-    private boolean i;
-    private boolean j;
-    private BdAsyncTaskParallelType k;
+public class HttpMessageTask extends MessageTask {
+    private g mConnectTimeOut;
+    private boolean mIsImm;
+    private HTTP_METHOD mMethod;
+    private boolean mNeedGzip;
+    private BdAsyncTaskParallel mParallel;
+    private Class<? extends HttpResponsedMessage> mResponsedClass;
+    private String mUrl;
 
     /* loaded from: classes.dex */
     public enum HTTP_METHOD {
@@ -32,58 +32,70 @@ public class HttpMessageTask extends b {
 
     public HttpMessageTask(int i, String str) {
         super(i);
-        this.e = null;
-        this.g = null;
-        this.h = HTTP_METHOD.POST;
-        this.i = true;
-        this.j = false;
-        this.k = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.g = str;
-        this.d = 1;
+        this.mConnectTimeOut = null;
+        this.mUrl = null;
+        this.mMethod = HTTP_METHOD.POST;
+        this.mNeedGzip = true;
+        this.mIsImm = false;
+        this.mParallel = null;
+        this.mUrl = str;
+        this.mPriority = 1;
     }
 
-    public final String a() {
-        return this.g;
+    public String getUrl() {
+        return this.mUrl;
     }
 
-    public final HTTP_METHOD c() {
-        return this.h;
+    public HTTP_METHOD getMethod() {
+        return this.mMethod;
     }
 
-    public final boolean d() {
-        return this.i;
+    public void setMethod(HTTP_METHOD http_method) {
+        this.mMethod = http_method;
     }
 
-    public final void a(boolean z) {
-        this.i = true;
+    public boolean isNeedGzip() {
+        return this.mNeedGzip;
     }
 
-    public final boolean e() {
-        return this.j;
+    public void setNeedGzip(boolean z) {
+        this.mNeedGzip = z;
     }
 
-    public final Class<? extends HttpResponsedMessage> f() {
-        return this.f;
+    public boolean getIsImm() {
+        return this.mIsImm;
     }
 
-    public final void a(Class<? extends HttpResponsedMessage> cls) {
-        this.f = cls;
+    public void setIsImm(boolean z) {
+        this.mIsImm = z;
     }
 
-    @Override // com.baidu.adp.framework.task.b
-    public final boolean b() {
-        return FrameHelper.c(this.a) || FrameHelper.b(this.a);
+    public Class<? extends HttpResponsedMessage> getResponsedClass() {
+        return this.mResponsedClass;
     }
 
-    public final f g() {
-        return this.e;
+    public void setResponsedClass(Class<? extends HttpResponsedMessage> cls) {
+        this.mResponsedClass = cls;
     }
 
-    public final void a(f fVar) {
-        this.e = fVar;
+    @Override // com.baidu.adp.framework.task.MessageTask
+    public boolean checkCmd() {
+        return FrameHelper.b(this.mCmd);
     }
 
-    public final BdAsyncTaskParallelType h() {
-        return this.k;
+    public g getConnectTimeOut() {
+        return this.mConnectTimeOut;
+    }
+
+    public void setConnectTimeOut(g gVar) {
+        this.mConnectTimeOut = gVar;
+    }
+
+    public BdAsyncTaskParallel getParallel() {
+        return this.mParallel;
+    }
+
+    public void setParallel(BdAsyncTaskParallel bdAsyncTaskParallel) {
+        this.mParallel = bdAsyncTaskParallel;
     }
 }

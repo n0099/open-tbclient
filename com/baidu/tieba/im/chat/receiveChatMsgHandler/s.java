@@ -1,11 +1,22 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.data.GroupMsgData;
 /* loaded from: classes.dex */
-public final class s implements com.baidu.tieba.im.a<Void> {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Void r1) {
-        com.baidu.tieba.im.pushNotify.o.a();
-        com.baidu.tieba.im.pushNotify.o.d();
+public class s extends CustomMessageListener {
+    public s() {
+        super(2015001);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof GroupMsgData) {
+            GroupMsgData groupMsgData = (GroupMsgData) customResponsedMessage;
+            com.baidu.tieba.im.pushNotify.a.f().a(q.a(groupMsgData), q.a, new t(this));
+            com.baidu.tieba.im.chat.x.b().a(groupMsgData);
+        }
     }
 }

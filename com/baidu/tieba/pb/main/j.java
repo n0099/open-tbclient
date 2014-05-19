@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.main;
 import com.baidu.tbadk.core.data.AntiData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-final class j implements com.baidu.tieba.pb.sub.h {
+class j implements com.baidu.tieba.pb.sub.h {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,87 +11,87 @@ final class j implements com.baidu.tieba.pb.sub.h {
         this.a = pbActivity;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00bb  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00bd  */
     /* JADX WARN: Removed duplicated region for block: B:54:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.tieba.pb.sub.h
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void a(boolean z, int i, String str, com.baidu.tieba.data.am amVar) {
-        bm bmVar;
-        bm bmVar2;
+    public void a(boolean z, int i, String str, com.baidu.tieba.data.ao aoVar) {
+        bj bjVar;
+        bj bjVar2;
         com.baidu.tieba.pb.sub.f fVar;
-        bf bfVar;
+        bc bcVar;
         com.baidu.tieba.pb.sub.f fVar2;
-        bm bmVar3;
-        bf bfVar2;
-        AntiData h;
+        bj bjVar3;
+        bc bcVar2;
+        AntiData i2;
         com.baidu.tieba.pb.sub.f fVar3;
         String str2;
-        bm bmVar4;
-        bf bfVar3;
+        bj bjVar4;
+        bc bcVar3;
         String str3;
         com.baidu.tieba.pb.sub.f fVar4;
-        bf bfVar4;
-        this.a.v();
-        bmVar = this.a.D;
-        bmVar.b(str);
-        bmVar2 = this.a.D;
-        bmVar2.F();
+        bc bcVar4;
+        this.a.C();
+        bjVar = this.a.E;
+        bjVar.d(str);
+        bjVar2 = this.a.E;
+        bjVar2.F();
         if (!z) {
             if (i == 4 || i == 28) {
-                bfVar4 = this.a.x;
-                if (bfVar4.m()) {
+                bcVar4 = this.a.y;
+                if (bcVar4.m()) {
                     this.a.closeActivity();
                 }
             }
-        } else if (amVar != null) {
-            fVar = this.a.B;
+        } else if (aoVar != null) {
+            fVar = this.a.C;
             String b = fVar.b();
-            bfVar = this.a.x;
-            ArrayList<com.baidu.tieba.data.ai> e = bfVar.p().e();
-            int i2 = 0;
+            bcVar = this.a.y;
+            ArrayList<com.baidu.tieba.data.ah> e = bcVar.p().e();
+            int i3 = 0;
             while (true) {
-                if (i2 >= e.size()) {
+                if (i3 >= e.size()) {
                     break;
                 }
-                com.baidu.tieba.data.ai aiVar = e.get(i2);
-                if (!aiVar.d().equals(b)) {
-                    i2++;
+                com.baidu.tieba.data.ah ahVar = e.get(i3);
+                if (!ahVar.d().equals(b)) {
+                    i3++;
                 } else {
-                    ArrayList<com.baidu.tieba.data.ai> c = amVar.c();
-                    aiVar.a(c.size());
-                    int size = aiVar.a().size();
+                    ArrayList<com.baidu.tieba.data.ah> c = aoVar.c();
+                    ahVar.a(c.size());
+                    int size = ahVar.a().size();
                     while (true) {
-                        int i3 = size;
-                        if (i3 >= 2 || i3 >= c.size()) {
+                        int i4 = size;
+                        if (i4 >= 2 || i4 >= c.size()) {
                             break;
                         }
-                        aiVar.a().add(amVar.c().get(i3));
-                        size = i3 + 1;
+                        ahVar.a().add(aoVar.c().get(i4));
+                        size = i4 + 1;
                     }
                 }
             }
-            fVar2 = this.a.B;
+            fVar2 = this.a.C;
             String c2 = fVar2.c();
             if (c2 != null) {
-                fVar3 = this.a.B;
+                fVar3 = this.a.C;
                 if ("mention".equals(fVar3.c()) || c2.equals("person_post_reply")) {
-                    str2 = this.a.J;
+                    str2 = this.a.K;
                     if (str2 != null) {
-                        bmVar4 = this.a.D;
-                        bfVar3 = this.a.x;
-                        int l = bfVar3.p().l();
-                        str3 = this.a.J;
-                        boolean z2 = amVar.b() > 1;
-                        fVar4 = this.a.B;
-                        bmVar4.a(amVar, l, str3, z2, fVar4.g() == 1);
-                        h = amVar.h();
-                        if (h == null) {
-                            Boolean valueOf = Boolean.valueOf(h.isIfvoice());
-                            this.a.p = h.getVoice_message();
-                            if (amVar.g() != null) {
-                                PbActivity.a(this.a, amVar.g().getName(), valueOf);
+                        bjVar4 = this.a.E;
+                        bcVar3 = this.a.y;
+                        int l = bcVar3.p().l();
+                        str3 = this.a.K;
+                        boolean z2 = aoVar.b() > 1;
+                        fVar4 = this.a.C;
+                        bjVar4.a(aoVar, l, str3, z2, fVar4.g() == 1);
+                        i2 = aoVar.i();
+                        if (i2 == null) {
+                            Boolean valueOf = Boolean.valueOf(i2.isIfvoice());
+                            this.a.p = i2.getVoice_message();
+                            if (aoVar.h() != null) {
+                                this.a.a(aoVar.h().getName(), valueOf);
                                 return;
                             }
                             return;
@@ -100,11 +100,11 @@ final class j implements com.baidu.tieba.pb.sub.h {
                     }
                 }
             }
-            bmVar3 = this.a.D;
-            bfVar2 = this.a.x;
-            bmVar3.a(amVar, bfVar2.p().l());
-            h = amVar.h();
-            if (h == null) {
+            bjVar3 = this.a.E;
+            bcVar2 = this.a.y;
+            bjVar3.a(aoVar, bcVar2.p().l());
+            i2 = aoVar.i();
+            if (i2 == null) {
             }
         }
     }

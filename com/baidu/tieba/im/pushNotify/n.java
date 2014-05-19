@@ -1,24 +1,64 @@
 package com.baidu.tieba.im.pushNotify;
-/* loaded from: classes.dex */
-final class n extends com.baidu.tieba.im.m<Boolean> {
-    final /* synthetic */ m b;
-    private final /* synthetic */ String c;
-    private final /* synthetic */ String d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(m mVar, String str, String str2) {
-        this.b = mVar;
-        this.c = str;
-        this.d = str2;
+import com.baidu.adp.lib.cache.s;
+import com.baidu.adp.lib.cache.t;
+import com.baidu.gson.Gson;
+import com.baidu.tbadk.TbadkApplication;
+import java.util.HashMap;
+import java.util.List;
+/* loaded from: classes.dex */
+public abstract class n {
+    protected HashMap<String, m> a = new HashMap<>();
+
+    public abstract void a(m mVar);
+
+    public abstract m b(String str, String str2);
+
+    protected abstract s<String> c();
+
+    public void a(Class<? extends m> cls) {
+        String a;
+        synchronized (this.a) {
+            this.a.clear();
+        }
+        String str = "";
+        if (TbadkApplication.getCurrentAccountObj() != null) {
+            str = TbadkApplication.getCurrentAccountObj().getID();
+        }
+        if (str != null && str.length() != 0) {
+            String str2 = String.valueOf(str) + "@";
+            synchronized (this.a) {
+                s<String> c = c();
+                List<t<String>> a2 = com.baidu.adp.lib.util.l.a(c);
+                if (a2 != null) {
+                    for (t<String> tVar : a2) {
+                        String str3 = tVar.a;
+                        if (str3 != null && str3.startsWith(str2) && (a = c.a(str3)) != null) {
+                            this.a.put(str3, (m) new Gson().fromJson(a, (Class<Object>) cls));
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Boolean a() {
-        l b = this.b.b(this.c, this.d);
+    public void d(String str, String str2, boolean z) {
+        m b = b(str, str2);
+        if (b != null) {
+            b.setAcceptNotify(z);
+            a(b);
+        }
+    }
+
+    public boolean d(String str, String str2) {
+        m b = b(str, str2);
         if (b == null) {
             return false;
         }
-        return Boolean.valueOf(b.isAcceptNotify());
+        return b.isAcceptNotify();
+    }
+
+    public void a(String str, String str2, com.baidu.tieba.im.a<Boolean> aVar) {
+        com.baidu.tieba.im.i.a(new o(this, str, str2), aVar);
     }
 }

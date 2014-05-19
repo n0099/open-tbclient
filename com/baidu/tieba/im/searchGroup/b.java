@@ -6,70 +6,77 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public final class b extends com.baidu.adp.a.f {
+public class b extends com.baidu.adp.base.e {
     private View a;
-    private NavigationBar c;
-    private View d;
-    private EditText e;
-    private ImageButton f;
-    private ProgressBar g;
-    private Button h;
-    private AddGroupActivity i;
+    private NavigationBar b;
+    private View c;
+    private EditText d;
+    private ImageButton e;
+    private ProgressBar f;
+    private Button g;
+    private AddGroupActivity h;
 
     public b(AddGroupActivity addGroupActivity) {
         super(addGroupActivity);
         this.a = null;
+        this.b = null;
         this.c = null;
         this.d = null;
         this.e = null;
         this.f = null;
         this.g = null;
         this.h = null;
-        this.i = null;
-        this.i = addGroupActivity;
-        this.i.setContentView(com.baidu.tieba.im.i.im_add_group_activity);
-        this.a = this.i.findViewById(com.baidu.tieba.im.h.addgroup_rootlayout);
-        this.c = (NavigationBar) this.i.findViewById(com.baidu.tieba.im.h.addgroup_navigationbar);
-        this.d = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c.a(this.i.getResources().getString(com.baidu.tieba.im.j.add_group_title_main));
-        this.e = (EditText) this.i.findViewById(com.baidu.tieba.im.h.addgroup_input);
-        this.e.setInputType(2);
-        this.f = (ImageButton) this.i.findViewById(com.baidu.tieba.im.h.addgroup_delbtn);
-        this.h = (Button) this.i.findViewById(com.baidu.tieba.im.h.addgroup_searchbutton);
-        this.e.addTextChangedListener(new c(this));
-        this.h = (Button) this.i.findViewById(com.baidu.tieba.im.h.addgroup_searchbutton);
-        this.g = (ProgressBar) this.i.findViewById(com.baidu.tieba.im.h.addgroup_progress);
-        this.d.setOnClickListener(this.i);
-        this.f.setOnClickListener(this.i);
-        this.h.setOnClickListener(this.i);
+        this.h = addGroupActivity;
+        e();
     }
 
-    public final View a() {
-        return this.f;
+    public View a() {
+        return this.e;
     }
 
-    public final View d() {
-        return this.h;
+    public View b() {
+        return this.g;
     }
 
-    public final View e() {
-        return this.d;
+    public View c() {
+        return this.c;
     }
 
-    public final void f() {
-        if (this.e != null) {
-            this.e.setText("");
+    public void d() {
+        if (this.d != null) {
+            this.d.setText("");
         }
     }
 
-    public final void a(boolean z) {
-        this.g.setVisibility(z ? 0 : 8);
+    public void a(boolean z) {
+        this.f.setVisibility(z ? 0 : 8);
     }
 
-    public final void a(int i) {
-        this.i.getLayoutMode().a(i == 1);
-        this.i.getLayoutMode().a(this.a);
-        this.c.b(i);
+    public void a(int i) {
+        this.h.getLayoutMode().a(i == 1);
+        this.h.getLayoutMode().a(this.a);
+        this.b.c(i);
+    }
+
+    private void e() {
+        this.h.setContentView(s.im_add_group_activity);
+        this.a = this.h.findViewById(r.addgroup_rootlayout);
+        this.b = (NavigationBar) this.h.findViewById(r.addgroup_navigationbar);
+        this.c = this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.b.a(this.h.getResources().getString(u.add_group_title_main));
+        this.d = (EditText) this.h.findViewById(r.addgroup_input);
+        this.d.setInputType(2);
+        this.e = (ImageButton) this.h.findViewById(r.addgroup_delbtn);
+        this.g = (Button) this.h.findViewById(r.addgroup_searchbutton);
+        this.d.addTextChangedListener(new c(this));
+        this.g = (Button) this.h.findViewById(r.addgroup_searchbutton);
+        this.f = (ProgressBar) this.h.findViewById(r.addgroup_progress);
+        this.c.setOnClickListener(this.h);
+        this.e.setOnClickListener(this.h);
+        this.g.setOnClickListener(this.h);
     }
 }

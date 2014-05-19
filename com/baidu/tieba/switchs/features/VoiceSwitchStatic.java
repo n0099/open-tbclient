@@ -10,8 +10,7 @@ public class VoiceSwitchStatic extends a {
     public static final String[] VOICE_KEY;
 
     static {
-        f.a();
-        f.a(VoiceSwitchStatic.class);
+        f.a().a(VoiceSwitchStatic.class);
         VOICE_KEY = new String[]{"com.baidu.tieba.voice"};
     }
 
@@ -22,7 +21,7 @@ public class VoiceSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.a.a
     protected void initData() {
-        this.mName = VOICE;
+        this.mName = "voice";
         this.mKey = VOICE_KEY;
     }
 }

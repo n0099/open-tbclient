@@ -1,20 +1,23 @@
 package com.baidu.tieba.im.e.a;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tieba.im.message.RequestFrsGroupsLocalMessage;
 import com.baidu.tieba.im.message.ResponseFrsGroupsLocalMessage;
-import com.baidu.tieba.im.message.af;
 /* loaded from: classes.dex */
-public class j implements com.baidu.adp.framework.task.a<Object> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<Object> aVar) {
-        if (aVar == null || !(aVar instanceof af)) {
+public class j implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof RequestFrsGroupsLocalMessage)) {
             return null;
         }
-        af afVar = (af) aVar;
-        byte[] a = com.baidu.tbadk.core.c.b.a().e().a("pb_" + afVar.c() + "_" + afVar.b());
+        RequestFrsGroupsLocalMessage requestFrsGroupsLocalMessage = (RequestFrsGroupsLocalMessage) customMessage;
+        byte[] a = com.baidu.tbadk.core.a.b.a().e().a("pb_" + requestFrsGroupsLocalMessage.getType() + "_" + requestFrsGroupsLocalMessage.getForumId());
         ResponseFrsGroupsLocalMessage responseFrsGroupsLocalMessage = new ResponseFrsGroupsLocalMessage();
         try {
-            responseFrsGroupsLocalMessage.a(a);
+            responseFrsGroupsLocalMessage.decodeInBackGround(MessageTypes.CMD_CACHE_GROUPS_BY_FID, a);
         } catch (Exception e) {
             e.printStackTrace();
         }

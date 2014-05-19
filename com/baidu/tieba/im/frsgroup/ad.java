@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
@@ -23,7 +23,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
-public final class ad extends BaseAdapter {
+public class ad extends BaseAdapter {
     private final MembersActivity a;
     private af b;
     private boolean c;
@@ -34,15 +34,15 @@ public final class ad extends BaseAdapter {
     private final List<UserData> h = new ArrayList();
     private LinkedList<IconData> i = null;
 
-    public final void a(af afVar) {
+    public void a(af afVar) {
         this.b = afVar;
     }
 
-    public final void a(List<UserData> list) {
+    public void a(List<UserData> list) {
         this.h.addAll(list);
     }
 
-    public final void b(List<Long> list) {
+    public void b(List<Long> list) {
         if (list != null && list.size() > 0) {
             for (Long l : list) {
                 long longValue = l.longValue();
@@ -56,15 +56,15 @@ public final class ad extends BaseAdapter {
         }
     }
 
-    public final void a() {
+    public void a() {
         this.g.clear();
     }
 
-    public final Set<Long> b() {
+    public Set<Long> b() {
         return this.g;
     }
 
-    public final void a(Long l) {
+    public void a(Long l) {
         if (this.g.contains(l)) {
             this.g.remove(l);
         } else {
@@ -76,7 +76,7 @@ public final class ad extends BaseAdapter {
         }
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         if (z) {
             this.h.clear();
         }
@@ -87,32 +87,32 @@ public final class ad extends BaseAdapter {
     public ad(MembersActivity membersActivity) {
         this.a = membersActivity;
         this.f = new com.baidu.tbadk.editortool.ab(membersActivity);
-        this.f.a(false);
+        this.f.d(false);
         this.d = false;
     }
 
-    public final void b(boolean z) {
-        this.c = false;
+    public void b(boolean z) {
+        this.c = z;
     }
 
-    public final boolean c() {
+    public boolean c() {
         return this.c;
     }
 
-    public final void c(boolean z) {
+    public void c(boolean z) {
         this.d = z;
     }
 
-    public final boolean d() {
+    public boolean d() {
         return this.e;
     }
 
-    public final void d(boolean z) {
+    public void d(boolean z) {
         this.e = z;
     }
 
     @Override // android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         if (this.h != null) {
             int size = (this.h.size() * 2) + 1;
             if (this.d) {
@@ -124,7 +124,7 @@ public final class ad extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final Object getItem(int i) {
+    public Object getItem(int i) {
         int itemId = (int) getItemId(i);
         if (itemId < 0 || itemId >= this.h.size()) {
             return null;
@@ -133,7 +133,7 @@ public final class ad extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final long getItemId(int i) {
+    public long getItemId(int i) {
         if (this.d && i == getCount() - 1) {
             return -2L;
         }
@@ -144,7 +144,7 @@ public final class ad extends BaseAdapter {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getItemViewType(int i) {
+    public int getItemViewType(int i) {
         if (getItemId(i) >= 0) {
             return 0;
         }
@@ -155,36 +155,36 @@ public final class ad extends BaseAdapter {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getViewTypeCount() {
+    public int getViewTypeCount() {
         return 3;
     }
 
     @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         ag agVar;
         View view2;
         if (this.h != null) {
             if (view == null) {
                 ag agVar2 = new ag();
                 if (getItemViewType(i) == 1) {
-                    View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.im.i.im_members_list_foot, viewGroup, false);
-                    agVar2.a = (LinearLayout) inflate.findViewById(com.baidu.tieba.im.h.list_more);
-                    agVar2.b = (TextView) inflate.findViewById(com.baidu.tieba.im.h.more_title);
-                    agVar2.c = (ProgressBar) inflate.findViewById(com.baidu.tieba.im.h.more_progress);
+                    View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.im_members_list_foot, viewGroup, false);
+                    agVar2.a = (LinearLayout) inflate.findViewById(com.baidu.tieba.r.list_more);
+                    agVar2.b = (TextView) inflate.findViewById(com.baidu.tieba.r.more_title);
+                    agVar2.c = (ProgressBar) inflate.findViewById(com.baidu.tieba.r.more_progress);
                     view2 = inflate;
                 } else if (getItemViewType(i) == 2) {
-                    view2 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.im.i.im_list_divide, viewGroup, false);
+                    view2 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.im_list_divide, viewGroup, false);
                 } else {
-                    View inflate2 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.im.i.im_members_list_item, viewGroup, false);
-                    agVar2.e = (HeadImageView) inflate2.findViewById(com.baidu.tieba.im.h.item_head);
+                    View inflate2 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.im_members_list_item, viewGroup, false);
+                    agVar2.e = (HeadImageView) inflate2.findViewById(com.baidu.tieba.r.item_head);
                     agVar2.e.setIsRound(true);
                     agVar2.e.setAutoChangeStyle(true);
-                    agVar2.f = (TextView) inflate2.findViewById(com.baidu.tieba.im.h.item_name);
-                    agVar2.g = (ImageView) inflate2.findViewById(com.baidu.tieba.im.h.item_sex);
-                    agVar2.h = (TextView) inflate2.findViewById(com.baidu.tieba.im.h.item_time);
-                    agVar2.i = (TextView) inflate2.findViewById(com.baidu.tieba.im.h.item_address);
-                    agVar2.d = (ImageView) inflate2.findViewById(com.baidu.tieba.im.h.item_check);
-                    agVar2.j = (UserIconBox) inflate2.findViewById(com.baidu.tieba.im.h.user_tshow_icon_box);
+                    agVar2.f = (TextView) inflate2.findViewById(com.baidu.tieba.r.item_name);
+                    agVar2.g = (ImageView) inflate2.findViewById(com.baidu.tieba.r.item_sex);
+                    agVar2.h = (TextView) inflate2.findViewById(com.baidu.tieba.r.item_time);
+                    agVar2.i = (TextView) inflate2.findViewById(com.baidu.tieba.r.item_address);
+                    agVar2.d = (ImageView) inflate2.findViewById(com.baidu.tieba.r.item_check);
+                    agVar2.j = (UserIconBox) inflate2.findViewById(com.baidu.tieba.r.user_tshow_icon_box);
                     view2 = inflate2;
                 }
                 view2.setTag(agVar2);
@@ -195,72 +195,57 @@ public final class ad extends BaseAdapter {
             }
             if (getItemViewType(i) == 1) {
                 if (this.c) {
-                    agVar.b.setText(com.baidu.tieba.im.j.members_load_more_person);
+                    agVar.b.setText(com.baidu.tieba.u.members_load_more_person);
                     agVar.c.setVisibility(0);
                 } else {
-                    agVar.b.setText(com.baidu.tieba.im.j.members_no_more_person);
+                    agVar.b.setText(com.baidu.tieba.u.members_no_more_person);
                     agVar.c.setVisibility(8);
                 }
             } else if (getItemViewType(i) == 2) {
                 a(view);
             } else {
-                int l = TbadkApplication.j().l();
+                int skinType = TbadkApplication.m252getInst().getSkinType();
                 UserData userData = (UserData) getItem(i);
                 agVar.e.setTag(null);
                 String portrait = userData.getPortrait();
                 if (!TextUtils.isEmpty(portrait)) {
-                    com.baidu.tbadk.editortool.ab abVar = this.f;
-                    com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(portrait);
-                    if (b != null) {
-                        agVar.e.setImageBitmap(b.h());
+                    com.baidu.adp.widget.a.a c = this.f.c(portrait);
+                    if (c != null) {
+                        agVar.e.setImageBitmap(c.h());
                     } else {
                         agVar.e.setTag(portrait);
-                        agVar.e.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.im.g.photo));
+                        agVar.e.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.photo));
                     }
                 }
                 agVar.f.setText(userData.getUserName());
                 switch (userData.getSex()) {
                     case 1:
                         agVar.g.setVisibility(0);
-                        if (l == 1) {
-                            agVar.g.setImageResource(com.baidu.tieba.im.g.icon_pop_boy_1);
+                        if (skinType == 1) {
+                            agVar.g.setImageResource(com.baidu.tieba.q.icon_pop_boy_1);
                             break;
                         } else {
-                            agVar.g.setImageResource(com.baidu.tieba.im.g.icon_pop_boy);
+                            agVar.g.setImageResource(com.baidu.tieba.q.icon_pop_boy);
                             break;
                         }
                     case 2:
                         agVar.g.setVisibility(0);
-                        if (l == 1) {
-                            agVar.g.setImageResource(com.baidu.tieba.im.g.icon_pop_girl_1);
+                        if (skinType == 1) {
+                            agVar.g.setImageResource(com.baidu.tieba.q.icon_pop_girl_1);
                             break;
                         } else {
-                            agVar.g.setImageResource(com.baidu.tieba.im.g.icon_pop_girl);
+                            agVar.g.setImageResource(com.baidu.tieba.q.icon_pop_girl);
                             break;
                         }
                     default:
                         agVar.g.setVisibility(8);
                         break;
                 }
-                TextView textView = agVar.h;
-                long j = 0;
-                com.baidu.tieba.im.model.z a = this.a.a();
-                switch (a.a()) {
-                    case 0:
-                        j = userData.getLoginTime();
-                        break;
-                    case 1:
-                        j = userData.getLastReplyTime();
-                        break;
-                    case 2:
-                        j = userData.getInTime();
-                        break;
-                }
-                textView.setText(j <= 0 ? a.a() == 1 ? this.a.getString(com.baidu.tieba.im.j.members_no_speak) : "" : bc.e(new Date(j * 1000)));
+                agVar.h.setText(a(userData));
                 agVar.i.setText(userData.getPosition());
                 this.i = userData.getTShowInfo();
                 if (agVar.j != null) {
-                    agVar.j.a(this.i, 2, this.a.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.big_icon_width), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.big_icon_height), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.big_icon_margin), true);
+                    agVar.j.a(this.i, 2, this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.big_icon_width), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.big_icon_height), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.big_icon_margin), true);
                 }
                 if (this.e) {
                     agVar.d.setVisibility(userData.getPermission().isController() ? 4 : 0);
@@ -278,11 +263,37 @@ public final class ad extends BaseAdapter {
     }
 
     private void a(View view) {
-        this.a.getLayoutMode().a(TbadkApplication.j().l() == 1);
+        this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
         this.a.getLayoutMode().a(view);
     }
 
-    public final com.baidu.tbadk.editortool.ab e() {
+    private String a(UserData userData) {
+        long lastReplyTime;
+        com.baidu.tieba.im.model.ad b = this.a.b();
+        switch (b.a()) {
+            case 0:
+                lastReplyTime = userData.getLoginTime();
+                break;
+            case 1:
+                lastReplyTime = userData.getLastReplyTime();
+                break;
+            case 2:
+                lastReplyTime = userData.getInTime();
+                break;
+            default:
+                lastReplyTime = 0;
+                break;
+        }
+        if (lastReplyTime <= 0) {
+            if (b.a() == 1) {
+                return this.a.getString(com.baidu.tieba.u.members_no_speak);
+            }
+            return "";
+        }
+        return be.e(new Date(lastReplyTime * 1000));
+    }
+
+    public com.baidu.tbadk.editortool.ab e() {
         return this.f;
     }
 }

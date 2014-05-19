@@ -8,60 +8,77 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ImageForumListResponsedMessage extends JsonHttpResponsedMessage {
-    public ForumData a;
-    public ArrayList<com.baidu.tieba.data.aq> b;
-    public ArrayList<String> c;
-    public int d;
-    public int e;
-    public int f;
-    public AntiData g;
-    public com.baidu.tieba.data.ac h;
-    public JSONObject i;
+    public AntiData mAnti;
+    public int mCurrentCount;
+    public ForumData mForum;
+    public int mHasMore;
+    public ArrayList<String> mIdList;
+    public JSONObject mJSONObject;
+    public com.baidu.tieba.data.ad mOwner;
+    public ArrayList<com.baidu.tieba.data.as> mThread;
+    public int mTotal;
 
     public ImageForumListResponsedMessage(int i) {
         super(i);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public final void a(JSONObject jSONObject) {
-        int d = d();
-        int e = e();
-        if (d == 200 && e == 0 && jSONObject != null && jSONObject != null) {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+        int statusCode = getStatusCode();
+        int error = getError();
+        if (statusCode == 200 && error == 0 && jSONObject != null) {
+            parserJson(jSONObject);
+        }
+        this.mJSONObject = jSONObject;
+    }
+
+    private void initData() {
+        this.mForum = new ForumData();
+        this.mThread = new ArrayList<>();
+        this.mIdList = new ArrayList<>();
+        this.mHasMore = 0;
+        this.mTotal = 0;
+        this.mCurrentCount = 0;
+        this.mAnti = new AntiData();
+        this.mOwner = new com.baidu.tieba.data.ad();
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
             try {
-                this.a = new ForumData();
-                this.b = new ArrayList<>();
-                this.c = new ArrayList<>();
-                this.d = 0;
-                this.e = 0;
-                this.f = 0;
-                this.g = new AntiData();
-                this.h = new com.baidu.tieba.data.ac();
-                this.a.parserJson(jSONObject.optJSONObject("forum"));
-                this.h.a(jSONObject.optJSONObject("user"));
-                this.g.parserJson(jSONObject.optJSONObject("anti"));
+                initData();
+                this.mForum.parserJson(jSONObject.optJSONObject("forum"));
+                this.mOwner.a(jSONObject.optJSONObject("user"));
+                this.mAnti.parserJson(jSONObject.optJSONObject("anti"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");
                 if (optJSONObject != null) {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            com.baidu.tieba.data.aq aqVar = new com.baidu.tieba.data.aq();
-                            aqVar.a(optJSONArray.optJSONObject(i));
-                            this.b.add(aqVar);
+                            com.baidu.tieba.data.as asVar = new com.baidu.tieba.data.as();
+                            asVar.a(optJSONArray.optJSONObject(i));
+                            this.mThread.add(asVar);
                         }
                     }
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");
                     if (optJSONArray2 != null) {
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            this.c.add(optJSONArray2.optString(i2));
+                            this.mIdList.add(optJSONArray2.optString(i2));
                         }
                     }
-                    this.d = optJSONObject.optInt("has_more", 0);
-                    this.e = optJSONObject.optInt("amount", 0);
-                    this.f = optJSONObject.optInt("current_count", 0);
+                    this.mHasMore = optJSONObject.optInt("has_more", 0);
+                    this.mTotal = optJSONObject.optInt("amount", 0);
+                    this.mCurrentCount = optJSONObject.optInt("current_count", 0);
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
             }
         }
-        this.i = jSONObject;
+    }
+
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+        }
     }
 }

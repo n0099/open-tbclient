@@ -1,31 +1,25 @@
 package com.baidu.tieba.write;
 
-import android.text.SpannableStringBuilder;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import android.graphics.drawable.NinePatchDrawable;
+import android.widget.EditText;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class at implements com.baidu.tbadk.imageManager.d {
+public class at implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ WriteActivity a;
-    private final /* synthetic */ SpannableStringBuilder b;
-    private final /* synthetic */ int c;
-    private final /* synthetic */ EmotionGroupType d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
+    public at(WriteActivity writeActivity) {
         this.a = writeActivity;
-        this.b = spannableStringBuilder;
-        this.c = i;
-        this.d = emotionGroupType;
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null) {
-            WriteActivity writeActivity = this.a;
-            SpannableStringBuilder spannableStringBuilder = this.b;
-            int i = this.c;
-            EmotionGroupType emotionGroupType = this.d;
-            writeActivity.a(spannableStringBuilder, i, bVar);
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        EditText editText;
+        if (aVar != null && aVar.h() != null && aVar.m() != null) {
+            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkApplication.m252getInst().getResources(), aVar.h(), aVar.h().getNinePatchChunk(), aVar.m(), null);
+            editText = this.a.h;
+            editText.setBackgroundDrawable(ninePatchDrawable);
         }
     }
 }

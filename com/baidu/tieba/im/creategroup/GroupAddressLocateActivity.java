@@ -8,10 +8,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.BaseActivity;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GroupAddressLocateActivity extends com.baidu.tbadk.a implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c, com.baidu.tieba.im.f.g {
+public class GroupAddressLocateActivity extends BaseActivity implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c, com.baidu.tieba.im.f.h {
     private boolean c = false;
     private boolean d = false;
     private String e = null;
@@ -28,11 +29,11 @@ public class GroupAddressLocateActivity extends com.baidu.tbadk.a implements Ada
         intent.putExtra("IntentDataOldAddress", str);
         intent.putExtra("IntentDataOldBusiness", str2);
         intent.putExtra("IntentDataIsHiddenAddress", z);
-        activity.startActivityForResult(intent, 21001);
+        activity.startActivityForResult(intent, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
@@ -48,22 +49,22 @@ public class GroupAddressLocateActivity extends com.baidu.tbadk.a implements Ada
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.j != null) {
-            this.j.d();
+            this.j.b();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.j.k();
+        this.j.i();
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4 && keyEvent.getRepeatCount() == 0 && d()) {
             return true;
@@ -71,28 +72,29 @@ public class GroupAddressLocateActivity extends com.baidu.tbadk.a implements Ada
         return super.onKeyDown(i, keyEvent);
     }
 
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.j.l()) {
+        if (view == this.j.j()) {
             e();
-        } else if (view == this.j.m()) {
+        } else if (view == this.j.k()) {
             if (!d()) {
                 finish();
             }
-        } else if (view == this.j.n()) {
-            this.j.g();
-            this.j.f();
+        } else if (view == this.j.l()) {
+            this.j.e();
+            this.j.d();
             this.i = -1;
-        } else if (view == this.j.o()) {
-            switch (this.j.p()) {
+        } else if (view == this.j.m()) {
+            switch (this.j.n()) {
                 case 1:
                     startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), 22001);
                     return;
                 case 2:
-                    this.j.h();
+                    this.j.f();
                     this.j.a();
                     return;
+                case 3:
                 default:
                     return;
             }
@@ -103,13 +105,13 @@ public class GroupAddressLocateActivity extends com.baidu.tbadk.a implements Ada
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 22001) {
-            this.j.h();
+            this.j.f();
             this.j.a();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
-    public final void a(View view, BdSwitchView.SwitchState switchState) {
+    public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
             this.c = true;
         } else {
@@ -117,19 +119,19 @@ public class GroupAddressLocateActivity extends com.baidu.tbadk.a implements Ada
         }
     }
 
-    @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        this.j.g();
         this.j.e();
+        this.j.c();
         this.i = i;
     }
 
-    public final int c() {
+    public int c() {
         return this.i;
     }
 
-    @Override // com.baidu.tieba.im.f.g
-    public final void a(String str, List<String> list, double d, double d2) {
+    @Override // com.baidu.tieba.im.f.h
+    public void a(String str, List<String> list, double d, double d2) {
         this.j.b(String.valueOf(d));
         this.j.a(String.valueOf(d2));
         this.h = str;
@@ -151,19 +153,19 @@ public class GroupAddressLocateActivity extends com.baidu.tbadk.a implements Ada
         }
     }
 
-    @Override // com.baidu.tieba.im.f.g
-    public final void a() {
-        this.j.i();
+    @Override // com.baidu.tieba.im.f.h
+    public void a() {
+        this.j.g();
     }
 
-    @Override // com.baidu.tieba.im.f.g
-    public final void b() {
-        this.j.j();
+    @Override // com.baidu.tieba.im.f.h
+    public void b() {
+        this.j.h();
     }
 
     private boolean d() {
-        if (this.c != this.d || this.i >= 0) {
-            this.j.q();
+        if (this.c != this.d || this.i > -1) {
+            this.j.o();
             return true;
         }
         return false;
@@ -173,14 +175,14 @@ public class GroupAddressLocateActivity extends com.baidu.tbadk.a implements Ada
     public void e() {
         Intent intent = new Intent();
         if (this.g == null) {
-            if (this.i >= 0) {
+            if (this.i > -1) {
                 intent.putExtra("ResultDataSelectedBusiness", "");
                 intent.putExtra("ResultDataAddress", this.h);
             } else {
                 intent.putExtra("ResultDataSelectedBusiness", this.f);
                 intent.putExtra("ResultDataAddress", this.e);
             }
-        } else if (this.i >= 0 && this.i < this.g.length) {
+        } else if (this.i > -1 && this.i < this.g.length) {
             intent.putExtra("ResultDataSelectedBusiness", this.g[this.i]);
             intent.putExtra("ResultDataAddress", this.h);
         } else {
@@ -193,7 +195,7 @@ public class GroupAddressLocateActivity extends com.baidu.tbadk.a implements Ada
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.j.a(i);

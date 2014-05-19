@@ -3,7 +3,7 @@ package com.baidu.tieba.square;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-final class ae {
+class ae {
     TextView a;
     TextView b;
     LinearLayout c;
@@ -14,7 +14,7 @@ final class ae {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(ac acVar, byte b) {
+    public /* synthetic */ ae(ac acVar, ae aeVar) {
         this(acVar);
     }
 }

@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class PerformMonitorService extends Service {
     private com.baidu.adp.lib.debug.a.o b = null;
@@ -34,83 +35,87 @@ public class PerformMonitorService extends Service {
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
         if (this.g == null && !this.f) {
-            try {
-                if (!this.b.a()) {
-                    new Thread(this.b).start();
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "monitorOn", e.toString());
-            }
-            try {
-                if (!this.c.a()) {
-                    this.c.b();
-                }
-            } catch (Exception e2) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "monitorOn", e2.toString());
-            }
-            try {
-                if (!this.e.a()) {
-                    new Thread(this.e).start();
-                }
-            } catch (Exception e3) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "monitorOn", e3.toString());
-            }
-            try {
-                if (!this.d.a()) {
-                    this.d.b();
-                }
-            } catch (Exception e4) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "monitorOn", e4.toString());
-            }
-            this.f = true;
-            new Thread(this.a).start();
-            new Handler().postDelayed(new g(this), 10000L);
+            a();
         }
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        a();
+        b();
         super.onDestroy();
     }
 
-    public final void a() {
+    public void a() {
+        try {
+            if (!this.b.a()) {
+                new Thread(this.b).start();
+            }
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "monitorOn", e.toString());
+        }
+        try {
+            if (!this.c.a()) {
+                this.c.b();
+            }
+        } catch (Exception e2) {
+            BdLog.e(getClass().getName(), "monitorOn", e2.toString());
+        }
+        try {
+            if (!this.e.a()) {
+                new Thread(this.e).start();
+            }
+        } catch (Exception e3) {
+            BdLog.e(getClass().getName(), "monitorOn", e3.toString());
+        }
+        try {
+            if (!this.d.a()) {
+                this.d.b();
+            }
+        } catch (Exception e4) {
+            BdLog.e(getClass().getName(), "monitorOn", e4.toString());
+        }
+        this.f = true;
+        new Thread(this.a).start();
+        new Handler().postDelayed(new g(this), 10000L);
+    }
+
+    public void b() {
         try {
             if (this.b.a()) {
                 this.b.c();
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "monitorOff", e.toString());
+            BdLog.e(getClass().getName(), "monitorOff", e.toString());
         }
         try {
             if (this.c.a()) {
                 this.c.c();
             }
         } catch (Exception e2) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "monitorOff", e2.toString());
+            BdLog.e(getClass().getName(), "monitorOff", e2.toString());
         }
         try {
             if (this.e.a()) {
                 this.e.c();
             }
         } catch (Exception e3) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "monitorOff", e3.toString());
+            BdLog.e(getClass().getName(), "monitorOff", e3.toString());
         }
         try {
             if (this.d.a()) {
                 this.d.c();
             }
         } catch (Exception e4) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "monitorOff", e4.toString());
+            BdLog.e(getClass().getName(), "monitorOff", e4.toString());
         }
         this.f = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void c(PerformMonitorService performMonitorService) {
-        if (performMonitorService.g == null) {
-            performMonitorService.g = new h(performMonitorService, (byte) 0);
-            performMonitorService.g.execute(new String[0]);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
+        if (this.g == null) {
+            this.g = new h(this, null);
+            this.g.execute(new String[0]);
         }
     }
 }

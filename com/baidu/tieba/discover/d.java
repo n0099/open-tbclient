@@ -9,7 +9,7 @@ import com.baidu.tbadk.coreExtra.view.BannerView;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d implements l {
+public class d implements l {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +18,7 @@ public final class d implements l {
     }
 
     @Override // com.baidu.tieba.discover.l
-    public final void a(n nVar) {
+    public void a(n nVar) {
         BdPullRefreshScrollView bdPullRefreshScrollView;
         ViewGroup viewGroup;
         List list;
@@ -29,20 +29,20 @@ public final class d implements l {
         DiscoverItemView discoverItemView;
         BannerView bannerView;
         BannerView bannerView2;
-        bdPullRefreshScrollView = this.a.o;
-        bdPullRefreshScrollView.a();
-        this.a.p = true;
+        bdPullRefreshScrollView = this.a.p;
+        bdPullRefreshScrollView.c();
+        this.a.q = true;
         if (nVar.d != null && !TextUtils.isEmpty(nVar.d.b)) {
             bannerView = this.a.e;
             bannerView.a("discover_tab_banner_click", "discover_tab_banner_close");
             bannerView2 = this.a.e;
             bannerView2.a(nVar.d.b, nVar.d.a, "discover_banner_date", 259200000L);
         }
-        this.a.q = nVar.e;
+        this.a.r = nVar.e;
         if (nVar.c != null) {
             viewGroup = this.a.d;
             viewGroup.removeAllViews();
-            list = this.a.s;
+            list = this.a.t;
             list.clear();
             int size = nVar.c.size();
             for (int i = 0; i < size; i++) {
@@ -50,10 +50,10 @@ public final class d implements l {
                 eVar = this.a.b;
                 DiscoverItemView discoverItemView2 = new DiscoverItemView(eVar);
                 DiscoverItemView d = discoverItemView2.a(pVar.a).b(pVar.c).c(pVar.b).a(pVar.d).b(true).d(pVar.c);
-                onClickListener = this.a.v;
+                onClickListener = this.a.w;
                 d.a(onClickListener);
                 if (i == 0) {
-                    discoverItemView = this.a.l;
+                    discoverItemView = this.a.m;
                     discoverItemView.d(false);
                 }
                 if (i == size - 1) {
@@ -61,18 +61,18 @@ public final class d implements l {
                 }
                 viewGroup2 = this.a.d;
                 viewGroup2.addView(discoverItemView2);
-                discoverItemView2.d(TbadkApplication.j().l());
-                list2 = this.a.s;
+                discoverItemView2.d(TbadkApplication.m252getInst().getSkinType());
+                list2 = this.a.t;
                 list2.add(discoverItemView2);
             }
         }
     }
 
     @Override // com.baidu.tieba.discover.l
-    public final void a() {
+    public void b(n nVar) {
         BdPullRefreshScrollView bdPullRefreshScrollView;
-        bdPullRefreshScrollView = this.a.o;
-        bdPullRefreshScrollView.a();
-        this.a.p = false;
+        bdPullRefreshScrollView = this.a.p;
+        bdPullRefreshScrollView.c();
+        this.a.q = false;
     }
 }

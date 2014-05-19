@@ -3,51 +3,75 @@ package com.baidu.tieba.im.creategroup;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public final class e extends com.baidu.adp.a.f {
+public class e extends com.baidu.adp.base.e {
     NavigationBar a;
-    View c;
+    View b;
+    Button c;
     Button d;
-    Button e;
+    TextView e;
     TextView f;
-    TextView g;
-    CreateGroupMainActivity h;
-    private int i;
+    CreateGroupMainActivity g;
+    private int h;
 
-    public final int a() {
-        return this.i;
+    public int a() {
+        return this.h;
+    }
+
+    public View b() {
+        return this.c;
+    }
+
+    public View c() {
+        return this.d;
     }
 
     public e(CreateGroupMainActivity createGroupMainActivity) {
         super(createGroupMainActivity);
         this.a = null;
+        this.b = null;
         this.c = null;
         this.d = null;
         this.e = null;
         this.f = null;
         this.g = null;
-        this.h = null;
-        this.i = 0;
-        this.h = createGroupMainActivity;
-        createGroupMainActivity.setContentView(com.baidu.tieba.im.i.create_group_main_activity);
-        this.c = createGroupMainActivity.findViewById(com.baidu.tieba.im.h.parent);
-        this.d = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.im.h.create_group1);
-        this.e = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.im.h.create_group2);
-        this.f = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.im.h.create_group1_text);
-        this.g = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.im.h.create_group2_text);
-        this.a = (NavigationBar) createGroupMainActivity.findViewById(com.baidu.tieba.im.h.view_navigation_bar);
-        this.a.a(createGroupMainActivity.getResources().getString(com.baidu.tieba.im.j.group_create));
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setOnClickListener(createGroupMainActivity);
-        this.e.setOnClickListener(createGroupMainActivity);
+        this.h = 0;
+        b(createGroupMainActivity);
+        a(createGroupMainActivity);
     }
 
-    public final void a(boolean z, boolean z2, String str, String str2, int i) {
-        this.d.setEnabled(z2);
-        this.e.setEnabled(z);
-        this.f.setText(str2);
-        this.g.setText(str);
-        this.i = i;
+    private void a(CreateGroupMainActivity createGroupMainActivity) {
+        this.c.setOnClickListener(createGroupMainActivity);
+        this.d.setOnClickListener(createGroupMainActivity);
+    }
+
+    public void a(boolean z, boolean z2, String str, String str2, int i) {
+        this.c.setEnabled(z2);
+        this.d.setEnabled(z);
+        this.e.setText(str2);
+        this.f.setText(str);
+        this.h = i;
+    }
+
+    private void b(CreateGroupMainActivity createGroupMainActivity) {
+        this.g = createGroupMainActivity;
+        createGroupMainActivity.setContentView(com.baidu.tieba.s.create_group_main_activity);
+        this.b = createGroupMainActivity.findViewById(com.baidu.tieba.r.parent);
+        this.c = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.r.create_group1);
+        this.d = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.r.create_group2);
+        this.e = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.r.create_group1_text);
+        this.f = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.r.create_group2_text);
+        this.a = (NavigationBar) createGroupMainActivity.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.a.a(createGroupMainActivity.getResources().getString(com.baidu.tieba.u.group_create));
+        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+    }
+
+    public void a(int i) {
+        this.g.getLayoutMode().a(i == 1);
+        this.g.getLayoutMode().a(this.b);
+        bc.a(this.b, i);
+        this.a.c(i);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.topRec;
 
 import android.widget.ImageView;
 /* loaded from: classes.dex */
-final class f implements com.baidu.tbadk.imageManager.d {
+class f implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ e a;
     private final /* synthetic */ String b;
     private final /* synthetic */ ImageView c;
@@ -15,7 +15,7 @@ final class f implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         if (str.equals(this.b)) {
             this.c.setTag(this.b);
             this.c.invalidate();

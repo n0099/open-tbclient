@@ -208,7 +208,7 @@ public class LocalBroadcastManager {
                 }
                 if (arrayList3 != null) {
                     for (int i2 = 0; i2 < arrayList3.size(); i2++) {
-                        ((ReceiverRecord) arrayList3.get(i2)).broadcasting = DEBUG;
+                        ((ReceiverRecord) arrayList3.get(i2)).broadcasting = false;
                     }
                     this.mPendingBroadcasts.add(new BroadcastRecord(intent, arrayList3));
                     if (!this.mHandler.hasMessages(1)) {
@@ -217,7 +217,7 @@ public class LocalBroadcastManager {
                     return true;
                 }
             }
-            return DEBUG;
+            return false;
         }
     }
 

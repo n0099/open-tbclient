@@ -42,36 +42,36 @@ public final class b {
 
     public static String a(Context context, String str, String str2) {
         long j;
-        String str3;
         List<ResolveInfo> g = g(context);
         if (g == null || g.size() <= 1) {
             return context.getPackageName();
         }
         long j2 = context.getSharedPreferences(context.getPackageName() + ".push_sync", 1).getLong("priority", 0L);
         String packageName = context.getPackageName();
-        String str4 = packageName;
         long j3 = j2;
+        String str3 = packageName;
         for (ResolveInfo resolveInfo : g) {
-            String str5 = resolveInfo.activityInfo.packageName;
+            String str4 = resolveInfo.activityInfo.packageName;
             SharedPreferences sharedPreferences = null;
             try {
-                sharedPreferences = context.createPackageContext(str5, 2).getSharedPreferences(str5 + str, 1);
+                sharedPreferences = context.createPackageContext(str4, 2).getSharedPreferences(str4 + str, 1);
             } catch (PackageManager.NameNotFoundException e) {
             }
             if (sharedPreferences != null) {
                 long j4 = sharedPreferences.getLong(str2, 1L);
                 if (j4 > j3) {
-                    str3 = str5;
                     j = j4;
                 } else {
+                    if (j4 == 1) {
+                    }
+                    str4 = str3;
                     j = j3;
-                    str3 = str4;
                 }
-                str4 = str3;
                 j3 = j;
+                str3 = str4;
             }
         }
-        return str4;
+        return str3;
     }
 
     public static void a(Context context, long j) {
@@ -197,6 +197,8 @@ public final class b {
 
     public static boolean a(String str, Context context) {
         boolean z;
+        if (str == null) {
+        }
         List g = g(context);
         if (g.size() <= 1) {
             return false;
@@ -355,7 +357,7 @@ public final class b {
     }
 
     public static long e(Context context) {
-        long j = (g(context, context.getPackageName()) ? 0L : 1L) << 1;
+        long j = (g(context, context.getPackageName()) ? 0L : 0 + 1) << 1;
         if (!h(context)) {
             j++;
         }

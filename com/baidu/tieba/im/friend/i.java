@@ -10,72 +10,84 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i extends com.baidu.adp.a.f {
+public class i extends com.baidu.adp.base.e {
     private IMBlackListActivity a;
-    private NavigationBar c;
-    private View d;
-    private BdListView e;
-    private f f;
-    private TextView g;
-    private ProgressBar h;
-    private com.baidu.tbadk.imageManager.d i;
+    private NavigationBar b;
+    private View c;
+    private BdListView d;
+    private f e;
+    private TextView f;
+    private ProgressBar g;
+    private com.baidu.tbadk.imageManager.d h;
 
     public i(IMBlackListActivity iMBlackListActivity) {
         super(iMBlackListActivity);
-        this.i = new j(this);
+        this.h = new j(this);
         this.a = iMBlackListActivity;
-        this.a.setContentView(com.baidu.tieba.im.i.im_black_list);
-        this.d = this.a.findViewById(com.baidu.tieba.im.h.root_view);
-        this.c = (NavigationBar) this.d.findViewById(com.baidu.tieba.im.h.view_navigation_bar);
-        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c.a(com.baidu.tieba.im.j.black_list_title);
-        this.e = (BdListView) this.d.findViewById(com.baidu.tieba.im.h.black_list);
-        this.g = (TextView) this.d.findViewById(com.baidu.tieba.im.h.no_data_container);
-        this.h = (ProgressBar) this.d.findViewById(com.baidu.tieba.im.h.progress);
-        this.f = new f(this.a);
-        this.e.setAdapter((ListAdapter) this.f);
-        this.e.setOnScrollListener(new k(this));
-        int l = TbadkApplication.j().l();
-        this.a.getLayoutMode().a(l == 1);
-        this.a.getLayoutMode().a(this.d);
-        this.c.b(l);
-    }
-
-    public final void a() {
-        this.h.setVisibility(0);
-    }
-
-    public final void d() {
-        this.h.setVisibility(8);
-    }
-
-    public final void a(com.baidu.tieba.im.data.a aVar) {
-        this.f.a(aVar);
-        if (this.f.getCount() <= 0) {
-            this.e.setVisibility(8);
-            this.g.setVisibility(0);
-            return;
-        }
-        this.e.setVisibility(0);
-        this.g.setVisibility(8);
-        this.f.notifyDataSetChanged();
         e();
     }
 
-    public final void a(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
+    public void a() {
+        this.g.setVisibility(0);
+    }
+
+    public void b() {
+        this.g.setVisibility(8);
+    }
+
+    public void a(com.baidu.tieba.im.data.a aVar) {
+        this.e.a(aVar);
+        if (this.e.getCount() <= 0) {
+            this.d.setVisibility(8);
+            this.f.setVisibility(0);
+            return;
+        }
+        this.d.setVisibility(0);
+        this.f.setVisibility(8);
+        this.e.notifyDataSetChanged();
+        c();
+    }
+
+    public void a(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
         if (arrayList == null || arrayList.size() <= 0) {
-            this.e.setVisibility(8);
-            this.g.setVisibility(0);
+            this.d.setVisibility(8);
+            this.f.setVisibility(0);
             return;
         }
-        this.e.setVisibility(0);
-        this.g.setVisibility(8);
-        this.f.a(arrayList);
-        this.f.notifyDataSetChanged();
-        e();
+        this.d.setVisibility(0);
+        this.f.setVisibility(8);
+        this.e.a(arrayList);
+        this.e.notifyDataSetChanged();
+        c();
     }
 
-    public final void e() {
-        com.baidu.tbadk.core.util.ac.a(this.e, this.f.a(), null, this.i, null, 0, 1);
+    private void e() {
+        this.a.setContentView(com.baidu.tieba.s.im_black_list);
+        this.c = this.a.findViewById(com.baidu.tieba.r.root_view);
+        this.b = (NavigationBar) this.c.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.b.a(com.baidu.tieba.u.black_list_title);
+        this.d = (BdListView) this.c.findViewById(com.baidu.tieba.r.black_list);
+        this.f = (TextView) this.c.findViewById(com.baidu.tieba.r.no_data_container);
+        this.g = (ProgressBar) this.c.findViewById(com.baidu.tieba.r.progress);
+        this.e = new f(this.a);
+        this.d.setAdapter((ListAdapter) this.e);
+        d();
+        f();
+    }
+
+    private void f() {
+        int skinType = TbadkApplication.m252getInst().getSkinType();
+        this.a.getLayoutMode().a(skinType == 1);
+        this.a.getLayoutMode().a(this.c);
+        this.b.c(skinType);
+    }
+
+    public void c() {
+        com.baidu.tbadk.core.util.ae.a(this.d, this.e.a(), null, this.h, null, 0, 1);
+    }
+
+    public void d() {
+        this.d.setOnScrollListener(new k(this));
     }
 }

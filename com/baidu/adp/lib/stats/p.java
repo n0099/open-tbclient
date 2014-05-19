@@ -1,41 +1,63 @@
 package com.baidu.adp.lib.stats;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class p {
-    final /* synthetic */ n a;
-    private int b;
-    private int c;
+public class p {
+    final /* synthetic */ o a;
+    private long b;
+    private boolean c;
     private int d;
+    private long e;
+    private boolean f;
 
-    private p(n nVar) {
-        this.a = nVar;
+    private p(o oVar) {
+        this.a = oVar;
+        this.c = false;
+        this.d = 0;
+        this.f = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(n nVar, byte b) {
-        this(nVar);
+    public /* synthetic */ p(o oVar, p pVar) {
+        this(oVar);
     }
 
-    public final int a() {
-        return this.b;
+    public boolean a() {
+        return this.f;
     }
 
-    public final void a(int i) {
-        this.b = i;
+    public void a(boolean z) {
+        this.f = z;
     }
 
-    public final int b() {
-        return this.c;
+    public long b() {
+        return this.e;
     }
 
-    public final void b(int i) {
-        this.c = 120000;
+    public void a(long j) {
+        this.e = j;
     }
 
-    public final int c() {
+    public int c() {
         return this.d;
     }
 
-    public final void c(int i) {
+    public void a(int i) {
         this.d = i;
+    }
+
+    public long d() {
+        return this.b;
+    }
+
+    public void b(long j) {
+        this.b = j;
+    }
+
+    public boolean e() {
+        return this.c;
+    }
+
+    public void b(boolean z) {
+        this.c = z;
     }
 }

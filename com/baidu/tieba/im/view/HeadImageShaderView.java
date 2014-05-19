@@ -24,9 +24,9 @@ public class HeadImageShaderView extends FrameLayout {
     public HeadImageShaderView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.b = new HeadImageView(context);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(com.baidu.tieba.im.f.im_msg_head_photo_inner_size);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(com.baidu.tieba.p.im_msg_head_photo_inner_size);
         this.b.setLayoutParams(new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize, 17));
-        this.c = getResources().getDrawable(com.baidu.tieba.im.g.bg_lt_head_shadow);
+        this.c = getResources().getDrawable(com.baidu.tieba.q.bg_lt_head_shadow);
         this.a = new View(context);
         this.a.setBackgroundDrawable(this.c);
         this.a.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));

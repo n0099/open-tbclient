@@ -1,47 +1,51 @@
 package com.baidu.tieba.model;
 
+import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.message.ResponseBubbleListMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class g extends com.baidu.adp.framework.c.b {
+public class g extends HttpMessageListener {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i) {
-        super(1006000);
+        super(i);
         this.a = fVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(HttpResponsedMessage httpResponsedMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         i iVar;
         i iVar2;
         i iVar3;
         i iVar4;
-        HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
-        if (httpResponsedMessage2 == null || httpResponsedMessage2.g() != 1006000) {
-            return;
-        }
-        iVar = this.a.a;
-        if (iVar != null) {
-            int d = httpResponsedMessage2.d();
-            int e = httpResponsedMessage2.e();
-            if (!(httpResponsedMessage2 instanceof ResponseBubbleListMessage)) {
-                iVar4 = this.a.a;
-                iVar4.b(null);
-                return;
+        i iVar5;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1007000) {
+            iVar = this.a.a;
+            if (iVar != null) {
+                int statusCode = httpResponsedMessage.getStatusCode();
+                int error = httpResponsedMessage.getError();
+                if (!(httpResponsedMessage instanceof ResponseBubbleListMessage)) {
+                    iVar5 = this.a.a;
+                    iVar5.b(null);
+                    return;
+                }
+                ResponseBubbleListMessage responseBubbleListMessage = (ResponseBubbleListMessage) httpResponsedMessage;
+                if (statusCode != 200 || error != 0) {
+                    iVar2 = this.a.a;
+                    iVar2.b(responseBubbleListMessage.getBubbleListData());
+                } else if (responseBubbleListMessage.getBubbleListData() == null) {
+                    iVar4 = this.a.a;
+                    iVar4.b(responseBubbleListMessage.getBubbleListData());
+                } else {
+                    iVar3 = this.a.a;
+                    iVar3.a(responseBubbleListMessage.getBubbleListData());
+                }
             }
-            ResponseBubbleListMessage responseBubbleListMessage = (ResponseBubbleListMessage) httpResponsedMessage2;
-            if (d != 200 || e != 0 || responseBubbleListMessage.i() == null) {
-                iVar2 = this.a.a;
-                iVar2.b(responseBubbleListMessage.i());
-                return;
-            }
-            iVar3 = this.a.a;
-            iVar3.a(responseBubbleListMessage.i());
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.discover;
 /* loaded from: classes.dex */
-final class p {
+class p {
     String a;
     String b;
     String c;

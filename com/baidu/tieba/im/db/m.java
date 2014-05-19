@@ -3,7 +3,7 @@ package com.baidu.tieba.im.db;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m extends com.baidu.tieba.im.m<Void> {
+public class m extends com.baidu.tieba.im.b<Void> {
     final /* synthetic */ i b;
     private final /* synthetic */ LinkedList c;
 
@@ -13,9 +13,10 @@ public final class m extends com.baidu.tieba.im.m<Void> {
         this.c = linkedList;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* bridge */ /* synthetic */ Void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
         h.a().a(this.c);
         return null;
     }

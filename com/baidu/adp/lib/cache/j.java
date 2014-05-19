@@ -2,7 +2,7 @@ package com.baidu.adp.lib.cache;
 
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-final class j implements g {
+class j implements g {
     private final int a;
     private LinkedList<m<?>> b;
 
@@ -11,17 +11,17 @@ final class j implements g {
     }
 
     @Override // com.baidu.adp.lib.cache.f
-    public final int a() {
+    public int a() {
         return this.a;
     }
 
     @Override // com.baidu.adp.lib.cache.g
-    public final void c() {
+    public void c() {
         this.b = new LinkedList<>();
     }
 
     @Override // com.baidu.adp.lib.cache.g
-    public final String a(m<?> mVar) {
+    public String a(m<?> mVar) {
         String str;
         long j;
         int i;
@@ -30,25 +30,27 @@ final class j implements g {
             return mVar.a;
         }
         this.b.add(mVar);
-        if (this.b.size() > this.a) {
+        if (this.b.size() > a()) {
             long j2 = 0;
             int i2 = 0;
             int i3 = -1;
             while (i2 < this.b.size()) {
                 m<?> mVar2 = this.b.get(i2);
                 if (i3 == -1 || mVar2.e < j2) {
-                    str = mVar2.a;
-                    j = mVar2.e;
+                    String str3 = mVar2.a;
+                    long j3 = mVar2.e;
+                    str = str3;
+                    j = j3;
                     i = i2;
                 } else {
-                    j = j2;
                     str = str2;
+                    j = j2;
                     i = i3;
                 }
                 i2++;
                 i3 = i;
-                str2 = str;
                 j2 = j;
+                str2 = str;
             }
             this.b.remove(i3);
             return str2;
@@ -57,13 +59,13 @@ final class j implements g {
     }
 
     @Override // com.baidu.adp.lib.cache.g
-    public final void d() {
+    public void d() {
         this.b.clear();
         this.b = null;
     }
 
     @Override // com.baidu.adp.lib.cache.f
-    public final boolean b() {
+    public boolean b() {
         return true;
     }
 }

@@ -1,16 +1,22 @@
 package com.baidu.tieba.discover;
 
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.TbWebViewActivity;
-import com.baidu.tbadk.core.b.an;
-import com.baidu.tbadk.core.b.ao;
-import com.baidu.tbadk.core.b.aq;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.atomData.an;
+import com.baidu.tbadk.core.atomData.az;
+import com.baidu.tbadk.core.atomData.ba;
+import com.baidu.tbadk.core.atomData.bc;
+import com.baidu.tbadk.core.frameworkData.CmdConfig;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bi;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements View.OnClickListener {
+public class c implements View.OnClickListener {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +25,7 @@ public final class c implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         DiscoverItemView discoverItemView;
         DiscoverItemView discoverItemView2;
         DiscoverItemView discoverItemView3;
@@ -27,9 +33,10 @@ public final class c implements View.OnClickListener {
         DiscoverItemView discoverItemView5;
         DiscoverItemView discoverItemView6;
         DiscoverItemView discoverItemView7;
+        DiscoverItemView discoverItemView8;
         com.baidu.tbadk.core.e eVar;
         com.baidu.tbadk.core.e eVar2;
-        DiscoverItemView discoverItemView8;
+        DiscoverItemView discoverItemView9;
         com.baidu.tbadk.core.e eVar3;
         com.baidu.tbadk.core.e eVar4;
         boolean z;
@@ -41,6 +48,7 @@ public final class c implements View.OnClickListener {
         com.baidu.tbadk.core.e eVar7;
         com.baidu.tbadk.core.e eVar8;
         com.baidu.tbadk.core.e eVar9;
+        com.baidu.tbadk.core.e eVar10;
         discoverItemView = this.a.f;
         if (view != discoverItemView) {
             discoverItemView2 = this.a.g;
@@ -54,72 +62,81 @@ public final class c implements View.OnClickListener {
                             discoverItemView6 = this.a.k;
                             if (view != discoverItemView6) {
                                 discoverItemView7 = this.a.l;
-                                if (view == discoverItemView7) {
-                                    com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_member_benifit", true);
-                                    eVar2 = this.a.b;
-                                    TbWebViewActivity.a(eVar2, this.a.getString(com.baidu.tieba.a.k.member_benefits), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanmall?_client_version=" + com.baidu.tbadk.core.data.n.c());
-                                    return;
-                                } else if (view instanceof DiscoverItemView) {
-                                    String str = ((DiscoverItemView) view).b;
-                                    if (!bc.c(str)) {
-                                        bg a = bg.a();
-                                        eVar = this.a.b;
-                                        a.a(eVar, new String[]{str});
+                                if (view != discoverItemView7) {
+                                    discoverItemView8 = this.a.m;
+                                    if (view == discoverItemView8) {
+                                        com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_member_benifit", true);
+                                        String str = String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion();
+                                        TbadkApplication.m252getInst().settShopUrl(str);
+                                        eVar2 = this.a.b;
+                                        TbWebViewActivity.a(eVar2, this.a.getString(u.member_benefits), str);
+                                        return;
+                                    } else if (view instanceof DiscoverItemView) {
+                                        String str2 = ((DiscoverItemView) view).b;
+                                        if (!be.c(str2)) {
+                                            bi a = bi.a();
+                                            eVar = this.a.b;
+                                            a.a(eVar, new String[]{str2});
+                                            return;
+                                        }
+                                        return;
+                                    } else {
                                         return;
                                     }
-                                    return;
-                                } else {
-                                    return;
                                 }
-                            }
-                            TbadkApplication.j().g(TbadkApplication.j().av());
-                            TbadkApplication.j().h(false);
-                            discoverItemView8 = this.a.k;
-                            discoverItemView8.a(false);
-                            com.baidu.adp.framework.c a2 = com.baidu.adp.framework.c.a();
-                            eVar3 = this.a.b;
-                            a2.a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.j(eVar3, "faceshop_from_more")));
-                            return;
-                        }
-                        com.baidu.adp.framework.c a3 = com.baidu.adp.framework.c.a();
-                        eVar4 = this.a.b;
-                        a3.a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.e(eVar4, 16003)));
-                        return;
-                    }
-                    z = this.a.p;
-                    if (z) {
-                        oVar = this.a.q;
-                        if (oVar != null) {
-                            oVar2 = this.a.q;
-                            if (oVar2.b) {
-                                com.baidu.adp.framework.c a4 = com.baidu.adp.framework.c.a();
-                                eVar6 = this.a.b;
-                                a4.a(new com.baidu.adp.framework.message.a(2010030, new an(eVar6)));
+                                TbadkApplication.m252getInst().setFaceShopVersion(TbadkApplication.m252getInst().getTempFaceShopVersion());
+                                TbadkApplication.m252getInst().setFaceShopNew(false);
+                                discoverItemView9 = this.a.l;
+                                discoverItemView9.a(false);
+                                MessageManager messageManager = MessageManager.getInstance();
+                                eVar3 = this.a.b;
+                                messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.k(eVar3, "faceshop_from_more")));
                                 return;
                             }
-                            a aVar = this.a;
-                            oVar3 = this.a.q;
-                            aVar.a(oVar3.a);
+                            MessageManager messageManager2 = MessageManager.getInstance();
+                            eVar4 = this.a.b;
+                            messageManager2.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.f(eVar4, 16003)));
                             return;
                         }
+                        z = this.a.q;
+                        if (z) {
+                            oVar = this.a.r;
+                            if (oVar != null) {
+                                oVar2 = this.a.r;
+                                if (oVar2.b) {
+                                    MessageManager messageManager3 = MessageManager.getInstance();
+                                    eVar6 = this.a.b;
+                                    messageManager3.sendMessage(new CustomMessage((int) CmdConfig.SIGN_ALL_FORUM_CUSTOM_CMD, new az(eVar6)));
+                                    return;
+                                }
+                                a aVar = this.a;
+                                oVar3 = this.a.r;
+                                aVar.b(oVar3.a);
+                                return;
+                            }
+                        }
+                        a aVar2 = this.a;
+                        eVar5 = this.a.b;
+                        aVar2.b(eVar5.getString(u.no_signall_data));
+                        return;
                     }
-                    a aVar2 = this.a;
-                    eVar5 = this.a.b;
-                    aVar2.a(eVar5.getString(com.baidu.tieba.a.k.no_signall_data));
+                    MessageManager messageManager4 = MessageManager.getInstance();
+                    eVar7 = this.a.b;
+                    messageManager4.sendMessage(new CustomMessage(2003001, new an(eVar7)));
                     return;
                 }
-                com.baidu.adp.framework.c a5 = com.baidu.adp.framework.c.a();
-                eVar7 = this.a.b;
-                a5.a(new com.baidu.adp.framework.message.a(2010011, new ao(eVar7)));
+                MessageManager messageManager5 = MessageManager.getInstance();
+                eVar8 = this.a.b;
+                messageManager5.sendMessage(new CustomMessage((int) CmdConfig.SINGLE_FORUM_FEED_CUSTOM_CMD, new ba(eVar8)));
                 return;
             }
-            com.baidu.adp.framework.c a6 = com.baidu.adp.framework.c.a();
-            eVar8 = this.a.b;
-            a6.a(new com.baidu.adp.framework.message.a(2010020, new com.baidu.tbadk.core.b.g(eVar8, "faxian")));
+            MessageManager messageManager6 = MessageManager.getInstance();
+            eVar9 = this.a.b;
+            messageManager6.sendMessage(new CustomMessage((int) CmdConfig.DAILY_RECOMMEND_CUSTOM_CMD, new com.baidu.tbadk.core.atomData.h(eVar9, "faxian")));
             return;
         }
-        com.baidu.adp.framework.c a7 = com.baidu.adp.framework.c.a();
-        eVar9 = this.a.b;
-        a7.a(new com.baidu.adp.framework.message.a(2010010, new aq(eVar9)));
+        MessageManager messageManager7 = MessageManager.getInstance();
+        eVar10 = this.a.b;
+        messageManager7.sendMessage(new CustomMessage((int) CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new bc(eVar10)));
     }
 }

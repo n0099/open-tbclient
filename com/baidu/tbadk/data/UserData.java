@@ -1,8 +1,9 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
+import tbclient.User;
 /* loaded from: classes.dex */
 public class UserData extends MetaData {
     private static final long serialVersionUID = -1871115639893992930L;
@@ -15,6 +16,7 @@ public class UserData extends MetaData {
     private String intro;
     private String ip;
     private boolean isManager;
+    private boolean isMask;
     private long lastReplyTime;
     private String lat;
     private int like_bars;
@@ -39,6 +41,7 @@ public class UserData extends MetaData {
     public UserData() {
         this.password = null;
         this.isManager = false;
+        this.isMask = false;
         this.ip = null;
         this.BDUSS = null;
         this.fans_num = 0;
@@ -54,6 +57,7 @@ public class UserData extends MetaData {
     public UserData(long j, String str, String str2, int i) {
         this.password = null;
         this.isManager = false;
+        this.isMask = false;
         setUserId(String.valueOf(j));
         setUserName(str);
         setPortrait(str2);
@@ -77,12 +81,36 @@ public class UserData extends MetaData {
     }
 
     @Override // com.baidu.tbadk.data.MetaData
+    public void parserProtobuf(User user) {
+        if (user != null) {
+            super.parserProtobuf(user);
+            this.ip = user.ip;
+            this.BDUSS = user.BDUSS;
+            this.fans_num = user.fans_num.intValue();
+            this.concern_num = user.concern_num.intValue();
+            this.sex = user.sex.intValue();
+            this.like_bars = user.my_like_num.intValue();
+            this.intro = user.intro;
+            this.have_attention = user.has_concerned.intValue();
+            this.password = user.passwd;
+            this.posts_num = user.post_num.intValue();
+            this.tb_age = user.tb_age;
+            if (user.is_manager.intValue() == 1) {
+                this.isManager = true;
+            } else {
+                this.isManager = false;
+            }
+            this.bimg_url = user.bimg_url;
+        }
+    }
+
+    @Override // com.baidu.tbadk.data.MetaData
     public void parserJson(String str) {
         super.parserJson(str);
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            f.b("PostData", "parserJson", "error = " + e.getMessage());
+            BdLog.e("PostData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -108,21 +136,26 @@ public class UserData extends MetaData {
                     this.isManager = false;
                 }
                 this.bimg_url = jSONObject.optString("bimg_url");
+                if (jSONObject.optInt("is_mask") == 1) {
+                    this.isMask = true;
+                } else {
+                    this.isMask = false;
+                }
             }
         } catch (Exception e) {
-            f.b("PostData", "parserJson", "error = " + e.getMessage());
+            BdLog.e("PostData", "parserJson", "error = " + e.getMessage());
         }
     }
 
     @Override // com.baidu.tbadk.data.MetaData
     public void logPrint() {
         super.logPrint();
-        f.d(getClass().getName(), "logPrint", "ip = " + this.ip);
-        f.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
-        f.d(getClass().getName(), "logPrint", "fans_num = " + String.valueOf(this.fans_num));
-        f.d(getClass().getName(), "logPrint", "concern_num = " + String.valueOf(this.concern_num));
-        f.d(getClass().getName(), "logPrint", "sex = " + String.valueOf(this.sex));
-        f.d(getClass().getName(), "logPrint", "intro = " + this.intro);
+        BdLog.v(getClass().getName(), "logPrint", "ip = " + this.ip);
+        BdLog.v(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
+        BdLog.v(getClass().getName(), "logPrint", "fans_num = " + String.valueOf(this.fans_num));
+        BdLog.v(getClass().getName(), "logPrint", "concern_num = " + String.valueOf(this.concern_num));
+        BdLog.v(getClass().getName(), "logPrint", "sex = " + String.valueOf(this.sex));
+        BdLog.v(getClass().getName(), "logPrint", "intro = " + this.intro);
     }
 
     public void setFans_num(int i) {
@@ -259,6 +292,14 @@ public class UserData extends MetaData {
 
     public void setBimg_url(String str) {
         this.bimg_url = str;
+    }
+
+    public boolean isMask() {
+        return this.isMask;
+    }
+
+    public void setMask(boolean z) {
+        this.isMask = z;
     }
 
     @Override // com.baidu.tbadk.data.MetaData

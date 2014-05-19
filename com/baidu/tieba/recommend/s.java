@@ -3,7 +3,7 @@ package com.baidu.tieba.recommend;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class s implements View.OnClickListener {
+public class s implements View.OnClickListener {
     final /* synthetic */ r a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public final class s implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         DailyRecommendActivity dailyRecommendActivity;
         dailyRecommendActivity = this.a.a;
         dailyRecommendActivity.a();

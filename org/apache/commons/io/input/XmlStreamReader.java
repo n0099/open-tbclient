@@ -1,5 +1,6 @@
 package org.apache.commons.io.input;
 
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.location.BDLocation;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -38,7 +39,7 @@ public class XmlStreamReader extends Reader {
     private static final String UTF_32BE = "UTF-32BE";
     private static final String UTF_32LE = "UTF-32LE";
     private static final String EBCDIC = "CP1047";
-    private static final ByteOrderMark[] XML_GUESS_BYTES = {new ByteOrderMark(UTF_8, 60, 63, 120, 109), new ByteOrderMark(UTF_16BE, 0, 60, 0, 63), new ByteOrderMark(UTF_16LE, 60, 0, 63, 0), new ByteOrderMark(UTF_32BE, 0, 0, 0, 60, 0, 0, 0, 63, 0, 0, 0, 120, 0, 0, 0, 109), new ByteOrderMark(UTF_32LE, 60, 0, 0, 0, 63, 0, 0, 0, 120, 0, 0, 0, 109, 0, 0, 0), new ByteOrderMark(EBCDIC, 76, 111, BDLocation.TypeServerError, 148)};
+    private static final ByteOrderMark[] XML_GUESS_BYTES = {new ByteOrderMark(UTF_8, 60, 63, 120, Constants.MEDIA_PAUSED), new ByteOrderMark(UTF_16BE, 0, 60, 0, 63), new ByteOrderMark(UTF_16LE, 60, 0, 63, 0), new ByteOrderMark(UTF_32BE, 0, 0, 0, 60, 0, 0, 0, 63, 0, 0, 0, 120, 0, 0, 0, Constants.MEDIA_PAUSED), new ByteOrderMark(UTF_32LE, 60, 0, 0, 0, 63, 0, 0, 0, 120, 0, 0, 0, Constants.MEDIA_PAUSED, 0, 0, 0), new ByteOrderMark(EBCDIC, 76, Constants.MEDIA_STOPPED, BDLocation.TypeServerError, 148)};
     private static final Pattern CHARSET_PATTERN = Pattern.compile("charset=[\"']?([.[^; \"']]*)[\"']?");
     public static final Pattern ENCODING_PATTERN = Pattern.compile("<\\?xml.*encoding[\\s]*=[\\s]*((?:\".[^\"]*\")|(?:'.[^']*'))", 8);
 
@@ -142,7 +143,7 @@ public class XmlStreamReader extends Reader {
     private String doLenientDetection(String str, XmlStreamReaderException e) {
         if (str != null && str.startsWith("text/html")) {
             try {
-                return calculateHttpEncoding("text/xml" + str.substring(9), e.getBomEncoding(), e.getXmlGuessEncoding(), e.getXmlEncoding(), true);
+                return calculateHttpEncoding("text/xml" + str.substring("text/html".length()), e.getBomEncoding(), e.getXmlGuessEncoding(), e.getXmlEncoding(), true);
             } catch (XmlStreamReaderException e2) {
                 e = e2;
             }
@@ -159,7 +160,10 @@ public class XmlStreamReader extends Reader {
 
     String calculateRawEncoding(String str, String str2, String str3) {
         if (str == null) {
-            return (str2 == null || str3 == null) ? this.defaultEncoding == null ? UTF_8 : this.defaultEncoding : (str3.equals(UTF_16) && (str2.equals(UTF_16BE) || str2.equals(UTF_16LE))) ? str2 : str3;
+            if (str2 == null || str3 == null) {
+                return this.defaultEncoding == null ? UTF_8 : this.defaultEncoding;
+            }
+            return (str3.equals(UTF_16) && (str2.equals(UTF_16BE) || str2.equals(UTF_16LE))) ? str2 : str3;
         } else if (str.equals(UTF_8)) {
             if (str2 != null && !str2.equals(UTF_8)) {
                 throw new XmlStreamReaderException(MessageFormat.format(RAW_EX_1, str, str2, str3), str, str2, str3);
@@ -243,7 +247,7 @@ public class XmlStreamReader extends Reader {
 
     static String getContentTypeEncoding(String str) {
         int indexOf;
-        if (str == null || (indexOf = str.indexOf(";")) < 0) {
+        if (str == null || (indexOf = str.indexOf(";")) <= -1) {
             return null;
         }
         Matcher matcher = CHARSET_PATTERN.matcher(str.substring(indexOf + 1));
@@ -257,10 +261,10 @@ public class XmlStreamReader extends Reader {
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0030, code lost:
         if (r4 != (-1)) goto L14;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x0039, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x003a, code lost:
         throw new java.io.IOException("Unexpected end of XML stream");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0054, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x005b, code lost:
         throw new java.io.IOException("XML prolog or ROOT element not found on first " + r7 + " bytes");
      */
     /*

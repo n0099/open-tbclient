@@ -5,7 +5,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements View.OnClickListener {
+public class c implements View.OnClickListener {
     final /* synthetic */ EditHeadActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public final class c implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         LinearLayout linearLayout;
         Button button;
         linearLayout = this.a.t;

@@ -1,5 +1,7 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -102,16 +104,16 @@ public class MarkData implements Serializable {
     }
 
     public void logPrint() {
-        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mId = " + this.mId);
-        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mAccount = " + this.mAccount);
-        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mFloor = " + String.valueOf(this.mFloor));
-        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mTime = " + String.valueOf(this.mTime));
-        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mSequence = " + String.valueOf(this.mSequence));
-        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mHostMode = " + String.valueOf(this.mHostMode));
-        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mTitle = " + this.mTitle);
-        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mPostId = " + this.mPostId);
-        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mAuthorName = " + this.mAuthorName);
-        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mFloorNum = " + String.valueOf(this.mReplyNum));
+        BdLog.v("MarkData", "logPrint", "mId = " + this.mId);
+        BdLog.v("MarkData", "logPrint", "mAccount = " + this.mAccount);
+        BdLog.v("MarkData", "logPrint", "mFloor = " + String.valueOf(this.mFloor));
+        BdLog.v("MarkData", "logPrint", "mTime = " + String.valueOf(this.mTime));
+        BdLog.v("MarkData", "logPrint", "mSequence = " + String.valueOf(this.mSequence));
+        BdLog.v("MarkData", "logPrint", "mHostMode = " + String.valueOf(this.mHostMode));
+        BdLog.v("MarkData", "logPrint", "mTitle = " + this.mTitle);
+        BdLog.v("MarkData", "logPrint", "mPostId = " + this.mPostId);
+        BdLog.v("MarkData", "logPrint", "mAuthorName = " + this.mAuthorName);
+        BdLog.v("MarkData", "logPrint", "mFloorNum = " + String.valueOf(this.mReplyNum));
     }
 
     public void setAccount(String str) {
@@ -160,26 +162,26 @@ public class MarkData implements Serializable {
             jSONObject.put("tid", this.mThreadId);
             jSONObject.put("pid", this.mPostId);
             if (this.mHostMode) {
-                jSONObject.put("status", "1");
+                jSONObject.put("status", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             } else if (!this.mSequence) {
-                jSONObject.put("status", "2");
+                jSONObject.put("status", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
             } else {
                 jSONObject.put("status", "0");
             }
             return jSONObject;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "toJson", e.toString());
+            BdLog.e(getClass().getName(), "toJson", e.toString());
             return null;
         }
     }
 
     public void paserJson(JSONObject jSONObject) {
         try {
-            this.mThreadId = jSONObject.optString("thread_id");
+            this.mThreadId = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.THREAD_ID);
             this.mPostId = jSONObject.optString("mark_pid");
-            this.mForumName = jSONObject.optString("forum_name");
+            this.mForumName = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
             this.mTitle = jSONObject.optString("title");
-            this.mAuthorName = jSONObject.optJSONObject("author").optString("name_show");
+            this.mAuthorName = jSONObject.optJSONObject("author").optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
             this.mNewCounts = jSONObject.optInt("count");
@@ -190,7 +192,7 @@ public class MarkData implements Serializable {
                 this.mSequence = false;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "fromJson", e.toString());
+            BdLog.e(getClass().getName(), "fromJson", e.toString());
         }
     }
 }

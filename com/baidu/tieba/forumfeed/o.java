@@ -7,9 +7,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class o {
+public class o {
     public boolean a = false;
     final /* synthetic */ j b;
     private final TextView c;
@@ -22,44 +23,44 @@ public final class o {
     public o(j jVar, Context context, View view) {
         this.b = jVar;
         this.h = view;
-        this.c = (TextView) view.findViewById(com.baidu.tieba.a.h.tip1);
-        this.d = (TextView) view.findViewById(com.baidu.tieba.a.h.tip2);
-        this.e = (ImageView) view.findViewById(com.baidu.tieba.a.h.nodata_img_bg);
-        this.g = (Button) view.findViewById(com.baidu.tieba.a.h.btn_go);
-        this.f = (LinearLayout) view.findViewById(com.baidu.tieba.a.h.layout_btn_go);
+        this.c = (TextView) view.findViewById(r.tip1);
+        this.d = (TextView) view.findViewById(r.tip2);
+        this.e = (ImageView) view.findViewById(r.nodata_img_bg);
+        this.g = (Button) view.findViewById(r.btn_go);
+        this.f = (LinearLayout) view.findViewById(r.layout_btn_go);
         this.g.setOnClickListener(new p(this, context));
     }
 
-    public final void a() {
+    public void a() {
         LinearLayout linearLayout;
         this.a = false;
         this.c.setVisibility(8);
         this.d.setVisibility(8);
         this.e.setVisibility(8);
         this.f.setVisibility(8);
-        int i = TbadkApplication.j().l() == 1 ? com.baidu.tieba.a.e.forumfeed_frs_bg_1 : com.baidu.tieba.a.e.forumfeed_frs_bg;
-        linearLayout = this.b.m;
+        int i = TbadkApplication.m252getInst().getSkinType() == 1 ? com.baidu.tieba.o.forumfeed_frs_bg_1 : com.baidu.tieba.o.forumfeed_frs_bg;
+        linearLayout = this.b.l;
         linearLayout.setBackgroundResource(i);
     }
 
-    public final void b() {
+    public void b() {
         LinearLayout linearLayout;
         this.a = true;
-        int l = TbadkApplication.j().l();
+        int skinType = TbadkApplication.m252getInst().getSkinType();
         this.c.setVisibility(0);
         this.d.setVisibility(0);
         this.e.setVisibility(0);
         this.f.setVisibility(0);
-        a(l);
-        linearLayout = this.b.m;
+        a(skinType);
+        linearLayout = this.b.l;
         linearLayout.setBackgroundColor(0);
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (i == 1) {
-            this.h.setBackgroundResource(com.baidu.tieba.a.e.forumfeed_frs_bg_1);
+            this.h.setBackgroundResource(com.baidu.tieba.o.forumfeed_frs_bg_1);
         } else if (this.a) {
-            this.h.setBackgroundResource(com.baidu.tieba.a.e.forumfeed_frs_bg);
+            this.h.setBackgroundResource(com.baidu.tieba.o.forumfeed_frs_bg);
         }
     }
 }

@@ -12,15 +12,15 @@ public final class AESUtil {
     }
 
     public static byte[] decrypt(String str, String str2, byte[] bArr) {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), ALGORITHM_NAME);
-        Cipher cipher = Cipher.getInstance(TRANSFORMATION);
+        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
         return cipher.doFinal(bArr);
     }
 
     public static byte[] encrypt(String str, String str2, byte[] bArr) {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), ALGORITHM_NAME);
-        Cipher cipher = Cipher.getInstance(TRANSFORMATION);
+        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes()));
         return cipher.doFinal(bArr);
     }

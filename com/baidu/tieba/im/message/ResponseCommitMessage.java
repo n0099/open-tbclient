@@ -3,35 +3,35 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public abstract class ResponseCommitMessage extends SocketResponsedMessage {
-    private long a;
-    private long b;
-    private String c;
+    private String groupId;
+    private long msgId;
+    private long recordId;
 
     public ResponseCommitMessage(int i) {
         super(i);
     }
 
-    public final long d() {
-        return this.a;
+    public long getMsgId() {
+        return this.msgId;
     }
 
-    public final void b(long j) {
-        this.a = j;
+    public void setMsgId(long j) {
+        this.msgId = j;
     }
 
-    public final long i() {
-        return this.b;
+    public long getRecordId() {
+        return this.recordId;
     }
 
-    public final void c(long j) {
-        this.b = j;
+    public void setRecordId(long j) {
+        this.recordId = j;
     }
 
-    public final String j() {
-        return this.c;
+    public String getGroupId() {
+        return this.groupId;
     }
 
-    public final void a(String str) {
-        this.c = str;
+    public void setGroupId(String str) {
+        this.groupId = str;
     }
 }

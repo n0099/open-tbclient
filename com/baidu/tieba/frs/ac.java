@@ -1,14 +1,33 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
-final class ac implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.l> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.l> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            aVar.a().d().setClass(aVar.a().c(), FrsActivity.class);
-            aVar.a().f();
+class ac extends HttpMessageListener {
+    final /* synthetic */ FrsActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ac(FrsActivity frsActivity, int i) {
+        super(i);
+        this.a = frsActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        dg dgVar;
+        if (httpResponsedMessage instanceof FrsPageHttpResponseMessage) {
+            FrsPageHttpResponseMessage frsPageHttpResponseMessage = (FrsPageHttpResponseMessage) httpResponsedMessage;
+            j jVar = new j();
+            jVar.a = true;
+            jVar.b = frsPageHttpResponseMessage.hasNetworkError() ? false : true;
+            jVar.c = frsPageHttpResponseMessage.getError();
+            jVar.d = frsPageHttpResponseMessage.getErrorString();
+            jVar.e = frsPageHttpResponseMessage.getDownSize();
+            dgVar = this.a.ae;
+            dgVar.a(frsPageHttpResponseMessage.getUpdateType(), false, jVar);
         }
-        return null;
     }
 }

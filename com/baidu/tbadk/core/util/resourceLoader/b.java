@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.util.resourceLoader;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
     public boolean a;
     public int b;
     public int c;

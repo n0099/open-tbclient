@@ -6,6 +6,7 @@ import android.text.Spanned;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CustomTextView extends TextView {
@@ -33,23 +34,30 @@ public class CustomTextView extends TextView {
         try {
             super.onMeasure(i, i2);
         } catch (IndexOutOfBoundsException e) {
-            CharSequence text = getText();
-            if (!(text instanceof Spanned)) {
-                com.baidu.adp.lib.util.f.e(getClass().getName(), "fixOnMeasure", "The text isn't a Spanned");
-                a(i, i2);
-                return;
-            }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(text);
-            h a = a(spannableStringBuilder, i, i2);
-            if (a.a) {
-                a(i, i2, spannableStringBuilder, a);
-            } else {
-                a(i, i2);
-            }
+            a(i, i2);
         }
     }
 
-    private h a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
+    private void a(int i, int i2) {
+        CharSequence text = getText();
+        if (text instanceof Spanned) {
+            a(new SpannableStringBuilder(text), i, i2);
+            return;
+        }
+        BdLog.d(getClass().getName(), "fixOnMeasure", "The text isn't a Spanned");
+        b(i, i2);
+    }
+
+    private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
+        i b = b(spannableStringBuilder, i, i2);
+        if (b.a) {
+            a(i, i2, spannableStringBuilder, b);
+        } else {
+            b(i, i2);
+        }
+    }
+
+    private i b(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         Object[] spans = spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), Object.class);
         ArrayList arrayList = new ArrayList(spans.length);
         ArrayList arrayList2 = new ArrayList(spans.length);
@@ -66,26 +74,26 @@ public class CustomTextView extends TextView {
             }
             try {
                 a((CharSequence) spannableStringBuilder, i, i2);
-                return h.a(arrayList, arrayList2);
+                return i.a(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "addSpacesAroundSpansUntilFixed", e.getMessage());
+                BdLog.e(getClass().getName(), "addSpacesAroundSpansUntilFixed", e.getMessage());
             }
         }
-        com.baidu.adp.lib.util.f.e(getClass().getName(), "addSpacesAroundSpansUntilFixed", "Could not fix the Spanned by adding spaces around spans");
-        return h.a();
+        BdLog.d(getClass().getName(), "addSpacesAroundSpansUntilFixed", "Could not fix the Spanned by adding spaces around spans");
+        return i.a();
     }
 
-    private static boolean a(CharSequence charSequence, int i) {
+    private boolean a(CharSequence charSequence, int i) {
         return i < 0 || charSequence.charAt(i) != ' ';
     }
 
     private void a(CharSequence charSequence, int i, int i2) {
         setText(charSequence);
-        super.onMeasure(i, i2);
+        measure(i, i2);
     }
 
-    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, h hVar) {
-        for (Object obj : hVar.c) {
+    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, i iVar) {
+        for (Object obj : iVar.c) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -95,7 +103,7 @@ public class CustomTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : hVar.b) {
+        for (Object obj2 : iVar.b) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -108,12 +116,12 @@ public class CustomTextView extends TextView {
         }
         if (z) {
             setText(spannableStringBuilder);
-            super.onMeasure(i, i2);
+            measure(i, i2);
         }
     }
 
-    private void a(int i, int i2) {
-        com.baidu.adp.lib.util.f.e(getClass().getName(), "fallbackToString", "Fallback to unspanned text");
+    private void b(int i, int i2) {
+        BdLog.d(getClass().getName(), "fallbackToString", "Fallback to unspanned text");
         a(getText().toString(), i, i2);
     }
 }

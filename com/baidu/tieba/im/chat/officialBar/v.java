@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-final class v extends com.baidu.tieba.im.m<Void> {
+class v extends com.baidu.tieba.im.b<Void> {
     final /* synthetic */ u b;
     private final /* synthetic */ LinkedList c;
 
@@ -12,9 +12,10 @@ final class v extends com.baidu.tieba.im.m<Void> {
         this.c = linkedList;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
         return com.baidu.tieba.im.db.n.d().a(this.c);
     }
 }

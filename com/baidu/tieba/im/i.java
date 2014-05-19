@@ -1,169 +1,30 @@
 package com.baidu.tieba.im;
+
+import com.baidu.adp.lib.util.BdLog;
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
-public final class i {
-    public static final int account_login_activity = 2130903046;
-    public static final int address_lbs_item = 2130903053;
-    public static final int adp_debug_activity_main = 2130903054;
-    public static final int adp_debug_config_activity = 2130903055;
-    public static final int adp_debug_monitor_view = 2130903056;
-    public static final int adp_default_header_layout = 2130903057;
-    public static final int adp_detault_footer_layout = 2130903058;
-    public static final int adp_pull_refresh_scroll_view = 2130903059;
-    public static final int bannerview = 2130903073;
-    public static final int bd_switch_view = 2130903083;
-    public static final int beautify = 2130903094;
-    public static final int big_image_next = 2130903097;
-    public static final int chat_list_activity = 2130903117;
-    public static final int chat_list_item = 2130903118;
-    public static final int chatterbox_dialog = 2130903119;
-    public static final int chatterbox_dialog_item = 2130903120;
-    public static final int chatterbox_edit_dialog = 2130903121;
-    public static final int chatterbox_view = 2130903122;
-    public static final int create_group_activity_activity = 2130903126;
-    public static final int create_group_lbs_tips = 2130903127;
-    public static final int create_group_main_activity = 2130903128;
-    public static final int create_group_normal_tips = 2130903129;
-    public static final int create_group_step1_view = 2130903130;
-    public static final int create_group_step2_view = 2130903131;
-    public static final int create_group_step3_view = 2130903132;
-    public static final int create_group_step4_view = 2130903133;
-    public static final int create_group_step_activity = 2130903134;
-    public static final int custom_notification = 2130903135;
-    public static final int dialog_bdalert = 2130903142;
-    public static final int dialog_bdlist = 2130903143;
-    public static final int dialog_bdlist_item = 2130903144;
-    public static final int dialog_bdtoast = 2130903145;
-    public static final int edit_head_activity = 2130903153;
-    public static final int editor_tool_more = 2130903158;
-    public static final int egg_breaker_tip_center_view = 2130903159;
-    public static final int emotion_tab_content = 2130903163;
-    public static final int emotion_tab_content_item = 2130903164;
-    public static final int emotion_tab_host = 2130903165;
-    public static final int emotion_tab_widget = 2130903166;
-    public static final int enter_forum_guide_center = 2130903167;
-    public static final int enter_forum_login = 2130903169;
-    public static final int filter_item = 2130903181;
-    public static final int fragment_tabhost = 2130903203;
-    public static final int fragmenttabindicator = 2130903204;
-    public static final int group_activity = 2130903227;
-    public static final int group_activity_guide_toast = 2130903228;
-    public static final int group_address_activity = 2130903229;
-    public static final int group_address_locate_activity = 2130903230;
-    public static final int group_apply_activity = 2130903231;
-    public static final int group_card_activity = 2130903233;
-    public static final int group_info_btn = 2130903234;
-    public static final int group_setting_activity = 2130903235;
-    public static final int group_tab_banner = 2130903236;
-    public static final int group_tab_item = 2130903237;
-    public static final int group_tab_widget = 2130903239;
-    public static final int guide_activity = 2130903240;
-    public static final int guide_view_last = 2130903244;
-    public static final int horizontal_panel_view = 2130903253;
-    public static final int hot_group_activity = 2130903254;
-    public static final int hot_group_fragment = 2130903255;
-    public static final int hot_group_item_view = 2130903256;
-    public static final int im_add_group_activity = 2130903257;
-    public static final int im_black_list = 2130903258;
-    public static final int im_black_list_item = 2130903259;
-    public static final int im_frsgroup_activity = 2130903260;
-    public static final int im_frsgroup_guide = 2130903261;
-    public static final int im_frsgroup_list = 2130903262;
-    public static final int im_frsgroup_list_item = 2130903263;
-    public static final int im_group_activity_activity = 2130903264;
-    public static final int im_group_info_activity = 2130903265;
-    public static final int im_group_list_group = 2130903266;
-    public static final int im_group_list_item = 2130903267;
-    public static final int im_grouplevel_activity = 2130903268;
-    public static final int im_list_divide = 2130903269;
-    public static final int im_members_activity = 2130903270;
-    public static final int im_members_list_foot = 2130903271;
-    public static final int im_members_list_item = 2130903272;
-    public static final int im_search_group_list_item = 2130903273;
-    public static final int im_waitting_activity = 2130903274;
-    public static final int im_waitting_tip = 2130903275;
-    public static final int image_activity_2 = 2130903276;
-    public static final int image_activity_save_button = 2130903277;
-    public static final int invite_friend_list = 2130903283;
-    public static final int invite_friend_list_item = 2130903284;
-    public static final int invite_to_group_view = 2130903285;
-    public static final int logo_activity = 2130903286;
-    public static final int main_input_username = 2130903287;
-    public static final int main_tab_more_pop_window = 2130903288;
-    public static final int maintabs_activity = 2130903289;
-    public static final int more_with_red_tag = 2130903298;
-    public static final int motu_albums_activity = 2130903299;
-    public static final int motu_albums_activity_item = 2130903300;
-    public static final int motu_albums_list_activity = 2130903301;
-    public static final int motu_albums_selected_item = 2130903302;
-    public static final int msg_chat_top_notify = 2130903303;
-    public static final int msg_msg_chat_rule_view = 2130903304;
-    public static final int msg_msgactivity_view = 2130903305;
-    public static final int msg_msgleft_view = 2130903306;
-    public static final int msg_msglist_activity = 2130903307;
-    public static final int msg_msgmid_view = 2130903308;
-    public static final int msg_msgright_view = 2130903309;
-    public static final int msg_msgtopic_view = 2130903310;
-    public static final int msg_multi_pic_text_bottom_view = 2130903311;
-    public static final int msg_multi_pic_text_content_view = 2130903312;
-    public static final int msg_multi_pic_text_top_view = 2130903313;
-    public static final int msg_multi_pictext_view = 2130903314;
-    public static final int msg_single_pic_text_view = 2130903316;
-    public static final int my_group_activity = 2130903317;
-    public static final int my_group_fragment = 2130903318;
-    public static final int nb_item_maintab_message = 2130903327;
-    public static final int nearby_group_activity = 2130903334;
-    public static final int nearby_group_guide = 2130903335;
-    public static final int new_pb_list_more = 2130903339;
-    public static final int no_network_more_view = 2130903353;
-    public static final int no_network_view = 2130903354;
-    public static final int num_count_down_view = 2130903357;
-    public static final int official_bar_history_activity = 2130903358;
-    public static final int official_bar_history_item_occupy = 2130903359;
-    public static final int official_bar_info_activity = 2130903360;
-    public static final int official_history_item = 2130903361;
-    public static final int officialbar_msg_activity = 2130903362;
-    public static final int officialbar_msg_list_item = 2130903363;
-    public static final int p2ptalk_setting_activity = 2130903364;
-    public static final int p2ptalk_setting_black_man_view = 2130903365;
-    public static final int p2ptalk_setting_detail_view = 2130903366;
-    public static final int photo_wall_view = 2130903396;
-    public static final int progress_count_down_view = 2130903403;
-    public static final int pull_view = 2130903405;
-    public static final int search_bar = 2130903409;
-    public static final int search_group_activity = 2130903410;
-    public static final int secret_setting_activity = 2130903412;
-    public static final int setting_text_switch_view = 2130903414;
-    public static final int share_dialog_content = 2130903415;
-    public static final int shut_down_validate_tip = 2130903416;
-    public static final int snap_chat_header = 2130903422;
-    public static final int snap_group_chat_float_tip = 2130903423;
-    public static final int tab_my_group_item = 2130903433;
-    public static final int tb_setting_text_tip_view = 2130903434;
-    public static final int tb_webview_activity = 2130903435;
-    public static final int tb_webview_pop_more = 2130903436;
-    public static final int title = 2130903438;
-    public static final int title_view_of_tab_group = 2130903439;
-    public static final int update_group_info_activity = 2130903444;
-    public static final int update_group_name_activity = 2130903445;
-    public static final int updates_activity = 2130903446;
-    public static final int updates_activity_nav_left = 2130903447;
-    public static final int updates_activity_nav_right = 2130903448;
-    public static final int updates_item = 2130903449;
-    public static final int validate_activity = 2130903450;
-    public static final int validate_item = 2130903451;
-    public static final int web_activity = 2130903457;
-    public static final int widget_left_voice_view = 2130903458;
-    public static final int widget_navi_back_logo = 2130903459;
-    public static final int widget_navigation_bar = 2130903460;
-    public static final int widget_nb_item_back = 2130903463;
-    public static final int widget_nb_item_create_group = 2130903464;
-    public static final int widget_nb_item_edit = 2130903465;
-    public static final int widget_nb_item_home = 2130903466;
-    public static final int widget_nb_item_logo = 2130903467;
-    public static final int widget_nb_item_more = 2130903468;
-    public static final int widget_nb_item_search = 2130903470;
-    public static final int widget_nb_item_stepbtn = 2130903471;
-    public static final int widget_nb_item_textbtn = 2130903472;
-    public static final int widget_nb_item_title = 2130903473;
-    public static final int widget_right_voice_view = 2130903474;
+public class i {
+    private static LinkedBlockingQueue<Runnable> a = new LinkedBlockingQueue<>();
+    private static Executor b = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS, a, new j());
+
+    public static <T> void a(b<T> bVar, a<T> aVar) {
+        if (a() > 5) {
+            BdLog.w("TiebaIMSingleExecutor queue size - " + a());
+        }
+        if (bVar != null) {
+            bVar.a(aVar);
+            b.execute(bVar);
+        }
+    }
+
+    public static int a() {
+        return a.size();
+    }
+
+    public static void b() {
+        a.clear();
+    }
 }

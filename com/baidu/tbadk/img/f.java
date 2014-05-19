@@ -1,10 +1,10 @@
 package com.baidu.tbadk.img;
 /* loaded from: classes.dex */
-final class f {
+class f {
     ImageFileInfo a;
     com.baidu.tbadk.imageManager.d b;
     boolean c;
-    com.baidu.adp.widget.ImageView.b d;
+    com.baidu.adp.widget.a.a d;
     boolean e;
     final /* synthetic */ e f;
 
@@ -13,7 +13,7 @@ final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(e eVar, byte b) {
+    public /* synthetic */ f(e eVar, f fVar) {
         this(eVar);
     }
 }

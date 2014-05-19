@@ -1,18 +1,28 @@
 package com.baidu.tieba.im.model;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class u extends com.baidu.tieba.im.m<Void> {
-    final /* synthetic */ p b;
+class u extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ r b;
+    private final /* synthetic */ boolean c;
+    private final /* synthetic */ String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(p pVar) {
-        this.b = pVar;
+    public u(r rVar, boolean z, String str) {
+        this.b = rVar;
+        this.c = z;
+        this.d = str;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Void a() {
-        com.baidu.tieba.im.pushNotify.a.d().b(false, new v(this.b));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        String str;
+        if (this.c) {
+            str = com.baidu.tieba.im.db.h.c(this.d);
+        } else {
+            str = this.d;
+        }
+        com.baidu.tieba.im.db.h.a().a(str, true);
         return null;
     }
 }

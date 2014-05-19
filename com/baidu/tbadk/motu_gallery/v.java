@@ -4,41 +4,53 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-final class v implements View.OnClickListener {
+class v implements View.OnClickListener {
     final /* synthetic */ u a;
-    private final /* synthetic */ y b;
+    private final /* synthetic */ z b;
     private final /* synthetic */ a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(u uVar, y yVar, a aVar) {
+    public v(u uVar, z zVar, a aVar) {
         this.a = uVar;
-        this.b = yVar;
+        this.b = zVar;
         this.c = aVar;
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
+        t tVar;
         n nVar;
+        t tVar2;
         n nVar2;
+        t tVar3;
         n nVar3;
         LinearLayout linearLayout;
+        t tVar4;
         n nVar4;
         TextView textView;
+        t tVar5;
         n nVar5;
+        t tVar6;
         n nVar6;
-        nVar = this.a.a.a;
+        tVar = this.a.a;
+        nVar = tVar.a;
         w wVar = nVar.a;
-        nVar2 = this.a.a.a;
+        tVar2 = this.a.a;
+        nVar2 = tVar2.a;
         wVar.b(nVar2, this.b.getUri());
         this.c.setIsSelected(false);
-        nVar3 = this.a.a.a;
+        tVar3 = this.a.a;
+        nVar3 = tVar3.a;
         linearLayout = nVar3.m;
         linearLayout.removeView(view);
-        nVar4 = this.a.a.a;
+        tVar4 = this.a.a;
+        nVar4 = tVar4.a;
         textView = nVar4.o;
-        nVar5 = this.a.a.a;
+        tVar5 = this.a.a;
+        nVar5 = tVar5.a;
         w wVar2 = nVar5.a;
-        nVar6 = this.a.a.a;
-        textView.setText(wVar2.c(nVar6));
+        tVar6 = this.a.a;
+        nVar6 = tVar6.a;
+        textView.setText(wVar2.e(nVar6));
     }
 }

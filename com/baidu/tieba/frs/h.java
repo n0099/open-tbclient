@@ -1,51 +1,32 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class h extends BdAsyncTask<String, Integer, Boolean> {
+public class h extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ g a;
-    private com.baidu.tbadk.core.util.ak b = null;
     private final String c;
     private final String d;
     private final String e;
-    private final i f;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(Boolean bool) {
-        cy cyVar;
-        cy cyVar2;
-        this.a.n = null;
-        this.a.a(false);
-        if (this.b != null) {
-            j jVar = new j(this.a);
-            jVar.d = this.b.f();
-            jVar.c = this.b.d();
-            cyVar = this.a.k;
-            if (cyVar != null) {
-                cyVar2 = this.a.k;
-                cyVar2.a(this.f, jVar);
-            }
-        }
-    }
+    private com.baidu.tbadk.core.util.al b = null;
+    private final i f = new i();
 
     public h(g gVar, String str, String str2, String str3) {
         this.a = gVar;
-        this.f = new i(gVar);
         this.c = str;
         this.d = str2;
         this.e = str3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(String... strArr) {
+    /* renamed from: a */
+    public Boolean doInBackground(String... strArr) {
         try {
-            this.b = new com.baidu.tbadk.core.util.ak(strArr[0]);
+            this.b = new com.baidu.tbadk.core.util.al(strArr[0]);
             this.b.a("fid", this.c);
             this.b.a("kw", this.d);
             this.b.a("is_like", this.e);
@@ -68,7 +49,7 @@ public final class h extends BdAsyncTask<String, Integer, Boolean> {
                         }
                         this.a.a(this.f);
                     } catch (Exception e) {
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                        BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
                     }
                 }
                 if (this.b.a().b().b()) {
@@ -77,24 +58,45 @@ public final class h extends BdAsyncTask<String, Integer, Boolean> {
                         this.f.c = jSONObject2.optInt("num");
                         this.f.a = true;
                     } catch (Exception e2) {
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e2.getMessage());
+                        BdLog.e(getClass().getName(), "doInBackground", e2.getMessage());
                     }
                 }
             }
             return false;
         } catch (Exception e3) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e3.getMessage());
+            BdLog.e(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e3.getMessage());
             return false;
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
+    public void cancel() {
         super.cancel(true);
         if (this.b != null) {
             this.b.g();
         }
         this.a.n = null;
         this.a.a(false);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        df dfVar;
+        df dfVar2;
+        this.a.n = null;
+        this.a.a(false);
+        if (this.b != null) {
+            j jVar = new j();
+            jVar.d = this.b.f();
+            jVar.c = this.b.d();
+            dfVar = this.a.k;
+            if (dfVar != null) {
+                dfVar2 = this.a.k;
+                dfVar2.a(this.f, jVar);
+            }
+        }
     }
 }

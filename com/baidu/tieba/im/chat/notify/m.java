@@ -1,40 +1,45 @@
 package com.baidu.tieba.im.chat.notify;
 
-import android.os.Handler;
-import android.widget.AbsListView;
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 /* loaded from: classes.dex */
-public final class m implements AbsListView.OnScrollListener {
-    final /* synthetic */ b a;
+class m extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ k b;
+    private final /* synthetic */ ImMessageCenterShowItemData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(b bVar) {
-        this.a = bVar;
+    public m(k kVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        this.b = kVar;
+        this.c = imMessageCenterShowItemData;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        BdListView bdListView;
-        BdListView bdListView2;
-        handler = this.a.f;
-        runnable = this.a.g;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.f;
-        runnable2 = this.a.g;
-        handler2.postDelayed(runnable2, 300L);
-        bdListView = this.a.j;
-        if (bdListView.getAdapter() != null) {
-            bdListView2 = this.a.j;
-            bdListView2.getAdapter().getCount();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        if (this.c != null) {
+            this.c.setUnReadCount(0);
+            BdLog.d("updates before updates:" + this.c.getUnReadCount() + "ownerName" + this.c.getOwnerName() + " fid" + this.c.getFriendId() + " uid" + this.c.getOwnerId());
+            if (this.c.getOwnerName().equals(TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT)) {
+                com.baidu.tieba.im.db.d.a().a("apply_join_group");
+                com.baidu.tieba.im.pushNotify.a.f().b(this.c);
+            } else if (this.c.getOwnerName().equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
+                com.baidu.tieba.im.pushNotify.a.f().d(this.c);
+                BdLog.d("updates data.getOwnerName():" + this.c.getOwnerName());
+                com.baidu.tieba.im.db.d.a().a("group_intro_change");
+                com.baidu.tieba.im.db.d.a().a("group_name_change");
+                com.baidu.tieba.im.db.d.a().a("group_notice_change");
+                com.baidu.tieba.im.db.d.a().a("group_level_up");
+                com.baidu.tieba.im.db.d.a().a("dismiss_group");
+                com.baidu.tieba.im.db.d.a().a("kick_out");
+                com.baidu.tieba.im.db.d.a().a("group_activitys_change");
+            } else if (this.c.getOwnerName().equals("6")) {
+                com.baidu.tieba.im.pushNotify.a.f().c(this.c);
+                BdLog.d("live notify data.getOwnerName():" + this.c.getOwnerName());
+                com.baidu.tieba.im.db.d.a().a("live_notify");
+            }
         }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScrollStateChanged(AbsListView absListView, int i) {
+        return null;
     }
 }

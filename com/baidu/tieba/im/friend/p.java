@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.friend;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class p implements Runnable {
+public class p implements Runnable {
     final /* synthetic */ o a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +10,9 @@ final class p implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
-        this.a.a.finish();
+    public void run() {
+        InviteFriendListActivity inviteFriendListActivity;
+        inviteFriendListActivity = this.a.a;
+        inviteFriendListActivity.finish();
     }
 }

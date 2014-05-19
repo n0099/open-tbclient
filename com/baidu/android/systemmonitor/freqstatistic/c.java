@@ -73,12 +73,12 @@ public final class c {
             e.a(this.b.getApplicationContext()).a(a2);
             return;
         }
-        System.currentTimeMillis();
+        long currentTimeMillis = System.currentTimeMillis();
         k kVar = new k(str2, true);
         kVar.i = i2;
         kVar.m = j;
         e.a(this.b.getApplicationContext()).a(this.b.getContentResolver(), kVar);
-        System.currentTimeMillis();
+        long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -92,21 +92,23 @@ public final class c {
         } catch (Exception e) {
         }
         l lVar = new l(str2);
-        lVar.b = j;
-        lVar.c = j2;
-        String d = BDLocationManager.d(this.b.getApplicationContext());
-        if (TextUtils.isEmpty(d)) {
-            d = "";
+        if (lVar != null) {
+            lVar.b = j;
+            lVar.c = j2;
+            String d = BDLocationManager.d(this.b.getApplicationContext());
+            if (TextUtils.isEmpty(d)) {
+                d = "";
+            }
+            lVar.d = d;
+            lVar.g = this.r;
+            lVar.e = this.q;
+            lVar.f = com.baidu.android.systemmonitor.devicestatistic.f.a(this.b.getApplicationContext()).d();
+            lVar.h = com.baidu.android.systemmonitor.devicestatistic.i.a(this.b.getApplicationContext()).a() - this.s;
+            if (lVar.h < 0) {
+                lVar.h = 0L;
+            }
+            e.a(this.b.getApplicationContext()).a(str2, lVar);
         }
-        lVar.d = d;
-        lVar.g = this.r;
-        lVar.e = this.q;
-        lVar.f = com.baidu.android.systemmonitor.devicestatistic.f.a(this.b.getApplicationContext()).d();
-        lVar.h = com.baidu.android.systemmonitor.devicestatistic.i.a(this.b.getApplicationContext()).a() - this.s;
-        if (lVar.h < 0) {
-            lVar.h = 0L;
-        }
-        e.a(this.b.getApplicationContext()).a(str2, lVar);
     }
 
     public static synchronized void d() {
@@ -356,7 +358,7 @@ public final class c {
         new Thread(new i(this), "SystemMonitor_SummaryFreqStatisticThread").start();
     }
 
-    public final void a() {
+    public void a() {
         this.t = new h(this);
         n = e.c(this.b.getApplicationContext());
         this.d = System.currentTimeMillis();
@@ -372,7 +374,7 @@ public final class c {
         j();
     }
 
-    public final void b() {
+    public void b() {
         if (this.j != null) {
             try {
                 this.b.unregisterReceiver(this.j);
@@ -394,7 +396,7 @@ public final class c {
         e.a();
     }
 
-    public final ActivityManager.RunningTaskInfo c() {
+    public ActivityManager.RunningTaskInfo c() {
         List<ActivityManager.RecentTaskInfo> list;
         List<ActivityManager.RecentTaskInfo> list2;
         List<ActivityManager.RunningTaskInfo> list3;

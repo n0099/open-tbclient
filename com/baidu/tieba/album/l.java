@@ -3,7 +3,7 @@ package com.baidu.tieba.album;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-final class l {
+class l {
     HeadImageView a;
     TextView b;
     final /* synthetic */ j c;
@@ -13,7 +13,7 @@ final class l {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ l(j jVar, byte b) {
+    public /* synthetic */ l(j jVar, l lVar) {
         this(jVar);
     }
 }

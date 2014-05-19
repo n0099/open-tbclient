@@ -71,12 +71,11 @@ public class k {
         j.a(f215else, "upload manager start to init cache ...");
         try {
             if (c == null) {
-                File file = new File(h);
-                c = file;
-                if (!file.exists()) {
-                    File file2 = new File(f.aa);
-                    if (!file2.exists()) {
-                        file2.mkdirs();
+                c = new File(h);
+                if (!c.exists()) {
+                    File file = new File(f.aa);
+                    if (!file.exists()) {
+                        file.mkdirs();
                     }
                     if (!c.createNewFile()) {
                         j.a(f215else, "upload manager create file error...");
@@ -107,9 +106,8 @@ public class k {
         }
         try {
             if (c == null) {
-                File file = new File(h);
-                c = file;
-                if (!file.exists()) {
+                c = new File(h);
+                if (!c.exists()) {
                     j.a(f215else, "upload man readfile does not exist...");
                     c = null;
                     return -2;
@@ -126,7 +124,7 @@ public class k {
             int readInt3 = randomAccessFile.readInt();
             int readInt4 = randomAccessFile.readInt();
             long readLong = randomAccessFile.readLong();
-            if (!a(readInt, readInt2, readInt3, readInt4, readLong) || readInt2 <= 0) {
+            if (!a(readInt, readInt2, readInt3, readInt4, readLong) || readInt2 < 1) {
                 randomAccessFile.close();
                 return -4;
             }
@@ -160,29 +158,29 @@ public class k {
 
     public static String a() {
         String str = null;
-        if (f223void == null || f223void.size() <= 0) {
+        if (f223void == null || f223void.size() < 1) {
             a(f223void, f221new);
         }
-        if (f223void != null && f223void.size() > 0) {
+        if (f223void != null && f223void.size() >= 1) {
             str = (String) f223void.get(0);
             f223void.remove(0);
             j.a(f215else, "upload manager get upload data from q1 ...");
         }
         if (str == null) {
-            if (f222try == null || f222try.size() <= 0) {
+            if (f222try == null || f222try.size() < 1) {
                 a(f222try, b);
             }
-            if (f222try != null && f222try.size() > 0) {
+            if (f222try != null && f222try.size() >= 1) {
                 str = (String) f222try.get(0);
                 f222try.remove(0);
                 j.a(f215else, "upload manager get upload data from q2 ...");
             }
         }
         if (str == null) {
-            if (f == null || f.size() <= 0) {
+            if (f == null || f.size() < 1) {
                 a(f, f219int);
             }
-            if (f != null && f.size() > 0) {
+            if (f != null && f.size() >= 1) {
                 str = (String) f.get(0);
                 f.remove(0);
                 j.a(f215else, "upload manager get upload data from q3 ...");
@@ -209,25 +207,25 @@ public class k {
         String a2;
         j.a(f215else, "upload manager insert2UploadQueue...");
         if (j.f203long != 3 || a(location, cVar) || a(location, false)) {
-            if (aVar != null && aVar.m113do()) {
+            if (aVar != null && aVar.m115do()) {
                 if (!a(location, cVar)) {
                     cVar = null;
                 }
                 String a3 = j.a(aVar, cVar, location, str, 1);
                 if (a3 != null) {
-                    m249if(Jni.m2if(a3));
+                    m251if(Jni.m4if(a3));
                     f211byte = location;
                     f217goto = location;
                     if (cVar != null) {
                         f216for = cVar;
                     }
                 }
-            } else if (cVar != null && cVar.m138if() && a(location, cVar)) {
+            } else if (cVar != null && cVar.m140if() && a(location, cVar)) {
                 String a4 = j.a(a(location) ? aVar : null, cVar, location, str, 2);
                 if (a4 != null) {
-                    String m2if = Jni.m2if(a4);
-                    j.a(f215else, "upload size:" + m2if.length());
-                    a(m2if);
+                    String m4if = Jni.m4if(a4);
+                    j.a(f215else, "upload size:" + m4if.length());
+                    a(m4if);
                     f214do = location;
                     f217goto = location;
                     if (cVar != null) {
@@ -242,7 +240,7 @@ public class k {
                 if ((aVar == null && cVar2 == null) || (a2 = j.a(aVar, cVar2, location, str, 3)) == null) {
                     return;
                 }
-                m246do(Jni.m2if(a2));
+                m248do(Jni.m4if(a2));
                 f217goto = location;
                 if (cVar2 != null) {
                     f216for = cVar2;
@@ -254,7 +252,7 @@ public class k {
     public static void a(c.a aVar, e.c cVar, String str, double d2, double d3, String str2) {
         String str3 = String.format("&manll=%.5f|%.5f&manaddr=%s", Double.valueOf(d2), Double.valueOf(d3), str2) + j.a(aVar, cVar, null, str, 1);
         if (str3 != null) {
-            m249if(Jni.m2if(str3));
+            m251if(Jni.m4if(str3));
         }
     }
 
@@ -266,11 +264,11 @@ public class k {
         if (f222try.size() <= i) {
             f222try.add(str);
         }
-        if (f222try.size() < i || m247if(f222try, b) >= -1) {
+        if (f222try.size() < i || m249if(f222try, b) >= -1) {
             return;
         }
         a(b, j, f218if, g + (j * f218if));
-        m247if(f222try, b);
+        m249if(f222try, b);
     }
 
     private static boolean a(int i2, int i3, int i4, int i5, long j2) {
@@ -290,7 +288,7 @@ public class k {
     }
 
     private static boolean a(Location location, e.c cVar) {
-        if (location == null || cVar == null || cVar.f126do == null || cVar.f126do.isEmpty() || cVar.m135do(f216for)) {
+        if (location == null || cVar == null || cVar.f126do == null || cVar.f126do.isEmpty() || cVar.m137do(f216for)) {
             return false;
         }
         if (f214do == null) {
@@ -305,7 +303,7 @@ public class k {
     }
 
     /* renamed from: do  reason: not valid java name */
-    private static void m246do(String str) {
+    private static void m248do(String str) {
         if (f == null) {
             return;
         }
@@ -313,26 +311,25 @@ public class k {
         if (f.size() <= i) {
             f.add(str);
         }
-        if (f.size() < i || m247if(f, f219int) >= -1) {
+        if (f.size() < i || m249if(f, f219int) >= -1) {
             return;
         }
         a(f219int, j, f213char, g + (j * f218if * 2));
-        m247if(f, f219int);
+        m249if(f, f219int);
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static int m247if(List list, int i2) {
+    private static int m249if(List list, int i2) {
         int i3;
         int i4;
         int i5 = 0;
-        if (list == null || list.size() <= 0 || i2 > 256 || i2 < 0) {
+        if (list == null || list.size() < 1 || i2 > 256 || i2 < 0) {
             return -1;
         }
         try {
             if (c == null) {
-                File file = new File(h);
-                c = file;
-                if (!file.exists()) {
+                c = new File(h);
+                if (!c.exists()) {
                     j.a(f215else, "upload man write file does not exist...");
                     c = null;
                     return -2;
@@ -383,26 +380,26 @@ public class k {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static void m248if() {
+    public static void m250if() {
         j.a(f215else, "upload manager flush...");
         f212case = 0;
-        if (m247if(f223void, f221new) < -1) {
+        if (m249if(f223void, f221new) < -1) {
             a(f221new, j, f218if, g);
-            m247if(f223void, f221new);
+            m249if(f223void, f221new);
         }
-        if (m247if(f222try, b) < -1) {
+        if (m249if(f222try, b) < -1) {
             a(b, j, f218if, g + (j * f218if));
-            m247if(f222try, b);
+            m249if(f222try, b);
         }
-        if (m247if(f, f219int) < -1) {
+        if (m249if(f, f219int) < -1) {
             a(f219int, j, f213char, g + (j * f218if * 2));
-            m247if(f, f219int);
+            m249if(f, f219int);
         }
         f212case = 5;
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static void m249if(String str) {
+    private static void m251if(String str) {
         if (f223void == null) {
             return;
         }
@@ -410,10 +407,10 @@ public class k {
         if (f223void.size() <= i) {
             f223void.add(str);
         }
-        if (f223void.size() < i || m247if(f223void, f221new) >= -1) {
+        if (f223void.size() < i || m249if(f223void, f221new) >= -1) {
             return;
         }
         a(f221new, j, f218if, g);
-        m247if(f223void, f221new);
+        m249if(f223void, f221new);
     }
 }

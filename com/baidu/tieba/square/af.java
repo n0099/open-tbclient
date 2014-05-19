@@ -1,36 +1,37 @@
 package com.baidu.tieba.square;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class af {
+public class af {
     private String a = null;
     private String b = null;
     private String c = "";
     private ArrayList<af> d = null;
 
-    public final String a() {
+    public String a() {
         return this.a;
     }
 
-    public final String b() {
+    public String b() {
         return this.b;
     }
 
-    public final String c() {
+    public String c() {
         return this.c;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.c = str;
     }
 
-    public final ArrayList<af> d() {
+    public ArrayList<af> d() {
         return this.d;
     }
 
-    public final void a(JSONArray jSONArray) {
+    public void a(JSONArray jSONArray) {
         if (jSONArray != null) {
             try {
                 if (jSONArray.length() != 0) {
@@ -44,7 +45,7 @@ public final class af {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parseForumListRecommendData", e.toString());
+                BdLog.e(getClass().getName(), "parseForumListRecommendData", e.toString());
             }
         }
     }

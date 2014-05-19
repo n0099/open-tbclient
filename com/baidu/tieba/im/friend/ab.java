@@ -5,7 +5,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.TbCheckBox;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ab implements m {
+public class ab implements m {
     final /* synthetic */ y a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,18 +14,18 @@ public final class ab implements m {
     }
 
     @Override // com.baidu.tieba.im.friend.m
-    public final void a(Object obj) {
+    public void a(View view, Object obj) {
         BdListView bdListView;
         if (obj != null) {
             if (obj instanceof com.baidu.tbadk.core.view.p) {
                 ((com.baidu.tbadk.core.view.p) obj).setChecked(false);
             }
-            bdListView = this.a.f;
+            bdListView = this.a.e;
             View findViewWithTag = bdListView.findViewWithTag(obj);
             if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
                 ((TbCheckBox) findViewWithTag).setChecked(false);
-            } else if (obj instanceof com.baidu.tieba.im.data.c) {
-                this.a.c((com.baidu.tieba.im.data.c) obj);
+            } else if (obj instanceof com.baidu.tieba.im.data.e) {
+                this.a.b((com.baidu.tieba.im.data.e) obj);
             }
         }
     }

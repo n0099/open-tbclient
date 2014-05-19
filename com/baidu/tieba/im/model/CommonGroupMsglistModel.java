@@ -1,122 +1,141 @@
 package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.GroupData;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.RequestMarkReadedMessage;
+import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
 public abstract class CommonGroupMsglistModel extends MsglistModel {
     protected GroupData a;
-    private f e;
-    private final com.baidu.adp.framework.c.g f;
+    private f b;
+    private final com.baidu.adp.framework.listener.b c;
 
     public CommonGroupMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
         this.a = null;
-        this.f = new c(this, 0);
-        this.e = new f(this, (byte) 0);
-        com.baidu.tieba.im.chat.x.b().a(this.e);
-        com.baidu.adp.framework.c.a().a(103112, this.f);
-        com.baidu.adp.framework.c.a().a(103102, this.f);
+        this.c = new c(this, 0);
+        f();
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public void a() {
         super.a();
-        com.baidu.adp.framework.c.a().b(this.f);
-        com.baidu.tieba.im.chat.x.b().b(this.e);
+        m();
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected final void a(com.baidu.tieba.im.message.a.a aVar) {
-        if (this.a != null && aVar != null) {
-            com.baidu.tieba.im.r.a(new d(this, aVar), null);
+    protected void a(ChatMessage chatMessage) {
+        if (this.a != null && chatMessage != null) {
+            com.baidu.tieba.im.i.a(new d(this, chatMessage), null);
         }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected final void b(com.baidu.tieba.im.message.a.a aVar) {
-        if (this.a != null && aVar != null) {
-            com.baidu.tieba.im.r.a(new e(this, aVar), null);
+    protected void b(ChatMessage chatMessage) {
+        if (this.a != null && chatMessage != null) {
+            com.baidu.tieba.im.i.a(new e(this, chatMessage), null);
         }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected final ImMessageCenterPojo a(com.baidu.tieba.im.db.e eVar) {
-        return null;
+    protected ImMessageCenterPojo a(com.baidu.tieba.im.db.e eVar) {
+        if (eVar == null || this.a == null) {
+            return null;
+        }
+        return eVar.a(new StringBuilder(String.valueOf(this.a.getGroupId())).toString());
     }
 
-    public final void a(GroupData groupData) {
+    public void a(GroupData groupData) {
         this.a = groupData;
+        if (this.a != null) {
+            this.u = this.a.getGroupId();
+        } else {
+            this.u = 0L;
+        }
     }
 
-    public final GroupData b() {
+    public GroupData b() {
         return this.a;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void a(com.baidu.adp.framework.message.f<?> fVar) {
-        LinkedList<com.baidu.tieba.im.message.a.a> c;
-        if (fVar instanceof GroupMsgData) {
-            GroupMsgData groupMsgData = (GroupMsgData) fVar;
-            if (this.a != null && groupMsgData.b() != null && groupMsgData.b().getGroupId() == this.a.getGroupId() && (c = groupMsgData.c()) != null) {
-                a(c);
-            }
-        }
+    private void f() {
+        this.b = new f(this, null);
+        com.baidu.tieba.im.chat.x.b().a(this.b);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_REMOVE_MEMBERS, this.c);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_UPDATE_GROUP, this.c);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x003d, code lost:
-        if (r0.i().equals(java.lang.String.valueOf(r3.a.getGroupId())) != false) goto L20;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static /* synthetic */ boolean a(CommonGroupMsglistModel commonGroupMsglistModel, ResponseCommitGroupMessage responseCommitGroupMessage) {
-        if (responseCommitGroupMessage != null && commonGroupMsglistModel.a != null) {
-            if (responseCommitGroupMessage.e() != 0) {
-                if (responseCommitGroupMessage.h() != null && (responseCommitGroupMessage.h() instanceof com.baidu.tieba.im.message.a.b)) {
-                    com.baidu.tieba.im.message.a.b bVar = (com.baidu.tieba.im.message.a.b) responseCommitGroupMessage.h();
-                    if (bVar.i() != null) {
-                    }
-                }
-                return false;
-            } else if (responseCommitGroupMessage.j() == null || !responseCommitGroupMessage.j().equals(String.valueOf(commonGroupMsglistModel.a.getGroupId()))) {
-                return false;
+    private void m() {
+        MessageManager.getInstance().unRegisterListener(this.c);
+        com.baidu.tieba.im.chat.x.b().b(this.b);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public List<ChatMessage> a(ResponsedMessage<?> responsedMessage) {
+        LinkedList<ChatMessage> listMessage;
+        if (!(responsedMessage instanceof GroupMsgData)) {
+            return null;
+        }
+        GroupMsgData groupMsgData = (GroupMsgData) responsedMessage;
+        if (b() == null || groupMsgData.getGroupInfo() == null || groupMsgData.getGroupInfo().getGroupId() != b().getGroupId() || (listMessage = groupMsgData.getListMessage()) == null) {
+            return null;
+        }
+        return a(listMessage);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean a(ResponseCommitGroupMessage responseCommitGroupMessage) {
+        if (responseCommitGroupMessage != null && this.a != null) {
+            if (responseCommitGroupMessage.getError() == 0) {
+                return responseCommitGroupMessage.getGroupId() != null && responseCommitGroupMessage.getGroupId().equals(String.valueOf(this.a.getGroupId()));
             }
-            return true;
+            if (responseCommitGroupMessage.getOrginalMessage() != null && (responseCommitGroupMessage.getOrginalMessage() instanceof CommonGroupChatMessage)) {
+                CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) responseCommitGroupMessage.getOrginalMessage();
+                if (commonGroupChatMessage.getGroupId() != null && commonGroupChatMessage.getGroupId().equals(String.valueOf(this.a.getGroupId()))) {
+                    return true;
+                }
+            }
+            return false;
         }
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(CommonGroupMsglistModel commonGroupMsglistModel, com.baidu.adp.framework.message.f fVar) {
-        com.baidu.adp.framework.message.d<?> h;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(ResponsedMessage<?> responsedMessage) {
+        Message<?> orginalMessage;
         String[] split;
-        if (fVar instanceof ResponseRemoveMembersMessage) {
-            ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) fVar;
-            if (responseRemoveMembersMessage.e() == 0 && (h = responseRemoveMembersMessage.h()) != null && (h instanceof com.baidu.tieba.im.message.av)) {
-                com.baidu.tieba.im.message.av avVar = (com.baidu.tieba.im.message.av) h;
-                if (avVar.i() == commonGroupMsglistModel.a.getGroupId()) {
-                    String j = avVar.j();
-                    if (TextUtils.isEmpty(j) || (split = j.split(",")) == null || split.length == 0) {
-                        return;
-                    }
-                    String id = TbadkApplication.N().getID();
-                    if (TextUtils.isEmpty(id)) {
-                        return;
-                    }
-                    for (String str : split) {
-                        if (id.equals(str)) {
-                            commonGroupMsglistModel.mLoadDataMode = 9;
-                            commonGroupMsglistModel.mLoadDataCallBack.a(null);
-                            return;
+        if (responsedMessage instanceof ResponseRemoveMembersMessage) {
+            ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) responsedMessage;
+            if (responseRemoveMembersMessage.getError() == 0 && (orginalMessage = responseRemoveMembersMessage.getOrginalMessage()) != null && (orginalMessage instanceof RequestRemoveMembersMessage)) {
+                RequestRemoveMembersMessage requestRemoveMembersMessage = (RequestRemoveMembersMessage) orginalMessage;
+                if (requestRemoveMembersMessage.getGroupId() == this.a.getGroupId()) {
+                    String userIds = requestRemoveMembersMessage.getUserIds();
+                    if (!TextUtils.isEmpty(userIds) && (split = userIds.split(",")) != null && split.length != 0) {
+                        String id = TbadkApplication.getCurrentAccountObj().getID();
+                        if (!TextUtils.isEmpty(id)) {
+                            for (String str : split) {
+                                if (id.equals(str)) {
+                                    this.mLoadDataMode = 9;
+                                    this.mLoadDataCallBack.a(null);
+                                    return;
+                                }
+                            }
                         }
                     }
                 }
@@ -124,28 +143,27 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void b(CommonGroupMsglistModel commonGroupMsglistModel, com.baidu.adp.framework.message.f fVar) {
-        if (!(fVar instanceof ResponseUpdateGroupMessage)) {
-            com.baidu.adp.lib.util.f.e("transform error");
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(ResponsedMessage<?> responsedMessage) {
+        if (!(responsedMessage instanceof ResponseUpdateGroupMessage)) {
+            BdLog.d("transform error");
             return;
         }
-        ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) fVar;
-        if (responseUpdateGroupMessage.e() != 0) {
-            com.baidu.adp.lib.util.f.b("has error");
-        } else if (responseUpdateGroupMessage.d() != null) {
-            commonGroupMsglistModel.mLoadDataMode = 10;
-            commonGroupMsglistModel.mLoadDataCallBack.a(responseUpdateGroupMessage.d().getName());
+        ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) responsedMessage;
+        if (responseUpdateGroupMessage.getError() != 0) {
+            BdLog.e("has error");
+        } else if (responseUpdateGroupMessage.getUpdateGroupInfo() != null) {
+            this.mLoadDataMode = 10;
+            this.mLoadDataCallBack.a(responseUpdateGroupMessage.getUpdateGroupInfo().getName());
         }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public final void a(com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.db.i.a();
-        com.baidu.tieba.im.db.i.c(String.valueOf(this.a.getGroupId()));
+    public void a(com.baidu.tieba.im.a<Void> aVar) {
+        com.baidu.tieba.im.db.i.a().c(String.valueOf(this.a.getGroupId()));
         aVar.a(null);
-        com.baidu.tieba.im.message.ao aoVar = new com.baidu.tieba.im.message.ao();
-        aoVar.a((com.baidu.tieba.im.message.ao) String.valueOf(this.a.getGroupId()));
-        com.baidu.adp.framework.c.a().a(aoVar);
+        RequestMarkReadedMessage requestMarkReadedMessage = new RequestMarkReadedMessage();
+        requestMarkReadedMessage.setData(String.valueOf(this.a.getGroupId()));
+        MessageManager.getInstance().sendMessage(requestMarkReadedMessage);
     }
 }

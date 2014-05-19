@@ -1,73 +1,46 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.gson.GsonBuilder;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Application;
 /* loaded from: classes.dex */
-public final class be extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchaseRecordsData> {
-    final /* synthetic */ bd a;
-    private com.baidu.tbadk.core.util.ak b;
+public class be extends com.baidu.adp.base.d {
+    private bf a;
+    private String b;
+    private int c;
+    private int d;
+    private float e;
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ FacePurchaseRecordsData a(Object... objArr) {
-        return a();
+    public be() {
+        this.c = 0;
+        this.d = 0;
+        Application d = com.baidu.tieba.ad.c().d();
+        this.c = com.baidu.adp.lib.util.h.b(d);
+        this.d = com.baidu.adp.lib.util.h.c(d);
+        this.e = d.getResources().getDisplayMetrics().density;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(FacePurchaseRecordsData facePurchaseRecordsData) {
-        com.baidu.adp.a.h hVar;
-        FacePurchaseRecordsData facePurchaseRecordsData2 = facePurchaseRecordsData;
-        this.a.a = null;
-        hVar = this.a.mLoadDataCallBack;
-        hVar.a(facePurchaseRecordsData2);
-        super.a((be) facePurchaseRecordsData2);
+    public void a(String str) {
+        this.b = str;
     }
 
-    private be(bd bdVar) {
-        this.a = bdVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ be(bd bdVar, byte b) {
-        this(bdVar);
-    }
-
-    private FacePurchaseRecordsData a() {
-        String str;
-        int i;
-        int i2;
-        float f;
-        try {
-            this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/e/faces/getpackhis");
-            com.baidu.tbadk.core.util.ak akVar = this.b;
-            str = this.a.b;
-            akVar.a("st_type", str);
-            com.baidu.tbadk.core.util.ak akVar2 = this.b;
-            i = this.a.c;
-            akVar2.a("scr_w", String.valueOf(i));
-            com.baidu.tbadk.core.util.ak akVar3 = this.b;
-            i2 = this.a.d;
-            akVar3.a("scr_h", String.valueOf(i2));
-            com.baidu.tbadk.core.util.ak akVar4 = this.b;
-            f = this.a.e;
-            akVar4.a("scr_dip", String.valueOf(f));
-            return (FacePurchaseRecordsData) new GsonBuilder().create().fromJson(this.b.i(), (Class<Object>) FacePurchaseRecordsData.class);
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.toString());
-            return null;
+    public void a() {
+        if (this.a == null) {
+            this.a = new bf(this, null);
+            this.a.setPriority(3);
+            this.a.execute(new Object[0]);
         }
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.g();
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
+        if (this.a != null) {
+            this.a.cancel();
+            return true;
         }
-        this.a.a = null;
+        return true;
     }
 }

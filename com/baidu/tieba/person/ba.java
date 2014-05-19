@@ -1,8 +1,10 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
+import android.app.AlertDialog;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ba implements DialogInterface.OnClickListener {
+public class ba implements View.OnClickListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,12 +12,10 @@ final class ba implements DialogInterface.OnClickListener {
         this.a = personChangeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        if (i == 0) {
-            com.baidu.tbadk.core.util.az.a(this.a);
-        } else if (i == 1) {
-            com.baidu.tbadk.core.util.az.b(this.a);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        AlertDialog alertDialog;
+        alertDialog = this.a.c;
+        alertDialog.show();
     }
 }

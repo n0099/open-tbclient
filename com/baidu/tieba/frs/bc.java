@@ -1,16 +1,31 @@
 package com.baidu.tieba.frs;
+
+import android.support.v4.view.ViewPager;
+import com.baidu.adp.widget.IndicatorView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bc implements Runnable {
-    final /* synthetic */ ay a;
+public class bc implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ ba a;
+    private final /* synthetic */ IndicatorView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(ay ayVar) {
-        this.a = ayVar;
+    public bc(ba baVar, IndicatorView indicatorView) {
+        this.a = baVar;
+        this.b = indicatorView;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        this.a.q = System.currentTimeMillis();
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        if (this.b != null) {
+            this.b.setPosition(i);
+        }
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
     }
 }

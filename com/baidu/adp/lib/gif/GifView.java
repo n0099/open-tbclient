@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import java.io.InputStream;
 /* loaded from: classes.dex */
-public final class GifView extends ImageView implements a {
+public class GifView extends ImageView implements a {
     private static /* synthetic */ int[] h;
     private b a;
     private Bitmap b;
@@ -18,7 +18,7 @@ public final class GifView extends ImageView implements a {
     private GifImageType f;
     private final Handler g;
 
-    private static /* synthetic */ int[] b() {
+    static /* synthetic */ int[] a() {
         int[] iArr = h;
         if (iArr == null) {
             iArr = new int[GifImageType.valuesCustom().length];
@@ -78,12 +78,12 @@ public final class GifView extends ImageView implements a {
         this.a.start();
     }
 
-    public final void setAsBackground(View view) {
+    public void setAsBackground(View view) {
         this.e = view;
     }
 
     @Override // android.view.View
-    protected final Parcelable onSaveInstanceState() {
+    protected Parcelable onSaveInstanceState() {
         super.onSaveInstanceState();
         if (this.a != null) {
             this.a.a();
@@ -92,36 +92,36 @@ public final class GifView extends ImageView implements a {
         return null;
     }
 
-    public final void setGifImage(byte[] bArr) {
+    public void setGifImage(byte[] bArr) {
         setGifDecoderImage(bArr);
     }
 
-    public final void setGifImage(InputStream inputStream) {
+    public void setGifImage(InputStream inputStream) {
         setGifDecoderImage(inputStream);
     }
 
-    public final void setGifImage(int i) {
+    public void setGifImage(int i) {
         setGifDecoderImage(getResources().openRawResource(i));
     }
 
-    public final void setGifImageType(GifImageType gifImageType) {
+    public void setGifImageType(GifImageType gifImageType) {
         if (this.a == null) {
             this.f = gifImageType;
         }
     }
 
     @Override // com.baidu.adp.lib.gif.a
-    public final void a(boolean z, int i) {
+    public void a(boolean z, int i) {
         if (z) {
             if (this.a != null) {
-                switch (b()[this.f.ordinal()]) {
+                switch (a()[this.f.ordinal()]) {
                     case 1:
                         if (i == -1) {
                             if (this.a.b() > 1) {
-                                new d(this, (byte) 0).start();
+                                new d(this, null).start();
                                 return;
                             } else {
-                                a();
+                                b();
                                 return;
                             }
                         }
@@ -129,13 +129,13 @@ public final class GifView extends ImageView implements a {
                     case 2:
                         if (i == 1) {
                             this.b = this.a.c();
-                            a();
+                            b();
                             return;
                         } else if (i == -1) {
-                            a();
+                            b();
                             return;
                         } else if (this.d == null) {
-                            this.d = new d(this, (byte) 0);
+                            this.d = new d(this, null);
                             this.d.start();
                             return;
                         } else {
@@ -144,18 +144,18 @@ public final class GifView extends ImageView implements a {
                     case 3:
                         if (i == 1) {
                             this.b = this.a.c();
-                            a();
+                            b();
                             return;
                         } else if (i == -1) {
                             if (this.a.b() > 1) {
                                 if (this.d == null) {
-                                    this.d = new d(this, (byte) 0);
+                                    this.d = new d(this, null);
                                     this.d.start();
                                     return;
                                 }
                                 return;
                             }
-                            a();
+                            b();
                             return;
                         } else {
                             return;
@@ -168,7 +168,8 @@ public final class GifView extends ImageView implements a {
         }
     }
 
-    public void a() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
         if (this.g != null) {
             this.g.sendMessage(this.g.obtainMessage());
         }

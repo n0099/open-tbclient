@@ -1,50 +1,61 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.im.data.GroupActivityData;
-import protobuf.QueryGroupActivity.QueryGroupActivityRes;
+import com.squareup.wire.Wire;
+import protobuf.QueryGroupActivity.DataRes;
+import protobuf.QueryGroupActivity.QueryGroupActivityResIdl;
 /* loaded from: classes.dex */
 public class ResponseGetGroupActivityMessage extends TbSocketReponsedMessage {
-    private GroupActivityData a;
-
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        QueryGroupActivityRes.QueryGroupActivityResIdl parseFrom = QueryGroupActivityRes.QueryGroupActivityResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            QueryGroupActivityRes.DataRes data = parseFrom.getData();
-            GroupActivityData groupActivityData = new GroupActivityData();
-            groupActivityData.setActivityPortrait(data.getActivityPortrait());
-            groupActivityData.setgActivityArea(data.getGActivityArea());
-            groupActivityData.setgActivityContent(data.getGActivityContent());
-            groupActivityData.setgActivityTime(data.getGActivityTime());
-            groupActivityData.setgActivityTitle(data.getGActivityTitle());
-            groupActivityData.setGroupId(data.getGroupId());
-            groupActivityData.setActivityId(data.getActivityId());
-            groupActivityData.setUserId(data.getUserId());
-            groupActivityData.setUserName(data.getUserName());
-            groupActivityData.setIsEnd(data.getIsEnd());
-            this.a = groupActivityData;
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, java.lang.Object] */
-    @Override // com.baidu.adp.framework.message.f
-    public final /* synthetic */ void b(int i, byte[] bArr) {
-        byte[] bArr2 = bArr;
-        if (this.a == null || e() != 0) {
-            return;
-        }
-        a(com.baidu.tbadk.core.c.b.a().r(), "group_activity" + (TbadkApplication.N() != null ? TbadkApplication.N().getID() : "") + this.a.getActivityId(), bArr2);
-    }
+    private static final String CACHE_KEY_PREFIX = "group_activity";
+    private GroupActivityData activityData;
 
     public ResponseGetGroupActivityMessage() {
-        super(103015);
+        super(MessageTypes.CMD_GET_GROUP_ACTIVITY);
     }
 
-    public final GroupActivityData d() {
-        return this.a;
+    public GroupActivityData getActivityData() {
+        return this.activityData;
+    }
+
+    public void setActivityData(GroupActivityData groupActivityData) {
+        this.activityData = groupActivityData;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        QueryGroupActivityResIdl queryGroupActivityResIdl = (QueryGroupActivityResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryGroupActivityResIdl.class);
+        setError(queryGroupActivityResIdl.error.errorno.intValue());
+        setErrorString(queryGroupActivityResIdl.error.usermsg);
+        if (getError() == 0) {
+            DataRes dataRes = queryGroupActivityResIdl.data;
+            GroupActivityData groupActivityData = new GroupActivityData();
+            groupActivityData.setActivityPortrait(dataRes.activityPortrait);
+            groupActivityData.setgActivityArea(dataRes.gActivityArea);
+            groupActivityData.setgActivityContent(dataRes.gActivityContent);
+            groupActivityData.setgActivityTime(dataRes.gActivityTime.longValue());
+            groupActivityData.setgActivityTitle(dataRes.gActivityTitle);
+            groupActivityData.setGroupId(dataRes.groupId.intValue());
+            groupActivityData.setActivityId(dataRes.activityId.intValue());
+            groupActivityData.setUserId(dataRes.userId.intValue());
+            groupActivityData.setUserName(dataRes.userName);
+            groupActivityData.setIsEnd(dataRes.isEnd.intValue());
+            setActivityData(groupActivityData);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void processInBackGround(int i, byte[] bArr) {
+        if (getActivityData() != null && getError() == 0) {
+            String str = "";
+            if (TbadkApplication.getCurrentAccountObj() != null) {
+                str = TbadkApplication.getCurrentAccountObj().getID();
+            }
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().t(), CACHE_KEY_PREFIX + str + getActivityData().getActivityId(), bArr);
+        }
     }
 }

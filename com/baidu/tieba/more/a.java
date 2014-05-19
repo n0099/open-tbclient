@@ -1,8 +1,9 @@
 package com.baidu.tieba.more;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 /* loaded from: classes.dex */
-final class a implements p {
+class a implements p {
     final /* synthetic */ AboutActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,20 +12,22 @@ final class a implements p {
     }
 
     @Override // com.baidu.tieba.more.p
-    public final void a(int i) {
+    public void a(int i) {
         String str;
         if (i == 0) {
             this.a.finish();
-        } else if (i == 1) {
-            AboutActivity.b(this.a);
-        } else if (i == 2) {
-            this.a.sendMessage(new com.baidu.adp.framework.message.a(2015000, new com.baidu.tbadk.core.b.p(this.a).a("from_about_page")));
-        } else if (i == 3) {
-            com.baidu.tbadk.core.sharedPref.b.a().b(SettingTextFunctionIntroView.f, true);
-            AboutActivity aboutActivity = this.a;
-            String string = this.a.getString(com.baidu.tieba.a.k.setting_funtion_intro);
-            str = this.a.d;
-            TbWebViewActivity.b(aboutActivity, string, str);
+        } else if (i != 1) {
+            if (i == 2) {
+                this.a.sendMessage(new CustomMessage(2017000, new com.baidu.tbadk.core.atomData.r(this.a).a("from_about_page")));
+            } else if (i == 3) {
+                com.baidu.tbadk.core.sharedPref.b.a().b(SettingTextFunctionIntroView.f, true);
+                AboutActivity aboutActivity = this.a;
+                String string = this.a.getString(com.baidu.tieba.u.setting_funtion_intro);
+                str = this.a.d;
+                TbWebViewActivity.b(aboutActivity, string, str);
+            }
+        } else {
+            this.a.a();
         }
     }
 }

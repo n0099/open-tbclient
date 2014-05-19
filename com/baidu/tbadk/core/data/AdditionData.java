@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -77,14 +78,14 @@ public class AdditionData implements Serializable {
         if (jSONObject != null) {
             try {
                 this.createTime = jSONObject.optLong("create_time", 0L);
-                this.postId = jSONObject.optString("post_id");
+                this.postId = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.POST_ID);
                 this.totalCount = jSONObject.optInt("total_count", 0);
                 this.lastAdditionContent = jSONObject.optString("last_addition_content");
                 this.lastAdditionTime = jSONObject.optLong("last_addition_time", 0L);
                 this.alreadyCount = jSONObject.optInt("already_count", 0);
                 this.warnMsg = jSONObject.optString("warn_msg");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("AdditionData", "parserJson", "error = " + e.getMessage());
+                BdLog.e("AdditionData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

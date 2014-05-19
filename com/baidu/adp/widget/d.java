@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
-public final class d extends FrameLayout.LayoutParams {
+public class d extends FrameLayout.LayoutParams {
     public int a;
 
     public d(Context context, AttributeSet attributeSet) {
@@ -21,9 +21,9 @@ public final class d extends FrameLayout.LayoutParams {
     }
 
     public d(int i, int i2, int i3, int i4) {
-        super(-2, -2, 51);
+        super(i, i2, i3);
         this.a = 1;
-        this.a = 1;
+        this.a = i4;
     }
 
     public d(ViewGroup.LayoutParams layoutParams) {

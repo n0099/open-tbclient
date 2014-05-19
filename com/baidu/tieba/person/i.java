@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-final class i {
+class i {
     HeadImageView a;
     TextView b;
     StringBuffer c;
@@ -23,7 +23,7 @@ final class i {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ i(g gVar, byte b) {
+    public /* synthetic */ i(g gVar, i iVar) {
         this(gVar);
     }
 }

@@ -4,10 +4,11 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public final class ax extends BaseAdapter implements com.baidu.tieba.view.q {
+public class ax extends BaseAdapter implements com.baidu.tieba.view.t {
     private ArrayList<BaseAdapter> a;
     private com.baidu.tbadk.editortool.ab b;
     private u c;
@@ -34,7 +35,7 @@ public final class ax extends BaseAdapter implements com.baidu.tieba.view.q {
         this.a.add(this.f);
     }
 
-    public final void a(aq aqVar) {
+    public void a(aq aqVar) {
         if (aqVar != null) {
             if (this.c != null) {
                 this.c.a(aqVar.b());
@@ -51,27 +52,27 @@ public final class ax extends BaseAdapter implements com.baidu.tieba.view.q {
         }
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (this.c != null) {
             this.c.a(i);
         }
         notifyDataSetChanged();
     }
 
-    public final void a() {
+    public void a() {
         if (this.c != null) {
             this.c.a();
         }
     }
 
-    public final void c() {
+    public void c() {
         if (this.c != null) {
             this.c.c();
         }
     }
 
     @Override // android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         int i = 0;
         Iterator<BaseAdapter> it = this.a.iterator();
         while (true) {
@@ -85,7 +86,7 @@ public final class ax extends BaseAdapter implements com.baidu.tieba.view.q {
     }
 
     @Override // android.widget.Adapter
-    public final Object getItem(int i) {
+    public Object getItem(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -103,7 +104,7 @@ public final class ax extends BaseAdapter implements com.baidu.tieba.view.q {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getViewTypeCount() {
+    public int getViewTypeCount() {
         int i;
         int i2 = 0;
         Iterator<BaseAdapter> it = this.a.iterator();
@@ -121,7 +122,7 @@ public final class ax extends BaseAdapter implements com.baidu.tieba.view.q {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getItemViewType(int i) {
+    public int getItemViewType(int i) {
         int i2 = 0;
         for (int i3 = 0; i3 < this.a.size(); i3++) {
             BaseAdapter baseAdapter = this.a.get(i3);
@@ -135,12 +136,12 @@ public final class ax extends BaseAdapter implements com.baidu.tieba.view.q {
     }
 
     @Override // android.widget.Adapter
-    public final long getItemId(int i) {
+    public long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -157,25 +158,25 @@ public final class ax extends BaseAdapter implements com.baidu.tieba.view.q {
         }
     }
 
-    @Override // com.baidu.tieba.view.q
-    public final void b() {
+    @Override // com.baidu.tieba.view.t
+    public void b() {
         Iterator<BaseAdapter> it = this.a.iterator();
         while (it.hasNext()) {
             BaseAdapter next = it.next();
-            if (next instanceof com.baidu.tieba.view.q) {
-                ((com.baidu.tieba.view.q) next).b();
+            if (next instanceof com.baidu.tieba.view.t) {
+                ((com.baidu.tieba.view.t) next).b();
             }
         }
     }
 
-    @Override // com.baidu.tieba.view.q
-    public final void a(View view, int i, int i2) {
+    @Override // com.baidu.tieba.view.t
+    public void a(View view, int i, int i2) {
         for (int i3 = 0; i3 < this.a.size(); i3++) {
             BaseAdapter baseAdapter = this.a.get(i3);
-            if (baseAdapter instanceof com.baidu.tieba.view.q) {
-                ((com.baidu.tieba.view.q) baseAdapter).a(view, i < 0 ? 0 : i, i2 > baseAdapter.getCount() + (-1) ? baseAdapter.getCount() - 1 : i2);
+            if (baseAdapter instanceof com.baidu.tieba.view.t) {
+                ((com.baidu.tieba.view.t) baseAdapter).a(view, i < 0 ? 0 : i, i2 > baseAdapter.getCount() + (-1) ? baseAdapter.getCount() - 1 : i2);
             }
-            com.baidu.adp.lib.util.f.a(getClass().getName(), "startLoadImage", "start:" + i + "en:" + i2);
+            BdLog.i(getClass().getName(), "startLoadImage", "start:" + i + "en:" + i2);
             i -= baseAdapter.getCount();
             i2 -= baseAdapter.getCount();
             if (i2 < 0) {

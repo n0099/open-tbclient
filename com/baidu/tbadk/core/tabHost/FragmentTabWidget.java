@@ -7,9 +7,10 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.i;
-import com.baidu.tbadk.g;
+import com.baidu.adp.lib.util.h;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tieba.o;
+import com.baidu.tieba.q;
 /* loaded from: classes.dex */
 public class FragmentTabWidget extends LinearLayout {
     private int a;
@@ -48,12 +49,12 @@ public class FragmentTabWidget extends LinearLayout {
         this.f = new Paint(6);
         this.f.setAntiAlias(true);
         this.f.setStyle(Paint.Style.FILL);
-        this.g = i.a(getContext(), 1.0f);
-        this.h = i.a(getContext(), 3.0f);
+        this.g = h.a(getContext(), 1.0f);
+        this.h = h.a(getContext(), 3.0f);
         setWillNotDraw(false);
     }
 
-    public final void a(int i, boolean z) {
+    public void a(int i, boolean z) {
         if (i >= 0 && i < getChildCount() && this.a != i) {
             if (this.a != -1) {
                 getChildAt(this.a).setSelected(false);
@@ -70,17 +71,17 @@ public class FragmentTabWidget extends LinearLayout {
     public void addView(View view) {
         a(view);
         super.addView(view);
-        view.setOnClickListener(new d(this, getChildCount() - 1, (byte) 0));
+        view.setOnClickListener(new d(this, getChildCount() - 1, null));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         a(view);
         super.addView(view, i);
-        view.setOnClickListener(new d(this, getChildCount() - 1, (byte) 0));
+        view.setOnClickListener(new d(this, getChildCount() - 1, null));
     }
 
-    private static void a(View view) {
+    private void a(View view) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
         layoutParams.setMargins(0, 0, 0, 0);
         view.setLayoutParams(layoutParams);
@@ -88,7 +89,7 @@ public class FragmentTabWidget extends LinearLayout {
         view.setClickable(true);
     }
 
-    public final void a() {
+    public void a() {
         removeAllViews();
         this.a = -1;
     }
@@ -109,20 +110,20 @@ public class FragmentTabWidget extends LinearLayout {
         }
     }
 
-    public final void a(int i, float f) {
+    public void a(int i, float f) {
         this.e = this.m * i;
         this.e += (int) (this.m * f);
         this.c.set(this.e, this.l - this.h, this.e + this.m, this.l);
         postInvalidateDelayed(16L);
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (i == 1) {
-            setBackgroundResource(com.baidu.tbadk.i.bg_navigation_bar_1);
-            this.i = getResources().getColor(g.cp_link_tip_a_1);
+            setBackgroundResource(q.bg_navigation_bar_1);
+            this.i = getResources().getColor(o.cp_link_tip_a_1);
         } else {
-            setBackgroundResource(com.baidu.tbadk.i.bg_navigation_bar);
-            this.i = getResources().getColor(g.cp_link_tip_a);
+            setBackgroundResource(q.bg_navigation_bar);
+            this.i = getResources().getColor(o.cp_link_tip_a);
         }
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {

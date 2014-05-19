@@ -2,9 +2,10 @@ package com.baidu.tieba.forumfeed;
 
 import android.view.View;
 import android.widget.AbsListView;
+import com.baidu.tieba.r;
 import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-final class m implements AbsListView.RecyclerListener {
+class m implements AbsListView.RecyclerListener {
     final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,10 +14,10 @@ final class m implements AbsListView.RecyclerListener {
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
-    public final void onMovedToScrapHeap(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(com.baidu.tieba.a.h.abstract_voice);
+    public void onMovedToScrapHeap(View view) {
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(r.abstract_voice);
         if (playVoiceBnt != null) {
-            playVoiceBnt.b();
+            playVoiceBnt.d();
         }
     }
 }

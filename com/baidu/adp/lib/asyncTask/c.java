@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.asyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c<Data> {
+public class c<Data> {
     final BdAsyncTask a;
     final Data[] b;
 

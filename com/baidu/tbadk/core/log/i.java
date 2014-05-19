@@ -1,44 +1,20 @@
 package com.baidu.tbadk.core.log;
 
-import java.util.Hashtable;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public final class i {
-    private static Hashtable<Integer, String> a;
-
-    static {
-        a = null;
-        if (0 == 0) {
-            Hashtable<Integer, String> hashtable = new Hashtable<>();
-            a = hashtable;
-            hashtable.put(1001, "上线");
-            a.put(1002, "GROUP_UPDATE");
-            a.put(1003, "PING");
-            a.put(202003, "MESSAGE_SYNC");
-            a.put(202001, "GROUP_CHAT_MSG");
-            a.put(205001, "CMD_COMMIT_PERSONAL_MSG");
-            a.put(202006, "PUSH_NOTIFY");
-            a.put(103002, "吧的群组列表界面网络请求");
-            a.put(103004, "群资料页界面网络请求");
-            a.put(103005, "根据群的ID获取群的成员列表");
-            a.put(103112, "移除群的成员");
-            a.put(103006, "根据群的id获取群的等级信息");
-            a.put(103110, "加群申请");
-            a.put(103111, "往群增加成员");
-            a.put(103003, "进群页面接口");
-            a.put(103007, "搜群");
-            a.put(202004, "删系统群消息");
-            a.put(103008, "建群权限获取");
-            a.put(103101, "添加群组");
-            a.put(103103, "举报群组");
-            a.put(103102, "更新群组");
-            a.put(202101, "反推计数上传");
-        }
+class i extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(int i) {
+        super(i);
     }
 
-    public static String a(int i) {
-        if (a == null || !a.containsKey(Integer.valueOf(i))) {
-            return "";
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2002999 && (customResponsedMessage.getData() instanceof String)) {
+            com.baidu.adp.lib.stats.h.a().b((String) customResponsedMessage.getData());
         }
-        return a.get(Integer.valueOf(i));
     }
 }

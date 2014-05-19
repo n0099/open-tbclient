@@ -1,161 +1,157 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.data.IconData;
+import com.baidu.tieba.im.chat.bw;
 import com.baidu.tieba.im.data.GroupIdTypeData;
 import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.f.r;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.GroupChatMessage;
+import com.baidu.tieba.im.message.chat.NotifyChatMessage;
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tieba.im.message.chat.SnapChatMessage;
+import com.baidu.tieba.im.message.chat.SystemMessage;
+import com.baidu.tieba.im.message.chat.YYMessage;
+import com.squareup.wire.Wire;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import protobuf.GetGroupMsg.GetGroupMsgRes;
-import protobuf.Im;
+import protobuf.GetGroupMsg.GetGroupMsgResIdl;
+import protobuf.GetGroupMsg.GroupMsg;
+import protobuf.GroupInfo;
+import protobuf.MsgInfo;
+import protobuf.TshowInfo;
+import protobuf.UserInfo;
 /* loaded from: classes.dex */
 public class ResponsePullMessage extends SocketResponsedMessage {
-    private List<GroupMsgData> a;
-    private int b;
+    private int allowEggs;
+    private List<GroupMsgData> groupMsg;
 
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        int size;
-        com.baidu.tieba.im.message.a.h iVar;
-        GetGroupMsgRes.GetGroupMsgResIdl parseFrom = GetGroupMsgRes.GetGroupMsgResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.b = parseFrom.getData().getAllowEggs();
-            this.a = new LinkedList();
-            int groupMsgCount = parseFrom.getData().getGroupMsgCount();
-            for (int i2 = 0; i2 < groupMsgCount; i2++) {
-                GetGroupMsgRes.GroupMsg groupMsg = parseFrom.getData().getGroupMsg(i2);
-                Im.GroupInfo groupInfo = groupMsg.getGroupInfo();
-                GroupMsgData groupMsgData = null;
-                switch (groupInfo.getGroupType()) {
-                    case 1:
-                        groupMsgData = new GroupMsgData(2013000);
-                        break;
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        groupMsgData = new GroupMsgData(2013005);
-                        break;
-                    case 6:
-                        groupMsgData = new GroupMsgData(2013001);
-                        break;
-                    case 7:
-                        groupMsgData = new GroupMsgData(2013002);
-                        break;
-                    case 8:
-                        groupMsgData = new GroupMsgData(2013004);
-                        break;
-                    case 10:
-                    case 11:
-                    case 12:
-                        groupMsgData = new GroupMsgData(2013006);
-                        break;
+    public ResponsePullMessage() {
+        super(MessageTypes.CMD_MESSAGE_SYNC);
+    }
+
+    public List<GroupMsgData> getGroupMsg() {
+        return this.groupMsg;
+    }
+
+    public void setGroupMsg(List<GroupMsgData> list) {
+        this.groupMsg = list;
+    }
+
+    public int getAllowEggs() {
+        return this.allowEggs;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void processInBackGround(int i, byte[] bArr) {
+        List<GroupMsgData> groupMsg = getGroupMsg();
+        if (groupMsg != null) {
+            for (GroupMsgData groupMsgData : groupMsg) {
+                if (groupMsgData.getListMessage() != null) {
+                    Iterator<ChatMessage> it = groupMsgData.getListMessage().iterator();
+                    while (it.hasNext()) {
+                        it.next().getBornTime();
+                    }
                 }
-                this.a.add(groupMsgData);
-                LinkedList<com.baidu.tieba.im.message.a.a> linkedList = new LinkedList<>();
-                groupMsgData.a(linkedList);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        int size;
+        GetGroupMsgResIdl getGroupMsgResIdl = (GetGroupMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, GetGroupMsgResIdl.class);
+        setError(getGroupMsgResIdl.error.errorno.intValue());
+        setErrorString(getGroupMsgResIdl.error.usermsg);
+        if (getError() == 0 && getGroupMsgResIdl.data != null) {
+            this.allowEggs = getGroupMsgResIdl.data.allowEggs.intValue();
+            setGroupMsg(new LinkedList());
+            int size2 = getGroupMsgResIdl.data.groupMsg == null ? 0 : getGroupMsgResIdl.data.groupMsg.size();
+            for (int i2 = 0; i2 < size2; i2++) {
+                GroupMsg groupMsg = getGroupMsgResIdl.data.groupMsg.get(i2);
+                GroupInfo groupInfo = groupMsg.groupInfo;
+                GroupMsgData obtainGroupData = obtainGroupData(groupInfo);
+                getGroupMsg().add(obtainGroupData);
+                LinkedList<ChatMessage> linkedList = new LinkedList<>();
+                obtainGroupData.setListMessageData(linkedList);
                 GroupIdTypeData groupIdTypeData = new GroupIdTypeData();
-                groupMsgData.a(groupIdTypeData);
-                groupIdTypeData.setGroupId(groupInfo.getGroupId());
-                groupIdTypeData.setGroupType(groupInfo.getGroupType());
-                List<Im.MsgInfo> msgListList = groupMsg.getMsgListList();
-                if (msgListList != null && (size = msgListList.size()) > 0) {
-                    com.baidu.adp.lib.util.f.d("----transform list size:" + size);
+                obtainGroupData.setGroupInfo(groupIdTypeData);
+                groupIdTypeData.setGroupId(groupInfo.groupId.intValue());
+                groupIdTypeData.setGroupType(groupInfo.groupType.intValue());
+                List<MsgInfo> list = groupMsg.msgList;
+                if (list != null && (size = list.size()) > 0) {
+                    BdLog.i("----transform list size:" + size);
                     for (int i3 = 0; i3 < size; i3++) {
                         try {
-                            Im.MsgInfo msgInfo = msgListList.get(i3);
-                            switch (groupInfo.getGroupType()) {
-                                case 1:
-                                    iVar = new com.baidu.tieba.im.message.a.h();
-                                    break;
-                                case 2:
-                                case 3:
-                                case 4:
-                                case 5:
-                                    iVar = new com.baidu.tieba.im.message.a.c();
-                                    break;
-                                case 6:
-                                    if ((com.baidu.adp.lib.f.b.a(TbadkApplication.E(), 0L) != msgInfo.getUserId() ? msgInfo.getUserInfo().getUserType() : msgInfo.getToUserInfo().getUserType()) == 1) {
-                                        iVar = new com.baidu.tieba.im.message.a.e();
-                                        break;
-                                    } else {
-                                        iVar = new com.baidu.tieba.im.message.a.f();
-                                        break;
-                                    }
-                                case 7:
-                                    iVar = new com.baidu.tieba.im.message.a.g();
-                                    break;
-                                case 8:
-                                    iVar = new com.baidu.tieba.im.message.a.d();
-                                    break;
-                                case 9:
-                                default:
-                                    iVar = null;
-                                    break;
-                                case 10:
-                                case 11:
-                                case 12:
-                                    iVar = new com.baidu.tieba.im.message.a.i();
-                                    break;
-                            }
-                            long msgId = msgInfo.getMsgId() * 100;
-                            iVar.f(msgId);
-                            iVar.a(String.valueOf(msgInfo.getGroupId()));
-                            iVar.e(msgInfo.getMsgType());
-                            com.baidu.adp.lib.util.f.e("msgType:" + iVar.t());
-                            long userId = msgInfo.getUserId();
-                            iVar.g(userId);
-                            if (TbadkApplication.F() && String.valueOf(userId).equals(TbadkApplication.E())) {
-                                iVar.e(msgInfo.getRecordId());
+                            MsgInfo msgInfo = list.get(i3);
+                            ChatMessage obtainMessage = obtainMessage(groupInfo, msgInfo);
+                            long b = bw.b(msgInfo.msgId.longValue());
+                            obtainMessage.setMsgId(b);
+                            obtainMessage.setGroupId(String.valueOf(msgInfo.groupId));
+                            obtainMessage.setMsgType(msgInfo.msgType.intValue());
+                            BdLog.d("msgType:" + obtainMessage.getMsgType());
+                            long longValue = msgInfo.userId.longValue();
+                            obtainMessage.setUserId(longValue);
+                            if (TbadkApplication.isLogin() && String.valueOf(longValue).equals(TbadkApplication.getCurrentAccount())) {
+                                obtainMessage.setRecordId(msgInfo.recordId.longValue());
                             } else {
-                                iVar.e(msgId);
+                                obtainMessage.setRecordId(b);
                             }
                             UserData userData = new UserData();
-                            iVar.a(userData);
-                            Im.UserInfo userInfo = msgInfo.getUserInfo();
-                            List<Im.TshowInfo> tshowIconList = userInfo.getTshowIconList();
-                            if (tshowIconList != null) {
-                                LinkedList<IconData> linkedList2 = new LinkedList<>();
-                                int i4 = 0;
-                                while (true) {
-                                    int i5 = i4;
-                                    if (i5 >= tshowIconList.size()) {
-                                        userData.setTShowInfo(linkedList2);
-                                    } else {
-                                        Im.TshowInfo tshowInfo = tshowIconList.get(i5);
-                                        linkedList2.add(new IconData(tshowInfo.getIcon(), tshowInfo.getName(), tshowInfo.getUrl()));
+                            obtainMessage.setUserInfo(userData);
+                            UserInfo userInfo = msgInfo.userInfo;
+                            if (userInfo != null) {
+                                List<TshowInfo> list2 = userInfo.tshowIcon;
+                                if (list2 != null) {
+                                    LinkedList<IconData> linkedList2 = new LinkedList<>();
+                                    int i4 = 0;
+                                    while (true) {
+                                        int i5 = i4;
+                                        if (i5 >= list2.size()) {
+                                            break;
+                                        }
+                                        TshowInfo tshowInfo = list2.get(i5);
+                                        linkedList2.add(new IconData(tshowInfo.icon, tshowInfo.name, tshowInfo.url));
                                         i4 = i5 + 1;
                                     }
+                                    userData.setTShowInfo(linkedList2);
                                 }
+                                obtainMessage.getUserInfo().setUserId(String.valueOf(userInfo.userId));
+                                obtainMessage.getUserInfo().setUserName(userInfo.userName);
+                                obtainMessage.getUserInfo().setPortrait(userInfo.portrait);
+                                obtainMessage.getUserInfo().setSex(userInfo.sex.intValue());
+                                obtainMessage.getUserInfo().setUserType(userInfo.userType.intValue());
                             }
-                            iVar.r().setUserId(String.valueOf(userInfo.getUserId()));
-                            iVar.r().setUserName(userInfo.getUserName());
-                            iVar.r().setPortrait(userInfo.getPortrait());
-                            iVar.r().setSex(userInfo.getSex());
-                            iVar.r().setUserType(userInfo.getUserType());
-                            iVar.b(new UserData());
-                            Im.UserInfo toUserInfo = msgInfo.getToUserInfo();
-                            iVar.s().setUserId(String.valueOf(toUserInfo.getUserId()));
-                            iVar.s().setUserName(toUserInfo.getUserName());
-                            iVar.s().setPortrait(toUserInfo.getPortrait());
-                            iVar.s().setSex(toUserInfo.getSex());
-                            iVar.s().setUserType(toUserInfo.getUserType());
-                            iVar.c(msgInfo.getToUid());
-                            iVar.d(msgInfo.getContent());
-                            iVar.h(msgInfo.getCreateTime());
-                            iVar.b(msgInfo.getLink());
-                            iVar.c(msgInfo.getStat());
-                            iVar.d(msgInfo.getTaskId());
-                            linkedList.add(iVar);
-                            com.baidu.tieba.im.f.q.f(iVar);
+                            obtainMessage.setToUserInfo(new UserData());
+                            UserInfo userInfo2 = msgInfo.toUserInfo;
+                            if (userInfo2 != null) {
+                                obtainMessage.getToUserInfo().setUserId(String.valueOf(userInfo2.userId));
+                                obtainMessage.getToUserInfo().setUserName(userInfo2.userName);
+                                obtainMessage.getToUserInfo().setPortrait(userInfo2.portrait);
+                                obtainMessage.getToUserInfo().setSex(userInfo2.sex.intValue());
+                                obtainMessage.getToUserInfo().setUserType(userInfo2.userType.intValue());
+                            }
+                            obtainMessage.setToUserId(msgInfo.toUid.longValue());
+                            obtainMessage.setContent(msgInfo.content);
+                            obtainMessage.setTime(msgInfo.createTime.intValue());
+                            obtainMessage.setLink(msgInfo.link);
+                            obtainMessage.setStat(msgInfo.stat);
+                            obtainMessage.setTaskId(msgInfo.taskId.longValue());
+                            linkedList.add(obtainMessage);
+                            r.g(obtainMessage);
                         } catch (Exception e) {
                             e.printStackTrace();
-                            com.baidu.adp.lib.util.f.d("----transform error!");
+                            BdLog.i("----transform error!");
                         }
                     }
                 }
@@ -163,22 +159,82 @@ public class ResponsePullMessage extends SocketResponsedMessage {
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, java.lang.Object] */
-    @Override // com.baidu.adp.framework.message.f
-    public final /* synthetic */ void b(int i, byte[] bArr) {
-        for (GroupMsgData groupMsgData : this.a) {
-            Iterator<com.baidu.tieba.im.message.a.a> it = groupMsgData.c().iterator();
-            while (it.hasNext()) {
-                it.next().j();
-            }
+    private GroupMsgData obtainGroupData(GroupInfo groupInfo) {
+        switch (groupInfo.groupType.intValue()) {
+            case 1:
+                return new GroupMsgData(2015000);
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                return new GroupMsgData(2015005);
+            case 6:
+                return new GroupMsgData(2015001);
+            case 7:
+                return new GroupMsgData(2015002);
+            case 8:
+                return new GroupMsgData(2015004);
+            case 9:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            case 18:
+            case 19:
+            case 20:
+            default:
+                return null;
+            case 10:
+            case 11:
+            case 12:
+                return new GroupMsgData(2015006);
+            case TbConfig.NOTIFY_LIVE_NOTIFY /* 21 */:
+                return new GroupMsgData(2015007);
         }
     }
 
-    public ResponsePullMessage() {
-        super(202003);
-    }
-
-    public final List<GroupMsgData> d() {
-        return this.a;
+    private ChatMessage obtainMessage(GroupInfo groupInfo, MsgInfo msgInfo) {
+        int intValue;
+        switch (groupInfo.groupType.intValue()) {
+            case 1:
+                return new SystemMessage();
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                return new GroupChatMessage();
+            case 6:
+                if (com.baidu.adp.lib.f.b.a(TbadkApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
+                    intValue = msgInfo.userInfo.userType.intValue();
+                } else {
+                    intValue = msgInfo.toUserInfo.userType.intValue();
+                }
+                if (intValue == 1) {
+                    return new OfficialChatMessage();
+                }
+                return new PersonalChatMessage();
+            case 7:
+                return new SnapChatMessage();
+            case 8:
+                return new NotifyChatMessage();
+            case 9:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            case 18:
+            case 19:
+            case 20:
+            default:
+                return null;
+            case 10:
+            case 11:
+            case 12:
+                return new YYMessage();
+            case TbConfig.NOTIFY_LIVE_NOTIFY /* 21 */:
+                return new GroupChatMessage();
+        }
     }
 }

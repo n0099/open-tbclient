@@ -1,54 +1,32 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ForumData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.tbadk.core.view.UserPhotoLayout;
+import com.baidu.tieba.view.FrsCommonImageLayout;
+import com.baidu.tieba.voice.PlayVoiceBnt;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class cx {
-    private ForumData a = new ForumData();
-    private ArrayList<com.baidu.tieba.data.aq> b = new ArrayList<>();
-    private ArrayList<String> c = new ArrayList<>();
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
-    private AntiData g = new AntiData();
-    private com.baidu.tieba.data.ac h = new com.baidu.tieba.data.ac();
+public class cx implements AbsListView.RecyclerListener {
+    final /* synthetic */ cs a;
 
-    public final ArrayList<com.baidu.tieba.data.aq> a() {
-        return this.b;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cx(cs csVar) {
+        this.a = csVar;
     }
 
-    public final void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a.parserJson(jSONObject.optJSONObject("forum"));
-                this.h.a(jSONObject.optJSONObject("user"));
-                this.g.parserJson(jSONObject.optJSONObject("anti"));
-                JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");
-                if (optJSONObject != null) {
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            com.baidu.tieba.data.aq aqVar = new com.baidu.tieba.data.aq();
-                            aqVar.a(optJSONArray.optJSONObject(i));
-                            this.b.add(aqVar);
-                        }
-                    }
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");
-                    if (optJSONArray2 != null) {
-                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            this.c.add(optJSONArray2.optString(i2));
-                        }
-                    }
-                    this.d = optJSONObject.optInt("has_more", 0);
-                    this.e = optJSONObject.optInt("amount", 0);
-                    this.f = optJSONObject.optInt("current_count", 0);
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
-            }
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(com.baidu.tieba.r.abstract_voice);
+        if (playVoiceBnt != null) {
+            playVoiceBnt.d();
+        }
+        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(com.baidu.tieba.r.abstract_img_layout);
+        if (frsCommonImageLayout != null) {
+            frsCommonImageLayout.a();
+        }
+        if (view != null && (view instanceof UserPhotoLayout)) {
+            ((UserPhotoLayout) view).a();
         }
     }
 }

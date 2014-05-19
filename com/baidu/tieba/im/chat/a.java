@@ -12,13 +12,16 @@ import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
-public abstract class a extends com.baidu.tbadk.a {
+public abstract class a extends BaseActivity {
     private FrameLayout g;
     private int q;
     private String r;
@@ -46,122 +49,59 @@ public abstract class a extends com.baidu.tbadk.a {
     protected abstract void a(String str, bv bvVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0129, code lost:
-        if (r6.c < 0) goto L19;
-     */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TbadkApplication.j().a(this);
-        setContentView(com.baidu.tieba.im.i.image_activity_2);
-        Intent intent = getIntent();
-        if (intent != null) {
-            this.r = intent.getStringExtra("current_url");
-            this.s = intent.getStringExtra("id");
-            this.w = intent.getBooleanExtra("isSingle", false);
-            this.b = new ArrayList<>();
-            this.b.add(this.r);
-            this.v = intent.getIntExtra("chat_mode", 0);
-            this.c = 0;
-            com.baidu.adp.lib.util.f.e("curImgUrl:" + this.r + " groupId:" + this.s);
-        } else if (bundle != null) {
-            com.baidu.adp.lib.util.f.e(" have savedInstanceState");
-            this.b = bundle.getStringArrayList("url");
-            this.c = bundle.getInt("index", -1);
-            this.s = bundle.getString("id");
-            this.v = bundle.getInt("chat_mode", 0);
-            this.w = bundle.getBoolean("isSingle", false);
-        } else {
-            com.baidu.adp.lib.util.f.e(" not have savedInstanceState");
-        }
-        this.u = new HashMap<>();
-        this.k = new b(this);
-        this.m = new d(this);
-        this.l = new e(this);
-        this.i = (NavigationBar) findViewById(com.baidu.tieba.im.h.navigation_bar);
-        this.g = (FrameLayout) this.i.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.im.i.image_activity_save_button, this.k);
-        if (this.w) {
-            this.g.setVisibility(8);
-        }
-        this.a = (ProgressBar) findViewById(com.baidu.tieba.im.h.progress);
-        this.e = (TextView) findViewById(com.baidu.tieba.im.h.save);
-        this.f = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.k);
-        this.h = this.i.a("");
-        this.e.setClickable(false);
-        this.j = (MultiImageView) findViewById(com.baidu.tieba.im.h.viewpager);
-        this.j.setPageMargin(com.baidu.adp.lib.util.i.a((Context) this, 8.0f));
-        this.j.a(2, com.baidu.tbadk.core.data.n.u() * com.baidu.tbadk.core.data.n.u());
-        this.j.setOnPageChangeListener(this.m);
-        this.j.setItemOnclickListener(this.k);
-        MultiImageView multiImageView = this.j;
-        if (this.b != null && this.b.size() > 0) {
-            int size = this.b.size();
-            if (this.c >= size) {
-                this.c = size - 1;
-            }
-        }
-        this.c = 0;
-        multiImageView.a(this.c, false);
-        this.j.setOnScrollOutListener(this.l);
-        this.j.setHasNext(false);
-        this.j.setNextTitle("mNextTitle");
-        this.j.setIsFromCDN(true);
-        this.j.setAllowLocalUrl(true);
-        int i = this.c;
-        int i2 = this.c;
-        a(i);
-        this.h.setVisibility(4);
+        TbadkApplication.m252getInst().addRemoteActivity(this);
+        setContentView(com.baidu.tieba.s.image_activity_2);
+        a(bundle);
         a();
+        d();
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        a();
+        d();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.j.setBackgroundColor(com.baidu.tbadk.core.util.ba.d(i));
+            this.j.setBackgroundColor(com.baidu.tbadk.core.util.bc.d(i));
         } else {
             this.j.setBackgroundColor(-16777216);
         }
-        this.i.b(i);
+        this.i.c(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
         this.j.b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         this.j.a();
     }
 
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
         this.j.c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        int i = this.c;
-        int i2 = this.c;
-        a(i);
+        a(this.c, this.c);
         this.j.c();
         if (this.d != null) {
             this.d.cancel();
@@ -173,13 +113,13 @@ public abstract class a extends com.baidu.tbadk.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        TbadkApplication.j().b(this);
+        TbadkApplication.m252getInst().delRemoteActivity(this);
         super.onDestroy();
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             Intent intent = new Intent();
@@ -191,24 +131,92 @@ public abstract class a extends com.baidu.tbadk.a {
         return super.onKeyDown(i, keyEvent);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void l(a aVar) {
-        if (aVar.b != null) {
-            String valueOf = String.valueOf(aVar.c + 1);
-            if (aVar.q > 0) {
-                valueOf = String.valueOf(String.valueOf(valueOf) + "/") + aVar.q;
+    private void a() {
+        this.k = new b(this);
+        this.m = new d(this);
+        this.l = new e(this);
+        this.i = (NavigationBar) findViewById(com.baidu.tieba.r.navigation_bar);
+        this.g = (FrameLayout) this.i.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.s.image_activity_save_button, this.k);
+        if (this.w) {
+            this.g.setVisibility(8);
+        }
+        this.a = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
+        this.e = (TextView) findViewById(com.baidu.tieba.r.save);
+        this.f = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.k);
+        this.h = this.i.a("");
+        this.e.setClickable(false);
+        this.j = (MultiImageView) findViewById(com.baidu.tieba.r.viewpager);
+        this.j.setPageMargin(com.baidu.adp.lib.util.h.a((Context) this, 8.0f));
+        this.j.a(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+        this.j.setOnPageChangeListener(this.m);
+        this.j.setItemOnclickListener(this.k);
+        this.j.a(c(), false);
+        this.j.setOnScrollOutListener(this.l);
+        this.j.setHasNext(false);
+        this.j.setNextTitle("mNextTitle");
+        this.j.setIsFromCDN(true);
+        this.j.setAllowLocalUrl(true);
+        a(this.c, this.c);
+        this.h.setVisibility(4);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        if (this.b != null) {
+            String valueOf = String.valueOf(this.c + 1);
+            if (this.q > 0) {
+                valueOf = String.valueOf(String.valueOf(valueOf) + "/") + this.q;
             }
-            if (aVar.j.getHasNext() && aVar.c == aVar.j.getItemNum() - 1) {
-                aVar.h.setText(aVar.getString(com.baidu.tieba.im.j.image_recommend));
-                aVar.e.setVisibility(4);
+            if (this.j.getHasNext() && this.c == this.j.getItemNum() - 1) {
+                this.h.setText(getString(com.baidu.tieba.u.image_recommend));
+                this.e.setVisibility(4);
                 return;
             }
-            aVar.h.setText(valueOf);
-            aVar.e.setVisibility(0);
+            this.h.setText(valueOf);
+            this.e.setVisibility(0);
         }
     }
 
-    private void a() {
+    private int c() {
+        if (this.b != null && this.b.size() > 0) {
+            int size = this.b.size();
+            if (this.c >= size) {
+                this.c = size - 1;
+            }
+            if (this.c < 0) {
+                this.c = 0;
+            }
+        } else {
+            this.c = 0;
+        }
+        return this.c;
+    }
+
+    private void a(Bundle bundle) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            this.r = intent.getStringExtra("current_url");
+            this.s = intent.getStringExtra("id");
+            this.w = intent.getBooleanExtra("isSingle", false);
+            this.b = new ArrayList<>();
+            this.b.add(this.r);
+            this.v = intent.getIntExtra("chat_mode", 0);
+            this.c = 0;
+            BdLog.d("curImgUrl:" + this.r + " groupId:" + this.s);
+        } else if (bundle != null) {
+            BdLog.d(" have savedInstanceState");
+            this.b = bundle.getStringArrayList("url");
+            this.c = bundle.getInt("index", -1);
+            this.s = bundle.getString("id");
+            this.v = bundle.getInt("chat_mode", 0);
+            this.w = bundle.getBoolean("isSingle", false);
+        } else {
+            BdLog.d(" not have savedInstanceState");
+        }
+        this.u = new HashMap<>();
+    }
+
+    private void d() {
         if (TextUtils.isEmpty(this.s)) {
             finish();
         }
@@ -232,7 +240,7 @@ public abstract class a extends com.baidu.tbadk.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
+    public void a(int i, int i2) {
         synchronized (this.u) {
             if (System.nanoTime() - this.t > 300000000 && this.b != null && i < this.b.size()) {
                 this.u.put(this.b.get(i), true);

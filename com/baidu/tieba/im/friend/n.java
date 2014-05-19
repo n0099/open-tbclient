@@ -2,7 +2,7 @@ package com.baidu.tieba.im.friend;
 
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-final class n extends com.baidu.adp.a.h {
+class n extends com.baidu.adp.base.g {
     final /* synthetic */ InviteFriendListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,15 +10,15 @@ final class n extends com.baidu.adp.a.h {
         this.a = inviteFriendListActivity;
     }
 
-    @Override // com.baidu.adp.a.h
-    public final void a(Object obj) {
+    @Override // com.baidu.adp.base.g
+    public void a(Object obj) {
         y yVar;
         y yVar2;
         af afVar;
         af afVar2;
         af afVar3;
         yVar = this.a.a;
-        yVar.k();
+        yVar.j();
         this.a.closeLoadingDialog();
         if (obj == null) {
             afVar = this.a.b;
@@ -34,14 +34,14 @@ final class n extends com.baidu.adp.a.h {
             }
             return;
         }
-        com.baidu.tieba.im.data.d dVar = (com.baidu.tieba.im.data.d) obj;
-        ArrayList<com.baidu.tieba.im.data.c> a = dVar == null ? null : dVar.a();
-        if (dVar != null && dVar.b() && (a == null || a.size() <= 0)) {
-            this.a.showToast(this.a.getString(com.baidu.tieba.im.j.invite_friend_no_data_now));
+        com.baidu.tieba.im.data.f fVar = (com.baidu.tieba.im.data.f) obj;
+        ArrayList<com.baidu.tieba.im.data.e> a = fVar == null ? null : fVar.a();
+        if (fVar != null && fVar.b() && (a == null || a.size() <= 0)) {
+            this.a.showToast(this.a.getString(com.baidu.tieba.u.invite_friend_no_data_now));
         }
-        if (dVar != null) {
+        if (fVar != null) {
             yVar2 = this.a.a;
-            yVar2.a(dVar);
+            yVar2.a(fVar);
         }
     }
 }

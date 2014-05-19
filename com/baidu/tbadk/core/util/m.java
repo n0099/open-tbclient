@@ -1,13 +1,75 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes.dex */
-public final class m {
-    private static String a = null;
 
-    public static void a(String str) {
-        a = str;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import com.baidu.adp.lib.util.BdLog;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+/* loaded from: classes.dex */
+public class m {
+    public static void a(InputStream inputStream) {
+        if (inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                BdLog.e("CloseUtil", "error on close the inputstream.", e.getMessage());
+            }
+        }
     }
 
-    public static String a() {
-        return a;
+    public static void a(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable th) {
+                BdLog.e("CloseUtil", "error on close the Closeable.", th.getMessage());
+            }
+        }
+    }
+
+    public static void a(OutputStream outputStream) {
+        if (outputStream != null) {
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                BdLog.e("CloseUtil", "error on close the outputstream.", e.getMessage());
+            }
+        }
+    }
+
+    public static void a(Cursor cursor) {
+        if (cursor != null) {
+            try {
+                cursor.close();
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "close cursor", new Object[0]);
+                BdLog.e("CloseUtil", "error on close android.database.Cursor.", e.getMessage());
+            }
+        }
+    }
+
+    public static void a(SQLiteDatabase sQLiteDatabase) {
+        if (sQLiteDatabase != null) {
+            try {
+                sQLiteDatabase.close();
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "close db", new Object[0]);
+                BdLog.e("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
+            }
+        }
+    }
+
+    public static void a(SQLiteStatement sQLiteStatement) {
+        if (sQLiteStatement != null) {
+            try {
+                sQLiteStatement.close();
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "close SQLiteStatement", new Object[0]);
+                BdLog.e("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
+            }
+        }
     }
 }

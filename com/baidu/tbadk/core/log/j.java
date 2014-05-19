@@ -1,27 +1,44 @@
 package com.baidu.tbadk.core.log;
 
-import com.baidu.tbadk.core.util.m;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import java.util.Hashtable;
 /* loaded from: classes.dex */
-public final class j {
-    private static LoggerItem a = new LoggerItem(h.c);
+public class j {
+    private static Hashtable<Integer, String> a;
 
-    public static synchronized String a(String str, String str2, String str3, String str4, String str5) {
-        String loggerItem;
-        synchronized (j.class) {
-            if (!g.a(a)) {
-                loggerItem = null;
-            } else {
-                a.clear();
-                a.put("client_ip", g.a(m.a()));
-                a.put("url", g.a(str));
-                a.put("downloadTime", g.a(str2));
-                a.put("dataSize", g.a(str3));
-                a.put("errMsg", g.a(str4));
-                a.put("remark", g.a(str5));
-                a.initBaseData();
-                loggerItem = a.toString();
-            }
+    static {
+        a = null;
+        if (a == null) {
+            a = new Hashtable<>();
+            a.put(Integer.valueOf((int) MessageTypes.CMD_UPDATE_CLIENT_INFO), "上线");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_GROUP_UPDATE), "GROUP_UPDATE");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_PING), "PING");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_MESSAGE_SYNC), "MESSAGE_SYNC");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_GROUP_CHAT_MSG), "GROUP_CHAT_MSG");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_COMMIT_PERSONAL_MSG), "CMD_COMMIT_PERSONAL_MSG");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_PUSH_NOTIFY), "PUSH_NOTIFY");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_REQUEST_GROUPS_BYFID), "吧的群组列表界面网络请求");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_REQUEST_GROUP_INFO_BY_ID), "群资料页界面网络请求");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_REQUEST_MEMBERS_BY_ID), "根据群的ID获取群的成员列表");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_REMOVE_MEMBERS), "移除群的成员");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_REQUEST_GROUPLEVEL_BY_ID), "根据群的id获取群的等级信息");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_JOIN_GROUP), "加群申请");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_ADD_GROUP_USER), "往群增加成员");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_QUERY_GROUP_BY_UID), "进群页面接口");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_REQUEST_SEARCH_GROUP), "搜群");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_DELETE_GROUP_MSG), "删系统群消息");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_GET_USER_PERMISSION), "建群权限获取");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_ADD_GROUP), "添加群组");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_REPORT_GROUP), "举报群组");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_UPDATE_GROUP), "更新群组");
+            a.put(Integer.valueOf((int) MessageTypes.CMD_PUSH_COUNT), "反推计数上传");
         }
-        return loggerItem;
+    }
+
+    public static String a(int i) {
+        if (a == null || !a.containsKey(Integer.valueOf(i))) {
+            return "";
+        }
+        return a.get(Integer.valueOf(i));
     }
 }

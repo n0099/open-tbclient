@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.f;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* loaded from: classes.dex */
-public final class k extends com.baidu.tieba.im.m<Boolean> {
-    private final /* synthetic */ String b;
+class k implements com.baidu.tieba.im.a<Void> {
+    private final /* synthetic */ ImMessageCenterPojo a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(String str) {
-        this.b = str;
+    public k(ImMessageCenterPojo imMessageCenterPojo) {
+        this.a = imMessageCenterPojo;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Boolean a() {
-        h.b(this.b);
-        return Boolean.valueOf(h.c(this.b));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r3) {
+        com.baidu.tieba.im.db.i.a().b(this.a);
     }
 }

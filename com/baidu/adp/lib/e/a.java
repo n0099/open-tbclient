@@ -18,6 +18,10 @@ public abstract class a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
+    public void b(String str, e eVar) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
     public void a(T t, String str, e eVar) {
     }
 
@@ -26,6 +30,6 @@ public abstract class a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void b(String str, e eVar) {
+    public void c(String str, e eVar) {
     }
 }

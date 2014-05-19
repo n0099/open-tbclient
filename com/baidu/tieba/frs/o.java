@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-final class o implements Runnable {
+class o implements Runnable {
     final /* synthetic */ n a;
     private final /* synthetic */ String b;
 
@@ -11,10 +11,10 @@ final class o implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
-        com.baidu.tbadk.core.util.ak akVar = new com.baidu.tbadk.core.util.ak(this.b);
-        akVar.a().a().d = false;
-        akVar.a().a().c = false;
-        akVar.h();
+    public void run() {
+        com.baidu.tbadk.core.util.al alVar = new com.baidu.tbadk.core.util.al(this.b);
+        alVar.a().a().d = false;
+        alVar.a().a().c = false;
+        alVar.h();
     }
 }

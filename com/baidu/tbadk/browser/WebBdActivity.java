@@ -5,18 +5,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.plugins.BdBrowserDelegate;
 import java.util.Observable;
 import java.util.Observer;
 /* loaded from: classes.dex */
-public class WebBdActivity extends com.baidu.tbadk.a implements Observer {
+public class WebBdActivity extends BaseActivity implements Observer {
     private BdBrowserDelegate a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str, String str2, String str3) {
-        if (UtilHelper.h(context)) {
-            com.baidu.adp.lib.util.i.a(context, context.getString(com.baidu.tbadk.l.web_view_corrupted));
+        if (UtilHelper.webViewIsProbablyCorrupt(context)) {
+            com.baidu.adp.lib.util.h.a(context, context.getString(com.baidu.tieba.u.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, WebBdActivity.class);
@@ -24,21 +27,21 @@ public class WebBdActivity extends com.baidu.tbadk.a implements Observer {
             intent.setFlags(268435456);
         }
         intent.putExtra("url", str);
-        intent.putExtra("bduss", str2);
-        intent.putExtra("ptoken", str3);
+        intent.putExtra(SapiAccountManager.SESSION_BDUSS, str2);
+        intent.putExtra(SapiAccountManager.SESSION_PTOKEN, str3);
         context.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (com.baidu.tbplugin.k.a() == null) {
+        if (com.baidu.tbadk.tbplugin.m.a() == null) {
             a.a(this, getIntent().getStringExtra("url"), true);
             finish();
             return;
         }
-        this.a = (BdBrowserDelegate) com.baidu.tbplugin.k.a().a(BdBrowserDelegate.class);
+        this.a = (BdBrowserDelegate) com.baidu.tbadk.tbplugin.m.a().b(BdBrowserDelegate.class);
         if (this.a == null) {
             a.a(this, getIntent().getStringExtra("url"), true);
             finish();
@@ -46,17 +49,17 @@ public class WebBdActivity extends com.baidu.tbadk.a implements Observer {
         }
         try {
             this.a.setActivity(this);
-            this.a.setCallback(new p(this));
+            this.a.setCallback(new s(this));
             this.a.onCreate(bundle);
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b("Exception: " + th.getMessage());
+            BdLog.e("Exception: " + th.getMessage());
             a.a(this, getIntent().getStringExtra("url"), true);
             finish();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
         if (this.a != null) {
@@ -73,7 +76,7 @@ public class WebBdActivity extends com.baidu.tbadk.a implements Observer {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.a != null) {
@@ -82,7 +85,7 @@ public class WebBdActivity extends com.baidu.tbadk.a implements Observer {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
         if (this.a != null) {
@@ -91,7 +94,7 @@ public class WebBdActivity extends com.baidu.tbadk.a implements Observer {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.a != null) {
@@ -99,7 +102,7 @@ public class WebBdActivity extends com.baidu.tbadk.a implements Observer {
         }
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
         return this.a != null && (this.a.onKeyUp(i, keyEvent) || super.onKeyUp(i, keyEvent));
     }
@@ -118,7 +121,7 @@ public class WebBdActivity extends com.baidu.tbadk.a implements Observer {
         }
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         return this.a != null && (this.a.onKeyDown(i, keyEvent) || super.onKeyDown(i, keyEvent));
     }

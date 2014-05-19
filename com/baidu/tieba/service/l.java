@@ -4,8 +4,8 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-final class l extends Handler {
-    long a = TbadkApplication.j().ai();
+class l extends Handler {
+    long a = TbadkApplication.m252getInst().getMsgFrequency();
     long b = 0;
     final /* synthetic */ TiebaMessageService c;
 
@@ -15,7 +15,7 @@ final class l extends Handler {
     }
 
     @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    public void handleMessage(Message message) {
         int i;
         int i2;
         Handler handler;
@@ -24,9 +24,9 @@ final class l extends Handler {
                 this.b = 1800 / this.a;
                 i = this.c.d;
                 if (i % this.b == 0) {
-                    TiebaMessageService.a(this.c, 2);
+                    this.c.a(2);
                 } else {
-                    TiebaMessageService.a(this.c, 1);
+                    this.c.a(1);
                 }
                 TiebaMessageService tiebaMessageService = this.c;
                 i2 = tiebaMessageService.d;
@@ -37,10 +37,10 @@ final class l extends Handler {
             }
             this.c.stopSelf();
         } else if (message.what == 3) {
-            if (this.a > 0) {
-                TiebaMessageService.a(this.c, 3);
-            } else {
+            if (this.a <= 0) {
                 this.c.stopSelf();
+            } else {
+                this.c.a(3);
             }
         }
     }

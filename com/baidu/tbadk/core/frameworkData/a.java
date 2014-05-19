@@ -3,68 +3,120 @@ package com.baidu.tbadk.core.frameworkData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.BdLog;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class a {
-    private Context a;
-    private Intent b;
-    private IntentAction c = IntentAction.Activity;
-    private int d;
+    public static final String CMD = "cmd";
+    public static final String DATAS = "datas";
+    public static final String FORUM_ID = "forum_id";
+    public static final String FORUM_NAME = "forum_name";
+    public static final String FRS_MANAGER = "frs_manager";
+    public static final String GROUP_ID = "group_id";
+    public static final String GROUP_NAME = "group_name";
+    public static final int IMAGE_DETAIL_FROM_FORUM = 1;
+    public static final int IMAGE_DETAIL_FROM_GCHAT = 3;
+    public static final int IMAGE_DETAIL_FROM_PCHAT = 2;
+    public static final String INTENT_KEY_START_TIME = "TibaStatic.StartTime";
+    public static final String IS_ACCEPT_NOTIFY = "is_accept_notify";
+    public static final String IS_DOWNLOADING = "is_downloading";
+    public static final String IS_FROM_PB = "is_from_pb";
+    public static final String IS_MASK = "isMask";
+    public static final String IS_NEED_MULTIPLE = "is_need_multiple";
+    public static final String LIST = "list";
+    public static final String MASK_TYPE = "maskType";
+    public static final String NAME_SHOW = "name_show";
+    public static final String PKG_ID = "pkg_id";
+    public static final String PORTRAIT = "portrait";
+    public static final String POST_DESC = "post_desc";
+    public static final String POST_ID = "post_id";
+    public static final String PUBLISHER_ID = "publisher_id";
+    public static final String PUBLISHER_NAME = "publisher_name";
+    public static final String REPLAY_URL = "replay_url";
+    public static final String REQUEST_CODE = "request_code";
+    public static final String SHOW_KEYBOARD = "keyboard";
+    public static final String SHOW_RECOMMEND = "show_recommend";
+    public static final String START = "start";
+    public static final String START_ONCE = "start_once";
+    public static final String STOP = "stop";
+    public static final String ST_TYPE = "st_type";
+    public static final String THREAD_ID = "thread_id";
+    public static final String TOTAL = "total";
+    public static final String USER_ID = "user_id";
+    public static final String USER_NAME = "user_name";
+    private Context mContext;
+    private Intent mIntent;
+    private IntentAction mIntentAction = IntentAction.Activity;
+    private int mRequestCode;
 
     public a(Context context) {
-        this.a = null;
-        this.b = null;
+        this.mContext = null;
+        this.mIntent = null;
         if (context == null) {
             throw new InvalidParameterException("ActivitySwitch context null");
         }
-        this.a = context;
-        this.b = new Intent();
+        this.mContext = context;
+        this.mIntent = new Intent();
     }
 
-    public final Context c() {
-        return this.a;
+    public Context getContext() {
+        return this.mContext;
     }
 
-    public final Intent d() {
-        return this.b;
+    public Intent getIntent() {
+        return this.mIntent;
     }
 
-    public boolean a() {
+    public boolean isValid() {
         return true;
     }
 
-    public final void a(IntentAction intentAction) {
-        this.c = intentAction;
+    public void setIntentAction(IntentAction intentAction) {
+        this.mIntentAction = intentAction;
     }
 
-    public final void a(int i) {
-        this.d = i;
+    public void setRequestCode(int i) {
+        this.mRequestCode = i;
     }
 
-    public final void e() {
-        if (a()) {
-            if (this.c == IntentAction.Activity) {
-                f();
-            } else if (this.c == IntentAction.ActivityForResult) {
-                b(this.d);
-            } else if (this.c == IntentAction.StartService) {
-                this.a.startService(this.b);
-            } else if (this.c == IntentAction.StopService) {
-                this.a.stopService(this.b);
+    public void run() {
+        if (isValid()) {
+            if (this.mIntentAction == IntentAction.Activity) {
+                startActivity();
+            } else if (this.mIntentAction == IntentAction.ActivityForResult) {
+                startActivityForResult(this.mRequestCode);
+            } else if (this.mIntentAction == IntentAction.StartService) {
+                startService();
+            } else if (this.mIntentAction == IntentAction.StopService) {
+                stopService();
             }
         }
     }
 
-    public final void f() {
-        this.a.startActivity(this.b);
+    public void startActivity() {
+        if (!(this.mContext instanceof Activity)) {
+            this.mIntent.addFlags(268435456);
+        }
+        this.mContext.startActivity(this.mIntent);
     }
 
-    public final void b(int i) {
-        if (this.a instanceof Activity) {
-            ((Activity) this.a).startActivityForResult(this.b, i);
+    public void startActivityForResult(int i) {
+        if (this.mContext instanceof Activity) {
+            ((Activity) this.mContext).startActivityForResult(this.mIntent, i);
         } else {
-            f.b("mContext invalid");
+            BdLog.e("mContext invalid");
         }
+    }
+
+    public void startService() {
+        this.mContext.startService(this.mIntent);
+    }
+
+    public void stopService() {
+        this.mContext.stopService(this.mIntent);
+    }
+
+    public int getRequestCode() {
+        return this.mRequestCode;
     }
 }

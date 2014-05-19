@@ -15,7 +15,7 @@ public class SearchBar extends LinearLayout {
     private EditText b;
     private Button c;
     private Button d;
-    private ag e;
+    private at e;
 
     public SearchBar(Context context) {
         super(context);
@@ -29,33 +29,33 @@ public class SearchBar extends LinearLayout {
         a();
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (i == 1) {
-            this.b.setHintTextColor(getResources().getColor(com.baidu.tbadk.g.widget_searchbox_text_1));
-            setBackgroundColor(getResources().getColor(com.baidu.tbadk.g.search_box_bg_1));
+            this.b.setHintTextColor(getResources().getColor(com.baidu.tieba.o.widget_searchbox_text_1));
+            setBackgroundColor(getResources().getColor(com.baidu.tieba.o.search_box_bg_1));
             return;
         }
-        this.b.setHintTextColor(getResources().getColor(com.baidu.tbadk.g.widget_searchbox_text));
-        setBackgroundColor(getResources().getColor(com.baidu.tbadk.g.search_box_bg));
+        this.b.setHintTextColor(getResources().getColor(com.baidu.tieba.o.widget_searchbox_text));
+        setBackgroundColor(getResources().getColor(com.baidu.tieba.o.search_box_bg));
     }
 
     private void a() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tbadk.k.search_bar, (ViewGroup) this, true);
-        this.b = (EditText) findViewById(com.baidu.tbadk.j.home_et_search);
-        this.c = (Button) findViewById(com.baidu.tbadk.j.home_bt_search_del);
-        this.d = (Button) findViewById(com.baidu.tbadk.j.home_bt_search_s);
-        this.b.addTextChangedListener(new ad(this));
-        this.c.setOnClickListener(new ae(this));
-        this.d.setOnClickListener(new af(this));
-        a(TbadkApplication.j().l());
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.search_bar, (ViewGroup) this, true);
+        this.b = (EditText) findViewById(com.baidu.tieba.r.home_et_search);
+        this.c = (Button) findViewById(com.baidu.tieba.r.home_bt_search_del);
+        this.d = (Button) findViewById(com.baidu.tieba.r.home_bt_search_s);
+        this.b.addTextChangedListener(new aq(this));
+        this.c.setOnClickListener(new ar(this));
+        this.d.setOnClickListener(new as(this));
+        a(TbadkApplication.m252getInst().getSkinType());
     }
 
     public void setHint(String str) {
         this.b.setHint(str);
     }
 
-    public void setHandler(ag agVar) {
-        this.e = agVar;
+    public void setHandler(at atVar) {
+        this.e = atVar;
     }
 
     public int getSearchButtonId() {

@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
+import tbclient.FrsPage.PostPrefix;
 /* loaded from: classes.dex */
 public class PostPrefixData implements Serializable {
     private static final long serialVersionUID = 6807267689393049879L;
@@ -35,5 +36,30 @@ public class PostPrefixData implements Serializable {
 
     public ArrayList<String> getPrefixs() {
         return this.prefixs;
+    }
+
+    public void parserProtobuf(PostPrefix postPrefix) {
+        if (postPrefix != null) {
+            int intValue = postPrefix.mode.intValue();
+            if (intValue == 0) {
+                String str = postPrefix.text;
+                if (!TextUtils.isEmpty(str)) {
+                    this.prefixs.add(str);
+                }
+            } else if (intValue == 1) {
+                String str2 = postPrefix.text;
+                if (!TextUtils.isEmpty(str2)) {
+                    String str3 = postPrefix.type;
+                    if (!TextUtils.isEmpty(str3)) {
+                        String[] split = str3.split(" ");
+                        for (String str4 : split) {
+                            this.prefixs.add(str2.replace("#type#", str4));
+                        }
+                        return;
+                    }
+                    this.prefixs.add(str2);
+                }
+            }
+        }
     }
 }

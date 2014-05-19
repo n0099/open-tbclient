@@ -15,23 +15,22 @@ public class PersonPostListData implements Serializable {
 
     /* loaded from: classes.dex */
     public class PostList extends com.baidu.tbadk.core.util.a implements Serializable {
-        @SerializedName("forum_id")
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.FORUM_ID)
         public long forum_id = 0;
-        @SerializedName("thread_id")
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.THREAD_ID)
         public long thread_id = 0;
-        @SerializedName("post_id")
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.POST_ID)
         public long post_id = 0;
         @SerializedName("is_thread")
         public int is_thread = 0;
-        @SerializedName("create_time")
         public long create_time = 0;
-        @SerializedName("forum_name")
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME)
         public String forum_name = "";
         @SerializedName("title")
         public String title = "";
-        @SerializedName("user_name")
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.USER_NAME)
         public String user_name = "";
-        @SerializedName("user_id")
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.USER_ID)
         public long user_id = 0;
         @SerializedName("user_portrait")
         public String user_portrait = "";
@@ -45,16 +44,18 @@ public class PersonPostListData implements Serializable {
         public int reply_num = 0;
         @SerializedName("media")
         public Media[] media = new Media[0];
+        @SerializedName("anchor_info")
+        public AnchorInfo anchor_info = new AnchorInfo();
         @SerializedName("lbs_info")
         public LbsInfo lbs_info = new LbsInfo();
         @SerializedName("is_post_deleted")
         public int is_post_deleted = 0;
 
         public String toString() {
-            return "PostList{forum_id=" + this.forum_id + ", thread_id=" + this.thread_id + ", post_id=" + this.post_id + ", is_thread=" + this.is_thread + ", create_time=" + this.create_time + ", forum_name='" + this.forum_name + "', title='" + this.title + "', user_name='" + this.user_name + "', user_id=" + this.user_id + ", user_portrait='" + this.user_portrait + "', abs=" + Arrays.toString(this.abs) + ", content='" + this.content + "', quote=" + this.quote + ", reply_num=" + this.reply_num + ", media=" + Arrays.toString(this.media) + ", lbs_info=" + this.lbs_info + ", is_post_deleted=" + this.is_post_deleted + '}';
+            return "PostList{forum_id=" + this.forum_id + ", thread_id=" + this.thread_id + ", post_id=" + this.post_id + ", is_thread=" + this.is_thread + ", create_time=" + this.create_time + ", forum_name='" + this.forum_name + "', title='" + this.title + "', user_name='" + this.user_name + "', user_id=" + this.user_id + ", user_portrait='" + this.user_portrait + "', abs=" + Arrays.toString(this.abs) + ", content='" + this.content + "', quote=" + this.quote + ", reply_num=" + this.reply_num + ", media=" + Arrays.toString(this.media) + ", anchor_info=" + this.anchor_info.toString() + ", lbs_info=" + this.lbs_info + ", is_post_deleted=" + this.is_post_deleted + '}';
         }
 
-        @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ab
+        @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
         public LinkedList<String> getImageUrl() {
             Media[] mediaArr;
             LinkedList<String> linkedList = new LinkedList<>();
@@ -104,11 +105,11 @@ public class PersonPostListData implements Serializable {
 
     /* loaded from: classes.dex */
     public class Quote implements Serializable {
-        @SerializedName("post_id")
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.POST_ID)
         public long post_id = 0;
-        @SerializedName("user_name")
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.USER_NAME)
         public String user_name = "";
-        @SerializedName("user_id")
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.USER_ID)
         public long user_id = 0;
         @SerializedName("ip")
         public long ip = 0;
@@ -137,6 +138,40 @@ public class PersonPostListData implements Serializable {
 
         public String toString() {
             return "Media{type=" + this.type + ", small_pic='" + this.small_pic + "', big_pic='" + this.big_pic + "', water_pic='" + this.water_pic + "'}";
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class AnchorInfo implements Serializable {
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.PORTRAIT)
+        public String portrait = "";
+        @SerializedName("name")
+        public String name = "";
+        @SerializedName("start_time")
+        public long start_time = 0;
+        @SerializedName("status")
+        public int status = 0;
+        @SerializedName("author_id")
+        public int author_id = 0;
+        @SerializedName("author_name")
+        public String author_name = "";
+        @SerializedName("listeners")
+        public int listeners = 0;
+        @SerializedName("likers")
+        public int likers = 0;
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.GROUP_ID)
+        public int group_id = 0;
+        @SerializedName("intro")
+        public String intro = "";
+        @SerializedName("publisherPortrait")
+        public String publisherPortrait = "";
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_NAME)
+        public String publisher_name = "";
+        @SerializedName(com.baidu.tbadk.core.frameworkData.a.PUBLISHER_ID)
+        public int publisher_id = 0;
+
+        public String toString() {
+            return "anchor_info{portrait=" + this.portrait + ", name='" + this.name + "', start_time='" + this.start_time + "', status='" + this.status + "', author_id='" + this.author_id + "', author_name='" + this.author_name + "', listeners='" + this.listeners + "', likers='" + this.likers + "', group_id='" + this.group_id + "', intro='" + this.intro + "', publisherPortrait='" + this.publisherPortrait + "', publisher_name='" + this.publisher_name + "', publisher_id='" + this.publisher_id + "'}";
         }
     }
 

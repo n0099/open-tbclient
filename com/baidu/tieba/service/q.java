@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.tieba.data.VersionData;
 /* loaded from: classes.dex */
-final class q extends Handler {
+class q extends Handler {
     final /* synthetic */ TiebaUpdateService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ final class q extends Handler {
     }
 
     @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    public void handleMessage(Message message) {
         String str;
         String str2;
         boolean z;
@@ -52,7 +52,7 @@ final class q extends Handler {
                         long j8 = j4 + j5;
                         j6 = this.a.j;
                         j7 = this.a.k;
-                        TiebaUpdateService.a(tiebaUpdateService, j8, j6 + j7);
+                        tiebaUpdateService.a(j8, j6 + j7);
                         this.a.a(i);
                     }
                 }

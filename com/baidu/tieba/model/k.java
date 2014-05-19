@@ -1,5 +1,7 @@
 package com.baidu.tieba.model;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.data.MarkData;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -7,14 +9,14 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class k {
+public class k {
     private boolean h;
     private m b = null;
     private n c = null;
     private l d = null;
     private int f = 0;
     private int g = 0;
-    protected com.baidu.tbadk.d a = null;
+    protected BaseActivity.LoadDataCallBack a = null;
     private ArrayList<MarkData> e = new ArrayList<>();
 
     public k() {
@@ -22,81 +24,73 @@ public final class k {
         this.h = true;
     }
 
-    public final int a() {
+    public int a() {
         if (this.e == null) {
             return 0;
         }
         return this.e.size();
     }
 
-    public final int b() {
+    public int b() {
         return this.g;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.g = i;
     }
 
-    public final boolean c() {
+    public boolean c() {
         return this.f >= 20;
     }
 
-    public final void d() {
+    public void d() {
         this.g = 0;
         this.f = 0;
         this.h = true;
     }
 
-    public final boolean e() {
+    public boolean e() {
         return this.h;
     }
 
-    public final ArrayList<MarkData> f() {
+    public ArrayList<MarkData> f() {
         return this.e;
     }
 
-    public final void a(ArrayList<MarkData> arrayList) {
+    public void a(ArrayList<MarkData> arrayList) {
         this.e = arrayList;
     }
 
-    public final void b(ArrayList<MarkData> arrayList) {
+    public void b(ArrayList<MarkData> arrayList) {
         if (this.e != null && arrayList != null) {
             this.e.addAll(arrayList);
-            if (this.e != null) {
-                HashSet hashSet = new HashSet();
-                Iterator<MarkData> it = this.e.iterator();
-                while (it.hasNext()) {
-                    if (!hashSet.add(it.next().getId())) {
-                        it.remove();
-                    }
-                }
-            }
+            m();
         }
     }
 
-    public final void a(MarkData markData) {
+    public void a(MarkData markData) {
         this.e.add(markData);
     }
 
-    public final int g() {
+    public int g() {
         if (this.e == null) {
             return 0;
         }
         return this.e.size();
     }
 
-    public final int h() {
+    public int h() {
         return this.f;
     }
 
-    public final void i() {
+    public void i() {
         ArrayList<MarkData> l = com.baidu.tieba.util.k.l();
         if (l != null) {
-            this.e = l;
+            a(l);
         }
     }
 
-    public final String a(int i, int i2) {
+    public String a(int i, int i2) {
         JSONArray jSONArray;
         int i3;
         if (this.e == null) {
@@ -128,7 +122,7 @@ public final class k {
                     i5--;
                     i4 = i3;
                 } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b(getClass().getName(), "toJson", e.toString());
+                    BdLog.e(getClass().getName(), "toJson", e.toString());
                     jSONArray = null;
                 }
             }
@@ -139,14 +133,22 @@ public final class k {
         return jSONArray.toString();
     }
 
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "parserJson", e.toString());
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<MarkData> a(String str) {
+    public ArrayList<MarkData> b(String str) {
         JSONObject jSONObject;
         ArrayList<MarkData> arrayList = new ArrayList<>();
         try {
             jSONObject = new JSONObject(str);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+            BdLog.e(getClass().getName(), "parserJson", e.toString());
             arrayList = null;
         }
         if (jSONObject.optJSONObject("error").optString("errno").equals("0")) {
@@ -161,7 +163,7 @@ public final class k {
         return null;
     }
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         try {
             if (jSONObject.optJSONObject("error").optString("errno").equals("0")) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
@@ -172,11 +174,11 @@ public final class k {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+            BdLog.e(getClass().getName(), "parserJson", e.toString());
         }
     }
 
-    public final void a(Boolean bool) {
+    public void a(Boolean bool) {
         if (this.b != null) {
             this.b.cancel();
         }
@@ -185,16 +187,16 @@ public final class k {
         this.b.execute(bool);
     }
 
-    public final void j() {
+    public void j() {
         if (this.c != null) {
             this.c.cancel();
         }
-        this.c = new n(this, (byte) 0);
+        this.c = new n(this, null);
         this.c.setPriority(2);
         this.c.execute(new k[0]);
     }
 
-    public final boolean b(int i) {
+    public boolean b(int i) {
         if (this.d != null) {
             this.d.cancel();
         }
@@ -207,11 +209,15 @@ public final class k {
         return true;
     }
 
-    public static int k() {
+    public int k() {
         return com.baidu.tbadk.core.sharedPref.b.a().a("uploac_mark_offset", 399);
     }
 
-    public final void l() {
+    public void c(int i) {
+        com.baidu.tbadk.core.sharedPref.b.a().b("uploac_mark_offset", i);
+    }
+
+    public void l() {
         if (this.b != null) {
             this.b.cancel();
         }
@@ -223,7 +229,19 @@ public final class k {
         }
     }
 
-    public final void a(com.baidu.tbadk.d dVar) {
-        this.a = dVar;
+    public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
+        this.a = loadDataCallBack;
+    }
+
+    private void m() {
+        if (this.e != null) {
+            HashSet hashSet = new HashSet();
+            Iterator<MarkData> it = this.e.iterator();
+            while (it.hasNext()) {
+                if (!hashSet.add(it.next().getId())) {
+                    it.remove();
+                }
+            }
+        }
     }
 }

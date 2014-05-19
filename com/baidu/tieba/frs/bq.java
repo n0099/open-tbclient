@@ -1,20 +1,27 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-final class bq implements com.baidu.adp.widget.ScrollView.m {
-    final /* synthetic */ FrsImageActivity a;
+class bq implements Animation.AnimationListener {
+    final /* synthetic */ bo a;
+    private final /* synthetic */ com.baidu.adp.lib.guide.d b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public bq(bo boVar, com.baidu.adp.lib.guide.d dVar) {
+        this.a = boVar;
+        this.b = dVar;
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.m
-    public final void a() {
-        TiebaStatic.a(this.a, "frs_pulldown", "frsclick", 1, new Object[0]);
-        this.a.q = null;
-        this.a.p = true;
-        this.a.b(1);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.b.a();
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tieba.album;
 
 import android.app.Application;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.ContentObserver;
@@ -11,7 +12,7 @@ import android.provider.MediaStore;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public final class q {
+public class q {
     private static q a;
     private BroadcastReceiver c;
     private ContentObserver d;
@@ -22,21 +23,8 @@ public final class q {
 
     public static q a() {
         if (a == null) {
-            q qVar = new q();
-            a = qVar;
-            com.baidu.tieba.p.c();
-            Application d = com.baidu.tieba.p.d();
-            qVar.c = new s(qVar);
-            qVar.d = new t(qVar, qVar.b);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
-            intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
-            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_STARTED");
-            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
-            intentFilter.addAction("android.intent.action.MEDIA_EJECT");
-            intentFilter.addDataScheme("file");
-            d.registerReceiver(qVar.c, intentFilter);
-            d.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, qVar.d);
+            a = new q();
+            a.a(com.baidu.tieba.ad.c().d());
         }
         return a;
     }
@@ -44,39 +32,56 @@ public final class q {
     private q() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(q qVar, Intent intent) {
-        if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            qVar.a(true);
-            return;
-        }
-        qVar.f.removeCallbacks(qVar.g);
-        qVar.f.postDelayed(qVar.g, 2000L);
+    private void a(Context context) {
+        this.c = new s(this);
+        this.d = new t(this, this.b);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
+        intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
+        intentFilter.addAction("android.intent.action.MEDIA_SCANNER_STARTED");
+        intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
+        intentFilter.addAction("android.intent.action.MEDIA_EJECT");
+        intentFilter.addDataScheme("file");
+        context.registerReceiver(this.c, intentFilter);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.d);
     }
 
-    public final void a(boolean z) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Intent intent) {
+        if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
+            a(true);
+            return;
+        }
+        this.f.removeCallbacks(this.g);
+        this.f.postDelayed(this.g, 2000L);
+    }
+
+    public void a(boolean z) {
         Iterator<u> it = this.e.iterator();
         while (it.hasNext()) {
             it.next().a(z);
         }
     }
 
-    public final void a(u uVar) {
+    public void a(u uVar) {
         if (uVar != null && !this.e.contains(uVar)) {
             this.e.add(uVar);
         }
     }
 
-    public final void b(u uVar) {
+    public void b(u uVar) {
         if (this.e.contains(uVar)) {
             this.e.remove(uVar);
         }
     }
 
-    public final void b() {
+    public void b() {
         this.e.clear();
-        com.baidu.tieba.p.c();
-        Application d = com.baidu.tieba.p.d();
+    }
+
+    public void c() {
+        b();
+        Application d = com.baidu.tieba.ad.c().d();
         d.unregisterReceiver(this.c);
         d.getContentResolver().unregisterContentObserver(this.d);
         a = null;

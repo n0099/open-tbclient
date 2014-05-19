@@ -1,29 +1,33 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
-import com.baidu.tbadk.core.b.ag;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.PraiseData;
-import com.baidu.tieba.view.ac;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class l implements ac {
-    final /* synthetic */ FrsPraiseView a;
+public class l implements View.OnClickListener {
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(FrsPraiseView frsPraiseView) {
-        this.a = frsPraiseView;
+    public l(j jVar) {
+        this.a = jVar;
     }
 
-    @Override // com.baidu.tieba.view.ac
-    public final void a(int i) {
-        PraiseData praiseData;
-        Context context;
-        praiseData = this.a.e;
-        MetaData metaData = praiseData.getUser().get(i);
-        if (metaData != null) {
-            com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
-            context = this.a.a;
-            a.a(new com.baidu.adp.framework.message.a(2001003, new ag(context, metaData.getUserId(), metaData.getName_show())));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        Activity activity;
+        Activity activity2;
+        String str2;
+        str = this.a.ao;
+        if (!TextUtils.isEmpty(str)) {
+            activity = this.a.y;
+            activity2 = this.a.y;
+            String string = activity2.getString(u.frs_badge_intro);
+            str2 = this.a.ao;
+            TbWebViewActivity.b(activity, string, str2);
         }
     }
 }

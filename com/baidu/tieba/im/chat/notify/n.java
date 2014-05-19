@@ -1,33 +1,39 @@
 package com.baidu.tieba.im.chat.notify;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class n extends com.baidu.adp.framework.c.g {
+public class n implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n(b bVar, int i) {
-        super(0);
+    public n(b bVar) {
         this.a = bVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        if (socketResponsedMessage2 != null && socketResponsedMessage2.g() == 103104 && (socketResponsedMessage2 instanceof ResponseDismissGroupMessage)) {
-            ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage2;
-            if (responseDismissGroupMessage.e() > 0) {
-                this.a.a(responseDismissGroupMessage.f());
-            } else if (responseDismissGroupMessage.e() < 0) {
-                this.a.a(com.baidu.tieba.im.j.neterror);
-            } else {
-                new StringBuilder(String.valueOf(responseDismissGroupMessage.d())).toString();
-                this.a.b();
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        s sVar;
+        s sVar2;
+        ImMessageCenterShowItemData imMessageCenterShowItemData;
+        if (i >= 0) {
+            sVar = this.a.l;
+            long itemId = sVar.getItemId(i);
+            if (itemId != -1 && itemId != -2) {
+                b bVar = this.a;
+                sVar2 = this.a.l;
+                bVar.i = (ImMessageCenterShowItemData) sVar2.getItem(i);
+                b bVar2 = this.a;
+                imMessageCenterShowItemData = this.a.i;
+                bVar2.a(imMessageCenterShowItemData);
+                if (this.a.b != null) {
+                    this.a.b.show();
+                }
             }
+            return true;
         }
+        return false;
     }
 }

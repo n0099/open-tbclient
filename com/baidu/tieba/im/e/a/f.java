@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.e.a;
 
-import com.baidu.tieba.im.groupInfo.aa;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class f extends a {
     public f() {
-        super(aa.a(), 2001146);
+        super(com.baidu.tieba.im.groupInfo.aa.a(), MessageTypes.CMD_LOAD_DRAFT_GROUP);
     }
 }

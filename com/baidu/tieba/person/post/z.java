@@ -1,19 +1,30 @@
 package com.baidu.tieba.person.post;
+
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class z implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ TripleTbImageView a;
-    private final /* synthetic */ String b;
+public class z implements View.OnClickListener {
+    final /* synthetic */ ReplyLinearLayout a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(TripleTbImageView tripleTbImageView, String str) {
-        this.a = tripleTbImageView;
-        this.b = str;
+    public z(ReplyLinearLayout replyLinearLayout) {
+        this.a = replyLinearLayout;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        this.a.b.setTag(this.b);
-        TripleTbImageView.a(this.a, this.a.b, bVar);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String[] strArr = (String[]) view.getTag();
+        if (strArr != null) {
+            Context context = this.a.getContext();
+            if ("0".equals(strArr[3])) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(context).a(strArr[1], strArr[2], "person_post_reply")));
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(context).b(strArr[1], strArr[2], "person_post_reply")));
+            }
+        }
     }
 }

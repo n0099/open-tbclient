@@ -1,11 +1,13 @@
 package com.baidu.tieba.signall;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.ad;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private int a;
     private String b;
     private String c;
@@ -20,62 +22,62 @@ public final class a {
     private ArrayList<b> l = new ArrayList<>();
     private ArrayList<b> m = new ArrayList<>();
     private HashMap<String, b> n = new HashMap<>();
-    private com.baidu.tieba.home.q o = new com.baidu.tieba.home.q();
+    private com.baidu.tieba.home.r o = new com.baidu.tieba.home.r();
     private int p;
 
-    public final String a() {
+    public String a() {
         return this.b;
     }
 
-    public final String b() {
+    public String b() {
         return this.c;
     }
 
-    public final String c() {
+    public String c() {
         return this.d;
     }
 
-    public final String d() {
+    public String d() {
         return this.e;
     }
 
-    public final String e() {
+    public String e() {
         return this.f;
     }
 
-    public final String f() {
+    public String f() {
         return this.g;
     }
 
-    public final int g() {
+    public int g() {
         return this.h;
     }
 
-    public final String h() {
+    public String h() {
         return this.i;
     }
 
-    public final int i() {
+    public int i() {
         return this.j;
     }
 
-    public final ArrayList<b> j() {
+    public ArrayList<b> j() {
         return this.k;
     }
 
-    public final com.baidu.tieba.home.q k() {
+    public com.baidu.tieba.home.r k() {
         return this.o;
     }
 
-    public final ArrayList<b> l() {
+    public ArrayList<b> l() {
         return this.l;
     }
 
-    public final ArrayList<b> m() {
+    public ArrayList<b> m() {
         return this.m;
     }
 
-    public final void a(p pVar) {
+    public void a(p pVar) {
         ArrayList<q> d = pVar.d();
         int size = d.size();
         for (int i = 0; i < size; i++) {
@@ -97,7 +99,7 @@ public final class a {
                         bVar.e(true);
                     }
                     this.l.add(bVar);
-                    com.baidu.tieba.p.c().a(bVar.b(), bVar.m(), -1);
+                    ad.c().a(bVar.b(), bVar.m(), -1);
                 } else {
                     bVar.a(false);
                     bVar.b(true);
@@ -108,7 +110,7 @@ public final class a {
         }
     }
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.o.a(jSONObject.optJSONObject("error"));
@@ -140,14 +142,14 @@ public final class a {
                                 this.n.put(new StringBuilder(String.valueOf(bVar.a())).toString(), bVar);
                             } else {
                                 this.l.add(bVar);
-                                com.baidu.tieba.p.c().a(bVar.b(), bVar.m(), -1);
+                                ad.c().a(bVar.b(), bVar.m(), -1);
                             }
                             this.k.add(bVar);
                         }
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

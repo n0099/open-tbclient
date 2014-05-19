@@ -1,15 +1,21 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.b.u;
-import com.baidu.tieba.im.p;
+import com.baidu.tieba.im.chat.x;
 /* loaded from: classes.dex */
-final class i implements com.baidu.adp.framework.task.a<u> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<u> a(com.baidu.adp.framework.message.a<u> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            p.a(aVar.a().c());
-        }
-        return null;
+class i extends com.baidu.tieba.im.b<Integer> {
+    final /* synthetic */ h b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(h hVar) {
+        this.b = hVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Integer a() {
+        x.a = com.baidu.tieba.im.db.o.d().a();
+        com.baidu.tieba.im.db.b.a().b();
+        return 0;
     }
 }

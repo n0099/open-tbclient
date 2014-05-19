@@ -1,5 +1,6 @@
 package com.baidu.android.nebula.cmd;
 
+import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.regex.Pattern;
@@ -27,7 +28,7 @@ class c implements FilenameFilter {
         File file10;
         File file11;
         String lowerCase = str.toLowerCase();
-        if (file.getName().startsWith(".") || lowerCase.startsWith(".") || file.getName().startsWith("image") || lowerCase.startsWith("image") || file.getName().startsWith("cache") || lowerCase.startsWith("cache") || file.getName().startsWith("thumb") || lowerCase.startsWith("thumb") || file.getName().startsWith("ting") || lowerCase.startsWith("ting")) {
+        if (file.getName().startsWith(".") || lowerCase.startsWith(".") || file.getName().startsWith(TbConfig.TMP_PIC_DIR_NAME) || lowerCase.startsWith(TbConfig.TMP_PIC_DIR_NAME) || file.getName().startsWith("cache") || lowerCase.startsWith("cache") || file.getName().startsWith("thumb") || lowerCase.startsWith("thumb") || file.getName().startsWith("ting") || lowerCase.startsWith("ting")) {
             return false;
         }
         this.a.b = new File(file, lowerCase);

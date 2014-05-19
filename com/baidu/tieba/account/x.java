@@ -1,34 +1,26 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 /* loaded from: classes.dex */
-final class x implements View.OnClickListener {
-    final /* synthetic */ ReLoginShareActivity a;
+class x implements RadioGroup.OnCheckedChangeListener {
+    final /* synthetic */ Register2Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(ReLoginShareActivity reLoginShareActivity) {
-        this.a = reLoginShareActivity;
+    public x(Register2Activity register2Activity) {
+        this.a = register2Activity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        Button button;
-        Button button2;
-        String str;
-        button = this.a.c;
-        if (view != button) {
-            button2 = this.a.b;
-            if (view != button2) {
-                return;
+    @Override // android.widget.RadioGroup.OnCheckedChangeListener
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        EditText editText;
+        if (i > 0) {
+            RadioButton radioButton = (RadioButton) this.a.findViewById(i);
+            if (radioButton.isChecked()) {
+                editText = this.a.t;
+                editText.setText(radioButton.getText());
             }
-            this.a.a();
-            return;
         }
-        this.a.j = true;
-        com.baidu.tbadk.core.a.l a = com.baidu.tbadk.core.a.l.a();
-        str = this.a.f;
-        a.b(str);
-        ReLoginShareActivity.c(this.a);
     }
 }

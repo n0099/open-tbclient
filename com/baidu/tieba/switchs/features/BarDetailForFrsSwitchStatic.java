@@ -9,8 +9,7 @@ public class BarDetailForFrsSwitchStatic extends a {
     public static final int OFF_TYPE = 1;
 
     static {
-        f.a();
-        f.a(BarDetailForFrsSwitchStatic.class);
+        f.a().a(BarDetailForFrsSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

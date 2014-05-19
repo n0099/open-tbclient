@@ -7,9 +7,12 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class n extends com.baidu.adp.widget.ListView.e {
+public class n extends com.baidu.adp.widget.ListView.e {
     final /* synthetic */ j a;
     private com.baidu.tbadk.core.e b;
     private TextView c = null;
@@ -25,59 +28,59 @@ public final class n extends com.baidu.adp.widget.ListView.e {
     }
 
     @Override // com.baidu.adp.widget.ListView.e
-    public final View a() {
-        this.f = LayoutInflater.from(this.b).inflate(com.baidu.tieba.a.i.new_pb_list_more, (ViewGroup) null);
-        this.f.setPadding(0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.listview_item_margin));
-        this.c = (TextView) this.f.findViewById(com.baidu.tieba.a.h.pb_more_text);
-        this.g = this.f.findViewById(com.baidu.tieba.a.h.pb_more_view);
+    public View a() {
+        this.f = LayoutInflater.from(this.b).inflate(s.new_pb_list_more, (ViewGroup) null);
+        this.f.setPadding(0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.p.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.p.listview_item_margin));
+        this.c = (TextView) this.f.findViewById(r.pb_more_text);
+        this.g = this.f.findViewById(r.pb_more_view);
         this.g.setVisibility(8);
-        this.d = (ProgressBar) this.f.findViewById(com.baidu.tieba.a.h.progress);
-        a(TbadkApplication.j().l());
+        this.d = (ProgressBar) this.f.findViewById(r.progress);
+        a(TbadkApplication.m252getInst().getSkinType());
         this.g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.f;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         o oVar;
-        this.b.b().a(this.g);
-        oVar = this.a.l;
+        this.b.a().a(this.g);
+        oVar = this.a.k;
         oVar.a(i);
     }
 
-    public final void a(View.OnClickListener onClickListener) {
+    public void a(View.OnClickListener onClickListener) {
         this.e = onClickListener;
     }
 
-    public final void c() {
+    public void c() {
         this.f.setVisibility(8);
     }
 
-    public final void d() {
+    public void d() {
         this.f.setVisibility(0);
     }
 
-    public final void e() {
+    public void e() {
         this.d.setVisibility(0);
-        this.c.setText(this.b.getText(com.baidu.tieba.a.k.loading));
+        this.c.setText(this.b.getText(u.loading));
         this.g.setVisibility(0);
     }
 
-    public final void f() {
+    public void f() {
         this.d.setVisibility(8);
-        this.c.setText(com.baidu.tieba.a.k.no_more_to_load);
+        this.c.setText(u.no_more_to_load);
     }
 
-    public final void g() {
+    public void g() {
         this.d.setVisibility(8);
-        this.c.setText(com.baidu.tieba.a.k.load_more);
+        this.c.setText(u.load_more);
     }
 
-    public final void h() {
+    public void h() {
         this.g.setVisibility(0);
     }
 
     @Override // com.baidu.adp.widget.ListView.e
-    public final void onClick() {
+    public void onClick() {
         if (this.e != null) {
             this.e.onClick(this.f);
         }

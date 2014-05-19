@@ -1,34 +1,44 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class ad {
-    private String a = null;
-    private ah b = null;
-    private ah c = null;
+public class ad {
+    private String h;
+    private boolean g = false;
+    private int a = 0;
+    private String b = null;
+    private int e = 0;
+    private String c = null;
     private String d = null;
-    private String e = null;
-    private long f = 0;
-    private long g = 0;
-    private long h = 0;
-    private int i = 0;
+    private String f = null;
 
-    public final void a(JSONObject jSONObject) {
+    public boolean a() {
+        return this.g;
+    }
+
+    public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optString("pk_id", null);
-                this.b = new ah();
-                this.b.a(jSONObject.optJSONObject("player1"));
-                this.c = new ah();
-                this.c.a(jSONObject.optJSONObject("player2"));
-                this.f = jSONObject.optLong("start_time");
-                this.g = jSONObject.optLong("end_time");
-                this.h = jSONObject.optLong("remain_time");
-                this.d = jSONObject.optString("title");
-                this.i = jSONObject.optInt("status", 0);
+                this.b = jSONObject.optString("id");
+                this.a = jSONObject.optInt("is_login", 0);
+                this.e = jSONObject.optInt("no_un", 0);
+                this.c = jSONObject.optString("name");
+                this.d = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+                this.f = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+                if (jSONObject.optInt("is_manager", 0) == 1) {
+                    this.g = true;
+                } else {
+                    this.g = false;
+                }
+                this.h = jSONObject.optString("bimg_url");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("PKInfoData", "parserJson", "error = " + e.getMessage());
+                BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
+    }
+
+    public String b() {
+        return this.h;
     }
 }

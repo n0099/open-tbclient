@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class s extends BaseAdapter {
+public class s extends BaseAdapter {
     private final Context a;
     private com.baidu.tbadk.editortool.ab b;
-    private ArrayList<com.baidu.tieba.im.data.c> c;
+    private ArrayList<com.baidu.tieba.im.data.e> c;
     private com.baidu.tbadk.core.view.o d;
     private x e = null;
     private ViewGroup f = null;
@@ -26,20 +26,20 @@ public final class s extends BaseAdapter {
         this.b = new com.baidu.tbadk.editortool.ab(context);
     }
 
-    public final void a(x xVar) {
+    public void a(x xVar) {
         this.e = xVar;
     }
 
-    public final void a(ArrayList<com.baidu.tieba.im.data.c> arrayList) {
+    public void a(ArrayList<com.baidu.tieba.im.data.e> arrayList) {
         this.c = arrayList;
     }
 
-    public final void a(com.baidu.tbadk.core.view.o oVar) {
+    public void a(com.baidu.tbadk.core.view.o oVar) {
         this.d = oVar;
     }
 
     @Override // android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         if (this.c == null) {
             return 0;
         }
@@ -47,7 +47,7 @@ public final class s extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final Object getItem(int i) {
+    public Object getItem(int i) {
         if (this.c == null) {
             return null;
         }
@@ -55,55 +55,23 @@ public final class s extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final long getItemId(int i) {
+    public long getItemId(int i) {
         return 0L;
     }
 
-    public final com.baidu.tbadk.editortool.ab a() {
+    public com.baidu.tbadk.editortool.ab a() {
         return this.b;
     }
 
     @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         w wVar;
         if (this.f == null) {
             this.f = viewGroup;
         }
-        com.baidu.tieba.im.data.c cVar = (com.baidu.tieba.im.data.c) getItem(i);
-        if (cVar != null) {
-            Object tag = view != null ? view.getTag() : null;
-            if (tag == null) {
-                w wVar2 = new w(this, (byte) 0);
-                wVar2.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.im.i.invite_friend_list_item, (ViewGroup) null);
-                wVar2.b = (HeadImageView) wVar2.a.findViewById(com.baidu.tieba.im.h.photo);
-                wVar2.b.setIsRound(true);
-                wVar2.c = (TextView) wVar2.a.findViewById(com.baidu.tieba.im.h.txt_user_name);
-                wVar2.d = (TbCheckBox) wVar2.a.findViewById(com.baidu.tieba.im.h.ckb_select);
-                wVar2.a.setOnClickListener(this.g);
-                if (this.d != null) {
-                    wVar2.d.setStatedChangedListener(this.d);
-                }
-                wVar2.a.setTag(wVar2);
-                wVar = wVar2;
-            } else {
-                wVar = (w) tag;
-            }
-            if (this.e != null) {
-                x xVar = this.e;
-                View view2 = wVar.a;
-                xVar.a(cVar);
-            }
-            String c = cVar.c();
-            if (cVar != null) {
-                wVar.b.setImageBitmap(null);
-                wVar.b.setTag(c);
-                this.b.c(c, new u(this));
-            }
-            wVar.c.setText(cVar.b());
-            wVar.d.setTagData(cVar);
-            if (this.a instanceof InviteFriendListActivity) {
-                ((InviteFriendListActivity) this.a).getLayoutMode().a(wVar.a);
-            }
+        com.baidu.tieba.im.data.e eVar = (com.baidu.tieba.im.data.e) getItem(i);
+        if (eVar != null) {
+            wVar = a(view != null ? view.getTag() : null, eVar);
         } else {
             wVar = null;
         }
@@ -111,5 +79,47 @@ public final class s extends BaseAdapter {
             return wVar.a;
         }
         return null;
+    }
+
+    private w a(Object obj, com.baidu.tieba.im.data.e eVar) {
+        w wVar;
+        if (obj == null) {
+            wVar = b();
+        } else {
+            wVar = (w) obj;
+        }
+        if (this.e != null) {
+            this.e.a(wVar.a, eVar);
+        }
+        a(eVar, wVar, eVar.c());
+        wVar.c.setText(eVar.b());
+        wVar.d.setTagData(eVar);
+        if (this.a instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.a).getLayoutMode().a(wVar.a);
+        }
+        return wVar;
+    }
+
+    private void a(com.baidu.tieba.im.data.e eVar, w wVar, String str) {
+        if (eVar != null) {
+            wVar.b.setImageBitmap(null);
+            wVar.b.setTag(str);
+            this.b.c(str, new u(this));
+        }
+    }
+
+    private w b() {
+        w wVar = new w(this, null);
+        wVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.invite_friend_list_item, (ViewGroup) null);
+        wVar.b = (HeadImageView) wVar.a.findViewById(com.baidu.tieba.r.photo);
+        wVar.b.setIsRound(true);
+        wVar.c = (TextView) wVar.a.findViewById(com.baidu.tieba.r.txt_user_name);
+        wVar.d = (TbCheckBox) wVar.a.findViewById(com.baidu.tieba.r.ckb_select);
+        wVar.a.setOnClickListener(this.g);
+        if (this.d != null) {
+            wVar.d.setStatedChangedListener(this.d);
+        }
+        wVar.a.setTag(wVar);
+        return wVar;
     }
 }

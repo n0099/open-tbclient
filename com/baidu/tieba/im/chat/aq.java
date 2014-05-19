@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class aq extends com.baidu.tieba.im.m<Boolean> {
+public class aq extends com.baidu.tieba.im.b<Boolean> {
     final /* synthetic */ x b;
     private final /* synthetic */ long c;
     private final /* synthetic */ long d;
@@ -17,9 +17,10 @@ public final class aq extends com.baidu.tieba.im.m<Boolean> {
         this.e = responseCommitPersonalMessage;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.c, this.d, String.valueOf(this.e.i()), String.valueOf(this.e.d()), 3));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.c, this.d, String.valueOf(this.e.getRecordId()), String.valueOf(this.e.getMsgId()), 3));
     }
 }

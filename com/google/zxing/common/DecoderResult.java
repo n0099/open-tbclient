@@ -18,43 +18,43 @@ public final class DecoderResult {
         this.ecLevel = str2;
     }
 
-    public final byte[] getRawBytes() {
+    public byte[] getRawBytes() {
         return this.rawBytes;
     }
 
-    public final String getText() {
+    public String getText() {
         return this.text;
     }
 
-    public final List<byte[]> getByteSegments() {
+    public List<byte[]> getByteSegments() {
         return this.byteSegments;
     }
 
-    public final String getECLevel() {
+    public String getECLevel() {
         return this.ecLevel;
     }
 
-    public final Integer getErrorsCorrected() {
+    public Integer getErrorsCorrected() {
         return this.errorsCorrected;
     }
 
-    public final void setErrorsCorrected(Integer num) {
+    public void setErrorsCorrected(Integer num) {
         this.errorsCorrected = num;
     }
 
-    public final Integer getErasures() {
+    public Integer getErasures() {
         return this.erasures;
     }
 
-    public final void setErasures(Integer num) {
+    public void setErasures(Integer num) {
         this.erasures = num;
     }
 
-    public final Object getOther() {
+    public Object getOther() {
         return this.other;
     }
 
-    public final void setOther(Object obj) {
+    public void setOther(Object obj) {
         this.other = obj;
     }
 }

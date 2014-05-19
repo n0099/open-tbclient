@@ -1,7 +1,6 @@
 package com.baidu.tbadk.editortool;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b implements com.baidu.tbadk.imageManager.d {
+class b implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ a a;
     private final /* synthetic */ c b;
 
@@ -12,14 +11,12 @@ public final class b implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null) {
-            this.a.a(bVar);
-            this.a.b(bVar);
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null) {
+            this.a.a(aVar);
+            this.a.b(aVar);
             if (this.a.b() && !z) {
-                c cVar = this.b;
-                a aVar = this.a;
-                cVar.a();
+                this.b.a(this.a);
             }
         }
     }

@@ -1,12 +1,10 @@
 package com.baidu.tieba.write;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.EditText;
 import com.baidu.tieba.editortool.EditorToolComponetContainer;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bb implements View.OnClickListener {
+class bb implements View.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,18 +13,24 @@ public final class bb implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        TextView textView;
-        bs bsVar;
-        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
+    public void onClick(View view) {
         EditorToolComponetContainer editorToolComponetContainer;
-        textView = this.a.M;
-        textView.setSelected(true);
-        bsVar = this.a.N;
-        bsVar.showAsDropDown(view, 0, com.baidu.adp.lib.util.i.a((Context) this.a, 1.0f));
-        writeEditorToolButtonContainer = this.a.z;
-        writeEditorToolButtonContainer.c();
+        int m;
+        EditText editText;
+        EditText editText2;
+        EditorToolComponetContainer editorToolComponetContainer2;
         editorToolComponetContainer = this.a.A;
-        editorToolComponetContainer.b();
+        if (editorToolComponetContainer.l()) {
+            editorToolComponetContainer2 = this.a.A;
+            editorToolComponetContainer2.m();
+        }
+        m = this.a.m();
+        if (m >= 0) {
+            editText = this.a.h;
+            if (m < editText.getText().length()) {
+                editText2 = this.a.h;
+                editText2.setSelection(m);
+            }
+        }
     }
 }

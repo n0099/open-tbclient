@@ -1,68 +1,66 @@
 package com.baidu.tieba.im.db;
 
 import android.text.TextUtils;
+import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.RequestAddGroupMessage;
+import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
-import com.baidu.tieba.im.message.av;
-import com.baidu.tieba.im.message.y;
-import com.baidu.tieba.im.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class j extends com.baidu.adp.framework.c.g {
+public class j extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(i iVar, int i) {
-        super(0);
+        super(i);
         this.a = iVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
-        com.baidu.adp.framework.message.d<?> h;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        Message<?> orginalMessage;
         String[] split;
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        if (socketResponsedMessage2 != null) {
-            if (socketResponsedMessage2.g() != 103112) {
-                if (socketResponsedMessage2.g() == 103101 && (socketResponsedMessage2 instanceof ResponseAddGroupMessage)) {
-                    ResponseAddGroupMessage responseAddGroupMessage = (ResponseAddGroupMessage) socketResponsedMessage2;
-                    if (responseAddGroupMessage.e() == 0) {
-                        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                        y yVar = (y) responseAddGroupMessage.h();
-                        imMessageCenterPojo.setGroup_name(yVar.i());
-                        imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.c.a.a(yVar.l()));
-                        AddGroupInfoData d = responseAddGroupMessage.d();
-                        if (d != null) {
-                            imMessageCenterPojo.setGroup_head(d.getPortrait());
-                            imMessageCenterPojo.setGid(String.valueOf(d.getGroupId()));
-                            com.baidu.tieba.im.f.h.a(imMessageCenterPojo);
+        if (socketResponsedMessage != null) {
+            if (socketResponsedMessage.getCmd() == 103112) {
+                if (socketResponsedMessage instanceof ResponseRemoveMembersMessage) {
+                    ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) socketResponsedMessage;
+                    if (responseRemoveMembersMessage.getError() == 0 && (orginalMessage = responseRemoveMembersMessage.getOrginalMessage()) != null && (orginalMessage instanceof RequestRemoveMembersMessage)) {
+                        String userIds = ((RequestRemoveMembersMessage) orginalMessage).getUserIds();
+                        if (!TextUtils.isEmpty(userIds) && (split = userIds.split(",")) != null && split.length != 0) {
+                            String id = TbadkApplication.getCurrentAccountObj().getID();
+                            if (!TextUtils.isEmpty(id)) {
+                                for (String str : split) {
+                                    if (id.equals(str)) {
+                                        this.a.a(responseRemoveMembersMessage.getGroupId());
+                                        com.baidu.tieba.im.i.a(new k(this, responseRemoveMembersMessage), null);
+                                        i.a().a(responseRemoveMembersMessage.getGroupId());
+                                        return;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-            } else if (socketResponsedMessage2 instanceof ResponseRemoveMembersMessage) {
-                ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) socketResponsedMessage2;
-                if (responseRemoveMembersMessage.e() == 0 && (h = responseRemoveMembersMessage.h()) != null && (h instanceof av)) {
-                    String j = ((av) h).j();
-                    if (TextUtils.isEmpty(j) || (split = j.split(",")) == null || split.length == 0) {
-                        return;
-                    }
-                    String id = TbadkApplication.N().getID();
-                    if (TextUtils.isEmpty(id)) {
-                        return;
-                    }
-                    for (String str : split) {
-                        if (id.equals(str)) {
-                            this.a.a(responseRemoveMembersMessage.d());
-                            r.a(new k(this, responseRemoveMembersMessage), null);
-                            i.a().a(responseRemoveMembersMessage.d());
-                            return;
-                        }
+            } else if (socketResponsedMessage.getCmd() == 103101 && (socketResponsedMessage instanceof ResponseAddGroupMessage)) {
+                ResponseAddGroupMessage responseAddGroupMessage = (ResponseAddGroupMessage) socketResponsedMessage;
+                if (responseAddGroupMessage.getError() == 0) {
+                    ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+                    RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
+                    imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
+                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.c.a.a(requestAddGroupMessage.getGroupType()));
+                    AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
+                    if (addGroupInfo != null) {
+                        imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
+                        imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
+                        com.baidu.tieba.im.f.i.a(imMessageCenterPojo);
                     }
                 }
             }

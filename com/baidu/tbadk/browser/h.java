@@ -1,6 +1,7 @@
 package com.baidu.tbadk.browser;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class h implements com.baidu.tbadk.core.view.h {
+public class h implements com.baidu.tbadk.core.view.h {
     final /* synthetic */ TbWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +10,11 @@ final class h implements com.baidu.tbadk.core.view.h {
     }
 
     @Override // com.baidu.tbadk.core.view.h
-    public final void a() {
+    public void a() {
         this.a.a();
+    }
+
+    @Override // com.baidu.tbadk.core.view.h
+    public void b() {
     }
 }

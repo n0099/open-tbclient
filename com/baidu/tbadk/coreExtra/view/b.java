@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b implements com.baidu.tbadk.imageManager.d {
+public class b implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ BannerView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,11 +10,11 @@ public final class b implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar == null) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar == null) {
             return;
         }
-        this.a.setImg(bVar);
+        this.a.setImg(aVar);
         this.a.setVisibility(0);
     }
 }

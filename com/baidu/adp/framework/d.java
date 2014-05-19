@@ -1,18 +1,34 @@
 package com.baidu.adp.framework;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public final class d implements Runnable {
-    final /* synthetic */ c a;
-    private final /* synthetic */ com.baidu.adp.framework.message.f b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar, com.baidu.adp.framework.message.f fVar) {
-        this.a = cVar;
-        this.b = fVar;
+import com.baidu.sapi2.shell.SapiErrorCode;
+/* loaded from: classes.dex */
+public class d {
+    private static d a = null;
+    private int b;
+
+    public static d a() {
+        if (a == null) {
+            synchronized (d.class) {
+                if (a == null) {
+                    a = new d();
+                }
+            }
+        }
+        return a;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        this.a.a(this.b);
+    private d() {
+        this.b = 0;
+        this.b = (int) System.currentTimeMillis();
+    }
+
+    public synchronized int b() {
+        int i;
+        if (this.b <= 100000) {
+            this.b = SapiErrorCode.DB_GATE_COMMUNICATION_ERROR;
+        }
+        i = this.b;
+        this.b = i + 1;
+        return i;
     }
 }

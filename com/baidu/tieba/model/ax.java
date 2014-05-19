@@ -3,93 +3,25 @@ package com.baidu.tieba.model;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.Gson;
 import com.baidu.gson.GsonBuilder;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.person.PersonPostListData;
-import com.baidu.tieba.person.bz;
+import com.baidu.tieba.person.by;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ax extends BdAsyncTask<Boolean, av, av> {
+public class ax extends BdAsyncTask<Boolean, av, av> {
     final /* synthetic */ av a;
-    private com.baidu.tbadk.core.util.ak b = null;
+    private com.baidu.tbadk.core.util.al b = null;
     private volatile boolean c = false;
     private boolean d = false;
     private av e;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(av avVar) {
-        com.baidu.adp.a.h hVar;
-        Context context;
-        com.baidu.adp.a.h hVar2;
-        bz bzVar;
-        bz bzVar2;
-        com.baidu.adp.a.h hVar3;
-        av avVar2 = avVar;
-        super.a((ax) avVar2);
-        this.a.q = null;
-        av avVar3 = this.a;
-        hVar = this.a.mLoadDataCallBack;
-        avVar3.r = new com.baidu.tbadk.coreExtra.b.a(hVar);
-        if (avVar2 != null) {
-            UserData g = avVar2.g();
-            if (g != null) {
-                this.a.a(g);
-                if (g.getPortrait() != null) {
-                    this.a.i();
-                    com.baidu.tbadk.imageManager.e.a().a(g.getPortrait());
-                }
-            }
-            AntiData d = avVar2.d();
-            if (d != null) {
-                this.a.a(d);
-            }
-            this.a.mLoadDataMode = 1;
-            hVar3 = this.a.mLoadDataCallBack;
-            hVar3.a(true);
-        } else {
-            if (this.b == null || !this.d) {
-                av avVar4 = this.a;
-                context = this.a.s;
-                avVar4.setErrorString(context.getString(com.baidu.tieba.a.k.neterror));
-            } else {
-                this.a.setErrorString(this.b.f());
-            }
-            this.a.mLoadDataMode = 1;
-            hVar2 = this.a.mLoadDataCallBack;
-            hVar2.a(false);
-        }
-        bzVar = this.a.t;
-        if (bzVar != null) {
-            bzVar2 = this.a.t;
-            bzVar2.a();
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void b(av... avVarArr) {
-        com.baidu.adp.a.h hVar;
-        boolean z = false;
-        av[] avVarArr2 = avVarArr;
-        super.b((Object[]) avVarArr2);
-        av avVar = avVarArr2[0];
-        if (avVar != null) {
-            this.a.a(avVar.g());
-            this.a.a(avVar.d());
-            z = true;
-        }
-        this.a.mLoadDataMode = 2;
-        this.a.setErrorString(null);
-        hVar = this.a.mLoadDataCallBack;
-        hVar.a(Boolean.valueOf(z));
-    }
 
     public ax(av avVar) {
         Context context;
@@ -99,9 +31,10 @@ public final class ax extends BdAsyncTask<Boolean, av, av> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public av a(Boolean... boolArr) {
+    /* renamed from: a */
+    public av doInBackground(Boolean... boolArr) {
         int i;
         String b;
         boolean booleanValue = boolArr[0].booleanValue();
@@ -110,21 +43,21 @@ public final class ax extends BdAsyncTask<Boolean, av, av> {
             if (this.a.f() && booleanValue && (b = com.baidu.tieba.util.k.b()) != null) {
                 this.e.b(b);
                 a(b);
-                c((Object[]) new av[]{this.e});
+                publishProgress(this.e);
                 this.d = false;
             }
             if (!this.c && this.a.e() != null) {
-                this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/u/user/profile");
-                this.b.a("uid", this.a.e());
-                this.b.a("need_post_count", "1");
-                com.baidu.tbadk.core.util.ak akVar = this.b;
+                this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/profile");
+                this.b.a(SapiAccountManager.SESSION_UID, this.a.e());
+                this.b.a("need_post_count", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+                com.baidu.tbadk.core.util.al alVar = this.b;
                 StringBuilder sb = new StringBuilder();
                 i = this.a.m;
-                akVar.a("pn", sb.append(i).toString());
+                alVar.a("pn", sb.append(i).toString());
                 this.b.a("rn", "20");
-                this.b.a("has_plist", "1");
+                this.b.a("has_plist", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
                 if (this.a.f()) {
-                    this.b.a("is_owner", "1");
+                    this.b.a("is_owner", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
                 } else {
                     this.b.a("is_owner", "0");
                 }
@@ -136,19 +69,19 @@ public final class ax extends BdAsyncTask<Boolean, av, av> {
                 a(i2);
                 if (this.a.f() && booleanValue) {
                     com.baidu.tieba.util.k.c(i2);
-                    AccountData N = TbadkApplication.N();
-                    if (N == null) {
+                    AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
+                    if (currentAccountObj == null) {
                         return null;
                     }
                     if (this.e.g() != null && !TextUtils.isEmpty(this.e.g().getPortrait())) {
-                        com.baidu.tbadk.core.a.o.a(N.getAccount(), this.e.g().getPortrait());
-                        N.setPortrait(this.e.g().getPortrait());
+                        com.baidu.tbadk.core.account.a.a(currentAccountObj.getAccount(), this.e.g().getPortrait());
+                        currentAccountObj.setPortrait(this.e.g().getPortrait());
                     }
                 }
             }
             return this.e;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
@@ -194,9 +127,76 @@ public final class ax extends BdAsyncTask<Boolean, av, av> {
         this.a.l = personPostListData6;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        com.baidu.adp.a.h hVar;
+    /* renamed from: a */
+    public void onProgressUpdate(av... avVarArr) {
+        com.baidu.adp.base.g gVar;
+        boolean z = false;
+        super.onProgressUpdate(avVarArr);
+        av avVar = avVarArr[0];
+        if (avVar != null) {
+            this.a.a(avVar.g());
+            this.a.a(avVar.d());
+            z = true;
+        }
+        this.a.mLoadDataMode = 2;
+        this.a.setErrorString(null);
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(Boolean.valueOf(z));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(av avVar) {
+        com.baidu.adp.base.g gVar;
+        Context context;
+        com.baidu.adp.base.g gVar2;
+        by byVar;
+        by byVar2;
+        com.baidu.adp.base.g gVar3;
+        super.onPostExecute(avVar);
+        this.a.q = null;
+        av avVar2 = this.a;
+        gVar = this.a.mLoadDataCallBack;
+        avVar2.r = new com.baidu.tbadk.coreExtra.b.a(gVar);
+        if (avVar != null) {
+            UserData g = avVar.g();
+            if (g != null) {
+                this.a.a(g);
+            }
+            AntiData d = avVar.d();
+            if (d != null) {
+                this.a.a(d);
+            }
+            this.a.mLoadDataMode = 1;
+            gVar3 = this.a.mLoadDataCallBack;
+            gVar3.a(true);
+        } else {
+            if (this.b != null && this.d) {
+                this.a.setErrorString(this.b.f());
+            } else {
+                av avVar3 = this.a;
+                context = this.a.s;
+                avVar3.setErrorString(context.getString(com.baidu.tieba.u.neterror));
+            }
+            this.a.mLoadDataMode = 1;
+            gVar2 = this.a.mLoadDataCallBack;
+            gVar2.a(false);
+        }
+        byVar = this.a.t;
+        if (byVar != null) {
+            byVar2 = this.a.t;
+            byVar2.a();
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        com.baidu.adp.base.g gVar;
         super.cancel(true);
         this.c = true;
         if (this.b != null) {
@@ -204,7 +204,7 @@ public final class ax extends BdAsyncTask<Boolean, av, av> {
             this.b = null;
         }
         this.a.q = null;
-        hVar = this.a.mLoadDataCallBack;
-        hVar.a(false);
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(false);
     }
 }

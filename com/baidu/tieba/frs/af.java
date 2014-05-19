@@ -1,41 +1,28 @@
 package com.baidu.tieba.frs;
+
+import android.content.Context;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.BaseActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class af implements com.baidu.tieba.model.bd {
-    final /* synthetic */ FrsActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public af(FrsActivity frsActivity) {
-        this.a = frsActivity;
-    }
-
-    @Override // com.baidu.tieba.model.bd
-    public final void a(String str, long j) {
-        String str2;
-        g gVar;
-        String str3;
-        String str4;
-        cm cmVar;
-        cm cmVar2;
-        f a = f.a();
-        str2 = this.a.i;
-        a.b(str2);
-        gVar = this.a.D;
-        gVar.f().setLike(0);
-        str3 = this.a.J;
-        if (str3.equals("normal_page")) {
-            cmVar2 = this.a.r;
-            cmVar2.g(0);
+public class af implements com.baidu.tbadk.core.util.bk {
+    @Override // com.baidu.tbadk.core.util.bk
+    public boolean a(Context context, String[] strArr) {
+        String str;
+        String lowerCase = strArr[0].toLowerCase();
+        if (strArr.length <= 1) {
+            str = null;
         } else {
-            str4 = this.a.J;
-            if (str4.equals("frs_page")) {
-                cmVar = this.a.r;
-                cmVar.h(0);
+            str = strArr[1];
+        }
+        if (lowerCase.startsWith("frs:")) {
+            String substring = lowerCase.substring(4);
+            if (context instanceof BaseActivity) {
+                ((BaseActivity) context).sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(context).a(substring, str)));
+            } else if (context instanceof com.baidu.tbadk.core.e) {
+                ((com.baidu.tbadk.core.e) context).a(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(context).a(substring, str)));
             }
         }
-        com.baidu.tieba.p.c().f(str);
-    }
-
-    @Override // com.baidu.tieba.model.bd
-    public final void a() {
+        return false;
     }
 }

@@ -1,13 +1,19 @@
 package com.baidu.adp.widget.ListView;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
+    public int a;
     public int b;
+    public int c;
     public int d;
-    public int a = 0;
-    public int c = 0;
 
     public b(int i, int i2, int i3, int i4) {
+        this.a = i;
         this.b = i2;
+        this.c = i3;
         this.d = i4;
+    }
+
+    public int a(float f) {
+        return (int) (this.b + (f / 2.5f));
     }
 }

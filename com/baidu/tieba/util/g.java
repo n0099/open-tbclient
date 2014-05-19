@@ -2,9 +2,9 @@ package com.baidu.tieba.util;
 
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
-final class g implements DialogInterface.OnClickListener {
+class g implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         dialogInterface.dismiss();
     }
 }

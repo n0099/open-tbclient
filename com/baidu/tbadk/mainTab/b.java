@@ -10,7 +10,7 @@ public abstract class b {
 
     public abstract d a();
 
-    public final d b() {
+    public d b() {
         return this.a;
     }
 }

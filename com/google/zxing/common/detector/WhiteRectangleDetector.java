@@ -42,11 +42,13 @@ public final class WhiteRectangleDetector {
         }
     }
 
-    public final ResultPoint[] detect() {
+    public ResultPoint[] detect() {
         int i;
         int i2;
         int i3;
         int i4;
+        ResultPoint resultPoint;
+        ResultPoint resultPoint2;
         boolean z = false;
         int i5 = this.leftInit;
         int i6 = this.rightInit;
@@ -133,26 +135,38 @@ public final class WhiteRectangleDetector {
         }
         if (!z && z2) {
             int i9 = i2 - i3;
-            ResultPoint resultPoint = null;
-            for (int i10 = 1; i10 < i9; i10++) {
-                resultPoint = getBlackPointOnSegment(i3, i4 - i10, i3 + i10, i4);
-                if (resultPoint != null) {
+            int i10 = 1;
+            ResultPoint resultPoint3 = null;
+            while (true) {
+                if (i10 >= i9) {
+                    resultPoint = resultPoint3;
                     break;
                 }
+                resultPoint3 = getBlackPointOnSegment(i3, i4 - i10, i3 + i10, i4);
+                if (resultPoint3 != null) {
+                    resultPoint = resultPoint3;
+                    break;
+                }
+                i10++;
             }
-            ResultPoint resultPoint2 = resultPoint;
-            if (resultPoint2 == null) {
+            if (resultPoint == null) {
                 throw NotFoundException.getNotFoundInstance();
             }
-            ResultPoint resultPoint3 = null;
-            for (int i11 = 1; i11 < i9; i11++) {
-                resultPoint3 = getBlackPointOnSegment(i3, i + i11, i3 + i11, i);
-                if (resultPoint3 != null) {
+            int i11 = 1;
+            ResultPoint resultPoint4 = null;
+            while (true) {
+                if (i11 >= i9) {
+                    resultPoint2 = resultPoint4;
                     break;
                 }
+                resultPoint4 = getBlackPointOnSegment(i3, i + i11, i3 + i11, i);
+                if (resultPoint4 != null) {
+                    resultPoint2 = resultPoint4;
+                    break;
+                }
+                i11++;
             }
-            ResultPoint resultPoint4 = resultPoint3;
-            if (resultPoint4 == null) {
+            if (resultPoint2 == null) {
                 throw NotFoundException.getNotFoundInstance();
             }
             ResultPoint resultPoint5 = null;
@@ -175,7 +189,7 @@ public final class WhiteRectangleDetector {
             if (resultPoint6 == null) {
                 throw NotFoundException.getNotFoundInstance();
             }
-            return centerEdges(resultPoint6, resultPoint2, resultPoint5, resultPoint4);
+            return centerEdges(resultPoint6, resultPoint, resultPoint5, resultPoint2);
         }
         throw NotFoundException.getNotFoundInstance();
     }

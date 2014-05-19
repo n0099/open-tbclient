@@ -58,8 +58,8 @@ public class m extends Thread {
                 }
             } catch (IOException e3) {
             }
-        } catch (Exception e4) {
-        } catch (ClientProtocolException e5) {
+        } catch (ClientProtocolException e4) {
+        } catch (Exception e5) {
         } finally {
             proxyHttpClient = this.a.a;
             proxyHttpClient.close();

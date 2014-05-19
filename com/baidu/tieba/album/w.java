@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class w implements View.OnClickListener {
+public class w implements View.OnClickListener {
     final /* synthetic */ v a;
     private final /* synthetic */ ImageFileInfo b;
 
@@ -15,15 +15,15 @@ public final class w implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
         AlbumActivity albumActivity3;
-        albumActivity = this.a.l;
+        albumActivity = this.a.k;
         albumActivity.b(this.b);
-        albumActivity2 = this.a.l;
+        albumActivity2 = this.a.k;
         albumActivity2.a(this.b, false);
-        albumActivity3 = this.a.l;
+        albumActivity3 = this.a.k;
         albumActivity3.b(this.b, false);
     }
 }

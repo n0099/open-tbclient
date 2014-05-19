@@ -1,10 +1,11 @@
 package com.baidu.tieba.im.chat.snapGroup;
 
 import android.os.Handler;
-import com.baidu.tieba.im.model.bv;
+import com.baidu.tieba.im.model.ca;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class h extends com.baidu.tbadk.coreExtra.c.b {
+public class h extends com.baidu.tbadk.coreExtra.c.c {
     final /* synthetic */ SnapGroupChatActivity a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -13,33 +14,47 @@ public final class h extends com.baidu.tbadk.coreExtra.c.b {
         this.a = snapGroupChatActivity;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.c.b
-    public final void a(long j) {
+    @Override // com.baidu.tbadk.coreExtra.c.c
+    public void a(long j) {
+        SnapGroupChatView x;
+        SnapGroupChatView x2;
+        SnapGroupChatView x3;
+        SnapGroupChatView x4;
         boolean z;
-        if (j < 30000 && SnapGroupChatActivity.d(this.a).U().getVisibility() == 4) {
-            SnapGroupChatActivity.d(this.a).U().setVisibility(0);
-            SnapGroupChatActivity.d(this.a).U().a(30000L, 1000L);
-            SnapGroupChatActivity.d(this.a).U().a();
-            z = this.a.s;
-            if (z) {
-                this.a.showToast(this.a.getString(com.baidu.tieba.im.j.snap_group_chat_silence_warning), false);
-            }
+        if (j >= 30000) {
+            return;
+        }
+        x = this.a.x();
+        if (x.T().getVisibility() != 4) {
+            return;
+        }
+        x2 = this.a.x();
+        x2.T().setVisibility(0);
+        x3 = this.a.x();
+        x3.T().a(30000L, 1000L);
+        x4 = this.a.x();
+        x4.T().a();
+        z = this.a.t;
+        if (z) {
+            this.a.showToast(this.a.getString(u.snap_group_chat_silence_warning), false);
         }
     }
 
-    @Override // com.baidu.tbadk.coreExtra.c.b
-    public final void c() {
+    @Override // com.baidu.tbadk.coreExtra.c.c
+    public void c() {
+        SnapGroupChatView x;
         com.baidu.tieba.im.chat.h hVar;
-        bv bvVar;
+        ca caVar;
         int i;
         Handler handler;
-        SnapGroupChatActivity.d(this.a).U().setNoticeText(this.a.getString(com.baidu.tieba.im.j.snap_group_chat_kick_out_by_silence));
+        x = this.a.x();
+        x.T().setNoticeText(this.a.getString(u.snap_group_chat_kick_out_by_silence));
         hVar = this.a.d;
-        hVar.Q();
-        bvVar = this.a.l;
-        i = this.a.o;
-        bvVar.a(i, false, 1);
-        handler = this.a.u;
+        hVar.P();
+        caVar = this.a.m;
+        i = this.a.p;
+        caVar.a(i, false, 1);
+        handler = this.a.v;
         handler.postDelayed(new i(this), 3000L);
     }
 }

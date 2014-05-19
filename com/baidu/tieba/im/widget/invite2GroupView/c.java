@@ -2,11 +2,13 @@ package com.baidu.tieba.im.widget.invite2GroupView;
 
 import android.app.Activity;
 import android.view.View;
-import com.baidu.tbadk.core.b.n;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.p;
 import com.baidu.tieba.im.data.InviteMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements View.OnClickListener {
+public class c implements View.OnClickListener {
     final /* synthetic */ Invite2GroupView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +17,7 @@ public final class c implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         InviteMsgData inviteMsgData;
         InviteMsgData inviteMsgData2;
         InviteMsgData inviteMsgData3;
@@ -25,7 +27,7 @@ public final class c implements View.OnClickListener {
             inviteMsgData2 = this.a.e;
             String groupName = inviteMsgData2.getGroupName();
             inviteMsgData3 = this.a.e;
-            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new n((Activity) this.a.getContext(), groupId, groupName, inviteMsgData3.getGroupOwnerId(), "invite add group")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new p((Activity) this.a.getContext(), groupId, groupName, inviteMsgData3.getGroupOwnerId(), "invite add group")));
         }
     }
 }

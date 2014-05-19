@@ -1,8 +1,9 @@
 package com.baidu.tieba.write;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class y implements View.OnClickListener {
+public class y implements View.OnClickListener {
     final /* synthetic */ x a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,12 +12,16 @@ final class y implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
+        v vVar;
         w wVar;
+        v vVar2;
         w wVar2;
-        wVar = this.a.a.d;
+        vVar = this.a.a;
+        wVar = vVar.d;
         if (wVar != null) {
-            wVar2 = this.a.a.d;
+            vVar2 = this.a.a;
+            wVar2 = vVar2.d;
             wVar2.a();
         }
     }

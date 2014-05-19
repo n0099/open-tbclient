@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.main;
 import android.view.View;
 import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-final class n implements com.baidu.adp.lib.d.c<View> {
+class n implements com.baidu.adp.lib.d.c<View> {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,31 +11,29 @@ final class n implements com.baidu.adp.lib.d.c<View> {
         this.a = pbActivity;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* synthetic */ View a() {
+    /* renamed from: b */
+    public View a() {
         return new PlayVoiceBnt(this.a, PlayVoiceBnt.PLAY_TYPE.NORMAL);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* synthetic */ void a(View view) {
-        ((PlayVoiceBnt) view).b();
+    public void a(View view) {
+        ((PlayVoiceBnt) view).d();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* bridge */ /* synthetic */ View b(View view) {
+    public View b(View view) {
         return view;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
-    public final /* synthetic */ View c(View view) {
-        View view2 = view;
-        ((PlayVoiceBnt) view2).b();
-        return view2;
+    public View c(View view) {
+        ((PlayVoiceBnt) view).d();
+        return view;
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.frsgroup;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.RadioGroup;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.im.creategroup.CreateGroupMainActivity;
@@ -18,18 +18,18 @@ import com.baidu.tieba.im.data.GroupPermData;
 public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
     private k c;
     private com.baidu.tieba.im.model.k d;
-    private final com.baidu.adp.framework.c.g e = new a(this, 103008);
+    private final com.baidu.adp.framework.listener.b e = new a(this, MessageTypes.CMD_GET_USER_PERMISSION);
 
     static {
-        TbadkApplication.j().a(com.baidu.tbadk.core.b.m.class, FrsGroupActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.n.class, FrsGroupActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle, (Intent) null);
-        this.d.a(this.e);
+        g();
         a(bundle);
         a(false);
     }
@@ -39,12 +39,12 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         if (this.c != null) {
-            this.c.c();
+            this.c.destroy();
             this.c = null;
         }
         a((Bundle) null, intent);
         a(intent != null ? intent.getExtras() : null);
-        b(TbadkApplication.j().l());
+        b(TbadkApplication.m252getInst().getSkinType());
         a(true);
     }
 
@@ -52,11 +52,11 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
     @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        b(TbadkApplication.j().l());
+        b(TbadkApplication.m252getInst().getSkinType());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
     }
@@ -69,25 +69,25 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
 
     private void a(Bundle bundle) {
         this.c = new k(this);
-        this.c.e();
+        this.c.c();
         this.c.c(this.d.a());
         this.c.a(this.d.a());
         if (bundle != null) {
             this.c.b(this.d.g());
         }
-        this.c.a(i());
-        this.c.d();
+        this.c.a(h());
+        this.c.b();
     }
 
-    public final com.baidu.tieba.im.model.k f() {
+    public com.baidu.tieba.im.model.k e() {
         return this.d;
     }
 
-    public final k g() {
+    public k f() {
         return this.c;
     }
 
-    private void a(Bundle bundle, Intent intent) {
+    public void a(Bundle bundle, Intent intent) {
         this.d = new com.baidu.tieba.im.model.k(this);
         if (bundle == null) {
             com.baidu.tieba.im.model.k kVar = this.d;
@@ -101,59 +101,76 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
         this.d.a(this);
     }
 
+    protected void g() {
+        this.d.b(this.e);
+    }
+
     @Override // com.baidu.tbadk.core.e
-    protected final void b(int i) {
+    protected void b(int i) {
         this.c.c(i);
     }
 
     private void a(boolean z) {
-        Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.c.a()[i()]);
+        Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.c.a()[h()]);
         if (z || findFragmentByTag == null) {
-            getSupportFragmentManager().beginTransaction().add(com.baidu.tieba.im.h.fragment, this.c.f()[i()], this.c.a()[i()]).commit();
+            getSupportFragmentManager().beginTransaction().add(com.baidu.tieba.r.fragment, this.c.d()[h()], this.c.a()[h()]).commit();
         } else {
-            getSupportFragmentManager().beginTransaction().show(this.c.f()[i()]).commit();
-        }
-    }
-
-    private int i() {
-        return this.d.g() - 1;
-    }
-
-    @Override // com.baidu.adp.a.c, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.c.g()) {
-            finish();
-        } else if (view == this.c.h()) {
-            TiebaStatic.a(this, "create_g_in_frsgroup", "click", 1, new Object[0]);
-            h();
+            getSupportFragmentManager().beginTransaction().show(this.c.d()[h()]).commit();
         }
     }
 
     private void j() {
-        this.c.d(true);
-        this.d.c(this.d.l());
+        if (getSupportFragmentManager().findFragmentByTag(this.c.a()[h()]) != null) {
+            getSupportFragmentManager().beginTransaction().hide(this.c.d()[h()]).commit();
+        }
     }
 
-    public final void h() {
-        if (TextUtils.isEmpty(TbadkApplication.E())) {
+    public int h() {
+        return this.d.g() - 1;
+    }
+
+    @Override // com.baidu.adp.base.b, android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view == this.c.e()) {
+            k();
+        } else if (view == this.c.f()) {
+            TiebaStatic.eventStat(this, "create_g_in_frsgroup", "click", 1, new Object[0]);
+            i();
+        }
+    }
+
+    private void k() {
+        finish();
+    }
+
+    private void l() {
+        this.c.d(true);
+        this.d.c(this.d.m());
+    }
+
+    public void i() {
+        if (TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
             LoginActivity.a((Activity) this, "", true, 0);
         } else {
-            j();
+            l();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(FrsGroupActivity frsGroupActivity, GroupPermData groupPermData) {
-        if (groupPermData.isManager()) {
-            CreateGroupMainActivity.a(frsGroupActivity, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), b(frsGroupActivity.d.l()), groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
-        } else if (groupPermData.isCreateNormal()) {
-            CreateGroupStepActivity.a(frsGroupActivity, 3, b(frsGroupActivity.d.l()), 1013, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
-        } else {
-            com.baidu.adp.lib.util.i.a((Context) frsGroupActivity, groupPermData.getCreateNormalTip());
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(GroupPermData groupPermData) {
+        if (!groupPermData.isManager()) {
+            if (!groupPermData.isCreateNormal()) {
+                a(groupPermData.getCreateNormalTip());
+                return;
+            } else {
+                CreateGroupStepActivity.a(this, 3, b(this.d.m()), 1013, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
+                return;
+            }
         }
+        CreateGroupMainActivity.a(this, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), b(this.d.m()), groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
     }
 
-    private static int b(String str) {
+    private int b(String str) {
         try {
             return Integer.valueOf(str).intValue();
         } catch (NumberFormatException e) {
@@ -164,17 +181,15 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        if (getSupportFragmentManager().findFragmentByTag(this.c.a()[i()]) != null) {
-            getSupportFragmentManager().beginTransaction().hide(this.c.f()[i()]).commit();
-        }
-        if (i == com.baidu.tieba.im.h.radio_recommend) {
+        j();
+        if (i == com.baidu.tieba.r.radio_recommend) {
             this.d.a(1);
-        } else if (i == com.baidu.tieba.im.h.radio_hot) {
+        } else if (i == com.baidu.tieba.r.radio_hot) {
             this.d.a(2);
-        } else if (i == com.baidu.tieba.im.h.radio_official) {
+        } else if (i == com.baidu.tieba.r.radio_official) {
             this.d.a(3);
         }
-        this.c.a(i());
+        this.c.a(h());
         a(false);
     }
 
@@ -183,7 +198,7 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 0) {
-            j();
+            l();
         }
     }
 }

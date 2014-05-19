@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.h;
 import com.baidu.tbadk.TbadkApplication;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -60,11 +60,11 @@ public class FragmentTabIndicator extends LinearLayout {
             int measuredHeight3 = value.a.getMeasuredHeight();
             if (value.b) {
                 measuredWidth = (getMeasuredWidth() / 2) + value.c + (((int) this.c.getPaint().measureText(this.c.getText().toString())) / 2);
-                measuredHeight = (getMeasuredHeight() - i.a(getContext(), 3.0f)) / 2;
+                measuredHeight = (getMeasuredHeight() - h.a(getContext(), 3.0f)) / 2;
                 measuredHeight2 = value.a.getMeasuredHeight();
             } else {
                 measuredWidth = ((getMeasuredWidth() / 2) - value.c) - (((int) this.c.getPaint().measureText(this.c.getText().toString())) / 2);
-                measuredHeight = (getMeasuredHeight() - i.a(getContext(), 3.0f)) / 2;
+                measuredHeight = (getMeasuredHeight() - h.a(getContext(), 3.0f)) / 2;
                 measuredHeight2 = value.a.getMeasuredHeight();
             }
             int i5 = measuredHeight - (measuredHeight2 / 2);
@@ -72,14 +72,14 @@ public class FragmentTabIndicator extends LinearLayout {
         }
     }
 
-    public final void a(String str, c cVar) {
+    public void a(String str, c cVar) {
         if (cVar.a != null) {
             addView(cVar.a);
             this.d.put(str, cVar);
         }
     }
 
-    public final c a(String str) {
+    public c a(String str) {
         return this.d.get(str);
     }
 
@@ -95,39 +95,24 @@ public class FragmentTabIndicator extends LinearLayout {
         this.c.setTextSize(f);
     }
 
-    public final void a(int i, float f) {
-        this.c.setTextSize(0, f);
+    public void a(int i, float f) {
+        this.c.setTextSize(i, f);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        a(TbadkApplication.j().l());
+        a(TbadkApplication.m252getInst().getSkinType());
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (i == 1) {
             this.c.setTextColor(getResources().getColorStateList(this.b));
         } else {
             this.c.setTextColor(getResources().getColorStateList(this.a));
         }
         for (Map.Entry<String, c> entry : this.d.entrySet()) {
-            c value = entry.getValue();
-            if (i == 1) {
-                if (value.e != 0) {
-                    value.a.setBackgroundResource(value.e);
-                }
-                if ((value.a instanceof TextView) && value.g != 0) {
-                    ((TextView) value.a).setTextColor(value.g);
-                }
-            } else {
-                if (value.d != 0) {
-                    value.a.setBackgroundResource(value.d);
-                }
-                if ((value.a instanceof TextView) && value.f != 0) {
-                    ((TextView) value.a).setTextColor(value.f);
-                }
-            }
+            entry.getValue().a(i);
         }
     }
 }

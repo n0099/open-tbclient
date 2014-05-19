@@ -40,7 +40,7 @@ public final class a {
         return aVar;
     }
 
-    public final void a(PackageInfo packageInfo) {
+    public void a(PackageInfo packageInfo) {
         if (packageInfo == null) {
             return;
         }
@@ -49,7 +49,7 @@ public final class a {
         }
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         if (str == null) {
             return;
         }
@@ -58,7 +58,7 @@ public final class a {
         }
     }
 
-    public final ArrayList b(String str) {
+    public ArrayList b(String str) {
         ArrayList arrayList = new ArrayList();
         synchronized (this.b) {
             for (PackageInfo packageInfo : this.b.values()) {

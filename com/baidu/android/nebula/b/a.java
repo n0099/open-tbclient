@@ -131,11 +131,11 @@ public final class a {
         }
     }
 
-    public final n a() {
+    public n a() {
         return this.f;
     }
 
-    public final void a(String str, p pVar) {
+    public void a(String str, p pVar) {
         this.e = pVar;
         String a = a(str);
         this.c.submit(new i(this, com.baidu.android.nebula.util.d.a(this.a).a(g), a));

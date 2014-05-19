@@ -2,7 +2,7 @@ package com.baidu.tieba.person;
 
 import android.view.View;
 /* loaded from: classes.dex */
-final class h implements com.baidu.tbadk.imageManager.d {
+class h implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ g a;
     private final /* synthetic */ View b;
 
@@ -13,7 +13,7 @@ final class h implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         View findViewWithTag = this.b.findViewWithTag(str);
         if (findViewWithTag != null) {
             findViewWithTag.invalidate();

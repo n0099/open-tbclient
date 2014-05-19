@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes.dex */
 public class h {
     private static h a;
@@ -27,7 +27,7 @@ public class h {
     private h() {
     }
 
-    public final void b() {
+    public void b() {
         this.d = com.baidu.tbadk.core.sharedPref.b.a().a("image_quality", 0);
         this.b = com.baidu.tbadk.core.sharedPref.b.a().a("new_display_photo", 1);
         this.c = com.baidu.tbadk.core.sharedPref.b.a().a("new_abstract_state", 0);
@@ -35,18 +35,18 @@ public class h {
         this.e = com.baidu.tbadk.core.sharedPref.b.a().a("show_images", true);
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.b = i;
         com.baidu.tbadk.core.sharedPref.b.a().b("new_display_photo", i);
     }
 
-    public final int c() {
+    public int c() {
         return this.b;
     }
 
-    public final boolean d() {
+    public boolean d() {
         if (this.b == 0) {
-            if (bd.a().c()) {
+            if (bf.a().c()) {
                 return true;
             }
         } else if (this.b == 1) {
@@ -55,43 +55,43 @@ public class h {
         return false;
     }
 
-    public final void b(int i) {
+    public void b(int i) {
         if (this.d != i) {
             this.d = i;
             com.baidu.tbadk.core.sharedPref.b.a().b("image_quality", i);
         }
     }
 
-    public final int e() {
+    public int e() {
         this.d = com.baidu.tbadk.core.sharedPref.b.a().a("image_quality", 0);
         return this.d;
     }
 
-    public final boolean f() {
+    public boolean f() {
         return this.e;
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         if (this.e != z) {
             this.e = z;
             com.baidu.tbadk.core.sharedPref.b.a().b("show_images", z);
         }
     }
 
-    public final void c(int i) {
+    public void c(int i) {
         if (this.f != i) {
             this.f = i;
             com.baidu.tbadk.core.sharedPref.b.a().b("view_image_quality", i);
-            bd.a().f();
-            bd.a().g();
+            bf.a().f();
+            bf.a().g();
         }
     }
 
-    public final int g() {
+    public int g() {
         return this.f;
     }
 
-    public final void b(boolean z) {
+    public void b(boolean z) {
         if (z) {
             a(0);
             b(0);
@@ -105,7 +105,7 @@ public class h {
         c(1);
     }
 
-    public final boolean h() {
+    public boolean h() {
         return this.b == 0 || this.d == 0 || this.f == 0;
     }
 }

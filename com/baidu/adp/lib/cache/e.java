@@ -1,4 +1,6 @@
 package com.baidu.adp.lib.cache;
+
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class e<T> implements r<T> {
     protected final boolean a;
@@ -17,68 +19,68 @@ public abstract class e<T> implements r<T> {
         this.a = z;
     }
 
-    private String d(String str, String str2) {
+    protected String a(String str, String str2) {
         if (this.a) {
             return String.valueOf(str) + "@" + str2;
         }
         return str2;
     }
 
-    private m<T> e(String str, String str2) {
-        String d = d(str, str2);
-        m<T> a = a(d);
-        if (a == null) {
-            if (com.baidu.adp.lib.util.f.a()) {
-                com.baidu.adp.lib.util.f.e("cache", "get", "cache miss:" + d);
+    protected m<T> b(String str, String str2) {
+        String a = a(str, str2);
+        m<T> a2 = a(a);
+        if (a2 == null) {
+            if (BdLog.isDebugMode()) {
+                BdLog.d("cache", "get", "cache miss:" + a);
                 return null;
             }
             return null;
-        } else if (a.f < System.currentTimeMillis()) {
-            c(d);
-            if (com.baidu.adp.lib.util.f.a()) {
-                com.baidu.adp.lib.util.f.e("cache", "get", "cache miss on expired:" + d);
+        } else if (a2.f < System.currentTimeMillis()) {
+            c(a);
+            if (BdLog.isDebugMode()) {
+                BdLog.d("cache", "get", "cache miss on expired:" + a);
                 return null;
             }
             return null;
         } else {
             if (this.b.b()) {
-                a.e = System.currentTimeMillis();
-                a(a);
+                a2.e = System.currentTimeMillis();
+                a(a2);
             }
-            if (com.baidu.adp.lib.util.f.a()) {
-                com.baidu.adp.lib.util.f.e("cache", "get", "cache hit:" + d);
+            if (BdLog.isDebugMode()) {
+                BdLog.d("cache", "get", "cache hit:" + a);
             }
-            return a;
+            return a2;
         }
     }
 
     @Override // com.baidu.adp.lib.cache.r
-    public final T a(String str, String str2) {
-        m<T> e = e(str, str2);
-        if (e == null) {
+    public T c(String str, String str2) {
+        m<T> b = b(str, str2);
+        if (b == null) {
             return null;
         }
-        return e.b;
+        return b.b;
     }
 
     @Override // com.baidu.adp.lib.cache.r
-    public final t<T> b(String str, String str2) {
-        m<T> e = e(str, str2);
-        if (e == null) {
+    public t<T> d(String str, String str2) {
+        m<T> b = b(str, str2);
+        if (b == null) {
             return null;
         }
         t<T> tVar = new t<>();
         tVar.a = str2;
-        tVar.b = e.b;
-        tVar.d = e.f;
-        tVar.c = e.d;
+        tVar.b = b.b;
+        tVar.d = b.f;
+        tVar.c = b.d;
         return tVar;
     }
 
     @Override // com.baidu.adp.lib.cache.r
-    public final void a(String str, String str2, T t, long j) {
+    public void a(String str, String str2, T t, long j) {
         m<T> mVar = new m<>();
-        mVar.a = d(str, str2);
+        mVar.a = a(str, str2);
         mVar.c = str;
         mVar.f = j;
         mVar.b = t;
@@ -88,12 +90,12 @@ public abstract class e<T> implements r<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.r
-    public final void c(String str, String str2) {
-        b(d(str, str2));
+    public void e(String str, String str2) {
+        b(a(str, str2));
     }
 
     @Override // com.baidu.adp.lib.cache.r
-    public final f a() {
+    public f a() {
         return this.b;
     }
 }

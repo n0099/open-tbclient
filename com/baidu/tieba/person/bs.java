@@ -1,29 +1,36 @@
 package com.baidu.tieba.person;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class bs implements com.baidu.adp.widget.ListView.t {
-    final /* synthetic */ bn a;
+public class bs implements com.baidu.adp.widget.ListView.a {
+    final /* synthetic */ bm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(bn bnVar) {
-        this.a = bnVar;
+    public bs(bm bmVar) {
+        this.a = bmVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.t
-    public final void b() {
-        com.baidu.tieba.model.av avVar;
-        ak akVar;
-        ak akVar2;
+    @Override // com.baidu.adp.widget.ListView.a
+    public void b() {
+        af afVar;
         if (!this.a.a()) {
-            avVar = this.a.c;
-            if (avVar.b()) {
-                akVar2 = this.a.l;
-                akVar2.b();
-                return;
-            }
+            afVar = this.a.n;
+            afVar.e();
             this.a.a(true);
-            akVar = this.a.l;
-            akVar.f();
-            this.a.c.a(false, true, 2);
+            this.a.h();
         }
+    }
+
+    @Override // com.baidu.adp.widget.ListView.a
+    public void a(float f) {
+        af afVar;
+        afVar = this.a.n;
+        afVar.a(f);
+    }
+
+    @Override // com.baidu.adp.widget.ListView.a
+    public void a() {
+        af afVar;
+        afVar = this.a.n;
+        afVar.c();
     }
 }

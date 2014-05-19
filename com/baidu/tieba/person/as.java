@@ -1,9 +1,10 @@
 package com.baidu.tieba.person;
 
-import android.view.MotionEvent;
 import android.view.View;
+import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class as implements View.OnTouchListener {
+public class as implements View.OnClickListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,12 +12,8 @@ final class as implements View.OnTouchListener {
         this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public final boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1) {
-            this.a.t = true;
-            return false;
-        }
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.a((int) TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
     }
 }

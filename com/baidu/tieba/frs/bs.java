@@ -1,24 +1,21 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.widget.ImageView;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-final class bs extends com.baidu.adp.framework.c.a {
-    final /* synthetic */ FrsImageActivity a;
+class bs {
+    TextView a;
+    ImageView b;
+    ImageView c;
+    ImageView d;
+    final /* synthetic */ br e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bs(FrsImageActivity frsImageActivity, int i) {
-        super(2001124);
-        this.a = frsImageActivity;
+    private bs(br brVar) {
+        this.e = brVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 == null || customResponsedMessage2.g() != 2001124) {
-            return;
-        }
-        FrsImageActivity.a(this.a, customResponsedMessage2);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bs(br brVar, bs bsVar) {
+        this(brVar);
     }
 }

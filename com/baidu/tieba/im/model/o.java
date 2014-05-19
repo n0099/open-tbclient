@@ -1,22 +1,31 @@
 package com.baidu.tieba.im.model;
-/* loaded from: classes.dex */
-public class o {
-    private static final String a = o.class.getName();
 
-    public static String a(String str) {
-        com.baidu.tbadk.coreExtra.data.b a2;
-        if (str != null) {
-            try {
-                com.baidu.tbadk.coreExtra.data.c a3 = new com.baidu.tbadk.coreExtra.service.b("c/c/voice/chunkupload", "c/c/voice/voice_fin_chunk_upload").a(com.baidu.tbadk.core.util.w.a(str, 1));
-                if (a3 != null && a3.b() && (a2 = a3.a()) != null) {
-                    String a4 = a2.a();
-                    com.baidu.tbadk.core.voice.a.e.a(str, a4);
-                    return a4;
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(a, "submitVoiceBinary", "error: " + e.getMessage());
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+/* loaded from: classes.dex */
+class o extends CustomMessageListener {
+    final /* synthetic */ GroupMsglistModel a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o(GroupMsglistModel groupMsglistModel, int i) {
+        super(i);
+        this.a = groupMsglistModel;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() == 2015005) {
+                this.a.a((ResponsedMessage<?>) customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2003146) {
+                this.a.b(customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2003149) {
+                this.a.a(customResponsedMessage);
             }
         }
-        return null;
     }
 }

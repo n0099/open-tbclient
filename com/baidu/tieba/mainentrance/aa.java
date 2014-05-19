@@ -1,8 +1,9 @@
 package com.baidu.tieba.mainentrance;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class aa implements View.OnFocusChangeListener {
+public class aa implements View.OnFocusChangeListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,9 +12,9 @@ final class aa implements View.OnFocusChangeListener {
     }
 
     @Override // android.view.View.OnFocusChangeListener
-    public final void onFocusChange(View view, boolean z) {
+    public void onFocusChange(View view, boolean z) {
         if (!z) {
-            com.baidu.adp.lib.util.i.a(this.a, view);
+            com.baidu.adp.lib.util.h.a(this.a, view);
         }
     }
 }

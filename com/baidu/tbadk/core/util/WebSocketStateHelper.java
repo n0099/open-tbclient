@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
-public final class WebSocketStateHelper {
-    private static WebSocketStateInfo a = WebSocketStateInfo.UNAVAIL;
+public class WebSocketStateHelper {
+    private static WebSocketStateInfo a = WebSocketStateInfo.ONLINE;
 
     /* loaded from: classes.dex */
     public enum WebSocketStateInfo {

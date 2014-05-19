@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumfeed;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements com.baidu.adp.widget.ListView.d {
+public class c implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public final class c implements com.baidu.adp.widget.ListView.d {
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public final void a(boolean z) {
-        this.a.h();
+    public void a(boolean z) {
+        this.a.n();
     }
 }

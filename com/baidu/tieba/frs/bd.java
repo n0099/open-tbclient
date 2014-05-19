@@ -1,24 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class bd {
-    LinearLayout a;
-    TextView b;
-    HeadImageView c;
-    TextView d;
-    TextView e;
-    TextView f;
-    final /* synthetic */ ay g;
-
-    private bd(ay ayVar) {
-        this.g = ayVar;
-    }
+public class bd implements com.baidu.tieba.view.e {
+    final /* synthetic */ ba a;
+    private final /* synthetic */ com.baidu.tbadk.core.data.h b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bd(ay ayVar, byte b) {
-        this(ayVar);
+    public bd(ba baVar, com.baidu.tbadk.core.data.h hVar) {
+        this.a = baVar;
+        this.b = hVar;
+    }
+
+    @Override // com.baidu.tieba.view.e
+    public void a(int i) {
+        Context context;
+        if (this.b != null && this.b.a() != null && i >= 0 && i < this.b.a().size()) {
+            MessageManager messageManager = MessageManager.getInstance();
+            context = this.a.a;
+            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(context, this.b.a().get(i).getGroupId())));
+        }
     }
 }

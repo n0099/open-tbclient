@@ -9,10 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.adp.widget.IndicatorView;
+import com.baidu.kirin.KirinConfig;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class v extends FrameLayout {
-    private static int l = 5000;
+public class v extends FrameLayout {
+    private static int l = KirinConfig.READ_TIME_OUT;
     public View.OnTouchListener a;
     private Context b;
     private ViewPager c;
@@ -31,8 +32,8 @@ public final class v extends FrameLayout {
         this(context, null);
     }
 
-    private v(Context context, AttributeSet attributeSet) {
-        super(context, null);
+    public v(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         this.b = null;
         this.c = null;
         this.d = null;
@@ -44,14 +45,14 @@ public final class v extends FrameLayout {
         this.n = new w(this);
         this.a = new x(this);
         this.b = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.carousel_topics_recommend, (ViewGroup) this, true);
-        this.c = (ViewPager) findViewById(com.baidu.tieba.a.h.carousel_pager);
-        this.d = (IndicatorView) findViewById(com.baidu.tieba.a.h.carousel_indicator);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.carousel_topics_recommend, (ViewGroup) this, true);
+        this.c = (ViewPager) findViewById(com.baidu.tieba.r.carousel_pager);
+        this.d = (IndicatorView) findViewById(com.baidu.tieba.r.carousel_indicator);
         this.c.setOnTouchListener(this.a);
-        this.j = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.square_caroucel_paddingTop);
-        this.i = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.square_caroucel_paddingBottom);
-        this.k = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.square_page_padding);
-        this.f = com.baidu.adp.lib.util.i.b(context) - (this.k * 2);
+        this.j = context.getResources().getDimensionPixelSize(com.baidu.tieba.p.square_caroucel_paddingTop);
+        this.i = context.getResources().getDimensionPixelSize(com.baidu.tieba.p.square_caroucel_paddingBottom);
+        this.k = context.getResources().getDimensionPixelSize(com.baidu.tieba.p.square_page_padding);
+        this.f = com.baidu.adp.lib.util.h.b(context) - (this.k * 2);
         this.g = (int) (0.5f + (this.f * this.h));
         ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
         layoutParams.width = this.f;
@@ -61,7 +62,7 @@ public final class v extends FrameLayout {
         setPadding(this.k, this.j, this.k, this.i);
     }
 
-    public final Boolean a(ArrayList<at> arrayList) {
+    public Boolean a(ArrayList<at> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             setVisibility(8);
             return false;
@@ -76,7 +77,7 @@ public final class v extends FrameLayout {
         }
         this.e.a(this.m);
         this.c.setAdapter(this.e);
-        this.c.setOnPageChangeListener(new aa(this, (byte) 0));
+        this.c.setOnPageChangeListener(new aa(this, null));
         this.c.setCurrentItem(size > 1 ? 1 : 0, false);
         this.c.invalidate();
         if (size > 1) {
@@ -90,22 +91,22 @@ public final class v extends FrameLayout {
         return true;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (this.e != null) {
-            this.e.a();
+            this.e.a(i);
         }
     }
 
-    public final void a() {
+    public void a() {
         this.n.removeMessages(0);
         this.n.sendEmptyMessageDelayed(0, l);
     }
 
-    public final void b() {
+    public void b() {
         this.n.removeMessages(0);
     }
 
-    public final y getPagerAdapter() {
+    public y getPagerAdapter() {
         return this.e;
     }
 }

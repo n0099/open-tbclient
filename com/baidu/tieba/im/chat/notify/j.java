@@ -1,42 +1,43 @@
 package com.baidu.tieba.im.chat.notify;
 
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.view.HeadImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class j extends com.baidu.tieba.im.m<Void> {
-    final /* synthetic */ h b;
-    private final /* synthetic */ ImMessageCenterShowItemData c;
+public class j implements View.OnClickListener {
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(h hVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.b = hVar;
-        this.c = imMessageCenterShowItemData;
+    public j(b bVar) {
+        this.a = bVar;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Void a() {
-        if (this.c != null) {
-            this.c.setUnReadCount(0);
-            com.baidu.adp.lib.util.f.e("updates before updates:" + this.c.getUnReadCount() + "ownerName" + this.c.getOwnerName() + " fid" + this.c.getFriendId() + " uid" + this.c.getOwnerId());
-            if (this.c.getOwnerName().equals("2")) {
-                com.baidu.tieba.im.db.d.a().a("apply_join_group");
-                com.baidu.tieba.im.pushNotify.a.d().a(this.c);
-                return null;
-            } else if (this.c.getOwnerName().equals("3")) {
-                com.baidu.tieba.im.pushNotify.a.d().b(this.c);
-                com.baidu.adp.lib.util.f.e("updates data.getOwnerName():" + this.c.getOwnerName());
-                com.baidu.tieba.im.db.d.a().a("group_intro_change");
-                com.baidu.tieba.im.db.d.a().a("group_name_change");
-                com.baidu.tieba.im.db.d.a().a("group_notice_change");
-                com.baidu.tieba.im.db.d.a().a("group_level_up");
-                com.baidu.tieba.im.db.d.a().a("dismiss_group");
-                com.baidu.tieba.im.db.d.a().a("kick_out");
-                com.baidu.tieba.im.db.d.a().a("group_activitys_change");
-                return null;
-            } else {
-                return null;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        Activity activity2;
+        if (view.getId() == com.baidu.tieba.r.chat_head) {
+            HeadImageView headImageView = (HeadImageView) view;
+            String userId = headImageView.getUserId();
+            String userName = headImageView.getUserName();
+            String userName2 = headImageView.getUserName();
+            if (TextUtils.isEmpty(userName2)) {
+                if (userId != null && userId.length() > 0) {
+                    MessageManager messageManager = MessageManager.getInstance();
+                    activity2 = this.a.e;
+                    messageManager.sendMessage(new CustomMessage(2003003, new at(activity2, userId, userName)));
+                }
+            } else if (!userName2.equals(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK) && !userName2.equals(TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT) && !userName2.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE) && !userName2.equals("6") && userId != null && userId.length() > 0) {
+                MessageManager messageManager2 = MessageManager.getInstance();
+                activity = this.a.e;
+                messageManager2.sendMessage(new CustomMessage(2003003, new at(activity, userId, userName)));
             }
         }
-        return null;
     }
 }

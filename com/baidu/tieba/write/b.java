@@ -1,9 +1,10 @@
 package com.baidu.tieba.write;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes.dex */
-final class b implements Runnable {
+class b implements Runnable {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +13,7 @@ final class b implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         BdListView bdListView;
         BdListView bdListView2;
         n nVar;
@@ -37,7 +38,7 @@ final class b implements Runnable {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
+            BdLog.e(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
         }
     }
 }

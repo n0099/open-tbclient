@@ -38,7 +38,7 @@ public final class b {
         this.a = null;
     }
 
-    public final void a(a aVar) {
+    public void a(a aVar) {
         this.a.submit(aVar);
     }
 }

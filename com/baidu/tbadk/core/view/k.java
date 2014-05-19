@@ -6,9 +6,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
-public final class k {
+public class k {
     private LinearLayout a;
     private ImageView b;
     private TextView c;
@@ -34,12 +34,12 @@ public final class k {
         this.c = (TextView) activity.findViewById(i5);
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         if (i != this.f) {
             this.f = i;
             if (i == 1) {
                 this.b.setImageResource(this.e);
-                this.c.setTextColor(ba.a(i));
+                this.c.setTextColor(bc.a(i));
                 return;
             }
             this.b.setImageResource(this.d);
@@ -47,16 +47,16 @@ public final class k {
         }
     }
 
-    public final void a() {
-        a(TbadkApplication.j().l());
+    public void a() {
+        a(TbadkApplication.m252getInst().getSkinType());
     }
 
-    public final void b() {
+    public void b() {
         this.b.setImageDrawable(null);
         this.f = -1;
     }
 
-    public final void b(int i) {
+    public void b(int i) {
         this.a.setVisibility(i);
         if (i == 8) {
             this.b.setImageDrawable(null);
@@ -65,6 +65,6 @@ public final class k {
             return;
         }
         this.b.setVisibility(0);
-        a(TbadkApplication.j().l());
+        a(TbadkApplication.m252getInst().getSkinType());
     }
 }

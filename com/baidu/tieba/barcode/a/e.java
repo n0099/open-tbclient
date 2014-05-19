@@ -6,7 +6,10 @@ import android.graphics.Rect;
 import android.hardware.Camera;
 import android.os.Handler;
 import android.view.SurfaceHolder;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.p;
+import com.google.zxing.PlanarYUVLuminanceSource;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public final class e {
@@ -28,7 +31,7 @@ public final class e {
         this.k = new f(this.b);
     }
 
-    public final synchronized void a(SurfaceHolder surfaceHolder) {
+    public synchronized void a(SurfaceHolder surfaceHolder) {
         Camera camera = this.c;
         if (camera == null) {
             camera = CompatibleUtile.getInstance().getBackCamera();
@@ -53,8 +56,8 @@ public final class e {
         try {
             this.b.a(camera2, false);
         } catch (RuntimeException e) {
-            com.baidu.adp.lib.util.f.c(getClass().getName(), "openDriver", "Camera rejected parameters. Setting only minimal safe-mode parameters");
-            com.baidu.adp.lib.util.f.a(getClass().getName(), "openDriver", "Resetting to saved camera params: " + flatten);
+            BdLog.w(getClass().getName(), "openDriver", "Camera rejected parameters. Setting only minimal safe-mode parameters");
+            BdLog.i(getClass().getName(), "openDriver", "Resetting to saved camera params: " + flatten);
             if (flatten != null) {
                 Camera.Parameters parameters2 = camera2.getParameters();
                 parameters2.unflatten(flatten);
@@ -62,17 +65,17 @@ public final class e {
                     camera2.setParameters(parameters2);
                     this.b.a(camera2, true);
                 } catch (RuntimeException e2) {
-                    com.baidu.adp.lib.util.f.c(getClass().getName(), "openDriver", "Camera rejected even safe-mode parameters! No configuration");
+                    BdLog.w(getClass().getName(), "openDriver", "Camera rejected even safe-mode parameters! No configuration");
                 }
             }
         }
     }
 
-    public final synchronized boolean a() {
+    public synchronized boolean a() {
         return this.c != null;
     }
 
-    public final synchronized void b() {
+    public synchronized void b() {
         if (this.c != null) {
             this.c.release();
             this.c = null;
@@ -81,17 +84,16 @@ public final class e {
         }
     }
 
-    public final synchronized void c() {
+    public synchronized void c() {
         Camera camera = this.c;
         if (camera != null && !this.h) {
             camera.startPreview();
             this.h = true;
-            Context context = this.a;
-            this.d = new a(this.c);
+            this.d = new a(this.a, this.c);
         }
     }
 
-    public final synchronized void d() {
+    public synchronized void d() {
         if (this.d != null) {
             this.d.b();
             this.d = null;
@@ -103,7 +105,7 @@ public final class e {
         }
     }
 
-    public final synchronized void a(Handler handler, int i) {
+    public synchronized void a(Handler handler, int i) {
         Camera camera = this.c;
         if (camera != null && this.h) {
             this.k.a(handler, i);
@@ -111,17 +113,17 @@ public final class e {
         }
     }
 
-    public final synchronized Rect e() {
+    public synchronized Rect e() {
         Point b;
         Rect rect = null;
         synchronized (this) {
             if (this.e == null) {
                 if (this.c != null && (b = this.b.b()) != null) {
-                    int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.bar_code_center_rect_size);
+                    int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(p.bar_code_center_rect_size);
                     int i = (b.x - dimensionPixelSize) / 2;
                     int i2 = (b.y - dimensionPixelSize) / 2;
                     this.e = new Rect(i, i2, i + dimensionPixelSize, dimensionPixelSize + i2);
-                    com.baidu.adp.lib.util.f.e(getClass().getName(), "getFramingRect", "Calculated framing rect: " + this.e);
+                    BdLog.d(getClass().getName(), "getFramingRect", "Calculated framing rect: " + this.e);
                 }
             }
             rect = this.e;
@@ -129,7 +131,7 @@ public final class e {
         return rect;
     }
 
-    public final synchronized Rect f() {
+    public synchronized Rect f() {
         Rect rect = null;
         synchronized (this) {
             if (this.f == null) {
@@ -152,7 +154,7 @@ public final class e {
         return rect;
     }
 
-    private synchronized void a(int i, int i2) {
+    public synchronized void a(int i, int i2) {
         if (this.g) {
             Point b = this.b.b();
             if (i > b.x) {
@@ -164,11 +166,19 @@ public final class e {
             int i3 = (b.x - i) / 2;
             int i4 = (b.y - i2) / 2;
             this.e = new Rect(i3, i4, i3 + i, i4 + i2);
-            com.baidu.adp.lib.util.f.e(getClass().getName(), "setManualFramingRect", "Calculated manual framing rect: " + this.e);
+            BdLog.d(getClass().getName(), "setManualFramingRect", "Calculated manual framing rect: " + this.e);
             this.f = null;
         } else {
             this.i = i;
             this.j = i2;
         }
+    }
+
+    public PlanarYUVLuminanceSource a(byte[] bArr, int i, int i2) {
+        Rect f = f();
+        if (f == null) {
+            return null;
+        }
+        return new PlanarYUVLuminanceSource(bArr, i, i2, f.left, f.top, f.width(), f.height(), false);
     }
 }

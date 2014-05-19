@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat.personaltalk;
 
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class PersonalSettingItemData extends com.baidu.tieba.im.pushNotify.l implements Serializable {
+public class PersonalSettingItemData extends com.baidu.tieba.im.pushNotify.m implements Serializable {
     private static final long serialVersionUID = 6507309561121772239L;
     private boolean isHide;
     private String myUid;

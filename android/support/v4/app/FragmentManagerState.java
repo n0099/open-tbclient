@@ -9,14 +9,14 @@ public final class FragmentManagerState implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public final FragmentManagerState createFromParcel(Parcel parcel) {
+        public FragmentManagerState createFromParcel(Parcel parcel) {
             return new FragmentManagerState(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public final FragmentManagerState[] newArray(int i) {
+        public FragmentManagerState[] newArray(int i) {
             return new FragmentManagerState[i];
         }
     };
@@ -34,12 +34,12 @@ public final class FragmentManagerState implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public final int describeContents() {
+    public int describeContents() {
         return 0;
     }
 
     @Override // android.os.Parcelable
-    public final void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i) {
         parcel.writeTypedArray(this.mActive, i);
         parcel.writeIntArray(this.mAdded);
         parcel.writeTypedArray(this.mBackStack, i);

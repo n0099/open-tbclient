@@ -1,56 +1,55 @@
 package com.baidu.tieba.more;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.DatabaseManager;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tieba.model.MoreModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ak extends BdAsyncTask<String, Integer, String> {
+public class ak extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ aj a;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ String a(String... strArr) {
-        return a();
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ void a(String str) {
-        com.baidu.tbadk.d dVar;
-        com.baidu.tbadk.d dVar2;
-        super.a((ak) str);
-        this.a.a = null;
-        dVar = this.a.e;
-        if (dVar != null) {
-            dVar2 = this.a.e;
-            dVar2.a(MoreModel.TaskType.DO_CLEAR);
-        }
-    }
 
     private ak(aj ajVar) {
         this.a = ajVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ak(aj ajVar, byte b) {
+    public /* synthetic */ ak(aj ajVar, ak akVar) {
         this(ajVar);
     }
 
-    private String a() {
-        new DatabaseManager(DatabaseManager.DatabaseLocation.SDCARD);
-        DatabaseManager.b();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(String str) {
+        BaseActivity.LoadDataCallBack loadDataCallBack;
+        BaseActivity.LoadDataCallBack loadDataCallBack2;
+        super.onPostExecute(str);
+        this.a.a = null;
+        loadDataCallBack = this.a.e;
+        if (loadDataCallBack == null) {
+            return;
+        }
+        loadDataCallBack2 = this.a.e;
+        loadDataCallBack2.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        new DatabaseManager(DatabaseManager.DatabaseLocation.SDCARD).b();
         com.baidu.tbadk.core.voice.a.e.a();
         try {
-            bb.a().b();
-            bb.a().c();
+            bd.a().b();
+            bd.a().c();
             return null;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }

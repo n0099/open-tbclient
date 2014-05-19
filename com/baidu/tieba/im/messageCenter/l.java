@@ -1,15 +1,16 @@
 package com.baidu.tieba.im.messageCenter;
 
-import android.support.v4.app.Fragment;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.InvokeNewImMessageCenterFragmentConfig;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.aa;
 /* loaded from: classes.dex */
-final class l implements com.baidu.adp.framework.task.a<InvokeNewImMessageCenterFragmentConfig> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<Fragment> a(com.baidu.adp.framework.message.a<InvokeNewImMessageCenterFragmentConfig> aVar) {
-        if (aVar == null) {
-            return null;
+class l implements CustomMessageTask.CustomRunnable<aa> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<aa> run(CustomMessage<aa> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            com.baidu.tieba.im.d.a.a().a(customMessage.getData().getIntent().getIntArrayExtra("timeouts"));
         }
-        return new CustomResponsedMessage<>(2008002, new com.baidu.tieba.im.chat.notify.b());
+        return null;
     }
 }

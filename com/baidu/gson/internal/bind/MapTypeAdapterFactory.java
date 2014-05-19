@@ -29,7 +29,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     @Override // com.baidu.gson.TypeAdapterFactory
-    public final <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
         Type type = typeToken.getType();
         if (!Map.class.isAssignableFrom(typeToken.getRawType())) {
             return null;
@@ -52,7 +52,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
         private final TypeAdapter<V> valueTypeAdapter;
 
         @Override // com.baidu.gson.TypeAdapter
-        public final /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) {
+        public /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) {
             write(jsonWriter, (Map) ((Map) obj));
         }
 
@@ -64,7 +64,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.gson.TypeAdapter
-        public final Map<K, V> read(JsonReader jsonReader) {
+        public Map<K, V> read(JsonReader jsonReader) {
             JsonToken peek = jsonReader.peek();
             if (peek == JsonToken.NULL) {
                 jsonReader.nextNull();
@@ -99,7 +99,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
         /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: com.baidu.gson.TypeAdapter<V> */
         /* JADX DEBUG: Multi-variable search result rejected for r0v14, resolved type: com.baidu.gson.TypeAdapter<V> */
         /* JADX WARN: Multi-variable type inference failed */
-        public final void write(JsonWriter jsonWriter, Map<K, V> map) {
+        public void write(JsonWriter jsonWriter, Map<K, V> map) {
             int i = 0;
             if (map != null) {
                 if (!MapTypeAdapterFactory.this.complexMapKeySerialization) {

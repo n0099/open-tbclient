@@ -1,8 +1,9 @@
 package com.baidu.tieba.more;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class g implements View.OnClickListener {
+public class g implements View.OnClickListener {
     final /* synthetic */ AppsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +12,7 @@ final class g implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         this.a.b();
     }
 }

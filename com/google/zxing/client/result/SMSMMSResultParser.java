@@ -8,7 +8,7 @@ import java.util.Map;
 public final class SMSMMSResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public final SMSParsedResult parse(Result result) {
+    public SMSParsedResult parse(Result result) {
         String str;
         String str2;
         String substring;

@@ -1,35 +1,28 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.EditText;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
+import android.text.SpannableStringBuilder;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ax implements View.OnClickListener {
+public class ax implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ WriteActivity a;
+    private final /* synthetic */ SpannableStringBuilder b;
+    private final /* synthetic */ int c;
+    private final /* synthetic */ EmotionGroupType d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(WriteActivity writeActivity) {
+    public ax(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
         this.a = writeActivity;
+        this.b = spannableStringBuilder;
+        this.c = i;
+        this.d = emotionGroupType;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        EditorToolComponetContainer editorToolComponetContainer;
-        EditText editText;
-        EditText editText2;
-        EditorToolComponetContainer editorToolComponetContainer2;
-        editorToolComponetContainer = this.a.A;
-        if (editorToolComponetContainer.a()) {
-            editorToolComponetContainer2 = this.a.A;
-            editorToolComponetContainer2.b();
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar == null) {
+            return;
         }
-        int f = WriteActivity.f(this.a);
-        if (f >= 0) {
-            editText = this.a.h;
-            if (f < editText.getText().length()) {
-                editText2 = this.a.h;
-                editText2.setSelection(f);
-            }
-        }
+        this.a.a(this.b, this.c, aVar, this.d);
     }
 }

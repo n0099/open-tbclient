@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class OfficialHistoryImageActivity extends com.baidu.tieba.im.chat.a {
     @Override // com.baidu.tieba.im.chat.a
-    protected final void a(String str, bv bvVar) {
+    protected void a(String str, bv bvVar) {
         bvVar.a(new ArrayList<>());
     }
 

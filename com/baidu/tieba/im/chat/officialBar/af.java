@@ -4,7 +4,7 @@ import android.view.View;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class af implements View.OnClickListener {
+public class af implements View.OnClickListener {
     final /* synthetic */ ae a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public final class af implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         List list;
         List list2;
         int intValue = ((Integer) view.getTag()).intValue();
@@ -25,7 +25,7 @@ public final class af implements View.OnClickListener {
             return;
         }
         list2 = this.a.c;
-        String a = com.baidu.tieba.im.f.q.a("[" + ((bf) list2.get(intValue)).c + "]", true);
+        String a = com.baidu.tieba.im.f.r.a("[" + ((ba) list2.get(intValue)).c + "]", true);
         if (a != null) {
             OfficialHistoryImageActivity.a(this.a.a, a);
         }

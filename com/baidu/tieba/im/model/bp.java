@@ -1,45 +1,21 @@
 package com.baidu.tieba.im.model;
+
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public final class bp extends com.baidu.adp.a.e {
-    private com.baidu.tieba.im.message.as a = null;
-    private int b;
-    private String c;
-    private String d;
+class bp extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ PersonalMsglistModel b;
+    private final /* synthetic */ ChatMessage c;
 
-    public final void a(int i) {
-        this.b = 0;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bp(PersonalMsglistModel personalMsglistModel, ChatMessage chatMessage) {
+        this.b = personalMsglistModel;
+        this.c = chatMessage;
     }
 
-    public final void a(String str) {
-        this.c = str;
-    }
-
-    public final void b(String str) {
-        this.d = str;
-    }
-
-    public final void a() {
-        com.baidu.tieba.im.message.as asVar = new com.baidu.tieba.im.message.as();
-        asVar.a(this.c);
-        asVar.b(this.d);
-        asVar.d(this.b);
-        this.a = asVar;
-        super.sendMessage(this.a);
-    }
-
-    @Override // com.baidu.adp.a.e
-    public final void cancelMessage() {
-        this.a = null;
-        super.cancelMessage();
-    }
-
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.o.d().b(String.valueOf(this.b.a.getUserId()), String.valueOf(this.c.getMsgId())));
     }
 }

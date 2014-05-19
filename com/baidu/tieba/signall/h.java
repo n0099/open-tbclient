@@ -1,6 +1,6 @@
 package com.baidu.tieba.signall;
 /* loaded from: classes.dex */
-final class h implements e {
+class h implements e {
     final /* synthetic */ SignAllForumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,12 +9,12 @@ final class h implements e {
     }
 
     @Override // com.baidu.tieba.signall.e
-    public final void a(a aVar) {
+    public void a(a aVar) {
         y yVar;
         y yVar2;
         yVar = this.a.a;
-        yVar.d();
-        com.baidu.tieba.home.q k = aVar.k();
+        yVar.b();
+        com.baidu.tieba.home.r k = aVar.k();
         if (k != null && k.a() == 0) {
             yVar2 = this.a.a;
             yVar2.a(aVar);
@@ -25,7 +25,7 @@ final class h implements e {
     }
 
     @Override // com.baidu.tieba.signall.e
-    public final void a(String str) {
+    public void a(String str) {
         this.a.showToast(str);
         this.a.finish();
     }

@@ -9,11 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import com.baidu.tieba.im.data.ChatRoomTopicData;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
+import com.baidu.tieba.v;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class a extends Dialog implements View.OnClickListener {
+public class a extends Dialog implements View.OnClickListener {
     private LinearLayout a;
     private Button b;
     private Context c;
@@ -23,11 +26,11 @@ public final class a extends Dialog implements View.OnClickListener {
     private String g;
     private String h;
 
-    public final void a(String str) {
+    public void a(String str) {
         this.g = str;
     }
 
-    public final void b(String str) {
+    public void b(String str) {
         this.h = str;
     }
 
@@ -42,31 +45,35 @@ public final class a extends Dialog implements View.OnClickListener {
         this.g = null;
         this.h = null;
         this.c = context;
-        setContentView(com.baidu.tieba.im.i.chatterbox_dialog);
-        this.g = this.c.getResources().getString(com.baidu.tieba.im.j.chat_default_tip);
-        this.h = null;
-        this.b = (Button) findViewById(com.baidu.tieba.im.h.chatterbox_custom);
-        this.b.setOnClickListener(new b(this));
-        this.a = (LinearLayout) findViewById(com.baidu.tieba.im.h.chatterbox_layout);
-        this.e = new e(this.c, com.baidu.tieba.im.k.NobackDialog);
+        a();
     }
 
-    public final void a(d dVar) {
+    private void a() {
+        setContentView(s.chatterbox_dialog);
+        this.g = this.c.getResources().getString(u.chat_default_tip);
+        this.h = null;
+        this.b = (Button) findViewById(com.baidu.tieba.r.chatterbox_custom);
+        this.b.setOnClickListener(new b(this));
+        this.a = (LinearLayout) findViewById(com.baidu.tieba.r.chatterbox_layout);
+        this.e = new e(this.c, v.NobackDialog);
+    }
+
+    public void a(d dVar) {
         this.f = dVar;
         this.e.a(dVar);
     }
 
     @Override // android.app.Dialog
-    protected final void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
     }
 
-    public final void a(List<ChatRoomTopicData> list) {
+    public void a(List<ChatRoomTopicData> list) {
         LayoutInflater layoutInflater = (LayoutInflater) this.c.getSystemService("layout_inflater");
         this.a.removeAllViews();
         this.d.clear();
         c cVar = new c(this, layoutInflater);
-        cVar.b(this.c.getResources().getString(com.baidu.tieba.im.j.chat_default_tip));
+        cVar.b(this.c.getResources().getString(u.chat_default_tip));
         cVar.a(this);
         this.d.add(cVar);
         this.a.addView(cVar.c());
@@ -95,7 +102,7 @@ public final class a extends Dialog implements View.OnClickListener {
     }
 
     @Override // android.app.Dialog
-    public final void show() {
+    public void show() {
         super.show();
         if (TextUtils.isEmpty(this.g)) {
             if (this.d != null && this.d.size() > 0) {
@@ -117,7 +124,7 @@ public final class a extends Dialog implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         int i;
         int i2 = 0;
         int i3 = 0;

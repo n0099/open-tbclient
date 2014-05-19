@@ -6,7 +6,7 @@ import android.graphics.BitmapFactory;
 import java.io.ByteArrayOutputStream;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
     private static b a = null;
     private volatile Hashtable<Integer, Bitmap> b = new Hashtable<>();
     private Context c = null;
@@ -23,14 +23,14 @@ public final class b {
         return bVar;
     }
 
-    public final void a(Context context) {
+    public void a(Context context) {
         this.c = context;
     }
 
     private b() {
     }
 
-    public final Bitmap a(int i) {
+    public Bitmap a(int i) {
         Bitmap bitmap = this.b.get(Integer.valueOf(i));
         if (bitmap == null && (bitmap = a(this.c, i)) != null) {
             this.b.put(Integer.valueOf(i), bitmap);
@@ -38,22 +38,22 @@ public final class b {
         return bitmap;
     }
 
-    public static Bitmap a(String str) {
+    public Bitmap a(String str) {
         return BitmapFactory.decodeFile(str);
     }
 
-    public static Bitmap a(Context context, int i) {
+    public Bitmap a(Context context, int i) {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, new BitmapFactory.Options());
         } catch (Exception e) {
-            f.b(e.getMessage());
+            BdLog.e(e.getMessage());
             return null;
         }
     }
 
-    public static byte[] a(Bitmap bitmap, int i) {
+    public byte[] a(Bitmap bitmap, int i) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();
     }
 }

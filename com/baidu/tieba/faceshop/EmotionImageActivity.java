@@ -5,15 +5,16 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.adp.widget.ImageView.BDImageView;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class EmotionImageActivity extends com.baidu.tbadk.a {
+public class EmotionImageActivity extends BaseActivity {
     private NavigationBar a;
     private GifView b;
-    private BDImageView c;
+    private TbImageView c;
     private TextView d;
     private TextView e;
     private String f;
@@ -31,15 +32,19 @@ public class EmotionImageActivity extends com.baidu.tbadk.a {
     private int r = 0;
 
     static {
-        TbadkApplication.j().a(com.baidu.tbadk.core.b.h.class, EmotionImageActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.i.class, EmotionImageActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        com.baidu.adp.widget.ImageView.b i;
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.a.i.emotion_activity);
+        setContentView(com.baidu.tieba.s.emotion_activity);
+        a(bundle);
+        a();
+    }
+
+    private void a(Bundle bundle) {
         float f = getResources().getDisplayMetrics().density;
         this.n = ((double) f) < 1.5d ? 160 : 240;
         this.o = ((double) f) >= 1.5d ? 240 : 160;
@@ -65,28 +70,38 @@ public class EmotionImageActivity extends com.baidu.tbadk.a {
         }
         this.r = getIntent().getIntExtra("from", 0);
         this.p = new com.baidu.tbadk.editortool.ab(this);
-        this.a = (NavigationBar) findViewById(com.baidu.tieba.a.h.navigation_bar);
-        this.a.a(getString(com.baidu.tieba.a.k.emotion_image_title));
+    }
+
+    private void a() {
+        FrameLayout.LayoutParams layoutParams;
+        com.baidu.adp.widget.a.a i;
+        this.a = (NavigationBar) findViewById(com.baidu.tieba.r.navigation_bar);
+        this.a.a(getString(com.baidu.tieba.u.emotion_image_title));
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new k(this));
-        this.b = (GifView) findViewById(com.baidu.tieba.a.h.gifview);
-        this.b.setLayoutParams((this.l == 0 || this.m == 0) ? new FrameLayout.LayoutParams(this.n, this.o, 17) : new FrameLayout.LayoutParams(this.l, this.m, 17));
-        boolean b = com.baidu.tbadk.editortool.ab.b();
-        com.baidu.adp.widget.ImageView.b a = this.p.a(this.f, this.k, b ? this.i : this.j, b, new l(this), false);
+        this.b = (GifView) findViewById(com.baidu.tieba.r.gifview);
+        if (this.l == 0 || this.m == 0) {
+            layoutParams = new FrameLayout.LayoutParams(this.n, this.o, 17);
+        } else {
+            layoutParams = new FrameLayout.LayoutParams(this.l, this.m, 17);
+        }
+        this.b.setLayoutParams(layoutParams);
+        boolean c = com.baidu.tbadk.editortool.ab.c();
+        com.baidu.adp.widget.a.a a = this.p.a(this.f, this.k, c ? this.i : this.j, c, new l(this), false);
         if (a != null) {
             this.b.setGif(a);
         }
-        this.c = (BDImageView) findViewById(com.baidu.tieba.a.h.emotion_icon);
-        if (TextUtils.isEmpty(this.h)) {
-            com.baidu.tbadk.editortool.ag c = com.baidu.tbadk.editortool.ac.a().c(this.f);
-            if (c != null && (i = c.i()) != null) {
+        this.c = (TbImageView) findViewById(com.baidu.tieba.r.emotion_icon);
+        if (!TextUtils.isEmpty(this.h)) {
+            this.p.b(this.h, new m(this));
+        } else {
+            com.baidu.tbadk.editortool.ag d = com.baidu.tbadk.editortool.ac.a().d(this.f);
+            if (d != null && (i = d.i()) != null) {
                 i.a(this.c);
             }
-        } else {
-            this.p.b(this.h, new m(this));
         }
-        this.d = (TextView) findViewById(com.baidu.tieba.a.h.emotion_pname);
+        this.d = (TextView) findViewById(com.baidu.tieba.r.emotion_pname);
         this.d.setText(this.g);
-        this.e = (TextView) findViewById(com.baidu.tieba.a.h.emotion_detail);
+        this.e = (TextView) findViewById(com.baidu.tieba.r.emotion_detail);
         this.e.setOnClickListener(new n(this));
     }
 
@@ -104,16 +119,16 @@ public class EmotionImageActivity extends com.baidu.tbadk.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().a(i == 1);
-        getLayoutMode().a(findViewById(com.baidu.tieba.a.h.emotion_image_root));
-        this.a.b(i);
+        getLayoutMode().a(findViewById(com.baidu.tieba.r.emotion_image_root));
+        this.a.c(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.q = true;

@@ -1,14 +1,40 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
-public final class dd {
-    public boolean a = false;
-    public boolean b = false;
-    public int c = 0;
-    public String d = "";
-    public long e = 0;
-    final /* synthetic */ da f;
 
-    public dd(da daVar) {
-        this.f = daVar;
+import android.content.Context;
+/* loaded from: classes.dex */
+public class dd {
+    private long a;
+    private long b;
+    private long c;
+    private long d;
+
+    public dd(Context context) {
+        a(0L);
+        b(0L);
+        c(0L);
+    }
+
+    public void a(long j) {
+        this.a = j;
+    }
+
+    public void b(long j) {
+        this.b = j;
+    }
+
+    public long a() {
+        return this.b + this.c;
+    }
+
+    public void c(long j) {
+        this.c = j;
+    }
+
+    public long b() {
+        return this.d;
+    }
+
+    public void d(long j) {
+        this.d = j;
     }
 }

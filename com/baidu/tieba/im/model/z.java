@@ -2,113 +2,69 @@ package com.baidu.tieba.im.model;
 
 import android.content.Intent;
 import android.os.Bundle;
-import java.util.List;
+import com.baidu.tbadk.core.data.LiveCardData;
+import com.baidu.tieba.im.message.RequestLiveGroupHistoryMessage;
 /* loaded from: classes.dex */
-public final class z extends com.baidu.adp.a.e {
-    private long a;
+public class z extends com.baidu.adp.base.d {
+    private String a;
     private int b;
     private int c;
-    private int d;
-    private boolean e;
-    private List<Long> f;
-    private boolean g;
-    private com.baidu.tieba.im.message.ap h;
+    private LiveCardData d;
 
-    public final void a(com.baidu.tieba.im.message.ap apVar) {
-        this.h = apVar;
-    }
-
-    public final int a() {
-        return this.b;
-    }
-
-    public final void a(int i) {
-        this.b = i;
-    }
-
-    public final boolean b() {
-        return this.g;
-    }
-
-    public final void a(boolean z) {
-        this.g = z;
-    }
-
-    public final List<Long> c() {
-        return this.f;
-    }
-
-    public final void a(List<Long> list) {
-        this.f = list;
-    }
-
-    public final void b(boolean z) {
-        this.e = z;
-    }
-
-    public final int d() {
-        return this.c;
-    }
-
-    public final void b(int i) {
-        this.c = 0;
-    }
-
-    public final void c(int i) {
-        this.c += i;
-    }
-
-    public final int e() {
-        return this.d;
-    }
-
-    public final void d(int i) {
-        this.d = i;
-    }
-
-    public final long f() {
+    public String a() {
         return this.a;
     }
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    public int b() {
+        return this.b;
+    }
+
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public int c() {
+        return this.c;
+    }
+
+    public void b(int i) {
+        this.c = i;
+    }
+
+    public LiveCardData d() {
+        return this.d;
+    }
+
+    public void a(LiveCardData liveCardData) {
+        this.d = liveCardData;
+    }
+
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         return false;
     }
 
-    public final void a(Intent intent) {
-        this.a = intent.getLongExtra("group_id", 0L);
+    public void a(Bundle bundle) {
     }
 
-    public final void a(Bundle bundle) {
-        this.a = bundle.getLong("group_id", 0L);
-        this.c = bundle.getInt("start_position", 0);
-        this.d = bundle.getInt("len_position", 0);
+    public void a(String str, int i, int i2) {
+        RequestLiveGroupHistoryMessage requestLiveGroupHistoryMessage = new RequestLiveGroupHistoryMessage();
+        requestLiveGroupHistoryMessage.setGroupId(com.baidu.adp.lib.f.b.a(str, 0L));
+        requestLiveGroupHistoryMessage.setOffset(i);
+        requestLiveGroupHistoryMessage.setRn(i2);
+        super.sendMessage(requestLiveGroupHistoryMessage);
     }
 
-    public final void a(long j, int i, int i2, int i3) {
-        com.baidu.tieba.im.message.ap apVar = new com.baidu.tieba.im.message.ap();
-        apVar.b(j);
-        apVar.d(i);
-        apVar.e(i2);
-        apVar.f(i3);
-        super.sendMessage(apVar);
+    public void a(Intent intent) {
+        this.a = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID);
     }
 
-    public final void a(long j, String str) {
-        com.baidu.tieba.im.message.av avVar = new com.baidu.tieba.im.message.av();
-        avVar.b(j);
-        avVar.a(str);
-        super.sendMessage(avVar);
-    }
-
-    public final void b(Bundle bundle) {
-        bundle.putLong("group_id", this.a);
-        bundle.putInt("start_position", this.c);
-        bundle.putInt("len_position", this.d);
+    public void b(Bundle bundle) {
+        this.a = bundle.getString(com.baidu.tbadk.core.frameworkData.a.GROUP_ID);
     }
 }

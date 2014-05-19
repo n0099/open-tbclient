@@ -1,76 +1,74 @@
 package com.baidu.tieba.faceshop;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.widget.TbImageView;
-import java.util.ArrayList;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.gson.Gson;
+import com.baidu.gson.GsonBuilder;
+import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class av extends BaseAdapter {
-    private Context a;
-    private ArrayList<String> b;
-    private com.baidu.tbadk.editortool.ab c;
+public class av extends BdAsyncTask<Object, FacePackageDownloadData, FacePackageDownloadData> {
+    final /* synthetic */ au a;
+    private com.baidu.tbadk.core.util.al b;
+    private String c;
 
-    public av(Context context, ArrayList<String> arrayList) {
-        this.a = context;
-        this.b = arrayList;
-        this.c = new com.baidu.tbadk.editortool.ab(context);
+    public av(au auVar, String str) {
+        this.a = auVar;
+        this.c = str;
     }
 
-    public final void a(ArrayList<String> arrayList) {
-        this.b = arrayList;
-    }
-
-    @Override // android.widget.Adapter
-    public final int getCount() {
-        if (this.b == null) {
-            return 0;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public FacePackageDownloadData doInBackground(Object... objArr) {
+        FacePackageDownloadData facePackageDownloadData;
+        int i;
+        int i2;
+        float f;
+        try {
+            if (this.c != null && this.c.length() > 0) {
+                this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/dpack");
+                this.b.a("pid", this.c);
+                com.baidu.tbadk.core.util.al alVar = this.b;
+                i = this.a.c;
+                alVar.a("scr_w", String.valueOf(i));
+                com.baidu.tbadk.core.util.al alVar2 = this.b;
+                i2 = this.a.d;
+                alVar2.a("scr_h", String.valueOf(i2));
+                com.baidu.tbadk.core.util.al alVar3 = this.b;
+                f = this.a.e;
+                alVar3.a("scr_dip", String.valueOf(f));
+                String i3 = this.b.i();
+                Gson create = new GsonBuilder().create();
+                this.a.b = (FacePackageDownloadData) create.fromJson(i3, (Class<Object>) FacePackageDownloadData.class);
+            }
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "doInBackground", e.toString());
         }
-        return this.b.size();
+        facePackageDownloadData = this.a.b;
+        return facePackageDownloadData;
     }
 
-    @Override // android.widget.Adapter
-    public final Object getItem(int i) {
-        if (this.b == null || this.b.size() <= 0 || i < 0 || i >= this.b.size()) {
-            return null;
-        }
-        return this.b.get(i);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(FacePackageDownloadData facePackageDownloadData) {
+        com.baidu.adp.base.g gVar;
+        this.a.a = null;
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(facePackageDownloadData);
+        super.onPostExecute(facePackageDownloadData);
     }
 
-    @Override // android.widget.Adapter
-    public final long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
-        int measuredWidth = viewGroup.getMeasuredWidth() / 4;
-        this.c.a(measuredWidth, measuredWidth);
-        if (view == null) {
-            ax axVar = new ax(this, (byte) 0);
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.face_package_item_image, (ViewGroup) null);
-            axVar.a = (TbImageView) view.findViewById(com.baidu.tieba.a.h.image);
-            view.setTag(axVar);
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.g();
+            this.b = null;
         }
-        ax axVar2 = (ax) view.getTag();
-        view.setLayoutParams(new AbsListView.LayoutParams(measuredWidth, measuredWidth));
-        String obj = getItem(i).toString();
-        axVar2.a.setTag(obj);
-        axVar2.a.setBackgroundResource(TbadkApplication.j().l() == 1 ? com.baidu.tieba.a.g.btn_choose_face_selector_1 : com.baidu.tieba.a.g.btn_choose_face_selector);
-        this.c.b(obj, new aw(this, viewGroup));
-        if (i == getCount() - 1) {
-            viewGroup.invalidate();
-        }
-        return view;
-    }
-
-    public final void a() {
-        if (this.c != null) {
-            this.c.c();
-        }
+        this.a.a = null;
     }
 }

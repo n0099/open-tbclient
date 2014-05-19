@@ -2,7 +2,7 @@ package com.baidu.tieba.im.randchat;
 
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
-final class l implements DialogInterface.OnClickListener {
+class l implements DialogInterface.OnClickListener {
     final /* synthetic */ WaittingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,6 +11,6 @@ final class l implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
     }
 }

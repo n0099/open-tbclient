@@ -4,13 +4,13 @@ import android.app.Application;
 import android.os.Build;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public final class ae {
+public class ae {
     private static final String[] a = new String[0];
     private static final String[] b = {"meizu"};
 
     public static String a(int i) {
-        Application b2 = TbadkApplication.j().b();
-        return b2 == null ? "" : b2.getString(i);
+        Application app = TbadkApplication.m252getInst().getApp();
+        return app == null ? "" : app.getString(i);
     }
 
     public static boolean a() {

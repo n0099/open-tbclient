@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class TiebaPrepareImageService extends Service {
@@ -13,17 +14,17 @@ public class TiebaPrepareImageService extends Service {
     private int g;
     private int b = 0;
     private Uri c = null;
-    private c d = null;
+    private h d = null;
     private final Handler e = new Handler();
-    private final Runnable h = new b(this);
+    private final Runnable h = new g(this);
 
     public static void a(int i, Uri uri, int i2, int i3) {
-        Intent intent = new Intent(TbadkApplication.j().b(), TiebaPrepareImageService.class);
-        intent.putExtra("request_code", i);
+        Intent intent = new Intent(TbadkApplication.m252getInst().getApp(), TiebaPrepareImageService.class);
+        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.REQUEST_CODE, i);
         intent.putExtra("max_size", i2);
         intent.putExtra("display_size", i3);
         intent.setData(uri);
-        TbadkApplication.j().b().startService(intent);
+        TbadkApplication.m252getInst().getApp().startService(intent);
     }
 
     public static void a(int i, Uri uri, int i2) {
@@ -31,7 +32,7 @@ public class TiebaPrepareImageService extends Service {
     }
 
     public static void a() {
-        TbadkApplication.j().b().stopService(new Intent(TbadkApplication.j().b(), TiebaPrepareImageService.class));
+        TbadkApplication.m252getInst().getApp().stopService(new Intent(TbadkApplication.m252getInst().getApp(), TiebaPrepareImageService.class));
     }
 
     @Override // android.app.Service
@@ -58,20 +59,24 @@ public class TiebaPrepareImageService extends Service {
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
         if (intent != null) {
-            if (this.d != null) {
-                this.d.cancel();
-            }
-            this.c = intent.getData();
-            this.b = intent.getIntExtra("request_code", 0);
-            this.f = intent.getIntExtra("max_size", 750);
-            this.g = intent.getIntExtra("display_size", 0);
-            TbadkApplication.j().a((com.baidu.tbadk.a) null);
-            if (a) {
-                this.e.postDelayed(this.h, 1000L);
-                return;
-            }
-            this.d = new c(this, this.b, this.c);
-            this.d.execute(new Object[0]);
+            a(intent);
         }
+    }
+
+    private void a(Intent intent) {
+        if (this.d != null) {
+            this.d.cancel();
+        }
+        this.c = intent.getData();
+        this.b = intent.getIntExtra(com.baidu.tbadk.core.frameworkData.a.REQUEST_CODE, 0);
+        this.f = intent.getIntExtra("max_size", TbConfig.POST_IMAGE_MIDDLE);
+        this.g = intent.getIntExtra("display_size", 0);
+        TbadkApplication.m252getInst().addRemoteActivity(null);
+        if (!a) {
+            this.d = new h(this, this.b, this.c);
+            this.d.execute(new Object[0]);
+            return;
+        }
+        this.e.postDelayed(this.h, 1000L);
     }
 }

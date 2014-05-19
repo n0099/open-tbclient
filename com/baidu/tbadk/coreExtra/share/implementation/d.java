@@ -4,7 +4,7 @@ import com.baidu.tbadk.coreExtra.share.f;
 import com.baidu.tbadk.plugins.BdSocialShareSdkDelegate;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d implements BdSocialShareSdkDelegate.ShareCallback {
+public class d implements BdSocialShareSdkDelegate.ShareCallback {
     final /* synthetic */ a a;
     private f b;
     private int c;
@@ -18,7 +18,7 @@ public final class d implements BdSocialShareSdkDelegate.ShareCallback {
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
-    public final void shareCallback(boolean z) {
+    public void shareCallback(boolean z) {
         c cVar;
         c cVar2;
         c cVar3;
@@ -34,21 +34,21 @@ public final class d implements BdSocialShareSdkDelegate.ShareCallback {
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
-    public final void onCancelOfBaiduListener() {
+    public void onCancelOfBaiduListener() {
         c cVar;
         cVar = this.a.c;
         cVar.b();
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
-    public final void onCompleteOfBaiduListener() {
+    public void onCompleteOfBaiduListener() {
         c cVar;
         cVar = this.a.c;
         cVar.a();
     }
 
     @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
-    public final void onErrorOfBaiduListener() {
+    public void onErrorOfBaiduListener() {
         c cVar;
         cVar = this.a.c;
         cVar.c();

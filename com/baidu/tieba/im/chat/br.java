@@ -13,221 +13,225 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* loaded from: classes.dex */
-public final class br extends com.baidu.adp.a.f {
+public class br extends com.baidu.adp.base.e {
     private GroupSettingActivity a;
-    private RelativeLayout c;
+    private RelativeLayout b;
+    private AlertDialog c;
     private AlertDialog d;
-    private AlertDialog e;
+    private SettingTextSwitchView e;
     private SettingTextSwitchView f;
-    private SettingTextSwitchView g;
+    private TbSettingTextTipView g;
     private TbSettingTextTipView h;
     private TbSettingTextTipView i;
-    private TbSettingTextTipView j;
+    private Button j;
     private Button k;
-    private Button l;
-    private DialogInterface.OnClickListener m;
-    private AlertDialog n;
-    private NavigationBar o;
-    private View p;
+    private DialogInterface.OnClickListener l;
+    private AlertDialog m;
+    private NavigationBar n;
+    private View o;
 
-    public final void a(DialogInterface.OnClickListener onClickListener) {
-        this.m = onClickListener;
+    public void a(DialogInterface.OnClickListener onClickListener) {
+        this.l = onClickListener;
     }
 
     public br(GroupSettingActivity groupSettingActivity) {
         super(groupSettingActivity);
         this.a = null;
+        this.b = null;
         this.c = null;
-        this.d = null;
+        this.e = null;
         this.f = null;
         this.g = null;
         this.h = null;
         this.i = null;
-        this.j = null;
-        this.m = null;
+        this.l = null;
         this.a = groupSettingActivity;
-        this.a.setContentView(com.baidu.tieba.im.i.group_setting_activity);
-        this.f = (SettingTextSwitchView) this.a.findViewById(com.baidu.tieba.im.h.sv_group_msg_notify);
-        this.g = (SettingTextSwitchView) this.a.findViewById(com.baidu.tieba.im.h.sv_group_add_group);
-        this.h = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.im.h.tv_change_name);
-        this.i = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.im.h.sv_report);
-        this.j = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.im.h.sv_delete_msg);
-        this.k = (Button) this.a.findViewById(com.baidu.tieba.im.h.btn_dismiss);
-        this.l = (Button) this.a.findViewById(com.baidu.tieba.im.h.btn_quit);
-        this.c = (RelativeLayout) this.a.findViewById(com.baidu.tieba.im.h.parent);
-        this.o = (NavigationBar) this.a.findViewById(com.baidu.tieba.im.h.view_navigation_bar);
-        this.p = this.o.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.o.a(com.baidu.tieba.im.j.group_setting);
+        v();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void a(int i) {
+    public void a(int i) {
+        this.e.a(i);
         this.f.a(i);
-        this.g.a(i);
         this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a(this.c);
-        this.o.b(i);
+        this.a.getLayoutMode().a((View) this.b);
+        this.n.c(i);
         if (i == 1) {
-            this.k.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.im.g.big_red_button_1));
-            this.l.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.im.g.big_red_button_1));
+            this.j.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.q.big_red_button_1));
+            this.k.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.q.big_red_button_1));
             return;
         }
-        this.k.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.im.g.big_red_button));
-        this.l.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.im.g.big_red_button));
+        this.j.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.q.big_red_button));
+        this.k.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.q.big_red_button));
     }
 
-    public final View a() {
-        return this.p;
+    public View a() {
+        return this.o;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.h.setText(str);
+            this.g.setText(str);
         }
     }
 
-    public final void d() {
+    private void v() {
+        this.a.setContentView(com.baidu.tieba.s.group_setting_activity);
+        this.e = (SettingTextSwitchView) this.a.findViewById(com.baidu.tieba.r.sv_group_msg_notify);
+        this.f = (SettingTextSwitchView) this.a.findViewById(com.baidu.tieba.r.sv_group_add_group);
+        this.g = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.r.tv_change_name);
+        this.h = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.r.sv_report);
+        this.i = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.r.sv_delete_msg);
+        this.j = (Button) this.a.findViewById(com.baidu.tieba.r.btn_dismiss);
+        this.k = (Button) this.a.findViewById(com.baidu.tieba.r.btn_quit);
+        this.b = (RelativeLayout) this.a.findViewById(com.baidu.tieba.r.parent);
+        this.n = (NavigationBar) this.a.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.o = this.n.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.n.a(com.baidu.tieba.u.group_setting);
+    }
+
+    public void b() {
+        this.e.setSwitchStateChangeListener(this.a);
         this.f.setSwitchStateChangeListener(this.a);
-        this.g.setSwitchStateChangeListener(this.a);
+        this.g.setOnClickListener(this.a);
         this.h.setOnClickListener(this.a);
-        this.i.setOnClickListener(this.a);
-        this.k.setOnClickListener(this.a);
-        this.l.setOnClickListener(this.a);
         this.j.setOnClickListener(this.a);
+        this.k.setOnClickListener(this.a);
+        this.i.setOnClickListener(this.a);
     }
 
-    public final TbSettingTextTipView e() {
-        return this.h;
+    public TbSettingTextTipView c() {
+        return this.g;
     }
 
-    public final Button f() {
-        return this.l;
-    }
-
-    public final Button g() {
+    public Button d() {
         return this.k;
     }
 
-    public final TbSettingTextTipView h() {
-        return this.i;
-    }
-
-    public final TbSettingTextTipView i() {
+    public Button e() {
         return this.j;
     }
 
-    public final void j() {
-        if (this.e == null) {
+    public TbSettingTextTipView f() {
+        return this.h;
+    }
+
+    public TbSettingTextTipView g() {
+        return this.i;
+    }
+
+    public void h() {
+        if (this.d == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
-            builder.setTitle(com.baidu.tieba.im.j.alerm_title);
+            builder.setTitle(com.baidu.tieba.u.alerm_title);
             builder.setIcon((Drawable) null);
             builder.setCancelable(false);
-            builder.setMessage(com.baidu.tieba.im.j.group_quit_alert);
-            builder.setPositiveButton(com.baidu.tieba.im.j.alert_yes_button, this.a);
-            builder.setNegativeButton(com.baidu.tieba.im.j.alert_no_button, new bs(this));
-            this.e = builder.create();
-            this.e.setCanceledOnTouchOutside(true);
+            builder.setMessage(com.baidu.tieba.u.group_quit_alert);
+            builder.setPositiveButton(com.baidu.tieba.u.alert_yes_button, this.a);
+            builder.setNegativeButton(com.baidu.tieba.u.alert_no_button, new bs(this));
+            this.d = builder.create();
+            this.d.setCanceledOnTouchOutside(true);
         }
-        if (!this.e.isShowing()) {
-            this.e.show();
-        }
-    }
-
-    public final AlertDialog k() {
-        return this.e;
-    }
-
-    public final void l() {
-        if (this.d == null) {
-            this.d = new AlertDialog.Builder(this.a).setTitle(com.baidu.tieba.im.j.group_report).setItems(new CharSequence[]{new SpannableString(this.a.getString(com.baidu.tieba.im.j.group_report_ad)), new SpannableString(this.a.getString(com.baidu.tieba.im.j.group_report_sex)), new SpannableString(this.a.getString(com.baidu.tieba.im.j.group_report_lllegal))}, this.m).create();
-        }
-        this.d.setCanceledOnTouchOutside(true);
-        this.d.show();
-    }
-
-    public final void m() {
-        if (this.l != null) {
-            this.l.setVisibility(8);
+        if (!this.d.isShowing()) {
+            this.d.show();
         }
     }
 
-    public final void n() {
+    public AlertDialog i() {
+        return this.d;
+    }
+
+    public void j() {
+        if (this.c == null) {
+            this.c = new AlertDialog.Builder(this.a).setTitle(com.baidu.tieba.u.group_report).setItems(new CharSequence[]{new SpannableString(this.a.getString(com.baidu.tieba.u.group_report_ad)), new SpannableString(this.a.getString(com.baidu.tieba.u.group_report_sex)), new SpannableString(this.a.getString(com.baidu.tieba.u.group_report_lllegal))}, this.l).create();
+        }
+        this.c.setCanceledOnTouchOutside(true);
+        this.c.show();
+    }
+
+    public void k() {
         if (this.k != null) {
             this.k.setVisibility(8);
         }
     }
 
-    public final void a(boolean z) {
-        if (this.g != null) {
-            this.g.setVisibility(z ? 0 : 8);
+    public void l() {
+        if (this.j != null) {
+            this.j.setVisibility(8);
         }
     }
 
-    public final void b(boolean z) {
+    public void a(boolean z) {
+        if (this.f != null) {
+            this.f.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void b(boolean z) {
         if (z) {
-            this.g.b();
+            this.f.b();
         } else {
-            this.g.a();
+            this.f.a();
         }
     }
 
-    public final void o() {
-        if (this.l != null) {
-            this.l.setVisibility(0);
-        }
-    }
-
-    public final void p() {
+    public void m() {
         if (this.k != null) {
             this.k.setVisibility(0);
         }
     }
 
-    public final void q() {
-        if (this.i != null) {
-            this.i.setVisibility(0);
+    public void n() {
+        if (this.j != null) {
+            this.j.setVisibility(0);
         }
     }
 
-    public final void r() {
-        if (this.i != null) {
-            this.i.setVisibility(8);
+    public void o() {
+        if (this.h != null) {
+            this.h.setVisibility(0);
         }
     }
 
-    public final BdSwitchView s() {
-        return this.g.getSwitchView();
+    public void p() {
+        if (this.h != null) {
+            this.h.setVisibility(8);
+        }
     }
 
-    public final BdSwitchView t() {
+    public BdSwitchView q() {
         return this.f.getSwitchView();
     }
 
-    public final void u() {
-        if (this.n == null) {
-            this.n = new AlertDialog.Builder(this.b).setTitle(this.b.getString(com.baidu.tieba.im.j.alerm_title)).setCancelable(false).setMessage(com.baidu.tieba.im.j.group_dismiss_alert).setPositiveButton(com.baidu.tieba.im.j.alert_yes_button, this.a).setNegativeButton(com.baidu.tieba.im.j.alert_no_button, new bt(this)).create();
+    public BdSwitchView r() {
+        return this.e.getSwitchView();
+    }
+
+    public void s() {
+        if (this.m == null) {
+            this.m = new AlertDialog.Builder(this.mContext).setTitle(this.mContext.getString(com.baidu.tieba.u.alerm_title)).setCancelable(false).setMessage(com.baidu.tieba.u.group_dismiss_alert).setPositiveButton(com.baidu.tieba.u.alert_yes_button, this.a).setNegativeButton(com.baidu.tieba.u.alert_no_button, new bt(this)).create();
         }
-        if (!this.n.isShowing()) {
-            this.n.show();
+        if (!this.m.isShowing()) {
+            this.m.show();
         }
     }
 
-    public final AlertDialog v() {
-        return this.n;
+    public AlertDialog t() {
+        return this.m;
     }
 
-    public final void w() {
-        if (this.n != null && this.n.isShowing()) {
-            this.n.dismiss();
-            this.n = null;
+    public void u() {
+        if (this.m != null && this.m.isShowing()) {
+            this.m.dismiss();
+            this.m = null;
+        }
+        if (this.c != null && this.c.isShowing()) {
+            this.c.dismiss();
+            this.c = null;
         }
         if (this.d != null && this.d.isShowing()) {
             this.d.dismiss();
             this.d = null;
-        }
-        if (this.e != null && this.e.isShowing()) {
-            this.e.dismiss();
-            this.e = null;
         }
     }
 }

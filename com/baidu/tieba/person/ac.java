@@ -4,7 +4,7 @@ import android.view.ViewTreeObserver;
 import com.baidu.tbadk.core.view.UserIconBox;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ac implements ViewTreeObserver.OnGlobalLayoutListener {
+public class ac implements ViewTreeObserver.OnGlobalLayoutListener {
     final /* synthetic */ ab a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public final class ac implements ViewTreeObserver.OnGlobalLayoutListener {
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-    public final void onGlobalLayout() {
+    public void onGlobalLayout() {
         UserIconBox userIconBox;
         UserIconBox userIconBox2;
         userIconBox = this.a.y;
@@ -21,6 +21,6 @@ public final class ac implements ViewTreeObserver.OnGlobalLayoutListener {
         ab abVar = this.a;
         userIconBox2 = this.a.y;
         abVar.C = userIconBox2.getMeasuredWidth();
-        this.a.b();
+        this.a.g();
     }
 }

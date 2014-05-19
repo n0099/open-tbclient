@@ -1,18 +1,10 @@
 package com.baidu.adp.lib.webSocket;
-
-import java.util.List;
-import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public final class t extends z {
-    public String a;
-    public String c;
-    public String b = "/";
-    public String d = null;
-    public String[] e = null;
-    public List<BasicNameValuePair> f = null;
+public class t extends aa {
+    public byte[] a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(String str) {
-        this.a = str;
+    public t(byte[] bArr) {
+        this.a = bArr;
     }
 }

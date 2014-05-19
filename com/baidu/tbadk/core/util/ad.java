@@ -1,21 +1,15 @@
 package com.baidu.tbadk.core.util;
 
-import android.view.ViewGroup;
-import android.widget.ListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class ad implements com.baidu.tbadk.imageManager.d {
-    private final /* synthetic */ ListView a;
+public interface ad {
+    LinkedList<String> getForumPhotoUrl();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ListView listView) {
-        this.a = listView;
-    }
+    LinkedList<String> getImageUrl();
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null && str != null) {
-            bn.a((ViewGroup) this.a, false, (bp) new ae(this, str));
-        }
-    }
+    LinkedList<ab> getImagesWithEmotions();
+
+    LinkedList<String> getPhotoUrl();
+
+    boolean isSupportImageSize();
 }

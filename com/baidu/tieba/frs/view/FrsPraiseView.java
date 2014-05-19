@@ -1,20 +1,25 @@
 package com.baidu.tieba.frs.view;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
-import com.baidu.tieba.view.UserPhotoLayout;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FrsPraiseView extends LinearLayout {
     private Context a;
     private View b;
     private TextView c;
-    private UserPhotoLayout d;
-    private PraiseData e;
-    private com.baidu.tbadk.core.util.b f;
+    private TextView d;
+    private TextView e;
+    private PraiseData f;
     private String g;
     private String h;
     private boolean i;
@@ -29,49 +34,25 @@ public class FrsPraiseView extends LinearLayout {
         this.i = false;
         setOrientation(0);
         this.a = context;
-        this.b = View.inflate(this.a, com.baidu.tieba.a.i.frs_item_praise, this);
-        this.c = (TextView) this.b.findViewById(com.baidu.tieba.a.h.frs_go_praise_list_num);
-        this.d = (UserPhotoLayout) this.b.findViewById(com.baidu.tieba.a.h.frs_go_praise_list_photo);
-        setOnClickListener(new k(this));
-        this.d.setOnChildClickListener(new l(this));
+        a();
     }
 
-    public void setImageLoad(com.baidu.tbadk.core.util.b bVar) {
-        this.f = bVar;
-        this.d.setImageLoad(this.f);
+    private void a() {
+        this.b = View.inflate(this.a, s.frs_item_praise, this);
+        this.c = (TextView) this.b.findViewById(r.frs_go_praise_list_num);
+        this.d = (TextView) this.b.findViewById(r.frs_praise_user_name_text1);
+        this.e = (TextView) this.b.findViewById(r.frs_praise_user_name_text2);
+        setOnClickListener(new g(this));
+        this.e.setOnClickListener(new h(this));
+        this.d.setOnClickListener(new i(this));
     }
 
-    public final void a(PraiseData praiseData, String str, String str2, boolean z) {
+    public void a(PraiseData praiseData, String str, String str2, boolean z) {
         if (praiseData != null) {
             this.g = str;
             this.h = str2;
-            this.e = praiseData;
-            boolean d = com.baidu.tbadk.core.h.a().d();
-            long num = this.e.getNum();
-            if (!d) {
-                this.d.setVisibility(8);
-                if (num > 0) {
-                    if (num <= 999999) {
-                        this.c.setText(String.valueOf(this.a.getString(com.baidu.tieba.a.k.common_praise_view_text3)) + num + this.a.getString(com.baidu.tieba.a.k.common_praise_view_text2));
-                        return;
-                    } else {
-                        this.c.setText(String.valueOf(this.a.getString(com.baidu.tieba.a.k.common_praise_view_text3)) + "999999+" + this.a.getString(com.baidu.tieba.a.k.common_praise_view_text2));
-                        return;
-                    }
-                }
-                return;
-            }
-            this.d.setVisibility(0);
-            if (num > 0) {
-                if (num <= 6) {
-                    this.c.setText(this.a.getString(com.baidu.tieba.a.k.common_praise_view_text));
-                } else if (num <= 999999) {
-                    this.c.setText(String.valueOf(this.a.getString(com.baidu.tieba.a.k.common_praise_view_text1)) + num + this.a.getString(com.baidu.tieba.a.k.common_praise_view_text2));
-                } else {
-                    this.c.setText(String.valueOf(this.a.getString(com.baidu.tieba.a.k.common_praise_view_text1)) + "999999+" + this.a.getString(com.baidu.tieba.a.k.common_praise_view_text2));
-                }
-            }
-            this.d.a(this.e.getUser(), z);
+            this.f = praiseData;
+            a(z);
         }
     }
 
@@ -79,21 +60,69 @@ public class FrsPraiseView extends LinearLayout {
         this.i = z;
     }
 
-    public final void a(int i) {
+    private void a(boolean z) {
+        long num = this.f.getNum();
+        this.e.setVisibility(8);
+        this.d.setVisibility(8);
+        if (num > 0) {
+            ArrayList<MetaData> user = this.f.getUser();
+            if (user != null && user.size() > 0) {
+                if (user.size() == 1) {
+                    if (user.get(0) != null) {
+                        this.d.setVisibility(0);
+                        this.d.setText(a(user.get(0).getName_show()));
+                    }
+                } else {
+                    if (user.get(0) != null) {
+                        this.d.setVisibility(0);
+                        this.d.setText(a(user.get(0).getName_show()));
+                    }
+                    if (user.get(1) != null) {
+                        this.e.setVisibility(0);
+                        this.e.setText("、" + a(user.get(1).getName_show()));
+                    }
+                }
+            }
+            if (num <= 2) {
+                this.c.setText(this.a.getString(u.common_praise_view_text));
+            } else if (num <= 999999) {
+                this.c.setText(String.valueOf(this.a.getString(u.common_praise_view_text1)) + num + this.a.getString(u.common_praise_view_text2));
+            } else {
+                this.c.setText(String.valueOf(this.a.getString(u.common_praise_view_text1)) + "999999+" + this.a.getString(u.common_praise_view_text2));
+            }
+        }
+    }
+
+    private String a(String str) {
+        if (!TextUtils.isEmpty(str) && str.length() > 14) {
+            return str.substring(0, 14);
+        }
+        return str;
+    }
+
+    public void a(int i) {
         if (this.i) {
             if (i == 1) {
-                this.b.setBackgroundResource(com.baidu.tieba.a.g.praise_head_selector_1);
-                this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.frs_praise_view_praise_num_1));
+                this.b.setBackgroundResource(com.baidu.tieba.q.praise_head_selector_1);
+                this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.cp_cont_d_1));
+                this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.cp_cont_c_1));
+                this.e.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.cp_cont_c_1));
                 return;
             }
-            this.b.setBackgroundResource(com.baidu.tieba.a.g.praise_head_selector);
-            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.frs_praise_view_praise_num));
+            this.b.setBackgroundResource(com.baidu.tieba.q.praise_head_selector);
+            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.cp_cont_d));
+            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.cp_cont_c));
+            this.e.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.cp_cont_c));
         } else if (i == 1) {
-            this.b.setBackgroundResource(com.baidu.tieba.a.g.praise_view_btn_color_1);
-            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.frs_praise_view_praise_num_1));
+            this.b.setBackgroundResource(com.baidu.tieba.q.praise_view_btn_color_1);
+            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.cp_cont_d_1));
+            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.cp_cont_c_1));
+            this.e.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.cp_cont_c_1));
         } else {
-            this.b.setBackgroundResource(com.baidu.tieba.a.g.praise_view_btn_color);
-            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.frs_praise_view_praise_num));
+            this.b.setBackgroundResource(com.baidu.tieba.q.praise_view_btn_color);
+            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.cp_cont_d));
+            this.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.cp_cont_c));
+            this.e.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.cp_cont_c));
         }
     }
 }

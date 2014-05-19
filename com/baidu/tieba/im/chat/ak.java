@@ -1,21 +1,25 @@
 package com.baidu.tieba.im.chat;
+
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ak extends com.baidu.tieba.im.m<Boolean> {
+public class ak extends com.baidu.tieba.im.b<Boolean> {
     final /* synthetic */ x b;
-    private final /* synthetic */ com.baidu.tieba.im.message.a.e c;
-    private final /* synthetic */ com.baidu.tieba.im.message.a.a d;
+    private final /* synthetic */ OfficialChatMessage c;
+    private final /* synthetic */ ChatMessage d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(x xVar, com.baidu.tieba.im.message.a.e eVar, com.baidu.tieba.im.message.a.a aVar) {
+    public ak(x xVar, OfficialChatMessage officialChatMessage, ChatMessage chatMessage) {
         this.b = xVar;
-        this.c = eVar;
-        this.d = aVar;
+        this.c = officialChatMessage;
+        this.d = chatMessage;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.m
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.c.x(), this.c.l(), String.valueOf(this.d.u()), String.valueOf(this.d.w()), 2));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.c.getUserId(), this.c.getToUserId(), String.valueOf(this.d.getRecordId()), String.valueOf(this.d.getMsgId()), 2));
     }
 }

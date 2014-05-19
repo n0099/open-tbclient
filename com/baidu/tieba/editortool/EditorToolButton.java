@@ -7,8 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class EditorToolButton extends ImageView {
-    protected static final int[] h = {com.baidu.tieba.a.d.custom_state_focused};
-    protected static final int[] i = {com.baidu.tieba.a.d.custom_state_skin};
+    protected static final int[] h = {com.baidu.tieba.n.custom_state_focused};
+    protected static final int[] i = {com.baidu.tieba.n.custom_state_skin};
     protected TextView a;
     protected Context b;
     protected boolean c;
@@ -40,7 +40,7 @@ public class EditorToolButton extends ImageView {
         this.f = false;
         this.g = 0;
         this.b = context;
-        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.a.m.custom_state);
+        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.w.custom_state);
         this.c = obtainStyledAttributes.getBoolean(1, false);
         obtainStyledAttributes.recycle();
     }
@@ -54,7 +54,7 @@ public class EditorToolButton extends ImageView {
         return onCreateDrawableState;
     }
 
-    public final void a() {
+    public void a() {
         if (!this.f) {
             setVisibility(0);
         }
@@ -64,11 +64,11 @@ public class EditorToolButton extends ImageView {
         return this.a;
     }
 
-    public final void b() {
+    public void b() {
         setVisibility(8);
     }
 
-    public final void c() {
+    public void c() {
         setEnabled(true);
     }
 
@@ -79,28 +79,28 @@ public class EditorToolButton extends ImageView {
         }
     }
 
-    public final void d() {
+    public void d() {
         setEnabled(false);
     }
 
-    public final void a(TextView textView) {
+    public void a(TextView textView) {
         this.a = textView;
     }
 
-    public final void e() {
+    public void e() {
         if (this.a != null) {
             this.a.setVisibility(0);
         }
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         if (this.a != null) {
             this.a.setVisibility(0);
             this.a.setText(str);
         }
     }
 
-    public final void f() {
+    public void f() {
         if (this.a != null) {
             this.a.setVisibility(8);
         }
@@ -114,21 +114,21 @@ public class EditorToolButton extends ImageView {
         }
     }
 
-    public final boolean g() {
+    public boolean g() {
         return this.d;
     }
 
     public void setHardDisabled(boolean z) {
         this.e = z;
-        setEnabled(false);
+        d();
     }
 
     public void setHardInvisible(boolean z) {
         this.f = z;
-        setVisibility(8);
+        b();
     }
 
-    public final void h() {
+    public void h() {
         this.c = true;
         refreshDrawableState();
     }
@@ -138,7 +138,7 @@ public class EditorToolButton extends ImageView {
         return this.c;
     }
 
-    public final void i() {
+    public void i() {
         this.c = false;
         refreshDrawableState();
     }

@@ -1,11 +1,11 @@
 package com.baidu.tbadk.core.view;
 
 import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.bn;
 import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.br;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class r implements com.baidu.tbadk.imageManager.d {
+public class r implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ UserIconBox a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,9 +14,9 @@ public final class r implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null && str != null) {
-            bn.a((ViewGroup) this.a, false, (bp) new s(this, str));
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null && str != null) {
+            bp.a((ViewGroup) this.a, false, (br) new s(this, str));
         }
     }
 }

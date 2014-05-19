@@ -1,20 +1,10 @@
 package com.baidu.adp.framework.c;
 
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.message.ResponsedMessage;
 /* loaded from: classes.dex */
-final class e extends b {
-    final /* synthetic */ d a;
+public interface e {
+    void a(String str, String str2, int i, Message<?> message);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(d dVar, int i) {
-        super(i);
-        this.a = dVar;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* bridge */ /* synthetic */ void a(HttpResponsedMessage httpResponsedMessage) {
-        this.a.a(httpResponsedMessage);
-    }
+    void a(String str, String str2, int i, ResponsedMessage<?> responsedMessage);
 }

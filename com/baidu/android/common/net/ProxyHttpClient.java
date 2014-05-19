@@ -60,7 +60,7 @@ public class ProxyHttpClient extends DefaultHttpClient {
 
     protected HttpParams createHttpParams() {
         HttpParams createHttpParams = super.createHttpParams();
-        HttpProtocolParams.setUseExpectContinue(createHttpParams, (boolean) DEBUG);
+        HttpProtocolParams.setUseExpectContinue(createHttpParams, false);
         return createHttpParams;
     }
 

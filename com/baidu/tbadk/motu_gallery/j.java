@@ -3,19 +3,20 @@ package com.baidu.tbadk.motu_gallery;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class j implements View.OnClickListener {
+public class j implements View.OnClickListener {
     final /* synthetic */ d a;
-    private final /* synthetic */ y b;
+    private final /* synthetic */ z b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(d dVar, y yVar) {
+    public j(d dVar, z zVar) {
         this.a = dVar;
-        this.b = yVar;
+        this.b = zVar;
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         w wVar;
         LinearLayout linearLayout;
         w wVar2;
@@ -25,6 +26,6 @@ final class j implements View.OnClickListener {
         linearLayout.removeView(view);
         TextView textView = this.a.a;
         wVar2 = this.a.k;
-        textView.setText(wVar2.c(this.a));
+        textView.setText(wVar2.e(this.a));
     }
 }

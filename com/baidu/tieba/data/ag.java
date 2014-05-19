@@ -1,35 +1,36 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.UserData;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class ag {
+public class ag {
     private ArrayList<UserData> a = new ArrayList<>();
-    private com.baidu.tbadk.core.data.l b = new com.baidu.tbadk.core.data.l();
+    private com.baidu.tbadk.core.data.m b = new com.baidu.tbadk.core.data.m();
 
-    public final void a(com.baidu.tbadk.core.data.l lVar) {
-        this.b = lVar;
+    public void a(com.baidu.tbadk.core.data.m mVar) {
+        this.b = mVar;
     }
 
-    public final com.baidu.tbadk.core.data.l a() {
+    public com.baidu.tbadk.core.data.m a() {
         return this.b;
     }
 
-    public final ArrayList<UserData> b() {
+    public ArrayList<UserData> b() {
         return this.a;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
-    private void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
@@ -42,7 +43,7 @@ public final class ag {
                 }
                 this.b.a(jSONObject.optJSONObject("page"));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

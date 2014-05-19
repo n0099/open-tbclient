@@ -102,7 +102,7 @@ public class u implements Comparable {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[[key=").append(this.b).append("]packagename=").append(this.c).append("]mOperationCode=").append(this.a).append("]versioncode=").append(this.e).append("]signmd5=").append(this.d).append("]]");
+        sb.append("[").append("[key=").append(this.b).append("]packagename=").append(this.c).append("]mOperationCode=").append(this.a).append("]versioncode=").append(this.e).append("]signmd5=").append(this.d).append("]]");
         return sb.toString();
     }
 }

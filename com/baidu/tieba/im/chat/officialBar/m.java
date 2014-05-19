@@ -2,14 +2,14 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
 /* loaded from: classes.dex */
-public final class m {
+public class m {
     public static m a = new m();
     private final int b = 9;
     private final int c = 1;
     private final int d = 1;
     private com.baidu.adp.lib.d.b<h> e;
     private com.baidu.adp.lib.d.b<c> f;
-    private com.baidu.adp.lib.d.b<bg> g;
+    private com.baidu.adp.lib.d.b<bb> g;
 
     public static m a() {
         return a;
@@ -18,23 +18,35 @@ public final class m {
     private m() {
     }
 
-    public final com.baidu.adp.lib.d.b<h> a(Context context) {
+    private void d(Context context) {
+        this.e = new o(this, new n(this, context), 1, 0);
+    }
+
+    private void e(Context context) {
+        this.f = new q(this, new p(this, context), 9, 0);
+    }
+
+    private void f(Context context) {
+        this.g = new com.baidu.adp.lib.d.b<>(new r(this, context), 1, 0);
+    }
+
+    public com.baidu.adp.lib.d.b<h> a(Context context) {
         if (this.e == null) {
-            this.e = new o(this, new n(this, context), 1, 0);
+            d(context);
         }
         return this.e;
     }
 
-    public final com.baidu.adp.lib.d.b<c> b(Context context) {
+    public com.baidu.adp.lib.d.b<c> b(Context context) {
         if (this.f == null) {
-            this.f = new q(this, new p(this, context), 9, 0);
+            e(context);
         }
         return this.f;
     }
 
-    public final com.baidu.adp.lib.d.b<bg> c(Context context) {
+    public com.baidu.adp.lib.d.b<bb> c(Context context) {
         if (this.g == null) {
-            this.g = new com.baidu.adp.lib.d.b<>(new r(this, context), 1, 0);
+            f(context);
         }
         return this.g;
     }

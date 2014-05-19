@@ -1,33 +1,33 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-public final class z<T> implements s<T> {
+public class z<T> implements s<T> {
     @Override // com.baidu.adp.lib.cache.s
-    public final T a(String str) {
+    public T a(String str) {
         return null;
     }
 
     @Override // com.baidu.adp.lib.cache.s
-    public final t<T> b(String str) {
+    public t<T> b(String str) {
         return null;
     }
 
     @Override // com.baidu.adp.lib.cache.s
-    public final void a(String str, T t, long j) {
+    public void a(String str, T t, long j) {
     }
 
     @Override // com.baidu.adp.lib.cache.s
-    public final void a(String str, T t) {
+    public void a(String str, T t) {
     }
 
     @Override // com.baidu.adp.lib.cache.s
-    public final void c(String str) {
+    public void c(String str) {
     }
 
     @Override // com.baidu.adp.lib.cache.s
-    public final void b(String str, T t, long j) {
+    public void b(String str, T t, long j) {
     }
 
     @Override // com.baidu.adp.lib.cache.s
-    public final void d(String str) {
+    public void d(String str) {
     }
 }

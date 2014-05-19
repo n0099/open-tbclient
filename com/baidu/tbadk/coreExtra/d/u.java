@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.d;
 import com.baidu.tbadk.core.util.WebSocketStateHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class u implements k {
+public class u implements k {
     final /* synthetic */ q a;
     private final /* synthetic */ String b;
     private final /* synthetic */ String c;
@@ -18,21 +18,17 @@ public final class u implements k {
     }
 
     @Override // com.baidu.tbadk.coreExtra.d.k
-    public final void a(boolean z) {
-        e eVar;
+    public void a(boolean z) {
         int i;
         int i2;
-        eVar = f.a;
-        eVar.a(z ? 1 : 0, this.b);
+        e.a().a(z ? 1 : 0, this.b);
         if (z) {
             this.a.b = 0;
             WebSocketStateHelper.a(WebSocketStateHelper.WebSocketStateInfo.ONLINE);
             this.a.h = false;
-            com.baidu.adp.framework.e.c.a();
-            com.baidu.adp.framework.e.c.c("change ip and stop to restart to reconnet.");
-            com.baidu.adp.framework.e.c.a().a(this.b);
-            com.baidu.adp.framework.e.c.a();
-            com.baidu.adp.framework.e.c.a(true, this.c);
+            com.baidu.adp.framework.c.c.a().c("change ip and stop to restart to reconnet.");
+            com.baidu.adp.framework.c.c.a().a(this.b);
+            com.baidu.adp.framework.c.c.a().a(true, this.c);
             this.a.e = true;
             q qVar = this.a;
             i2 = qVar.d;

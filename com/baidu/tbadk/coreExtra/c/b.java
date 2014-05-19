@@ -1,37 +1,50 @@
 package com.baidu.tbadk.coreExtra.c;
 
-import android.os.Handler;
-import android.os.SystemClock;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.z;
+import java.util.ArrayList;
+import java.util.Hashtable;
 /* loaded from: classes.dex */
-public abstract class b {
-    private long a;
-    private final long b;
-    private long c;
-    private Handler d = new c(this);
+public class b extends Thread {
+    private int a;
+    private String b;
+    private Hashtable<String, Integer> c;
 
-    public abstract void a(long j);
-
-    public abstract void c();
-
-    public b(long j, long j2) {
-        this.a = j;
-        this.b = j2;
+    public b(Hashtable<String, Integer> hashtable) {
+        this.a = 3;
+        this.b = null;
+        this.c = null;
+        this.a = 3;
+        this.c = hashtable;
     }
 
-    public final void a() {
-        this.d.removeMessages(1);
+    public b(int i, String str) {
+        this.a = 3;
+        this.b = null;
+        this.c = null;
+        this.a = i;
+        this.b = str;
     }
 
-    public final synchronized b b() {
-        b bVar;
-        if (this.a <= 0) {
-            c();
-            bVar = this;
-        } else {
-            this.c = SystemClock.elapsedRealtime() + this.a;
-            this.d.sendMessage(this.d.obtainMessage(1));
-            bVar = this;
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        ArrayList<String> a;
+        super.run();
+        try {
+            if (this.a == 3) {
+                if (this.c != null && (a = z.a()) != null) {
+                    int size = a.size();
+                    for (int i = 0; i < size; i++) {
+                        this.c.put(a.get(i), 1);
+                    }
+                }
+            } else if (this.a == 2) {
+                z.b(this.b);
+            } else if (this.a == 1) {
+                z.a(this.b);
+            }
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "run", e.getMessage());
         }
-        return bVar;
     }
 }

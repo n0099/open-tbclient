@@ -1,10 +1,11 @@
 package com.baidu.adp.widget.ListView;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m implements AbsListView.OnScrollListener {
+public class m implements AdapterView.OnItemClickListener {
     final /* synthetic */ BdListView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,65 +13,67 @@ public final class m implements AbsListView.OnScrollListener {
         this.a = bdListView;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScrollStateChanged(AbsListView absListView, int i) {
-        AbsListView.OnScrollListener onScrollListener;
-        t tVar;
-        v vVar;
-        int i2;
-        v vVar2;
-        t tVar2;
-        AbsListView.OnScrollListener onScrollListener2;
-        onScrollListener = this.a.g;
-        if (onScrollListener != null) {
-            onScrollListener2 = this.a.g;
-            onScrollListener2.onScrollStateChanged(absListView, i);
-        }
-        if (i == 0) {
-            tVar = this.a.m;
-            if (tVar != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                tVar2 = this.a.m;
-                tVar2.b();
-            }
-            vVar = this.a.k;
-            if (vVar != null) {
-                int firstVisiblePosition = absListView.getFirstVisiblePosition();
-                i2 = this.a.l;
-                if (firstVisiblePosition <= i2) {
-                    vVar2 = this.a.k;
-                    vVar2.e_();
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        g gVar;
+        g gVar2;
+        e eVar;
+        q qVar;
+        q qVar2;
+        e eVar2;
+        e eVar3;
+        AdapterView.OnItemClickListener onItemClickListener;
+        AdapterView.OnItemClickListener onItemClickListener2;
+        e eVar4;
+        r rVar;
+        r rVar2;
+        e eVar5;
+        e eVar6;
+        gVar = this.a.b;
+        int c = gVar.c();
+        if (i < c) {
+            eVar4 = this.a.o;
+            if (eVar4 != null) {
+                eVar5 = this.a.o;
+                if (view == eVar5.b()) {
+                    eVar6 = this.a.o;
+                    eVar6.onClick();
+                    return;
                 }
             }
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        AbsListView.OnScrollListener onScrollListener;
-        s sVar;
-        long j;
-        Runnable runnable;
-        Runnable runnable2;
-        long j2;
-        AbsListView.OnScrollListener onScrollListener2;
-        this.a.q = i;
-        onScrollListener = this.a.g;
-        if (onScrollListener != null) {
-            onScrollListener2 = this.a.g;
-            onScrollListener2.onScroll(absListView, i, i2, i3);
-        }
-        sVar = this.a.h;
-        if (sVar != null) {
-            j = this.a.j;
-            if (j > 0) {
-                Handler handler = this.a.getHandler();
-                runnable = this.a.r;
-                handler.removeCallbacks(runnable);
-                Handler handler2 = this.a.getHandler();
-                runnable2 = this.a.r;
-                j2 = this.a.j;
-                handler2.postDelayed(runnable2, j2);
+            rVar = this.a.f;
+            if (rVar != null) {
+                rVar2 = this.a.f;
+                rVar2.onClick(view);
+                return;
             }
+            return;
+        }
+        int i2 = i - c;
+        gVar2 = this.a.b;
+        ListAdapter b = gVar2.b();
+        if (b != null && i2 < b.getCount()) {
+            onItemClickListener = this.a.c;
+            if (onItemClickListener != null) {
+                onItemClickListener2 = this.a.c;
+                onItemClickListener2.onItemClick(adapterView, view, i2, j);
+                return;
+            }
+            return;
+        }
+        eVar = this.a.p;
+        if (eVar != null) {
+            eVar2 = this.a.p;
+            if (view == eVar2.b()) {
+                eVar3 = this.a.p;
+                eVar3.onClick();
+                return;
+            }
+        }
+        qVar = this.a.g;
+        if (qVar != null) {
+            qVar2 = this.a.g;
+            qVar2.onClick(view);
         }
     }
 }

@@ -12,7 +12,7 @@ import android.util.Log;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes.dex */
-public final class b {
+public class b {
     public static Bitmap a(Context context, Uri uri, int i, int i2) {
         int i3;
         int i4;
@@ -65,7 +65,7 @@ public final class b {
         return a(context, uri, i, i2, false);
     }
 
-    private static Bitmap a(Context context, Uri uri, int i, int i2, boolean z) {
+    public static Bitmap a(Context context, Uri uri, int i, int i2, boolean z) {
         Bitmap a;
         Bitmap a2 = a(context, uri, i, i2);
         if (a2 == null) {
@@ -77,7 +77,7 @@ public final class b {
             } else {
                 a = a(a2, i2, i);
             }
-            int b = x.b(context, uri);
+            int b = y.b(context, uri, z);
             if (b != 0) {
                 Matrix matrix = new Matrix();
                 matrix.setRotate(b);
@@ -90,7 +90,7 @@ public final class b {
         }
     }
 
-    private static Bitmap a(Bitmap bitmap, int i, int i2) {
+    public static Bitmap a(Bitmap bitmap, int i, int i2) {
         float width = bitmap.getWidth() / i;
         float height = bitmap.getHeight() / i2;
         if (width <= height) {
@@ -105,13 +105,22 @@ public final class b {
             bitmap.recycle();
             return copy;
         }
-        int width2 = bitmap.getWidth();
-        int height2 = bitmap.getHeight();
-        int i3 = (int) (width2 / width);
-        int i4 = (int) (height2 / width);
-        Bitmap.Config config2 = bitmap.getConfig();
-        Bitmap createBitmap = config2 == null ? Bitmap.createBitmap(i3, i4, Bitmap.Config.ARGB_8888) : Bitmap.createBitmap(i3, i4, config2);
-        new Canvas(createBitmap).drawBitmap(bitmap, new Rect(0, 0, width2, height2), new Rect(0, 0, i3, i4), new Paint());
+        return a(bitmap, width);
+    }
+
+    public static Bitmap a(Bitmap bitmap, float f) {
+        Bitmap createBitmap;
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int i = (int) (width / f);
+        int i2 = (int) (height / f);
+        Bitmap.Config config = bitmap.getConfig();
+        if (config == null) {
+            createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+        } else {
+            createBitmap = Bitmap.createBitmap(i, i2, config);
+        }
+        new Canvas(createBitmap).drawBitmap(bitmap, new Rect(0, 0, width, height), new Rect(0, 0, i, i2), new Paint());
         bitmap.recycle();
         return createBitmap;
     }
@@ -120,6 +129,10 @@ public final class b {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);
+        return a(options);
+    }
+
+    private static boolean a(BitmapFactory.Options options) {
         float f = options.outHeight;
         float f2 = options.outWidth;
         return f != 0.0f && f2 != 0.0f && f / f2 <= 3.0f && f2 / f <= 3.0f;

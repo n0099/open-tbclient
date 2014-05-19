@@ -1,46 +1,31 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.widget.ListView;
+import com.baidu.tieba.editortool.PbEditor;
 /* loaded from: classes.dex */
-public final class dc extends com.baidu.adp.framework.c.b {
-    final /* synthetic */ da a;
+public class dc implements Runnable {
+    private int a;
+    private int b;
+    private PbEditor c;
+    private ListView d;
+    private Activity e;
+    private int f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dc(da daVar, int i) {
-        super(1006002);
-        this.a = daVar;
+    public dc(Activity activity, int i, int i2, PbEditor pbEditor, ListView listView, int i3) {
+        this.b = i2;
+        this.a = i;
+        this.c = pbEditor;
+        this.d = listView;
+        this.f = i3;
+        this.e = activity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(HttpResponsedMessage httpResponsedMessage) {
-        ci ciVar;
-        ci ciVar2;
-        HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
-        if (httpResponsedMessage2 == null || httpResponsedMessage2.g() != 1006002) {
-            return;
-        }
-        int d = httpResponsedMessage2.d();
-        int e = httpResponsedMessage2.e();
-        if (d == 200 && e == 0 && (httpResponsedMessage2 instanceof ImageForumListResponsedMessage)) {
-            ciVar = this.a.k;
-            if (ciVar != null) {
-                dd a = da.a(this.a, httpResponsedMessage2, d, e);
-                int a2 = da.a(this.a, httpResponsedMessage2);
-                ImageForumListResponsedMessage imageForumListResponsedMessage = (ImageForumListResponsedMessage) httpResponsedMessage2;
-                this.a.a = imageForumListResponsedMessage.a;
-                this.a.b = imageForumListResponsedMessage.b;
-                this.a.c = imageForumListResponsedMessage.c;
-                this.a.d = imageForumListResponsedMessage.d;
-                this.a.e = imageForumListResponsedMessage.e;
-                this.a.f = imageForumListResponsedMessage.f;
-                this.a.g = imageForumListResponsedMessage.g;
-                this.a.h = imageForumListResponsedMessage.h;
-                ciVar2 = this.a.k;
-                ciVar2.a(a2, imageForumListResponsedMessage.i, a);
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        int[] iArr = new int[2];
+        this.c.getLocationInWindow(iArr);
+        this.d.setSelectionFromTop(this.a + this.d.getHeaderViewsCount(), ((iArr[1] - this.b) - this.f) - com.baidu.adp.lib.util.h.a(this.e));
+        this.d.invalidate();
     }
 }

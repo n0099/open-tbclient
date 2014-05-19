@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.tieba.flist.ForumListActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class r implements View.OnClickListener {
+public class r implements View.OnClickListener {
     final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public final class r implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         ab abVar;
         String str;
         String str2;

@@ -1,17 +1,20 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import protobuf.LogStat.LogStatRes;
+import com.squareup.wire.Wire;
+import protobuf.LogStat.LogStatResIdl;
 /* loaded from: classes.dex */
 public class ResponseSendPVTJMessage extends TbSocketReponsedMessage {
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        LogStatRes.LogStatResIdl parseFrom = LogStatRes.LogStatResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
+    public ResponseSendPVTJMessage() {
+        super(MessageTypes.CMD_SEND_PV_TJ);
     }
 
-    public ResponseSendPVTJMessage() {
-        super(104001);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        LogStatResIdl logStatResIdl = (LogStatResIdl) new Wire(new Class[0]).parseFrom(bArr, LogStatResIdl.class);
+        setError(logStatResIdl.error.errorno.intValue());
+        setErrorString(logStatResIdl.error.usermsg);
     }
 }

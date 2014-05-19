@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupUpdates;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class o implements View.OnClickListener {
+public class o implements View.OnClickListener {
     final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,13 +12,13 @@ public final class o implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         UpdatesActivity updatesActivity;
         UpdatesItemData updatesItemData;
         view.setSelected(!view.isSelected());
-        updatesActivity = this.a.l;
+        updatesActivity = this.a.k;
         boolean isSelected = view.isSelected();
-        updatesItemData = this.a.m;
-        updatesActivity.a(isSelected, updatesItemData);
+        updatesItemData = this.a.l;
+        updatesActivity.a(view, isSelected, updatesItemData);
     }
 }

@@ -1,10 +1,12 @@
 package com.baidu.tieba.frs;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.io.File;
+import android.app.Activity;
+import android.content.DialogInterface;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ap extends BdAsyncTask<Void, Integer, Void> {
+public class ap implements DialogInterface.OnClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,15 +14,21 @@ final class ap extends BdAsyncTask<Void, Integer, Void> {
         this.a = frsActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Void a(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(com.baidu.tbadk.core.data.n.f()).append("/");
-        str = this.a.T;
-        com.baidu.tbadk.core.util.w.c(new File(append.append(str).toString()));
-        return null;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tieba.model.bc bcVar;
+        g gVar;
+        g gVar2;
+        dialogInterface.dismiss();
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (currentAccount != null && currentAccount.length() > 0) {
+            bcVar = this.a.K;
+            gVar = this.a.I;
+            String name = gVar.g().getName();
+            gVar2 = this.a.I;
+            bcVar.a(name, Long.valueOf(gVar2.g().getId()).longValue());
+            return;
+        }
+        LoginActivity.a((Activity) this.a, this.a.getString(com.baidu.tieba.u.login_to_use), true, 11036);
     }
 }

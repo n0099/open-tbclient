@@ -5,12 +5,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class aa extends e {
+public class aa extends e {
     private static aa a = new aa();
     private LinkedList<ag> b;
 
     @Override // com.baidu.tbadk.editortool.e
-    public final int a() {
+    public int a() {
         return 1;
     }
 
@@ -22,12 +22,12 @@ public final class aa extends e {
         return aaVar;
     }
 
-    public final List<ag> d() {
+    public List<ag> d() {
         return this.b;
     }
 
     @Override // com.baidu.tbadk.editortool.e
-    public final void a(f fVar) {
+    public void a(f fVar) {
         if (this.b == null) {
             this.b = new LinkedList<>();
             if (TbFaceManager.a().b() > 0) {
@@ -51,10 +51,10 @@ public final class aa extends e {
     }
 
     @Override // com.baidu.tbadk.editortool.e
-    public final void b() {
+    public void b() {
     }
 
-    public final boolean e() {
+    public boolean e() {
         return this.b == null || this.b.size() == 0;
     }
 }

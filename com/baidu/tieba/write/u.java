@@ -2,9 +2,11 @@ package com.baidu.tieba.write;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class u implements View.OnClickListener {
+public class u implements View.OnClickListener {
     final /* synthetic */ FeedBackTopListView a;
     private final /* synthetic */ String b;
 
@@ -15,10 +17,10 @@ public final class u implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         Context context;
-        com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
+        MessageManager messageManager = MessageManager.getInstance();
         context = this.a.a;
-        a.a(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(context).a(this.b, null, "feed_back")));
+        messageManager.sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(context).a(this.b, null, "feed_back")));
     }
 }

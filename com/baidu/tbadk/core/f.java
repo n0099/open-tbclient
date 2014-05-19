@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core;
 
 import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 /* loaded from: classes.dex */
 public class f {
-    protected ak a;
+    protected al a;
     protected NewErrorData b = null;
 
     public f() {
         this.a = null;
-        this.a = new ak();
+        this.a = new al();
     }
 
     public void a() {
@@ -19,11 +19,11 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void a(String str) {
+    public void a(String str) {
         this.a.a(str);
     }
 
-    public final void a(String str, String str2) {
+    public void a(String str, String str2) {
         this.a.a(str, str2);
     }
 
@@ -35,14 +35,14 @@ public class f {
         return i;
     }
 
-    public final boolean c() {
+    public boolean c() {
         if (this.a != null) {
             return this.a.a().b().b();
         }
         return false;
     }
 
-    public final String d() {
+    public String d() {
         if (this.a != null) {
             return this.a.f();
         }

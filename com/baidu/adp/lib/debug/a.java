@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Set;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     static int a = 0;
 
     private static String a(String str, Object obj, List list) {
@@ -72,11 +72,11 @@ public final class a {
         return stringBuffer.toString();
     }
 
-    private static boolean a(Object obj) {
+    public static boolean a(Object obj) {
         return obj.getClass().isArray() || (obj instanceof Collection) || (obj instanceof Hashtable) || (obj instanceof HashMap) || (obj instanceof SparseArray) || (obj instanceof HashSet) || (obj instanceof List) || (obj instanceof AbstractMap);
     }
 
-    private static boolean b(Object obj) {
+    public static boolean b(Object obj) {
         Class<?> cls;
         return (obj == null || (obj instanceof Boolean) || (obj instanceof Short) || (obj instanceof Byte) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof Float) || (obj instanceof Character) || (obj instanceof Double) || (obj instanceof String) || (cls = obj.getClass()) == Boolean.TYPE || cls == Boolean.class || cls == Short.TYPE || cls == Short.class || cls == Byte.TYPE || cls == Byte.class || cls == Integer.TYPE || cls == Integer.class || cls == Long.TYPE || cls == Long.class || cls == Float.TYPE || cls == Float.class || cls == Character.TYPE || cls == Character.class || cls == Double.TYPE || cls == Double.class || cls == String.class) ? false : true;
     }
@@ -218,13 +218,27 @@ public final class a {
         return String.valueOf(str) + " = " + c(obj) + IOUtils.LINE_SEPARATOR_UNIX;
     }
 
+    private static String b(String str, Object obj) {
+        if (obj == null) {
+            return String.valueOf(str) + ": null\n";
+        }
+        if (a(obj)) {
+            return b(str, obj, new ArrayList());
+        }
+        if (b(obj)) {
+            return a(str, obj, new ArrayList());
+        }
+        return String.valueOf(str) + " = " + obj.toString() + "\n\r";
+    }
+
     public static void a(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
         if (c.e) {
             stringBuffer.append("Message_Type: " + str + IOUtils.LINE_SEPARATOR_UNIX);
-            stringBuffer.append(obj == null ? String.valueOf("") + ": null\n" : a(obj) ? b("", obj, new ArrayList()) : b(obj) ? a("", obj, new ArrayList()) : String.valueOf("") + " = " + obj.toString() + "\n\r");
+            stringBuffer.append(b("", obj));
             stringBuffer.append("----------------------------------------------------------\n");
-            for (String str2 : stringBuffer.toString().split(IOUtils.LINE_SEPARATOR_UNIX)) {
+            String[] split = stringBuffer.toString().split(IOUtils.LINE_SEPARATOR_UNIX);
+            for (String str2 : split) {
                 Log.i("CP", str2);
             }
         }

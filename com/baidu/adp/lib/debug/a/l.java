@@ -5,7 +5,7 @@ import android.content.Context;
 import android.util.Log;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class l extends a implements Runnable {
+public class l extends a implements Runnable {
     private ActivityManager a;
     private String b;
 
@@ -16,8 +16,8 @@ public final class l extends a implements Runnable {
         this.a = (ActivityManager) context.getSystemService("activity");
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0039: IGET  (r0v5 int A[REMOVE]) = (r0v4 android.app.ActivityManager$RunningAppProcessInfo) android.app.ActivityManager.RunningAppProcessInfo.importance int)] */
-    public final String d() {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x003b: IGET  (r0v5 int A[REMOVE]) = (r0v4 android.app.ActivityManager$RunningAppProcessInfo) android.app.ActivityManager.RunningAppProcessInfo.importance int)] */
+    public String d() {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.a.getRunningAppProcesses();
         for (int i = 0; i < runningAppProcesses.size(); i++) {
             ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i);
@@ -33,7 +33,7 @@ public final class l extends a implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         super.b();
         while (true) {
             try {

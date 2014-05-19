@@ -2,25 +2,28 @@ package com.baidu.adp.lib.asyncTask;
 
 import android.os.Handler;
 import android.os.Process;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-final class i extends j {
+class i extends j {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(f fVar, l lVar) {
-        super(lVar);
+    public i(f fVar, k kVar) {
+        super(kVar);
         this.a = fVar;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [116=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [131=4] */
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         Handler handler;
         Handler handler2;
         try {
             try {
-                if (e() == 3) {
+                if (e() == 4) {
+                    Process.setThreadPriority(-2);
+                } else if (e() == 3) {
                     Process.setThreadPriority(-1);
                 } else if (e() == 2) {
                     Process.setThreadPriority(0);
@@ -28,14 +31,14 @@ final class i extends j {
                     Process.setThreadPriority(10);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(e.getMessage());
+                BdLog.e(e.getMessage());
             }
-            b();
+            a();
         } finally {
             if (!k()) {
-                handler = this.a.i;
-                handler2 = this.a.i;
-                handler.sendMessageDelayed(handler2.obtainMessage(2, this), 1L);
+                handler = this.a.m;
+                handler2 = this.a.m;
+                handler.sendMessage(handler2.obtainMessage(2, this));
             }
         }
     }

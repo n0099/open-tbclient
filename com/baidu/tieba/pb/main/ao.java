@@ -1,17 +1,21 @@
 package com.baidu.tieba.pb.main;
 
-import android.content.DialogInterface;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ao implements DialogInterface.OnClickListener {
+public class ao implements View.OnClickListener {
     final /* synthetic */ PbActivity a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(PbActivity pbActivity) {
+    public ao(PbActivity pbActivity, String str) {
         this.a = pbActivity;
+        this.b = str;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.util.a.a(this.b);
+        com.baidu.adp.lib.util.h.a(view.getContext(), view.getResources().getString(com.baidu.tieba.u.copy_pb_url_success));
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -7,7 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SearchPostModel implements Serializable {
     private static final long serialVersionUID = 1;
-    private ArrayList<al> datas;
+    private ArrayList<an> datas;
     private int totalCount = 0;
     private int currentPage = 0;
     private int totalPage = 0;
@@ -19,7 +20,7 @@ public class SearchPostModel implements Serializable {
         this.datas = new ArrayList<>();
     }
 
-    public ArrayList<al> getData() {
+    public ArrayList<an> getData() {
         return this.datas;
     }
 
@@ -47,7 +48,7 @@ public class SearchPostModel implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+            BdLog.e("SearchPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -59,9 +60,9 @@ public class SearchPostModel implements Serializable {
                 this.datas.clear();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    al alVar = new al();
-                    alVar.a(optJSONObject2);
-                    this.datas.add(alVar);
+                    an anVar = new an();
+                    anVar.a(optJSONObject2);
+                    this.datas.add(anVar);
                 }
                 this.totalCount = optJSONObject.optInt("total_count");
                 this.totalPage = optJSONObject.optInt("total_page");
@@ -69,7 +70,7 @@ public class SearchPostModel implements Serializable {
                 this.hasPre = optJSONObject.optInt("has_prev") != 0;
                 this.currentPage = optJSONObject.optInt("current_page");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+                BdLog.e("SearchPostModel", "parserJson", "error = " + e.getMessage());
             }
         }
     }

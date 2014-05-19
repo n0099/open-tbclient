@@ -1,106 +1,50 @@
 package com.baidu.adp.lib.stats;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.cache.s;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m {
-    private static m b;
-    private s<String> a = null;
+public class m extends BdAsyncTask<Object, Integer, Void> {
+    final /* synthetic */ h a;
+    private f b;
 
-    public static m a() {
-        if (b == null) {
-            synchronized (m.class) {
-                if (b == null) {
-                    b = new m();
-                }
-            }
+    public m(h hVar, f fVar) {
+        BdAsyncTaskParallel bdAsyncTaskParallel;
+        BdAsyncTaskParallel bdAsyncTaskParallel2;
+        this.a = hVar;
+        this.b = null;
+        this.b = fVar;
+        bdAsyncTaskParallel = hVar.w;
+        if (bdAsyncTaskParallel == null) {
+            hVar.w = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, com.baidu.adp.lib.asyncTask.l.a());
         }
-        return b;
+        bdAsyncTaskParallel2 = hVar.w;
+        setParallel(bdAsyncTaskParallel2);
     }
 
-    private s<String> b() {
-        if (this.a == null) {
-            this.a = BdCacheService.a().a("adp.stat.uploadtime", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 100);
-        }
-        return this.a;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Void doInBackground(Object... objArr) {
+        this.a.b(this.b);
+        return null;
     }
 
-    public final void a(long j, String str) {
-        if (j > 0) {
-            String str2 = "adp.stat.stat_upload_time ";
-            if (!TextUtils.isEmpty(str)) {
-                str2 = String.valueOf("adp.stat.stat_upload_time ") + str;
-            }
-            b().a(str2, String.valueOf(j));
-        }
-    }
-
-    public final long a(String str) {
-        String str2 = "adp.stat.stat_upload_time ";
-        if (!TextUtils.isEmpty(str)) {
-            str2 = String.valueOf("adp.stat.stat_upload_time ") + str;
-        }
-        String a = b().a(str2);
-        if (!TextUtils.isEmpty(a)) {
-            try {
-                return Long.parseLong(a);
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.d(e.getMessage());
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Void r6) {
+        BdStatSwitchData bdStatSwitchData;
+        BdStatSwitchData bdStatSwitchData2;
+        super.onPostExecute(r6);
+        bdStatSwitchData = this.a.x;
+        if (!bdStatSwitchData.inSpecStrategy()) {
+            bdStatSwitchData2 = this.a.x;
+            if (bdStatSwitchData2.getSpecifiedExpired() > 0) {
+                new k(this.a, false).execute(new Object[0]);
             }
         }
-        return 0L;
-    }
-
-    public final void b(long j, String str) {
-        if (j > 0) {
-            String str2 = "adp.stat.stat_debug_time";
-            if (!TextUtils.isEmpty(str)) {
-                str2 = String.valueOf("adp.stat.stat_debug_time") + str;
-            }
-            b().a(str2, String.valueOf(j));
-        }
-    }
-
-    public final long b(String str) {
-        String str2 = "adp.stat.stat_debug_time";
-        if (!TextUtils.isEmpty(str)) {
-            str2 = String.valueOf("adp.stat.stat_debug_time") + str;
-        }
-        String a = b().a(str2);
-        if (!TextUtils.isEmpty(a)) {
-            try {
-                return Long.parseLong(a);
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.d(e.getMessage());
-            }
-        }
-        return 0L;
-    }
-
-    public final void c(long j, String str) {
-        if (j > 0) {
-            String str2 = "adp.stat.stat_error_time";
-            if (!TextUtils.isEmpty(str)) {
-                str2 = String.valueOf("adp.stat.stat_error_time") + str;
-            }
-            b().a(str2, String.valueOf(j));
-        }
-    }
-
-    public final long c(String str) {
-        String str2 = "adp.stat.stat_error_time";
-        if (!TextUtils.isEmpty(str)) {
-            str2 = String.valueOf("adp.stat.stat_error_time") + str;
-        }
-        String a = b().a(str2);
-        if (!TextUtils.isEmpty(a)) {
-            try {
-                return Long.parseLong(a);
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.d(e.getMessage());
-            }
-        }
-        return 0L;
     }
 }

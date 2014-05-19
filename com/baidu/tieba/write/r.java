@@ -1,5 +1,7 @@
 package com.baidu.tieba.write;
+
+import android.view.View;
 /* loaded from: classes.dex */
 public interface r {
-    void a(Object obj);
+    void a(View view, Object obj);
 }

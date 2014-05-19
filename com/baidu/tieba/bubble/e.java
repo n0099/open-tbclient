@@ -5,75 +5,74 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
-import com.baidu.adp.a.f;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.a.h;
-import com.baidu.tieba.a.i;
-import com.baidu.tieba.a.k;
 import com.baidu.tieba.data.BubbleListData;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class e extends f {
+public class e extends com.baidu.adp.base.e {
     private NavigationBar a;
-    private ViewGroup c;
-    private GridView d;
-    private View e;
-    private d f;
-    private BubbleChooseActivity g;
-    private ProgressBar h;
+    private ViewGroup b;
+    private GridView c;
+    private View d;
+    private d e;
+    private BubbleChooseActivity f;
+    private ProgressBar g;
 
     public e(BubbleChooseActivity bubbleChooseActivity) {
         super(bubbleChooseActivity);
-        this.g = bubbleChooseActivity;
-        bubbleChooseActivity.setContentView(i.bubble_activity_view);
-        this.a = (NavigationBar) bubbleChooseActivity.findViewById(h.lay_title_bar);
+        this.f = bubbleChooseActivity;
+        bubbleChooseActivity.setContentView(s.bubble_activity_view);
+        this.a = (NavigationBar) bubbleChooseActivity.findViewById(r.lay_title_bar);
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.a(k.bubble_choose);
-        this.e = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.bubble_explain, bubbleChooseActivity);
-        this.c = (ViewGroup) bubbleChooseActivity.findViewById(h.container);
-        this.d = (GridView) bubbleChooseActivity.findViewById(h.gv_bubble_list);
-        this.f = new d(bubbleChooseActivity);
-        this.d.setAdapter((ListAdapter) this.f);
-        this.h = (ProgressBar) bubbleChooseActivity.findViewById(h.bubble_progress);
+        this.a.a(u.bubble_choose);
+        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, s.bubble_explain, bubbleChooseActivity);
+        this.b = (ViewGroup) bubbleChooseActivity.findViewById(r.container);
+        this.c = (GridView) bubbleChooseActivity.findViewById(r.gv_bubble_list);
+        this.e = new d(bubbleChooseActivity);
+        this.c.setAdapter((ListAdapter) this.e);
+        this.g = (ProgressBar) bubbleChooseActivity.findViewById(r.bubble_progress);
     }
 
-    public final void a(List<BubbleListData.BubbleData> list, boolean z) {
-        if (this.f != null) {
-            this.f.a(z);
-            this.f.a(list);
+    public void a(List<BubbleListData.BubbleData> list, boolean z) {
+        if (this.e != null) {
+            this.e.a(z);
+            this.e.a(list);
         }
     }
 
-    public final d a() {
-        return this.f;
-    }
-
-    public final View d() {
+    public d a() {
         return this.e;
     }
 
-    public final GridView e() {
+    public View b() {
         return this.d;
     }
 
-    public final BubbleListData.BubbleData a(int i) {
-        if (this.f == null) {
+    public GridView c() {
+        return this.c;
+    }
+
+    public BubbleListData.BubbleData a(int i) {
+        if (this.e == null) {
             return null;
         }
-        return this.f.getItem(i);
+        return this.e.getItem(i);
     }
 
-    public final void b(int i) {
-        this.a.b(i);
-        this.g.getLayoutMode().a(i == 1);
-        this.g.getLayoutMode().a(this.c);
+    public void b(int i) {
+        this.a.c(i);
+        this.f.getLayoutMode().a(i == 1);
+        this.f.getLayoutMode().a((View) this.b);
     }
 
-    public final void f() {
-        this.h.setVisibility(0);
+    public void d() {
+        this.g.setVisibility(0);
     }
 
-    public final void g() {
-        this.h.setVisibility(8);
+    public void e() {
+        this.g.setVisibility(8);
     }
 }

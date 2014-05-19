@@ -1,14 +1,16 @@
 package com.baidu.tieba.flist;
 
 import android.content.Context;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.data.ForumInfoData;
 import java.io.Serializable;
 import java.util.Arrays;
 /* loaded from: classes.dex */
-public class ForumListModel extends com.baidu.adp.a.e implements Serializable {
+public class ForumListModel extends com.baidu.adp.base.d implements Serializable {
     private static boolean a = false;
     private static String b = null;
     private static final long serialVersionUID = -5006585496963439439L;
@@ -21,12 +23,12 @@ public class ForumListModel extends com.baidu.adp.a.e implements Serializable {
     public long ctime = 0;
     public long logid = 0;
 
-    @Override // com.baidu.adp.a.e
+    @Override // com.baidu.adp.base.d
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
+    @Override // com.baidu.adp.base.d
     public boolean cancelLoadData() {
         return false;
     }
@@ -52,25 +54,25 @@ public class ForumListModel extends com.baidu.adp.a.e implements Serializable {
 
     public static ForumListModel new_fetch(Context context, RequestParams requestParams) {
         int i;
-        com.baidu.adp.lib.cache.s<String> m;
+        com.baidu.adp.lib.cache.s<String> o;
         if (requestParams.menu_id == 0) {
             i = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
         } else {
             i = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? 137 : 136;
         }
         b = requestParams.menu_name;
-        ak akVar = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/f/forum/forumrank");
-        akVar.a("rn", String.valueOf(requestParams.rn));
-        akVar.a("offset", String.valueOf(requestParams.offset));
-        akVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
-        akVar.a("menu_name", requestParams.menu_name);
-        akVar.a("menu_type", String.valueOf(i));
-        String i2 = akVar.i();
-        a = akVar.c();
-        com.baidu.adp.lib.util.f.e("DataProvider", "fetch", "fetched raw string\n" + i2);
+        al alVar = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumrank");
+        alVar.a("rn", String.valueOf(requestParams.rn));
+        alVar.a("offset", String.valueOf(requestParams.offset));
+        alVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
+        alVar.a("menu_name", requestParams.menu_name);
+        alVar.a("menu_type", String.valueOf(i));
+        String i2 = alVar.i();
+        a = alVar.c();
+        BdLog.d("DataProvider", "fetch", "fetched raw string\n" + i2);
         ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(i2, (Class<Object>) ForumListModel.class);
-        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (m = com.baidu.tbadk.core.c.b.a().m()) != null)) {
-            m.a(String.valueOf(TbadkApplication.E()) + "_" + b + "_list", i2, 86400000L);
+        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (o = com.baidu.tbadk.core.a.b.a().o()) != null)) {
+            o.a(String.valueOf(TbadkApplication.getCurrentAccount()) + "_" + b + "_list", i2, 86400000L);
         }
         return forumListModel;
     }

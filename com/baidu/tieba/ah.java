@@ -1,30 +1,33 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.data.CombineDownload;
+import android.location.Address;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ah implements View.OnClickListener {
-    final /* synthetic */ UpdateDialog a;
+public class ah implements com.baidu.adp.lib.c.d {
+    final /* synthetic */ ad a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(UpdateDialog updateDialog) {
-        this.a = updateDialog;
+    public ah(ad adVar) {
+        this.a = adVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        k kVar;
-        boolean z;
-        CombineDownload combineDownload;
-        kVar = this.a.c;
-        kVar.a();
-        z = this.a.f;
-        if (z) {
-            UpdateDialog updateDialog = this.a;
-            combineDownload = this.a.b;
-            UpdateDialog.a(updateDialog, combineDownload.getAppUrl());
-            return;
+    @Override // com.baidu.adp.lib.c.d
+    public void a(int i, String str, Address address) {
+        if (i == 0 && address != null) {
+            try {
+                String valueOf = String.valueOf(address.getLatitude());
+                String valueOf2 = String.valueOf(address.getLongitude());
+                if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
+                    TbadkApplication.m252getInst().setLocationLat(valueOf);
+                    TbadkApplication.m252getInst().setLocationLng(valueOf2);
+                    TbadkApplication.m252getInst().setLocationPos(address.getAddressLine(0));
+                }
+            } catch (IllegalStateException e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        UpdateDialog.d(this.a);
     }
 }

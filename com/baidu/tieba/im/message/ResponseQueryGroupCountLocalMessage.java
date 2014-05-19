@@ -1,47 +1,67 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import protobuf.QueryGroupCount.QueryGroupCountRes;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.squareup.wire.Wire;
+import protobuf.QueryGroupCount.QueryGroupCountResIdl;
 /* loaded from: classes.dex */
 public class ResponseQueryGroupCountLocalMessage extends CustomResponsedMessage<Object> {
-    private int a;
-    private int b;
-    private String c;
-    private String d;
+    private String link;
+    private int localGroupCount;
+    private String picUrl;
+    private int userGroupCount;
 
     public ResponseQueryGroupCountLocalMessage() {
-        super(2001114);
+        super(MessageTypes.CMD_REQUEST_GROUP_COUNT_LOCAL);
     }
 
     public ResponseQueryGroupCountLocalMessage(int i) {
         super(i);
     }
 
-    public final String b() {
-        return this.c;
+    public String getLink() {
+        return this.link;
     }
 
-    public final String c() {
-        return this.d;
+    public void setLink(String str) {
+        this.link = str;
     }
 
-    public final int d() {
-        return this.a;
+    public String getPicUrl() {
+        return this.picUrl;
     }
 
-    public final int i() {
-        return this.b;
+    public void setPicUrl(String str) {
+        this.picUrl = str;
     }
 
-    public final void a(byte[] bArr) {
-        QueryGroupCountRes.QueryGroupCountResIdl parseFrom = QueryGroupCountRes.QueryGroupCountResIdl.parseFrom(bArr);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.b = parseFrom.getData().getLocalGroupCount();
-            this.a = parseFrom.getData().getUserGroupCount();
-            this.d = parseFrom.getData().getBanner().getPicUrl();
-            this.c = parseFrom.getData().getBanner().getLink();
+    public int getUserGroupCount() {
+        return this.userGroupCount;
+    }
+
+    public void setUserGroupCount(int i) {
+        this.userGroupCount = i;
+    }
+
+    public int getLocalGroupCount() {
+        return this.localGroupCount;
+    }
+
+    public void setLocalGroupCount(int i) {
+        this.localGroupCount = i;
+    }
+
+    public void decodeInBackGround(int i, byte[] bArr) {
+        QueryGroupCountResIdl queryGroupCountResIdl = (QueryGroupCountResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryGroupCountResIdl.class);
+        setError(queryGroupCountResIdl.error.errorno.intValue());
+        setErrorString(queryGroupCountResIdl.error.usermsg);
+        if (getError() == 0) {
+            setLocalGroupCount(queryGroupCountResIdl.data.localGroupCount.intValue());
+            setUserGroupCount(queryGroupCountResIdl.data.userGroupCount.intValue());
+            if (queryGroupCountResIdl.data.banner != null) {
+                setPicUrl(queryGroupCountResIdl.data.banner.picUrl);
+                setLink(queryGroupCountResIdl.data.banner.link);
+            }
         }
     }
 }

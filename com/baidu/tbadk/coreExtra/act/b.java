@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b implements View.OnClickListener {
+public class b implements View.OnClickListener {
     final /* synthetic */ EditHeadActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ public final class b implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         LinearLayout linearLayout;
         Button button;
         RadioButton radioButton;

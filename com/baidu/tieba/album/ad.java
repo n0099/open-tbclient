@@ -3,7 +3,7 @@ package com.baidu.tieba.album;
 import android.view.View;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
-final class ad implements View.OnClickListener {
+class ad implements View.OnClickListener {
     final /* synthetic */ ab a;
     private final /* synthetic */ af b;
     private final /* synthetic */ int c;
@@ -18,7 +18,7 @@ final class ad implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         z zVar;
         z zVar2;
         zVar = this.a.e;

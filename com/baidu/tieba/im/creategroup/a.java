@@ -7,31 +7,35 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-public final class a extends com.baidu.adp.a.f {
+public class a extends com.baidu.adp.base.e {
     private View a;
-    private TextView c;
-    private ImageView d;
+    private TextView b;
+    private ImageView c;
 
     public a(Context context) {
         super(context);
         this.a = null;
+        this.b = null;
         this.c = null;
-        this.d = null;
-        this.a = LayoutInflater.from(this.b).inflate(com.baidu.tieba.im.i.address_lbs_item, (ViewGroup) null);
-        this.c = (TextView) this.a.findViewById(com.baidu.tieba.im.h.text);
-        this.d = (ImageView) this.a.findViewById(com.baidu.tieba.im.h.group_address_list_item_selected);
-        this.a.setTag(this);
+        b();
     }
 
-    public final View a() {
+    public View a() {
         return this.a;
     }
 
-    public final void a(String str) {
-        this.c.setText(str);
+    public void a(String str) {
+        this.b.setText(str);
     }
 
-    public final void a(boolean z) {
-        this.d.setVisibility(z ? 0 : 8);
+    public void a(boolean z) {
+        this.c.setVisibility(z ? 0 : 8);
+    }
+
+    private void b() {
+        this.a = LayoutInflater.from(this.mContext).inflate(com.baidu.tieba.s.address_lbs_item, (ViewGroup) null);
+        this.b = (TextView) this.a.findViewById(com.baidu.tieba.r.text);
+        this.c = (ImageView) this.a.findViewById(com.baidu.tieba.r.group_address_list_item_selected);
+        this.a.setTag(this);
     }
 }

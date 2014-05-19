@@ -1,8 +1,9 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class w {
+public class w {
     private String a = "";
     private String b = "";
     private String c = "";
@@ -10,34 +11,34 @@ public final class w {
     private int e = 0;
     private int f = 0;
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optString("id");
                 this.e = jSONObject.optInt("user_type");
                 this.f = jSONObject.optInt("is_verify");
                 this.b = jSONObject.optString("name");
-                this.c = jSONObject.optString("name_show");
-                this.d = jSONObject.optString("portrait");
+                this.c = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+                this.d = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("LikeData", "parserJson", "error = " + e.getMessage());
+                BdLog.e("LikeData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    public final String a() {
+    public String a() {
         return this.a;
     }
 
-    public final String b() {
+    public String b() {
         return this.b;
     }
 
-    public final String c() {
+    public String c() {
         return this.c;
     }
 
-    public final String d() {
+    public String d() {
         return this.d;
     }
 }

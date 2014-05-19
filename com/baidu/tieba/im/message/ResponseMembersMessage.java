@@ -2,69 +2,78 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.data.UserData;
 import com.baidu.tieba.im.data.MembersData;
+import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import protobuf.Im;
-import protobuf.QueryGroupUserList.QueryGroupUserListRes;
+import protobuf.QueryGroupUserList.QueryGroupUserListResIdl;
+import protobuf.TshowInfo;
+import protobuf.UserInfo;
+import protobuf.UserPermission;
 /* loaded from: classes.dex */
 public class ResponseMembersMessage extends SocketResponsedMessage {
-    private MembersData a;
-
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        QueryGroupUserListRes.QueryGroupUserListResIdl parseFrom = QueryGroupUserListRes.QueryGroupUserListResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.a = new MembersData();
-            this.a.setUsers(new ArrayList());
-            int userListCount = parseFrom.getData().getUserListCount();
-            for (int i2 = 0; i2 < userListCount; i2++) {
-                Im.UserInfo userList = parseFrom.getData().getUserList(i2);
-                UserData userData = new UserData();
-                userData.setInTime(userList.getInTime());
-                userData.setLastReplyTime(userList.getLastReplyTime());
-                userData.setLat(String.valueOf(userList.getLat()));
-                userData.setLng(String.valueOf(userList.getLng()));
-                userData.setLoginTime(userList.getLoginTime());
-                userData.setPortrait(userList.getPortrait());
-                userData.setPosition(userList.getPosition());
-                userData.setSex(userList.getSex());
-                userData.setUserIdLong(userList.getUserId());
-                userData.setUserName(userList.getUserName());
-                List<Im.TshowInfo> tshowIconList = userList.getTshowIconList();
-                if (tshowIconList != null) {
-                    LinkedList<IconData> linkedList = new LinkedList<>();
-                    for (int i3 = 0; i3 < tshowIconList.size(); i3++) {
-                        Im.TshowInfo tshowInfo = tshowIconList.get(i3);
-                        linkedList.add(new IconData(tshowInfo.getIcon(), tshowInfo.getName(), tshowInfo.getUrl()));
-                    }
-                    userData.setTShowInfo(linkedList);
-                }
-                Im.UserPermission permission = userList.getPermission();
-                UserData.Permission permission2 = new UserData.Permission();
-                permission2.setIsGroupManager(permission.getIsGroupManager());
-                permission2.setIsGroupOwner(permission.getIsGroupOwner());
-                userData.setPermission(permission2);
-                this.a.getUsers().add(userData);
-            }
-            Im.UserPermission permission3 = parseFrom.getData().getPermission();
-            UserData.Permission permission4 = new UserData.Permission();
-            permission4.setIsGroupManager(permission3.getIsGroupManager());
-            permission4.setIsGroupOwner(permission3.getIsGroupOwner());
-            this.a.setPermission(permission4);
-        }
-    }
+    private MembersData membersData;
 
     public ResponseMembersMessage() {
-        super(103005);
+        super(MessageTypes.CMD_REQUEST_MEMBERS_BY_ID);
     }
 
-    public final MembersData d() {
-        return this.a;
+    public MembersData getMembersData() {
+        return this.membersData;
+    }
+
+    public void setMembersData(MembersData membersData) {
+        this.membersData = membersData;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        QueryGroupUserListResIdl queryGroupUserListResIdl = (QueryGroupUserListResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryGroupUserListResIdl.class);
+        setError(queryGroupUserListResIdl.error.errorno.intValue());
+        setErrorString(queryGroupUserListResIdl.error.usermsg);
+        if (getError() == 0) {
+            setMembersData(new MembersData());
+            getMembersData().setUsers(new ArrayList());
+            if (queryGroupUserListResIdl.data.userList != null) {
+                for (UserInfo userInfo : queryGroupUserListResIdl.data.userList) {
+                    UserData userData = new UserData();
+                    userData.setInTime(userInfo.inTime.intValue());
+                    userData.setLastReplyTime(userInfo.lastReplyTime.intValue());
+                    userData.setLat(String.valueOf(userInfo.lat));
+                    userData.setLng(String.valueOf(userInfo.lng));
+                    userData.setLoginTime(userInfo.loginTime.intValue());
+                    userData.setPortrait(userInfo.portrait);
+                    userData.setPosition(userInfo.position);
+                    userData.setSex(userInfo.sex.intValue());
+                    userData.setUserIdLong(userInfo.userId.intValue());
+                    userData.setUserName(userInfo.userName);
+                    List<TshowInfo> list = userInfo.tshowIcon;
+                    if (list != null) {
+                        LinkedList<IconData> linkedList = new LinkedList<>();
+                        for (int i2 = 0; i2 < list.size(); i2++) {
+                            TshowInfo tshowInfo = list.get(i2);
+                            linkedList.add(new IconData(tshowInfo.icon, tshowInfo.name, tshowInfo.url));
+                        }
+                        userData.setTShowInfo(linkedList);
+                    }
+                    UserPermission userPermission = userInfo.permission;
+                    UserData.Permission permission = new UserData.Permission();
+                    permission.setIsGroupManager(userPermission.isGroupManager.intValue());
+                    permission.setIsGroupOwner(userPermission.isGroupOwner.intValue());
+                    userData.setPermission(permission);
+                    getMembersData().getUsers().add(userData);
+                }
+            }
+            UserPermission userPermission2 = queryGroupUserListResIdl.data.permission;
+            UserData.Permission permission2 = new UserData.Permission();
+            permission2.setIsGroupManager(userPermission2.isGroupManager.intValue());
+            permission2.setIsGroupOwner(userPermission2.isGroupOwner.intValue());
+            getMembersData().setPermission(permission2);
+        }
     }
 }

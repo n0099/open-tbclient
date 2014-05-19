@@ -1,32 +1,34 @@
 package com.baidu.tbadk.a;
 
-import com.baidu.adp.framework.message.f;
+import com.baidu.adp.lib.network.websocket.CoderException;
+import com.baidu.adp.lib.network.websocket.g;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.WebSocketStateHelper;
+import com.baidu.tbadk.coreExtra.d.m;
 /* loaded from: classes.dex */
-public final class b implements com.baidu.adp.framework.e.d {
-    @Override // com.baidu.adp.framework.e.d
-    public final void a(String str, String str2, int i, com.baidu.adp.framework.message.d<?> dVar) {
-        int i2;
-        int i3 = 0;
-        if (dVar == null || !(dVar instanceof com.baidu.tbadk.message.websockt.d)) {
-            i2 = 0;
-        } else {
-            i2 = dVar.e();
-            i3 = ((com.baidu.tbadk.message.websockt.d) dVar).k();
-        }
-        TiebaStatic.a(str, i2, i3, str2, i);
+public class b implements com.baidu.adp.framework.c.d {
+    @Override // com.baidu.adp.framework.c.d
+    public void a(g gVar) {
+        m.a().a(true, "timeout cmd = " + gVar.i());
     }
 
-    @Override // com.baidu.adp.framework.e.d
-    public final void a(String str, String str2, int i, f<?> fVar) {
-        int i2;
-        int i3 = 0;
-        if (fVar == null || fVar.h() == null || !(fVar.h() instanceof com.baidu.tbadk.message.websockt.d)) {
-            i2 = 0;
-        } else {
-            i2 = fVar.g();
-            i3 = ((com.baidu.tbadk.message.websockt.d) fVar.h()).k();
+    @Override // com.baidu.adp.framework.c.d
+    public boolean a(byte[] bArr) {
+        try {
+            com.baidu.tbadk.message.websockt.b a = com.baidu.tbadk.message.websockt.b.a(bArr);
+            TiebaStatic.imLog(a.a.c(), a.a.e(), "socket", "MessageQueue: onBinaryMesssage", "succ", 0, null, 0L, bArr.length, null);
+            if (a.a.c() == 1003) {
+                return true;
+            }
+            return false;
+        } catch (CoderException e) {
+            TiebaStatic.imLog(0, 0, "socket", "MessageQueue: onBinaryMesssage decodeHeader error", "fail", e.getErrorCode(), null, 0L, bArr.length, null);
+            return false;
         }
-        TiebaStatic.a(str, i2, i3, str2, i);
+    }
+
+    @Override // com.baidu.adp.framework.c.d
+    public boolean a() {
+        return WebSocketStateHelper.a();
     }
 }

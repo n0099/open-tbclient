@@ -1,88 +1,124 @@
 package com.baidu.tieba.im.chat.officialBar;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.gson.Gson;
-import com.baidu.tbadk.core.data.UserData;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public final class bb extends com.baidu.tieba.im.pushNotify.m {
-    private static bb b = new bb();
+public class bb extends RelativeLayout {
+    private Context a;
+    private TextView b;
+    private TextView c;
+    private TbImageView d;
+    private View e;
+    private TextView f;
+    private ImageView g;
+    private TextView h;
+    private com.baidu.adp.lib.b.b i;
+    private int j;
 
-    private bb() {
+    public bb(Context context) {
+        this(context, null);
     }
 
-    public static bb a() {
-        return b;
+    public bb(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.pushNotify.m
-    /* renamed from: a */
-    public final OfficialSettingItemData b(String str, String str2) {
-        OfficialSettingItemData officialSettingItemData;
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return null;
-        }
-        String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.a) {
-            com.baidu.tieba.im.pushNotify.l lVar = this.a.get(str3);
-            officialSettingItemData = (lVar == null || !(lVar instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) lVar;
-        }
-        if (officialSettingItemData == null) {
-            officialSettingItemData = (OfficialSettingItemData) new Gson().fromJson(com.baidu.tbadk.core.c.b.a().w().a(str3), (Class<Object>) OfficialSettingItemData.class);
-            if (officialSettingItemData != null) {
-                a(OfficialSettingItemData.class);
+    public bb(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.i = null;
+        this.a = context;
+        b();
+    }
+
+    private void b() {
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.msg_single_pic_text_view, (ViewGroup) this, true);
+        this.b = (TextView) findViewById(com.baidu.tieba.r.single_title);
+        this.c = (TextView) findViewById(com.baidu.tieba.r.single_abstract);
+        this.d = (TbImageView) findViewById(com.baidu.tieba.r.single_content_pic);
+        this.f = (TextView) findViewById(com.baidu.tieba.r.read_all);
+        this.g = (ImageView) findViewById(com.baidu.tieba.r.arrow);
+        this.e = findViewById(com.baidu.tieba.r.single_divider);
+        this.h = (TextView) findViewById(com.baidu.tieba.r.show_time_single);
+        setOnLongClickListener(new bc(this));
+    }
+
+    public void a(t tVar, View view) {
+        setPadding(0, (int) this.a.getResources().getDimension(com.baidu.tieba.p.multi_padding_left_right), 0, 0);
+        if (tVar != null) {
+            String str = "";
+            if (!TextUtils.isEmpty(tVar.a)) {
+                str = tVar.a;
+            }
+            this.b.setText(str);
+            String str2 = "";
+            if (!TextUtils.isEmpty(tVar.b)) {
+                str2 = tVar.b;
+            }
+            this.c.setText(str2);
+            if (!TextUtils.isEmpty(tVar.d)) {
+                setOnClickListener(new bd(this, tVar));
+            }
+            this.d.setDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d);
+            this.d.setNightDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d_1);
+            if (!TextUtils.isEmpty(tVar.c)) {
+                this.d.setTag(tVar.c);
+                com.baidu.tbadk.editortool.ab abVar = new com.baidu.tbadk.editortool.ab(this.a);
+                abVar.d(true);
+                abVar.b(tVar.c, new be(this, view));
             }
         }
-        if (officialSettingItemData == null) {
-            OfficialSettingItemData officialSettingItemData2 = new OfficialSettingItemData();
-            officialSettingItemData2.setMyUid(str);
-            officialSettingItemData2.setToUid(str2);
-            officialSettingItemData2.setAcceptNotify(true);
-            a(officialSettingItemData2);
-            return officialSettingItemData2;
-        }
-        return officialSettingItemData;
     }
 
-    public final void b() {
-        super.a(OfficialSettingItemData.class);
+    public void a() {
+        this.b.setText("");
+        this.c.setText("");
+        this.d.setBackgroundDrawable(null);
+        this.d.setImageBitmap(null);
+        this.h.setText("");
+        this.h.setVisibility(8);
     }
 
-    public final void a(String str, String str2, UserData userData) {
-        OfficialSettingItemData b2;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (b2 = b(str, str2)) != null) {
-            b2.setToPortrait(userData.getPortrait());
-            b2.setToName(userData.getUserName());
-            a(b2);
-        }
+    public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
+        this.i = bVar;
     }
 
-    @Override // com.baidu.tieba.im.pushNotify.m
-    protected final com.baidu.adp.lib.cache.s<String> c() {
-        return com.baidu.tbadk.core.c.b.a().w();
+    public void setPosition(int i) {
+        this.j = i;
     }
 
-    @Override // com.baidu.tieba.im.pushNotify.m
-    public final void a(com.baidu.tieba.im.pushNotify.l lVar) {
-        if (lVar == null || !(lVar instanceof OfficialSettingItemData)) {
-            com.baidu.adp.lib.util.f.e("value is wrong");
+    public void a(boolean z) {
+        if (z) {
+            this.b.setTextColor(getResources().getColor(com.baidu.tieba.o.official_msg_bottom_text_1));
+            this.c.setTextColor(getResources().getColor(com.baidu.tieba.o.official_abstract_1));
+            this.f.setTextColor(getResources().getColor(com.baidu.tieba.o.official_msg_bottom_text_1));
+            this.g.setBackgroundResource(com.baidu.tieba.q.icon_ba_top_arrow_big_1);
+            this.h.setTextColor(getResources().getColor(com.baidu.tieba.o.official_time_text_1));
+            this.e.setBackgroundResource(com.baidu.tieba.q.multi_single_divider_selector_1);
             return;
         }
-        OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) lVar;
-        String myUid = officialSettingItemData.getMyUid();
-        String toUid = officialSettingItemData.getToUid();
-        if (TextUtils.isEmpty(myUid) || TextUtils.isEmpty(toUid)) {
-            if (com.baidu.tbadk.core.data.n.a()) {
-                throw new RuntimeException("key param is null");
-            }
+        this.b.setTextColor(getResources().getColor(com.baidu.tieba.o.official_msg_bottom_text));
+        this.c.setTextColor(getResources().getColor(com.baidu.tieba.o.official_abstract_1));
+        this.f.setTextColor(getResources().getColor(com.baidu.tieba.o.official_msg_bottom_text));
+        this.g.setBackgroundResource(com.baidu.tieba.q.icon_ba_top_arrow_big);
+        this.h.setTextColor(getResources().getColor(com.baidu.tieba.o.official_time_text));
+        this.e.setBackgroundResource(com.baidu.tieba.q.multi_single_divider_selector);
+    }
+
+    public void setTime(String str) {
+        if (TextUtils.isEmpty(str)) {
+            this.h.setVisibility(8);
+            this.h.setText("");
             return;
         }
-        com.baidu.adp.lib.cache.s<String> w = com.baidu.tbadk.core.c.b.a().w();
-        String str = String.valueOf(myUid) + "@" + toUid;
-        String json = new Gson().toJson(officialSettingItemData);
-        synchronized (this.a) {
-            this.a.put(str, officialSettingItemData);
-        }
-        w.a(str, json);
+        this.h.setVisibility(0);
+        this.h.setText(str);
     }
 }

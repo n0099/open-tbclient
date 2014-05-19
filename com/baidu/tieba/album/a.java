@@ -2,41 +2,41 @@ package com.baidu.tieba.album;
 
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     private String a;
     private String b;
     private String c;
     private ImageFileInfo d;
 
-    public final String a() {
+    public String a() {
         return this.a;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.a = str;
     }
 
-    public final String b() {
+    public String b() {
         return this.b;
     }
 
-    public final void b(String str) {
+    public void b(String str) {
         this.b = str;
     }
 
-    public final String c() {
+    public String c() {
         return this.c;
     }
 
-    public final void c(String str) {
+    public void c(String str) {
         this.c = str;
     }
 
-    public final ImageFileInfo d() {
+    public ImageFileInfo d() {
         return this.d;
     }
 
-    public final void a(ImageFileInfo imageFileInfo) {
+    public void a(ImageFileInfo imageFileInfo) {
         this.d = imageFileInfo;
     }
 }

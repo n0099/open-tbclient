@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.share.implementation;
 
 import com.baidu.tbadk.coreExtra.share.f;
 /* loaded from: classes.dex */
-final class e implements b {
+class e implements b {
     final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ final class e implements b {
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.implementation.b
-    public final void a() {
+    public void a() {
         a aVar;
         f fVar;
         int i;

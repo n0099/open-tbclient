@@ -2,9 +2,13 @@ package com.baidu.tieba.im.frsgroup;
 
 import android.view.View;
 import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.at;
 import com.baidu.tbadk.core.data.UserData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class x implements AdapterView.OnItemClickListener {
+public class x implements AdapterView.OnItemClickListener {
     final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,20 +17,20 @@ final class x implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         ah ahVar;
         ahVar = this.a.b;
-        ad h = ahVar.h();
-        UserData userData = (UserData) h.getItem(i);
+        ad f = ahVar.f();
+        UserData userData = (UserData) f.getItem(i);
         if (userData != null) {
-            if (h.d()) {
+            if (f.d()) {
                 if (!userData.getPermission().isController()) {
-                    h.a(Long.valueOf(userData.getUserIdLong()));
+                    f.a(Long.valueOf(userData.getUserIdLong()));
                     return;
                 }
                 return;
             }
-            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new com.baidu.tbadk.core.b.ag(this.a, new StringBuilder(String.valueOf(userData.getUserId())).toString(), userData.getUserName())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new at(this.a, new StringBuilder(String.valueOf(userData.getUserId())).toString(), userData.getUserName())));
         }
     }
 }

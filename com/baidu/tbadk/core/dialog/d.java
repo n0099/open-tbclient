@@ -9,17 +9,19 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.i;
-import com.baidu.tbadk.j;
-import com.baidu.tbadk.k;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tieba.o;
+import com.baidu.tieba.q;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class d {
-    private static final HashMap<Integer, Integer[]> m;
+public class d {
+    private static final HashMap<Integer, Integer[]> m = new HashMap<>(2);
     private String a;
     private List<Object> b;
     private g c;
@@ -34,24 +36,28 @@ public final class d {
     private AlertDialog l;
 
     static {
-        HashMap<Integer, Integer[]> hashMap = new HashMap<>(2);
-        m = hashMap;
-        hashMap.put(0, new Integer[]{Integer.valueOf(i.dialg_alert_btn_bg), Integer.valueOf(i.dialog_bdalert_button_textcolor_pressed)});
-        m.put(1, new Integer[]{Integer.valueOf(i.btn_blue_square), Integer.valueOf(com.baidu.tbadk.g.share_copy_pb_url)});
+        m.put(0, new Integer[]{Integer.valueOf(q.dialg_alert_btn_bg), Integer.valueOf(q.dialog_bdalert_button_textcolor_pressed)});
+        m.put(1, new Integer[]{Integer.valueOf(q.btn_blue_square), Integer.valueOf(o.share_copy_pb_url)});
     }
 
     public d(Activity activity) {
         this.e = activity;
         this.d = (LayoutInflater) activity.getSystemService("layout_inflater");
-        this.f = (ViewGroup) this.d.inflate(k.dialog_bdlist, (ViewGroup) null);
-        this.h = (TextView) this.f.findViewById(j.dialog_title);
-        this.g = (ViewGroup) this.f.findViewById(j.dialog_content);
+        this.f = (ViewGroup) this.d.inflate(s.dialog_bdlist, (ViewGroup) null);
+        this.h = (TextView) this.f.findViewById(r.dialog_title);
+        this.g = (ViewGroup) this.f.findViewById(r.dialog_content);
     }
 
-    public final d a(Object[] objArr, g gVar) {
-        List<Object> asList;
-        if (objArr != null && objArr.length > 0 && (asList = Arrays.asList(objArr)) != null && asList.size() > 0) {
-            this.b = asList;
+    public d a(Object[] objArr, g gVar) {
+        if (objArr != null && objArr.length > 0) {
+            return a(Arrays.asList(objArr), gVar);
+        }
+        return this;
+    }
+
+    public d a(List<Object> list, g gVar) {
+        if (list != null && list.size() > 0) {
+            this.b = list;
             if (gVar != null) {
                 this.c = gVar;
             }
@@ -59,36 +65,27 @@ public final class d {
         return this;
     }
 
-    public final d a(int i) {
+    public d a(int i) {
         this.i = i;
         return this;
     }
 
-    public final d b(int i) {
-        this.j = 80;
+    public d b(int i) {
+        this.j = i;
         return this;
     }
 
-    public final d a() {
+    public d a() {
         if (!this.k) {
             this.k = true;
-            int l = TbadkApplication.j().l();
-            if (this.e instanceof com.baidu.tbadk.a) {
-                com.baidu.tbadk.a aVar = (com.baidu.tbadk.a) this.e;
-                aVar.getLayoutMode().a(l == 1);
-                aVar.getLayoutMode().a(this.f);
-            } else if (this.e instanceof com.baidu.tbadk.core.e) {
-                com.baidu.tbadk.core.e eVar = (com.baidu.tbadk.core.e) this.e;
-                eVar.b().a(l == 1);
-                eVar.b().a(this.f);
-            }
+            d();
             if (!TextUtils.isEmpty(this.a)) {
                 this.h.setText(this.a);
                 this.h.setVisibility(0);
-                ba.f(this.g, i.bg_unite_popup_share_down);
+                bc.f(this.g, q.bg_unite_popup_share_down);
             } else {
                 this.h.setVisibility(8);
-                ba.f(this.g, i.bg_unite_popup);
+                bc.f(this.g, q.bg_unite_popup);
             }
             if (this.b != null && this.b.size() > 0) {
                 int size = this.b.size();
@@ -100,7 +97,7 @@ public final class d {
         return this;
     }
 
-    public final d b() {
+    public d b() {
         if (!this.k) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -125,13 +122,26 @@ public final class d {
         return this;
     }
 
-    public final void c() {
+    private void d() {
+        int skinType = TbadkApplication.m252getInst().getSkinType();
+        if (this.e instanceof BaseActivity) {
+            BaseActivity baseActivity = (BaseActivity) this.e;
+            baseActivity.getLayoutMode().a(skinType == 1);
+            baseActivity.getLayoutMode().a((View) this.f);
+        } else if (this.e instanceof com.baidu.tbadk.core.e) {
+            com.baidu.tbadk.core.e eVar = (com.baidu.tbadk.core.e) this.e;
+            eVar.a().a(skinType == 1);
+            eVar.a().a((View) this.f);
+        }
+    }
+
+    public void c() {
         if (this.l != null) {
             this.l.dismiss();
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x009a  */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x009b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -141,8 +151,8 @@ public final class d {
         int i3;
         Exception exc;
         int i4;
-        View inflate = LayoutInflater.from(this.e).inflate(k.dialog_bdlist_item, this.g, false);
-        Button button = (Button) inflate.findViewById(j.dialog_item_btn);
+        View inflate = LayoutInflater.from(this.e).inflate(s.dialog_bdlist_item, this.g, false);
+        Button button = (Button) inflate.findViewById(r.dialog_item_btn);
         Object obj = this.b.get(i);
         String str2 = "";
         int intValue = m.get(0)[0].intValue();
@@ -168,8 +178,8 @@ public final class d {
                             i3 = intValue2;
                             str = str2;
                             button.setText(str);
-                            ba.f((View) button, i2);
-                            ba.a(button, i3, 3);
+                            bc.f((View) button, i2);
+                            bc.a(button, i3, 3);
                             if (this.c != null) {
                             }
                             this.g.addView(inflate);
@@ -191,8 +201,8 @@ public final class d {
             i3 = intValue2;
         }
         button.setText(str);
-        ba.f((View) button, i2);
-        ba.a(button, i3, 3);
+        bc.f((View) button, i2);
+        bc.a(button, i3, 3);
         if (this.c != null) {
             button.setOnClickListener(new e(this, i, button));
         }
@@ -200,10 +210,14 @@ public final class d {
         return inflate;
     }
 
-    public final View c(int i) {
-        if (this.g != null && 1 <= this.g.getChildCount() - 1) {
-            return this.g.getChildAt(1);
+    public View c(int i) {
+        if (this.g == null) {
+            return null;
         }
-        return null;
+        int childCount = this.g.getChildCount();
+        if (i < 0 || i > childCount - 1) {
+            return null;
+        }
+        return this.g.getChildAt(i);
     }
 }

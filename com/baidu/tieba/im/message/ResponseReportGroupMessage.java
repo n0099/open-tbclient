@@ -1,19 +1,22 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import protobuf.ReportGroup.ReportGroupRes;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.squareup.wire.Wire;
+import protobuf.ReportGroup.ReportGroupResIdl;
 /* loaded from: classes.dex */
 public class ResponseReportGroupMessage extends SocketResponsedMessage {
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        ReportGroupRes.ReportGroupResIdl parseFrom = ReportGroupRes.ReportGroupResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() != 0) {
-        }
+    public ResponseReportGroupMessage() {
+        super(MessageTypes.CMD_REPORT_GROUP);
     }
 
-    public ResponseReportGroupMessage() {
-        super(103103);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        ReportGroupResIdl reportGroupResIdl = (ReportGroupResIdl) new Wire(new Class[0]).parseFrom(bArr, ReportGroupResIdl.class);
+        setError(reportGroupResIdl.error.errorno.intValue());
+        setErrorString(reportGroupResIdl.error.usermsg);
+        if (getError() != 0) {
+        }
     }
 }

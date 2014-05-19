@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
-final class l extends com.baidu.adp.a.h {
+class l extends com.baidu.adp.base.g {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,42 +8,41 @@ final class l extends com.baidu.adp.a.h {
         this.a = pbActivity;
     }
 
-    @Override // com.baidu.adp.a.h
-    public final void a(Object obj) {
-        bm bmVar;
+    @Override // com.baidu.adp.base.g
+    public void a(Object obj) {
+        bj bjVar;
         com.baidu.tieba.model.v vVar;
         com.baidu.tieba.model.v vVar2;
         com.baidu.tieba.model.v vVar3;
-        bf bfVar;
+        bc bcVar;
         if (obj != null) {
-            vVar2 = this.a.C;
+            vVar2 = this.a.D;
             switch (vVar2.getLoadDataMode()) {
                 case 0:
-                    bfVar = this.a.x;
-                    bfVar.y();
-                    PbActivity.a(this.a, (com.baidu.tieba.model.x) obj);
+                    bcVar = this.a.y;
+                    bcVar.z();
+                    this.a.a((com.baidu.tieba.model.x) obj);
                     return;
                 case 1:
-                    this.a.D.a(r4.a, ((com.baidu.tieba.model.z) obj).b, true);
+                    this.a.a((com.baidu.tieba.model.z) obj);
                     return;
                 case 2:
                 case 3:
                 case 4:
                 case 5:
                     PbActivity pbActivity = this.a;
-                    vVar3 = this.a.C;
-                    PbActivity.a(pbActivity, vVar3.getLoadDataMode(), (com.baidu.tieba.model.ab) obj);
+                    vVar3 = this.a.D;
+                    pbActivity.a(vVar3.getLoadDataMode(), (com.baidu.tieba.model.ab) obj);
                     return;
                 case 6:
-                    PbActivity.a(this.a, (com.baidu.tieba.model.ab) obj);
+                    this.a.a((com.baidu.tieba.model.ab) obj);
                     return;
                 default:
                     return;
             }
         }
-        bmVar = this.a.D;
-        vVar = this.a.C;
-        vVar.getLoadDataMode();
-        bmVar.a(false, (String) null, false);
+        bjVar = this.a.E;
+        vVar = this.a.D;
+        bjVar.a(vVar.getLoadDataMode(), false, (String) null, false);
     }
 }

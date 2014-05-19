@@ -45,12 +45,12 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public final int size() {
+    public int size() {
         return this.size;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public final V get(Object obj) {
+    public V get(Object obj) {
         Node<K, V> findByObject = findByObject(obj);
         if (findByObject != null) {
             return findByObject.value;
@@ -59,12 +59,12 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public final boolean containsKey(Object obj) {
+    public boolean containsKey(Object obj) {
         return findByObject(obj) != null;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public final V put(K k, V v) {
+    public V put(K k, V v) {
         if (k == null) {
             throw new NullPointerException("key == null");
         }
@@ -75,7 +75,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public final void clear() {
+    public void clear() {
         this.root = null;
         this.size = 0;
         this.modCount++;
@@ -85,7 +85,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public final V remove(Object obj) {
+    public V remove(Object obj) {
         Node<K, V> removeInternalByKey = removeInternalByKey(obj);
         if (removeInternalByKey != null) {
             return removeInternalByKey.value;
@@ -94,7 +94,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     /* JADX DEBUG: Type inference failed for r3v2. Raw type applied. Possible types: K, ? super K */
-    final Node<K, V> find(K k, boolean z) {
+    Node<K, V> find(K k, boolean z) {
         Node<K, V> node;
         int i;
         Node<K, V> node2;
@@ -112,18 +112,17 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
                 } else {
                     compare = comparator.compare(k, (K) node3.key);
                 }
-                if (compare != 0) {
-                    Node<K, V> node4 = compare < 0 ? node3.left : node3.right;
-                    if (node4 == null) {
-                        int i2 = compare;
-                        node = node3;
-                        i = i2;
-                        break;
-                    }
-                    node3 = node4;
-                } else {
+                if (compare == 0) {
                     return node3;
                 }
+                Node<K, V> node4 = compare < 0 ? node3.left : node3.right;
+                if (node4 == null) {
+                    int i2 = compare;
+                    node = node3;
+                    i = i2;
+                    break;
+                }
+                node3 = node4;
             }
         }
         if (z) {
@@ -152,7 +151,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    final Node<K, V> findByObject(Object obj) {
+    Node<K, V> findByObject(Object obj) {
         if (obj != 0) {
             try {
                 return find(obj, false);
@@ -163,7 +162,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         return null;
     }
 
-    final Node<K, V> findByEntry(Map.Entry<?, ?> entry) {
+    Node<K, V> findByEntry(Map.Entry<?, ?> entry) {
         Node<K, V> findByObject = findByObject(entry.getKey());
         if (findByObject != null && equal(findByObject.value, entry.getValue())) {
             return findByObject;
@@ -175,7 +174,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 
-    final void removeInternal(Node<K, V> node, boolean z) {
+    void removeInternal(Node<K, V> node, boolean z) {
         int i;
         int i2 = 0;
         if (z) {
@@ -222,7 +221,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         this.modCount++;
     }
 
-    final Node<K, V> removeInternalByKey(Object obj) {
+    Node<K, V> removeInternalByKey(Object obj) {
         Node<K, V> findByObject = findByObject(obj);
         if (findByObject != null) {
             removeInternal(findByObject, true);
@@ -339,7 +338,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public final Set<Map.Entry<K, V>> entrySet() {
+    public Set<Map.Entry<K, V>> entrySet() {
         LinkedTreeMap<K, V>.EntrySet entrySet = this.entrySet;
         if (entrySet != null) {
             return entrySet;
@@ -350,7 +349,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public final Set<K> keySet() {
+    public Set<K> keySet() {
         LinkedTreeMap<K, V>.KeySet keySet = this.keySet;
         if (keySet != null) {
             return keySet;
@@ -389,24 +388,24 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         }
 
         @Override // java.util.Map.Entry
-        public final K getKey() {
+        public K getKey() {
             return this.key;
         }
 
         @Override // java.util.Map.Entry
-        public final V getValue() {
+        public V getValue() {
             return this.value;
         }
 
         @Override // java.util.Map.Entry
-        public final V setValue(V v) {
+        public V setValue(V v) {
             V v2 = this.value;
             this.value = v;
             return v2;
         }
 
         @Override // java.util.Map.Entry
-        public final boolean equals(Object obj) {
+        public boolean equals(Object obj) {
             if (obj instanceof Map.Entry) {
                 Map.Entry entry = (Map.Entry) obj;
                 if (this.key == null) {
@@ -429,22 +428,22 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
         }
 
         @Override // java.util.Map.Entry
-        public final int hashCode() {
+        public int hashCode() {
             return (this.key == null ? 0 : this.key.hashCode()) ^ (this.value != null ? this.value.hashCode() : 0);
         }
 
-        public final String toString() {
+        public String toString() {
             return this.key + "=" + this.value;
         }
 
-        public final Node<K, V> first() {
+        public Node<K, V> first() {
             for (Node<K, V> node = this.left; node != null; node = node.left) {
                 this = node;
             }
             return this;
         }
 
-        public final Node<K, V> last() {
+        public Node<K, V> last() {
             for (Node<K, V> node = this.right; node != null; node = node.right) {
                 this = node;
             }

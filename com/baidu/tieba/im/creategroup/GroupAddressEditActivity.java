@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.BaseActivity;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GroupAddressEditActivity extends com.baidu.tbadk.a implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c {
+public class GroupAddressEditActivity extends BaseActivity implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c {
     p a = null;
     private String[] b = null;
     private boolean c = false;
@@ -18,17 +18,24 @@ public class GroupAddressEditActivity extends com.baidu.tbadk.a implements Adapt
     public static void a(Activity activity, int i, List<String> list, int i2, boolean z) {
         Intent intent = new Intent(activity, GroupAddressEditActivity.class);
         String[] strArr = new String[list.size()];
-        for (int i3 = 0; i3 < list.size(); i3++) {
-            strArr[i3] = list.get(i3);
+        int i3 = 0;
+        while (true) {
+            int i4 = i3;
+            if (i4 < list.size()) {
+                strArr[i4] = list.get(i4);
+                i3 = i4 + 1;
+            } else {
+                intent.putExtra("GroupAdressList", strArr);
+                intent.putExtra("HiddenAddress", z);
+                intent.putExtra("IntentSelectedIndex", i2);
+                activity.startActivityForResult(intent, i);
+                return;
+            }
         }
-        intent.putExtra("GroupAdressList", strArr);
-        intent.putExtra("HiddenAddress", false);
-        intent.putExtra("IntentSelectedIndex", i2);
-        activity.startActivityForResult(intent, 21001);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
@@ -41,27 +48,18 @@ public class GroupAddressEditActivity extends com.baidu.tbadk.a implements Adapt
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        p pVar = this.a;
-        pVar.d.getLayoutMode().a(i == 1);
-        pVar.d.getLayoutMode().a(pVar.c);
-        ba.b(pVar.c, i);
-        pVar.a.b(i);
-        if (i == 1) {
-            pVar.c.setBackgroundResource(com.baidu.tieba.im.e.group_info_bg_1);
-        } else {
-            pVar.c.setBackgroundResource(com.baidu.tieba.im.e.group_info_bg);
-        }
+        this.a.a(i);
     }
 
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.a.e || view == this.a.a()) {
+        if (view == this.a.a() || view == this.a.b()) {
             Intent intent = new Intent();
-            if (this.d >= 0 && this.d < this.b.length) {
+            if (this.d > -1 && this.d < this.b.length) {
                 intent.putExtra("Selected_Business", this.b[this.d]);
             }
             intent.putExtra("Hidden_Address_Flag", this.c);
@@ -71,7 +69,7 @@ public class GroupAddressEditActivity extends com.baidu.tbadk.a implements Adapt
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
-    public final void a(View view, BdSwitchView.SwitchState switchState) {
+    public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
             this.c = true;
         } else {
@@ -79,13 +77,13 @@ public class GroupAddressEditActivity extends com.baidu.tbadk.a implements Adapt
         }
     }
 
-    public final int a() {
+    public int a() {
         return this.d;
     }
 
-    @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         this.d = i;
-        this.a.g.notifyDataSetChanged();
+        this.a.c();
     }
 }

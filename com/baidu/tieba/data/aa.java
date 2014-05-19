@@ -1,16 +1,17 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class aa {
+public class aa {
     private String a = null;
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optString("name");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("LocationData", "parserJson", "error = " + e.getMessage());
+                BdLog.e("LocationData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

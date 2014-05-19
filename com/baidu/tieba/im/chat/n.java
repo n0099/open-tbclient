@@ -4,7 +4,7 @@ import android.view.MotionEvent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class n implements View.OnTouchListener {
+public class n implements View.OnTouchListener {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,10 +13,11 @@ public final class n implements View.OnTouchListener {
     }
 
     @Override // android.view.View.OnTouchListener
-    public final boolean onTouch(View view, MotionEvent motionEvent) {
-        r0.a(this.a.H);
-        this.a.R();
-        this.a.S();
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        this.a.f();
+        this.a.g();
+        this.a.h();
+        this.a.c();
         return false;
     }
 }

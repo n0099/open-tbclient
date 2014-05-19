@@ -3,150 +3,161 @@ package com.baidu.tieba.util;
 import android.content.Context;
 import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.view.CustomTextView;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class j {
+public class j {
     private final Context a;
     private final int b;
     private final int c;
-    private boolean d = false;
-    private int e = -16777216;
+    private ab d;
+    private View.OnClickListener e;
+    private boolean f = false;
+    private int g = -16777216;
 
     public j(Context context) {
         this.a = context;
         TextView textView = new TextView(this.a);
         textView.setLineSpacing(0.0f, 1.2f);
-        textView.setTextSize(com.baidu.tbadk.core.data.n.p());
+        textView.setTextSize(TbConfig.getContentSize());
         this.b = textView.getLineHeight();
         this.c = (int) textView.getTextSize();
     }
 
-    public final void a(boolean z) {
-        this.d = true;
+    public void a(boolean z) {
+        this.f = z;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0022, code lost:
-        r0 = r2;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void a(TextView textView, LinearLayout linearLayout, List<com.baidu.tieba.data.f> list, boolean z) {
+    public void a(TextView textView, LinearLayout linearLayout, List<com.baidu.tieba.data.f> list, boolean z) {
+        TextView textView2;
         int i;
         CharSequence d;
-        boolean z2;
         if (textView != null && linearLayout != null && list != null) {
             if (list != null && list.size() > 0) {
-                if (this.d) {
-                    ArrayList arrayList = new ArrayList();
-                    int i2 = 0;
-                    int size = list.size();
-                    boolean z3 = false;
-                    int i3 = 0;
-                    while (true) {
-                        if (i3 >= size) {
-                            break;
-                        }
-                        com.baidu.tieba.data.f fVar = list.get(i3);
-                        int a = fVar.a();
-                        int length = (a == 0 || a == 4 || a == 1) ? fVar.d() != null ? fVar.d().length() + i2 : i2 : i2 + 1;
-                        if (length > 50) {
-                            z3 = true;
-                            if (a == 0 || a == 4 || a == 1) {
-                                SpannableStringBuilder valueOf = SpannableStringBuilder.valueOf(fVar.d().subSequence(0, 50 - i2));
-                                com.baidu.tieba.data.f fVar2 = new com.baidu.tieba.data.f();
-                                fVar2.a(valueOf);
-                                fVar2.a(a);
-                                arrayList.add(fVar2);
-                                z2 = true;
-                            }
-                        } else {
-                            arrayList.add(fVar);
-                            i2 = length;
-                            i3++;
-                        }
-                    }
-                    if (z2) {
-                        com.baidu.tieba.data.f fVar3 = new com.baidu.tieba.data.f();
-                        fVar3.a(SpannableStringBuilder.valueOf("..."));
-                        fVar3.a(0);
-                        arrayList.add(fVar3);
-                        list = arrayList;
-                    }
+                if (this.f) {
+                    list = a(list);
                 }
-                CustomTextView customTextView = null;
-                com.baidu.tieba.data.f fVar4 = list.get(0);
-                if (fVar4 == null || (fVar4.a() != 0 && fVar4.a() != 2 && fVar4.a() != 11)) {
+                com.baidu.tieba.data.f fVar = list.get(0);
+                if (fVar == null || !(fVar.a() == 0 || fVar.a() == 2 || fVar.a() == 11)) {
+                    textView2 = null;
                     i = 0;
                 } else {
-                    textView.setTextSize(com.baidu.tbadk.core.data.n.p());
+                    textView.setTextSize(TbConfig.getContentSize());
                     textView.setVisibility(0);
-                    a(textView, fVar4);
+                    a(textView, fVar);
                     i = 1;
-                    customTextView = textView;
+                    textView2 = textView;
                 }
                 if (linearLayout != null) {
+                    int i2 = -1;
                     linearLayout.setVisibility(8);
-                    int i4 = i;
-                    while (i4 < list.size()) {
-                        linearLayout.setVisibility(0);
-                        com.baidu.tieba.data.f fVar5 = list.get(i4);
-                        if (fVar5.a() != 3) {
-                            if (customTextView != null) {
-                                if (fVar5.a() == 2) {
-                                    Context context = this.a;
-                                    d = fVar5.c(this.b, this.c);
+                    while (true) {
+                        int i3 = i;
+                        TextView textView3 = textView2;
+                        int i4 = i2;
+                        if (i3 < list.size()) {
+                            linearLayout.setVisibility(0);
+                            com.baidu.tieba.data.f fVar2 = list.get(i3);
+                            if (fVar2.a() == 3) {
+                                if (z) {
+                                    int i5 = i4 + 1;
+                                    linearLayout.addView(a(list, fVar2, i5));
+                                    i2 = i5;
+                                    textView2 = null;
+                                }
+                                i2 = i4;
+                                textView2 = textView3;
+                            } else if (textView3 != null) {
+                                if (fVar2.a() == 2) {
+                                    d = fVar2.a(this.a, this.b, this.c);
                                 } else {
-                                    d = fVar5.d();
+                                    d = fVar2.d();
                                 }
                                 if (d != null) {
-                                    customTextView.append(d);
+                                    textView3.append(d);
+                                    i2 = i4;
+                                    textView2 = textView3;
                                 }
+                                i2 = i4;
+                                textView2 = textView3;
                             } else {
-                                customTextView = new CustomTextView(this.a);
-                                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-                                int a2 = com.baidu.adp.lib.util.i.a(this.a, 15.0f);
-                                layoutParams.rightMargin = 0;
-                                layoutParams.leftMargin = 0;
-                                layoutParams.topMargin = a2;
-                                layoutParams.bottomMargin = 0;
-                                customTextView.setLineSpacing(0.0f, 1.2f);
-                                customTextView.setTextSize(com.baidu.tbadk.core.data.n.p());
-                                if (TbadkApplication.j().l() == 1) {
-                                    customTextView.setTextColor(ba.a(1));
-                                } else {
-                                    customTextView.setTextColor(this.e);
-                                }
-                                a(customTextView, fVar5);
-                                customTextView.setMovementMethod(LinkMovementMethod.getInstance());
-                                customTextView.setFocusable(false);
-                                customTextView.setLayoutParams(layoutParams);
-                                linearLayout.addView(customTextView);
+                                TextView a = a(fVar2);
+                                linearLayout.addView(a);
+                                i2 = i4;
+                                textView2 = a;
                             }
+                            i = i3 + 1;
+                        } else {
+                            return;
                         }
-                        i4++;
-                        customTextView = customTextView;
                     }
-                    return;
                 }
-                return;
+            } else {
+                textView.setVisibility(0);
+                textView.setText((CharSequence) null);
             }
-            textView.setVisibility(0);
-            textView.setText((CharSequence) null);
         }
+    }
+
+    private List<com.baidu.tieba.data.f> a(List<com.baidu.tieba.data.f> list) {
+        boolean z;
+        int length;
+        ArrayList arrayList = new ArrayList();
+        int size = list.size();
+        int i = 0;
+        int i2 = 0;
+        while (true) {
+            if (i >= size) {
+                z = false;
+                break;
+            }
+            com.baidu.tieba.data.f fVar = list.get(i);
+            int a = fVar.a();
+            if (a == 0 || a == 4 || a == 1) {
+                length = fVar.d() != null ? fVar.d().length() + i2 : i2;
+            } else {
+                length = i2 + 1;
+            }
+            if (length > 50) {
+                if (a == 0 || a == 4 || a == 1) {
+                    SpannableStringBuilder valueOf = SpannableStringBuilder.valueOf(fVar.d().subSequence(0, 50 - i2));
+                    com.baidu.tieba.data.f fVar2 = new com.baidu.tieba.data.f();
+                    fVar2.a(valueOf);
+                    fVar2.a(a);
+                    arrayList.add(fVar2);
+                    z = true;
+                } else {
+                    z = true;
+                }
+            } else {
+                arrayList.add(fVar);
+                i++;
+                i2 = length;
+            }
+        }
+        if (z) {
+            com.baidu.tieba.data.f fVar3 = new com.baidu.tieba.data.f();
+            fVar3.a(SpannableStringBuilder.valueOf("..."));
+            fVar3.a(0);
+            arrayList.add(fVar3);
+            return arrayList;
+        }
+        return list;
     }
 
     private void a(TextView textView, com.baidu.tieba.data.f fVar) {
         if (textView != null && fVar != null) {
             if (fVar.a() == 2) {
-                Context context = this.a;
-                textView.setText(fVar.c(this.b, this.c));
+                textView.setText(fVar.a(this.a, this.b, this.c));
             } else if (fVar.a() == 11) {
                 textView.setText("[" + fVar.c() + "]");
             } else {
@@ -155,7 +166,53 @@ public final class j {
         }
     }
 
-    public final void a(int i) {
-        this.e = -13421773;
+    private TextView a(com.baidu.tieba.data.f fVar) {
+        CustomTextView customTextView = new CustomTextView(this.a);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+        int a = com.baidu.adp.lib.util.h.a(this.a, 15.0f);
+        layoutParams.rightMargin = 0;
+        layoutParams.leftMargin = 0;
+        layoutParams.topMargin = a;
+        layoutParams.bottomMargin = 0;
+        customTextView.setLineSpacing(0.0f, 1.2f);
+        customTextView.setTextSize(TbConfig.getContentSize());
+        if (TbadkApplication.m252getInst().getSkinType() == 1) {
+            customTextView.setTextColor(bc.a(1));
+        } else {
+            customTextView.setTextColor(this.g);
+        }
+        a(customTextView, fVar);
+        customTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        customTextView.setFocusable(false);
+        customTextView.setLayoutParams(layoutParams);
+        return customTextView;
+    }
+
+    private ImageView a(List<com.baidu.tieba.data.f> list, com.baidu.tieba.data.f fVar, int i) {
+        ImageView imageView = new ImageView(this.a);
+        int a = com.baidu.adp.lib.util.h.a(this.a, 105.0f);
+        int a2 = com.baidu.adp.lib.util.h.a(this.a, 105.0f);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a);
+        layoutParams.topMargin = com.baidu.adp.lib.util.h.a(this.a, 15.0f);
+        layoutParams.bottomMargin = 0;
+        com.baidu.adp.widget.a.a d = this.d.d(fVar.e());
+        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imageView.setMaxWidth(a2);
+        if (d != null) {
+            imageView.setTag(null);
+            d.a(imageView);
+        } else {
+            imageView.setTag(fVar.e());
+            imageView.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.image_default));
+        }
+        imageView.setClickable(true);
+        imageView.setFocusable(false);
+        imageView.setOnClickListener(this.e);
+        imageView.setLayoutParams(layoutParams);
+        return imageView;
+    }
+
+    public void a(int i) {
+        this.g = i;
     }
 }

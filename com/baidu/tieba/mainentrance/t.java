@@ -3,8 +3,9 @@ package com.baidu.tieba.mainentrance;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class t implements com.baidu.tbadk.core.tabHost.c {
+public class t implements com.baidu.tbadk.core.tabHost.c {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +14,7 @@ final class t implements com.baidu.tbadk.core.tabHost.c {
     }
 
     @Override // com.baidu.tbadk.core.tabHost.c
-    public final void a(int i) {
+    public void a(int i, boolean z) {
         EditText editText;
         FragmentTabWidget fragmentTabWidget;
         FragmentTabWidget fragmentTabWidget2;
@@ -23,14 +24,16 @@ final class t implements com.baidu.tbadk.core.tabHost.c {
             fragmentTabWidget2.a(i, true);
         }
         if (i == 1) {
-            ((InputMethodManager) this.a.getSystemService("input_method")).hideSoftInputFromWindow(this.a.getCurrentFocus().getWindowToken(), 2);
+            if (this.a.getCurrentFocus() != null) {
+                ((InputMethodManager) this.a.getSystemService("input_method")).hideSoftInputFromWindow(this.a.getCurrentFocus().getWindowToken(), 2);
+            }
             this.a.a(1);
             fragmentTabWidget = this.a.E;
             fragmentTabWidget.a(i, true);
         }
         if (i == 2) {
             editText = this.a.c;
-            com.baidu.tieba.util.r.b(this.a, editText.getText().toString().trim());
+            com.baidu.tieba.util.r.d(this.a, editText.getText().toString().trim());
         }
     }
 }

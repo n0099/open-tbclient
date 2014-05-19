@@ -12,11 +12,11 @@ import java.util.Map;
 public final class Decoder {
     private final ReedSolomonDecoder rsDecoder = new ReedSolomonDecoder(GenericGF.QR_CODE_FIELD_256);
 
-    public final DecoderResult decode(boolean[][] zArr) {
+    public DecoderResult decode(boolean[][] zArr) {
         return decode(zArr, (Map<DecodeHintType, ?>) null);
     }
 
-    public final DecoderResult decode(boolean[][] zArr, Map<DecodeHintType, ?> map) {
+    public DecoderResult decode(boolean[][] zArr, Map<DecodeHintType, ?> map) {
         int length = zArr.length;
         BitMatrix bitMatrix = new BitMatrix(length);
         for (int i = 0; i < length; i++) {
@@ -29,11 +29,11 @@ public final class Decoder {
         return decode(bitMatrix, map);
     }
 
-    public final DecoderResult decode(BitMatrix bitMatrix) {
+    public DecoderResult decode(BitMatrix bitMatrix) {
         return decode(bitMatrix, (Map<DecodeHintType, ?>) null);
     }
 
-    public final DecoderResult decode(BitMatrix bitMatrix, Map<DecodeHintType, ?> map) {
+    public DecoderResult decode(BitMatrix bitMatrix, Map<DecodeHintType, ?> map) {
         BitMatrixParser bitMatrixParser = new BitMatrixParser(bitMatrix);
         Version readVersion = bitMatrixParser.readVersion();
         ErrorCorrectionLevel errorCorrectionLevel = bitMatrixParser.readFormatInformation().getErrorCorrectionLevel();
@@ -43,23 +43,17 @@ public final class Decoder {
             i += dataBlock.getNumDataCodewords();
         }
         byte[] bArr = new byte[i];
-        int length = dataBlocks.length;
         int i2 = 0;
-        int i3 = 0;
-        while (i2 < length) {
-            DataBlock dataBlock2 = dataBlocks[i2];
+        for (DataBlock dataBlock2 : dataBlocks) {
             byte[] codewords = dataBlock2.getCodewords();
             int numDataCodewords = dataBlock2.getNumDataCodewords();
             correctErrors(codewords, numDataCodewords);
-            int i4 = i3;
-            int i5 = 0;
-            while (i5 < numDataCodewords) {
-                bArr[i4] = codewords[i5];
-                i5++;
-                i4++;
+            int i3 = 0;
+            while (i3 < numDataCodewords) {
+                bArr[i2] = codewords[i3];
+                i3++;
+                i2++;
             }
-            i2++;
-            i3 = i4;
         }
         return DecodedBitStreamParser.decode(bArr, readVersion, errorCorrectionLevel, map);
     }

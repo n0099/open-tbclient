@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.view;
 
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
-final class l implements Animation.AnimationListener {
+class l implements Animation.AnimationListener {
     final /* synthetic */ NoNetworkView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,15 +11,15 @@ final class l implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationStart(Animation animation) {
+    public void onAnimationStart(Animation animation) {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationRepeat(Animation animation) {
+    public void onAnimationRepeat(Animation animation) {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationEnd(Animation animation) {
+    public void onAnimationEnd(Animation animation) {
         this.a.setVisibility(8);
     }
 }

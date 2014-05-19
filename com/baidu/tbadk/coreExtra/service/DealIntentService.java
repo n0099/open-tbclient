@@ -18,18 +18,22 @@ public class DealIntentService extends Service {
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
         if (intent != null) {
-            if (this.a != null) {
-                this.a.cancel();
-                this.a = null;
-            }
-            this.a = new a(this, intent);
-            this.a.setImmediatelyExecut(true);
-            this.a.execute(new String[0]);
+            a(intent);
         }
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    private void a(Intent intent) {
+        if (this.a != null) {
+            this.a.cancel();
+            this.a = null;
+        }
+        this.a = new a(this, intent);
+        this.a.setPriority(4);
+        this.a.execute(new String[0]);
     }
 }

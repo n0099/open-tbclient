@@ -1,25 +1,24 @@
 package com.baidu.tieba.guide;
 
-import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.tbadk.core.util.bp;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.br;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class i implements bp {
+public class i implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ h a;
-    private final /* synthetic */ String b;
+    private final /* synthetic */ ViewGroup b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar, String str) {
+    public i(h hVar, ViewGroup viewGroup) {
         this.a = hVar;
-        this.b = str;
+        this.b = viewGroup;
     }
 
-    @Override // com.baidu.tbadk.core.util.bp
-    public final boolean a(View view) {
-        if (this.b.equals(view.getTag()) && (view instanceof TbImageView)) {
-            ((TbImageView) view).invalidate();
-            return false;
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null) {
+            bp.a(this.b, false, (br) new j(this, str));
         }
-        return false;
     }
 }

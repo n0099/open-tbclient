@@ -29,7 +29,7 @@ public enum DecodeHintType {
         this.valueType = cls;
     }
 
-    public final Class<?> getValueType() {
+    public Class<?> getValueType() {
         return this.valueType;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.editortool;
 
 import android.view.View;
 /* loaded from: classes.dex */
-final class ap implements View.OnClickListener {
+class ap implements View.OnClickListener {
     final /* synthetic */ ao a;
     private final /* synthetic */ com.baidu.tbadk.editortool.x b;
 
@@ -13,7 +13,7 @@ final class ap implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         if (view instanceof EditorToolButton) {
             this.a.a((EditorToolButton) view, this.b);
         }

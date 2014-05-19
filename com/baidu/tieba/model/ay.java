@@ -1,65 +1,65 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public final class ay {
+public class ay {
     private com.baidu.tieba.data.ag a = new com.baidu.tieba.data.ag();
     private boolean b = true;
     private String c = null;
     private int d;
 
-    public final void a(String str) {
+    public void a(String str) {
         this.c = str;
     }
 
-    public final String a() {
+    public String a() {
         return this.c;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.d = i;
     }
 
-    public final int b() {
+    public int b() {
         return this.d;
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         this.b = z;
     }
 
-    public final boolean c() {
+    public boolean c() {
         return this.b;
     }
 
-    public final com.baidu.tieba.data.ag d() {
+    public com.baidu.tieba.data.ag d() {
         return this.a;
     }
 
-    public final void a(String str, boolean z) {
-        com.baidu.adp.lib.cache.s<String> k;
+    public void a(String str, boolean z) {
+        com.baidu.adp.lib.cache.s<String> m;
         if (str != null && this.c != null) {
             if (z) {
-                k = com.baidu.tbadk.core.c.b.a().j();
+                m = com.baidu.tbadk.core.a.b.a().l();
             } else {
-                k = com.baidu.tbadk.core.c.b.a().k();
+                m = com.baidu.tbadk.core.a.b.a().m();
             }
-            if (k != null) {
-                k.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.c, str, 604800000L);
+            if (m != null) {
+                m.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.c, str, 604800000L);
             }
         }
     }
 
-    public final com.baidu.tieba.data.ag b(boolean z) {
-        com.baidu.adp.lib.cache.s<String> k;
+    public com.baidu.tieba.data.ag b(boolean z) {
+        com.baidu.adp.lib.cache.s<String> m;
         if (this.c == null) {
             return null;
         }
         if (z) {
-            k = com.baidu.tbadk.core.c.b.a().j();
+            m = com.baidu.tbadk.core.a.b.a().l();
         } else {
-            k = com.baidu.tbadk.core.c.b.a().k();
+            m = com.baidu.tbadk.core.a.b.a().m();
         }
-        if (k != null) {
-            String a = k.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.c);
+        if (m != null) {
+            String a = m.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.c);
             if (a == null) {
                 return null;
             }

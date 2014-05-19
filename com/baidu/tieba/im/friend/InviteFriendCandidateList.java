@@ -45,18 +45,18 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
         c();
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.g = i;
     }
 
-    public final void a(m mVar) {
+    public void a(m mVar) {
         this.i = mVar;
     }
 
     private void c() {
-        this.c = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.invite_friend_candidate_item_width);
-        this.d = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.invite_friend_candidate_item_height);
-        this.e = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.im.f.invite_friend_candidate_item_margin);
+        this.c = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.invite_friend_candidate_item_width);
+        this.d = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.invite_friend_candidate_item_height);
+        this.e = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.invite_friend_candidate_item_margin);
         this.b = new LinearLayout(this.a);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.width = -2;
@@ -72,95 +72,99 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         if (this.h == null) {
-            this.h = g();
+            this.h = h();
             this.h.setDrawBorder(false);
         }
-        this.h.setImageBitmap(com.baidu.tbadk.core.util.g.a(f() ? com.baidu.tieba.im.g.icon_add_pop_1 : com.baidu.tieba.im.g.icon_add_pop));
+        this.h.setImageBitmap(com.baidu.tbadk.core.util.g.a(g() ? com.baidu.tieba.q.icon_add_pop_1 : com.baidu.tieba.q.icon_add_pop));
         this.b.addView(this.h);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean e() {
-        int childCount = this.b.getChildCount();
-        return childCount > 0 && this.b.getChildAt(childCount + (-1)) == this.h;
-    }
-
-    public final void a(com.baidu.tbadk.editortool.ab abVar) {
-        this.f = abVar;
-    }
-
-    public final void a(com.baidu.tieba.im.data.c cVar) {
-        if (b() < this.g) {
-            HeadImageView g = g();
-            g.setIsRound(true);
-            if (this.f != null) {
-                com.baidu.tbadk.editortool.ab abVar = this.f;
-                com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(cVar.c());
-                if (b != null) {
-                    b.a(g);
-                } else {
-                    g.setTag(cVar.c());
-                    g.setImageBitmap(com.baidu.tbadk.core.util.g.a(f() ? com.baidu.tieba.im.g.icon_add_pop_1 : com.baidu.tieba.im.g.icon_add_pop));
-                }
-            }
-            if (e()) {
-                g.setTag(cVar);
-                g.setOnClickListener(this.j);
-                this.b.addView(g, b());
-                scrollTo(b() * (this.c + this.e), 0);
-            }
-            if (b() < this.g || !e()) {
-                return;
-            }
+    private void e() {
+        if (f()) {
             this.b.removeView(this.h);
         }
     }
 
-    public final boolean b(com.baidu.tieba.im.data.c cVar) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean f() {
+        int childCount = this.b.getChildCount();
+        return childCount > 0 && this.b.getChildAt(childCount + (-1)) == this.h;
+    }
+
+    public void a(com.baidu.tbadk.editortool.ab abVar) {
+        this.f = abVar;
+    }
+
+    public void a(com.baidu.tieba.im.data.e eVar) {
+        if (b() < this.g) {
+            HeadImageView h = h();
+            h.setIsRound(true);
+            if (this.f != null) {
+                com.baidu.adp.widget.a.a c = this.f.c(eVar.c());
+                if (c != null) {
+                    c.a(h);
+                } else {
+                    h.setTag(eVar.c());
+                    h.setImageBitmap(com.baidu.tbadk.core.util.g.a(g() ? com.baidu.tieba.q.icon_add_pop_1 : com.baidu.tieba.q.icon_add_pop));
+                }
+            }
+            if (f()) {
+                h.setTag(eVar);
+                h.setOnClickListener(this.j);
+                this.b.addView(h, b());
+                scrollTo(b() * (this.c + this.e), 0);
+            }
+            if (b() >= this.g) {
+                e();
+            }
+        }
+    }
+
+    public boolean b(com.baidu.tieba.im.data.e eVar) {
         Object tag;
         int childCount = this.b.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.b.getChildAt(i);
-            if (childAt != this.h && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tieba.im.data.c) && ((com.baidu.tieba.im.data.c) tag).a(cVar)) {
-                cVar.setChecked(true);
-                childAt.setTag(cVar);
+            if (childAt != this.h && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tieba.im.data.e) && ((com.baidu.tieba.im.data.e) tag).a(eVar)) {
+                eVar.setChecked(true);
+                childAt.setTag(eVar);
                 return true;
             }
         }
         return false;
     }
 
-    public final String a() {
+    public String a() {
         Object tag;
         int childCount = this.b.getChildCount();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.b.getChildAt(i);
-            if (childAt != this.h && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tieba.im.data.c)) {
+            if (childAt != this.h && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tieba.im.data.e)) {
                 if (i > 0) {
                     sb.append(",");
                 }
-                sb.append(((com.baidu.tieba.im.data.c) tag).a());
+                sb.append(((com.baidu.tieba.im.data.e) tag).a());
             }
         }
         return sb.toString();
     }
 
-    private static boolean f() {
-        return TbadkApplication.j().l() == 1;
+    private boolean g() {
+        return TbadkApplication.m252getInst().getSkinType() == 1;
     }
 
-    public final void c(com.baidu.tieba.im.data.c cVar) {
-        View findViewWithTag = this.b.findViewWithTag(cVar);
+    public void c(com.baidu.tieba.im.data.e eVar) {
+        View findViewWithTag = this.b.findViewWithTag(eVar);
         if (findViewWithTag != null) {
             this.b.removeView(findViewWithTag);
-            if (!e()) {
+            if (!f()) {
                 d();
             }
         }
     }
 
-    private HeadImageView g() {
+    private HeadImageView h() {
         HeadImageView headImageView = new HeadImageView(this.a);
         headImageView.setIsRound(true);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.c, this.d);
@@ -170,7 +174,7 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
         return headImageView;
     }
 
-    public final int b() {
-        return e() ? this.b.getChildCount() - 1 : this.b.getChildCount();
+    public int b() {
+        return f() ? this.b.getChildCount() - 1 : this.b.getChildCount();
     }
 }

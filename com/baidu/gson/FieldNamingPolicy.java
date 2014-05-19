@@ -63,8 +63,8 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static String upperCaseFirstLetter(String str) {
-        int i = 0;
         StringBuilder sb = new StringBuilder();
+        int i = 0;
         char charAt = str.charAt(0);
         while (i < str.length() - 1 && !Character.isLetter(charAt)) {
             sb.append(charAt);

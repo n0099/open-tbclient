@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class j extends BaseAdapter implements AbsListView.OnScrollListener {
+public class j extends BaseAdapter implements AbsListView.OnScrollListener {
     private List<a> a;
     private AlbumActivity b;
     private com.baidu.tbadk.img.e c;
@@ -23,21 +23,21 @@ public final class j extends BaseAdapter implements AbsListView.OnScrollListener
     public j(AlbumActivity albumActivity) {
         this.b = albumActivity;
         this.c = albumActivity.g();
-        this.e = (int) this.b.getResources().getDimension(com.baidu.tieba.a.f.album_image_height);
-        this.d = com.baidu.adp.lib.util.i.b(this.b) / 2;
+        this.e = (int) this.b.getResources().getDimension(com.baidu.tieba.p.album_image_height);
+        this.d = com.baidu.adp.lib.util.h.b(this.b) / 2;
     }
 
-    public final void a(List<a> list) {
+    public void a(List<a> list) {
         this.a = list;
         notifyDataSetChanged();
     }
 
-    public final List<a> a() {
+    public List<a> a() {
         return this.a;
     }
 
     @Override // android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         if (this.a != null) {
             return this.a.size();
         }
@@ -47,7 +47,7 @@ public final class j extends BaseAdapter implements AbsListView.OnScrollListener
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public final a getItem(int i) {
+    public a getItem(int i) {
         if (this.a == null || i < 0 || i >= this.a.size()) {
             return null;
         }
@@ -55,31 +55,31 @@ public final class j extends BaseAdapter implements AbsListView.OnScrollListener
     }
 
     @Override // android.widget.Adapter
-    public final long getItemId(int i) {
+    public long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         l lVar;
         if (view != null) {
             lVar = (l) view.getTag();
         } else {
-            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.a.i.album_list_item, viewGroup, false);
-            l lVar2 = new l(this, (byte) 0);
-            lVar2.a = (HeadImageView) view.findViewById(com.baidu.tieba.a.h.item_head);
-            lVar2.b = (TextView) view.findViewById(com.baidu.tieba.a.h.album_name);
+            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.s.album_list_item, viewGroup, false);
+            l lVar2 = new l(this, null);
+            lVar2.a = (HeadImageView) view.findViewById(com.baidu.tieba.r.item_head);
+            lVar2.b = (TextView) view.findViewById(com.baidu.tieba.r.album_name);
             view.setTag(lVar2);
             lVar = lVar2;
         }
         lVar.a.setTag(null);
-        lVar.a.setNightDefaultResource(com.baidu.tieba.a.g.pic_image_h_not_1);
-        lVar.a.setDefaultResource(com.baidu.tieba.a.g.pic_image_h_not);
+        lVar.a.setNightDefaultResource(com.baidu.tieba.q.pic_image_h_not_1);
+        lVar.a.setDefaultResource(com.baidu.tieba.q.pic_image_h_not);
         a item = getItem(i);
         if (item != null) {
             if (!TextUtils.isEmpty(item.b())) {
                 item.b();
-                lVar.b.setText(String.valueOf(com.baidu.adp.lib.util.i.a(lVar.b.getPaint(), item.b(), this.d)) + "(" + item.c() + ")");
+                lVar.b.setText(String.valueOf(com.baidu.adp.lib.util.h.a(lVar.b.getPaint(), item.b(), this.d)) + "(" + item.c() + ")");
             } else {
                 lVar.b.setText("");
             }
@@ -87,8 +87,7 @@ public final class j extends BaseAdapter implements AbsListView.OnScrollListener
             if (d != null) {
                 d.clearPageActions();
                 d.addPageAction(com.baidu.tbadk.img.effect.d.a(this.e, this.e));
-                com.baidu.tbadk.img.e eVar = this.c;
-                com.baidu.adp.widget.ImageView.b a = com.baidu.tbadk.img.e.a(d, false);
+                com.baidu.adp.widget.a.a a = this.c.a(d, false);
                 lVar.a.setTag(d.toCachedKey(false));
                 if (a != null) {
                     lVar.a.invalidate();
@@ -99,17 +98,17 @@ public final class j extends BaseAdapter implements AbsListView.OnScrollListener
         } else {
             lVar.b.setText("");
         }
-        this.b.b().a(TbadkApplication.j().l() == 1);
-        this.b.b().a(view);
+        this.b.a().a(TbadkApplication.m252getInst().getSkinType() == 1);
+        this.b.a().a(view);
         return view;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScrollStateChanged(AbsListView absListView, int i) {
+    public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
             this.f = false;
             if (this.c != null) {

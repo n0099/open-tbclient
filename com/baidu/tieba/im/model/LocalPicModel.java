@@ -3,11 +3,11 @@ package com.baidu.tieba.im.model;
 import android.graphics.Bitmap;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class LocalPicModel extends com.baidu.adp.a.e implements Serializable {
+public class LocalPicModel extends com.baidu.adp.base.d implements Serializable {
     private static final long serialVersionUID = -339604626740227228L;
     private String mDName;
     private String mDPath;
-    private x mImageTask = null;
+    private ab mImageTask = null;
     private String mSName;
     private String mSPath;
 
@@ -22,7 +22,7 @@ public class LocalPicModel extends com.baidu.adp.a.e implements Serializable {
         this.mDName = str4;
     }
 
-    @Override // com.baidu.adp.a.e
+    @Override // com.baidu.adp.base.d
     protected boolean LoadData() {
         return false;
     }
@@ -31,13 +31,13 @@ public class LocalPicModel extends com.baidu.adp.a.e implements Serializable {
         if (this.mImageTask != null) {
             return false;
         }
-        this.mImageTask = new x(this, (byte) 0);
+        this.mImageTask = new ab(this, null);
         this.mImageTask.setSelfExecute(true);
         this.mImageTask.execute(new Object[0]);
         return true;
     }
 
-    @Override // com.baidu.adp.a.e
+    @Override // com.baidu.adp.base.d
     public boolean cancelLoadData() {
         if (this.mImageTask != null) {
             this.mImageTask.cancel();

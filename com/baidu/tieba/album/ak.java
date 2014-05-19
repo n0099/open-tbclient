@@ -6,7 +6,7 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ak implements al {
+public class ak implements al {
     final /* synthetic */ ah a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,11 @@ public final class ak implements al {
     }
 
     @Override // com.baidu.tieba.album.al
-    public final void a(List<ImageFileInfo> list, String str) {
+    public void a() {
+    }
+
+    @Override // com.baidu.tieba.album.al
+    public void a(List<ImageFileInfo> list, String str) {
         AlbumActivity albumActivity;
         TextView textView;
         if (list == null || list.size() == 0) {

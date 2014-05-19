@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-final class p {
+class p {
     TextView a;
     ProgressBar b;
     final /* synthetic */ o c;
@@ -13,7 +13,7 @@ final class p {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(o oVar, byte b) {
+    public /* synthetic */ p(o oVar, p pVar) {
         this(oVar);
     }
 }

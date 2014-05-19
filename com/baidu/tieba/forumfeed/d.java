@@ -1,9 +1,9 @@
 package com.baidu.tieba.forumfeed;
 
-import com.baidu.adp.widget.ListView.t;
+import com.baidu.adp.widget.ListView.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d implements t {
+public class d implements u {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +11,8 @@ public final class d implements t {
         this.a = aVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.t
-    public final void b() {
-        a.e(this.a);
+    @Override // com.baidu.adp.widget.ListView.u
+    public void f_() {
+        this.a.o();
     }
 }

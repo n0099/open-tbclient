@@ -1,31 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.tieba.view.FrsCommonImageLayout;
-import com.baidu.tieba.view.UserPhotoLayout;
-import com.baidu.tieba.voice.PlayVoiceBnt;
+import android.content.DialogInterface;
+import com.baidu.tbadk.BaseActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class cr implements AbsListView.RecyclerListener {
-    final /* synthetic */ cm a;
+public class cr implements DialogInterface.OnClickListener {
+    final /* synthetic */ cp a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cr(cm cmVar) {
-        this.a = cmVar;
+    public cr(cp cpVar) {
+        this.a = cpVar;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public final void onMovedToScrapHeap(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(com.baidu.tieba.a.h.abstract_voice);
-        if (playVoiceBnt != null) {
-            playVoiceBnt.b();
-        }
-        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(com.baidu.tieba.a.h.abstract_img_layout);
-        if (frsCommonImageLayout != null) {
-            frsCommonImageLayout.a();
-        }
-        if (view != null && (view instanceof UserPhotoLayout)) {
-            ((UserPhotoLayout) view).a();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        BaseActivity baseActivity;
+        BaseActivity baseActivity2;
+        if (i == 0) {
+            baseActivity2 = this.a.b;
+            com.baidu.tbadk.core.util.bb.a(baseActivity2);
+        } else if (i == 1) {
+            baseActivity = this.a.b;
+            com.baidu.tbadk.core.util.bb.b(baseActivity);
         }
     }
 }

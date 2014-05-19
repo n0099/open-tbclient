@@ -1,31 +1,21 @@
 package com.baidu.adp.framework.message;
 
-import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.message.HttpMessage;
+import java.util.Comparator;
+import java.util.Map;
 /* loaded from: classes.dex */
-public class a<T> extends d<T> {
-    private T a;
+class a implements Comparator<Map.Entry<String, Object>> {
+    private HttpMessage.SORT a;
 
-    public a(int i) {
-        super(i);
+    public a(HttpMessage.SORT sort) {
         this.a = null;
+        this.a = sort;
     }
 
-    public a(int i, T t) {
-        super(i);
-        this.a = null;
-        this.a = t;
-    }
-
-    public final void a(T t) {
-        this.a = t;
-    }
-
-    public final T a() {
-        return this.a;
-    }
-
-    @Override // com.baidu.adp.framework.message.d
-    public final boolean a(int i) {
-        return FrameHelper.d(i);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
+        return this.a == HttpMessage.SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
     }
 }

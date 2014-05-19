@@ -1,13 +1,15 @@
 package com.baidu.tieba.recommend;
 
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-final class d implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.g> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.g> aVar) {
-        if (aVar != null && aVar.a() != null) {
-            aVar.a().d().setClass(aVar.a().c(), DailyRecommendActivity.class);
-            aVar.a().f();
+class d implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.h> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.atomData.h> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), DailyRecommendActivity.class);
+            customMessage.getData().startActivity();
         }
         return null;
     }

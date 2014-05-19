@@ -1,16 +1,30 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.InvokeClearChatNotifyMessageConfig;
-import com.baidu.tieba.im.r;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
+import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
+import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements com.baidu.adp.framework.task.a<InvokeClearChatNotifyMessageConfig> {
-    @Override // com.baidu.adp.framework.task.a
-    public final CustomResponsedMessage<InvokeClearChatNotifyMessageConfig> a(com.baidu.adp.framework.message.a<InvokeClearChatNotifyMessageConfig> aVar) {
-        if (aVar != null) {
-            r.a(new d(this), new e(this));
+public class c extends com.baidu.adp.framework.a.m {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.i
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage instanceof PushNotifyMessageDecoder) {
+            PushNotifyMessageDecoder pushNotifyMessageDecoder = (PushNotifyMessageDecoder) socketResponsedMessage;
+            if (pushNotifyMessageDecoder.getMsgList() != null) {
+                Iterator<PushNotifyMessage> it = pushNotifyMessageDecoder.getMsgList().iterator();
+                while (it.hasNext()) {
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(it.next());
+                }
+            }
         }
-        return null;
+        return socketResponsedMessage;
     }
 }

@@ -32,7 +32,7 @@ public class ViewDragHelper {
     private static final String TAG = "ViewDragHelper";
     private static final Interpolator sInterpolator = new Interpolator() { // from class: android.support.v4.widget.ViewDragHelper.1
         @Override // android.animation.TimeInterpolator
-        public final float getInterpolation(float f) {
+        public float getInterpolation(float f) {
             float f2 = f - 1.0f;
             return (f2 * f2 * f2 * f2 * f2) + 1.0f;
         }
@@ -258,7 +258,7 @@ public class ViewDragHelper {
         } else {
             abs = (int) (((Math.abs(i) / i3) + 1.0f) * 256.0f);
         }
-        return Math.min(abs, (int) MAX_SETTLE_DURATION);
+        return Math.min(abs, 600);
     }
 
     private int clampMag(int i, int i2, int i3) {

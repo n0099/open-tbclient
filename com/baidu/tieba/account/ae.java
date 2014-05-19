@@ -1,26 +1,19 @@
 package com.baidu.tieba.account;
 
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import com.baidu.tbadk.core.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ae implements RadioGroup.OnCheckedChangeListener {
-    final /* synthetic */ Register2Activity a;
+public class ae implements com.baidu.tbadk.coreExtra.view.v {
+    final /* synthetic */ SapiFastRegActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(Register2Activity register2Activity) {
-        this.a = register2Activity;
+    public ae(SapiFastRegActivity sapiFastRegActivity) {
+        this.a = sapiFastRegActivity;
     }
 
-    @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public final void onCheckedChanged(RadioGroup radioGroup, int i) {
-        EditText editText;
-        if (i > 0) {
-            RadioButton radioButton = (RadioButton) this.a.findViewById(i);
-            if (radioButton.isChecked()) {
-                editText = this.a.t;
-                editText.setText(radioButton.getText());
-            }
-        }
+    @Override // com.baidu.tbadk.coreExtra.view.v
+    public void a(AccountData accountData) {
+        this.a.b = "regist_user";
+        this.a.b(accountData);
     }
 }

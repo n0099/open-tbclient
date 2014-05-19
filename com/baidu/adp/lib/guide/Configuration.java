@@ -6,17 +6,18 @@ import android.support.v4.view.MotionEventCompat;
 import android.view.View;
 /* loaded from: classes.dex */
 class Configuration implements Parcelable {
-    public static Parcelable.Creator<Configuration> k = new c();
+    public static Parcelable.Creator<Configuration> l = new c();
+    boolean b;
     View a = null;
-    int b = MotionEventCompat.ACTION_MASK;
-    int c = -1;
+    int c = MotionEventCompat.ACTION_MASK;
     int d = -1;
-    int e = 17170444;
-    boolean f = true;
-    boolean g = false;
+    int e = -1;
+    int f = 17170444;
+    boolean g = true;
     boolean h = false;
-    int i = -1;
+    boolean i = false;
     int j = -1;
+    int k = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -25,15 +26,15 @@ class Configuration implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.b);
         parcel.writeInt(this.c);
         parcel.writeInt(this.d);
         parcel.writeInt(this.e);
-        parcel.writeByte((byte) (this.f ? 1 : 0));
+        parcel.writeInt(this.f);
         parcel.writeByte((byte) (this.g ? 1 : 0));
+        parcel.writeByte((byte) (this.h ? 1 : 0));
     }
 
     public String toString() {
-        return "Configuration{mAlpha=" + this.b + ", mFullingViewId=" + this.c + ", mTargetViewId=" + this.d + ", mFullingColorId=" + this.e + ", mAutoDismiss=" + this.f + ", mOverlayTarget=" + this.g + '}';
+        return "Configuration{mAlpha=" + this.c + ", mFullingViewId=" + this.d + ", mTargetViewId=" + this.e + ", mFullingColorId=" + this.f + ", mAutoDismiss=" + this.g + ", mOverlayTarget=" + this.h + '}';
     }
 }

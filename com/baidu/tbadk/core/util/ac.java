@@ -1,272 +1,253 @@
 package com.baidu.tbadk.core.util;
 
-import android.util.Log;
-import android.view.View;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import com.baidu.location.LocationClientOption;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.gif.GifView;
-import java.util.Iterator;
-import java.util.LinkedList;
+import android.text.TextUtils;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoaderNetHelperStatic;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public final class ac {
-    public static void a(ListView listView, com.baidu.tbadk.editortool.ab abVar, int i, int i2) {
-        a(listView, abVar, null, null, null, i, i2);
+public class ac {
+    private static int a = 0;
+    private static int b = 0;
+    private static int c = 0;
+    private static int d = 0;
+    private static int e = 0;
+    private static int f = 0;
+    private static int g = 0;
+    private static int h = 0;
+    private static long i = 0;
+    private static long j = 0;
+    private static long k = 0;
+    private static long l = 0;
+    private static int m = 0;
+    private static int n = 0;
+    private static int o = 0;
+    private static int p = 0;
+    private static long q = 0;
+    private static long r = 0;
+    private static int s = 0;
+    private static long t = 0;
+    private static String u = null;
+    private static Object v = new Object();
+
+    public static com.baidu.adp.lib.stats.s a() {
+        return com.baidu.adp.lib.stats.h.a().a("dbg");
     }
 
-    public static void a(ListView listView, com.baidu.tbadk.editortool.ab abVar, com.baidu.tbadk.imageManager.d dVar, com.baidu.tbadk.imageManager.d dVar2, com.baidu.tbadk.imageManager.d dVar3, int i, int i2) {
-        a(listView, abVar, dVar, dVar2, null, null, i, i2);
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:164:0x0056 A[EDGE_INSN: B:164:0x0056->B:20:0x0056 ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:167:0x0139 A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void a(ListView listView, com.baidu.tbadk.editortool.ab abVar, com.baidu.tbadk.imageManager.d dVar, com.baidu.tbadk.imageManager.d dVar2, com.baidu.tbadk.imageManager.d dVar3, com.baidu.tbadk.imageManager.d dVar4, int i, int i2) {
-        int i3;
-        int i4;
-        LinkedList<String> photoUrl;
-        boolean z;
-        View findViewWithTag;
-        int i5;
-        int i6;
-        int i7;
-        View findViewWithTag2;
-        if (listView != null && abVar != null) {
-            abVar.a();
-            int firstVisiblePosition = listView.getFirstVisiblePosition();
-            int lastVisiblePosition = listView.getLastVisiblePosition();
-            ListAdapter adapter = listView.getAdapter();
-            if (adapter != null) {
-                if (dVar == null) {
-                    dVar = new ad(listView);
-                }
-                if (dVar2 == null) {
-                    dVar2 = new af(listView);
-                }
-                com.baidu.tbadk.imageManager.d agVar = dVar3 == null ? new ag(listView) : dVar3;
-                try {
-                    boolean z2 = UtilHelper.d(TbadkApplication.j().b()) == UtilHelper.NetworkStateInfo.WIFI;
-                    int i8 = 0;
-                    int i9 = 0;
-                    int i10 = 0;
-                    boolean b = b.b();
-                    for (int i11 = firstVisiblePosition; i11 < adapter.getCount() && ((i11 <= lastVisiblePosition || z2) && i == 0); i11++) {
-                        Object item = adapter.getItem(i11);
-                        if (item instanceof ab) {
-                            ab abVar2 = (ab) item;
-                            if (abVar2.isSupportImageSize()) {
-                                LinkedList<aa> imagesWithEmotions = abVar2.getImagesWithEmotions();
-                                if (imagesWithEmotions != null) {
-                                    Iterator<aa> it = imagesWithEmotions.iterator();
-                                    while (it.hasNext()) {
-                                        aa next = it.next();
-                                        if (z2 || (findViewWithTag2 = listView.findViewWithTag(next.a())) == null || !a(findViewWithTag2, listView)) {
-                                            i8++;
-                                            int i12 = next.b * next.c;
-                                            if (i12 > 0) {
-                                                if (next.d != null) {
-                                                    i9 += i12 * 4;
-                                                } else {
-                                                    i9 += i12 * 2;
-                                                }
-                                            } else if (next.d != null) {
-                                                com.baidu.adp.lib.util.f.b("missing big emotion image width and height!");
-                                                i9 += com.baidu.tbadk.core.data.n.v();
-                                            } else if (next.e != null) {
-                                                i9 += com.baidu.tbadk.core.data.n.w();
-                                            }
-                                            if (i11 > lastVisiblePosition) {
-                                                i7 = next.c + i10;
-                                                if (i7 > com.baidu.adp.lib.util.i.c(TbadkApplication.j().b())) {
-                                                    i6 = i9;
-                                                    i5 = i8;
-                                                    i8 = i5;
-                                                    i9 = i6;
-                                                    i10 = i7;
-                                                    z = true;
-                                                    break;
-                                                }
-                                                i10 = i7;
-                                            }
-                                        } else {
-                                            i7 = i10;
-                                            i6 = i9;
-                                            i5 = i8;
-                                            i8 = i5;
-                                            i9 = i6;
-                                            i10 = i7;
-                                            z = true;
-                                            break;
-                                        }
-                                    }
-                                    z = false;
-                                    if (z) {
-                                        break;
-                                    }
-                                }
-                                z = false;
-                                if (z) {
-                                }
-                            } else {
-                                if (i8 < 13) {
-                                    LinkedList<String> imageUrl = abVar2.getImageUrl();
-                                    if (imageUrl != null) {
-                                        Iterator<String> it2 = imageUrl.iterator();
-                                        while (it2.hasNext()) {
-                                            String next2 = it2.next();
-                                            if (z2 || (findViewWithTag = listView.findViewWithTag(next2)) == null || !a(findViewWithTag, listView)) {
-                                                i8++;
-                                                i9 += com.baidu.tbadk.core.data.n.h();
-                                            }
-                                        }
-                                        z = false;
-                                        if (z) {
-                                        }
-                                    }
-                                    z = false;
-                                    if (z) {
-                                    }
-                                }
-                                i7 = i10;
-                                i6 = i9;
-                                i5 = i8;
-                                i8 = i5;
-                                i9 = i6;
-                                i10 = i7;
-                                z = true;
-                                if (z) {
-                                }
-                            }
-                        }
-                    }
-                    int i13 = i8;
-                    int max = Math.max((int) (UtilHelper.e(TbadkApplication.j().b()) * 0.28f), (int) (i9 * 1.2f));
-                    com.baidu.adp.lib.util.f.d("set pic cache size to :" + (max / LocationClientOption.MIN_SCAN_SPAN) + "KB. needed:" + (i3 / LocationClientOption.MIN_SCAN_SPAN) + "KB.");
-                    com.baidu.tbadk.imageManager.e.a().a(max);
-                    int i14 = 0;
-                    int i15 = firstVisiblePosition;
-                    int i16 = 0;
-                    while (i15 < adapter.getCount()) {
-                        if (i15 <= lastVisiblePosition || z2) {
-                            Object item2 = adapter.getItem(i15);
-                            if (item2 instanceof ab) {
-                                ab abVar3 = (ab) item2;
-                                if (i14 < i13) {
-                                    if (abVar3.isSupportImageSize()) {
-                                        LinkedList<aa> imagesWithEmotions2 = abVar3.getImagesWithEmotions();
-                                        if (imagesWithEmotions2 != null) {
-                                            int i17 = 0;
-                                            while (i17 < imagesWithEmotions2.size() && i14 < i13) {
-                                                aa aaVar = imagesWithEmotions2.get(i17);
-                                                int i18 = i14 + 1;
-                                                if (aaVar.d != null) {
-                                                    com.baidu.tbadk.widget.richText.e eVar = aaVar.d;
-                                                    View findViewWithTag3 = listView.findViewWithTag(aaVar.a());
-                                                    if (findViewWithTag3 != null) {
-                                                        GifView gifView = (GifView) findViewWithTag3;
-                                                        if (eVar.j) {
-                                                            gifView.setGif(null);
-                                                        }
-                                                    }
-                                                    if (!eVar.k) {
-                                                        String str = b ? eVar.b : eVar.a;
-                                                        com.baidu.adp.lib.util.f.e("LoadImageHelper", "loadEmotion", "emotion dynamic:" + eVar.c);
-                                                        com.baidu.adp.widget.ImageView.b a = abVar.a(eVar.e, eVar.c, str, b, agVar);
-                                                        if (findViewWithTag3 != null) {
-                                                            GifView gifView2 = (GifView) findViewWithTag3;
-                                                            if (a != null) {
-                                                                gifView2.setGif(a);
-                                                                gifView2.setIsLoading(false);
-                                                                eVar.j = false;
-                                                            } else {
-                                                                gifView2.setIsLoading(true);
-                                                            }
-                                                        }
-                                                    }
-                                                } else if (aaVar.e != null) {
-                                                    abVar.g(aaVar.e, dVar4);
-                                                } else {
-                                                    Log.e("image:", aaVar.a);
-                                                    com.baidu.adp.widget.ImageView.b b2 = abVar.b(aaVar.a, dVar);
-                                                    if (b2 != null) {
-                                                        dVar.a(b2, aaVar.a, true);
-                                                    }
-                                                }
-                                                i17++;
-                                                i14 = i18;
-                                            }
-                                        }
-                                    } else {
-                                        LinkedList<String> imageUrl2 = abVar3.getImageUrl();
-                                        if (imageUrl2 != null) {
-                                            int i19 = i14;
-                                            for (int i20 = 0; i20 < imageUrl2.size() && i19 < i13; i20++) {
-                                                i19++;
-                                                abVar.b(imageUrl2.get(i20), dVar);
-                                            }
-                                            i14 = i19;
-                                        }
-                                    }
-                                }
-                                if (i16 < 30 && (photoUrl = abVar3.getPhotoUrl()) != null) {
-                                    Iterator<String> it3 = photoUrl.iterator();
-                                    while (it3.hasNext()) {
-                                        String next3 = it3.next();
-                                        i16++;
-                                        if (i2 == 0) {
-                                            abVar.d(next3, dVar2);
-                                        } else if (i2 == 1) {
-                                            abVar.c(next3, dVar2);
-                                        }
-                                    }
-                                }
-                                i4 = i16;
-                                LinkedList<String> forumPhotoUrl = abVar3.getForumPhotoUrl();
-                                if (forumPhotoUrl != null) {
-                                    Iterator<String> it4 = forumPhotoUrl.iterator();
-                                    while (it4.hasNext()) {
-                                        i4++;
-                                        abVar.f(it4.next(), dVar);
-                                    }
-                                }
-                            } else {
-                                i4 = i16;
-                            }
-                            if (!z2 || i14 < i13 || i4 < 30) {
-                                i15++;
-                                i16 = i4;
-                            } else {
-                                return;
-                            }
-                        } else {
-                            return;
-                        }
-                    }
-                } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b("LoadImageHelper", "loadListView", e.toString());
-                }
+    public static void a(com.baidu.adp.lib.stats.s sVar, String str, boolean z, long j2) {
+        synchronized (v) {
+            s++;
+            t += j2;
+            if (s >= 100) {
+                b();
             }
         }
     }
 
-    private static boolean a(View view, View view2) {
-        int bottom = view.getBottom();
-        int top = view.getTop();
-        while (true) {
-            View view3 = (View) view.getParent();
-            if (view3 == null) {
-                return false;
-            }
-            if (view3 == view2) {
-                return top > view2.getBottom() || bottom < view2.getTop();
-            }
-            top += view3.getTop();
-            bottom += view3.getBottom();
-            view = view3;
+    public static void b() {
+        if (s > 0 && t / s > 500) {
+            com.baidu.adp.lib.stats.s a2 = a();
+            a2.a("act", "locStat");
+            a2.a("costTime", String.valueOf(t));
+            a2.a("num", String.valueOf(s));
+            com.baidu.adp.lib.stats.h.a().a("img", a2);
+            s = 0;
+            t = 0L;
         }
+    }
+
+    public static void a(com.baidu.adp.lib.stats.s sVar, String str, boolean z, String str2, boolean z2, Boolean bool, com.baidu.adp.lib.network.http.d dVar, String str3, long j2) {
+        boolean a2 = BdResourceLoaderNetHelperStatic.a();
+        if (z2 && a2) {
+            if (z) {
+                h.a().a(j2, str);
+            } else if (!TextUtils.isEmpty(e())) {
+                h.a().a(dVar.i, str);
+            }
+        }
+        if (z2) {
+            u = str;
+        }
+        synchronized (v) {
+            if (a2) {
+                if (z2) {
+                    a++;
+                    i += j2;
+                    if (!z) {
+                        e++;
+                    }
+                } else {
+                    c++;
+                    k += j2;
+                    if (!z) {
+                        g++;
+                    }
+                }
+            } else if (z2) {
+                b++;
+                j += j2;
+                if (!z) {
+                    f++;
+                }
+            } else {
+                d++;
+                l += j2;
+                if (!z) {
+                    h++;
+                }
+            }
+            if (a + b + c + d > 100) {
+                c();
+            }
+        }
+    }
+
+    public static void c() {
+        String str = "";
+        String str2 = "";
+        if (a > 0 && (e > 0 || i / a > 1500)) {
+            if (TextUtils.isEmpty("")) {
+                str = e();
+            }
+            if (u != null && TextUtils.isEmpty("")) {
+                str2 = a(u);
+            }
+            com.baidu.adp.lib.stats.s a2 = a();
+            a2.a("act", "dlStat");
+            a2.a("costTime", String.valueOf(i));
+            a2.a("num", String.valueOf(a));
+            a2.a("failnum", String.valueOf(e));
+            a2.a("isCDN", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            a2.a("isWifi", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            a2.a("localIp", n.a());
+            a2.a("tbIp", str);
+            a2.a("cdnIp", str2);
+            com.baidu.adp.lib.stats.h.a().a("img", a2);
+            e = 0;
+            a = 0;
+            i = 0L;
+        }
+        if (c > 0 && (g > 0 || k / c > 1500)) {
+            com.baidu.adp.lib.stats.s a3 = a();
+            a3.a("act", "dlStat");
+            a3.a("costTime", String.valueOf(k));
+            a3.a("num", String.valueOf(c));
+            a3.a("failnum", String.valueOf(g));
+            a3.a("isCDN", "0");
+            a3.a("isWifi", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            com.baidu.adp.lib.stats.h.a().a("img", a3);
+            g = 0;
+            c = 0;
+            k = 0L;
+        }
+        if (b > 0 && (f > 0 || j / b > 4000)) {
+            if (TextUtils.isEmpty(str)) {
+                str = e();
+            }
+            if (u != null && TextUtils.isEmpty(str2)) {
+                str2 = a(u);
+            }
+            com.baidu.adp.lib.stats.s a4 = a();
+            a4.a("act", "dlStat");
+            a4.a("costTime", String.valueOf(j));
+            a4.a("num", String.valueOf(b));
+            a4.a("failnum", String.valueOf(f));
+            a4.a("isCDN", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            a4.a("isWifi", "0");
+            a4.a("localIp", n.a());
+            a4.a("tbIp", str);
+            a4.a("cdnIp", str2);
+            com.baidu.adp.lib.stats.h.a().a("img", a4);
+            f = 0;
+            b = 0;
+            j = 0L;
+        }
+        if (d > 0) {
+            if (h > 0 || l / d > 4000) {
+                com.baidu.adp.lib.stats.s a5 = a();
+                a5.a("act", "dlStat");
+                a5.a("costTime", String.valueOf(l));
+                a5.a("num", String.valueOf(d));
+                a5.a("failnum", String.valueOf(h));
+                a5.a("isCDN", "0");
+                a5.a("isWifi", "0");
+                com.baidu.adp.lib.stats.h.a().a("img", a5);
+                h = 0;
+                d = 0;
+                l = 0L;
+            }
+        }
+    }
+
+    public static void a(com.baidu.adp.lib.stats.s sVar, String str, String str2, boolean z, boolean z2, boolean z3, int i2, String str3, long j2) {
+        synchronized (v) {
+            if (z3) {
+                m++;
+                q += j2;
+                if (!z) {
+                    n++;
+                }
+            } else {
+                o++;
+                r += j2;
+                if (!z) {
+                    p++;
+                }
+            }
+            if (m + o >= 100) {
+                d();
+            }
+        }
+        if (!z) {
+            if (sVar == null) {
+                sVar = a();
+            }
+            sVar.a("act", "dc");
+            sVar.a("costTime", String.valueOf(j2));
+            sVar.a("url", str);
+            sVar.a("fullURL", str2);
+            sVar.a("isWebp", z3 ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
+            sVar.a("isCDN", z2 ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
+            sVar.a("length", String.valueOf(i2));
+            sVar.a("reason", str3);
+            sVar.a("result", z ? "0" : TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            com.baidu.adp.lib.stats.h.a().a("img", sVar);
+        }
+    }
+
+    public static void d() {
+        if (m > 0 && (n > 0 || q / m > 300)) {
+            com.baidu.adp.lib.stats.s a2 = a();
+            a2.a("act", "dcStat");
+            a2.a("costTime", String.valueOf(q));
+            a2.a("num", String.valueOf(m));
+            a2.a("failnum", String.valueOf(n));
+            a2.a("isWebp", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            com.baidu.adp.lib.stats.h.a().a("img", a2);
+            n = 0;
+            m = 0;
+            q = 0L;
+        }
+        if (o > 0) {
+            if (p > 0 || r / o > 300) {
+                com.baidu.adp.lib.stats.s a3 = a();
+                a3.a("act", "dcStat");
+                a3.a("costTime", String.valueOf(r));
+                a3.a("num", String.valueOf(o));
+                a3.a("failnum", String.valueOf(p));
+                a3.a("isWebp", "0");
+                com.baidu.adp.lib.stats.h.a().a("img", a3);
+                p = 0;
+                o = 0;
+                r = 0L;
+            }
+        }
+    }
+
+    private static String e() {
+        return UtilHelper.getIpFromDomain("tieba.baidu.com");
+    }
+
+    private static String a(String str) {
+        int indexOf = str.indexOf("hiphotos.baidu.com");
+        return indexOf > 0 ? UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com") : "";
     }
 }

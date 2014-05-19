@@ -1,17 +1,65 @@
 package com.baidu.tieba.faceshop;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-final class y implements View.OnClickListener {
-    final /* synthetic */ x a;
+public class y extends Dialog {
+    int a;
+    private Context b;
+    private LayoutInflater c;
+    private View d;
+    private SpannableString e;
+    private TextView f;
+    private TextView g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public y(x xVar) {
-        this.a = xVar;
+    public y(Context context, int i) {
+        super(context, i);
+        this.b = context;
+        this.c = LayoutInflater.from(getContext());
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        this.a.dismiss();
+    public void a() {
+        this.d = this.c.inflate(com.baidu.tieba.s.face_buy_loading, (ViewGroup) null);
+        this.a = TbadkApplication.m252getInst().getSkinType();
+        setContentView(this.d, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(com.baidu.tieba.p.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(com.baidu.tieba.p.faceshop_buy_dialog_height)));
+        setCancelable(false);
+        c();
+    }
+
+    public void b() {
+        ForegroundColorSpan foregroundColorSpan;
+        this.d = this.c.inflate(com.baidu.tieba.s.face_buy_fail, (ViewGroup) null);
+        this.a = TbadkApplication.m252getInst().getSkinType();
+        String string = getContext().getResources().getString(com.baidu.tieba.u.query_buy_fail_tel);
+        this.e = new SpannableString(string);
+        if (this.a == 1) {
+            foregroundColorSpan = new ForegroundColorSpan(getContext().getResources().getColor(com.baidu.tieba.o.faceshop_package_price_text_1));
+        } else {
+            foregroundColorSpan = new ForegroundColorSpan(getContext().getResources().getColor(com.baidu.tieba.o.faceshop_package_price_text));
+        }
+        this.e.setSpan(foregroundColorSpan, 5, string.length(), 33);
+        setContentView(this.d, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(com.baidu.tieba.p.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(com.baidu.tieba.p.faceshop_buy_dialog_fail_height)));
+        this.f = (TextView) findViewById(com.baidu.tieba.r.telphone);
+        this.f.setText(this.e);
+        this.g = (TextView) findViewById(com.baidu.tieba.r.confirm);
+        this.g.setOnClickListener(new z(this));
+        setCancelable(true);
+        c();
+    }
+
+    private void c() {
+        if (this.b instanceof BaseActivity) {
+            ((BaseActivity) this.b).getLayoutMode().a(this.a == 1);
+            ((BaseActivity) this.b).getLayoutMode().a(this.d);
+        }
     }
 }

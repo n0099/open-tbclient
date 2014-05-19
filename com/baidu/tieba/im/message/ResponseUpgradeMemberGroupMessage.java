@@ -1,17 +1,22 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import protobuf.UpgradeMemberGroup.UpgradeMemberGroupRes;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.squareup.wire.Wire;
+import protobuf.UpgradeMemberGroup.UpgradeMemberGroupResIdl;
 /* loaded from: classes.dex */
 public class ResponseUpgradeMemberGroupMessage extends SocketResponsedMessage {
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        UpgradeMemberGroupRes.UpgradeMemberGroupResIdl parseFrom = UpgradeMemberGroupRes.UpgradeMemberGroupResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
+    public ResponseUpgradeMemberGroupMessage() {
+        super(MessageTypes.CMD_UPGRADE_MEMBER_GROUP);
     }
 
-    public ResponseUpgradeMemberGroupMessage() {
-        super(103105);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        UpgradeMemberGroupResIdl upgradeMemberGroupResIdl = (UpgradeMemberGroupResIdl) new Wire(new Class[0]).parseFrom(bArr, UpgradeMemberGroupResIdl.class);
+        setError(upgradeMemberGroupResIdl.error.errorno.intValue());
+        setErrorString(upgradeMemberGroupResIdl.error.usermsg);
+        if (getError() != 0) {
+        }
     }
 }

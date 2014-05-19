@@ -2,8 +2,9 @@ package com.baidu.tieba.write;
 
 import android.view.View;
 import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class e implements View.OnClickListener {
+public class e implements View.OnClickListener {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,11 +13,11 @@ final class e implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         EditText editText;
         AtListActivity atListActivity = this.a;
         editText = this.a.b;
-        com.baidu.adp.lib.util.i.a(atListActivity, editText);
+        com.baidu.adp.lib.util.h.a(atListActivity, editText);
         this.a.finish();
     }
 }

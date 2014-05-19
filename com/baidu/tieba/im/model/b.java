@@ -1,40 +1,43 @@
 package com.baidu.tieba.im.model;
+
+import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
+import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 /* loaded from: classes.dex */
-public final class b extends com.baidu.adp.a.e {
-    private com.baidu.tbadk.core.message.c a;
-    private com.baidu.tbadk.core.message.d b;
+public class b extends com.baidu.adp.base.d {
+    private RequestGetMaskInfoMessage a;
+    private RequestUpdateMaskInfoMessage b;
     private int c = 2;
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         super.cancelMessage();
         return false;
     }
 
-    public final void a() {
-        this.a = new com.baidu.tbadk.core.message.c();
-        this.a.d(10);
+    public void a() {
+        this.a = new RequestGetMaskInfoMessage();
+        this.a.setMaskType(10);
         super.sendMessage(this.a);
     }
 
-    public final void a(long j) {
-        this.b = new com.baidu.tbadk.core.message.d();
-        this.b.e(1);
-        this.b.d(10);
-        this.b.a(String.valueOf(j));
+    public void a(long j) {
+        this.b = new RequestUpdateMaskInfoMessage();
+        this.b.setIsMask(1);
+        this.b.setMaskType(10);
+        this.b.setList(String.valueOf(j));
         super.sendMessage(this.b);
     }
 
-    public final void b(long j) {
-        this.b = new com.baidu.tbadk.core.message.d();
-        this.b.e(0);
-        this.b.d(10);
-        this.b.a(String.valueOf(j));
+    public void b(long j) {
+        this.b = new RequestUpdateMaskInfoMessage();
+        this.b.setIsMask(0);
+        this.b.setMaskType(10);
+        this.b.setList(String.valueOf(j));
         super.sendMessage(this.b);
     }
 }

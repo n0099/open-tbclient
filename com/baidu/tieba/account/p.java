@@ -5,7 +5,7 @@ import android.text.TextWatcher;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-final class p implements TextWatcher {
+class p implements TextWatcher {
     final /* synthetic */ ActivationActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ final class p implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
+    public void afterTextChanged(Editable editable) {
         RelativeLayout relativeLayout;
         int i;
         LinearLayout linearLayout;
@@ -33,7 +33,7 @@ final class p implements TextWatcher {
         if (i != 0) {
             this.a.y = 0;
             linearLayout = this.a.d;
-            linearLayout.setBackgroundResource(com.baidu.tieba.a.g.pass_input);
+            linearLayout.setBackgroundResource(com.baidu.tieba.q.pass_input);
             linearLayout2 = this.a.d;
             i2 = this.a.w;
             i3 = this.a.x;
@@ -42,10 +42,10 @@ final class p implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

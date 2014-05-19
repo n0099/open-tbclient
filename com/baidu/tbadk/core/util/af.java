@@ -1,9 +1,10 @@
 package com.baidu.tbadk.core.util;
 
-import android.widget.ImageView;
+import android.view.ViewGroup;
 import android.widget.ListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class af implements com.baidu.tbadk.imageManager.d {
+public class af implements com.baidu.tbadk.imageManager.d {
     private final /* synthetic */ ListView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,14 +13,9 @@ final class af implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null) {
-            ImageView imageView = (ImageView) this.a.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                imageView.setImageBitmap(bVar.h());
-                imageView = (ImageView) this.a.findViewWithTag(str);
-            }
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null && str != null) {
+            bp.a((ViewGroup) this.a, false, (br) new ag(this, str));
         }
     }
 }

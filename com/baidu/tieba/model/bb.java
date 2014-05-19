@@ -1,12 +1,15 @@
 package com.baidu.tieba.model;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.data.CombineDownload;
 import com.baidu.tieba.data.VersionData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class bb {
+public class bb {
     private int f;
     private int g = 0;
     private VersionData a = new VersionData();
@@ -15,51 +18,53 @@ public final class bb {
     private CombineDownload d = new CombineDownload();
     private ah e = new ah();
 
-    public final void a(String str) {
+    public void a(String str) {
         try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject != null) {
-                try {
-                    this.a.parserJson(jSONObject.optJSONObject("version"));
-                    this.b.a(jSONObject.optJSONObject("client"));
-                    com.baidu.tbadk.core.util.m.a(jSONObject.optString("client_ip", null));
-                    this.c.a(jSONObject.optJSONObject("config"));
-                    this.d.parserJson(jSONObject.optJSONObject("combine_download"));
-                    this.e.a(jSONObject.optJSONObject("mainbar"));
-                    this.g = jSONObject.optInt("sync_active", 0);
-                    com.baidu.adp.framework.c.a().b(new CustomResponsedMessage(2001145, jSONObject));
-                    this.f = jSONObject.optInt("faceshop_version");
-                    if (this.f > TbadkApplication.j().ap()) {
-                        TbadkApplication.j().h(this.f);
-                        TbadkApplication.j().h(true);
-                    }
-                    JSONObject optJSONObject = jSONObject.optJSONObject("lcs_strategy");
-                    if (optJSONObject != null) {
-                        com.baidu.tieba.p.c();
-                        com.baidu.tieba.p.m(optJSONObject.toString());
-                    }
-                } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
-                }
-            }
-        } catch (Exception e2) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e2.getMessage());
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
-    public final com.baidu.tieba.data.e a() {
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a.parserJson(jSONObject.optJSONObject("version"));
+                this.b.a(jSONObject.optJSONObject("client"));
+                com.baidu.tbadk.core.util.n.a(jSONObject.optString("client_ip", null));
+                this.c.a(jSONObject.optJSONObject("config"));
+                this.d.parserJson(jSONObject.optJSONObject("combine_download"));
+                this.e.a(jSONObject.optJSONObject("mainbar"));
+                this.g = jSONObject.optInt("sync_active", 0);
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(MessageTypes.CMD_ADS_EMOTION, jSONObject));
+                this.f = jSONObject.optInt("faceshop_version");
+                if (this.f > TbadkApplication.m252getInst().getFaceShopVersion()) {
+                    TbadkApplication.m252getInst().setTempFaceShopVersion(this.f);
+                    TbadkApplication.m252getInst().setFaceShopNew(true);
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("lcs_strategy");
+                if (optJSONObject != null) {
+                    com.baidu.tieba.ad.c().m(optJSONObject.toString());
+                }
+            } catch (Exception e) {
+                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+            }
+        }
+    }
+
+    public com.baidu.tieba.data.e a() {
         return this.c;
     }
 
-    public final CombineDownload b() {
+    public CombineDownload b() {
         return this.d;
     }
 
-    public final VersionData c() {
+    public VersionData c() {
         return this.a;
     }
 
-    public final com.baidu.tieba.data.c d() {
+    public com.baidu.tieba.data.c d() {
         return this.b;
     }
 }

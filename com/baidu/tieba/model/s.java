@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 import com.baidu.tbadk.TbadkApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.a.e {
+public class s extends com.baidu.adp.base.d {
     private com.baidu.tieba.data.p d;
     private t e;
     private boolean c = false;
@@ -12,48 +12,44 @@ public class s extends com.baidu.adp.a.e {
     protected String b = null;
     private int g = 0;
 
-    public final boolean a() {
+    public boolean a() {
         return this.c;
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         this.c = z;
     }
 
-    public final boolean b() {
+    public boolean b() {
         return this.g == 0;
     }
 
-    public final boolean c() {
+    public boolean c() {
+        ArrayList<com.baidu.tieba.data.q> b;
+        return (this.d == null || (b = this.d.b()) == null || b.size() < 300) ? false : true;
+    }
+
+    public boolean d() {
+        return this.d != null && (this.d.d() || a());
+    }
+
+    public boolean e() {
         ArrayList<com.baidu.tieba.data.q> b;
         return (this.d == null || (b = this.d.b()) == null || b.size() <= 0) ? false : true;
     }
 
-    public final boolean d() {
-        ArrayList<com.baidu.tieba.data.q> b;
-        if (!((this.d == null || (b = this.d.b()) == null || b.size() < 300) ? false : true)) {
-            if (this.d != null && (this.d.c() || this.c)) {
-                return true;
-            }
-        }
-        return false;
+    public boolean f() {
+        return !c() && d();
     }
 
-    public final void a(int i) {
-        int i2;
-        ArrayList<com.baidu.tieba.data.q> b;
+    public void a(int i) {
         this.f = i;
         this.e = new t(this);
-        if (i != 2 || this.c) {
-            i2 = 1;
-        } else {
-            i2 = (this.d == null || (b = this.d.b()) == null) ? 1 : (b.size() / 20) + 1;
-        }
-        this.e.execute(Integer.valueOf(i2));
+        this.e.execute(Integer.valueOf((i != 2 || a()) ? 1 : k()));
         this.g = 1;
     }
 
-    public final void e() {
+    public void g() {
         if (this.e == null) {
             this.e = new t(this);
         }
@@ -61,13 +57,13 @@ public class s extends com.baidu.adp.a.e {
         this.g = 1;
     }
 
-    public final com.baidu.tieba.data.p f() {
-        String E = TbadkApplication.E();
-        if (E == null) {
+    public com.baidu.tieba.data.p h() {
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (currentAccount == null) {
             return null;
         }
-        com.baidu.adp.lib.cache.s<String> g = com.baidu.tbadk.core.c.b.a().g();
-        String a = g != null ? g.a("home_forumfeed_" + E) : null;
+        com.baidu.adp.lib.cache.s<String> i = com.baidu.tbadk.core.a.b.a().i();
+        String a = i != null ? i.a("home_forumfeed_" + currentAccount) : null;
         if (a != null) {
             com.baidu.tieba.data.p pVar = new com.baidu.tieba.data.p();
             pVar.a(a);
@@ -77,40 +73,48 @@ public class s extends com.baidu.adp.a.e {
         return null;
     }
 
-    public final int g() {
+    public int i() {
         return this.f;
     }
 
-    @Override // com.baidu.adp.a.e
+    private int k() {
+        ArrayList<com.baidu.tieba.data.q> b;
+        if (this.d == null || (b = this.d.b()) == null) {
+            return 1;
+        }
+        return (b.size() / 20) + 1;
+    }
+
+    @Override // com.baidu.adp.base.d
     public int getErrorCode() {
         return this.a;
     }
 
-    @Override // com.baidu.adp.a.e
+    @Override // com.baidu.adp.base.d
     public void setErrorCode(int i) {
         this.a = i;
     }
 
-    @Override // com.baidu.adp.a.e
+    @Override // com.baidu.adp.base.d
     public String getErrorString() {
         return this.b;
     }
 
-    @Override // com.baidu.adp.a.e
+    @Override // com.baidu.adp.base.d
     public void setErrorString(String str) {
         this.b = str;
     }
 
-    public final com.baidu.tieba.data.p h() {
+    public com.baidu.tieba.data.p j() {
         return this.d;
     }
 
-    @Override // com.baidu.adp.a.e
+    @Override // com.baidu.adp.base.d
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
+    @Override // com.baidu.adp.base.d
     public boolean cancelLoadData() {
         if (this.e != null) {
             this.e.cancel();

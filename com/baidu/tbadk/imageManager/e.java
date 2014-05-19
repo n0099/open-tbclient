@@ -1,9 +1,11 @@
 package com.baidu.tbadk.imageManager;
+
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public final class e {
+public class e {
     private static e a = new e();
-    private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.b> b;
-    private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.b> c;
+    private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.a.a> b;
+    private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.a.a> c;
 
     public static e a() {
         return a;
@@ -16,64 +18,68 @@ public final class e {
         this.c = new g(this, 0);
     }
 
-    public final int b() {
-        return this.c.c();
+    public int b() {
+        return this.c.d();
     }
 
-    public final void a(int i, int i2) {
-        this.b.b(50);
-        a(i2);
+    public void a(int i, int i2) {
+        a(i);
+        b(i2);
     }
 
-    public final void a(int i) {
-        this.c.b(i);
+    public void a(int i) {
+        this.b.c(i);
     }
 
-    public final void a(String str, com.baidu.adp.widget.ImageView.b bVar) {
-        b(str, bVar);
+    public void b(int i) {
+        this.c.c(i);
     }
 
-    public final void b(String str, com.baidu.adp.widget.ImageView.b bVar) {
-        if (bVar != null && this.b != null) {
-            this.b.a(str, bVar);
+    public void a(String str, com.baidu.adp.widget.a.a aVar) {
+        a(str, aVar, false);
+    }
+
+    public void a(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
+        if (aVar != null && this.b != null) {
+            this.b.a(str, aVar);
         }
     }
 
-    public final boolean b(int i) {
+    public boolean c(int i) {
         return this.c.a(i);
     }
 
-    public final void c(String str, com.baidu.adp.widget.ImageView.b bVar) {
-        if (bVar != null && this.c != null) {
-            if (com.baidu.adp.lib.util.f.a()) {
-                com.baidu.adp.lib.util.f.e("image joined cache:" + bVar.j() + ", size:" + bVar.f());
+    public void b(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
+        if (aVar != null && this.c != null) {
+            if (BdLog.isDebugMode()) {
+                BdLog.d("image joined cache:" + aVar.k() + ", size:" + aVar.f());
             }
-            this.c.a(str, bVar);
+            this.c.a(str, aVar);
         }
     }
 
-    public final void d(String str, com.baidu.adp.widget.ImageView.b bVar) {
-        c(str, bVar);
+    public void b(String str, com.baidu.adp.widget.a.a aVar) {
+        b(str, aVar, false);
     }
 
-    public final void a(String str) {
-        this.b.b((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.b>) str);
+    public void a(String str) {
+        this.b.b((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.a.a>) str);
     }
 
-    public final com.baidu.adp.widget.ImageView.b b(String str) {
-        return this.b.a((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.b>) str);
+    public com.baidu.adp.widget.a.a b(String str) {
+        return this.b.a((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.a.a>) str);
     }
 
-    public final com.baidu.adp.widget.ImageView.b c(String str) {
-        return this.c.a((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.b>) str);
+    public com.baidu.adp.widget.a.a c(String str) {
+        return this.c.a((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.a.a>) str);
     }
 
-    public final void c() {
-        this.b.a();
-        this.c.a();
+    public void c() {
+        this.b.b();
+        this.c.b();
     }
 
-    public final String toString() {
+    public String toString() {
         return "pic:" + this.c.toString() + "  photo:" + this.b.toString();
     }
 }

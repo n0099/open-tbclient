@@ -3,17 +3,17 @@ package com.baidu.tieba.im.c;
 import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
-final class j extends Handler {
+class j extends Handler {
     private j() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(byte b) {
+    public /* synthetic */ j(j jVar) {
         this();
     }
 
     @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    public void handleMessage(Message message) {
         super.handleMessage(message);
         switch (message.what) {
             case 2:

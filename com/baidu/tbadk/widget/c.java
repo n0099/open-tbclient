@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c extends GestureDetector.SimpleOnGestureListener {
+public class c extends GestureDetector.SimpleOnGestureListener {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public final class c extends GestureDetector.SimpleOnGestureListener {
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         d dVar;
         d dVar2;
         if (Math.abs(f) > 200.0f || Math.abs(f2) > 200.0f) {
@@ -28,7 +28,7 @@ public final class c extends GestureDetector.SimpleOnGestureListener {
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public final boolean onSingleTapUp(MotionEvent motionEvent) {
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
         View.OnClickListener onClickListener;
         boolean z;
         View.OnClickListener onClickListener2;
@@ -48,7 +48,7 @@ public final class c extends GestureDetector.SimpleOnGestureListener {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         int i;
         float f3;
         int i2;
@@ -141,7 +141,7 @@ public final class c extends GestureDetector.SimpleOnGestureListener {
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public final void onLongPress(MotionEvent motionEvent) {
+    public void onLongPress(MotionEvent motionEvent) {
         View.OnLongClickListener onLongClickListener;
         boolean z;
         View.OnLongClickListener onLongClickListener2;

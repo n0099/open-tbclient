@@ -116,7 +116,7 @@ public class BubbleListData implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BubbleListData m250clone() {
+    public BubbleListData m253clone() {
         try {
             Object clone = super.clone();
             if (clone instanceof BubbleListData) {

@@ -1,22 +1,33 @@
 package com.baidu.tieba.im.groupInfo;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import protobuf.DelGroupMsgs.DelGroupMsgsRes;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.squareup.wire.Wire;
+import protobuf.DelGroupMsgs.DelGroupMsgsResIdl;
 /* loaded from: classes.dex */
 public class ResponseDelSystemMessage extends SocketResponsedMessage {
-    private long a;
-
-    @Override // com.baidu.adp.framework.message.c
-    public final /* synthetic */ void a(int i, Object obj) {
-        DelGroupMsgsRes.DelGroupMsgsResIdl parseFrom = DelGroupMsgsRes.DelGroupMsgsResIdl.parseFrom((byte[]) obj);
-        a(parseFrom.getError().getErrorno());
-        d(parseFrom.getError().getUsermsg());
-        if (e() == 0) {
-            this.a = parseFrom.getData().getGroupId();
-        }
-    }
+    private long groupId;
 
     public ResponseDelSystemMessage() {
-        super(202004);
+        super(MessageTypes.CMD_DELETE_GROUP_MSG);
+    }
+
+    public long getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(long j) {
+        this.groupId = j;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.b
+    public void decodeInBackGround(int i, byte[] bArr) {
+        DelGroupMsgsResIdl delGroupMsgsResIdl = (DelGroupMsgsResIdl) new Wire(new Class[0]).parseFrom(bArr, DelGroupMsgsResIdl.class);
+        setError(delGroupMsgsResIdl.error.errorno.intValue());
+        setErrorString(delGroupMsgsResIdl.error.usermsg);
+        if (getError() == 0) {
+            setGroupId(delGroupMsgsResIdl.data.groupId.intValue());
+        }
     }
 }

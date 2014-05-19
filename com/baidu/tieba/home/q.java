@@ -1,29 +1,24 @@
 package com.baidu.tieba.home;
 
-import org.json.JSONObject;
+import android.view.View;
+import android.widget.FrameLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class q {
-    private int a = -1;
-    private String b = null;
-    private String c = null;
+public class q implements View.OnClickListener {
+    final /* synthetic */ p a;
+    private final /* synthetic */ FrameLayout b;
 
-    public final int a() {
-        return this.a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(p pVar, FrameLayout frameLayout) {
+        this.a = pVar;
+        this.b = frameLayout;
     }
 
-    public final String b() {
-        return this.c;
-    }
-
-    public final void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("errno");
-                this.b = jSONObject.optString("errmsg");
-                this.c = jSONObject.optString("usermsg");
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
+        FrameLayout frameLayout = this.b;
+        view2 = this.a.o;
+        frameLayout.removeView(view2);
     }
 }

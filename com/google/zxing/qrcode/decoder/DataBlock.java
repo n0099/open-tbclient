@@ -81,12 +81,12 @@ final class DataBlock {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final int getNumDataCodewords() {
+    public int getNumDataCodewords() {
         return this.numDataCodewords;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final byte[] getCodewords() {
+    public byte[] getCodewords() {
         return this.codewords;
     }
 }

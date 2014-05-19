@@ -13,13 +13,14 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Timer;
 /* loaded from: classes.dex */
 public final class BDLocationManager {
     private static BDLocationManager b;
-    private static int h = 2000;
+    private static int h = TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI;
     private Context a;
     private c c;
     private String g;
@@ -38,8 +39,8 @@ public final class BDLocationManager {
         public BaiduLocationListener() {
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:18:0x006b, code lost:
-            if (android.text.TextUtils.equals(r1, r2) == false) goto L34;
+        /* JADX WARN: Code restructure failed: missing block: B:18:0x006d, code lost:
+            if (android.text.TextUtils.equals(r1, r2) == false) goto L35;
          */
         @Override // com.baidu.location.BDLocationListener
         /*
@@ -225,7 +226,7 @@ public final class BDLocationManager {
         this.n.schedule(new b(this), 1800000L);
     }
 
-    public final void a(e eVar) {
+    public void a(e eVar) {
         synchronized (this.f) {
             if (!this.f.contains(eVar)) {
                 this.f.add(eVar);
@@ -233,7 +234,7 @@ public final class BDLocationManager {
         }
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         if (this.d == null) {
             return;
         }
@@ -242,7 +243,7 @@ public final class BDLocationManager {
         this.d.setLocOption(f);
     }
 
-    public final c b() {
+    public c b() {
         long j;
         g();
         c cVar = this.c;
@@ -257,13 +258,13 @@ public final class BDLocationManager {
         return cVar;
     }
 
-    public final void b(e eVar) {
+    public void b(e eVar) {
         synchronized (this.f) {
             this.f.remove(eVar);
         }
     }
 
-    public final void c() {
+    public void c() {
         if (!this.j) {
             a(0L);
             return;

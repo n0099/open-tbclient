@@ -12,14 +12,20 @@ public class DragLayer extends FrameLayout {
 
     public DragLayer(Context context) {
         super(context);
+        b();
     }
 
     public DragLayer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
+        b();
     }
 
     public DragLayer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        b();
+    }
+
+    private void b() {
     }
 
     @Override // android.view.ViewGroup
@@ -49,7 +55,7 @@ public class DragLayer extends FrameLayout {
         return this.b;
     }
 
-    public final void a() {
+    public void a() {
         if (this.b != null) {
             if (this.b.b != null) {
                 this.b.b.recycle();

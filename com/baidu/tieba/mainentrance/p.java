@@ -3,12 +3,15 @@ package com.baidu.tieba.mainentrance;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.data.SearchPostModel;
-import com.baidu.tieba.data.al;
+import com.baidu.tieba.data.an;
 import com.baidu.tieba.model.BarSuggestModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class p implements AdapterView.OnItemClickListener {
+public class p implements AdapterView.OnItemClickListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +20,7 @@ final class p implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         int i2;
         c cVar;
         c cVar2;
@@ -40,13 +43,13 @@ final class p implements AdapterView.OnItemClickListener {
                 cVar2 = this.a.p;
                 if (cVar2.getItemId(i) != -2) {
                     cVar3 = this.a.p;
-                    al alVar = (al) cVar3.getItem(i);
-                    if (alVar != null) {
-                        if (alVar.a()) {
-                            this.a.sendMessage(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(this.a).a(alVar.c(), null, "search_post")));
+                    an anVar = (an) cVar3.getItem(i);
+                    if (anVar != null) {
+                        if (anVar.a()) {
+                            this.a.sendMessage(new CustomMessage(2006001, new as(this.a).a(anVar.c(), null, "search_post")));
                             return;
                         } else {
-                            this.a.sendMessage(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(this.a).a(alVar.c(), alVar.b(), "search_post")));
+                            this.a.sendMessage(new CustomMessage(2006001, new as(this.a).a(anVar.c(), anVar.b(), "search_post")));
                             return;
                         }
                     }
@@ -85,7 +88,7 @@ final class p implements AdapterView.OnItemClickListener {
             return;
         }
         String str3 = ((BarSuggestModel.Forum) ((ListView) adapterView).getAdapter().getItem(i)).forum_name;
-        TiebaStatic.a(this.a, "search_bar_result_click", "click", 1, new Object[0]);
-        this.a.sendMessage(new com.baidu.adp.framework.message.a(2003000, new com.baidu.tbadk.core.b.l(this.a).a(str3, "tb_searchlist", 1)));
+        TiebaStatic.eventStat(this.a, "search_bar_result_click", "click", 1, new Object[0]);
+        this.a.sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.a).a(str3, "tb_searchlist", 1)));
     }
 }

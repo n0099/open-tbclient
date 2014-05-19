@@ -19,56 +19,56 @@ public class IndicatorView extends View {
     private final ad h;
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.l.a(int, int):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.a(int, int):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(IndicatorView indicatorView, int i, int i2) {
         indicatorView.setMeasuredDimension(i, i2);
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.l.a(int, int):void, com.baidu.adp.widget.l.a(android.graphics.Canvas):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.a(int):int, com.baidu.adp.widget.m.a(android.graphics.Canvas):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ int d(IndicatorView indicatorView) {
         return indicatorView.b;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.l.a(int, int):void, com.baidu.adp.widget.l.a(android.graphics.Canvas):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.a(int):int, com.baidu.adp.widget.m.a(int, int):void, com.baidu.adp.widget.m.a(android.graphics.Canvas):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ int c(IndicatorView indicatorView) {
         return indicatorView.c;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.l.a(com.baidu.adp.widget.l):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.a():void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(IndicatorView indicatorView, float f) {
         indicatorView.d = f;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.l.a(android.graphics.Canvas):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.a(android.graphics.Canvas):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ float e(IndicatorView indicatorView) {
         return indicatorView.d;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.l.a(com.baidu.adp.widget.l):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.a():void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ float f(IndicatorView indicatorView) {
         return indicatorView.e;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.l.a(int, int):void, com.baidu.adp.widget.l.a(android.graphics.Canvas):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.a(int):int, com.baidu.adp.widget.m.a(int, int):void, com.baidu.adp.widget.m.a(android.graphics.Canvas):void, com.baidu.adp.widget.m.b(int):int] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ Drawable a(IndicatorView indicatorView) {
         return indicatorView.f;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.l.a(int, int):void, com.baidu.adp.widget.l.a(android.graphics.Canvas):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.m.a(int):int, com.baidu.adp.widget.m.a(int, int):void, com.baidu.adp.widget.m.a(android.graphics.Canvas):void, com.baidu.adp.widget.m.b(int):int] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ Drawable b(IndicatorView indicatorView) {
         return indicatorView.g;
@@ -84,7 +84,7 @@ public class IndicatorView extends View {
 
     public IndicatorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.h = new l(this);
+        this.h = new m(this);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.adp.g.IndicatorView);
         this.b = obtainStyledAttributes.getDimensionPixelSize(0, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.c = obtainStyledAttributes.getInteger(4, 0);

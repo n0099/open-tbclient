@@ -22,7 +22,7 @@ class a implements Thread.UncaughtExceptionHandler {
         return a;
     }
 
-    private void a(long j, String str) {
+    private void a(long j, String str, String str2) {
         if (this.c == null || str == null || str.trim().equals("")) {
             return;
         }
@@ -30,6 +30,7 @@ class a implements Thread.UncaughtExceptionHandler {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("t", j);
             jSONObject.put("c", str);
+            jSONObject.put("y", str2);
             JSONArray b = b(this.c);
             if (b == null) {
                 b = new JSONArray();
@@ -39,9 +40,9 @@ class a implements Thread.UncaughtExceptionHandler {
             openFileOutput.write(b.toString().getBytes());
             openFileOutput.flush();
             openFileOutput.close();
-            com.baidu.mobstat.a.b.a("SDKCrashHandler", "Save Exception String Successlly");
+            com.baidu.mobstat.a.e.a("SDKCrashHandler", "Save Exception String Successlly");
         } catch (Exception e) {
-            com.baidu.mobstat.a.b.a("SDKCrashHandler", e);
+            com.baidu.mobstat.a.e.a("SDKCrashHandler", e);
         }
     }
 
@@ -62,7 +63,7 @@ class a implements Thread.UncaughtExceptionHandler {
             File file = new File(context.getFilesDir(), "__local_except_cache.json");
             try {
             } catch (Exception e) {
-                com.baidu.mobstat.a.b.a("SDKCrashHandler", e);
+                com.baidu.mobstat.a.e.a("SDKCrashHandler", e);
             }
             if (file.exists()) {
                 FileInputStream openFileInput = context.openFileInput("__local_except_cache.json");
@@ -80,7 +81,7 @@ class a implements Thread.UncaughtExceptionHandler {
                 try {
                     file.delete();
                 } catch (Exception e2) {
-                    com.baidu.mobstat.a.b.a("SDKCrashHandler", e2);
+                    com.baidu.mobstat.a.e.a("SDKCrashHandler", e2);
                 }
             }
         }
@@ -89,16 +90,29 @@ class a implements Thread.UncaughtExceptionHandler {
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
+        String th2 = th.toString();
+        String str = "";
+        if (th2 != null && !th2.equals("")) {
+            try {
+                str = th2.length() > 1 ? th2.split(":")[0] : th2;
+            } catch (Exception e) {
+                com.baidu.mobstat.a.e.b(e);
+                str = "";
+            }
+        }
+        if (str != null && !str.equals("")) {
+            th2 = str;
+        }
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
         th.printStackTrace(printWriter);
         printWriter.close();
         String obj = stringWriter.toString();
-        com.baidu.mobstat.a.b.a("SDKCrashHandler", obj);
-        a(System.currentTimeMillis(), obj);
-        if (this.b.equals(this)) {
-            return;
+        com.baidu.mobstat.a.e.a("SDKCrashHandler", obj);
+        a(System.currentTimeMillis(), obj, th2);
+        if (!this.b.equals(this)) {
+            this.b.uncaughtException(thread, th);
         }
-        this.b.uncaughtException(thread, th);
+        throw new RuntimeException(th);
     }
 }

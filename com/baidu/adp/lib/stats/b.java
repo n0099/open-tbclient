@@ -1,40 +1,18 @@
 package com.baidu.adp.lib.stats;
 
-import java.io.File;
-import java.util.Comparator;
+import android.content.Context;
 /* loaded from: classes.dex */
-final class b implements Comparator<File> {
-    final /* synthetic */ a a;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
-    @Override // java.util.Comparator
-    public final /* synthetic */ int compare(File file, File file2) {
-        File file3 = file;
-        File file4 = file2;
-        if (file3 != null || file4 != null) {
-            if (file3 == null && file4 != null) {
-                return 1;
-            }
-            if (file3 != null && file4 == null) {
-                return -1;
-            }
-            long lastModified = file3.lastModified() - file4.lastModified();
-            if (lastModified > 0) {
-                return 1;
-            }
-            if (lastModified < 0) {
-                return -1;
-            }
-        }
-        return 0;
+public class b extends c {
+    public b(Context context, String str) {
+        super(context, str);
+        this.h = 50;
+        this.a = "err";
+        this.b = ".log";
     }
 
-    private b(a aVar) {
-        this.a = aVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ b(a aVar, byte b) {
-        this(aVar);
+    @Override // com.baidu.adp.lib.stats.c, com.baidu.adp.lib.stats.f
+    public void a(String str) {
+        super.a(str);
+        n.a().c(this.r, this.p);
     }
 }

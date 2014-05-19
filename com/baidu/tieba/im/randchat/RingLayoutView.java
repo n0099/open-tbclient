@@ -14,7 +14,6 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
-import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class RingLayoutView extends RelativeLayout {
     private Context a;
@@ -31,6 +30,10 @@ public class RingLayoutView extends RelativeLayout {
     private ab l;
     private int m;
 
+    public HeadImageView[] getHeadImages() {
+        return this.h;
+    }
+
     public Point getCenterP() {
         return this.k;
     }
@@ -41,6 +44,10 @@ public class RingLayoutView extends RelativeLayout {
 
     public int getBottomP() {
         return this.m;
+    }
+
+    private double a(double d) {
+        return d * d;
     }
 
     public int getRadius() {
@@ -79,12 +86,12 @@ public class RingLayoutView extends RelativeLayout {
         this.a = context;
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        this.b = com.baidu.adp.lib.util.i.c(context, com.baidu.tieba.im.f.wait_chat_large_circle_radius);
-        this.c = com.baidu.adp.lib.util.i.c(context, com.baidu.tieba.im.f.wait_chat_large_circle_stroke);
+        this.b = com.baidu.adp.lib.util.h.c(context, com.baidu.tieba.p.wait_chat_large_circle_radius);
+        this.c = com.baidu.adp.lib.util.h.c(context, com.baidu.tieba.p.wait_chat_large_circle_stroke);
         this.k.x = displayMetrics.widthPixels / 2;
-        this.k.y = com.baidu.adp.lib.util.i.c(context, com.baidu.tieba.im.f.wait_chat_large_circle_margintop) + (com.baidu.adp.lib.util.i.c(context, com.baidu.tieba.im.f.wait_chat_person_circle_lheight) / 2) + com.baidu.adp.lib.util.i.c(context, com.baidu.tieba.im.f.wait_chat_large_circle_radius);
+        this.k.y = com.baidu.adp.lib.util.h.c(context, com.baidu.tieba.p.wait_chat_large_circle_margintop) + (com.baidu.adp.lib.util.h.c(context, com.baidu.tieba.p.wait_chat_person_circle_lheight) / 2) + com.baidu.adp.lib.util.h.c(context, com.baidu.tieba.p.wait_chat_large_circle_radius);
         this.e = new Paint();
-        this.e.setColor(context.getResources().getColor(com.baidu.tieba.im.e.wait_chat_large_circle_stroke_color));
+        this.e.setColor(context.getResources().getColor(com.baidu.tieba.o.wait_chat_large_circle_stroke_color));
         this.e.setStyle(Paint.Style.STROKE);
         this.e.setAntiAlias(true);
         this.e.setStrokeWidth(this.c);
@@ -103,18 +110,18 @@ public class RingLayoutView extends RelativeLayout {
         a(this.k, this.g, i);
         a(this.d);
         a(this.g);
-        this.m = this.k.y + this.b + (com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.wait_chat_person_circle_height) / 2) + com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.wait_chat_large_circle_marginbottom);
+        this.m = this.k.y + this.b + (com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.wait_chat_person_circle_height) / 2) + com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.wait_chat_large_circle_marginbottom);
     }
 
-    public final void a(c cVar) {
+    public void a(c cVar) {
         this.i.a(cVar);
     }
 
-    public final void a() {
+    public void a() {
         this.i.a();
     }
 
-    public final void b() {
+    public void b() {
         this.i.b();
     }
 
@@ -139,57 +146,61 @@ public class RingLayoutView extends RelativeLayout {
     }
 
     private void a(Point point, Point[] pointArr, int i) {
-        double d;
-        Point point2;
         if (pointArr != null && pointArr.length >= i) {
             for (int i2 = 0; i2 < i; i2++) {
                 pointArr[i2].x = (int) (this.b * Math.cos((i2 / i) * 2.0d * 3.141592653d));
                 pointArr[i2].y = (int) (this.b * Math.sin((i2 / i) * 2.0d * 3.141592653d));
             }
-            if (this.g == null || this.g.length == 0) {
-                d = 0.0d;
-            } else {
-                Point point3 = this.g[0];
-                int i3 = 0;
-                while (true) {
-                    if (i3 >= this.f) {
-                        point2 = point3;
-                        break;
-                    }
-                    if (this.g[i3].x < 0 && this.g[i3].y <= 0) {
-                        Point point4 = this.g[i3];
-                        this.d = i3;
-                        point2 = point4;
-                        break;
-                    }
-                    i3++;
-                }
-                double d2 = point2.x;
-                double d3 = point2.y + this.b;
-                double d4 = this.b;
-                d = Math.acos(((2.0d * (d4 * d4)) - ((d2 * d2) + (d3 * d3))) / ((this.b * 2) * this.b));
+            double e = e();
+            for (int i3 = 0; i3 < i; i3++) {
+                a(pointArr[i3], e);
             }
             for (int i4 = 0; i4 < i; i4++) {
-                Point point5 = pointArr[i4];
-                point5.x = (int) ((point5.x * Math.cos(d)) - (point5.y * Math.sin(d)));
-                point5.y = (int) ((point5.x * Math.sin(d)) + (point5.y * Math.cos(d)));
-            }
-            for (int i5 = 0; i5 < i; i5++) {
-                pointArr[i5].x += point.x;
-                pointArr[i5].y += point.y;
+                pointArr[i4].x += point.x;
+                pointArr[i4].y += point.y;
             }
         }
     }
 
-    public final void c() {
+    private void a(Point point, double d) {
+        point.x = (int) ((point.x * Math.cos(d)) - (point.y * Math.sin(d)));
+        point.y = (int) ((point.x * Math.sin(d)) + (point.y * Math.cos(d)));
+    }
+
+    private double e() {
+        Point point;
+        int i = 0;
+        if (this.g == null || this.g.length == 0) {
+            return 0.0d;
+        }
+        Point point2 = this.g[0];
+        while (true) {
+            if (i < this.f) {
+                if (this.g[i].x >= 0 || this.g[i].y > 0) {
+                    i++;
+                } else {
+                    Point point3 = this.g[i];
+                    this.d = i;
+                    point = point3;
+                    break;
+                }
+            } else {
+                point = point2;
+                break;
+            }
+        }
+        return Math.acos(((2.0d * a(this.b)) - (a(point.x) + a(point.y + this.b))) / ((this.b * 2) * this.b));
+    }
+
+    public void c() {
         for (int i = 0; i < this.f; i++) {
             a(i, (String) null, (e) null);
         }
     }
 
-    public final void a(int i, String str, e eVar) {
+    public void a(int i, String str, e eVar) {
         if (i >= 0 && i < this.f) {
-            this.h[i].setImageResource(com.baidu.tieba.im.g.pic_default_head);
+            this.h[i].setImageResource(com.baidu.tieba.q.pic_default_head);
             this.h[i].setTag(null);
             if (TextUtils.isEmpty(str)) {
                 a(i, this.h[i], false);
@@ -198,7 +209,7 @@ public class RingLayoutView extends RelativeLayout {
             }
             this.h[i].setTag(str);
             a(i, this.h[i], true);
-            com.baidu.adp.widget.ImageView.b d = this.l.d(str, new d(this, eVar));
+            com.baidu.adp.widget.a.a d = this.l.d(str, new d(this, eVar));
             if (d != null) {
                 this.h[i].setImageBitmap(d.h());
             }
@@ -208,16 +219,16 @@ public class RingLayoutView extends RelativeLayout {
     private void a(int i, HeadImageView headImageView, boolean z) {
         int c;
         int c2;
-        int c3 = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.head_view_circle_bg);
+        int c3 = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.head_view_circle_bg);
         if (i == 0) {
-            c = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.wait_chat_person_circle_lwidth);
+            c = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.wait_chat_person_circle_lwidth);
         } else {
-            c = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.wait_chat_person_circle_width);
+            c = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.wait_chat_person_circle_width);
         }
         if (i == 0) {
-            c2 = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.wait_chat_person_circle_lheight);
+            c2 = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.wait_chat_person_circle_lheight);
         } else {
-            c2 = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.wait_chat_person_circle_height);
+            c2 = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.wait_chat_person_circle_height);
         }
         CircleBgView circleBgView = null;
         ViewParent parent = headImageView.getParent();
@@ -251,14 +262,14 @@ public class RingLayoutView extends RelativeLayout {
         for (int i = 0; i < this.f; i++) {
             Point point = pointArr[i];
             if (i == 0) {
-                c = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.wait_chat_person_circle_lwidth);
+                c = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.wait_chat_person_circle_lwidth);
             } else {
-                c = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.wait_chat_person_circle_width);
+                c = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.wait_chat_person_circle_width);
             }
             if (i == 0) {
-                c2 = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.wait_chat_person_circle_lheight);
+                c2 = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.wait_chat_person_circle_lheight);
             } else {
-                c2 = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.wait_chat_person_circle_height);
+                c2 = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.wait_chat_person_circle_height);
             }
             CircleBgView circleBgView = new CircleBgView(this.a);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(c, c2);
@@ -278,20 +289,20 @@ public class RingLayoutView extends RelativeLayout {
             headImageView.setAutoChangeStyle(false);
             headImageView.setNightDefaultResource(-1);
             headImageView.setDefaultResource(-1);
-            headImageView.setImageResource(com.baidu.tieba.im.g.pic_default_head);
-            TbImageView.setSkinMode(0);
+            headImageView.setImageResource(com.baidu.tieba.q.pic_default_head);
+            headImageView.setIsNight(false);
             this.h[i] = headImageView;
             circleBgView.addView(headImageView);
             addView(circleBgView);
         }
         a aVar = new a(this.a);
-        int c3 = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.loading_view_width);
-        int c4 = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.loading_view_height);
+        int c3 = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.loading_view_width);
+        int c4 = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.loading_view_height);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(c3, c4);
         layoutParams3.leftMargin = this.k.x - (c3 / 2);
         layoutParams3.topMargin = this.k.y - (c4 / 2);
         aVar.setLayoutParams(layoutParams3);
-        int c5 = com.baidu.adp.lib.util.i.c(this.a, com.baidu.tieba.im.f.ds450);
+        int c5 = com.baidu.adp.lib.util.h.c(this.a, com.baidu.tieba.p.ds450);
         RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(c5, c5);
         layoutParams4.leftMargin = this.k.x - (c5 / 2);
         layoutParams4.topMargin = this.k.y - (c5 / 2);
@@ -316,7 +327,7 @@ public class RingLayoutView extends RelativeLayout {
         return this.i;
     }
 
-    public final void d() {
+    public void d() {
         if (this.i != null) {
             this.i.a();
         }

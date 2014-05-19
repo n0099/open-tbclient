@@ -1,7 +1,10 @@
 package com.baidu.tieba.im.message;
+
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import java.util.List;
 /* loaded from: classes.dex */
-public final class d extends com.baidu.adp.framework.message.a<Object> {
-    public d() {
-        super(2001115);
-    }
+public class d {
+    public String a;
+    public List<ChatMessage> b;
+    public boolean c;
 }

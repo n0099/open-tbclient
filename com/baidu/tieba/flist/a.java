@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-public final class a extends BaseAdapter {
+public class a extends BaseAdapter {
     b a;
     Activity b;
     private com.baidu.tieba.square.ab c;
@@ -18,7 +18,7 @@ public final class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final int getCount() {
+    public int getCount() {
         if (this.c == null || this.c.e == null) {
             return 0;
         }
@@ -26,7 +26,7 @@ public final class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final Object getItem(int i) {
+    public Object getItem(int i) {
         if (this.c == null || this.c.e == null) {
             return null;
         }
@@ -34,52 +34,62 @@ public final class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public final long getItemId(int i) {
+    public long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
-        b bVar;
+    public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = this.b.getLayoutInflater().inflate(com.baidu.tieba.a.i.forum_list_dir_menu_item, (ViewGroup) null);
-            this.a = new b(this);
-            this.a.a = (ImageView) view.findViewById(com.baidu.tieba.a.h.menu_choose);
-            this.a.b = (TextView) view.findViewById(com.baidu.tieba.a.h.menu_name);
-            view.setTag(this.a);
+            view = b();
         }
         if (this.c != null) {
             com.baidu.tieba.square.ab abVar = this.c.e.get(i);
             this.a = (b) view.getTag();
-            if (abVar != null && (bVar = this.a) != null && abVar != null) {
-                bVar.b.setText("");
-                if (i == 0) {
-                    bVar.b.setText(String.valueOf(this.b.getString(com.baidu.tieba.a.k.forum_list_menu_all)) + abVar.b);
-                } else {
-                    bVar.b.setText(abVar.b);
-                }
-                if (i != this.d) {
-                    bVar.a.setVisibility(4);
-                    bVar.b.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.forum_list_menu_notselected));
-                } else {
-                    bVar.a.setVisibility(0);
-                    bVar.b.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.forum_list_menu_selected));
-                }
+            if (abVar != null) {
+                a(this.a, abVar, view, i);
             }
         }
         return view;
     }
 
-    public final void a(int i) {
+    public void a(int i) {
         this.d = i;
         notifyDataSetChanged();
     }
 
-    public final void a(com.baidu.tieba.square.ab abVar) {
+    public void a(com.baidu.tieba.square.ab abVar) {
         this.c = abVar;
     }
 
-    public final com.baidu.tieba.square.ab a() {
+    public com.baidu.tieba.square.ab a() {
         return this.c;
+    }
+
+    private View b() {
+        View inflate = this.b.getLayoutInflater().inflate(com.baidu.tieba.s.forum_list_dir_menu_item, (ViewGroup) null);
+        this.a = new b(this);
+        this.a.a = (ImageView) inflate.findViewById(com.baidu.tieba.r.menu_choose);
+        this.a.b = (TextView) inflate.findViewById(com.baidu.tieba.r.menu_name);
+        inflate.setTag(this.a);
+        return inflate;
+    }
+
+    private void a(b bVar, com.baidu.tieba.square.ab abVar, View view, int i) {
+        if (bVar != null && abVar != null) {
+            bVar.b.setText("");
+            if (i == 0) {
+                bVar.b.setText(String.valueOf(this.b.getString(com.baidu.tieba.u.forum_list_menu_all)) + abVar.b);
+            } else {
+                bVar.b.setText(abVar.b);
+            }
+            if (i != this.d) {
+                bVar.a.setVisibility(4);
+                bVar.b.setTextColor(this.b.getResources().getColor(com.baidu.tieba.o.forum_list_menu_notselected));
+                return;
+            }
+            bVar.a.setVisibility(0);
+            bVar.b.setTextColor(this.b.getResources().getColor(com.baidu.tieba.o.forum_list_menu_selected));
+        }
     }
 }

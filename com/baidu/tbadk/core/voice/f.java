@@ -1,8 +1,9 @@
 package com.baidu.tbadk.core.voice;
 
 import android.os.Handler;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public final class f {
+public class f {
     private static h b;
     private static String c;
     private static l d;
@@ -13,7 +14,7 @@ public final class f {
     public static boolean a(String str, int i, l lVar) {
         long currentTimeMillis = System.currentTimeMillis() - e;
         if (currentTimeMillis < 1000) {
-            com.baidu.adp.lib.util.f.d("----start duration......" + currentTimeMillis);
+            BdLog.i("----start duration......" + currentTimeMillis);
             return false;
         }
         e = System.currentTimeMillis();
@@ -25,18 +26,18 @@ public final class f {
             d = lVar;
             if (b.a(str, i)) {
                 a = 3;
-                com.baidu.adp.lib.util.f.d("----start record......");
+                BdLog.i("----start record......");
                 new Thread(b).start();
                 return true;
             }
             return false;
         }
-        com.baidu.adp.lib.util.f.d("----start record state......" + a);
+        BdLog.i("----start record state......" + a);
         return false;
     }
 
     public static void a() {
-        com.baidu.adp.lib.util.f.d("----stop record......");
+        BdLog.i("----stop record......");
         if (b != null) {
             b.a();
         }
@@ -44,7 +45,7 @@ public final class f {
     }
 
     public static void b() {
-        com.baidu.adp.lib.util.f.d("----cancel record......");
+        BdLog.i("----cancel record......");
         if (b != null) {
             b.b();
         }

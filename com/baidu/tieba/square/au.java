@@ -1,6 +1,6 @@
 package com.baidu.tieba.square;
 /* loaded from: classes.dex */
-public final class au extends com.baidu.adp.a.e {
+public class au extends com.baidu.adp.base.d {
     private aq b;
     private aw a = null;
     private av c = null;
@@ -14,37 +14,37 @@ public final class au extends com.baidu.adp.a.e {
         this.b = new aq();
     }
 
-    public final long a() {
+    public long a() {
         return this.g;
     }
 
-    public final long b() {
+    public long b() {
         return this.e;
     }
 
-    public final long c() {
+    public long c() {
         return this.f;
     }
 
-    public final long d() {
+    public long d() {
         return this.d;
     }
 
-    public final aq e() {
+    public aq e() {
         return this.b;
     }
 
-    public final void a(av avVar) {
+    public void a(av avVar) {
         this.c = avVar;
     }
 
-    @Override // com.baidu.adp.a.e
-    protected final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();
             return false;
@@ -52,7 +52,15 @@ public final class au extends com.baidu.adp.a.e {
         return false;
     }
 
-    public final boolean a(int i) {
+    public boolean f() {
+        return a(1);
+    }
+
+    public boolean g() {
+        return a(0);
+    }
+
+    public boolean a(int i) {
         if (this.a != null) {
             return false;
         }

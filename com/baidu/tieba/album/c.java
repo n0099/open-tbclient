@@ -6,7 +6,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
-final class c implements View.OnClickListener {
+class c implements View.OnClickListener {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ final class c implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         h hVar;
         h hVar2;
         int i;
@@ -52,7 +52,7 @@ final class c implements View.OnClickListener {
                             if (albumActivity5.b(a)) {
                                 b bVar = this.a;
                                 imageView3 = this.a.l;
-                                b.a(imageView3, false);
+                                bVar.a(imageView3, false);
                                 albumActivity6 = this.a.b;
                                 i4 = this.a.j;
                                 albumActivity6.a(i4, false);
@@ -64,12 +64,12 @@ final class c implements View.OnClickListener {
                         if (albumActivity2.a(a)) {
                             b bVar2 = this.a;
                             imageView = this.a.l;
-                            b.a(imageView, true);
+                            bVar2.a(imageView, true);
                             albumActivity3 = this.a.b;
                             i3 = this.a.j;
                             albumActivity3.a(i3, true);
                             albumActivity4 = this.a.b;
-                            Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4, com.baidu.tieba.a.b.album_choose_icon);
+                            Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4, com.baidu.tieba.l.album_choose_icon);
                             imageView2 = this.a.l;
                             imageView2.startAnimation(loadAnimation);
                         }

@@ -2,7 +2,7 @@ package com.baidu.tieba.editortool;
 
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-final class ak implements al {
+class ak implements al {
     final /* synthetic */ PrivilegeTabHost a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ final class ak implements al {
     }
 
     @Override // com.baidu.tieba.editortool.al
-    public final void a() {
+    public void a(ag agVar) {
         PrivilegeTabWidgetView privilegeTabWidgetView;
         PrivilegeTabWidgetView privilegeTabWidgetView2;
         ArrayList<ag> arrayList;
@@ -19,7 +19,7 @@ final class ak implements al {
         int i;
         int i2;
         ArrayList arrayList3;
-        this.a.d.setVisibility(8);
+        this.a.d();
         privilegeTabWidgetView = this.a.c;
         privilegeTabWidgetView.a();
         privilegeTabWidgetView2 = this.a.c;
@@ -29,7 +29,7 @@ final class ak implements al {
         int size = arrayList2.size();
         for (int i3 = 0; i3 < size; i3++) {
             arrayList3 = this.a.e;
-            this.a.c.a(((ag) arrayList3.get(i3)).c());
+            this.a.a(((ag) arrayList3.get(i3)).c());
         }
         i = this.a.f;
         if (i < 0) {
@@ -42,12 +42,12 @@ final class ak implements al {
     }
 
     @Override // com.baidu.tieba.editortool.al
-    public final void b() {
-        this.a.d.setVisibility(0);
+    public void a() {
+        this.a.c();
     }
 
     @Override // com.baidu.tieba.editortool.al
-    public final void c() {
-        this.a.d.setVisibility(8);
+    public void b() {
+        this.a.d();
     }
 }

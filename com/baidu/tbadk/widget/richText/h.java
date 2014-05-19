@@ -6,7 +6,7 @@ import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
 /* loaded from: classes.dex */
-public final class h extends ClickableSpan {
+public class h extends ClickableSpan {
     private Context a;
     private int b;
     private String c;
@@ -21,18 +21,18 @@ public final class h extends ClickableSpan {
         this.b = i;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.d = str;
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public final void updateDrawState(TextPaint textPaint) {
+    public void updateDrawState(TextPaint textPaint) {
         super.updateDrawState(textPaint);
         textPaint.setUnderlineText(false);
     }
 
     @Override // android.text.style.ClickableSpan
-    public final void onClick(View view) {
+    public void onClick(View view) {
         j jVar = null;
         if (this.a instanceof j) {
             jVar = (j) this.a;
@@ -40,27 +40,22 @@ public final class h extends ClickableSpan {
         if (jVar != null) {
             switch (this.b) {
                 case 2:
-                    jVar.a(this.a, this.c);
+                    jVar.b(this.a, this.c);
                     return;
                 case 16:
-                    Context context = this.a;
-                    jVar.a(this.c);
+                    jVar.a(this.a, this.c);
                     return;
-                case 32:
-                    Context context2 = this.a;
-                    jVar.b(this.c);
+                case AccessibilityNodeInfoCompat.ACTION_LONG_CLICK /* 32 */:
+                    jVar.c(this.a, this.c);
                     return;
-                case AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS /* 64 */:
-                    Context context3 = this.a;
-                    String str = this.c;
+                case 64:
+                    jVar.d(this.a, this.c);
                     return;
                 case 128:
-                    Context context4 = this.a;
-                    jVar.c(this.c);
+                    jVar.e(this.a, this.c);
                     return;
                 case 256:
-                    Context context5 = this.a;
-                    jVar.a(this.c, this.d);
+                    jVar.a(this.a, this.c, this.d);
                     return;
                 default:
                     return;

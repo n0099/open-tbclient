@@ -2,11 +2,12 @@ package com.baidu.tieba.im.chat;
 
 import android.text.TextUtils;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements bv {
+public class f implements bv {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,7 +22,7 @@ public final class f implements bv {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void a(ArrayList<String> arrayList) {
+    public void a(ArrayList<String> arrayList) {
         ArrayList arrayList2;
         ArrayList arrayList3;
         ArrayList arrayList4;
@@ -66,7 +67,7 @@ public final class f implements bv {
         }
         StringBuilder sb = new StringBuilder("get img curUrl:");
         str = this.a.r;
-        com.baidu.adp.lib.util.f.e(sb.append(str).toString());
+        BdLog.d(sb.append(str).toString());
         str2 = this.a.r;
         str3 = this.a.r;
         String substring = str2.substring(str3.lastIndexOf("/"));
@@ -79,10 +80,10 @@ public final class f implements bv {
             arrayList7 = this.a.b;
             String str6 = (String) arrayList7.get(i3);
             if (!TextUtils.isEmpty(str6)) {
-                com.baidu.adp.lib.util.f.e("get img url :" + str6);
+                BdLog.d("get img url :" + str6);
                 String substring2 = str6.substring(str6.lastIndexOf("/"));
                 if (!TextUtils.isEmpty(substring) && !TextUtils.isEmpty(substring2) && substring2.equals(substring)) {
-                    com.baidu.adp.lib.util.f.e("get img idx:" + i3);
+                    BdLog.d("get img idx:" + i3);
                     this.a.c = i3;
                     z = true;
                     break;
@@ -100,7 +101,7 @@ public final class f implements bv {
         }
         textView = this.a.h;
         textView.setVisibility(0);
-        a.l(this.a);
+        this.a.b();
         multiImageView = this.a.j;
         multiImageView.setIsFromCDN(true);
         multiImageView2 = this.a.j;

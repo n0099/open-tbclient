@@ -2,9 +2,9 @@ package com.baidu.tieba.account.forbid;
 
 import android.view.View;
 import android.widget.RadioGroup;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 /* loaded from: classes.dex */
-final class a implements View.OnClickListener {
+class a implements View.OnClickListener {
     final /* synthetic */ ForbidActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ final class a implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         e eVar;
         e eVar2;
         RadioGroup radioGroup;
@@ -25,7 +25,7 @@ final class a implements View.OnClickListener {
         eVar = this.a.j;
         if (eVar != null) {
             eVar2 = this.a.j;
-            if (!bc.c(eVar2.a())) {
+            if (!be.c(eVar2.a())) {
                 ForbidActivity forbidActivity = this.a;
                 radioGroup = this.a.b;
                 str = this.a.c;

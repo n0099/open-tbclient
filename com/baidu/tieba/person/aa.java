@@ -4,10 +4,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 import com.baidu.tieba.view.CommonImageLayout;
 import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public final class aa {
+public class aa {
     public LinearLayout a;
     public RelativeLayout b;
     public TextView c;
@@ -24,4 +25,6 @@ public final class aa {
     public boolean n;
     public UserIconBox o;
     public UserIconBox p = null;
+    public LinearLayout q;
+    public LiveBroadcastCard r;
 }

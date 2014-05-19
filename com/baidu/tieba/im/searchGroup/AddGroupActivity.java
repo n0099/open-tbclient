@@ -6,64 +6,56 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.tbadk.core.b.o;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.q;
 import com.baidu.tbadk.core.data.BaseGroupData;
-import com.baidu.tieba.im.model.bq;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tieba.im.model.bv;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class AddGroupActivity extends com.baidu.tbadk.a {
+public class AddGroupActivity extends BaseActivity {
     private b a = null;
-    private bq b = null;
-    private com.baidu.adp.framework.c.g c = new a(this, 103007);
+    private bv b = null;
+    private com.baidu.adp.framework.listener.b c = new a(this, MessageTypes.CMD_REQUEST_SEARCH_GROUP);
 
     public static void a(Activity activity) {
         activity.startActivity(new Intent(activity, AddGroupActivity.class));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         getIntent();
         this.a = new b(this);
-        this.b = new bq();
+        this.b = new bv();
         registerListener(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.a.a(i);
     }
 
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.a.e()) {
+        if (view == this.a.c()) {
             finish();
-        } else if (view == this.a.d()) {
+        } else if (view == this.a.b()) {
             com.baidu.tbadk.core.g.a(this, "add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
-                String str = (String) view.getTag();
-                if (TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str)) {
-                    showToast(com.baidu.tieba.im.j.please_input_groupid);
-                    return;
-                }
-                try {
-                    this.a.a(true);
-                    this.b.a(Integer.parseInt(str));
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                    this.a.a(false);
-                    showToast(com.baidu.tieba.im.j.groupid_error);
-                }
+                a((String) view.getTag());
             }
         } else if (view == this.a.a()) {
-            this.a.f();
+            this.a.d();
         }
     }
 
-    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4 && keyEvent.getRepeatCount() == 0) {
             finish();
@@ -72,7 +64,7 @@ public class AddGroupActivity extends com.baidu.tbadk.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
@@ -81,20 +73,40 @@ public class AddGroupActivity extends com.baidu.tbadk.a {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(AddGroupActivity addGroupActivity, BaseGroupData baseGroupData) {
+    public void a(String str) {
+        if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
+            try {
+                this.a.a(true);
+                this.b.a(Integer.parseInt(str));
+                return;
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                this.a.a(false);
+                showToast(u.groupid_error);
+                return;
+            }
+        }
+        showToast(u.please_input_groupid);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        showToast(u.add_group_toast_noresult);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(BaseGroupData baseGroupData) {
         if (baseGroupData != null) {
-            addGroupActivity.sendMessage(new com.baidu.adp.framework.message.a(2008011, new o(addGroupActivity, baseGroupData.getGroupId(), 0)));
+            sendMessage(new CustomMessage(2010011, new q(this, baseGroupData.getGroupId(), 0)));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(AddGroupActivity addGroupActivity, String str, int i) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str, int i) {
         if (i < 0) {
-            addGroupActivity.showToast(com.baidu.tieba.im.j.neterror);
-        } else if (TextUtils.isEmpty(str)) {
-        } else {
-            addGroupActivity.showToast(str);
+            showToast(u.neterror);
+        } else if (!TextUtils.isEmpty(str)) {
+            showToast(str);
         }
     }
 }

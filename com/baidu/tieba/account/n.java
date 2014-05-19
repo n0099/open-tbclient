@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-final class n implements Runnable {
+class n implements Runnable {
     final /* synthetic */ ActivationActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ final class n implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         int i;
         int i2;
         int i3;
@@ -30,7 +30,7 @@ final class n implements Runnable {
         if (i2 <= 0) {
             this.a.o = true;
             textView2 = this.a.h;
-            textView2.setText(this.a.getString(com.baidu.tieba.a.k.resend_code));
+            textView2.setText(this.a.getString(com.baidu.tieba.u.resend_code));
             rVar = this.a.n;
             if (rVar == null) {
                 relativeLayout = this.a.l;
@@ -39,7 +39,7 @@ final class n implements Runnable {
             }
             return;
         }
-        String string = this.a.getString(com.baidu.tieba.a.k.resend_code_second);
+        String string = this.a.getString(com.baidu.tieba.u.resend_code_second);
         i3 = this.a.p;
         String format = String.format(string, Integer.valueOf(i3));
         textView = this.a.h;

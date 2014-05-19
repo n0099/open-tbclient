@@ -1,52 +1,53 @@
 package com.baidu.tieba.signall;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class p {
+public class p {
     private int a;
     private String b;
     private int c;
     private String d;
-    private com.baidu.tieba.home.q e = new com.baidu.tieba.home.q();
+    private com.baidu.tieba.home.r e = new com.baidu.tieba.home.r();
     private ArrayList<q> f = new ArrayList<>();
 
-    public final int a() {
+    public int a() {
         return this.a;
     }
 
-    public final String b() {
+    public String b() {
         return this.b;
     }
 
-    public final com.baidu.tieba.home.q c() {
+    public com.baidu.tieba.home.r c() {
         return this.e;
     }
 
-    public final ArrayList<q> d() {
+    public ArrayList<q> d() {
         return this.f;
     }
 
-    public final int e() {
+    public int e() {
         return this.c;
     }
 
-    public final String f() {
+    public String f() {
         return this.d;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         if (str != null) {
             try {
                 a(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
 
-    public final void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.e.a(jSONObject.optJSONObject("error"));
@@ -65,7 +66,7 @@ public final class p {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.dialog;
 
 import android.view.View;
 /* loaded from: classes.dex */
-final class b implements View.OnClickListener {
+class b implements View.OnClickListener {
     final /* synthetic */ a a;
     private final a b;
     private final c c;
@@ -14,7 +14,7 @@ final class b implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         if (this.c != null) {
             this.c.onClick(this.b);
         }

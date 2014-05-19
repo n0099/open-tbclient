@@ -3,8 +3,9 @@ package com.baidu.tbadk.motu_gallery;
 import android.os.Handler;
 import android.os.Message;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-final class e implements Handler.Callback {
+class e implements Handler.Callback {
     final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +14,7 @@ final class e implements Handler.Callback {
     }
 
     @Override // android.os.Handler.Callback
-    public final boolean handleMessage(Message message) {
+    public boolean handleMessage(Message message) {
         m mVar;
         m mVar2;
         k kVar;
@@ -25,7 +26,7 @@ final class e implements Handler.Callback {
         switch (message.what) {
             case 1:
                 kVar3 = this.a.i;
-                kVar3.a(null);
+                kVar3.a((List<c>) null);
                 kVar4 = this.a.i;
                 kVar4.notifyDataSetChanged();
                 runnable = this.a.w;

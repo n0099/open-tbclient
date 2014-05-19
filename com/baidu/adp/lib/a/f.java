@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
-public final class f {
+public class f {
     private static f a = null;
     private HashMap<String, e> b;
 
@@ -24,19 +24,19 @@ public final class f {
         return fVar;
     }
 
-    public final void a(c cVar) {
+    public void a(c cVar) {
         if (cVar != null && !this.b.containsKey(cVar.a())) {
             this.b.put(cVar.a(), new e(cVar));
         }
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         Iterator<e> it = this.b.values().iterator();
         while (it.hasNext() && !it.next().a(str)) {
         }
     }
 
-    public final boolean a(String str, int i) {
+    public boolean a(String str, int i) {
         e eVar;
         if (i >= 0 && (eVar = this.b.get(str)) != null) {
             return eVar.a(i);
@@ -44,21 +44,21 @@ public final class f {
         return false;
     }
 
-    public final int b(String str) {
+    public int b(String str) {
         e eVar = this.b.get(str);
         if (eVar != null) {
-            return eVar.a();
+            return eVar.b();
         }
         return -1;
     }
 
-    public final void b() {
+    public void b() {
         for (e eVar : this.b.values()) {
-            eVar.b();
+            eVar.c();
         }
     }
 
-    public static void a(Class<?> cls) {
+    public void a(Class<?> cls) {
         try {
             cls.newInstance();
         } catch (IllegalAccessException e) {
@@ -68,7 +68,7 @@ public final class f {
         }
     }
 
-    public final void a(HashMap<String, Integer> hashMap) {
+    public void a(HashMap<String, Integer> hashMap) {
         if (hashMap != null && hashMap.size() > 0) {
             for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
                 a(entry.getKey(), entry.getValue().intValue());

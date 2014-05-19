@@ -8,7 +8,7 @@ public final class EmailDoCoMoResultParser extends AbstractDoCoMoResultParser {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public final EmailAddressParsedResult parse(Result result) {
+    public EmailAddressParsedResult parse(Result result) {
         String[] matchDoCoMoPrefixedField;
         String massagedText = getMassagedText(result);
         if (massagedText.startsWith("MATMSG:") && (matchDoCoMoPrefixedField = matchDoCoMoPrefixedField("TO:", massagedText, true)) != null) {

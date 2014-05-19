@@ -1,29 +1,32 @@
 package com.baidu.tieba.person.post;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
-final class t extends a {
-    TextView g;
-    TextView h;
-    TripleTbImageView i;
-    View j;
+class t extends com.baidu.adp.framework.listener.b {
+    final /* synthetic */ s a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(View view) {
-        super(view);
-        this.g = (TextView) view.findViewById(com.baidu.tieba.a.h.title);
-        this.h = (TextView) view.findViewById(com.baidu.tieba.a.h.content);
-        this.i = (TripleTbImageView) view.findViewById(com.baidu.tieba.a.h.images);
-        this.j = view.findViewById(com.baidu.tieba.a.h.post_line);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(s sVar, int i) {
+        super(i);
+        this.a = sVar;
     }
 
-    @Override // com.baidu.tieba.person.post.a
-    public final void a(int i) {
-        super.a(i);
-        ba.a(this.g, com.baidu.tieba.a.e.cp_cont_b, 1);
-        ba.a(this.h, com.baidu.tieba.a.e.cp_cont_f, 1);
-        ba.f(this.j, com.baidu.tieba.a.e.cp_bg_line_b);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        f fVar;
+        if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
+            UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
+            if (userPostPageSocketResponsedMessage.getOrginalMessage() == null) {
+                this.a.a(null, false);
+                return;
+            }
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
+            if (userPostPageRequestMessage.isThread() && (fVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
+                fVar.a(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+            }
+        }
     }
 }

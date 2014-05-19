@@ -5,7 +5,7 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.coreExtra.view.EllipsizingTextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class u implements View.OnClickListener {
+public class u implements View.OnClickListener {
     final /* synthetic */ r a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,9 +14,9 @@ public final class u implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         EllipsizingTextView ellipsizingTextView;
-        ellipsizingTextView = this.a.n;
+        ellipsizingTextView = this.a.m;
         ellipsizingTextView.setMaxLines(LocationClientOption.MIN_SCAN_SPAN);
     }
 }

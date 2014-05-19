@@ -1,22 +1,29 @@
 package com.baidu.tieba.pb.main;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.animation.Animation;
+import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bq implements Runnable {
-    final /* synthetic */ bm a;
-    private final /* synthetic */ boolean b;
+public class bq implements Animation.AnimationListener {
+    final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(bm bmVar, boolean z) {
-        this.a = bmVar;
-        this.b = z;
+    public bq(bj bjVar) {
+        this.a = bjVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        BdListView bdListView;
-        bdListView = this.a.o;
-        bdListView.setEnabled(this.b);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        RelativeLayout relativeLayout;
+        relativeLayout = this.a.H;
+        relativeLayout.setVisibility(0);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

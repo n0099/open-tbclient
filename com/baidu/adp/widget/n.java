@@ -1,26 +1,29 @@
 package com.baidu.adp.widget;
 
-import android.database.DataSetObserver;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
-public final class n extends DataSetObserver {
-    final /* synthetic */ PinnedHeaderListView a;
+class n extends Handler {
+    final /* synthetic */ m a;
+
+    private n(m mVar) {
+        this.a = mVar;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(PinnedHeaderListView pinnedHeaderListView) {
-        this.a = pinnedHeaderListView;
+    public /* synthetic */ n(m mVar, n nVar) {
+        this(mVar);
     }
 
-    @Override // android.database.DataSetObserver
-    public final void onChanged() {
-        this.a.requestLayout();
-        this.a.invalidate();
-    }
-
-    @Override // android.database.DataSetObserver
-    public final void onInvalidated() {
-        this.a.h = -1;
-        this.a.requestLayout();
-        this.a.invalidate();
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        switch (message.what) {
+            case LocationClientOption.MIN_SCAN_SPAN /* 1000 */:
+                m.a(this.a);
+                return;
+            default:
+                return;
+        }
     }
 }

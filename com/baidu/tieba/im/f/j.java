@@ -1,18 +1,23 @@
 package com.baidu.tieba.im.f;
 
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
-final class j implements com.baidu.tieba.im.a<Void> {
-    private final /* synthetic */ ImMessageCenterPojo a;
+class j extends com.baidu.tieba.im.b<Void> {
+    private final /* synthetic */ ImMessageCenterPojo b;
+    private final /* synthetic */ LinkedHashMap c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(ImMessageCenterPojo imMessageCenterPojo) {
-        this.a = imMessageCenterPojo;
+    public j(ImMessageCenterPojo imMessageCenterPojo, LinkedHashMap linkedHashMap) {
+        this.b = imMessageCenterPojo;
+        this.c = linkedHashMap;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Void r3) {
-        com.baidu.tieba.im.db.i.a().b(this.a);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        com.baidu.tieba.im.db.h.a().a(this.b);
+        return com.baidu.tieba.im.db.c.a().a(this.c);
     }
 }

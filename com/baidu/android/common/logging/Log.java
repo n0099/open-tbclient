@@ -80,18 +80,18 @@ public final class Log {
                     } else if (readLine2.startsWith("Name:")) {
                         int indexOf = readLine2.indexOf("\t");
                         if (indexOf >= 0) {
-                            bufferedReader = bufferedReader3;
                             str = readLine2.substring(indexOf + 1);
+                            bufferedReader = bufferedReader3;
                         }
                     } else {
                         readLine2 = bufferedReader3.readLine();
                     }
                 }
-                bufferedReader = bufferedReader3;
                 str = "";
+                bufferedReader = bufferedReader3;
             } else {
-                bufferedReader = bufferedReader2;
                 str = readLine.substring(0, readLine.indexOf(0));
+                bufferedReader = bufferedReader2;
             }
         } catch (Exception e2) {
             str = "";
@@ -132,14 +132,13 @@ public final class Log {
 
     public static void setLog2File(boolean z) {
         sLog2File = z;
-        if (z && sFilelogger == null) {
+        if (sLog2File && sFilelogger == null) {
             String logFileName = getLogFileName();
             try {
                 FileHandler fileHandler = new FileHandler(new File(Environment.getExternalStorageDirectory(), logFileName).getAbsolutePath() + "_%g.log", FILE_LIMETE, 2, true);
                 fileHandler.setFormatter(new SimpleFormatter());
-                Logger logger = Logger.getLogger(logFileName);
-                sFilelogger = logger;
-                logger.setLevel(Level.ALL);
+                sFilelogger = Logger.getLogger(logFileName);
+                sFilelogger.setLevel(Level.ALL);
                 sFilelogger.addHandler(fileHandler);
             } catch (IOException e) {
                 e.printStackTrace();

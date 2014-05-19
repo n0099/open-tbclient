@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ah implements View.OnLongClickListener {
+public class ah implements View.OnLongClickListener {
     final /* synthetic */ PhotoWallView a;
     private final /* synthetic */ PhotoUrlData b;
     private final /* synthetic */ int c;
@@ -17,13 +17,13 @@ public final class ah implements View.OnLongClickListener {
     }
 
     @Override // android.view.View.OnLongClickListener
-    public final boolean onLongClick(View view) {
+    public boolean onLongClick(View view) {
         af afVar;
         af afVar2;
         afVar = this.a.l;
         if (afVar != null) {
             afVar2 = this.a.l;
-            afVar2.a(this.b, this.c);
+            afVar2.a(view, this.b, this.c);
             return true;
         }
         return true;

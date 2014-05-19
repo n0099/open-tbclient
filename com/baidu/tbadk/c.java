@@ -1,23 +1,23 @@
 package com.baidu.tbadk;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import com.baidu.bdcvf.CertVerifier;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements Runnable {
-    final /* synthetic */ a a;
-    private View b;
+public class c implements CertVerifier.ResultListener {
+    final /* synthetic */ TbadkApplication a;
 
-    public c(a aVar, View view) {
-        this.a = aVar;
-        this.b = null;
-        this.b = view;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(TbadkApplication tbadkApplication) {
+        this.a = tbadkApplication;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        if (!this.a.isFinishing()) {
-            this.a.ShowSoftKeyPad((InputMethodManager) this.a.getSystemService("input_method"), this.b);
-        }
+    @Override // com.baidu.bdcvf.CertVerifier.ResultListener
+    public void onVerifyOK() {
+        this.a.mIsOfficial = true;
+    }
+
+    @Override // com.baidu.bdcvf.CertVerifier.ResultListener
+    public void onVerifyFail(int i) {
+        this.a.mIsOfficial = false;
     }
 }

@@ -1,57 +1,61 @@
 package com.baidu.tieba.signall;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public final class c extends com.baidu.adp.a.e {
-    private static final String d = String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/f/forum/getforumlist";
+public class c extends com.baidu.adp.base.d {
+    private static final String d = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/getforumlist";
     private a a;
     private HttpMessage c;
     private e b = null;
-    private com.baidu.adp.framework.c.b e = new d(this, 1003001);
+    private HttpMessageListener e = new d(this, 1004001);
 
     public c() {
         this.a = null;
-        com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
+        MessageManager messageManager = MessageManager.getInstance();
         this.a = new a();
-        com.baidu.tbadk.c.b bVar = new com.baidu.tbadk.c.b(1003001, d);
-        bVar.d(true);
-        bVar.a(GetForumResponsed.class);
-        a.a(bVar);
-        a.a(this.e);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1004001, d);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);
+        messageManager.registerTask(tbHttpMessageTask);
+        messageManager.registerListener(this.e);
     }
 
-    public final void a(e eVar) {
+    public void a(e eVar) {
         this.b = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.a.e
-    public final boolean LoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean LoadData() {
         if (this.c != null) {
             return false;
         }
-        this.c = new HttpMessage(1003001);
-        AccountData N = TbadkApplication.N();
+        this.c = new HttpMessage(1004001);
+        AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str = null;
-        if (N != null) {
-            str = N.getID();
+        if (currentAccountObj != null) {
+            str = currentAccountObj.getID();
         }
-        this.c.a("user_id", str);
-        this.c.b(1003001);
-        com.baidu.adp.framework.c.a().a(this.c);
+        this.c.addParam(com.baidu.tbadk.core.frameworkData.a.USER_ID, str);
+        this.c.setTag(1004001);
+        MessageManager.getInstance().sendMessage(this.c);
         return true;
     }
 
-    @Override // com.baidu.adp.a.e
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.base.d
+    public boolean cancelLoadData() {
         if (this.c != null) {
-            com.baidu.adp.framework.c.a().b(1003001);
+            MessageManager.getInstance().removeHttpMessage(1004001);
             this.c = null;
         }
-        com.baidu.adp.framework.c.a().b(this.e);
-        com.baidu.adp.framework.c.a().e(1003001);
+        MessageManager.getInstance().unRegisterListener(this.e);
+        MessageManager.getInstance().unRegisterTask(1004001);
         return true;
     }
 }

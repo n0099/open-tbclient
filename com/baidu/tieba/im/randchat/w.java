@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.randchat;
 /* loaded from: classes.dex */
-final class w implements Runnable {
+class w implements Runnable {
     final /* synthetic */ WaittingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ final class w implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         f fVar;
         fVar = this.a.a;
         fVar.a();

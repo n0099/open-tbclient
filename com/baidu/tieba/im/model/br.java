@@ -1,25 +1,20 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.chat.PersonalChatActivity;
 /* loaded from: classes.dex */
-public final class br extends com.baidu.adp.framework.c.a {
-    final /* synthetic */ SnapGroupMsglistModel a;
+class br extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ PersonalMsglistModel b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public br(SnapGroupMsglistModel snapGroupMsglistModel, int i) {
-        super(0);
-        this.a = snapGroupMsglistModel;
+    public br(PersonalMsglistModel personalMsglistModel) {
+        this.b = personalMsglistModel;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
-        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
-        if (customResponsedMessage2 == null || customResponsedMessage2.g() != 2013002) {
-            return;
-        }
-        this.a.a((com.baidu.adp.framework.message.f<?>) customResponsedMessage2);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        com.baidu.tieba.im.db.o.d().b(PersonalChatActivity.b);
+        return null;
     }
 }

@@ -7,52 +7,50 @@ import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f extends com.baidu.adp.framework.c.g {
+public class f extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(b bVar, int i) {
-        super(0);
+        super(i);
         this.a = bVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
-    @Override // com.baidu.adp.framework.c.c
-    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         q qVar;
         q qVar2;
         com.baidu.tieba.im.mygroup.j jVar;
         q qVar3;
         q qVar4;
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
         qVar = this.a.c;
         qVar.c();
-        if (!(socketResponsedMessage2 instanceof ResponseGroupsByUidMessage) || this.a.getActivity() == null) {
-            return;
-        }
-        qVar2 = this.a.c;
-        if (qVar2 != null) {
-            jVar = this.a.e;
-            if (jVar == null) {
-                return;
-            }
-            ResponseGroupsByUidMessage responseGroupsByUidMessage = (ResponseGroupsByUidMessage) socketResponsedMessage2;
-            if (responseGroupsByUidMessage.e() != 0) {
-                if (responseGroupsByUidMessage.e() == 0 || TextUtils.isEmpty(responseGroupsByUidMessage.f())) {
-                    return;
+        if ((socketResponsedMessage instanceof ResponseGroupsByUidMessage) && this.a.getActivity() != null) {
+            qVar2 = this.a.c;
+            if (qVar2 != null) {
+                jVar = this.a.e;
+                if (jVar != null) {
+                    ResponseGroupsByUidMessage responseGroupsByUidMessage = (ResponseGroupsByUidMessage) socketResponsedMessage;
+                    if (responseGroupsByUidMessage.getError() != 0) {
+                        if (responseGroupsByUidMessage.getError() != 0 && !TextUtils.isEmpty(responseGroupsByUidMessage.getErrorString())) {
+                            this.a.b(responseGroupsByUidMessage.getErrorString());
+                            return;
+                        }
+                        return;
+                    }
+                    List<GroupInfoData> groups = responseGroupsByUidMessage.getGroups();
+                    if (groups != null) {
+                        qVar3 = this.a.c;
+                        qVar3.a().a(groups);
+                        qVar4 = this.a.c;
+                        qVar4.a().notifyDataSetChanged();
+                    }
+                    this.a.b = false;
                 }
-                this.a.a(responseGroupsByUidMessage.f());
-                return;
             }
-            List<GroupInfoData> d = responseGroupsByUidMessage.d();
-            if (d != null) {
-                qVar3 = this.a.c;
-                qVar3.a().a(d);
-                qVar4 = this.a.c;
-                qVar4.a().notifyDataSetChanged();
-            }
-            this.a.b = false;
         }
     }
 }

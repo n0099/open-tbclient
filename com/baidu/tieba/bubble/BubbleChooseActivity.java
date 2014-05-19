@@ -3,43 +3,53 @@ package com.baidu.tieba.bubble;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.lib.util.h;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.TbWebViewActivity;
-import com.baidu.tbadk.core.data.n;
-import com.baidu.tieba.a.k;
+import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tieba.data.BubbleListData;
 import com.baidu.tieba.model.f;
 import com.baidu.tieba.model.i;
 import com.baidu.tieba.model.j;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class BubbleChooseActivity extends com.baidu.tbadk.a {
+public class BubbleChooseActivity extends BaseActivity {
     private e b;
     private f c;
     private final int d = 0;
     private final int e = 50;
     private i f = new a(this);
     private j g = new b(this);
-    public com.baidu.adp.framework.c.a a = new c(this, 2010040);
+    public CustomMessageListener a = new c(this, CmdConfig.BUBBLE_LIST_REFRESH);
 
     static {
-        TbadkApplication.j().a(com.baidu.tbadk.core.b.d.class, BubbleChooseActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.e.class, BubbleChooseActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        a();
+        b();
+        d();
+    }
+
+    private void a() {
         this.c = new f();
         this.c.a(this.f);
         this.c.a(this.g);
-        f fVar = this.c;
-        com.baidu.adp.framework.c.a().a(this.a);
-        this.c.c();
-        this.c.d();
+        this.c.a(this.a);
+        c();
+    }
+
+    private void b() {
         this.b = new e(this);
-        this.b.e().setOnItemClickListener(this);
-        this.b.f();
-        a();
+        this.b.c().setOnItemClickListener(this);
+        this.b.d();
     }
 
     @Override // android.app.Activity
@@ -47,55 +57,57 @@ public class BubbleChooseActivity extends com.baidu.tbadk.a {
         super.onSaveInstanceState(bundle);
     }
 
+    private void c() {
+        this.c.c();
+        this.c.d();
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        f fVar = this.c;
-        f.a(0, 50, com.baidu.adp.lib.util.i.b(this), com.baidu.adp.lib.util.i.c(this));
+    public void d() {
+        this.c.a(0, 50, h.b(this), h.c(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.c != null) {
             this.c.e();
         }
-        f fVar = this.c;
-        com.baidu.adp.framework.c.a().b(this.a);
+        this.c.b(this.a);
     }
 
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.b.d()) {
-            TbWebViewActivity.b(this, getString(k.web_title_bubble_explain), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanrights?type=1&_client_version=" + n.c());
+        if (view == this.b.b()) {
+            TbWebViewActivity.b(this, getString(u.web_title_bubble_explain), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.a
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.b.b(i);
     }
 
-    @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         BubbleListData.BubbleData a;
         super.onItemClick(adapterView, view, i, j);
-        if (adapterView == this.b.e() && view != null && (view instanceof com.baidu.tieba.view.a) && (a = this.b.a(i)) != null) {
+        if (adapterView == this.b.c() && view != null && (view instanceof com.baidu.tieba.view.a) && (a = this.b.a(i)) != null) {
             if (a.getBcode() == 0 || a.canUse() || a.isFree()) {
                 if (!a.isDef()) {
                     this.c.a(a.getBcode());
-                    f fVar = this.c;
-                    f.a(a.getBcode(), com.baidu.adp.lib.util.i.b(this), com.baidu.adp.lib.util.i.c(this));
-                    this.b.f();
+                    this.c.a(a.getBcode(), h.b(this), h.c(this));
+                    this.b.d();
                     return;
                 }
                 return;
             }
             this.c.b(a.getBcode());
-            TbWebViewActivity.b(this, getString(k.web_title_bubble_purchase), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeantshow?_client_version=" + n.c());
+            TbWebViewActivity.b(this, getString(u.web_title_bubble_purchase), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeantshow?_client_version=" + TbConfig.getVersion());
         }
     }
 }

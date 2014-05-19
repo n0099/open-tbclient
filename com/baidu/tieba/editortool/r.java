@@ -5,7 +5,7 @@ import android.widget.FrameLayout;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
-final class r implements View.OnClickListener {
+class r implements View.OnClickListener {
     final /* synthetic */ o a;
     private final /* synthetic */ FrameLayout b;
 
@@ -16,7 +16,7 @@ final class r implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    public void onClick(View view) {
         EditorToolComponetContainer editorToolComponetContainer;
         EditorToolComponetContainer editorToolComponetContainer2;
         EditorToolComponetContainer editorToolComponetContainer3;
@@ -41,7 +41,7 @@ final class r implements View.OnClickListener {
             writeImagesInfo = editorToolComponetContainer4.s;
             ImageFileInfo remove = writeImagesInfo.getChosedFiles().remove(a);
             if (remove.isTempFile()) {
-                new s(this.a, remove.getFilePath()).execute(new Void[0]);
+                this.a.a(remove.getFilePath());
             }
             editorToolComponetContainer5 = this.a.a;
             int maxItemNum = editorToolComponetContainer5.i.getMaxItemNum();
@@ -49,7 +49,7 @@ final class r implements View.OnClickListener {
             writeImagesInfo2 = editorToolComponetContainer6.s;
             int size = writeImagesInfo2.size();
             editorToolComponetContainer7 = this.a.a;
-            String string = editorToolComponetContainer7.getResources().getString(com.baidu.tieba.a.k.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
+            String string = editorToolComponetContainer7.getResources().getString(com.baidu.tieba.u.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
             editorToolComponetContainer8 = this.a.a;
             editorToolComponetContainer8.j.setText(string);
             editorToolComponetContainer9 = this.a.a;

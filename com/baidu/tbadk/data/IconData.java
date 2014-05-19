@@ -1,8 +1,10 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
+import tbclient.Icon;
+import tbclient.TshowInfo;
 /* loaded from: classes.dex */
 public class IconData implements Serializable {
     public static String meizhi_icon_name = "meizhi_level";
@@ -54,8 +56,24 @@ public class IconData implements Serializable {
                 this.name = jSONObject.optString("name");
                 this.url = jSONObject.optString("url");
             } catch (Exception e) {
-                f.b(getClass().getName(), "parserJson", "error=" + e.toString());
+                BdLog.e(getClass().getName(), "parserJson", "error=" + e.toString());
             }
+        }
+    }
+
+    public void parserProtobuf(Icon icon) {
+        if (icon != null) {
+            this.icon = icon.icon;
+            this.name = icon.name;
+            this.url = icon.url;
+        }
+    }
+
+    public void parserProtobuf(TshowInfo tshowInfo) {
+        if (tshowInfo != null) {
+            this.icon = tshowInfo.icon;
+            this.name = tshowInfo.name;
+            this.url = tshowInfo.url;
         }
     }
 }

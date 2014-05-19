@@ -1,12 +1,13 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.AntiData;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class u {
+public class u {
     private String a;
     private String b;
     private int c;
@@ -36,35 +37,35 @@ public final class u {
         this.d = new AntiData();
     }
 
-    public final boolean a() {
+    public boolean a() {
         return this.c > 0 && this.c <= this.f.size();
     }
 
-    public final boolean b() {
+    public boolean b() {
         return (this.g == null || this.g.length() == 0 || this.h == null || this.h.length() == 0) ? false : true;
     }
 
-    public final void a(String str) {
+    public void a(String str) {
         this.i = str;
     }
 
-    public final void b(String str) {
+    public void b(String str) {
         this.j = str;
     }
 
-    public final String c() {
+    public String c() {
         return this.i;
     }
 
-    public final String d() {
+    public String d() {
         return this.j;
     }
 
-    public final String e() {
+    public String e() {
         return this.g;
     }
 
-    public final String f() {
+    public String f() {
         return this.h;
     }
 
@@ -84,42 +85,42 @@ public final class u {
         this.d = new AntiData();
     }
 
-    public final void a(String str, boolean z) {
+    public void a(String str, boolean z) {
         try {
-            a(new JSONObject(str), (Boolean) true);
+            a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "paserJson", e.toString());
+            BdLog.e(getClass().getName(), "paserJson", e.toString());
         }
     }
 
-    public final LinkedList<t> g() {
+    public LinkedList<t> g() {
         return this.f;
     }
 
-    public final void c(String str) {
+    public void c(String str) {
         this.a = str;
     }
 
-    public final String h() {
+    public String h() {
         return this.a;
     }
 
-    public final String i() {
+    public String i() {
         return this.b;
     }
 
-    public final int j() {
+    public int j() {
         return this.c;
     }
 
-    public final String k() {
+    public String k() {
         return this.f.size() > 0 ? this.f.get(this.f.size() - 1).c() : "";
     }
 
-    private void a(JSONObject jSONObject, Boolean bool) {
+    public void a(JSONObject jSONObject, Boolean bool) {
         if (jSONObject != null) {
             try {
-                this.k = jSONObject.optInt("is_new_url", 0);
+                a(jSONObject.optInt("is_new_url", 0));
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
                     this.a = optJSONObject.optString("name");
@@ -133,7 +134,7 @@ public final class u {
                             t tVar = new t(this.e);
                             tVar.a(optJSONArray.optJSONObject(i));
                             int h = tVar.h();
-                            if (h > 0 && h <= this.c) {
+                            if (h >= 1 && h <= this.c) {
                                 this.f.addLast(tVar);
                             }
                         }
@@ -142,7 +143,7 @@ public final class u {
                             t tVar2 = new t(this.e);
                             tVar2.a(optJSONArray.getJSONObject(length));
                             int h2 = tVar2.h();
-                            if (h2 > 0 && h2 <= this.c) {
+                            if (h2 >= 1 && h2 <= this.c) {
                                 this.f.addFirst(tVar2);
                             }
                         }
@@ -152,12 +153,16 @@ public final class u {
                 this.g = optJSONObject2.optString("tid");
                 this.h = optJSONObject2.optString("title");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "paserJson", e.toString());
+                BdLog.e(getClass().getName(), "paserJson", e.toString());
             }
         }
     }
 
-    public final int l() {
+    public int l() {
         return this.k;
+    }
+
+    public void a(int i) {
+        this.k = i;
     }
 }

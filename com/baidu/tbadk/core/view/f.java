@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements Runnable {
+public class f implements Runnable {
     final /* synthetic */ HaloView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public final class f implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         boolean z;
         boolean z2;
         int i;

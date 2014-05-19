@@ -1,29 +1,38 @@
 package com.baidu.tieba.pb.main;
 
+import android.view.View;
 import android.view.animation.Animation;
-import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class br implements Animation.AnimationListener {
-    final /* synthetic */ bm a;
+public class br implements Animation.AnimationListener {
+    final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(bm bmVar) {
-        this.a = bmVar;
+    public br(bj bjVar) {
+        this.a = bjVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationStart(Animation animation) {
+    public void onAnimationStart(Animation animation) {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationEnd(Animation animation) {
-        RelativeLayout relativeLayout;
-        relativeLayout = this.a.H;
-        relativeLayout.setVisibility(4);
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        View view;
+        View view2;
+        z = this.a.aR;
+        if (z) {
+            view = this.a.aL;
+            view.setVisibility(0);
+            view2 = this.a.aK;
+            view2.setVisibility(0);
+            return;
+        }
+        this.a.j.setVisibility(0);
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationRepeat(Animation animation) {
+    public void onAnimationRepeat(Animation animation) {
     }
 }

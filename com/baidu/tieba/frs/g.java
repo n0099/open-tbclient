@@ -1,70 +1,87 @@
 package com.baidu.tieba.frs;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.LiveCardData;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.data.UserData;
+import com.squareup.wire.Wire;
 import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.List;
+import tbclient.AnchorInfo;
+import tbclient.FrsPage.AnchorPower;
+import tbclient.FrsPage.DataRes;
+import tbclient.FrsPage.FrsPageResIdl;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes.dex */
-public final class g {
+public class g {
     private ForumData a;
     private ArrayList<com.baidu.tbadk.core.data.o> b;
     private AntiData c;
-    private com.baidu.tbadk.core.data.l d;
+    private com.baidu.tbadk.core.data.m d;
     private com.baidu.tieba.data.s e;
     private boolean f;
     private UserData g;
     private com.baidu.tieba.data.b h;
+    private ArrayList<LiveCardData> p;
+    private HashMap<String, MetaData> q;
     private int i = 0;
-    private cz j = null;
-    private cy k = null;
+    private dg j = null;
+    private df k = null;
     private boolean l = false;
     private k m = null;
     private h n = null;
     private boolean o = false;
-    private long p = 0;
-    private long q = 0;
     private long r = 0;
     private long s = 0;
+    private long t = 0;
+    private long u = 0;
 
-    public final long a() {
-        return this.s;
-    }
-
-    public final long b() {
-        return this.q;
-    }
-
-    public final long c() {
-        return this.r;
-    }
-
-    public final long d() {
+    public ArrayList<LiveCardData> a() {
         return this.p;
     }
 
-    public final boolean e() {
+    public long b() {
+        return this.u;
+    }
+
+    public long c() {
+        return this.s;
+    }
+
+    public long d() {
+        return this.t;
+    }
+
+    public long e() {
+        return this.r;
+    }
+
+    public boolean f() {
         return this.f;
     }
 
     public g() {
-        p();
+        q();
     }
 
-    private void p() {
+    private void q() {
         this.a = new ForumData();
         this.b = new ArrayList<>();
-        this.d = new com.baidu.tbadk.core.data.l();
+        this.q = new HashMap<>();
+        this.d = new com.baidu.tbadk.core.data.m();
         this.e = new com.baidu.tieba.data.s();
         this.g = new UserData();
-        this.c = new AntiData();
-        this.h = new com.baidu.tieba.data.b();
+        a(new AntiData());
+        a(new com.baidu.tieba.data.b());
     }
 
-    public final void a(com.baidu.tieba.data.z zVar) {
+    public void a(com.baidu.tieba.data.z zVar) {
         this.a.setCurScore(zVar.e());
         this.a.setLevelupScore(zVar.f());
         this.a.setLike(zVar.c());
@@ -72,98 +89,145 @@ public final class g {
         this.a.setLevelName(zVar.d());
     }
 
-    public final void a(SignData signData) {
+    public void a(SignData signData) {
         this.a.setSignData(signData);
     }
 
-    public final ForumData f() {
+    public ForumData g() {
         return this.a;
     }
 
-    public final ArrayList<com.baidu.tbadk.core.data.o> g() {
+    public void a(AnchorPower anchorPower) {
+        this.a.setAnchorPower(anchorPower);
+    }
+
+    public void a(com.baidu.tbadk.core.data.o oVar) {
+        while (!this.b.isEmpty() && this.b.get(0).p() == 2) {
+            this.b.remove(0);
+        }
+        this.b.add(0, oVar);
+    }
+
+    public ArrayList<com.baidu.tbadk.core.data.o> h() {
         return this.b;
     }
 
-    public final UserData h() {
+    public UserData i() {
         return this.g;
     }
 
-    public final AntiData i() {
+    public void a(AntiData antiData) {
+        this.c = antiData;
+    }
+
+    public AntiData j() {
         return this.c;
     }
 
-    public final com.baidu.tbadk.core.data.l j() {
+    public com.baidu.tbadk.core.data.m k() {
         return this.d;
     }
 
-    public final com.baidu.tieba.data.s k() {
+    public com.baidu.tieba.data.s l() {
         return this.e;
     }
 
-    public final void a(boolean z) {
+    public void a(boolean z) {
         this.l = z;
     }
 
-    public final boolean l() {
+    public boolean m() {
         return this.l;
     }
 
-    public final void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
+    public FrsPageResIdl a(byte[] bArr) {
+        if (bArr == null) {
+            return null;
         }
-    }
-
-    private void a(JSONObject jSONObject) {
         try {
-            this.i = jSONObject.optInt("is_new_url", 0);
-            this.f = jSONObject.optInt("fortune_bag", 0) == 1;
-            JSONObject optJSONObject = jSONObject.optJSONObject("forum");
-            p();
-            this.a.parserJson(optJSONObject);
-            JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    com.baidu.tbadk.core.data.o oVar = new com.baidu.tbadk.core.data.o();
-                    oVar.a(optJSONArray.optJSONObject(i));
-                    oVar.E();
-                    this.b.add(oVar);
-                }
+            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, FrsPageResIdl.class);
+            if (frsPageResIdl != null && frsPageResIdl.data != null) {
+                a(frsPageResIdl.data);
+                return frsPageResIdl;
             }
-            this.c.parserJson(jSONObject.optJSONObject("anti"));
-            this.h.a(jSONObject.optJSONObject("group"));
-            this.d.a(jSONObject.optJSONObject("page"));
-            this.e.a(jSONObject.optJSONObject("frs_star"));
-            this.e.j().a(optJSONObject.optJSONObject("superboy"));
-            this.g.parserJson(jSONObject.optJSONObject("user"));
+            return frsPageResIdl;
         } catch (Exception e) {
+            BdLog.detailException(e);
+            return null;
         }
     }
 
-    public final void a(String str, ArrayList<BasicNameValuePair> arrayList, int i, boolean z, String str2) {
+    public void a(DataRes dataRes) {
+        if (dataRes != null) {
+            try {
+                q();
+                List<User> list = dataRes.user_list;
+                if (list != null) {
+                    for (int i = 0; i < list.size(); i++) {
+                        MetaData metaData = new MetaData();
+                        metaData.parserProtobuf(list.get(i));
+                        String userId = metaData.getUserId();
+                        if (userId != null && !userId.equals("0")) {
+                            this.q.put(metaData.getUserId(), metaData);
+                        }
+                    }
+                }
+                a(dataRes.is_new_url.intValue());
+                this.f = dataRes.fortune_bag.intValue() == 1;
+                this.a.parserProtobuf(dataRes.forum);
+                List<ThreadInfo> list2 = dataRes.thread_list;
+                if (list2 != null) {
+                    for (int i2 = 0; i2 < list2.size(); i2++) {
+                        com.baidu.tbadk.core.data.o oVar = new com.baidu.tbadk.core.data.o();
+                        oVar.a(this.q);
+                        oVar.a(list2.get(i2));
+                        oVar.G();
+                        this.b.add(oVar);
+                    }
+                }
+                this.c.parserProtobuf(dataRes.anti);
+                this.h.a(dataRes.group);
+                this.d.a(dataRes.page);
+                this.e.a(dataRes.frs_star);
+                this.g.parserProtobuf(dataRes.user);
+                List<AnchorInfo> list3 = dataRes.forum_livegroup_list;
+                this.p = new ArrayList<>();
+                if (list3 != null) {
+                    for (int i3 = 0; i3 < list3.size(); i3++) {
+                        LiveCardData liveCardData = new LiveCardData();
+                        liveCardData.parserProtobuf(list3.get(i3));
+                        this.p.add(liveCardData);
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
+    }
+
+    public void a(FrsActivity frsActivity, FRSPageRequestMessage fRSPageRequestMessage, int i, boolean z, String str) {
         if (this.m != null) {
             this.m.cancel();
             this.m = null;
         }
         this.o = z;
-        this.m = new k(this, str, arrayList, i, str2);
+        this.m = new k(this, frsActivity, fRSPageRequestMessage, i, str);
         this.m.setPriority(3);
-        this.m.execute(str, arrayList);
+        this.m.execute(fRSPageRequestMessage);
     }
 
-    public final void b(String str) {
+    public void a(String str) {
         if (this.n != null) {
             this.n.cancel();
             this.n = null;
         }
-        ForumData forumData = this.a;
-        this.n = new h(this, forumData.getId(), forumData.getName(), str);
+        ForumData g = g();
+        this.n = new h(this, g.getId(), g.getName(), str);
         this.n.setPriority(2);
-        this.n.execute(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/user/fansno");
+        this.n.execute(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/fansno");
     }
 
-    public final void m() {
+    public void n() {
         if (this.m != null) {
             this.m.cancel();
             this.m = null;
@@ -174,29 +238,37 @@ public final class g {
         }
     }
 
-    public final void a(i iVar) {
+    public void a(i iVar) {
         com.baidu.tieba.data.z zVar = new com.baidu.tieba.data.z();
         zVar.b(1);
         zVar.a(iVar.d);
         zVar.c(iVar.e);
-        zVar.c(iVar.f);
-        zVar.d(iVar.g);
+        zVar.e(iVar.f);
+        zVar.f(iVar.g);
         a(zVar);
     }
 
-    public final void a(cz czVar) {
-        this.j = czVar;
+    public void a(dg dgVar) {
+        this.j = dgVar;
     }
 
-    public final void a(cy cyVar) {
-        this.k = cyVar;
+    public void a(df dfVar) {
+        this.k = dfVar;
     }
 
-    public final int n() {
+    public int o() {
         return this.i;
     }
 
-    public final com.baidu.tieba.data.b o() {
+    public void a(int i) {
+        this.i = i;
+    }
+
+    public com.baidu.tieba.data.b p() {
         return this.h;
+    }
+
+    public void a(com.baidu.tieba.data.b bVar) {
+        this.h = bVar;
     }
 }

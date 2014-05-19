@@ -6,20 +6,20 @@ import com.baidu.tieba.data.BubbleListData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ResponseBubbleListMessage extends JsonHttpResponsedMessage {
-    private BubbleListData a;
+    private BubbleListData bubbleListData;
 
     public ResponseBubbleListMessage(int i) {
         super(i);
     }
 
-    public final BubbleListData i() {
-        return this.a;
+    public BubbleListData getBubbleListData() {
+        return this.bubbleListData;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public final void a(JSONObject jSONObject) {
-        if (d() == 200 && jSONObject != null) {
-            this.a = (BubbleListData) new Gson().fromJson(jSONObject.toString(), (Class<Object>) BubbleListData.class);
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+        if (getStatusCode() == 200 && jSONObject != null) {
+            this.bubbleListData = (BubbleListData) new Gson().fromJson(jSONObject.toString(), (Class<Object>) BubbleListData.class);
         }
     }
 }

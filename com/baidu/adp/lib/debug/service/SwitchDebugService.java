@@ -15,6 +15,7 @@ import com.baidu.adp.f;
 import com.baidu.adp.lib.debug.DebugConfigActivity;
 import com.baidu.adp.lib.debug.c;
 import com.baidu.location.LocationClientOption;
+import com.baidu.tbadk.core.frameworkData.a;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
@@ -51,13 +52,16 @@ public class SwitchDebugService extends Service implements SensorEventListener {
             this.p = true;
             this.g.registerListener(this, this.g.getDefaultSensor(1), 3);
         }
-        AssetManager assets = getApplicationContext().getAssets();
+        a(getApplicationContext().getAssets());
+    }
+
+    private static void a(AssetManager assetManager) {
         if (a == null) {
             synchronized (SwitchDebugService.class) {
                 if (a == null) {
                     a = new Properties();
                     try {
-                        a.load(assets.open("debug/debug_ascii.conf"));
+                        a.load(assetManager.open("debug/debug_ascii.conf"));
                     } catch (IOException e2) {
                         a = null;
                         e2.printStackTrace();
@@ -72,7 +76,7 @@ public class SwitchDebugService extends Service implements SensorEventListener {
         super.onStart(intent, i);
         if (intent != null) {
             try {
-                if (intent.getBooleanExtra("stop", false)) {
+                if (intent.getBooleanExtra(a.STOP, false)) {
                     stopSelf();
                 }
             } catch (Exception e2) {

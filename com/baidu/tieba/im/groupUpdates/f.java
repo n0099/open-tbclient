@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupUpdates;
 import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements DialogInterface.OnClickListener {
+public class f implements DialogInterface.OnClickListener {
     final /* synthetic */ UpdatesActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public final class f implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         t tVar;
         UpdatesItemData updatesItemData;
         switch (i) {
@@ -21,7 +21,7 @@ public final class f implements DialogInterface.OnClickListener {
                 tVar.a(true);
                 UpdatesActivity updatesActivity = this.a;
                 updatesItemData = this.a.i;
-                UpdatesActivity.b(updatesActivity, updatesItemData);
+                updatesActivity.a(updatesItemData);
                 return;
             default:
                 return;
