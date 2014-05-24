@@ -3,8 +3,9 @@ package com.baidu.tieba.im.randchat;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.base.e {
+public class f extends com.baidu.adp.base.c {
     private View a;
     private WaittingActivity b;
     private NavigationBar c;
@@ -16,17 +17,17 @@ public class f extends com.baidu.adp.base.e {
     public f(WaittingActivity waittingActivity) {
         super(waittingActivity);
         this.b = waittingActivity;
-        this.b.setContentView(com.baidu.tieba.s.im_waitting_activity);
+        this.b.setContentView(com.baidu.tieba.w.im_waitting_activity);
         h();
     }
 
     private void h() {
-        this.c = (NavigationBar) this.b.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.d = (RingLayoutView) this.b.findViewById(com.baidu.tieba.r.waittingView);
+        this.c = (NavigationBar) this.b.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.d = (RingLayoutView) this.b.findViewById(com.baidu.tieba.v.waittingView);
         this.f = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c.a(com.baidu.tieba.u.rand_chat_waiting_title);
-        this.g = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.b.getString(com.baidu.tieba.u.rand_chat_waiting_button_change));
-        this.e = (WaitingTipView) this.b.findViewById(com.baidu.tieba.r.tipView);
+        this.c.a(y.rand_chat_waiting_title);
+        this.g = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.b.getString(y.rand_chat_waiting_button_change));
+        this.e = (WaitingTipView) this.b.findViewById(com.baidu.tieba.v.tipView);
         this.f.setOnClickListener(this.b);
         this.g.setOnClickListener(this.b);
     }

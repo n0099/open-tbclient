@@ -25,6 +25,6 @@ public class c extends CustomMessageListener {
             return;
         }
         handler = this.a.q;
-        handler.sendEmptyMessage(5);
+        handler.sendEmptyMessage(10);
     }
 }

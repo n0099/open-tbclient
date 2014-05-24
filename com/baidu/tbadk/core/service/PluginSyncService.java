@@ -9,15 +9,16 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
 /* loaded from: classes.dex */
 public class PluginSyncService extends Service {
-    private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PLUGIN_SYNC;
-    private Messenger b = new Messenger(new e(this, null));
-    private PluginsConfig c;
-    private f d;
+    private static final String ADDRESS = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PLUGIN_SYNC;
+    private static final String TAG = "PluginSyncService";
+    private Messenger mMessenger = new Messenger(new d(this, null));
+    private PluginsConfig mPluginsConfig;
+    private e mSyncWorker;
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         BdLog.d("onBind");
-        return this.b.getBinder();
+        return this.mMessenger.getBinder();
     }
 
     @Override // android.app.Service
@@ -40,9 +41,9 @@ public class PluginSyncService extends Service {
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.d != null) {
-            this.d.cancel();
+        if (this.mSyncWorker != null) {
+            this.mSyncWorker.cancel();
         }
-        this.d = null;
+        this.mSyncWorker = null;
     }
 }

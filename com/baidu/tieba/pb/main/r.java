@@ -13,13 +13,13 @@ class r implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        bj bjVar;
+        bq bqVar;
         WriteImagesInfo writeImagesInfo;
         String str;
         WriteImagesInfo writeImagesInfo2;
         WriteImagesInfo writeImagesInfo3;
-        bjVar = this.a.E;
-        bjVar.m();
+        bqVar = this.a.D;
+        bqVar.m();
         if (i == 0) {
             writeImagesInfo = this.a.n;
             if (writeImagesInfo.getChosedFiles() != null) {
@@ -27,7 +27,7 @@ class r implements DialogInterface.OnClickListener {
                 int size = writeImagesInfo2.getChosedFiles().size();
                 writeImagesInfo3 = this.a.n;
                 if (size >= writeImagesInfo3.getMaxImagesAllowed()) {
-                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.u.editor_mutiiamge_max), 10));
+                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
                     return;
                 }
             }

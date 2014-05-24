@@ -12,7 +12,7 @@ import com.baidu.tieba.message.ResponseBubbleListMessage;
 import com.baidu.tieba.message.ResponseSetBubbleMessage;
 import java.util.List;
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.base.d {
+public class f extends com.baidu.adp.base.b {
     private i a;
     private j b;
     private int c;
@@ -44,12 +44,12 @@ public class f extends com.baidu.adp.base.d {
         this.d = i;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

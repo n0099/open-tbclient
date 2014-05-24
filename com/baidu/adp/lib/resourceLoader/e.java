@@ -3,7 +3,7 @@ package com.baidu.adp.lib.resourceLoader;
 import android.util.SparseArray;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -32,7 +32,7 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
     }
 
     public void a(c<T> cVar, int i) {
-        h.b();
+        k.b();
         if (this.g.containsKey(cVar)) {
             BdLog.d("the resKey and callback had existed , direct return.");
         } else {
@@ -41,7 +41,7 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
     }
 
     public void a(c<T> cVar) {
-        h.b();
+        k.b();
         this.g.remove(cVar);
         if (cVar != null) {
             cVar.a(this.b);
@@ -53,7 +53,7 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
     }
 
     public void a(int i, c<T> cVar) {
-        h.b();
+        k.b();
         if (this.g.size() == 0) {
             cancel();
             return;
@@ -74,7 +74,7 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
     }
 
     public void a(int i) {
-        h.b();
+        k.b();
         if (this.g.size() == 0) {
             cancel();
             return;

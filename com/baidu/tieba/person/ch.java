@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.UserData;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ag, com.baidu.tieba.data.ag> {
+public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ah, com.baidu.tieba.data.ah> {
     final /* synthetic */ PersonListActivity a;
     private final String b;
     private final boolean c;
@@ -65,13 +65,13 @@ public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ag, com.baidu.t
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.data.ag doInBackground(String... strArr) {
+    public com.baidu.tieba.data.ah doInBackground(String... strArr) {
         com.baidu.tieba.model.ay ayVar;
         com.baidu.tieba.model.ay ayVar2;
         com.baidu.tieba.model.ay ayVar3;
         com.baidu.tieba.model.ay ayVar4;
         this.e = new com.baidu.tbadk.core.util.al();
-        com.baidu.tieba.data.ag agVar = null;
+        com.baidu.tieba.data.ah ahVar = null;
         if (this.f) {
             ayVar3 = this.a.j;
             if (ayVar3 != null) {
@@ -93,9 +93,9 @@ public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ag, com.baidu.t
         }
         String i = this.e.i();
         if (this.e.a().b().b()) {
-            agVar = new com.baidu.tieba.data.ag();
-            agVar.a(i);
-            if (agVar.a().d() == 1) {
+            ahVar = new com.baidu.tieba.data.ah();
+            ahVar.a(i);
+            if (ahVar.a().d() == 1) {
                 ayVar = this.a.j;
                 if (ayVar != null) {
                     ayVar2 = this.a.j;
@@ -103,21 +103,21 @@ public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ag, com.baidu.t
                 }
             }
         }
-        return agVar;
+        return ahVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onProgressUpdate(com.baidu.tieba.data.ag... agVarArr) {
+    public void onProgressUpdate(com.baidu.tieba.data.ah... ahVarArr) {
         ProgressBar progressBar;
         ArrayList<UserData> b;
-        super.onProgressUpdate(agVarArr);
-        if (agVarArr.length >= 1) {
-            com.baidu.tieba.data.ag agVar = agVarArr[0];
-            if (agVar != null && (b = agVar.b()) != null && b.size() > 0) {
-                a(agVar, true);
+        super.onProgressUpdate(ahVarArr);
+        if (ahVarArr.length >= 1) {
+            com.baidu.tieba.data.ah ahVar = ahVarArr[0];
+            if (ahVar != null && (b = ahVar.b()) != null && b.size() > 0) {
+                a(ahVar, true);
             }
             progressBar = this.a.f;
             progressBar.setVisibility(0);
@@ -128,19 +128,19 @@ public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ag, com.baidu.t
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.data.ag agVar) {
+    public void onPostExecute(com.baidu.tieba.data.ah ahVar) {
         ProgressBar progressBar;
         progressBar = this.a.f;
         progressBar.setVisibility(8);
         this.a.i = null;
         if (this.e != null) {
             if (this.e.a().b().b()) {
-                a(agVar, false);
+                a(ahVar, false);
             } else {
-                a(agVar, true);
+                a(ahVar, true);
                 this.a.showToast(this.e.f());
             }
-            super.onPostExecute(agVar);
+            super.onPostExecute(ahVar);
         }
     }
 
@@ -150,54 +150,54 @@ public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ag, com.baidu.t
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void a(com.baidu.tieba.data.ag agVar, boolean z) {
+    private synchronized void a(com.baidu.tieba.data.ah ahVar, boolean z) {
         com.baidu.tieba.model.ay ayVar;
-        com.baidu.tieba.data.ag agVar2;
-        com.baidu.tieba.data.ag agVar3;
-        com.baidu.tieba.data.ag agVar4;
-        com.baidu.tieba.data.ag agVar5;
-        com.baidu.tieba.data.ag agVar6;
+        com.baidu.tieba.data.ah ahVar2;
+        com.baidu.tieba.data.ah ahVar3;
+        com.baidu.tieba.data.ah ahVar4;
+        com.baidu.tieba.data.ah ahVar5;
+        com.baidu.tieba.data.ah ahVar6;
         com.baidu.tieba.model.ay ayVar2;
         ayVar = this.a.j;
         if (ayVar != null) {
-            if (agVar == null) {
-                agVar2 = this.a.q;
-                if (agVar2 != null) {
-                    agVar4 = this.a.q;
-                    if (agVar4.b() != null) {
-                        agVar5 = this.a.q;
+            if (ahVar == null) {
+                ahVar2 = this.a.q;
+                if (ahVar2 != null) {
+                    ahVar4 = this.a.q;
+                    if (ahVar4.b() != null) {
+                        ahVar5 = this.a.q;
                     }
                 }
-                agVar3 = this.a.q;
-                d(agVar3);
+                ahVar3 = this.a.q;
+                d(ahVar3);
             } else {
                 if (z) {
-                    agVar6 = agVar;
+                    ahVar6 = ahVar;
                 } else {
-                    b(agVar);
+                    b(ahVar);
                     ayVar2 = this.a.j;
-                    agVar6 = ayVar2.d();
+                    ahVar6 = ayVar2.d();
                 }
-                this.a.q = agVar6;
-                d(agVar6);
+                this.a.q = ahVar6;
+                d(ahVar6);
                 if (!this.c) {
                     com.baidu.tbadk.coreExtra.messageCenter.a.a().d(0);
                 }
-                c(agVar);
+                c(ahVar);
             }
         }
     }
 
-    private void b(com.baidu.tieba.data.ag agVar) {
+    private void b(com.baidu.tieba.data.ah ahVar) {
         com.baidu.tieba.model.ay ayVar;
         com.baidu.tieba.model.ay ayVar2;
         ayVar = this.a.j;
-        ayVar.d().b().addAll(agVar.b());
+        ayVar.d().b().addAll(ahVar.b());
         ayVar2 = this.a.j;
-        ayVar2.d().a(agVar.a());
+        ayVar2.d().a(ahVar.a());
     }
 
-    private void c(com.baidu.tieba.data.ag agVar) {
+    private void c(com.baidu.tieba.data.ah ahVar) {
         View view;
         BdListView bdListView;
         LinearLayout linearLayout;
@@ -241,7 +241,7 @@ public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ag, com.baidu.t
         com.baidu.tieba.model.ay ayVar8;
         TextView textView17;
         if (this.d == 0) {
-            if (agVar.a().c() > 0) {
+            if (ahVar.a().c() > 0) {
                 view2 = this.a.c;
                 view2.setVisibility(0);
                 bdListView2 = this.a.b;
@@ -253,63 +253,63 @@ public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ag, com.baidu.t
                     if (ayVar7.a() != null) {
                         ayVar8 = this.a.j;
                         if (ayVar8.a().equals(TbadkApplication.getCurrentAccount())) {
-                            string = this.a.getString(com.baidu.tieba.u.my_attention_prefix);
-                            string2 = this.a.getString(com.baidu.tieba.u.person);
+                            string = this.a.getString(com.baidu.tieba.y.my_attention_prefix);
+                            string2 = this.a.getString(com.baidu.tieba.y.person);
                             textView17 = this.a.l;
-                            textView17.setText(com.baidu.tieba.u.not_have_attention);
+                            textView17.setText(com.baidu.tieba.y.not_have_attention);
                         }
                     }
                     i7 = this.a.p;
                     if (i7 != 2) {
                         i8 = this.a.p;
                         if (i8 == 1) {
-                            string3 = this.a.getString(com.baidu.tieba.u.he_attention_prefix);
+                            string3 = this.a.getString(com.baidu.tieba.y.he_attention_prefix);
                             textView15 = this.a.l;
-                            textView15.setText(com.baidu.tieba.u.him_no_attention_other);
+                            textView15.setText(com.baidu.tieba.y.him_no_attention_other);
                         } else {
-                            string3 = this.a.getString(com.baidu.tieba.u.its_attention_prefix);
+                            string3 = this.a.getString(com.baidu.tieba.y.its_attention_prefix);
                             textView14 = this.a.l;
-                            textView14.setText(com.baidu.tieba.u.no_attention_other);
+                            textView14.setText(com.baidu.tieba.y.no_attention_other);
                         }
                     } else {
-                        string3 = this.a.getString(com.baidu.tieba.u.she_attention_prefix);
+                        string3 = this.a.getString(com.baidu.tieba.y.she_attention_prefix);
                         textView16 = this.a.l;
-                        textView16.setText(com.baidu.tieba.u.her_no_attention_other);
+                        textView16.setText(com.baidu.tieba.y.her_no_attention_other);
                     }
                     string = string3;
-                    string2 = this.a.getString(com.baidu.tieba.u.person);
+                    string2 = this.a.getString(com.baidu.tieba.y.person);
                 } else {
                     ayVar5 = this.a.j;
                     if (ayVar5.a() != null) {
                         ayVar6 = this.a.j;
                         if (ayVar6.a().equals(TbadkApplication.getCurrentAccount())) {
-                            string = this.a.getString(com.baidu.tieba.u.my_fans_prefix);
-                            string2 = this.a.getString(com.baidu.tieba.u.my_fans_suffix);
+                            string = this.a.getString(com.baidu.tieba.y.my_fans_prefix);
+                            string2 = this.a.getString(com.baidu.tieba.y.my_fans_suffix);
                             textView12 = this.a.l;
-                            textView12.setText(com.baidu.tieba.u.not_have_fans);
+                            textView12.setText(com.baidu.tieba.y.not_have_fans);
                         }
                     }
-                    string = this.a.getString(com.baidu.tieba.u.its_fans_prefix);
+                    string = this.a.getString(com.baidu.tieba.y.its_fans_prefix);
                     i5 = this.a.p;
                     if (i5 != 2) {
                         i6 = this.a.p;
                         if (i6 == 1) {
-                            string2 = this.a.getString(com.baidu.tieba.u.his_fans_suffix);
+                            string2 = this.a.getString(com.baidu.tieba.y.his_fans_suffix);
                             textView10 = this.a.l;
-                            textView10.setText(com.baidu.tieba.u.him_no_fan_other);
+                            textView10.setText(com.baidu.tieba.y.him_no_fan_other);
                         } else {
-                            string2 = this.a.getString(com.baidu.tieba.u.its_fans_suffix);
+                            string2 = this.a.getString(com.baidu.tieba.y.its_fans_suffix);
                             textView9 = this.a.l;
-                            textView9.setText(com.baidu.tieba.u.no_fan_other);
+                            textView9.setText(com.baidu.tieba.y.no_fan_other);
                         }
                     } else {
-                        string2 = this.a.getString(com.baidu.tieba.u.her_fans_suffix);
+                        string2 = this.a.getString(com.baidu.tieba.y.her_fans_suffix);
                         textView11 = this.a.l;
-                        textView11.setText(com.baidu.tieba.u.her_no_fan_other);
+                        textView11.setText(com.baidu.tieba.y.her_no_fan_other);
                     }
                 }
                 textView13 = this.a.e;
-                textView13.setText(String.valueOf(string) + String.valueOf(agVar.a().c()) + string2);
+                textView13.setText(String.valueOf(string) + String.valueOf(ahVar.a().c()) + string2);
                 return;
             }
             view = this.a.c;
@@ -324,24 +324,24 @@ public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ag, com.baidu.t
                     ayVar4 = this.a.j;
                     if (ayVar4.a().equals(TbadkApplication.getCurrentAccount())) {
                         textView8 = this.a.l;
-                        textView8.setText(com.baidu.tieba.u.not_have_attention);
+                        textView8.setText(com.baidu.tieba.y.not_have_attention);
                         return;
                     }
                 }
                 i3 = this.a.p;
                 if (i3 == 2) {
                     textView7 = this.a.l;
-                    textView7.setText(com.baidu.tieba.u.her_no_attention_other);
+                    textView7.setText(com.baidu.tieba.y.her_no_attention_other);
                     return;
                 }
                 i4 = this.a.p;
                 if (i4 == 1) {
                     textView6 = this.a.l;
-                    textView6.setText(com.baidu.tieba.u.him_no_attention_other);
+                    textView6.setText(com.baidu.tieba.y.him_no_attention_other);
                     return;
                 }
                 textView5 = this.a.l;
-                textView5.setText(com.baidu.tieba.u.no_attention_other);
+                textView5.setText(com.baidu.tieba.y.no_attention_other);
                 return;
             }
             ayVar = this.a.j;
@@ -349,28 +349,28 @@ public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ag, com.baidu.t
                 ayVar2 = this.a.j;
                 if (ayVar2.a().equals(TbadkApplication.getCurrentAccount())) {
                     textView4 = this.a.l;
-                    textView4.setText(com.baidu.tieba.u.not_have_fans);
+                    textView4.setText(com.baidu.tieba.y.not_have_fans);
                     return;
                 }
             }
             i = this.a.p;
             if (i == 2) {
                 textView3 = this.a.l;
-                textView3.setText(com.baidu.tieba.u.her_no_fan_other);
+                textView3.setText(com.baidu.tieba.y.her_no_fan_other);
                 return;
             }
             i2 = this.a.p;
             if (i2 == 1) {
                 textView2 = this.a.l;
-                textView2.setText(com.baidu.tieba.u.him_no_fan_other);
+                textView2.setText(com.baidu.tieba.y.him_no_fan_other);
                 return;
             }
             textView = this.a.l;
-            textView.setText(com.baidu.tieba.u.no_fan_other);
+            textView.setText(com.baidu.tieba.y.no_fan_other);
         }
     }
 
-    private void d(com.baidu.tieba.data.ag agVar) {
+    private void d(com.baidu.tieba.data.ah ahVar) {
         ci ciVar;
         ci ciVar2;
         ci ciVar3;
@@ -385,7 +385,7 @@ public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ag, com.baidu.t
         boolean z = true;
         ciVar = this.a.g;
         if (ciVar != null) {
-            if (agVar == null) {
+            if (ahVar == null) {
                 ciVar2 = this.a.g;
                 ciVar2.a(false);
                 ciVar3 = this.a.g;
@@ -398,14 +398,14 @@ public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ag, com.baidu.t
                 ciVar6.notifyDataSetChanged();
                 return;
             }
-            com.baidu.tbadk.core.data.m a = agVar.a();
+            com.baidu.tbadk.core.data.l a = ahVar.a();
             ciVar7 = this.a.g;
             if (a == null || a.f() != 1) {
                 z = false;
             }
             ciVar7.a(z);
             ciVar8 = this.a.g;
-            ciVar8.a(agVar.b());
+            ciVar8.a(ahVar.b());
             ciVar9 = this.a.g;
             ciVar9.b(false);
             ciVar10 = this.a.g;

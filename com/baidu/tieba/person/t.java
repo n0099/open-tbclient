@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.data.PersonChangeData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class t extends com.baidu.adp.base.d {
+public class t extends com.baidu.adp.base.b {
     private u b;
     private String c;
     private final Context e;
@@ -119,12 +119,12 @@ public class t extends com.baidu.adp.base.d {
         return this.k;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

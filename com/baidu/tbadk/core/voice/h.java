@@ -217,7 +217,7 @@ public class h implements Runnable {
                                 BdLog.d(getClass(), "TestVoice_compress", new StringBuilder(String.valueOf(System.currentTimeMillis() - currentTimeMillis)).toString());
                                 sArr2 = null;
                             }
-                            if (System.currentTimeMillis() - this.g > com.baidu.adp.lib.voice.a.a) {
+                            if (System.currentTimeMillis() - this.g > com.baidu.adp.lib.voice.b.a) {
                                 sArr = sArr2;
                                 i = i2;
                                 z = true;

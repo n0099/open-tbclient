@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.data.AccountData;
 public class SapiFastRegActivity extends BaseActivity {
     private com.baidu.tbadk.coreExtra.view.q a = null;
     private String b = null;
-    private final com.baidu.tbadk.core.account.g c = new ab(this);
+    private final com.baidu.tbadk.core.account.g c = new aa(this);
 
     static {
         TbadkApplication.m252getInst().RegisterIntent(ax.class, SapiFastRegActivity.class);
@@ -26,15 +26,15 @@ public class SapiFastRegActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.layout_sapi_webview_fastreg);
+        setContentView(com.baidu.tieba.w.layout_sapi_webview_fastreg);
         a();
     }
 
     protected void a() {
-        SapiWebView sapiWebView = (SapiWebView) findViewById(com.baidu.tieba.r.sapi_webview);
+        SapiWebView sapiWebView = (SapiWebView) findViewById(com.baidu.tieba.v.sapi_webview);
         com.baidu.tbadk.core.account.j.a(this, sapiWebView);
-        sapiWebView.setOnFinishCallback(new ac(this));
-        sapiWebView.setAuthorizationListener(new ad(this));
+        sapiWebView.setOnFinishCallback(new ab(this));
+        sapiWebView.setAuthorizationListener(new ac(this));
         sapiWebView.loadFastReg();
     }
 
@@ -42,7 +42,7 @@ public class SapiFastRegActivity extends BaseActivity {
     public void a(AccountData accountData) {
         if (this.a == null) {
             this.a = new com.baidu.tbadk.coreExtra.view.q(this);
-            this.a.a(new ae(this));
+            this.a.a(new ad(this));
         }
         this.a.e();
         this.a.a(accountData);

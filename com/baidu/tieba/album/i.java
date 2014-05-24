@@ -25,8 +25,8 @@ class i implements com.baidu.tbadk.imageManager.d {
             map = this.a.f;
             map.put(Integer.valueOf(this.c), true);
         } else if (tbImageView != null) {
-            tbImageView.setDefaultResource(com.baidu.tieba.q.pic_baidu_logo_photo);
-            tbImageView.setNightDefaultResource(com.baidu.tieba.q.pic_baidu_logo_photo);
+            tbImageView.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_photo);
+            tbImageView.setNightDefaultResource(com.baidu.tieba.u.pic_baidu_logo_photo);
             tbImageView.invalidate();
         }
     }

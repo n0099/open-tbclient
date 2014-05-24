@@ -3,16 +3,16 @@ package com.baidu.tieba.im.updategroup;
 import android.text.InputFilter;
 import android.widget.ImageButton;
 import com.baidu.tieba.im.f.t;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class f extends g {
     public f(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        c(s.update_group_name_activity);
-        d(u.group_update_name);
-        this.f = (ImageButton) updateGroupActivity.findViewById(r.button_del);
+        c(w.update_group_name_activity);
+        d(y.group_update_name);
+        this.f = (ImageButton) updateGroupActivity.findViewById(v.button_del);
         this.f.setOnClickListener(updateGroupActivity);
         this.b.setFilters(new InputFilter[]{new com.baidu.tieba.im.f.a(20)});
     }
@@ -34,6 +34,6 @@ public class f extends g {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public int j() {
-        return u.group_step_name_error;
+        return y.group_step_name_error;
     }
 }

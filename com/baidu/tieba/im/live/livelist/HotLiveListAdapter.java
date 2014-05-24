@@ -123,17 +123,17 @@ public class HotLiveListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         y yVar;
         if (this.f == null) {
-            return LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.live_hot_list_item, viewGroup, false);
+            return LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.live_hot_list_item, viewGroup, false);
         }
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.live_hot_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.live_hot_list_item, viewGroup, false);
             yVar = new y();
-            yVar.a = (LinearLayout) view.findViewById(com.baidu.tieba.r.item_more);
-            yVar.d = (TextView) view.findViewById(com.baidu.tieba.r.list_more_title);
-            yVar.e = (ProgressBar) view.findViewById(com.baidu.tieba.r.list_more_progress);
-            yVar.f = (ImageView) view.findViewById(com.baidu.tieba.r.list_more_line);
-            yVar.c = (LinearLayout) view.findViewById(com.baidu.tieba.r.list_more_text);
-            yVar.b = (LiveBroadcastCard) view.findViewById(com.baidu.tieba.r.item_card);
+            yVar.a = (LinearLayout) view.findViewById(com.baidu.tieba.v.item_more);
+            yVar.d = (TextView) view.findViewById(com.baidu.tieba.v.list_more_title);
+            yVar.e = (ProgressBar) view.findViewById(com.baidu.tieba.v.list_more_progress);
+            yVar.f = (ImageView) view.findViewById(com.baidu.tieba.v.list_more_line);
+            yVar.c = (LinearLayout) view.findViewById(com.baidu.tieba.v.list_more_text);
+            yVar.b = (LiveBroadcastCard) view.findViewById(com.baidu.tieba.v.item_card);
             view.setTag(yVar);
         } else {
             yVar = (y) view.getTag();
@@ -149,11 +149,11 @@ public class HotLiveListAdapter extends BaseAdapter {
             yVar.f.setVisibility(8);
             yVar.c.setVisibility(0);
             if (this.b == BOTTOM_TYPE.HAVE_MORE) {
-                yVar.d.setText(com.baidu.tieba.u.frsgroup_load_more);
+                yVar.d.setText(com.baidu.tieba.y.live_hotlist_has_more);
                 yVar.e.setVisibility(0);
                 return view;
             }
-            yVar.d.setText(com.baidu.tieba.u.frsgroup_no_more);
+            yVar.d.setText(com.baidu.tieba.y.live_hotlist_no_more);
             yVar.e.setVisibility(8);
             return view;
         }

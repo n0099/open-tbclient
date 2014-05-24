@@ -2,6 +2,7 @@ package com.baidu.adp.lib.network.http;
 
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.j;
 import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -64,7 +65,7 @@ public class f {
             }
             sb.append(this.b.get(i2).getName());
             sb.append("=");
-            sb.append(com.baidu.adp.lib.util.g.c(this.b.get(i2).getValue()));
+            sb.append(j.c(this.b.get(i2).getValue()));
             i = i2 + 1;
         }
         if (dVar != null) {
@@ -165,7 +166,7 @@ public class f {
                         sb.append("&");
                     }
                     sb.append(String.valueOf(name) + "=");
-                    sb.append(com.baidu.adp.lib.util.g.c(value));
+                    sb.append(j.c(value));
                     i++;
                 }
             }

@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -72,7 +72,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         TbadkApplication.m252getInst().addRemoteActivity(this);
-        setContentView(s.image_activity_2);
+        setContentView(w.image_activity_2);
         a(bundle);
         e();
         d();
@@ -174,16 +174,16 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
         this.n = new f(this);
         this.p = new h(this);
         this.o = new i(this);
-        this.l = (NavigationBar) findViewById(r.navigation_bar);
-        this.D = (FrameLayout) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, s.image_activity_save_button, this.n);
+        this.l = (NavigationBar) findViewById(v.navigation_bar);
+        this.D = (FrameLayout) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.image_activity_save_button, this.n);
         this.j = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k = this.l.a("");
-        this.a = (ProgressBar) findViewById(r.progress);
-        this.i = (TextView) findViewById(r.save);
+        this.a = (ProgressBar) findViewById(v.progress);
+        this.i = (TextView) findViewById(v.save);
         this.i.setClickable(false);
-        this.m = (MultiImageView) findViewById(r.viewpager);
+        this.m = (MultiImageView) findViewById(v.viewpager);
         this.m.setIsFromCDN(this.C);
-        this.m.setPageMargin(com.baidu.adp.lib.util.h.a((Context) this, 8.0f));
+        this.m.setPageMargin(com.baidu.adp.lib.util.k.a((Context) this, 8.0f));
         this.m.a(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.m.setOnPageChangeListener(this.p);
         this.m.setUrlData(this.c);
@@ -208,7 +208,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
                 str = String.valueOf(str2) + this.c.size();
             }
             if (this.m.getHasNext() && this.d == this.m.getItemNum() - 1) {
-                this.k.setText(getString(u.image_recommend));
+                this.k.setText(getString(y.image_recommend));
                 this.i.setVisibility(4);
                 return;
             }

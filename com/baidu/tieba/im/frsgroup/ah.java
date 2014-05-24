@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class ah extends com.baidu.adp.base.e {
+public class ah extends com.baidu.adp.base.c {
     private MembersActivity a;
     private ad b;
     private ViewGroup c;
@@ -29,36 +29,36 @@ public class ah extends com.baidu.adp.base.e {
     public ah(MembersActivity membersActivity) {
         super(membersActivity);
         this.a = membersActivity;
-        membersActivity.setContentView(com.baidu.tieba.s.im_members_activity);
+        membersActivity.setContentView(com.baidu.tieba.w.im_members_activity);
         a(membersActivity);
         b(membersActivity);
         c(membersActivity);
     }
 
     private void a(MembersActivity membersActivity) {
-        this.c = (ViewGroup) this.a.findViewById(com.baidu.tieba.r.rootView);
-        this.e = (NavigationBar) this.a.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.e.a(this.a.getString(com.baidu.tieba.u.members_title));
+        this.c = (ViewGroup) this.a.findViewById(com.baidu.tieba.v.rootView);
+        this.e = (NavigationBar) this.a.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.e.a(this.a.getString(com.baidu.tieba.y.members_title));
         this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ai(this));
-        this.d = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(com.baidu.tieba.u.members_order));
+        this.d = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(com.baidu.tieba.y.members_order));
         this.d.setOnClickListener(membersActivity);
     }
 
     private void b(MembersActivity membersActivity) {
-        this.f = (BdListView) membersActivity.findViewById(com.baidu.tieba.r.members_list);
-        this.g = (InitGuideView) membersActivity.findViewById(com.baidu.tieba.r.members_guide);
+        this.f = (BdListView) membersActivity.findViewById(com.baidu.tieba.v.members_list);
+        this.g = (InitGuideView) membersActivity.findViewById(com.baidu.tieba.v.members_guide);
         this.b = new ad(this.a);
         this.f.setAdapter((ListAdapter) this.b);
     }
 
     private void c(MembersActivity membersActivity) {
-        this.h = (ViewGroup) membersActivity.findViewById(com.baidu.tieba.r.bottom_manager);
-        this.i = (ViewGroup) membersActivity.findViewById(com.baidu.tieba.r.bottom_edit);
-        this.j = (ViewGroup) membersActivity.findViewById(com.baidu.tieba.r.bottom_send_edit);
-        this.k = (Button) membersActivity.findViewById(com.baidu.tieba.r.edit_cancel);
-        this.l = (Button) membersActivity.findViewById(com.baidu.tieba.r.edit_num);
-        this.m = (TextView) membersActivity.findViewById(com.baidu.tieba.r.members_edit);
-        this.n = (ProgressBar) membersActivity.findViewById(com.baidu.tieba.r.progress_loading);
+        this.h = (ViewGroup) membersActivity.findViewById(com.baidu.tieba.v.bottom_manager);
+        this.i = (ViewGroup) membersActivity.findViewById(com.baidu.tieba.v.bottom_edit);
+        this.j = (ViewGroup) membersActivity.findViewById(com.baidu.tieba.v.bottom_send_edit);
+        this.k = (Button) membersActivity.findViewById(com.baidu.tieba.v.edit_cancel);
+        this.l = (Button) membersActivity.findViewById(com.baidu.tieba.v.edit_num);
+        this.m = (TextView) membersActivity.findViewById(com.baidu.tieba.v.members_edit);
+        this.n = (ProgressBar) membersActivity.findViewById(com.baidu.tieba.v.progress_loading);
         b(0);
     }
 
@@ -75,9 +75,9 @@ public class ah extends com.baidu.adp.base.e {
         this.a.getLayoutMode().a((View) this.c);
         this.e.c(i);
         if (i == 1) {
-            this.m.setCompoundDrawablesWithIntrinsicBounds(this.a.getResources().getDrawable(com.baidu.tieba.q.icon_brief_edit_1), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.m.setCompoundDrawablesWithIntrinsicBounds(this.a.getResources().getDrawable(com.baidu.tieba.u.icon_brief_edit_1), (Drawable) null, (Drawable) null, (Drawable) null);
         } else {
-            this.m.setCompoundDrawablesWithIntrinsicBounds(this.a.getResources().getDrawable(com.baidu.tieba.q.icon_brief_edit), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.m.setCompoundDrawablesWithIntrinsicBounds(this.a.getResources().getDrawable(com.baidu.tieba.u.icon_brief_edit), (Drawable) null, (Drawable) null, (Drawable) null);
         }
     }
 
@@ -90,7 +90,7 @@ public class ah extends com.baidu.adp.base.e {
     }
 
     public void b(int i) {
-        this.l.setText(this.a.getString(com.baidu.tieba.u.members_delete_num, new Object[]{Integer.valueOf(i)}));
+        this.l.setText(this.a.getString(com.baidu.tieba.y.members_delete_num, new Object[]{Integer.valueOf(i)}));
     }
 
     public void b(boolean z) {
@@ -138,7 +138,7 @@ public class ah extends com.baidu.adp.base.e {
     }
 
     public void c(int i) {
-        this.d.setText(this.a.getResources().getStringArray(com.baidu.tieba.m.members_order_by_short)[i]);
+        this.d.setText(this.a.getResources().getStringArray(com.baidu.tieba.q.members_order_by_short)[i]);
     }
 
     public BdListView i() {

@@ -118,25 +118,25 @@ public class GroupListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         p pVar;
         if (this.e == null) {
-            return LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.im_frsgroup_list_item, viewGroup, false);
+            return LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.im_frsgroup_list_item, viewGroup, false);
         }
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.im_frsgroup_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.im_frsgroup_list_item, viewGroup, false);
             pVar = new p();
-            pVar.b = (LinearLayout) view.findViewById(com.baidu.tieba.r.list_item_content);
-            pVar.a = (LinearLayout) view.findViewById(com.baidu.tieba.r.list_more);
-            pVar.c = (HeadImageView) view.findViewById(com.baidu.tieba.r.item_head);
-            pVar.d = (TextView) view.findViewById(com.baidu.tieba.r.item_group_name);
-            pVar.e = (TextView) view.findViewById(com.baidu.tieba.r.item_group_meizi);
-            pVar.f = (TextView) view.findViewById(com.baidu.tieba.r.item_group_num);
-            pVar.g = (TextView) view.findViewById(com.baidu.tieba.r.item_introduce);
-            pVar.m = (TextView) view.findViewById(com.baidu.tieba.r.list_more_title);
-            pVar.n = (ProgressBar) view.findViewById(com.baidu.tieba.r.list_more_progress);
-            pVar.o = (ImageView) view.findViewById(com.baidu.tieba.r.list_more_line);
-            pVar.l = (LinearLayout) view.findViewById(com.baidu.tieba.r.list_more_text);
-            pVar.h = (ImageView) view.findViewById(com.baidu.tieba.r.item_grade1);
-            pVar.i = (ImageView) view.findViewById(com.baidu.tieba.r.item_grade2);
-            pVar.j = (ImageView) view.findViewById(com.baidu.tieba.r.item_grade3);
+            pVar.b = (LinearLayout) view.findViewById(com.baidu.tieba.v.list_item_content);
+            pVar.a = (LinearLayout) view.findViewById(com.baidu.tieba.v.list_more);
+            pVar.c = (HeadImageView) view.findViewById(com.baidu.tieba.v.item_head);
+            pVar.d = (TextView) view.findViewById(com.baidu.tieba.v.item_group_name);
+            pVar.e = (TextView) view.findViewById(com.baidu.tieba.v.item_group_meizi);
+            pVar.f = (TextView) view.findViewById(com.baidu.tieba.v.item_group_num);
+            pVar.g = (TextView) view.findViewById(com.baidu.tieba.v.item_introduce);
+            pVar.m = (TextView) view.findViewById(com.baidu.tieba.v.list_more_title);
+            pVar.n = (ProgressBar) view.findViewById(com.baidu.tieba.v.list_more_progress);
+            pVar.o = (ImageView) view.findViewById(com.baidu.tieba.v.list_more_line);
+            pVar.l = (LinearLayout) view.findViewById(com.baidu.tieba.v.list_more_text);
+            pVar.h = (ImageView) view.findViewById(com.baidu.tieba.v.item_grade1);
+            pVar.i = (ImageView) view.findViewById(com.baidu.tieba.v.item_grade2);
+            pVar.j = (ImageView) view.findViewById(com.baidu.tieba.v.item_grade3);
             pVar.k = new ImageView[4];
             pVar.k[1] = pVar.h;
             pVar.k[2] = pVar.i;
@@ -156,11 +156,11 @@ public class GroupListAdapter extends BaseAdapter {
             pVar.o.setVisibility(8);
             pVar.l.setVisibility(0);
             if (this.b == BOTTOM_TYPE.HAVE_MORE) {
-                pVar.m.setText(com.baidu.tieba.u.frsgroup_load_more);
+                pVar.m.setText(com.baidu.tieba.y.frsgroup_load_more);
                 pVar.n.setVisibility(0);
                 return view;
             }
-            pVar.m.setText(com.baidu.tieba.u.frsgroup_no_more);
+            pVar.m.setText(com.baidu.tieba.y.frsgroup_no_more);
             pVar.n.setVisibility(8);
             return view;
         }
@@ -169,8 +169,8 @@ public class GroupListAdapter extends BaseAdapter {
         GroupInfoData groupInfoData = (GroupInfoData) getItem(i);
         pVar.c.setTag(null);
         pVar.c.setDrawBorder(true);
-        pVar.c.setDefaultResource(com.baidu.tieba.q.avatar_poto_defaul140);
-        pVar.c.setNightDefaultResource(com.baidu.tieba.q.avatar_poto_defaul140);
+        pVar.c.setDefaultResource(com.baidu.tieba.u.avatar_poto_defaul140);
+        pVar.c.setNightDefaultResource(com.baidu.tieba.u.avatar_poto_defaul140);
         pVar.c.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         String portrait = groupInfoData.getPortrait();
         if (!TextUtils.isEmpty(portrait)) {
@@ -183,10 +183,10 @@ public class GroupListAdapter extends BaseAdapter {
         a(pVar.k, groupInfoData.getGrade());
         a(view);
         if (groupInfoData.isMemGroup()) {
-            bc.a(pVar.d, com.baidu.tieba.o.im_group_vip_text, 1);
-            bc.c(pVar.h, com.baidu.tieba.q.icon_vip_grade_big_small_s);
-            bc.c(pVar.i, com.baidu.tieba.q.icon_vip_grade_big_small_s);
-            bc.c(pVar.j, com.baidu.tieba.q.icon_vip_grade_big_small_s);
+            bc.a(pVar.d, com.baidu.tieba.s.im_group_vip_text, 1);
+            bc.c(pVar.h, com.baidu.tieba.u.icon_vip_grade_big_small_s);
+            bc.c(pVar.i, com.baidu.tieba.u.icon_vip_grade_big_small_s);
+            bc.c(pVar.j, com.baidu.tieba.u.icon_vip_grade_big_small_s);
             return view;
         }
         return view;

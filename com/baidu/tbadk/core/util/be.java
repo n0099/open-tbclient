@@ -31,9 +31,9 @@ public class be {
     private static long l = 3600000;
     private static long m = TbConfig.USE_TIME_INTERVAL;
     private static long n = 1000;
-    private static String o = TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.u.time_hour_before);
-    private static String p = TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.u.time_min_before);
-    private static String q = TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.u.time_sec_before);
+    private static String o = TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.y.time_hour_before);
+    private static String p = TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.y.time_min_before);
+    private static String q = TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.y.time_sec_before);
     private static Date r = new Date();
     private static final char[] s;
     private static final char[] t;
@@ -425,6 +425,6 @@ public class be {
         } else {
             valueOf = String.valueOf(date.getMinutes());
         }
-        return date.getHours() > 12 ? TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.u.time_show_afternoon, new Object[]{String.valueOf(date.getHours() - 12), valueOf}) : date.getHours() == 12 ? TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.u.time_show_afternoon, new Object[]{String.valueOf(date.getHours()), valueOf}) : date.getHours() == 0 ? TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.u.time_show_morning, new Object[]{String.valueOf(12), valueOf}) : TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.u.time_show_morning, new Object[]{String.valueOf(date.getHours()), valueOf});
+        return date.getHours() > 12 ? TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.y.time_show_afternoon, new Object[]{String.valueOf(date.getHours() - 12), valueOf}) : date.getHours() == 12 ? TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.y.time_show_afternoon, new Object[]{String.valueOf(date.getHours()), valueOf}) : date.getHours() == 0 ? TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.y.time_show_morning, new Object[]{String.valueOf(12), valueOf}) : TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.y.time_show_morning, new Object[]{String.valueOf(date.getHours()), valueOf});
     }
 }

@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.data.BubbleListData;
 /* loaded from: classes.dex */
 class f implements ah {
@@ -40,9 +41,9 @@ class f implements ah {
         if (this.b instanceof BaseActivity) {
             ((BaseActivity) this.b).getLayoutMode().a(skinType == 1);
             ((BaseActivity) this.b).getLayoutMode().a(view);
-        } else if (this.b instanceof com.baidu.tbadk.core.e) {
-            ((com.baidu.tbadk.core.e) this.b).a().a(skinType == 1);
-            ((com.baidu.tbadk.core.e) this.b).a().a(view);
+        } else if (this.b instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) this.b).a().a(skinType == 1);
+            ((BaseFragmentActivity) this.b).a().a(view);
         }
         return view;
     }

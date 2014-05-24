@@ -201,7 +201,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str) {
         if (i < 0 || TextUtils.isEmpty(str)) {
-            showToast(com.baidu.tieba.u.neterror);
+            showToast(com.baidu.tieba.y.neterror);
         } else {
             showToast(str);
         }
@@ -218,7 +218,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         if (!this.e.j()) {
-            showToast(com.baidu.tieba.u.group_step_name_error);
+            showToast(com.baidu.tieba.y.group_step_name_error);
             return;
         }
         this.e.l();

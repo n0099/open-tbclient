@@ -11,19 +11,20 @@ import android.widget.ProgressBar;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.u;
+import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.view.q;
 import com.baidu.tbadk.coreExtra.view.ae;
 import com.baidu.tieba.im.message.RequestSubscribeLiveGroupMessage;
-import com.baidu.tieba.im.model.bc;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
+import com.baidu.tieba.im.model.bd;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tbadk.core.d implements u, ae {
+public class a extends com.baidu.tbadk.core.d implements x, ae {
     private MyLiveActivity b;
-    private bc c;
+    private bd c;
     private BdListView d;
     private ProgressBar e;
     private q f;
@@ -41,7 +42,7 @@ public class a extends com.baidu.tbadk.core.d implements u, ae {
         super.onCreate(bundle);
         this.b = (MyLiveActivity) getActivity();
         this.i = getArguments().getInt("KeyOfFragmentType", 1);
-        this.c = new bc(this.i);
+        this.c = new bd(this.i);
         this.c.setUniqueId(d());
         this.c.registerListener(MessageTypes.CMD_QUERY_MYLIVE, this.k);
         this.c.registerListener(MessageTypes.CMD_QUERY_MYLIVE_LOCAL, this.l);
@@ -54,9 +55,9 @@ public class a extends com.baidu.tbadk.core.d implements u, ae {
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(s.mylive_fragment, (ViewGroup) null);
-        this.g = (MyLiveNoDataView) inflate.findViewById(r.mylive_fragment_live_guide);
-        this.d = (BdListView) inflate.findViewById(r.mylive_fragment_live_list);
+        View inflate = layoutInflater.inflate(w.mylive_fragment, (ViewGroup) null);
+        this.g = (MyLiveNoDataView) inflate.findViewById(v.mylive_fragment_live_guide);
+        this.d = (BdListView) inflate.findViewById(v.mylive_fragment_live_list);
         this.f = new q(this.b);
         this.d.setPullRefresh(this.f);
         this.h = new MyLiveListAdapter(this.b, this);
@@ -64,7 +65,7 @@ public class a extends com.baidu.tbadk.core.d implements u, ae {
         this.d.setOnScrollListener(this);
         this.d.setOnSrollToBottomListener(this);
         this.f.a(new f(this));
-        this.e = (ProgressBar) inflate.findViewById(r.mylive_fragment_live_list_progress);
+        this.e = (ProgressBar) inflate.findViewById(v.mylive_fragment_live_list_progress);
         return inflate;
     }
 
@@ -95,7 +96,7 @@ public class a extends com.baidu.tbadk.core.d implements u, ae {
         if (view != null && view.getTag() != null && (view.getTag() instanceof LiveCardData)) {
             this.j = (LiveCardData) view.getTag();
             if (this.i == 1) {
-                d(com.baidu.tieba.u.live_mylive_dismiss_hint);
+                d(y.live_mylive_dismiss_hint);
             } else if (this.i == 2) {
                 RequestSubscribeLiveGroupMessage requestSubscribeLiveGroupMessage = new RequestSubscribeLiveGroupMessage();
                 requestSubscribeLiveGroupMessage.setGroupId(this.j.getGroupId());
@@ -107,7 +108,7 @@ public class a extends com.baidu.tbadk.core.d implements u, ae {
     }
 
     private void d(int i) {
-        new AlertDialog.Builder(this.b).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(i).setPositiveButton(com.baidu.tieba.u.confirm, new g(this)).setNegativeButton(com.baidu.tieba.u.cancel, new h(this)).create().show();
+        new AlertDialog.Builder(this.b).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(i).setPositiveButton(y.confirm, new g(this)).setNegativeButton(y.cancel, new h(this)).create().show();
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
@@ -140,6 +141,9 @@ public class a extends com.baidu.tbadk.core.d implements u, ae {
     }
 
     public boolean h() {
+        if (this.c == null) {
+            return false;
+        }
         return this.c.a();
     }
 
@@ -149,7 +153,7 @@ public class a extends com.baidu.tbadk.core.d implements u, ae {
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.x
     public void f_() {
         i();
     }

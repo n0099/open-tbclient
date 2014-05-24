@@ -32,7 +32,7 @@ class q implements View.OnClickListener {
             }
             if (!z) {
                 editorToolComponetContainer2 = this.a.a;
-                com.baidu.adp.lib.util.h.b(editorToolComponetContainer2.getContext(), com.baidu.tieba.u.editor_mutiiamge_image_error);
+                com.baidu.adp.lib.util.k.b(editorToolComponetContainer2.getContext(), com.baidu.tieba.y.editor_mutiiamge_image_error);
                 return;
             }
             editorToolComponetContainer = this.a.a;

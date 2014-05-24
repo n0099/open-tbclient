@@ -233,7 +233,7 @@ public class a {
 
     public static void a(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (c.e) {
+        if (d.e) {
             stringBuffer.append("Message_Type: " + str + IOUtils.LINE_SEPARATOR_UNIX);
             stringBuffer.append(b("", obj));
             stringBuffer.append("----------------------------------------------------------\n");

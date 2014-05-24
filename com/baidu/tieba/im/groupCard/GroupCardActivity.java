@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.View;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.LocalViewSize;
@@ -16,8 +17,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.share.f;
 import com.baidu.tbadk.h;
-import com.baidu.tieba.q;
 import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 public class GroupCardActivity extends BaseActivity implements View.OnClickListener {
@@ -54,7 +55,7 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
         if (x.a()) {
             return true;
         }
-        this.d.a(0, getString(u.voice_error_sdcard));
+        this.d.a(0, getString(y.voice_error_sdcard));
         return false;
     }
 
@@ -83,8 +84,8 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
 
     private void b() {
         f fVar = new f();
-        fVar.a = MessageFormat.format(getString(u.im_share_title), this.g);
-        fVar.b = MessageFormat.format(getString(u.im_share_content), this.g, String.valueOf(this.f));
+        fVar.a = MessageFormat.format(getString(y.im_share_title), this.g);
+        fVar.b = MessageFormat.format(getString(y.im_share_content), this.g, String.valueOf(this.f));
         fVar.c = String.valueOf(h.g) + this.f;
         try {
             fVar.d = Uri.parse(String.valueOf(j) + this.f + "&w=" + LocalViewSize.a().b());
@@ -99,12 +100,12 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
 
     private f c() {
         f fVar = new f();
-        fVar.a = MessageFormat.format(getString(u.im_share_title), this.g);
-        fVar.b = MessageFormat.format(getString(u.im_share_content), this.g, String.valueOf(this.f));
+        fVar.a = MessageFormat.format(getString(y.im_share_title), this.g);
+        fVar.b = MessageFormat.format(getString(y.im_share_content), this.g, String.valueOf(this.f));
         fVar.c = String.valueOf(h.g) + this.f;
         try {
             if (this.h == null || this.h.equals("")) {
-                fVar.a(BitmapFactory.decodeResource(getResources(), q.icon));
+                fVar.a(BitmapFactory.decodeResource(getResources(), u.icon));
             } else if (this.h.startsWith("http")) {
                 fVar.d = Uri.parse(this.h);
             } else {
@@ -138,7 +139,7 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
         this.h = intent.getStringExtra(c);
         this.e = new b(this.f, this);
         if (this.e != null) {
-            com.baidu.adp.widget.a.a a2 = this.e.a(this, com.baidu.adp.lib.util.h.b(this) - com.baidu.adp.lib.util.h.a((Context) this, 10.0f), (com.baidu.adp.lib.util.h.c(this) - this.d.g().getHeight()) - this.d.h().getHeight(), new a(this));
+            com.baidu.adp.widget.a.a a2 = this.e.a(this, k.b(this) - k.a((Context) this, 10.0f), (k.c(this) - this.d.g().getHeight()) - this.d.h().getHeight(), new a(this));
             if (a2 != null) {
                 this.d.b();
                 this.i = a2.h();

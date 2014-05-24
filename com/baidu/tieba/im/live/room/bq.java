@@ -23,13 +23,13 @@ class bq implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         if (editable == null || editable.toString().length() <= 0) {
             this.a.c.setEnabled(false);
-            this.a.c.setTextColor(this.a.b.getResources().getColor(com.baidu.tieba.o.cp_cont_e));
+            this.a.c.setTextColor(this.a.b.getResources().getColor(com.baidu.tieba.s.cp_cont_e));
             return;
         }
         this.a.c.setEnabled(true);
-        this.a.c.setTextColor(this.a.b.getResources().getColor(com.baidu.tieba.o.cp_cont_g));
+        this.a.c.setTextColor(this.a.b.getResources().getColor(com.baidu.tieba.s.cp_cont_g));
         if (editable.toString().length() >= 30) {
-            this.a.b.showToast(com.baidu.tieba.u.input_worlds_max);
+            this.a.b.showToast(com.baidu.tieba.y.input_worlds_max);
         }
     }
 }

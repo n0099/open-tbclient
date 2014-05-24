@@ -27,7 +27,7 @@ class g {
         Context context;
         this.a = eVar;
         context = eVar.a;
-        this.b = LayoutInflater.from(context).inflate(com.baidu.tieba.s.new_user_rich_item, (ViewGroup) null);
+        this.b = LayoutInflater.from(context).inflate(com.baidu.tieba.w.new_user_rich_item, (ViewGroup) null);
         this.b.setTag(Integer.valueOf(card.getFid()));
         a(card, onClickListener);
     }
@@ -39,12 +39,12 @@ class g {
     }
 
     public void b() {
-        this.c = (TextView) this.b.findViewById(com.baidu.tieba.r.tv_fname);
-        this.d = (TextView) this.b.findViewById(com.baidu.tieba.r.tv_cdesc);
-        this.f = (ImageView) this.b.findViewById(com.baidu.tieba.r.iv_like);
-        this.e = (TextView) this.b.findViewById(com.baidu.tieba.r.tv_slogan);
-        this.g = (ImageView) this.b.findViewById(com.baidu.tieba.r.img);
-        this.h = (LinearLayout) this.b.findViewById(com.baidu.tieba.r.ll_like);
+        this.c = (TextView) this.b.findViewById(com.baidu.tieba.v.tv_fname);
+        this.d = (TextView) this.b.findViewById(com.baidu.tieba.v.tv_cdesc);
+        this.f = (ImageView) this.b.findViewById(com.baidu.tieba.v.iv_like);
+        this.e = (TextView) this.b.findViewById(com.baidu.tieba.v.tv_slogan);
+        this.g = (ImageView) this.b.findViewById(com.baidu.tieba.v.img);
+        this.h = (LinearLayout) this.b.findViewById(com.baidu.tieba.v.ll_like);
     }
 
     public void a(boolean z) {
@@ -53,12 +53,12 @@ class g {
         if (!z) {
             ImageView imageView = this.f;
             context2 = this.a.a;
-            imageView.setBackgroundDrawable(context2.getResources().getDrawable(com.baidu.tieba.q.icon_startpage2_add_ba_n));
+            imageView.setBackgroundDrawable(context2.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_ba_n));
             return;
         }
         ImageView imageView2 = this.f;
         context = this.a.a;
-        imageView2.setBackgroundDrawable(context.getResources().getDrawable(com.baidu.tieba.q.icon_startpage2_add_ba_s));
+        imageView2.setBackgroundDrawable(context.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_ba_s));
     }
 
     private void a(InterestFrsData.Card card, View.OnClickListener onClickListener) {

@@ -5,9 +5,29 @@ import android.content.Intent;
 import android.os.IBinder;
 /* loaded from: classes.dex */
 public class DealIntentService extends Service {
-    private static String b = "TaskExsits";
-    private static String c = "TaskNeedsTobeStart";
-    private a a = null;
+    private static String ACTION_ON_POST_EXSIT = "TaskExsits";
+    private static String ACTION_ON_POST_START = "TaskNeedsTobeStart";
+    public static final int CLASS_TYPE_FRS = 2;
+    public static final int CLASS_TYPE_GROUP_EVENT = 14;
+    public static final int CLASS_TYPE_GROUP_INFO = 13;
+    public static final int CLASS_TYPE_LIVE_GROUP = 17;
+    public static final int CLASS_TYPE_LIVE_NOTIFY = 16;
+    public static final int CLASS_TYPE_MAIN = 3;
+    public static final int CLASS_TYPE_MESSAGE = 5;
+    public static final int CLASS_TYPE_MESSAGE_NEW = 11;
+    public static final int CLASS_TYPE_NOTLOGINGUIDE_ACTIVITY = 20;
+    public static final int CLASS_TYPE_PAY = 15;
+    public static final int CLASS_TYPE_PB = 1;
+    public static final int CLASS_TYPE_PERSON = 10;
+    public static final int CLASS_TYPE_PERSON_NEW = 12;
+    public static final int CLASS_TYPE_PK_AFTER = 7;
+    public static final int CLASS_TYPE_PK_BEFORE = 6;
+    public static final int CLASS_TYPE_SIGN = 9;
+    public static final int CLASS_TYPE_SINGLESQUARE_ACTIVITY = 19;
+    public static final int CLASS_TYPE_SQUARESEARCH_ACTIVITY = 18;
+    public static final int CLASS_TYPE_VOTE = 8;
+    public static final int CLASS_TYPE_WEB = 0;
+    private a mDealAsyncTask = null;
 
     @Override // android.app.Service
     public void onCreate() {
@@ -18,7 +38,7 @@ public class DealIntentService extends Service {
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
         if (intent != null) {
-            a(intent);
+            doDeal(intent);
         }
     }
 
@@ -27,13 +47,13 @@ public class DealIntentService extends Service {
         return null;
     }
 
-    private void a(Intent intent) {
-        if (this.a != null) {
-            this.a.cancel();
-            this.a = null;
+    private void doDeal(Intent intent) {
+        if (this.mDealAsyncTask != null) {
+            this.mDealAsyncTask.cancel();
+            this.mDealAsyncTask = null;
         }
-        this.a = new a(this, intent);
-        this.a.setPriority(4);
-        this.a.execute(new String[0]);
+        this.mDealAsyncTask = new a(this, intent);
+        this.mDealAsyncTask.setPriority(4);
+        this.mDealAsyncTask.execute(new String[0]);
     }
 }

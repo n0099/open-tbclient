@@ -14,7 +14,7 @@ public class j implements CustomMessageTask.CustomRunnable<Object> {
             return null;
         }
         RequestFrsGroupsLocalMessage requestFrsGroupsLocalMessage = (RequestFrsGroupsLocalMessage) customMessage;
-        byte[] a = com.baidu.tbadk.core.a.b.a().e().a("pb_" + requestFrsGroupsLocalMessage.getType() + "_" + requestFrsGroupsLocalMessage.getForumId());
+        byte[] a = com.baidu.tbadk.core.a.b.a().f().a("pb_" + requestFrsGroupsLocalMessage.getType() + "_" + requestFrsGroupsLocalMessage.getForumId());
         ResponseFrsGroupsLocalMessage responseFrsGroupsLocalMessage = new ResponseFrsGroupsLocalMessage();
         try {
             responseFrsGroupsLocalMessage.decodeInBackGround(MessageTypes.CMD_CACHE_GROUPS_BY_FID, a);

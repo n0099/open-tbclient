@@ -1,28 +1,23 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements AbsListView.RecyclerListener {
-    final /* synthetic */ h a;
+public class o implements View.OnClickListener {
+    final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(h hVar) {
-        this.a = hVar;
+    public o(g gVar) {
+        this.a = gVar;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        View findViewById = view.findViewById(com.baidu.tieba.r.lay_msgitem_voice);
-        if (findViewById != null && (findViewById instanceof ChatVoiceView)) {
-            ((ChatVoiceView) findViewById).b();
-        }
-        View findViewById2 = view.findViewById(com.baidu.tieba.r.emotion_msgitem_image);
-        if (findViewById2 != null && (findViewById2 instanceof GifView)) {
-            ((GifView) findViewById2).c();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ImageView imageView;
+        this.a.g();
+        this.a.R();
+        imageView = this.a.u;
+        imageView.postDelayed(new p(this), 100L);
     }
 }

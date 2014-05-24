@@ -10,10 +10,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -66,23 +66,23 @@ public class e extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         f fVar;
         if (view == null || view.getTag() == null) {
-            view = LayoutInflater.from(this.a).inflate(s.im_search_group_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.a).inflate(w.im_search_group_list_item, viewGroup, false);
             fVar = new f();
-            fVar.a = (HeadImageView) view.findViewById(r.item_head);
-            fVar.b = (TextView) view.findViewById(r.item_name);
-            fVar.c = (TextView) view.findViewById(r.item_count);
+            fVar.a = (HeadImageView) view.findViewById(v.item_head);
+            fVar.b = (TextView) view.findViewById(v.item_name);
+            fVar.c = (TextView) view.findViewById(v.item_count);
             view.setTag(fVar);
         } else {
             fVar = (f) view.getTag();
         }
         BaseGroupData baseGroupData = this.c.get(i);
         fVar.a.setTag(null);
-        fVar.a.setDefaultResource(q.avatar_poto_defaul50);
+        fVar.a.setDefaultResource(u.avatar_poto_defaul50);
         fVar.a.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         if (baseGroupData != null) {
             fVar.a.setTag(baseGroupData.getPortrait());
             fVar.b.setText(baseGroupData.getName());
-            fVar.c.setText(this.a.getResources().getString(u.mem_count, String.valueOf(baseGroupData.getMemberNum())));
+            fVar.c.setText(this.a.getResources().getString(y.mem_count, String.valueOf(baseGroupData.getMemberNum())));
         }
         return view;
     }

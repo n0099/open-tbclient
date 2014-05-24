@@ -19,21 +19,21 @@ class c implements com.baidu.adp.lib.d.c<ImageView> {
     public ImageView a() {
         Drawable drawable;
         TbImageView tbImageView = new TbImageView(this.a);
-        boolean f = com.baidu.tbadk.core.h.a().f();
+        boolean f = com.baidu.tbadk.core.g.a().f();
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            drawable = this.a.getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg_1);
+            drawable = this.a.getResources().getDrawable(com.baidu.tieba.s.pb_default_image_bg_1);
         } else {
-            drawable = this.a.getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg);
+            drawable = this.a.getResources().getDrawable(com.baidu.tieba.s.pb_default_image_bg);
         }
         tbImageView.setDefaultBg(drawable);
         if (f) {
-            tbImageView.setNightDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d_1);
-            tbImageView.setDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d);
+            tbImageView.setNightDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d_1);
+            tbImageView.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d);
             tbImageView.setAdjustViewBounds(false);
             tbImageView.setInterceptOnClick(false);
         } else {
-            tbImageView.setNightDefaultResource(com.baidu.tieba.q.icon_click_1);
-            tbImageView.setDefaultResource(com.baidu.tieba.q.icon_click);
+            tbImageView.setNightDefaultResource(com.baidu.tieba.u.icon_click_1);
+            tbImageView.setDefaultResource(com.baidu.tieba.u.icon_click);
             tbImageView.setAdjustViewBounds(true);
             tbImageView.setInterceptOnClick(true);
         }
@@ -60,19 +60,19 @@ class c implements com.baidu.adp.lib.d.c<ImageView> {
             TbImageView tbImageView = (TbImageView) imageView;
             tbImageView.setTag(null);
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                drawable = this.a.getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg_1);
+                drawable = this.a.getResources().getDrawable(com.baidu.tieba.s.pb_default_image_bg_1);
             } else {
-                drawable = this.a.getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg);
+                drawable = this.a.getResources().getDrawable(com.baidu.tieba.s.pb_default_image_bg);
             }
             tbImageView.setDefaultBg(drawable);
-            if (com.baidu.tbadk.core.h.a().f()) {
-                tbImageView.setNightDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d_1);
-                tbImageView.setDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d);
+            if (com.baidu.tbadk.core.g.a().f()) {
+                tbImageView.setNightDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d_1);
+                tbImageView.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d);
                 tbImageView.setAdjustViewBounds(false);
                 tbImageView.setInterceptOnClick(false);
             } else {
-                tbImageView.setNightDefaultResource(com.baidu.tieba.q.icon_click_1);
-                tbImageView.setDefaultResource(com.baidu.tieba.q.icon_click);
+                tbImageView.setNightDefaultResource(com.baidu.tieba.u.icon_click_1);
+                tbImageView.setDefaultResource(com.baidu.tieba.u.icon_click);
                 tbImageView.setAdjustViewBounds(true);
                 tbImageView.setInterceptOnClick(true);
             }

@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.as;
@@ -27,7 +28,7 @@ public class PraiseListActivity extends BaseActivity implements View.OnClickList
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, String str, String str2, String str3, boolean z) {
-        if (!com.baidu.adp.lib.util.g.b(str2)) {
+        if (!j.b(str2)) {
             Intent intent = new Intent(context, PraiseListActivity.class);
             intent.putExtra("KeyIntentThreadId", str);
             intent.putExtra("KeyIntentPostId", str2);
@@ -100,7 +101,7 @@ public class PraiseListActivity extends BaseActivity implements View.OnClickList
 
     @Override // com.baidu.tieba.pb.praise.h
     public void a(String str) {
-        if (!com.baidu.adp.lib.util.g.b(str)) {
+        if (!j.b(str)) {
             showToast(str, true);
         }
         this.a.c();

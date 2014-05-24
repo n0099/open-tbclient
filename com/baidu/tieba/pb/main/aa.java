@@ -4,8 +4,10 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aa implements com.baidu.tbadk.core.util.bk {
+public class aa implements com.baidu.tbadk.core.util.bk {
     @Override // com.baidu.tbadk.core.util.bk
     public boolean a(Context context, String[] strArr) {
         String str;
@@ -36,8 +38,8 @@ class aa implements com.baidu.tbadk.core.util.bk {
             str = "allthread";
             str2 = substring2;
         }
-        if (context instanceof com.baidu.tbadk.core.e) {
-            ((com.baidu.tbadk.core.e) context).a(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(context).a(str2, null, str)));
+        if (context instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) context).a(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(context).a(str2, null, str)));
             return true;
         } else if (context instanceof BaseActivity) {
             ((BaseActivity) context).sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(context).a(str2, null, str)));

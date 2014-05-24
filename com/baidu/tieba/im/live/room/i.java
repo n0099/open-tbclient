@@ -29,7 +29,7 @@ class i extends com.baidu.adp.framework.listener.b {
         } else if (!(socketResponsedMessage instanceof ResponseSubscribeLiveGroupMessage)) {
             z4 = this.a.z();
             z4.g(false);
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         } else {
             ResponseSubscribeLiveGroupMessage responseSubscribeLiveGroupMessage = (ResponseSubscribeLiveGroupMessage) socketResponsedMessage;
             if (responseSubscribeLiveGroupMessage.getError() != 0) {
@@ -42,17 +42,17 @@ class i extends com.baidu.adp.framework.listener.b {
                     }
                     return;
                 }
-                this.a.showToast(com.baidu.tieba.u.neterror);
+                this.a.showToast(com.baidu.tieba.y.neterror);
             } else if (this.a.x().f) {
                 this.a.x().f = false;
                 z2 = this.a.z();
                 z2.g(false);
-                this.a.showToast(com.baidu.tieba.u.live_room_cancel_attention);
+                this.a.showToast(com.baidu.tieba.y.live_room_cancel_attention);
             } else {
                 this.a.x().f = true;
                 z = this.a.z();
                 z.g(true);
-                this.a.showToast(com.baidu.tieba.u.live_room_attentioned);
+                this.a.showToast(com.baidu.tieba.y.live_room_attentioned);
             }
         }
     }

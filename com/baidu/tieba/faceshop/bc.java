@@ -20,7 +20,7 @@ public class bc extends BaseAdapter {
     public bc(Context context) {
         this.a = context;
         this.c = new com.baidu.tbadk.editortool.ab(context);
-        this.c.a(context.getResources().getDimensionPixelSize(com.baidu.tieba.p.faceshop_purchase_cover_width), context.getResources().getDimensionPixelSize(com.baidu.tieba.p.faceshop_purchase_cover_height));
+        this.c.a(context.getResources().getDimensionPixelSize(com.baidu.tieba.t.faceshop_purchase_cover_width), context.getResources().getDimensionPixelSize(com.baidu.tieba.t.faceshop_purchase_cover_height));
     }
 
     public void a(FacePurchaseRecordsData facePurchaseRecordsData) {
@@ -75,11 +75,11 @@ public class bc extends BaseAdapter {
     private View b() {
         LayoutInflater from = LayoutInflater.from(this.a);
         bd bdVar = new bd(this, null);
-        View inflate = from.inflate(com.baidu.tieba.s.face_purchase_record_item, (ViewGroup) null);
-        bdVar.a = (TbImageView) inflate.findViewById(com.baidu.tieba.r.cover);
-        bdVar.b = (TextView) inflate.findViewById(com.baidu.tieba.r.title);
-        bdVar.c = (TextView) inflate.findViewById(com.baidu.tieba.r.time);
-        bdVar.d = (TextView) inflate.findViewById(com.baidu.tieba.r.price);
+        View inflate = from.inflate(com.baidu.tieba.w.face_purchase_record_item, (ViewGroup) null);
+        bdVar.a = (TbImageView) inflate.findViewById(com.baidu.tieba.v.cover);
+        bdVar.b = (TextView) inflate.findViewById(com.baidu.tieba.v.title);
+        bdVar.c = (TextView) inflate.findViewById(com.baidu.tieba.v.time);
+        bdVar.d = (TextView) inflate.findViewById(com.baidu.tieba.v.price);
         inflate.setTag(bdVar);
         return inflate;
     }

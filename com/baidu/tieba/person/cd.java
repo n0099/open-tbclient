@@ -19,7 +19,7 @@ public class cd implements View.OnClickListener {
         this.a.a = ((Integer) view.getTag()).intValue();
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            LoginActivity.a((Activity) this.a, this.a.getString(com.baidu.tieba.u.login_to_chat), true, 11028);
+            LoginActivity.a((Activity) this.a, this.a.getString(com.baidu.tieba.y.login_to_chat), true, 11028);
         } else {
             this.a.c();
         }

@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask<String, Integer, AccountData> {
@@ -86,7 +86,7 @@ public class h extends BdAsyncTask<String, Integer, AccountData> {
             str = this.a.f();
         }
         if (str == null) {
-            str = TbadkApplication.m252getInst().getApp().getResources().getString(u.data_load_error);
+            str = TbadkApplication.m252getInst().getApp().getResources().getString(y.data_load_error);
         }
         this.e.onFailure(this.b, str);
     }

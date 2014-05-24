@@ -18,12 +18,12 @@ class bs implements View.OnClickListener {
         int groupId = this.a.b.x().b().getGroupId();
         String trim = this.a.e.getText().toString().trim();
         if (TextUtils.isEmpty(trim)) {
-            this.a.b.showToast(com.baidu.tieba.u.remind_notice_not_null);
+            this.a.b.showToast(com.baidu.tieba.y.remind_notice_not_null);
             return;
         }
         this.a.d.setEnabled(false);
         this.a.c.setEnabled(false);
-        com.baidu.adp.lib.util.h.a(this.a.b, this.a.e);
+        com.baidu.adp.lib.util.k.a(this.a.b, this.a.e);
         this.a.b.showProgressBar(true, 0, 0);
         MessageManager.getInstance().sendMessage(new SendForeNoticeRequestMessage(groupId, trim));
     }

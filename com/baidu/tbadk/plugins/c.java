@@ -13,13 +13,13 @@ public class c implements k {
     }
 
     @Override // com.baidu.tbadk.tbplugin.k
-    public void a(int i, String str) {
+    public void onFinish(int i, String str) {
         if (i != 0) {
             BdLog.e("Installation Error: " + str);
         }
     }
 
     @Override // com.baidu.tbadk.tbplugin.k
-    public void a(int i) {
+    public void onProgress(int i) {
     }
 }

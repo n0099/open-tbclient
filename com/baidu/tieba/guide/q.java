@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.Button;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.al;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
 import com.baidu.tieba.data.InterestFrsData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -32,7 +32,7 @@ public class q implements View.OnClickListener {
             if (view == button) {
                 newUserGuideActivity = this.a.o;
                 if (newUserGuideActivity.e()) {
-                    ad.c().e(true);
+                    ai.c().e(true);
                 }
                 p pVar = this.a;
                 newUserGuideActivity2 = this.a.o;
@@ -49,7 +49,7 @@ public class q implements View.OnClickListener {
         if (z2) {
             this.a.t = false;
             newUserGuideActivity4 = this.a.o;
-            com.baidu.tbadk.core.g.a(newUserGuideActivity4, "newUserInterestSelect");
+            com.baidu.tbadk.core.f.a(newUserGuideActivity4, "newUserInterestSelect");
             newUserGuideActivity5 = this.a.o;
             x xVar = new x(newUserGuideActivity5, (InterestFrsData.Tag) view.getTag(), new r(this));
             view2 = this.a.c;

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends CustomMessageListener {
@@ -46,10 +46,10 @@ public class m extends CustomMessageListener {
                 z = this.a.d;
                 if (z) {
                     personalTalkSettingActivity5 = this.a.h;
-                    personalTalkSettingActivity5.showToast(u.add_succ);
+                    personalTalkSettingActivity5.showToast(y.add_succ);
                 } else {
                     personalTalkSettingActivity4 = this.a.h;
-                    personalTalkSettingActivity4.showToast(u.remove_succ);
+                    personalTalkSettingActivity4.showToast(y.remove_succ);
                 }
             }
             pVar = this.a.i;

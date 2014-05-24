@@ -27,9 +27,9 @@ public class PrivilegeTabWidgetView extends LinearLayout {
     private void a(Context context) {
         setVisibility(8);
         removeAllViews();
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.privilege_tab_widget, (ViewGroup) this, true);
-        this.a = (PrivilegeTabHorizonScrollView) findViewById(com.baidu.tieba.r.privilege_tab_scroll_view);
-        this.b = (ImageView) findViewById(com.baidu.tieba.r.privilege_tab_delete);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.privilege_tab_widget, (ViewGroup) this, true);
+        this.a = (PrivilegeTabHorizonScrollView) findViewById(com.baidu.tieba.v.privilege_tab_scroll_view);
+        this.b = (ImageView) findViewById(com.baidu.tieba.v.privilege_tab_delete);
         this.b.setOnClickListener(new am(this));
     }
 
@@ -59,11 +59,11 @@ public class PrivilegeTabWidgetView extends LinearLayout {
     }
 
     public void a(int i) {
-        setBackgroundColor(getResources().getColor(i == 1 ? com.baidu.tieba.o.editor_tool_container_bg_1 : com.baidu.tieba.o.editor_tool_container_bg));
+        setBackgroundColor(getResources().getColor(i == 1 ? com.baidu.tieba.s.editor_tool_container_bg_1 : com.baidu.tieba.s.editor_tool_container_bg));
         Resources resources = getContext().getResources();
         this.a.a(i);
-        int i2 = i == 1 ? com.baidu.tieba.q.but_face_close_1 : com.baidu.tieba.q.but_face_close;
-        int i3 = i == 1 ? com.baidu.tieba.o.emotion_delete_bg_1 : com.baidu.tieba.o.emotion_delete_bg;
+        int i2 = i == 1 ? com.baidu.tieba.u.but_face_close_1 : com.baidu.tieba.u.but_face_close;
+        int i3 = i == 1 ? com.baidu.tieba.s.emotion_delete_bg_1 : com.baidu.tieba.s.emotion_delete_bg;
         this.b.setImageResource(i2);
         this.b.setBackgroundColor(resources.getColor(i3));
     }

@@ -2,7 +2,7 @@ package com.baidu.tieba.flist;
 
 import android.content.Context;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.base.d {
+public class c extends com.baidu.adp.base.b {
     private d a;
     private e b;
     private String c;
@@ -18,14 +18,14 @@ public class c extends com.baidu.adp.base.d {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean LoadData() {
         this.a = new d(this, null);
         this.a.execute(new Object[0]);
         return true;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();

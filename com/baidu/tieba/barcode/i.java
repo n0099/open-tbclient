@@ -38,7 +38,7 @@ public class i extends BdAsyncTask<Object, Integer, Bitmap> {
         try {
             if (isCancelled() && c != null && !c.isRecycled()) {
                 c.recycle();
-            } else if (c == null || com.baidu.tbadk.core.util.g.b(c, com.baidu.adp.lib.util.h.a((Context) this.a, 63.5f)) != null) {
+            } else if (c == null || com.baidu.tbadk.core.util.g.b(c, com.baidu.adp.lib.util.k.a((Context) this.a, 63.5f)) != null) {
                 bitmap = c;
             }
         } catch (Exception e2) {

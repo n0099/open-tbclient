@@ -6,6 +6,7 @@ import android.os.IBinder;
 import android.os.Messenger;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.tbplugin.PluginReloadReceiver;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
 import com.baidu.tbadk.tbplugin.i;
 import com.baidu.tbadk.tbplugin.k;
@@ -16,25 +17,34 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginDownloadService extends Service implements k {
-    private Messenger a = new Messenger(new c(this, null));
-    private List<Messenger> b = new ArrayList();
-    private com.baidu.tbadk.download.a c = new d(this, null);
+    public static final int MSG_ADD = 3;
+    public static final int MSG_CONNECT_CLIENT = 1;
+    public static final int MSG_DISCONNECT_CLIENT = 2;
+    public static final int MSG_FAILED = 7;
+    public static final int MSG_FINISH = 6;
+    public static final int MSG_GET = 4;
+    public static final int MSG_SUCCEED = 8;
+    public static final int MSG_UPDATE = 5;
+    private static final String TAG = "PluginDownloadService";
+    private Messenger mMessenger = new Messenger(new b(this, null));
+    private List<Messenger> mClients = new ArrayList();
+    private com.baidu.tbadk.download.a mFileDownloadCallBack = new c(this, null);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return this.a.getBinder();
+        return this.mMessenger.getBinder();
     }
 
     @Override // com.baidu.tbadk.tbplugin.k
-    public void a(int i, String str) {
+    public void onFinish(int i, String str) {
         m.a().q();
         if (TbadkApplication.m252getInst().isMainProcess()) {
-            sendBroadcast(new Intent("com.baidu.tbadk.tbplugin.action.PLUGIN_RELOAD"));
+            sendBroadcast(new Intent(PluginReloadReceiver.ACTION_PLUGIN_RELOAD));
         }
     }
 
     @Override // com.baidu.tbadk.tbplugin.k
-    public void a(int i) {
+    public void onProgress(int i) {
     }
 
     @Override // android.app.Service
@@ -45,11 +55,11 @@ public class PluginDownloadService extends Service implements k {
             for (String str : stringArrayExtra) {
                 PluginsConfig.PluginConfig d = m.a().d(str);
                 if (d != null) {
-                    DownloadData a = a(d);
+                    DownloadData configToDownloadData = configToDownloadData(d);
                     Iterator<DownloadData> it = com.baidu.tbadk.download.b.a().b().iterator();
                     while (true) {
                         if (it.hasNext()) {
-                            if (it.next().getId().equals(a.getId())) {
+                            if (it.next().getId().equals(configToDownloadData.getId())) {
                                 z = true;
                                 break;
                             }
@@ -59,8 +69,8 @@ public class PluginDownloadService extends Service implements k {
                         }
                     }
                     if (!z) {
-                        a.setCallback(new b(this, this, d));
-                        com.baidu.tbadk.download.b.a().a(a);
+                        configToDownloadData.setCallback(new a(this, this, d));
+                        com.baidu.tbadk.download.b.a().a(configToDownloadData);
                     }
                 }
             }
@@ -71,11 +81,11 @@ public class PluginDownloadService extends Service implements k {
 
     @Override // android.app.Service
     public void onDestroy() {
-        this.b.clear();
+        this.mClients.clear();
         super.onDestroy();
     }
 
-    private DownloadData a(PluginsConfig.PluginConfig pluginConfig) {
+    private DownloadData configToDownloadData(PluginsConfig.PluginConfig pluginConfig) {
         DownloadData downloadData = new DownloadData(pluginConfig.name, pluginConfig.newest.url);
         String str = String.valueOf(pluginConfig.name) + ".tbplugin";
         downloadData.setName(str);

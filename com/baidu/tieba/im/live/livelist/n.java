@@ -33,7 +33,7 @@ class n implements DialogInterface.OnClickListener {
             case 0:
                 frsLiveListActivity4 = this.a.a;
                 frsLiveListActivity5 = this.a.a;
-                frsLiveListActivity4.showLoadingDialog(frsLiveListActivity5.getString(com.baidu.tieba.u.group_tab_enterchatroom_loading), null);
+                frsLiveListActivity4.showLoadingDialog(frsLiveListActivity5.getString(com.baidu.tieba.y.group_tab_enterchatroom_loading), null);
                 switch (this.b) {
                     case 0:
                         frsLiveListActivity8 = this.a.a;
@@ -56,7 +56,7 @@ class n implements DialogInterface.OnClickListener {
             case 1:
                 frsLiveListActivity = this.a.a;
                 frsLiveListActivity2 = this.a.a;
-                frsLiveListActivity.showLoadingDialog(frsLiveListActivity2.getString(com.baidu.tieba.u.group_tab_enterchatroom_loading), null);
+                frsLiveListActivity.showLoadingDialog(frsLiveListActivity2.getString(com.baidu.tieba.y.group_tab_enterchatroom_loading), null);
                 switch (this.b) {
                     case 0:
                         frsLiveListActivity3 = this.a.a;

@@ -1,23 +1,29 @@
 package com.baidu.tbadk.core.voice.service;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.media.MediaPlayer;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements Parcelable.Creator<Voice> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public Voice[] newArray(int i) {
-        return new Voice[i];
+public class e implements MediaPlayer.OnCompletionListener {
+    final /* synthetic */ MediaService a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(MediaService mediaService) {
+        this.a = mediaService;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public Voice createFromParcel(Parcel parcel) {
-        Voice voice = new Voice();
-        voice.a((int) parcel.readLong());
-        voice.a(parcel.readString());
-        return voice;
+    @Override // android.media.MediaPlayer.OnCompletionListener
+    public void onCompletion(MediaPlayer mediaPlayer) {
+        g gVar;
+        Voice voice;
+        g gVar2;
+        gVar = this.a.mPlayer;
+        if (gVar != null) {
+            voice = this.a.mVoice;
+            if (voice != null) {
+                gVar2 = this.a.mPlayer;
+                gVar2.b();
+                this.a.stopVoice(null);
+            }
+        }
     }
 }

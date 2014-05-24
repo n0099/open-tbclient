@@ -7,7 +7,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.data.SearchPostModel;
-import com.baidu.tieba.data.an;
+import com.baidu.tieba.data.ao;
 import com.baidu.tieba.model.BarSuggestModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -43,13 +43,13 @@ public class p implements AdapterView.OnItemClickListener {
                 cVar2 = this.a.p;
                 if (cVar2.getItemId(i) != -2) {
                     cVar3 = this.a.p;
-                    an anVar = (an) cVar3.getItem(i);
-                    if (anVar != null) {
-                        if (anVar.a()) {
-                            this.a.sendMessage(new CustomMessage(2006001, new as(this.a).a(anVar.c(), null, "search_post")));
+                    ao aoVar = (ao) cVar3.getItem(i);
+                    if (aoVar != null) {
+                        if (aoVar.a()) {
+                            this.a.sendMessage(new CustomMessage(2006001, new as(this.a).a(aoVar.c(), null, "search_post")));
                             return;
                         } else {
-                            this.a.sendMessage(new CustomMessage(2006001, new as(this.a).a(anVar.c(), anVar.b(), "search_post")));
+                            this.a.sendMessage(new CustomMessage(2006001, new as(this.a).a(aoVar.c(), aoVar.b(), "search_post")));
                             return;
                         }
                     }

@@ -78,7 +78,7 @@ public class ab {
                     TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
                 }
                 CustomMessage customMessage = new CustomMessage(CmdConfig.DEAL_YY_NOTIFICATION);
-                customMessage.setData(new com.baidu.tbadk.core.data.l(next.getMsgId(), next.getLink(), next.getContent(), next.getStat()));
+                customMessage.setData(new com.baidu.tbadk.core.data.k(next.getMsgId(), next.getLink(), next.getContent(), next.getStat()));
                 MessageManager.getInstance().sendMessage(customMessage);
             }
         }

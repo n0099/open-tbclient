@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.adp.lib.a.f;
 import com.baidu.adp.lib.cache.s;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
@@ -41,8 +41,8 @@ public class d extends a {
                             com.baidu.tbadk.imageManager.e.a().c(d);
                             eVar.e = bd.a().b(str2);
                             if (eVar.e != null) {
-                                s<String> z = com.baidu.tbadk.core.a.b.a().z();
-                                if (z != null && "gif".equals(z.a(a))) {
+                                s<String> A = com.baidu.tbadk.core.a.b.a().A();
+                                if (A != null && "gif".equals(A.a(a))) {
                                     eVar.h = true;
                                 }
                                 if (!eVar.h) {
@@ -93,12 +93,12 @@ public class d extends a {
         String f2 = bVar.f != null ? String.valueOf(f) + bVar.f : be.f(str);
         wVar.a("name", f2);
         if (bVar.b == 0) {
-            i = h.a(bVar.a, 105.0f);
+            i = k.a(bVar.a, 105.0f);
         } else {
             i = bVar.b;
         }
         if (bVar.c == 0) {
-            i2 = h.a(bVar.a, 105.0f);
+            i2 = k.a(bVar.a, 105.0f);
         } else {
             i2 = bVar.c;
         }
@@ -180,7 +180,7 @@ public class d extends a {
                 a(TbErrInfo.PIC_CONVERT_ERR, bVar, eVar, wVar, e, str2, currentTimeMillis2);
                 return null;
             }
-            eVar.h = eVar.a.d || h.a(a2);
+            eVar.h = eVar.a.d || k.a(a2);
             if (eVar.n) {
                 return null;
             }

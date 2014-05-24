@@ -45,7 +45,7 @@ public class d extends a implements Runnable {
         super.b();
         while (true) {
             try {
-                com.baidu.adp.lib.debug.c.b(d());
+                com.baidu.adp.lib.debug.d.b(d());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {

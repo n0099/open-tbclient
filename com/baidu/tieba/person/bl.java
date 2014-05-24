@@ -27,9 +27,9 @@ public class bl extends BdAsyncTask<String, Integer, String> {
                 return com.baidu.tbadk.core.util.x.b();
             case -1:
             default:
-                return this.c.getString(com.baidu.tieba.u.save_error);
+                return this.c.getString(com.baidu.tieba.y.save_error);
             case 0:
-                return this.c.getString(com.baidu.tieba.u.save_image_to_album);
+                return this.c.getString(com.baidu.tieba.y.save_image_to_album);
         }
     }
 

@@ -6,12 +6,12 @@ import android.view.View;
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
     final /* synthetic */ CommonImageLayout a;
-    private final /* synthetic */ com.baidu.tbadk.core.data.k b;
+    private final /* synthetic */ com.baidu.tbadk.core.data.j b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(CommonImageLayout commonImageLayout, com.baidu.tbadk.core.data.k kVar) {
+    public g(CommonImageLayout commonImageLayout, com.baidu.tbadk.core.data.j jVar) {
         this.a = commonImageLayout;
-        this.b = kVar;
+        this.b = jVar;
     }
 
     @Override // android.view.View.OnClickListener

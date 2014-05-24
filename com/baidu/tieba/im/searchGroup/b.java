@@ -6,11 +6,11 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.base.e {
+public class b extends com.baidu.adp.base.c {
     private View a;
     private NavigationBar b;
     private View c;
@@ -63,18 +63,18 @@ public class b extends com.baidu.adp.base.e {
     }
 
     private void e() {
-        this.h.setContentView(s.im_add_group_activity);
-        this.a = this.h.findViewById(r.addgroup_rootlayout);
-        this.b = (NavigationBar) this.h.findViewById(r.addgroup_navigationbar);
+        this.h.setContentView(w.im_add_group_activity);
+        this.a = this.h.findViewById(v.addgroup_rootlayout);
+        this.b = (NavigationBar) this.h.findViewById(v.addgroup_navigationbar);
         this.c = this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.a(this.h.getResources().getString(u.add_group_title_main));
-        this.d = (EditText) this.h.findViewById(r.addgroup_input);
+        this.b.a(this.h.getResources().getString(y.add_group_title_main));
+        this.d = (EditText) this.h.findViewById(v.addgroup_input);
         this.d.setInputType(2);
-        this.e = (ImageButton) this.h.findViewById(r.addgroup_delbtn);
-        this.g = (Button) this.h.findViewById(r.addgroup_searchbutton);
+        this.e = (ImageButton) this.h.findViewById(v.addgroup_delbtn);
+        this.g = (Button) this.h.findViewById(v.addgroup_searchbutton);
         this.d.addTextChangedListener(new c(this));
-        this.g = (Button) this.h.findViewById(r.addgroup_searchbutton);
-        this.f = (ProgressBar) this.h.findViewById(r.addgroup_progress);
+        this.g = (Button) this.h.findViewById(v.addgroup_searchbutton);
+        this.f = (ProgressBar) this.h.findViewById(v.addgroup_progress);
         this.c.setOnClickListener(this.h);
         this.e.setOnClickListener(this.h);
         this.g.setOnClickListener(this.h);

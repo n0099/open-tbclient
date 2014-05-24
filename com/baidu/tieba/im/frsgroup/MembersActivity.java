@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
-public class MembersActivity extends BaseActivity implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.u {
+public class MembersActivity extends BaseActivity implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.x {
     private com.baidu.tbadk.core.view.q a;
     private ah b;
     private com.baidu.tieba.im.model.ad c;
@@ -203,6 +203,7 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void l() {
+        this.b.b(0);
         this.b.c(false);
         this.b.f().d(false);
         this.b.f().a();
@@ -236,7 +237,7 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
         finish();
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.x
     public void f_() {
         o();
     }

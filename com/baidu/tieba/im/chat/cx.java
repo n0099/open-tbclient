@@ -1,45 +1,23 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cx {
-    String a;
-    BaseActivity b;
+public class cx implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ cw a;
 
-    public cx(String str, BaseActivity baseActivity) {
-        this.a = null;
-        this.a = str;
-        this.b = baseActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cx(cw cwVar) {
+        this.a = cwVar;
     }
 
-    public void a() {
-        try {
-            if (this.a == null || this.a.length() <= 0) {
-                a(this.b.getString(com.baidu.tieba.u.save_error));
-            }
-            new com.baidu.tbadk.editortool.ab(this.b).a(this.a, false, true, (com.baidu.tbadk.imageManager.d) new cy(this));
-        } catch (Exception e) {
-            BdLog.e("SaveImageAsyncTask", "execute", "error" + e.getMessage());
-            a(this.b.getString(com.baidu.tieba.u.save_error));
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        String a;
+        if (aVar != null) {
+            cw cwVar = this.a;
+            a = this.a.a(str, aVar.l());
+            cwVar.a(a);
+            return;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String a(String str, byte[] bArr) {
-        switch (com.baidu.tbadk.core.util.x.a(str, bArr, this.b)) {
-            case -2:
-                return com.baidu.tbadk.core.util.x.b();
-            case -1:
-            default:
-                return this.b.getString(com.baidu.tieba.u.save_error);
-            case 0:
-                return this.b.getString(com.baidu.tieba.u.save_image_to_album);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void a(String str) {
-        this.b.showToast(str);
+        this.a.a(this.a.b.getString(com.baidu.tieba.y.save_error));
     }
 }

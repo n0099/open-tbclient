@@ -17,15 +17,18 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.coreExtra.download.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class LoginActivity extends BaseActivity {
-    private static boolean d;
+    private static boolean d = false;
     private SapiWebView a;
     private boolean b = false;
     private com.baidu.tbadk.coreExtra.view.q c = null;
     private final com.baidu.tbadk.core.account.g e = new ak(this);
 
     static {
-        d = false;
         TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.aj.class, LoginActivity.class);
+        a();
+    }
+
+    public static void a() {
         if (Build.VERSION.SDK_INT < 9 || TbConfig.USE_OLD_LOGIN || !TbadkApplication.m252getInst().isPassportV6ShouldOpen()) {
             d = true;
         }
@@ -72,17 +75,27 @@ public class LoginActivity extends BaseActivity {
         context.startActivity(intent);
     }
 
+    public static void a(Context context, int i) {
+        Intent intent = new Intent(context, LoginActivity.class);
+        if (d) {
+            intent = new Intent(context, Login2Activity.class);
+            intent.putExtra("login_type", i);
+            intent.putExtra("has_exit_dialog", false);
+        }
+        context.startActivity(intent);
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.layout_sapi_webview_login);
+        setContentView(com.baidu.tieba.w.layout_sapi_webview_login);
         this.b = getIntent().getBooleanExtra("close", false);
-        a();
+        b();
     }
 
-    protected void a() {
-        this.a = (SapiWebView) findViewById(com.baidu.tieba.r.sapi_webview);
+    protected void b() {
+        this.a = (SapiWebView) findViewById(com.baidu.tieba.v.sapi_webview);
         com.baidu.tbadk.core.account.j.a(this, this.a);
         this.a.setOnFinishCallback(new am(this));
         this.a.setAuthorizationListener(new an(this));
@@ -94,12 +107,12 @@ public class LoginActivity extends BaseActivity {
         super.onActivityResult(i, i2, intent);
         this.a.onAuthorizedResult(i, i2, intent);
         if (i2 == -1 && i == 11003) {
-            d();
+            e();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
+    public void c() {
         TbadkApplication.m252getInst().onUserChanged();
         if (this.b) {
             Intent intent = new Intent();
@@ -118,7 +131,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
+    public void d() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         com.baidu.tbadk.core.account.f.a(session.username, session.bduss, session.ptoken, this.e);
@@ -135,7 +148,7 @@ public class LoginActivity extends BaseActivity {
         this.c.a();
     }
 
-    private void d() {
+    private void e() {
         if (TbadkApplication.m252getInst().getIsFirstUse()) {
             sendMessage(new CustomMessage(2017000, new com.baidu.tbadk.core.atomData.r(this).a("from_logo_page")));
         } else {

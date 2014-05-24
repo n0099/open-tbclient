@@ -10,10 +10,10 @@ public class n {
     private int g;
     private int h;
     private String i;
-    private com.baidu.tieba.square.at c = new com.baidu.tieba.square.at();
+    private com.baidu.tieba.square.au c = new com.baidu.tieba.square.au();
     private long f = 0;
     private y a = new y();
-    private am b = new am();
+    private an b = new an();
 
     public boolean a() {
         return this.d;
@@ -28,7 +28,7 @@ public class n {
         this.e = false;
     }
 
-    public am b() {
+    public an b() {
         return this.b;
     }
 
@@ -88,7 +88,7 @@ public class n {
         }
     }
 
-    public com.baidu.tieba.square.at f() {
+    public com.baidu.tieba.square.au f() {
         return this.c;
     }
 

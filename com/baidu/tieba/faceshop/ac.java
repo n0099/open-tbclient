@@ -37,14 +37,14 @@ public class ac extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         super.cancel(true);
         if (this.b != null) {
             this.b.g();
         }
         this.a.a = null;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(null);
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,10 +52,10 @@ public class ac extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(FaceBuyData faceBuyData) {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         super.onPostExecute(faceBuyData);
         this.a.a = null;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(faceBuyData);
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(faceBuyData);
     }
 }

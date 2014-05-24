@@ -3,7 +3,7 @@ package com.baidu.tieba.im.searchGroup;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class d extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ SearchGroupActivity a;
@@ -25,7 +25,7 @@ class d extends com.baidu.adp.framework.listener.b {
         gVar = this.a.b;
         gVar.b();
         if (socketResponsedMessage == null) {
-            this.a.showToast(u.neterror);
+            this.a.showToast(y.neterror);
         } else if (socketResponsedMessage.getCmd() == 103007) {
             try {
                 if (socketResponsedMessage instanceof ResponseSearchGroupMessage) {

@@ -35,14 +35,14 @@ public class WebTbActivity extends BaseActivity {
     private LinearLayout l = null;
     protected String d = null;
     protected String e = null;
-    protected z f = null;
+    protected y f = null;
     private final Handler m = new Handler();
-    private final Runnable n = new t(this);
+    private final Runnable n = new s(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str, String str2, String str3) {
         if (UtilHelper.webViewIsProbablyCorrupt(context)) {
-            com.baidu.adp.lib.util.h.a(context, context.getString(com.baidu.tieba.u.web_view_corrupted));
+            com.baidu.adp.lib.util.k.a(context, context.getString(com.baidu.tieba.y.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, WebTbActivity.class);
@@ -92,12 +92,12 @@ public class WebTbActivity extends BaseActivity {
     }
 
     private void b() {
-        setContentView(com.baidu.tieba.s.web_activity);
-        this.l = (LinearLayout) findViewById(com.baidu.tieba.r.softkey);
-        this.j = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
-        this.a = (WebView) findViewById(com.baidu.tieba.r.webview);
+        setContentView(com.baidu.tieba.w.web_activity);
+        this.l = (LinearLayout) findViewById(com.baidu.tieba.v.softkey);
+        this.j = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
+        this.a = (WebView) findViewById(com.baidu.tieba.v.webview);
         CompatibleUtile.getInstance().removeJavascriptInterface(this.a);
-        this.a.setWebViewClient(new u(this));
+        this.a.setWebViewClient(new t(this));
         this.k = CompatibleUtile.getInstance().getWebChromeClient(this);
         this.a.setWebChromeClient(this.k);
         WebSettings settings = this.a.getSettings();
@@ -109,16 +109,16 @@ public class WebTbActivity extends BaseActivity {
         } catch (Throwable th) {
             BdLog.e(WebTbActivity.class.getName(), "set webview settings.", th);
         }
-        this.g = (ImageView) findViewById(com.baidu.tieba.r.webBack);
+        this.g = (ImageView) findViewById(com.baidu.tieba.v.webBack);
         this.g.setEnabled(false);
-        this.g.setOnClickListener(new v(this));
-        this.h = (ImageView) findViewById(com.baidu.tieba.r.webForward);
+        this.g.setOnClickListener(new u(this));
+        this.h = (ImageView) findViewById(com.baidu.tieba.v.webForward);
         this.h.setEnabled(false);
-        this.h.setOnClickListener(new w(this));
-        this.i = (ImageView) findViewById(com.baidu.tieba.r.refresh);
-        this.i.setOnClickListener(new x(this));
-        this.b = (ImageView) findViewById(com.baidu.tieba.r.back);
-        this.b.setOnClickListener(new y(this));
+        this.h.setOnClickListener(new v(this));
+        this.i = (ImageView) findViewById(com.baidu.tieba.v.refresh);
+        this.i.setOnClickListener(new w(this));
+        this.b = (ImageView) findViewById(com.baidu.tieba.v.back);
+        this.b.setOnClickListener(new x(this));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback

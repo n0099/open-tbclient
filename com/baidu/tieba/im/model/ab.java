@@ -52,14 +52,14 @@ public class ab extends BdAsyncTask<Object, Integer, LocalPicModel.ResponseData>
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(LocalPicModel.ResponseData responseData) {
-        com.baidu.adp.base.g gVar;
-        com.baidu.adp.base.g gVar2;
+        com.baidu.adp.base.e eVar;
+        com.baidu.adp.base.e eVar2;
         super.onPostExecute(responseData);
         this.a.mImageTask = null;
-        gVar = this.a.mLoadDataCallBack;
-        if (gVar != null) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(responseData);
+        eVar = this.a.mLoadDataCallBack;
+        if (eVar != null) {
+            eVar2 = this.a.mLoadDataCallBack;
+            eVar2.a(responseData);
         }
     }
 }

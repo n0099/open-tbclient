@@ -85,7 +85,7 @@ public class aa extends com.baidu.tieba.im.pushNotify.n {
 
     @Override // com.baidu.tieba.im.pushNotify.n
     protected com.baidu.adp.lib.cache.s<String> c() {
-        return com.baidu.tbadk.core.a.b.a().w();
+        return com.baidu.tbadk.core.a.b.a().x();
     }
 
     @Override // com.baidu.tieba.im.pushNotify.n

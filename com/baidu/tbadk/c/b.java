@@ -1,49 +1,75 @@
 package com.baidu.tbadk.c;
 
-import android.os.Build;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
 public class b {
-    public static void a(Object obj, boolean z) {
-        a(obj, z, false);
+    public static void a(InputStream inputStream, OutputStream outputStream) {
+        GZIPOutputStream gZIPOutputStream;
+        try {
+            gZIPOutputStream = new GZIPOutputStream(outputStream);
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = inputStream.read(bArr, 0, 1024);
+                    if (read != -1) {
+                        gZIPOutputStream.write(bArr, 0, read);
+                    } else {
+                        gZIPOutputStream.flush();
+                        try {
+                            gZIPOutputStream.close();
+                            return;
+                        } catch (Exception e) {
+                            return;
+                        }
+                    }
+                }
+            } catch (Throwable th) {
+                th = th;
+                try {
+                    gZIPOutputStream.close();
+                } catch (Exception e2) {
+                }
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            gZIPOutputStream = null;
+        }
     }
 
-    public static void a(Object obj, boolean z, boolean z2) {
-        if (obj != null) {
-            try {
-                Field field = obj.getClass().getField("common");
-                if (!field.isAccessible()) {
-                    field.setAccessible(true);
-                }
-                CommonReq.Builder builder = new CommonReq.Builder();
-                builder._client_type = 2;
-                builder._client_version = TbConfig.getVersion();
-                builder._client_id = TbadkApplication.getClientId();
-                if (!TbadkApplication.m252getInst().isOfficial()) {
-                    builder.apid = TbConfig.SW_APID;
-                }
-                builder._phone_imei = TbadkApplication.m252getInst().getImei();
-                builder.from = TbadkApplication.getFrom();
-                builder.cuid = TbadkApplication.m252getInst().getCuid();
-                builder._timestamp = Long.valueOf(System.currentTimeMillis());
-                builder.model = Build.MODEL;
-                if (z) {
-                    builder.BDUSS = TbadkApplication.getCurrentBduss();
-                }
-                if (z2) {
-                    builder.tbs = TbadkApplication.m252getInst().getTbs();
-                }
-                builder.pversion = "1.0.3";
-                field.set(obj, builder.build(false));
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    th.printStackTrace();
+    public static void b(InputStream inputStream, OutputStream outputStream) {
+        GZIPInputStream gZIPInputStream;
+        try {
+            gZIPInputStream = new GZIPInputStream(inputStream);
+        } catch (Throwable th) {
+            th = th;
+            gZIPInputStream = null;
+        }
+        try {
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = gZIPInputStream.read(bArr, 0, 1024);
+                if (read != -1) {
+                    outputStream.write(bArr, 0, read);
+                } else {
+                    try {
+                        gZIPInputStream.close();
+                        return;
+                    } catch (Exception e) {
+                        return;
+                    }
                 }
             }
+        } catch (Throwable th2) {
+            th = th2;
+            try {
+                gZIPInputStream.close();
+            } catch (Exception e2) {
+            }
+            throw th;
         }
     }
 }

@@ -1,32 +1,25 @@
 package com.baidu.tieba.pb.main;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.view.KeyEvent;
-import android.widget.EditText;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cf implements DialogInterface.OnKeyListener {
-    final /* synthetic */ bj a;
+public class cf implements com.baidu.tbadk.editortool.x {
+    final /* synthetic */ bq a;
+    private final /* synthetic */ com.baidu.tbadk.editortool.x b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cf(bj bjVar) {
-        this.a = bjVar;
+    public cf(bq bqVar, com.baidu.tbadk.editortool.x xVar) {
+        this.a = bqVar;
+        this.b = xVar;
     }
 
-    @Override // android.content.DialogInterface.OnKeyListener
-    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+    @Override // com.baidu.tbadk.editortool.x
+    public void a(int i, Object obj) {
         PbActivity pbActivity;
-        EditText editText;
-        Dialog dialog;
-        if (i == 4) {
+        if (i == 35 && !this.a.j.h() && !this.a.j.j()) {
             pbActivity = this.a.m;
-            editText = this.a.P;
-            com.baidu.adp.lib.util.h.a(pbActivity, editText);
-            dialog = this.a.L;
-            dialog.dismiss();
-            return true;
+            TiebaStatic.eventStat(pbActivity, "pb_reply", "pbclick", 1, new Object[0]);
         }
-        return false;
+        this.b.a(i, obj);
     }
 }

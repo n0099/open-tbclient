@@ -33,17 +33,19 @@ public class ac {
     }
 
     public static void a(com.baidu.adp.lib.stats.s sVar, String str, boolean z, long j2) {
-        synchronized (v) {
-            s++;
-            t += j2;
-            if (s >= 100) {
-                b();
+        if (z || j2 > 400) {
+            synchronized (v) {
+                s++;
+                t += j2;
+                if (s >= 100) {
+                    b();
+                }
             }
         }
     }
 
     public static void b() {
-        if (s > 0 && t / s > 500) {
+        if (s > 0 && t / s > 400) {
             com.baidu.adp.lib.stats.s a2 = a();
             a2.a("act", "locStat");
             a2.a("costTime", String.valueOf(t));
@@ -55,20 +57,27 @@ public class ac {
     }
 
     public static void a(com.baidu.adp.lib.stats.s sVar, String str, boolean z, String str2, boolean z2, Boolean bool, com.baidu.adp.lib.network.http.d dVar, String str3, long j2) {
+        boolean z3;
+        int indexOf = str2.indexOf("hiphotos");
+        if (indexOf > 0 && indexOf < 20) {
+            z3 = true;
+        } else {
+            z3 = false;
+        }
         boolean a2 = BdResourceLoaderNetHelperStatic.a();
-        if (z2 && a2) {
+        if (z3 && a2) {
             if (z) {
                 h.a().a(j2, str);
             } else if (!TextUtils.isEmpty(e())) {
                 h.a().a(dVar.i, str);
             }
         }
-        if (z2) {
+        if (z3) {
             u = str;
         }
         synchronized (v) {
             if (a2) {
-                if (z2) {
+                if (z3) {
                     a++;
                     i += j2;
                     if (!z) {
@@ -81,7 +90,7 @@ public class ac {
                         g++;
                     }
                 }
-            } else if (z2) {
+            } else if (z3) {
                 b++;
                 j += j2;
                 if (!z) {

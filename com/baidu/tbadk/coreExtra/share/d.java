@@ -14,19 +14,19 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.plugins.BdSocialShareSdkDelegate;
 import com.baidu.tbadk.tbplugin.m;
-import com.baidu.tieba.o;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
     private final LayoutInflater a;
@@ -53,26 +53,26 @@ public class d implements View.OnClickListener {
     public d(Context context) {
         this.b = context;
         this.a = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.c = this.a.inflate(s.share_dialog_content, (ViewGroup) null);
-        this.d = (TextView) this.c.findViewById(r.share_dialog_title);
-        this.e = this.c.findViewById(r.share_dialog_content);
-        this.l = (Button) this.c.findViewById(r.btnShareCancel);
+        this.c = this.a.inflate(w.share_dialog_content, (ViewGroup) null);
+        this.d = (TextView) this.c.findViewById(v.share_dialog_title);
+        this.e = this.c.findViewById(v.share_dialog_content);
+        this.l = (Button) this.c.findViewById(v.btnShareCancel);
         this.l.setOnClickListener(this);
-        this.f = (TextView) this.c.findViewById(r.iconWeixinTimeline);
+        this.f = (TextView) this.c.findViewById(v.iconWeixinTimeline);
         this.f.setOnClickListener(this);
-        this.g = (TextView) this.c.findViewById(r.iconWeixin);
+        this.g = (TextView) this.c.findViewById(v.iconWeixin);
         this.g.setOnClickListener(this);
-        this.h = (TextView) this.c.findViewById(r.iconQZone);
+        this.h = (TextView) this.c.findViewById(v.iconQZone);
         this.h.setOnClickListener(this);
-        this.i = (TextView) this.c.findViewById(r.iconQQWeibo);
+        this.i = (TextView) this.c.findViewById(v.iconQQWeibo);
         this.i.setOnClickListener(this);
-        this.j = (TextView) this.c.findViewById(r.iconSinaWeibo);
+        this.j = (TextView) this.c.findViewById(v.iconSinaWeibo);
         this.j.setOnClickListener(this);
-        this.k = (TextView) this.c.findViewById(r.iconRenren);
+        this.k = (TextView) this.c.findViewById(v.iconRenren);
         this.k.setOnClickListener(this);
-        this.o = (LinearLayout) this.c.findViewById(r.customViewBox);
-        this.m = (LinearLayout) this.c.findViewById(r.share_dialog_line_1);
-        this.n = (LinearLayout) this.c.findViewById(r.share_dialog_line_2);
+        this.o = (LinearLayout) this.c.findViewById(v.customViewBox);
+        this.m = (LinearLayout) this.c.findViewById(v.share_dialog_line_1);
+        this.n = (LinearLayout) this.c.findViewById(v.share_dialog_line_2);
         if (((BdSocialShareSdkDelegate) m.a().b(BdSocialShareSdkDelegate.class)) == null) {
             this.m.setVisibility(8);
             this.n.setVisibility(8);
@@ -132,14 +132,14 @@ public class d implements View.OnClickListener {
 
     public void a() {
         if (!UtilHelper.isNetOk()) {
-            h.a(this.b, u.share_on_no_network);
+            k.a(this.b, y.share_on_no_network);
             return;
         }
         this.p = new AlertDialog.Builder(this.b).create();
         this.p.setCanceledOnTouchOutside(true);
         this.p.show();
         Window window = this.p.getWindow();
-        window.setWindowAnimations(v.share_dialog_style);
+        window.setWindowAnimations(z.share_dialog_style);
         window.setGravity(80);
         window.setLayout(-1, -2);
         a(this.t);
@@ -158,49 +158,49 @@ public class d implements View.OnClickListener {
     public void onClick(View view) {
         b();
         if (this.q.size() != 0) {
-            if (view.getId() == r.btnShareCancel || !this.r) {
+            if (view.getId() == v.btnShareCancel || !this.r) {
                 this.r = true;
                 g gVar = new g(this.b, this.t);
                 int id = view.getId();
-                if (id == r.btnShareCancel) {
+                if (id == v.btnShareCancel) {
                     a("share_cancel");
                     this.t.b();
-                } else if (id == r.iconWeixin) {
+                } else if (id == v.iconWeixin) {
                     a("share_to_weixin");
                     b(3);
                     f a = a(3);
                     if (a != null) {
                         gVar.a(a);
                     }
-                } else if (id == r.iconWeixinTimeline) {
+                } else if (id == v.iconWeixinTimeline) {
                     a("share_to_pyq");
                     b(2);
                     f a2 = a(2);
                     if (a2 != null) {
                         gVar.b(a2);
                     }
-                } else if (id == r.iconQZone) {
+                } else if (id == v.iconQZone) {
                     a("share_to_qzone");
                     b(4);
                     f a3 = a(4);
                     if (a3 != null) {
                         gVar.c(a3);
                     }
-                } else if (id == r.iconQQWeibo) {
+                } else if (id == v.iconQQWeibo) {
                     a("share_to_qweibo");
                     b(5);
                     f a4 = a(5);
                     if (a4 != null) {
                         gVar.d(a4);
                     }
-                } else if (id == r.iconSinaWeibo) {
+                } else if (id == v.iconSinaWeibo) {
                     a("share_to_sweibo");
                     b(6);
                     f a5 = a(6);
                     if (a5 != null) {
                         gVar.e(a5);
                     }
-                } else if (id == r.iconRenren) {
+                } else if (id == v.iconRenren) {
                     a("share_to_renren");
                     b(7);
                     f a6 = a(7);
@@ -237,25 +237,25 @@ public class d implements View.OnClickListener {
     }
 
     private void d() {
-        a(this.f, q.icon_unite_share_friend, o.share_to, q.icon_unite_share_friend_1, o.share_to_1);
-        a(this.g, q.icon_unite_share_weixin, o.share_to, q.icon_unite_share_weixin_1, o.share_to_1);
-        a(this.h, q.icon_unite_share_qqzon, o.share_to, q.icon_unite_share_qqzon_1, o.share_to_1);
-        a(this.i, q.icon_unite_share_tencent, o.share_to, q.icon_unite_share_tencent_1, o.share_to_1);
-        a(this.j, q.icon_unite_share_sina, o.share_to, q.icon_unite_share_sina_1, o.share_to_1);
-        a(this.k, q.icon_unite_share_renren, o.share_to, q.icon_unite_share_renren_1, o.share_to_1);
+        a(this.f, u.icon_unite_share_friend, s.share_to, u.icon_unite_share_friend_1, s.share_to_1);
+        a(this.g, u.icon_unite_share_weixin, s.share_to, u.icon_unite_share_weixin_1, s.share_to_1);
+        a(this.h, u.icon_unite_share_qqzon, s.share_to, u.icon_unite_share_qqzon_1, s.share_to_1);
+        a(this.i, u.icon_unite_share_tencent, s.share_to, u.icon_unite_share_tencent_1, s.share_to_1);
+        a(this.j, u.icon_unite_share_sina, s.share_to, u.icon_unite_share_sina_1, s.share_to_1);
+        a(this.k, u.icon_unite_share_renren, s.share_to, u.icon_unite_share_renren_1, s.share_to_1);
         int paddingLeft = this.d.getPaddingLeft();
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.e.setBackgroundResource(q.bg_unite_popup_share_down_1);
-            this.d.setBackgroundResource(q.bg_unite_popup_share_up_1);
-            this.d.setTextColor(this.b.getResources().getColor(o.share_to_1));
-            this.l.setBackgroundResource(q.btn_w_square_1);
-            this.l.setTextColor(this.b.getResources().getColor(o.share_to_1));
+            this.e.setBackgroundResource(u.bg_unite_popup_share_down_1);
+            this.d.setBackgroundResource(u.bg_unite_popup_share_up_1);
+            this.d.setTextColor(this.b.getResources().getColor(s.share_to_1));
+            this.l.setBackgroundResource(u.btn_w_square_1);
+            this.l.setTextColor(this.b.getResources().getColor(s.share_to_1));
         } else {
-            this.e.setBackgroundResource(q.bg_unite_popup_share_down);
-            this.d.setBackgroundResource(q.bg_unite_popup_share_up);
-            this.d.setTextColor(this.b.getResources().getColor(o.share_to));
-            this.l.setBackgroundResource(q.btn_w_square);
-            this.l.setTextColor(this.b.getResources().getColor(o.share_to));
+            this.e.setBackgroundResource(u.bg_unite_popup_share_down);
+            this.d.setBackgroundResource(u.bg_unite_popup_share_up);
+            this.d.setTextColor(this.b.getResources().getColor(s.share_to));
+            this.l.setBackgroundResource(u.btn_w_square);
+            this.l.setTextColor(this.b.getResources().getColor(s.share_to));
         }
         this.d.setPadding(paddingLeft, 0, 0, 0);
     }

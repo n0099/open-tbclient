@@ -34,7 +34,7 @@ public class e extends CustomMessageListener {
         com.baidu.tieba.im.model.k kVar3;
         this.a.a(true);
         if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseFrsGroupsLocalMessage)) {
-            this.a.a(com.baidu.tieba.u.neterror);
+            this.a.a(com.baidu.tieba.y.neterror);
             return;
         }
         ResponseFrsGroupsLocalMessage responseFrsGroupsLocalMessage = (ResponseFrsGroupsLocalMessage) customResponsedMessage;

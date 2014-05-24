@@ -5,6 +5,7 @@ import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 /* loaded from: classes.dex */
 public class aq {
     public static int a;
@@ -65,7 +66,7 @@ public class aq {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) TbadkApplication.m252getInst().getApp().getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo.isAvailable()) {
-                if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
+                if (activeNetworkInfo.getTypeName().equalsIgnoreCase(NetworkChangeReceiver.WIFI_STRING)) {
                     return "wifi";
                 }
                 String defaultHost = Proxy.getDefaultHost();

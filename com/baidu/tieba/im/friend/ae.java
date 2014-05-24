@@ -25,7 +25,7 @@ public class ae implements com.baidu.tbadk.core.view.o {
                 if (k <= inviteFriendCandidateList.b()) {
                     inviteFriendListActivity = this.a.a;
                     inviteFriendListActivity2 = this.a.a;
-                    String string = inviteFriendListActivity2.getString(com.baidu.tieba.u.invite_friend_exceed_max_count);
+                    String string = inviteFriendListActivity2.getString(com.baidu.tieba.y.invite_friend_exceed_max_count);
                     i = this.a.m;
                     inviteFriendListActivity.showToast(String.format(string, Integer.valueOf(i)));
                     tbCheckBox.setChecked(false);

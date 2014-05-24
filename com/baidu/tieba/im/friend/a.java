@@ -3,7 +3,7 @@ package com.baidu.tieba.im.friend;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.NewErrorData;
 /* loaded from: classes.dex */
-class a extends com.baidu.tbadk.core.f {
+class a extends com.baidu.tbadk.core.e {
     private static final String c = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/get_double_follows";
     private static final String d = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/search_double_follows";
 
@@ -25,7 +25,7 @@ class a extends com.baidu.tbadk.core.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.f
+    @Override // com.baidu.tbadk.core.e
     public String b() {
         String i = this.a.i();
         if (this.a.a().b().b()) {
@@ -39,7 +39,7 @@ class a extends com.baidu.tbadk.core.f {
         return i;
     }
 
-    @Override // com.baidu.tbadk.core.f
+    @Override // com.baidu.tbadk.core.e
     public void a() {
         if (this.a != null) {
             this.a.g();
@@ -53,7 +53,7 @@ class a extends com.baidu.tbadk.core.f {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.f
+    @Override // com.baidu.tbadk.core.e
     public int e() {
         if (this.b != null) {
             return this.b.getErrorNumber();

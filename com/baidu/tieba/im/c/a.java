@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.c;
 
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class a {
     public static int a(int i) {
@@ -13,7 +14,7 @@ public class a {
             case 5:
             case 9:
             case 13:
-            case 14:
+            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
             case 15:
             case 16:
             case 17:

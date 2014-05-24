@@ -1,7 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public interface bj {
-    void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.o oVar);
+class bj {
+    FrameLayout a;
+    LinearLayout b;
+    TextView c;
+    ProgressBar d;
+    final /* synthetic */ az e;
+
+    private bj(az azVar) {
+        this.e = azVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bj(az azVar, bj bjVar) {
+        this(azVar);
+    }
 }

@@ -87,14 +87,14 @@ public class IMBlackListActivity extends BaseActivity {
         if (this.d == null) {
             e();
         }
-        this.d.setMessage(String.format(getString(com.baidu.tieba.u.black_list_ensure_toremove_text), aVar.b()));
+        this.d.setMessage(String.format(getString(com.baidu.tieba.y.black_list_ensure_toremove_text), aVar.b()));
         this.d.show();
     }
 
     private void e() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setPositiveButton(com.baidu.tieba.u.confirm, new e(this));
-        builder.setNegativeButton(com.baidu.tieba.u.alert_no_button, (DialogInterface.OnClickListener) null);
+        builder.setPositiveButton(com.baidu.tieba.y.confirm, new e(this));
+        builder.setNegativeButton(com.baidu.tieba.y.alert_no_button, (DialogInterface.OnClickListener) null);
         this.d = builder.create();
     }
 

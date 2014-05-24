@@ -1,27 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-import com.baidu.tbadk.BaseActivity;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cw implements DialogInterface.OnClickListener {
-    final /* synthetic */ cs a;
+public class cw implements com.baidu.tbadk.coreExtra.view.ag {
+    final /* synthetic */ ct a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cw(cs csVar) {
-        this.a = csVar;
+    public cw(ct ctVar) {
+        this.a = ctVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        BaseActivity baseActivity;
-        BaseActivity baseActivity2;
+    @Override // com.baidu.tbadk.coreExtra.view.ag
+    public void a(int i) {
+        g gVar;
+        Button button;
         if (i == 0) {
-            baseActivity2 = this.a.g;
-            com.baidu.tbadk.core.util.bb.a(baseActivity2);
-        } else if (i == 1) {
-            baseActivity = this.a.g;
-            com.baidu.tbadk.core.util.bb.b(baseActivity);
+            button = this.a.af;
+            button.setVisibility(8);
+            return;
         }
+        ct ctVar = this.a;
+        gVar = this.a.an;
+        ctVar.a(gVar);
     }
 }

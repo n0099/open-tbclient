@@ -8,6 +8,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.model.af;
 import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -126,9 +127,9 @@ public class TopRecActivity extends BaseActivity {
         super.onChangeSkinType(i);
         this.a.b(i);
         if (i == 1) {
-            this.b.a(com.baidu.tieba.q.btn_add_1, com.baidu.tieba.q.btn_add_end_1);
+            this.b.a(u.btn_add_1, u.btn_add_end_1);
         } else {
-            this.b.a(com.baidu.tieba.q.btn_add, com.baidu.tieba.q.btn_add_end);
+            this.b.a(u.btn_add, u.btn_add_end);
         }
     }
 
@@ -155,7 +156,7 @@ public class TopRecActivity extends BaseActivity {
             }
         } else if (view == this.a.b()) {
             if (this.j != 0) {
-                showToast(String.valueOf(getString(u.top_rec_like_finish_a)) + this.j + getString(u.top_rec_like_finish_b));
+                showToast(String.valueOf(getString(y.top_rec_like_finish_a)) + this.j + getString(y.top_rec_like_finish_b));
                 TiebaStatic.eventStat(this, "top_rec_have_like", "people_number", 1, new Object[0]);
             } else {
                 TiebaStatic.eventStat(this, "top_rec_no_like", "people_number", 1, new Object[0]);
@@ -190,7 +191,7 @@ public class TopRecActivity extends BaseActivity {
     public void onBackPressed() {
         super.onBackPressed();
         if (this.j != 0) {
-            showToast(String.valueOf(getString(u.top_rec_like_finish_a)) + this.j + getString(u.top_rec_like_finish_b));
+            showToast(String.valueOf(getString(y.top_rec_like_finish_a)) + this.j + getString(y.top_rec_like_finish_b));
             TiebaStatic.eventStat(this, "top_rec_have_like", "people_number", 1, new Object[0]);
         } else {
             TiebaStatic.eventStat(this, "top_rec_no_like", "people_number", 1, new Object[0]);

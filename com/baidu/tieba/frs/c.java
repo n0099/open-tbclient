@@ -26,28 +26,28 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public DownloadData doInBackground(e... eVarArr) {
-        String b;
+        String d;
         int i;
         int i2;
         e eVar = eVarArr[0];
         String a = eVar.a();
         String c = eVar.c();
-        String b2 = eVar.b();
-        int d = eVar.d();
+        String b = eVar.b();
+        int d2 = eVar.d();
         if (com.baidu.tbadk.core.util.be.c(a) || com.baidu.tbadk.core.util.be.c(c)) {
             return null;
         }
         String str = String.valueOf(a.replace(".", "_")) + ".apk";
-        b = this.a.b(str);
+        d = this.a.d(str);
         if (com.baidu.tbadk.core.util.x.d(str) != null) {
             DownloadData downloadData = new DownloadData(a);
             downloadData.setName(str);
-            downloadData.setPosition(d);
-            downloadData.setPath(b);
+            downloadData.setPosition(d2);
+            downloadData.setPath(d);
             downloadData.setStatus(3);
             return downloadData;
         }
-        DownloadData downloadData2 = new DownloadData(a, c, b2, new a());
+        DownloadData downloadData2 = new DownloadData(a, c, b, new a());
         b bVar = this.a;
         i = bVar.j;
         bVar.j = i + 1;
@@ -55,8 +55,8 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
         downloadData2.setNotifyId(i2);
         downloadData2.setStatusMsg(TbadkApplication.getCurrentAccount());
         downloadData2.setType(12);
-        downloadData2.setPath(b);
-        downloadData2.setPosition(d);
+        downloadData2.setPath(d);
+        downloadData2.setPosition(d2);
         return downloadData2;
     }
 
@@ -77,17 +77,17 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
         if (downloadData != null) {
             if (downloadData.getStatus() == 3) {
                 this.a.a(downloadData);
-                UtilHelper.install_apk(com.baidu.tieba.ad.c().d(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
+                UtilHelper.install_apk(com.baidu.tieba.ai.c().d(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
             } else {
                 downloadData.setStatus(1);
                 this.a.a(downloadData);
                 com.baidu.tbadk.download.b.a().a(downloadData, 5);
                 notification = this.a.g;
-                notification.contentView.setTextViewText(com.baidu.tieba.r.info, downloadData.getName());
+                notification.contentView.setTextViewText(com.baidu.tieba.v.info, downloadData.getName());
                 notification2 = this.a.g;
-                notification2.contentView.setTextViewText(com.baidu.tieba.r.schedule, com.baidu.tieba.ad.c().d().getString(com.baidu.tieba.u.download_will_begin));
+                notification2.contentView.setTextViewText(com.baidu.tieba.v.schedule, com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.download_will_begin));
                 notification3 = this.a.g;
-                notification3.contentView.setProgressBar(com.baidu.tieba.r.progress, 100, 0, false);
+                notification3.contentView.setProgressBar(com.baidu.tieba.v.progress, 100, 0, false);
                 notificationManager = this.a.f;
                 int notifyId = downloadData.getNotifyId();
                 notification4 = this.a.g;

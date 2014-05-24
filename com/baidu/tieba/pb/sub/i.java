@@ -49,7 +49,7 @@ public class i extends b {
         }
         int size = this.a.size();
         for (int i = 0; i < size; i++) {
-            if (this.a.get(i).d().equals(str)) {
+            if (this.a.get(i).l().equals(str)) {
                 return i;
             }
         }

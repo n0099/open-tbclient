@@ -9,6 +9,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.util.bc;
@@ -20,10 +21,10 @@ public class p extends BaseAdapter implements c, f {
     private final String c;
     private String d;
     private com.baidu.tbadk.editortool.ab e;
-    private final com.baidu.tbadk.core.e f;
+    private final BaseFragmentActivity f;
 
     public p(Context context, String str, String str2) {
-        this.f = (com.baidu.tbadk.core.e) context;
+        this.f = (BaseFragmentActivity) context;
         this.c = str;
         this.e = new com.baidu.tbadk.editortool.ab(this.f);
     }
@@ -81,7 +82,7 @@ public class p extends BaseAdapter implements c, f {
         r rVar;
         if (view == null) {
             BdLog.d("PersonThreadAdapter", "getView", "create convertView");
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.s.person_post_item_thread, viewGroup, false);
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.w.person_post_item_thread, viewGroup, false);
             r rVar2 = new r(view);
             view.setTag(rVar2);
             rVar = rVar2;
@@ -112,7 +113,7 @@ public class p extends BaseAdapter implements c, f {
             rVar.m.a(a, this.e);
         } else {
             rVar.l.setVisibility(8);
-            if (com.baidu.tbadk.core.h.a().f() && postList.media != null && postList.media.length > 0) {
+            if (com.baidu.tbadk.core.g.a().f() && postList.media != null && postList.media.length > 0) {
                 int min = Math.min(postList.media.length, 3);
                 String[] strArr = new String[min];
                 for (int i2 = 0; i2 < min; i2++) {
@@ -147,7 +148,7 @@ public class p extends BaseAdapter implements c, f {
         }
         rVar.a(this);
         rVar.a(TbadkApplication.m252getInst().getSkinType());
-        bc.f(rVar.n, com.baidu.tieba.o.cp_bg_line_b);
+        bc.f(rVar.n, com.baidu.tieba.s.cp_bg_line_b);
         rVar.m.a(TbadkApplication.m252getInst().getSkinType());
         this.f.a().a(TbadkApplication.m252getInst().getSkinType() == 1);
         this.f.a().a(rVar.g);
@@ -176,16 +177,16 @@ public class p extends BaseAdapter implements c, f {
     public void a(View view) {
         String[] strArr;
         int id = view.getId();
-        if (id == com.baidu.tieba.r.forum_name) {
+        if (id == com.baidu.tieba.v.forum_name) {
             String str = (String) view.getTag();
-            if (str != null && (this.f instanceof com.baidu.tbadk.core.e)) {
+            if (str != null && (this.f instanceof BaseFragmentActivity)) {
                 this.f.a(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.f).a(str, "")));
             }
-        } else if (id == com.baidu.tieba.r.portrait) {
+        } else if (id == com.baidu.tieba.v.portrait) {
             this.f.finish();
-        } else if (id == com.baidu.tieba.r.username) {
+        } else if (id == com.baidu.tieba.v.username) {
             this.f.finish();
-        } else if ((id == com.baidu.tieba.r.item_content || id == com.baidu.tieba.r.item_header || id == com.baidu.tieba.r.item_footer) && (strArr = (String[]) view.getTag()) != null) {
+        } else if ((id == com.baidu.tieba.v.item_content || id == com.baidu.tieba.v.item_header || id == com.baidu.tieba.v.item_footer) && (strArr = (String[]) view.getTag()) != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(this.f).a(strArr[0], strArr[1], "person_post")));
             BdLog.d("PersonThreadAdapter", "on", "start thread = " + strArr[0] + " post_id = " + strArr[1]);
         }

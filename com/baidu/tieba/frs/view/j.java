@@ -26,17 +26,21 @@ import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.data.s;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bo;
-import com.baidu.tieba.r;
+import com.baidu.tieba.frs.WorldCupView;
+import com.baidu.tieba.frs.bp;
 import com.baidu.tieba.switchs.features.BarDetailForFrsSwitchStatic;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
 import com.baidu.tieba.view.CustomTimerView;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.imageManager.d {
-    private static final int[] ac = {com.baidu.tieba.q.label_green, com.baidu.tieba.q.label_blue, com.baidu.tieba.q.label_orange, com.baidu.tieba.q.label_red, com.baidu.tieba.q.label_purple};
-    private static final int[] ad = {com.baidu.tieba.q.label_green_1, com.baidu.tieba.q.label_blue_1, com.baidu.tieba.q.label_orange_1, com.baidu.tieba.q.label_red_1, com.baidu.tieba.q.label_purple_1};
+    private static final int[] ac = {u.label_green, u.label_blue, u.label_orange, u.label_red, u.label_purple};
+    private static final int[] ad = {u.label_green_1, u.label_blue_1, u.label_orange_1, u.label_red_1, u.label_purple_1};
     private String A;
     private a D;
     private final TbImageView F;
@@ -55,10 +59,13 @@ public class j implements com.baidu.tbadk.imageManager.d {
     private RelativeLayout af;
     private boolean ag;
     private int ah;
-    private final bo ak;
+    private final bp ak;
     private final ImageView al;
     private UserIconBox am;
     private boolean aq;
+    private com.baidu.tbadk.core.data.q ar;
+    private WorldCupView as;
+    private boolean at;
     private TextView d;
     private TextView e;
     private TextView f;
@@ -85,7 +92,7 @@ public class j implements com.baidu.tbadk.imageManager.d {
     private int B = 0;
     private int C = 0;
     private s E = null;
-    com.baidu.tbadk.core.data.o a = null;
+    com.baidu.tbadk.core.data.n a = null;
     private final float H = 0.36458334f;
     private PopupWindow I = null;
     private TextView K = null;
@@ -141,51 +148,52 @@ public class j implements com.baidu.tbadk.imageManager.d {
         this.z = str;
         this.A = str2;
         LayoutInflater from = LayoutInflater.from(activity);
-        this.t = from.inflate(com.baidu.tieba.s.frs_star_title, (ViewGroup) null);
-        this.J = from.inflate(com.baidu.tieba.s.frs_show_experience, (ViewGroup) null);
+        this.t = from.inflate(w.frs_star_title, (ViewGroup) null);
+        this.J = from.inflate(w.frs_show_experience, (ViewGroup) null);
         if (this.z == null || this.A == null) {
             this.t.setVisibility(8);
         }
-        this.p = (RelativeLayout) this.t.findViewById(r.btn_love_content);
-        this.q = (TextView) this.t.findViewById(r.level_name);
-        this.r = (TextView) this.t.findViewById(r.level);
-        this.s = (ImageView) this.t.findViewById(r.love_level_top);
-        this.P = (TextView) this.t.findViewById(r.frs_tag_text);
+        this.p = (RelativeLayout) this.t.findViewById(v.btn_love_content);
+        this.q = (TextView) this.t.findViewById(v.level_name);
+        this.r = (TextView) this.t.findViewById(v.level);
+        this.s = (ImageView) this.t.findViewById(v.love_level_top);
+        this.P = (TextView) this.t.findViewById(v.frs_tag_text);
         this.D = new a(this.t, this.y);
-        this.g = (FrameLayout) this.t.findViewById(r.love);
-        this.h = (Button) this.t.findViewById(r.btn_love);
-        this.i = (TextView) this.t.findViewById(r.tv_love);
-        this.j = (FrameLayout) this.t.findViewById(r.sign);
-        this.k = (Button) this.t.findViewById(r.btn_sign);
-        this.l = (TextView) this.t.findViewById(r.tv_sign);
-        this.m = (ProgressBar) this.t.findViewById(r.sign_progress);
-        this.n = (FrameLayout) this.t.findViewById(r.sign_done);
-        this.o = (TextView) this.t.findViewById(r.sign_done_text);
-        this.d = (TextView) this.t.findViewById(r.member_num_text);
-        this.e = (TextView) this.t.findViewById(r.post_num_text);
-        this.f = (TextView) this.t.findViewById(r.title_text);
-        this.ae = (RelativeLayout) this.t.findViewById(r.fan_timer_layout);
-        this.af = (RelativeLayout) this.t.findViewById(r.fan_num_layout);
-        this.F = (TbImageView) this.t.findViewById(r.frs_star_top_pic);
-        this.G = (HeadImageView) this.t.findViewById(r.frs_star_bottom_photo);
+        this.g = (FrameLayout) this.t.findViewById(v.love);
+        this.h = (Button) this.t.findViewById(v.btn_love);
+        this.i = (TextView) this.t.findViewById(v.tv_love);
+        this.j = (FrameLayout) this.t.findViewById(v.sign);
+        this.k = (Button) this.t.findViewById(v.btn_sign);
+        this.l = (TextView) this.t.findViewById(v.tv_sign);
+        this.m = (ProgressBar) this.t.findViewById(v.sign_progress);
+        this.n = (FrameLayout) this.t.findViewById(v.sign_done);
+        this.o = (TextView) this.t.findViewById(v.sign_done_text);
+        this.d = (TextView) this.t.findViewById(v.member_num_text);
+        this.e = (TextView) this.t.findViewById(v.post_num_text);
+        this.f = (TextView) this.t.findViewById(v.title_text);
+        this.ae = (RelativeLayout) this.t.findViewById(v.fan_timer_layout);
+        this.af = (RelativeLayout) this.t.findViewById(v.fan_num_layout);
+        this.F = (TbImageView) this.t.findViewById(v.frs_star_top_pic);
+        this.G = (HeadImageView) this.t.findViewById(v.frs_star_bottom_photo);
         this.G.setGifIconSupport(false);
-        this.M = (TextView) this.t.findViewById(r.add_fan);
-        this.N = (TextView) this.t.findViewById(r.fan_num);
-        this.O = (CustomTimerView) this.t.findViewById(r.open_timer);
+        this.M = (TextView) this.t.findViewById(v.add_fan);
+        this.N = (TextView) this.t.findViewById(v.fan_num);
+        this.O = (CustomTimerView) this.t.findViewById(v.open_timer);
         this.O.setTextColor(-11250604);
         this.O.setNumColor(-13401629);
         this.O.setTextMargin(3);
         this.O.setNumMargin(2);
-        this.al = (ImageView) this.t.findViewById(r.frs_enter_detail);
+        this.al = (ImageView) this.t.findViewById(v.frs_enter_detail);
         if (com.baidu.adp.lib.a.f.a().b(BarDetailForFrsSwitchStatic.BAR_DETAIL_FRS) == 0) {
             this.al.setVisibility(0);
         } else {
             this.al.setVisibility(8);
         }
-        this.am = (UserIconBox) this.t.findViewById(r.frs_badge_box);
-        this.ak = new bo(this.y);
-        this.u = (FrameLayout) this.t.findViewById(r.frs_header_groups);
-        this.v = (TextView) this.t.findViewById(r.frs_header_groups_text);
+        this.am = (UserIconBox) this.t.findViewById(v.frs_badge_box);
+        this.ak = new bp(this.y);
+        this.u = (FrameLayout) this.t.findViewById(v.frs_header_groups);
+        this.v = (TextView) this.t.findViewById(v.frs_header_groups_text);
+        this.as = (WorldCupView) this.t.findViewById(v.worldcup);
     }
 
     public void a(View.OnClickListener onClickListener) {
@@ -218,27 +226,30 @@ public class j implements com.baidu.tbadk.imageManager.d {
             if (this.Q >= 0 && this.Q < ac.length) {
                 bc.e((View) this.P, ad[this.Q]);
             }
-            this.i.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.q.icon_like_1, 0, 0, 0);
-            this.l.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.q.icon_sign_1, 0, 0, 0);
-            this.i.setShadowLayer(1.0f, 0.0f, 1.0f, this.y.getResources().getColor(com.baidu.tieba.o.frs_like_shadow_1));
-            this.l.setShadowLayer(1.0f, 0.0f, 1.0f, this.y.getResources().getColor(com.baidu.tieba.o.frs_sign_shadow_1));
+            this.i.setCompoundDrawablesWithIntrinsicBounds(u.icon_like_1, 0, 0, 0);
+            this.l.setCompoundDrawablesWithIntrinsicBounds(u.icon_sign_1, 0, 0, 0);
+            this.i.setShadowLayer(1.0f, 0.0f, 1.0f, this.y.getResources().getColor(com.baidu.tieba.s.frs_like_shadow_1));
+            this.l.setShadowLayer(1.0f, 0.0f, 1.0f, this.y.getResources().getColor(com.baidu.tieba.s.frs_sign_shadow_1));
             this.O.setTextColor(-9798255);
             this.O.setNumColor(-13669967);
-            this.u.setBackgroundResource(com.baidu.tieba.q.frs_top_item_bg_1);
-            this.al.setImageResource(com.baidu.tieba.q.icon_arrow_right_1);
-            return;
+            this.u.setBackgroundResource(u.frs_top_item_bg_1);
+            this.al.setImageResource(u.icon_arrow_right_1);
+        } else {
+            this.al.setImageResource(u.icon_arrow_right);
+            if (this.Q >= 0 && this.Q < ac.length) {
+                bc.e((View) this.P, ac[this.Q]);
+            }
+            this.i.setCompoundDrawablesWithIntrinsicBounds(u.icon_like, 0, 0, 0);
+            this.l.setCompoundDrawablesWithIntrinsicBounds(u.icon_sign, 0, 0, 0);
+            this.i.setShadowLayer(1.0f, 0.0f, 1.0f, this.y.getResources().getColor(com.baidu.tieba.s.frs_like_shadow));
+            this.l.setShadowLayer(1.0f, 0.0f, 1.0f, this.y.getResources().getColor(com.baidu.tieba.s.frs_sign_shadow));
+            this.O.setTextColor(-11250604);
+            this.O.setNumColor(-13401629);
+            this.u.setBackgroundResource(u.frs_top_item_bg);
         }
-        this.al.setImageResource(com.baidu.tieba.q.icon_arrow_right);
-        if (this.Q >= 0 && this.Q < ac.length) {
-            bc.e((View) this.P, ac[this.Q]);
+        if (this.as != null) {
+            this.as.a(i);
         }
-        this.i.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.q.icon_like, 0, 0, 0);
-        this.l.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.q.icon_sign, 0, 0, 0);
-        this.i.setShadowLayer(1.0f, 0.0f, 1.0f, this.y.getResources().getColor(com.baidu.tieba.o.frs_like_shadow));
-        this.l.setShadowLayer(1.0f, 0.0f, 1.0f, this.y.getResources().getColor(com.baidu.tieba.o.frs_sign_shadow));
-        this.O.setTextColor(-11250604);
-        this.O.setNumColor(-13401629);
-        this.u.setBackgroundResource(com.baidu.tieba.q.frs_top_item_bg);
     }
 
     public View a() {
@@ -259,16 +270,17 @@ public class j implements com.baidu.tbadk.imageManager.d {
             this.w = gVar;
             this.E = gVar.l();
             this.ap = forumData.getBadgeData();
-            this.a = new com.baidu.tbadk.core.data.o();
+            this.a = new com.baidu.tbadk.core.data.n();
+            this.ar = forumData.getWorldCupData();
             if (this.E != null) {
-                com.baidu.tbadk.core.data.k kVar = new com.baidu.tbadk.core.data.k();
-                kVar.a(3);
-                kVar.a(this.E.b());
-                this.a.A().add(kVar);
-                com.baidu.tbadk.core.data.k kVar2 = new com.baidu.tbadk.core.data.k();
-                kVar2.a(3);
-                kVar2.a(this.E.c());
-                this.a.A().add(kVar2);
+                com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
+                jVar.a(3);
+                jVar.a(this.E.b());
+                this.a.F().add(jVar);
+                com.baidu.tbadk.core.data.j jVar2 = new com.baidu.tbadk.core.data.j();
+                jVar2.a(3);
+                jVar2.a(this.E.c());
+                this.a.F().add(jVar2);
             }
             this.t.setVisibility(0);
             this.D.a(forumData.getName());
@@ -287,7 +299,7 @@ public class j implements com.baidu.tbadk.imageManager.d {
             if (this.ap != null && this.ap.size() > 0) {
                 this.z = UtilHelper.getFixedText(this.z, 7);
             }
-            this.f.setText(String.valueOf(this.z) + this.y.getString(u.forum));
+            this.f.setText(String.valueOf(this.z) + this.y.getString(y.forum));
         }
         if (this.R != null && this.R.length() > 0) {
             if (this.P != null) {
@@ -315,31 +327,31 @@ public class j implements com.baidu.tbadk.imageManager.d {
             } else {
                 this.u.setVisibility(0);
                 if (this.w.p().a() > 0) {
-                    this.v.setText(String.format(this.y.getString(u.frs_forum_groups), Integer.valueOf(this.w.p().a())));
+                    this.v.setText(String.format(this.y.getString(y.frs_forum_groups), Integer.valueOf(this.w.p().a())));
                 } else {
-                    this.v.setText(this.y.getString(u.frsgroup_title));
+                    this.v.setText(this.y.getString(y.frsgroup_title));
                 }
             }
         } else {
             this.u.setVisibility(0);
             if (this.w != null && this.w.p().a() > 0) {
-                this.v.setText(String.format(this.y.getString(u.frs_forum_groups), Integer.valueOf(this.w.p().a())));
+                this.v.setText(String.format(this.y.getString(y.frs_forum_groups), Integer.valueOf(this.w.p().a())));
             } else {
-                this.v.setText(this.y.getString(u.frsgroup_title));
+                this.v.setText(this.y.getString(y.frsgroup_title));
             }
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.F.getLayoutParams();
-        layoutParams.width = com.baidu.adp.lib.util.h.b(this.y);
+        layoutParams.width = com.baidu.adp.lib.util.k.b(this.y);
         if (this.E.d() == 0) {
             layoutParams.height = 1;
         } else {
             layoutParams.height = (int) (layoutParams.width * 0.36458334f);
         }
         this.F.setLayoutParams(layoutParams);
-        this.F.setDefaultResource(com.baidu.tieba.q.def_star_top_pic);
-        this.F.setNightDefaultResource(com.baidu.tieba.q.def_star_top_pic);
-        this.G.setDefaultResource(com.baidu.tieba.q.pic_avatar_ba_140);
-        this.G.setNightDefaultResource(com.baidu.tieba.q.pic_avatar_ba_140_1);
+        this.F.setDefaultResource(u.def_star_top_pic);
+        this.F.setNightDefaultResource(u.def_star_top_pic);
+        this.G.setDefaultResource(u.pic_avatar_ba_140);
+        this.G.setNightDefaultResource(u.pic_avatar_ba_140_1);
         this.F.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.G.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.F.a(this.E.b(), 16, this.E.d(), this.E.e(), false);
@@ -373,17 +385,24 @@ public class j implements com.baidu.tbadk.imageManager.d {
                 linkedList.add(iconData);
             }
             this.am.setOnClickListener(this.c);
-            this.am.a(linkedList, 2, this.y.getResources().getDimensionPixelSize(com.baidu.tieba.p.frs_starheader_badge_width), this.y.getResources().getDimensionPixelSize(com.baidu.tieba.p.frs_starheader_badge_height), this.y.getResources().getDimensionPixelSize(com.baidu.tieba.p.frs_starheader_badge_margin));
+            this.am.a(linkedList, 2, this.y.getResources().getDimensionPixelSize(t.frs_starheader_badge_width), this.y.getResources().getDimensionPixelSize(t.frs_starheader_badge_height), this.y.getResources().getDimensionPixelSize(t.frs_starheader_badge_margin));
         }
+        if (this.at) {
+            this.ar = new com.baidu.tbadk.core.data.q();
+            this.as.setVisibility(0);
+            this.as.setData(this.ar);
+            return;
+        }
+        this.as.setVisibility(8);
     }
 
-    private void b(boolean z) {
+    private void c(boolean z) {
         int width;
         float f = 0.0f;
-        Bitmap a = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.bg_frs_signin_bar_down);
+        Bitmap a = com.baidu.tbadk.core.util.g.a(u.bg_frs_signin_bar_down);
         if (a != null && (width = a.getWidth()) > 0) {
             if (z) {
-                this.q.setText(u.star_bar_level_up);
+                this.q.setText(y.star_bar_level_up);
                 this.r.setText(String.valueOf(this.U + 1));
             } else {
                 this.q.setText(this.T);
@@ -414,7 +433,7 @@ public class j implements com.baidu.tbadk.imageManager.d {
         }
         this.V = f >= 1.0f ? 1.0f : f;
         this.Y = f >= 1.0f;
-        b(this.Y);
+        c(this.Y);
     }
 
     public void a(View view) {
@@ -424,10 +443,10 @@ public class j implements com.baidu.tbadk.imageManager.d {
             this.I.setBackgroundDrawable(new BitmapDrawable());
             this.I.setOutsideTouchable(true);
             this.I.setFocusable(true);
-            this.I.setWidth(this.y.getResources().getDimensionPixelSize(com.baidu.tieba.p.frs_header_btn_width));
-            this.I.setHeight(this.y.getResources().getDimensionPixelSize(com.baidu.tieba.p.frs_header_exp_height));
-            this.K = (TextView) this.J.findViewById(r.cur_experience);
-            this.L = (TextView) this.J.findViewById(r.levelup_experience);
+            this.I.setWidth(this.y.getResources().getDimensionPixelSize(t.frs_header_btn_width));
+            this.I.setHeight(this.y.getResources().getDimensionPixelSize(t.frs_header_exp_height));
+            this.K = (TextView) this.J.findViewById(v.cur_experience);
+            this.L = (TextView) this.J.findViewById(v.levelup_experience);
             k();
         }
         if (this.I.isShowing()) {
@@ -456,14 +475,14 @@ public class j implements com.baidu.tbadk.imageManager.d {
         this.L.setVisibility(0);
         if (this.ab >= 10000) {
             if (this.ab % TbConfig.BIG_IMAGE_MIN_CAPACITY == 0) {
-                this.L.setText(String.valueOf(this.y.getString(u.experience_divider)) + String.valueOf(this.ab / TbConfig.BIG_IMAGE_MIN_CAPACITY) + this.y.getString(u.member_count_unit));
+                this.L.setText(String.valueOf(this.y.getString(y.experience_divider)) + String.valueOf(this.ab / TbConfig.BIG_IMAGE_MIN_CAPACITY) + this.y.getString(y.member_count_unit));
                 return;
             } else {
-                this.L.setText(String.valueOf(this.y.getString(u.experience_divider)) + String.valueOf(this.ab / 10000.0f) + this.y.getString(u.member_count_unit));
+                this.L.setText(String.valueOf(this.y.getString(y.experience_divider)) + String.valueOf(this.ab / 10000.0f) + this.y.getString(y.member_count_unit));
                 return;
             }
         }
-        this.L.setText(String.valueOf(this.y.getString(u.experience_divider)) + String.valueOf(this.ab));
+        this.L.setText(String.valueOf(this.y.getString(y.experience_divider)) + String.valueOf(this.ab));
     }
 
     public void a(int i, String str, int i2, float f, boolean z) {
@@ -502,24 +521,24 @@ public class j implements com.baidu.tbadk.imageManager.d {
             this.n.setVisibility(8);
             this.j.setVisibility(0);
             if (this.ah == 1) {
-                this.k.setBackgroundResource(com.baidu.tieba.q.frs_btn_sign_1);
+                this.k.setBackgroundResource(u.frs_btn_sign_1);
                 return;
             } else {
-                this.k.setBackgroundResource(com.baidu.tieba.q.frs_btn_sign);
+                this.k.setBackgroundResource(u.frs_btn_sign);
                 return;
             }
         }
         this.ai = true;
         this.j.setVisibility(8);
         if (this.ah == 1) {
-            this.o.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.q.icon_sign_d_1, 0, 0, 0);
+            this.o.setCompoundDrawablesWithIntrinsicBounds(u.icon_sign_d_1, 0, 0, 0);
         } else {
-            this.o.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.q.icon_sign_d, 0, 0, 0);
+            this.o.setCompoundDrawablesWithIntrinsicBounds(u.icon_sign_d, 0, 0, 0);
         }
         if (this.Z == 1) {
-            this.o.setText(this.y.getString(u.signed));
+            this.o.setText(this.y.getString(y.signed));
         } else {
-            this.o.setText(String.valueOf(this.y.getString(u.signed_less)) + String.valueOf(this.Z) + this.y.getString(u.day));
+            this.o.setText(String.valueOf(this.y.getString(y.signed_less)) + String.valueOf(this.Z) + this.y.getString(y.day));
         }
         this.n.setVisibility(0);
     }
@@ -576,5 +595,9 @@ public class j implements com.baidu.tbadk.imageManager.d {
 
     public void i() {
         this.aq = true;
+    }
+
+    public void b(boolean z) {
+        this.at = z;
     }
 }

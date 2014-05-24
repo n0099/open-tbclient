@@ -78,7 +78,7 @@ public class ResponseHotGroupsMessage extends TbSocketReponsedMessage {
             if (TbadkApplication.getCurrentAccountObj() != null) {
                 str = TbadkApplication.getCurrentAccountObj().getID();
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().h(), CACHE_KEY_PREFIX + str, bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().i(), CACHE_KEY_PREFIX + str, bArr);
         }
     }
 }

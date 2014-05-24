@@ -1,20 +1,16 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class an implements Runnable {
-    final /* synthetic */ am a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar) {
-        this.a = amVar;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.tbplugin.m.a().a("BdSocialShareSdk", "com.baidu.tbadk.plugins.BdSocialShareSdkDelegate");
-        com.baidu.tbadk.tbplugin.m.a().a("batsdk", "com.baidu.tbadk.plugins.BatSdkDelegate");
-        com.baidu.tbadk.tbplugin.m.a().a("motusdk", "com.baidu.tbadk.plugins.MotuPlugin");
-        com.baidu.tbadk.tbplugin.m.a().a("browser", "com.baidu.tbadk.plugins.BdBrowserDelegate");
-        com.baidu.tbadk.tbplugin.m.a().a("dqsdk", "com.baidu.tbadk.plugins.DQSdkPlugin");
-        com.baidu.tbadk.tbplugin.m.a().j();
+public class an implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.x> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<com.baidu.tbadk.core.atomData.x> run(CustomMessage<com.baidu.tbadk.core.atomData.x> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            ai.c().f();
+        }
+        return null;
     }
 }

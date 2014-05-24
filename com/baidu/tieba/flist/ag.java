@@ -6,7 +6,7 @@ import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.al;
 /* loaded from: classes.dex */
-public class ag extends com.baidu.adp.base.d {
+public class ag extends com.baidu.adp.base.b {
     private String a;
     private ah b = null;
     private String c;
@@ -30,7 +30,7 @@ public class ag extends com.baidu.adp.base.d {
         bundle.putString(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.c);
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean LoadData() {
         if (this.a == null) {
             return false;
@@ -42,7 +42,7 @@ public class ag extends com.baidu.adp.base.d {
         return true;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.b != null) {
             this.b.cancel();

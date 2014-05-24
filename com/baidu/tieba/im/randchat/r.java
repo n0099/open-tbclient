@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.randchat;
 
 import com.baidu.tieba.im.data.RandChatRoomData;
-import com.baidu.tieba.im.model.ca;
+import com.baidu.tieba.im.model.cb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements com.baidu.tieba.im.view.d {
@@ -14,13 +14,13 @@ public class r implements com.baidu.tieba.im.view.d {
 
     @Override // com.baidu.tieba.im.view.d
     public void a(String str, String str2, boolean z) {
-        ca caVar;
-        ca caVar2;
-        caVar = this.a.b;
-        RandChatRoomData f = caVar.f();
+        cb cbVar;
+        cb cbVar2;
+        cbVar = this.a.b;
+        RandChatRoomData f = cbVar.f();
         if (f != null) {
-            caVar2 = this.a.b;
-            caVar2.a(f.d(), str, str2, z);
+            cbVar2 = this.a.b;
+            cbVar2.a(f.d(), str, str2, z);
         }
     }
 }

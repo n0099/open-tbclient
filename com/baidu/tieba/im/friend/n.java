@@ -2,7 +2,7 @@ package com.baidu.tieba.im.friend;
 
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-class n extends com.baidu.adp.base.g {
+class n extends com.baidu.adp.base.e {
     final /* synthetic */ InviteFriendListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ class n extends com.baidu.adp.base.g {
         this.a = inviteFriendListActivity;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         y yVar;
         y yVar2;
@@ -37,7 +37,7 @@ class n extends com.baidu.adp.base.g {
         com.baidu.tieba.im.data.f fVar = (com.baidu.tieba.im.data.f) obj;
         ArrayList<com.baidu.tieba.im.data.e> a = fVar == null ? null : fVar.a();
         if (fVar != null && fVar.b() && (a == null || a.size() <= 0)) {
-            this.a.showToast(this.a.getString(com.baidu.tieba.u.invite_friend_no_data_now));
+            this.a.showToast(this.a.getString(com.baidu.tieba.y.invite_friend_no_data_now));
         }
         if (fVar != null) {
             yVar2 = this.a.a;

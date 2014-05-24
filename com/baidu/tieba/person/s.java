@@ -1,7 +1,7 @@
 package com.baidu.tieba.person;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.base.g {
+public class s extends com.baidu.adp.base.e {
     final /* synthetic */ r a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ public class s extends com.baidu.adp.base.g {
         this.a = rVar;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         v vVar;
         v vVar2;

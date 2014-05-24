@@ -29,22 +29,22 @@ public class a extends ImageView {
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.c = (i3 - i) - com.baidu.adp.lib.util.h.a(getContext(), 5.0f);
-        this.d = (i4 - i2) - com.baidu.adp.lib.util.h.a(getContext(), 5.0f);
+        this.c = (i3 - i) - com.baidu.adp.lib.util.k.a(getContext(), 5.0f);
+        this.d = (i4 - i2) - com.baidu.adp.lib.util.k.a(getContext(), 5.0f);
     }
 
     private Bitmap getSelectIcon() {
         int i;
         if (this.b) {
             if (a == 1) {
-                i = com.baidu.tieba.q.but_posts_fit_select_s_1;
+                i = com.baidu.tieba.u.but_posts_fit_select_s_1;
             } else {
-                i = com.baidu.tieba.q.but_posts_fit_select_s;
+                i = com.baidu.tieba.u.but_posts_fit_select_s;
             }
         } else if (a == 1) {
-            i = com.baidu.tieba.q.but_posts_fit_select_n_1;
+            i = com.baidu.tieba.u.but_posts_fit_select_n_1;
         } else {
-            i = com.baidu.tieba.q.but_posts_fit_select_n;
+            i = com.baidu.tieba.u.but_posts_fit_select_n;
         }
         return com.baidu.tbadk.core.util.g.a(i);
     }

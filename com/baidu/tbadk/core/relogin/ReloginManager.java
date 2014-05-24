@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.i;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONObject;
@@ -118,7 +118,7 @@ public class ReloginManager {
                 iVar.a(jSONObject);
                 String userId = iVar.a().getUserId();
                 if (userId == null || userId.length() <= 0) {
-                    setErrorString(TbadkApplication.m252getInst().getApp().getApplicationContext().getString(u.neterror));
+                    setErrorString(TbadkApplication.m252getInst().getApp().getApplicationContext().getString(y.neterror));
                     return;
                 }
                 AccountData accountData = new AccountData();

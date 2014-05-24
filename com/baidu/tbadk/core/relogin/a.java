@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.relogin;
 
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class a extends HttpMessageListener {
             if ((statusCode == 200 && error != 0) || statusCode != 200) {
                 this.a.b(TbadkApplication.getCurrentAccountObj());
                 if (bgLoginHttpResponsedMessage.getErrorString() != null) {
-                    h.a(TbadkApplication.m252getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
+                    k.a(TbadkApplication.m252getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
                 }
                 arrayList = this.a.c;
                 arrayList.clear();

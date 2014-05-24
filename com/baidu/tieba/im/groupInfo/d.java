@@ -17,7 +17,7 @@ class d implements View.OnClickListener {
         if (view != null) {
             if (view.equals(this.a.f)) {
                 if (!UtilHelper.isNetOk()) {
-                    this.a.showToast(com.baidu.tieba.u.neterror);
+                    this.a.showToast(com.baidu.tieba.y.neterror);
                     return;
                 }
                 RequestJoinGroupMessage requestJoinGroupMessage = new RequestJoinGroupMessage();

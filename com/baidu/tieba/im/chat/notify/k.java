@@ -145,7 +145,7 @@ public class k implements AdapterView.OnItemClickListener {
         try {
             long parseLong = Long.parseLong(imMessageCenterShowItemData.getFriendId());
             activity = this.a.e;
-            com.baidu.tbadk.core.g.a(activity, "tab_msg_personal_chat_click");
+            com.baidu.tbadk.core.f.a(activity, "tab_msg_personal_chat_click");
             new az(TbConfig.ST_TYPE_PCHAT, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK).start();
             activity2 = this.a.e;
             MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new au(activity2, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));

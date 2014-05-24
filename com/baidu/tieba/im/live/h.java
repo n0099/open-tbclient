@@ -48,4 +48,13 @@ public class h extends IRemoteCallback.Stub {
         handler2 = this.a.q;
         handler.sendMessage(handler2.obtainMessage(4, i, i));
     }
+
+    @Override // com.baidu.tieba.im.live.service.IRemoteCallback
+    public void onLivePlayWarning(int i) {
+        Handler handler;
+        Handler handler2;
+        handler = this.a.q;
+        handler2 = this.a.q;
+        handler.sendMessage(handler2.obtainMessage(5, i, i));
+    }
 }

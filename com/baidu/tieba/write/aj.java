@@ -3,7 +3,7 @@ package com.baidu.tieba.write;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj extends com.baidu.adp.base.g {
+public class aj extends com.baidu.adp.base.e {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ public class aj extends com.baidu.adp.base.g {
         this.a = writeActivity;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         FeedBackTopListView feedBackTopListView;
         FeedBackTopListView feedBackTopListView2;
@@ -20,7 +20,7 @@ public class aj extends com.baidu.adp.base.g {
         if (obj == null || !(obj instanceof s)) {
             feedBackTopListView = this.a.k;
             feedBackTopListView.setVisibility(8);
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
             return;
         }
         s sVar = (s) obj;
@@ -29,7 +29,7 @@ public class aj extends com.baidu.adp.base.g {
             feedBackTopListView2.setVisibility(8);
             return;
         }
-        ArrayList<com.baidu.tbadk.core.data.o> a = sVar.a();
+        ArrayList<com.baidu.tbadk.core.data.n> a = sVar.a();
         feedBackTopListView3 = this.a.k;
         feedBackTopListView3.setData(a);
     }

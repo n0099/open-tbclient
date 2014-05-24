@@ -14,8 +14,8 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.data.NewsNotifyMessage;
-import com.baidu.tieba.q;
 import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.lang.reflect.Field;
 import java.util.Calendar;
 import java.util.Date;
@@ -143,13 +143,13 @@ public class a {
                         int i3 = this.c + this.d;
                         if (i3 > 0) {
                             stringBuffer.append(String.valueOf(i3));
-                            stringBuffer.append(this.b.getString(u.notify_msg));
+                            stringBuffer.append(this.b.getString(y.notify_msg));
                         }
                         if (this.e > 0) {
                             stringBuffer.append(String.valueOf(this.e));
-                            stringBuffer.append(this.b.getString(u.notify_fans));
+                            stringBuffer.append(this.b.getString(y.notify_fans));
                         }
-                        stringBuffer.append(this.b.getString(u.notify_click));
+                        stringBuffer.append(this.b.getString(y.notify_click));
                         a(11, (String) null, stringBuffer.toString());
                     } else if (i2 != 16 && TbadkApplication.m252getInst().isGroupMsgOn()) {
                         TbadkApplication.m252getInst().getMsgFrequency();
@@ -185,13 +185,13 @@ public class a {
                         int i3 = this.c + this.d;
                         if (i3 > 0) {
                             stringBuffer.append(String.valueOf(i3));
-                            stringBuffer.append(this.b.getString(u.notify_msg));
+                            stringBuffer.append(this.b.getString(y.notify_msg));
                         }
                         if (this.e > 0) {
                             stringBuffer.append(String.valueOf(this.e));
-                            stringBuffer.append(this.b.getString(u.notify_fans));
+                            stringBuffer.append(this.b.getString(y.notify_fans));
                         }
-                        stringBuffer.append(this.b.getString(u.notify_click));
+                        stringBuffer.append(this.b.getString(y.notify_click));
                         a(11, (String) null, stringBuffer.toString());
                     } else if (i2 == 16) {
                         int c = (!TbadkApplication.m252getInst().isGroupMsgOn() || TbadkApplication.m252getInst().getMsgFrequency() <= 0) ? 0 : cVar.c() - cVar.l();
@@ -203,7 +203,7 @@ public class a {
                         boolean z4 = j2 > 0;
                         long j3 = c + j2;
                         if (j3 > 1) {
-                            stringBuffer.append(String.format(this.b.getString(u.notify_chat), Long.valueOf(j3)));
+                            stringBuffer.append(String.format(this.b.getString(y.notify_chat), Long.valueOf(j3)));
                             a(16, (String) null, stringBuffer.toString(), z4);
                         } else if (j3 == 1) {
                             cVar.z();
@@ -218,20 +218,20 @@ public class a {
                                 return;
                             }
                             if (TextUtils.isEmpty(n2)) {
-                                n2 = stringBuffer.append(String.format(this.b.getString(u.notify_chat), Long.valueOf(j3))).toString();
+                                n2 = stringBuffer.append(String.format(this.b.getString(y.notify_chat), Long.valueOf(j3))).toString();
                             }
                             a(16, o, n2, z4);
                         }
                     } else if (i2 == 19) {
                         long g = cVar.g();
                         if (g > 1) {
-                            stringBuffer.append(String.format(this.b.getString(u.notify_official_message), Long.valueOf(g)));
+                            stringBuffer.append(String.format(this.b.getString(y.notify_official_message), Long.valueOf(g)));
                             a(19, (String) null, stringBuffer.toString());
                         } else if (g == 1) {
                             String j4 = cVar.j();
                             String k2 = cVar.k();
                             if (TextUtils.isEmpty(k2)) {
-                                k2 = stringBuffer.append(String.format(this.b.getString(u.notify_official_message), Long.valueOf(g))).toString();
+                                k2 = stringBuffer.append(String.format(this.b.getString(y.notify_official_message), Long.valueOf(g))).toString();
                             }
                             a(19, j4, k2);
                         }
@@ -240,7 +240,7 @@ public class a {
                             if (cVar.d() > 0 && !w()) {
                                 long d = cVar.d() - cVar.e();
                                 if (d > 0) {
-                                    stringBuffer.append(String.format(this.b.getString(u.notify_updates), Long.valueOf(d)));
+                                    stringBuffer.append(String.format(this.b.getString(y.notify_updates), Long.valueOf(d)));
                                     z = false;
                                     z2 = true;
                                 } else if (cVar.e() > 0) {
@@ -249,9 +249,9 @@ public class a {
                                 if (cVar.f() > 0 || v()) {
                                     z3 = z2;
                                 } else if (!z2) {
-                                    stringBuffer.append(String.format(this.b.getString(u.notify_validate), Integer.valueOf(cVar.f())));
+                                    stringBuffer.append(String.format(this.b.getString(y.notify_validate), Integer.valueOf(cVar.f())));
                                 } else {
-                                    stringBuffer.append(String.format(this.b.getString(u.notify_validate_1), Integer.valueOf(cVar.f())));
+                                    stringBuffer.append(String.format(this.b.getString(y.notify_validate_1), Integer.valueOf(cVar.f())));
                                 }
                                 if (z3) {
                                     a(17, (String) null, stringBuffer.toString());
@@ -270,7 +270,7 @@ public class a {
                             }
                         }
                         if (cVar.A() > 0 && !x()) {
-                            a(21, (String) null, String.format(this.b.getString(u.notify_live), Integer.valueOf(cVar.A())));
+                            a(21, (String) null, String.format(this.b.getString(y.notify_live), Integer.valueOf(cVar.A())));
                         }
                     }
                 } else if (i == 2) {
@@ -285,7 +285,7 @@ public class a {
     }
 
     private Notification t() {
-        return new Notification(q.icon, this.b.getString(u.notify_text), System.currentTimeMillis());
+        return new Notification(u.icon, this.b.getString(y.notify_text), System.currentTimeMillis());
     }
 
     private void a(int i, String str, String str2) {
@@ -294,7 +294,7 @@ public class a {
 
     private void a(int i, String str, String str2, boolean z) {
         Intent a;
-        Notification notification = new Notification(q.icon_notify, this.b.getString(u.notify_text), System.currentTimeMillis());
+        Notification notification = new Notification(u.icon_notify, this.b.getString(y.notify_text), System.currentTimeMillis());
         if (this.a != null) {
             this.a.cancel(i);
         }
@@ -329,12 +329,12 @@ public class a {
             notification = t();
         }
         if (be.c(str) || (i != 16 && i != 18)) {
-            notification.setLatestEventInfo(this.b, this.b.getString(u.app_name), str2, service);
+            notification.setLatestEventInfo(this.b, this.b.getString(y.app_name), str2, service);
         } else {
             notification.setLatestEventInfo(this.b, str, str2, service);
         }
         if (i2 != 0 && notification.contentView != null) {
-            notification.contentView.setImageViewResource(i2, q.icon);
+            notification.contentView.setImageViewResource(i2, u.icon);
         }
         notification.defaults = -1;
         notification.flags = 16;

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.frameworkData.MessageTypes;
 public class InviteFriendListActivity extends BaseActivity implements View.OnClickListener {
     private y a;
     private af b;
-    private final com.baidu.adp.base.g c = new n(this);
+    private final com.baidu.adp.base.e c = new n(this);
     private final com.baidu.adp.framework.listener.b d = new o(this, MessageTypes.CMD_COMMIT_INVITE);
 
     public static void a(Context context, int i, int i2) {

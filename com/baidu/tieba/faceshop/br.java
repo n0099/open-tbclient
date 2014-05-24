@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br extends com.baidu.adp.base.g {
+public class br extends com.baidu.adp.base.e {
     final /* synthetic */ bp a;
     private final /* synthetic */ FacePackageData b;
 
@@ -14,14 +14,14 @@ public class br extends com.baidu.adp.base.g {
         this.b = facePackageData;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         Context context;
         Context context2;
         Context context3;
         if (obj == null || !(obj instanceof FacePackageDownloadData)) {
             context = this.a.c;
-            UtilHelper.showToast(context, com.baidu.tieba.u.neterror);
+            UtilHelper.showToast(context, com.baidu.tieba.y.neterror);
             return;
         }
         FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
@@ -33,7 +33,7 @@ public class br extends com.baidu.adp.base.g {
             UtilHelper.showToast(context3, facePackageDownloadData.usermsg);
         } else {
             context2 = this.a.c;
-            UtilHelper.showToast(context2, com.baidu.tieba.u.neterror);
+            UtilHelper.showToast(context2, com.baidu.tieba.y.neterror);
         }
     }
 }

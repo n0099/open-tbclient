@@ -65,7 +65,7 @@ public class WriteImageActivity extends BaseActivity {
     private final View.OnClickListener G = new bi(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bi.class, WriteImageActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bj.class, WriteImageActivity.class);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -77,7 +77,7 @@ public class WriteImageActivity extends BaseActivity {
             this.v = true;
         }
         TbadkApplication.m252getInst().addRemoteActivity(this);
-        setContentView(com.baidu.tieba.s.write_image_activity);
+        setContentView(com.baidu.tieba.w.write_image_activity);
         Intent intent = getIntent();
         this.A = intent.getIntExtra("request", 0);
         this.u = intent.getIntExtra("display_size", 0);
@@ -92,16 +92,16 @@ public class WriteImageActivity extends BaseActivity {
         if (this.A == 12002 || this.A == 12001) {
             d();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.a(this.A, intent.getData(), com.baidu.tbadk.core.util.bf.a().e(), this.u);
+                TiebaPrepareImageService.StartService(this.A, intent.getData(), com.baidu.tbadk.core.util.bf.a().e(), this.u);
             } else {
-                TiebaPrepareImageService.a(this.A, null, com.baidu.tbadk.core.util.bf.a().e(), this.u);
+                TiebaPrepareImageService.StartService(this.A, null, com.baidu.tbadk.core.util.bf.a().e(), this.u);
             }
             e();
         } else {
             d();
             c();
         }
-        a = getResources().getStringArray(com.baidu.tieba.m.fiter_name);
+        a = getResources().getStringArray(com.baidu.tieba.q.fiter_name);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -158,7 +158,7 @@ public class WriteImageActivity extends BaseActivity {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        TiebaPrepareImageService.a();
+        TiebaPrepareImageService.StopService();
         releaseResouce();
         super.onDestroy();
         if (this.c != null && !this.c.isRecycled()) {
@@ -196,58 +196,58 @@ public class WriteImageActivity extends BaseActivity {
         this.p.c(i);
         if (i == 1) {
             if (this.d.isEnabled()) {
-                com.baidu.tbadk.core.util.bc.e((View) this.d, com.baidu.tieba.q.navi_done_text_bg_1);
-                this.d.setTextColor(getResources().getColorStateList(com.baidu.tieba.o.navi_done_text_1));
+                com.baidu.tbadk.core.util.bc.e((View) this.d, com.baidu.tieba.u.navi_done_text_bg_1);
+                this.d.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.navi_done_text_1));
                 return;
             }
-            com.baidu.tbadk.core.util.bc.e((View) this.d, com.baidu.tieba.q.btn_titlebar_finish_d_1);
-            this.d.setTextColor(getResources().getColor(com.baidu.tieba.o.navi_done_text_d_1));
+            com.baidu.tbadk.core.util.bc.e((View) this.d, com.baidu.tieba.u.btn_titlebar_finish_d_1);
+            this.d.setTextColor(getResources().getColor(com.baidu.tieba.s.navi_done_text_d_1));
         } else if (this.d.isEnabled()) {
-            com.baidu.tbadk.core.util.bc.e((View) this.d, com.baidu.tieba.q.navi_done_text_bg);
-            this.d.setTextColor(getResources().getColorStateList(com.baidu.tieba.o.navi_done_text));
+            com.baidu.tbadk.core.util.bc.e((View) this.d, com.baidu.tieba.u.navi_done_text_bg);
+            this.d.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.navi_done_text));
         } else {
-            com.baidu.tbadk.core.util.bc.e((View) this.d, com.baidu.tieba.q.btn_titlebar_finish_d);
-            this.d.setTextColor(getResources().getColor(com.baidu.tieba.o.navi_done_text_d));
+            com.baidu.tbadk.core.util.bc.e((View) this.d, com.baidu.tieba.u.btn_titlebar_finish_d);
+            this.d.setTextColor(getResources().getColor(com.baidu.tieba.s.navi_done_text_d));
         }
     }
 
     private void d() {
-        this.e = findViewById(com.baidu.tieba.r.write_image_root_layout);
-        this.g = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
+        this.e = findViewById(com.baidu.tieba.v.write_image_root_layout);
+        this.g = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
         this.g.setVisibility(8);
-        this.b = (ImageView) findViewById(com.baidu.tieba.r.image);
+        this.b = (ImageView) findViewById(com.baidu.tieba.v.image);
         this.b.setOnClickListener(new bj(this));
         this.b.setImageBitmap(this.c);
-        this.f = (HorizontalScrollView) findViewById(com.baidu.tieba.r.filters_layout);
-        this.p = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.f = (HorizontalScrollView) findViewById(com.baidu.tieba.v.filters_layout);
+        this.p = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.p.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new bk(this));
         this.d = this.p.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.B, new bl(this));
         if (TextUtils.isEmpty(this.B)) {
             if (this.z || this.A != 12003) {
-                this.d.setText(getString(com.baidu.tieba.u.done));
+                this.d.setText(getString(com.baidu.tieba.y.done));
                 com.baidu.tbadk.core.util.bc.g(this.d, TbadkApplication.m252getInst().getSkinType());
             } else {
-                this.d.setText(getString(com.baidu.tieba.u.delete));
+                this.d.setText(getString(com.baidu.tieba.y.delete));
                 com.baidu.tbadk.core.util.bc.k(this.d, TbadkApplication.m252getInst().getSkinType());
             }
         } else {
             this.d.setText(this.B);
         }
-        this.x = (LinearLayout) findViewById(com.baidu.tieba.r.filters);
-        this.s = com.baidu.adp.lib.util.h.a((Context) this, 2.0f);
-        this.n = this.p.a(getString(com.baidu.tieba.u.beautify));
-        this.m = (LinearLayout) findViewById(com.baidu.tieba.r.beautify_rotate);
-        this.l = (LinearLayout) findViewById(com.baidu.tieba.r.rotate);
-        this.j = (RadioButton) findViewById(com.baidu.tieba.r.beautify_btn);
-        this.k = (RadioButton) findViewById(com.baidu.tieba.r.rotate_btn);
+        this.x = (LinearLayout) findViewById(com.baidu.tieba.v.filters);
+        this.s = com.baidu.adp.lib.util.k.a((Context) this, 2.0f);
+        this.n = this.p.a(getString(com.baidu.tieba.y.beautify));
+        this.m = (LinearLayout) findViewById(com.baidu.tieba.v.beautify_rotate);
+        this.l = (LinearLayout) findViewById(com.baidu.tieba.v.rotate);
+        this.j = (RadioButton) findViewById(com.baidu.tieba.v.beautify_btn);
+        this.k = (RadioButton) findViewById(com.baidu.tieba.v.rotate_btn);
         bm bmVar = new bm(this);
         this.j.setOnCheckedChangeListener(bmVar);
         this.k.setOnCheckedChangeListener(bmVar);
         this.j.setChecked(true);
-        Button button = (Button) findViewById(com.baidu.tieba.r.rotate_left);
-        Button button2 = (Button) findViewById(com.baidu.tieba.r.rotate_right);
-        Button button3 = (Button) findViewById(com.baidu.tieba.r.rotate_left_right);
-        Button button4 = (Button) findViewById(com.baidu.tieba.r.rotate_up_down);
+        Button button = (Button) findViewById(com.baidu.tieba.v.rotate_left);
+        Button button2 = (Button) findViewById(com.baidu.tieba.v.rotate_right);
+        Button button3 = (Button) findViewById(com.baidu.tieba.v.rotate_left_right);
+        Button button4 = (Button) findViewById(com.baidu.tieba.v.rotate_up_down);
         button.setTag(0);
         button2.setTag(1);
         button3.setTag(2);
@@ -297,9 +297,9 @@ public class WriteImageActivity extends BaseActivity {
         if (this.D != null && strArr != null) {
             this.x.removeAllViews();
             this.m.setVisibility(0);
-            View inflate = getLayoutInflater().inflate(com.baidu.tieba.s.filter_item, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.r.filter_immage);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.r.filter_text);
+            View inflate = getLayoutInflater().inflate(com.baidu.tieba.w.filter_item, (ViewGroup) null);
+            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.v.filter_immage);
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.v.filter_text);
             int length = strArr.length;
             int i = 0;
             int i2 = 0;
@@ -307,9 +307,9 @@ public class WriteImageActivity extends BaseActivity {
                 String str = strArr[i];
                 String substring = str.substring(0, str.indexOf("|"));
                 String substring2 = str.substring(str.indexOf("|") + 1);
-                View inflate2 = getLayoutInflater().inflate(com.baidu.tieba.s.filter_item, (ViewGroup) null);
-                ImageView imageView2 = (ImageView) inflate2.findViewById(com.baidu.tieba.r.filter_immage);
-                TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.r.filter_text);
+                View inflate2 = getLayoutInflater().inflate(com.baidu.tieba.w.filter_item, (ViewGroup) null);
+                ImageView imageView2 = (ImageView) inflate2.findViewById(com.baidu.tieba.v.filter_immage);
+                TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.v.filter_text);
                 textView2.setText(substring2);
                 imageView2.setImageResource(com.baidu.tbadk.coreExtra.view.k.a(substring));
                 imageView2.setTag(textView2);
@@ -345,7 +345,7 @@ public class WriteImageActivity extends BaseActivity {
             if (this.E != null) {
                 ImageView imageView2 = this.E.get(str);
                 if (imageView2 != null) {
-                    imageView2.setBackgroundResource(com.baidu.tieba.q.bg_choose_filter);
+                    imageView2.setBackgroundResource(com.baidu.tieba.u.bg_choose_filter);
                     imageView2.setPadding(this.s, this.s, this.s, this.s);
                     Object tag2 = imageView2.getTag();
                     if (tag2 instanceof TextView) {

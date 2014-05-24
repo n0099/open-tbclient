@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class MoreDiscoveryWidget extends FrameLayout {
     private ImageView a;
@@ -31,12 +32,12 @@ public class MoreDiscoveryWidget extends FrameLayout {
         super(context, attributeSet, i);
         this.f = new int[2];
         this.e = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.more_discovery_widget, (ViewGroup) this, true);
-        this.a = (ImageView) findViewById(com.baidu.tieba.r.widget_icon);
-        this.b = (TextView) findViewById(com.baidu.tieba.r.widget_text);
-        this.c = (ImageView) findViewById(com.baidu.tieba.r.widget_new);
-        this.d = (ImageView) findViewById(com.baidu.tieba.r.widget_remind);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.w.moreTabWidget);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.more_discovery_widget, (ViewGroup) this, true);
+        this.a = (ImageView) findViewById(com.baidu.tieba.v.widget_icon);
+        this.b = (TextView) findViewById(com.baidu.tieba.v.widget_text);
+        this.c = (ImageView) findViewById(com.baidu.tieba.v.widget_new);
+        this.d = (ImageView) findViewById(com.baidu.tieba.v.widget_remind);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.aa.moreTabWidget);
         this.b.setText(obtainStyledAttributes.getString(1));
         this.a.setImageDrawable(obtainStyledAttributes.getDrawable(0));
         this.f[0] = obtainStyledAttributes.getResourceId(0, 0);
@@ -47,8 +48,8 @@ public class MoreDiscoveryWidget extends FrameLayout {
     public void a(int i) {
         if (this.e instanceof BaseActivity) {
             ((BaseActivity) this.e).getLayoutMode().a((View) this);
-        } else if (this.e instanceof com.baidu.tbadk.core.e) {
-            ((com.baidu.tbadk.core.e) getContext()).a().a((View) this);
+        } else if (this.e instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) getContext()).a().a((View) this);
         }
         if (1 == i) {
             this.a.setImageResource(this.f[1]);

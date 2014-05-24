@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat.officialBar;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tieba.im.model.MsglistModel;
 /* loaded from: classes.dex */
-class x implements com.baidu.tieba.im.chat.w {
+class x implements com.baidu.tieba.im.chat.v {
     final /* synthetic */ OfficialBarChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class x implements com.baidu.tieba.im.chat.w {
         this.a = officialBarChatActivity;
     }
 
-    @Override // com.baidu.tieba.im.chat.w
+    @Override // com.baidu.tieba.im.chat.v
     public void a(VoiceData.VoiceModel voiceModel) {
         MsglistModel msglistModel;
         if (voiceModel != null) {
@@ -20,7 +20,7 @@ class x implements com.baidu.tieba.im.chat.w {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.w
+    @Override // com.baidu.tieba.im.chat.v
     public void a() {
     }
 }

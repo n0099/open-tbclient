@@ -7,13 +7,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 /* loaded from: classes.dex */
-public class PersonPostActivity extends com.baidu.tbadk.core.e implements ViewPager.OnPageChangeListener {
+public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
     private int[] d;
     private String e;
     private String f;
@@ -35,27 +36,27 @@ public class PersonPostActivity extends com.baidu.tbadk.core.e implements ViewPa
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.person_post_activity);
+        setContentView(com.baidu.tieba.w.person_post_activity);
         this.g = getIntent().getStringExtra("key_portrait_url");
         this.e = getIntent().getStringExtra("key_uid");
         this.h = getIntent().getIntExtra("key_sex", 0);
         this.e = this.e == null ? "" : this.e;
         if (this.e.equals(TbadkApplication.getCurrentAccount())) {
-            this.f = getString(com.baidu.tieba.u.me);
+            this.f = getString(com.baidu.tieba.y.me);
             this.i = true;
         } else {
             switch (getIntent().getIntExtra("key_sex", 0)) {
                 case 1:
-                    this.f = getString(com.baidu.tieba.u.he);
+                    this.f = getString(com.baidu.tieba.y.he);
                     break;
                 case 2:
-                    this.f = getString(com.baidu.tieba.u.she);
+                    this.f = getString(com.baidu.tieba.y.she);
                     break;
                 default:
-                    this.f = getString(com.baidu.tieba.u.ta);
+                    this.f = getString(com.baidu.tieba.y.ta);
                     break;
             }
         }
@@ -67,15 +68,15 @@ public class PersonPostActivity extends com.baidu.tbadk.core.e implements ViewPa
     }
 
     private void a(Bundle bundle) {
-        this.j = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.j.a(String.format(getString(com.baidu.tieba.u.person_post), this.f));
+        this.j = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.j.a(String.format(getString(com.baidu.tieba.y.person_post), this.f));
         this.k = (View) this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).getParent();
         this.k.setOnClickListener(new d(this));
         this.d = new int[]{0, 1};
         this.m = new e(this);
-        this.l = (FragmentTabHost) findViewById(com.baidu.tieba.r.tab_host);
+        this.l = (FragmentTabHost) findViewById(com.baidu.tieba.v.tab_host);
         this.l.setup(getSupportFragmentManager());
-        this.l.setTabWidgetBackgroundColor(getResources().getColor(com.baidu.tieba.o.maintab_bg));
+        this.l.setTabWidgetBackgroundColor(getResources().getColor(com.baidu.tieba.s.maintab_bg));
         this.l.setOnPageChangeListener(this);
         i();
         if (bundle != null) {
@@ -94,9 +95,9 @@ public class PersonPostActivity extends com.baidu.tbadk.core.e implements ViewPa
             bVar.a = i;
             fragmentTabIndicator.setText(str);
             fragmentTabIndicator.setGravity(17);
-            fragmentTabIndicator.b = com.baidu.tieba.o.main_bottom_button_color_1;
-            fragmentTabIndicator.a = com.baidu.tieba.o.main_bottom_button_color;
-            fragmentTabIndicator.a(0, getResources().getDimension(com.baidu.tieba.p.fontsize32));
+            fragmentTabIndicator.b = com.baidu.tieba.s.main_bottom_button_color_1;
+            fragmentTabIndicator.a = com.baidu.tieba.s.main_bottom_button_color;
+            fragmentTabIndicator.a(0, getResources().getDimension(com.baidu.tieba.t.fontsize32));
             bVar.b = fragmentTabIndicator;
             this.l.a(bVar);
         }
@@ -110,9 +111,9 @@ public class PersonPostActivity extends com.baidu.tbadk.core.e implements ViewPa
                 int a = this.m.a(i);
                 if (item != null) {
                     if (a == 0) {
-                        a(item, 0, String.format(getString(com.baidu.tieba.u.person_post_thread), this.f));
+                        a(item, 0, String.format(getString(com.baidu.tieba.y.person_post_thread), this.f));
                     } else if (a == 1) {
-                        a(item, 1, String.format(getString(com.baidu.tieba.u.person_post_reply), this.f));
+                        a(item, 1, String.format(getString(com.baidu.tieba.y.person_post_reply), this.f));
                     }
                 }
             }
@@ -121,7 +122,7 @@ public class PersonPostActivity extends com.baidu.tbadk.core.e implements ViewPa
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         b(TbadkApplication.m252getInst().getSkinType());
@@ -153,9 +154,9 @@ public class PersonPostActivity extends com.baidu.tbadk.core.e implements ViewPa
 
     public String h() {
         if (this.i) {
-            return getString(com.baidu.tieba.u.person_post_lv_empty_host);
+            return getString(com.baidu.tieba.y.person_post_lv_empty_host);
         }
-        return String.format(getString(com.baidu.tieba.u.person_post_lv_empty_guest), f());
+        return String.format(getString(com.baidu.tieba.y.person_post_lv_empty_guest), f());
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -178,11 +179,11 @@ public class PersonPostActivity extends com.baidu.tbadk.core.e implements ViewPa
         }
     }
 
-    @Override // com.baidu.tbadk.core.e
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
         this.j.c(i);
         this.l.a(i);
-        bc.f(this.l, com.baidu.tieba.o.cp_bg_line_c);
+        bc.f(this.l, com.baidu.tieba.s.cp_bg_line_c);
         if (this.m != null) {
             int count = this.m.getCount();
             for (int i2 = 0; i2 < count; i2++) {

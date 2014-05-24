@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
@@ -17,44 +18,44 @@ public class bc {
 
     public static void a(TextView textView, int i) {
         if (textView != null) {
-            Application app = com.baidu.adp.base.a.getInst().getApp();
+            Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.o.skin_1_common_button_color));
+                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.skin_1_common_button_color));
             } else {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.o.white));
+                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.white));
             }
         }
     }
 
     public static void b(TextView textView, int i) {
         if (textView != null) {
-            Application app = com.baidu.adp.base.a.getInst().getApp();
+            Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.o.skin_1_common_color));
+                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.skin_1_common_color));
             } else {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.o.black));
+                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.black));
             }
         }
     }
 
     public static void c(TextView textView, int i) {
         if (textView != null) {
-            Application app = com.baidu.adp.base.a.getInst().getApp();
+            Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.o.gray_night_1));
+                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.gray_night_1));
             } else {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.o.search_text_content));
+                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.search_text_content));
             }
         }
     }
 
     public static void a(View view, int i) {
         if (view != null) {
-            Application app = com.baidu.adp.base.a.getInst().getApp();
+            Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.o.skin_1_common_bg));
+                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.s.skin_1_common_bg));
             } else {
-                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.o.backgroundcolor));
+                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.s.backgroundcolor));
             }
         }
     }
@@ -62,31 +63,31 @@ public class bc {
     public static void b(View view, int i) {
         if (view != null) {
             if (i == 1) {
-                view.setBackgroundResource(com.baidu.tieba.q.common_bg_1);
+                view.setBackgroundResource(com.baidu.tieba.u.common_bg_1);
             } else {
-                view.setBackgroundResource(com.baidu.tieba.q.common_bg);
+                view.setBackgroundResource(com.baidu.tieba.u.common_bg);
             }
         }
     }
 
     public static void c(View view, int i) {
         if (view != null) {
-            Application app = com.baidu.adp.base.a.getInst().getApp();
+            Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.o.skin_1_common_bg));
+                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.s.skin_1_common_bg));
             } else {
-                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.o.login_bg_color));
+                view.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.s.login_bg_color));
             }
         }
     }
 
     public static void d(TextView textView, int i) {
         if (textView != null) {
-            Application app = com.baidu.adp.base.a.getInst().getApp();
+            Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.o.skin_1_common_color));
+                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.skin_1_common_color));
             } else {
-                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.o.white));
+                textView.setTextColor(app.getResources().getColor(com.baidu.tieba.s.white));
             }
         }
     }
@@ -98,9 +99,9 @@ public class bc {
             int paddingTop = view.getPaddingTop();
             int paddingBottom = view.getPaddingBottom();
             if (i == 1) {
-                view.setBackgroundResource(com.baidu.tieba.q.titlebar_bg_1);
+                view.setBackgroundResource(com.baidu.tieba.u.titlebar_bg_1);
             } else {
-                view.setBackgroundResource(com.baidu.tieba.q.titlebar_bg);
+                view.setBackgroundResource(com.baidu.tieba.u.titlebar_bg);
             }
             view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
@@ -109,9 +110,9 @@ public class bc {
     public static void e(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
-                e((View) textView, com.baidu.tieba.q.title_comm_1);
+                e((View) textView, com.baidu.tieba.u.title_comm_1);
             } else {
-                e((View) textView, com.baidu.tieba.q.title_comm);
+                e((View) textView, com.baidu.tieba.u.title_comm);
             }
         }
         d(textView, i);
@@ -120,9 +121,9 @@ public class bc {
     public static void f(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
-                e((View) textView, com.baidu.tieba.q.title_comm_hilite_1);
+                e((View) textView, com.baidu.tieba.u.title_comm_hilite_1);
             } else {
-                e((View) textView, com.baidu.tieba.q.title_comm_hilite);
+                e((View) textView, com.baidu.tieba.u.title_comm_hilite);
             }
         }
         d(textView, i);
@@ -131,9 +132,9 @@ public class bc {
     public static void g(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
-                e((View) textView, com.baidu.tieba.q.navi_done_text_bg_1);
+                e((View) textView, com.baidu.tieba.u.navi_done_text_bg_1);
             } else {
-                e((View) textView, com.baidu.tieba.q.navi_done_text_bg);
+                e((View) textView, com.baidu.tieba.u.navi_done_text_bg);
             }
         }
         h(textView, i);
@@ -141,11 +142,11 @@ public class bc {
 
     public static void h(TextView textView, int i) {
         if (textView != null) {
-            Application app = com.baidu.adp.base.a.getInst().getApp();
+            Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.o.navi_done_text_1));
+                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.s.navi_done_text_1));
             } else {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.o.navi_done_text));
+                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.s.navi_done_text));
             }
         }
     }
@@ -153,9 +154,9 @@ public class bc {
     public static void i(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
-                e((View) textView, com.baidu.tieba.q.navi_op_text_bg_1);
+                e((View) textView, com.baidu.tieba.u.navi_op_text_bg_1);
             } else {
-                e((View) textView, com.baidu.tieba.q.navi_op_text_bg);
+                e((View) textView, com.baidu.tieba.u.navi_op_text_bg);
             }
         }
         j(textView, i);
@@ -163,11 +164,11 @@ public class bc {
 
     public static void j(TextView textView, int i) {
         if (textView != null) {
-            Application app = com.baidu.adp.base.a.getInst().getApp();
+            Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.o.navi_op_text_1));
+                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.s.navi_op_text_1));
             } else {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.o.navi_op_text));
+                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.s.navi_op_text));
             }
         }
     }
@@ -175,9 +176,9 @@ public class bc {
     public static void k(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
-                e((View) textView, com.baidu.tieba.q.navi_del_text_bg_1);
+                e((View) textView, com.baidu.tieba.u.navi_del_text_bg_1);
             } else {
-                e((View) textView, com.baidu.tieba.q.navi_del_text_bg);
+                e((View) textView, com.baidu.tieba.u.navi_del_text_bg);
             }
         }
         l(textView, i);
@@ -185,11 +186,11 @@ public class bc {
 
     public static void l(TextView textView, int i) {
         if (textView != null) {
-            Application app = com.baidu.adp.base.a.getInst().getApp();
+            Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.o.navi_del_text_1));
+                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.s.navi_del_text_1));
             } else {
-                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.o.navi_del_text));
+                textView.setTextColor(app.getResources().getColorStateList(com.baidu.tieba.s.navi_del_text));
             }
         }
     }
@@ -198,12 +199,12 @@ public class bc {
         if (imageView != null) {
             imageView.setScaleType(ImageView.ScaleType.CENTER);
             if (i == 1) {
-                imageView.setBackgroundResource(com.baidu.tieba.q.title_icon_bg_1);
-                imageView.setImageResource(com.baidu.tieba.q.icon_return_old_n_1);
+                imageView.setBackgroundResource(com.baidu.tieba.u.title_icon_bg_1);
+                imageView.setImageResource(com.baidu.tieba.u.icon_return_old_n_1);
                 return;
             }
-            imageView.setBackgroundResource(com.baidu.tieba.q.title_icon_bg);
-            imageView.setImageResource(com.baidu.tieba.q.icon_return_old_n);
+            imageView.setBackgroundResource(com.baidu.tieba.u.title_icon_bg);
+            imageView.setImageResource(com.baidu.tieba.u.icon_return_old_n);
         }
     }
 
@@ -211,39 +212,39 @@ public class bc {
         if (imageView != null) {
             imageView.setScaleType(ImageView.ScaleType.CENTER);
             if (i == 1) {
-                imageView.setBackgroundResource(com.baidu.tieba.q.title_icon_bg_1);
-                imageView.setImageResource(com.baidu.tieba.q.icon_refresh_n_1);
+                imageView.setBackgroundResource(com.baidu.tieba.u.title_icon_bg_1);
+                imageView.setImageResource(com.baidu.tieba.u.icon_refresh_n_1);
                 return;
             }
-            imageView.setBackgroundResource(com.baidu.tieba.q.title_icon_bg);
-            imageView.setImageResource(com.baidu.tieba.q.icon_refresh_n);
+            imageView.setBackgroundResource(com.baidu.tieba.u.title_icon_bg);
+            imageView.setImageResource(com.baidu.tieba.u.icon_refresh_n);
         }
     }
 
     public static int a(int i) {
         if (i == 1) {
-            return com.baidu.adp.base.a.getInst().getApp().getResources().getColor(com.baidu.tieba.o.skin_1_common_color);
+            return BdBaseApplication.getInst().getApp().getResources().getColor(com.baidu.tieba.s.skin_1_common_color);
         }
         throw new IllegalArgumentException(a);
     }
 
     public static int b(int i) {
         if (i == 1) {
-            return com.baidu.adp.base.a.getInst().getApp().getResources().getColor(com.baidu.tieba.o.skin_1_second_common_color);
+            return BdBaseApplication.getInst().getApp().getResources().getColor(com.baidu.tieba.s.skin_1_second_common_color);
         }
         throw new IllegalArgumentException(a);
     }
 
     public static int c(int i) {
         if (i == 1) {
-            return com.baidu.adp.base.a.getInst().getApp().getResources().getColor(com.baidu.tieba.o.skin_1_third_common_color);
+            return BdBaseApplication.getInst().getApp().getResources().getColor(com.baidu.tieba.s.skin_1_third_common_color);
         }
         throw new IllegalArgumentException(a);
     }
 
     public static int d(int i) {
-        Application app = com.baidu.adp.base.a.getInst().getApp();
-        return i == 1 ? app.getResources().getColor(com.baidu.tieba.o.skin_1_common_bg) : app.getResources().getColor(com.baidu.tieba.o.backgroundcolor);
+        Application app = BdBaseApplication.getInst().getApp();
+        return i == 1 ? app.getResources().getColor(com.baidu.tieba.s.skin_1_common_bg) : app.getResources().getColor(com.baidu.tieba.s.backgroundcolor);
     }
 
     public static void e(View view, int i) {
@@ -303,7 +304,7 @@ public class bc {
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 i = a(view.getContext(), i);
             }
-            ColorStateList colorStateList = com.baidu.adp.base.a.getInst().getApp().getResources().getColorStateList(i);
+            ColorStateList colorStateList = BdBaseApplication.getInst().getApp().getResources().getColorStateList(i);
             if (i2 == 1) {
                 ((TextView) view).setTextColor(colorStateList);
             } else if (i2 == 2) {
@@ -316,18 +317,18 @@ public class bc {
 
     public static void a(ListView listView, int i) {
         if (listView != null) {
-            Application app = com.baidu.adp.base.a.getInst().getApp();
+            Application app = BdBaseApplication.getInst().getApp();
             if (i == 1) {
-                listView.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.o.skin_1_common_bg));
+                listView.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.s.skin_1_common_bg));
                 listView.setCacheColorHint(app.getResources().getColor(17170445));
-                listView.setDivider(app.getResources().getDrawable(com.baidu.tieba.q.list_divider_1));
-                listView.setSelector(com.baidu.tieba.q.list_selector_1);
+                listView.setDivider(app.getResources().getDrawable(com.baidu.tieba.u.list_divider_1));
+                listView.setSelector(com.baidu.tieba.u.list_selector_1);
                 return;
             }
-            listView.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.o.backgroundcolor));
+            listView.setBackgroundColor(app.getResources().getColor(com.baidu.tieba.s.backgroundcolor));
             listView.setCacheColorHint(app.getResources().getColor(17170445));
-            listView.setDivider(app.getResources().getDrawable(com.baidu.tieba.q.list_divider));
-            listView.setSelector(com.baidu.tieba.q.list_selector);
+            listView.setDivider(app.getResources().getDrawable(com.baidu.tieba.u.list_divider));
+            listView.setSelector(com.baidu.tieba.u.list_selector);
         }
     }
 }

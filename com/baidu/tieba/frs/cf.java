@@ -1,12 +1,9 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.act.LoginActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.frs.FrsImageActivity;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class cf implements DialogInterface.OnClickListener {
+class cf implements cp {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,21 +11,41 @@ public class cf implements DialogInterface.OnClickListener {
         this.a = frsImageActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.model.bc bcVar;
-        dh dhVar;
-        dh dhVar2;
-        dialogInterface.dismiss();
-        String currentAccount = TbadkApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            bcVar = this.a.x;
-            dhVar = this.a.t;
-            String name = dhVar.b().getName();
-            dhVar2 = this.a.t;
-            bcVar.a(name, Long.valueOf(dhVar2.b().getId()).longValue());
+    @Override // com.baidu.tieba.frs.cp
+    public void a(int i, JSONObject jSONObject, dl dlVar) {
+        int i2;
+        df dfVar;
+        df dfVar2;
+        int i3;
+        di diVar;
+        di diVar2;
+        this.a.d();
+        this.a.a(FrsImageActivity.FooterType.NORMAL);
+        if (jSONObject == null) {
+            if (dlVar != null && dlVar.a) {
+                this.a.showToast(dlVar.d);
+                return;
+            }
             return;
         }
-        LoginActivity.a((Activity) this.a, this.a.getString(com.baidu.tieba.u.login_to_use), true, 11036);
+        FrsImageActivity frsImageActivity = this.a;
+        i2 = frsImageActivity.k;
+        frsImageActivity.k = i2 + 30;
+        this.a.u = new df();
+        dfVar = this.a.u;
+        dfVar.a(jSONObject);
+        FrsImageActivity frsImageActivity2 = this.a;
+        dfVar2 = this.a.u;
+        frsImageActivity2.a(dfVar2.a());
+        i3 = this.a.k;
+        diVar = this.a.t;
+        if (i3 >= diVar.d().size()) {
+            diVar2 = this.a.t;
+            if (diVar2.e() == 0) {
+                this.a.a(FrsImageActivity.FooterType.LAST);
+            } else {
+                this.a.a(FrsImageActivity.FooterType.NEXT);
+            }
+        }
     }
 }

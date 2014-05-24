@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.live.room;
 
+import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -21,28 +22,30 @@ class ax extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        az azVar;
         ay ayVar;
+        Handler handler;
         this.a.hideProgressBar();
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (socketResponsedMessage.getCmd() == 107101 && (socketResponsedMessage instanceof ResponseAddLiveGroupMessage)) {
             ResponseAddLiveGroupMessage responseAddLiveGroupMessage = (ResponseAddLiveGroupMessage) socketResponsedMessage;
-            if (!responseAddLiveGroupMessage.hasError()) {
-                azVar = this.a.a;
-                azVar.a();
-                LiveGroupInfo liveGroupInfo = responseAddLiveGroupMessage.getLiveGroupInfo();
-                MessageManager messageManager = MessageManager.getInstance();
-                LiveRoomEntranceActivity liveRoomEntranceActivity = this.a;
-                int intValue = liveGroupInfo.groupId.intValue();
-                ayVar = this.a.b;
-                messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(liveRoomEntranceActivity, intValue, ayVar.a())));
-                this.a.finish();
-            } else if (TextUtils.isEmpty(responseAddLiveGroupMessage.getErrorString())) {
-                this.a.showToast(com.baidu.tieba.u.neterror);
-            } else {
-                this.a.showToast(responseAddLiveGroupMessage.getErrorString());
+            if (responseAddLiveGroupMessage.hasError()) {
+                if (TextUtils.isEmpty(responseAddLiveGroupMessage.getErrorString())) {
+                    this.a.showToast(com.baidu.tieba.y.neterror);
+                    return;
+                } else {
+                    this.a.showToast(responseAddLiveGroupMessage.getErrorString());
+                    return;
+                }
             }
+            LiveGroupInfo liveGroupInfo = responseAddLiveGroupMessage.getLiveGroupInfo();
+            MessageManager messageManager = MessageManager.getInstance();
+            LiveRoomEntranceActivity liveRoomEntranceActivity = this.a;
+            int intValue = liveGroupInfo.groupId.intValue();
+            ayVar = this.a.b;
+            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(liveRoomEntranceActivity, intValue, ayVar.a())));
+            handler = this.a.d;
+            handler.sendEmptyMessageDelayed(2001, 300L);
         }
     }
 }

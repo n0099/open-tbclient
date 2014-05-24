@@ -1,24 +1,35 @@
 package com.baidu.adp.lib.util;
 
-import com.baidu.adp.lib.cache.t;
-import java.util.Comparator;
+import android.graphics.Rect;
+import android.view.TouchDelegate;
+import android.view.View;
 /* loaded from: classes.dex */
-class m implements Comparator<t<?>> {
-    private m() {
-    }
+class m implements Runnable {
+    private final /* synthetic */ View a;
+    private final /* synthetic */ int b;
+    private final /* synthetic */ int c;
+    private final /* synthetic */ int d;
+    private final /* synthetic */ int e;
+    private final /* synthetic */ View f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(m mVar) {
-        this();
+    public m(View view, int i, int i2, int i3, int i4, View view2) {
+        this.a = view;
+        this.b = i;
+        this.c = i2;
+        this.d = i3;
+        this.e = i4;
+        this.f = view2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(t<?> tVar, t<?> tVar2) {
-        if (tVar.c == tVar2.c) {
-            return 0;
-        }
-        return tVar.c > tVar2.c ? -1 : 1;
+    @Override // java.lang.Runnable
+    public void run() {
+        Rect rect = new Rect();
+        this.a.getHitRect(rect);
+        rect.right += this.b;
+        rect.left -= this.c;
+        rect.bottom += this.d;
+        rect.top -= this.e;
+        this.f.setTouchDelegate(new TouchDelegate(rect, this.a));
     }
 }

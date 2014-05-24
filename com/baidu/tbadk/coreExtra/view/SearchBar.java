@@ -31,19 +31,19 @@ public class SearchBar extends LinearLayout {
 
     public void a(int i) {
         if (i == 1) {
-            this.b.setHintTextColor(getResources().getColor(com.baidu.tieba.o.widget_searchbox_text_1));
-            setBackgroundColor(getResources().getColor(com.baidu.tieba.o.search_box_bg_1));
+            this.b.setHintTextColor(getResources().getColor(com.baidu.tieba.s.widget_searchbox_text_1));
+            setBackgroundColor(getResources().getColor(com.baidu.tieba.s.search_box_bg_1));
             return;
         }
-        this.b.setHintTextColor(getResources().getColor(com.baidu.tieba.o.widget_searchbox_text));
-        setBackgroundColor(getResources().getColor(com.baidu.tieba.o.search_box_bg));
+        this.b.setHintTextColor(getResources().getColor(com.baidu.tieba.s.widget_searchbox_text));
+        setBackgroundColor(getResources().getColor(com.baidu.tieba.s.search_box_bg));
     }
 
     private void a() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.search_bar, (ViewGroup) this, true);
-        this.b = (EditText) findViewById(com.baidu.tieba.r.home_et_search);
-        this.c = (Button) findViewById(com.baidu.tieba.r.home_bt_search_del);
-        this.d = (Button) findViewById(com.baidu.tieba.r.home_bt_search_s);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.search_bar, (ViewGroup) this, true);
+        this.b = (EditText) findViewById(com.baidu.tieba.v.home_et_search);
+        this.c = (Button) findViewById(com.baidu.tieba.v.home_bt_search_del);
+        this.d = (Button) findViewById(com.baidu.tieba.v.home_bt_search_s);
         this.b.addTextChangedListener(new aq(this));
         this.c.setOnClickListener(new ar(this));
         this.d.setOnClickListener(new as(this));

@@ -11,7 +11,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.at;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class PersonalTalkSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c, p {
     private q a;
@@ -74,17 +75,17 @@ public class PersonalTalkSettingActivity extends BaseActivity implements com.bai
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == com.baidu.tieba.r.user_info_lin) {
+        if (id == v.user_info_lin) {
             if (this.b != null && this.b.b() != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new at(this, String.valueOf(this.c), this.b.b().name)));
             }
-        } else if (id == com.baidu.tieba.r.remove_from_black_man) {
-            new AlertDialog.Builder(this).setMessage(getString(u.add_black_alert, new Object[]{this.b.b().name})).setPositiveButton(u.alert_yes_button, new b(this)).setNegativeButton(u.alert_no_button, new c(this)).create().show();
-        } else if (id == com.baidu.tieba.r.st_delete_talk_history) {
-            new AlertDialog.Builder(this).setMessage(getString(u.remove_personal_history, new Object[]{this.b.b().name})).setPositiveButton(u.alert_yes_button, new d(this)).setNegativeButton(u.alert_no_button, new g(this)).create().show();
-        } else if (id == com.baidu.tieba.r.add_to_black) {
-            new AlertDialog.Builder(this).setMessage(getString(u.remove_black_alert, new Object[]{this.b.b().name})).setPositiveButton(u.alert_yes_button, new h(this)).setNegativeButton(u.alert_no_button, new i(this)).create().show();
-        } else if (id == com.baidu.tieba.r.change_attention) {
+        } else if (id == v.remove_from_black_man) {
+            new AlertDialog.Builder(this).setMessage(getString(y.add_black_alert, new Object[]{this.b.b().name})).setPositiveButton(y.alert_yes_button, new b(this)).setNegativeButton(y.alert_no_button, new c(this)).create().show();
+        } else if (id == v.st_delete_talk_history) {
+            new AlertDialog.Builder(this).setMessage(getString(y.remove_personal_history, new Object[]{this.b.b().name})).setPositiveButton(y.alert_yes_button, new d(this)).setNegativeButton(y.alert_no_button, new g(this)).create().show();
+        } else if (id == v.add_to_black) {
+            new AlertDialog.Builder(this).setMessage(getString(y.remove_black_alert, new Object[]{this.b.b().name})).setPositiveButton(y.alert_yes_button, new h(this)).setNegativeButton(y.alert_no_button, new i(this)).create().show();
+        } else if (id == v.change_attention) {
             this.b.e();
         }
     }

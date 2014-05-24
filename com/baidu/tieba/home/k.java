@@ -5,9 +5,11 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
 import com.baidu.tieba.data.x;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<x, Integer, String> {
@@ -51,23 +53,23 @@ public class k extends BdAsyncTask<x, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(String str) {
-        com.baidu.tbadk.core.e eVar;
-        com.baidu.tbadk.core.e eVar2;
-        p pVar;
+        BaseFragmentActivity baseFragmentActivity;
+        BaseFragmentActivity baseFragmentActivity2;
+        q qVar;
         super.onPostExecute(str);
         this.a.c = null;
         if (this.b != null) {
             if (this.b.a().b().b()) {
-                eVar2 = this.a.h;
-                eVar2.a(this.a.getString(com.baidu.tieba.u.success));
-                ad.c().e(true);
-                pVar = this.a.b;
-                pVar.b();
+                baseFragmentActivity2 = this.a.h;
+                baseFragmentActivity2.a(this.a.getString(y.success));
+                ai.c().e(true);
+                qVar = this.a.b;
+                qVar.b();
                 MessageManager.getInstance().sendMessage(new CustomMessage(2005004, this.c.a()));
                 return;
             }
-            eVar = this.a.h;
-            eVar.a(this.b.f());
+            baseFragmentActivity = this.a.h;
+            baseFragmentActivity.a(this.b.f());
         }
     }
 

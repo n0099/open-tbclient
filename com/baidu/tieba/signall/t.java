@@ -2,7 +2,7 @@ package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends BdAsyncTask<String, Integer, p> {
@@ -28,7 +28,7 @@ public class t extends BdAsyncTask<String, Integer, p> {
     public p doInBackground(String... strArr) {
         p pVar;
         this.b = new f();
-        if (UtilHelper.getNetStatusInfo(ad.c().d().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
+        if (UtilHelper.getNetStatusInfo(ai.c().d().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
             this.a.c = a(strArr[0]);
             pVar = this.a.c;
             return pVar;

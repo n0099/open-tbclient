@@ -21,7 +21,7 @@ import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupInfo.RequestDelSystemMessage;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class LiveNotifyActivity extends BaseActivity implements AbsListView.OnScrollListener {
@@ -158,7 +158,7 @@ public class LiveNotifyActivity extends BaseActivity implements AbsListView.OnSc
 
     private void a(String str) {
         if (!UtilHelper.isNetOk()) {
-            showToast(u.neterror);
+            showToast(y.neterror);
         } else if (!TextUtils.isEmpty(str)) {
             String e = com.baidu.tieba.im.pushNotify.p.a().e();
             if (!TextUtils.isEmpty(e) && TextUtils.isDigitsOnly(e)) {
@@ -195,7 +195,7 @@ public class LiveNotifyActivity extends BaseActivity implements AbsListView.OnSc
                 if (this.i.d() > 100) {
                     this.i.b(updatesItemData);
                     updatesItemData.setSelected(false);
-                    showToast(u.updates_activity_del_limit);
+                    showToast(y.updates_activity_del_limit);
                 }
             } else {
                 this.i.b(updatesItemData);

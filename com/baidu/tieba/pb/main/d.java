@@ -13,42 +13,42 @@ class d implements com.baidu.tieba.model.ak {
 
     @Override // com.baidu.tieba.model.ak
     public void a(boolean z, boolean z2, String str) {
-        bj bjVar;
+        bq bqVar;
         com.baidu.tieba.model.ai aiVar;
-        bc bcVar;
-        bc bcVar2;
+        bj bjVar;
         bj bjVar2;
-        bc bcVar3;
+        bq bqVar2;
+        bj bjVar3;
         com.baidu.tieba.model.ai aiVar2;
-        bjVar = this.a.E;
-        bjVar.w();
+        bqVar = this.a.D;
+        bqVar.w();
         if (z) {
-            aiVar = this.a.z;
+            aiVar = this.a.y;
             aiVar.a(z2);
-            bcVar = this.a.y;
-            bcVar.c(z2);
-            bcVar2 = this.a.y;
-            if (!bcVar2.x()) {
-                bjVar2 = this.a.E;
-                bcVar3 = this.a.y;
-                bjVar2.a(bcVar3.p());
+            bjVar = this.a.x;
+            bjVar.c(z2);
+            bjVar2 = this.a.x;
+            if (!bjVar2.x()) {
+                bqVar2 = this.a.D;
+                bjVar3 = this.a.x;
+                bqVar2.a(bjVar3.p());
             } else {
-                this.a.z();
+                this.a.A();
             }
             if (z2) {
-                aiVar2 = this.a.z;
+                aiVar2 = this.a.y;
                 MarkData b = aiVar2.b();
                 if (b != null) {
-                    this.a.showToast(MessageFormat.format(this.a.getString(com.baidu.tieba.u.add_mark_on_pb), Integer.valueOf(b.getFloor())));
+                    this.a.showToast(MessageFormat.format(this.a.getString(com.baidu.tieba.y.add_mark_on_pb), Integer.valueOf(b.getFloor())));
                     return;
                 } else {
-                    this.a.showToast(this.a.getString(com.baidu.tieba.u.add_mark));
+                    this.a.showToast(this.a.getString(com.baidu.tieba.y.add_mark));
                     return;
                 }
             }
-            this.a.showToast(this.a.getString(com.baidu.tieba.u.remove_mark));
+            this.a.showToast(this.a.getString(com.baidu.tieba.y.remove_mark));
             return;
         }
-        this.a.showToast(this.a.getString(com.baidu.tieba.u.update_mark_failed));
+        this.a.showToast(this.a.getString(com.baidu.tieba.y.update_mark_failed));
     }
 }

@@ -89,7 +89,7 @@ public class ResponseNearbyGroupsMessage extends TbSocketReponsedMessage {
                 if (TbadkApplication.getCurrentAccountObj() != null) {
                     str = TbadkApplication.getCurrentAccountObj().getID();
                 }
-                saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().u(), CACHE_KEY_PREFIX + str, bArr);
+                saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().v(), CACHE_KEY_PREFIX + str, bArr);
             }
         }
     }

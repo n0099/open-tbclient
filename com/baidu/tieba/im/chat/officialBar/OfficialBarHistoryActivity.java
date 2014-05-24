@@ -8,7 +8,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import java.util.List;
 /* loaded from: classes.dex */
-public class OfficialBarHistoryActivity extends BaseActivity implements com.baidu.adp.widget.ListView.u {
+public class OfficialBarHistoryActivity extends BaseActivity implements com.baidu.adp.widget.ListView.x {
     private ag b;
     private ab c;
     private ad d;
@@ -82,7 +82,7 @@ public class OfficialBarHistoryActivity extends BaseActivity implements com.baid
         this.b.a(i);
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.x
     public void f_() {
         if (!this.f) {
             e();

@@ -29,13 +29,13 @@ public class ad extends BdAsyncTask<Object, Integer, Bitmap> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.adp.base.g gVar;
-        com.baidu.adp.base.g gVar2;
+        com.baidu.adp.base.e eVar;
+        com.baidu.adp.base.e eVar2;
         this.a.a = null;
-        gVar = this.a.mLoadDataCallBack;
-        if (gVar != null) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(null);
+        eVar = this.a.mLoadDataCallBack;
+        if (eVar != null) {
+            eVar2 = this.a.mLoadDataCallBack;
+            eVar2.a(null);
         }
         super.cancel(true);
     }
@@ -51,15 +51,15 @@ public class ad extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(Bitmap bitmap) {
-        com.baidu.adp.base.g gVar;
-        com.baidu.adp.base.g gVar2;
+        com.baidu.adp.base.e eVar;
+        com.baidu.adp.base.e eVar2;
         super.onPostExecute(bitmap);
         this.a.a = null;
         BdLog.i(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
-        gVar = this.a.mLoadDataCallBack;
-        if (gVar != null) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(bitmap);
+        eVar = this.a.mLoadDataCallBack;
+        if (eVar != null) {
+            eVar2 = this.a.mLoadDataCallBack;
+            eVar2.a(bitmap);
         }
     }
 }

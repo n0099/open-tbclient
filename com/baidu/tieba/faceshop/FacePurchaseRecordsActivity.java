@@ -13,7 +13,7 @@ public class FacePurchaseRecordsActivity extends BaseActivity {
     private bg a;
     private be b;
     private String c;
-    private com.baidu.adp.base.g d = new az(this);
+    private com.baidu.adp.base.e d = new az(this);
     private com.baidu.tbadk.core.view.m e = new ba(this);
 
     public static void a(Context context, String str) {

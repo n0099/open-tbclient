@@ -30,15 +30,15 @@ public class e extends Dialog implements a {
     }
 
     private void b() {
-        this.h = View.inflate(this.a, com.baidu.tieba.s.new_user_box, null);
+        this.h = View.inflate(this.a, com.baidu.tieba.w.new_user_box, null);
         setContentView(this.h);
         setCanceledOnTouchOutside(true);
-        this.i = (LinearLayout) this.h.findViewById(com.baidu.tieba.r.box_close_layout);
-        this.b = (TextView) this.h.findViewById(com.baidu.tieba.r.prompt_title);
-        this.c = (TextView) this.h.findViewById(com.baidu.tieba.r.prompt_sub_title);
-        this.d = this.h.findViewById(com.baidu.tieba.r.view_layout);
-        this.e = (LinearLayout) findViewById(com.baidu.tieba.r.layout_content);
-        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.q.bg_startpage2_card_purple_up));
+        this.i = (LinearLayout) this.h.findViewById(com.baidu.tieba.v.box_close_layout);
+        this.b = (TextView) this.h.findViewById(com.baidu.tieba.v.prompt_title);
+        this.c = (TextView) this.h.findViewById(com.baidu.tieba.v.prompt_sub_title);
+        this.d = this.h.findViewById(com.baidu.tieba.v.view_layout);
+        this.e = (LinearLayout) findViewById(com.baidu.tieba.v.layout_content);
+        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.u.bg_startpage2_card_purple_up));
     }
 
     @Override // com.baidu.tieba.guide.a
@@ -63,18 +63,18 @@ public class e extends Dialog implements a {
             View a = new g(this, card, this.f).a();
             this.e.addView(a);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) a.getLayoutParams();
-            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.ds20);
-            layoutParams.setMargins(0, i == 0 ? this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.ds44) : dimensionPixelSize, 0, dimensionPixelSize);
+            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds20);
+            layoutParams.setMargins(0, i == 0 ? this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds44) : dimensionPixelSize, 0, dimensionPixelSize);
             a.setLayoutParams(layoutParams);
             if (i != card_list.size() - 1) {
-                this.e.addView(LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.new_user_line_item, (ViewGroup) null));
+                this.e.addView(LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.new_user_line_item, (ViewGroup) null));
             }
             this.g.b(card.getAvatar(), new f(this));
             i++;
         }
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
-        float dimensionPixelSize2 = getContext().getResources().getDisplayMetrics().heightPixels - getContext().getResources().getDimensionPixelSize(com.baidu.tieba.p.ds120);
-        if ((getContext().getResources().getDimensionPixelSize(com.baidu.tieba.p.ds140) * card_list.size()) + getContext().getResources().getDimensionPixelSize(com.baidu.tieba.p.ds188) + getContext().getResources().getDimensionPixelSize(com.baidu.tieba.p.ds100) > dimensionPixelSize2) {
+        float dimensionPixelSize2 = getContext().getResources().getDisplayMetrics().heightPixels - getContext().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds120);
+        if ((getContext().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds140) * card_list.size()) + getContext().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds188) + getContext().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds100) > dimensionPixelSize2) {
             attributes.height = (int) dimensionPixelSize2;
         }
     }

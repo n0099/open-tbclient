@@ -76,14 +76,14 @@ public class w extends BdAsyncTask<String, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         if (this.b != null) {
             this.b.g();
         }
         this.a.a = null;
         super.cancel(true);
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(null);
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -91,13 +91,13 @@ public class w extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(String str) {
-        com.baidu.adp.base.g gVar;
-        com.baidu.adp.base.g gVar2;
+        com.baidu.adp.base.e eVar;
+        com.baidu.adp.base.e eVar2;
         super.onPostExecute(str);
         this.a.a = null;
         if (this.b == null) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(null);
+            eVar2 = this.a.mLoadDataCallBack;
+            eVar2.a(null);
             return;
         }
         x xVar = new x(this.a);
@@ -109,7 +109,7 @@ public class w extends BdAsyncTask<String, Integer, String> {
         } else {
             xVar.a = false;
         }
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(xVar);
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(xVar);
     }
 }

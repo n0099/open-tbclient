@@ -7,8 +7,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.chat.bw;
-import com.baidu.tieba.im.chat.x;
+import com.baidu.tieba.im.chat.bv;
+import com.baidu.tieba.im.chat.w;
 import com.baidu.tieba.im.data.GroupIdTypeData;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.message.ResponsePullMessage;
@@ -84,7 +84,7 @@ public class l extends m {
         long j;
         int i;
         if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-            x.a(groupMsgData.getGroupInfo().getGroupId());
+            w.a(groupMsgData.getGroupInfo().getGroupId());
             if (groupMsgData.getListMessage() != null && (currentAccount = TbadkApplication.getCurrentAccount()) != null) {
                 long a = com.baidu.adp.lib.f.b.a(currentAccount, 0L);
                 LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
@@ -132,7 +132,7 @@ public class l extends m {
                     ChatMessage next = it.next();
                     j = next.getMsgId() > j2 ? next.getMsgId() : j2;
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.e.a().a(groupId, bw.c(j2));
+                    com.baidu.tbadk.coreExtra.messageCenter.e.a().a(groupId, bv.c(j2));
                     return;
                 }
             }

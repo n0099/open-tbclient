@@ -32,7 +32,7 @@ public class ae extends com.baidu.tbadk.core.frameworkData.a {
         if (Build.VERSION.SDK_INT >= 9) {
             return true;
         }
-        UtilHelper.showToast(getContext(), getContext().getString(com.baidu.tieba.u.live_error_system_not_support));
+        UtilHelper.showToast(getContext(), getContext().getString(com.baidu.tieba.y.live_error_system_not_support));
         return false;
     }
 }

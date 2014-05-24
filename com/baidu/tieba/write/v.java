@@ -35,8 +35,8 @@ public class v extends PagerAdapter implements ViewPager.OnPageChangeListener, c
         this.i = 120;
         this.j = 120;
         this.a = context;
-        this.i = (int) context.getResources().getDimension(com.baidu.tieba.p.motu_image_size_width);
-        this.j = (int) context.getResources().getDimension(com.baidu.tieba.p.motu_image_size_height);
+        this.i = (int) context.getResources().getDimension(com.baidu.tieba.t.motu_image_size_width);
+        this.j = (int) context.getResources().getDimension(com.baidu.tieba.t.motu_image_size_height);
         if (linkedList != null) {
             this.e = linkedList.size();
         }

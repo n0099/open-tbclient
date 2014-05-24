@@ -107,6 +107,7 @@ public class bd {
 
     public void b() {
         a(new File(x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
+        a(new File(x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
     public void c() {

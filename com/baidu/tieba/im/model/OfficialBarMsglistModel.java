@@ -29,7 +29,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         super(msglistActivity);
         this.b = 10;
         this.c = false;
-        this.d = new be(this, 0);
+        this.d = new bf(this, 0);
         f();
     }
 
@@ -124,20 +124,20 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
     public void a(com.baidu.tieba.im.a<Void> aVar) {
         com.baidu.tieba.im.db.i.a().c(SnapGroupChatActivity.b);
         aVar.a(null);
-        com.baidu.tieba.im.i.a(new bf(this), aVar);
+        com.baidu.tieba.im.i.a(new bg(this), aVar);
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void a(ChatMessage chatMessage) {
         if (this.a != null && chatMessage != null) {
-            com.baidu.tieba.im.i.a(new bg(this, chatMessage), null);
+            com.baidu.tieba.im.i.a(new bh(this, chatMessage), null);
         }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void b(ChatMessage chatMessage) {
         if (this.a != null && chatMessage != null) {
-            com.baidu.tieba.im.i.a(new bh(this, chatMessage), null);
+            com.baidu.tieba.im.i.a(new bi(this, chatMessage), null);
         }
     }
 
@@ -177,7 +177,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         if (this.a == null) {
             return null;
         }
-        String format = String.format(this.t.getString(com.baidu.tieba.u.official_fake_message), this.a.getUserName());
+        String format = String.format(this.t.getString(com.baidu.tieba.y.official_fake_message), this.a.getUserName());
         HashMap hashMap = new HashMap();
         hashMap.put("eventId", "-10001");
         hashMap.put("userMsg", format);

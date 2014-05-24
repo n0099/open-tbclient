@@ -5,8 +5,9 @@ import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.AutoSkinActivity;
 /* loaded from: classes.dex */
-public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
+public class BarFolderSecondDirActivity extends AutoSkinActivity {
     private ProgressBar h;
     private q i;
     private p j;
@@ -18,7 +19,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.bar_folder_dir_activity);
+        setContentView(com.baidu.tieba.w.bar_folder_dir_activity);
         this.k = getIntent().getStringExtra("menuName");
         this.l = getIntent().getStringExtra("menuType");
         this.m = getIntent().getStringExtra("menuId");
@@ -32,17 +33,17 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
         this.i = new q(this, new t(), this.k, this.m);
         this.e.setAdapter((ListAdapter) this.i);
         this.d.setText(this.k);
-        this.h = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
+        this.h = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.a, com.baidu.tbadk.BaseActivity
+    @Override // com.baidu.tieba.AutoSkinActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.a
+    @Override // com.baidu.tieba.AutoSkinActivity
     public void b() {
         if (this.j != null) {
             this.j.cancel();

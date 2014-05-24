@@ -72,7 +72,7 @@ public final class SapiCache {
 
     static String b(final Context context, String str) {
         d();
-        if (d.a(context).h().b().a()) {
+        if (d.a(context).h().c().a()) {
             String b2 = b(str);
             if (TextUtils.isEmpty(b2)) {
                 b.a.C0007a c2 = c(context, str);
@@ -108,7 +108,7 @@ public final class SapiCache {
     }
 
     static b.a.C0007a c(Context context, String str) {
-        for (b.a.C0007a c0007a : d.a(context).h().b().b()) {
+        for (b.a.C0007a c0007a : d.a(context).h().c().b()) {
             if (c0007a.a.equals(str)) {
                 return c0007a;
             }
@@ -125,9 +125,9 @@ public final class SapiCache {
 
     /* JADX WARN: Type inference failed for: r0v7, types: [com.baidu.sapi2.SapiCache$2] */
     static void a() {
-        final b.a b2 = d.a(g).h().b();
-        if (b2.a()) {
-            for (b.a.C0007a c0007a : b2.b()) {
+        final b.a c2 = d.a(g).h().c();
+        if (c2.a()) {
+            for (b.a.C0007a c0007a : c2.b()) {
                 e.add(c0007a.a);
             }
             f.addAll(e);
@@ -245,17 +245,17 @@ public final class SapiCache {
         public void onSuccess(JSONObject jSONObject) {
             b h = d.a(SapiCache.g).h();
             b a = b.a(jSONObject);
-            b.a b = a.b();
+            b.a c = a.c();
             d.a(SapiCache.g).a(a);
             SapiCache.f.clear();
-            if (b.a()) {
-                for (b.a.C0007a c0007a : b.b()) {
+            if (c.a()) {
+                for (b.a.C0007a c0007a : c.b()) {
                     SapiCache.f.add(c0007a.a);
                 }
                 int[] iArr = {0};
-                for (b.a.C0007a c0007a2 : b.b()) {
+                for (b.a.C0007a c0007a2 : c.b()) {
                     b.a.C0007a c0007a3 = null;
-                    for (b.a.C0007a c0007a4 : h.b().b()) {
+                    for (b.a.C0007a c0007a4 : h.c().b()) {
                         if (!c0007a4.a.equals(c0007a2.a)) {
                             c0007a4 = c0007a3;
                         }
@@ -267,7 +267,7 @@ public final class SapiCache {
                     }
                     requestParams.put("module_id", c0007a2.a);
                     requestParams.put("module_version", String.valueOf(c0007a3 == null ? 0L : c0007a3.c.b));
-                    SapiCache.c.post(SapiCache.g, c0007a2.b, requestParams, new AnonymousClass1(c0007a2, c0007a3, a, b, iArr));
+                    SapiCache.c.post(SapiCache.g, c0007a2.b, requestParams, new AnonymousClass1(c0007a2, c0007a3, a, c, iArr));
                 }
             } else if (this.b != null) {
                 this.b.onUpdated();
@@ -401,7 +401,7 @@ public final class SapiCache {
         arrayList.add(new BasicNameValuePair("brand_mode", com.baidu.sapi2.utils.d.c()));
         arrayList.add(new BasicNameValuePair("cuid", SapiAccountManager.getInstance().getSapiConfiguration().clientId));
         arrayList.add(new BasicNameValuePair("sapi_version_name", SapiAccountManager.VERSION_NAME));
-        arrayList.add(new BasicNameValuePair("sapi_version_code", "24"));
+        arrayList.add(new BasicNameValuePair("sapi_version_code", "25"));
         return arrayList;
     }
 

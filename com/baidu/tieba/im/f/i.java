@@ -2,7 +2,7 @@ package com.baidu.tieba.im.f;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.chat.bw;
+import com.baidu.tieba.im.chat.bv;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.groupInfo.aa;
@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class i {
     public static void a(ImMessageCenterPojo imMessageCenterPojo) {
-        com.baidu.tbadk.coreExtra.messageCenter.e.a().b(com.baidu.adp.lib.f.b.a(imMessageCenterPojo.getGid(), 0), bw.c(imMessageCenterPojo.getPulled_msgId()));
+        com.baidu.tbadk.coreExtra.messageCenter.e.a().b(com.baidu.adp.lib.f.b.a(imMessageCenterPojo.getGid(), 0), bv.c(imMessageCenterPojo.getPulled_msgId()));
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put(imMessageCenterPojo.getGid(), 0L);
         com.baidu.tieba.im.i.a(new j(imMessageCenterPojo, linkedHashMap), new k(imMessageCenterPojo));

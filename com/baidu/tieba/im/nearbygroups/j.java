@@ -7,9 +7,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class j implements a {
     private NearbyGroupsActivity d;
@@ -36,19 +36,19 @@ public class j implements a {
     }
 
     public void b() {
-        this.e = LayoutInflater.from(this.d).inflate(s.nearby_group_guide, (ViewGroup) null);
-        this.a = (LinearLayout) this.e.findViewById(r.guide_parent);
-        this.b = (TextView) this.e.findViewById(r.guide_tip);
-        this.c = (Button) this.e.findViewById(r.guide_setting);
+        this.e = LayoutInflater.from(this.d).inflate(w.nearby_group_guide, (ViewGroup) null);
+        this.a = (LinearLayout) this.e.findViewById(v.guide_parent);
+        this.b = (TextView) this.e.findViewById(v.guide_tip);
+        this.c = (Button) this.e.findViewById(v.guide_setting);
         this.c.setOnClickListener(this.d);
         if (this.f == 2) {
-            this.b.setText(u.nearby_group_gps_no_data);
+            this.b.setText(y.nearby_group_gps_no_data);
             this.c.setVisibility(8);
         } else if (this.f == 0) {
-            this.b.setText(u.nearby_group_gps_close);
+            this.b.setText(y.nearby_group_gps_close);
             this.c.setVisibility(0);
         } else if (this.f == 1) {
-            this.b.setText(u.nearby_group_gps_error);
+            this.b.setText(y.nearby_group_gps_error);
             this.c.setVisibility(8);
         }
         c();

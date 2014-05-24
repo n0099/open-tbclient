@@ -15,7 +15,7 @@ class d implements View.OnClickListener {
         String str;
         str = this.a.f;
         if (!str.equals("from_about_page")) {
-            this.a.e();
+            this.a.f();
         }
         this.a.closeActivity();
     }

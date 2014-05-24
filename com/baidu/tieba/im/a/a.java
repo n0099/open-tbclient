@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.im.message.QueryGroupCountLocalMessage;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.base.d {
+public class a extends com.baidu.adp.base.b {
     public static boolean a = true;
     private int d;
     private int e;
@@ -52,12 +52,12 @@ public class a extends com.baidu.adp.base.d {
         MessageManager.getInstance().unRegisterListener(this.j);
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

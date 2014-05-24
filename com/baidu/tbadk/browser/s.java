@@ -1,17 +1,20 @@
 package com.baidu.tbadk.browser;
 
-import com.baidu.tbadk.plugins.BdBrowserDelegate;
+import android.webkit.URLUtil;
 /* loaded from: classes.dex */
-class s implements BdBrowserDelegate.Callback {
-    final /* synthetic */ WebBdActivity a;
+class s implements Runnable {
+    final /* synthetic */ WebTbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(WebBdActivity webBdActivity) {
-        this.a = webBdActivity;
+    public s(WebTbActivity webTbActivity) {
+        this.a = webTbActivity;
     }
 
-    @Override // com.baidu.tbadk.plugins.BdBrowserDelegate.Callback
-    public boolean shouldOverrideUrlLoading(String str) {
-        return com.baidu.tbadk.c.e.a(this.a, str);
+    @Override // java.lang.Runnable
+    public void run() {
+        String guessUrl = URLUtil.guessUrl(this.a.c);
+        if (URLUtil.isNetworkUrl(guessUrl)) {
+            this.a.a.loadUrl(guessUrl);
+        }
     }
 }

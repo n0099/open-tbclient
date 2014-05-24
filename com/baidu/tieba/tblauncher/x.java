@@ -17,7 +17,8 @@ class x extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.a.P = 0;
-        this.a.a(false);
+        if (customResponsedMessage != null && com.baidu.tbadk.core.b.b.a() == null) {
+            com.baidu.tbadk.core.b.b.a(new ab());
+        }
     }
 }

@@ -22,7 +22,7 @@ public class g extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage.getCmd() == 2003171 && (customResponsedMessage instanceof ExitAppMessage) && !((ExitAppMessage) customResponsedMessage).hasError()) {
             BdLog.d("ExitAppMessage");
-            this.a.r();
+            this.a.s();
         }
     }
 }

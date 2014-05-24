@@ -17,9 +17,9 @@ class x implements View.OnLongClickListener {
         SparseArray sparseArray;
         com.baidu.tieba.model.ai aiVar;
         boolean z;
-        bj bjVar;
+        bq bqVar;
         DialogInterface.OnClickListener onClickListener;
-        bc bcVar;
+        bj bjVar;
         try {
             sparseArray = (SparseArray) view.getTag();
         } catch (ClassCastException e) {
@@ -27,25 +27,25 @@ class x implements View.OnLongClickListener {
             sparseArray = null;
         }
         if (sparseArray != null) {
-            this.a.c = (com.baidu.tieba.data.ah) sparseArray.get(com.baidu.tieba.r.tag_clip_board);
+            this.a.c = (com.baidu.tieba.data.ai) sparseArray.get(com.baidu.tieba.v.tag_clip_board);
             if (this.a.c != null) {
-                aiVar = this.a.z;
-                if (aiVar.a() && this.a.c.d() != null) {
-                    String d = this.a.c.d();
-                    bcVar = this.a.y;
-                    if (d.equals(bcVar.o())) {
+                aiVar = this.a.y;
+                if (aiVar.a() && this.a.c.l() != null) {
+                    String l = this.a.c.l();
+                    bjVar = this.a.x;
+                    if (l.equals(bjVar.o())) {
                         z = true;
-                        boolean booleanValue = ((Boolean) sparseArray.get(com.baidu.tieba.r.tag_is_subpb)).booleanValue();
-                        bjVar = this.a.E;
-                        onClickListener = this.a.an;
-                        bjVar.a(onClickListener, z, booleanValue);
+                        boolean booleanValue = ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_is_subpb)).booleanValue();
+                        bqVar = this.a.D;
+                        onClickListener = this.a.al;
+                        bqVar.a(onClickListener, z, booleanValue);
                     }
                 }
                 z = false;
-                boolean booleanValue2 = ((Boolean) sparseArray.get(com.baidu.tieba.r.tag_is_subpb)).booleanValue();
-                bjVar = this.a.E;
-                onClickListener = this.a.an;
-                bjVar.a(onClickListener, z, booleanValue2);
+                boolean booleanValue2 = ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_is_subpb)).booleanValue();
+                bqVar = this.a.D;
+                onClickListener = this.a.al;
+                bqVar.a(onClickListener, z, booleanValue2);
             }
         }
         return true;

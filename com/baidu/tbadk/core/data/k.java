@@ -1,20 +1,37 @@
 package com.baidu.tbadk.core.data;
-
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.Media;
 /* loaded from: classes.dex */
 public class k {
-    private int a = -1;
-    private String b = null;
-    private String c = null;
-    private String d = null;
+    private long a;
+    private String b;
+    private String c;
+    private String d;
+    private String e;
 
-    public String a() {
-        return this.d;
+    public k() {
+        this.a = -1L;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = "";
     }
 
-    public int b() {
+    public k(long j, String str, String str2, String str3) {
+        this.a = -1L;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = "";
+        this.a = j;
+        this.b = str;
+        this.c = str2;
+        this.e = str3;
+    }
+
+    public String a() {
+        return this.e;
+    }
+
+    public long b() {
         return this.a;
     }
 
@@ -24,47 +41,5 @@ public class k {
 
     public String d() {
         return this.c;
-    }
-
-    public void a(int i) {
-        this.a = i;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public void b(String str) {
-        this.c = str;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("type");
-                if (this.a == 3) {
-                    this.b = jSONObject.optString("big_pic");
-                    this.d = jSONObject.optString("src_pic");
-                } else if (this.a == 5) {
-                    this.b = jSONObject.optString("vpic");
-                    this.c = jSONObject.optString("vsrc");
-                }
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", "error=" + e.toString());
-            }
-        }
-    }
-
-    public void a(Media media) {
-        if (media != null) {
-            this.a = media.type.intValue();
-            if (this.a == 3) {
-                this.b = media.big_pic;
-                this.d = media.src_pic;
-            } else if (this.a == 5) {
-                this.b = media.vpic;
-                this.c = media.vsrc;
-            }
-        }
     }
 }

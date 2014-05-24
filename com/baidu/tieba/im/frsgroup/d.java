@@ -43,7 +43,7 @@ public class d extends com.baidu.adp.framework.listener.b {
         GroupListAdapter groupListAdapter8;
         com.baidu.tieba.im.model.k kVar9;
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseFrsGroupsMessage)) {
-            this.a.a(com.baidu.tieba.u.neterror);
+            this.a.a(com.baidu.tieba.y.neterror);
             return;
         }
         ResponseFrsGroupsMessage responseFrsGroupsMessage = (ResponseFrsGroupsMessage) socketResponsedMessage;
@@ -68,7 +68,7 @@ public class d extends com.baidu.adp.framework.listener.b {
                 }
                 return;
             }
-            this.a.a(com.baidu.tieba.u.neterror);
+            this.a.a(com.baidu.tieba.y.neterror);
             return;
         }
         List<GroupInfoData> groups = responseFrsGroupsMessage.getGroups();
@@ -82,7 +82,7 @@ public class d extends com.baidu.adp.framework.listener.b {
                 groupListAdapter8.a(true);
                 this.a.c(true);
             }
-            this.a.k = com.baidu.adp.lib.util.h.a();
+            this.a.k = com.baidu.adp.lib.util.k.a();
             int size = groups.size();
             kVar5 = this.a.c;
             if (size != kVar5.l()) {

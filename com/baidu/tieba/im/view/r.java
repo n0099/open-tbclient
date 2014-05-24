@@ -9,7 +9,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class r extends com.baidu.adp.widget.ListView.e {
     private BaseActivity a;
@@ -26,12 +29,12 @@ public class r extends com.baidu.adp.widget.ListView.e {
 
     @Override // com.baidu.adp.widget.ListView.e
     public View a() {
-        this.e = LayoutInflater.from(this.a).inflate(s.new_pb_list_more, (ViewGroup) null);
-        this.e.setPadding(0, this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.listview_item_margin), 0, this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.listview_item_margin));
-        this.b = (TextView) this.e.findViewById(com.baidu.tieba.r.pb_more_text);
-        this.f = this.e.findViewById(com.baidu.tieba.r.pb_more_view);
+        this.e = LayoutInflater.from(this.a).inflate(w.new_pb_list_more, (ViewGroup) null);
+        this.e.setPadding(0, this.a.getResources().getDimensionPixelSize(t.listview_item_margin), 0, this.a.getResources().getDimensionPixelSize(t.listview_item_margin));
+        this.b = (TextView) this.e.findViewById(v.pb_more_text);
+        this.f = this.e.findViewById(v.pb_more_view);
         this.f.setVisibility(8);
-        this.c = (ProgressBar) this.e.findViewById(com.baidu.tieba.r.progress);
+        this.c = (ProgressBar) this.e.findViewById(v.progress);
         a(TbadkApplication.m252getInst().getSkinType());
         this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.e;
@@ -40,13 +43,13 @@ public class r extends com.baidu.adp.widget.ListView.e {
     public void a(int i) {
         int color;
         this.a.getLayoutMode().a(this.f);
-        String string = this.a.getString(u.nearby_group_no_more);
+        String string = this.a.getString(y.nearby_group_no_more);
         String charSequence = this.b.getText() != null ? this.b.getText().toString() : null;
         boolean z = i == 1;
         if (charSequence != null && charSequence.equals(string)) {
-            color = this.a.getResources().getColor(z ? com.baidu.tieba.o.pb_list_morebutton_nomore_text_1 : com.baidu.tieba.o.pb_list_morebutton_nomore_text);
+            color = this.a.getResources().getColor(z ? s.pb_list_morebutton_nomore_text_1 : s.pb_list_morebutton_nomore_text);
         } else {
-            color = this.a.getResources().getColor(z ? com.baidu.tieba.o.pb_more_txt_1 : com.baidu.tieba.o.pb_more_txt);
+            color = this.a.getResources().getColor(z ? s.pb_more_txt_1 : s.pb_more_txt);
         }
         this.b.setTextColor(color);
     }
@@ -65,14 +68,14 @@ public class r extends com.baidu.adp.widget.ListView.e {
 
     public void e() {
         this.c.setVisibility(0);
-        this.b.setText(this.a.getText(u.loading));
+        this.b.setText(this.a.getText(y.loading));
         this.f.setVisibility(0);
         a(TbadkApplication.m252getInst().getSkinType());
     }
 
     public void f() {
         this.c.setVisibility(8);
-        this.b.setText(u.nearby_group_no_more);
+        this.b.setText(y.nearby_group_no_more);
         this.b.setVisibility(0);
         this.f.setVisibility(0);
         a(TbadkApplication.m252getInst().getSkinType());

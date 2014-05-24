@@ -1,40 +1,64 @@
 package com.baidu.tieba.pb.main;
 
 import android.view.View;
-import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class bp implements Animation.AnimationListener {
-    final /* synthetic */ bj a;
+public class bp extends com.baidu.adp.base.c {
+    private View a;
+    private TextView b;
+    private TextView c;
+    private ImageView d;
+    private PbActivity e;
+    private View.OnClickListener f;
+    private boolean g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(bj bjVar) {
-        this.a = bjVar;
+    public boolean a() {
+        return this.g;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    public void a(boolean z) {
+        this.g = z;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        View view2;
-        View view3;
-        PbActivity pbActivity;
-        bj bjVar = this.a;
-        view = this.a.aL;
-        bjVar.aR = view.getVisibility() == 0;
-        this.a.j.setVisibility(8);
-        view2 = this.a.aL;
-        view2.setVisibility(8);
-        view3 = this.a.aK;
-        view3.setVisibility(8);
-        pbActivity = this.a.m;
-        pbActivity.showToast(com.baidu.tieba.u.pb_double_click_tips, 0);
+    public bp(PbActivity pbActivity, View.OnClickListener onClickListener) {
+        super(pbActivity);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = true;
+        this.e = pbActivity;
+        this.f = onClickListener;
+        f();
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    public View b() {
+        return this.a;
+    }
+
+    public TextView c() {
+        return this.b;
+    }
+
+    public TextView d() {
+        return this.c;
+    }
+
+    public ImageView e() {
+        return this.d;
+    }
+
+    private void f() {
+        this.a = this.e.getLayoutInflater().inflate(com.baidu.tieba.w.pb_reply_view, (ViewGroup) null);
+        this.b = (TextView) this.a.findViewById(com.baidu.tieba.v.pb_reply_view_item_mark);
+        this.b.setOnClickListener(this.f);
+        this.c = (TextView) this.a.findViewById(com.baidu.tieba.v.pb_reply_view_item_reply);
+        this.c.setOnClickListener(this.f);
+        this.d = (ImageView) this.a.findViewById(com.baidu.tieba.v.pb_reply_view_item_manage);
+        this.d.setOnClickListener(this.f);
     }
 }

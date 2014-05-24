@@ -73,7 +73,7 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0038  */
     /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.im.chat.dd, com.baidu.adp.lib.b.a
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.b.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -116,7 +116,7 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dd
+    @Override // com.baidu.tieba.im.chat.TalkableActivity
     public String[] a(int i, boolean z) {
         return super.a(i, true);
     }

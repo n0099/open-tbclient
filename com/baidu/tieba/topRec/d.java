@@ -4,7 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
 import com.baidu.tieba.topRec.TRForumListData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -73,7 +73,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
         } else if (str == null) {
             this.d.a(this.a, this.c.forum_id);
         } else {
-            ad.c().f(this.c.forum_name);
+            ai.c().f(this.c.forum_name);
             this.d.d();
         }
     }

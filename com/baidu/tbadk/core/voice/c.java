@@ -66,7 +66,7 @@ public class c implements Runnable {
 
     private void d() {
         try {
-            this.b = new AudioTrack(VoiceManager.h, LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8, 2, 2, Math.min(AudioTrack.getMinBufferSize(LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8, 2, 2) * 8, 4096), 1);
+            this.b = new AudioTrack(VoiceManager.CURR_STREAM_TYPE, LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8, 2, 2, Math.min(AudioTrack.getMinBufferSize(LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8, 2, 2) * 8, 4096), 1);
         } catch (IllegalArgumentException e) {
             this.b = null;
             BdLog.e("AmrAudioPlayerRunnable", "init new AudioTrack", "error = " + e.getMessage());

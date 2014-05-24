@@ -1,15 +1,45 @@
 package com.baidu.tbadk.motu_gallery;
 
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.graphics.Bitmap;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l {
-    public String a;
-    ImageView b;
-    TextView c;
-    final /* synthetic */ k d;
+public class l extends Thread {
+    final /* synthetic */ JigsawAlbumActivity a;
 
-    public l(k kVar) {
-        this.d = kVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(JigsawAlbumActivity jigsawAlbumActivity) {
+        this.a = jigsawAlbumActivity;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        byte[] bArr;
+        ArrayList arrayList;
+        c b;
+        Map map;
+        u uVar;
+        Map map2;
+        bArr = this.a.s;
+        synchronized (bArr) {
+            try {
+                arrayList = this.a.f;
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    b = this.a.b(((c) it.next()).a);
+                    map = this.a.h;
+                    if (!map.containsKey(b.b)) {
+                        uVar = this.a.k;
+                        Bitmap a = uVar.a(this.a, b, this.a.a(70.0f));
+                        map2 = this.a.h;
+                        map2.put(b.b, a);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

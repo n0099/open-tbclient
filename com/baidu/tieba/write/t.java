@@ -39,11 +39,11 @@ public class t extends BdAsyncTask<Object, s, s> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(s sVar) {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         super.onPostExecute(sVar);
         this.a.a = null;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(sVar);
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(sVar);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

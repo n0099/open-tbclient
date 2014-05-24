@@ -8,12 +8,12 @@ import android.view.View;
 import com.baidu.adp.lib.debug.b.m;
 /* loaded from: classes.dex */
 public class DebugService extends Service {
-    m a;
+    m mMonitorView;
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.a = new m(this);
+        this.mMonitorView = new m(this);
     }
 
     @Override // android.app.Service
@@ -24,11 +24,11 @@ public class DebugService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        if (this.a != null) {
+        if (this.mMonitorView != null) {
             Log.i("Monitor", "off");
             try {
-                this.a.c();
-                this.a.setVisibility(8);
+                this.mMonitorView.c();
+                this.mMonitorView.setVisibility(8);
             } catch (Throwable th) {
                 th.printStackTrace();
             }

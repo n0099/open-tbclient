@@ -22,7 +22,7 @@ public class o extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.u.upload_head));
+        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.upload_head));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -71,7 +71,7 @@ public class o extends BdAsyncTask<String, Integer, String> {
             if (this.b.a().b().b()) {
                 this.a.setResult(-1);
                 this.a.finish();
-                this.a.showToast(this.a.getString(com.baidu.tieba.u.upload_head_ok));
+                this.a.showToast(this.a.getString(com.baidu.tieba.y.upload_head_ok));
                 return;
             }
             this.a.showToast(this.b.f());

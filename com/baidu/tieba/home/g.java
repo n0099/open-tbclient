@@ -11,9 +11,9 @@ class g implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         e eVar;
-        p pVar;
+        q qVar;
         eVar = this.a.a;
-        pVar = eVar.b;
-        pVar.b();
+        qVar = eVar.b;
+        qVar.b();
     }
 }

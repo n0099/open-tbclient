@@ -1,33 +1,24 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class co implements View.OnClickListener {
-    final /* synthetic */ bj a;
+public class co implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ bq a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public co(bj bjVar) {
-        this.a = bjVar;
+    public co(bq bqVar) {
+        this.a = bqVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        View view3;
-        View view4;
-        if (this.a.j != null) {
-            this.a.j.m();
-            this.a.y();
-            this.a.aR = false;
-        }
-        view2 = this.a.aL;
-        if (view2 != null) {
-            view3 = this.a.aL;
-            view3.setVisibility(8);
-            view4 = this.a.aK;
-            view4.setVisibility(8);
-            this.a.aR = false;
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        BdListView bdListView;
+        if (aVar != null && !TextUtils.isEmpty(str)) {
+            bdListView = this.a.o;
+            com.baidu.tbadk.core.util.bp.a((ViewGroup) bdListView, false, (com.baidu.tbadk.core.util.br) new cp(this, str, aVar));
         }
     }
 }

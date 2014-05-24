@@ -8,7 +8,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
-public class FrsLiveListActivity extends BaseActivity implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.u {
+public class FrsLiveListActivity extends BaseActivity implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.x {
     private com.baidu.tbadk.core.view.q a;
     private w b;
     private com.baidu.tieba.im.model.l c;
@@ -109,7 +109,7 @@ public class FrsLiveListActivity extends BaseActivity implements AbsListView.OnS
         finish();
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.x
     public void f_() {
         g();
     }

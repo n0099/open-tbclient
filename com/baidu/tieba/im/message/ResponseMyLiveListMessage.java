@@ -76,7 +76,7 @@ public class ResponseMyLiveListMessage extends TbSocketReponsedMessage {
     public void processInBackGround(int i, byte[] bArr) {
         Message<?> orginalMessage = getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestMyLiveListMessage) && getError() == 0) {
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().g(), "mylive_" + String.valueOf(((RequestMyLiveListMessage) orginalMessage).getType()), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().h(), "mylive_" + String.valueOf(((RequestMyLiveListMessage) orginalMessage).getType()), bArr);
         }
     }
 }

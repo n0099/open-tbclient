@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.LivePlayingImageView;
 import com.baidu.tieba.im.chat.CommonGroupMsglistView;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.chat.dd;
+import com.baidu.tieba.im.chat.TalkableActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -37,11 +37,18 @@ public class LiveRoomChatView extends CommonGroupMsglistView {
     private int y;
     private boolean z;
 
-    public ag Q() {
+    @Override // com.baidu.tieba.im.chat.g
+    protected void P() {
+        h();
+        g();
+        f();
+    }
+
+    public ag R() {
         return this.l;
     }
 
-    public boolean R() {
+    public boolean S() {
         return this.B;
     }
 
@@ -63,14 +70,14 @@ public class LiveRoomChatView extends CommonGroupMsglistView {
         this.z = z;
         this.l.setIsHost(z);
         this.k = true;
-        aj();
+        ak();
     }
 
     public void d(int i) {
         a(i, true);
     }
 
-    public int S() {
+    public int T() {
         return this.A;
     }
 
@@ -80,18 +87,18 @@ public class LiveRoomChatView extends CommonGroupMsglistView {
             if (this.l != null) {
                 this.l.a(i, this.k);
             }
-            T();
+            U();
         }
         this.k = false;
     }
 
-    public void T() {
+    public void U() {
         if (this.A == 3) {
-            ad();
+            ae();
         } else if (this.A == 5 || this.A == 1) {
-            ae();
+            af();
         } else if (this.A == 6 && this.z) {
-            ae();
+            af();
         }
         if (this.x && !this.B) {
             this.s.setVisibility(0);
@@ -100,40 +107,40 @@ public class LiveRoomChatView extends CommonGroupMsglistView {
         }
     }
 
-    public void U() {
+    public void V() {
         if (this.z) {
-            V().setVisibility(0);
+            W().setVisibility(0);
         } else {
-            V().setVisibility(8);
+            W().setVisibility(8);
         }
     }
 
-    private void aj() {
+    private void ak() {
         if (this.z) {
             this.l.getmLiveRoomLike().setVisibility(8);
             this.l.getSettingButton().setVisibility(0);
             return;
         }
         this.l.getmLiveRoomLike().setVisibility(0);
-        V().setVisibility(8);
+        W().setVisibility(8);
         this.t.setVisibility(8);
         this.r.setVisibility(8);
         this.l.getSettingButton().setVisibility(8);
     }
 
-    public LiveRoomChatForcast V() {
+    public LiveRoomChatForcast W() {
         return this.m;
     }
 
-    public an W() {
+    public an X() {
         return this.n;
     }
 
-    public View X() {
+    public View Y() {
         return this.o;
     }
 
-    public bc Y() {
+    public bc Z() {
         return this.q;
     }
 
@@ -160,59 +167,60 @@ public class LiveRoomChatView extends CommonGroupMsglistView {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.h
-    public void a(dd ddVar, boolean z) {
-        super.a(ddVar, z);
-        this.u = ddVar;
-        this.l = new ag(ddVar);
-        this.n = new an(ddVar);
+    @Override // com.baidu.tieba.im.chat.g
+    public void a(TalkableActivity talkableActivity, boolean z) {
+        super.a(talkableActivity, z);
+        this.u = talkableActivity;
+        this.l = new ag(talkableActivity);
+        this.n = new an(talkableActivity);
         this.j.setOnkbdStateListener(new ap(this));
-        LinearLayout linearLayout = (LinearLayout) ddVar.findViewById(com.baidu.tieba.r.view_header);
-        ddVar.findViewById(com.baidu.tieba.r.btn_msgsend_govoice).setVisibility(8);
+        LinearLayout linearLayout = (LinearLayout) talkableActivity.findViewById(com.baidu.tieba.v.view_header);
+        talkableActivity.findViewById(com.baidu.tieba.v.btn_msgsend_govoice).setVisibility(8);
         this.g.setVisibility(8);
         linearLayout.addView(this.l);
         linearLayout.addView(this.n);
-        this.m = (LiveRoomChatForcast) ((ViewStub) ddVar.findViewById(com.baidu.tieba.r.live_room_forcast_stub)).inflate();
+        this.m = (LiveRoomChatForcast) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.v.live_room_forcast_stub)).inflate();
         this.n.setVisibility(8);
         this.m.setVisibility(8);
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
-        View a = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.s.live_room_chat_btn, (View.OnClickListener) null);
-        this.v = (LivePlayingImageView) a.findViewById(com.baidu.tieba.r.live_playing);
-        this.w = (ImageView) a.findViewById(com.baidu.tieba.r.live_playing_default);
+        View a = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.live_room_chat_btn, (View.OnClickListener) null);
+        this.v = (LivePlayingImageView) a.findViewById(com.baidu.tieba.v.live_playing);
+        this.w = (ImageView) a.findViewById(com.baidu.tieba.v.live_playing_default);
         this.v.setOnClickListener(null);
         this.v.setVisibleChangeCallback(new aq(this));
-        this.o = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.s.nav_more_view, ddVar);
-        this.r = (Button) ddVar.findViewById(com.baidu.tieba.r.btn_live_live);
-        this.s = (Button) ddVar.findViewById(com.baidu.tieba.r.btn_live_speak);
-        this.t = (Button) ddVar.findViewById(com.baidu.tieba.r.btn_live_stop);
+        this.o = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.nav_more_view, talkableActivity);
+        this.r = (Button) talkableActivity.findViewById(com.baidu.tieba.v.btn_live_live);
+        this.s = (Button) talkableActivity.findViewById(com.baidu.tieba.v.btn_live_speak);
+        this.t = (Button) talkableActivity.findViewById(com.baidu.tieba.v.btn_live_stop);
         this.s.setVisibility(this.B ? 8 : 0);
         f();
-        this.r.setOnClickListener(ddVar);
-        this.s.setOnClickListener(ddVar);
-        this.t.setOnClickListener(ddVar);
-        W().getRoot().setOnClickListener(ddVar);
-        this.l.getLiveStopHost().setOnClickListener(ddVar);
-        this.l.getLiveStopHost().setOnClickListener(ddVar);
-        this.l.getmLiveRoomLike().setOnClickListener(ddVar);
-        this.l.getAnchorImg().setOnClickListener(ddVar);
-        this.l.getLiveStopView().setOnClickListener(ddVar);
-        this.l.getHeaderImage().setOnClickListener(ddVar);
-        this.l.getNoteLayout().setOnClickListener(ddVar);
-        this.m.getForcastBtn().setOnClickListener(ddVar);
-        this.m.getLiveRoomCloseBtn().setOnClickListener(ddVar);
+        this.r.setOnClickListener(talkableActivity);
+        this.s.setOnClickListener(talkableActivity);
+        this.t.setOnClickListener(talkableActivity);
+        X().getRoot().setOnClickListener(talkableActivity);
+        this.l.getLiveStopHost().setOnClickListener(talkableActivity);
+        this.l.getLiveStopHost().setOnClickListener(talkableActivity);
+        this.l.getmLiveRoomLike().setOnClickListener(talkableActivity);
+        this.l.getAnchorImg().setOnClickListener(talkableActivity);
+        this.l.getLiveStopView().setOnClickListener(talkableActivity);
+        this.l.getHeaderImage().setOnClickListener(talkableActivity);
+        this.l.getNoteLayout().setOnClickListener(talkableActivity);
+        this.m.getForcastBtn().setOnClickListener(talkableActivity);
+        this.m.getLiveRoomCloseBtn().setOnClickListener(talkableActivity);
         linearLayout.setOnTouchListener(new ar(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.h
+    @Override // com.baidu.tieba.im.chat.g
     public void i() {
         super.i();
         this.g.setVisibility(0);
         this.r.setVisibility(8);
         this.s.setVisibility(8);
         this.t.setVisibility(8);
+        this.d.setCursorVisible(true);
     }
 
-    public NavigationBar Z() {
+    public NavigationBar aa() {
         return this.a;
     }
 
@@ -228,7 +236,7 @@ public class LiveRoomChatView extends CommonGroupMsglistView {
         }
     }
 
-    public View aa() {
+    public View ab() {
         return this.s;
     }
 
@@ -237,42 +245,42 @@ public class LiveRoomChatView extends CommonGroupMsglistView {
         this.s.setVisibility(z ? 8 : 0);
     }
 
-    public View ab() {
+    public View ac() {
         return this.t;
     }
 
-    public View ac() {
+    public View ad() {
         return this.r;
     }
 
-    @Override // com.baidu.tieba.im.chat.h
+    @Override // com.baidu.tieba.im.chat.g
     public void c() {
-        ai();
+        aj();
     }
 
-    public void ad() {
+    public void ae() {
         if (this.x && this.z) {
             this.r.setVisibility(8);
             this.t.setVisibility(0);
         }
     }
 
-    public void ae() {
+    public void af() {
         if (this.x && this.z) {
             this.t.setVisibility(8);
             this.r.setVisibility(0);
         }
     }
 
-    public boolean af() {
+    public boolean ag() {
         return this.x;
     }
 
-    public int ag() {
+    public int ah() {
         return this.y;
     }
 
-    public void ah() {
+    public void ai() {
         i();
         this.x = false;
         this.g.setVisibility(0);
@@ -281,20 +289,20 @@ public class LiveRoomChatView extends CommonGroupMsglistView {
         this.t.setVisibility(8);
     }
 
-    public void ai() {
+    public void aj() {
         this.x = true;
         this.g.setVisibility(8);
         f();
         g();
         h();
-        T();
+        U();
     }
 
     private void a(MsglistActivity msglistActivity) {
         this.q = new bc(msglistActivity, msglistActivity);
-        this.p = new com.baidu.tbadk.core.view.i(msglistActivity, this.q.a(), this.a, msglistActivity.getResources().getDrawable(com.baidu.tieba.o.custom_liveroom_more_background), null);
+        this.p = new com.baidu.tbadk.core.view.i(msglistActivity, this.q.a(), this.a, msglistActivity.getResources().getDrawable(com.baidu.tieba.s.custom_liveroom_more_background), null);
         this.p.a(msglistActivity);
-        this.p.a((int) msglistActivity.getResources().getDimension(com.baidu.tieba.p.ds376));
+        this.p.a((int) msglistActivity.getResources().getDimension(com.baidu.tieba.t.ds376));
     }
 
     public void f(boolean z) {
@@ -309,7 +317,7 @@ public class LiveRoomChatView extends CommonGroupMsglistView {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.h
+    @Override // com.baidu.tieba.im.chat.g
     public void z() {
         super.z();
         if (this.p != null) {
@@ -332,11 +340,11 @@ public class LiveRoomChatView extends CommonGroupMsglistView {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.h
+    @Override // com.baidu.tieba.im.chat.g
     public void a(int i) {
         super.a(i);
         if (this.p != null) {
-            this.p.a(this.f, i, this.f.getResources().getDrawable(com.baidu.tieba.o.custom_liveroom_more_background), this.f.getResources().getDrawable(com.baidu.tieba.o.custom_liveroom_more_background_1));
+            this.p.a(this.f, i, this.f.getResources().getDrawable(com.baidu.tieba.s.custom_liveroom_more_background), this.f.getResources().getDrawable(com.baidu.tieba.s.custom_liveroom_more_background_1));
         }
     }
 }

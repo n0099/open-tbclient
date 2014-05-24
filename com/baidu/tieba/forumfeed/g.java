@@ -6,8 +6,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.editortool.ab;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
@@ -32,7 +34,7 @@ public class g extends BaseAdapter {
         this.f = Constants.MEDIA_INFO;
         this.b = context;
         this.e = new ab(context);
-        this.f = com.baidu.adp.lib.util.h.b(context);
+        this.f = com.baidu.adp.lib.util.k.b(context);
         b(bf.a().b());
     }
 
@@ -81,16 +83,16 @@ public class g extends BaseAdapter {
         this.c.a(this.f, this.h, this.i);
         this.c.a(this.j);
         View a = (view == null || view.getTag() == null) ? this.c.a() : view;
-        a.setPadding(0, i == 0 ? this.b.getResources().getDimensionPixelSize(com.baidu.tieba.p.forumfeed_first_item_margin_top) : 0, 0, 0);
+        a.setPadding(0, i == 0 ? this.b.getResources().getDimensionPixelSize(t.forumfeed_first_item_margin_top) : 0, 0, 0);
         int skinType = TbadkApplication.m252getInst().getSkinType();
         ArrayList<com.baidu.tieba.data.q> b = this.a.b();
         if (b != null && (qVar = b.get(i)) != null) {
             this.c.a(a, qVar);
             this.c.a(skinType, a);
         }
-        com.baidu.tbadk.core.e eVar = (com.baidu.tbadk.core.e) this.b;
-        eVar.a().a(skinType == 1);
-        eVar.a().a(a);
+        BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.b;
+        baseFragmentActivity.a().a(skinType == 1);
+        baseFragmentActivity.a().a(a);
         return a;
     }
 
@@ -102,7 +104,7 @@ public class g extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         com.baidu.tieba.data.q qVar;
-        ArrayList<com.baidu.tbadk.core.data.k> k;
+        ArrayList<com.baidu.tbadk.core.data.j> k;
         if (this.d && this.a != null) {
             ArrayList<com.baidu.tieba.data.q> b = this.a.b();
             if (b == null || (qVar = b.get(i)) == null || (k = qVar.k()) == null) {
@@ -133,16 +135,16 @@ public class g extends BaseAdapter {
             if (this.g > 480) {
                 this.g = 480;
             }
-            if (this.g > com.baidu.adp.lib.util.h.a(this.b, 320.0f)) {
-                this.g = com.baidu.adp.lib.util.h.a(this.b, 320.0f);
+            if (this.g > com.baidu.adp.lib.util.k.a(this.b, 320.0f)) {
+                this.g = com.baidu.adp.lib.util.k.a(this.b, 320.0f);
             }
             this.e.b("_small");
         } else {
             if (this.g > this.i * 480.0f) {
                 this.g = (int) (this.i * 480.0f);
             }
-            if (this.g > com.baidu.adp.lib.util.h.a(this.b, 320.0f) * this.i) {
-                this.g = (int) (com.baidu.adp.lib.util.h.a(this.b, 320.0f) * this.i);
+            if (this.g > com.baidu.adp.lib.util.k.a(this.b, 320.0f) * this.i) {
+                this.g = (int) (com.baidu.adp.lib.util.k.a(this.b, 320.0f) * this.i);
             }
             this.e.b("_mobile");
         }

@@ -18,7 +18,7 @@ public class v implements CustomMessageTask.CustomRunnable<Object> {
         if (TbadkApplication.getCurrentAccountObj() != null) {
             str = TbadkApplication.getCurrentAccountObj().getID();
         }
-        byte[] a = com.baidu.tbadk.core.a.b.a().u().a("p_nearby_group_info" + str);
+        byte[] a = com.baidu.tbadk.core.a.b.a().v().a("p_nearby_group_info" + str);
         ResponseNearbyGroupsLocalMessage responseNearbyGroupsLocalMessage = new ResponseNearbyGroupsLocalMessage();
         if (a != null) {
             try {

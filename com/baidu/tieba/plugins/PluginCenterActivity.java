@@ -12,7 +12,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class PluginCenterActivity extends BaseActivity {
     private c a;
@@ -27,11 +29,11 @@ public class PluginCenterActivity extends BaseActivity {
     @SuppressLint({"WrongViewCast"})
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.plugin_center_activity);
-        this.b = (BdListView) findViewById(com.baidu.tieba.r.list);
-        this.d = (LinearLayout) findViewById(com.baidu.tieba.r.empty);
-        this.c = (NavigationBar) findViewById(com.baidu.tieba.r.navigation_bar);
-        this.c.a(u.plugin_center);
+        setContentView(w.plugin_center_activity);
+        this.b = (BdListView) findViewById(v.list);
+        this.d = (LinearLayout) findViewById(v.empty);
+        this.c = (NavigationBar) findViewById(v.navigation_bar);
+        this.c.a(y.plugin_center);
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.b.setEmptyView(this.d);
         this.e = new ab(this);

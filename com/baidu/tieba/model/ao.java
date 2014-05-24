@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.data.InterestFrsData;
 /* loaded from: classes.dex */
-public class ao extends com.baidu.adp.base.d {
+public class ao extends com.baidu.adp.base.b {
     private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/gettaglist";
     private boolean b;
     private InterestFrsData c;
@@ -36,12 +36,12 @@ public class ao extends com.baidu.adp.base.d {
         }
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

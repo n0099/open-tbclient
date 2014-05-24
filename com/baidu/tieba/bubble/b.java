@@ -5,7 +5,7 @@ import com.baidu.tieba.data.BubbleListData;
 import com.baidu.tieba.data.SetBubbleResultData;
 import com.baidu.tieba.model.f;
 import com.baidu.tieba.model.j;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class b implements j {
     final /* synthetic */ BubbleChooseActivity a;
@@ -45,7 +45,7 @@ class b implements j {
             a2.a(false);
             a2.notifyDataSetChanged();
         } else {
-            this.a.showToast(u.bubble_setdefualt_error);
+            this.a.showToast(y.bubble_setdefualt_error);
         }
     }
 
@@ -60,13 +60,13 @@ class b implements j {
                     this.a.showToast(setBubbleResultData.getError_msg());
                     return;
                 } else {
-                    this.a.showToast(u.neterror);
+                    this.a.showToast(y.neterror);
                     return;
                 }
             }
-            this.a.showToast(u.neterror);
+            this.a.showToast(y.neterror);
             return;
         }
-        this.a.showToast(u.neterror);
+        this.a.showToast(y.neterror);
     }
 }

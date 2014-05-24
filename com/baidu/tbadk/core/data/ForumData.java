@@ -19,6 +19,9 @@ import tbclient.FrsPage.SignUser;
 import tbclient.FrsPage.TagInfo;
 /* loaded from: classes.dex */
 public class ForumData implements Serializable {
+    public static final int ANCHOR_HAVE_POWER = 1;
+    public static final int ANCHOR_NOT_SHOW = 0;
+    public static final int ANCHOR_SHOW_BUT_NO_POWER = 2;
     private static final long serialVersionUID = -5446966999595522426L;
     private AnchorPower anchorPower;
     private int cur_score;
@@ -32,11 +35,12 @@ public class ForumData implements Serializable {
     private final c mBannerListData;
     private final f mFrsBannerData;
     private final PostPrefixData mPrefixData;
-    private ArrayList<n> mRecommendForumData;
+    private ArrayList<m> mRecommendForumData;
+    private q mWorldCupData;
     private String slogan;
     private String tag_color;
     private String tag_id;
-    private p top_notice_data;
+    private o top_notice_data;
     private String id = null;
     private String name = null;
     private String first_class = null;
@@ -61,12 +65,13 @@ public class ForumData implements Serializable {
         this.levelup_score = 0;
         this.is_support_local = 0;
         this.is_local_effect = 0;
-        this.top_notice_data = new p();
+        this.top_notice_data = new o();
         this.mBadgeData = new ArrayList<>();
         this.mFrsBannerData = new f();
         this.mBannerListData = new c();
         this.mRecommendForumData = new ArrayList<>();
         this.mPrefixData = new PostPrefixData();
+        this.mWorldCupData = new q();
     }
 
     public AnchorPower getAnchorPower() {
@@ -201,12 +206,12 @@ public class ForumData implements Serializable {
         this.mSignData = signData;
     }
 
-    public p getTop_notice_data() {
+    public o getTop_notice_data() {
         return this.top_notice_data;
     }
 
-    public void setTop_notice_data(p pVar) {
-        this.top_notice_data = pVar;
+    public void setTop_notice_data(o oVar) {
+        this.top_notice_data = oVar;
     }
 
     public void setManagers(ArrayList<String> arrayList) {
@@ -245,12 +250,12 @@ public class ForumData implements Serializable {
         return this.mBannerListData;
     }
 
-    public ArrayList<n> getRecommendForumData() {
+    public ArrayList<m> getRecommendForumData() {
         return this.mRecommendForumData;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0041: IGET  (r3v11 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.tag_id java.lang.Integer)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0052: IGET  (r0v73 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.color java.lang.Integer)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0052: IGET  (r0v74 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.color java.lang.Integer)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x0009: IGET  (r2v1 java.lang.Long A[REMOVE]) = (r6v0 tbclient.FrsPage.ForumInfo) tbclient.FrsPage.ForumInfo.id java.lang.Long)] */
     public void parserProtobuf(ForumInfo forumInfo) {
         if (forumInfo != null) {
@@ -328,15 +333,16 @@ public class ForumData implements Serializable {
                 List<RecommendForum> list4 = forumInfo.recommend_forum;
                 if (list4 != null && list4.size() > 0) {
                     for (int i4 = 0; i4 < list4.size(); i4++) {
-                        n nVar = new n();
-                        nVar.a(list4.get(i4));
-                        this.mRecommendForumData.add(nVar);
+                        m mVar = new m();
+                        mVar.a(list4.get(i4));
+                        this.mRecommendForumData.add(mVar);
                     }
                 }
                 this.mFrsBannerData.a(forumInfo.banner);
                 this.mBannerListData.a(forumInfo.banner_list);
                 this.mPrefixData.parserProtobuf(forumInfo.post_prefix);
                 this.anchorPower = forumInfo.anchor_power;
+                this.mWorldCupData.a(forumInfo.worldcupinfo);
             } catch (Exception e) {
                 BdLog.e("ForumData", "parserProtobuf", "error = " + e.getMessage());
             }
@@ -430,9 +436,9 @@ public class ForumData implements Serializable {
                 JSONArray optJSONArray4 = jSONObject.optJSONArray("recommend_forum");
                 if (optJSONArray4 != null && optJSONArray4.length() > 0) {
                     for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        n nVar = new n();
-                        nVar.a(optJSONArray4.optJSONObject(i4));
-                        this.mRecommendForumData.add(nVar);
+                        m mVar = new m();
+                        mVar.a(optJSONArray4.optJSONObject(i4));
+                        this.mRecommendForumData.add(mVar);
                     }
                 }
                 try {
@@ -539,5 +545,13 @@ public class ForumData implements Serializable {
 
     public PostPrefixData getPrefixData() {
         return this.mPrefixData;
+    }
+
+    public q getWorldCupData() {
+        return this.mWorldCupData;
+    }
+
+    public void setWorldCupData(q qVar) {
+        this.mWorldCupData = qVar;
     }
 }

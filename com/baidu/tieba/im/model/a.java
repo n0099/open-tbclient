@@ -3,7 +3,7 @@ package com.baidu.tieba.im.model;
 import com.baidu.tieba.im.message.RequestAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.base.d {
+public class a extends com.baidu.adp.base.b {
     private int c;
     private String d;
     private String e;
@@ -58,12 +58,12 @@ public class a extends com.baidu.adp.base.d {
         this.l = i;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }
@@ -109,7 +109,7 @@ public class a extends com.baidu.adp.base.d {
         super.sendMessage(this.a);
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public void cancelMessage() {
         super.cancelMessage();
     }

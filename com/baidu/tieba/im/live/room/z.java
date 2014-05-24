@@ -19,18 +19,27 @@ class z extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
+        String str;
+        String str2;
         LiveRoomChatView z2;
-        LiveRoomChatView z3;
         if (customResponsedMessage.getCmd() == 2003161 && (customResponsedMessage instanceof LiveStatusChangeMessage)) {
             LiveStatusChangeMessage.LiveStatusData data = ((LiveStatusChangeMessage) customResponsedMessage).getData();
             z = this.a.s;
-            if (z && this.a.x().b != null && String.valueOf(this.a.x().b.groupId).equals(data.groupId)) {
-                if (data.status == 0) {
-                    z3 = this.a.z();
-                    z3.d(6);
-                } else if (data.status == 4 && this.a.x().r) {
+            if (z && this.a.x().b != null) {
+                String valueOf = String.valueOf(this.a.x().b.groupId);
+                if (data.status == 4 && valueOf.equals(data.groupId) && this.a.x().r) {
                     z2 = this.a.z();
                     z2.d(5);
+                }
+                if (data.status == 0) {
+                    str = this.a.u;
+                    if (str != null) {
+                        str2 = this.a.u;
+                        if (str2.equals(String.valueOf(this.a.x().b.groupId))) {
+                            com.baidu.tieba.im.live.b.b().a(this.a.x().r ? this.a.x().b.streamId : null, String.valueOf(this.a.x().b.groupId), String.valueOf(this.a.x().b.deviceId), this.a.x().b.playUrl, false);
+                        }
+                        this.a.u = null;
+                    }
                 }
             }
         }

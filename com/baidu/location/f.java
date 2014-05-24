@@ -24,7 +24,6 @@ import android.util.Log;
 import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.location.c;
 import com.baidu.location.e;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.io.PrintWriter;
@@ -647,7 +646,7 @@ public final class f extends Service {
                         int i2 = (bArr[3] & 255) | ((bArr[2] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | ((bArr[1] << 16) & 16711680) | ((bArr[0] << 24) & (-16777216));
                         int i3 = (bArr[7] & 255) | ((bArr[6] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | ((bArr[5] << 16) & 16711680) | ((bArr[4] << 24) & (-16777216));
                         int i4 = (bArr[11] & 255) | ((bArr[10] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | ((bArr[9] << 16) & 16711680) | ((bArr[8] << 24) & (-16777216));
-                        int i5 = (bArr[15] & 255) | ((bArr[f.af] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | ((bArr[13] << 16) & 16711680) | ((bArr[12] << 24) & (-16777216));
+                        int i5 = (bArr[15] & 255) | ((bArr[14] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | ((bArr[13] << 16) & 16711680) | ((bArr[12] << 24) & (-16777216));
                         if (this.b.f106do == i2 && this.b.f108if == i3 && this.b.f107for == i4 && this.b.f111try == i5) {
                             long[] jArr = new long[readInt4];
                             for (int i6 = 0; i6 < readInt4; i6++) {
@@ -882,10 +881,10 @@ public final class f extends Service {
                     case f.f133for /* 22 */:
                         f.this.m179new(message);
                         break;
-                    case SapiAccountManager.VERSION_CODE /* 24 */:
+                    case 24:
                         f.this.a(message);
                         break;
-                    case f.U /* 25 */:
+                    case 25:
                         f.this.m160for(message);
                         break;
                     case f.H /* 26 */:

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.LocalViewSize;
-import com.baidu.tieba.im.chat.x;
+import com.baidu.tieba.im.chat.w;
 import com.baidu.tieba.im.pushNotify.p;
 /* loaded from: classes.dex */
 public class e {
@@ -34,7 +34,7 @@ public class e {
         com.baidu.tieba.im.messageCenter.a.a(context);
         com.baidu.tieba.im.c.b.a().a(context);
         p.a().b();
-        x.b().a();
+        w.b().a();
         com.baidu.tieba.im.db.i.a().b();
         a = Thread.currentThread().getId();
         BdLog.d("=====uid:" + TbadkApplication.getCurrentAccount() + " cuid:" + TbadkApplication.getUniqueIdentifier());

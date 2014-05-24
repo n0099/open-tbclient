@@ -6,12 +6,12 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.e {
+public class e extends com.baidu.adp.base.c {
     BaseActivity a;
     private ForumDetailData b;
     private ViewGroup c;
@@ -41,15 +41,15 @@ public class e extends com.baidu.adp.base.e {
     }
 
     private void b() {
-        this.a.setContentView(s.forum_detail_activity);
-        this.e = (NavigationBar) this.a.findViewById(r.view_navigation_bar);
-        this.e.a(this.a.getString(u.forum_detail_title));
+        this.a.setContentView(w.forum_detail_activity);
+        this.e = (NavigationBar) this.a.findViewById(v.view_navigation_bar);
+        this.e.a(this.a.getString(y.forum_detail_title));
         this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f = (ItemHeaderView) this.a.findViewById(r.item_header);
-        this.g = (ItemInfoView) this.a.findViewById(r.item_info);
-        this.h = (ItemHotThreadView) this.a.findViewById(r.item_hot_thread);
-        this.i = (ItemFootNavView) this.a.findViewById(r.item_foot_nav);
-        this.c = (ViewGroup) this.a.findViewById(r.parent);
+        this.f = (ItemHeaderView) this.a.findViewById(v.item_header);
+        this.g = (ItemInfoView) this.a.findViewById(v.item_info);
+        this.h = (ItemHotThreadView) this.a.findViewById(v.item_hot_thread);
+        this.i = (ItemFootNavView) this.a.findViewById(v.item_foot_nav);
+        this.c = (ViewGroup) this.a.findViewById(v.parent);
         c().setVisibility(0);
     }
 
@@ -58,7 +58,7 @@ public class e extends com.baidu.adp.base.e {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
         this.d.setLayoutParams(layoutParams);
-        this.d.setIndeterminateDrawable(this.a.getResources().getDrawable(q.progressbar));
+        this.d.setIndeterminateDrawable(this.a.getResources().getDrawable(u.progressbar));
         this.d.setVisibility(8);
         ((ViewGroup) this.a.findViewById(16908290)).addView(this.d);
         return this.d;

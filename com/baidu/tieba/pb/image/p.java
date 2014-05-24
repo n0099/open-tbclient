@@ -33,11 +33,11 @@ public class p implements View.OnClickListener {
             if (str2.length() != 0) {
                 this.a.c();
                 view2 = this.a.j;
-                TextView textView3 = (TextView) view2.findViewById(com.baidu.tieba.r.text);
+                TextView textView3 = (TextView) view2.findViewById(com.baidu.tieba.v.text);
                 if (textView3 != null) {
                     alertDialog = this.a.i;
                     alertDialog.show();
-                    StringBuilder sb = new StringBuilder(String.valueOf(this.a.getString(com.baidu.tieba.u.title)));
+                    StringBuilder sb = new StringBuilder(String.valueOf(this.a.getString(com.baidu.tieba.y.title)));
                     str3 = this.a.D;
                     textView3.setText(sb.append(str3).toString());
                     alertDialog2 = this.a.i;

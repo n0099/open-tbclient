@@ -5,7 +5,7 @@ import android.os.Handler;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -36,7 +36,7 @@ public class b {
         }
         if (i2 >= i) {
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(TbadkApplication.m252getInst().getApp().getString(u.download_fail_over_max));
+            downloadData.setStatusMsg(TbadkApplication.m252getInst().getApp().getString(y.download_fail_over_max));
             if (downloadData.getCallback() != null) {
                 downloadData.getCallback().b(downloadData);
                 return;
@@ -49,7 +49,7 @@ public class b {
     public void a(DownloadData downloadData) {
         if (c.size() >= this.e) {
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(TbadkApplication.m252getInst().getApp().getString(u.download_fail_over_max));
+            downloadData.setStatusMsg(TbadkApplication.m252getInst().getApp().getString(y.download_fail_over_max));
             if (downloadData.getCallback() != null) {
                 downloadData.getCallback().b(downloadData);
                 return;
@@ -62,7 +62,7 @@ public class b {
     public void b(DownloadData downloadData) {
         if (downloadData != null) {
             if (!x.a()) {
-                downloadData.setStatusMsg(TbadkApplication.m252getInst().getApp().getString(u.download_fail_no_sd));
+                downloadData.setStatusMsg(TbadkApplication.m252getInst().getApp().getString(y.download_fail_no_sd));
                 downloadData.setStatus(2);
             }
             if (downloadData.getStatus() == 2) {

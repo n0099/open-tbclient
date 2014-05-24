@@ -46,6 +46,12 @@ public class e {
         return this.b.get(i) != null;
     }
 
+    public synchronized void b() {
+        synchronized (this.b) {
+            this.b.clear();
+        }
+    }
+
     public long c(int i) {
         Long l = this.b.get(i);
         if (l == null) {
@@ -54,7 +60,7 @@ public class e {
         return l.longValue();
     }
 
-    public SparseArray<Long> b() {
+    public SparseArray<Long> c() {
         if (!TbadkApplication.isLogin()) {
             this.b.remove(10);
         }

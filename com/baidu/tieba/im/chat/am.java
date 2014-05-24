@@ -1,22 +1,24 @@
 package com.baidu.tieba.im.chat;
 
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ x b;
-    private final /* synthetic */ ResponseCommitGroupMessage c;
+public class am implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ w a;
+    private final /* synthetic */ ResponseCommitGroupMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(x xVar, ResponseCommitGroupMessage responseCommitGroupMessage) {
-        this.b = xVar;
-        this.c = responseCommitGroupMessage;
+    public am(w wVar, ResponseCommitGroupMessage responseCommitGroupMessage) {
+        this.a = wVar;
+        this.b = responseCommitGroupMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().b(this.c.getGroupId(), String.valueOf(this.c.getRecordId()), String.valueOf(this.c.getMsgId()), 3));
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        if (this.b != null) {
+            this.a.a((ResponsedMessage<?>) this.b);
+        }
     }
 }

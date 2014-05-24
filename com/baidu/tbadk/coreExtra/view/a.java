@@ -38,7 +38,7 @@ public class a implements View.OnClickListener {
             if (!TextUtils.isEmpty(str)) {
                 context = this.a.g;
                 str4 = this.a.c;
-                com.baidu.tbadk.core.g.a(context, str4);
+                com.baidu.tbadk.core.f.a(context, str4);
             }
             cVar = this.a.l;
             if (cVar == null) {
@@ -60,7 +60,7 @@ public class a implements View.OnClickListener {
         if (!TextUtils.isEmpty(str5)) {
             context2 = this.a.g;
             str8 = this.a.d;
-            com.baidu.tbadk.core.g.a(context2, str8);
+            com.baidu.tbadk.core.f.a(context2, str8);
         }
         this.a.i = true;
         this.a.setVisibility(8);

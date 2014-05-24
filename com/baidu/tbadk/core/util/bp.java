@@ -22,8 +22,8 @@ public class bp {
 
     private static void a() {
         if (e != null && e.getResources() != null) {
-            b = e.getResources().getColor(com.baidu.tieba.o.more_color);
-            a = e.getResources().getColor(com.baidu.tieba.o.skin_1_common_color);
+            b = e.getResources().getColor(com.baidu.tieba.s.more_color);
+            a = e.getResources().getColor(com.baidu.tieba.s.skin_1_common_color);
         }
     }
 
@@ -104,18 +104,18 @@ public class bp {
             view.setBackgroundDrawable(null);
             if (i2 == 1) {
                 if (i == 0) {
-                    view.setBackgroundResource(com.baidu.tieba.q.auto_skin_list_item_bg_up_1);
+                    view.setBackgroundResource(com.baidu.tieba.u.auto_skin_list_item_bg_up_1);
                 } else if (i == 2) {
-                    view.setBackgroundResource(com.baidu.tieba.q.auto_skin_list_item_bg_down_1);
+                    view.setBackgroundResource(com.baidu.tieba.u.auto_skin_list_item_bg_down_1);
                 } else {
-                    view.setBackgroundResource(com.baidu.tieba.q.list_selector_item_1);
+                    view.setBackgroundResource(com.baidu.tieba.u.list_selector_item_1);
                 }
             } else if (i == 0) {
-                view.setBackgroundResource(com.baidu.tieba.q.auto_skin_list_item_bg_up);
+                view.setBackgroundResource(com.baidu.tieba.u.auto_skin_list_item_bg_up);
             } else if (i == 2) {
-                view.setBackgroundResource(com.baidu.tieba.q.auto_skin_list_item_bg_down);
+                view.setBackgroundResource(com.baidu.tieba.u.auto_skin_list_item_bg_down);
             } else {
-                view.setBackgroundResource(com.baidu.tieba.q.list_selector_item);
+                view.setBackgroundResource(com.baidu.tieba.u.list_selector_item);
             }
         }
     }

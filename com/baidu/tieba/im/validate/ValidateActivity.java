@@ -11,6 +11,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.at;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
@@ -20,10 +21,11 @@ import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupInfo.RequestAddGroupUserMessage;
 import com.baidu.tieba.im.groupInfo.RequestDelSystemMessage;
+import com.baidu.tieba.y;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ValidateActivity extends BaseActivity implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.u {
+public class ValidateActivity extends BaseActivity implements AbsListView.OnScrollListener, x {
     public static boolean a = false;
     private t b;
     private com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> c;
@@ -151,10 +153,10 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
     }
 
     private void d() {
-        String string = getString(com.baidu.tieba.u.delete_user_chat);
+        String string = getString(y.delete_user_chat);
         f fVar = new f(this);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(com.baidu.tieba.u.operation);
+        builder.setTitle(y.operation);
         builder.setItems(new String[]{string}, fVar);
         this.e = builder.create();
         this.e.setCanceledOnTouchOutside(true);
@@ -168,7 +170,7 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
 
     private void b(ValidateItemData validateItemData) {
         if (!UtilHelper.isNetOk()) {
-            showToast(com.baidu.tieba.u.neterror);
+            showToast(y.neterror);
         } else if (validateItemData != null && !validateItemData.isPass() && !this.i) {
             try {
                 validateItemData.setShown(true);
@@ -204,7 +206,7 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ValidateItemData validateItemData) {
         if (!UtilHelper.isNetOk()) {
-            showToast(com.baidu.tieba.u.neterror);
+            showToast(y.neterror);
         } else if (validateItemData != null) {
             this.b.a(true);
             RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
@@ -262,7 +264,7 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
         return this.h;
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.x
     public void f_() {
         if (!this.m && this.l < this.j) {
             this.m = true;

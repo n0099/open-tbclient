@@ -1,11 +1,11 @@
 package com.baidu.tieba.bubble;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tieba.data.BubbleListData;
 import com.baidu.tieba.model.f;
 import com.baidu.tieba.model.i;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class a implements i {
     final /* synthetic */ BubbleChooseActivity a;
@@ -37,7 +37,7 @@ class a implements i {
                 fVar2.a(fVar3.b());
                 fVar4 = this.a.c;
                 fVar5 = this.a.c;
-                fVar4.a(fVar5.b(), h.b(this.a), h.c(this.a));
+                fVar4.a(fVar5.b(), k.b(this.a), k.c(this.a));
                 fVar6 = this.a.c;
                 fVar6.b(-1);
             }
@@ -58,13 +58,13 @@ class a implements i {
                     this.a.showToast(bubbleListData.getError_msg());
                     return;
                 } else {
-                    this.a.showToast(u.neterror);
+                    this.a.showToast(y.neterror);
                     return;
                 }
             }
-            this.a.showToast(u.neterror);
+            this.a.showToast(y.neterror);
             return;
         }
-        this.a.showToast(u.neterror);
+        this.a.showToast(y.neterror);
     }
 }

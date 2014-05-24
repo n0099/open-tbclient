@@ -16,7 +16,7 @@ public class s extends CustomMessageListener {
         if (customResponsedMessage instanceof GroupMsgData) {
             GroupMsgData groupMsgData = (GroupMsgData) customResponsedMessage;
             com.baidu.tieba.im.pushNotify.a.f().a(q.a(groupMsgData), q.a, new t(this));
-            com.baidu.tieba.im.chat.x.b().a(groupMsgData);
+            com.baidu.tieba.im.chat.w.b().a(groupMsgData);
         }
     }
 }

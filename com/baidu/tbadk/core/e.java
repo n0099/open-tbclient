@@ -1,164 +1,65 @@
 package com.baidu.tbadk.core;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.mobstat.StatService;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tieba.q;
-import com.baidu.tieba.u;
-import com.compatible.menukey.MenuKeyUtils;
+import com.baidu.tbadk.core.data.NewErrorData;
+import com.baidu.tbadk.core.util.al;
 /* loaded from: classes.dex */
-public abstract class e extends com.baidu.adp.base.b {
-    private ProgressBar d;
-    private c e;
-    protected ProgressDialog a = null;
-    private DialogInterface.OnCancelListener c = null;
-    protected int b = -1;
+public class e {
+    protected al a;
+    protected NewErrorData b = null;
 
-    protected abstract void b(int i);
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        MenuKeyUtils.hideSmartBarMenu(this);
-        super.onCreate(bundle);
-        TbadkApplication.setIsAppRunning(true);
-        bg.a(getClass().getName());
-        this.e = new c();
-        if (TbadkApplication.m252getInst().getIsUseBaiduStatOn()) {
-            try {
-                StatService.setAppChannel(TbConfig.getFrom());
-            } catch (Throwable th) {
-                BdLog.e(getClass().getName(), "onCreate", th.getMessage());
-            }
-        }
+    public e() {
+        this.a = null;
+        this.a = new al();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
-    public void onResume() {
-        MenuKeyUtils.hideSoftMenuKey(getWindow());
-        super.onResume();
-        a(TbadkApplication.m252getInst().getSkinType());
-        if (TbadkApplication.m252getInst().getIsUseBaiduStatOn()) {
-            try {
-                StatService.onResume((Context) this);
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "onResume", e.getMessage());
-            }
-        }
-        TbadkApplication.m252getInst().AddResumeNum();
-        bg.a(getClass().getName());
-    }
-
-    public void a(int i) {
-        if (i != this.b) {
-            this.b = i;
-            b(this.b);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
-    public void onPause() {
-        super.onPause();
-        TbadkApplication.m252getInst().DelResumeNum();
-        if (TbadkApplication.m252getInst().getIsUseBaiduStatOn()) {
-            try {
-                StatService.onPause((Context) this);
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "onPause", e.getMessage());
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        if (this.e != null) {
-            this.e.b();
-        }
-        super.onDestroy();
-    }
-
-    public c a() {
-        return this.e;
-    }
-
-    public void a(String str, DialogInterface.OnCancelListener onCancelListener) {
-        if (str != null) {
-            this.a = ProgressDialog.show(this, "", str, true, true, onCancelListener);
-        } else {
-            this.a = ProgressDialog.show(this, "", getResources().getString(u.Waiting), true, true, onCancelListener);
-        }
-    }
-
-    public void b() {
+    public void a() {
         if (this.a != null) {
-            try {
-                if (this.a.isShowing()) {
-                    this.a.dismiss();
-                }
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "closeLoadingDialog", e.getMessage());
-            }
-            this.a = null;
+            this.a.g();
         }
     }
 
-    @Override // com.baidu.adp.base.b
+    /* JADX INFO: Access modifiers changed from: protected */
     public void a(String str) {
-        com.baidu.adp.lib.util.h.a((Context) this, str);
+        this.a.a(str);
     }
 
-    public void c(int i) {
-        com.baidu.adp.lib.util.h.a((Context) this, i);
+    public void a(String str, String str2) {
+        this.a.a(str, str2);
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        if (this.e == null) {
-            this.e = new c();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String b() {
+        String i = this.a.i();
+        this.b = new NewErrorData();
+        this.b.parserJson(i);
+        return i;
+    }
+
+    public boolean c() {
+        if (this.a != null) {
+            return this.a.a().b().b();
         }
-        this.e.a(str, context, attributeSet);
-        return super.onCreateView(str, context, attributeSet);
+        return false;
     }
 
-    public void c() {
-        a(0, 0);
-    }
-
-    public void a(int i, int i2) {
-        if (this.d == null) {
-            this.d = new ProgressBar(this);
-            this.d.setIndeterminateDrawable(getResources().getDrawable(q.progressbar));
-            ((FrameLayout) findViewById(16908290)).addView(this.d, new FrameLayout.LayoutParams(-2, -2, 17));
+    public String d() {
+        if (this.a != null) {
+            return this.a.f();
         }
-        this.d.setPadding(com.baidu.adp.lib.util.h.a(this, i), com.baidu.adp.lib.util.h.a(this, i2), 0, 0);
-        this.d.setVisibility(0);
+        return null;
     }
 
-    public void e_() {
-        if (this.d != null) {
-            this.d.setVisibility(8);
+    public int e() {
+        if (this.b != null) {
+            return this.b.getErrorNumber();
         }
+        return -1;
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 82 && keyEvent.isLongPress()) {
-            return true;
+    public String f() {
+        if (this.b != null) {
+            return this.b.getErrorMsg();
         }
-        return super.onKeyDown(i, keyEvent);
+        return null;
     }
 }

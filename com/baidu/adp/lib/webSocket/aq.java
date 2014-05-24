@@ -5,6 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import java.net.SocketException;
 import java.util.Random;
@@ -297,7 +298,7 @@ public class aq extends Handler {
     }
 
     private boolean e() {
-        return com.baidu.adp.base.a.getInst().isDebugMode();
+        return BdBaseApplication.getInst().isDebugMode();
     }
 
     public void b() {

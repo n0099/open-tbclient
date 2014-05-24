@@ -18,7 +18,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.io.File;
 /* loaded from: classes.dex */
 public class PluginDetailActivity extends BaseActivity implements com.baidu.tbadk.tbplugin.k {
@@ -44,28 +46,28 @@ public class PluginDetailActivity extends BaseActivity implements com.baidu.tbad
     }
 
     @Override // com.baidu.tbadk.tbplugin.k
-    public void a(int i, String str) {
+    public void onFinish(int i, String str) {
         runOnUiThread(new e(this, i, str));
     }
 
     @Override // com.baidu.tbadk.tbplugin.k
-    public void a(int i) {
+    public void onProgress(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.plugin_detail_activity);
-        this.g = (NavigationBar) findViewById(com.baidu.tieba.r.navigation_bar);
-        this.g.a(u.plugin_center);
+        setContentView(w.plugin_detail_activity);
+        this.g = (NavigationBar) findViewById(v.navigation_bar);
+        this.g.a(y.plugin_center);
         this.g.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a = (HeadImageView) findViewById(com.baidu.tieba.r.icon);
-        this.b = (TextView) findViewById(com.baidu.tieba.r.name);
-        this.c = (TextView) findViewById(com.baidu.tieba.r.status);
-        this.d = (TextView) findViewById(com.baidu.tieba.r.changelog);
-        this.e = (TextView) findViewById(com.baidu.tieba.r.size);
-        this.f = (TextView) findViewById(com.baidu.tieba.r.enable);
+        this.a = (HeadImageView) findViewById(v.icon);
+        this.b = (TextView) findViewById(v.name);
+        this.c = (TextView) findViewById(v.status);
+        this.d = (TextView) findViewById(v.changelog);
+        this.e = (TextView) findViewById(v.size);
+        this.f = (TextView) findViewById(v.enable);
         this.f.setOnClickListener(this);
         this.k = new ab(this);
         this.j = getIntent().getStringExtra("name");
@@ -82,27 +84,27 @@ public class PluginDetailActivity extends BaseActivity implements com.baidu.tbad
             this.b.setText(this.l.description);
             a();
             this.d.setText(this.l.newest.changelog);
-            this.e.setText(String.valueOf(getString(u.plugin_size)) + String.valueOf(this.l.newest.size / 1024) + "KB");
+            this.e.setText(String.valueOf(getString(y.plugin_size)) + String.valueOf(this.l.newest.size / 1024) + "KB");
             this.f.setOnClickListener(this);
         }
     }
 
     public void a() {
         if (com.baidu.tbadk.tbplugin.m.a().c(this.j)) {
-            this.c.setText(u.plugin_enabled);
-            this.f.setText(u.plugin_update);
+            this.c.setText(y.plugin_enabled);
+            this.f.setText(y.plugin_update);
             this.f.setEnabled(true);
-            this.f.setTextColor(getResources().getColor(com.baidu.tieba.o.cp_cont_g));
+            this.f.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_g));
         } else if (com.baidu.tbadk.tbplugin.m.a().b(this.j)) {
-            this.c.setText(u.plugin_enabled);
-            this.f.setText(u.plugin_enabled);
+            this.c.setText(y.plugin_enabled);
+            this.f.setText(y.plugin_enabled);
             this.f.setEnabled(false);
-            this.f.setTextColor(getResources().getColor(com.baidu.tieba.o.cp_cont_d));
+            this.f.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_d));
         } else {
-            this.c.setText(u.plugin_disabled);
-            this.f.setText(u.plugin_enable);
+            this.c.setText(y.plugin_disabled);
+            this.f.setText(y.plugin_enable);
             this.f.setEnabled(true);
-            this.f.setTextColor(getResources().getColor(com.baidu.tieba.o.cp_cont_g));
+            this.f.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_g));
         }
     }
 
@@ -119,10 +121,10 @@ public class PluginDetailActivity extends BaseActivity implements com.baidu.tbad
     public void onClick(View view) {
         if (view == this.f) {
             if (UtilHelper.getNetStatusInfo(this) == UtilHelper.NetworkStateInfo.UNAVAIL) {
-                showToast(u.neterror);
+                showToast(y.neterror);
                 return;
             }
-            this.f.setTextColor(getResources().getColor(com.baidu.tieba.o.cp_cont_d));
+            this.f.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_d));
             this.f.setEnabled(false);
             if (this.h != null) {
                 Message obtain = Message.obtain((Handler) null, 3);

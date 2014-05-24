@@ -1,6 +1,7 @@
 package com.baidu.tbadk.tbplugin;
 
 import android.util.Xml;
+import com.baidu.adp.base.BdBaseApplication;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -113,7 +114,7 @@ public class s {
             }
         } catch (FileNotFoundException e8) {
             e = e8;
-            i.b(com.baidu.adp.base.a.getInst().getContext(), "Xml parse failed: Nested Exception: " + e.getMessage());
+            i.b(BdBaseApplication.getInst().getContext(), "Xml parse failed: Nested Exception: " + e.getMessage());
             if (fileInputStream != null) {
                 try {
                     fileInputStream.close();
@@ -122,7 +123,7 @@ public class s {
             }
         } catch (IOException e10) {
             e = e10;
-            i.b(com.baidu.adp.base.a.getInst().getContext(), "Xml parse failed: Nested Exception: " + e.getMessage());
+            i.b(BdBaseApplication.getInst().getContext(), "Xml parse failed: Nested Exception: " + e.getMessage());
             if (fileInputStream != null) {
                 try {
                     fileInputStream.close();
@@ -131,7 +132,7 @@ public class s {
             }
         } catch (NullPointerException e12) {
             e = e12;
-            i.b(com.baidu.adp.base.a.getInst().getContext(), "Xml parse failed: Nested Exception: " + e.getMessage());
+            i.b(BdBaseApplication.getInst().getContext(), "Xml parse failed: Nested Exception: " + e.getMessage());
             if (fileInputStream != null) {
                 try {
                     fileInputStream.close();
@@ -140,7 +141,7 @@ public class s {
             }
         } catch (NumberFormatException e14) {
             e = e14;
-            i.b(com.baidu.adp.base.a.getInst().getContext(), "Xml parse failed: Nested Exception: " + e.getMessage());
+            i.b(BdBaseApplication.getInst().getContext(), "Xml parse failed: Nested Exception: " + e.getMessage());
             if (fileInputStream != null) {
                 try {
                     fileInputStream.close();
@@ -149,7 +150,7 @@ public class s {
             }
         } catch (XmlPullParserException e16) {
             e = e16;
-            i.b(com.baidu.adp.base.a.getInst().getContext(), "Xml parse failed: Nested Exception: " + e.getMessage());
+            i.b(BdBaseApplication.getInst().getContext(), "Xml parse failed: Nested Exception: " + e.getMessage());
             if (fileInputStream != null) {
                 try {
                     fileInputStream.close();

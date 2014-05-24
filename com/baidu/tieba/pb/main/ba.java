@@ -1,24 +1,57 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
+import android.content.Context;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ba implements View.OnClickListener {
+public class ba extends CustomMessageListener {
     final /* synthetic */ az a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ int c;
-    private final /* synthetic */ com.baidu.tieba.data.ah d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(az azVar, int i, int i2, com.baidu.tieba.data.ah ahVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ba(az azVar, int i) {
+        super(i);
         this.a = azVar;
-        this.b = i;
-        this.c = i2;
-        this.d = ahVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.d.c(Math.min(this.b + 5, this.c));
-        this.a.notifyDataSetChanged();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        com.baidu.tieba.data.af afVar;
+        com.baidu.tieba.data.af afVar2;
+        List<DownloadData> data;
+        Context context;
+        if (customResponsedMessage != null) {
+            afVar = this.a.a;
+            if (afVar != null) {
+                afVar2 = this.a.a;
+                com.baidu.tieba.data.ae o = afVar2.o();
+                if (o != null && customResponsedMessage.getCmd() == 2003122 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null) {
+                    for (DownloadData downloadData : data) {
+                        if (downloadData != null && downloadData.getId().equals(o.d())) {
+                            int status = downloadData.getStatus();
+                            if (status == 3 || status == 0) {
+                                o.a(2);
+                            } else if (status == 2 || status == 4) {
+                                if (!com.baidu.tbadk.core.util.be.c(downloadData.getStatusMsg())) {
+                                    context = this.a.b;
+                                    com.baidu.adp.lib.util.k.a(context, downloadData.getStatusMsg());
+                                }
+                                o.a(0);
+                            } else if (status == 1) {
+                                o.a(1);
+                            }
+                            this.a.notifyDataSetChanged();
+                            return;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

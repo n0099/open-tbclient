@@ -8,6 +8,7 @@ import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -17,8 +18,8 @@ public final class SapiAccountManager {
     public static final String SESSION_PTOKEN = "ptoken";
     public static final String SESSION_STOKEN = "stoken";
     public static final String SESSION_UID = "uid";
-    public static final int VERSION_CODE = 24;
-    public static final String VERSION_NAME = "6.4.10";
+    public static final int VERSION_CODE = 25;
+    public static final String VERSION_NAME = "6.4.11";
     private static SapiAccountManager a;
     private static SapiConfiguration b;
     private static d c;
@@ -136,6 +137,7 @@ public final class SapiAccountManager {
                 arrayList.add(sapiAccount);
             }
         }
+        Collections.reverse(arrayList);
         return arrayList;
     }
 

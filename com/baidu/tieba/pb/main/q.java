@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
-class q implements com.baidu.adp.widget.ListView.w {
+class q implements com.baidu.adp.widget.ListView.z {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,7 +8,7 @@ class q implements com.baidu.adp.widget.ListView.w {
         this.a = pbActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.w
+    @Override // com.baidu.adp.widget.ListView.z
     public void b() {
     }
 }

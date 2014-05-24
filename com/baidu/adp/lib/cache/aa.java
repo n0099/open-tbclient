@@ -7,10 +7,10 @@ import android.util.Log;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class aa {
-    private final com.baidu.adp.base.h a;
+    private final com.baidu.adp.base.f a;
 
-    public aa(Context context, com.baidu.adp.base.h hVar) {
-        this.a = hVar;
+    public aa(Context context, com.baidu.adp.base.f fVar) {
+        this.a = fVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [55=4] */

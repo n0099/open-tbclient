@@ -1,30 +1,15 @@
 package com.baidu.tbadk.core.voice.service;
-
-import android.media.MediaPlayer;
 /* loaded from: classes.dex */
-public class f extends MediaPlayer implements c {
-    private static Object a = new Object();
-    private static f b = null;
-    private boolean c = false;
-    private boolean d = true;
-    private int e = -1;
+class f implements Runnable {
+    final /* synthetic */ MyAudioRecorder a;
 
-    private f() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(MyAudioRecorder myAudioRecorder) {
+        this.a = myAudioRecorder;
     }
 
-    public static f b() {
-        if (b == null) {
-            synchronized (a) {
-                if (b == null) {
-                    b = new f();
-                }
-            }
-        }
-        return b;
-    }
-
-    @Override // com.baidu.tbadk.core.voice.service.c
-    public int a() {
-        return getCurrentPosition();
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.i();
     }
 }

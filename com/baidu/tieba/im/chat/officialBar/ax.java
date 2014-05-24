@@ -6,7 +6,7 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class ax extends com.baidu.adp.base.e {
+public class ax extends com.baidu.adp.base.c {
     private BdListView a;
     private av b;
     private NavigationBar c;
@@ -16,17 +16,17 @@ public class ax extends com.baidu.adp.base.e {
 
     public ax(OfficialBarTipActivity officialBarTipActivity) {
         super(officialBarTipActivity);
-        officialBarTipActivity.setContentView(com.baidu.tieba.s.officialbar_msg_activity);
+        officialBarTipActivity.setContentView(com.baidu.tieba.w.officialbar_msg_activity);
         this.e = officialBarTipActivity;
         a(officialBarTipActivity);
         b(officialBarTipActivity);
     }
 
     private void a(OfficialBarTipActivity officialBarTipActivity) {
-        this.c = (NavigationBar) officialBarTipActivity.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.c.a(officialBarTipActivity.getString(com.baidu.tieba.u.official_message_activity_title));
+        this.c = (NavigationBar) officialBarTipActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.c.a(officialBarTipActivity.getString(com.baidu.tieba.y.official_message_activity_title));
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ay(this, officialBarTipActivity));
-        this.f = (ViewGroup) officialBarTipActivity.findViewById(com.baidu.tieba.r.root_view);
+        this.f = (ViewGroup) officialBarTipActivity.findViewById(com.baidu.tieba.v.root_view);
     }
 
     public void a(int i) {
@@ -37,10 +37,10 @@ public class ax extends com.baidu.adp.base.e {
     }
 
     private void b(OfficialBarTipActivity officialBarTipActivity) {
-        this.a = (BdListView) officialBarTipActivity.findViewById(com.baidu.tieba.r.msg_list);
+        this.a = (BdListView) officialBarTipActivity.findViewById(com.baidu.tieba.v.msg_list);
         this.b = new av(officialBarTipActivity);
         this.a.setAdapter((ListAdapter) this.b);
-        this.d = new com.baidu.tbadk.core.view.k(officialBarTipActivity.findViewById(com.baidu.tieba.r.root_view), com.baidu.tieba.q.individual_center_news, com.baidu.tieba.q.individual_center_news_1, com.baidu.tieba.r.no_data_container, com.baidu.tieba.r.no_data_image, com.baidu.tieba.r.no_data_image_text);
+        this.d = new com.baidu.tbadk.core.view.k(officialBarTipActivity.findViewById(com.baidu.tieba.v.root_view), com.baidu.tieba.u.individual_center_news, com.baidu.tieba.u.individual_center_news_1, com.baidu.tieba.v.no_data_container, com.baidu.tieba.v.no_data_image, com.baidu.tieba.v.no_data_image_text);
     }
 
     public BdListView a() {

@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Integer, String> {
@@ -38,11 +38,11 @@ public class c extends BdAsyncTask<String, Integer, String> {
         try {
             if (this.a == null || this.a.length() <= 0 || this.b == null) {
                 groupCardActivity2 = this.c.b;
-                return groupCardActivity2.getString(u.save_error);
+                return groupCardActivity2.getString(y.save_error);
             }
             if (be.f(this.a) == null) {
                 groupCardActivity5 = this.c.b;
-                return groupCardActivity5.getString(u.save_error);
+                return groupCardActivity5.getString(y.save_error);
             }
             String str = String.valueOf(f) + ".jpg";
             for (int i = 0; x.b(str) && i < 10000; i++) {
@@ -53,13 +53,13 @@ public class c extends BdAsyncTask<String, Integer, String> {
                 groupCardActivity3 = this.c.b;
                 new aj(groupCardActivity3).a(a);
                 groupCardActivity4 = this.c.b;
-                return groupCardActivity4.getString(u.save_image_to_album);
+                return groupCardActivity4.getString(y.save_image_to_album);
             }
             return x.b();
         } catch (Exception e) {
             BdLog.e("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
             groupCardActivity = this.c.b;
-            return groupCardActivity.getString(u.save_error);
+            return groupCardActivity.getString(y.save_error);
         }
     }
 

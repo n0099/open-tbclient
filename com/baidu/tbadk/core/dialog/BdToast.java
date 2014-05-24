@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.dialog;
 
-import com.baidu.tieba.q;
+import com.baidu.tieba.u;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class BdToast {
@@ -23,7 +23,7 @@ public class BdToast {
     }
 
     static {
-        a.put(DefaultIcon.SUCCESS, Integer.valueOf(q.icon_unite_pass));
-        a.put(DefaultIcon.FAILURE, Integer.valueOf(q.icon_unite_lose));
+        a.put(DefaultIcon.SUCCESS, Integer.valueOf(u.icon_unite_pass));
+        a.put(DefaultIcon.FAILURE, Integer.valueOf(u.icon_unite_lose));
     }
 }

@@ -13,7 +13,7 @@ import java.util.Iterator;
 public class p implements com.baidu.adp.lib.resourceLoader.g<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.resourceLoader.g
     public boolean a() {
-        return com.baidu.tbadk.core.h.a().f();
+        return com.baidu.tbadk.core.g.a().f();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,16 +39,16 @@ public class p implements com.baidu.adp.lib.resourceLoader.g<com.baidu.adp.widge
         if (valueOf == null || valueOf2 == null || valueOf3 == null) {
             return null;
         }
-        ArrayList<com.baidu.tbadk.editortool.ag> d = com.baidu.tbadk.editortool.ac.a().d();
+        ArrayList<com.baidu.tbadk.editortool.af> c = com.baidu.tbadk.editortool.ac.a().c();
         if (valueOf3.booleanValue()) {
             String a = com.baidu.tbadk.editortool.ac.a().a(valueOf2, true);
-            Iterator<com.baidu.tbadk.editortool.ag> it = d.iterator();
+            Iterator<com.baidu.tbadk.editortool.af> it = c.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     aVar3 = null;
                     break;
                 }
-                com.baidu.tbadk.editortool.ag next = it.next();
+                com.baidu.tbadk.editortool.af next = it.next();
                 if (next.a(valueOf2)) {
                     aVar3 = a(next.e(), a, aVar);
                     break;
@@ -60,7 +60,7 @@ public class p implements com.baidu.adp.lib.resourceLoader.g<com.baidu.adp.widge
             return aVar3;
         }
         String a2 = com.baidu.tbadk.editortool.ac.a().a(valueOf2, false);
-        Iterator<com.baidu.tbadk.editortool.ag> it2 = d.iterator();
+        Iterator<com.baidu.tbadk.editortool.af> it2 = c.iterator();
         while (true) {
             if (!it2.hasNext()) {
                 aVar2 = null;
@@ -110,13 +110,13 @@ public class p implements com.baidu.adp.lib.resourceLoader.g<com.baidu.adp.widge
                     bVar.a(aVar3);
                     aVar.a = bVar;
                 }
-                Iterator<com.baidu.tbadk.editortool.ag> it = com.baidu.tbadk.editortool.ac.a().d().iterator();
+                Iterator<com.baidu.tbadk.editortool.af> it = com.baidu.tbadk.editortool.ac.a().c().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         aVar2 = null;
                         break;
                     }
-                    com.baidu.tbadk.editortool.ag next = it.next();
+                    com.baidu.tbadk.editortool.af next = it.next();
                     if (next.a(valueOf2)) {
                         aVar2 = a(next.e(), a2, aVar);
                         break;

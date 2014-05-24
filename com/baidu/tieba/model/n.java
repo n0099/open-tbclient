@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class n extends BdAsyncTask<k, Integer, Boolean> {
     final /* synthetic */ k a;
     private com.baidu.tbadk.core.util.al b;
-    private com.baidu.tieba.data.ar c;
+    private com.baidu.tieba.data.as c;
 
     private n(k kVar) {
         this.a = kVar;
@@ -25,7 +25,7 @@ public class n extends BdAsyncTask<k, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.c = new com.baidu.tieba.data.ar();
+        this.c = new com.baidu.tieba.data.as();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

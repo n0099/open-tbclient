@@ -48,7 +48,7 @@ class e {
                     byteArrayOutputStream = new ByteArrayOutputStream(1024);
                     try {
                         if (z) {
-                            com.baidu.tbadk.c.a.a(fileInputStream, byteArrayOutputStream);
+                            com.baidu.tbadk.c.b.a(fileInputStream, byteArrayOutputStream);
                         } else {
                             byte[] bArr = new byte[1024];
                             while (true) {

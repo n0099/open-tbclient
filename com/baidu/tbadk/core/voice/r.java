@@ -13,26 +13,26 @@ import com.baidu.tbadk.core.voice.service.MediaService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends BroadcastReceiver {
-    final /* synthetic */ VoiceManager a;
+    final /* synthetic */ VoiceManager this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(VoiceManager voiceManager) {
-        this.a = voiceManager;
+        this.this$0 = voiceManager;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         VoiceData.VoiceModel voiceModel;
-        x m;
+        x playView;
         VoiceData.VoiceModel voiceModel2;
         VoiceData.VoiceModel voiceModel3;
         String a;
         VoiceData.VoiceModel voiceModel4;
-        x m2;
+        x playView2;
         VoiceData.VoiceModel voiceModel5;
         VoiceData.VoiceModel voiceModel6;
         VoiceData.VoiceModel voiceModel7;
-        x m3;
+        x playView3;
         VoiceData.VoiceModel voiceModel8;
         boolean z;
         boolean z2;
@@ -40,7 +40,7 @@ public class r extends BroadcastReceiver {
         Handler handler2;
         Handler handler3;
         VoiceData.VoiceModel voiceModel9;
-        x m4;
+        x playView4;
         VoiceData.VoiceModel voiceModel10;
         VoiceData.VoiceModel voiceModel11;
         VoiceData.VoiceModel voiceModel12;
@@ -49,40 +49,40 @@ public class r extends BroadcastReceiver {
         VoiceData.VoiceModel voiceModel14;
         VoiceData.VoiceModel voiceModel15;
         VoiceData.VoiceModel voiceModel16;
-        x m5;
+        x playView5;
         VoiceData.VoiceModel voiceModel17;
         Handler handler5;
         Runnable runnable;
         int i = 0;
-        voiceModel = this.a.x;
+        voiceModel = this.this$0.mCurPlayModel;
         if (voiceModel != null && intent != null) {
             String action = intent.getAction();
             if (action.equals("com.baidu.isPlaying")) {
-                this.a.t();
+                this.this$0.setVolumeControlStream();
                 if (intent.getBooleanExtra("com.baidu.msg.isPlaying", false)) {
-                    voiceModel12 = this.a.x;
+                    voiceModel12 = this.this$0.mCurPlayModel;
                     if (voiceModel12 != null) {
-                        handler4 = this.a.s;
+                        handler4 = this.this$0.mHandle;
                         if (handler4 != null) {
-                            handler5 = this.a.s;
-                            runnable = this.a.N;
+                            handler5 = this.this$0.mHandle;
+                            runnable = this.this$0.unRegistSensorRunnable;
                             handler5.removeCallbacks(runnable);
                         }
                         try {
-                            voiceModel16 = this.a.x;
+                            voiceModel16 = this.this$0.mCurPlayModel;
                             voiceModel16.voice_status = 3;
-                            m5 = this.a.m();
-                            if (m5 != null) {
-                                voiceModel17 = this.a.x;
-                                m5.a(voiceModel17);
+                            playView5 = this.this$0.getPlayView();
+                            if (playView5 != null) {
+                                voiceModel17 = this.this$0.mCurPlayModel;
+                                playView5.a(voiceModel17);
                             }
                         } catch (Exception e) {
                             com.baidu.tbadk.core.util.w wVar = new com.baidu.tbadk.core.util.w();
-                            voiceModel13 = this.a.x;
+                            voiceModel13 = this.this$0.mCurPlayModel;
                             if (voiceModel13 != null) {
-                                voiceModel14 = this.a.x;
+                                voiceModel14 = this.this$0.mCurPlayModel;
                                 wVar.a("id", voiceModel14.getId());
-                                voiceModel15 = this.a.x;
+                                voiceModel15 = this.this$0.mCurPlayModel;
                                 wVar.a("from", voiceModel15.from);
                             }
                             TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_UPDATEVIEW, "mVoicePlayerReceiver.onReceive exception: " + e.getMessage(), wVar.toString());
@@ -91,82 +91,82 @@ public class r extends BroadcastReceiver {
                 }
             } else if (action.equals("com.baidu.playElapsedTime")) {
                 int intExtra = intent.getIntExtra("com.baidu.msg.playElapsedTime", 0);
-                m4 = this.a.m();
-                if (m4 != null) {
-                    m4.a(intExtra);
+                playView4 = this.this$0.getPlayView();
+                if (playView4 != null) {
+                    playView4.a(intExtra);
                 }
-                voiceModel10 = this.a.x;
+                voiceModel10 = this.this$0.mCurPlayModel;
                 if (voiceModel10 != null) {
-                    voiceModel11 = this.a.x;
+                    voiceModel11 = this.this$0.mCurPlayModel;
                     voiceModel11.elapse = intExtra;
                 }
             } else if (action.equals("com.baidu.isStoped")) {
-                m3 = this.a.m();
-                voiceModel8 = this.a.x;
+                playView3 = this.this$0.getPlayView();
+                voiceModel8 = this.this$0.mCurPlayModel;
                 if (voiceModel8 != null) {
-                    z = this.a.M;
+                    z = this.this$0.bStopAndReplay;
                     if (!z) {
-                        this.a.q();
-                        VoiceManager voiceManager = this.a;
-                        voiceModel9 = this.a.x;
-                        voiceManager.b(voiceModel9);
-                        this.a.A = null;
+                        this.this$0.releaseWakeLock();
+                        VoiceManager voiceManager = this.this$0;
+                        voiceModel9 = this.this$0.mCurPlayModel;
+                        voiceManager.setStatusWaiting(voiceModel9);
+                        this.this$0.sPlayView = null;
                     }
-                    this.a.x = null;
-                    z2 = this.a.M;
-                    if (z2 && m3 != null) {
-                        VoiceData.VoiceModel voiceModel18 = m3.getVoiceModel();
+                    this.this$0.mCurPlayModel = null;
+                    z2 = this.this$0.bStopAndReplay;
+                    if (z2 && playView3 != null) {
+                        VoiceData.VoiceModel voiceModel18 = playView3.getVoiceModel();
                         if (voiceModel18 != null) {
                             voiceModel18.curr_time = intent.getIntExtra("com.baidu.msg.curr_time", 0);
                         }
-                        handler = this.a.s;
+                        handler = this.this$0.mHandle;
                         if (handler != null) {
-                            handler2 = this.a.s;
-                            handler2.removeCallbacks(this.a.i);
-                            handler3 = this.a.s;
-                            handler3.postDelayed(this.a.i, 200L);
+                            handler2 = this.this$0.mHandle;
+                            handler2.removeCallbacks(this.this$0.stopVoiceAndRePlayRunnable);
+                            handler3 = this.this$0.mHandle;
+                            handler3.postDelayed(this.this$0.stopVoiceAndRePlayRunnable, 200L);
                         }
                     }
                 }
             } else if (action.equals("com.baidu.playPrepared")) {
                 int intExtra2 = intent.getIntExtra("com.baidu.playPrepared_err_code", -1);
                 if (intExtra2 == -1) {
-                    voiceModel4 = this.a.x;
+                    voiceModel4 = this.this$0.mCurPlayModel;
                     if (voiceModel4 != null) {
-                        voiceModel7 = this.a.x;
+                        voiceModel7 = this.this$0.mCurPlayModel;
                         i = voiceModel7.duration * LocationClientOption.MIN_SCAN_SPAN;
                     }
                     long longExtra = intent.getLongExtra("com.baidu.msg.durationTime2", i);
                     Log.d("testVoice", "duration_msec=" + longExtra);
                     if (longExtra > 900) {
-                        voiceModel5 = this.a.x;
+                        voiceModel5 = this.this$0.mCurPlayModel;
                         if (voiceModel5 != null) {
-                            voiceModel6 = this.a.x;
+                            voiceModel6 = this.this$0.mCurPlayModel;
                             voiceModel6.duration2 = (int) longExtra;
                         }
                     }
-                    m2 = this.a.m();
-                    if (m2 != null) {
-                        m2.a();
+                    playView2 = this.this$0.getPlayView();
+                    if (playView2 != null) {
+                        playView2.a();
                     }
-                    MediaService.a(context);
+                    MediaService.startPlay(context);
                     return;
                 }
-                m = this.a.m();
-                if (m != null) {
+                playView = this.this$0.getPlayView();
+                if (playView != null) {
                     if (intExtra2 == 2) {
-                        a = ae.a(com.baidu.tieba.u.voice_err_io);
+                        a = ae.a(com.baidu.tieba.y.voice_err_io);
                     } else {
-                        a = ae.a(com.baidu.tieba.u.voice_err_play);
+                        a = ae.a(com.baidu.tieba.y.voice_err_play);
                     }
-                    m.a(5, a);
+                    playView.a(5, a);
                 }
-                voiceModel2 = this.a.x;
+                voiceModel2 = this.this$0.mCurPlayModel;
                 if (voiceModel2 != null) {
-                    VoiceManager voiceManager2 = this.a;
-                    voiceModel3 = this.a.x;
-                    voiceManager2.b(voiceModel3);
-                    this.a.x = null;
+                    VoiceManager voiceManager2 = this.this$0;
+                    voiceModel3 = this.this$0.mCurPlayModel;
+                    voiceManager2.setStatusWaiting(voiceModel3);
+                    this.this$0.mCurPlayModel = null;
                 }
             } else {
                 action.equalsIgnoreCase("com.baidu.recognize");

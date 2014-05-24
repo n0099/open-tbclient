@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.chat.bw;
+import com.baidu.tieba.im.chat.bv;
 import com.baidu.tieba.im.data.GroupMsgData;
 /* loaded from: classes.dex */
 public class ac extends CustomMessageListener {
@@ -21,7 +21,7 @@ public class ac extends CustomMessageListener {
             } else {
                 long[] a = ab.a().a(groupMsgData);
                 if (a != null) {
-                    ab.a().a(String.valueOf(a[0]), bw.c(a[1]));
+                    ab.a().a(String.valueOf(a[0]), bv.c(a[1]));
                 }
             }
             ab.a().b(groupMsgData);

@@ -8,7 +8,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class ad {
     public static String a() {
-        return com.baidu.adp.lib.util.k.a();
+        return com.baidu.adp.lib.util.n.a();
     }
 
     public static String a(String str) {

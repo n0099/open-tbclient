@@ -2,6 +2,7 @@ package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,19 +25,19 @@ public class bn extends com.baidu.adp.framework.listener.b {
         Message<?> orginalMessage;
         com.baidu.tieba.model.e eVar;
         com.baidu.tieba.model.e eVar2;
-        com.baidu.tbadk.core.e eVar3;
+        BaseFragmentActivity baseFragmentActivity;
         af afVar;
         com.baidu.tbadk.core.dialog.d dVar;
         com.baidu.tbadk.core.dialog.d dVar2;
-        com.baidu.tbadk.core.e eVar4;
+        BaseFragmentActivity baseFragmentActivity2;
         af afVar2;
-        com.baidu.tieba.model.e eVar5;
+        com.baidu.tieba.model.e eVar3;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage)) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
             if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
                 if (requestUpdateMaskInfoMessage.getIsMask() == 1) {
-                    eVar5 = this.a.d;
-                    eVar5.a(1);
+                    eVar3 = this.a.d;
+                    eVar3.a(1);
                 } else {
                     eVar = this.a.d;
                     eVar.a(0);
@@ -45,14 +46,14 @@ public class bn extends com.baidu.adp.framework.listener.b {
                     eVar2 = this.a.d;
                     if (eVar2.a() == 1) {
                         bm bmVar = this.a;
-                        eVar4 = this.a.f;
-                        bmVar.b(eVar4.getString(com.baidu.tieba.u.black_list_added));
+                        baseFragmentActivity2 = this.a.f;
+                        bmVar.b(baseFragmentActivity2.getString(com.baidu.tieba.y.black_list_added));
                         afVar2 = this.a.n;
                         afVar2.b(true);
                     } else {
                         bm bmVar2 = this.a;
-                        eVar3 = this.a.f;
-                        bmVar2.b(eVar3.getString(com.baidu.tieba.u.black_list_remove_success));
+                        baseFragmentActivity = this.a.f;
+                        bmVar2.b(baseFragmentActivity.getString(com.baidu.tieba.y.black_list_remove_success));
                         afVar = this.a.n;
                         afVar.b(false);
                     }

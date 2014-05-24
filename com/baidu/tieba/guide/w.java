@@ -26,7 +26,7 @@ class w {
         Context context;
         this.d = vVar;
         context = vVar.a;
-        this.a = LayoutInflater.from(context).inflate(com.baidu.tieba.s.new_user_text_item, (ViewGroup) null);
+        this.a = LayoutInflater.from(context).inflate(com.baidu.tieba.w.new_user_text_item, (ViewGroup) null);
         this.a.setTag(Integer.valueOf(card.getFid()));
         a(card, onClickListener);
     }
@@ -38,10 +38,10 @@ class w {
     }
 
     public void b() {
-        this.b = (TextView) this.a.findViewById(com.baidu.tieba.r.tv_fname);
-        this.c = (TextView) this.a.findViewById(com.baidu.tieba.r.tv_cdesc);
-        this.e = (ImageView) this.a.findViewById(com.baidu.tieba.r.iv_like);
-        this.f = (LinearLayout) this.a.findViewById(com.baidu.tieba.r.ll_like);
+        this.b = (TextView) this.a.findViewById(com.baidu.tieba.v.tv_fname);
+        this.c = (TextView) this.a.findViewById(com.baidu.tieba.v.tv_cdesc);
+        this.e = (ImageView) this.a.findViewById(com.baidu.tieba.v.iv_like);
+        this.f = (LinearLayout) this.a.findViewById(com.baidu.tieba.v.ll_like);
     }
 
     public void a(boolean z) {
@@ -50,12 +50,12 @@ class w {
         if (!z) {
             ImageView imageView = this.e;
             context2 = this.d.a;
-            imageView.setBackgroundDrawable(context2.getResources().getDrawable(com.baidu.tieba.q.icon_startpage2_add_ba_n));
+            imageView.setBackgroundDrawable(context2.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_ba_n));
             return;
         }
         ImageView imageView2 = this.e;
         context = this.d.a;
-        imageView2.setBackgroundDrawable(context.getResources().getDrawable(com.baidu.tieba.q.icon_startpage2_add_ba_s));
+        imageView2.setBackgroundDrawable(context.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_ba_s));
     }
 
     private void a(InterestFrsData.Card card, View.OnClickListener onClickListener) {
@@ -68,10 +68,10 @@ class w {
         this.b.setText(card.getFname());
         if (card.getOrder() == 1) {
             context2 = this.d.a;
-            drawable = context2.getResources().getDrawable(com.baidu.tieba.q.icon_startpage2_add_ba_rise);
+            drawable = context2.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_ba_rise);
         } else if (card.getOrder() == 2) {
             context = this.d.a;
-            drawable = context.getResources().getDrawable(com.baidu.tieba.q.icon_startpage2_add_ba_decline);
+            drawable = context.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_ba_decline);
         } else {
             drawable = null;
         }

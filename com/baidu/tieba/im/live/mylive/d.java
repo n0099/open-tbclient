@@ -4,7 +4,7 @@ import android.widget.ProgressBar;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.b {
@@ -34,13 +34,13 @@ public class d extends com.baidu.adp.framework.listener.b {
             } else if (responseDismissGroupMessage.getError() >= 0) {
                 i = this.a.i;
                 if (i == 1) {
-                    this.a.a(u.live_mylive_dismiss_success);
+                    this.a.a(y.live_mylive_dismiss_success);
                     myLiveListAdapter = this.a.h;
                     liveCardData = this.a.j;
                     myLiveListAdapter.a(liveCardData);
                 }
             } else {
-                this.a.a(u.neterror);
+                this.a.a(y.neterror);
             }
         }
     }

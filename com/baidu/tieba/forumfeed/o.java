@@ -7,7 +7,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.r;
+import com.baidu.tieba.s;
+import com.baidu.tieba.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o {
@@ -23,11 +24,11 @@ public class o {
     public o(j jVar, Context context, View view) {
         this.b = jVar;
         this.h = view;
-        this.c = (TextView) view.findViewById(r.tip1);
-        this.d = (TextView) view.findViewById(r.tip2);
-        this.e = (ImageView) view.findViewById(r.nodata_img_bg);
-        this.g = (Button) view.findViewById(r.btn_go);
-        this.f = (LinearLayout) view.findViewById(r.layout_btn_go);
+        this.c = (TextView) view.findViewById(v.tip1);
+        this.d = (TextView) view.findViewById(v.tip2);
+        this.e = (ImageView) view.findViewById(v.nodata_img_bg);
+        this.g = (Button) view.findViewById(v.btn_go);
+        this.f = (LinearLayout) view.findViewById(v.layout_btn_go);
         this.g.setOnClickListener(new p(this, context));
     }
 
@@ -38,7 +39,7 @@ public class o {
         this.d.setVisibility(8);
         this.e.setVisibility(8);
         this.f.setVisibility(8);
-        int i = TbadkApplication.m252getInst().getSkinType() == 1 ? com.baidu.tieba.o.forumfeed_frs_bg_1 : com.baidu.tieba.o.forumfeed_frs_bg;
+        int i = TbadkApplication.m252getInst().getSkinType() == 1 ? s.forumfeed_frs_bg_1 : s.forumfeed_frs_bg;
         linearLayout = this.b.l;
         linearLayout.setBackgroundResource(i);
     }
@@ -58,9 +59,9 @@ public class o {
 
     public void a(int i) {
         if (i == 1) {
-            this.h.setBackgroundResource(com.baidu.tieba.o.forumfeed_frs_bg_1);
+            this.h.setBackgroundResource(s.forumfeed_frs_bg_1);
         } else if (this.a) {
-            this.h.setBackgroundResource(com.baidu.tieba.o.forumfeed_frs_bg);
+            this.h.setBackgroundResource(s.forumfeed_frs_bg);
         }
     }
 }

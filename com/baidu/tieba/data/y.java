@@ -1,6 +1,7 @@
 package com.baidu.tieba.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.model.Hao123Model;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
@@ -31,18 +32,18 @@ public class y {
 
     public void a(JSONArray jSONArray) {
         if (jSONArray != null) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
+            try {
+                Hao123Model.setHao123Cache(Hao123Model.getHao123JosnStr(Hao123Model.parserLikeForums(jSONArray)));
+                for (int i = 0; i < jSONArray.length(); i++) {
                     x xVar = new x();
                     xVar.a(jSONArray.getJSONObject(i));
                     if (xVar.d() >= this.c) {
                         this.b = true;
                     }
                     this.a.add(xVar);
-                } catch (Exception e) {
-                    BdLog.e("LikeForumListData", "parserJson", "error = " + e.getMessage());
-                    return;
                 }
+            } catch (Exception e) {
+                BdLog.e("LikeForumListData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

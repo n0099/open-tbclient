@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class n extends Handler {
     final /* synthetic */ PluginDownloadActivity a;
@@ -91,7 +91,7 @@ class n extends Handler {
                     if (id3.equals(pluginConfig2.name)) {
                         oVar2 = this.a.a;
                         textView = oVar2.g;
-                        textView.setText(this.a.getString(u.plugin_download_finished));
+                        textView.setText(this.a.getString(y.plugin_download_finished));
                         oVar3 = this.a.a;
                         textView2 = oVar3.g;
                         textView2.setEnabled(false);

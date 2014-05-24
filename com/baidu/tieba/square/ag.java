@@ -8,14 +8,14 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ag extends BaseAdapter implements com.baidu.tieba.view.t {
     private ah a;
-    private ArrayList<at> b = new ArrayList<>();
+    private ArrayList<au> b = new ArrayList<>();
 
     public ag(Context context) {
         this.a = null;
         this.a = new ah(context);
     }
 
-    public void a(ArrayList<at> arrayList) {
+    public void a(ArrayList<au> arrayList) {
         this.b = arrayList;
         this.a.a(arrayList);
     }

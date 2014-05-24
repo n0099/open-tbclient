@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 import com.baidu.tbadk.core.util.be;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class g {
     private static c a = null;
@@ -83,7 +83,7 @@ public class g {
     }
 
     private String a(String str, int i, int i2) {
-        String string = this.c.getString(u.share_tail);
+        String string = this.c.getString(y.share_tail);
         if (str != null) {
             int min = Math.min((i - string.length()) - i2, str.length());
             if (min < str.length()) {

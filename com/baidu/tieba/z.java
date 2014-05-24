@@ -1,43 +1,86 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class z implements View.OnClickListener {
-    final /* synthetic */ y a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public z(y yVar) {
-        this.a = yVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        boolean z2;
-        ac acVar;
-        Context context;
-        Drawable drawable;
-        Context context2;
-        z = this.a.p;
-        TiebaStatic.eventStat(this.a.getContext(), "upgrade_channel", z ? "withOtherApp" : "withoutOtherApp", 1, new Object[0]);
-        this.a.r = true;
-        z2 = this.a.q;
-        if (z2) {
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                context2 = this.a.o;
-                drawable = context2.getResources().getDrawable(q.btn_dailog_choose_d_1);
-            } else {
-                context = this.a.o;
-                drawable = context.getResources().getDrawable(q.btn_dailog_choose_d);
-            }
-            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            this.a.f.setCompoundDrawables(drawable, null, null, null);
-        }
-        acVar = this.a.k;
-        acVar.a(z);
-    }
+public final class z {
+    public static final int AlertDialog = 2131296258;
+    public static final int AnimBottom = 2131296263;
+    public static final int AppBaseTheme = 2131296256;
+    public static final int AppTheme = 2131296257;
+    public static final int BeautyDialog = 2131296262;
+    public static final int CustomizedWindowTitleBg = 2131296286;
+    public static final int DQLoadingDialog = 2131296259;
+    public static final int Dialog_global = 2131296327;
+    public static final int FullHeightDialog = 2131296261;
+    public static final int NewUserDialog = 2131296270;
+    public static final int NobackDialog = 2131296269;
+    public static final int NotificationText = 2131296312;
+    public static final int SapiImagePicker = 2131296264;
+    public static final int SapiTheme = 2131296260;
+    public static final int Transparent = 2131296328;
+    public static final int UpdateStyle = 2131296292;
+    public static final int address_bg_arrow = 2131296310;
+    public static final int auto_skin_list = 2131296268;
+    public static final int big_image_dialog = 2131296295;
+    public static final int big_image_dialog_anim = 2131296296;
+    public static final int browser_BdDialogTheme = 2131296324;
+    public static final int browser_BdNoMaskDialogTheme = 2131296325;
+    public static final int browser_BdWaitingDialog = 2131296326;
+    public static final int comm_controls = 2131296272;
+    public static final int common_alert_dialog = 2131296294;
+    public static final int common_image_btn_style = 2131296311;
+    public static final int custom_animate = 2131296290;
+    public static final int dialog_ani_b2t = 2131296316;
+    public static final int dialog_ani_l2r = 2131296318;
+    public static final int dialog_ani_r2l = 2131296319;
+    public static final int dialog_ani_t2b = 2131296317;
+    public static final int forbid_day_item = 2131296271;
+    public static final int frs_pb_bottom_bar = 2131296330;
+    public static final int input_username_dialog = 2131296293;
+    public static final int main_tab_bottom = 2131296329;
+    public static final int navi_btn_bg_comm = 2131296273;
+    public static final int navi_btn_bg_more = 2131296274;
+    public static final int navi_logo_bg_comm = 2131296275;
+    public static final int navi_textbtn_bg_comm = 2131296276;
+    public static final int pb_drawable_text_button = 2131296321;
+    public static final int pb_drawable_text_button_1 = 2131296322;
+    public static final int personal_big_button = 2131296298;
+    public static final int personal_big_button_icon = 2131296299;
+    public static final int personal_big_button_panel = 2131296297;
+    public static final int personal_big_button_text = 2131296300;
+    public static final int personal_big_button_text_new_number = 2131296302;
+    public static final int personal_big_button_text_number = 2131296301;
+    public static final int pop_window_anim = 2131296323;
+    public static final int search_dialog = 2131296291;
+    public static final int setting_bg_arrow = 2131296267;
+    public static final int setting_bg_layout = 2131296266;
+    public static final int setting_bg_text = 2131296265;
+    public static final int setting_single_text = 2131296309;
+    public static final int setting_version_prompt_text = 2131296332;
+    public static final int setting_version_prompt_text_1 = 2131296333;
+    public static final int setting_version_text = 2131296334;
+    public static final int setting_version_text_1 = 2131296335;
+    public static final int share_dialog_style = 2131296315;
+    public static final int sidebar_content = 2131296306;
+    public static final int sidebar_content_1 = 2131296308;
+    public static final int sidebar_title = 2131296305;
+    public static final int sidebar_title_1 = 2131296307;
+    public static final int sub_pb_anim = 2131296331;
+    public static final int subtext = 2131296336;
+    public static final int subtext_1 = 2131296337;
+    public static final int text_info = 2131296285;
+    public static final int text_shadow_style = 2131296303;
+    public static final int text_shadow_style_1 = 2131296304;
+    public static final int tieba_app = 2131296288;
+    public static final int tieba_app_fullscreen = 2131296289;
+    public static final int title = 2131296287;
+    public static final int title_3_info = 2131296283;
+    public static final int title_back_info = 2131296282;
+    public static final int title_comm = 2131296277;
+    public static final int title_info = 2131296278;
+    public static final int title_info_shadow = 2131296279;
+    public static final int title_margin = 2131296284;
+    public static final int title_multi_textview = 2131296280;
+    public static final int title_multi_textview_msg_num = 2131296281;
+    public static final int top_dark_txt = 2131296320;
+    public static final int voic_play_bnt_type_normal = 2131296313;
+    public static final int voic_play_bnt_type_reply = 2131296314;
 }

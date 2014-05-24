@@ -11,14 +11,14 @@ class bh {
     TextView d;
     TextView e;
     TextView f;
-    final /* synthetic */ ba g;
+    final /* synthetic */ az g;
 
-    private bh(ba baVar) {
-        this.g = baVar;
+    private bh(az azVar) {
+        this.g = azVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bh(ba baVar, bh bhVar) {
-        this(baVar);
+    public /* synthetic */ bh(az azVar, bh bhVar) {
+        this(azVar);
     }
 }

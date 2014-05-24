@@ -22,7 +22,7 @@ import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.frsgroup.GroupLevelActivity;
 import com.baidu.tieba.im.groupActivity.GroupActivityActivity;
 import com.baidu.tieba.im.groupInfo.RequestDelSystemMessage;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrollListener {
@@ -175,7 +175,7 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
     /* JADX INFO: Access modifiers changed from: private */
     public void a(UpdatesItemData updatesItemData) {
         if (!UtilHelper.isNetOk()) {
-            showToast(u.neterror);
+            showToast(y.neterror);
         } else if (updatesItemData != null && !TextUtils.isEmpty(com.baidu.tieba.im.pushNotify.p.a().e()) && TextUtils.isDigitsOnly(com.baidu.tieba.im.pushNotify.p.a().e()) && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
             try {
                 this.b.a(true);
@@ -193,7 +193,7 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
 
     private void a(String str) {
         if (!UtilHelper.isNetOk()) {
-            showToast(u.neterror);
+            showToast(y.neterror);
         } else if (!TextUtils.isEmpty(str)) {
             String e = com.baidu.tieba.im.pushNotify.p.a().e();
             if (!TextUtils.isEmpty(e) && TextUtils.isDigitsOnly(e)) {
@@ -228,7 +228,7 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
                         GroupLevelActivity.a(this, Long.parseLong(groupId));
                     } else if (!updatesType.equals("dismiss_group")) {
                         if (updatesType.equals("group_event_info")) {
-                            com.baidu.tbadk.core.g.a(this, "update_activity_group_event_click");
+                            com.baidu.tbadk.core.f.a(this, "update_activity_group_event_click");
                             bi.a().a(this, new String[]{updatesItemData.getEventLink()});
                         } else if (updatesType.equals("group_activitys_change")) {
                             GroupActivityActivity.a(this, com.baidu.adp.lib.f.b.a(updatesItemData.getGroupActivityId(), 0), com.baidu.adp.lib.f.b.a(updatesItemData.getGroupId(), 0L), 1);
@@ -251,7 +251,7 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
                 if (this.j.d() > 100) {
                     this.j.b(updatesItemData);
                     updatesItemData.setSelected(false);
-                    showToast(u.updates_activity_del_limit);
+                    showToast(y.updates_activity_del_limit);
                 }
             } else {
                 this.j.b(updatesItemData);
@@ -273,10 +273,10 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
     }
 
     private void e() {
-        String string = getString(u.delete_user_chat);
+        String string = getString(y.delete_user_chat);
         f fVar = new f(this);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(u.operation);
+        builder.setTitle(y.operation);
         builder.setItems(new String[]{string}, fVar);
         this.c = builder.create();
         this.c.setCanceledOnTouchOutside(true);

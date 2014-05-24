@@ -2,17 +2,17 @@ package com.baidu.tieba.model;
 
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.base.d {
+public class v extends com.baidu.adp.base.b {
     private w a = null;
     private y b = null;
     private aa c = null;
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         a();
         return false;

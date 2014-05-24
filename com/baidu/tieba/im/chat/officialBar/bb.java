@@ -39,19 +39,19 @@ public class bb extends RelativeLayout {
     }
 
     private void b() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.msg_single_pic_text_view, (ViewGroup) this, true);
-        this.b = (TextView) findViewById(com.baidu.tieba.r.single_title);
-        this.c = (TextView) findViewById(com.baidu.tieba.r.single_abstract);
-        this.d = (TbImageView) findViewById(com.baidu.tieba.r.single_content_pic);
-        this.f = (TextView) findViewById(com.baidu.tieba.r.read_all);
-        this.g = (ImageView) findViewById(com.baidu.tieba.r.arrow);
-        this.e = findViewById(com.baidu.tieba.r.single_divider);
-        this.h = (TextView) findViewById(com.baidu.tieba.r.show_time_single);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.msg_single_pic_text_view, (ViewGroup) this, true);
+        this.b = (TextView) findViewById(com.baidu.tieba.v.single_title);
+        this.c = (TextView) findViewById(com.baidu.tieba.v.single_abstract);
+        this.d = (TbImageView) findViewById(com.baidu.tieba.v.single_content_pic);
+        this.f = (TextView) findViewById(com.baidu.tieba.v.read_all);
+        this.g = (ImageView) findViewById(com.baidu.tieba.v.arrow);
+        this.e = findViewById(com.baidu.tieba.v.single_divider);
+        this.h = (TextView) findViewById(com.baidu.tieba.v.show_time_single);
         setOnLongClickListener(new bc(this));
     }
 
     public void a(t tVar, View view) {
-        setPadding(0, (int) this.a.getResources().getDimension(com.baidu.tieba.p.multi_padding_left_right), 0, 0);
+        setPadding(0, (int) this.a.getResources().getDimension(com.baidu.tieba.t.multi_padding_left_right), 0, 0);
         if (tVar != null) {
             String str = "";
             if (!TextUtils.isEmpty(tVar.a)) {
@@ -66,8 +66,8 @@ public class bb extends RelativeLayout {
             if (!TextUtils.isEmpty(tVar.d)) {
                 setOnClickListener(new bd(this, tVar));
             }
-            this.d.setDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d);
-            this.d.setNightDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d_1);
+            this.d.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d);
+            this.d.setNightDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d_1);
             if (!TextUtils.isEmpty(tVar.c)) {
                 this.d.setTag(tVar.c);
                 com.baidu.tbadk.editortool.ab abVar = new com.baidu.tbadk.editortool.ab(this.a);
@@ -96,20 +96,20 @@ public class bb extends RelativeLayout {
 
     public void a(boolean z) {
         if (z) {
-            this.b.setTextColor(getResources().getColor(com.baidu.tieba.o.official_msg_bottom_text_1));
-            this.c.setTextColor(getResources().getColor(com.baidu.tieba.o.official_abstract_1));
-            this.f.setTextColor(getResources().getColor(com.baidu.tieba.o.official_msg_bottom_text_1));
-            this.g.setBackgroundResource(com.baidu.tieba.q.icon_ba_top_arrow_big_1);
-            this.h.setTextColor(getResources().getColor(com.baidu.tieba.o.official_time_text_1));
-            this.e.setBackgroundResource(com.baidu.tieba.q.multi_single_divider_selector_1);
+            this.b.setTextColor(getResources().getColor(com.baidu.tieba.s.official_msg_bottom_text_1));
+            this.c.setTextColor(getResources().getColor(com.baidu.tieba.s.official_abstract_1));
+            this.f.setTextColor(getResources().getColor(com.baidu.tieba.s.official_msg_bottom_text_1));
+            this.g.setBackgroundResource(com.baidu.tieba.u.icon_ba_top_arrow_big_1);
+            this.h.setTextColor(getResources().getColor(com.baidu.tieba.s.official_time_text_1));
+            this.e.setBackgroundResource(com.baidu.tieba.u.multi_single_divider_selector_1);
             return;
         }
-        this.b.setTextColor(getResources().getColor(com.baidu.tieba.o.official_msg_bottom_text));
-        this.c.setTextColor(getResources().getColor(com.baidu.tieba.o.official_abstract_1));
-        this.f.setTextColor(getResources().getColor(com.baidu.tieba.o.official_msg_bottom_text));
-        this.g.setBackgroundResource(com.baidu.tieba.q.icon_ba_top_arrow_big);
-        this.h.setTextColor(getResources().getColor(com.baidu.tieba.o.official_time_text));
-        this.e.setBackgroundResource(com.baidu.tieba.q.multi_single_divider_selector);
+        this.b.setTextColor(getResources().getColor(com.baidu.tieba.s.official_msg_bottom_text));
+        this.c.setTextColor(getResources().getColor(com.baidu.tieba.s.official_abstract_1));
+        this.f.setTextColor(getResources().getColor(com.baidu.tieba.s.official_msg_bottom_text));
+        this.g.setBackgroundResource(com.baidu.tieba.u.icon_ba_top_arrow_big);
+        this.h.setTextColor(getResources().getColor(com.baidu.tieba.s.official_time_text));
+        this.e.setBackgroundResource(com.baidu.tieba.u.multi_single_divider_selector);
     }
 
     public void setTime(String str) {

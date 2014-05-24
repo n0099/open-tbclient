@@ -12,12 +12,12 @@ public class n implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         int i;
-        if (this.a.a == null) {
+        if (this.a.recordView == null) {
             return;
         }
-        i = this.a.H;
+        i = this.a.currRecordState;
         if (i == 2) {
-            this.a.a.b();
+            this.a.recordView.b();
         }
     }
 }

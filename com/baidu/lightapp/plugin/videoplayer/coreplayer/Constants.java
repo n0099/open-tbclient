@@ -35,6 +35,8 @@ public class Constants {
     public static final int MEDIA_SEEK_COMPLETE = 104;
     public static final int MEDIA_SET_VIDEO_SIZE = 105;
     public static final int MEDIA_STOPPED = 111;
+    public static final int MEDIA_WARNING = 115;
+    public static final int NOPACKET_11 = 11;
     public static final int PAUSED_3 = 3;
     public static final int POSITION_9 = 9;
     public static final int PREPARED_1 = 1;

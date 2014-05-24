@@ -40,7 +40,7 @@ public class AppsActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.app_activity);
+        setContentView(com.baidu.tieba.w.app_activity);
         c();
         a(bundle);
     }
@@ -81,17 +81,17 @@ public class AppsActivity extends BaseActivity {
     }
 
     private void c() {
-        this.h = (RelativeLayout) findViewById(com.baidu.tieba.r.parent);
-        this.i = (RelativeLayout) findViewById(com.baidu.tieba.r.title);
-        this.j = (TextView) findViewById(com.baidu.tieba.r.title_text);
-        this.b = (BaseWebView) findViewById(com.baidu.tieba.r.app_webView);
+        this.h = (RelativeLayout) findViewById(com.baidu.tieba.v.parent);
+        this.i = (RelativeLayout) findViewById(com.baidu.tieba.v.title);
+        this.j = (TextView) findViewById(com.baidu.tieba.v.title_text);
+        this.b = (BaseWebView) findViewById(com.baidu.tieba.v.app_webView);
         this.b.setDownloadEnabled(true);
-        this.f = (ProgressBar) findViewById(com.baidu.tieba.r.app_progress);
-        this.e = (LinearLayout) findViewById(com.baidu.tieba.r.webview_fail_imageview);
+        this.f = (ProgressBar) findViewById(com.baidu.tieba.v.app_progress);
+        this.e = (LinearLayout) findViewById(com.baidu.tieba.v.webview_fail_imageview);
         this.e.setOnClickListener(new f(this));
-        this.g = (ImageView) findViewById(com.baidu.tieba.r.refresh);
+        this.g = (ImageView) findViewById(com.baidu.tieba.v.refresh);
         this.g.setOnClickListener(new g(this));
-        this.c = (ImageView) findViewById(com.baidu.tieba.r.back);
+        this.c = (ImageView) findViewById(com.baidu.tieba.v.back);
         this.c.setOnClickListener(new h(this));
     }
 

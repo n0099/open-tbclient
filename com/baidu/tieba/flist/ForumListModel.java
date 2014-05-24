@@ -10,7 +10,7 @@ import com.baidu.tieba.data.ForumInfoData;
 import java.io.Serializable;
 import java.util.Arrays;
 /* loaded from: classes.dex */
-public class ForumListModel extends com.baidu.adp.base.d implements Serializable {
+public class ForumListModel extends com.baidu.adp.base.b implements Serializable {
     private static boolean a = false;
     private static String b = null;
     private static final long serialVersionUID = -5006585496963439439L;
@@ -23,12 +23,12 @@ public class ForumListModel extends com.baidu.adp.base.d implements Serializable
     public long ctime = 0;
     public long logid = 0;
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }
@@ -54,7 +54,7 @@ public class ForumListModel extends com.baidu.adp.base.d implements Serializable
 
     public static ForumListModel new_fetch(Context context, RequestParams requestParams) {
         int i;
-        com.baidu.adp.lib.cache.s<String> o;
+        com.baidu.adp.lib.cache.s<String> p;
         if (requestParams.menu_id == 0) {
             i = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
         } else {
@@ -71,8 +71,8 @@ public class ForumListModel extends com.baidu.adp.base.d implements Serializable
         a = alVar.c();
         BdLog.d("DataProvider", "fetch", "fetched raw string\n" + i2);
         ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(i2, (Class<Object>) ForumListModel.class);
-        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (o = com.baidu.tbadk.core.a.b.a().o()) != null)) {
-            o.a(String.valueOf(TbadkApplication.getCurrentAccount()) + "_" + b + "_list", i2, 86400000L);
+        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (p = com.baidu.tbadk.core.a.b.a().p()) != null)) {
+            p.a(String.valueOf(TbadkApplication.getCurrentAccount()) + "_" + b + "_list", i2, 86400000L);
         }
         return forumListModel;
     }

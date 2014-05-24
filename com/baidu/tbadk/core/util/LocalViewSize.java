@@ -51,7 +51,7 @@ public class LocalViewSize {
     }
 
     public int b() {
-        int b = com.baidu.adp.lib.util.h.b(this.b);
+        int b = com.baidu.adp.lib.util.k.b(this.b);
         if (b >= 1080) {
             return 1080;
         }
@@ -60,7 +60,7 @@ public class LocalViewSize {
 
     public ImageSize c() {
         int i = 240;
-        int b = com.baidu.adp.lib.util.h.b(this.b);
+        int b = com.baidu.adp.lib.util.k.b(this.b);
         BdLog.i("=======getEquipmentWidth:" + b);
         if (b < 240) {
             i = b / 3;
@@ -79,8 +79,8 @@ public class LocalViewSize {
 
     public ImageSize d() {
         ImageSize imageSize = new ImageSize();
-        imageSize.height = com.baidu.adp.lib.util.h.c(this.b);
-        imageSize.width = com.baidu.adp.lib.util.h.b(this.b);
+        imageSize.height = com.baidu.adp.lib.util.k.c(this.b);
+        imageSize.width = com.baidu.adp.lib.util.k.b(this.b);
         return imageSize;
     }
 

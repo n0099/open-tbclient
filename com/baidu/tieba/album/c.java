@@ -69,7 +69,7 @@ class c implements View.OnClickListener {
                             i3 = this.a.j;
                             albumActivity3.a(i3, true);
                             albumActivity4 = this.a.b;
-                            Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4, com.baidu.tieba.l.album_choose_icon);
+                            Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4, com.baidu.tieba.p.album_choose_icon);
                             imageView2 = this.a.l;
                             imageView2.startAnimation(loadAnimation);
                         }

@@ -39,12 +39,12 @@ class ai extends BaseActivity.LoadDataCallBack {
                     this.a.showToast(facePackageDetailData.usermsg);
                     return;
                 } else {
-                    this.a.showToast(com.baidu.tieba.u.neterror);
+                    this.a.showToast(com.baidu.tieba.y.neterror);
                     return;
                 }
             }
             return;
         }
-        this.a.showToast(com.baidu.tieba.u.neterror);
+        this.a.showToast(com.baidu.tieba.y.neterror);
     }
 }

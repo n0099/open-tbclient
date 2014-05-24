@@ -5,47 +5,44 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class at {
     private String a = null;
-    private int b = 0;
-    private int d = 0;
-    private int e = 0;
+    private String d = null;
+    private String b = null;
     private int c = 0;
+    private au e = new au();
 
-    public int a() {
+    public String a() {
         return this.d;
     }
 
-    public int b() {
+    public au b() {
         return this.e;
     }
 
     public String c() {
-        return this.a;
-    }
-
-    public int d() {
         return this.b;
     }
 
-    public void a(int i) {
-        this.b = i;
+    public String d() {
+        return this.a;
     }
 
     public int e() {
         return this.c;
     }
 
-    public void b(int i) {
-        this.c = i;
-    }
-
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optString("id");
-                this.d = jSONObject.optInt("width", 0);
-                this.e = jSONObject.optInt("height", 0);
+                this.a = jSONObject.optString("tid");
+                this.b = jSONObject.optString("title");
+                this.c = jSONObject.optInt("reply_amount", 0);
+                JSONObject optJSONObject = jSONObject.optJSONObject("user");
+                if (optJSONObject != null) {
+                    this.d = optJSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+                }
+                this.e.a(jSONObject.optJSONObject("photo"));
             } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                BdLog.e("HotspotData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

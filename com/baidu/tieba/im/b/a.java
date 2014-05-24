@@ -49,7 +49,7 @@ public class a extends c {
             UserData userData = (UserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) UserData.class);
             String str2 = "";
             if (userData != null) {
-                if (com.baidu.adp.lib.util.g.b(userData.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
+                if (com.baidu.adp.lib.util.j.b(userData.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
                     oldUserData.setToUserData(userData);
                 }
                 str2 = userData.getUserName();
@@ -134,7 +134,7 @@ public class a extends c {
                     if (userData == null) {
                         str = "";
                     } else {
-                        if (com.baidu.adp.lib.util.g.b(userData.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(d.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
+                        if (com.baidu.adp.lib.util.j.b(userData.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(d.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
                             oldUserData.setToUserData(userData);
                         }
                         str = userData.getUserName();

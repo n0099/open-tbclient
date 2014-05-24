@@ -46,13 +46,13 @@ public class k extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         LinearLayout linearLayout;
-        ag agVar;
-        ag agVar2;
+        af afVar;
+        af afVar2;
         int i2;
-        ag agVar3;
+        af afVar3;
         ab abVar;
-        ag agVar4;
-        ag agVar5;
+        af afVar4;
+        af afVar5;
         int i3;
         LayoutInflater layoutInflater;
         int i4;
@@ -61,7 +61,7 @@ public class k extends BaseAdapter {
         int i7 = this.c + i;
         if (view == null) {
             layoutInflater = this.a.s;
-            LinearLayout linearLayout2 = (LinearLayout) layoutInflater.inflate(com.baidu.tieba.s.emotion_tab_content_item, (ViewGroup) null);
+            LinearLayout linearLayout2 = (LinearLayout) layoutInflater.inflate(com.baidu.tieba.w.emotion_tab_content_item, (ViewGroup) null);
             i4 = this.a.k;
             i5 = this.a.k;
             i6 = this.a.k;
@@ -72,18 +72,18 @@ public class k extends BaseAdapter {
         }
         int measuredWidth = viewGroup.getMeasuredWidth();
         int measuredHeight = viewGroup.getMeasuredHeight();
-        agVar = this.a.b;
-        int j = measuredWidth / agVar.j();
-        agVar2 = this.a.b;
+        afVar = this.a.b;
+        int j = measuredWidth / afVar.j();
+        afVar2 = this.a.b;
         LinearLayout linearLayout3 = (LinearLayout) linearLayout;
-        linearLayout3.setLayoutParams(new AbsListView.LayoutParams(j, measuredHeight / agVar2.k()));
-        TbImageView tbImageView = (TbImageView) linearLayout3.findViewById(com.baidu.tieba.r.emotion_tab_content_img);
+        linearLayout3.setLayoutParams(new AbsListView.LayoutParams(j, measuredHeight / afVar2.k()));
+        TbImageView tbImageView = (TbImageView) linearLayout3.findViewById(com.baidu.tieba.v.emotion_tab_content_img);
         tbImageView.setAutoChangeStyle(false);
         i2 = this.a.q;
-        tbImageView.setBackgroundResource(i2 == 1 ? com.baidu.tieba.q.btn_choose_face_selector_1 : com.baidu.tieba.q.btn_choose_face_selector);
+        tbImageView.setBackgroundResource(i2 == 1 ? com.baidu.tieba.u.btn_choose_face_selector_1 : com.baidu.tieba.u.btn_choose_face_selector);
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        agVar3 = this.a.b;
-        String a = agVar3.a(i7);
+        afVar3 = this.a.b;
+        String a = afVar3.a(i7);
         tbImageView.setTag(a);
         abVar = this.a.r;
         com.baidu.adp.widget.a.a a2 = abVar.a(a, false, (com.baidu.tbadk.imageManager.d) new l(this));
@@ -91,14 +91,14 @@ public class k extends BaseAdapter {
             a2.a(tbImageView);
             tbImageView.setTag(null);
         }
-        TextView textView = (TextView) linearLayout3.findViewById(com.baidu.tieba.r.emotion_tab_content_tip);
-        agVar4 = this.a.b;
-        if (agVar4.c() == EmotionGroupType.BIG_EMOTION) {
-            agVar5 = this.a.b;
-            String a3 = agVar5.a(i7);
+        TextView textView = (TextView) linearLayout3.findViewById(com.baidu.tieba.v.emotion_tab_content_tip);
+        afVar4 = this.a.b;
+        if (afVar4.c() == EmotionGroupType.BIG_EMOTION) {
+            afVar5 = this.a.b;
+            String a3 = afVar5.a(i7);
             if (!TextUtils.isEmpty(a3)) {
                 i3 = this.a.q;
-                int color = i3 == 1 ? this.a.getResources().getColor(com.baidu.tieba.o.pb_emotion_content_1) : this.a.getResources().getColor(com.baidu.tieba.o.pb_emotion_content);
+                int color = i3 == 1 ? this.a.getResources().getColor(com.baidu.tieba.s.pb_emotion_content_1) : this.a.getResources().getColor(com.baidu.tieba.s.pb_emotion_content);
                 textView.setVisibility(0);
                 textView.setTextColor(color);
                 textView.setText(a3.substring(a3.lastIndexOf("_") + 1, a3.length() - 1));

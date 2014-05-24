@@ -11,7 +11,7 @@ public class SnapGroupMsglistModel extends CommonGroupMsglistModel {
 
     public SnapGroupMsglistModel(MsglistActivity msglistActivity) {
         super(msglistActivity);
-        this.b = new bw(this, 0);
+        this.b = new bx(this, 0);
         f();
     }
 

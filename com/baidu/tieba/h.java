@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.animation.Animation;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-class h implements Animation.AnimationListener {
+class h extends Handler {
     final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,22 +13,17 @@ class h implements Animation.AnimationListener {
         this.a = logoActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         boolean z;
-        this.a.a = true;
-        z = this.a.b;
-        if (!z) {
-            return;
+        this.a.b = true;
+        z = this.a.a;
+        if (z) {
+            if (!this.a.getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
+                TbadkApplication.setCurrentAccount(com.baidu.tbadk.core.account.a.c(), this.a.getBaseContext());
+            }
+            this.a.a(this.a.getBaseContext());
         }
-        this.a.a(this.a.getBaseContext());
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+        super.handleMessage(message);
     }
 }

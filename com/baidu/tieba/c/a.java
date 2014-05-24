@@ -1,14 +1,14 @@
 package com.baidu.tieba.c;
 
 import com.baidu.adp.lib.a.f;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.m;
-import com.baidu.tieba.u;
+import com.baidu.tieba.ai;
+import com.baidu.tieba.q;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class a {
     private static boolean a(String str) {
-        String[] stringArray = ad.c().d().getResources().getStringArray(m.voice_black_frs_list);
-        String string = ad.c().d().getResources().getString(u.forum);
+        String[] stringArray = ai.c().d().getResources().getStringArray(q.voice_black_frs_list);
+        String string = ai.c().d().getResources().getString(y.forum);
         int length = stringArray.length;
         for (int i = 0; i < length; i++) {
             if (stringArray[i].equals(str) || str.equals(String.valueOf(stringArray[i]) + string)) {

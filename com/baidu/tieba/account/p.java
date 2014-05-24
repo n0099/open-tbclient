@@ -33,7 +33,7 @@ class p implements TextWatcher {
         if (i != 0) {
             this.a.y = 0;
             linearLayout = this.a.d;
-            linearLayout.setBackgroundResource(com.baidu.tieba.q.pass_input);
+            linearLayout.setBackgroundResource(com.baidu.tieba.u.pass_input);
             linearLayout2 = this.a.d;
             i2 = this.a.w;
             i3 = this.a.x;

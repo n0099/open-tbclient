@@ -2,39 +2,40 @@ package com.baidu.tieba.forumfeed;
 
 import android.view.View;
 import android.widget.LinearLayout;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class h {
-    public static final View a(com.baidu.tbadk.core.e eVar, String str, int i, View.OnClickListener onClickListener) {
+    public static final View a(BaseFragmentActivity baseFragmentActivity, String str, int i, View.OnClickListener onClickListener) {
         i iVar = new i(null);
-        View inflate = LinearLayout.inflate(eVar, s.forum_feed_guide, null);
-        iVar.a = (LinearLayout) inflate.findViewById(r.forum_feed_login_container);
-        iVar.c = (NoNetworkView) inflate.findViewById(r.view_no_network);
-        iVar.b = new com.baidu.tbadk.core.view.b(eVar, str, str, 0);
+        View inflate = LinearLayout.inflate(baseFragmentActivity, w.forum_feed_guide, null);
+        iVar.a = (LinearLayout) inflate.findViewById(v.forum_feed_login_container);
+        iVar.c = (NoNetworkView) inflate.findViewById(v.view_no_network);
+        iVar.b = new com.baidu.tbadk.core.view.b(baseFragmentActivity, str, str, 0);
         iVar.a.addView(iVar.b.b());
         inflate.setTag(iVar);
-        a(eVar, inflate, i);
+        a(baseFragmentActivity, inflate, i);
         return inflate;
     }
 
     public static final int a() {
-        return r.login_btn;
+        return v.login_btn;
     }
 
     public static final int b() {
-        return r.reg_btn;
+        return v.reg_btn;
     }
 
     public static final int c() {
-        return r.btn_go;
+        return v.btn_go;
     }
 
-    public static void a(com.baidu.tbadk.core.e eVar, View view, int i) {
+    public static void a(BaseFragmentActivity baseFragmentActivity, View view, int i) {
         i iVar = (i) view.getTag();
-        eVar.a().a(i == 1);
-        eVar.a().a(view);
+        baseFragmentActivity.a().a(i == 1);
+        baseFragmentActivity.a().a(view);
         if (iVar != null) {
             iVar.b.b(i);
             iVar.c.a(i);

@@ -6,14 +6,12 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 import android.widget.LinearLayout;
-import com.baidu.channelrtc.medialivesender.LiveNativeSender;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.BMediaController;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 /* loaded from: classes.dex */
 public class LivePlayerControl implements BMediaController.RTMPConnControl, BMediaController.VideoViewControl {
-    private static final String TAG = "Jave LivePlayerControl";
+    private static final String TAG = "Java LivePlayerControl";
     private static EventHandler mEventHandler;
     public static Context mNativeContext = null;
     public static int returnvalue = 0;
@@ -47,7 +45,7 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
                 case -100:
                     LivePlayerControl.this.reset();
                     final int i = message.arg1;
-                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.4
+                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.5
                         @Override // java.lang.Runnable
                         public void run() {
                             if (LivePlayerControl.this.ctrlListener != null) {
@@ -76,7 +74,7 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
                     LivePlayerControl.this.isbuffering = true;
                     LivePlayerControl.this.playerstate = PLAYER_STATUS.PLAYER_PAUSED;
                     final int i2 = message.arg1;
-                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.8
+                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.9
                         @Override // java.lang.Runnable
                         public void run() {
                             if (LivePlayerControl.this.ctrlListener != null) {
@@ -102,7 +100,7 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
                     return;
                 case Constants.MEDIA_CACHE_PERCENT /* 107 */:
                     LivePlayerControl.this.cachingpercent = message.arg1;
-                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.9
+                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.10
                         @Override // java.lang.Runnable
                         public void run() {
                             if (LivePlayerControl.this.ctrlListener != null) {
@@ -127,7 +125,7 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
                     return;
                 case 110:
                     LivePlayerControl.this.duration = message.arg1;
-                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.10
+                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.11
                         @Override // java.lang.Runnable
                         public void run() {
                             if (LivePlayerControl.this.ctrlListener != null) {
@@ -137,8 +135,9 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
                     });
                     return;
                 case Constants.MEDIA_STOPPED /* 111 */:
+                    LogbyLevel.i(LivePlayerControl.TAG, "LivePlayerControl:: stopped");
                     LivePlayerControl.this.playerstate = PLAYER_STATUS.PLAYER_STOPPED;
-                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.5
+                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.6
                         @Override // java.lang.Runnable
                         public void run() {
                             if (LivePlayerControl.this.ctrlListener != null) {
@@ -149,7 +148,7 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
                     return;
                 case Constants.MEDIA_POSITION_UPDATE /* 112 */:
                     final int i3 = message.arg1;
-                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.11
+                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.12
                         @Override // java.lang.Runnable
                         public void run() {
                             if (LivePlayerControl.this.ctrlListener != null) {
@@ -159,8 +158,9 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
                     });
                     return;
                 case Constants.MEDIA_COMPLETE /* 113 */:
+                    LogbyLevel.i(LivePlayerControl.TAG, "LivePlayerControl:: complete");
                     LivePlayerControl.this.playerstate = PLAYER_STATUS.PLAYER_COMPLETE;
-                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.6
+                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.7
                         @Override // java.lang.Runnable
                         public void run() {
                             if (LivePlayerControl.this.ctrlListener != null) {
@@ -170,13 +170,23 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
                     });
                     return;
                 case Constants.MEDIA_CLOSED /* 114 */:
-                    System.out.println("LivePlayerControl:: closed message");
+                    LogbyLevel.i(LivePlayerControl.TAG, "LivePlayerControl:: closed");
                     LivePlayerControl.this.playerstate = PLAYER_STATUS.PLAYER_IDLE;
-                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.7
+                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.8
                         @Override // java.lang.Runnable
                         public void run() {
                             if (LivePlayerControl.this.ctrlListener != null) {
                                 LivePlayerControl.this.ctrlListener.onPlayStatusChanged(PLAYER_STATUS.PLAYER_IDLE, 0, 0);
+                            }
+                        }
+                    });
+                    return;
+                case Constants.MEDIA_WARNING /* 115 */:
+                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.4
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            if (LivePlayerControl.this.ctrlListener != null) {
+                                LivePlayerControl.this.ctrlListener.onWarning(Constants.MEDIA_WARNING);
                             }
                         }
                     });
@@ -201,7 +211,7 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
                     return;
                 case Constants.DEBUG_MESSAGE /* 32806 */:
                     final String str = (String) message.obj;
-                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.12
+                    LivePlayerControl.this.uihandler.post(new Runnable() { // from class: com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl.EventHandler.13
                         @Override // java.lang.Runnable
                         public void run() {
                             if (LivePlayerControl.this.ctrlListener != null) {
@@ -225,16 +235,6 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
         PLAYER_COMPLETE
     }
 
-    static {
-        try {
-            System.loadLibrary(LiveNativeSender.AUDIOENGINE);
-            System.loadLibrary(LiveNativeSender.FFMPEGLIB);
-            System.loadLibrary("liveplayer");
-        } catch (UnsatisfiedLinkError e) {
-            Log.e(TAG, "load library failed");
-        }
-    }
-
     public LivePlayerControl() {
         initplayer();
     }
@@ -249,10 +249,10 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
     }
 
     public static void ReceiverTitle_callback(String str) {
-        System.out.println("Jave LivePlayerControl   " + str);
     }
 
     public static int ReceiverValue_callback(int i, int i2) {
+        LogbyLevel.d(TAG, "ReceiverValue_callback   " + i);
         returnvalue = i;
         switch (i) {
             case -102:
@@ -261,15 +261,15 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
                 SendHandlerMessage(-100, i, 0);
                 break;
             case 1:
-                System.out.println("LivePlayer------prepared");
+                LogbyLevel.i(TAG, "LivePlayer------prepared");
                 SendHandlerMessage(101, 0, 0);
                 break;
             case 2:
-                System.out.println("LivePlayer------playing");
+                LogbyLevel.i(TAG, "LivePlayer------playing");
                 SendHandlerMessage(Constants.MEDIA_PLAYING, 0, 0);
                 break;
             case 3:
-                System.out.println("LivePlayer------paused");
+                LogbyLevel.i(TAG, "LivePlayer------paused");
                 SendHandlerMessage(Constants.MEDIA_PAUSED, 0, 0);
                 break;
             case 4:
@@ -282,17 +282,21 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
                 SendHandlerMessage(Constants.MEDIA_COMPLETE, 0, 0);
                 break;
             case 7:
-                System.out.println("LivePlayer------DURATION_7   " + i2);
+                LogbyLevel.i(TAG, "LivePlayer------DURATION_7   " + i2);
                 SendHandlerMessage(110, i2, 0);
                 break;
             case 8:
                 SendHandlerMessage(Constants.MEDIA_CACHE_PERCENT, i2, 0);
                 break;
             case 9:
+                LogbyLevel.d(TAG, "LivePlayer------POSITION   " + i2);
                 SendHandlerMessage(Constants.MEDIA_POSITION_UPDATE, i2, 0);
                 break;
             case 10:
                 SendHandlerMessage(Constants.MEDIA_CLOSED, i2, 0);
+                break;
+            case 11:
+                SendHandlerMessage(Constants.MEDIA_WARNING, i2, 0);
                 break;
         }
         return 0;
@@ -318,7 +322,6 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
         if (!upperCase.equals("ARM") && !upperCase.equals("X86")) {
             z = false;
         }
-        System.out.println("CPU architeture is " + upperCase);
         return z;
     }
 
@@ -414,14 +417,14 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
 
     @Override // com.baidu.lightapp.plugin.videoplayer.coreplayer.BMediaController.VideoViewControl
     public void pause() {
-        System.out.println("LivePlayerControl  pause");
+        LogbyLevel.d(TAG, "LivePlayerControl  pause");
         this.playerstate = PLAYER_STATUS.PLAYER_PAUSED;
         SendHandlerMessage(Constants.CMD_PLAYERPAUSE, 0, 0);
     }
 
     @Override // com.baidu.lightapp.plugin.videoplayer.coreplayer.BMediaController.VideoViewControl
     public void play() {
-        System.out.println("LivePlayerControl  play  ");
+        LogbyLevel.i(TAG, "LivePlayerControl  play  ");
         if (PLAYER_STATUS.PLAYER_STOPPED != this.playerstate) {
             SendHandlerMessage(Constants.CMD_PLAYERPLAY, 0, 0);
             return;
@@ -454,6 +457,7 @@ public class LivePlayerControl implements BMediaController.RTMPConnControl, BMed
 
     public void setLogLevel(Constants.LOGLEVEL loglevel) {
         nativeSetLogLevel(loglevel.ordinal());
+        LogbyLevel.setLogLevel(loglevel.ordinal());
     }
 
     @Override // com.baidu.lightapp.plugin.videoplayer.coreplayer.BMediaController.RTMPConnControl

@@ -16,6 +16,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.coreExtra.act.EditHeadActivity;
 import com.baidu.tieba.im.data.GroupAddressInfoData;
+import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
 public class CreateGroupStepActivity extends BaseActivity implements TextWatcher, CompoundButton.OnCheckedChangeListener, com.baidu.tieba.im.f.h {
@@ -55,7 +56,7 @@ public class CreateGroupStepActivity extends BaseActivity implements TextWatcher
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, int i) {
         if (i < 0) {
-            showToast(com.baidu.tieba.u.neterror);
+            showToast(y.neterror);
         } else if (!TextUtils.isEmpty(str)) {
             showToast(str);
         }
@@ -153,7 +154,7 @@ public class CreateGroupStepActivity extends BaseActivity implements TextWatcher
         if (view == this.a.c()) {
             d();
         } else if (view == this.a.e()) {
-            int a = com.baidu.adp.lib.util.h.a((Context) TbadkApplication.m252getInst().getApp(), 0.0f);
+            int a = com.baidu.adp.lib.util.k.a((Context) TbadkApplication.m252getInst().getApp(), 0.0f);
             if (!this.a.I()) {
                 String C = this.a.C();
                 if (!TextUtils.isEmpty(C)) {
@@ -183,7 +184,7 @@ public class CreateGroupStepActivity extends BaseActivity implements TextWatcher
         } else if (view == this.a.g() || view == this.a.h()) {
             this.a.M();
         } else if (view == this.a.p()) {
-            com.baidu.tbadk.core.g.a(this, "edit_place_at_creatgroup");
+            com.baidu.tbadk.core.f.a(this, "edit_place_at_creatgroup");
             switch (this.a.q()) {
                 case 0:
                     GroupAddressEditActivity.a(this, 21001, this.d.getAddressList(), this.e, this.a.m());

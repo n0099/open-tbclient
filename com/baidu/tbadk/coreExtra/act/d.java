@@ -43,7 +43,7 @@ public class d implements View.OnClickListener {
             aVar.d();
             aVar.a((com.baidu.tbadk.img.d) new e(this));
             aVar.a();
-            this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.u.uploading));
+            this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.uploading));
         }
     }
 }

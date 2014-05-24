@@ -22,13 +22,13 @@ class bd extends com.baidu.adp.framework.listener.b {
         biVar = this.a.e;
         biVar.m();
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (socketResponsedMessage.getCmd() == 107102) {
             bhVar = this.a.f;
             if (bhVar.f() == socketResponsedMessage.getOrginalMessage() && (socketResponsedMessage instanceof ResponseUpdateLiveGroupMessage)) {
                 ResponseUpdateLiveGroupMessage responseUpdateLiveGroupMessage = (ResponseUpdateLiveGroupMessage) socketResponsedMessage;
                 if (responseUpdateLiveGroupMessage.getError() == 0) {
-                    this.a.showToast(com.baidu.tieba.u.group_update_success, false);
+                    this.a.showToast(com.baidu.tieba.y.group_update_success, false);
                     this.a.finish();
                     return;
                 }

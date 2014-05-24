@@ -81,7 +81,7 @@ public class b {
     }
 
     public static boolean c() {
-        return x.a() && com.baidu.adp.gif.d.a();
+        return x.a() && com.baidu.adp.gif.e.a();
     }
 
     @Deprecated

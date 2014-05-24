@@ -29,7 +29,7 @@ class b implements Handler.Callback {
                 jVar3 = a.d;
                 if (jVar3 != null) {
                     jVar4 = a.d;
-                    jVar4.a(message.what, ae.a(com.baidu.tieba.u.voice_err_no_file));
+                    jVar4.a(message.what, ae.a(com.baidu.tieba.y.voice_err_no_file));
                     break;
                 }
                 break;
@@ -44,7 +44,7 @@ class b implements Handler.Callback {
                 jVar7 = a.d;
                 if (jVar7 != null) {
                     jVar8 = a.d;
-                    jVar8.a(message.what, ae.a(com.baidu.tieba.u.voice_err_play));
+                    jVar8.a(message.what, ae.a(com.baidu.tieba.y.voice_err_play));
                     break;
                 }
                 break;

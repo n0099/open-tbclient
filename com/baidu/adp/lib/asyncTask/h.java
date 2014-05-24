@@ -2,6 +2,7 @@ package com.baidu.adp.lib.asyncTask;
 
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -23,7 +24,7 @@ public class h extends Handler {
             this.a.c((j) message.obj);
         } else if (message.what == 2 && message.obj != null && (message.obj instanceof j)) {
             this.a.a((j) message.obj);
-            if (com.baidu.adp.base.a.getInst().isDebugMode()) {
+            if (BdBaseApplication.getInst().isDebugMode()) {
                 BdLog.d(this.a.toString());
             }
         }

@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 import com.baidu.tbadk.coreExtra.view.ae;
 import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -146,14 +146,14 @@ public class MyLiveListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         j jVar;
         if (view == null) {
-            view = LayoutInflater.from(this.a).inflate(s.mylive_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.a).inflate(w.mylive_list_item, viewGroup, false);
             jVar = new j();
-            jVar.a = (LinearLayout) view.findViewById(r.item_more);
-            jVar.d = (TextView) view.findViewById(r.list_more_title);
-            jVar.e = (ProgressBar) view.findViewById(r.list_more_progress);
-            jVar.f = (ImageView) view.findViewById(r.list_more_line);
-            jVar.c = (LinearLayout) view.findViewById(r.list_more_text);
-            jVar.b = (LiveBroadcastCard) view.findViewById(r.item_card);
+            jVar.a = (LinearLayout) view.findViewById(v.item_more);
+            jVar.d = (TextView) view.findViewById(v.list_more_title);
+            jVar.e = (ProgressBar) view.findViewById(v.list_more_progress);
+            jVar.f = (ImageView) view.findViewById(v.list_more_line);
+            jVar.c = (LinearLayout) view.findViewById(v.list_more_text);
+            jVar.b = (LiveBroadcastCard) view.findViewById(v.item_card);
             view.setTag(jVar);
         } else {
             jVar = (j) view.getTag();
@@ -168,10 +168,10 @@ public class MyLiveListAdapter extends BaseAdapter {
                 jVar.f.setVisibility(8);
                 jVar.c.setVisibility(0);
                 if (this.b == BOTTOM_TYPE.HAVE_MORE) {
-                    jVar.d.setText(u.frsgroup_load_more);
+                    jVar.d.setText(y.live_load_more);
                     jVar.e.setVisibility(0);
                 } else {
-                    jVar.d.setText(u.live_no_more_data);
+                    jVar.d.setText(y.live_no_more_data);
                     jVar.e.setVisibility(8);
                 }
             }

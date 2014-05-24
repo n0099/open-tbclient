@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.network.http;
 
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
@@ -96,7 +97,7 @@ public class c {
                             new a(this.a).b(i2, i3, dVar);
                         } catch (UnsupportedOperationException e) {
                             this.a.b().b = -14;
-                            dVar.h = com.baidu.adp.base.a.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
+                            dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
                             this.a.a(dVar);
                             dVar.f = System.currentTimeMillis() - currentTimeMillis;
                             this.a.a(dVar);
@@ -104,7 +105,7 @@ public class c {
                         }
                     } catch (SocketTimeoutException e2) {
                         this.a.b().b = -13;
-                        dVar.h = com.baidu.adp.base.a.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
+                        dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
                         BdLog.e(getClass().getName(), "postNetData", "SocketTimeoutException " + e2.getMessage());
                         this.a.a(dVar);
                         dVar.f = System.currentTimeMillis() - currentTimeMillis;
@@ -113,7 +114,7 @@ public class c {
                     }
                 } catch (SocketException e3) {
                     this.a.b().b = -12;
-                    dVar.h = com.baidu.adp.base.a.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
+                    dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
                     BdLog.e(getClass().getName(), "postNetData", "SocketException " + e3.getMessage());
                     this.a.a(dVar);
                     dVar.f = System.currentTimeMillis() - currentTimeMillis;
@@ -171,7 +172,7 @@ public class c {
                             new a(this.a).c(i2, i3, dVar);
                         } catch (UnsupportedOperationException e) {
                             this.a.b().b = -14;
-                            dVar.h = com.baidu.adp.base.a.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
+                            dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
                             this.a.a(dVar);
                             dVar.f = System.currentTimeMillis() - currentTimeMillis;
                             this.a.a(dVar);
@@ -179,7 +180,7 @@ public class c {
                         }
                     } catch (SocketTimeoutException e2) {
                         this.a.b().b = -13;
-                        dVar.h = com.baidu.adp.base.a.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
+                        dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
                         BdLog.e(getClass().getName(), "postNetData", "SocketTimeoutException " + e2.getMessage());
                         this.a.a(dVar);
                         dVar.f = System.currentTimeMillis() - currentTimeMillis;
@@ -188,7 +189,7 @@ public class c {
                     }
                 } catch (SocketException e3) {
                     this.a.b().b = -12;
-                    dVar.h = com.baidu.adp.base.a.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
+                    dVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(com.baidu.adp.f.neterror);
                     BdLog.e(getClass().getName(), "postNetData", "SocketException " + e3.getMessage());
                     this.a.a(dVar);
                     dVar.f = System.currentTimeMillis() - currentTimeMillis;

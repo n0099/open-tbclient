@@ -16,6 +16,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.act.EditHeadActivity;
@@ -30,7 +31,7 @@ import java.util.List;
 public class bm extends com.baidu.tbadk.core.d {
     private static final String b = String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/topic_page/135_1";
     private static boolean q = false;
-    private com.baidu.tbadk.core.e f;
+    private BaseFragmentActivity f;
     private aj k;
     private List<View> m;
     private af n;
@@ -58,7 +59,7 @@ public class bm extends com.baidu.tbadk.core.d {
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.f = (com.baidu.tbadk.core.e) activity;
+        this.f = (BaseFragmentActivity) activity;
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
@@ -110,7 +111,7 @@ public class bm extends com.baidu.tbadk.core.d {
     }
 
     private View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(com.baidu.tieba.s.person_center_view, (ViewGroup) null);
+        return layoutInflater.inflate(com.baidu.tieba.w.person_center_view, (ViewGroup) null);
     }
 
     private void i() {
@@ -133,9 +134,9 @@ public class bm extends com.baidu.tbadk.core.d {
         this.d = new com.baidu.tieba.model.e();
         this.c = new com.baidu.tieba.model.av(this.f);
         this.c.c();
-        if (getActivity() instanceof com.baidu.tbadk.core.e) {
-            this.d.setUniqueId(((com.baidu.tbadk.core.e) getActivity()).getUniqueId());
-            this.c.setUniqueId(((com.baidu.tbadk.core.e) getActivity()).getUniqueId());
+        if (getActivity() instanceof BaseFragmentActivity) {
+            this.d.setUniqueId(((BaseFragmentActivity) getActivity()).getUniqueId());
+            this.c.setUniqueId(((BaseFragmentActivity) getActivity()).getUniqueId());
         }
         this.c.a(new bu(this));
         if (bundle != null) {
@@ -169,7 +170,7 @@ public class bm extends com.baidu.tbadk.core.d {
         this.m.add(this.o);
         this.m.add(this.p);
         this.n = new af(this.f, this);
-        this.n.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.adp.lib.util.h.a((Context) this.f, 270.0f)));
+        this.n.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.adp.lib.util.k.a((Context) this.f, 270.0f)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -278,9 +279,9 @@ public class bm extends com.baidu.tbadk.core.d {
                 p();
             }
             if (this.d.a() == 1) {
-                format = String.format(getString(com.baidu.tieba.u.black_list_ensure_toremove_text), userName);
+                format = String.format(getString(com.baidu.tieba.y.black_list_ensure_toremove_text), userName);
             } else {
-                format = String.format(getString(com.baidu.tieba.u.remove_black_alert), userName);
+                format = String.format(getString(com.baidu.tieba.y.remove_black_alert), userName);
             }
             this.j.setMessage(format);
             this.j.show();
@@ -289,8 +290,8 @@ public class bm extends com.baidu.tbadk.core.d {
 
     private void p() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this.f);
-        builder.setPositiveButton(getString(com.baidu.tieba.u.confirm), new bw(this));
-        builder.setNegativeButton(getString(com.baidu.tieba.u.cancel), new bx(this));
+        builder.setPositiveButton(getString(com.baidu.tieba.y.confirm), new bw(this));
+        builder.setNegativeButton(getString(com.baidu.tieba.y.cancel), new bx(this));
         this.j = builder.create();
     }
 
@@ -301,7 +302,7 @@ public class bm extends com.baidu.tbadk.core.d {
 
     private void r() {
         this.i = new com.baidu.tbadk.core.dialog.d(this.f);
-        this.i.a(new Object[]{this.f.getString(this.d.a() == 1 ? com.baidu.tieba.u.delete_to_black_list : com.baidu.tieba.u.add_to_black_list), new Object[]{this.f.getString(com.baidu.tieba.u.cancel), 1}}, new bo(this)).a(com.baidu.tbadk.core.dialog.f.a).b(80).a();
+        this.i.a(new Object[]{this.f.getString(this.d.a() == 1 ? com.baidu.tieba.y.delete_to_black_list : com.baidu.tieba.y.add_to_black_list), new Object[]{this.f.getString(com.baidu.tieba.y.cancel), 1}}, new bo(this)).a(com.baidu.tbadk.core.dialog.f.a).b(80).a();
     }
 
     private void s() {
@@ -405,9 +406,9 @@ public class bm extends com.baidu.tbadk.core.d {
     }
 
     private void w() {
-        String[] strArr = {getString(com.baidu.tieba.u.hd_photo), getString(com.baidu.tieba.u.take_photo), getString(com.baidu.tieba.u.album)};
+        String[] strArr = {getString(com.baidu.tieba.y.hd_photo), getString(com.baidu.tieba.y.take_photo), getString(com.baidu.tieba.y.album)};
         AlertDialog.Builder builder = new AlertDialog.Builder(this.f);
-        builder.setTitle(getString(com.baidu.tieba.u.operation));
+        builder.setTitle(getString(com.baidu.tieba.y.operation));
         builder.setItems(strArr, new bp(this));
         if (this.h == null) {
             this.h = builder.create();
@@ -449,11 +450,11 @@ public class bm extends com.baidu.tbadk.core.d {
                 personChangeData.setPortrait(this.c.g().getPortrait());
             }
             PersonChangeActivity.a(this.f, 101, personChangeData, true);
-            com.baidu.tbadk.core.g.a(this.f, "person_editprofile_click");
+            com.baidu.tbadk.core.f.a(this.f, "person_editprofile_click");
         } else if (view.getId() == this.o.getAttentionBtn().getId()) {
             if (this.c.g() != null) {
                 if (TbadkApplication.getCurrentAccount() == null || TbadkApplication.getCurrentAccount().length() <= 0) {
-                    LoginActivity.a((Activity) this.f, this.f.getResources().getString(com.baidu.tieba.u.login_to_attention), true, 11035);
+                    LoginActivity.a((Activity) this.f, this.f.getResources().getString(com.baidu.tieba.y.login_to_attention), true, 11035);
                 } else if (!this.c.f()) {
                     u();
                 } else {
@@ -463,7 +464,7 @@ public class bm extends com.baidu.tbadk.core.d {
         } else if (view.getId() == this.o.getSendBtn().getId()) {
             if (this.c.g() != null) {
                 if (TbadkApplication.getCurrentAccount() == null || TbadkApplication.getCurrentAccount().length() <= 0) {
-                    LoginActivity.a((Activity) this.f, this.f.getResources().getString(com.baidu.tieba.u.login_to_chat), true, 11028);
+                    LoginActivity.a((Activity) this.f, this.f.getResources().getString(com.baidu.tieba.y.login_to_chat), true, 11028);
                 } else if (!this.c.f()) {
                     v();
                 }
@@ -481,32 +482,32 @@ public class bm extends com.baidu.tbadk.core.d {
             }
         } else if (view.getId() == this.o.getUserIconView1().getId() || view.getId() == this.o.getUserIconView2().getId()) {
             if (this.c.g() != null) {
-                TbWebViewActivity.b(this.f, this.f.getString(com.baidu.tieba.u.user_icon_intro), String.valueOf(b) + "?st_type=person_user_icon");
+                TbWebViewActivity.b(this.f, this.f.getString(com.baidu.tieba.y.user_icon_intro), String.valueOf(b) + "?st_type=person_user_icon");
             }
         } else if (view.getId() == this.n.getAttentionId()) {
             if (this.c != null && this.c.g() != null) {
                 if (this.c.f()) {
-                    com.baidu.tbadk.core.g.a(this.f, "person_self_attentionper_click");
+                    com.baidu.tbadk.core.f.a(this.f, "person_self_attentionper_click");
                 } else {
-                    com.baidu.tbadk.core.g.a(this.f, "person_guid_attentionper_click");
+                    com.baidu.tbadk.core.f.a(this.f, "person_guid_attentionper_click");
                 }
                 PersonListActivity.a(this.f, true, this.c.g().getUserId(), this.c.g() != null ? this.c.g().getSex() : 0);
             }
         } else if (view.getId() == this.n.getPostId()) {
             if (this.c != null && this.c.g() != null) {
                 if (this.c.f()) {
-                    com.baidu.tbadk.core.g.a(this.f, "person_self_thread_click");
+                    com.baidu.tbadk.core.f.a(this.f, "person_self_thread_click");
                 } else {
-                    com.baidu.tbadk.core.g.a(this.f, "person_guid_thread_click");
+                    com.baidu.tbadk.core.f.a(this.f, "person_guid_thread_click");
                 }
                 PersonPostActivity.a(this.f, this.c.g().getUserId(), this.c.g().getSex(), this.c.g().getPortrait());
             }
         } else if (view.getId() == this.n.getFansId()) {
             if (this.c != null && this.c.g() != null) {
                 if (this.c.f()) {
-                    com.baidu.tbadk.core.g.a(this.f, "person_self_attentionme_click");
+                    com.baidu.tbadk.core.f.a(this.f, "person_self_attentionme_click");
                 } else {
-                    com.baidu.tbadk.core.g.a(this.f, "person_guid_attentionme_click");
+                    com.baidu.tbadk.core.f.a(this.f, "person_guid_attentionme_click");
                 }
                 this.n.a(false);
                 this.n.b();
@@ -517,14 +518,14 @@ public class bm extends com.baidu.tbadk.core.d {
             if (this.c != null && this.c.g() != null) {
                 if (this.c.f()) {
                     EditBarActivity.a(this.f, 103, null, this.c.g() != null ? this.c.g().getSex() : 0);
-                    com.baidu.tbadk.core.g.a(this.f, "person_self_attentionbar_click");
+                    com.baidu.tbadk.core.f.a(this.f, "person_self_attentionbar_click");
                     return;
                 }
                 EditBarActivity.a(this.f, 103, this.c.g().getUserId(), this.c.g() != null ? this.c.g().getSex() : 0);
-                com.baidu.tbadk.core.g.a(this.f, "person_guid_attentionbar_click");
+                com.baidu.tbadk.core.f.a(this.f, "person_guid_attentionbar_click");
             }
         } else if (view.getId() == this.o.getUserVipView() && this.c.g() != null) {
-            TbWebViewActivity.a(this.f, getString(com.baidu.tieba.u.member_benefits), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
+            TbWebViewActivity.a(this.f, getString(com.baidu.tieba.y.member_benefits), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
         }
     }
 }

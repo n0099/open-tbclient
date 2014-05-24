@@ -36,7 +36,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
     private int r = 0;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bj.class, WriteMultiImgsActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bk.class, WriteMultiImgsActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -51,7 +51,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         } else {
             this.q = true;
         }
-        setContentView(com.baidu.tieba.s.write_multi_imgs_activity);
+        setContentView(com.baidu.tieba.w.write_multi_imgs_activity);
         d();
         a(bundle);
         if (this.q) {
@@ -74,22 +74,22 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
     }
 
     private void d() {
-        this.m = getResources().getString(com.baidu.tieba.u.beautify);
-        this.n = getResources().getString(com.baidu.tieba.u.rotate);
+        this.m = getResources().getString(com.baidu.tieba.y.beautify);
+        this.n = getResources().getString(com.baidu.tieba.y.rotate);
         this.o = this.m;
-        this.b = findViewById(com.baidu.tieba.r.write_multi_imgs_rootlayout);
-        this.c = (ViewPager) findViewById(com.baidu.tieba.r.write_multi_imgs_viewpager);
-        this.e = (LinearLayout) findViewById(com.baidu.tieba.r.write_multi_imgs_beautify);
-        this.f = (RadioButton) findViewById(com.baidu.tieba.r.beautify_btn);
-        this.g = (RadioButton) findViewById(com.baidu.tieba.r.rotate_btn);
+        this.b = findViewById(com.baidu.tieba.v.write_multi_imgs_rootlayout);
+        this.c = (ViewPager) findViewById(com.baidu.tieba.v.write_multi_imgs_viewpager);
+        this.e = (LinearLayout) findViewById(com.baidu.tieba.v.write_multi_imgs_beautify);
+        this.f = (RadioButton) findViewById(com.baidu.tieba.v.beautify_btn);
+        this.g = (RadioButton) findViewById(com.baidu.tieba.v.rotate_btn);
         this.f.setOnCheckedChangeListener(this);
         this.g.setOnCheckedChangeListener(this);
-        this.h = (LinearLayout) findViewById(com.baidu.tieba.r.filters_layout);
-        this.i = findViewById(com.baidu.tieba.r.rotate);
-        Button button = (Button) findViewById(com.baidu.tieba.r.rotate_left);
-        Button button2 = (Button) findViewById(com.baidu.tieba.r.rotate_right);
-        Button button3 = (Button) findViewById(com.baidu.tieba.r.rotate_left_right);
-        Button button4 = (Button) findViewById(com.baidu.tieba.r.rotate_up_down);
+        this.h = (LinearLayout) findViewById(com.baidu.tieba.v.filters_layout);
+        this.i = findViewById(com.baidu.tieba.v.rotate);
+        Button button = (Button) findViewById(com.baidu.tieba.v.rotate_left);
+        Button button2 = (Button) findViewById(com.baidu.tieba.v.rotate_right);
+        Button button3 = (Button) findViewById(com.baidu.tieba.v.rotate_left_right);
+        Button button4 = (Button) findViewById(com.baidu.tieba.v.rotate_up_down);
         button.setTag(0);
         button2.setTag(1);
         button3.setTag(2);
@@ -99,10 +99,10 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         button2.setOnClickListener(bvVar);
         button3.setOnClickListener(bvVar);
         button4.setOnClickListener(bvVar);
-        this.j = (NavigationBar) findViewById(com.baidu.tieba.r.write_multi_imgs_navibar);
+        this.j = (NavigationBar) findViewById(com.baidu.tieba.v.write_multi_imgs_navibar);
         this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new bw(this));
-        this.l = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.u.done), new bx(this));
-        this.k = this.j.a(getString(com.baidu.tieba.u.beautify));
+        this.l = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.y.done), new bx(this));
+        this.k = this.j.a(getString(com.baidu.tieba.y.beautify));
         this.f.setChecked(true);
         if (!this.q) {
             this.g.setChecked(true);
@@ -210,18 +210,18 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         this.j.c(i);
         if (i == 1) {
             if (this.l.isEnabled()) {
-                com.baidu.tbadk.core.util.bc.e((View) this.l, com.baidu.tieba.q.navi_done_text_bg_1);
-                this.l.setTextColor(getResources().getColorStateList(com.baidu.tieba.o.navi_done_text_1));
+                com.baidu.tbadk.core.util.bc.e((View) this.l, com.baidu.tieba.u.navi_done_text_bg_1);
+                this.l.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.navi_done_text_1));
                 return;
             }
-            com.baidu.tbadk.core.util.bc.e((View) this.l, com.baidu.tieba.q.btn_titlebar_finish_d_1);
-            this.l.setTextColor(getResources().getColor(com.baidu.tieba.o.navi_done_text_d_1));
+            com.baidu.tbadk.core.util.bc.e((View) this.l, com.baidu.tieba.u.btn_titlebar_finish_d_1);
+            this.l.setTextColor(getResources().getColor(com.baidu.tieba.s.navi_done_text_d_1));
         } else if (this.l.isEnabled()) {
-            com.baidu.tbadk.core.util.bc.e((View) this.l, com.baidu.tieba.q.navi_done_text_bg);
-            this.l.setTextColor(getResources().getColorStateList(com.baidu.tieba.o.navi_done_text));
+            com.baidu.tbadk.core.util.bc.e((View) this.l, com.baidu.tieba.u.navi_done_text_bg);
+            this.l.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.navi_done_text));
         } else {
-            com.baidu.tbadk.core.util.bc.e((View) this.l, com.baidu.tieba.q.btn_titlebar_finish_d);
-            this.l.setTextColor(getResources().getColor(com.baidu.tieba.o.navi_done_text_d));
+            com.baidu.tbadk.core.util.bc.e((View) this.l, com.baidu.tieba.u.btn_titlebar_finish_d);
+            this.l.setTextColor(getResources().getColor(com.baidu.tieba.s.navi_done_text_d));
         }
     }
 }

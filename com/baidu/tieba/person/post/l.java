@@ -47,10 +47,10 @@ public class l implements f {
             progressBar.setVisibility(8);
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 textView7 = this.a.g;
-                textView7.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.person_post_header_uname_1));
+                textView7.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.person_post_header_uname_1));
             } else {
                 textView = this.a.g;
-                textView.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.person_post_header_uname));
+                textView.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.person_post_header_uname));
             }
             if (personPostModel != null) {
                 if (k.a(personPostModel.post_list) == 0) {
@@ -69,7 +69,7 @@ public class l implements f {
                         bdListView3.setEmptyView(textView6);
                     }
                     if (personPostModel.getErrorCode() != 0) {
-                        com.baidu.adp.lib.util.h.a((Context) this.a.getActivity(), personPostModel.getErrorString());
+                        com.baidu.adp.lib.util.k.a((Context) this.a.getActivity(), personPostModel.getErrorString());
                     }
                 }
                 textView5 = this.a.g;
@@ -81,7 +81,7 @@ public class l implements f {
                     } else {
                         this.a.k = false;
                         pbListView2 = this.a.i;
-                        pbListView2.a(this.a.getResources().getString(com.baidu.tieba.u.person_post_reply_no_more));
+                        pbListView2.a(this.a.getResources().getString(com.baidu.tieba.y.person_post_reply_no_more));
                         view2 = this.a.j;
                         view2.setVisibility(0);
                     }
@@ -100,10 +100,10 @@ public class l implements f {
             }
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 textView4 = this.a.g;
-                textView4.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.person_post_header_uname_1));
+                textView4.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.person_post_header_uname_1));
             } else {
                 textView2 = this.a.g;
-                textView2.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.person_post_header_uname));
+                textView2.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.person_post_header_uname));
             }
             bdListView = this.a.c;
             textView3 = this.a.g;

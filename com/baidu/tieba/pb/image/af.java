@@ -109,7 +109,7 @@ public class af extends BdAsyncTask<String, Integer, String> {
                 if (!this.b.a().b().b() || this.g == null) {
                     context = this.a.b;
                     context2 = this.a.b;
-                    ((BaseActivity) context).showToast(context2.getString(com.baidu.tieba.u.image_pb_comment_fail));
+                    ((BaseActivity) context).showToast(context2.getString(com.baidu.tieba.y.image_pb_comment_fail));
                     return;
                 }
                 if (this.g != null) {

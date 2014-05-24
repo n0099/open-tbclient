@@ -45,15 +45,15 @@ public class m extends Handler {
     }
 
     private void a(String str) {
-        if (BdSocketLinkService.a()) {
-            BdSocketLinkService.a(false, str);
-        } else if (BdSocketLinkService.b()) {
+        if (BdSocketLinkService.isClose()) {
+            BdSocketLinkService.startService(false, str);
+        } else if (BdSocketLinkService.isOpen()) {
             a(false, str);
         }
     }
 
     public boolean a(boolean z, String str) {
-        if ((z || System.currentTimeMillis() - this.b >= 180000) && BdSocketLinkService.b()) {
+        if ((z || System.currentTimeMillis() - this.b >= 180000) && BdSocketLinkService.isOpen()) {
             TiebaStatic.imLog((int) MessageTypes.CMD_PING, 0, str, "send ping", (String) null, 0, (String) null);
             this.b = System.currentTimeMillis();
             MessageManager.getInstance().sendMessage(this.f);
@@ -83,7 +83,7 @@ public class m extends Handler {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ResponsedMessage<?> responsedMessage) {
         if (responsedMessage != null && responsedMessage.getError() != 0) {
-            BdSocketLinkService.a(7, "ping error");
+            BdSocketLinkService.close(7, "ping error");
         }
     }
 

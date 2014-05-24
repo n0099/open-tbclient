@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.nearbygroups;
 
-import com.baidu.adp.widget.ListView.u;
+import com.baidu.adp.widget.ListView.x;
 /* loaded from: classes.dex */
-class g implements u {
+class g implements x {
     final /* synthetic */ NearbyGroupsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ class g implements u {
         this.a = nearbyGroupsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.x
     public void f_() {
         this.a.a();
     }

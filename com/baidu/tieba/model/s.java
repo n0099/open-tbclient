@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 import com.baidu.tbadk.TbadkApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.base.d {
+public class s extends com.baidu.adp.base.b {
     private com.baidu.tieba.data.p d;
     private t e;
     private boolean c = false;
@@ -62,8 +62,8 @@ public class s extends com.baidu.adp.base.d {
         if (currentAccount == null) {
             return null;
         }
-        com.baidu.adp.lib.cache.s<String> i = com.baidu.tbadk.core.a.b.a().i();
-        String a = i != null ? i.a("home_forumfeed_" + currentAccount) : null;
+        com.baidu.adp.lib.cache.s<String> j = com.baidu.tbadk.core.a.b.a().j();
+        String a = j != null ? j.a("home_forumfeed_" + currentAccount) : null;
         if (a != null) {
             com.baidu.tieba.data.p pVar = new com.baidu.tieba.data.p();
             pVar.a(a);
@@ -85,22 +85,22 @@ public class s extends com.baidu.adp.base.d {
         return (b.size() / 20) + 1;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public int getErrorCode() {
         return this.a;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public void setErrorCode(int i) {
         this.a = i;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public String getErrorString() {
         return this.b;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public void setErrorString(String str) {
         this.b = str;
     }
@@ -109,12 +109,12 @@ public class s extends com.baidu.adp.base.d {
         return this.d;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.e != null) {
             this.e.cancel();

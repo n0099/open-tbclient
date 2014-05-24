@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.chat.MsglistActivity;
@@ -74,6 +75,7 @@ public class LiveMsglistModel extends CommonGroupMsglistModel {
         this.p = this.c.isBanned.intValue() == 1;
         this.h = this.b.listeners.intValue();
         this.i = this.b.likers.intValue();
+        BdLog.d("get live group status: " + this.b.status);
         if (this.b.status.intValue() == 3 || this.b.status.intValue() == 4 || this.b.status.intValue() == 6 || this.b.status.intValue() == 5) {
             this.n = this.b.status.intValue();
         } else {

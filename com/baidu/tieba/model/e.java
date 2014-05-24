@@ -2,16 +2,16 @@ package com.baidu.tieba.model;
 
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.d {
+public class e extends com.baidu.adp.base.b {
     private RequestUpdateMaskInfoMessage a;
     private int b = 2;
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         super.cancelMessage();
         return false;

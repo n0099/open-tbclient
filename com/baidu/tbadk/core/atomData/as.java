@@ -72,15 +72,15 @@ public class as extends com.baidu.tbadk.core.frameworkData.a {
         return this;
     }
 
-    public as a(com.baidu.tbadk.core.data.o oVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (oVar != null) {
+    public as a(com.baidu.tbadk.core.data.n nVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (nVar != null) {
             Intent intent = getIntent();
-            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, oVar.k());
-            intent.putExtra("is_good", oVar.q());
-            intent.putExtra("is_top", oVar.p());
-            intent.putExtra("thread_time", oVar.o());
+            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, nVar.p());
+            intent.putExtra("is_good", nVar.v());
+            intent.putExtra("is_top", nVar.u());
+            intent.putExtra("thread_time", nVar.t());
             intent.putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str2);
-            intent.putExtra("from_frs", oVar.p() != 2);
+            intent.putExtra("from_frs", nVar.u() != 2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
             intent.putExtra("is_ad", z3);
@@ -88,7 +88,7 @@ public class as extends com.baidu.tbadk.core.frameworkData.a {
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             intent.putExtra("is_start_for_result", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             intent.putExtra(com.baidu.tbadk.core.frameworkData.a.REQUEST_CODE, i);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (oVar.j() == null ? 0L : oVar.j().getNum()));
+            intent.putExtra("extra_pb_cache_key", "zan=" + (nVar.o() == null ? 0L : nVar.o().getNum()));
         }
         return this;
     }

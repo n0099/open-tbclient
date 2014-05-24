@@ -13,20 +13,22 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.k;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.core.voice.x;
 import com.baidu.tbadk.core.voice.z;
+import com.baidu.tieba.aa;
 import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.tieba.im.f.r;
 import com.baidu.tieba.im.i;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
+import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -46,7 +48,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         this.c = null;
         this.d = null;
         this.e = null;
-        LayoutInflater.from(context).inflate(s.widget_left_voice_view, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(w.widget_left_voice_view, (ViewGroup) this, true);
         c();
     }
 
@@ -56,24 +58,24 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         this.c = null;
         this.d = null;
         this.e = null;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, w.ChatVoiceView, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, aa.ChatVoiceView, 0, 0);
         boolean z = obtainStyledAttributes != null ? obtainStyledAttributes.getBoolean(0, true) : true;
         obtainStyledAttributes.recycle();
         if (z) {
-            LayoutInflater.from(context).inflate(s.widget_left_voice_view, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(w.widget_left_voice_view, (ViewGroup) this, true);
         } else {
-            LayoutInflater.from(context).inflate(s.widget_right_voice_view, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(w.widget_right_voice_view, (ViewGroup) this, true);
         }
         c();
     }
 
     private void c() {
-        this.h = (RelativeLayout) findViewById(r.lay_bubble);
-        this.a = (ImageView) findViewById(r.img_voice_status);
-        this.b = (ImageView) findViewById(r.img_voice_status_anim);
-        this.c = (TextView) findViewById(r.tex_voice_duration);
-        this.d = (ImageView) findViewById(r.img_voice_readed);
-        this.e = (ProgressBar) findViewById(r.progress);
+        this.h = (RelativeLayout) findViewById(v.lay_bubble);
+        this.a = (ImageView) findViewById(v.img_voice_status);
+        this.b = (ImageView) findViewById(v.img_voice_status_anim);
+        this.c = (TextView) findViewById(v.tex_voice_duration);
+        this.d = (ImageView) findViewById(v.img_voice_readed);
+        this.e = (ProgressBar) findViewById(v.progress);
     }
 
     private void d() {
@@ -108,7 +110,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
             }
             this.e.setVisibility(4);
             d();
-            VoiceMsgData g = com.baidu.tieba.im.f.r.g(this.g);
+            VoiceMsgData g = r.g(this.g);
             if (g != null && g.getHas_read() != 1) {
                 g.setHas_read(1);
                 this.g.setContent("[" + new Gson().toJson(g) + "]");
@@ -116,7 +118,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
                     CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) this.g;
                     LinkedList linkedList = new LinkedList();
                     linkedList.add(new CommonMsgPojo(commonGroupChatMessage));
-                    if (!commonGroupChatMessage.getGroupId().equals(String.valueOf(com.baidu.tieba.im.chat.x.a))) {
+                    if (!commonGroupChatMessage.getGroupId().equals(String.valueOf(com.baidu.tieba.im.chat.w.a))) {
                         i.a(new a(this, commonGroupChatMessage, linkedList), new b(this));
                         return;
                     } else {
@@ -161,7 +163,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         if (this.f == null || (voiceManager = getVoiceManager()) == null) {
             return;
         }
-        voiceManager.b(this);
+        voiceManager.startPlay(this);
     }
 
     public VoiceManager getVoiceManager() {
@@ -174,10 +176,10 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     private void a(ChatMessage chatMessage) {
         boolean z = true;
-        if (com.baidu.tieba.im.f.r.d(chatMessage)) {
+        if (r.d(chatMessage)) {
             z = false;
         } else {
-            VoiceMsgData g = com.baidu.tieba.im.f.r.g(chatMessage);
+            VoiceMsgData g = r.g(chatMessage);
             if (g != null && g.getHas_read() == 1) {
                 z = false;
             }
@@ -196,7 +198,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
                 this.f = new VoiceData.VoiceModel();
             }
             this.g = chatMessage;
-            this.c.setText(VoiceManager.c(this.f.duration));
+            this.c.setText(VoiceManager.formatVoiceTime(this.f.duration));
             setBubbleLength(this.f.duration);
             setTag(this.f);
             a(chatMessage);
@@ -211,7 +213,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     private void setBubbleLength(int i) {
         int i2;
-        int b = com.baidu.adp.lib.util.h.b(getContext());
+        int b = k.b(getContext());
         if (i <= 10) {
             int i3 = (int) (b * 0.1875d);
             i2 = (((((int) (b * 0.4125d)) - i3) * (i - 1)) / 10) + i3;
@@ -253,7 +255,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     @Override // com.baidu.tbadk.core.voice.x
     public void a(int i, String str) {
-        com.baidu.adp.lib.util.h.b(getContext(), str);
+        k.b(getContext(), str);
     }
 
     @Override // com.baidu.tbadk.core.voice.x

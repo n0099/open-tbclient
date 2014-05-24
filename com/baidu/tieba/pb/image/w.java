@@ -63,21 +63,21 @@ public class w extends BdAsyncTask<String, Integer, String> {
                                 }
                                 if (str2 != null) {
                                     new aj(this.a).a(str2);
-                                    return this.a.getString(com.baidu.tieba.u.save_image_to_album);
+                                    return this.a.getString(com.baidu.tieba.y.save_image_to_album);
                                 }
                                 return com.baidu.tbadk.core.util.x.b();
                             }
-                            return this.a.getString(com.baidu.tieba.u.save_error);
+                            return this.a.getString(com.baidu.tieba.y.save_error);
                         }
                     }
-                    return this.a.getString(com.baidu.tieba.u.save_error);
+                    return this.a.getString(com.baidu.tieba.y.save_error);
                 }
                 return null;
             }
             return null;
         } catch (Exception e) {
             BdLog.e("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
-            return this.a.getString(com.baidu.tieba.u.save_error);
+            return this.a.getString(com.baidu.tieba.y.save_error);
         }
     }
 

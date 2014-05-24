@@ -62,18 +62,18 @@ public class ToolMoreView extends FrameLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (this.q != null) {
-            int right = this.f.getRight() - com.baidu.adp.lib.util.h.a(this.b, 14.0f);
-            int top = this.f.getTop() - com.baidu.adp.lib.util.h.a(this.b, 2.0f);
+            int right = this.f.getRight() - com.baidu.adp.lib.util.k.a(this.b, 14.0f);
+            int top = this.f.getTop() - com.baidu.adp.lib.util.k.a(this.b, 2.0f);
             this.q.layout(right, top, this.q.getMeasuredWidth() + right, this.q.getMeasuredHeight() + top);
         }
         if (this.r != null) {
-            int right2 = this.c.getRight() - com.baidu.adp.lib.util.h.a(this.b, 14.0f);
-            int top2 = this.c.getTop() - com.baidu.adp.lib.util.h.a(this.b, 2.0f);
+            int right2 = this.c.getRight() - com.baidu.adp.lib.util.k.a(this.b, 14.0f);
+            int top2 = this.c.getTop() - com.baidu.adp.lib.util.k.a(this.b, 2.0f);
             this.r.layout(right2, top2, this.r.getMeasuredWidth() + right2, this.r.getMeasuredHeight() + top2);
         }
         if (this.s != null) {
-            int right3 = this.k.getRight() - com.baidu.adp.lib.util.h.a(this.b, 14.0f);
-            int top3 = (this.k.getTop() + this.p.getTop()) - com.baidu.adp.lib.util.h.a(this.b, 2.0f);
+            int right3 = this.k.getRight() - com.baidu.adp.lib.util.k.a(this.b, 14.0f);
+            int top3 = (this.k.getTop() + this.p.getTop()) - com.baidu.adp.lib.util.k.a(this.b, 2.0f);
             this.s.layout(right3, top3, this.s.getMeasuredWidth() + right3, this.s.getMeasuredHeight() + top3);
         }
     }
@@ -82,12 +82,12 @@ public class ToolMoreView extends FrameLayout {
         TextView textView = new TextView(this.b);
         textView.setTextSize(1, 10.0f);
         boolean z2 = TbadkApplication.m252getInst().getSkinType() == 1;
-        textView.setTextColor(this.b.getResources().getColor(z2 ? com.baidu.tieba.o.top_msg_num_night : com.baidu.tieba.o.top_msg_num_day));
+        textView.setTextColor(this.b.getResources().getColor(z2 ? com.baidu.tieba.s.top_msg_num_night : com.baidu.tieba.s.top_msg_num_day));
         textView.setGravity(17);
         if (z) {
-            textView.setBackgroundResource(z2 ? com.baidu.tieba.q.icon_news_head_prompt_one_1 : com.baidu.tieba.q.icon_news_head_prompt_one);
+            textView.setBackgroundResource(z2 ? com.baidu.tieba.u.icon_news_head_prompt_one_1 : com.baidu.tieba.u.icon_news_head_prompt_one);
         } else {
-            textView.setBackgroundResource(z2 ? com.baidu.tieba.q.icon_news_list_prompt_1 : com.baidu.tieba.q.icon_news_list_prompt);
+            textView.setBackgroundResource(z2 ? com.baidu.tieba.u.icon_news_list_prompt_1 : com.baidu.tieba.u.icon_news_list_prompt);
         }
         addView(textView, new FrameLayout.LayoutParams(-2, -2));
         return textView;
@@ -135,20 +135,20 @@ public class ToolMoreView extends FrameLayout {
     }
 
     private void f() {
-        LayoutInflater.from(this.b).inflate(com.baidu.tieba.s.editor_tool_more, (ViewGroup) this, true);
-        this.o = (LinearLayout) findViewById(com.baidu.tieba.r.lay_editor_more_line1);
-        this.p = (LinearLayout) findViewById(com.baidu.tieba.r.lay_editor_more_line2);
-        this.c = (Button) findViewById(com.baidu.tieba.r.btn_tool_expression);
-        this.d = (Button) findViewById(com.baidu.tieba.r.btn_tool_image);
-        this.e = (HeadImageView) findViewById(com.baidu.tieba.r.iv_tool_image);
+        LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.editor_tool_more, (ViewGroup) this, true);
+        this.o = (LinearLayout) findViewById(com.baidu.tieba.v.lay_editor_more_line1);
+        this.p = (LinearLayout) findViewById(com.baidu.tieba.v.lay_editor_more_line2);
+        this.c = (Button) findViewById(com.baidu.tieba.v.btn_tool_expression);
+        this.d = (Button) findViewById(com.baidu.tieba.v.btn_tool_image);
+        this.e = (HeadImageView) findViewById(com.baidu.tieba.v.iv_tool_image);
         this.e.setDrawBorder(false);
-        this.f = (FrameLayout) findViewById(com.baidu.tieba.r.lay_tool_image);
-        this.g = (Button) findViewById(com.baidu.tieba.r.btn_tool_camera);
-        this.h = (HeadImageView) findViewById(com.baidu.tieba.r.iv_tool_camera);
+        this.f = (FrameLayout) findViewById(com.baidu.tieba.v.lay_tool_image);
+        this.g = (Button) findViewById(com.baidu.tieba.v.btn_tool_camera);
+        this.h = (HeadImageView) findViewById(com.baidu.tieba.v.iv_tool_camera);
         this.h.setDrawBorder(false);
-        this.i = (FrameLayout) findViewById(com.baidu.tieba.r.lay_tool_camera);
-        this.j = (Button) findViewById(com.baidu.tieba.r.btn_tool_at);
-        this.k = (Button) findViewById(com.baidu.tieba.r.btn_tool_privilege);
+        this.i = (FrameLayout) findViewById(com.baidu.tieba.v.lay_tool_camera);
+        this.j = (Button) findViewById(com.baidu.tieba.v.btn_tool_at);
+        this.k = (Button) findViewById(com.baidu.tieba.v.btn_tool_privilege);
         if (TbadkApplication.m252getInst().isFaceShopNew()) {
             b("N");
         } else {
@@ -304,13 +304,13 @@ public class ToolMoreView extends FrameLayout {
     }
 
     public void a(int i) {
-        int i2 = i == 1 ? com.baidu.tieba.q.selector_editor_more_btn_1 : com.baidu.tieba.q.selector_editor_more_btn;
-        int color = getResources().getColor(i == 1 ? com.baidu.tieba.o.editor_more_btn_text_1 : com.baidu.tieba.o.editor_more_btn_text);
-        int i3 = i == 1 ? com.baidu.tieba.q.btn_pb_add_photo_n_1 : com.baidu.tieba.q.btn_pb_add_photo_n;
-        int i4 = i == 1 ? com.baidu.tieba.q.btn_pb_add_expression_n_1 : com.baidu.tieba.q.btn_pb_add_expression_n;
-        int i5 = i == 1 ? com.baidu.tieba.q.btn_pb_add_camera_n_1 : com.baidu.tieba.q.btn_pb_add_camera_n;
-        int i6 = i == 1 ? com.baidu.tieba.q.btn_pb_add_a_n_1 : com.baidu.tieba.q.btn_pb_add_a_n;
-        int i7 = i == 1 ? com.baidu.tieba.q.btn_pb_add_vip_n_1 : com.baidu.tieba.q.btn_pb_add_vip_n;
+        int i2 = i == 1 ? com.baidu.tieba.u.selector_editor_more_btn_1 : com.baidu.tieba.u.selector_editor_more_btn;
+        int color = getResources().getColor(i == 1 ? com.baidu.tieba.s.editor_more_btn_text_1 : com.baidu.tieba.s.editor_more_btn_text);
+        int i3 = i == 1 ? com.baidu.tieba.u.btn_pb_add_photo_n_1 : com.baidu.tieba.u.btn_pb_add_photo_n;
+        int i4 = i == 1 ? com.baidu.tieba.u.btn_pb_add_expression_n_1 : com.baidu.tieba.u.btn_pb_add_expression_n;
+        int i5 = i == 1 ? com.baidu.tieba.u.btn_pb_add_camera_n_1 : com.baidu.tieba.u.btn_pb_add_camera_n;
+        int i6 = i == 1 ? com.baidu.tieba.u.btn_pb_add_a_n_1 : com.baidu.tieba.u.btn_pb_add_a_n;
+        int i7 = i == 1 ? com.baidu.tieba.u.btn_pb_add_vip_n_1 : com.baidu.tieba.u.btn_pb_add_vip_n;
         a(this.c, i2, i4, color);
         a(this.d, i2, i3, color);
         a(this.g, i2, i5, color);
@@ -324,13 +324,13 @@ public class ToolMoreView extends FrameLayout {
     private void a(TextView textView, int i) {
         if (textView != null) {
             boolean z = i == 1;
-            textView.setTextColor(this.b.getResources().getColor(z ? com.baidu.tieba.o.top_msg_num_night : com.baidu.tieba.o.top_msg_num_day));
-            textView.setBackgroundResource(z ? com.baidu.tieba.q.icon_news_head_prompt_one_1 : com.baidu.tieba.q.icon_news_head_prompt_one);
+            textView.setTextColor(this.b.getResources().getColor(z ? com.baidu.tieba.s.top_msg_num_night : com.baidu.tieba.s.top_msg_num_day));
+            textView.setBackgroundResource(z ? com.baidu.tieba.u.icon_news_head_prompt_one_1 : com.baidu.tieba.u.icon_news_head_prompt_one);
         }
     }
 
     private void a(Button button, int i, int i2, int i3) {
-        int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(com.baidu.tieba.p.editor_more_btns_paddingtop);
+        int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.editor_more_btns_paddingtop);
         button.setBackgroundResource(i);
         button.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
         button.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getResources().getDrawable(i2), (Drawable) null, (Drawable) null);

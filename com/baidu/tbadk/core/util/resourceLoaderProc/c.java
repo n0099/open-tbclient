@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.content.Context;
 import com.baidu.adp.lib.resourceLoader.BdResourceLoaderNetHelperStatic;
+import com.baidu.adp.lib.util.k;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
@@ -21,13 +22,13 @@ public class c extends a {
         this.a = z;
         this.b = z2;
         this.c = z3;
-        int b = com.baidu.adp.lib.util.h.b(TbadkApplication.m252getInst().getApp());
+        int b = k.b(TbadkApplication.m252getInst().getApp());
         this.d = b <= 0 ? Constants.MEDIA_INFO : b;
         if (this.d > 480) {
             this.d = 480;
         }
-        if (this.d > com.baidu.adp.lib.util.h.a((Context) TbadkApplication.m252getInst().getApp(), 320.0f)) {
-            this.d = com.baidu.adp.lib.util.h.a((Context) TbadkApplication.m252getInst().getApp(), 320.0f);
+        if (this.d > k.a((Context) TbadkApplication.m252getInst().getApp(), 320.0f)) {
+            this.d = k.a((Context) TbadkApplication.m252getInst().getApp(), 320.0f);
         }
         this.e = (int) (this.d * 0.4f);
     }

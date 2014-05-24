@@ -1,5 +1,6 @@
 package com.baidu.adp.framework.client;
 
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.client.HttpClient;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
@@ -81,7 +82,7 @@ public class d extends BdAsyncTask<HttpMessage, HttpResponsedMessage, HttpRespon
                     newInstance.processInBackGround(this.b.getCmd(), this.d.b().g);
                 } catch (Exception e2) {
                     newInstance.setError(TbErrInfo.ERR_IMG_URL_IS_NULL);
-                    newInstance.setErrorString(com.baidu.adp.base.a.getInst().getString(com.baidu.adp.f.error_unkown_try_again));
+                    newInstance.setErrorString(BdBaseApplication.getInst().getString(com.baidu.adp.f.error_unkown_try_again));
                     BdLog.detailException(e2);
                 }
             } else {

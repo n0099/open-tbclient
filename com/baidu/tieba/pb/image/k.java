@@ -22,7 +22,7 @@ class k implements com.baidu.tbadk.widget.j {
             linearLayout2 = this.a.q;
             linearLayout2.setVisibility(0);
             button = this.a.m;
-            button.setBackgroundResource(com.baidu.tieba.q.sub_pb_face);
+            button.setBackgroundResource(com.baidu.tieba.u.sub_pb_face);
         }
     }
 }

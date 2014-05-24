@@ -1,139 +1,187 @@
 package com.baidu.tieba.square;
 
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.view.SearchBoxView;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class ay extends com.baidu.adp.base.e {
-    com.baidu.tbadk.core.view.q a;
-    private com.baidu.tbadk.core.e b;
-    private View c;
-    private BdListView d;
-    private LinearLayout e;
-    private SearchBoxView f;
-    private NoNetworkView g;
-    private ax h;
+public class ay extends BaseAdapter implements com.baidu.tieba.view.t {
+    private ArrayList<BaseAdapter> a;
+    private com.baidu.tbadk.editortool.ab b;
+    private u c;
+    private ag d;
+    private ac e;
+    private i f;
 
-    public ay(com.baidu.tbadk.core.e eVar, com.baidu.tbadk.core.d dVar, View.OnKeyListener onKeyListener) {
-        super(eVar);
+    public ay(Context context) {
+        this.a = null;
         this.b = null;
+        this.c = null;
         this.d = null;
         this.e = null;
-        this.a = null;
-        this.h = null;
-        this.b = eVar;
-        this.c = dVar.getView();
-        this.e = (LinearLayout) this.c.findViewById(com.baidu.tieba.r.container);
-        this.f = (SearchBoxView) this.c.findViewById(com.baidu.tieba.r.view_searchbox);
-        this.d = (BdListView) this.c.findViewById(com.baidu.tieba.r.square_list);
-        this.d.setOnKeyListener(onKeyListener);
-        this.d.setOnItemClickListener(dVar);
-        this.d.setOnScrollListener(dVar);
-        this.h = new ax(eVar);
-        this.d.setAdapter((ListAdapter) this.h);
-        this.a = new com.baidu.tbadk.core.view.q(eVar);
-        this.d.setPullRefresh(this.a);
-        this.g = (NoNetworkView) this.c.findViewById(com.baidu.tieba.r.view_no_network);
-        com.baidu.tieba.view.j jVar = new com.baidu.tieba.view.j(this.mContext);
-        jVar.setHeightDip(30);
-        this.d.addFooterView(jVar);
+        this.f = null;
+        this.a = new ArrayList<>();
+        this.b = new com.baidu.tbadk.editortool.ab(context);
+        this.c = new u(context);
+        this.d = new ag(context);
+        this.e = new ac(context);
+        this.f = new i(context);
+        this.a.add(this.c);
+        this.a.add(this.d);
+        this.a.add(this.e);
+        this.a.add(this.f);
     }
 
-    public void a(aq aqVar) {
-        if (aqVar != null) {
-            try {
-                this.h.a(aqVar);
-                this.h.notifyDataSetChanged();
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "refresh", e.getMessage());
+    public void a(ar arVar) {
+        if (arVar != null) {
+            if (this.c != null) {
+                this.c.a(arVar.b());
+            }
+            if (this.d != null) {
+                this.d.a(arVar.c());
+            }
+            if (this.e != null) {
+                this.e.a(arVar.d());
+            }
+            if (this.f != null) {
+                this.f.a(arVar.e());
             }
         }
-    }
-
-    public void a() {
-        if (this.d != null) {
-            int headerViewsCount = this.d.getHeaderViewsCount() + 1;
-            int firstVisiblePosition = this.d.getFirstVisiblePosition();
-            int lastVisiblePosition = this.d.getLastVisiblePosition();
-            if (firstVisiblePosition > 0) {
-                firstVisiblePosition -= headerViewsCount;
-                lastVisiblePosition -= headerViewsCount;
-            }
-            this.h.a(this.d, firstVisiblePosition, lastVisiblePosition);
-        }
-    }
-
-    public void b() {
-        this.d.c();
-    }
-
-    public void a(boolean z, String str) {
-        b();
-        if (!z && str != null) {
-            this.b.a(str);
-        }
-    }
-
-    public SearchBoxView c() {
-        return this.f;
-    }
-
-    public void d() {
-        this.d.d();
-    }
-
-    public void e() {
-        this.g.setVisibility(0);
-    }
-
-    public void f() {
-        this.g.setVisibility(8);
-    }
-
-    public void a(com.baidu.tbadk.core.view.m mVar) {
-        this.g.a(mVar);
-    }
-
-    public void b(com.baidu.tbadk.core.view.m mVar) {
-        this.g.b(mVar);
-    }
-
-    public void g() {
-        this.h.b();
-    }
-
-    public void h() {
-        NetworkInfo activeNetworkInfo;
-        BdLog.d("SquareView", "onResume", "onResume");
-        this.h.a();
-        if (this.g != null && this.g.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.b.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
-            this.g.setVisible(false);
-        }
-    }
-
-    public void i() {
-        this.h.c();
-    }
-
-    public void j() {
     }
 
     public void a(int i) {
-        this.b.a().a(i == 1);
-        this.b.a().a((View) this.e);
-        this.h.a(i);
-        this.a.a(i);
-        this.g.a(i);
-        this.f.a(i);
+        if (this.c != null) {
+            this.c.a(i);
+        }
+        notifyDataSetChanged();
     }
 
-    public void a(com.baidu.adp.widget.ListView.d dVar) {
-        this.a.a(dVar);
+    public void a() {
+        if (this.c != null) {
+            this.c.a();
+        }
+    }
+
+    public void c() {
+        if (this.c != null) {
+            this.c.c();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        int i = 0;
+        Iterator<BaseAdapter> it = this.a.iterator();
+        while (true) {
+            int i2 = i;
+            if (it.hasNext()) {
+                i = it.next().getCount() + i2;
+            } else {
+                return i2;
+            }
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        int i2 = 0;
+        while (true) {
+            int i3 = i2;
+            if (i3 < this.a.size()) {
+                BaseAdapter baseAdapter = this.a.get(i3);
+                if (i < baseAdapter.getCount()) {
+                    return baseAdapter.getItem(i);
+                }
+                i -= baseAdapter.getCount();
+                i2 = i3 + 1;
+            } else {
+                return null;
+            }
+        }
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        int i;
+        int i2 = 0;
+        Iterator<BaseAdapter> it = this.a.iterator();
+        while (true) {
+            i = i2;
+            if (!it.hasNext()) {
+                break;
+            }
+            i2 = it.next().getViewTypeCount() + i;
+        }
+        if (i <= 0) {
+            return 1;
+        }
+        return i;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        int i2 = 0;
+        for (int i3 = 0; i3 < this.a.size(); i3++) {
+            BaseAdapter baseAdapter = this.a.get(i3);
+            if (i < baseAdapter.getCount()) {
+                return baseAdapter.getItemViewType(i) + i2;
+            }
+            i2 += baseAdapter.getViewTypeCount();
+            i -= baseAdapter.getCount();
+        }
+        return 0;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        int i2 = 0;
+        while (true) {
+            int i3 = i2;
+            if (i3 < this.a.size()) {
+                BaseAdapter baseAdapter = this.a.get(i3);
+                if (i < baseAdapter.getCount()) {
+                    return baseAdapter.getView(i, view, viewGroup);
+                }
+                i -= baseAdapter.getCount();
+                i2 = i3 + 1;
+            } else {
+                return null;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.view.t
+    public void b() {
+        Iterator<BaseAdapter> it = this.a.iterator();
+        while (it.hasNext()) {
+            BaseAdapter next = it.next();
+            if (next instanceof com.baidu.tieba.view.t) {
+                ((com.baidu.tieba.view.t) next).b();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.view.t
+    public void a(View view, int i, int i2) {
+        for (int i3 = 0; i3 < this.a.size(); i3++) {
+            BaseAdapter baseAdapter = this.a.get(i3);
+            if (baseAdapter instanceof com.baidu.tieba.view.t) {
+                ((com.baidu.tieba.view.t) baseAdapter).a(view, i < 0 ? 0 : i, i2 > baseAdapter.getCount() + (-1) ? baseAdapter.getCount() - 1 : i2);
+            }
+            BdLog.i(getClass().getName(), "startLoadImage", "start:" + i + "en:" + i2);
+            i -= baseAdapter.getCount();
+            i2 -= baseAdapter.getCount();
+            if (i2 < 0) {
+                return;
+            }
+        }
     }
 }

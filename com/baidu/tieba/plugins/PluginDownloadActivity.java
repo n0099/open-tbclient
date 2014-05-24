@@ -13,8 +13,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.service.PluginDownloadService;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
-import com.baidu.tieba.u;
 import com.baidu.tieba.v;
+import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 import java.io.File;
 /* loaded from: classes.dex */
 public class PluginDownloadActivity extends BaseActivity implements com.baidu.tbadk.tbplugin.k {
@@ -27,12 +28,12 @@ public class PluginDownloadActivity extends BaseActivity implements com.baidu.tb
     private boolean g;
 
     @Override // com.baidu.tbadk.tbplugin.k
-    public void a(int i, String str) {
+    public void onFinish(int i, String str) {
         runOnUiThread(new j(this, i));
     }
 
     @Override // com.baidu.tbadk.tbplugin.k
-    public void a(int i) {
+    public void onProgress(int i) {
     }
 
     public static void a(Context context, PluginsConfig.PluginConfig pluginConfig) {
@@ -48,14 +49,14 @@ public class PluginDownloadActivity extends BaseActivity implements com.baidu.tb
         a(this.e);
         this.b = (PluginsConfig.PluginConfig) getIntent().getSerializableExtra("plugin_config");
         if (this.b == null) {
-            showToast(getString(u.plugin_config_not_found), false);
+            showToast(getString(y.plugin_config_not_found), false);
             finish();
             return;
         }
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.alpha = 0.0f;
         getWindow().setAttributes(attributes);
-        this.a = new o(this, this, v.common_alert_dialog);
+        this.a = new o(this, this, z.common_alert_dialog);
         this.a.setCancelable(false);
         this.a.setOnKeyListener(new k(this));
         this.a.setOnDismissListener(new l(this));
@@ -72,7 +73,7 @@ public class PluginDownloadActivity extends BaseActivity implements com.baidu.tb
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().a(i == 1);
-        getLayoutMode().a(this.a.findViewById(com.baidu.tieba.r.dialog_layout));
+        getLayoutMode().a(this.a.findViewById(v.dialog_layout));
     }
 
     public void a(ServiceConnection serviceConnection) {

@@ -1,12 +1,13 @@
 package com.baidu.tieba.frs;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar extends BdAsyncTask<Void, Integer, Void> {
+public class ar implements DialogInterface.OnClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,15 +15,42 @@ public class ar extends BdAsyncTask<Void, Integer, Void> {
         this.a = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Void doInBackground(Void... voidArr) {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteImagesInfo writeImagesInfo;
+        WriteImagesInfo writeImagesInfo2;
+        WriteImagesInfo writeImagesInfo3;
+        WriteImagesInfo writeImagesInfo4;
         String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.a.aa;
-        com.baidu.tbadk.core.util.x.c(new File(append.append(str).toString()));
-        return null;
+        WriteImagesInfo writeImagesInfo5;
+        WriteImagesInfo writeImagesInfo6;
+        if (i == 0) {
+            writeImagesInfo4 = this.a.Y;
+            if (writeImagesInfo4.getChosedFiles() != null) {
+                writeImagesInfo5 = this.a.Y;
+                int size = writeImagesInfo5.getChosedFiles().size();
+                writeImagesInfo6 = this.a.Y;
+                if (size >= writeImagesInfo6.getMaxImagesAllowed()) {
+                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
+                    return;
+                }
+            }
+            this.a.Z = String.valueOf(System.currentTimeMillis());
+            FrsActivity frsActivity = this.a;
+            str = this.a.Z;
+            com.baidu.tbadk.core.util.bb.a(frsActivity, str);
+        } else if (i == 1) {
+            writeImagesInfo = this.a.Y;
+            if (writeImagesInfo != null) {
+                writeImagesInfo2 = this.a.Y;
+                if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
+                    FrsActivity frsActivity2 = this.a;
+                    writeImagesInfo3 = this.a.Y;
+                    com.baidu.tbadk.core.atomData.a aVar = new com.baidu.tbadk.core.atomData.a(frsActivity2, writeImagesInfo3.toJsonString());
+                    aVar.setRequestCode(12002);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, aVar));
+                }
+            }
+        }
     }
 }

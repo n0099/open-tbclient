@@ -11,11 +11,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.bc;
-import com.baidu.tieba.o;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
+import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -36,16 +37,16 @@ public class d {
     private AlertDialog l;
 
     static {
-        m.put(0, new Integer[]{Integer.valueOf(q.dialg_alert_btn_bg), Integer.valueOf(q.dialog_bdalert_button_textcolor_pressed)});
-        m.put(1, new Integer[]{Integer.valueOf(q.btn_blue_square), Integer.valueOf(o.share_copy_pb_url)});
+        m.put(0, new Integer[]{Integer.valueOf(u.dialg_alert_btn_bg), Integer.valueOf(u.dialog_bdalert_button_textcolor_pressed)});
+        m.put(1, new Integer[]{Integer.valueOf(u.btn_blue_square), Integer.valueOf(s.share_copy_pb_url)});
     }
 
     public d(Activity activity) {
         this.e = activity;
         this.d = (LayoutInflater) activity.getSystemService("layout_inflater");
-        this.f = (ViewGroup) this.d.inflate(s.dialog_bdlist, (ViewGroup) null);
-        this.h = (TextView) this.f.findViewById(r.dialog_title);
-        this.g = (ViewGroup) this.f.findViewById(r.dialog_content);
+        this.f = (ViewGroup) this.d.inflate(w.dialog_bdlist, (ViewGroup) null);
+        this.h = (TextView) this.f.findViewById(v.dialog_title);
+        this.g = (ViewGroup) this.f.findViewById(v.dialog_content);
     }
 
     public d a(Object[] objArr, g gVar) {
@@ -82,10 +83,10 @@ public class d {
             if (!TextUtils.isEmpty(this.a)) {
                 this.h.setText(this.a);
                 this.h.setVisibility(0);
-                bc.f(this.g, q.bg_unite_popup_share_down);
+                bc.f(this.g, u.bg_unite_popup_share_down);
             } else {
                 this.h.setVisibility(8);
-                bc.f(this.g, q.bg_unite_popup);
+                bc.f(this.g, u.bg_unite_popup);
             }
             if (this.b != null && this.b.size() > 0) {
                 int size = this.b.size();
@@ -128,10 +129,10 @@ public class d {
             BaseActivity baseActivity = (BaseActivity) this.e;
             baseActivity.getLayoutMode().a(skinType == 1);
             baseActivity.getLayoutMode().a((View) this.f);
-        } else if (this.e instanceof com.baidu.tbadk.core.e) {
-            com.baidu.tbadk.core.e eVar = (com.baidu.tbadk.core.e) this.e;
-            eVar.a().a(skinType == 1);
-            eVar.a().a((View) this.f);
+        } else if (this.e instanceof BaseFragmentActivity) {
+            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.e;
+            baseFragmentActivity.a().a(skinType == 1);
+            baseFragmentActivity.a().a((View) this.f);
         }
     }
 
@@ -151,8 +152,8 @@ public class d {
         int i3;
         Exception exc;
         int i4;
-        View inflate = LayoutInflater.from(this.e).inflate(s.dialog_bdlist_item, this.g, false);
-        Button button = (Button) inflate.findViewById(r.dialog_item_btn);
+        View inflate = LayoutInflater.from(this.e).inflate(w.dialog_bdlist_item, this.g, false);
+        Button button = (Button) inflate.findViewById(v.dialog_item_btn);
         Object obj = this.b.get(i);
         String str2 = "";
         int intValue = m.get(0)[0].intValue();

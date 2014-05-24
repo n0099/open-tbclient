@@ -44,11 +44,11 @@ public class ao extends BdAsyncTask<Object, String, FacePackageDetailData> {
             if (str != null) {
                 str2 = this.a.d;
                 if (str2.length() > 0 && !this.c) {
-                    com.baidu.adp.lib.cache.s<String> A = com.baidu.tbadk.core.a.b.a().A();
-                    if (A != null) {
+                    com.baidu.adp.lib.cache.s<String> B = com.baidu.tbadk.core.a.b.a().B();
+                    if (B != null) {
                         StringBuilder sb = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount()));
                         str5 = this.a.d;
-                        String a = A.a(sb.append(str5).toString());
+                        String a = B.a(sb.append(str5).toString());
                         if (!com.baidu.tbadk.core.util.be.c(a)) {
                             publishProgress(a);
                         }
@@ -112,11 +112,11 @@ public class ao extends BdAsyncTask<Object, String, FacePackageDetailData> {
 
     private void a(String str) {
         String str2;
-        com.baidu.adp.lib.cache.s<String> A = com.baidu.tbadk.core.a.b.a().A();
-        if (A != null) {
+        com.baidu.adp.lib.cache.s<String> B = com.baidu.tbadk.core.a.b.a().B();
+        if (B != null) {
             StringBuilder sb = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount()));
             str2 = this.a.d;
-            A.a(sb.append(str2).toString(), str, 604800000L);
+            B.a(sb.append(str2).toString(), str, 604800000L);
         }
     }
 

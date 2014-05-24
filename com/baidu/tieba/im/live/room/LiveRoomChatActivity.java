@@ -28,7 +28,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tbadk.core.util.LocalViewSize;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 import com.baidu.tieba.im.chat.CommonGroupChatActiviy;
@@ -42,39 +41,38 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.baidu.tieba.im.live.k {
-    private static String N;
     private static String O;
     public boolean n;
     public bo o;
     private LiveRoomChatView p;
     private LiveMsglistModel q;
     private com.baidu.tbadk.core.util.b r;
-    private String w;
-    private LiveRoomChatActivity x;
+    private String x;
+    private LiveRoomChatActivity y;
     public String m = null;
     private boolean s = false;
     private boolean t = false;
-    private AlertDialog u = null;
-    private boolean v = false;
-    private Handler y = null;
-    private boolean z = false;
-    private int A = -1;
-    private com.baidu.adp.framework.listener.b B = new g(this, MessageTypes.CMD_REMOVE_MEMBERS);
-    private final CustomMessageListener C = new r(this, MessageTypes.CMD_NETWORK_CHANGE);
-    private final CustomMessageListener D = new z(this, MessageTypes.CMD_LIVE_STATUS_CHANGE);
-    private final CustomMessageListener E = new aa(this, MessageTypes.CMD_LIVE_PUBLISH_SAY);
-    private final CustomMessageListener F = new ab(this, MessageTypes.CMD_LIVE_ERROR);
-    private final CustomMessageListener G = new ac(this, MessageTypes.CMD_LIVE_USER_MUTE);
-    private final CustomMessageListener H = new ad(this, MessageTypes.CMD_LIVE_CHAT_ROOM_EVENT);
-    private com.baidu.adp.framework.listener.b I = new ae(this, MessageTypes.CMD_INCR_LIVE_GROUP_LIKE);
-    private com.baidu.adp.framework.listener.b J = new af(this, MessageTypes.CMD_JOIN_LIVE_GROUP);
-    private final com.baidu.adp.framework.listener.b K = new h(this, 0);
-    private final com.baidu.adp.framework.listener.b L = new i(this, 0);
-    private final com.baidu.adp.framework.listener.b M = new j(this, MessageTypes.CMD_LIVE_GROUP_OWNER_GAG);
+    private String u = null;
+    private AlertDialog v = null;
+    private boolean w = false;
+    private Handler z = null;
+    private boolean A = false;
+    private int B = -1;
+    private com.baidu.adp.framework.listener.b C = new g(this, MessageTypes.CMD_REMOVE_MEMBERS);
+    private final CustomMessageListener D = new r(this, MessageTypes.CMD_NETWORK_CHANGE);
+    private final CustomMessageListener E = new z(this, MessageTypes.CMD_LIVE_STATUS_CHANGE);
+    private final CustomMessageListener F = new aa(this, MessageTypes.CMD_LIVE_PUBLISH_SAY);
+    private final CustomMessageListener G = new ab(this, MessageTypes.CMD_LIVE_ERROR);
+    private final CustomMessageListener H = new ac(this, MessageTypes.CMD_LIVE_USER_MUTE);
+    private final CustomMessageListener I = new ad(this, MessageTypes.CMD_LIVE_CHAT_ROOM_EVENT);
+    private com.baidu.adp.framework.listener.b J = new ae(this, MessageTypes.CMD_INCR_LIVE_GROUP_LIKE);
+    private com.baidu.adp.framework.listener.b K = new af(this, MessageTypes.CMD_JOIN_LIVE_GROUP);
+    private final com.baidu.adp.framework.listener.b L = new h(this, 0);
+    private final com.baidu.adp.framework.listener.b M = new i(this, 0);
+    private final com.baidu.adp.framework.listener.b N = new j(this, MessageTypes.CMD_LIVE_GROUP_OWNER_GAG);
 
     static {
         TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ae.class, LiveRoomChatActivity.class);
-        N = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/p/groupShareImg?group_id=";
         O = "http";
     }
 
@@ -112,11 +110,11 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     public void b(String str, String str2, String str3, String str4, boolean z) {
         BdNetUtil.NetworkStateInfo a = BdNetUtil.a();
         if (a == BdNetUtil.NetworkStateInfo.UNAVAIL) {
-            showToast(com.baidu.tieba.u.neterror);
+            showToast(com.baidu.tieba.y.neterror);
         } else if (a != BdNetUtil.NetworkStateInfo.WIFI) {
-            if (this.u == null || !this.u.isShowing()) {
-                this.u = new AlertDialog.Builder(this).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(x().r ? com.baidu.tieba.u.live_chat_room_nonwifi_prompts_pub : com.baidu.tieba.u.live_chat_room_nonwifi_prompts_play).setPositiveButton(x().r ? com.baidu.tieba.u.live_chat_room_nonwifi_prompts_pub_yes : com.baidu.tieba.u.live_chat_room_nonwifi_prompts_play_yes, new k(this, str, str2, str3, str4, z)).setNegativeButton(x().r ? com.baidu.tieba.u.live_chat_room_nonwifi_prompts_pub_no : com.baidu.tieba.u.live_chat_room_nonwifi_prompts_play_no, new l(this)).create();
-                this.u.show();
+            if (this.v == null || !this.v.isShowing()) {
+                this.v = new AlertDialog.Builder(this).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(x().r ? com.baidu.tieba.y.live_chat_room_nonwifi_prompts_pub : com.baidu.tieba.y.live_chat_room_nonwifi_prompts_play).setPositiveButton(x().r ? com.baidu.tieba.y.live_chat_room_nonwifi_prompts_pub_yes : com.baidu.tieba.y.live_chat_room_nonwifi_prompts_play_yes, new k(this, str, str2, str3, str4, z)).setNegativeButton(x().r ? com.baidu.tieba.y.live_chat_room_nonwifi_prompts_pub_no : com.baidu.tieba.y.live_chat_room_nonwifi_prompts_play_no, new l(this)).create();
+                this.v.show();
             }
         } else {
             BdLog.d("checkNetworkThenPlayOrRecord groupId =" + str2);
@@ -125,12 +123,16 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     }
 
     public void a(String str, String str2, String str3, String str4, boolean z) {
-        com.baidu.tieba.im.live.b.b().a(x().r ? x().b.streamId : null, String.valueOf(x().b.groupId), String.valueOf(x().b.deviceId), x().b.playUrl, z);
+        if (com.baidu.tieba.im.live.b.b().g() == -1) {
+            this.u = str2;
+        } else {
+            com.baidu.tieba.im.live.b.b().a(x().r ? x().b.streamId : null, String.valueOf(x().b.groupId), String.valueOf(x().b.deviceId), x().b.playUrl, z);
+        }
     }
 
-    @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.dd, com.baidu.adp.lib.b.b
+    @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.b.b
     public void b(View view, int i, int i2, long j) {
-        if (z().R()) {
+        if (z().S()) {
             super.b(view, i, i2, j);
             return;
         }
@@ -148,11 +150,11 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.dd, com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (!z().af()) {
-                z().ai();
+            if (z() != null && !z().ag()) {
+                z().aj();
                 return false;
             }
             A();
@@ -162,17 +164,19 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dd
+    @Override // com.baidu.tieba.im.chat.TalkableActivity
     public void u() {
         super.u();
-        if (!z().af()) {
-            z().ai();
+        if (!z().ag()) {
+            z().aj();
         }
     }
 
     private void A() {
         Intent intent = new Intent();
-        intent.putExtra("subcribed", x().f);
+        if (x() != null) {
+            intent.putExtra("subcribed", x().f);
+        }
         setResult(-1, intent);
     }
 
@@ -201,12 +205,12 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dd, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
-        this.A = ((LiveRoomChatView) this.d).ag();
+        this.B = ((LiveRoomChatView) this.d).ah();
         super.onPause();
-        if (!this.v && x().b != null && (z().S() == 3 || z().S() == 5 || z().S() == 4)) {
-            b(com.baidu.tieba.u.live_room_notify);
+        if (!this.w && x().b != null && (z().T() == 3 || z().T() == 5 || z().T() == 4)) {
+            b(com.baidu.tieba.y.live_room_notify);
         }
         a = false;
     }
@@ -214,14 +218,14 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
         try {
-            Notification notification = new Notification(com.baidu.tieba.q.icon, x().j, System.currentTimeMillis());
+            Notification notification = new Notification(com.baidu.tieba.u.icon, x().j, System.currentTimeMillis());
             notification.flags = 34;
             Intent intent = new Intent(this, LiveRoomChatActivity.class);
             intent.setFlags(335544320);
             intent.putExtra("gid", x().b().getGroupId());
             intent.putExtra("group", x().b());
             intent.putExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME, x().e);
-            notification.setLatestEventInfo(this, x().j, getResources().getString(i), PendingIntent.getActivity(this, com.baidu.tieba.u.app_name, intent, 134217728));
+            notification.setLatestEventInfo(this, x().j, getResources().getString(i), PendingIntent.getActivity(this, com.baidu.tieba.y.app_name, intent, 134217728));
             ((NotificationManager) getSystemService("notification")).notify(20, notification);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -229,7 +233,7 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dd, com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         a = true;
@@ -243,19 +247,19 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
             }
         } catch (Exception e) {
         }
-        if (this.s && com.baidu.tieba.im.live.b.b().g() == 0 && z().S() == 3) {
+        if (this.s && com.baidu.tieba.im.live.b.b().g() == 0 && z().T() == 3) {
             b(x().b.streamId, String.valueOf(x().b.groupId), String.valueOf(x().b.deviceId), x().b.playUrl, false);
         }
-        if (this.y == null) {
-            this.y = new Handler();
+        if (this.z == null) {
+            this.z = new Handler();
         }
-        this.y.postDelayed(new p(this), 100L);
+        this.z.postDelayed(new p(this), 100L);
     }
 
     private void B() {
-        if (com.baidu.tieba.im.live.b.b().q() == 1) {
+        if (com.baidu.tieba.im.live.b.b().r() == 1) {
             if (com.baidu.tieba.im.live.b.b().i() == null || !com.baidu.tieba.im.live.b.b().i().equals(String.valueOf(x().b().getGroupId()))) {
-                new AlertDialog.Builder(this.x).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.u.live_check_group).setPositiveButton(com.baidu.tieba.u.cancel, new q(this)).setNegativeButton(com.baidu.tieba.u.confirm, new s(this)).create().show();
+                new AlertDialog.Builder(this.y).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.live_check_group).setPositiveButton(com.baidu.tieba.y.cancel, new q(this)).setNegativeButton(com.baidu.tieba.y.confirm, new s(this)).create().show();
                 return;
             } else {
                 C();
@@ -266,55 +270,56 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dd, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
         this.q = null;
         this.p = null;
-        this.x = this;
+        super.onNewIntent(intent);
+        this.y = this;
         x().a(getIntent(), (Bundle) null);
         B();
+        z().j();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dd, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.x = this;
+        this.y = this;
         x().a(getIntent(), bundle);
         B();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void C() {
-        registerListener(this.F);
-        registerListener(this.C);
+        registerListener(this.G);
         registerListener(this.D);
-        registerListener(this.H);
+        registerListener(this.E);
         registerListener(this.I);
         registerListener(this.J);
-        registerListener(this.B);
-        registerListener(this.M);
-        registerListener(this.G);
-        registerListener(this.E);
+        registerListener(this.K);
+        registerListener(this.C);
+        registerListener(this.N);
+        registerListener(this.H);
+        registerListener(this.F);
         com.baidu.tieba.im.live.b.b().c();
         showProgressBar();
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_SUBSCRIBE_LIVE_GROUP, this.L);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_SEND_FORE_NOTICE, this.K);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_SUBSCRIBE_LIVE_GROUP, this.M);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_SEND_FORE_NOTICE, this.L);
         D();
         String i = com.baidu.tieba.im.live.b.b().i();
         if (!StringUtils.isNull(i)) {
             if (!i.equals(String.valueOf(x().b().getGroupId()))) {
                 BdLog.d("initActivity not my live");
-                com.baidu.tieba.im.live.b.b().r();
-            } else if (com.baidu.tieba.im.live.b.b().p() == 3) {
+                com.baidu.tieba.im.live.b.b().s();
+            } else if (com.baidu.tieba.im.live.b.b().q() == 3) {
                 if (this.d != null) {
-                    ((LiveRoomChatView) this.d).Y().c(true);
+                    ((LiveRoomChatView) this.d).Z().c(true);
                 }
                 com.baidu.tieba.im.live.b.b().a(this);
-                this.w = StringUtils.translateSecondsToString(com.baidu.tieba.im.live.b.b().s());
-                z().Q().setRecordTime(this.w);
-                z().Q().a();
+                this.x = StringUtils.translateSecondsToString(com.baidu.tieba.im.live.b.b().t());
+                z().R().setRecordTime(this.x);
+                z().R().a();
             }
         }
         if (this.d != null) {
@@ -344,11 +349,11 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dd, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.M);
         MessageManager.getInstance().unRegisterListener(this.L);
-        MessageManager.getInstance().unRegisterListener(this.K);
-        MessageManager.getInstance().unRegisterListener(this.E);
+        MessageManager.getInstance().unRegisterListener(this.F);
         super.onDestroy();
         if (this.r != null) {
             this.r.d();
@@ -366,64 +371,64 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
       (wrap: com.baidu.tieba.im.model.LiveMsglistModel : 0x02b7: INVOKE  (r6v7 com.baidu.tieba.im.model.LiveMsglistModel A[REMOVE]) = (r19v0 'this' com.baidu.tieba.im.live.room.LiveRoomChatActivity A[IMMUTABLE_TYPE, THIS]) type: VIRTUAL call: com.baidu.tieba.im.live.room.LiveRoomChatActivity.x():com.baidu.tieba.im.model.LiveMsglistModel)
      com.baidu.tieba.im.model.LiveMsglistModel.b protobuf.LiveGroupInfo)
      protobuf.LiveGroupInfo.groupId java.lang.Integer)] */
-    @Override // com.baidu.tieba.im.chat.dd, com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.d.A()) {
             A();
         }
         super.onClick(view);
-        if (view == z().X()) {
+        if (view == z().Y()) {
             z().f(x().f);
-        } else if (view == z().Y().b()) {
+        } else if (view == z().Z().b()) {
             z().z();
             if (this.n) {
                 z().z();
-                this.o = new bo(this, this.x, com.baidu.tieba.v.NewUserDialog);
+                this.o = new bo(this, this.y, com.baidu.tieba.z.NewUserDialog);
                 this.o.show();
                 return;
             }
-            showToast(com.baidu.tieba.u.reminder_notice_only_one);
-        } else if (view == z().Y().c()) {
+            showToast(com.baidu.tieba.y.reminder_notice_only_one);
+        } else if (view == z().Z().c()) {
             z().z();
             H();
-        } else if (view == z().Y().d()) {
+        } else if (view == z().Z().d()) {
             z().z();
             if (x().b != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ab(this, new StringBuilder().append(x().b.groupId).toString())));
             }
-        } else if (view == z().Y().e()) {
+        } else if (view == z().Z().e()) {
             z().z();
             TiebaStatic.eventStat(getBaseContext(), "livem_record_bt", "click");
-            int p = com.baidu.tieba.im.live.b.b().p();
-            if (p == 2) {
+            int q = com.baidu.tieba.im.live.b.b().q();
+            if (q == 2) {
                 if (this.d != null) {
-                    ((LiveRoomChatView) this.d).Y().c(true);
+                    ((LiveRoomChatView) this.d).Z().c(true);
                 }
-                showToast(com.baidu.tieba.u.live_chat_room_recordstarted);
+                showToast(com.baidu.tieba.y.live_chat_room_recordstarted);
                 com.baidu.tieba.im.live.b.b().a(this);
                 com.baidu.tieba.im.live.b.b().b(com.baidu.tieba.im.live.b.b().i());
-                z().Q().c();
-                z().Q().a();
-            } else if (p == 3) {
+                z().R().c();
+                z().R().a();
+            } else if (q == 3) {
                 if (this.d != null) {
-                    ((LiveRoomChatView) this.d).Y().c(false);
+                    ((LiveRoomChatView) this.d).Z().c(false);
                 }
-                showToast(com.baidu.tieba.u.live_chat_room_recordstopped);
-                z().Q().b();
+                showToast(com.baidu.tieba.y.live_chat_room_recordstopped);
+                z().R().b();
                 com.baidu.tieba.im.live.b.b().a((com.baidu.tieba.im.live.k) null);
                 com.baidu.tieba.im.live.b.b().c(com.baidu.tieba.im.live.b.b().i());
             } else {
-                showToast(com.baidu.tieba.u.live_chat_room_recordnotready);
+                showToast(com.baidu.tieba.y.live_chat_room_recordnotready);
             }
-        } else if (view == z().Y().f()) {
+        } else if (view == z().Z().f()) {
             z().z();
             if (x().r) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ai(this.x, x().b().getGroupId())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ai(this.y, x().b().getGroupId())));
             }
-        } else if (view == z().Y().g()) {
+        } else if (view == z().Z().g()) {
             z().z();
             F();
-        } else if (view == z().Y().h()) {
+        } else if (view == z().Z().h()) {
             if (x() != null && x().b != null && x().b.groupId != null) {
                 RequestSubscribeLiveGroupMessage requestSubscribeLiveGroupMessage = new RequestSubscribeLiveGroupMessage();
                 requestSubscribeLiveGroupMessage.setGroupId(x().b.groupId.intValue());
@@ -434,72 +439,72 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
                 }
                 MessageManager.getInstance().sendMessage(requestSubscribeLiveGroupMessage);
             }
-        } else if (view == z().Y().i()) {
+        } else if (view == z().Z().i()) {
             z().z();
             if (x() != null && x().b != null && x().b.groupId != null) {
                 H();
             }
-        } else if (view == z().Y().j()) {
+        } else if (view == z().Z().j()) {
             z().z();
             if (x().b != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ab(this, new StringBuilder().append(x().b.groupId).toString())));
             }
-        } else if (view == z().Y().k()) {
+        } else if (view == z().Z().k()) {
             z().z();
             if (x().b != null) {
                 TiebaStatic.eventStat(getBaseContext(), "livem_brief", "click");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ag(this, x().b.groupId.intValue(), x().b.publisherId.intValue(), x().b.publisherName)));
             }
-        } else if (view == z().Y().l()) {
+        } else if (view == z().Z().l()) {
             z().z();
             F();
-        } else if (view == z().aa()) {
-            z().ah();
-        } else if (view == z().ab() || view == z().Q().getHeaderImage()) {
-            if (!com.baidu.adp.lib.util.h.d()) {
-                showToast(com.baidu.tieba.u.neterror);
+        } else if (view == z().ab()) {
+            z().ai();
+        } else if (view == z().ac() || view == z().R().getHeaderImage()) {
+            if (!com.baidu.adp.lib.util.k.d()) {
+                showToast(com.baidu.tieba.y.neterror);
             } else if (x().r && x().b != null) {
                 z().d(5);
                 y();
             }
-        } else if (view == z().ac() || view == z().Q().getAnchorImg() || view == z().Q().getLiveStopView() || view == z().Q().getLiveStopHost()) {
+        } else if (view == z().ad() || view == z().R().getAnchorImg() || view == z().R().getLiveStopView() || view == z().R().getLiveStopHost()) {
             if (x().r && x().b != null) {
-                this.t = view == z().Q().getAnchorImg() || (view == z().ac() && z().Q().getAnchorImg().isShown());
+                this.t = view == z().R().getAnchorImg() || (view == z().ad() && z().R().getAnchorImg().isShown());
                 BdNetUtil.NetworkStateInfo a = BdNetUtil.a();
                 if (a == BdNetUtil.NetworkStateInfo.UNAVAIL) {
-                    showToast(com.baidu.tieba.u.neterror);
+                    showToast(com.baidu.tieba.y.neterror);
                 } else if (a != BdNetUtil.NetworkStateInfo.WIFI) {
-                    if (this.u == null || !this.u.isShowing()) {
-                        this.u = new AlertDialog.Builder(this).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.u.live_chat_room_nonwifi_prompts_pub).setPositiveButton(com.baidu.tieba.u.live_chat_room_nonwifi_prompts_pub_yes, new t(this)).setNegativeButton(com.baidu.tieba.u.live_chat_room_nonwifi_prompts_pub_no, new u(this)).create();
-                        this.u.show();
+                    if (this.v == null || !this.v.isShowing()) {
+                        this.v = new AlertDialog.Builder(this).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.live_chat_room_nonwifi_prompts_pub).setPositiveButton(com.baidu.tieba.y.live_chat_room_nonwifi_prompts_pub_yes, new t(this)).setNegativeButton(com.baidu.tieba.y.live_chat_room_nonwifi_prompts_pub_no, new u(this)).create();
+                        this.v.show();
                     }
                 } else {
                     E();
                 }
             }
-        } else if (view == z().V().getForcastBtn()) {
-            com.baidu.tbadk.core.atomData.bh bhVar = new com.baidu.tbadk.core.atomData.bh(this, 0, String.valueOf(x().b.forumId), x().e, null, null, 0, null, 13003, false, false, null, false, false, null, null, null);
-            bhVar.a(x().b.groupId.intValue(), x().m, x().j, x().h, x().i, x().b.publisherName, x().l, x().k);
-            com.baidu.tbadk.core.g.a(this.x, "pub_notice_bt");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, bhVar));
-        } else if (z().V().getLiveRoomCloseBtn() == view) {
-            z().V().setVisibility(8);
-        } else if (z().Q().getSettingButton() == view || z().Q().getNoteLayout() == view) {
+        } else if (view == z().W().getForcastBtn()) {
+            com.baidu.tbadk.core.atomData.bi biVar = new com.baidu.tbadk.core.atomData.bi(this, 0, String.valueOf(x().b.forumId), x().e, null, null, 0, null, 13003, false, false, null, false, false, null, null, null);
+            biVar.a(x().b.groupId.intValue(), x().m, x().j, x().h, x().i, x().b.publisherName, x().l, x().k);
+            com.baidu.tbadk.core.f.a(this.y, "pub_notice_bt");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, biVar));
+        } else if (z().W().getLiveRoomCloseBtn() == view) {
+            z().W().setVisibility(8);
+        } else if (z().R().getSettingButton() == view || z().R().getNoteLayout() == view) {
             if (x().r) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ai(this.x, x().b().getGroupId())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ai(this.y, x().b().getGroupId())));
             }
-        } else if (z().Q().getmLiveRoomLike() == view) {
-            if (z().Q().d() && x().b != null) {
+        } else if (z().R().getmLiveRoomLike() == view) {
+            if (z().R().d() && x().b != null) {
                 RequestIncrLiveGroupLikeMessage requestIncrLiveGroupLikeMessage = new RequestIncrLiveGroupLikeMessage();
                 requestIncrLiveGroupLikeMessage.groupId = x().b.groupId.intValue();
-                if (z().Q().getIsLike() == 1) {
+                if (z().R().getIsLike() == 1) {
                     requestIncrLiveGroupLikeMessage.type = 2;
                 } else {
                     requestIncrLiveGroupLikeMessage.type = 1;
                 }
                 sendMessage(requestIncrLiveGroupLikeMessage);
             }
-        } else if (z().W().getRoot() == view && x().b != null) {
+        } else if (z().X().getRoot() == view && x().b != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ac(this, x().b.name, x().b.groupId.intValue(), x().i)));
         }
     }
@@ -507,33 +512,33 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     /* JADX INFO: Access modifiers changed from: private */
     public void E() {
         if (this.t) {
-            ImageView anchorImg = z().Q().getAnchorImg();
+            ImageView anchorImg = z().R().getAnchorImg();
             anchorImg.clearAnimation();
             anchorImg.setBackgroundDrawable(null);
-            anchorImg.setImageResource(com.baidu.tieba.l.counter_animation);
-            anchorImg.setAnimation(AnimationUtils.loadAnimation(this, com.baidu.tieba.l.live_animation_scale));
+            anchorImg.setImageResource(com.baidu.tieba.p.counter_animation);
+            anchorImg.setAnimation(AnimationUtils.loadAnimation(this, com.baidu.tieba.p.live_animation_scale));
             ((AnimationDrawable) anchorImg.getDrawable()).start();
-            this.z = true;
-            if (this.y == null) {
-                this.y = new Handler();
+            this.A = true;
+            if (this.z == null) {
+                this.z = new Handler();
             }
-            this.y.postDelayed(new v(this), 3000L);
-        } else if (!this.z) {
+            this.z.postDelayed(new v(this), 3000L);
+        } else if (!this.A) {
             z().d(3);
             a(x().b.streamId, String.valueOf(x().b.groupId), String.valueOf(x().b.deviceId), x().b.playUrl, false);
         }
     }
 
     private void F() {
-        new AlertDialog.Builder(this.x).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.u.live_exit_group).setPositiveButton(com.baidu.tieba.u.cancel, new w(this)).setNegativeButton(com.baidu.tieba.u.confirm, new x(this)).create().show();
+        new AlertDialog.Builder(this.y).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.live_exit_group).setPositiveButton(com.baidu.tieba.y.cancel, new w(this)).setNegativeButton(com.baidu.tieba.y.confirm, new x(this)).create().show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void G() {
         LivePlayingStatusMgr.a().d();
-        this.v = true;
+        this.w = true;
         BdLog.d("doExitGroup");
-        com.baidu.tieba.im.live.b.b().r();
+        com.baidu.tieba.im.live.b.b().s();
         if (x().b == null) {
             finish();
             return;
@@ -571,11 +576,11 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     private void H() {
         if (this.e instanceof LiveMsglistModel) {
             com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
-            fVar.a = MessageFormat.format(getString(com.baidu.tieba.u.im_share_title), x().j);
-            fVar.b = MessageFormat.format(getString(com.baidu.tieba.u.im_live_share_content), x().j);
+            fVar.a = MessageFormat.format(getString(com.baidu.tieba.y.im_share_title), x().j);
+            fVar.b = MessageFormat.format(getString(com.baidu.tieba.y.im_live_share_content), x().j);
             fVar.c = String.valueOf(com.baidu.tbadk.h.h) + x().b.groupId;
             try {
-                fVar.d = Uri.parse(String.valueOf(N) + x().b.groupId + "&w=" + LocalViewSize.a().b());
+                fVar.d = Uri.parse(String.valueOf(TbConfig.PHOTO_BIG_ADDRESS) + x().b.publisherPortrait);
             } catch (Throwable th) {
                 BdLog.e(th.toString());
             }
@@ -589,15 +594,15 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
             sparseArray.put(3, "livem_to_weixin");
             sparseArray.put(2, "livem_to_friend");
             dVar.a(sparseArray);
-            dVar.a(3, a(x().j, x().b.groupId.intValue(), x().l), true);
+            dVar.a(3, a(x().j, x().b.groupId.intValue(), String.valueOf(TbConfig.PHOTO_BIG_ADDRESS) + x().b.publisherPortrait), true);
             dVar.a();
         }
     }
 
     private com.baidu.tbadk.coreExtra.share.f a(String str, int i, String str2) {
         com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
-        fVar.a = MessageFormat.format(getString(com.baidu.tieba.u.im_share_title), str);
-        fVar.b = MessageFormat.format(getString(com.baidu.tieba.u.im_live_share_content), str, String.valueOf(i));
+        fVar.a = MessageFormat.format(getString(com.baidu.tieba.y.im_share_title), str);
+        fVar.b = MessageFormat.format(getString(com.baidu.tieba.y.im_live_share_content), str, String.valueOf(i));
         fVar.c = String.valueOf(com.baidu.tbadk.h.h) + i;
         if (str2 != null) {
             try {
@@ -613,7 +618,7 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
                 return fVar;
             }
         }
-        fVar.a(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.q.icon));
+        fVar.a(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.u.icon));
         return fVar;
     }
 
@@ -622,71 +627,71 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
         if (i > 14340) {
             showToast("");
         }
-        this.w = StringUtils.translateSecondsToString(i);
+        this.x = StringUtils.translateSecondsToString(i);
         runOnUiThread(new y(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dd
+    @Override // com.baidu.tieba.im.chat.TalkableActivity
     public String[] a(int i, boolean z) {
-        boolean R = z().R();
+        boolean S = z().S();
         ArrayList arrayList = new ArrayList();
         switch (i) {
             case 3:
-                arrayList.add(getString(com.baidu.tieba.u.operate_copy));
-                if (!z && !R) {
-                    arrayList.add(getString(com.baidu.tieba.u.msg_at));
+                arrayList.add(getString(com.baidu.tieba.y.operate_copy));
+                if (!z && !S) {
+                    arrayList.add(getString(com.baidu.tieba.y.msg_at));
                 }
-                arrayList.add(getString(com.baidu.tieba.u.msg_delete));
+                arrayList.add(getString(com.baidu.tieba.y.msg_delete));
                 if (a(z)) {
-                    arrayList.add(getString(com.baidu.tieba.u.msg_mute));
+                    arrayList.add(getString(com.baidu.tieba.y.msg_mute));
                     break;
                 }
                 break;
             case 4:
-                if (!z && !R) {
-                    arrayList.add(getString(com.baidu.tieba.u.msg_at));
+                if (!z && !S) {
+                    arrayList.add(getString(com.baidu.tieba.y.msg_at));
                 }
-                arrayList.add(getString(com.baidu.tieba.u.msg_img_save));
-                arrayList.add(getString(com.baidu.tieba.u.msg_delete));
+                arrayList.add(getString(com.baidu.tieba.y.msg_img_save));
+                arrayList.add(getString(com.baidu.tieba.y.msg_delete));
                 if (a(z)) {
-                    arrayList.add(getString(com.baidu.tieba.u.msg_mute));
+                    arrayList.add(getString(com.baidu.tieba.y.msg_mute));
                     break;
                 }
                 break;
             case 5:
-                arrayList.add(TbadkApplication.m252getInst().isHeadsetModeOn() ? getString(com.baidu.tieba.u.group_close_receiver) : getString(com.baidu.tieba.u.group_open_receiver));
-                if (!z && !R) {
-                    arrayList.add(getString(com.baidu.tieba.u.msg_at));
+                arrayList.add(TbadkApplication.m252getInst().isHeadsetModeOn() ? getString(com.baidu.tieba.y.group_close_receiver) : getString(com.baidu.tieba.y.group_open_receiver));
+                if (!z && !S) {
+                    arrayList.add(getString(com.baidu.tieba.y.msg_at));
                 }
-                arrayList.add(getString(com.baidu.tieba.u.msg_delete));
+                arrayList.add(getString(com.baidu.tieba.y.msg_delete));
                 if (a(z)) {
-                    arrayList.add(getString(com.baidu.tieba.u.msg_mute));
+                    arrayList.add(getString(com.baidu.tieba.y.msg_mute));
                     break;
                 }
                 break;
             case 7:
-                if (!z && !R) {
-                    arrayList.add(getString(com.baidu.tieba.u.msg_at));
+                if (!z && !S) {
+                    arrayList.add(getString(com.baidu.tieba.y.msg_at));
                 }
-                arrayList.add(getString(com.baidu.tieba.u.msg_delete));
+                arrayList.add(getString(com.baidu.tieba.y.msg_delete));
                 if (a(z)) {
-                    arrayList.add(getString(com.baidu.tieba.u.msg_mute));
+                    arrayList.add(getString(com.baidu.tieba.y.msg_mute));
                     break;
                 }
                 break;
             case 8:
-                arrayList.add(getString(com.baidu.tieba.u.msg_delete));
+                arrayList.add(getString(com.baidu.tieba.y.msg_delete));
                 break;
         }
         return (String[]) arrayList.toArray(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dd
+    @Override // com.baidu.tieba.im.chat.TalkableActivity
     public void a(int i, String str) {
         ChatMessage a = this.e.a(i);
-        if (str.equals(getString(com.baidu.tieba.u.msg_mute))) {
+        if (str.equals(getString(com.baidu.tieba.y.msg_mute))) {
             a(a);
         } else {
             super.a(i, str);
@@ -694,12 +699,12 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dd, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             if (i == 12010 || i == 12009) {
-                z().ai();
+                z().aj();
             }
         }
     }

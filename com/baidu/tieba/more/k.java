@@ -13,7 +13,7 @@ class k implements com.baidu.adp.widget.BdSwitchView.c {
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        com.baidu.tbadk.core.h.a().b(switchState == BdSwitchView.SwitchState.ON);
+        com.baidu.tbadk.core.g.a().b(switchState == BdSwitchView.SwitchState.ON);
         this.a.l();
     }
 }

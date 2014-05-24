@@ -136,7 +136,7 @@ public class r extends BdAsyncTask<Object, Integer, String> {
                             }
                         }
                     } else {
-                        this.a.showToast(this.a.getString(com.baidu.tieba.u.pb_nodata));
+                        this.a.showToast(this.a.getString(com.baidu.tieba.y.pb_nodata));
                         if (this.f) {
                             uVar2 = this.a.G;
                             if (uVar2 != null) {

@@ -35,7 +35,11 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     /* renamed from: a */
     public void onPostExecute(DiskFileOperate diskFileOperate) {
         super.onPostExecute(diskFileOperate);
-        this.c.c(diskFileOperate.g());
+        if (diskFileOperate != null) {
+            this.c.c(diskFileOperate.g());
+        } else {
+            this.c.c(false);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

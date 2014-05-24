@@ -45,7 +45,7 @@ public class am implements DialogInterface.OnClickListener {
             writeData5 = this.a.a;
             com.baidu.tieba.util.m.b(threadId, writeData5);
         }
-        this.a.showToast(com.baidu.tieba.u.draft_save_success);
+        this.a.showToast(com.baidu.tieba.y.draft_save_success);
         handler = this.a.t;
         handler.postDelayed(new an(this), 1000L);
     }

@@ -5,14 +5,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
-public class ImMessageCenterActivity extends com.baidu.tbadk.core.e {
+public class ImMessageCenterActivity extends BaseFragmentActivity {
     static {
         e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
@@ -26,7 +27,7 @@ public class ImMessageCenterActivity extends com.baidu.tbadk.core.e {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    @Override // com.baidu.tbadk.core.e
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
     }
 }

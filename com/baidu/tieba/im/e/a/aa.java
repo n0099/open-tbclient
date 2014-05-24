@@ -19,8 +19,8 @@ public class aa implements CustomMessageTask.CustomRunnable<Object> {
         responseSearchGroupLocalMessage.setError(0);
         responseSearchGroupLocalMessage.setGid(groupId);
         String sb = new StringBuilder(String.valueOf(groupId)).toString();
-        com.baidu.adp.lib.cache.s<String> j = com.baidu.tbadk.core.a.b.a().j();
-        j.a(sb, j.a(sb));
+        com.baidu.adp.lib.cache.s<String> k = com.baidu.tbadk.core.a.b.a().k();
+        k.a(sb, k.a(sb));
         return responseSearchGroupLocalMessage;
     }
 }

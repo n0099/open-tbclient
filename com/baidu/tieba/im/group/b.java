@@ -8,10 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import com.baidu.adp.base.BdBaseFragmentActivity;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.s;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -22,9 +25,9 @@ import com.baidu.tieba.im.hotGroup.HotGroupActivity;
 import com.baidu.tieba.im.message.RequestUserPermissionMessage;
 import com.baidu.tieba.im.nearbygroups.NearbyGroupsActivity;
 import com.baidu.tieba.im.searchGroup.AddGroupActivity;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -33,9 +36,9 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tieba.im.a.e 
     private q c;
     private com.baidu.tieba.im.a.a d;
     private com.baidu.tieba.im.model.j f;
-    private com.baidu.tbadk.core.e g;
+    private BaseFragmentActivity g;
     private com.baidu.tieba.im.mygroup.j e = null;
-    private final com.baidu.adp.framework.listener.b h = new c(this, 0);
+    private final CustomMessageListener h = new c(this, 0);
     private final com.baidu.adp.framework.listener.b i = new d(this, 0);
     private final com.baidu.adp.framework.listener.b j = new e(this, 0);
     private final com.baidu.adp.framework.listener.b k = new f(this, 0);
@@ -55,9 +58,9 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tieba.im.a.e 
         MessageManager.getInstance().registerListener(MessageTypes.CMD_ADD_GROUP, this.j);
         MessageManager.getInstance().registerListener(MessageTypes.CMD_REMOVE_MEMBERS, this.j);
         MessageManager.getInstance().registerListener(MessageTypes.CMD_UPDATE_GROUP, this.j);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_GROUP_MEMBER_CHANGE, this.j);
         MessageManager.getInstance().registerListener(MessageTypes.CMD_DISSMISS_GROUP, this.j);
         MessageManager.getInstance().registerListener(MessageTypes.CMD_UPGRADE_MEMBER_GROUP, this.j);
+        MessageManager.getInstance().registerListener(MessageTypes.CMD_GROUP_MEMBER_CHANGE, this.h);
         MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.h);
         MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.h);
         MessageManager.getInstance().registerListener(MessageTypes.CMD_IM_PUSH_NOTIFY_GROUP_INTRO_CHANGE, this.h);
@@ -68,7 +71,7 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tieba.im.a.e 
     }
 
     private void h() {
-        this.g = (com.baidu.tbadk.core.e) getActivity();
+        this.g = (BaseFragmentActivity) getActivity();
         this.c = new q(this.g, this);
         this.c.b().setOnItemClickListener(this);
         this.c.a(new i(this));
@@ -76,13 +79,13 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tieba.im.a.e 
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return layoutInflater.inflate(s.group_activity, (ViewGroup) null);
+        return layoutInflater.inflate(w.group_activity, (ViewGroup) null);
     }
 
     @Override // com.baidu.tbadk.core.d
     public void c(int i) {
         super.c(i);
-        ((com.baidu.tbadk.core.e) getActivity()).a().a(i == 1);
+        ((BaseFragmentActivity) getActivity()).a().a(i == 1);
         this.c.a(i);
     }
 
@@ -116,22 +119,22 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tieba.im.a.e 
         boolean z = this.d == null || this.e == null;
         if (this.d == null) {
             this.d = new com.baidu.tieba.im.a.a();
-            if (getActivity() instanceof com.baidu.tbadk.core.e) {
-                this.d.setUniqueId(((com.baidu.tbadk.core.e) getActivity()).getUniqueId());
+            if (getActivity() instanceof BaseFragmentActivity) {
+                this.d.setUniqueId(((BaseFragmentActivity) getActivity()).getUniqueId());
             }
             this.d.c();
             this.d.a(this);
         }
         if (this.e == null) {
             this.e = new com.baidu.tieba.im.mygroup.j();
-            if (getActivity() instanceof com.baidu.tbadk.core.e) {
-                this.e.setUniqueId(((com.baidu.adp.base.b) getActivity()).getUniqueId());
+            if (getActivity() instanceof BaseFragmentActivity) {
+                this.e.setUniqueId(((BdBaseFragmentActivity) getActivity()).getUniqueId());
             }
         }
         if (this.f == null) {
             this.f = new com.baidu.tieba.im.model.j();
-            if (getActivity() instanceof com.baidu.tbadk.core.e) {
-                this.f.setUniqueId(((com.baidu.tbadk.core.e) getActivity()).getUniqueId());
+            if (getActivity() instanceof BaseFragmentActivity) {
+                this.f.setUniqueId(((BaseFragmentActivity) getActivity()).getUniqueId());
             }
         }
         this.f.registerListener(this.i);
@@ -151,7 +154,7 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tieba.im.a.e 
 
     @Override // com.baidu.tbadk.core.d, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == r.click_head) {
+        if (view.getId() == v.click_head) {
             GroupInfoData groupInfoData = null;
             if (view.getTag() instanceof GroupInfoData) {
                 groupInfoData = (GroupInfoData) view.getTag();
@@ -171,19 +174,19 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tieba.im.a.e 
                     HotGroupActivity.a(getActivity());
                     return;
                 case 4:
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.s(this.g)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new s(this.g)));
                     return;
                 case 5:
-                    com.baidu.tbadk.core.g.a(this.g, "rand_chat_enter_button");
+                    com.baidu.tbadk.core.f.a(this.g, "rand_chat_enter_button");
                     if (!TbadkApplication.isLogin()) {
                         LoginActivity.a((Activity) getActivity(), "", true, 2);
                         return;
                     } else if (j() <= 0) {
-                        this.g.a(this.g.getString(u.group_tab_enterchatroom_loading), new j(this));
+                        this.g.a(this.g.getString(y.group_tab_enterchatroom_loading), new j(this));
                         i();
                         return;
                     } else {
-                        b(getString(u.group_tab_enterchatroom_freeze, new StringBuilder(String.valueOf(j())).toString()));
+                        b(getString(y.group_tab_enterchatroom_freeze, new StringBuilder(String.valueOf(j())).toString()));
                         return;
                     }
                 case 6:
@@ -197,7 +200,7 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tieba.im.a.e 
                     }
                     RequestUserPermissionMessage requestUserPermissionMessage = new RequestUserPermissionMessage();
                     requestUserPermissionMessage.setForumId(0L);
-                    ((com.baidu.tbadk.core.e) getActivity()).a(requestUserPermissionMessage);
+                    ((BaseFragmentActivity) getActivity()).a(requestUserPermissionMessage);
                     return;
                 default:
                     return;
@@ -239,11 +242,11 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tieba.im.a.e 
             case 2:
                 if (i2 == -1) {
                     if (j() <= 0) {
-                        this.g.a(this.g.getString(u.group_tab_enterchatroom_loading), new k(this));
+                        this.g.a(this.g.getString(y.group_tab_enterchatroom_loading), new k(this));
                         i();
                         return;
                     }
-                    b(getString(u.group_tab_enterchatroom_freeze, new StringBuilder(String.valueOf(j())).toString()));
+                    b(getString(y.group_tab_enterchatroom_freeze, new StringBuilder(String.valueOf(j())).toString()));
                     return;
                 }
                 return;

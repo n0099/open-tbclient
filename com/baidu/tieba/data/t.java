@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
-    private ah e;
+    private ai e;
     private ArrayList<f> f;
     private Context n;
     private String a = null;
@@ -27,11 +27,11 @@ public class t {
         this.f = null;
         this.n = null;
         this.n = context;
-        this.e = new ah();
+        this.e = new ai();
         this.f = new ArrayList<>();
     }
 
-    public ah a() {
+    public ai a() {
         return this.e;
     }
 

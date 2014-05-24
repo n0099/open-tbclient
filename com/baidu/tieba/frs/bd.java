@@ -1,27 +1,26 @@
 package com.baidu.tieba.frs;
 
 import android.content.Context;
+import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bd implements com.baidu.tieba.view.e {
-    final /* synthetic */ ba a;
-    private final /* synthetic */ com.baidu.tbadk.core.data.h b;
+public class bd implements View.OnClickListener {
+    final /* synthetic */ az a;
+    private final /* synthetic */ com.baidu.tbadk.core.data.n b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(ba baVar, com.baidu.tbadk.core.data.h hVar) {
-        this.a = baVar;
-        this.b = hVar;
+    public bd(az azVar, com.baidu.tbadk.core.data.n nVar) {
+        this.a = azVar;
+        this.b = nVar;
     }
 
-    @Override // com.baidu.tieba.view.e
-    public void a(int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         Context context;
-        if (this.b != null && this.b.a() != null && i >= 0 && i < this.b.a().size()) {
-            MessageManager messageManager = MessageManager.getInstance();
-            context = this.a.a;
-            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(context, this.b.a().get(i).getGroupId())));
-        }
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.a.b;
+        messageManager.sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(context, this.b.y().getUserId(), this.b.y().getName_show())));
     }
 }

@@ -51,7 +51,7 @@ public class au implements com.baidu.tbadk.editortool.x {
         } else if (i == 20) {
             v = this.a.v();
             if (v) {
-                this.a.showToast(com.baidu.tieba.u.over_limit_tip);
+                this.a.showToast(com.baidu.tieba.y.over_limit_tip);
             } else if (obj instanceof com.baidu.tbadk.coreExtra.data.d) {
                 this.a.a((com.baidu.tbadk.coreExtra.data.d) obj);
             }
@@ -94,7 +94,7 @@ public class au implements com.baidu.tbadk.editortool.x {
                         MessageManager messageManager = MessageManager.getInstance();
                         WriteActivity writeActivity2 = this.a;
                         writeImagesInfo4 = this.a.C;
-                        messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bj(writeActivity2, 12012, writeImagesInfo4, intValue)));
+                        messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bk(writeActivity2, 12012, writeImagesInfo4, intValue)));
                     }
                 }
             }

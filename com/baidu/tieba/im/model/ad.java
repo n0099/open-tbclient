@@ -6,7 +6,7 @@ import com.baidu.tieba.im.message.RequestMembersMessage;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ad extends com.baidu.adp.base.d {
+public class ad extends com.baidu.adp.base.b {
     private long a;
     private int b;
     private int c;
@@ -72,12 +72,12 @@ public class ad extends com.baidu.adp.base.d {
         return this.a;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

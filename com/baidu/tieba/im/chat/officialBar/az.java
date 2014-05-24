@@ -61,7 +61,7 @@ public class az extends com.baidu.tieba.im.pushNotify.n {
 
     @Override // com.baidu.tieba.im.pushNotify.n
     protected com.baidu.adp.lib.cache.s<String> c() {
-        return com.baidu.tbadk.core.a.b.a().y();
+        return com.baidu.tbadk.core.a.b.a().z();
     }
 
     @Override // com.baidu.tieba.im.pushNotify.n

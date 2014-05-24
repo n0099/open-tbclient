@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -209,16 +209,16 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         } else {
             switch (num.intValue()) {
                 case 1:
-                    string = TbadkApplication.m252getInst().getApp().getString(u.download_fail);
+                    string = TbadkApplication.m252getInst().getApp().getString(y.download_fail);
                     break;
                 case 2:
-                    string = TbadkApplication.m252getInst().getApp().getString(u.download_fail);
+                    string = TbadkApplication.m252getInst().getApp().getString(y.download_fail);
                     break;
                 case 3:
-                    string = TbadkApplication.m252getInst().getApp().getString(u.download_fail_net);
+                    string = TbadkApplication.m252getInst().getApp().getString(y.download_fail_net);
                     break;
                 case 4:
-                    string = TbadkApplication.m252getInst().getApp().getString(u.download_fail);
+                    string = TbadkApplication.m252getInst().getApp().getString(y.download_fail);
                     break;
                 default:
                     string = null;

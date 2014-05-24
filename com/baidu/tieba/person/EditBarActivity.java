@@ -49,7 +49,7 @@ public class EditBarActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.edit_bar_activity);
+        setContentView(com.baidu.tieba.w.edit_bar_activity);
         b();
         c();
         a();
@@ -98,24 +98,24 @@ public class EditBarActivity extends BaseActivity {
     }
 
     private void c() {
-        this.o = (RelativeLayout) findViewById(com.baidu.tieba.r.parent);
-        this.f = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.o = (RelativeLayout) findViewById(com.baidu.tieba.v.parent);
+        this.f = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.h = this.f.a("");
         this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.u.edit));
-        this.p = (LinearLayout) findViewById(com.baidu.tieba.r.no_data_container);
-        this.q = (TextView) findViewById(com.baidu.tieba.r.no_data_image_text);
-        this.j = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
+        this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.y.edit));
+        this.p = (LinearLayout) findViewById(com.baidu.tieba.v.no_data_container);
+        this.q = (TextView) findViewById(com.baidu.tieba.v.no_data_image_text);
+        this.j = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
         this.i = new g(this, this.a, this.r == null);
         this.i.a(new a(this));
         this.i.b(new b(this));
-        this.b = (ListView) findViewById(com.baidu.tieba.r.list);
-        this.c = LayoutInflater.from(this).inflate(com.baidu.tieba.s.person_list_newheader, (ViewGroup) null);
-        this.d = this.c.findViewById(com.baidu.tieba.r.newheader_root);
+        this.b = (ListView) findViewById(com.baidu.tieba.v.list);
+        this.c = LayoutInflater.from(this).inflate(com.baidu.tieba.w.person_list_newheader, (ViewGroup) null);
+        this.d = this.c.findViewById(com.baidu.tieba.v.newheader_root);
         this.c.setVisibility(8);
         this.c.setClickable(false);
         this.c.setEnabled(false);
-        this.e = (TextView) this.c.findViewById(com.baidu.tieba.r.person_list_title);
+        this.e = (TextView) this.c.findViewById(com.baidu.tieba.v.person_list_title);
         this.b.addHeaderView(this.c, null, false);
         this.b.setAdapter((ListAdapter) this.i);
         this.b.setOnScrollListener(this.i);
@@ -124,21 +124,21 @@ public class EditBarActivity extends BaseActivity {
         if (this.r != null) {
             this.g.setVisibility(4);
             if (this.s == 2) {
-                this.h.setText(getString(com.baidu.tieba.u.her_attention_forums));
-                this.q.setText(getString(com.baidu.tieba.u.she_no_like_forum_other));
+                this.h.setText(getString(com.baidu.tieba.y.her_attention_forums));
+                this.q.setText(getString(com.baidu.tieba.y.she_no_like_forum_other));
                 return;
             } else if (this.s == 1) {
-                this.h.setText(getString(com.baidu.tieba.u.his_attention_forums));
-                this.q.setText(getString(com.baidu.tieba.u.he_no_like_forum_other));
+                this.h.setText(getString(com.baidu.tieba.y.his_attention_forums));
+                this.q.setText(getString(com.baidu.tieba.y.he_no_like_forum_other));
                 return;
             } else {
-                this.h.setText(getString(com.baidu.tieba.u.ta_attention_forums));
-                this.q.setText(getString(com.baidu.tieba.u.no_like_forum_other));
+                this.h.setText(getString(com.baidu.tieba.y.ta_attention_forums));
+                this.q.setText(getString(com.baidu.tieba.y.no_like_forum_other));
                 return;
             }
         }
-        this.q.setText(getString(com.baidu.tieba.u.not_have_like_bars));
-        this.h.setText(getString(com.baidu.tieba.u.my_bar));
+        this.q.setText(getString(com.baidu.tieba.y.not_have_like_bars));
+        this.h.setText(getString(com.baidu.tieba.y.my_bar));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -1,29 +1,26 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.im.model.LocalPicModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class dc implements com.baidu.tbadk.core.util.br {
-    final /* synthetic */ db a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.adp.widget.a.a c;
+public class dc extends com.baidu.adp.base.e {
+    final /* synthetic */ TalkableActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dc(db dbVar, String str, com.baidu.adp.widget.a.a aVar) {
-        this.a = dbVar;
-        this.b = str;
-        this.c = aVar;
+    public dc(TalkableActivity talkableActivity) {
+        this.a = talkableActivity;
     }
 
-    @Override // com.baidu.tbadk.core.util.br
-    public boolean a(View view) {
-        if ((view instanceof HeadImageView) && this.b.equals(view.getTag())) {
-            view.setTag(null);
-            HeadImageView headImageView = (HeadImageView) view;
-            headImageView.f();
-            this.c.a(headImageView);
-            return false;
+    @Override // com.baidu.adp.base.e
+    public void a(Object obj) {
+        if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
+            LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
+            if (this.a.e != null) {
+                this.a.e.a(responseData.getSPathGen(), responseData.getBitmap(), this.a.k);
+                return;
+            }
+            return;
         }
-        return false;
+        this.a.showToast(com.baidu.tieba.y.pic_parser_error);
     }
 }

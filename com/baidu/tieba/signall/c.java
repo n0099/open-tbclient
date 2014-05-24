@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.base.d {
+public class c extends com.baidu.adp.base.b {
     private static final String d = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/getforumlist";
     private a a;
     private HttpMessage c;
@@ -31,7 +31,7 @@ public class c extends com.baidu.adp.base.d {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean LoadData() {
         if (this.c != null) {
             return false;
@@ -48,7 +48,7 @@ public class c extends com.baidu.adp.base.d {
         return true;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.c != null) {
             MessageManager.getInstance().removeHttpMessage(1004001);

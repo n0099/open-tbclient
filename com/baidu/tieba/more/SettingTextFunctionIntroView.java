@@ -20,13 +20,13 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
     public void a() {
         boolean z = true;
         boolean z2 = TbadkApplication.m252getInst().getSkinType() == 1;
-        VersionData B = com.baidu.tieba.ad.c().B();
+        VersionData B = com.baidu.tieba.ai.c().B();
         if (B == null || !B.hasNewVer()) {
             z = false;
         }
         boolean a = com.baidu.tbadk.core.sharedPref.b.a().a(f, false);
         if (!z && !a) {
-            this.d.setBackgroundResource(z2 ? com.baidu.tieba.q.icon_news_head_new_1 : com.baidu.tieba.q.icon_news_head_new);
+            this.d.setBackgroundResource(z2 ? com.baidu.tieba.u.icon_news_head_new_1 : com.baidu.tieba.u.icon_news_head_new);
         } else {
             c();
         }

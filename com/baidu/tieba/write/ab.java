@@ -32,7 +32,7 @@ class ab implements View.OnClickListener {
         vcodeActivity.HidenSoftKeyPad(inputMethodManager, editText);
         VcodeActivity vcodeActivity2 = this.a;
         VcodeActivity vcodeActivity3 = this.a;
-        String string = this.a.getString(com.baidu.tieba.u.sending);
+        String string = this.a.getString(com.baidu.tieba.y.sending);
         onCancelListener = this.a.j;
         vcodeActivity2.mWaitingDialog = ProgressDialog.show(vcodeActivity3, "", string, true, false, onCancelListener);
         progressDialog = this.a.mWaitingDialog;

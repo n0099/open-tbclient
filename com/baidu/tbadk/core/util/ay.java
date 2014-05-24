@@ -10,15 +10,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ay {
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0085  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0095  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static void a(ListView listView, int i, int i2) {
         ListAdapter adapter;
-        LinkedList<String> photoUrl;
-        LinkedList<String> forumPhotoUrl;
         int pbImageSize;
         if (listView != null && (adapter = listView.getAdapter()) != null && BdResourceLoaderNetHelperStatic.a() && com.baidu.adp.lib.resourceLoader.d.a().c(i2)) {
             int i3 = 0;
@@ -40,7 +33,7 @@ public class ay {
                         ad adVar = (ad) item;
                         if (adVar.isSupportImageSize()) {
                             LinkedList<ab> imagesWithEmotions = adVar.getImagesWithEmotions();
-                            if (imagesWithEmotions != null && imagesWithEmotions.size() != 0) {
+                            if (imagesWithEmotions != null && imagesWithEmotions.size() > 0) {
                                 Iterator<ab> it = imagesWithEmotions.iterator();
                                 while (it.hasNext()) {
                                     ab next = it.next();
@@ -90,64 +83,50 @@ public class ay {
                                         return;
                                     }
                                 }
-                                photoUrl = adVar.getPhotoUrl();
-                                if (photoUrl != null) {
-                                    Iterator<String> it2 = photoUrl.iterator();
-                                    while (it2.hasNext()) {
-                                        String next2 = it2.next();
-                                        i8++;
-                                        if (i8 >= 30) {
-                                            break;
-                                        } else if (i7 > lastVisiblePosition) {
-                                            com.baidu.adp.lib.resourceLoader.d.a().a(next2, 12, null, i);
-                                        }
-                                    }
-                                }
-                                forumPhotoUrl = adVar.getForumPhotoUrl();
-                                if (forumPhotoUrl != null) {
-                                    Iterator<String> it3 = forumPhotoUrl.iterator();
-                                    while (it3.hasNext()) {
-                                        String next3 = it3.next();
-                                        i8++;
-                                        if (i8 >= 30) {
-                                            break;
-                                        } else if (i7 > lastVisiblePosition) {
-                                            com.baidu.adp.lib.resourceLoader.d.a().a(next3, 12, null, i);
-                                        }
-                                    }
-                                }
-                                if (i10 < 13 && i8 >= 30) {
-                                    return;
-                                }
                             }
                         } else {
                             LinkedList<String> imageUrl = adVar.getImageUrl();
-                            if (imageUrl != null && imageUrl.size() != 0) {
-                                Iterator<String> it4 = imageUrl.iterator();
-                                while (it4.hasNext()) {
-                                    String next4 = it4.next();
+                            if (imageUrl != null && imageUrl.size() > 0) {
+                                Iterator<String> it2 = imageUrl.iterator();
+                                while (it2.hasNext()) {
+                                    String next2 = it2.next();
                                     i10++;
                                     i9 += TbConfig.getPbImageSize();
                                     if (i10 <= 13 && i9 <= bigImageMaxUsedMemory) {
-                                        if (i7 > lastVisiblePosition && !TextUtils.isEmpty(next4)) {
-                                            com.baidu.adp.lib.resourceLoader.d.a().a(next4, i2, null, i);
+                                        if (i7 > lastVisiblePosition && !TextUtils.isEmpty(next2)) {
+                                            com.baidu.adp.lib.resourceLoader.d.a().a(next2, i2, null, i);
                                         }
                                     } else {
                                         return;
                                     }
                                 }
-                                photoUrl = adVar.getPhotoUrl();
-                                if (photoUrl != null) {
-                                }
-                                forumPhotoUrl = adVar.getForumPhotoUrl();
-                                if (forumPhotoUrl != null) {
-                                }
-                                if (i10 < 13) {
-                                    continue;
-                                } else {
-                                    return;
+                            }
+                        }
+                        LinkedList<String> photoUrl = adVar.getPhotoUrl();
+                        if (photoUrl != null) {
+                            Iterator<String> it3 = photoUrl.iterator();
+                            while (it3.hasNext()) {
+                                String next3 = it3.next();
+                                i8++;
+                                if (i8 >= 30) {
+                                    break;
+                                } else if (i7 > lastVisiblePosition) {
+                                    com.baidu.adp.lib.resourceLoader.d.a().a(next3, 12, null, i);
                                 }
                             }
+                        }
+                        LinkedList<String> forumPhotoUrl = adVar.getForumPhotoUrl();
+                        if (forumPhotoUrl != null) {
+                            Iterator<String> it4 = forumPhotoUrl.iterator();
+                            while (it4.hasNext()) {
+                                String next4 = it4.next();
+                                if (i7 > lastVisiblePosition) {
+                                    com.baidu.adp.lib.resourceLoader.d.a().a(next4, 11, null, i);
+                                }
+                            }
+                        }
+                        if (i10 >= 13 && i8 >= 30) {
+                            return;
                         }
                     }
                     i3 = i10;

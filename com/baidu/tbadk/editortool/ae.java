@@ -1,20 +1,15 @@
 package com.baidu.tbadk.editortool;
-
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements f {
-    final /* synthetic */ ac a;
-    private final /* synthetic */ ArrayList b;
+class ae implements f {
+    final /* synthetic */ ad a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ac acVar, ArrayList arrayList) {
-        this.a = acVar;
-        this.b = arrayList;
+    public ae(ad adVar) {
+        this.a = adVar;
     }
 
     @Override // com.baidu.tbadk.editortool.f
-    public void a(ag agVar) {
-        this.b.add(agVar);
+    public void a(af afVar) {
+        this.a.a.add(afVar);
     }
 }

@@ -1185,6 +1185,9 @@ public class b {
                     if (aVar != null && aVar.c()) {
                         throw new BdHttpCancelException();
                     }
+                    if (intValue2 > 0 && size > intValue2) {
+                        throw new BdHttpCancelException("over max content length");
+                    }
                 } while (read > 0);
                 if (dVar2 != null) {
                     dVar2.b = size;

@@ -11,7 +11,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.data.MarkData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widget.ListView.d, com.baidu.adp.widget.ListView.u {
+public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widget.ListView.d, com.baidu.adp.widget.ListView.x {
     private com.baidu.tieba.model.k a = null;
     private m b = null;
     private int c = -1;
@@ -151,7 +151,7 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.x
     public void f_() {
         if (this.b != null && this.a != null && this.a.c()) {
             this.b.a(this.a.a());

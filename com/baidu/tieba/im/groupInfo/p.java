@@ -15,7 +15,7 @@ import com.baidu.tieba.im.message.ResponseGroupInfoMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
-import com.baidu.tieba.im.model.bx;
+import com.baidu.tieba.im.model.by;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.framework.listener.b {
@@ -48,11 +48,11 @@ public class p extends com.baidu.adp.framework.listener.b {
         r rVar5;
         int i;
         com.baidu.tieba.im.model.m mVar9;
-        bx bxVar;
+        by byVar;
         com.baidu.tieba.im.model.m mVar10;
-        bx bxVar2;
+        by byVar2;
         com.baidu.tieba.im.model.m mVar11;
-        bx bxVar3;
+        by byVar3;
         com.baidu.tieba.im.model.m mVar12;
         com.baidu.tieba.im.model.m mVar13;
         com.baidu.tieba.im.model.m mVar14;
@@ -82,12 +82,12 @@ public class p extends com.baidu.adp.framework.listener.b {
         if (socketResponsedMessage == null) {
             rVar14 = this.a.f;
             rVar14.p();
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (socketResponsedMessage.getCmd() == 103004) {
             rVar12 = this.a.f;
             rVar12.p();
             if (socketResponsedMessage.getError() != 0) {
-                this.a.showToast(com.baidu.tieba.u.neterror);
+                this.a.showToast(com.baidu.tieba.y.neterror);
                 return;
             }
             ResponseGroupInfoMessage responseGroupInfoMessage = (ResponseGroupInfoMessage) socketResponsedMessage;
@@ -110,7 +110,7 @@ public class p extends com.baidu.adp.framework.listener.b {
                     mVar27 = this.a.g;
                     a.a(currentAccount, String.valueOf(mVar27.d()), TbConfig.USE_TIME_INTERVAL, new q(this, responseGroupInfoMessage));
                 } else {
-                    this.a.showToast(com.baidu.tieba.u.neterror);
+                    this.a.showToast(com.baidu.tieba.y.neterror);
                 }
             }
         } else if (socketResponsedMessage.getCmd() == 103110) {
@@ -131,7 +131,7 @@ public class p extends com.baidu.adp.framework.listener.b {
             rVar5 = this.a.f;
             rVar5.p();
             if (socketResponsedMessage.getError() != 0) {
-                this.a.showToast(com.baidu.tieba.u.neterror);
+                this.a.showToast(com.baidu.tieba.y.neterror);
                 return;
             }
             ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) socketResponsedMessage;
@@ -174,16 +174,16 @@ public class p extends com.baidu.adp.framework.listener.b {
                     case 4:
                         mVar9 = this.a.g;
                         GroupData b = mVar9.f().b();
-                        bxVar = this.a.h;
-                        b.setFlag(bxVar.h());
+                        byVar = this.a.h;
+                        b.setFlag(byVar.h());
                         mVar10 = this.a.g;
                         GroupData b2 = mVar10.f().b();
-                        bxVar2 = this.a.h;
-                        b2.setPosition(bxVar2.e());
+                        byVar2 = this.a.h;
+                        b2.setPosition(byVar2.e());
                         mVar11 = this.a.g;
                         GroupData b3 = mVar11.f().b();
-                        bxVar3 = this.a.h;
-                        b3.setBusiness(bxVar3.f());
+                        byVar3 = this.a.h;
+                        b3.setBusiness(byVar3.f());
                         mVar12 = this.a.g;
                         if ((mVar12.f().b().getFlag() & 1) == 1) {
                             rVar7 = this.a.f;
@@ -205,7 +205,7 @@ public class p extends com.baidu.adp.framework.listener.b {
                             mVar15 = this.a.g;
                             rVar6.a(mVar15.f().h(), stringBuffer.toString());
                         }
-                        this.a.showToast(com.baidu.tieba.u.group_address_success);
+                        this.a.showToast(com.baidu.tieba.y.group_address_success);
                         return;
                     default:
                         return;

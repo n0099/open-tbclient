@@ -33,7 +33,7 @@ public class BarFolderFirstDirActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.bar_folder_dir_activity);
+        setContentView(com.baidu.tieba.w.bar_folder_dir_activity);
         a();
         a(bundle);
         b();
@@ -48,14 +48,14 @@ public class BarFolderFirstDirActivity extends BaseActivity {
     }
 
     protected void a() {
-        this.h = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.h.a(getResources().getString(com.baidu.tieba.u.bar_first_dir_name));
+        this.h = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.h.a(getResources().getString(com.baidu.tieba.y.bar_first_dir_name));
         this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a = (ListView) findViewById(com.baidu.tieba.r.list);
+        this.a = (ListView) findViewById(com.baidu.tieba.v.list);
         this.e = new c(this, new h(), true);
         this.a.setAdapter((ListAdapter) this.e);
-        this.d = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
-        this.b = (ViewGroup) findViewById(com.baidu.tieba.r.body_container);
+        this.d = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
+        this.b = (ViewGroup) findViewById(com.baidu.tieba.v.body_container);
         bp.b(this.b);
     }
 
@@ -117,6 +117,6 @@ public class BarFolderFirstDirActivity extends BaseActivity {
         if (this.b != null) {
             bp.a(this.b, i);
         }
-        bc.b(findViewById(com.baidu.tieba.r.root_view), i);
+        bc.b(findViewById(com.baidu.tieba.v.root_view), i);
     }
 }

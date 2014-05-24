@@ -14,22 +14,24 @@ import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 public class TiebaActiveService extends Service {
-    private j a = null;
-    private int b = 0;
-    private Handler c = new Handler();
-    private Runnable d = new i(this);
+    private static final int ACTIVE_FAIL = 1;
+    private static final int ACTIVE_SUCC = 2;
+    private n mActiveTask = null;
+    private int mHaveRetry = 0;
+    private Handler mHandler = new Handler();
+    private Runnable mRunnable = new m(this);
 
-    private String a() {
+    private String getChannelByShare() {
         return com.baidu.tbadk.core.sharedPref.b.a().a("channel_id", (String) null);
     }
 
-    private void a(String str) {
+    private void saveChannelToShare(String str) {
         if (str != null && str.length() > 0) {
             com.baidu.tbadk.core.sharedPref.b.a().b("channel_id", str);
         }
     }
 
-    private String b() {
+    private String getChannelyFile() {
         String str = null;
         try {
             File d = x.d(TbConfig.CHANNEL_FILE);
@@ -47,7 +49,7 @@ public class TiebaActiveService extends Service {
         return str;
     }
 
-    private void b(String str) {
+    private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
                 File f = x.f(TbConfig.CHANNEL_FILE);
@@ -64,22 +66,22 @@ public class TiebaActiveService extends Service {
         }
     }
 
-    private boolean c() {
+    private boolean isActived() {
         try {
-            String a = a();
-            if (a == null) {
-                String b = b();
-                if (b != null && b.length() > 0) {
-                    a(b);
+            String channelByShare = getChannelByShare();
+            if (channelByShare == null) {
+                String channelyFile = getChannelyFile();
+                if (channelyFile != null && channelyFile.length() > 0) {
+                    saveChannelToShare(channelyFile);
                 } else {
                     if ("aishide" != 0 && "aishide".length() > 0) {
-                        a("aishide");
-                        b("aishide");
+                        saveChannelToShare("aishide");
+                        saveChannelToFile("aishide");
                     }
                     return false;
                 }
             } else {
-                b(a);
+                saveChannelToFile(channelByShare);
             }
         } catch (Exception e) {
             BdLog.e(getClass().getName(), "getActiveState", e.getMessage());
@@ -96,29 +98,29 @@ public class TiebaActiveService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (c() && com.baidu.tbadk.core.sharedPref.b.a().a("active", 2) != 1) {
+        if (isActived() && com.baidu.tbadk.core.sharedPref.b.a().a("active", 2) != 1) {
             stopSelf();
         } else {
-            d();
+            sendActive();
         }
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.a != null) {
-            this.a.cancel();
+        if (this.mActiveTask != null) {
+            this.mActiveTask.cancel();
         }
-        this.b = 11;
-        this.c.removeCallbacks(this.d);
+        this.mHaveRetry = 11;
+        this.mHandler.removeCallbacks(this.mRunnable);
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        if (this.a != null) {
-            this.a.cancel();
+    public void sendActive() {
+        if (this.mActiveTask != null) {
+            this.mActiveTask.cancel();
         }
-        this.a = new j(this, null);
-        this.a.execute(new String[0]);
+        this.mActiveTask = new n(this, null);
+        this.mActiveTask.execute(new String[0]);
     }
 }

@@ -31,7 +31,7 @@ public class by extends PopupWindow {
         this.d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         scrollView.addView(this.d);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        scrollView.setPadding(0, 0, com.baidu.adp.lib.util.h.a(context, 1.0f), com.baidu.adp.lib.util.h.a(context, 1.0f));
+        scrollView.setPadding(0, 0, com.baidu.adp.lib.util.k.a(context, 1.0f), com.baidu.adp.lib.util.k.a(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
         try {
             Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);

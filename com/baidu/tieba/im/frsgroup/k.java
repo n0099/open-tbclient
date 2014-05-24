@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.base.e {
+public class k extends com.baidu.adp.base.c {
     private FrsGroupActivity a;
     private View b;
     private View c;
@@ -34,32 +34,32 @@ public class k extends com.baidu.adp.base.e {
     public k(FrsGroupActivity frsGroupActivity) {
         super(frsGroupActivity);
         this.a = frsGroupActivity;
-        frsGroupActivity.setContentView(com.baidu.tieba.s.im_frsgroup_activity);
+        frsGroupActivity.setContentView(com.baidu.tieba.w.im_frsgroup_activity);
         a(frsGroupActivity);
         b(frsGroupActivity);
     }
 
     private void a(FrsGroupActivity frsGroupActivity) {
-        this.b = frsGroupActivity.findViewById(com.baidu.tieba.r.view_root);
-        this.e = (NavigationBar) frsGroupActivity.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.b = frsGroupActivity.findViewById(com.baidu.tieba.v.view_root);
+        this.e = (NavigationBar) frsGroupActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.c = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e.a(this.a.getString(com.baidu.tieba.u.frsgroup_title));
-        this.d = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(com.baidu.tieba.u.frsgroup_create));
+        this.e.a(this.a.getString(com.baidu.tieba.y.frsgroup_title));
+        this.d = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(com.baidu.tieba.y.frsgroup_create));
         this.c.setOnClickListener(frsGroupActivity);
         this.d.setOnClickListener(frsGroupActivity);
-        this.r = (NoNetworkView) frsGroupActivity.findViewById(com.baidu.tieba.r.view_no_network);
+        this.r = (NoNetworkView) frsGroupActivity.findViewById(com.baidu.tieba.v.view_no_network);
     }
 
     private void b(FrsGroupActivity frsGroupActivity) {
-        this.f = (RadioGroup) frsGroupActivity.findViewById(com.baidu.tieba.r.raidos_change);
-        this.g = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.r.radio_recommend);
+        this.f = (RadioGroup) frsGroupActivity.findViewById(com.baidu.tieba.v.raidos_change);
+        this.g = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.v.radio_recommend);
         this.g.setChecked(true);
-        this.h = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.r.radio_hot);
-        this.i = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.r.radio_official);
-        this.j = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.r.radio_recommend_line);
-        this.k = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.r.radio_hot_line);
-        this.l = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.r.radio_official_line);
-        this.p = (ProgressBar) frsGroupActivity.findViewById(com.baidu.tieba.r.progress_loading);
+        this.h = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.v.radio_hot);
+        this.i = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.v.radio_official);
+        this.j = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.v.radio_recommend_line);
+        this.k = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.v.radio_hot_line);
+        this.l = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.v.radio_official_line);
+        this.p = (ProgressBar) frsGroupActivity.findViewById(com.baidu.tieba.v.progress_loading);
         this.m = new Fragment[3];
         this.n = new String[3];
         this.n[0] = "f1";
@@ -120,7 +120,7 @@ public class k extends com.baidu.adp.base.e {
         }
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.c
     public void destroy() {
         super.destroy();
         if (this.m != null) {
@@ -139,12 +139,12 @@ public class k extends com.baidu.adp.base.e {
     public void a(boolean z) {
         this.q = z;
         if (z) {
-            this.f.check(com.baidu.tieba.r.radio_recommend);
+            this.f.check(com.baidu.tieba.v.radio_recommend);
             this.g.setVisibility(0);
             this.j.setVisibility(0);
             return;
         }
-        this.f.check(com.baidu.tieba.r.radio_hot);
+        this.f.check(com.baidu.tieba.v.radio_hot);
         this.g.setVisibility(8);
         this.j.setVisibility(8);
     }

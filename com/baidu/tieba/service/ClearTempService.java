@@ -11,9 +11,11 @@ import java.io.File;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class ClearTempService extends Service {
-    private volatile boolean a = false;
-    private Thread b = null;
-    private final Handler c = new a(this);
+    private static final int DELETE_FILE_COUNT = 300;
+    private static final int MAX_FILE_COUNT = 500;
+    private volatile boolean interrupted = false;
+    private Thread thread = null;
+    private final Handler handler = new c(this);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -28,30 +30,30 @@ public class ClearTempService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.a = true;
+        this.interrupted = true;
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        this.a = false;
-        if (this.b == null) {
-            this.b = new b(this);
-            this.b.start();
+        this.interrupted = false;
+        if (this.thread == null) {
+            this.thread = new d(this);
+            this.thread.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(File file, boolean z) {
+    public void deleteCache(File file, boolean z) {
         try {
             File[] listFiles = file.listFiles();
             long time = new Date().getTime();
             int length = listFiles.length > 500 ? listFiles.length - 300 : 0;
             if (listFiles != null) {
-                for (int i = 0; i < listFiles.length && !this.a; i++) {
+                for (int i = 0; i < listFiles.length && !this.interrupted; i++) {
                     File file2 = listFiles[i];
                     if (file2.isDirectory()) {
-                        a(file2, false);
+                        deleteCache(file2, false);
                     } else if (length > 0 && i < length) {
                         if (!file2.delete()) {
                             BdLog.e(getClass().getName(), "run", "list[i].delete error");
@@ -64,28 +66,28 @@ public class ClearTempService extends Service {
         } catch (Throwable th) {
             BdLog.e(ClearTempService.class, "deleteCache", th);
             if (!z) {
-                a();
+                deleteImageCacheByName();
             }
         }
     }
 
-    private void a() {
+    private void deleteImageCacheByName() {
         String str = x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
         for (int i = 0; i < 20; i++) {
             File file = new File(String.valueOf(str) + "/" + i);
             if (file.exists() && file.isDirectory()) {
-                a(file, true);
+                deleteCache(file, true);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(File file) {
+    public void deleteDir(File file) {
         try {
             File[] listFiles = file.listFiles();
             long time = new Date().getTime();
             if (listFiles != null) {
-                for (int i = 0; i < listFiles.length && !this.a; i++) {
+                for (int i = 0; i < listFiles.length && !this.interrupted; i++) {
                     if (time - listFiles[i].lastModified() > 259200000 && !listFiles[i].delete()) {
                         BdLog.e(getClass().getName(), "run", "list[i].delete error");
                     }

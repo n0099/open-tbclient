@@ -39,35 +39,35 @@ class s extends Handler {
         switch (i2) {
             case 0:
                 imageView10 = this.a.b;
-                imageView10.setImageResource(com.baidu.tieba.q.pic_startpage1_next_1);
+                imageView10.setImageResource(com.baidu.tieba.u.pic_startpage1_next_1);
                 imageView11 = this.a.c;
-                imageView11.setImageResource(com.baidu.tieba.q.pic_startpage1_next_2);
+                imageView11.setImageResource(com.baidu.tieba.u.pic_startpage1_next_2);
                 imageView12 = this.a.d;
-                imageView12.setImageResource(com.baidu.tieba.q.pic_startpage1_next_3);
+                imageView12.setImageResource(com.baidu.tieba.u.pic_startpage1_next_3);
                 break;
             case 1:
                 imageView7 = this.a.b;
-                imageView7.setImageResource(com.baidu.tieba.q.pic_startpage1_next_3);
+                imageView7.setImageResource(com.baidu.tieba.u.pic_startpage1_next_3);
                 imageView8 = this.a.c;
-                imageView8.setImageResource(com.baidu.tieba.q.pic_startpage1_next_1);
+                imageView8.setImageResource(com.baidu.tieba.u.pic_startpage1_next_1);
                 imageView9 = this.a.d;
-                imageView9.setImageResource(com.baidu.tieba.q.pic_startpage1_next_2);
+                imageView9.setImageResource(com.baidu.tieba.u.pic_startpage1_next_2);
                 break;
             case 2:
                 imageView4 = this.a.b;
-                imageView4.setImageResource(com.baidu.tieba.q.pic_startpage1_next_2);
+                imageView4.setImageResource(com.baidu.tieba.u.pic_startpage1_next_2);
                 imageView5 = this.a.c;
-                imageView5.setImageResource(com.baidu.tieba.q.pic_startpage1_next_3);
+                imageView5.setImageResource(com.baidu.tieba.u.pic_startpage1_next_3);
                 imageView6 = this.a.d;
-                imageView6.setImageResource(com.baidu.tieba.q.pic_startpage1_next_1);
+                imageView6.setImageResource(com.baidu.tieba.u.pic_startpage1_next_1);
                 break;
             case 3:
                 imageView = this.a.b;
-                imageView.setImageResource(com.baidu.tieba.q.pic_startpage1_next_2);
+                imageView.setImageResource(com.baidu.tieba.u.pic_startpage1_next_2);
                 imageView2 = this.a.c;
-                imageView2.setImageResource(com.baidu.tieba.q.pic_startpage1_next_2);
+                imageView2.setImageResource(com.baidu.tieba.u.pic_startpage1_next_2);
                 imageView3 = this.a.d;
-                imageView3.setImageResource(com.baidu.tieba.q.pic_startpage1_next_2);
+                imageView3.setImageResource(com.baidu.tieba.u.pic_startpage1_next_2);
                 break;
         }
         GoOnAnimView goOnAnimView2 = this.a;

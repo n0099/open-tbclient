@@ -1,47 +1,34 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class ck implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ bj a;
+class ck implements Animation.AnimationListener {
+    final /* synthetic */ bq a;
+    private final /* synthetic */ com.baidu.tieba.data.ap b;
+    private final /* synthetic */ boolean c;
+    private final /* synthetic */ String d;
+    private final /* synthetic */ String e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(bj bjVar) {
-        this.a = bjVar;
+    public ck(bq bqVar, com.baidu.tieba.data.ap apVar, boolean z, String str, String str2) {
+        this.a = bqVar;
+        this.b = apVar;
+        this.c = z;
+        this.d = str;
+        this.e = str2;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        BdListView bdListView;
-        com.baidu.tieba.pb.sub.m mVar;
-        com.baidu.tieba.pb.sub.m mVar2;
-        bdListView = this.a.o;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        if (aVar == null) {
-            if (imageView != null && (imageView instanceof TbImageView)) {
-                ((TbImageView) imageView).e();
-                return;
-            }
-            return;
-        }
-        if (imageView != null) {
-            if (imageView instanceof TbImageView) {
-                ((TbImageView) imageView).e();
-            }
-            imageView.invalidate();
-        }
-        if (this.a.D()) {
-            mVar = this.a.N;
-            if (mVar != null) {
-                mVar2 = this.a.N;
-                ImageView imageView2 = (ImageView) mVar2.n().findViewWithTag(str);
-                if (imageView2 != null) {
-                    imageView2.invalidate();
-                }
-            }
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new cl(this, this.b, this.c, this.d, this.e));
     }
 }

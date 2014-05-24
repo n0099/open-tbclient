@@ -62,7 +62,7 @@ public abstract class a {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new GroupMemberChangeResponsedMessage(str));
             } else if ("201".equals(optString) || "202".equals(optString) || "203".equals(optString) || "205".equals(optString)) {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new ChatRoomEventResponseMessage(content));
-            } else if ("302".equals(optString) || "306".equals(optString) || "310".equals(optString) || "307".equals(optString) || "308".equals(optString) || "309".equals(optString) || "304".equals(optString)) {
+            } else if ("302".equals(optString) || "306".equals(optString) || "310".equals(optString) || "307".equals(optString) || "308".equals(optString) || "318".equals(optString) || "309".equals(optString) || "304".equals(optString)) {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new LiveChatRoomEventResponseMessage(content));
             }
         }

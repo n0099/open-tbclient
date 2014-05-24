@@ -76,7 +76,7 @@ public class ResponseHotLiveListMessage extends TbSocketReponsedMessage {
     public void processInBackGround(int i, byte[] bArr) {
         Message<?> orginalMessage = getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestHotLiveListMessage) && getError() == 0) {
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().f(), "live_" + String.valueOf(((RequestHotLiveListMessage) orginalMessage).getType()), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().g(), "live_" + String.valueOf(((RequestHotLiveListMessage) orginalMessage).getType()), bArr);
         }
     }
 }

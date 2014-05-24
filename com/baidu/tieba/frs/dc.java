@@ -1,31 +1,18 @@
 package com.baidu.tieba.frs;
-
-import android.app.Activity;
-import android.widget.ListView;
-import com.baidu.tieba.editortool.PbEditor;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dc implements Runnable {
-    private int a;
-    private int b;
-    private PbEditor c;
-    private ListView d;
-    private Activity e;
-    private int f;
+public class dc implements com.baidu.tbadk.editortool.x {
+    final /* synthetic */ ct a;
+    private final /* synthetic */ com.baidu.tbadk.editortool.x b;
 
-    public dc(Activity activity, int i, int i2, PbEditor pbEditor, ListView listView, int i3) {
-        this.b = i2;
-        this.a = i;
-        this.c = pbEditor;
-        this.d = listView;
-        this.f = i3;
-        this.e = activity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dc(ct ctVar, com.baidu.tbadk.editortool.x xVar) {
+        this.a = ctVar;
+        this.b = xVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int[] iArr = new int[2];
-        this.c.getLocationInWindow(iArr);
-        this.d.setSelectionFromTop(this.a + this.d.getHeaderViewsCount(), ((iArr[1] - this.b) - this.f) - com.baidu.adp.lib.util.h.a(this.e));
-        this.d.invalidate();
+    @Override // com.baidu.tbadk.editortool.x
+    public void a(int i, Object obj) {
+        this.b.a(i, obj);
     }
 }

@@ -7,9 +7,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.s;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class PersonalTalkSettingViewSettingView extends LinearLayout {
     private SettingTextSwitchView a;
@@ -34,10 +38,10 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
 
     private void a() {
         setOrientation(1);
-        inflate(getContext(), s.p2ptalk_setting_detail_view, this);
-        this.a = (SettingTextSwitchView) findViewById(com.baidu.tieba.r.sv_person_msg_notify);
-        this.b = (TextView) findViewById(com.baidu.tieba.r.change_attention_text);
-        this.c = (RelativeLayout) findViewById(com.baidu.tieba.r.change_attention);
+        inflate(getContext(), w.p2ptalk_setting_detail_view, this);
+        this.a = (SettingTextSwitchView) findViewById(v.sv_person_msg_notify);
+        this.b = (TextView) findViewById(v.change_attention_text);
+        this.c = (RelativeLayout) findViewById(v.change_attention);
     }
 
     public void a(boolean z) {
@@ -53,30 +57,30 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
         Context context = getContext();
         if (context instanceof BaseActivity) {
             z2 = ((BaseActivity) context).getLayoutMode().a();
-        } else if (context instanceof com.baidu.tbadk.core.e) {
-            z2 = ((com.baidu.tbadk.core.e) getContext()).a().a();
+        } else if (context instanceof BaseFragmentActivity) {
+            z2 = ((BaseFragmentActivity) getContext()).a().a();
         }
         if (z) {
-            this.b.setText(u.cancel_attention);
+            this.b.setText(y.cancel_attention);
             this.b.setCompoundDrawables(null, null, null, null);
             if (z2) {
-                this.b.setTextColor(getResources().getColor(com.baidu.tieba.o.btn_attention_remove_1));
-                this.c.setBackgroundResource(com.baidu.tieba.q.btn_information_add_1);
+                this.b.setTextColor(getResources().getColor(s.btn_attention_remove_1));
+                this.c.setBackgroundResource(u.btn_information_add_1);
                 return;
             }
-            this.b.setTextColor(getResources().getColor(com.baidu.tieba.o.btn_attention_remove));
-            this.c.setBackgroundResource(com.baidu.tieba.q.btn_information_add);
+            this.b.setTextColor(getResources().getColor(s.btn_attention_remove));
+            this.c.setBackgroundResource(u.btn_information_add);
             return;
         }
-        this.b.setText(u.add_attention);
+        this.b.setText(y.add_attention);
         if (z2) {
-            this.b.setTextColor(getResources().getColor(com.baidu.tieba.o.btn_attention_add_1));
-            this.b.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(com.baidu.tieba.q.icon_brief_attention_1), (Drawable) null, (Drawable) null, (Drawable) null);
-            this.c.setBackgroundResource(com.baidu.tieba.q.btn_information_discuss_1);
+            this.b.setTextColor(getResources().getColor(s.btn_attention_add_1));
+            this.b.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(u.icon_brief_attention_1), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.c.setBackgroundResource(u.btn_information_discuss_1);
             return;
         }
-        this.b.setTextColor(getResources().getColor(com.baidu.tieba.o.btn_attention_add));
-        this.b.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(com.baidu.tieba.q.icon_brief_attention), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.c.setBackgroundResource(com.baidu.tieba.q.btn_information_discuss);
+        this.b.setTextColor(getResources().getColor(s.btn_attention_add));
+        this.b.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(u.icon_brief_attention), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.c.setBackgroundResource(u.btn_information_discuss);
     }
 }

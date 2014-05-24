@@ -54,10 +54,10 @@ public class t extends BdAsyncTask<Integer, com.baidu.tieba.data.p, com.baidu.ti
     }
 
     private void a(String str) {
-        com.baidu.adp.lib.cache.s<String> i;
+        com.baidu.adp.lib.cache.s<String> j;
         String currentAccount = TbadkApplication.getCurrentAccount();
-        if (currentAccount != null && (i = com.baidu.tbadk.core.a.b.a().i()) != null) {
-            i.a("home_forumfeed_" + currentAccount, str, 604800000L);
+        if (currentAccount != null && (j = com.baidu.tbadk.core.a.b.a().j()) != null) {
+            j.a("home_forumfeed_" + currentAccount, str, 604800000L);
         }
     }
 
@@ -66,13 +66,13 @@ public class t extends BdAsyncTask<Integer, com.baidu.tieba.data.p, com.baidu.ti
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onProgressUpdate(com.baidu.tieba.data.p... pVarArr) {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         super.onProgressUpdate(pVarArr);
         u uVar = new u(this.a);
         uVar.b = 3;
         uVar.a = pVarArr.length > 0 ? pVarArr[0] : null;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(uVar);
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(uVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -81,16 +81,16 @@ public class t extends BdAsyncTask<Integer, com.baidu.tieba.data.p, com.baidu.ti
     /* renamed from: a */
     public void onPostExecute(com.baidu.tieba.data.p pVar) {
         int i;
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         com.baidu.tieba.data.p pVar2;
         com.baidu.tieba.data.p pVar3;
         int i2;
         com.baidu.tieba.data.p pVar4;
-        com.baidu.adp.base.g gVar2;
+        com.baidu.adp.base.e eVar2;
         this.b.a();
         if (b(pVar)) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(null);
+            eVar2 = this.a.mLoadDataCallBack;
+            eVar2.a(null);
         } else {
             i = this.a.f;
             if (i != 1) {
@@ -105,15 +105,15 @@ public class t extends BdAsyncTask<Integer, com.baidu.tieba.data.p, com.baidu.ti
                             pVar4.a(pVar, true);
                         }
                     }
-                    gVar = this.a.mLoadDataCallBack;
+                    eVar = this.a.mLoadDataCallBack;
                     pVar2 = this.a.d;
-                    gVar.a(pVar2);
+                    eVar.a(pVar2);
                 }
             }
             this.a.d = pVar;
-            gVar = this.a.mLoadDataCallBack;
+            eVar = this.a.mLoadDataCallBack;
             pVar2 = this.a.d;
-            gVar.a(pVar2);
+            eVar.a(pVar2);
         }
         this.a.g = 0;
     }

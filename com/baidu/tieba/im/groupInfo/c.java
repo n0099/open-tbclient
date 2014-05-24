@@ -36,7 +36,7 @@ class c implements TextWatcher {
                 this.a.b.setSelection(selectionStart);
                 length = 30;
             } else {
-                this.a.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.edit_normal));
+                this.a.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.edit_normal));
                 if (editable.length() > 0) {
                     this.a.f.setEnabled(true);
                 } else {
@@ -44,7 +44,7 @@ class c implements TextWatcher {
                 }
             }
             if (30 == length) {
-                this.a.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.edit_exceed));
+                this.a.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.edit_exceed));
             }
             this.a.c.setText(String.valueOf(length) + "/30");
         }

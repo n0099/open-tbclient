@@ -20,7 +20,7 @@ class b implements bk {
         } else if (str.startsWith("topic:")) {
             TbWebViewActivity.a(context, str.substring(6), str2);
         } else if (str.startsWith("zb:")) {
-            TbWebViewActivity.b(context, context.getString(com.baidu.tieba.u.kn_zhibo), str.substring(3));
+            TbWebViewActivity.b(context, context.getString(com.baidu.tieba.y.kn_zhibo), str.substring(3));
         } else if (str.startsWith("jctj:")) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.DAILY_RECOMMEND_CUSTOM_CMD, new com.baidu.tbadk.core.atomData.h(context, null)));
         } else if (!str.startsWith("list:")) {

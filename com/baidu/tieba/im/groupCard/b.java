@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.LocalViewSize;
 import com.baidu.tbadk.editortool.ab;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.base.d {
+public class b extends com.baidu.adp.base.b {
     private static Long f = 0L;
     private static final Long g = 300000L;
     private final long a;
@@ -27,12 +27,12 @@ public class b extends com.baidu.adp.base.d {
         this.b = groupCardActivity;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

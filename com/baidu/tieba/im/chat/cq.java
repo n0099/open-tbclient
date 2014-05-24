@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.data.UserData;
 import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cq implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.au> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<com.baidu.tbadk.core.atomData.au> run(CustomMessage<com.baidu.tbadk.core.atomData.au> customMessage) {
-        UserData a;
-        if (customMessage != null && customMessage.getData() != null && (a = customMessage.getData().a()) != null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(String.valueOf(a.getUserId()));
-            com.baidu.tieba.im.i.a(new cr(this, linkedList), new cs(this, customMessage));
-        }
-        return null;
+class cq extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ cp b;
+    private final /* synthetic */ LinkedList c;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cq(cp cpVar, LinkedList linkedList) {
+        this.b = cpVar;
+        this.c = linkedList;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        return com.baidu.tieba.im.db.o.d().a(this.c);
     }
 }

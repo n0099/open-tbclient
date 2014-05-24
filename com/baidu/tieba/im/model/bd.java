@@ -1,134 +1,78 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.im.message.GroupsByLocationLocalMessage;
-import com.baidu.tieba.im.message.RequestNearbyGroupsMessage;
-import com.baidu.tieba.im.message.RequestUserPermissionMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tieba.im.message.RequestMyLiveListLocalMessage;
+import com.baidu.tieba.im.message.RequestMyLiveListMessage;
 /* loaded from: classes.dex */
-public class bd extends com.baidu.adp.base.d {
-    private String b;
-    private String c;
-    private int d;
-    private boolean g;
-    private RequestNearbyGroupsMessage j;
-    private RequestUserPermissionMessage k;
-    private GroupsByLocationLocalMessage l;
-    private int a = 0;
-    private boolean h = false;
-    private boolean i = false;
-    private int f = com.baidu.adp.lib.util.h.a(TbadkApplication.m252getInst().getContext(), 70.0f);
-    private int e = com.baidu.adp.lib.util.h.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+public class bd extends com.baidu.adp.base.b {
+    private int a;
+    private int b;
+    private int c;
+    private boolean d = false;
+
+    public bd(int i) {
+        this.a = i;
+    }
 
     public boolean a() {
-        return this.i;
+        return this.d;
     }
 
     public void a(boolean z) {
-        this.i = z;
+        this.d = z;
+    }
+
+    public int b() {
+        return this.b;
     }
 
     public void a(int i) {
-        this.d = i;
+        this.b = i;
     }
 
-    public void a(String str) {
-        this.b = str;
+    public void b(int i) {
+        this.b += i;
     }
 
-    public boolean b() {
-        return this.g;
+    public int c() {
+        return this.c;
     }
 
-    public void b(boolean z) {
-        this.g = z;
+    public void c(int i) {
+        this.c = i;
     }
 
-    public void b(String str) {
-        this.c = str;
-    }
-
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }
 
-    public boolean c() {
-        return this.h;
+    private RequestMyLiveListMessage c(int i, int i2) {
+        RequestMyLiveListMessage requestMyLiveListMessage = new RequestMyLiveListMessage();
+        requestMyLiveListMessage.setType(this.a);
+        requestMyLiveListMessage.setOffset(i);
+        requestMyLiveListMessage.setRn(i2);
+        return requestMyLiveListMessage;
     }
 
-    public void c(boolean z) {
-        this.h = z;
+    private RequestMyLiveListLocalMessage d(int i, int i2) {
+        RequestMyLiveListLocalMessage requestMyLiveListLocalMessage = new RequestMyLiveListLocalMessage();
+        requestMyLiveListLocalMessage.setType(this.a);
+        requestMyLiveListLocalMessage.setOffset(i);
+        requestMyLiveListLocalMessage.setRn(i2);
+        return requestMyLiveListLocalMessage;
     }
 
-    private RequestNearbyGroupsMessage b(int i) {
-        RequestNearbyGroupsMessage requestNearbyGroupsMessage = new RequestNearbyGroupsMessage();
-        requestNearbyGroupsMessage.setHeight(this.e);
-        requestNearbyGroupsMessage.setWidth(this.f);
-        requestNearbyGroupsMessage.setLat(this.c);
-        requestNearbyGroupsMessage.setLng(this.b);
-        requestNearbyGroupsMessage.setOffset(i * 30);
-        requestNearbyGroupsMessage.setRn(30);
-        requestNearbyGroupsMessage.setGeo(this.d);
-        return requestNearbyGroupsMessage;
+    public void a(int i, int i2) {
+        MessageManager.getInstance().sendMessage(c(i, i2));
     }
 
-    private RequestUserPermissionMessage b(long j) {
-        RequestUserPermissionMessage requestUserPermissionMessage = new RequestUserPermissionMessage();
-        requestUserPermissionMessage.setForumId(j);
-        return requestUserPermissionMessage;
-    }
-
-    public void d() {
-        this.a = 0;
-        this.d = 0;
-        this.j = b(this.a);
-        super.sendMessage(this.j);
-    }
-
-    public void e() {
-        g();
-        this.j = b(this.a);
-        super.sendMessage(this.j);
-    }
-
-    public void a(long j) {
-        this.k = b(j);
-        super.sendMessage(this.k);
-    }
-
-    public void f() {
-        this.h = true;
-        this.l = new GroupsByLocationLocalMessage();
-        super.sendMessage(this.l);
-    }
-
-    public void g() {
-        this.a++;
-    }
-
-    public boolean h() {
-        if (this.h) {
-            if (UtilHelper.isNetOk()) {
-                d();
-                return true;
-            }
-            return false;
-        }
-        f();
-        return true;
-    }
-
-    @Override // com.baidu.adp.base.d
-    public void cancelMessage() {
-        super.cancelMessage();
-        this.j = null;
-        this.k = null;
-        this.l = null;
+    public void b(int i, int i2) {
+        MessageManager.getInstance().sendMessage(d(i, i2));
     }
 }

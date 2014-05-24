@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.q;
 import com.baidu.tieba.im.data.InviteMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,8 +30,8 @@ public class b implements View.OnClickListener {
         q qVar = new q(context, inviteMsgData.getGroupId(), 7, text, inviteMsgData3.getFromUid());
         if (this.a.getContext() instanceof BaseActivity) {
             ((BaseActivity) this.a.getContext()).sendMessage(new CustomMessage(2010011, qVar));
-        } else if (this.a.getContext() instanceof com.baidu.tbadk.core.e) {
-            ((com.baidu.tbadk.core.e) this.a.getContext()).a(new CustomMessage(2010011, qVar));
+        } else if (this.a.getContext() instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) this.a.getContext()).a(new CustomMessage(2010011, qVar));
         }
     }
 }

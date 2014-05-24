@@ -1,7 +1,7 @@
 package com.baidu.tieba.a;
 
 import android.location.Address;
-import com.baidu.adp.lib.util.g;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ErrorData;
@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.h;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.u;
+import com.baidu.tieba.ai;
+import com.baidu.tieba.y;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
@@ -77,7 +77,7 @@ public class d {
         if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
             this.c.a("vcode", writeData.getVcode());
         }
-        if (ad.c().z() < 3) {
+        if (ai.c().z() < 3) {
             this.c.a("vcode_tag", "11");
         }
         Address b2 = com.baidu.adp.lib.c.a.a().b(false);
@@ -96,7 +96,7 @@ public class d {
                     this.c.a(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, String.valueOf(writeData.getLiveCardData().getGroupId()));
                     this.c.a("start_time", String.valueOf(writeData.getLiveCardData().getStartTime()));
                 }
-                if (b2 != null && ad.c().m() && !TbConfig.getPositionPagerId().equals(writeData.getForumId())) {
+                if (b2 != null && ai.c().m() && !TbConfig.getPositionPagerId().equals(writeData.getForumId())) {
                     this.c.a("lbs", String.valueOf(String.valueOf(b2.getLatitude())) + "," + String.valueOf(b2.getLongitude()));
                     break;
                 }
@@ -132,8 +132,8 @@ public class d {
             this.d.setError_code(this.c.c() ? this.c.d() : this.c.e());
             this.d.setError_msg(this.c.f());
         }
-        if (this.d.error_code != 0 && writeData.isHasImages() && g.b(String.valueOf(writeData.getContent()) + imagesCodeForPost)) {
-            this.d.setError_msg(ad.c().d().getString(u.img_upload_error));
+        if (this.d.error_code != 0 && writeData.isHasImages() && j.b(String.valueOf(writeData.getContent()) + imagesCodeForPost)) {
+            this.d.setError_msg(ai.c().d().getString(y.img_upload_error));
         }
         try {
             this.e = new AntiData();

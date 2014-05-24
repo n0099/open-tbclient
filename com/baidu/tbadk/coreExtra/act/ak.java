@@ -17,7 +17,7 @@ class ak implements com.baidu.tbadk.core.account.g {
     @Override // com.baidu.tbadk.core.account.g
     public void onBeforeLogin(String str) {
         if (this.a.getLoadingDialog() == null || !this.a.getLoadingDialog().isShowing()) {
-            this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.u.sapi_logining), new al(this));
+            this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.sapi_logining), new al(this));
         }
     }
 
@@ -27,7 +27,7 @@ class ak implements com.baidu.tbadk.core.account.g {
         if (!TextUtils.isEmpty(accountData.getAccount())) {
             com.baidu.tbadk.core.account.a.a(accountData);
             TbadkApplication.setCurrentAccount(accountData, this.a.getBaseContext());
-            this.a.b();
+            this.a.c();
             return;
         }
         this.a.a(accountData);

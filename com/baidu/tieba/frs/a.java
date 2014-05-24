@@ -41,7 +41,7 @@ public class a implements com.baidu.tbadk.download.a {
             this.a = b.a().c();
         }
         this.a.cancel(downloadData.getNotifyId());
-        UtilHelper.install_apk(com.baidu.tieba.ad.c().d(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
+        UtilHelper.install_apk(com.baidu.tieba.ai.c().d(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
     }
 
     @Override // com.baidu.tbadk.download.a

@@ -6,7 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.s;
+import com.baidu.tieba.t;
+import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class NumCountDownView extends LinearLayout {
     private View a;
@@ -28,13 +31,13 @@ public class NumCountDownView extends LinearLayout {
     }
 
     public void a(Context context) {
-        this.a = LayoutInflater.from(context).inflate(s.num_count_down_view, this);
-        this.a.setLayoutParams(new LinearLayout.LayoutParams(context.getResources().getDimensionPixelSize(com.baidu.tieba.p.num_count_down_width), -2));
+        this.a = LayoutInflater.from(context).inflate(w.num_count_down_view, this);
+        this.a.setLayoutParams(new LinearLayout.LayoutParams(context.getResources().getDimensionPixelSize(t.num_count_down_width), -2));
         setOrientation(0);
-        setMinimumHeight(context.getResources().getDimensionPixelSize(com.baidu.tieba.p.num_count_down_min_height));
-        this.a.setBackgroundResource(com.baidu.tieba.q.bg_chat_prompt);
-        this.b = (TextView) this.a.findViewById(com.baidu.tieba.r.num_count_down_count);
-        this.c = (TextView) this.a.findViewById(com.baidu.tieba.r.num_count_down_notice);
+        setMinimumHeight(context.getResources().getDimensionPixelSize(t.num_count_down_min_height));
+        this.a.setBackgroundResource(u.bg_chat_prompt);
+        this.b = (TextView) this.a.findViewById(v.num_count_down_count);
+        this.c = (TextView) this.a.findViewById(v.num_count_down_notice);
     }
 
     public void setNoticeText(String str) {

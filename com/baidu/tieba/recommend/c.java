@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Object, Integer, String> {
@@ -55,7 +55,7 @@ public class c extends BdAsyncTask<Object, Integer, String> {
             alVar2.a("message_id", String.valueOf(j));
         }
         Address b = com.baidu.adp.lib.c.a.a().b(false);
-        if (b != null && ad.c().m()) {
+        if (b != null && ai.c().m()) {
             this.b.a("lbs", String.valueOf(String.valueOf(b.getLatitude())) + "," + String.valueOf(b.getLongitude()));
         }
         try {

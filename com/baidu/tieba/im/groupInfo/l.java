@@ -35,7 +35,7 @@ class l extends CustomMessageListener {
         if (customResponsedMessage == null) {
             rVar2 = this.a.f;
             rVar2.p();
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (customResponsedMessage.getCmd() == 2003102) {
             if (!(customResponsedMessage instanceof ResponseGroupInfoLocalMessage)) {
                 mVar9 = this.a.g;

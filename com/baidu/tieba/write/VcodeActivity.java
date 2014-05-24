@@ -31,14 +31,14 @@ public class VcodeActivity extends BaseActivity {
     private final View.OnClickListener n = new ab(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bg.class, VcodeActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bh.class, VcodeActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.vcode_activity);
+        setContentView(com.baidu.tieba.w.vcode_activity);
         a();
         a(bundle);
         a(this.b.getVcodeUrl());
@@ -92,16 +92,16 @@ public class VcodeActivity extends BaseActivity {
     }
 
     private void a() {
-        this.k = (RelativeLayout) findViewById(com.baidu.tieba.r.parent);
-        this.a = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.l = (TextView) findViewById(com.baidu.tieba.r.info);
+        this.k = (RelativeLayout) findViewById(com.baidu.tieba.v.parent);
+        this.a = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.l = (TextView) findViewById(com.baidu.tieba.v.info);
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.m);
-        this.c = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.u.send), this.n);
-        this.e = (EditText) findViewById(com.baidu.tieba.r.input);
-        this.d = (ImageView) findViewById(com.baidu.tieba.r.vcode_image);
+        this.c = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.y.send), this.n);
+        this.e = (EditText) findViewById(com.baidu.tieba.v.input);
+        this.d = (ImageView) findViewById(com.baidu.tieba.v.vcode_image);
         this.d.setImageBitmap(null);
         this.d.setOnClickListener(new ad(this));
-        this.f = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
+        this.f = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

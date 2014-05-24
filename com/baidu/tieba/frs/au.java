@@ -1,8 +1,10 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.ForumData;
+import android.view.View;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class au implements df {
+class au implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,41 +12,29 @@ class au implements df {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.df
-    public void a(i iVar, j jVar) {
-        cs csVar;
-        cs csVar2;
-        cs csVar3;
-        g gVar;
-        g gVar2;
-        cs csVar4;
-        g gVar3;
-        g gVar4;
-        if (iVar.a) {
-            csVar3 = this.a.w;
-            csVar3.a(this.a.getString(com.baidu.tieba.u.add_fan_sucess));
-            gVar = this.a.I;
-            gVar.l().b(1);
-            gVar2 = this.a.I;
-            gVar2.l().c(iVar.c);
-            csVar4 = this.a.w;
-            gVar3 = this.a.I;
-            ForumData g = gVar3.g();
-            gVar4 = this.a.I;
-            csVar4.a(1, g, gVar4, false);
-            com.baidu.tieba.ad.c().e(true);
-            return;
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        ct ctVar;
+        ct ctVar2;
+        ct ctVar3;
+        if (aVar != null) {
+            ctVar = this.a.w;
+            if (ctVar != null) {
+                ctVar2 = this.a.w;
+                if (ctVar2.L() != null) {
+                    ctVar3 = this.a.w;
+                    View findViewWithTag = ctVar3.L().findViewWithTag(str);
+                    if (findViewWithTag != null) {
+                        if (findViewWithTag instanceof HeadImageView) {
+                            ((HeadImageView) findViewWithTag).invalidate();
+                        } else if (findViewWithTag instanceof TbImageView) {
+                            ((TbImageView) findViewWithTag).invalidate();
+                        } else {
+                            findViewWithTag.invalidate();
+                        }
+                    }
+                }
+            }
         }
-        if (jVar.d == null || jVar.d.length() <= 0) {
-            csVar = this.a.w;
-            csVar.a(this.a.getString(com.baidu.tieba.u.add_fan_error));
-        } else {
-            csVar2 = this.a.w;
-            csVar2.a(jVar.d);
-        }
-        if (jVar.c != 120002) {
-            return;
-        }
-        this.a.D();
     }
 }

@@ -12,7 +12,7 @@ public class v {
     private int b;
     private final AntiData c;
     private Context d;
-    private ArrayList<ah> e;
+    private ArrayList<ai> e;
 
     public v() {
         this.a = 0;
@@ -33,7 +33,7 @@ public class v {
         this.d = context;
     }
 
-    public ArrayList<ah> a() {
+    public ArrayList<ai> a() {
         return this.e;
     }
 
@@ -68,16 +68,16 @@ public class v {
                 int size = this.e.size() - (this.e.size() % 10);
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                    ah ahVar = new ah();
-                    ahVar.a(jSONObject2);
+                    ai aiVar = new ai();
+                    aiVar.a(jSONObject2);
                     if (this.d != null) {
-                        ahVar.b(this.d);
+                        aiVar.b(this.d);
                     }
                     if (size < this.e.size()) {
                         this.e.remove(size);
-                        this.e.add(size, ahVar);
+                        this.e.add(size, aiVar);
                     } else {
-                        this.e.add(ahVar);
+                        this.e.add(aiVar);
                     }
                     size++;
                 }

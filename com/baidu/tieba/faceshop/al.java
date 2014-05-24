@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al extends com.baidu.adp.base.g {
+public class al extends com.baidu.adp.base.e {
     final /* synthetic */ FacePackageDetailActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ public class al extends com.baidu.adp.base.g {
         this.a = facePackageDetailActivity;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         an anVar;
         an anVar2;
@@ -24,10 +24,10 @@ public class al extends com.baidu.adp.base.g {
                 if (faceBuyData.buyInfo.buyStatus != 2) {
                     anVar3 = this.a.a;
                     anVar3.d(String.valueOf(faceBuyData.buyInfo.orderId));
-                    FaceBuyWebViewActivity.a(this.a, str, str2, this.a.getString(com.baidu.tieba.u.buy_package), 0, 10001);
+                    FaceBuyWebViewActivity.a(this.a, str, str2, this.a.getString(com.baidu.tieba.y.buy_package), 0, 10001);
                     return;
                 }
-                this.a.showToast(com.baidu.tieba.u.has_buy2);
+                this.a.showToast(com.baidu.tieba.y.has_buy2);
                 anVar = this.a.a;
                 FacePackageData facePackageData = anVar.a().facePackage;
                 facePackageData.buyStatus = 1;
@@ -41,10 +41,10 @@ public class al extends com.baidu.adp.base.g {
                 this.a.showToast(faceBuyData.usermsg);
                 return;
             } else {
-                this.a.showToast(com.baidu.tieba.u.neterror);
+                this.a.showToast(com.baidu.tieba.y.neterror);
                 return;
             }
         }
-        this.a.showToast(com.baidu.tieba.u.neterror);
+        this.a.showToast(com.baidu.tieba.y.neterror);
     }
 }

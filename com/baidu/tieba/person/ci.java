@@ -131,23 +131,23 @@ public class ci extends BaseAdapter {
                 LayoutInflater from = LayoutInflater.from(this.e);
                 cj cjVar2 = new cj(this, null);
                 if (getItemViewType(i) == 0) {
-                    View inflate = from.inflate(com.baidu.tieba.s.person_list_item, (ViewGroup) null);
-                    cjVar2.a = (HeadImageView) inflate.findViewById(com.baidu.tieba.r.photo);
+                    View inflate = from.inflate(com.baidu.tieba.w.person_list_item, (ViewGroup) null);
+                    cjVar2.a = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.photo);
                     cjVar2.a.setIsRound(true);
                     cjVar2.a.setAutoChangeStyle(true);
-                    cjVar2.e = (LinearLayout) inflate.findViewById(com.baidu.tieba.r.info);
+                    cjVar2.e = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.info);
                     cjVar2.e.setOnClickListener(this.m);
-                    cjVar2.b = (TextView) inflate.findViewById(com.baidu.tieba.r.name);
-                    cjVar2.g = (TextView) inflate.findViewById(com.baidu.tieba.r.at_list_nodata);
-                    cjVar2.c = (TextView) inflate.findViewById(com.baidu.tieba.r.intro);
-                    cjVar2.d = (ImageView) inflate.findViewById(com.baidu.tieba.r.chat);
+                    cjVar2.b = (TextView) inflate.findViewById(com.baidu.tieba.v.name);
+                    cjVar2.g = (TextView) inflate.findViewById(com.baidu.tieba.v.at_list_nodata);
+                    cjVar2.c = (TextView) inflate.findViewById(com.baidu.tieba.v.intro);
+                    cjVar2.d = (ImageView) inflate.findViewById(com.baidu.tieba.v.chat);
                     cjVar2.d.setOnClickListener(this.k);
                     view2 = inflate;
                 } else {
-                    View inflate2 = from.inflate(com.baidu.tieba.s.new_pb_list_more, (ViewGroup) null);
-                    cjVar2.b = (TextView) inflate2.findViewById(com.baidu.tieba.r.pb_more_text);
+                    View inflate2 = from.inflate(com.baidu.tieba.w.new_pb_list_more, (ViewGroup) null);
+                    cjVar2.b = (TextView) inflate2.findViewById(com.baidu.tieba.v.pb_more_text);
                     inflate2.setOnClickListener(this.l);
-                    cjVar2.f = (ProgressBar) inflate2.findViewById(com.baidu.tieba.r.progress);
+                    cjVar2.f = (ProgressBar) inflate2.findViewById(com.baidu.tieba.v.progress);
                     this.i.add(cjVar2.f);
                     view2 = inflate2;
                 }
@@ -164,22 +164,22 @@ public class ci extends BaseAdapter {
                     cjVar.g.setVisibility(0);
                     if (this.b) {
                         if (this.c) {
-                            cjVar.g.setText(com.baidu.tieba.u.not_have_attention);
+                            cjVar.g.setText(com.baidu.tieba.y.not_have_attention);
                         } else if (this.j == 2) {
-                            cjVar.g.setText(com.baidu.tieba.u.her_no_attention_other);
+                            cjVar.g.setText(com.baidu.tieba.y.her_no_attention_other);
                         } else if (this.j == 1) {
-                            cjVar.g.setText(com.baidu.tieba.u.him_no_attention_other);
+                            cjVar.g.setText(com.baidu.tieba.y.him_no_attention_other);
                         } else {
-                            cjVar.g.setText(com.baidu.tieba.u.no_attention_other);
+                            cjVar.g.setText(com.baidu.tieba.y.no_attention_other);
                         }
                     } else if (this.c) {
-                        cjVar.g.setText(com.baidu.tieba.u.not_have_fans);
+                        cjVar.g.setText(com.baidu.tieba.y.not_have_fans);
                     } else if (this.j == 2) {
-                        cjVar.g.setText(com.baidu.tieba.u.her_no_fan_other);
+                        cjVar.g.setText(com.baidu.tieba.y.her_no_fan_other);
                     } else if (this.j == 1) {
-                        cjVar.g.setText(com.baidu.tieba.u.him_no_fan_other);
+                        cjVar.g.setText(com.baidu.tieba.y.him_no_fan_other);
                     } else {
-                        cjVar.g.setText(com.baidu.tieba.u.no_fan_other);
+                        cjVar.g.setText(com.baidu.tieba.y.no_fan_other);
                     }
                 } else {
                     cjVar.d.setVisibility(0);
@@ -193,14 +193,14 @@ public class ci extends BaseAdapter {
                         c.a(cjVar.a);
                     } else {
                         cjVar.a.setTag(portrait);
-                        cjVar.a.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.photo));
+                        cjVar.a.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.photo));
                     }
                     cjVar.b.setText(this.d.get(i).getName_show());
                     cjVar.c.setText(this.d.get(i).getIntro());
                     cjVar.d.setTag(Integer.valueOf(i));
                 }
             } else {
-                cjVar.b.setText(this.e.getString(com.baidu.tieba.u.loading));
+                cjVar.b.setText(this.e.getString(com.baidu.tieba.y.loading));
                 cjVar.f.setVisibility(0);
             }
             a(view);

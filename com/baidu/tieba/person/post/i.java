@@ -23,13 +23,13 @@ public class i implements c {
         Activity activity3;
         Activity activity4;
         int id = view.getId();
-        if (id == com.baidu.tieba.r.portrait) {
+        if (id == com.baidu.tieba.v.portrait) {
             activity4 = this.a.e;
             activity4.finish();
-        } else if (id == com.baidu.tieba.r.username) {
+        } else if (id == com.baidu.tieba.v.username) {
             activity3 = this.a.e;
             activity3.finish();
-        } else if ((id == com.baidu.tieba.r.item_header || id == com.baidu.tieba.r.original_post_title || id == com.baidu.tieba.r.item_footer) && (strArr = (String[]) view.getTag()) != null) {
+        } else if ((id == com.baidu.tieba.v.item_header || id == com.baidu.tieba.v.original_post_title || id == com.baidu.tieba.v.item_footer) && (strArr = (String[]) view.getTag()) != null) {
             if ("0".equals(strArr[2]) || strArr[1] == null) {
                 MessageManager messageManager = MessageManager.getInstance();
                 activity = this.a.e;

@@ -13,7 +13,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
-import com.baidu.tieba.data.ah;
+import com.baidu.tieba.data.ai;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class x extends BaseAdapter {
@@ -35,7 +35,7 @@ public class x extends BaseAdapter {
         this.j = 0;
         this.c = context;
         this.b = tVar;
-        this.j = com.baidu.adp.lib.util.h.b(this.c);
+        this.j = com.baidu.adp.lib.util.k.b(this.c);
     }
 
     public void a() {
@@ -149,30 +149,30 @@ public class x extends BaseAdapter {
         if (view == null) {
             LayoutInflater from = LayoutInflater.from(this.c);
             if (itemViewType == 0) {
-                View inflate = from.inflate(com.baidu.tieba.s.image_pb_list_item, (ViewGroup) null);
+                View inflate = from.inflate(com.baidu.tieba.w.image_pb_list_item, (ViewGroup) null);
                 aa aaVar2 = new aa(this, null);
-                aaVar2.a = (TextView) inflate.findViewById(com.baidu.tieba.r.image_pb_item_comment);
-                aaVar2.b = (TextView) inflate.findViewById(com.baidu.tieba.r.image_pb_item_auther);
-                aaVar2.c = (TextView) inflate.findViewById(com.baidu.tieba.r.image_pb_item_time);
-                aaVar2.d = (LinearLayout) inflate.findViewById(com.baidu.tieba.r.seg);
+                aaVar2.a = (TextView) inflate.findViewById(com.baidu.tieba.v.image_pb_item_comment);
+                aaVar2.b = (TextView) inflate.findViewById(com.baidu.tieba.v.image_pb_item_auther);
+                aaVar2.c = (TextView) inflate.findViewById(com.baidu.tieba.v.image_pb_item_time);
+                aaVar2.d = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.seg);
                 obj = aaVar2;
                 view3 = inflate;
             } else if (itemViewType == 2) {
-                View inflate2 = from.inflate(com.baidu.tieba.s.image_pb_list_header, (ViewGroup) null);
+                View inflate2 = from.inflate(com.baidu.tieba.w.image_pb_list_header, (ViewGroup) null);
                 aa aaVar3 = new aa(this, null);
-                aaVar3.g = (LinearLayout) inflate2.findViewById(com.baidu.tieba.r.header);
-                aaVar3.i = (TextView) inflate2.findViewById(com.baidu.tieba.r.image_pb_comment);
-                aaVar3.j = (TextView) inflate2.findViewById(com.baidu.tieba.r.image_pb_author);
-                aaVar3.k = (TextView) inflate2.findViewById(com.baidu.tieba.r.image_pb_reply_number);
-                aaVar3.l = (LinearLayout) inflate2.findViewById(com.baidu.tieba.r.seg);
-                aaVar3.h = (ImagePbImageView) inflate2.findViewById(com.baidu.tieba.r.image_pb_image);
+                aaVar3.g = (LinearLayout) inflate2.findViewById(com.baidu.tieba.v.header);
+                aaVar3.i = (TextView) inflate2.findViewById(com.baidu.tieba.v.image_pb_comment);
+                aaVar3.j = (TextView) inflate2.findViewById(com.baidu.tieba.v.image_pb_author);
+                aaVar3.k = (TextView) inflate2.findViewById(com.baidu.tieba.v.image_pb_reply_number);
+                aaVar3.l = (LinearLayout) inflate2.findViewById(com.baidu.tieba.v.seg);
+                aaVar3.h = (ImagePbImageView) inflate2.findViewById(com.baidu.tieba.v.image_pb_image);
                 obj = aaVar3;
                 view3 = inflate2;
             } else {
-                View inflate3 = from.inflate(com.baidu.tieba.s.page_item, (ViewGroup) null);
+                View inflate3 = from.inflate(com.baidu.tieba.w.page_item, (ViewGroup) null);
                 aa aaVar4 = new aa(this, null);
-                aaVar4.e = (TextView) inflate3.findViewById(com.baidu.tieba.r.page_text);
-                aaVar4.f = (ProgressBar) inflate3.findViewById(com.baidu.tieba.r.progress);
+                aaVar4.e = (TextView) inflate3.findViewById(com.baidu.tieba.v.page_text);
+                aaVar4.f = (ProgressBar) inflate3.findViewById(com.baidu.tieba.v.progress);
                 this.g.add(aaVar4.f);
                 obj = aaVar4;
                 view3 = inflate3;
@@ -187,18 +187,18 @@ public class x extends BaseAdapter {
         if (itemViewType == 0) {
             aaVar.a.setGravity(3);
             aaVar.a.setMovementMethod(LinkMovementMethod.getInstance());
-            aaVar.a.setTextColor(this.c.getResources().getColor(com.baidu.tieba.o.reg_font_color));
-            ah ahVar = this.a.a().get(i - 1);
+            aaVar.a.setTextColor(this.c.getResources().getColor(com.baidu.tieba.s.reg_font_color));
+            ai aiVar = this.a.a().get(i - 1);
             aaVar.c.setVisibility(0);
             aaVar.b.setVisibility(0);
-            aaVar.b.setText(ahVar.g().getUserName());
-            aaVar.b.setOnClickListener(new y(this, ahVar.g().getUserId(), ahVar.g().getUserName()));
-            aaVar.c.setText(be.a(ahVar.f()));
+            aaVar.b.setText(aiVar.o().getUserName());
+            aaVar.b.setOnClickListener(new y(this, aiVar.o().getUserId(), aiVar.o().getUserName()));
+            aaVar.c.setText(be.a(aiVar.n()));
             aaVar.d.removeAllViews();
-            ArrayList<com.baidu.tieba.data.f> j = ahVar.j();
+            ArrayList<com.baidu.tieba.data.f> r = aiVar.r();
             com.baidu.tieba.util.j jVar = new com.baidu.tieba.util.j(this.c);
             jVar.a(-13421773);
-            jVar.a(aaVar.a, aaVar.d, j, false);
+            jVar.a(aaVar.a, aaVar.d, r, false);
             aaVar.d.setVisibility(8);
             aaVar.a.setTextSize(2, 13.0f);
             b(aaVar);
@@ -209,26 +209,26 @@ public class x extends BaseAdapter {
             aaVar.e.setTextSize(2, 13.0f);
             if (this.f) {
                 aaVar.f.setVisibility(0);
-                aaVar.e.setText(com.baidu.tieba.u.data_loading_1);
+                aaVar.e.setText(com.baidu.tieba.y.data_loading_1);
                 a(aaVar, true);
             } else {
                 aaVar.f.setVisibility(8);
                 if (!this.d) {
-                    aaVar.e.setText(this.c.getString(com.baidu.tieba.u.image_pb_noreply));
+                    aaVar.e.setText(this.c.getString(com.baidu.tieba.y.image_pb_noreply));
                     aaVar.e.setFocusable(true);
-                    aaVar.e.setTextColor(this.c.getResources().getColor(com.baidu.tieba.o.gray));
+                    aaVar.e.setTextColor(this.c.getResources().getColor(com.baidu.tieba.s.gray));
                     a(aaVar, false);
                 } else {
-                    aaVar.e.setText(com.baidu.tieba.u.load_more);
+                    aaVar.e.setText(com.baidu.tieba.y.load_more);
                     a(aaVar, true);
                 }
             }
         } else if (itemViewType == 2) {
-            ArrayList<com.baidu.tieba.data.f> j2 = this.b.a().j();
+            ArrayList<com.baidu.tieba.data.f> r2 = this.b.a().r();
             com.baidu.tieba.util.j jVar2 = new com.baidu.tieba.util.j(this.c);
             aaVar.i.setMovementMethod(LinkMovementMethod.getInstance());
             jVar2.a(true);
-            jVar2.a(aaVar.i, aaVar.l, j2, false);
+            jVar2.a(aaVar.i, aaVar.l, r2, false);
             aaVar.i.setTextSize(2, 13.0f);
             if (aaVar.i.getText().toString().trim().length() == 0) {
                 aaVar.i.setVisibility(8);
@@ -307,7 +307,7 @@ public class x extends BaseAdapter {
             } else if (z) {
                 aaVar.e.setTextColor(-13421773);
             } else {
-                aaVar.e.setTextColor(this.c.getResources().getColor(com.baidu.tieba.o.gray));
+                aaVar.e.setTextColor(this.c.getResources().getColor(com.baidu.tieba.s.gray));
             }
         } catch (Exception e) {
             BdLog.e(getClass().getName(), "setPageSkin", e.getMessage());
@@ -319,7 +319,7 @@ public class x extends BaseAdapter {
             textView.setVisibility(8);
             return;
         }
-        textView.setText(String.valueOf(String.valueOf(i)) + this.c.getString(com.baidu.tieba.u.comment_number));
+        textView.setText(String.valueOf(String.valueOf(i)) + this.c.getString(com.baidu.tieba.y.comment_number));
         textView.setVisibility(0);
     }
 

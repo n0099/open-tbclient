@@ -23,4 +23,16 @@ public class ak extends com.baidu.tbadk.core.frameworkData.a {
         getIntent().addCategory("android.intent.category.LAUNCHER");
         getIntent().setAction("android.intent.action.MAIN");
     }
+
+    public ak(Context context, boolean z) {
+        super(context);
+        a = true;
+        b = z;
+        setIntentAction(IntentAction.Activity);
+        if (!(context instanceof Activity)) {
+            getIntent().setFlags(268435456);
+        }
+        getIntent().addCategory("android.intent.category.LAUNCHER");
+        getIntent().setAction("android.intent.action.MAIN");
+    }
 }

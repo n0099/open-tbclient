@@ -1,34 +1,25 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y extends com.baidu.adp.framework.listener.b {
-    final /* synthetic */ x a;
+public class y extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ w b;
+    private final /* synthetic */ CommonGroupChatMessage c;
+    private final /* synthetic */ LinkedList d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y(x xVar, int i) {
-        super(i);
-        this.a = xVar;
+    public y(w wVar, CommonGroupChatMessage commonGroupChatMessage, LinkedList linkedList) {
+        this.b = wVar;
+        this.c = commonGroupChatMessage;
+        this.d = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage == null) {
-            BdLog.e("msg == null");
-        } else if (socketResponsedMessage.getCmd() != 205001) {
-            if (socketResponsedMessage.getCmd() != 202001) {
-                return;
-            }
-            this.a.a(socketResponsedMessage);
-            this.a.b(socketResponsedMessage);
-        } else {
-            this.a.a(socketResponsedMessage);
-            this.a.c(socketResponsedMessage);
-        }
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(this.c.getGroupId(), this.d, false));
     }
 }

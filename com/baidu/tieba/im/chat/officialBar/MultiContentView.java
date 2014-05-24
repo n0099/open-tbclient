@@ -39,8 +39,8 @@ public class MultiContentView extends LinearLayout {
     }
 
     private void a() {
-        this.b = View.inflate(this.a, com.baidu.tieba.s.msg_multi_pic_text_content_view, this);
-        this.c = (LinearLayout) this.b.findViewById(com.baidu.tieba.r.view_container);
+        this.b = View.inflate(this.a, com.baidu.tieba.w.msg_multi_pic_text_content_view, this);
+        this.c = (LinearLayout) this.b.findViewById(com.baidu.tieba.v.view_container);
         this.d = m.a().a(this.a);
         this.e = m.a().b(this.a);
         this.f = m.a().c(this.a);
@@ -84,16 +84,16 @@ public class MultiContentView extends LinearLayout {
         hVar.setPosition(this.h);
         if (TbadkApplication.m252getInst().getSkinType() == 1 && this.i) {
             if (this.k == 2) {
-                hVar.setBackgroundResource(com.baidu.tieba.q.selector_history_multi_top_bg_1);
+                hVar.setBackgroundResource(com.baidu.tieba.u.selector_history_multi_top_bg_1);
             } else if (this.k == 1) {
-                hVar.setBackgroundResource(com.baidu.tieba.q.selector_msg_multi_top_bg_1);
+                hVar.setBackgroundResource(com.baidu.tieba.u.selector_msg_multi_top_bg_1);
             }
             hVar.a(true);
         } else {
             if (this.k == 2) {
-                hVar.setBackgroundResource(com.baidu.tieba.q.selector_history_multi_top_bg);
+                hVar.setBackgroundResource(com.baidu.tieba.u.selector_history_multi_top_bg);
             } else if (this.k == 1) {
-                hVar.setBackgroundResource(com.baidu.tieba.q.selector_msg_multi_top_bg);
+                hVar.setBackgroundResource(com.baidu.tieba.u.selector_msg_multi_top_bg);
             }
             hVar.a(false);
         }
@@ -129,17 +129,17 @@ public class MultiContentView extends LinearLayout {
         }
         if (TbadkApplication.m252getInst().getSkinType() == 1 && this.i) {
             if (this.k == 2) {
-                commonBottomView.setBackgroundResource(com.baidu.tieba.q.selector_history_multi_mid_bg_1);
+                commonBottomView.setBackgroundResource(com.baidu.tieba.u.selector_history_multi_mid_bg_1);
             } else if (this.k == 1) {
-                commonBottomView.setBackgroundResource(com.baidu.tieba.q.selector_msg_multi_mid_bg_1);
+                commonBottomView.setBackgroundResource(com.baidu.tieba.u.selector_msg_multi_mid_bg_1);
             }
             commonBottomView.a(true);
             return commonBottomView;
         }
         if (this.k == 2) {
-            commonBottomView.setBackgroundResource(com.baidu.tieba.q.selector_history_multi_mid_bg);
+            commonBottomView.setBackgroundResource(com.baidu.tieba.u.selector_history_multi_mid_bg);
         } else if (this.k == 1) {
-            commonBottomView.setBackgroundResource(com.baidu.tieba.q.selector_msg_multi_mid_bg);
+            commonBottomView.setBackgroundResource(com.baidu.tieba.u.selector_msg_multi_mid_bg);
         }
         commonBottomView.a(false);
         return commonBottomView;
@@ -152,17 +152,17 @@ public class MultiContentView extends LinearLayout {
         }
         if (TbadkApplication.m252getInst().getSkinType() == 1 && this.i) {
             if (this.k == 2) {
-                commonBottomView.setBackgroundResource(com.baidu.tieba.q.selector_history_multi_bottom_bg_1);
+                commonBottomView.setBackgroundResource(com.baidu.tieba.u.selector_history_multi_bottom_bg_1);
             } else if (this.k == 1) {
-                commonBottomView.setBackgroundResource(com.baidu.tieba.q.selector_msg_multi_bottom_bg_1);
+                commonBottomView.setBackgroundResource(com.baidu.tieba.u.selector_msg_multi_bottom_bg_1);
             }
             commonBottomView.a(true);
             return commonBottomView;
         }
         if (this.k == 2) {
-            commonBottomView.setBackgroundResource(com.baidu.tieba.q.selector_history_multi_bottom_bg);
+            commonBottomView.setBackgroundResource(com.baidu.tieba.u.selector_history_multi_bottom_bg);
         } else if (this.k == 1) {
-            commonBottomView.setBackgroundResource(com.baidu.tieba.q.selector_msg_multi_bottom_bg);
+            commonBottomView.setBackgroundResource(com.baidu.tieba.u.selector_msg_multi_bottom_bg);
         }
         commonBottomView.a(false);
         return commonBottomView;
@@ -170,7 +170,7 @@ public class MultiContentView extends LinearLayout {
 
     private void a(t tVar, c cVar, View view) {
         if (tVar != null && cVar != null) {
-            cVar.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.a.getResources().getDimension(com.baidu.tieba.p.multi_bottom_height)));
+            cVar.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.a.getResources().getDimension(com.baidu.tieba.t.multi_bottom_height)));
             cVar.a(tVar, view);
             this.c.addView(cVar);
         }
@@ -188,16 +188,16 @@ public class MultiContentView extends LinearLayout {
         bbVar.setPosition(this.h);
         if (TbadkApplication.m252getInst().getSkinType() == 1 && this.i) {
             if (this.k == 2) {
-                bbVar.setBackgroundResource(com.baidu.tieba.q.selector_history_multi_single_bg_1);
+                bbVar.setBackgroundResource(com.baidu.tieba.u.selector_history_multi_single_bg_1);
             } else if (this.k == 1) {
-                bbVar.setBackgroundResource(com.baidu.tieba.q.selector_msg_multi_single_bg_1);
+                bbVar.setBackgroundResource(com.baidu.tieba.u.selector_msg_multi_single_bg_1);
             }
             bbVar.a(true);
         } else {
             if (this.k == 2) {
-                bbVar.setBackgroundResource(com.baidu.tieba.q.selector_history_multi_single_bg);
+                bbVar.setBackgroundResource(com.baidu.tieba.u.selector_history_multi_single_bg);
             } else if (this.k == 1) {
-                bbVar.setBackgroundResource(com.baidu.tieba.q.selector_msg_multi_single_bg);
+                bbVar.setBackgroundResource(com.baidu.tieba.u.selector_msg_multi_single_bg);
             }
             bbVar.a(false);
         }

@@ -51,7 +51,7 @@ public class b {
         if (z) {
             a(commonMsgPojo);
         }
-        com.baidu.tieba.im.chat.x.b().a(groupMsgData);
+        com.baidu.tieba.im.chat.w.b().a(groupMsgData);
     }
 
     private static void a(CommonMsgPojo commonMsgPojo) {

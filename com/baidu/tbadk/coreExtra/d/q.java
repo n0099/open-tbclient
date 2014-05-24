@@ -77,9 +77,9 @@ public class q {
         updateClientInfoMessage.addUserInfo("model", Build.MODEL);
         updateClientInfoMessage.addUserInfo("_os_version", Build.VERSION.RELEASE);
         StringBuffer stringBuffer = new StringBuffer(15);
-        stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.h.b(TbadkApplication.m252getInst().getApp())));
+        stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.k.b(TbadkApplication.m252getInst().getApp())));
         stringBuffer.append(",");
-        stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.h.c(TbadkApplication.m252getInst().getApp())));
+        stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.k.c(TbadkApplication.m252getInst().getApp())));
         updateClientInfoMessage.addUserInfo("_phone_screen", stringBuffer.toString());
         if (TbadkApplication.m252getInst().getMsgFrequency() > 0) {
             updateClientInfoMessage.addUserInfo("_msg_status", "0");
@@ -99,8 +99,8 @@ public class q {
         } catch (Exception e) {
             BdLog.e("createUpdateClientInfoMessage getaccountdata error.");
         }
-        int a2 = com.baidu.adp.lib.util.h.a(TbadkApplication.m252getInst().getContext(), 70.0f);
-        updateClientInfoMessage.setHeight(com.baidu.adp.lib.util.h.a(TbadkApplication.m252getInst().getContext(), 70.0f));
+        int a2 = com.baidu.adp.lib.util.k.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+        updateClientInfoMessage.setHeight(com.baidu.adp.lib.util.k.a(TbadkApplication.m252getInst().getContext(), 70.0f));
         updateClientInfoMessage.setWidth(a2);
         if (com.baidu.tbadk.coreExtra.a.a.a().b()) {
             updateClientInfoMessage.setPub_env(3);

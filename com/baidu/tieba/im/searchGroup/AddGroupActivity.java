@@ -11,12 +11,12 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.q;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.model.bv;
-import com.baidu.tieba.u;
+import com.baidu.tieba.im.model.bw;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class AddGroupActivity extends BaseActivity {
     private b a = null;
-    private bv b = null;
+    private bw b = null;
     private com.baidu.adp.framework.listener.b c = new a(this, MessageTypes.CMD_REQUEST_SEARCH_GROUP);
 
     public static void a(Activity activity) {
@@ -29,7 +29,7 @@ public class AddGroupActivity extends BaseActivity {
         super.onCreate(bundle);
         getIntent();
         this.a = new b(this);
-        this.b = new bv();
+        this.b = new bw();
         registerListener(this.c);
     }
 
@@ -46,7 +46,7 @@ public class AddGroupActivity extends BaseActivity {
         if (view == this.a.c()) {
             finish();
         } else if (view == this.a.b()) {
-            com.baidu.tbadk.core.g.a(this, "add_group_searchbtn_click");
+            com.baidu.tbadk.core.f.a(this, "add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
                 a((String) view.getTag());
             }
@@ -82,16 +82,16 @@ public class AddGroupActivity extends BaseActivity {
             } catch (NumberFormatException e) {
                 e.printStackTrace();
                 this.a.a(false);
-                showToast(u.groupid_error);
+                showToast(y.groupid_error);
                 return;
             }
         }
-        showToast(u.please_input_groupid);
+        showToast(y.please_input_groupid);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        showToast(u.add_group_toast_noresult);
+        showToast(y.add_group_toast_noresult);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -104,7 +104,7 @@ public class AddGroupActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, int i) {
         if (i < 0) {
-            showToast(u.neterror);
+            showToast(y.neterror);
         } else if (!TextUtils.isEmpty(str)) {
             showToast(str);
         }

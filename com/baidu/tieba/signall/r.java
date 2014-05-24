@@ -2,7 +2,7 @@ package com.baidu.tieba.signall;
 
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class r extends com.baidu.adp.base.d {
+public class r extends com.baidu.adp.base.b {
     private static r f = new r();
     public boolean a;
     private p c;
@@ -51,7 +51,7 @@ public class r extends com.baidu.adp.base.d {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean LoadData() {
         if (this.b != null) {
             return false;
@@ -62,7 +62,7 @@ public class r extends com.baidu.adp.base.d {
         return true;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.b != null) {
             this.b.cancel();

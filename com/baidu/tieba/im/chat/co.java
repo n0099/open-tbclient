@@ -12,6 +12,6 @@ class co implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.b.a(view, 6, this.a.e, 0L);
+        this.a.b.a(view, 1, this.a.e, 0L);
     }
 }

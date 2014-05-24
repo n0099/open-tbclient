@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 /* loaded from: classes.dex */
-public class an extends com.baidu.adp.base.e {
+public class an extends com.baidu.adp.base.c {
     private BaseActivity a;
     private View b;
     private NavigationBar c;
@@ -28,18 +28,18 @@ public class an extends com.baidu.adp.base.e {
     }
 
     private void d() {
-        this.b = View.inflate(this.a, com.baidu.tieba.s.official_bar_info_activity, null);
+        this.b = View.inflate(this.a, com.baidu.tieba.w.official_bar_info_activity, null);
         this.a.setContentView(this.b);
-        this.c = (NavigationBar) this.b.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.c.a(com.baidu.tieba.u.officical_bar_info_title);
+        this.c = (NavigationBar) this.b.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.c.a(com.baidu.tieba.y.officical_bar_info_title);
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d = (HeadImageView) this.b.findViewById(com.baidu.tieba.r.bar_img);
-        this.e = (TextView) this.b.findViewById(com.baidu.tieba.r.bar_name);
-        this.f = (TextView) this.b.findViewById(com.baidu.tieba.r.bar_authen_content);
-        this.g = (SettingTextSwitchView) this.b.findViewById(com.baidu.tieba.r.bar_notify);
-        this.h = (RelativeLayout) this.b.findViewById(com.baidu.tieba.r.bar_info_clean_lay);
-        this.i = (RelativeLayout) this.b.findViewById(com.baidu.tieba.r.bar_info_history_lay);
-        this.j = (Button) this.b.findViewById(com.baidu.tieba.r.bar_info_goto_btn);
+        this.d = (HeadImageView) this.b.findViewById(com.baidu.tieba.v.bar_img);
+        this.e = (TextView) this.b.findViewById(com.baidu.tieba.v.bar_name);
+        this.f = (TextView) this.b.findViewById(com.baidu.tieba.v.bar_authen_content);
+        this.g = (SettingTextSwitchView) this.b.findViewById(com.baidu.tieba.v.bar_notify);
+        this.h = (RelativeLayout) this.b.findViewById(com.baidu.tieba.v.bar_info_clean_lay);
+        this.i = (RelativeLayout) this.b.findViewById(com.baidu.tieba.v.bar_info_history_lay);
+        this.j = (Button) this.b.findViewById(com.baidu.tieba.v.bar_info_goto_btn);
     }
 
     public void a(boolean z) {
@@ -73,9 +73,9 @@ public class an extends com.baidu.adp.base.e {
     }
 
     public void b(String str) {
-        String str2 = String.valueOf(str) + this.a.getString(com.baidu.tieba.u.bar);
+        String str2 = String.valueOf(str) + this.a.getString(com.baidu.tieba.y.bar);
         this.e.setText(str2);
-        this.j.setText(String.valueOf(this.a.getString(com.baidu.tieba.u.visit)) + str2);
+        this.j.setText(String.valueOf(this.a.getString(com.baidu.tieba.y.visit)) + str2);
     }
 
     public void a(String str, com.baidu.tbadk.editortool.ab abVar) {

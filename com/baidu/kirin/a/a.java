@@ -18,6 +18,7 @@ import com.baidu.kirin.objects.NetworkStatus;
 import com.baidu.mobstat.CooperService;
 import com.baidu.mobstat.a.c;
 import com.baidu.mobstat.a.e;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -187,7 +188,7 @@ public class a {
                 return NetworkStatus.ThreeG;
             case 13:
                 return NetworkStatus.ThreeG;
-            case 14:
+            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
                 return NetworkStatus.ThreeG;
             case 15:
                 return NetworkStatus.ThreeG;

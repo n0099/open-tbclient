@@ -9,6 +9,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
@@ -157,7 +158,7 @@ public class h {
     }
 
     public void a(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i, int i2, String str4, Object... objArr) {
-        if ((i2 != 0 && i2 != 200) || (j3 > 2000 && "WIFI".equals(this.q))) {
+        if ((i2 != 0 && i2 != 200) || (j3 > 2000 && NetworkChangeReceiver.WIFI_STRING.equals(this.q))) {
             a("img", str, str2, str3, j, j2, j3, j4, j5, i, i2, str4, objArr);
         }
     }
@@ -310,7 +311,7 @@ public class h {
 
     public void h() {
         String b = n.a().b();
-        if (!com.baidu.adp.lib.util.g.b(b)) {
+        if (!com.baidu.adp.lib.util.j.b(b)) {
             BdStatSwitchData bdStatSwitchData = new BdStatSwitchData();
             bdStatSwitchData.setAppVersion(this.e);
             bdStatSwitchData.parserJson(b);

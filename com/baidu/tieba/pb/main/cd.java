@@ -1,34 +1,20 @@
 package com.baidu.tieba.pb.main;
 
-import android.os.Handler;
-import android.view.animation.Animation;
+import android.widget.CompoundButton;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cd implements Animation.AnimationListener {
-    final /* synthetic */ bj a;
-    private final /* synthetic */ com.baidu.tieba.data.ao b;
-    private final /* synthetic */ boolean c;
-    private final /* synthetic */ String d;
-    private final /* synthetic */ String e;
+public class cd implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ bq a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(bj bjVar, com.baidu.tieba.data.ao aoVar, boolean z, String str, String str2) {
-        this.a = bjVar;
-        this.b = aoVar;
-        this.c = z;
-        this.d = str;
-        this.e = str2;
+    public cd(bq bqVar) {
+        this.a = bqVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new ce(this, this.b, this.c, this.d, this.e));
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        if (z) {
+            this.a.aB = (String) compoundButton.getTag();
+        }
     }
 }

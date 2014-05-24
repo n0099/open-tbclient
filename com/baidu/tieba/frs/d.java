@@ -35,9 +35,9 @@ class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.b>, List<Downloa
         Iterator<com.baidu.tbadk.core.data.b> it = arrayList.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.core.data.b next = it.next();
-            String e = next.e();
-            if (com.baidu.tbadk.core.util.x.d(this.b.a(next.f())) != null) {
-                DownloadData downloadData = new DownloadData(e);
+            String i = next.i();
+            if (com.baidu.tbadk.core.util.x.d(this.b.a(next.j())) != null) {
+                DownloadData downloadData = new DownloadData(i);
                 downloadData.setStatus(3);
                 linkedList.add(downloadData);
             }
@@ -57,7 +57,7 @@ class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.b>, List<Downloa
         for (DownloadData downloadData : com.baidu.tbadk.download.b.a().b()) {
             Iterator<com.baidu.tbadk.core.data.b> it = this.a.iterator();
             while (it.hasNext()) {
-                if (downloadData.getId().equals(it.next().e())) {
+                if (downloadData.getId().equals(it.next().i())) {
                     list.add(downloadData);
                 }
             }

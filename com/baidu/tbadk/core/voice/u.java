@@ -14,10 +14,10 @@ class u implements Runnable {
         VoiceManager voiceManager2;
         VoiceManager voiceManager3;
         voiceManager = this.a.a;
-        y yVar = voiceManager.a;
+        y yVar = voiceManager.recordView;
         voiceManager2 = this.a.a;
-        yVar.a(4, voiceManager2.d.getString(com.baidu.tieba.u.voice_error_file_md5));
+        yVar.a(4, voiceManager2.context.getString(com.baidu.tieba.y.voice_error_file_md5));
         voiceManager3 = this.a.a;
-        voiceManager3.H = 1;
+        voiceManager3.currRecordState = 1;
     }
 }

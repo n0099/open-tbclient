@@ -1,7 +1,10 @@
 package com.baidu.tieba.tblauncher;
+
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements com.baidu.tbadk.core.view.h {
+public class o implements View.OnClickListener {
     final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,12 +12,11 @@ public class o implements com.baidu.tbadk.core.view.h {
         this.a = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.h
-    public void a() {
-        this.a.l();
-    }
-
-    @Override // com.baidu.tbadk.core.view.h
-    public void b() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MainTabActivity mainTabActivity;
+        MainTabActivity mainTabActivity2 = this.a;
+        mainTabActivity = this.a.F;
+        mainTabActivity2.a(new CustomMessage(2017002, new com.baidu.tbadk.core.frameworkData.a(mainTabActivity)));
     }
 }

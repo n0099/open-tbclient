@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.base.e {
+public class i extends com.baidu.adp.base.c {
     private BlackMembersListActivity a;
     private e b;
     private ViewGroup c;
@@ -20,17 +20,18 @@ public class i extends com.baidu.adp.base.e {
     public i(BlackMembersListActivity blackMembersListActivity) {
         super(blackMembersListActivity);
         this.a = blackMembersListActivity;
-        blackMembersListActivity.setContentView(com.baidu.tieba.s.live_black_members_activity);
+        blackMembersListActivity.setContentView(com.baidu.tieba.w.live_black_members_activity);
         a(blackMembersListActivity);
         b(blackMembersListActivity);
     }
 
     private void a(BlackMembersListActivity blackMembersListActivity) {
-        this.c = (ViewGroup) this.a.findViewById(com.baidu.tieba.r.rootView);
-        this.d = (NavigationBar) this.a.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.d.a(this.a.getString(com.baidu.tieba.u.live_black_members_title));
+        this.c = (ViewGroup) this.a.findViewById(com.baidu.tieba.v.rootView);
+        this.d = (NavigationBar) this.a.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.d.a(this.a.getString(com.baidu.tieba.y.live_black_members_title));
         this.g = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.h = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(com.baidu.tieba.u.members_edit));
+        this.g.setOnClickListener(this.a);
+        this.h = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(com.baidu.tieba.y.members_edit));
         this.h.setOnClickListener(this.a);
     }
 
@@ -43,8 +44,8 @@ public class i extends com.baidu.adp.base.e {
     }
 
     private void b(BlackMembersListActivity blackMembersListActivity) {
-        this.f = (ViewGroup) this.a.findViewById(com.baidu.tieba.r.no_data_container);
-        this.e = (BdListView) this.a.findViewById(com.baidu.tieba.r.black_list);
+        this.f = (ViewGroup) this.a.findViewById(com.baidu.tieba.v.no_data_container);
+        this.e = (BdListView) this.a.findViewById(com.baidu.tieba.v.black_list);
         this.b = new e(this.a);
         this.e.setAdapter((ListAdapter) this.b);
     }

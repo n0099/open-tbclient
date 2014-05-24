@@ -2,7 +2,8 @@ package com.baidu.tieba.plugins;
 
 import android.content.Intent;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.tbplugin.PluginReloadReceiver;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class j implements Runnable {
     final /* synthetic */ PluginDownloadActivity a;
@@ -19,10 +20,10 @@ class j implements Runnable {
         o oVar;
         o oVar2;
         if (this.b == 0) {
-            this.a.showToast(this.a.getString(u.plugin_installation_finished));
+            this.a.showToast(this.a.getString(y.plugin_installation_finished));
             com.baidu.tbadk.tbplugin.m.a().q();
             if (TbadkApplication.m252getInst().isMainProcess()) {
-                this.a.sendBroadcast(new Intent("com.baidu.tbadk.tbplugin.action.PLUGIN_RELOAD"));
+                this.a.sendBroadcast(new Intent(PluginReloadReceiver.ACTION_PLUGIN_RELOAD));
             }
             this.a.setResult(-1);
             oVar2 = this.a.a;
@@ -30,7 +31,7 @@ class j implements Runnable {
             return;
         }
         this.a.setResult(0);
-        this.a.showToast(this.a.getString(u.plugin_installation_failed));
+        this.a.showToast(this.a.getString(y.plugin_installation_failed));
         oVar = this.a.a;
         oVar.dismiss();
     }

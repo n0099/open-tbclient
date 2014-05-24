@@ -1,24 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import android.widget.AbsListView;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements AbsListView.OnScrollListener {
-    final /* synthetic */ h a;
+public class m implements View.OnTouchListener {
+    final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(h hVar) {
-        this.a = hVar;
+    public m(g gVar) {
+        this.a = gVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
         this.a.f();
         this.a.g();
         this.a.h();
+        this.a.c();
+        return false;
     }
 }

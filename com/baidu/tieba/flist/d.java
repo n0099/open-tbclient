@@ -53,11 +53,11 @@ public class d extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
         String str4;
         String str5;
         String str6 = null;
-        com.baidu.adp.lib.cache.s<String> o = com.baidu.tbadk.core.a.b.a().o();
-        if (o != null) {
+        com.baidu.adp.lib.cache.s<String> p = com.baidu.tbadk.core.a.b.a().p();
+        if (p != null) {
             StringBuilder append = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount())).append("_");
             str5 = this.b.c;
-            str6 = o.a(append.append(str5).append("_dir").toString());
+            str6 = p.a(append.append(str5).append("_dir").toString());
         }
         if (str6 != null) {
             this.a.b(str6);
@@ -86,10 +86,10 @@ public class d extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
         if (this.c.a().b().b()) {
             this.a.b(i);
             this.b.f = true;
-            if (o != null) {
+            if (p != null) {
                 StringBuilder append2 = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount())).append("_");
                 str4 = this.b.c;
-                o.a(append2.append(str4).append("_dir").toString(), i, 86400000L);
+                p.a(append2.append(str4).append("_dir").toString(), i, 86400000L);
             }
         } else {
             this.a.a(this.c.f());

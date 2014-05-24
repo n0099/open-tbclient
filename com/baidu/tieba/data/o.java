@@ -91,7 +91,7 @@ public class o {
                 this.k = jSONObject.optInt("is_floor");
                 this.l = jSONObject.optString("quote_pid");
                 this.m = jSONObject.optString("item_type");
-                if (!com.baidu.adp.lib.util.g.b(this.m) && this.m.equals("zan")) {
+                if (!com.baidu.adp.lib.util.j.b(this.m) && this.m.equals("zan")) {
                     JSONObject optJSONObject = jSONObject.optJSONObject("zan");
                     this.n = optJSONObject.optInt("num");
                     this.o = optJSONObject.optInt("is_liked");

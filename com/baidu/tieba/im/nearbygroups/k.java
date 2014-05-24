@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.o;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
+import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class k implements a {
     private NearbyGroupsActivity d;
@@ -39,10 +39,10 @@ public class k implements a {
     }
 
     public void b() {
-        this.e = LayoutInflater.from(this.d).inflate(s.im_group_list_group, (ViewGroup) null);
-        this.b = (TextView) this.e.findViewById(r.tv_group_line_top);
-        this.a = (LinearLayout) this.e.findViewById(r.list_group);
-        this.c = (TextView) this.e.findViewById(r.tv_group_name);
+        this.e = LayoutInflater.from(this.d).inflate(w.im_group_list_group, (ViewGroup) null);
+        this.b = (TextView) this.e.findViewById(v.tv_group_line_top);
+        this.a = (LinearLayout) this.e.findViewById(v.list_group);
+        this.c = (TextView) this.e.findViewById(v.tv_group_name);
         c();
     }
 
@@ -50,12 +50,12 @@ public class k implements a {
         this.d.getLayoutMode().a(i == 1);
         this.d.getLayoutMode().a((View) this.a);
         if (i == 1) {
-            this.c.setTextColor(this.d.getResources().getColor(o.common_list_text_1));
-            b(q.icon_list_small_lbs_1);
+            this.c.setTextColor(this.d.getResources().getColor(s.common_list_text_1));
+            b(u.icon_list_small_lbs_1);
             return;
         }
-        this.c.setTextColor(this.d.getResources().getColor(o.common_list_text));
-        b(q.icon_list_small_lbs);
+        this.c.setTextColor(this.d.getResources().getColor(s.common_list_text));
+        b(u.icon_list_small_lbs);
     }
 
     private void b(int i) {

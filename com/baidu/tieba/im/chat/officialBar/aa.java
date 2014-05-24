@@ -11,16 +11,16 @@ class aa implements com.baidu.tieba.im.a<Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Boolean bool) {
-        com.baidu.tieba.im.chat.h hVar;
-        com.baidu.tieba.im.chat.h hVar2;
+        com.baidu.tieba.im.chat.g gVar;
+        com.baidu.tieba.im.chat.g gVar2;
         if (bool != null) {
             if (bool.booleanValue()) {
-                hVar2 = this.a.d;
-                hVar2.L();
+                gVar2 = this.a.d;
+                gVar2.L();
                 return;
             }
-            hVar = this.a.d;
-            hVar.M();
+            gVar = this.a.d;
+            gVar.M();
         }
     }
 }

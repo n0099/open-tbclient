@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.im.message.RequestLiveGroupHistoryMessage;
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.base.d {
+public class z extends com.baidu.adp.base.b {
     private String a;
     private int b;
     private int c;
@@ -39,12 +39,12 @@ public class z extends com.baidu.adp.base.d {
         this.d = liveCardData;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

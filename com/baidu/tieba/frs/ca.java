@@ -1,6 +1,7 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
+import com.baidu.tieba.frs.FrsImageActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ca implements View.OnClickListener {
@@ -13,13 +14,13 @@ public class ca implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        FrsImageActivity.FooterType footerType;
         int i;
-        int i2;
-        i = this.a.l;
-        if (i > 240) {
+        footerType = this.a.j;
+        if (footerType == FrsImageActivity.FooterType.NEXT) {
             FrsImageActivity frsImageActivity = this.a;
-            i2 = this.a.l;
-            frsImageActivity.c(i2 - 240);
+            i = this.a.l;
+            frsImageActivity.c(i + 240);
         }
     }
 }

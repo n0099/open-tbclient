@@ -7,6 +7,7 @@ import android.net.Proxy;
 import android.telephony.TelephonyManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 import java.security.MessageDigest;
 import java.util.Random;
 /* loaded from: classes.dex */
@@ -31,7 +32,7 @@ public class r {
             if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null) {
                 int type = activeNetworkInfo.getType();
                 if (type == 1) {
-                    return "WIFI";
+                    return NetworkChangeReceiver.WIFI_STRING;
                 }
                 if (type == 0) {
                     int d = com.baidu.adp.lib.network.willdelete.h.d();
@@ -95,7 +96,7 @@ public class r {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
-                if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
+                if (activeNetworkInfo.getTypeName().equalsIgnoreCase(NetworkChangeReceiver.WIFI_STRING)) {
                     return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
                 }
                 String defaultHost = Proxy.getDefaultHost();

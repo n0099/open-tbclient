@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class i extends PopupWindow {
     private int a;
@@ -52,10 +53,10 @@ public class i extends PopupWindow {
         int measuredWidth = this.f.getMeasuredWidth();
         int measuredHeight = this.f.getMeasuredHeight();
         setWidth(measuredWidth);
-        this.c = measuredHeight + ((int) activity.getResources().getDimension(com.baidu.tieba.p.ds4));
+        this.c = measuredHeight + ((int) activity.getResources().getDimension(com.baidu.tieba.t.ds4));
         setHeight(this.c);
         setBackgroundDrawable(drawable);
-        int[] e = com.baidu.adp.lib.util.h.e(activity);
+        int[] e = com.baidu.adp.lib.util.k.e(activity);
         if (e != null && e.length > 1 && e[1] > measuredWidth) {
             this.a = e[1] - measuredWidth;
         }
@@ -67,8 +68,8 @@ public class i extends PopupWindow {
         a(baseActivity.getLayoutMode(), i, drawable, drawable2);
     }
 
-    public void a(com.baidu.tbadk.core.e eVar, int i, Drawable drawable, Drawable drawable2) {
-        a(eVar.a(), i, drawable, drawable2);
+    public void a(BaseFragmentActivity baseFragmentActivity, int i, Drawable drawable, Drawable drawable2) {
+        a(baseFragmentActivity.a(), i, drawable, drawable2);
     }
 
     private void a(com.baidu.tbadk.core.c cVar, int i, Drawable drawable, Drawable drawable2) {
@@ -95,7 +96,7 @@ public class i extends PopupWindow {
     }
 
     public void a(Context context) {
-        int b = com.baidu.adp.lib.util.h.b(context);
+        int b = com.baidu.adp.lib.util.k.b(context);
         this.f.getLayoutParams().width = b;
         setWidth(b);
     }
@@ -113,7 +114,7 @@ public class i extends PopupWindow {
     }
 
     public void a(View view, boolean z) {
-        setAnimationStyle(com.baidu.tieba.v.pop_window_anim);
+        setAnimationStyle(com.baidu.tieba.z.pop_window_anim);
         setFocusable(z);
         showAsDropDown(view, this.b, (-this.c) + ((this.c - view.getHeight()) / 2));
     }

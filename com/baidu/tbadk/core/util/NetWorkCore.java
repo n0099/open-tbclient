@@ -16,6 +16,8 @@ import com.baidu.kirin.KirinConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.service.NetworkChangeReceiver;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -184,7 +186,7 @@ public class NetWorkCore implements aa {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (!activeNetworkInfo.isAvailable()) {
                 networkState = NetworkState.UNAVAIL;
-            } else if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
+            } else if (activeNetworkInfo.getTypeName().equalsIgnoreCase(NetworkChangeReceiver.WIFI_STRING)) {
                 networkState = NetworkState.WIFI;
             } else {
                 networkState = NetworkState.MOBILE;
@@ -454,7 +456,7 @@ public class NetWorkCore implements aa {
                     if (this.o.b().a != 200) {
                         this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i3;
                         au.a.incrementAndGet();
-                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                         if (i3 == 0) {
                             TiebaStatic.net(this.o);
                         }
@@ -561,7 +563,7 @@ public class NetWorkCore implements aa {
                             BdLog.i(getClass().getName(), "getNetData", "time = " + String.valueOf(time2) + "ms");
                             if (i >= d) {
                                 this.o.b().a = -11;
-                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.data_too_big);
+                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.data_too_big);
                                 break;
                             }
                             byte[] byteArray = byteArrayOutputStream.toByteArray();
@@ -571,7 +573,7 @@ public class NetWorkCore implements aa {
                                 if (contentEncoding != null && contentEncoding.contains("gzip")) {
                                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                     ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                    com.baidu.tbadk.c.a.b(byteArrayInputStream, byteArrayOutputStream2);
+                                    com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                     bArr = byteArrayOutputStream2.toByteArray();
                                     break;
                                 }
@@ -582,7 +584,7 @@ public class NetWorkCore implements aa {
                                 this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i3 + "|" + e.getClass() + "|" + e.getMessage();
                                 this.o.b().a = -12;
                                 au.a.incrementAndGet();
-                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                                 if (i3 == 0) {
                                     TiebaStatic.net(this.o);
                                 }
@@ -606,7 +608,7 @@ public class NetWorkCore implements aa {
                                 au.a.incrementAndGet();
                                 this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i3 + "|" + e.getClass() + "|" + e.getMessage();
                                 this.o.b().a = -13;
-                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                                 if (i3 == 0) {
                                     TiebaStatic.net(this.o);
                                 }
@@ -629,7 +631,7 @@ public class NetWorkCore implements aa {
                                 e = e22;
                                 this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i3 + "|" + e.getClass() + "|" + e.getMessage();
                                 this.o.b().a = -10;
-                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                                 BdLog.e(getClass().getName(), "getNetData", "error = " + e.getMessage());
                                 TiebaStatic.net(this.o);
                                 try {
@@ -741,13 +743,13 @@ public class NetWorkCore implements aa {
                 errorData.parserJson(str);
                 this.o.b().b = errorData.getError_code();
                 if (this.o.b().b == -1) {
-                    this.o.b().c = this.i.getString(com.baidu.tieba.u.error_unkown_try_again);
+                    this.o.b().c = this.i.getString(com.baidu.tieba.y.error_unkown_try_again);
                 } else if (this.o.b().b != 0) {
                     this.o.b().c = errorData.getError_msg();
                 }
             } catch (Exception e2) {
                 BdLog.e("NetWork", "parseServerCode", "error = " + e2.getMessage());
-                this.o.b().c = this.i.getString(com.baidu.tieba.u.error_unkown_try_again);
+                this.o.b().c = this.i.getString(com.baidu.tieba.y.error_unkown_try_again);
             }
         }
     }
@@ -878,7 +880,7 @@ public class NetWorkCore implements aa {
                 th = th3;
             }
             if (this.j == null) {
-                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                 try {
                     ar.c(this.o.a().a().a);
                     if (0 != 0) {
@@ -947,7 +949,7 @@ public class NetWorkCore implements aa {
                             this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i3;
                             au.a.incrementAndGet();
                             z = true;
-                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                             if (i3 == 0) {
                                 TiebaStatic.net(this.o);
                             }
@@ -1004,7 +1006,7 @@ public class NetWorkCore implements aa {
                                 if (contentEncoding != null && contentEncoding.contains("gzip")) {
                                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                     ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                    com.baidu.tbadk.c.a.b(byteArrayInputStream, byteArrayOutputStream2);
+                                    com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                     byteArray = byteArrayOutputStream2.toByteArray();
                                     BdLog.i(getClass().getName(), "postNetData", "After ungzip data.zise = " + String.valueOf(byteArray.length));
                                 }
@@ -1048,7 +1050,7 @@ public class NetWorkCore implements aa {
                                     au.a.incrementAndGet();
                                     this.o.b().a = -12;
                                     z = true;
-                                    this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                                    this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                                     BdLog.e(getClass().getName(), "postNetData", "SocketException " + socketException.getMessage());
                                     if (i3 == 0) {
                                         TiebaStatic.net(this.o);
@@ -1075,7 +1077,7 @@ public class NetWorkCore implements aa {
                                         au.a.incrementAndGet();
                                         this.o.b().a = -13;
                                         z = true;
-                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                                         BdLog.e(getClass().getName(), "postNetData", "SocketTimeoutException " + socketTimeoutException.getMessage());
                                         if (i3 == 0) {
                                             TiebaStatic.net(this.o);
@@ -1110,7 +1112,7 @@ public class NetWorkCore implements aa {
                                     str = str2;
                                     this.o.b().a = -10;
                                     z = false;
-                                    this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                                    this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                                     BdLog.e(getClass().getName(), "postNetData", th.getMessage());
                                     TiebaStatic.net(this.o);
                                     try {
@@ -1263,7 +1265,7 @@ public class NetWorkCore implements aa {
                 th = th2;
             }
             if (this.j == null) {
-                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                 if (0 != 0) {
                     try {
                         inputStream2.close();
@@ -1382,7 +1384,7 @@ public class NetWorkCore implements aa {
                     if (this.o.b().a != 200) {
                         this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i2;
                         au.a.incrementAndGet();
-                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                         if (i2 == 0) {
                             TiebaStatic.net(this.o);
                         }
@@ -1457,7 +1459,7 @@ public class NetWorkCore implements aa {
                                     } else {
                                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                         ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                        com.baidu.tbadk.c.a.b(byteArrayInputStream, byteArrayOutputStream2);
+                                        com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                         bArr = byteArrayOutputStream2.toByteArray();
                                     }
                                     String str3 = new String(bArr, 0, bArr.length, o());
@@ -1496,7 +1498,7 @@ public class NetWorkCore implements aa {
                                         i = i4;
                                         z = true;
                                         this.o.b().a = -12;
-                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                                         if (i == 0) {
                                             TiebaStatic.net(this.o);
                                         }
@@ -1528,7 +1530,7 @@ public class NetWorkCore implements aa {
                                         i = i5;
                                         this.o.b().a = -13;
                                         z = true;
-                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                                         if (i == 0) {
                                             TiebaStatic.net(this.o);
                                         }
@@ -1561,7 +1563,7 @@ public class NetWorkCore implements aa {
                                         i = i6;
                                         this.o.b().a = -10;
                                         z = false;
-                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                                         BdLog.e("NetWork", "postMultiNetData", "error = " + e2.getMessage());
                                         TiebaStatic.net(this.o);
                                         if (inputStream2 != null) {
@@ -1654,7 +1656,7 @@ public class NetWorkCore implements aa {
                             z = true;
                             try {
                                 this.o.b().a = -12;
-                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                                 if (i == 0) {
                                 }
                                 if (inputStream != null) {
@@ -1702,7 +1704,7 @@ public class NetWorkCore implements aa {
                             str = str2;
                             this.o.b().a = -13;
                             z = true;
-                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                             if (i == 0) {
                             }
                             if (inputStream2 != null) {
@@ -1724,7 +1726,7 @@ public class NetWorkCore implements aa {
                             str = str2;
                             this.o.b().a = -10;
                             z = false;
-                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                             BdLog.e("NetWork", "postMultiNetData", "error = " + e2.getMessage());
                             TiebaStatic.net(this.o);
                             if (inputStream2 != null) {
@@ -1842,7 +1844,7 @@ public class NetWorkCore implements aa {
                     this.j.connect();
                     this.o.b().a = this.j.getResponseCode();
                     if (!l()) {
-                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                        this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                         TiebaStatic.net(this.o);
                         this.k = 0;
                         if (0 != 0) {
@@ -2009,7 +2011,7 @@ public class NetWorkCore implements aa {
                             try {
                                 TiebaStatic.net(this.o);
                                 this.o.b().a = -100;
-                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.FileWriteError);
+                                this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.FileWriteError);
                                 this.k = 0;
                                 if (inputStream != null) {
                                     try {
@@ -2050,7 +2052,7 @@ public class NetWorkCore implements aa {
                             e2 = e27;
                             TiebaStatic.net(this.o);
                             this.o.b().a = -10;
-                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.u.neterror);
+                            this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                             BdLog.e("NetWork", "downloadFile", "error = " + e2.getMessage());
                             this.k = 0;
                             if (inputStream2 != null) {
@@ -2198,7 +2200,7 @@ public class NetWorkCore implements aa {
                     e2 = e3;
                 }
             } else if (activeNetworkInfo.getType() == 1) {
-                BdLog.i("NetWorkCore", "NetworkStateInfo", "WIFI");
+                BdLog.i("NetWorkCore", "NetworkStateInfo", NetworkChangeReceiver.WIFI_STRING);
                 networkStateInfo = NetworkStateInfo.WIFI;
             } else {
                 switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -2219,7 +2221,7 @@ public class NetWorkCore implements aa {
                     case 10:
                     case 12:
                     case 13:
-                    case 14:
+                    case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
                     case 15:
                         BdLog.i("NetWorkCore", "NetworkStateInfo", "ThreeG");
                         networkStateInfo = NetworkStateInfo.ThreeG;

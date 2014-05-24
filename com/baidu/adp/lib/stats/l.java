@@ -5,10 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
 class l extends BroadcastReceiver {
-    final /* synthetic */ h a;
+    final /* synthetic */ h this$0;
 
     private l(h hVar) {
-        this.a = hVar;
+        this.this$0 = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,6 +18,6 @@ class l extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        h.a(this.a);
+        h.a(this.this$0);
     }
 }

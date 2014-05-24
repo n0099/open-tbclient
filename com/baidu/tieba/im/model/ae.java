@@ -11,7 +11,7 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae extends com.baidu.adp.base.g {
+public class ae extends com.baidu.adp.base.e {
     final /* synthetic */ MsglistModel a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,13 +19,13 @@ public class ae extends com.baidu.adp.base.g {
         this.a = msglistModel;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         BasicNameValuePair basicNameValuePair;
         String str;
         ChatMessage a;
-        bb bbVar;
-        bb bbVar2;
+        bc bcVar;
+        bc bcVar2;
         if (obj != null && (obj instanceof BasicNameValuePair) && (basicNameValuePair = (BasicNameValuePair) obj) != null && basicNameValuePair.getName() != null && basicNameValuePair.getName().length() > 0) {
             String name = basicNameValuePair.getName();
             String value = basicNameValuePair.getValue();
@@ -40,12 +40,12 @@ public class ae extends com.baidu.adp.base.g {
                             a.setContent("[" + new Gson().toJson(g) + "]");
                         }
                         TiebaStatic.imLog(a.getCmd(), 0, "", "", "upload voice http suc vid = " + value, 0, "upload voice http success ", System.currentTimeMillis() - a.getLogTime());
-                        com.baidu.tieba.im.chat.x.b().a(a);
-                        bbVar = this.a.h;
-                        if (bbVar != null) {
+                        com.baidu.tieba.im.chat.w.b().a(a);
+                        bcVar = this.a.h;
+                        if (bcVar != null) {
                             BdLog.d("simon", "send callback", "send voice");
-                            bbVar2 = this.a.h;
-                            bbVar2.a(2);
+                            bcVar2 = this.a.h;
+                            bcVar2.a(2);
                             return;
                         }
                         return;

@@ -28,18 +28,18 @@ public class l extends Dialog implements a {
     }
 
     private void b() {
-        this.e = View.inflate(this.a, com.baidu.tieba.s.new_user_img_box, null);
+        this.e = View.inflate(this.a, com.baidu.tieba.w.new_user_img_box, null);
         this.g = new h(this.a);
         setCanceledOnTouchOutside(true);
-        this.i = (LinearLayout) this.e.findViewById(com.baidu.tieba.r.box_close_layout);
-        this.h = (GridView) this.e.findViewById(com.baidu.tieba.r.layout_content);
+        this.i = (LinearLayout) this.e.findViewById(com.baidu.tieba.v.box_close_layout);
+        this.h = (GridView) this.e.findViewById(com.baidu.tieba.v.layout_content);
         this.h.setAdapter((ListAdapter) this.g);
-        this.h.setSelector(com.baidu.tieba.o.transparent);
+        this.h.setSelector(com.baidu.tieba.s.transparent);
         setContentView(this.e);
-        this.b = (TextView) this.e.findViewById(com.baidu.tieba.r.prompt_title);
-        this.c = (TextView) this.e.findViewById(com.baidu.tieba.r.prompt_sub_title);
-        this.d = this.e.findViewById(com.baidu.tieba.r.view_layout);
-        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.q.bg_startpage2_card_orange_up));
+        this.b = (TextView) this.e.findViewById(com.baidu.tieba.v.prompt_title);
+        this.c = (TextView) this.e.findViewById(com.baidu.tieba.v.prompt_sub_title);
+        this.d = this.e.findViewById(com.baidu.tieba.v.view_layout);
+        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.u.bg_startpage2_card_orange_up));
     }
 
     @Override // com.baidu.tieba.guide.a

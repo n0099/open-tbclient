@@ -14,7 +14,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class bi extends com.baidu.adp.base.e {
+public class bi extends com.baidu.adp.base.c {
     private final int a;
     private final int b;
     private LiveRoomSettingActivity c;
@@ -47,32 +47,32 @@ public class bi extends com.baidu.adp.base.e {
         this.u = null;
         this.v = null;
         this.c = liveRoomSettingActivity;
-        liveRoomSettingActivity.setContentView(com.baidu.tieba.s.live_room_setting_view);
+        liveRoomSettingActivity.setContentView(com.baidu.tieba.w.live_room_setting_view);
         a(liveRoomSettingActivity);
     }
 
     private void a(LiveRoomSettingActivity liveRoomSettingActivity) {
-        this.d = (RelativeLayout) liveRoomSettingActivity.findViewById(com.baidu.tieba.r.container);
-        this.e = (NavigationBar) liveRoomSettingActivity.findViewById(com.baidu.tieba.r.lay_title_bar);
+        this.d = (RelativeLayout) liveRoomSettingActivity.findViewById(com.baidu.tieba.v.container);
+        this.e = (NavigationBar) liveRoomSettingActivity.findViewById(com.baidu.tieba.v.lay_title_bar);
         this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, liveRoomSettingActivity);
-        this.g = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.c.getResources().getString(com.baidu.tieba.u.group_update_done));
+        this.g = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.c.getResources().getString(com.baidu.tieba.y.group_update_done));
         this.g.setOnClickListener(liveRoomSettingActivity);
-        this.e.a(com.baidu.tieba.u.live_room_setting);
-        this.l = (EditText) liveRoomSettingActivity.findViewById(com.baidu.tieba.r.fxk);
-        this.h = (TbImageView) liveRoomSettingActivity.findViewById(com.baidu.tieba.r.cover_photo);
+        this.e.a(com.baidu.tieba.y.live_room_setting);
+        this.l = (EditText) liveRoomSettingActivity.findViewById(com.baidu.tieba.v.fxk);
+        this.h = (TbImageView) liveRoomSettingActivity.findViewById(com.baidu.tieba.v.cover_photo);
         this.h.setOnClickListener(liveRoomSettingActivity);
         this.h.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.h.setDefaultResource(com.baidu.tieba.q.image_group_qzl);
-        this.h.setNightDefaultResource(com.baidu.tieba.q.image_group_qzl_1);
-        this.i = (ImageView) liveRoomSettingActivity.findViewById(com.baidu.tieba.r.cover_camera);
+        this.h.setDefaultResource(com.baidu.tieba.u.image_group_qzl);
+        this.h.setNightDefaultResource(com.baidu.tieba.u.image_group_qzl_1);
+        this.i = (ImageView) liveRoomSettingActivity.findViewById(com.baidu.tieba.v.cover_camera);
         this.i.setOnClickListener(liveRoomSettingActivity);
-        this.j = (EditText) liveRoomSettingActivity.findViewById(com.baidu.tieba.r.room_name);
-        this.k = (EditText) liveRoomSettingActivity.findViewById(com.baidu.tieba.r.room_intro);
+        this.j = (EditText) liveRoomSettingActivity.findViewById(com.baidu.tieba.v.room_name);
+        this.k = (EditText) liveRoomSettingActivity.findViewById(com.baidu.tieba.v.room_intro);
         this.k.setOnTouchListener(new bj(this));
-        this.m = (TextView) liveRoomSettingActivity.findViewById(com.baidu.tieba.r.black_count);
-        this.n = (RelativeLayout) liveRoomSettingActivity.findViewById(com.baidu.tieba.r.black_list);
+        this.m = (TextView) liveRoomSettingActivity.findViewById(com.baidu.tieba.v.black_count);
+        this.n = (RelativeLayout) liveRoomSettingActivity.findViewById(com.baidu.tieba.v.black_list);
         this.n.setOnClickListener(liveRoomSettingActivity);
-        this.o = (ProgressBar) liveRoomSettingActivity.findViewById(com.baidu.tieba.r.setting_progress);
+        this.o = (ProgressBar) liveRoomSettingActivity.findViewById(com.baidu.tieba.v.setting_progress);
         this.j.addTextChangedListener(new bk(this));
         a(false);
         v();
@@ -106,18 +106,18 @@ public class bi extends com.baidu.adp.base.e {
     private void u() {
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             if (this.p) {
-                com.baidu.tbadk.core.util.bc.e((View) this.g, com.baidu.tieba.q.navi_done_text_bg_1);
-                this.g.setTextColor(this.c.getResources().getColorStateList(com.baidu.tieba.o.navi_done_text_1));
+                com.baidu.tbadk.core.util.bc.e((View) this.g, com.baidu.tieba.u.navi_done_text_bg_1);
+                this.g.setTextColor(this.c.getResources().getColorStateList(com.baidu.tieba.s.navi_done_text_1));
                 return;
             }
-            com.baidu.tbadk.core.util.bc.e((View) this.g, com.baidu.tieba.q.btn_titlebar_finish_d_1);
-            this.g.setTextColor(this.c.getResources().getColor(com.baidu.tieba.o.navi_done_text_d_1));
+            com.baidu.tbadk.core.util.bc.e((View) this.g, com.baidu.tieba.u.btn_titlebar_finish_d_1);
+            this.g.setTextColor(this.c.getResources().getColor(com.baidu.tieba.s.navi_done_text_d_1));
         } else if (this.p) {
-            com.baidu.tbadk.core.util.bc.e((View) this.g, com.baidu.tieba.q.navi_done_text_bg);
-            this.g.setTextColor(this.c.getResources().getColorStateList(com.baidu.tieba.o.navi_done_text));
+            com.baidu.tbadk.core.util.bc.e((View) this.g, com.baidu.tieba.u.navi_done_text_bg);
+            this.g.setTextColor(this.c.getResources().getColorStateList(com.baidu.tieba.s.navi_done_text));
         } else {
-            com.baidu.tbadk.core.util.bc.e((View) this.g, com.baidu.tieba.q.btn_titlebar_finish_d);
-            this.g.setTextColor(this.c.getResources().getColor(com.baidu.tieba.o.navi_done_text_d));
+            com.baidu.tbadk.core.util.bc.e((View) this.g, com.baidu.tieba.u.btn_titlebar_finish_d);
+            this.g.setTextColor(this.c.getResources().getColor(com.baidu.tieba.s.navi_done_text_d));
         }
     }
 
@@ -154,9 +154,9 @@ public class bi extends com.baidu.adp.base.e {
     }
 
     private void v() {
-        String[] strArr = {this.c.getString(com.baidu.tieba.u.take_photo), this.c.getString(com.baidu.tieba.u.album)};
+        String[] strArr = {this.c.getString(com.baidu.tieba.y.take_photo), this.c.getString(com.baidu.tieba.y.album)};
         AlertDialog.Builder builder = new AlertDialog.Builder(this.mContext);
-        builder.setTitle(this.c.getString(com.baidu.tieba.u.operation));
+        builder.setTitle(this.c.getString(com.baidu.tieba.y.operation));
         builder.setItems(strArr, this.c);
         if (this.q == null) {
             this.q = builder.create();
@@ -182,10 +182,10 @@ public class bi extends com.baidu.adp.base.e {
             this.h.setNightDefaultResource(0);
             this.h.setImageBitmap(null);
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                this.h.setBackgroundResource(com.baidu.tieba.q.live_room_setting_add_selector_1);
+                this.h.setBackgroundResource(com.baidu.tieba.u.live_room_setting_add_selector_1);
                 return;
             } else {
-                this.h.setBackgroundResource(com.baidu.tieba.q.live_room_setting_add_selector);
+                this.h.setBackgroundResource(com.baidu.tieba.u.live_room_setting_add_selector);
                 return;
             }
         }
@@ -223,7 +223,6 @@ public class bi extends com.baidu.adp.base.e {
             str = "";
         }
         this.k.setText(str);
-        this.k.setSelection(this.k.getText().toString().length());
     }
 
     public boolean i() {
@@ -240,14 +239,14 @@ public class bi extends com.baidu.adp.base.e {
     }
 
     public void k() {
-        new AlertDialog.Builder(this.c).setTitle(com.baidu.tieba.u.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.u.group_update_alert_save).setPositiveButton(com.baidu.tieba.u.group_update_canel, new bm(this)).setNegativeButton(com.baidu.tieba.u.group_update_done, new bn(this)).create().show();
+        new AlertDialog.Builder(this.c).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.group_update_alert_save).setPositiveButton(com.baidu.tieba.y.group_update_canel, new bm(this)).setNegativeButton(com.baidu.tieba.y.group_update_done, new bn(this)).create().show();
     }
 
     public void b(int i) {
         if (i <= 0) {
             this.m.setText("");
         } else {
-            this.m.setText(String.format(this.c.getString(com.baidu.tieba.u.black_list_member), Integer.valueOf(i)));
+            this.m.setText(String.format(this.c.getString(com.baidu.tieba.y.black_list_member), Integer.valueOf(i)));
         }
     }
 

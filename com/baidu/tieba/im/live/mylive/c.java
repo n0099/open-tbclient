@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.im.live.mylive.MyLiveListAdapter;
 import com.baidu.tieba.im.message.RequestMyLiveListLocalMessage;
 import com.baidu.tieba.im.message.ResponseMyLiveListLocalMessage;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -31,10 +31,10 @@ public class c extends CustomMessageListener {
         MyLiveListAdapter myLiveListAdapter3;
         MyLiveListAdapter myLiveListAdapter4;
         if (customResponsedMessage == null) {
-            this.a.a(u.neterror);
+            this.a.a(y.neterror);
             this.a.j();
         } else if (!(customResponsedMessage instanceof ResponseMyLiveListLocalMessage)) {
-            this.a.a(u.neterror);
+            this.a.a(y.neterror);
             this.a.j();
         } else {
             ResponseMyLiveListLocalMessage responseMyLiveListLocalMessage = (ResponseMyLiveListLocalMessage) customResponsedMessage;

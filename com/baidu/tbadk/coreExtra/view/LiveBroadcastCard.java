@@ -17,6 +17,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.util.bc;
@@ -106,34 +107,34 @@ public class LiveBroadcastCard extends RelativeLayout {
 
     private void a(Context context, AttributeSet attributeSet) {
         this.c = context;
-        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.s.livebroadcastcardview, this);
-        this.d = (ViewGroup) inflate.findViewById(com.baidu.tieba.r.card_root);
-        this.e = (HeadImageView) inflate.findViewById(com.baidu.tieba.r.card_head);
+        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.w.livebroadcastcardview, this);
+        this.d = (ViewGroup) inflate.findViewById(com.baidu.tieba.v.card_root);
+        this.e = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.card_head);
         this.e.setDrawBorder(true);
-        this.e.setDefaultResource(com.baidu.tieba.q.avatar_poto_defaul140);
-        this.e.setNightDefaultResource(com.baidu.tieba.q.avatar_poto_defaul140_1);
+        this.e.setDefaultResource(com.baidu.tieba.u.avatar_poto_defaul140);
+        this.e.setNightDefaultResource(com.baidu.tieba.u.avatar_poto_defaul140_1);
         this.e.setBackgroundColor(0);
         this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f = (ViewGroup) inflate.findViewById(com.baidu.tieba.r.card_middle);
-        this.g = (TextView) inflate.findViewById(com.baidu.tieba.r.card_name);
-        this.h = (ViewGroup) inflate.findViewById(com.baidu.tieba.r.card_texts_center);
-        this.i = (TextView) inflate.findViewById(com.baidu.tieba.r.card_listener_count);
-        this.j = (TextView) inflate.findViewById(com.baidu.tieba.r.card_liker_count);
-        this.k = (TextView) inflate.findViewById(com.baidu.tieba.r.card_author);
-        this.l = (TextView) inflate.findViewById(com.baidu.tieba.r.card_intro);
-        this.m = (ViewGroup) inflate.findViewById(com.baidu.tieba.r.card_right);
-        this.n = (ViewGroup) inflate.findViewById(com.baidu.tieba.r.card_state);
-        this.o = (TextView) inflate.findViewById(com.baidu.tieba.r.card_state_living);
-        this.p = (TextView) inflate.findViewById(com.baidu.tieba.r.card_time);
-        this.q = (ViewGroup) inflate.findViewById(com.baidu.tieba.r.card_state_willstart_layout);
-        this.r = (TextView) inflate.findViewById(com.baidu.tieba.r.card_state_willstart_text);
-        this.s = (TextView) inflate.findViewById(com.baidu.tieba.r.card_state_close);
-        this.t = (Button) inflate.findViewById(com.baidu.tieba.r.card_delete);
-        this.u = (ImageView) inflate.findViewById(com.baidu.tieba.r.card_top_image);
-        this.v = (ImageView) inflate.findViewById(com.baidu.tieba.r.card_listener_iamge);
-        this.w = (ImageView) inflate.findViewById(com.baidu.tieba.r.card_liker_image);
+        this.f = (ViewGroup) inflate.findViewById(com.baidu.tieba.v.card_middle);
+        this.g = (TextView) inflate.findViewById(com.baidu.tieba.v.card_name);
+        this.h = (ViewGroup) inflate.findViewById(com.baidu.tieba.v.card_texts_center);
+        this.i = (TextView) inflate.findViewById(com.baidu.tieba.v.card_listener_count);
+        this.j = (TextView) inflate.findViewById(com.baidu.tieba.v.card_liker_count);
+        this.k = (TextView) inflate.findViewById(com.baidu.tieba.v.card_author);
+        this.l = (TextView) inflate.findViewById(com.baidu.tieba.v.card_intro);
+        this.m = (ViewGroup) inflate.findViewById(com.baidu.tieba.v.card_right);
+        this.n = (ViewGroup) inflate.findViewById(com.baidu.tieba.v.card_state);
+        this.o = (TextView) inflate.findViewById(com.baidu.tieba.v.card_state_living);
+        this.p = (TextView) inflate.findViewById(com.baidu.tieba.v.card_time);
+        this.q = (ViewGroup) inflate.findViewById(com.baidu.tieba.v.card_state_willstart_layout);
+        this.r = (TextView) inflate.findViewById(com.baidu.tieba.v.card_state_willstart_text);
+        this.s = (TextView) inflate.findViewById(com.baidu.tieba.v.card_state_close);
+        this.t = (Button) inflate.findViewById(com.baidu.tieba.v.card_delete);
+        this.u = (ImageView) inflate.findViewById(com.baidu.tieba.v.card_top_image);
+        this.v = (ImageView) inflate.findViewById(com.baidu.tieba.v.card_listener_iamge);
+        this.w = (ImageView) inflate.findViewById(com.baidu.tieba.v.card_liker_image);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.w.LiveBroadcastCard);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.aa.LiveBroadcastCard);
             this.x = obtainStyledAttributes.getBoolean(0, false);
             this.y = obtainStyledAttributes.getBoolean(1, true);
             obtainStyledAttributes.recycle();
@@ -200,29 +201,29 @@ public class LiveBroadcastCard extends RelativeLayout {
             }
             this.u.setVisibility(this.z ? 0 : 8);
             if (this.A) {
-                bc.a(this.g, com.baidu.tieba.o.cp_cont_e, 1);
-                bc.a(this.i, com.baidu.tieba.o.cp_cont_e, 1);
-                bc.a(this.j, com.baidu.tieba.o.cp_cont_e, 1);
-                bc.a(this.k, com.baidu.tieba.o.cp_cont_e, 1);
-                bc.a(this.l, com.baidu.tieba.o.cp_cont_e, 1);
-                bc.c(this.v, com.baidu.tieba.q.icon_live_list_pop_d);
-                bc.c(this.w, com.baidu.tieba.q.icon_live_list_like_d);
+                bc.a(this.g, com.baidu.tieba.s.cp_cont_e, 1);
+                bc.a(this.i, com.baidu.tieba.s.cp_cont_e, 1);
+                bc.a(this.j, com.baidu.tieba.s.cp_cont_e, 1);
+                bc.a(this.k, com.baidu.tieba.s.cp_cont_e, 1);
+                bc.a(this.l, com.baidu.tieba.s.cp_cont_e, 1);
+                bc.c(this.v, com.baidu.tieba.u.icon_live_list_pop_d);
+                bc.c(this.w, com.baidu.tieba.u.icon_live_list_like_d);
                 HeadImageView headImageView = this.e;
                 if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                    color = this.c.getResources().getColor(com.baidu.tieba.o.live_broadcast_card_head_mask_1);
+                    color = this.c.getResources().getColor(com.baidu.tieba.s.live_broadcast_card_head_mask_1);
                 } else {
-                    color = this.c.getResources().getColor(com.baidu.tieba.o.live_broadcast_card_head_mask);
+                    color = this.c.getResources().getColor(com.baidu.tieba.s.live_broadcast_card_head_mask);
                 }
                 headImageView.setForegroundColor(color);
                 return;
             }
-            bc.a(this.g, com.baidu.tieba.o.cp_cont_b, 1);
-            bc.a(this.i, com.baidu.tieba.o.cp_cont_c, 1);
-            bc.a(this.j, com.baidu.tieba.o.cp_cont_c, 1);
-            bc.a(this.k, com.baidu.tieba.o.cp_cont_c, 1);
-            bc.a(this.l, com.baidu.tieba.o.cp_cont_d, 1);
-            bc.c(this.v, com.baidu.tieba.q.icon_live_list_pop);
-            bc.c(this.w, com.baidu.tieba.q.icon_live_list_like);
+            bc.a(this.g, com.baidu.tieba.s.cp_cont_b, 1);
+            bc.a(this.i, com.baidu.tieba.s.cp_cont_c, 1);
+            bc.a(this.j, com.baidu.tieba.s.cp_cont_c, 1);
+            bc.a(this.k, com.baidu.tieba.s.cp_cont_c, 1);
+            bc.a(this.l, com.baidu.tieba.s.cp_cont_d, 1);
+            bc.c(this.v, com.baidu.tieba.u.icon_live_list_pop);
+            bc.c(this.w, com.baidu.tieba.u.icon_live_list_like);
             this.e.setForegroundColor(0);
         }
     }
@@ -286,9 +287,9 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.o.setVisibility(8);
         this.q.setVisibility(8);
         this.s.setVisibility(0);
-        this.s.setText(com.baidu.tieba.u.live_card_close);
-        bc.a(this.s, com.baidu.tieba.o.cp_cont_d, 1);
-        this.s.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.p.ds28));
+        this.s.setText(com.baidu.tieba.y.live_card_close);
+        bc.a(this.s, com.baidu.tieba.s.cp_cont_d, 1);
+        this.s.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.t.ds28));
         this.E = 4;
     }
 
@@ -296,22 +297,22 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.o.setVisibility(8);
         this.q.setVisibility(8);
         this.s.setVisibility(0);
-        this.s.setText(com.baidu.tieba.u.live_card_hide);
-        bc.a(this.s, com.baidu.tieba.o.cp_cont_d, 1);
-        this.s.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.p.ds32));
+        this.s.setText(com.baidu.tieba.y.live_card_hide);
+        bc.a(this.s, com.baidu.tieba.s.cp_cont_d, 1);
+        this.s.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32));
         this.E = 5;
     }
 
     private void f() {
-        this.r.setText(com.baidu.tieba.u.live_card_count_down);
-        bc.f((View) this.r, com.baidu.tieba.q.bg_live_orange);
+        this.r.setText(com.baidu.tieba.y.live_card_count_down);
+        bc.f((View) this.r, com.baidu.tieba.u.bg_live_orange);
         this.E = 2;
     }
 
     private void g() {
         this.p.setText(c(this.B));
-        this.r.setText(com.baidu.tieba.u.live_card_foreshowt);
-        bc.f((View) this.r, com.baidu.tieba.q.bg_live_yellow);
+        this.r.setText(com.baidu.tieba.y.live_card_foreshowt);
+        bc.f((View) this.r, com.baidu.tieba.u.bg_live_yellow);
         this.E = 1;
     }
 
@@ -361,10 +362,10 @@ public class LiveBroadcastCard extends RelativeLayout {
             BaseActivity baseActivity = (BaseActivity) this.c;
             baseActivity.getLayoutMode().a(i == 1);
             baseActivity.getLayoutMode().a((View) this.d);
-        } else if (this.c instanceof com.baidu.tbadk.core.e) {
-            com.baidu.tbadk.core.e eVar = (com.baidu.tbadk.core.e) this.c;
-            eVar.a().a(i == 1);
-            eVar.a().a((View) this.d);
+        } else if (this.c instanceof BaseFragmentActivity) {
+            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.c;
+            baseFragmentActivity.a().a(i == 1);
+            baseFragmentActivity.a().a((View) this.d);
         }
     }
 

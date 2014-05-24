@@ -14,7 +14,7 @@ class k implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tbadk.core.g.a(this.a.getContext(), "snap_chat_exit_room");
+        com.baidu.tbadk.core.f.a(this.a.getContext(), "snap_chat_exit_room");
         this.b.getIntent().putExtra("need_freeze_user", true);
         this.b.finish();
     }

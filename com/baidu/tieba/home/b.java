@@ -5,6 +5,7 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements TextWatcher {
@@ -47,13 +48,13 @@ public class b implements TextWatcher {
                 relativeLayout2.setEnabled(true);
                 if (length < 32) {
                     textView3 = this.a.t;
-                    textView3.setText(this.a.getString(com.baidu.tieba.u.bar_name_long));
+                    textView3.setText(this.a.getString(y.bar_name_long));
                     textView4 = this.a.t;
                     textView4.setTextColor(-65536);
                     return;
                 }
                 textView = this.a.t;
-                textView.setText(this.a.getString(com.baidu.tieba.u.bar_name_rule));
+                textView.setText(this.a.getString(y.bar_name_rule));
                 textView2 = this.a.t;
                 textView2.setTextColor(-6250336);
                 return;

@@ -223,7 +223,7 @@ public class ImageFileInfo implements Serializable {
     }
 
     public boolean isAlreadyUploadedToServer() {
-        return !com.baidu.adp.lib.util.g.b(this.serverImageCode);
+        return !com.baidu.adp.lib.util.j.b(this.serverImageCode);
     }
 
     public Bitmap getOrginalBitmap() {

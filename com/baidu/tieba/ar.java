@@ -1,30 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar extends BdAsyncTask<String, Integer, String> {
-    private ar() {
-    }
+public class ar implements com.baidu.tbadk.tbplugin.h {
+    final /* synthetic */ ai a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ar(ar arVar) {
-        this();
+    public ar(ai aiVar) {
+        this.a = aiVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        byte[] bArr;
-        byte[] bArr2;
-        bArr = ad.J;
-        synchronized (bArr) {
-            ad.K = Boolean.valueOf(com.baidu.tieba.util.r.a());
-            bArr2 = ad.J;
-            bArr2.notifyAll();
+    @Override // com.baidu.tbadk.tbplugin.h
+    public void a() {
+        if (TbadkApplication.m252getInst().isMainProcess()) {
+            this.a.b.post(new as(this));
+            return;
         }
-        return null;
+        com.baidu.tbadk.tbplugin.m.a().a("BdSocialShareSdk", "com.baidu.tbadk.plugins.BdSocialShareSdkDelegate");
+        com.baidu.tbadk.tbplugin.m.a().a("batsdk", "com.baidu.tbadk.plugins.BatSdkDelegate");
+        com.baidu.tbadk.tbplugin.m.a().a("motusdk", "com.baidu.tbadk.plugins.MotuPlugin");
+        com.baidu.tbadk.tbplugin.m.a().a("browser", "com.baidu.tbadk.plugins.BdBrowserDelegate");
+        com.baidu.tbadk.tbplugin.m.a().a("dqsdk", "com.baidu.tbadk.plugins.DQSdkPlugin");
+        com.baidu.tbadk.tbplugin.m.a().a("hao123", "com.baidu.tbadk.plugins.Hao123Plugin");
+        com.baidu.tbadk.tbplugin.m.a().j();
     }
 }

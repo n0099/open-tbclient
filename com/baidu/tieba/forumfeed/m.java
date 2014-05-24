@@ -2,7 +2,7 @@ package com.baidu.tieba.forumfeed;
 
 import android.view.View;
 import android.widget.AbsListView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.v;
 import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
 class m implements AbsListView.RecyclerListener {
@@ -15,7 +15,7 @@ class m implements AbsListView.RecyclerListener {
 
     @Override // android.widget.AbsListView.RecyclerListener
     public void onMovedToScrapHeap(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(r.abstract_voice);
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(v.abstract_voice);
         if (playVoiceBnt != null) {
             playVoiceBnt.d();
         }

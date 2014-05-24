@@ -3,6 +3,7 @@ package com.baidu.tieba.im.groupInfo;
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.bk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -27,8 +28,8 @@ public class o implements bk {
             if (context instanceof BaseActivity) {
                 ((BaseActivity) context).sendMessage(new CustomMessage(2010011, qVar));
                 return true;
-            } else if (context instanceof com.baidu.tbadk.core.e) {
-                ((com.baidu.tbadk.core.e) context).a(new CustomMessage(2010011, qVar));
+            } else if (context instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) context).a(new CustomMessage(2010011, qVar));
                 return true;
             }
         }

@@ -19,6 +19,9 @@ import com.baidu.tieba.im.chat.personaltalk.PersonalSettingItemData;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -103,7 +106,7 @@ public class s extends BaseAdapter {
             tVar2 = (t) view.getTag();
         }
         if (tVar2 == null) {
-            view2 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.chat_list_item, viewGroup, false);
+            view2 = LayoutInflater.from(this.a).inflate(w.chat_list_item, viewGroup, false);
             t a = a(view2);
             view2.setTag(a);
             tVar = a;
@@ -119,17 +122,17 @@ public class s extends BaseAdapter {
             tVar.g.setVisibility(8);
             tVar.h.setVisibility(0);
             if (this.f) {
-                tVar.i.setText(u.loading);
+                tVar.i.setText(y.loading);
                 tVar.j.setVisibility(0);
             } else {
-                tVar.i.setText(u.frs_pre);
+                tVar.i.setText(y.frs_pre);
                 tVar.j.setVisibility(8);
             }
             if (skinType == 1) {
-                bc.e((View) tVar.i, com.baidu.tieba.q.btn_w_square_1);
+                bc.e((View) tVar.i, u.btn_w_square_1);
                 tVar.i.setTextColor(-8682095);
             } else {
-                bc.e((View) tVar.i, com.baidu.tieba.q.btn_w_square);
+                bc.e((View) tVar.i, u.btn_w_square);
                 tVar.i.setTextColor(-14277082);
             }
         } else if (itemId == -2) {
@@ -138,26 +141,26 @@ public class s extends BaseAdapter {
             tVar.g.setVisibility(8);
             tVar.h.setVisibility(0);
             if (this.e) {
-                tVar.i.setText(u.loading);
+                tVar.i.setText(y.loading);
                 tVar.j.setVisibility(0);
             } else {
-                tVar.i.setText(u.frs_next);
+                tVar.i.setText(y.frs_next);
                 tVar.j.setVisibility(8);
             }
             if (skinType == 1) {
-                bc.e((View) tVar.i, com.baidu.tieba.q.btn_w_square_1);
+                bc.e((View) tVar.i, u.btn_w_square_1);
                 tVar.i.setTextColor(-8682095);
             } else {
-                bc.e((View) tVar.i, com.baidu.tieba.q.btn_w_square);
+                bc.e((View) tVar.i, u.btn_w_square);
                 tVar.i.setTextColor(-14277082);
             }
         } else {
             if (skinType == 1) {
-                bc.e(view2, com.baidu.tieba.q.list_selector_1);
+                bc.e(view2, u.list_selector_1);
             } else {
-                bc.e(view2, com.baidu.tieba.q.list_selector);
+                bc.e(view2, u.list_selector);
             }
-            bc.f(tVar.g, com.baidu.tieba.o.cp_bg_line_b);
+            bc.f(tVar.g, com.baidu.tieba.s.cp_bg_line_b);
             BdLog.d("count:" + getCount());
             tVar.a.setVisibility(0);
             tVar.g.setVisibility(0);
@@ -205,9 +208,9 @@ public class s extends BaseAdapter {
                 } else if (!groupSetting.isAcceptNotify()) {
                     tVar.k.setVisibility(0);
                     if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                        tVar.k.setImageResource(com.baidu.tieba.q.icon_news_stop_1);
+                        tVar.k.setImageResource(u.icon_news_stop_1);
                     } else {
-                        tVar.k.setImageResource(com.baidu.tieba.q.icon_news_stop);
+                        tVar.k.setImageResource(u.icon_news_stop);
                     }
                 } else {
                     tVar.k.setVisibility(8);
@@ -222,15 +225,15 @@ public class s extends BaseAdapter {
         if (String.valueOf(2).equals(imMessageCenterShowItemData.getOwnerName())) {
             tVar.d.setText(imMessageCenterShowItemData.getMsgContent());
         } else if (String.valueOf(3).equals(imMessageCenterShowItemData.getOwnerName())) {
-            tVar.c.setText(this.a.getString(u.updates_activity_title));
+            tVar.c.setText(this.a.getString(y.updates_activity_title));
             tVar.d.setText(imMessageCenterShowItemData.getMsgContent());
         } else if (String.valueOf(6).equals(imMessageCenterShowItemData.getOwnerName())) {
-            tVar.c.setText(this.a.getString(u.live_chat_room_more_livenotify));
+            tVar.c.setText(this.a.getString(y.live_chat_room_more_livenotify));
             tVar.d.setText(imMessageCenterShowItemData.getMsgContent());
         } else if (String.valueOf(1).equals(imMessageCenterShowItemData.getOwnerName())) {
             tVar.d.setText(imMessageCenterShowItemData.getMsgContent());
         } else if (String.valueOf(5).equals(imMessageCenterShowItemData.getOwnerName())) {
-            tVar.c.setText(this.a.getString(u.official_message_activity_title));
+            tVar.c.setText(this.a.getString(y.official_message_activity_title));
             tVar.d.setText(a(imMessageCenterShowItemData.isSelf(), imMessageCenterShowItemData.getMsgContent()));
         } else {
             BdLog.d(imMessageCenterShowItemData.getMsgContent());
@@ -247,10 +250,10 @@ public class s extends BaseAdapter {
             return "";
         }
         if (z) {
-            return this.a.getString(u.official_msg_pre, str);
+            return this.a.getString(y.official_msg_pre, str);
         }
         String[] split = str.split(":");
-        return (split.length != 2 || TextUtils.isEmpty(split[0]) || TextUtils.isEmpty(split[1])) ? str : String.valueOf(this.a.getString(u.official_msg_list_name, split[0])) + ":" + split[1];
+        return (split.length != 2 || TextUtils.isEmpty(split[0]) || TextUtils.isEmpty(split[1])) ? str : String.valueOf(this.a.getString(y.official_msg_list_name, split[0])) + ":" + split[1];
     }
 
     private void a(t tVar, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
@@ -312,17 +315,17 @@ public class s extends BaseAdapter {
             tVar.e.setTextColor(-10391164);
             if (i3 < 10) {
                 if (i3 == 0) {
-                    tVar.f.setBackgroundResource(com.baidu.tieba.q.icon_news_list_prompt_1);
+                    tVar.f.setBackgroundResource(u.icon_news_list_prompt_1);
                 } else {
-                    tVar.f.setBackgroundResource(com.baidu.tieba.q.icon_news_head_prompt_one_1);
+                    tVar.f.setBackgroundResource(u.icon_news_head_prompt_one_1);
                 }
             } else if (i3 < 100) {
-                tVar.f.setBackgroundResource(com.baidu.tieba.q.icon_news_head_prompt_two_1);
+                tVar.f.setBackgroundResource(u.icon_news_head_prompt_two_1);
             } else {
-                tVar.f.setBackgroundResource(com.baidu.tieba.q.icon_news_head_prompt_more_1);
+                tVar.f.setBackgroundResource(u.icon_news_head_prompt_more_1);
                 tVar.f.setText("");
             }
-            tVar.f.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.top_msg_num_night));
+            tVar.f.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.top_msg_num_night));
             return;
         }
         tVar.c.setTextColor(-13553101);
@@ -330,17 +333,17 @@ public class s extends BaseAdapter {
         tVar.e.setTextColor(-3881012);
         if (i3 < 10) {
             if (i3 == 0) {
-                tVar.f.setBackgroundResource(com.baidu.tieba.q.icon_news_list_prompt);
+                tVar.f.setBackgroundResource(u.icon_news_list_prompt);
             } else {
-                tVar.f.setBackgroundResource(com.baidu.tieba.q.icon_news_head_prompt_one);
+                tVar.f.setBackgroundResource(u.icon_news_head_prompt_one);
             }
         } else if (i3 < 100) {
-            tVar.f.setBackgroundResource(com.baidu.tieba.q.icon_news_head_prompt_two);
+            tVar.f.setBackgroundResource(u.icon_news_head_prompt_two);
         } else {
-            tVar.f.setBackgroundResource(com.baidu.tieba.q.icon_news_head_prompt_more);
+            tVar.f.setBackgroundResource(u.icon_news_head_prompt_more);
             tVar.f.setText("");
         }
-        tVar.f.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.top_msg_num_day));
+        tVar.f.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.top_msg_num_day));
     }
 
     private void c(t tVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
@@ -350,9 +353,9 @@ public class s extends BaseAdapter {
             tVar.b.setAutoChangeStyle(false);
             tVar.b.setTag(imMessageCenterShowItemData.getOwnerName());
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.icon_new_test_1));
+                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.icon_new_test_1));
             } else {
-                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.icon_new_test));
+                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.icon_new_test));
             }
             tVar.b.setUserName(String.valueOf(2));
             tVar.b.setUserId(imMessageCenterShowItemData.getFriendId());
@@ -365,9 +368,9 @@ public class s extends BaseAdapter {
             tVar.b.setUserName(String.valueOf(3));
             tVar.b.setUserId(imMessageCenterShowItemData.getFriendId());
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.icon_new_trends_1));
+                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.icon_new_trends_1));
             } else {
-                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.icon_new_trends));
+                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.icon_new_trends));
             }
             tVar.b.setIsRound(false);
             tVar.b.invalidate();
@@ -378,9 +381,9 @@ public class s extends BaseAdapter {
             tVar.b.setUserName(String.valueOf(6));
             tVar.b.setUserId(imMessageCenterShowItemData.getFriendId());
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.icon_new_live_1));
+                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.icon_new_live_1));
             } else {
-                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.icon_new_live));
+                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.icon_new_live));
             }
             tVar.b.setIsRound(false);
             tVar.b.invalidate();
@@ -395,10 +398,10 @@ public class s extends BaseAdapter {
                 if (d != null) {
                     d.a(tVar.b);
                 } else {
-                    tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.avatar_poto_defaul140));
+                    tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.avatar_poto_defaul140));
                 }
             } else if (TextUtils.isEmpty(friendPortrait)) {
-                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.avatar_poto_defaul140));
+                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.avatar_poto_defaul140));
             }
             tVar.b.setClickable(false);
             tVar.b.setTag(imMessageCenterShowItemData.getFriendPortrait());
@@ -414,9 +417,9 @@ public class s extends BaseAdapter {
             tVar.b.setUserName(String.valueOf(5));
             tVar.b.setUserId(imMessageCenterShowItemData.getFriendId());
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.icon_new_official_1));
+                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.icon_new_official_1));
             } else {
-                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.icon_new_official));
+                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.icon_new_official));
             }
             tVar.b.setIsRound(false);
             tVar.b.invalidate();
@@ -430,10 +433,10 @@ public class s extends BaseAdapter {
                 if (c != null) {
                     c.a(tVar.b);
                 } else {
-                    tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.person_photo));
+                    tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.person_photo));
                 }
             } else if (TextUtils.isEmpty(friendPortrait2)) {
-                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.person_photo));
+                tVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.person_photo));
             }
             tVar.b.setTag(imMessageCenterShowItemData.getFriendPortrait());
             tVar.b.setUserId(imMessageCenterShowItemData.getFriendId());
@@ -445,17 +448,17 @@ public class s extends BaseAdapter {
 
     private t a(View view) {
         t tVar = new t(this, null);
-        tVar.a = (ViewGroup) view.findViewById(com.baidu.tieba.r.list_content);
-        tVar.b = (HeadImageView) view.findViewById(com.baidu.tieba.r.chat_head);
-        tVar.c = (TextView) view.findViewById(com.baidu.tieba.r.chat_name);
-        tVar.d = (TextView) view.findViewById(com.baidu.tieba.r.last_chat_content);
-        tVar.e = (TextView) view.findViewById(com.baidu.tieba.r.chat_time);
-        tVar.g = view.findViewById(com.baidu.tieba.r.line);
-        tVar.f = (TextView) view.findViewById(com.baidu.tieba.r.new_message);
-        tVar.h = (ViewGroup) view.findViewById(com.baidu.tieba.r.list_control);
-        tVar.i = (TextView) view.findViewById(com.baidu.tieba.r.list_control_tv);
-        tVar.j = (ProgressBar) view.findViewById(com.baidu.tieba.r.list_control_progress);
-        tVar.k = (ImageView) view.findViewById(com.baidu.tieba.r.iv_bell);
+        tVar.a = (ViewGroup) view.findViewById(v.list_content);
+        tVar.b = (HeadImageView) view.findViewById(v.chat_head);
+        tVar.c = (TextView) view.findViewById(v.chat_name);
+        tVar.d = (TextView) view.findViewById(v.last_chat_content);
+        tVar.e = (TextView) view.findViewById(v.chat_time);
+        tVar.g = view.findViewById(v.line);
+        tVar.f = (TextView) view.findViewById(v.new_message);
+        tVar.h = (ViewGroup) view.findViewById(v.list_control);
+        tVar.i = (TextView) view.findViewById(v.list_control_tv);
+        tVar.j = (ProgressBar) view.findViewById(v.list_control_progress);
+        tVar.k = (ImageView) view.findViewById(v.iv_bell);
         return tVar;
     }
 

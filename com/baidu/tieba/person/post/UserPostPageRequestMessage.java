@@ -87,7 +87,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         builder.is_thread = Integer.valueOf(this.isThread ? 1 : 0);
         builder.need_content = Integer.valueOf(this.needContent ? 1 : 0);
         if (z) {
-            com.baidu.tbadk.c.b.a(builder, true);
+            com.baidu.tbadk.c.c.a(builder, true);
         }
         UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
         builder2.data = builder.build(false);

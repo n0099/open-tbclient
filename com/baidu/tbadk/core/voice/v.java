@@ -17,8 +17,8 @@ class v implements Runnable {
         VoiceManager voiceManager;
         VoiceManager voiceManager2;
         voiceManager = this.a.a;
-        voiceManager.H = 1;
+        voiceManager.currRecordState = 1;
         voiceManager2 = this.a.a;
-        voiceManager2.a.a(this.b, this.c);
+        voiceManager2.recordView.a(this.b, this.c);
     }
 }

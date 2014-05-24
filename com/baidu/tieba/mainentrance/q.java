@@ -14,7 +14,7 @@ public class q implements AbsListView.OnScrollListener {
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 2 || i == 1) {
-            com.baidu.adp.lib.util.h.a(this.a, absListView);
+            com.baidu.adp.lib.util.k.a(this.a, absListView);
         }
     }
 

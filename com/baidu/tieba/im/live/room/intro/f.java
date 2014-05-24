@@ -23,14 +23,14 @@ public class f implements View.OnClickListener {
         Context context;
         String str3;
         String str4;
-        str = this.a.p;
+        str = this.a.q;
         if (!TextUtils.isEmpty(str)) {
-            str2 = this.a.q;
+            str2 = this.a.r;
             if (!TextUtils.isEmpty(str2)) {
                 MessageManager messageManager = MessageManager.getInstance();
                 context = this.a.mContext;
-                str3 = this.a.q;
-                str4 = this.a.p;
+                str3 = this.a.r;
+                str4 = this.a.q;
                 messageManager.sendMessage(new CustomMessage(2003003, new at(context, str3, str4)));
             }
         }

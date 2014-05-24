@@ -1,9 +1,13 @@
 package com.baidu.tieba.home;
 
 import android.os.Handler;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tieba.model.r {
@@ -16,12 +20,14 @@ public class f implements com.baidu.tieba.model.r {
 
     @Override // com.baidu.tieba.model.r
     public void a(com.baidu.tieba.model.p pVar) {
-        com.baidu.tbadk.core.e eVar;
-        p pVar2;
-        p pVar3;
-        com.baidu.tbadk.core.e eVar2;
+        BaseFragmentActivity baseFragmentActivity;
+        q qVar;
+        q qVar2;
+        BaseFragmentActivity baseFragmentActivity2;
         com.baidu.tieba.model.o oVar;
-        com.baidu.tbadk.core.e eVar3;
+        BaseFragmentActivity baseFragmentActivity3;
+        q qVar3;
+        BaseFragmentActivity baseFragmentActivity4;
         long j;
         long j2;
         com.baidu.tieba.model.o oVar2;
@@ -30,43 +36,43 @@ public class f implements com.baidu.tieba.model.r {
         com.baidu.tieba.model.o oVar4;
         com.baidu.tieba.model.o oVar5;
         boolean d_;
-        p pVar4;
+        q qVar4;
         com.baidu.tieba.model.o oVar6;
-        p pVar5;
-        p pVar6;
-        p pVar7;
-        eVar = this.a.h;
-        UtilHelper.NetworkStateInfo netStatusInfo = UtilHelper.getNetStatusInfo(eVar);
+        q qVar5;
+        q qVar6;
+        q qVar7;
+        baseFragmentActivity = this.a.h;
+        UtilHelper.NetworkStateInfo netStatusInfo = UtilHelper.getNetStatusInfo(baseFragmentActivity);
         if (netStatusInfo == UtilHelper.NetworkStateInfo.UNAVAIL) {
-            pVar7 = this.a.b;
-            pVar7.k();
+            qVar7 = this.a.b;
+            qVar7.m();
         }
-        pVar2 = this.a.b;
-        pVar2.a(true, "");
+        qVar = this.a.b;
+        qVar.a(true, "");
         if (!pVar.b) {
-            pVar3 = this.a.b;
-            pVar3.c();
+            qVar2 = this.a.b;
+            qVar2.e();
             if (pVar.a != null && pVar.a.equals("")) {
-                eVar2 = this.a.h;
-                eVar2.a(pVar.a);
+                baseFragmentActivity2 = this.a.h;
+                baseFragmentActivity2.a(pVar.a);
             }
         } else {
             oVar6 = this.a.d;
             com.baidu.tieba.data.n e = oVar6.e();
-            pVar5 = this.a.b;
-            pVar5.a(e);
-            pVar6 = this.a.b;
-            pVar6.h();
+            qVar5 = this.a.b;
+            qVar5.a(e);
+            qVar6 = this.a.b;
+            qVar6.j();
         }
         if (pVar.c == 0 && netStatusInfo != UtilHelper.NetworkStateInfo.UNAVAIL) {
             new Handler().postDelayed(new g(this), 600L);
         }
-        if (pVar.c == 1 && ad.c().b()) {
+        if (pVar.c == 1 && ai.c().b()) {
             d_ = this.a.d_();
             if (d_) {
-                pVar4 = this.a.b;
-                pVar4.g();
-                ad.c().a(false);
+                qVar4 = this.a.b;
+                qVar4.i();
+                ai.c().a(false);
             }
         }
         if (pVar.c == 1) {
@@ -91,12 +97,21 @@ public class f implements com.baidu.tieba.model.r {
         com.baidu.tieba.data.n e2 = oVar.e();
         if (e2.c() == 1) {
             if (!e2.j()) {
-                eVar3 = this.a.h;
-                String.format(eVar3.getString(com.baidu.tieba.u.signallforum_warning), Integer.valueOf(e2.d()));
-                return;
+                baseFragmentActivity4 = this.a.h;
+                String.format(baseFragmentActivity4.getString(y.signallforum_warning), Integer.valueOf(e2.d()));
             }
-            return;
+        } else {
+            e2.e();
         }
-        e2.e();
+        if (pVar.c == 1) {
+            String b2 = com.baidu.tbadk.f.a().b("hao123_guide_show", "");
+            baseFragmentActivity3 = this.a.h;
+            String currentVerson = UtilHelper.getCurrentVerson(baseFragmentActivity3);
+            if (!TextUtils.isEmpty(currentVerson) && !currentVerson.equals(b2) && TbadkApplication.m252getInst().isHao123HelperShouldOpen() && !TbadkApplication.m252getInst().isTiebaHelperOpen()) {
+                qVar3 = this.a.b;
+                qVar3.w();
+                com.baidu.tbadk.f.a().a("hao123_guide_show", currentVerson);
+            }
+        }
     }
 }

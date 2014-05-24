@@ -38,6 +38,6 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(GroupMsgData groupMsgData, String str, CommonMsgPojo commonMsgPojo) {
         com.baidu.tieba.im.b.a.a().a(str, 0, commonMsgPojo, true);
-        com.baidu.tieba.im.chat.x.b().a(groupMsgData);
+        com.baidu.tieba.im.chat.w.b().a(groupMsgData);
     }
 }

@@ -84,19 +84,19 @@ public class p extends com.baidu.tbadk.core.d {
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.b = (ViewGroup) layoutInflater.inflate(com.baidu.tieba.s.guide_main, (ViewGroup) null);
-        this.c = this.b.findViewById(com.baidu.tieba.r.root_main_view_cover);
-        this.d = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_1);
-        this.e = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_2);
-        this.f = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_3);
-        this.g = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_4);
-        this.h = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_5);
-        this.i = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_6);
-        this.j = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_7);
-        this.k = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_8);
-        this.l = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_9);
-        this.m = (ImageView) this.b.findViewById(com.baidu.tieba.r.icon_10);
-        this.q = (Button) this.b.findViewById(com.baidu.tieba.r.btn_next);
+        this.b = (ViewGroup) layoutInflater.inflate(com.baidu.tieba.w.guide_main, (ViewGroup) null);
+        this.c = this.b.findViewById(com.baidu.tieba.v.root_main_view_cover);
+        this.d = (ImageView) this.b.findViewById(com.baidu.tieba.v.icon_1);
+        this.e = (ImageView) this.b.findViewById(com.baidu.tieba.v.icon_2);
+        this.f = (ImageView) this.b.findViewById(com.baidu.tieba.v.icon_3);
+        this.g = (ImageView) this.b.findViewById(com.baidu.tieba.v.icon_4);
+        this.h = (ImageView) this.b.findViewById(com.baidu.tieba.v.icon_5);
+        this.i = (ImageView) this.b.findViewById(com.baidu.tieba.v.icon_6);
+        this.j = (ImageView) this.b.findViewById(com.baidu.tieba.v.icon_7);
+        this.k = (ImageView) this.b.findViewById(com.baidu.tieba.v.icon_8);
+        this.l = (ImageView) this.b.findViewById(com.baidu.tieba.v.icon_9);
+        this.m = (ImageView) this.b.findViewById(com.baidu.tieba.v.icon_10);
+        this.q = (Button) this.b.findViewById(com.baidu.tieba.v.btn_next);
         this.n.put(1, this.d);
         this.n.put(2, this.e);
         this.n.put(3, this.f);

@@ -1,25 +1,25 @@
 package com.baidu.tieba.im.chat;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
-import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ x b;
-    private final /* synthetic */ OfficialChatMessage c;
-    private final /* synthetic */ LinkedList d;
+public class ad implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ w a;
+    private final /* synthetic */ OfficialChatMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(x xVar, OfficialChatMessage officialChatMessage, LinkedList linkedList) {
-        this.b = xVar;
-        this.c = officialChatMessage;
-        this.d = linkedList;
+    public ad(w wVar, OfficialChatMessage officialChatMessage) {
+        this.a = wVar;
+        this.b = officialChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.c.getUserId(), this.c.getToUserId(), this.d, false));
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.b.setLogTime(System.currentTimeMillis());
+        MessageManager.getInstance().sendMessage(this.b);
+        BdLog.d("SHANG sendMessage to queue");
     }
 }

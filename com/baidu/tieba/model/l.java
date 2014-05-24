@@ -11,7 +11,7 @@ public class l extends BdAsyncTask<Boolean, Integer, Boolean> {
     private com.baidu.tbadk.core.util.al b = null;
     private String c;
     private int d;
-    private com.baidu.tieba.data.ar e;
+    private com.baidu.tieba.data.as e;
 
     public l(k kVar, String str, int i) {
         this.a = kVar;
@@ -20,7 +20,7 @@ public class l extends BdAsyncTask<Boolean, Integer, Boolean> {
         this.e = null;
         this.c = str;
         this.d = i;
-        this.e = new com.baidu.tieba.data.ar();
+        this.e = new com.baidu.tieba.data.as();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

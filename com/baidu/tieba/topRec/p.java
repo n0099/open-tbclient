@@ -3,7 +3,7 @@ package com.baidu.tieba.topRec;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tieba.s;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class p implements com.baidu.adp.lib.guide.b {
     final /* synthetic */ o a;
@@ -15,7 +15,7 @@ class p implements com.baidu.adp.lib.guide.b {
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(s.top_cover, (ViewGroup) null);
+        return layoutInflater.inflate(w.top_cover, (ViewGroup) null);
     }
 
     @Override // com.baidu.adp.lib.guide.b

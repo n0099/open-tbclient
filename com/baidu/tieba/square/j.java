@@ -18,15 +18,15 @@ public class j implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ar arVar;
+        as asVar;
         Context context;
         String str;
         Context context2;
         String str2;
         Object tag = view.getTag();
-        if ((tag instanceof n) && (arVar = ((n) tag).d) != null) {
-            int i = arVar.a;
-            if (arVar.f.equals(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK)) {
+        if ((tag instanceof n) && (asVar = ((n) tag).d) != null) {
+            int i = asVar.a;
+            if (asVar.f.equals(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK)) {
                 context2 = this.a.b;
                 TiebaStatic.eventStat(context2, "sq_all_category", "click", 1, new Object[0]);
                 this.a.e = ak.a("forum_browse", "all");
@@ -38,7 +38,7 @@ public class j implements View.OnClickListener {
             bi a = bi.a();
             context = this.a.b;
             String[] strArr = new String[3];
-            strArr[0] = arVar.d;
+            strArr[0] = asVar.d;
             str = this.a.e;
             strArr[2] = str;
             a.a(context, strArr);

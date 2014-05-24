@@ -29,7 +29,7 @@ public class p extends BdAsyncTask<Void, Void, ForumListModel> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         this.b.c.p.setEnabled(false);
-        this.b.c.q.setText(this.b.getString(com.baidu.tieba.u.flist_loading));
+        this.b.c.q.setText(this.b.getString(com.baidu.tieba.y.flist_loading));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -82,34 +82,34 @@ public class p extends BdAsyncTask<Void, Void, ForumListModel> {
             rVar2.a(this.b.b.forum_list);
             i5 = this.b.o;
             if (i5 == 200) {
-                this.b.c.q.setText(this.b.getString(com.baidu.tieba.u.flist_expand_list));
+                this.b.c.q.setText(this.b.getString(com.baidu.tieba.y.flist_expand_list));
                 ImageView imageView = this.b.c.r;
                 i7 = this.b.l;
                 imageView.setImageResource(i7);
             } else {
-                this.b.c.q.setText(this.b.getString(com.baidu.tieba.u.flist_collapse_list));
+                this.b.c.q.setText(this.b.getString(com.baidu.tieba.y.flist_collapse_list));
                 ImageView imageView2 = this.b.c.r;
                 i6 = this.b.m;
                 imageView2.setImageResource(i6);
                 this.b.C = true;
             }
         } else {
-            this.b.showToast(this.b.getString(com.baidu.tieba.u.neterror));
+            this.b.showToast(this.b.getString(com.baidu.tieba.y.neterror));
             if (!this.a) {
                 i = this.b.o;
                 if (i == 200) {
-                    this.b.c.q.setText(this.b.getString(com.baidu.tieba.u.flist_expand_list));
+                    this.b.c.q.setText(this.b.getString(com.baidu.tieba.y.flist_expand_list));
                     ImageView imageView3 = this.b.c.r;
                     i3 = this.b.l;
                     imageView3.setImageResource(i3);
                 } else {
-                    this.b.c.q.setText(this.b.getString(com.baidu.tieba.u.flist_collapse_list));
+                    this.b.c.q.setText(this.b.getString(com.baidu.tieba.y.flist_collapse_list));
                     ImageView imageView4 = this.b.c.r;
                     i2 = this.b.m;
                     imageView4.setImageResource(i2);
                 }
             } else {
-                this.b.c.q.setText(this.b.getString(com.baidu.tieba.u.flist_expand_list));
+                this.b.c.q.setText(this.b.getString(com.baidu.tieba.y.flist_expand_list));
                 ImageView imageView5 = this.b.c.r;
                 i4 = this.b.l;
                 imageView5.setImageResource(i4);

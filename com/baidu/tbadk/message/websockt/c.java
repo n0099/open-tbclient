@@ -2,7 +2,7 @@ package com.baidu.tbadk.message.websockt;
 
 import android.util.SparseBooleanArray;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.c.d;
+import com.baidu.tbadk.c.e;
 import java.security.PublicKey;
 import javax.crypto.SecretKey;
 /* loaded from: classes.dex */
@@ -37,14 +37,14 @@ public class c {
         this.d = null;
         try {
             this.d = new SparseBooleanArray();
-            PublicKey a2 = d.a(a());
-            String a3 = d.a(32);
+            PublicKey a2 = e.a(a());
+            String a3 = e.a(32);
             byte[] bArr = new byte[a3.length()];
             for (int i = 0; i < a3.length(); i++) {
                 bArr[i] = (byte) a3.charAt(i);
             }
-            this.b = d.a(a3);
-            this.c = d.a(a2, bArr);
+            this.b = e.a(a3);
+            this.c = e.a(a2, bArr);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
             this.b = null;

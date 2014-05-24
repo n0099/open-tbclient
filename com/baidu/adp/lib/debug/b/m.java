@@ -107,7 +107,7 @@ public class m extends View {
         if (!this.h.a()) {
             this.h.b();
         }
-        com.baidu.adp.lib.debug.c.a = new q(this);
+        com.baidu.adp.lib.debug.d.a = new q(this);
     }
 
     public void c() {

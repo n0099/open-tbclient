@@ -154,7 +154,7 @@ public class aw extends BdAsyncTask<String, Integer, ax> {
             Bitmap bitmap = axVar.c;
             if (bitmap == null) {
                 this.a.b.l();
-            } else if (com.baidu.adp.lib.util.h.a(axVar.b)) {
+            } else if (com.baidu.adp.lib.util.k.a(axVar.b)) {
                 this.a.b.a(axVar.b, bitmap);
             } else {
                 this.a.b.setImageBitmap(bitmap);

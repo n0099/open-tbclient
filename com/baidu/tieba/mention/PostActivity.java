@@ -17,6 +17,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
+import com.baidu.tieba.ai;
 import com.baidu.tieba.model.am;
 import com.baidu.tieba.view.CustomTextView;
 import java.util.ArrayList;
@@ -50,7 +51,7 @@ public class PostActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.post_activity);
+        setContentView(com.baidu.tieba.w.post_activity);
         a();
         if (bundle != null) {
             this.h = bundle.getString("tid");
@@ -76,8 +77,8 @@ public class PostActivity extends BaseActivity {
             this.s.setTextSize(TbConfig.getContentSize());
             d();
         }
-        if (this.v != com.baidu.tieba.ad.c().x()) {
-            this.v = com.baidu.tieba.ad.c().x();
+        if (this.v != ai.c().x()) {
+            this.v = ai.c().x();
             d();
         }
         super.onResume();
@@ -110,33 +111,33 @@ public class PostActivity extends BaseActivity {
     }
 
     private void a() {
-        this.g = (RelativeLayout) findViewById(com.baidu.tieba.r.container);
-        this.b = (LinearLayout) findViewById(com.baidu.tieba.r.title);
-        this.c = (TextView) findViewById(com.baidu.tieba.r.title_text);
-        this.a = (LinearLayout) findViewById(com.baidu.tieba.r.post);
-        this.e = (ImageView) findViewById(com.baidu.tieba.r.back);
+        this.g = (RelativeLayout) findViewById(com.baidu.tieba.v.container);
+        this.b = (LinearLayout) findViewById(com.baidu.tieba.v.title);
+        this.c = (TextView) findViewById(com.baidu.tieba.v.title_text);
+        this.a = (LinearLayout) findViewById(com.baidu.tieba.v.post);
+        this.e = (ImageView) findViewById(com.baidu.tieba.v.back);
         this.e.setOnClickListener(new w(this));
-        this.d = (Button) findViewById(com.baidu.tieba.r.reply);
+        this.d = (Button) findViewById(com.baidu.tieba.v.reply);
         this.d.setOnClickListener(new x(this));
-        this.f = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
+        this.f = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
         this.f.setVisibility(8);
-        this.n = (ImageView) findViewById(com.baidu.tieba.r.photo);
+        this.n = (ImageView) findViewById(com.baidu.tieba.v.photo);
         this.n.setOnClickListener(new y(this));
-        this.o = (TextView) findViewById(com.baidu.tieba.r.user_name);
+        this.o = (TextView) findViewById(com.baidu.tieba.v.user_name);
         this.o.getPaint().setFakeBoldText(true);
-        this.p = (TextView) findViewById(com.baidu.tieba.r.floor);
+        this.p = (TextView) findViewById(com.baidu.tieba.v.floor);
         this.p.setVisibility(8);
-        this.q = (TextView) findViewById(com.baidu.tieba.r.rank);
-        this.r = (TextView) findViewById(com.baidu.tieba.r.time);
-        this.s = (TextView) findViewById(com.baidu.tieba.r.text);
+        this.q = (TextView) findViewById(com.baidu.tieba.v.rank);
+        this.r = (TextView) findViewById(com.baidu.tieba.v.time);
+        this.s = (TextView) findViewById(com.baidu.tieba.v.text);
         this.s.setMovementMethod(LinkMovementMethod.getInstance());
         this.s.setFocusable(false);
         this.s.setLineSpacing(0.0f, 1.2f);
-        this.t = (LinearLayout) findViewById(com.baidu.tieba.r.seg);
+        this.t = (LinearLayout) findViewById(com.baidu.tieba.v.seg);
         this.o.setTextSize(TbConfig.getNameSize());
         this.s.setTextSize(TbConfig.getContentSize());
         this.u = TbadkApplication.m252getInst().getFontSize();
-        this.v = com.baidu.tieba.ad.c().x();
+        this.v = ai.c().x();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -150,12 +151,12 @@ public class PostActivity extends BaseActivity {
         bc.d(this.b, i);
         bc.b(this.o, i);
         if (i == 1) {
-            this.s.setTextColor(getResources().getColor(com.baidu.tieba.o.skin_1_second_common_color));
-            bc.e((View) this.p, com.baidu.tieba.q.floor_bg_1);
+            this.s.setTextColor(getResources().getColor(com.baidu.tieba.s.skin_1_second_common_color));
+            bc.e((View) this.p, com.baidu.tieba.u.floor_bg_1);
             return;
         }
         this.s.setTextColor(-12040120);
-        bc.e((View) this.p, com.baidu.tieba.q.floor_bg);
+        bc.e((View) this.p, com.baidu.tieba.u.floor_bg);
     }
 
     private void b() {
@@ -192,42 +193,42 @@ public class PostActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        ArrayList<com.baidu.tieba.data.ah> e;
+        ArrayList<com.baidu.tieba.data.ai> e;
         int i;
         int i2;
         try {
             if (this.l != null && this.l.a() != null && (e = this.l.a().e()) != null && e.size() > 0) {
-                com.baidu.tieba.data.ah ahVar = e.get(0);
-                this.c.setText(String.format(getString(com.baidu.tieba.u.post_x_floor), Integer.valueOf(ahVar.e())));
+                com.baidu.tieba.data.ai aiVar = e.get(0);
+                this.c.setText(String.format(getString(com.baidu.tieba.y.post_x_floor), Integer.valueOf(aiVar.m())));
                 this.n.setVisibility(0);
-                String portrait = ahVar.g().getPortrait();
+                String portrait = aiVar.o().getPortrait();
                 if (portrait != null && portrait.length() > 0) {
                     com.baidu.adp.widget.a.a c = this.m.c(portrait);
                     if (c != null) {
                         c.a(this.n);
                     } else {
                         this.n.setTag(portrait);
-                        this.n.setImageResource(com.baidu.tieba.q.photo);
+                        this.n.setImageResource(com.baidu.tieba.u.photo);
                     }
                 } else {
-                    this.n.setImageResource(com.baidu.tieba.q.photo);
+                    this.n.setImageResource(com.baidu.tieba.u.photo);
                 }
-                if (ahVar.g() != null && ahVar.g().getName_show() != null) {
-                    this.o.setText(ahVar.g().getName_show());
+                if (aiVar.o() != null && aiVar.o().getName_show() != null) {
+                    this.o.setText(aiVar.o().getName_show());
                 } else {
                     this.o.setText((CharSequence) null);
                 }
-                if (ahVar.g() != null && ahVar.g().getLevel_id() != 0) {
-                    this.q.setText(String.valueOf(String.valueOf(ahVar.g().getLevel_id())) + getString(com.baidu.tieba.u.grade));
+                if (aiVar.o() != null && aiVar.o().getLevel_id() != 0) {
+                    this.q.setText(String.valueOf(String.valueOf(aiVar.o().getLevel_id())) + getString(com.baidu.tieba.y.grade));
                 } else {
                     this.q.setText((CharSequence) null);
                 }
-                this.r.setText(be.a(ahVar.f()));
+                this.r.setText(be.a(aiVar.n()));
                 this.p.setVisibility(0);
-                this.p.setText(String.valueOf(String.valueOf(ahVar.e())) + getString(com.baidu.tieba.u.floor));
-                ArrayList<com.baidu.tieba.data.f> j = ahVar.j();
-                if (j != null && j.size() > 0) {
-                    com.baidu.tieba.data.f fVar = j.get(0);
+                this.p.setText(String.valueOf(String.valueOf(aiVar.m())) + getString(com.baidu.tieba.y.floor));
+                ArrayList<com.baidu.tieba.data.f> r = aiVar.r();
+                if (r != null && r.size() > 0) {
+                    com.baidu.tieba.data.f fVar = r.get(0);
                     if (fVar == null || fVar.a() != 0) {
                         i = 0;
                     } else {
@@ -238,17 +239,17 @@ public class PostActivity extends BaseActivity {
                     int i3 = -1;
                     this.t.setVisibility(8);
                     int i4 = i;
-                    while (i4 < j.size()) {
+                    while (i4 < r.size()) {
                         this.t.setVisibility(0);
-                        com.baidu.tieba.data.f fVar2 = j.get(i4);
+                        com.baidu.tieba.data.f fVar2 = r.get(i4);
                         if (fVar2.a() == 3) {
                             if (this.v) {
                                 int i5 = i3 + 1;
                                 ImageView imageView = new ImageView(this);
-                                int a = com.baidu.adp.lib.util.h.a((Context) this, 105.0f);
-                                int a2 = com.baidu.adp.lib.util.h.a((Context) this, 105.0f);
+                                int a = com.baidu.adp.lib.util.k.a((Context) this, 105.0f);
+                                int a2 = com.baidu.adp.lib.util.k.a((Context) this, 105.0f);
                                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a);
-                                layoutParams.topMargin = com.baidu.adp.lib.util.h.a((Context) this, 15.0f);
+                                layoutParams.topMargin = com.baidu.adp.lib.util.k.a((Context) this, 15.0f);
                                 com.baidu.adp.widget.a.a d = this.m.d(fVar2.e());
                                 imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                                 imageView.setMaxWidth(a2);
@@ -257,11 +258,11 @@ public class PostActivity extends BaseActivity {
                                     d.a(imageView);
                                 } else {
                                     imageView.setTag(fVar2.e());
-                                    imageView.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.image_default));
+                                    imageView.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.image_default));
                                 }
                                 imageView.setClickable(true);
                                 imageView.setFocusable(false);
-                                imageView.setOnClickListener(new ab(this, j, i5));
+                                imageView.setOnClickListener(new ab(this, r, i5));
                                 this.t.addView(imageView, layoutParams);
                                 i2 = i5;
                                 i4++;
@@ -270,7 +271,7 @@ public class PostActivity extends BaseActivity {
                         } else {
                             CustomTextView customTextView = new CustomTextView(this);
                             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-                            int a3 = com.baidu.adp.lib.util.h.a((Context) this, 15.0f);
+                            int a3 = com.baidu.adp.lib.util.k.a((Context) this, 15.0f);
                             layoutParams2.rightMargin = 0;
                             layoutParams2.leftMargin = 0;
                             layoutParams2.topMargin = a3;
@@ -299,18 +300,18 @@ public class PostActivity extends BaseActivity {
 
     private void e() {
         try {
-            com.baidu.tieba.data.ah ahVar = this.l.a().e().get(0);
-            if (ahVar != null) {
-                ArrayList<com.baidu.tieba.data.f> j = ahVar.j();
-                String portrait = ahVar.g().getPortrait();
+            com.baidu.tieba.data.ai aiVar = this.l.a().e().get(0);
+            if (aiVar != null) {
+                ArrayList<com.baidu.tieba.data.f> r = aiVar.r();
+                String portrait = aiVar.o().getPortrait();
                 if (this.l.b() && portrait != null && portrait.length() > 0) {
                     this.m.d(portrait, new z(this));
                 }
-                int size = j.size();
+                int size = r.size();
                 if (this.v) {
                     for (int i = 0; i < size; i++) {
-                        if (j.get(i).a() == 3) {
-                            this.m.b(j.get(i).e(), new aa(this));
+                        if (r.get(i).a() == 3) {
+                            this.m.b(r.get(i).e(), new aa(this));
                         }
                     }
                 }

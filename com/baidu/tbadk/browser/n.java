@@ -1,10 +1,11 @@
 package com.baidu.tbadk.browser;
 
-import android.webkit.WebChromeClient;
-import android.webkit.WebStorage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends WebChromeClient {
+public class n implements com.baidu.adp.lib.guide.b {
     final /* synthetic */ TbWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,9 +13,34 @@ public class n extends WebChromeClient {
         this.a = tbWebViewActivity;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-        super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-        quotaUpdater.updateQuota(2 * j2);
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        View inflate = layoutInflater.inflate(com.baidu.tieba.w.tb_webview_pop_install_plugin, (ViewGroup) null);
+        if (inflate != null) {
+            inflate.findViewById(com.baidu.tieba.v.install).setOnClickListener(new o(this));
+            inflate.findViewById(com.baidu.tieba.v.btn_close);
+            inflate.setOnClickListener(new p(this));
+        }
+        return inflate;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int a() {
+        return 2;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int b() {
+        return 32;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int c() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int d() {
+        return 0;
     }
 }

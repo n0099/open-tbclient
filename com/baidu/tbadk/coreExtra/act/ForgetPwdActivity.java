@@ -13,15 +13,15 @@ public class ForgetPwdActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.layout_sapi_webview_forget_pwd);
+        setContentView(com.baidu.tieba.w.layout_sapi_webview_forget_pwd);
         a();
     }
 
     protected void a() {
-        this.b = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.b = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new v(this));
-        this.b.a(getString(com.baidu.tieba.u.sapi_forget_password_title));
-        this.a = (SapiWebView) findViewById(com.baidu.tieba.r.sapi_webview);
+        this.b.a(getString(com.baidu.tieba.y.sapi_forget_password_title));
+        this.a = (SapiWebView) findViewById(com.baidu.tieba.v.sapi_webview);
         com.baidu.tbadk.core.account.j.a(this, this.a);
         this.a.setOnBackCallback(new w(this));
         this.a.setOnFinishCallback(new x(this));

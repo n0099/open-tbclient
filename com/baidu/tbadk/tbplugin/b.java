@@ -50,7 +50,7 @@ public class b extends BdAsyncTask<Void, Integer, Void> {
             kVar3 = this.a.b;
             if (kVar3 != null) {
                 kVar4 = this.a.b;
-                kVar4.a(e.getErr(), e.getMessage());
+                kVar4.onFinish(e.getErr(), e.getMessage());
             }
             if (e.getErr() != 9) {
                 context2 = this.a.c;
@@ -60,7 +60,7 @@ public class b extends BdAsyncTask<Void, Integer, Void> {
             kVar = this.a.b;
             if (kVar != null) {
                 kVar2 = this.a.b;
-                kVar2.a(-1, e2.getMessage());
+                kVar2.onFinish(-1, e2.getMessage());
             }
             context = this.a.c;
             i.a(context, "unknown", e2.getMessage());
@@ -74,7 +74,7 @@ public class b extends BdAsyncTask<Void, Integer, Void> {
         kVar5 = this.a.b;
         if (kVar5 != null) {
             kVar6 = this.a.b;
-            kVar6.a(0, null);
+            kVar6.onFinish(0, null);
         }
         return null;
     }
@@ -89,7 +89,7 @@ public class b extends BdAsyncTask<Void, Integer, Void> {
         kVar = this.a.b;
         if (kVar != null) {
             kVar2 = this.a.b;
-            kVar2.a(i.a(numArr[0].intValue(), numArr[1].intValue()));
+            kVar2.onProgress(i.a(numArr[0].intValue(), numArr[1].intValue()));
         }
     }
 

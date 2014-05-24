@@ -76,14 +76,14 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
 
     private void f() {
         this.b = new f(this, null);
-        com.baidu.tieba.im.chat.x.b().a(this.b);
+        com.baidu.tieba.im.chat.w.b().a(this.b);
         MessageManager.getInstance().registerListener(MessageTypes.CMD_REMOVE_MEMBERS, this.c);
         MessageManager.getInstance().registerListener(MessageTypes.CMD_UPDATE_GROUP, this.c);
     }
 
     private void m() {
         MessageManager.getInstance().unRegisterListener(this.c);
-        com.baidu.tieba.im.chat.x.b().b(this.b);
+        com.baidu.tieba.im.chat.w.b().b(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -2,6 +2,7 @@ package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -21,10 +22,10 @@ public class BdLog {
     }
 
     public static boolean isDebugMode() {
-        if (com.baidu.adp.base.a.getInst() == null) {
+        if (BdBaseApplication.getInst() == null) {
             return false;
         }
-        return com.baidu.adp.base.a.getInst().isDebugMode();
+        return BdBaseApplication.getInst().isDebugMode();
     }
 
     public static void i(String str, String str2, String str3) {
@@ -176,6 +177,6 @@ public class BdLog {
     }
 
     private static void logToSDcard(String str) {
-        new Thread(new f(str)).start();
+        new Thread(new i(str)).start();
     }
 }

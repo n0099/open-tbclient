@@ -129,7 +129,7 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
                         i16 = i20;
                         i14 = i21;
                     }
-                    if (i16 - i15 > 24) {
+                    if (i16 - i15 > MIN_DYNAMIC_RANGE) {
                         i5 = i18 + i3;
                         i6 = i17 + 1;
                         while (true) {
@@ -155,7 +155,7 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
                     i17 = i24;
                 }
                 int i25 = i14 >> 6;
-                if (i16 - i15 <= 24) {
+                if (i16 - i15 <= MIN_DYNAMIC_RANGE) {
                     int i26 = i15 >> 1;
                     if (i8 <= 0 || i11 <= 0 || i15 >= (i25 = ((iArr[i8 - 1][i11] + (iArr[i8][i11 - 1] * 2)) + iArr[i8 - 1][i11 - 1]) >> 2)) {
                         i25 = i26;

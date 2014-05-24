@@ -25,7 +25,7 @@ public class v extends FrameLayout {
     private final int i;
     private final int j;
     private final int k;
-    private ArrayList<at> m;
+    private ArrayList<au> m;
     private Handler n;
 
     public v(Context context) {
@@ -45,14 +45,14 @@ public class v extends FrameLayout {
         this.n = new w(this);
         this.a = new x(this);
         this.b = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.carousel_topics_recommend, (ViewGroup) this, true);
-        this.c = (ViewPager) findViewById(com.baidu.tieba.r.carousel_pager);
-        this.d = (IndicatorView) findViewById(com.baidu.tieba.r.carousel_indicator);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.carousel_topics_recommend, (ViewGroup) this, true);
+        this.c = (ViewPager) findViewById(com.baidu.tieba.v.carousel_pager);
+        this.d = (IndicatorView) findViewById(com.baidu.tieba.v.carousel_indicator);
         this.c.setOnTouchListener(this.a);
-        this.j = context.getResources().getDimensionPixelSize(com.baidu.tieba.p.square_caroucel_paddingTop);
-        this.i = context.getResources().getDimensionPixelSize(com.baidu.tieba.p.square_caroucel_paddingBottom);
-        this.k = context.getResources().getDimensionPixelSize(com.baidu.tieba.p.square_page_padding);
-        this.f = com.baidu.adp.lib.util.h.b(context) - (this.k * 2);
+        this.j = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_caroucel_paddingTop);
+        this.i = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_caroucel_paddingBottom);
+        this.k = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_page_padding);
+        this.f = com.baidu.adp.lib.util.k.b(context) - (this.k * 2);
         this.g = (int) (0.5f + (this.f * this.h));
         ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
         layoutParams.width = this.f;
@@ -62,7 +62,7 @@ public class v extends FrameLayout {
         setPadding(this.k, this.j, this.k, this.i);
     }
 
-    public Boolean a(ArrayList<at> arrayList) {
+    public Boolean a(ArrayList<au> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             setVisibility(8);
             return false;

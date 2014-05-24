@@ -13,19 +13,19 @@ public class ad implements ax {
 
     @Override // com.baidu.tieba.pb.main.ax
     public void a(Object obj) {
-        bc bcVar;
-        bc bcVar2;
-        bc bcVar3;
-        bc bcVar4;
-        bcVar = this.a.y;
-        String valueOf = String.valueOf(bcVar.p().h().getUserId());
+        bj bjVar;
+        bj bjVar2;
+        bj bjVar3;
+        bj bjVar4;
+        bjVar = this.a.x;
+        String valueOf = String.valueOf(bjVar.p().h().getUserId());
         String valueOf2 = String.valueOf(((Object[]) obj)[1]);
         PbActivity pbActivity = this.a;
-        bcVar2 = this.a.y;
-        String id = bcVar2.p().c().getId();
-        bcVar3 = this.a.y;
-        String name = bcVar3.p().c().getName();
-        bcVar4 = this.a.y;
-        ForbidActivity.a(pbActivity, id, name, bcVar4.p().d().k(), valueOf, valueOf2);
+        bjVar2 = this.a.x;
+        String id = bjVar2.p().c().getId();
+        bjVar3 = this.a.x;
+        String name = bjVar3.p().c().getName();
+        bjVar4 = this.a.x;
+        ForbidActivity.a(pbActivity, id, name, bjVar4.p().d().p(), valueOf, valueOf2);
     }
 }

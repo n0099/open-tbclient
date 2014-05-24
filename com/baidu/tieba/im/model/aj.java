@@ -1,25 +1,21 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
-import java.util.LinkedList;
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ MsglistModel b;
-    private final /* synthetic */ CommonGroupChatMessage c;
-    private final /* synthetic */ LinkedList d;
+public class aj implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ MsglistModel a;
+    private final /* synthetic */ OfficialChatMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(MsglistModel msglistModel, CommonGroupChatMessage commonGroupChatMessage, LinkedList linkedList) {
-        this.b = msglistModel;
-        this.c = commonGroupChatMessage;
-        this.d = linkedList;
+    public aj(MsglistModel msglistModel, OfficialChatMessage officialChatMessage) {
+        this.a = msglistModel;
+        this.b = officialChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(this.c.getGroupId(), this.d, false));
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.a.c(this.b);
     }
 }

@@ -23,7 +23,7 @@ public class ai implements View.OnClickListener {
         textView = this.a.M;
         textView.setSelected(true);
         byVar = this.a.N;
-        byVar.showAsDropDown(view, 0, com.baidu.adp.lib.util.h.a((Context) this.a, 1.0f));
+        byVar.showAsDropDown(view, 0, com.baidu.adp.lib.util.k.a((Context) this.a, 1.0f));
         writeEditorToolButtonContainer = this.a.z;
         writeEditorToolButtonContainer.c();
         editorToolComponetContainer = this.a.A;

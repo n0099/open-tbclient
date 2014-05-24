@@ -8,7 +8,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.model.bb;
+import com.baidu.tieba.model.bc;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class AboutActivity extends BaseActivity {
@@ -73,19 +73,19 @@ public class AboutActivity extends BaseActivity {
         if (this.a != null) {
             this.a.b();
         }
-        bb bbVar = obj != null ? (bb) obj : null;
-        if (bbVar != null) {
-            com.baidu.tieba.ad.c().a(bbVar.c());
+        bc bcVar = obj != null ? (bc) obj : null;
+        if (bcVar != null) {
+            com.baidu.tieba.ai.c().a(bcVar.c());
             TbadkApplication.m252getInst().refreshNewVersion(false);
-            if (bbVar.c().hasNewVer()) {
-                if (bbVar.c().forceUpdate()) {
-                    UpdateDialog.a(com.baidu.tieba.ad.c().d(), bbVar.c(), bbVar.b());
+            if (bcVar.c().hasNewVer()) {
+                if (bcVar.c().forceUpdate()) {
+                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), bcVar.c(), bcVar.b(), bcVar.a().b());
                 } else {
                     TbadkApplication.m252getInst().setUpdateNotifyTime(Long.valueOf(new Date().getTime()).longValue());
-                    UpdateDialog.a(com.baidu.tieba.ad.c().d(), bbVar.c(), bbVar.b());
+                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), bcVar.c(), bcVar.b(), bcVar.a().b());
                 }
             } else {
-                showToast(getResources().getString(com.baidu.tieba.u.neednot_update));
+                showToast(getResources().getString(com.baidu.tieba.y.neednot_update));
             }
             if (this.a != null) {
                 this.a.c();
@@ -93,7 +93,7 @@ public class AboutActivity extends BaseActivity {
             }
             return;
         }
-        showToast(getResources().getString(com.baidu.tieba.u.neterror));
+        showToast(getResources().getString(com.baidu.tieba.y.neterror));
     }
 
     private void b() {

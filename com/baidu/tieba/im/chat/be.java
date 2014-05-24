@@ -1,33 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.GroupData;
+import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes.dex */
-class be implements com.baidu.tieba.im.a<Boolean> {
+class be implements v {
     final /* synthetic */ GroupChatActivity a;
-    private final /* synthetic */ GroupData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(GroupChatActivity groupChatActivity, GroupData groupData) {
+    public be(GroupChatActivity groupChatActivity) {
         this.a = groupChatActivity;
-        this.b = groupData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        if (bool != null) {
-            if (bool.booleanValue()) {
-                this.a.d.L();
-            } else {
-                this.a.d.M();
-            }
-            if (this.a.e != null && this.b != null) {
-                String name = this.b.getName();
-                if (!TextUtils.isEmpty(name)) {
-                    this.a.d.a(name, true);
-                }
-            }
+    @Override // com.baidu.tieba.im.chat.v
+    public void a(VoiceData.VoiceModel voiceModel) {
+        if (voiceModel != null) {
+            this.a.e.a(voiceModel.voiceId, voiceModel.duration);
         }
+    }
+
+    @Override // com.baidu.tieba.im.chat.v
+    public void a() {
     }
 }

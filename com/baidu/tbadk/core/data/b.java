@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import org.json.JSONObject;
 import tbclient.FrsPage.App;
 /* loaded from: classes.dex */
-public class b extends o {
+public class b extends n {
     private int c;
     private int d;
     private String e;
@@ -15,28 +15,47 @@ public class b extends o {
     private String i;
     private String j;
     private int k;
+    private String l;
+    private String m;
+    private long n;
 
-    public int a() {
-        return this.d;
+    public String a() {
+        return this.l;
     }
 
     public String b() {
-        return this.e;
+        return this.m;
     }
 
-    public String c() {
-        return this.g;
+    public long c() {
+        return this.n;
     }
 
-    public String d() {
-        return this.h;
+    public int d() {
+        return this.c;
     }
 
-    public String e() {
-        return this.i;
+    public int e() {
+        return this.d;
     }
 
     public String f() {
+        return this.e;
+    }
+
+    public String g() {
+        return this.g;
+    }
+
+    public String h() {
+        return this.h;
+    }
+
+    public String i() {
+        return this.i;
+    }
+
+    public String j() {
         return this.j;
     }
 
@@ -44,11 +63,11 @@ public class b extends o {
         this.k = i;
     }
 
-    public int g() {
+    public int k() {
         return this.k;
     }
 
-    @Override // com.baidu.tbadk.core.data.o
+    @Override // com.baidu.tbadk.core.data.n
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
@@ -66,7 +85,7 @@ public class b extends o {
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.o, com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.data.n, com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.e);
@@ -83,6 +102,9 @@ public class b extends o {
             this.h = app.app_desc;
             this.i = app.p_name;
             this.j = app.p_url;
+            this.l = app.web_url;
+            this.m = app.img_url;
+            this.n = app.app_time.intValue();
         }
     }
 }

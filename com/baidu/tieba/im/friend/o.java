@@ -25,7 +25,7 @@ class o extends com.baidu.adp.framework.listener.b {
                 if (responseCommitInviteMessage.getError() != 0) {
                     this.a.showToast(responseCommitInviteMessage.getErrorString());
                 } else {
-                    this.a.showToast(this.a.getString(com.baidu.tieba.u.send_success), false);
+                    this.a.showToast(this.a.getString(com.baidu.tieba.y.send_success), false);
                     new Handler().postDelayed(new p(this), 400L);
                 }
             } catch (Exception e) {

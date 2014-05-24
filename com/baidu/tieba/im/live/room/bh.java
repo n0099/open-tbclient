@@ -3,7 +3,7 @@ package com.baidu.tieba.im.live.room;
 import com.baidu.tieba.im.message.RequestLiveGroupInfoByGid;
 import com.baidu.tieba.im.message.RequestUpdateLiveGroupMessage;
 /* loaded from: classes.dex */
-public class bh extends com.baidu.adp.base.d {
+public class bh extends com.baidu.adp.base.b {
     private String a;
     private String b;
     private String c;
@@ -12,12 +12,12 @@ public class bh extends com.baidu.adp.base.d {
     private RequestLiveGroupInfoByGid f;
     private RequestUpdateLiveGroupMessage g;
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

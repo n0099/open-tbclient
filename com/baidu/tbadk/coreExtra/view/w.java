@@ -67,7 +67,7 @@ public class w extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
         } else if (this.b.d() == 0) {
             q qVar = this.a;
             baseActivity = this.a.j;
-            qVar.b(baseActivity.getString(com.baidu.tieba.u.name_not_use));
+            qVar.b(baseActivity.getString(com.baidu.tieba.y.name_not_use));
         } else if (this.b.d() == 36) {
             this.a.b(this.b.f());
             if (aVar != null) {

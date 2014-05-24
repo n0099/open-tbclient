@@ -9,6 +9,7 @@ import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import java.util.Timer;
@@ -35,7 +36,7 @@ public class s extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.s.person_thread_fragment, viewGroup, false);
+        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.w.person_thread_fragment, viewGroup, false);
         this.b = new y(inflate);
         this.b.b.setText(getArguments().getString("key_empty_view_text"));
         return inflate;
@@ -51,7 +52,7 @@ public class s extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
         this.b.a.setPullRefresh(this.f);
         this.c.a(this);
         this.b.a.setOnScrollListener(this);
-        this.g = new x(this, (com.baidu.tbadk.core.e) getActivity());
+        this.g = new x(this, (BaseFragmentActivity) getActivity());
         this.b.a.setNextPage(this.g);
     }
 
@@ -98,9 +99,9 @@ public class s extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
             this.b.c.setVisibility(8);
             if (a(personPostModel)) {
                 if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                    this.b.b.setTextColor(getResources().getColor(com.baidu.tieba.o.person_post_header_uname_1));
+                    this.b.b.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_header_uname_1));
                 } else {
-                    this.b.b.setTextColor(getResources().getColor(com.baidu.tieba.o.person_post_header_uname));
+                    this.b.b.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_header_uname));
                 }
                 if (personPostModel == null || (personPostModel.post_list.size() == 0 && this.j && (personPostModel.getErrorString() == null || (personPostModel.getErrorString() != null && personPostModel.getErrorString().equals(""))))) {
                     this.b.a.setEmptyView(this.b.b);
@@ -111,7 +112,7 @@ public class s extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
                         this.b.a.setEmptyView(this.b.b);
                     }
                     if (personPostModel.getErrorCode() != 0) {
-                        com.baidu.adp.lib.util.h.a((Context) getActivity(), personPostModel.getErrorString());
+                        com.baidu.adp.lib.util.k.a((Context) getActivity(), personPostModel.getErrorString());
                     }
                 }
                 this.b.a.c();
@@ -130,7 +131,7 @@ public class s extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
             return true;
         }
         this.c = null;
-        com.baidu.adp.lib.util.h.b((Context) getActivity(), com.baidu.tieba.u.his_post_not_available);
+        com.baidu.adp.lib.util.k.b((Context) getActivity(), com.baidu.tieba.y.his_post_not_available);
         new Timer().schedule(new w(this), 2000L);
         this.g.e();
         return false;

@@ -28,18 +28,18 @@ public class ac implements com.baidu.tbadk.core.voice.a.c {
         VoiceData.VoiceModel voiceModel3;
         VoiceData.VoiceModel voiceModel4;
         VoiceData.VoiceModel voiceModel5;
-        voiceModel = this.a.x;
+        voiceModel = this.a.mCurPlayModel;
         if (voiceModel != null) {
-            xVar = this.a.A;
+            xVar = this.a.sPlayView;
             if (xVar != null) {
                 if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                    voiceModel3 = this.a.x;
+                    voiceModel3 = this.a.mCurPlayModel;
                     if (voiceModel3.voiceId.equals(str2)) {
-                        voiceModel4 = this.a.x;
-                        if (VoiceManager.b(voiceModel4.voice_status.intValue())) {
+                        voiceModel4 = this.a.mCurPlayModel;
+                        if (VoiceManager.isVoiceDownloading(voiceModel4.voice_status.intValue())) {
                             VoiceManager voiceManager = this.a;
-                            voiceModel5 = this.a.x;
-                            voiceManager.a(voiceModel5, str);
+                            voiceModel5 = this.a.mCurPlayModel;
+                            voiceManager.setPlaying(voiceModel5, str);
                             return;
                         }
                         return;
@@ -49,15 +49,15 @@ public class ac implements com.baidu.tbadk.core.voice.a.c {
                 BdLog.e("VoiceManager", "VoiceLoaderCallback::voiceLoaded", "error code:" + i + " error msg:" + str3);
                 TiebaStatic.voiceError("", i, str3, str);
                 if (i <= 0 || StringUtils.isNull(str3) || (i != 2 && i != 4 && i != 3 && i != 7)) {
-                    xVar2 = this.a.A;
-                    xVar2.a(5, ae.a(com.baidu.tieba.u.voice_err_load_fail));
+                    xVar2 = this.a.sPlayView;
+                    xVar2.a(5, ae.a(com.baidu.tieba.y.voice_err_load_fail));
                 } else {
-                    xVar3 = this.a.A;
+                    xVar3 = this.a.sPlayView;
                     xVar3.a(5, str3);
                 }
                 VoiceManager voiceManager2 = this.a;
-                voiceModel2 = this.a.x;
-                voiceManager2.c(voiceModel2);
+                voiceModel2 = this.a.mCurPlayModel;
+                voiceManager2.setPlayWaiting(voiceModel2);
             }
         }
     }

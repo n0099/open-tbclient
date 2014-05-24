@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb.main;
 
-import android.os.Handler;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class i implements AbsListView.OnScrollListener {
@@ -13,18 +12,10 @@ class i implements AbsListView.OnScrollListener {
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        Handler handler;
-        Handler handler2;
-        Handler handler3;
-        bj bjVar;
-        handler = this.a.x;
-        handler.removeMessages(1);
-        handler2 = this.a.x;
-        handler3 = this.a.x;
-        handler2.sendMessageDelayed(handler3.obtainMessage(1), 90L);
+        bq bqVar;
         if (i == 2 || i == 1) {
-            bjVar = this.a.E;
-            bjVar.ac();
+            bqVar = this.a.D;
+            bqVar.ac();
         }
     }
 

@@ -3,6 +3,7 @@ package com.baidu.tieba.im.nearbygroups;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
 import com.baidu.adp.widget.PinnedHeaderListView;
 import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.util.bc;
@@ -11,10 +12,11 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.q;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.view.r;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class m extends com.baidu.adp.base.e {
+public class m extends com.baidu.adp.base.c {
     private NavigationBar a;
     private NearbyGroupsActivity b;
     private View c;
@@ -43,14 +45,14 @@ public class m extends com.baidu.adp.base.e {
     private void h() {
         this.e = new h(this.b);
         this.i = new r(this.b);
-        this.b.setContentView(s.nearby_group_activity);
-        this.c = this.b.findViewById(com.baidu.tieba.r.parent);
-        this.f = (PinnedHeaderListView) this.b.findViewById(com.baidu.tieba.r.nearby_list);
-        this.a = (NavigationBar) this.b.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.b.setContentView(w.nearby_group_activity);
+        this.c = this.b.findViewById(v.parent);
+        this.f = (PinnedHeaderListView) this.b.findViewById(v.nearby_list);
+        this.a = (NavigationBar) this.b.findViewById(v.view_navigation_bar);
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.a(this.b.getResources().getString(u.nearby_group_title));
+        this.a.a(this.b.getResources().getString(y.nearby_group_title));
         this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.b);
-        this.h = (NoNetworkView) this.b.findViewById(com.baidu.tieba.r.view_no_network);
+        this.h = (NoNetworkView) this.b.findViewById(v.view_no_network);
         this.g = new q(this.b);
         this.f.setPullRefresh(this.g);
         this.f.setAdapter((ListAdapter) this.e);
@@ -70,8 +72,8 @@ public class m extends com.baidu.adp.base.e {
         this.i.e();
     }
 
-    public void a(com.baidu.adp.widget.ListView.u uVar) {
-        this.f.setOnSrollToBottomListener(uVar);
+    public void a(x xVar) {
+        this.f.setOnSrollToBottomListener(xVar);
     }
 
     public void a(View.OnClickListener onClickListener) {

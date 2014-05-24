@@ -18,9 +18,9 @@ public class x implements Runnable {
         Context context2;
         ProgressBar progressBar;
         context = this.a.c;
-        int a = com.baidu.adp.lib.util.h.a(context, 6.0f);
+        int a = com.baidu.adp.lib.util.k.a(context, 6.0f);
         context2 = this.a.c;
-        int a2 = com.baidu.adp.lib.util.h.a(context2, 100.0f);
+        int a2 = com.baidu.adp.lib.util.k.a(context2, 100.0f);
         int i = a2 - (a * 2);
         int i2 = (a2 - i) / 2;
         progressBar = this.a.d;

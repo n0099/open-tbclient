@@ -10,6 +10,6 @@ public class z extends com.baidu.tbadk.core.view.q {
 
     @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.ListView.f
     public View a() {
-        return a(h().getString(com.baidu.tieba.u.pull_view_pull_more), h().getString(com.baidu.tieba.u.pull_view_release_more), null);
+        return a(h().getString(com.baidu.tieba.y.pull_view_pull_more), h().getString(com.baidu.tieba.y.pull_view_release_more), null);
     }
 }

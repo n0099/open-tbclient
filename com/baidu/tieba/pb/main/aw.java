@@ -1,12 +1,11 @@
 package com.baidu.tieba.pb.main;
 
-import android.os.Handler;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
-class aw implements bd {
+class aw implements bk {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,102 +13,94 @@ class aw implements bd {
         this.a = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.main.bd
-    public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.data.ae aeVar, String str, int i4) {
-        bj bjVar;
-        bj bjVar2;
-        bj bjVar3;
+    @Override // com.baidu.tieba.pb.main.bk
+    public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.data.af afVar, String str, int i4) {
+        bq bqVar;
+        bq bqVar2;
+        bq bqVar3;
         long j;
         long j2;
-        bc bcVar;
+        bj bjVar;
         long j3;
-        bc bcVar2;
-        bc bcVar3;
-        bc bcVar4;
+        bj bjVar2;
+        bj bjVar3;
         bj bjVar4;
+        bq bqVar4;
         com.baidu.tieba.model.ai aiVar;
+        bq bqVar5;
         bj bjVar5;
-        bc bcVar5;
+        bq bqVar6;
         bj bjVar6;
-        bc bcVar6;
+        bq bqVar7;
         bj bjVar7;
-        bc bcVar7;
-        Handler handler;
-        Handler handler2;
-        Handler handler3;
-        bj bjVar8;
-        bj bjVar9;
-        bjVar = this.a.E;
-        bjVar.w();
-        if (z && aeVar != null) {
-            TbadkApplication.m252getInst().setDefaultBubble(aeVar.h().getBimg_url());
-            bjVar4 = this.a.E;
-            bjVar4.j.t();
-            aiVar = this.a.z;
-            aiVar.a(aeVar.i());
-            bjVar5 = this.a.E;
-            bcVar5 = this.a.y;
-            bjVar5.a(aeVar, i2, i3, bcVar5.h(), i4);
-            bjVar6 = this.a.E;
-            bcVar6 = this.a.y;
-            bjVar6.a(aeVar, bcVar6.h(), false, i2);
-            bjVar7 = this.a.E;
-            bcVar7 = this.a.y;
-            bjVar7.e(bcVar7.g());
-            this.a.G();
-            handler = this.a.x;
-            handler.removeMessages(0);
-            handler2 = this.a.x;
-            handler3 = this.a.x;
-            handler2.sendMessageDelayed(handler3.obtainMessage(0), 90L);
-            AntiData g = aeVar.g();
+        bq bqVar8;
+        bq bqVar9;
+        bqVar = this.a.D;
+        bqVar.w();
+        if (z && afVar != null) {
+            TbadkApplication.m252getInst().setDefaultBubble(afVar.h().getBimg_url());
+            bqVar4 = this.a.D;
+            bqVar4.j.t();
+            aiVar = this.a.y;
+            aiVar.a(afVar.i());
+            bqVar5 = this.a.D;
+            bjVar5 = this.a.x;
+            bqVar5.a(afVar, i2, i3, bjVar5.h(), i4);
+            bqVar6 = this.a.D;
+            bjVar6 = this.a.x;
+            bqVar6.a(afVar, bjVar6.h(), false, i2);
+            bqVar7 = this.a.D;
+            bjVar7 = this.a.x;
+            bqVar7.e(bjVar7.g());
+            this.a.H();
+            AntiData g = afVar.g();
             if (g != null) {
                 Boolean valueOf = Boolean.valueOf(g.isIfvoice());
                 this.a.p = g.getVoice_message();
                 this.a.a(valueOf);
             }
-            if (aeVar == null || aeVar.m() != 1) {
-                bjVar8 = this.a.E;
-                bjVar8.i(false);
+            if (afVar == null || afVar.m() != 1) {
+                bqVar8 = this.a.D;
+                bqVar8.i(false);
             } else {
-                bjVar9 = this.a.E;
-                bjVar9.i(true);
+                bqVar9 = this.a.D;
+                bqVar9.i(true);
             }
         } else if (str != null) {
             if (UtilHelper.isNetOk()) {
-                bjVar2 = this.a.E;
-                bjVar2.d(str);
+                bqVar2 = this.a.D;
+                bqVar2.d(str);
             } else {
                 this.a.l();
             }
             if (i == 4 || i == 28) {
                 this.a.finish();
             }
-            bjVar3 = this.a.E;
-            bjVar3.P();
+            bqVar3 = this.a.D;
+            bqVar3.P();
         }
         j = this.a.m;
         if (j > -1) {
             long currentTimeMillis = System.currentTimeMillis();
             j2 = this.a.m;
-            bcVar = this.a.y;
-            long d = bcVar.d();
+            bjVar = this.a.x;
+            long d = bjVar.d();
             j3 = this.a.m;
             long j4 = d - j3;
-            bcVar2 = this.a.y;
-            long b = bcVar2.b();
-            bcVar3 = this.a.y;
-            long c = bcVar3.c();
-            bcVar4 = this.a.y;
-            TiebaStatic.page("op_pb_enter", currentTimeMillis - j2, j4, b, c, currentTimeMillis - bcVar4.a());
+            bjVar2 = this.a.x;
+            long b = bjVar2.b();
+            bjVar3 = this.a.x;
+            long c = bjVar3.c();
+            bjVar4 = this.a.x;
+            TiebaStatic.page("op_pb_enter", currentTimeMillis - j2, j4, b, c, currentTimeMillis - bjVar4.a());
             this.a.m = -1L;
         }
     }
 
-    @Override // com.baidu.tieba.pb.main.bd
-    public void a(com.baidu.tieba.data.ae aeVar) {
-        bj bjVar;
-        bjVar = this.a.E;
-        bjVar.a(aeVar);
+    @Override // com.baidu.tieba.pb.main.bk
+    public void a(com.baidu.tieba.data.af afVar) {
+        bq bqVar;
+        bqVar = this.a.D;
+        bqVar.a(afVar);
     }
 }

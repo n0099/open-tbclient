@@ -36,7 +36,7 @@ public class f extends Handler {
                 StringBuilder sb = new StringBuilder("this is reconn time:");
                 i = this.a.b;
                 BdLog.i(sb.append(i).toString());
-                BdSocketLinkService.a(true, "time to reconnStragety");
+                BdSocketLinkService.startService(true, "time to reconnStragety");
                 e eVar = this.a;
                 i2 = eVar.b;
                 eVar.b = i2 + 1;

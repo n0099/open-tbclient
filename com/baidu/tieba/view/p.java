@@ -27,9 +27,9 @@ public class p implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         q qVar;
-        com.baidu.tbadk.core.data.k[] kVarArr;
-        com.baidu.tbadk.core.data.k[] kVarArr2;
-        com.baidu.tbadk.core.data.k[] kVarArr3;
+        com.baidu.tbadk.core.data.j[] jVarArr;
+        com.baidu.tbadk.core.data.j[] jVarArr2;
+        com.baidu.tbadk.core.data.j[] jVarArr3;
         Context context;
         String str;
         String str2;
@@ -37,7 +37,7 @@ public class p implements View.OnClickListener {
         boolean z;
         Context context2;
         Context context3;
-        com.baidu.tbadk.core.data.k[] kVarArr4;
+        com.baidu.tbadk.core.data.j[] jVarArr4;
         q qVar2;
         qVar = this.a.a;
         if (qVar != null) {
@@ -45,17 +45,17 @@ public class p implements View.OnClickListener {
             qVar2.a(this.b);
             return;
         }
-        kVarArr = this.a.c;
-        if (kVarArr[this.b].b() != 5) {
-            kVarArr2 = this.a.c;
-            if (kVarArr2 != null) {
+        jVarArr = this.a.c;
+        if (jVarArr[this.b].b() != 5) {
+            jVarArr2 = this.a.c;
+            if (jVarArr2 != null) {
                 ArrayList<String> arrayList = new ArrayList<>();
-                kVarArr3 = this.a.c;
-                for (com.baidu.tbadk.core.data.k kVar : kVarArr3) {
-                    if (TextUtils.isEmpty(kVar.a())) {
-                        arrayList.add(kVar.c());
+                jVarArr3 = this.a.c;
+                for (com.baidu.tbadk.core.data.j jVar : jVarArr3) {
+                    if (TextUtils.isEmpty(jVar.a())) {
+                        arrayList.add(jVar.c());
                     } else {
-                        arrayList.add(kVar.a());
+                        arrayList.add(jVar.a());
                     }
                 }
                 MessageManager messageManager = MessageManager.getInstance();
@@ -74,7 +74,7 @@ public class p implements View.OnClickListener {
             return;
         }
         context3 = this.a.d;
-        kVarArr4 = this.a.c;
-        com.baidu.tbadk.browser.a.a(context3, kVarArr4[this.b].d());
+        jVarArr4 = this.a.c;
+        com.baidu.tbadk.browser.a.a(context3, jVarArr4[this.b].d());
     }
 }

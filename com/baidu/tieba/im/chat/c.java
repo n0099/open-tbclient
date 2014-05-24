@@ -1,42 +1,57 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.animation.Animation;
-import com.baidu.tbadk.core.view.NavigationBar;
+import android.support.v4.view.ViewPager;
+import java.util.ArrayList;
+import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements Animation.AnimationListener {
-    final /* synthetic */ b a;
+public class c implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ AbsMsgImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.a = bVar;
+    public c(AbsMsgImageActivity absMsgImageActivity) {
+        this.a = absMsgImageActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        a aVar;
-        a aVar2;
-        boolean z;
-        a aVar3;
-        a aVar4;
-        NavigationBar navigationBar;
-        aVar = this.a.a;
-        aVar.o = true;
-        aVar2 = this.a.a;
-        z = aVar2.p;
-        if (z) {
-            aVar3 = this.a.a;
-            aVar3.p = false;
-            aVar4 = this.a.a;
-            navigationBar = aVar4.i;
-            navigationBar.setVisibility(8);
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        int i2;
+        AbsMsgImageActivity absMsgImageActivity = this.a;
+        i2 = this.a.c;
+        absMsgImageActivity.a(i2, i);
+        this.a.c = i;
+        this.a.b();
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
+        long j;
+        ArrayList arrayList;
+        int i2;
+        ArrayList arrayList2;
+        HashMap hashMap;
+        ArrayList arrayList3;
+        int i3;
+        if (i == 1) {
+            long nanoTime = System.nanoTime();
+            j = this.a.t;
+            if (nanoTime - j > 300000000) {
+                arrayList = this.a.b;
+                if (arrayList != null) {
+                    i2 = this.a.c;
+                    arrayList2 = this.a.b;
+                    if (i2 < arrayList2.size()) {
+                        hashMap = this.a.u;
+                        arrayList3 = this.a.b;
+                        i3 = this.a.c;
+                        hashMap.put((String) arrayList3.get(i3), true);
+                    }
+                }
+            }
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
     }
 }

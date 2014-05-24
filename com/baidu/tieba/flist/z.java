@@ -16,9 +16,9 @@ public class z implements PopupWindow.OnDismissListener {
     public void onDismiss() {
         this.a.C = false;
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.a.A.setImageResource(com.baidu.tieba.q.btn_allsproutpop_down_1);
+            this.a.A.setImageResource(com.baidu.tieba.u.btn_allsproutpop_down_1);
         } else {
-            this.a.A.setImageResource(com.baidu.tieba.q.btn_allsproutpop_down);
+            this.a.A.setImageResource(com.baidu.tieba.u.btn_allsproutpop_down);
         }
     }
 }

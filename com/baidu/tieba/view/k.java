@@ -57,30 +57,30 @@ public class k {
         int i;
         int i2 = 0;
         if (view.getTag() != null && (mVar = (m) view.getTag()) != null) {
-            mVar.c.setText(String.valueOf(qVar.c()) + this.a.getResources().getString(com.baidu.tieba.u.forum_name_suffix));
+            mVar.c.setText(String.valueOf(qVar.c()) + this.a.getResources().getString(com.baidu.tieba.y.forum_name_suffix));
             mVar.c.setTag(qVar.c());
             this.f = qVar.m();
             if (mVar.o != null) {
-                mVar.o.a(this.f, 3, this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.forumfeed_icon_width), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.forumfeed_icon_height), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.forumfeed_icon_margin));
+                mVar.o.a(this.f, 3, this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.forumfeed_icon_width), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.forumfeed_icon_height), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.forumfeed_icon_margin));
             }
             this.g = qVar.a();
             if (mVar.p != null) {
-                mVar.p.a(this.g, 2, this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.small_icon_width), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.small_icon_height), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.small_icon_margin));
+                mVar.p.a(this.g, 2, this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_width), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_height), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_margin));
             }
             int skinType = TbadkApplication.m252getInst().getSkinType();
             if (this.g != null && this.g.size() > 0) {
                 mVar.f.setPadding(0, 0, 0, 0);
                 if (skinType == 1) {
-                    mVar.f.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.frs_lv_item_user_name_vip_1));
+                    mVar.f.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.frs_lv_item_user_name_vip_1));
                 } else {
-                    mVar.f.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.frs_lv_item_user_name_vip));
+                    mVar.f.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.frs_lv_item_user_name_vip));
                 }
             } else {
-                mVar.f.setPadding(this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.listview_item_padding), 0, 0, 0);
+                mVar.f.setPadding(this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.listview_item_padding), 0, 0, 0);
                 if (skinType == 1) {
-                    mVar.f.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.listview_item_author_time_text_1));
+                    mVar.f.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.listview_item_author_time_text_1));
                 } else {
-                    mVar.f.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.listview_item_author_time_text));
+                    mVar.f.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.listview_item_author_time_text));
                 }
             }
             mVar.f.setText(qVar.g());
@@ -118,19 +118,19 @@ public class k {
                 } else {
                     mVar.d.setText(qVar.e());
                 }
-                if (com.baidu.tbadk.core.h.a().f()) {
+                if (com.baidu.tbadk.core.g.a().f()) {
                     mVar.i.setVisibility(0);
-                    ArrayList<com.baidu.tbadk.core.data.k> k = qVar.k();
+                    ArrayList<com.baidu.tbadk.core.data.j> k = qVar.k();
                     if (k != null) {
                         if (k.size() > 0) {
                             int size = k.size();
                             int i3 = size > 3 ? 3 : size;
                             if (i3 > 0) {
-                                com.baidu.tbadk.core.data.k[] kVarArr = new com.baidu.tbadk.core.data.k[i3];
+                                com.baidu.tbadk.core.data.j[] jVarArr = new com.baidu.tbadk.core.data.j[i3];
                                 int i4 = 0;
                                 while (i2 < k.size() && i4 < i3) {
                                     if (k.get(i2).b() == 3 || k.get(i2).b() == 5) {
-                                        kVarArr[i4] = k.get(i2);
+                                        jVarArr[i4] = k.get(i2);
                                         i = i4 + 1;
                                     } else {
                                         i = i4;
@@ -139,7 +139,7 @@ public class k {
                                     i4 = i;
                                 }
                                 mVar.i.setShowBig(this.c);
-                                mVar.i.setData(kVarArr);
+                                mVar.i.setData(jVarArr);
                                 mVar.i.setImageFrom("other");
                                 mVar.i.setFromCDN(this.d);
                             }
@@ -157,7 +157,7 @@ public class k {
     }
 
     private SpannableString b(View view, com.baidu.tieba.data.q qVar) {
-        Drawable drawable = view.getResources().getDrawable(com.baidu.tieba.q.icon_elite);
+        Drawable drawable = view.getResources().getDrawable(com.baidu.tieba.u.icon_elite);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         ImageSpan imageSpan = new ImageSpan(drawable, 1);
         SpannableString spannableString = new SpannableString("  " + ((Object) qVar.e()));
@@ -168,9 +168,9 @@ public class k {
     private SpannableString c(View view, com.baidu.tieba.data.q qVar) {
         Drawable drawable;
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            drawable = view.getResources().getDrawable(com.baidu.tieba.q.icon_live_on_1);
+            drawable = view.getResources().getDrawable(com.baidu.tieba.u.icon_live_on_1);
         } else {
-            drawable = view.getResources().getDrawable(com.baidu.tieba.q.icon_live_on);
+            drawable = view.getResources().getDrawable(com.baidu.tieba.u.icon_live_on);
         }
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         ImageSpan imageSpan = new ImageSpan(drawable, 1);
@@ -181,21 +181,21 @@ public class k {
 
     public View a() {
         m mVar = new m(this);
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.forum_feed_item, (ViewGroup) null);
-        mVar.a = (LinearLayout) linearLayout.findViewById(com.baidu.tieba.r.layoutForumTop);
-        mVar.b = (RelativeLayout) linearLayout.findViewById(com.baidu.tieba.r.layoutForumBottom);
-        mVar.c = (TextView) linearLayout.findViewById(com.baidu.tieba.r.textHomeListFrsName);
-        mVar.d = (TextView) linearLayout.findViewById(com.baidu.tieba.r.textHomeListTitle);
-        mVar.e = (TextView) linearLayout.findViewById(com.baidu.tieba.r.textHomeListAbstract);
-        mVar.f = (TextView) linearLayout.findViewById(com.baidu.tieba.r.textHomeListAuthor);
-        mVar.o = (UserIconBox) linearLayout.findViewById(com.baidu.tieba.r.user_icon_box);
-        mVar.p = (UserIconBox) linearLayout.findViewById(com.baidu.tieba.r.user_tshow_icon_box);
-        mVar.g = (TextView) linearLayout.findViewById(com.baidu.tieba.r.textHomeListTime);
-        mVar.h = (TextView) linearLayout.findViewById(com.baidu.tieba.r.textHomeListRplyNum);
-        mVar.i = (CommonImageLayout) linearLayout.findViewById(com.baidu.tieba.r.layoutFeedImage);
-        mVar.j = (PlayVoiceBnt) linearLayout.findViewById(com.baidu.tieba.r.abstract_voice);
-        mVar.q = (LinearLayout) linearLayout.findViewById(com.baidu.tieba.r.feed_item_live_card);
-        mVar.r = (LiveBroadcastCard) linearLayout.findViewById(com.baidu.tieba.r.feed_item_card);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.forum_feed_item, (ViewGroup) null);
+        mVar.a = (LinearLayout) linearLayout.findViewById(com.baidu.tieba.v.layoutForumTop);
+        mVar.b = (RelativeLayout) linearLayout.findViewById(com.baidu.tieba.v.layoutForumBottom);
+        mVar.c = (TextView) linearLayout.findViewById(com.baidu.tieba.v.textHomeListFrsName);
+        mVar.d = (TextView) linearLayout.findViewById(com.baidu.tieba.v.textHomeListTitle);
+        mVar.e = (TextView) linearLayout.findViewById(com.baidu.tieba.v.textHomeListAbstract);
+        mVar.f = (TextView) linearLayout.findViewById(com.baidu.tieba.v.textHomeListAuthor);
+        mVar.o = (UserIconBox) linearLayout.findViewById(com.baidu.tieba.v.user_icon_box);
+        mVar.p = (UserIconBox) linearLayout.findViewById(com.baidu.tieba.v.user_tshow_icon_box);
+        mVar.g = (TextView) linearLayout.findViewById(com.baidu.tieba.v.textHomeListTime);
+        mVar.h = (TextView) linearLayout.findViewById(com.baidu.tieba.v.textHomeListRplyNum);
+        mVar.i = (CommonImageLayout) linearLayout.findViewById(com.baidu.tieba.v.layoutFeedImage);
+        mVar.j = (PlayVoiceBnt) linearLayout.findViewById(com.baidu.tieba.v.abstract_voice);
+        mVar.q = (LinearLayout) linearLayout.findViewById(com.baidu.tieba.v.feed_item_live_card);
+        mVar.r = (LiveBroadcastCard) linearLayout.findViewById(com.baidu.tieba.v.feed_item_card);
         mVar.c.setOnClickListener(this.h);
         linearLayout.setOnClickListener(this.h);
         linearLayout.setTag(mVar);
@@ -219,17 +219,17 @@ public class k {
 
     private void a(m mVar) {
         Resources resources = this.a.getResources();
-        mVar.a.setBackgroundResource(com.baidu.tieba.q.forumfeed_frs_list_item_top_bg);
-        bc.e((View) mVar.c, com.baidu.tieba.q.bg_label);
-        mVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(com.baidu.tieba.q.icon_little_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
-        mVar.b.setBackgroundResource(com.baidu.tieba.q.forumfeed_frs_list_item_foot_bg);
+        mVar.a.setBackgroundResource(com.baidu.tieba.u.forumfeed_frs_list_item_top_bg);
+        bc.e((View) mVar.c, com.baidu.tieba.u.bg_label);
+        mVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(com.baidu.tieba.u.icon_little_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
+        mVar.b.setBackgroundResource(com.baidu.tieba.u.forumfeed_frs_list_item_foot_bg);
     }
 
     private void b(m mVar) {
         Resources resources = this.a.getResources();
-        mVar.a.setBackgroundResource(com.baidu.tieba.q.forumfeed_frs_list_item_top_bg_1);
-        bc.e((View) mVar.c, com.baidu.tieba.q.bg_label_1);
-        mVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(com.baidu.tieba.q.icon_little_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
-        mVar.b.setBackgroundResource(com.baidu.tieba.q.forumfeed_frs_list_item_foot_bg_1);
+        mVar.a.setBackgroundResource(com.baidu.tieba.u.forumfeed_frs_list_item_top_bg_1);
+        bc.e((View) mVar.c, com.baidu.tieba.u.bg_label_1);
+        mVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(com.baidu.tieba.u.icon_little_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
+        mVar.b.setBackgroundResource(com.baidu.tieba.u.forumfeed_frs_list_item_foot_bg_1);
     }
 }

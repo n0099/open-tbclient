@@ -2,6 +2,7 @@ package com.baidu.adp.lib.asyncTask;
 
 import android.os.Handler;
 import android.util.SparseIntArray;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.Iterator;
@@ -29,7 +30,7 @@ public class f implements Executor {
     public static final Executor a = new ThreadPoolExecutor(5, 256, 30, TimeUnit.SECONDS, d, c, new ThreadPoolExecutor.DiscardPolicy());
 
     private f() {
-        com.baidu.adp.lib.util.h.b();
+        com.baidu.adp.lib.util.k.b();
     }
 
     public String toString() {
@@ -49,7 +50,7 @@ public class f implements Executor {
 
     @Override // java.util.concurrent.Executor
     public synchronized void execute(Runnable runnable) {
-        com.baidu.adp.lib.util.h.b();
+        com.baidu.adp.lib.util.k.b();
         if (runnable instanceof k) {
             i iVar = new i(this, (k) runnable);
             if (iVar.k()) {
@@ -57,7 +58,7 @@ public class f implements Executor {
             } else {
                 b(iVar);
                 a((j) null);
-                if (com.baidu.adp.base.a.getInst().isDebugMode()) {
+                if (BdBaseApplication.getInst().isDebugMode()) {
                     BdLog.d(toString());
                 }
             }
@@ -249,7 +250,7 @@ public class f implements Executor {
 
     private synchronized LinkedList<BdAsyncTask<?, ?, ?>> a(LinkedList<j> linkedList, boolean z, int i, String str) {
         LinkedList<BdAsyncTask<?, ?, ?>> linkedList2;
-        com.baidu.adp.lib.util.h.b();
+        com.baidu.adp.lib.util.k.b();
         linkedList2 = new LinkedList<>();
         Iterator<j> it = linkedList.iterator();
         while (it.hasNext()) {
@@ -290,7 +291,7 @@ public class f implements Executor {
     }
 
     public synchronized void a(BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        com.baidu.adp.lib.util.h.b();
+        com.baidu.adp.lib.util.k.b();
         Iterator<j> it = this.j.iterator();
         while (true) {
             if (!it.hasNext()) {

@@ -1,207 +1,149 @@
 package com.baidu.tbadk.motu_gallery;
 
+import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
+import android.database.Cursor;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.provider.MediaStore;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.io.IOException;
 /* loaded from: classes.dex */
 public class w {
-    private static w a = null;
-    private List<c> b = new ArrayList();
-    private List<Uri> c;
-    private String d;
-    private boolean e;
+    private static final String[] b = {"image/jpeg", "image/png", "image/gif"};
+    static final String[] a = {"_id", "datetaken", "date_added", "orientation", "_data"};
 
-    public static w a() {
-        if (a == null) {
-            a = new w();
-        }
-        return a;
+    protected static String a() {
+        return "(mime_type in (?, ?, ?))";
     }
 
-    private w() {
-        a(new ArrayList());
-        this.e = false;
+    protected static String[] b() {
+        return b;
     }
 
-    public int b() {
-        return this.b.size();
+    protected static String c() {
+        return String.valueOf("case ifnull(datetaken,0) when 0 then date_modified*1000 else datetaken end") + " DESC, _id DESC";
     }
 
-    public int a(Uri uri) {
-        if (uri == null || this.b == null) {
-            return -1;
-        }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.b.size()) {
-                return -1;
-            }
-            if (!this.b.get(i2).d.equals(uri)) {
-                i = i2 + 1;
+    protected static Cursor a(ContentResolver contentResolver, Uri uri) {
+        Cursor query;
+        try {
+            if (uri.getScheme().startsWith("file")) {
+                String[] strArr = {""};
+                strArr[0] = uri.getPath();
+                query = MediaStore.Images.Media.query(contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, a, "(_data=?)", strArr, c());
             } else {
-                return i2;
+                query = MediaStore.Images.Media.query(contentResolver, uri, a, a(), b(), c());
             }
+            return query;
+        } catch (Exception e) {
+            return null;
         }
     }
 
-    public void a(c cVar) {
-        this.b.add(cVar);
-    }
-
-    public void c() {
-        this.b.clear();
-    }
-
-    public c a(int i) {
-        return this.b.get(i);
-    }
-
-    public int a(Context context) {
-        return c(context).size();
-    }
-
-    public boolean a(Context context, Uri uri) {
-        boolean z;
-        if (a(context) >= 10) {
-            return false;
-        }
-        try {
-            int dimension = (int) context.getResources().getDimension(com.baidu.tieba.p.jigsawSelectedImageWidth);
-            if (b.b(context, uri, dimension, dimension) == null) {
-                aa.a(com.baidu.tieba.u.open_error);
-                return false;
-            }
-            Iterator<Uri> it = c(context).iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = false;
-                    break;
-                } else if (it.next().equals(uri)) {
-                    z = true;
-                    break;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public static int a(Context context, Uri uri, boolean z) {
+        int i = 0;
+        Cursor a2 = a(context.getContentResolver(), uri);
+        if (a2 != null) {
+            try {
+                a2.moveToFirst();
+                i = a2.getInt(3);
+                if (a2 != null) {
+                    try {
+                        a2.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
+            } catch (Exception e2) {
+                if (a2 != null) {
+                    try {
+                        a2.close();
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                    }
+                }
+            } catch (Throwable th) {
+                if (a2 != null) {
+                    try {
+                        a2.close();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
             }
-            if (z) {
-                return false;
-            }
-            c(context).add(uri);
-            return true;
-        } catch (OtherException e) {
-            e.printStackTrace();
-            aa.a(com.baidu.tieba.u.open_error);
-            return false;
-        } catch (FileNotFoundException e2) {
-            e2.printStackTrace();
-            aa.a(com.baidu.tieba.u.open_error);
-            return false;
-        } catch (OutOfMemoryError e3) {
-            e3.printStackTrace();
-            aa.a(com.baidu.tieba.u.open_error);
-            return false;
         }
+        return i;
     }
 
-    public void b(Context context, Uri uri) {
-        c(context).remove(uri);
-        f(context);
-    }
-
-    public void b(Context context) {
-        c(context).clear();
-        f(context);
-    }
-
-    private void a(List<Uri> list) {
-        this.c = list;
-    }
-
-    public List<Uri> c(Context context) {
-        this.c.size();
-        return this.c;
-    }
-
-    public int d(Context context) {
-        return c(context).size();
-    }
-
-    public void a(String str) {
-        this.d = str;
-    }
-
-    public String d() {
-        return this.d;
-    }
-
-    public String e(Context context) {
-        return String.format(context.getResources().getString(com.baidu.tieba.u.jigsaw_selected_text), Integer.valueOf(d(context)), Integer.valueOf(10 - d(context)));
-    }
-
-    public Bitmap a(Context context, c cVar, int i) {
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        Uri parse = Uri.parse(String.valueOf(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)) + "/" + String.valueOf(cVar.c));
-        try {
-            Bitmap a2 = b.a(context, parse, i, i);
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public static int b(Context context, Uri uri, boolean z) {
+        ContentResolver contentResolver = context.getContentResolver();
+        int b2 = b(contentResolver, uri);
+        if (b2 == 0) {
+            Cursor a2 = a(contentResolver, uri);
             if (a2 == null) {
-                return null;
+                return 0;
             }
             try {
-                int a3 = y.a(context, parse, false);
-                if (a3 != 0) {
-                    Matrix matrix = new Matrix();
-                    matrix.setRotate(a3);
-                    return Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
+                a2.moveToFirst();
+                int i = a2.getInt(3);
+                if (a2 == null) {
+                    return i;
                 }
-                return a2;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return bitmap2;
-            } catch (OutOfMemoryError e2) {
-                e2.printStackTrace();
-                return bitmap;
-            }
-        } catch (FileNotFoundException e3) {
-            e3.printStackTrace();
-            return null;
-        } catch (OutOfMemoryError e4) {
-            e4.printStackTrace();
-            return null;
-        }
-    }
-
-    public boolean e() {
-        boolean z = this.e;
-        this.e = false;
-        return z;
-    }
-
-    private void f(Context context) {
-    }
-
-    public boolean b(Uri uri) {
-        for (Uri uri2 : this.c) {
-            if (uri2.equals(uri)) {
-                return true;
+                try {
+                    a2.close();
+                    return i;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return i;
+                }
+            } catch (Exception e2) {
+                if (a2 != null) {
+                    try {
+                        a2.close();
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                return 0;
+            } catch (Throwable th) {
+                if (a2 != null) {
+                    try {
+                        a2.close();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
             }
         }
-        return false;
+        return b2;
     }
 
-    public Intent f() {
-        Intent intent = new Intent();
-        ArrayList<String> arrayList = new ArrayList<>();
-        for (Uri uri : this.c) {
-            arrayList.add(uri.toString());
+    private static int b(ContentResolver contentResolver, Uri uri) {
+        if (!uri.getScheme().startsWith("file")) {
+            return 0;
         }
-        intent.putStringArrayListExtra("selected_uris", arrayList);
-        return intent;
+        try {
+            int intValue = Integer.valueOf(new ExifInterface(uri.getPath()).getAttribute("Orientation")).intValue();
+            if (6 == intValue) {
+                return 90;
+            }
+            if (3 == intValue) {
+                return 180;
+            }
+            if (8 != intValue) {
+                return 0;
+            }
+            return 270;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return -1;
+        }
     }
 }

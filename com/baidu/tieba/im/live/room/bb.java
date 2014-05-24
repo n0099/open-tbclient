@@ -32,14 +32,14 @@ public class bb implements TextWatcher {
         if (editable == null || editable.toString().length() < 2) {
             button = this.a.c;
             liveRoomEntranceActivity = this.a.e;
-            button.setTextColor(liveRoomEntranceActivity.getResources().getColor(com.baidu.tieba.o.cp_cont_g_4c));
+            button.setTextColor(liveRoomEntranceActivity.getResources().getColor(com.baidu.tieba.s.cp_cont_g_4c));
             button2 = this.a.c;
             button2.setEnabled(false);
             return;
         }
         button3 = this.a.c;
         liveRoomEntranceActivity2 = this.a.e;
-        button3.setTextColor(liveRoomEntranceActivity2.getResources().getColor(com.baidu.tieba.o.cp_cont_g));
+        button3.setTextColor(liveRoomEntranceActivity2.getResources().getColor(com.baidu.tieba.s.cp_cont_g));
         button4 = this.a.c;
         button4.setEnabled(true);
     }

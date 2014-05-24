@@ -7,10 +7,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 public class FatalErrorService extends Service {
-    private d a = null;
+    private f mTask = null;
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008003, new c());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008003, new e());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -28,17 +28,17 @@ public class FatalErrorService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        if (this.a != null) {
-            this.a.cancel();
+        if (this.mTask != null) {
+            this.mTask.cancel();
         }
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.a == null) {
-            this.a = new d(this, null);
-            this.a.execute(new String[0]);
+        if (this.mTask == null) {
+            this.mTask = new f(this, null);
+            this.mTask.execute(new String[0]);
         }
     }
 }

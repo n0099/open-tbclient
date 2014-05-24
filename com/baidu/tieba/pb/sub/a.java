@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.sub;
 
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
 /* loaded from: classes.dex */
 public class a {
     private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/floor";
@@ -15,9 +15,9 @@ public class a {
         this.b = new al(a);
         this.b.a().a().a = true;
         this.b.a("kz", str);
-        int b = com.baidu.adp.lib.util.h.b(ad.c().d());
-        int c = com.baidu.adp.lib.util.h.c(ad.c().d());
-        float f = ad.c().d().getResources().getDisplayMetrics().density;
+        int b = com.baidu.adp.lib.util.k.b(ai.c().d());
+        int c = com.baidu.adp.lib.util.k.c(ai.c().d());
+        float f = ai.c().d().getResources().getDisplayMetrics().density;
         this.b.a("scr_w", String.valueOf(b));
         this.b.a("scr_h", String.valueOf(c));
         this.b.a("scr_dip", String.valueOf(f));

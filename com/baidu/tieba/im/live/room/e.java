@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import protobuf.QueryLiveGroupLikeList.LikeUserInfo;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.d {
+public class e extends com.baidu.adp.base.b {
     private String a;
     private int b;
     private int c;
@@ -48,12 +48,12 @@ public class e extends com.baidu.adp.base.d {
         return this.b;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }
@@ -90,6 +90,7 @@ public class e extends com.baidu.adp.base.d {
 
     public void i() {
         this.d++;
+        this.d *= this.e;
         f();
     }
 }

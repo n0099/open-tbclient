@@ -7,10 +7,10 @@ import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends BroadcastReceiver {
-    final /* synthetic */ ImagePbActivity a;
+    final /* synthetic */ ImagePbActivity this$0;
 
     private u(ImagePbActivity imagePbActivity) {
-        this.a = imagePbActivity;
+        this.this$0 = imagePbActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,20 +33,20 @@ public class u extends BroadcastReceiver {
         com.baidu.tieba.data.u uVar8;
         int intExtra = intent.getIntExtra("index", -1);
         if (intExtra >= 0) {
-            this.a.I = intExtra;
-            uVar4 = this.a.F;
+            this.this$0.I = intExtra;
+            uVar4 = this.this$0.F;
             if (uVar4 != null) {
                 int i3 = intExtra + 5;
-                uVar5 = this.a.F;
+                uVar5 = this.this$0.F;
                 if (i3 >= uVar5.g().size()) {
-                    uVar6 = this.a.F;
+                    uVar6 = this.this$0.F;
                     int size = uVar6.g().size();
-                    uVar7 = this.a.F;
+                    uVar7 = this.this$0.F;
                     if (size != uVar7.j()) {
-                        rVar = this.a.b;
+                        rVar = this.this$0.b;
                         if (rVar == null) {
-                            ImagePbActivity imagePbActivity = this.a;
-                            uVar8 = this.a.F;
+                            ImagePbActivity imagePbActivity = this.this$0;
+                            uVar8 = this.this$0.F;
                             imagePbActivity.a(uVar8.k(), 0, 10, false);
                             return;
                         }
@@ -58,14 +58,14 @@ public class u extends BroadcastReceiver {
             }
             return;
         }
-        i = this.a.I;
+        i = this.this$0.I;
         if (i != 0) {
-            i2 = this.a.I;
-            uVar = this.a.F;
+            i2 = this.this$0.I;
+            uVar = this.this$0.F;
             if (i2 >= uVar.j() - 1) {
-                uVar2 = this.a.F;
+                uVar2 = this.this$0.F;
                 int size2 = uVar2.g().size();
-                uVar3 = this.a.F;
+                uVar3 = this.this$0.F;
                 if (size2 != uVar3.j()) {
                     return;
                 }
@@ -74,7 +74,7 @@ public class u extends BroadcastReceiver {
             }
         }
         int intExtra2 = intent.getIntExtra("state", -1);
-        this.a.a(intExtra2);
+        this.this$0.a(intExtra2);
         BdLog.i(getClass().getName(), "find_bug_onReceive", "state=" + String.valueOf(intExtra2));
     }
 }

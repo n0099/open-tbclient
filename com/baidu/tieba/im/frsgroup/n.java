@@ -34,7 +34,7 @@ class n extends com.baidu.adp.framework.listener.b {
         oVar = this.a.b;
         oVar.a(false);
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
             return;
         }
         BdLog.d("msg:" + socketResponsedMessage.getCmd());
@@ -48,7 +48,7 @@ class n extends com.baidu.adp.framework.listener.b {
                     }
                     return;
                 }
-                this.a.showToast(com.baidu.tieba.u.neterror);
+                this.a.showToast(com.baidu.tieba.y.neterror);
                 return;
             }
             GroupLevelInfo groupLevelInfo = responseGroupLevelMessage.getGroupLevelInfo();
@@ -79,7 +79,7 @@ class n extends com.baidu.adp.framework.listener.b {
                     for (int i = 1; i < levelInfos.size(); i++) {
                         int maxMemberNum = levelInfos.get(i).getMaxMemberNum();
                         if (i <= c.length) {
-                            c[i].setText(this.a.getString(com.baidu.tieba.u.grouplevel_level_condition, new Object[]{String.valueOf(maxMemberNum)}));
+                            c[i].setText(this.a.getString(com.baidu.tieba.y.grouplevel_level_condition, new Object[]{String.valueOf(maxMemberNum)}));
                         }
                     }
                     oVar7 = this.a.b;
@@ -87,7 +87,7 @@ class n extends com.baidu.adp.framework.listener.b {
                     for (int i2 = 1; i2 < vipLevelInfos.size(); i2++) {
                         int maxMemberNum2 = vipLevelInfos.get(i2).getMaxMemberNum();
                         if (i2 <= d.length) {
-                            d[i2].setText(this.a.getString(com.baidu.tieba.u.grouplevel_level_condition, new Object[]{String.valueOf(maxMemberNum2)}));
+                            d[i2].setText(this.a.getString(com.baidu.tieba.y.grouplevel_level_condition, new Object[]{String.valueOf(maxMemberNum2)}));
                         }
                     }
                 }

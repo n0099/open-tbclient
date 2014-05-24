@@ -35,12 +35,12 @@ public class AccountRestoreActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.account_restore_activity);
+        setContentView(com.baidu.tieba.w.account_restore_activity);
         this.mPageType = getIntent().getStringExtra(PAGE_TYPE);
-        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.mNavigationBar.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.a(getString(com.baidu.tieba.u.anti_account_restore));
-        this.mWebView = (BaseWebView) findViewById(com.baidu.tieba.r.webview_acc_restore);
+        this.mNavigationBar.a(getString(com.baidu.tieba.y.anti_account_restore));
+        this.mWebView = (BaseWebView) findViewById(com.baidu.tieba.v.webview_acc_restore);
         this.mWebView.getSettings().setJavaScriptEnabled(true);
         this.mWebView.addJavascriptInterface(this, "AccountJsBridge");
         initCookie();

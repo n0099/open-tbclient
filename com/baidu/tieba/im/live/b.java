@@ -20,7 +20,7 @@ import com.baidu.tbadk.coreExtra.live.LiveStatusChangeMessage;
 import com.baidu.tieba.im.live.service.ILiveGroupManagerService;
 import com.baidu.tieba.im.live.service.IRemoteCallback;
 import com.baidu.tieba.im.live.service.LiveGroupManagerService;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class b {
     public static b a = new b();
@@ -44,14 +44,16 @@ public class b {
 
     public void a() {
         if (a != null) {
-            BdLog.d("onAccountChanged");
-            r();
-            this.d = TbadkApplication.getCurrentAccount();
-            String currentBduss = TbadkApplication.getCurrentBduss();
-            if (currentBduss != null) {
-                AccessTokenManager.getInstance().getAccesssTokenInBackground(currentBduss);
-            } else {
-                this.c = null;
+            BdLog.d("onAccountChanged, and init flag is " + this.e);
+            if (this.e) {
+                s();
+                this.d = TbadkApplication.getCurrentAccount();
+                String currentBduss = TbadkApplication.getCurrentBduss();
+                if (currentBduss != null) {
+                    AccessTokenManager.getInstance().getAccesssTokenInBackground(currentBduss);
+                } else {
+                    this.c = null;
+                }
             }
         }
     }
@@ -73,7 +75,7 @@ public class b {
             MessageManager.getInstance().registerListener(this.n);
             AccessTokenManager.getInstance().getAccesssTokenInBackground(TbadkApplication.getCurrentBduss());
             this.d = TbadkApplication.getCurrentAccount();
-            t();
+            u();
             f();
             this.e = true;
         }
@@ -330,7 +332,19 @@ public class b {
         return 0;
     }
 
-    public int p() {
+    public void p() {
+        try {
+            if (this.o != null) {
+                this.o.retryPlay();
+            }
+        } catch (RemoteException e) {
+            BdLog.e("LiveGroupManager", "retryPlay", e);
+            TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
+            e(LiveStatusChangeDefinition.ERROR_PROMPT_SERVICE_CRASHED);
+        }
+    }
+
+    public int q() {
         try {
             if (this.o != null) {
                 return this.o.getRecordStatus();
@@ -343,7 +357,7 @@ public class b {
         return 1;
     }
 
-    public int q() {
+    public int r() {
         try {
             if (this.o != null) {
                 return this.o.whatIsRunning();
@@ -356,7 +370,7 @@ public class b {
         return -1;
     }
 
-    public void r() {
+    public void s() {
         BdLog.d("stopAnyRunning status= " + g());
         try {
             if (this.o != null) {
@@ -372,13 +386,13 @@ public class b {
     public void a(String str, String str2, String str3, String str4, boolean z) {
         if (str2 != null && str4 != null) {
             if (this.c == null) {
-                UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), u.live_error_accesstoken_null_or_expire);
+                UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_accesstoken_null_or_expire);
                 AccessTokenManager.getInstance().getAccesssTokenInBackground(TbadkApplication.getCurrentBduss());
                 BdLog.e("The access token is null yet.");
                 TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_TOKEN_EXPIRED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_TOKEN_EXPIRED), "");
                 e(LiveStatusChangeDefinition.ERROR_PROMPT_TOKEN_EXPIRED);
             } else if (this.d == null) {
-                UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), u.live_error_user_not_login);
+                UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_user_not_login);
                 BdLog.e("The user ID is null yet.");
                 e(LiveStatusChangeDefinition.ERROR_PROMPT_USER_NULL);
             } else {
@@ -396,7 +410,7 @@ public class b {
         }
     }
 
-    public int s() {
+    public int t() {
         try {
             if (this.o == null) {
                 return 0;
@@ -407,6 +421,20 @@ public class b {
             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
             e(LiveStatusChangeDefinition.ERROR_PROMPT_SERVICE_CRASHED);
             return 0;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(boolean z) {
+        BdLog.d("setPublisherPaused: " + z);
+        try {
+            if (this.o != null) {
+                this.o.setPublisherPaused(z);
+            }
+        } catch (RemoteException e) {
+            BdLog.e("LiveGroupManager", "setPublisherPaused", e);
+            TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
+            e(LiveStatusChangeDefinition.ERROR_PROMPT_SERVICE_CRASHED);
         }
     }
 
@@ -432,7 +460,7 @@ public class b {
         MessageManager.getInstance().dispatchResponsedMessageToUI(playProgressChangedMessage);
     }
 
-    private void t() {
+    private void u() {
         TbadkApplication.m252getInst().getApp().bindService(new Intent(LiveGroupManagerService.ACTION), this.r, 1);
     }
 }

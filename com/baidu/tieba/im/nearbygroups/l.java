@@ -10,10 +10,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.o;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
+import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 import java.text.DecimalFormat;
 /* loaded from: classes.dex */
 public class l implements a {
@@ -58,14 +58,14 @@ public class l implements a {
             this.g.setText(lVar.e());
             String f = lVar.f();
             this.d.setTag(null);
-            this.d.setDefaultResource(q.avatar_poto_defaul140);
+            this.d.setDefaultResource(u.avatar_poto_defaul140);
             this.d.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             this.d.setDrawBorder(true);
             if (!TextUtils.isEmpty(f)) {
                 this.d.setTag(f);
             }
             if (lVar.m()) {
-                bc.a(this.e, o.im_group_vip_text, 1);
+                bc.a(this.e, s.im_group_vip_text, 1);
             } else {
                 this.b.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
                 this.b.getLayoutMode().a(this.e);
@@ -109,9 +109,9 @@ public class l implements a {
 
     private void a(ImageView[] imageViewArr, int i, boolean z) {
         if (z) {
-            bc.c(imageViewArr[1], q.icon_vip_grade_big_small_s);
-            bc.c(imageViewArr[2], q.icon_vip_grade_big_small_s);
-            bc.c(imageViewArr[3], q.icon_vip_grade_big_small_s);
+            bc.c(imageViewArr[1], u.icon_vip_grade_big_small_s);
+            bc.c(imageViewArr[2], u.icon_vip_grade_big_small_s);
+            bc.c(imageViewArr[3], u.icon_vip_grade_big_small_s);
         } else {
             this.b.getLayoutMode().a(imageViewArr[1]);
             this.b.getLayoutMode().a(imageViewArr[2]);
@@ -131,22 +131,22 @@ public class l implements a {
     }
 
     public void b() {
-        this.c = LayoutInflater.from(this.b).inflate(s.im_group_list_item, (ViewGroup) null);
-        this.a = (LinearLayout) this.c.findViewById(r.list_item);
-        this.p = (TextView) this.c.findViewById(r.isMeizi);
-        this.q = (TextView) this.c.findViewById(r.isNewCreate);
-        this.r = (TextView) this.c.findViewById(r.isRecentlyReplay);
-        this.o = (LinearLayout) this.c.findViewById(r.list_item_content);
-        this.l = (TextView) this.c.findViewById(r.tv_im_line_bottom);
-        this.m = (TextView) this.c.findViewById(r.tv_distance);
-        this.n = (TextView) this.c.findViewById(r.tv_top_distance);
-        this.d = (HeadImageView) this.c.findViewById(r.item_head);
-        this.e = (TextView) this.c.findViewById(r.item_group_name);
-        this.f = (TextView) this.c.findViewById(r.item_group_num);
-        this.g = (TextView) this.c.findViewById(r.item_introduce);
-        this.h = (ImageView) this.c.findViewById(r.item_grade1);
-        this.i = (ImageView) this.c.findViewById(r.item_grade2);
-        this.j = (ImageView) this.c.findViewById(r.item_grade3);
+        this.c = LayoutInflater.from(this.b).inflate(w.im_group_list_item, (ViewGroup) null);
+        this.a = (LinearLayout) this.c.findViewById(v.list_item);
+        this.p = (TextView) this.c.findViewById(v.isMeizi);
+        this.q = (TextView) this.c.findViewById(v.isNewCreate);
+        this.r = (TextView) this.c.findViewById(v.isRecentlyReplay);
+        this.o = (LinearLayout) this.c.findViewById(v.list_item_content);
+        this.l = (TextView) this.c.findViewById(v.tv_im_line_bottom);
+        this.m = (TextView) this.c.findViewById(v.tv_distance);
+        this.n = (TextView) this.c.findViewById(v.tv_top_distance);
+        this.d = (HeadImageView) this.c.findViewById(v.item_head);
+        this.e = (TextView) this.c.findViewById(v.item_group_name);
+        this.f = (TextView) this.c.findViewById(v.item_group_num);
+        this.g = (TextView) this.c.findViewById(v.item_introduce);
+        this.h = (ImageView) this.c.findViewById(v.item_grade1);
+        this.i = (ImageView) this.c.findViewById(v.item_grade2);
+        this.j = (ImageView) this.c.findViewById(v.item_grade3);
         this.k = new ImageView[4];
         this.k[1] = this.h;
         this.k[2] = this.i;

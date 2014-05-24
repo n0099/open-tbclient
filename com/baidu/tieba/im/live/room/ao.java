@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements com.baidu.tbadk.core.view.aa {
+public class ao implements com.baidu.tbadk.core.view.z {
     final /* synthetic */ an a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public class ao implements com.baidu.tbadk.core.view.aa {
         this.a = anVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.aa
+    @Override // com.baidu.tbadk.core.view.z
     public void a(int i) {
         List list;
         List list2;

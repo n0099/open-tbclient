@@ -1,23 +1,29 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.location.LocationClientOption;
+import java.util.ArrayList;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends com.baidu.tieba.im.b<LinkedList<String>> {
-    final /* synthetic */ x b;
-    private final /* synthetic */ String c;
+public class ax implements com.baidu.tieba.im.a<LinkedList<String>> {
+    final /* synthetic */ w a;
+    private final /* synthetic */ bu b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(x xVar, String str) {
-        this.b = xVar;
-        this.c = str;
+    public ax(w wVar, bu buVar) {
+        this.a = wVar;
+        this.b = buVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public LinkedList<String> a() {
-        return com.baidu.tieba.im.db.n.d().a(this.c, 2, (String) null, LocationClientOption.MIN_SCAN_SPAN);
+    @Override // com.baidu.tieba.im.a
+    public void a(LinkedList<String> linkedList) {
+        ArrayList<String> arrayList = new ArrayList<>();
+        while (!linkedList.isEmpty()) {
+            String a = com.baidu.tieba.im.f.r.a(linkedList.removeLast(), true);
+            if (a != null) {
+                arrayList.add(a);
+            }
+        }
+        this.b.a(arrayList);
     }
 }

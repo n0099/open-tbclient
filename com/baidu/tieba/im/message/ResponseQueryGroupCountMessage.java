@@ -71,6 +71,6 @@ public class ResponseQueryGroupCountMessage extends TbSocketReponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void processInBackGround(int i, byte[] bArr) {
-        saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().v(), CACHE_KEY_PREFIX, bArr);
+        saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().w(), CACHE_KEY_PREFIX, bArr);
     }
 }

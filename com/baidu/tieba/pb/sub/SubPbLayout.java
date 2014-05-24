@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.data.ah;
+import com.baidu.tieba.data.ai;
+import com.baidu.tieba.y;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -23,7 +23,7 @@ public class SubPbLayout extends ViewGroup {
     private View.OnLongClickListener b;
     private View.OnTouchListener c;
     private b d;
-    private ah e;
+    private ai e;
     private View f;
     private Queue<d> g;
     private View h;
@@ -38,7 +38,7 @@ public class SubPbLayout extends ViewGroup {
         this.f = null;
         this.g = new LinkedList();
         this.i = new ViewGroup.MarginLayoutParams(-1, -2);
-        this.h = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.s.new_sub_pb_list_more, (ViewGroup) null);
+        this.h = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.w.new_sub_pb_list_more, (ViewGroup) null);
         addView(this.h, -1, -2);
     }
 
@@ -58,8 +58,8 @@ public class SubPbLayout extends ViewGroup {
         this.d = bVar;
     }
 
-    public void a(ah ahVar, View view) {
-        this.e = ahVar;
+    public void a(ai aiVar, View view) {
+        this.e = aiVar;
         requestLayout();
         this.f = view;
     }
@@ -67,21 +67,21 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         SparseArray sparseArray;
-        if (this.e == null || this.e.a().size() == 0) {
+        if (this.e == null || this.e.i().size() == 0) {
             setMeasuredDimension(0, 0);
             return;
         }
         int i3 = i & 1073741823;
-        ArrayList<ah> a = this.e.a();
-        int size = a.size();
-        int i4 = 0;
+        ArrayList<ai> i4 = this.e.i();
+        int size = i4.size();
         int i5 = 0;
-        while (i4 < size) {
-            View childAt = getChildAt(i4);
+        int i6 = 0;
+        while (i5 < size) {
+            View childAt = getChildAt(i5);
             if (childAt == null || childAt.equals(this.h)) {
-                BdLog.d("SubPbLayout", "onMeasure", "Item View Created for position: " + i4);
+                BdLog.d("SubPbLayout", "onMeasure", "Item View Created for position: " + i5);
                 childAt = this.d.b();
-                this.g.offer(new d(i4, childAt, null));
+                this.g.offer(new d(i5, childAt, null));
             }
             View view = childAt;
             view.setOnClickListener(this.a);
@@ -96,37 +96,37 @@ public class SubPbLayout extends ViewGroup {
             } else {
                 sparseArray = sparseArray2;
             }
-            if (sparseArray.get(com.baidu.tieba.r.tag_load_sub_data) != this.e) {
-                sparseArray.put(com.baidu.tieba.r.tag_load_sub_data, this.e);
+            if (sparseArray.get(com.baidu.tieba.v.tag_load_sub_data) != this.e) {
+                sparseArray.put(com.baidu.tieba.v.tag_load_sub_data, this.e);
             }
-            sparseArray.put(com.baidu.tieba.r.tag_load_sub_view, this.f);
-            sparseArray.put(com.baidu.tieba.r.tag_is_subpb, true);
-            if (a.get(i4) != null && a.get(i4).g() != null) {
-                sparseArray.put(com.baidu.tieba.r.tag_photo_username, a.get(i4).g().getUserName());
-                sparseArray.put(com.baidu.tieba.r.tag_clip_board, a.get(i4));
+            sparseArray.put(com.baidu.tieba.v.tag_load_sub_view, this.f);
+            sparseArray.put(com.baidu.tieba.v.tag_is_subpb, true);
+            if (i4.get(i5) != null && i4.get(i5).o() != null) {
+                sparseArray.put(com.baidu.tieba.v.tag_photo_username, i4.get(i5).o().getUserName());
+                sparseArray.put(com.baidu.tieba.v.tag_clip_board, i4.get(i5));
             }
-            this.d.a((c) sparseArray.get(com.baidu.tieba.r.tag_holder), a.get(i4), this.e.k() > a.size() || a.size() - i4 > 1, i4 == 0);
+            this.d.a((c) sparseArray.get(com.baidu.tieba.v.tag_holder), i4.get(i5), this.e.s() > i4.size() || i4.size() - i5 > 1, i5 == 0);
             view.measure(((i3 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
-            i4++;
-            i5 += view.getMeasuredHeight();
+            i5++;
+            i6 += view.getMeasuredHeight();
         }
-        if (a != null && this.e.k() > a.size()) {
-            a(getContext(), (TextView) this.h.findViewById(com.baidu.tieba.r.sub_pb_more_text), this.e.k() - a.size());
+        if (i4 != null && this.e.s() > i4.size()) {
+            a(getContext(), (TextView) this.h.findViewById(com.baidu.tieba.v.sub_pb_more_text), this.e.s() - i4.size());
             this.h.setOnClickListener(this.a);
             SparseArray sparseArray4 = (SparseArray) this.h.getTag();
             if (sparseArray4 == null) {
                 sparseArray4 = new SparseArray();
                 this.h.setTag(sparseArray4);
             }
-            sparseArray4.put(com.baidu.tieba.r.tag_load_sub_data, this.e);
-            sparseArray4.put(com.baidu.tieba.r.tag_load_sub_view, this.f);
+            sparseArray4.put(com.baidu.tieba.v.tag_load_sub_data, this.e);
+            sparseArray4.put(com.baidu.tieba.v.tag_load_sub_view, this.f);
             this.h.setVisibility(0);
             this.h.measure(((i3 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             this.h.setBackgroundColor(0);
         } else {
             this.h.setVisibility(8);
         }
-        setMeasuredDimension(i3, (this.h.getVisibility() == 0 ? this.h.getMeasuredHeight() : 0) + i5 + getPaddingBottom() + getPaddingTop());
+        setMeasuredDimension(i3, (this.h.getVisibility() == 0 ? this.h.getMeasuredHeight() : 0) + i6 + getPaddingBottom() + getPaddingTop());
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -143,7 +143,7 @@ public class SubPbLayout extends ViewGroup {
             }
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            int size2 = this.e.a().size();
+            int size2 = this.e.i().size();
             int i7 = 0;
             int i8 = paddingTop;
             while (i7 < size2) {
@@ -173,16 +173,16 @@ public class SubPbLayout extends ViewGroup {
     }
 
     public static void a(Context context, TextView textView, int i) {
-        String string = ad.c().d().getString(com.baidu.tieba.u.sub_pb_load_more);
+        String string = com.baidu.tieba.ai.c().d().getString(y.sub_pb_load_more);
         String valueOf = String.valueOf(i);
         int indexOf = string.indexOf("%d");
         SpannableString spannableString = new SpannableString(string.replace("%d", valueOf));
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(com.baidu.tieba.o.sub_pb_more_text_1)), indexOf, valueOf.length() + indexOf, 33);
-            textView.setTextColor(context.getResources().getColor(com.baidu.tieba.o.sub_pb_more_text_1));
+            spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(com.baidu.tieba.s.sub_pb_more_text_1)), indexOf, valueOf.length() + indexOf, 33);
+            textView.setTextColor(context.getResources().getColor(com.baidu.tieba.s.sub_pb_more_text_1));
         } else {
-            spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(com.baidu.tieba.o.sub_pb_more_text)), indexOf, valueOf.length() + indexOf, 33);
-            textView.setTextColor(context.getResources().getColor(com.baidu.tieba.o.sub_pb_more_text));
+            spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(com.baidu.tieba.s.sub_pb_more_text)), indexOf, valueOf.length() + indexOf, 33);
+            textView.setTextColor(context.getResources().getColor(com.baidu.tieba.s.sub_pb_more_text));
         }
         textView.setText(spannableString);
     }
@@ -190,7 +190,7 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
-        int size = this.e.a().size();
+        int size = this.e.i().size();
         for (int i = 0; i < size; i++) {
             drawChild(canvas, getChildAt(i), drawingTime);
         }

@@ -87,7 +87,7 @@ class a extends ILiveGroupManagerService.Stub {
         fVar.f = str6;
         handler = this.a.mHandler;
         handler2 = this.a.mHandler;
-        handler.sendMessage(handler2.obtainMessage(5, fVar));
+        handler.sendMessage(handler2.obtainMessage(10, fVar));
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -111,7 +111,7 @@ class a extends ILiveGroupManagerService.Stub {
             return;
         }
         handler = this.a.mHandler;
-        handler.sendEmptyMessage(6);
+        handler.sendEmptyMessage(11);
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -135,7 +135,7 @@ class a extends ILiveGroupManagerService.Stub {
             return;
         }
         handler = this.a.mHandler;
-        handler.sendEmptyMessage(7);
+        handler.sendEmptyMessage(12);
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -159,7 +159,7 @@ class a extends ILiveGroupManagerService.Stub {
             return;
         }
         handler = this.a.mHandler;
-        handler.sendEmptyMessage(8);
+        handler.sendEmptyMessage(13);
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -183,7 +183,7 @@ class a extends ILiveGroupManagerService.Stub {
             return;
         }
         handler = this.a.mHandler;
-        handler.sendEmptyMessage(9);
+        handler.sendEmptyMessage(14);
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -207,7 +207,7 @@ class a extends ILiveGroupManagerService.Stub {
             return;
         }
         handler = this.a.mHandler;
-        handler.sendEmptyMessage(10);
+        handler.sendEmptyMessage(15);
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -231,7 +231,7 @@ class a extends ILiveGroupManagerService.Stub {
             return;
         }
         handler = this.a.mHandler;
-        handler.sendEmptyMessage(11);
+        handler.sendEmptyMessage(16);
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -255,7 +255,7 @@ class a extends ILiveGroupManagerService.Stub {
             return;
         }
         handler = this.a.mHandler;
-        handler.sendEmptyMessage(12);
+        handler.sendEmptyMessage(17);
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -278,7 +278,7 @@ class a extends ILiveGroupManagerService.Stub {
             eVar.c = i;
             handler = this.a.mHandler;
             handler2 = this.a.mHandler;
-            handler.sendMessage(handler2.obtainMessage(13, eVar));
+            handler.sendMessage(handler2.obtainMessage(18, eVar));
         }
     }
 
@@ -298,7 +298,7 @@ class a extends ILiveGroupManagerService.Stub {
             return;
         }
         handler = this.a.mHandler;
-        handler.sendEmptyMessage(14);
+        handler.sendEmptyMessage(19);
         if (!LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(str)) {
             try {
                 ((NotificationManager) this.a.getSystemService("notification")).cancel(20);
@@ -323,7 +323,7 @@ class a extends ILiveGroupManagerService.Stub {
             return;
         }
         handler = this.a.mHandler;
-        handler.sendEmptyMessage(15);
+        handler.sendEmptyMessage(20);
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -342,7 +342,7 @@ class a extends ILiveGroupManagerService.Stub {
             return;
         }
         handler = this.a.mHandler;
-        handler.sendEmptyMessage(16);
+        handler.sendEmptyMessage(21);
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -352,7 +352,7 @@ class a extends ILiveGroupManagerService.Stub {
         BdLog.d("seekPlayRecord to: " + i);
         handler = this.a.mHandler;
         handler2 = this.a.mHandler;
-        handler.sendMessage(handler2.obtainMessage(17, i, i));
+        handler.sendMessage(handler2.obtainMessage(22, i, i));
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -393,6 +393,24 @@ class a extends ILiveGroupManagerService.Stub {
             }
         }
         return 0;
+    }
+
+    @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
+    public void retryPlay() {
+        int i;
+        String str;
+        String str2;
+        int i2;
+        i = this.a.mStatus;
+        if (i != 19) {
+            i2 = this.a.mStatus;
+            if (i2 != 18) {
+                return;
+            }
+        }
+        str = this.a.mGroupId;
+        str2 = this.a.mUrl;
+        playOrRecord(null, str, null, str2, null, null, true);
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -476,7 +494,7 @@ class a extends ILiveGroupManagerService.Stub {
         int i4;
         String str9;
         String str10;
-        if (str2 == null || str4 == null || str5 == null) {
+        if (str2 == null || str4 == null) {
             return;
         }
         i = this.a.mStatus;
@@ -560,5 +578,15 @@ class a extends ILiveGroupManagerService.Stub {
         int i;
         i = this.a.mRecordTime;
         return i;
+    }
+
+    @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
+    public void setPublisherPaused(boolean z) {
+        int i;
+        i = this.a.mStatus;
+        if (i != 19) {
+            return;
+        }
+        this.a.mIsPublisherPaused = z;
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.tbadk.coreExtra.view.at;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y extends com.baidu.adp.base.e implements x {
+public class y extends com.baidu.adp.base.c implements x {
     private final InviteFriendListActivity a;
     private NavigationBar b;
     private View c;
@@ -39,22 +39,22 @@ public class y extends com.baidu.adp.base.e implements x {
     }
 
     private void l() {
-        this.a.setContentView(com.baidu.tieba.s.invite_friend_list);
-        this.c = this.a.findViewById(com.baidu.tieba.r.root_view);
-        this.b = (NavigationBar) this.c.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.b.a(com.baidu.tieba.u.invite_friend);
-        this.d = (SearchBar) this.c.findViewById(com.baidu.tieba.r.search_bar);
+        this.a.setContentView(com.baidu.tieba.w.invite_friend_list);
+        this.c = this.a.findViewById(com.baidu.tieba.v.root_view);
+        this.b = (NavigationBar) this.c.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.b.a(com.baidu.tieba.y.invite_friend);
+        this.d = (SearchBar) this.c.findViewById(com.baidu.tieba.v.search_bar);
         this.d.setOnClickListener(this.a);
-        this.d.setHint(this.a.getString(com.baidu.tieba.u.search));
+        this.d.setHint(this.a.getString(com.baidu.tieba.y.search));
         this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = (BdListView) this.c.findViewById(com.baidu.tieba.r.friend_list);
-        this.g = (LinearLayout) this.c.findViewById(com.baidu.tieba.r.no_data_container);
-        this.h = (ProgressBar) this.c.findViewById(com.baidu.tieba.r.progress);
-        this.i = (InviteFriendCandidateList) this.c.findViewById(com.baidu.tieba.r.candidate_list);
+        this.e = (BdListView) this.c.findViewById(com.baidu.tieba.v.friend_list);
+        this.g = (LinearLayout) this.c.findViewById(com.baidu.tieba.v.no_data_container);
+        this.h = (ProgressBar) this.c.findViewById(com.baidu.tieba.v.progress);
+        this.i = (InviteFriendCandidateList) this.c.findViewById(com.baidu.tieba.v.candidate_list);
         this.i.a(new ab(this));
-        this.j = (LinearLayout) this.c.findViewById(com.baidu.tieba.r.invite_candidate);
+        this.j = (LinearLayout) this.c.findViewById(com.baidu.tieba.v.invite_candidate);
         m();
-        this.k = (Button) this.c.findViewById(com.baidu.tieba.r.button_send);
+        this.k = (Button) this.c.findViewById(com.baidu.tieba.v.button_send);
         this.k.setOnClickListener(this.a);
         a();
         c();
@@ -73,9 +73,9 @@ public class y extends com.baidu.adp.base.e implements x {
         this.a.getLayoutMode().a((View) this.d);
         this.d.a(skinType);
         if (skinType == 1) {
-            this.l.setBackgroundResource(com.baidu.tieba.q.invite_friend_list_item_bg_color_1);
+            this.l.setBackgroundResource(com.baidu.tieba.u.invite_friend_list_item_bg_color_1);
         } else {
-            this.l.setBackgroundResource(com.baidu.tieba.q.invite_friend_list_item_bg_color);
+            this.l.setBackgroundResource(com.baidu.tieba.u.invite_friend_list_item_bg_color);
         }
     }
 
@@ -130,7 +130,7 @@ public class y extends com.baidu.adp.base.e implements x {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [284=4] */
     private void m() {
-        int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.invite_friend_candidate_item_height) + this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.invite_friend_candidate_padding_bottom) + this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.invite_friend_candidate_padding_top);
+        int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.invite_friend_candidate_item_height) + this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.invite_friend_candidate_padding_bottom) + this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.invite_friend_candidate_padding_top);
         this.l = new View(this.a);
         this.l.setLayoutParams(new AbsListView.LayoutParams(-1, dimensionPixelSize));
         this.e.addFooterView(this.l);
@@ -161,11 +161,11 @@ public class y extends com.baidu.adp.base.e implements x {
     }
 
     public void h() {
-        com.baidu.adp.lib.util.h.a(this.a, this.d.getEditText());
+        com.baidu.adp.lib.util.k.a(this.a, this.d.getEditText());
     }
 
     private void b(int i) {
-        this.k.setText(String.format(this.a.getString(com.baidu.tieba.u.invite_friend_candidate_send), Integer.valueOf(i)));
+        this.k.setText(String.format(this.a.getString(com.baidu.tieba.y.invite_friend_candidate_send), Integer.valueOf(i)));
     }
 
     public void i() {

@@ -1,98 +1,57 @@
 package com.baidu.tbadk.c;
 
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.as;
-import com.baidu.tbadk.core.atomData.at;
-import com.baidu.tbadk.core.atomData.au;
-import com.baidu.tbadk.core.atomData.m;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.coreExtra.act.LoginActivity;
-import java.net.URLDecoder;
+import com.baidu.android.common.security.RSAUtil;
+import java.math.BigInteger;
+import java.nio.charset.Charset;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes.dex */
 public class e {
-    public static boolean a(Context context, String str) {
-        if (str != null) {
-            try {
-                if (str.contains("jump=outer")) {
-                    com.baidu.tbadk.browser.a.c(context, str);
-                    return true;
-                }
-            } catch (Exception e) {
-                BdLog.e(e.class.getName(), "jumpTiebaNative", e.getMessage());
-            }
-        }
-        if (str != null && str.contains("jump=finish_this_page") && (context instanceof BaseActivity)) {
-            ((BaseActivity) context).finish();
-            return true;
-        }
-        if (str != null && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
-            if (str.contains("jumptoapp_browser=classic_everyday")) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.DAILY_CLASSICLA_CUSTOM_CMD, new com.baidu.tbadk.core.atomData.g(context)));
-                return true;
-            } else if (str.contains("jump_personalCenter=1") && str.contains("userid=") && str.contains("un=")) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new at(context, a(str, "userid="), a(str, "un="))));
-                return true;
-            } else if (str.contains("jump_chat=1")) {
-                String a = a(str, "userid=");
-                String a2 = a(str, "username=");
-                String a3 = a(str, "portrait=");
-                if (a != null && a.length() > 0) {
-                    try {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new au(context, Long.parseLong(a), a2, a3, 0)));
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2010012));
-                }
-                return true;
-            } else if (str.contains("kz=")) {
-                String a4 = a(str, "kz=");
-                if (a4 != null && a4.length() >= 0) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(context).a(a4, null, "allthread")));
-                }
-                return true;
-            } else if (str.contains("kw=")) {
-                String a5 = a(str, "kw=");
-                if (a5 != null && a5.length() >= 0) {
-                    if (context instanceof BaseActivity) {
-                        ((BaseActivity) context).sendMessage(new CustomMessage(2005000, new m(context).a(a5, "allthread")));
-                    } else if (context instanceof com.baidu.tbadk.core.e) {
-                        ((com.baidu.tbadk.core.e) context).a(new CustomMessage(2005000, new m(context).a(a5, "allthread")));
-                    }
-                }
-                return true;
-            } else if (str.contains("jumptologin=1") && (context instanceof Activity)) {
-                LoginActivity.a((Activity) context, "", true, 0);
-                return true;
-            } else if (str.contains("jumptobubble_list") && (context instanceof Activity)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.e(context)));
-                return true;
-            } else if (str.contains("pay=1") && (context instanceof Activity)) {
-                ((Activity) context).finish();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfig.BUBBLE_LIST_REFRESH));
-            }
-        }
-        return false;
+    public static final Charset a = Charset.forName("UTF-8");
+    private static final byte[] b = {-92, 11, -56, 52, -42, -107, -13, 19};
+
+    public static PublicKey a(byte[] bArr) {
+        return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
     }
 
-    public static String a(String str, String str2) {
-        int indexOf = str.indexOf(str2);
-        if (indexOf != -1) {
-            int length = str2.length() + indexOf;
-            int i = length;
-            while (i < str.length() && str.charAt(i) != '&') {
-                i++;
-            }
-            return URLDecoder.decode(str.substring(length, i));
+    public static byte[] a(PublicKey publicKey, byte[] bArr) {
+        Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
+        cipher.init(1, publicKey);
+        return cipher.doFinal(bArr);
+    }
+
+    public static SecretKey a(String str) {
+        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        char[] cArr = new char[str.length()];
+        for (int i = 0; i < cArr.length; i++) {
+            cArr[i] = (char) (((byte) str.charAt(i)) & 255);
         }
-        return "";
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, b, 5, 256));
+    }
+
+    public static byte[] a(SecretKey secretKey, byte[] bArr) {
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(1, secretKey);
+        return cipher.doFinal(bArr);
+    }
+
+    public static byte[] a(SecretKey secretKey, byte[] bArr, int i, int i2) {
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(2, secretKey);
+        return cipher.doFinal(bArr, i, i2);
+    }
+
+    public static String a(int i) {
+        String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
+        if (bigInteger.length() > i) {
+            return bigInteger.substring(0, bigInteger.length());
+        }
+        return bigInteger;
     }
 }

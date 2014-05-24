@@ -7,7 +7,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class aa extends e {
     private static aa a = new aa();
-    private LinkedList<ag> b;
+    private LinkedList<af> b;
 
     @Override // com.baidu.tbadk.editortool.e
     public int a() {
@@ -22,7 +22,7 @@ public class aa extends e {
         return aaVar;
     }
 
-    public List<ag> d() {
+    public List<af> d() {
         return this.b;
     }
 
@@ -41,9 +41,9 @@ public class aa extends e {
             }
             return;
         }
-        Iterator<ag> it = this.b.iterator();
+        Iterator<af> it = this.b.iterator();
         while (it.hasNext()) {
-            ag next = it.next();
+            af next = it.next();
             if (fVar != null) {
                 fVar.a(next);
             }

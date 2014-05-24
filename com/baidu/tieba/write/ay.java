@@ -15,7 +15,7 @@ public class ay implements DialogInterface.OnCancelListener {
     public void onCancel(DialogInterface dialogInterface) {
         com.baidu.tieba.model.ar arVar;
         com.baidu.tieba.model.ar arVar2;
-        this.a.DeinitWaitingDialog();
+        this.a.destroyWaitingDialog();
         arVar = this.a.E;
         if (arVar != null) {
             arVar2 = this.a.E;

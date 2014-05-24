@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class r implements View.OnClickListener {
     final /* synthetic */ o a;
@@ -42,7 +42,7 @@ class r implements View.OnClickListener {
         pluginDownloadActivity = this.a.a;
         if (UtilHelper.getNetStatusInfo(pluginDownloadActivity) == UtilHelper.NetworkStateInfo.UNAVAIL) {
             pluginDownloadActivity9 = this.a.a;
-            pluginDownloadActivity9.showToast(u.neterror);
+            pluginDownloadActivity9.showToast(y.neterror);
             return;
         }
         pluginDownloadActivity2 = this.a.a;

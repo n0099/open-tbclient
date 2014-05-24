@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
 public class LiveRoomReplayActivity extends BaseActivity {
@@ -117,9 +117,9 @@ public class LiveRoomReplayActivity extends BaseActivity {
     }
 
     private void a() {
-        setContentView(s.live_room_replay_activity);
-        this.b = findViewById(r.parent);
-        this.c = (NavigationBar) findViewById(r.view_navigation_bar);
+        setContentView(w.live_room_replay_activity);
+        this.b = findViewById(v.parent);
+        this.c = (NavigationBar) findViewById(v.view_navigation_bar);
         this.d = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.setOnClickListener(this);
         if (this.i == null) {
@@ -127,9 +127,9 @@ public class LiveRoomReplayActivity extends BaseActivity {
         } else {
             this.c.a(this.i);
         }
-        this.e = (LiveRoomReplayPlayer) findViewById(r.view_player);
+        this.e = (LiveRoomReplayPlayer) findViewById(v.view_player);
         this.e.getPauseOrPlayView().setOnClickListener(this);
-        this.f = (BdListView) findViewById(r.layout_other_live_list);
+        this.f = (BdListView) findViewById(v.layout_other_live_list);
         this.h = new i(this);
         this.f.setAdapter((ListAdapter) this.h);
     }
@@ -158,9 +158,9 @@ public class LiveRoomReplayActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        switch (com.baidu.tieba.im.live.b.b().q()) {
+        switch (com.baidu.tieba.im.live.b.b().r()) {
             case -1:
-                showToast(u.live_error_system_not_support);
+                showToast(y.live_error_system_not_support);
                 finish();
                 return;
             case 0:
@@ -181,9 +181,9 @@ public class LiveRoomReplayActivity extends BaseActivity {
     private void c() {
         BdNetUtil.NetworkStateInfo a = BdNetUtil.a();
         if (a == BdNetUtil.NetworkStateInfo.UNAVAIL) {
-            showToast(u.neterror);
+            showToast(y.neterror);
         } else if (a != BdNetUtil.NetworkStateInfo.WIFI) {
-            new AlertDialog.Builder(this).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(u.live_chat_room_nonwifi_prompts_play).setPositiveButton(u.live_chat_room_nonwifi_prompts_play_yes, new f(this)).setNegativeButton(u.live_chat_room_nonwifi_prompts_play_no, new g(this)).create().show();
+            new AlertDialog.Builder(this).setTitle("").setIcon((Drawable) null).setCancelable(false).setMessage(y.live_chat_room_nonwifi_prompts_play).setPositiveButton(y.live_chat_room_nonwifi_prompts_play_yes, new f(this)).setNegativeButton(y.live_chat_room_nonwifi_prompts_play_no, new g(this)).create().show();
         } else {
             this.l.sendEmptyMessage(1);
         }
@@ -202,7 +202,7 @@ public class LiveRoomReplayActivity extends BaseActivity {
             this.a.c(str, new h(this));
         }
         if (!StringUtils.isNull(str2)) {
-            this.e.getNameView().setText(String.valueOf(getString(u.live_chat_room_host_name_prefix)) + str2);
+            this.e.getNameView().setText(String.valueOf(getString(y.live_chat_room_host_name_prefix)) + str2);
         }
         this.e.getLikeView().setText(String.valueOf(i));
     }

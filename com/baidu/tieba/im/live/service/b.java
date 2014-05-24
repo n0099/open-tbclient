@@ -8,6 +8,7 @@ import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.util.Timer;
 /* loaded from: classes.dex */
 class b extends Handler {
@@ -18,7 +19,7 @@ class b extends Handler {
         this.a = liveGroupManagerService;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:72:0x0373, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x0378, code lost:
         if (r0 == 4) goto L98;
      */
     @Override // android.os.Handler
@@ -130,6 +131,16 @@ class b extends Handler {
                 this.a.notifyRecordTimeEvent(message.arg1);
                 return;
             case 5:
+                this.a.broadcastPlayWarningEvent(message.arg1);
+                return;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            default:
+                super.handleMessage(message);
+                return;
+            case 10:
                 i25 = this.a.mStatus;
                 if (i25 != 0) {
                     return;
@@ -189,7 +200,7 @@ class b extends Handler {
                     return;
                 }
                 return;
-            case 6:
+            case 11:
                 i24 = this.a.mStatus;
                 if (i24 != 3) {
                     return;
@@ -211,7 +222,7 @@ class b extends Handler {
                 timer8.cancel();
                 this.a.mRecordTimer = null;
                 return;
-            case 7:
+            case 12:
                 i23 = this.a.mStatus;
                 if (i23 != 4) {
                     return;
@@ -235,7 +246,7 @@ class b extends Handler {
                 timer6 = this.a.mRecordTimer;
                 timer6.schedule(cVar, 1000L, 1000L);
                 return;
-            case 8:
+            case 13:
                 z3 = this.a.mIsRecording;
                 if (z3) {
                     return;
@@ -267,7 +278,7 @@ class b extends Handler {
                 timer5 = this.a.mRecordTimer;
                 timer5.schedule(dVar, 1000L, 1000L);
                 return;
-            case 9:
+            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
                 z2 = this.a.mIsRecording;
                 if (!z2) {
                     return;
@@ -288,14 +299,14 @@ class b extends Handler {
                 this.a.mIsRecording = false;
                 this.a.mIsRecordPaused = false;
                 timer3 = this.a.mRecordTimer;
-                if (timer3 == null) {
-                    return;
+                if (timer3 != null) {
+                    timer4 = this.a.mRecordTimer;
+                    timer4.cancel();
+                    this.a.mRecordTimer = null;
                 }
-                timer4 = this.a.mRecordTimer;
-                timer4.cancel();
-                this.a.mRecordTimer = null;
+                this.a.mRecordTime = 0;
                 return;
-            case 10:
+            case 15:
                 i9 = this.a.mStatus;
                 if (i9 != 1) {
                     i13 = this.a.mStatus;
@@ -346,7 +357,7 @@ class b extends Handler {
                     return;
                 }
                 return;
-            case 11:
+            case 16:
                 i8 = this.a.mStatus;
                 if (i8 != 2) {
                     return;
@@ -354,7 +365,7 @@ class b extends Handler {
                 liveSenderControl2 = this.a.mLiveSenderControl;
                 liveSenderControl2.start();
                 return;
-            case 12:
+            case 17:
                 i6 = this.a.mStatus;
                 if (i6 != 3) {
                     i7 = this.a.mStatus;
@@ -365,7 +376,7 @@ class b extends Handler {
                 liveSenderControl = this.a.mLiveSenderControl;
                 liveSenderControl.stop();
                 return;
-            case 13:
+            case 18:
                 e eVar = (e) message.obj;
                 if (eVar == null) {
                     return;
@@ -392,7 +403,7 @@ class b extends Handler {
                 livePlayerControl10 = this.a.mPlayerCtrl;
                 livePlayerControl10.start();
                 return;
-            case 14:
+            case 19:
                 livePlayerControl7 = this.a.mPlayerCtrl;
                 if (livePlayerControl7 == null) {
                     return;
@@ -400,7 +411,7 @@ class b extends Handler {
                 livePlayerControl8 = this.a.mPlayerCtrl;
                 livePlayerControl8.exit();
                 return;
-            case 15:
+            case 20:
                 livePlayerControl5 = this.a.mPlayerCtrl;
                 if (livePlayerControl5 == null) {
                     return;
@@ -412,7 +423,7 @@ class b extends Handler {
                 livePlayerControl6 = this.a.mPlayerCtrl;
                 livePlayerControl6.pause();
                 return;
-            case 16:
+            case TbConfig.NOTIFY_LIVE_NOTIFY /* 21 */:
                 livePlayerControl3 = this.a.mPlayerCtrl;
                 if (livePlayerControl3 == null) {
                     return;
@@ -424,7 +435,7 @@ class b extends Handler {
                 livePlayerControl4 = this.a.mPlayerCtrl;
                 livePlayerControl4.play();
                 return;
-            case 17:
+            case 22:
                 str = this.a.mGroupId;
                 if (!LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(str)) {
                     return;
@@ -445,9 +456,6 @@ class b extends Handler {
                     livePlayerControl2.seekTo(i27);
                     return;
                 }
-                return;
-            default:
-                super.handleMessage(message);
                 return;
         }
     }

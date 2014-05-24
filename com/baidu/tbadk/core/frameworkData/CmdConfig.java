@@ -16,6 +16,7 @@ public class CmdConfig {
     public static final int FRS_WATER_FALL_PHOTO_HTTP_CMD = 1007003;
     public static final int GETPAYINFO_CMD = 1007009;
     public static final int IMAGE_VIEWER_CUSTOM_CMD = 2012000;
+    public static final int INIT_HAO123_DATA = 2014117;
     public static final int JUMP_TO_NEW_GUIDE_HTTP_CMD = 1007020;
     public static final int LIVE_CARD_TIME_UPDATE = 2014113;
     public static final int MSG_NEW = 2014111;

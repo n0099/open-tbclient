@@ -13,7 +13,7 @@ public class z implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
             return null;
         }
-        List<com.baidu.adp.lib.cache.t<String>> a = com.baidu.adp.lib.util.l.a(com.baidu.tbadk.core.a.b.a().j());
+        List<com.baidu.adp.lib.cache.t<String>> a = com.baidu.adp.lib.util.o.a(com.baidu.tbadk.core.a.b.a().k());
         ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage();
         responseSearchGroupLocalMessage.setCacheList(a);
         return responseSearchGroupLocalMessage;

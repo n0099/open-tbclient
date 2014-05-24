@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 public class b implements a {
     private static a a;
     private int b;
-    private final e c = new e();
+    private final f c = new f();
 
     public b() {
         this.b = 0;

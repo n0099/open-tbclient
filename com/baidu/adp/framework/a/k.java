@@ -29,7 +29,7 @@ public class k {
 
     public void a(h<?, ?> hVar) {
         if (hVar != null) {
-            com.baidu.adp.lib.util.h.b();
+            com.baidu.adp.lib.util.k.b();
             if (hVar instanceof f) {
                 FrameHelper.a(this.a, (f) hVar);
             } else if (hVar instanceof n) {
@@ -44,7 +44,7 @@ public class k {
 
     public void b(h<?, ?> hVar) {
         if (hVar != null) {
-            com.baidu.adp.lib.util.h.b();
+            com.baidu.adp.lib.util.k.b();
             if (hVar instanceof f) {
                 this.a.remove(hVar);
             } else if (hVar instanceof n) {
@@ -59,7 +59,7 @@ public class k {
 
     public void a(g<?> gVar) {
         if (gVar != null) {
-            com.baidu.adp.lib.util.h.b();
+            com.baidu.adp.lib.util.k.b();
             if (gVar instanceof d) {
                 FrameHelper.a(this.g, (d) gVar);
             } else if (gVar instanceof l) {
@@ -74,7 +74,7 @@ public class k {
 
     public void a(i<?> iVar) {
         if (iVar != null) {
-            com.baidu.adp.lib.util.h.b();
+            com.baidu.adp.lib.util.k.b();
             if (iVar instanceof e) {
                 FrameHelper.a(this.d, (e) iVar);
             } else if (iVar instanceof m) {
@@ -89,7 +89,7 @@ public class k {
 
     public void b(i<?> iVar) {
         if (iVar != null) {
-            com.baidu.adp.lib.util.h.b();
+            com.baidu.adp.lib.util.k.b();
             if (iVar instanceof e) {
                 this.d.remove(iVar);
             } else if (iVar instanceof m) {

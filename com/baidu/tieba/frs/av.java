@@ -1,23 +1,30 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class av implements Runnable {
+class av extends CustomMessageListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(FrsActivity frsActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public av(FrsActivity frsActivity, int i) {
+        super(i);
         this.a = frsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        cs csVar;
-        g gVar;
-        csVar = this.a.w;
-        BdListView L = csVar.L();
-        int uniqueId = this.a.getUniqueId();
-        gVar = this.a.I;
-        com.baidu.tbadk.core.util.ay.a(L, uniqueId, gVar.o() == 1 ? 13 : 14);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ct ctVar;
+        ct ctVar2;
+        if (customResponsedMessage != null) {
+            ctVar = this.a.w;
+            if (ctVar != null) {
+                ctVar2 = this.a.w;
+                ctVar2.S();
+            }
+        }
     }
 }

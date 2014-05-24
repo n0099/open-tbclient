@@ -30,15 +30,15 @@ public class x {
     public static String b() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("removed")) {
-            return TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.u.error_no_sdcard);
+            return TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.y.error_no_sdcard);
         }
         if (externalStorageState.equals("unmounted") || externalStorageState.equals("unmountable")) {
-            return TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.u.error_sd_unmount);
+            return TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.y.error_sd_unmount);
         }
         if (externalStorageState.equals("shared")) {
-            return TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.u.error_sd_shared);
+            return TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.y.error_sd_shared);
         }
-        return TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.u.error_sd_error);
+        return TbadkApplication.m252getInst().getApp().getString(com.baidu.tieba.y.error_sd_error);
     }
 
     public static boolean a(String str) {
@@ -183,7 +183,7 @@ public class x {
                 fileInputStream = new FileInputStream(new File(sb.append(str2).toString()));
                 try {
                     byte[] bArr = new byte[7];
-                    z = fileInputStream.read(bArr, 0, 6) == 6 ? com.baidu.adp.lib.util.h.a(bArr) : false;
+                    z = fileInputStream.read(bArr, 0, 6) == 6 ? com.baidu.adp.lib.util.k.a(bArr) : false;
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
@@ -1355,12 +1355,12 @@ public class x {
             return -1;
         }
         try {
-            if (!com.baidu.adp.lib.util.h.a(bArr)) {
+            if (!com.baidu.adp.lib.util.k.a(bArr)) {
                 str2 = ".jpg";
             } else {
                 str2 = ".gif";
             }
-            if (com.baidu.adp.lib.util.h.b(bArr)) {
+            if (com.baidu.adp.lib.util.k.b(bArr)) {
                 Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
                 if (decodeByteArray != null) {
                     bArr = com.baidu.adp.lib.util.b.a().a(decodeByteArray, 100);

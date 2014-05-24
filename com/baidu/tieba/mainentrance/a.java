@@ -19,7 +19,7 @@ public class a extends BaseAdapter {
     public a(BaseActivity baseActivity, ArrayList<String> arrayList) {
         this.a = baseActivity;
         this.b = arrayList;
-        this.c = this.a.getText(com.baidu.tieba.u.forum).toString();
+        this.c = this.a.getText(com.baidu.tieba.y.forum).toString();
     }
 
     public void a(ArrayList<String> arrayList) {
@@ -66,11 +66,11 @@ public class a extends BaseAdapter {
         Object item;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.home_dialog_search_item, (ViewGroup) null);
+                view3 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.home_dialog_search_item, (ViewGroup) null);
                 try {
                     bVar = new b(this, null);
-                    bVar.a = (TextView) view3.findViewById(com.baidu.tieba.r.home_lv_search_forum);
-                    bVar.b = view3.findViewById(com.baidu.tieba.r.home_dialog_lv_search_forum_divider);
+                    bVar.a = (TextView) view3.findViewById(com.baidu.tieba.v.home_lv_search_forum);
+                    bVar.b = view3.findViewById(com.baidu.tieba.v.home_dialog_lv_search_forum_divider);
                     view3.setTag(bVar);
                 } catch (Exception e) {
                     view2 = view3;
@@ -93,10 +93,10 @@ public class a extends BaseAdapter {
         }
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             bVar.a.setTextColor(-6574132);
-            bVar.b.setBackgroundColor(this.a.getResources().getColor(com.baidu.tieba.o.square_dividing_line_1));
+            bVar.b.setBackgroundColor(this.a.getResources().getColor(com.baidu.tieba.s.square_dividing_line_1));
         } else {
             bVar.a.setTextColor(-13553101);
-            bVar.b.setBackgroundColor(this.a.getResources().getColor(com.baidu.tieba.o.square_dividing_line));
+            bVar.b.setBackgroundColor(this.a.getResources().getColor(com.baidu.tieba.s.square_dividing_line));
         }
         String str = (String) item;
         if (this.d) {
@@ -114,13 +114,13 @@ public class a extends BaseAdapter {
         int skinType = TbadkApplication.m252getInst().getSkinType();
         this.a.getLayoutMode().a(skinType == 1);
         this.a.getLayoutMode().a(view);
-        View findViewById = view.findViewById(com.baidu.tieba.r.parent);
+        View findViewById = view.findViewById(com.baidu.tieba.v.parent);
         if (skinType == 1) {
             if (findViewById != null) {
-                findViewById.setBackgroundResource(com.baidu.tieba.q.common_list_item_bg_selector_1);
+                findViewById.setBackgroundResource(com.baidu.tieba.u.common_list_item_bg_selector_1);
             }
         } else if (findViewById != null) {
-            findViewById.setBackgroundResource(com.baidu.tieba.q.common_list_item_bg_selector);
+            findViewById.setBackgroundResource(com.baidu.tieba.u.common_list_item_bg_selector);
         }
     }
 }

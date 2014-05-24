@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.resourceLoader;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.g;
 /* loaded from: classes.dex */
@@ -81,7 +81,7 @@ public class e extends a {
             if (eVar.e == null) {
                 return null;
             }
-            eVar.h = eVar.a.d || h.a(a);
+            eVar.h = eVar.a.d || k.a(a);
             if (eVar.n) {
                 return null;
             }

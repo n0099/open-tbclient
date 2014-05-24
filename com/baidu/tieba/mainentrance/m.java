@@ -21,11 +21,11 @@ class m implements DialogInterface.OnClickListener {
         if (i2 == 0) {
             com.baidu.tieba.util.k.j();
             squareSearchActivity3 = this.a.a;
-            squareSearchActivity3.i();
+            squareSearchActivity3.j();
             return;
         }
         com.baidu.tieba.util.k.k();
         squareSearchActivity2 = this.a.a;
-        squareSearchActivity2.j();
+        squareSearchActivity2.k();
     }
 }

@@ -17,41 +17,41 @@ class l implements com.baidu.tieba.model.as {
 
     @Override // com.baidu.tieba.model.as
     public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.f fVar, WriteData writeData, AntiData antiData) {
-        cs csVar;
-        cs csVar2;
+        ct ctVar;
+        ct ctVar2;
         WriteImagesInfo writeImagesInfo;
-        cs csVar3;
+        ct ctVar3;
         com.baidu.tieba.model.ar arVar;
         com.baidu.tieba.model.ar arVar2;
         com.baidu.tieba.model.ar arVar3;
-        com.baidu.tbadk.core.data.o oVar;
-        com.baidu.tbadk.core.data.o oVar2;
-        com.baidu.tbadk.core.data.o oVar3;
-        cs csVar4;
-        this.a.K();
-        csVar = this.a.w;
-        csVar.g(z);
-        csVar2 = this.a.w;
-        writeImagesInfo = this.a.Z;
-        csVar2.a(writeImagesInfo, true);
+        com.baidu.tbadk.core.data.n nVar;
+        com.baidu.tbadk.core.data.n nVar2;
+        com.baidu.tbadk.core.data.n nVar3;
+        ct ctVar4;
+        this.a.L();
+        ctVar = this.a.w;
+        ctVar.g(z);
+        ctVar2 = this.a.w;
+        writeImagesInfo = this.a.Y;
+        ctVar2.a(writeImagesInfo, true);
         if (z) {
-            csVar3 = this.a.w;
-            csVar3.U();
-            com.baidu.tieba.pb.main.bg.a().f();
-            arVar = this.a.ac;
+            ctVar3 = this.a.w;
+            ctVar3.U();
+            com.baidu.tieba.pb.main.bn.a().f();
+            arVar = this.a.ab;
             arVar.a();
-            arVar2 = this.a.ac;
+            arVar2 = this.a.ab;
             arVar2.a((WriteData) null);
-            arVar3 = this.a.ac;
+            arVar3 = this.a.ab;
             arVar3.a(false);
             this.a.a(antiData, str);
-            oVar = this.a.ab;
-            com.baidu.tieba.util.m.b(oVar.l(), (WriteData) null);
-            oVar2 = this.a.ab;
-            oVar3 = this.a.ab;
-            oVar2.b(oVar3.n() + 1);
-            csVar4 = this.a.w;
-            csVar4.z();
+            nVar = this.a.aa;
+            com.baidu.tieba.util.m.b(nVar.q(), (WriteData) null);
+            nVar2 = this.a.aa;
+            nVar3 = this.a.aa;
+            nVar2.b(nVar3.s() + 1);
+            ctVar4 = this.a.w;
+            ctVar4.z();
         } else if (fVar != null && writeData != null && fVar.b() != null) {
             if (!AntiHelper.c(antiData)) {
                 writeData.setVcodeMD5(fVar.a());
@@ -60,7 +60,7 @@ class l implements com.baidu.tieba.model.as {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ap(this.a, 12006, writeData, false)));
                     return;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bg(this.a, writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bh(this.a, writeData, 12006)));
                     return;
                 }
             }

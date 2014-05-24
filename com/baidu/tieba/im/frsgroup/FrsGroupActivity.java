@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.RadioGroup;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
@@ -15,7 +16,7 @@ import com.baidu.tieba.im.creategroup.CreateGroupMainActivity;
 import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes.dex */
-public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
+public class FrsGroupActivity extends BaseFragmentActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
     private k c;
     private com.baidu.tieba.im.model.k d;
     private final com.baidu.adp.framework.listener.b e = new a(this, MessageTypes.CMD_GET_USER_PERMISSION);
@@ -25,7 +26,7 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle, (Intent) null);
@@ -49,14 +50,14 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         b(TbadkApplication.m252getInst().getSkinType());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
     }
@@ -105,7 +106,7 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
         this.d.b(this.e);
     }
 
-    @Override // com.baidu.tbadk.core.e
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
         this.c.c(i);
     }
@@ -113,7 +114,7 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
     private void a(boolean z) {
         Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.c.a()[h()]);
         if (z || findFragmentByTag == null) {
-            getSupportFragmentManager().beginTransaction().add(com.baidu.tieba.r.fragment, this.c.d()[h()], this.c.a()[h()]).commit();
+            getSupportFragmentManager().beginTransaction().add(com.baidu.tieba.v.fragment, this.c.d()[h()], this.c.a()[h()]).commit();
         } else {
             getSupportFragmentManager().beginTransaction().show(this.c.d()[h()]).commit();
         }
@@ -129,7 +130,7 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
         return this.d.g() - 1;
     }
 
-    @Override // com.baidu.adp.base.b, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.c.e()) {
             k();
@@ -182,11 +183,11 @@ public class FrsGroupActivity extends com.baidu.tbadk.core.e implements View.OnC
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         j();
-        if (i == com.baidu.tieba.r.radio_recommend) {
+        if (i == com.baidu.tieba.v.radio_recommend) {
             this.d.a(1);
-        } else if (i == com.baidu.tieba.r.radio_hot) {
+        } else if (i == com.baidu.tieba.v.radio_hot) {
             this.d.a(2);
-        } else if (i == com.baidu.tieba.r.radio_official) {
+        } else if (i == com.baidu.tieba.v.radio_official) {
             this.d.a(3);
         }
         this.c.a(h());

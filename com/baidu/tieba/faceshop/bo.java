@@ -1,6 +1,6 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
-class bo extends com.baidu.adp.base.g {
+class bo extends com.baidu.adp.base.e {
     final /* synthetic */ FaceShopActivity a;
     private final /* synthetic */ int b;
 
@@ -10,7 +10,7 @@ class bo extends com.baidu.adp.base.g {
         this.b = i;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         if (obj != null && (obj instanceof FaceBuyQueryData)) {
             FaceBuyQueryData faceBuyQueryData = (FaceBuyQueryData) obj;

@@ -50,7 +50,7 @@ public class EmotionManageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.activity_emotion_manage);
+        setContentView(com.baidu.tieba.w.activity_emotion_manage);
         a();
         b();
         a(true);
@@ -71,24 +71,24 @@ public class EmotionManageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.f.c(i);
-        com.baidu.tbadk.core.util.bc.f((View) this.h, com.baidu.tieba.q.navi_del_text_bg);
+        com.baidu.tbadk.core.util.bc.f((View) this.h, com.baidu.tieba.u.navi_del_text_bg);
     }
 
     private void a() {
-        this.e = (LinearLayout) findViewById(com.baidu.tieba.r.emotion_manage_root);
-        this.f = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.f.a(com.baidu.tieba.u.title_activity_emotion_manage);
+        this.e = (LinearLayout) findViewById(com.baidu.tieba.v.emotion_manage_root);
+        this.f = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.f.a(com.baidu.tieba.y.title_activity_emotion_manage);
         this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.h = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, String.valueOf(getString(com.baidu.tieba.u.delete)) + "(" + this.b.size() + ")", this.q);
+        this.h = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, String.valueOf(getString(com.baidu.tieba.y.delete)) + "(" + this.b.size() + ")", this.q);
         f();
-        this.i = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.u.edit), this.q);
-        this.j = (TextView) findViewById(com.baidu.tieba.r.emotion_manager_title);
-        this.k = (ImageView) findViewById(com.baidu.tieba.r.emotion_manage_enter_line_list_up);
-        this.l = (BdListView) findViewById(com.baidu.tieba.r.emotion_manage_list);
+        this.i = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.y.edit), this.q);
+        this.j = (TextView) findViewById(com.baidu.tieba.v.emotion_manager_title);
+        this.k = (ImageView) findViewById(com.baidu.tieba.v.emotion_manage_enter_line_list_up);
+        this.l = (BdListView) findViewById(com.baidu.tieba.v.emotion_manage_list);
         this.l.setOnItemClickListener(this.r);
-        this.n = LayoutInflater.from(this).inflate(com.baidu.tieba.s.emotion_manage_list_footer, (ViewGroup) null);
+        this.n = LayoutInflater.from(this).inflate(com.baidu.tieba.w.emotion_manage_list_footer, (ViewGroup) null);
         this.l.addFooterView(this.n);
-        this.m = (TextView) this.n.findViewById(com.baidu.tieba.r.emotion_manage_enter_record);
+        this.m = (TextView) this.n.findViewById(com.baidu.tieba.v.emotion_manage_enter_record);
         this.m.setOnClickListener(this.q);
         getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
         getLayoutMode().a((View) this.e);
@@ -135,13 +135,13 @@ public class EmotionManageActivity extends BaseActivity {
     public void c() {
         if (this.a != null) {
             if (this.a.size() == 0) {
-                this.j.setText(com.baidu.tieba.u.emotion_manage_title_nodata);
+                this.j.setText(com.baidu.tieba.y.emotion_manage_title_nodata);
                 this.i.setEnabled(false);
                 this.k.setVisibility(8);
                 e();
                 return;
             }
-            this.j.setText(com.baidu.tieba.u.emotion_manage_title);
+            this.j.setText(com.baidu.tieba.y.emotion_manage_title);
             this.i.setEnabled(true);
             this.k.setVisibility(0);
         }
@@ -166,7 +166,7 @@ public class EmotionManageActivity extends BaseActivity {
         this.g.setVisibility(8);
         this.h.setVisibility(0);
         f();
-        this.i.setText(getString(com.baidu.tieba.u.cancel));
+        this.i.setText(getString(com.baidu.tieba.y.cancel));
         this.p = true;
         this.n.setVisibility(8);
     }
@@ -175,7 +175,7 @@ public class EmotionManageActivity extends BaseActivity {
     public void e() {
         this.g.setVisibility(0);
         this.h.setVisibility(8);
-        this.i.setText(getString(com.baidu.tieba.u.edit));
+        this.i.setText(getString(com.baidu.tieba.y.edit));
         this.p = false;
         this.n.setVisibility(0);
     }
@@ -183,22 +183,22 @@ public class EmotionManageActivity extends BaseActivity {
     private void f() {
         int size = this.b.size();
         int skinType = TbadkApplication.m252getInst().getSkinType();
-        this.h.setText(String.valueOf(getString(com.baidu.tieba.u.delete)) + "(" + size + ")");
+        this.h.setText(String.valueOf(getString(com.baidu.tieba.y.delete)) + "(" + size + ")");
         if (size == 0) {
             this.h.setEnabled(false);
             if (skinType == 1) {
-                this.h.setTextColor(getResources().getColor(com.baidu.tieba.o.emotion_manage_del_disable_1));
+                this.h.setTextColor(getResources().getColor(com.baidu.tieba.s.emotion_manage_del_disable_1));
                 return;
             } else {
-                this.h.setTextColor(getResources().getColor(com.baidu.tieba.o.emotion_manage_del_disable));
+                this.h.setTextColor(getResources().getColor(com.baidu.tieba.s.emotion_manage_del_disable));
                 return;
             }
         }
         this.h.setEnabled(true);
         if (skinType == 1) {
-            this.h.setTextColor(getResources().getColor(com.baidu.tieba.o.emotion_manage_del_enable_1));
+            this.h.setTextColor(getResources().getColor(com.baidu.tieba.s.emotion_manage_del_enable_1));
         } else {
-            this.h.setTextColor(getResources().getColor(com.baidu.tieba.o.emotion_manage_del_enable));
+            this.h.setTextColor(getResources().getColor(com.baidu.tieba.s.emotion_manage_del_enable));
         }
     }
 

@@ -27,12 +27,12 @@ public class k extends BdAsyncTask<Object, g, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        dg dgVar;
-        dg dgVar2;
-        dgVar = this.b.j;
-        if (dgVar != null) {
-            dgVar2 = this.b.j;
-            dgVar2.a(this.d);
+        dh dhVar;
+        dh dhVar2;
+        dhVar = this.b.j;
+        if (dhVar != null) {
+            dhVar2 = this.b.j;
+            dhVar2.a(this.d);
         }
     }
 
@@ -63,12 +63,12 @@ public class k extends BdAsyncTask<Object, g, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onProgressUpdate(g... gVarArr) {
-        dg dgVar;
-        dg dgVar2;
-        dgVar = this.b.j;
-        if (dgVar != null) {
-            dgVar2 = this.b.j;
-            dgVar2.a(gVarArr.length > 0 ? gVarArr[0] : null);
+        dh dhVar;
+        dh dhVar2;
+        dhVar = this.b.j;
+        if (dhVar != null) {
+            dhVar2 = this.b.j;
+            dhVar2.a(gVarArr.length > 0 ? gVarArr[0] : null);
         }
     }
 
@@ -96,13 +96,13 @@ public class k extends BdAsyncTask<Object, g, Void> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        dg dgVar;
-        dg dgVar2;
+        dh dhVar;
+        dh dhVar2;
         super.cancel(true);
-        dgVar = this.b.j;
-        if (dgVar != null) {
-            dgVar2 = this.b.j;
-            dgVar2.a(this.d, true, null);
+        dhVar = this.b.j;
+        if (dhVar != null) {
+            dhVar2 = this.b.j;
+            dhVar2.a(this.d, true, null);
         }
     }
 }

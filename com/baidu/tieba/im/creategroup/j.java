@@ -7,6 +7,7 @@ import com.baidu.tbadk.coreExtra.message.GroupUpdateMessage;
 import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.baidu.tieba.im.message.RequestAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
+import com.baidu.tieba.y;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,7 +31,7 @@ class j extends com.baidu.adp.framework.listener.b {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103101) {
             this.a.a(false);
             if (!(socketResponsedMessage instanceof ResponseAddGroupMessage)) {
-                this.a.showToast(com.baidu.tieba.u.group_create_fail);
+                this.a.showToast(y.group_create_fail);
                 return;
             }
             ResponseAddGroupMessage responseAddGroupMessage = (ResponseAddGroupMessage) socketResponsedMessage;
@@ -41,7 +42,7 @@ class j extends com.baidu.adp.framework.listener.b {
             RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
             AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
             if (addGroupInfo == null) {
-                this.a.showToast(com.baidu.tieba.u.group_create_fail);
+                this.a.showToast(y.group_create_fail);
                 return;
             }
             int groupId = addGroupInfo.getGroupId();
@@ -77,9 +78,9 @@ class j extends com.baidu.adp.framework.listener.b {
 
     private void a(AddGroupInfoData addGroupInfoData) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.valueOf(this.a.getResources().getString(com.baidu.tieba.u.group_create_name)) + ":" + addGroupInfoData.getName() + IOUtils.LINE_SEPARATOR_UNIX);
-        sb.append(String.valueOf(this.a.getResources().getString(com.baidu.tieba.u.group_create_number)) + ":" + addGroupInfoData.getGroupId() + IOUtils.LINE_SEPARATOR_UNIX);
-        sb.append(this.a.getResources().getString(com.baidu.tieba.u.group_create_share));
-        new AlertDialog.Builder(this.a).setTitle(com.baidu.tieba.u.group_create_success).setIcon((Drawable) null).setCancelable(false).setMessage(sb.toString()).setPositiveButton(com.baidu.tieba.u.group_create_step_done_tip, new k(this)).setNegativeButton(com.baidu.tieba.u.group_create_step_share_tip, new l(this, addGroupInfoData)).create().show();
+        sb.append(String.valueOf(this.a.getResources().getString(y.group_create_name)) + ":" + addGroupInfoData.getName() + IOUtils.LINE_SEPARATOR_UNIX);
+        sb.append(String.valueOf(this.a.getResources().getString(y.group_create_number)) + ":" + addGroupInfoData.getGroupId() + IOUtils.LINE_SEPARATOR_UNIX);
+        sb.append(this.a.getResources().getString(y.group_create_share));
+        new AlertDialog.Builder(this.a).setTitle(y.group_create_success).setIcon((Drawable) null).setCancelable(false).setMessage(sb.toString()).setPositiveButton(y.group_create_step_done_tip, new k(this)).setNegativeButton(y.group_create_step_share_tip, new l(this, addGroupInfoData)).create().show();
     }
 }

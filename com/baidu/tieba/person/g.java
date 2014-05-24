@@ -89,20 +89,20 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener {
         ForumData forumData;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.edit_bar_item, (ViewGroup) null);
+                view3 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.edit_bar_item, (ViewGroup) null);
                 try {
                     iVar = new i(this, null);
-                    iVar.a = (HeadImageView) view3.findViewById(com.baidu.tieba.r.forum_avatar);
+                    iVar.a = (HeadImageView) view3.findViewById(com.baidu.tieba.v.forum_avatar);
                     iVar.a.setGifIconSupport(false);
-                    iVar.b = (TextView) view3.findViewById(com.baidu.tieba.r.name);
+                    iVar.b = (TextView) view3.findViewById(com.baidu.tieba.v.name);
                     iVar.c = new StringBuffer(10);
-                    iVar.d = (TextView) view3.findViewById(com.baidu.tieba.r.degree);
-                    iVar.e = (TextView) view3.findViewById(com.baidu.tieba.r.degree_text);
-                    iVar.h = (TextView) view3.findViewById(com.baidu.tieba.r.experience);
-                    iVar.i = (Button) view3.findViewById(com.baidu.tieba.r.item_delete);
-                    iVar.f = (TextView) view3.findViewById(com.baidu.tieba.r.degree_text_ta);
-                    iVar.g = (TextView) view3.findViewById(com.baidu.tieba.r.intro_ta);
-                    iVar.j = (ImageView) view3.findViewById(com.baidu.tieba.r.item_talk);
+                    iVar.d = (TextView) view3.findViewById(com.baidu.tieba.v.degree);
+                    iVar.e = (TextView) view3.findViewById(com.baidu.tieba.v.degree_text);
+                    iVar.h = (TextView) view3.findViewById(com.baidu.tieba.v.experience);
+                    iVar.i = (Button) view3.findViewById(com.baidu.tieba.v.item_delete);
+                    iVar.f = (TextView) view3.findViewById(com.baidu.tieba.v.degree_text_ta);
+                    iVar.g = (TextView) view3.findViewById(com.baidu.tieba.v.intro_ta);
+                    iVar.j = (ImageView) view3.findViewById(com.baidu.tieba.v.item_talk);
                     view3.setTag(iVar);
                 } catch (Exception e) {
                     view2 = view3;
@@ -153,19 +153,19 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener {
                 }
                 iVar.c.delete(0, iVar.c.length());
                 iVar.c.append(forumData.getName());
-                iVar.c.append(this.a.getString(com.baidu.tieba.u.bar));
+                iVar.c.append(this.a.getString(com.baidu.tieba.y.bar));
                 iVar.b.setText(iVar.c);
                 if (this.g) {
                     iVar.f.setBackgroundResource(com.baidu.tbadk.core.util.g.b(forumData.getUser_level()));
                     iVar.f.setText(String.valueOf(forumData.getUser_level()));
-                    iVar.h.setText(String.format(this.a.getString(com.baidu.tieba.u.sign_point_new), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
+                    iVar.h.setText(String.format(this.a.getString(com.baidu.tieba.y.sign_point_new), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
                     iVar.i.setOnClickListener(this.d);
                     iVar.i.setTag(Integer.valueOf(i));
                     if (i < this.b.a()) {
                         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                            iVar.b.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.q.icon_v_1, 0);
+                            iVar.b.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.u.icon_v_1, 0);
                         } else {
-                            iVar.b.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.q.icon_v, 0);
+                            iVar.b.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.u.icon_v, 0);
                         }
                         iVar.j.setVisibility(0);
                         iVar.j.setTag(Integer.valueOf(i));
@@ -177,9 +177,9 @@ public class g extends BaseAdapter implements AbsListView.OnScrollListener {
                 } else {
                     if (i < this.b.a()) {
                         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                            iVar.b.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.q.icon_v_1, 0);
+                            iVar.b.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.u.icon_v_1, 0);
                         } else {
-                            iVar.b.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.q.icon_v, 0);
+                            iVar.b.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.u.icon_v, 0);
                         }
                     } else {
                         iVar.b.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);

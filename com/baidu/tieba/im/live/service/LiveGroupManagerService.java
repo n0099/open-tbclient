@@ -9,6 +9,7 @@ import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.channelrtc.medialivesender.LiveNativeSender;
 import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.channelrtc.medialivesender.OnStatusEventListener;
 import com.baidu.channelrtc.medialivesender.OnUserCmdEventListener;
@@ -25,32 +26,33 @@ import java.util.Timer;
 /* loaded from: classes.dex */
 public class LiveGroupManagerService extends Service implements OnStatusEventListener, OnUserCmdEventListener, LivePlayerControllerListener {
     public static final String ACTION = "com.baidu.tieba.im.live.service.LiveGroup";
-    private static final int CLOSE_PUBLISH_EVENT = 10;
-    private static final int CONNECT_PUBLISH_EVENT = 5;
+    private static final int CLOSE_PUBLISH_EVENT = 15;
+    private static final int CONNECT_PUBLISH_EVENT = 10;
     private static final String CUSTOM_COMMAND_PAUSE_PUBLISH = "pausePublish";
     private static final String CUSTOM_COMMAND_RESUME_PUBLISH = "resumePublish";
     private static final String CUSTOM_COMMAND_START_RECORD = "startRecord";
     private static final String CUSTOM_COMMAND_STOP_RECORD = "stopRecord";
     private static final String DEV_TYPE = "2";
     private static final String IDENTITY_PUBLISHER = "1";
-    private static final int PAUSE_PLAY_EVENT = 15;
-    private static final int PAUSE_PUBLISH_EVENT = 6;
+    private static final int PAUSE_PLAY_EVENT = 20;
+    private static final int PAUSE_PUBLISH_EVENT = 11;
     private static final int RECORD_TIMER_INTERVAL = 1000;
     private static final int REQUEST_ERROR_EVENT = 2;
+    private static final int REQUEST_PLAY_WARNING_EVENT = 5;
     private static final int REQUEST_PROGRESS_EVENT = 3;
     private static final int REQUEST_RECORDTIME_EVENT = 4;
     private static final int REQUEST_STATUS_EVENT = 1;
-    private static final int RESUME_PLAY_EVENT = 16;
-    private static final int RESUME_PUBLISH_EVENT = 7;
+    private static final int RESUME_PLAY_EVENT = 21;
+    private static final int RESUME_PUBLISH_EVENT = 12;
     private static final int SAMPLE_CHANNEL = 2;
     private static final int SAMPLE_RATE = 22050;
-    private static final int SEEK_PLAY_RECORD_EVENT = 17;
-    private static final int START_PLAY_EVENT = 13;
-    private static final int START_PUBLISH_EVENT = 11;
-    private static final int START_RECORD_PUBLISH_EVENT = 8;
-    private static final int STOP_PLAY_EVENT = 14;
-    private static final int STOP_PUBLISH_EVENT = 12;
-    private static final int STOP_RECORD_PUBLISH_EVENT = 9;
+    private static final int SEEK_PLAY_RECORD_EVENT = 22;
+    private static final int START_PLAY_EVENT = 18;
+    private static final int START_PUBLISH_EVENT = 16;
+    private static final int START_RECORD_PUBLISH_EVENT = 13;
+    private static final int STOP_PLAY_EVENT = 19;
+    private static final int STOP_PUBLISH_EVENT = 17;
+    private static final int STOP_RECORD_PUBLISH_EVENT = 14;
     private static final String TAG = "LiveGroupManagerService";
     private static boolean mSystemSupport = false;
     private String mDeviceId;
@@ -75,6 +77,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
     private String mAccessToken = null;
     private String mErrorPrompt = null;
     private boolean mExecStartOnceConnected = false;
+    private boolean mIsPublisherPaused = false;
     private f argsToBeStarted = null;
 
     @Override // android.app.Service
@@ -86,15 +89,30 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
             this.mStatus = -1;
             this.mErrorPrompt = LiveStatusChangeDefinition.ERROR_PROMPT_NOT_SUPPORT;
         } else {
-            this.mStatus = 0;
-            this.mLiveSenderControl = new LiveSenderControl();
-            this.mLiveSenderControl.setEventListener(this);
-            this.mLiveSenderControl.setUserCmdListener(this);
-            this.mPlayerCtrl = new LivePlayerControl();
-            this.mPlayerCtrl.setControllerListener(this);
-            if (TbadkApplication.m252getInst().isDebugMode()) {
-                this.mLiveSenderControl.setLogLevel(4);
-                this.mPlayerCtrl.setLogLevel(Constants.LOGLEVEL.LOG_LEVEL_D);
+            boolean z = true;
+            try {
+                System.loadLibrary(LiveNativeSender.FFMPEGLIB);
+                System.loadLibrary(LiveNativeSender.AUDIOENGINE);
+                System.loadLibrary(LiveNativeSender.LIVESENDER);
+                System.loadLibrary("liveplayer");
+            } catch (UnsatisfiedLinkError e) {
+                z = false;
+            }
+            if (!z) {
+                BdLog.e("Load libraries failed.");
+                this.mStatus = -1;
+                this.mErrorPrompt = LiveStatusChangeDefinition.ERROR_PROMPT_NOT_SUPPORT;
+            } else {
+                this.mStatus = 0;
+                this.mLiveSenderControl = new LiveSenderControl();
+                this.mLiveSenderControl.setEventListener(this);
+                this.mLiveSenderControl.setUserCmdListener(this);
+                this.mPlayerCtrl = new LivePlayerControl();
+                this.mPlayerCtrl.setControllerListener(this);
+                if (TbadkApplication.m252getInst().isDebugMode()) {
+                    this.mLiveSenderControl.setLogLevel(4);
+                    this.mPlayerCtrl.setLogLevel(Constants.LOGLEVEL.LOG_LEVEL_D);
+                }
             }
         }
         return this.mBinder;
@@ -123,12 +141,24 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
     public void onDestroy() {
         BdLog.d("onDestroy");
         super.onDestroy();
-        this.mHandler.removeMessages(5);
-        this.mHandler.removeMessages(10);
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
         this.mHandler.removeMessages(3);
         this.mHandler.removeMessages(4);
+        this.mHandler.removeMessages(5);
+        this.mHandler.removeMessages(10);
+        this.mHandler.removeMessages(11);
+        this.mHandler.removeMessages(12);
+        this.mHandler.removeMessages(13);
+        this.mHandler.removeMessages(14);
+        this.mHandler.removeMessages(15);
+        this.mHandler.removeMessages(16);
+        this.mHandler.removeMessages(17);
+        this.mHandler.removeMessages(18);
+        this.mHandler.removeMessages(19);
+        this.mHandler.removeMessages(20);
+        this.mHandler.removeMessages(21);
+        this.mHandler.removeMessages(SEEK_PLAY_RECORD_EVENT);
     }
 
     @Override // com.baidu.channelrtc.medialivesender.OnUserCmdEventListener
@@ -319,6 +349,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
             }
         } else if (player_status == LivePlayerControl.PLAYER_STATUS.PLAYER_PLAYING) {
             this.mStatus = 19;
+            this.mIsPublisherPaused = false;
             this.mHandler.sendEmptyMessage(1);
         } else if (player_status == LivePlayerControl.PLAYER_STATUS.PLAYER_PAUSED) {
             this.mStatus = 20;
@@ -418,6 +449,29 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
         this.mCallbacks.finishBroadcast();
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void broadcastPlayWarningEvent(int i) {
+        if (this.mStatus != 19 || !this.mIsPublisherPaused) {
+            if (this.mStatus == 19 || this.mStatus == 18) {
+                int beginBroadcast = this.mCallbacks.beginBroadcast();
+                for (int i2 = 0; i2 < beginBroadcast; i2++) {
+                    try {
+                        this.mCallbacks.getBroadcastItem(i2).onLivePlayWarning(i);
+                    } catch (RemoteException e) {
+                        BdLog.e(TAG, "onLivePlayWarning: ", e);
+                        TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
+                        try {
+                            this.mBinder.stopAnyRunning();
+                        } catch (RemoteException e2) {
+                            BdLog.e(TAG, "notifyRecordTimeEvent: ", e);
+                        }
+                    }
+                }
+                this.mCallbacks.finishBroadcast();
+            }
+        }
+    }
+
     @Override // com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControllerListener
     public void onDebugInfoUpdate(String str) {
         BdLog.d("LivePlayerDebugInfo: " + str);
@@ -434,5 +488,11 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
             return str.equals(str2);
         }
         return str.substring(0, indexOf).equals(str2.substring(0, indexOf2));
+    }
+
+    @Override // com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControllerListener
+    public void onWarning(int i) {
+        BdLog.w("LivePlayerWarning: " + i + ", and pause state is " + this.mIsPublisherPaused);
+        this.mHandler.sendMessage(this.mHandler.obtainMessage(5, i, i));
     }
 }

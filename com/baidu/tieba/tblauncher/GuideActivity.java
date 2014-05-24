@@ -14,7 +14,6 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -38,17 +37,19 @@ import java.util.ArrayList;
 public class GuideActivity extends BaseActivity {
     private ArrayList<View> g;
     private ArrayList<ImageView> h;
-    private h i;
+    private i i;
     private BaseViewPager j;
-    private g e = null;
+    private ViewGroup l;
+    private h e = null;
     private String f = null;
     private boolean k = true;
     public boolean a = true;
-    private final com.baidu.tbadk.core.view.a l = new b(this);
-    public View.OnClickListener b = new c(this);
-    public View.OnClickListener c = new d(this);
-    private final ViewPager.OnPageChangeListener m = new e(this);
-    public HttpMessageListener d = new f(this, CmdConfig.JUMP_TO_NEW_GUIDE_HTTP_CMD);
+    private final com.baidu.tbadk.core.view.a m = new b(this);
+    private View.OnClickListener n = new c(this);
+    public View.OnClickListener b = new d(this);
+    public View.OnClickListener c = new e(this);
+    private final ViewPager.OnPageChangeListener o = new f(this);
+    public HttpMessageListener d = new g(this, CmdConfig.JUMP_TO_NEW_GUIDE_HTTP_CMD);
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2017000, new a());
@@ -59,18 +60,18 @@ public class GuideActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.guide_activity);
+        setContentView(com.baidu.tieba.w.guide_activity);
         a();
         this.a = com.baidu.tbadk.core.sharedPref.b.a().a("jump_to_new_user_guide", true);
         if (this.a) {
             b();
         }
         d();
-        this.i = new h(this, null);
-        this.j = (BaseViewPager) findViewById(com.baidu.tieba.r.guide_pager);
+        this.i = new i(this, null);
+        this.j = (BaseViewPager) findViewById(com.baidu.tieba.v.guide_pager);
         this.j.setAdapter(this.i);
-        this.j.setOnScrollOutListener(this.l);
-        this.j.setOnPageChangeListener(this.m);
+        this.j.setOnScrollOutListener(this.m);
+        this.j.setOnPageChangeListener(this.o);
         if (bundle != null) {
             this.f = bundle.getString("from_page");
         } else {
@@ -79,7 +80,7 @@ public class GuideActivity extends BaseActivity {
         if (TextUtils.isEmpty(this.f)) {
             this.f = "";
         }
-        com.baidu.tbadk.core.g.a(this, "new_user_guide_pv");
+        com.baidu.tbadk.core.f.a(this, "new_user_guide_pv");
         if (TbadkApplication.m252getInst().getIsUseBaiduStatOn()) {
             try {
                 StatService.setAppChannel(TbConfig.getFrom());
@@ -88,7 +89,7 @@ public class GuideActivity extends BaseActivity {
             }
         }
         if (this.f != null && this.f.equals("from_logo_page")) {
-            this.e = new g(this, null);
+            this.e = new h(this, null);
             this.e.setSelfExecute(true);
             this.e.execute(new String[0]);
             return;
@@ -100,16 +101,29 @@ public class GuideActivity extends BaseActivity {
         this.g = new ArrayList<>();
         this.h = new ArrayList<>();
         LayoutInflater from = LayoutInflater.from(this);
-        View inflate = from.inflate(com.baidu.tieba.s.guide_page_first, (ViewGroup) null, false);
-        View inflate2 = from.inflate(com.baidu.tieba.s.guide_page_second, (ViewGroup) null, false);
-        View inflate3 = from.inflate(com.baidu.tieba.s.guide_page_third, (ViewGroup) null, false);
-        this.h.add((ImageView) inflate.findViewById(com.baidu.tieba.r.image_first));
-        this.h.add((ImageView) inflate2.findViewById(com.baidu.tieba.r.image_second));
-        this.h.add((ImageView) inflate3.findViewById(com.baidu.tieba.r.image_third));
-        ((Button) inflate3.findViewById(com.baidu.tieba.r.btn_next)).setOnClickListener(this.b);
+        View inflate = from.inflate(com.baidu.tieba.w.guide_page_first, (ViewGroup) null, false);
+        View inflate2 = from.inflate(com.baidu.tieba.w.guide_page_second, (ViewGroup) null, false);
+        View inflate3 = from.inflate(com.baidu.tieba.w.guide_page_third, (ViewGroup) null, false);
+        View inflate4 = from.inflate(com.baidu.tieba.w.guide_page_forth, (ViewGroup) null, false);
+        this.h.add((ImageView) inflate.findViewById(com.baidu.tieba.v.image_first));
+        this.h.add((ImageView) inflate2.findViewById(com.baidu.tieba.v.image_second));
+        this.h.add((ImageView) inflate3.findViewById(com.baidu.tieba.v.image_third));
+        this.h.add((ImageView) inflate4.findViewById(com.baidu.tieba.v.image_forth));
+        this.l = (ViewGroup) inflate4.findViewById(com.baidu.tieba.v.guide_page_forth_hao123_open_layout);
+        ImageView imageView = (ImageView) inflate4.findViewById(com.baidu.tieba.v.radio_hao123_open);
+        if (!TbadkApplication.m252getInst().isHao123HelperShouldOpen()) {
+            this.l.setVisibility(8);
+        }
+        imageView.setSelected(TbadkApplication.m252getInst().isTiebaHelperOpen());
+        imageView.setOnClickListener(this.n);
         this.g.add(inflate);
         this.g.add(inflate2);
         this.g.add(inflate3);
+        this.g.add(inflate4);
+    }
+
+    public void e() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfig.INIT_HAO123_DATA));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -164,7 +178,7 @@ public class GuideActivity extends BaseActivity {
         switch (i) {
             case 4:
                 if (!this.f.equals("from_about_page")) {
-                    e();
+                    f();
                 }
                 closeActivity();
                 return true;
@@ -173,7 +187,7 @@ public class GuideActivity extends BaseActivity {
         }
     }
 
-    public void e() {
+    public void f() {
         boolean isFirstUse = TbadkApplication.m252getInst().getIsFirstUse();
         if (this.k) {
             if (!this.a) {
@@ -216,7 +230,7 @@ public class GuideActivity extends BaseActivity {
         sendMessage(new CustomMessage((int) CmdConfig.NEW_USER_GUIDE_PAGE, new ao(this, false, true)));
     }
 
-    public void f() {
+    public void g() {
         Intent intent = new Intent();
         intent.addCategory("android.intent.category.LAUNCHER");
         intent.setAction("android.intent.action.MAIN");
@@ -224,13 +238,13 @@ public class GuideActivity extends BaseActivity {
         intent.setComponent(new ComponentName(getPackageName(), String.valueOf(getPackageName()) + ".LogoActivity"));
         Intent intent2 = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
         intent2.putExtra("duplicate", false);
-        intent2.putExtra("android.intent.extra.shortcut.NAME", getString(com.baidu.tieba.u.app_name));
+        intent2.putExtra("android.intent.extra.shortcut.NAME", getString(com.baidu.tieba.y.app_name));
         intent2.putExtra("android.intent.extra.shortcut.INTENT", intent);
-        intent2.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(this, com.baidu.tieba.q.icon));
+        intent2.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(this, com.baidu.tieba.u.icon));
         sendBroadcast(intent2);
     }
 
-    public boolean g() {
+    public boolean h() {
         String str;
         try {
             ContentResolver contentResolver = getContentResolver();
@@ -239,7 +253,7 @@ public class GuideActivity extends BaseActivity {
             } else {
                 str = "content://com.android.launcher2.settings/favorites?notify=true";
             }
-            Cursor query = contentResolver.query(Uri.parse(str), new String[]{"title", "iconResource"}, "title=?", new String[]{getString(com.baidu.tieba.u.app_name)}, null);
+            Cursor query = contentResolver.query(Uri.parse(str), new String[]{"title", "iconResource"}, "title=?", new String[]{getString(com.baidu.tieba.y.app_name)}, null);
             if (query != null) {
                 if (query.getCount() > 0) {
                     return true;

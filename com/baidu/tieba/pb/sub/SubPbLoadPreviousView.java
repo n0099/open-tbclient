@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class SubPbLoadPreviousView extends LinearLayout {
     private Context a;
@@ -31,10 +32,10 @@ public class SubPbLoadPreviousView extends LinearLayout {
     private void e() {
         setOrientation(0);
         setClickable(true);
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.sub_pb_load_previous, (ViewGroup) this, true);
-        this.b = (TextView) findViewById(com.baidu.tieba.r.btn_loadprevious);
-        this.c = (ImageView) findViewById(com.baidu.tieba.r.image_up);
-        this.d = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.sub_pb_load_previous, (ViewGroup) this, true);
+        this.b = (TextView) findViewById(com.baidu.tieba.v.btn_loadprevious);
+        this.c = (ImageView) findViewById(com.baidu.tieba.v.image_up);
+        this.d = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
     }
 
     @Override // android.view.View
@@ -44,13 +45,13 @@ public class SubPbLoadPreviousView extends LinearLayout {
     }
 
     public void a() {
-        this.b.setText(com.baidu.tieba.u.loading);
+        this.b.setText(y.loading);
         this.c.setVisibility(8);
         this.d.setVisibility(0);
     }
 
     public void b() {
-        this.b.setText(com.baidu.tieba.u.view_previous_floor);
+        this.b.setText(y.view_previous_floor);
         this.c.setVisibility(0);
         this.d.setVisibility(8);
     }

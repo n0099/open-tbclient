@@ -25,17 +25,19 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
         setError(getMaskInfoResIdl.error.errorno.intValue());
         setErrorString(getMaskInfoResIdl.error.usermsg);
         if (getError() == 0) {
-            setIsMask(getMaskInfoResIdl.data.isMask.intValue());
-            setList(getMaskInfoResIdl.data.list);
-            List<UserInfo> list = getMaskInfoResIdl.data.users;
-            int size = list != null ? list.size() : 0;
             this.blackList = new ArrayList<>();
-            for (int i2 = 0; i2 < size; i2++) {
-                com.baidu.tieba.im.data.a aVar = new com.baidu.tieba.im.data.a();
-                aVar.b(list.get(i2).portrait);
-                aVar.a(list.get(i2).uid.intValue());
-                aVar.a(list.get(i2).name);
-                this.blackList.add(aVar);
+            if (getMaskInfoResIdl.data != null) {
+                setIsMask(getMaskInfoResIdl.data.isMask.intValue());
+                setList(getMaskInfoResIdl.data.list);
+                List<UserInfo> list = getMaskInfoResIdl.data.users;
+                int size = list != null ? list.size() : 0;
+                for (int i2 = 0; i2 < size; i2++) {
+                    com.baidu.tieba.im.data.a aVar = new com.baidu.tieba.im.data.a();
+                    aVar.b(list.get(i2).portrait);
+                    aVar.a(list.get(i2).uid.intValue());
+                    aVar.a(list.get(i2).name);
+                    this.blackList.add(aVar);
+                }
             }
         }
     }

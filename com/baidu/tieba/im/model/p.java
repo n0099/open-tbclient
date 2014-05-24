@@ -6,12 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.im.message.RequestHotLiveListLocalMessage;
 import com.baidu.tieba.im.message.RequestHotLiveListMessage;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class p extends com.baidu.adp.base.d {
+public class p extends com.baidu.adp.base.b {
     private int a;
     private int b;
     private int c;
@@ -19,10 +20,10 @@ public class p extends com.baidu.adp.base.d {
     private int e;
     private final Map<String, Boolean> f = new HashMap();
     private final Map<String, Boolean> g = new HashMap();
-    private com.baidu.tbadk.core.e h;
+    private BaseFragmentActivity h;
 
-    public p(com.baidu.tbadk.core.e eVar) {
-        this.h = eVar;
+    public p(BaseFragmentActivity baseFragmentActivity) {
+        this.h = baseFragmentActivity;
     }
 
     public void a(String str, boolean z) {
@@ -52,8 +53,8 @@ public class p extends com.baidu.adp.base.d {
     }
 
     public void a(Activity activity) {
-        this.d = com.baidu.adp.lib.util.h.a((Context) activity, 70.0f);
-        this.e = com.baidu.adp.lib.util.h.a((Context) activity, 70.0f);
+        this.d = com.baidu.adp.lib.util.k.a((Context) activity, 70.0f);
+        this.e = com.baidu.adp.lib.util.k.a((Context) activity, 70.0f);
     }
 
     public int c() {
@@ -92,12 +93,12 @@ public class p extends com.baidu.adp.base.d {
         this.c = i;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }
@@ -136,7 +137,7 @@ public class p extends com.baidu.adp.base.d {
         this.h.a(c(i, i2, i3, i4, i5));
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public void registerListener(MessageListener<?> messageListener) {
         this.h.a(messageListener);
     }

@@ -519,7 +519,7 @@ public final class SapiWebView extends WebView {
     }
 
     public void loadFastReg() {
-        switch (com.baidu.sapi2.d.a(getContext()).h().a()) {
+        switch (com.baidu.sapi2.d.a(getContext()).h().b()) {
             case FAST:
                 c();
                 return;
@@ -1387,7 +1387,7 @@ public final class SapiWebView extends WebView {
             if (this.e) {
                 this.d = a();
             }
-            if (!h()) {
+            if (!i()) {
                 e();
             } else if (SapiUtils.hasActiveNetwork(SapiWebView.this.getContext())) {
                 if (SapiWebView.this.p.fastRegConfirm) {
@@ -1597,7 +1597,7 @@ public final class SapiWebView extends WebView {
             PendingIntent broadcast = PendingIntent.getBroadcast(SapiWebView.this.getContext(), 0, new Intent(), 0);
             if (!TextUtils.isEmpty(this.d)) {
                 try {
-                    SmsManager.getDefault().sendTextMessage(com.baidu.sapi2.utils.f.n, null, this.d, broadcast, null);
+                    SmsManager.getDefault().sendTextMessage(h(), null, this.d, broadcast, null);
                     com.baidu.sapi2.utils.a.a.a().a("fr_send_sms_suc", 0L, 0L);
                     return true;
                 } catch (Throwable th) {
@@ -1606,11 +1606,16 @@ public final class SapiWebView extends WebView {
             return false;
         }
 
+        private String h() {
+            String a2 = com.baidu.sapi2.d.a(SapiWebView.this.getContext()).h().a();
+            return !TextUtils.isEmpty(a2) ? a2 : com.baidu.sapi2.utils.f.n;
+        }
+
         private boolean a(String str) {
             return SapiWebView.this.getContext().checkCallingOrSelfPermission(str) == 0;
         }
 
-        private boolean h() {
+        private boolean i() {
             if (a("android.permission.SEND_SMS")) {
                 switch (((TelephonyManager) SapiWebView.this.getContext().getSystemService("phone")).getSimState()) {
                     case 0:

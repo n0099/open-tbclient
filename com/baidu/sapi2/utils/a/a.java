@@ -11,6 +11,7 @@ import com.baidu.cloudsdk.common.http.MultipartRequestParams;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -229,7 +230,7 @@ public class a {
         if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null) {
             int type = activeNetworkInfo.getType();
             if (type == 1) {
-                return "WIFI";
+                return NetworkChangeReceiver.WIFI_STRING;
             }
             if (type == 0) {
                 int readNetworkOperatorType = SapiUtils.readNetworkOperatorType(this.d);

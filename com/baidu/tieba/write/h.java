@@ -19,7 +19,7 @@ public class h implements com.baidu.tbadk.core.view.o {
             if (z) {
                 atSelectFriendList = this.a.e;
                 if (5 <= atSelectFriendList.getItemLength()) {
-                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.u.invite_friend_exceed_max_count), 5));
+                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.invite_friend_exceed_max_count), 5));
                     tbCheckBox.setChecked(false);
                     ((MetaData) obj).setChecked(false);
                     return;

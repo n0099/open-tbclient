@@ -15,7 +15,7 @@ public class ac implements DialogInterface.OnCancelListener {
     public void onCancel(DialogInterface dialogInterface) {
         af afVar;
         af afVar2;
-        this.a.DeinitWaitingDialog();
+        this.a.destroyWaitingDialog();
         afVar = this.a.g;
         if (afVar != null) {
             afVar2 = this.a.g;

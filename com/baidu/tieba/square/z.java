@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.util.bi;
 /* loaded from: classes.dex */
 public class z implements View.OnClickListener {
     final /* synthetic */ y a;
-    private final /* synthetic */ at b;
+    private final /* synthetic */ au b;
     private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(y yVar, at atVar, int i) {
+    public z(y yVar, au auVar, int i) {
         this.a = yVar;
-        this.b = atVar;
+        this.b = auVar;
         this.c = i;
     }
 

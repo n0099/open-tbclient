@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.data.GroupActivityData;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implements View.OnClickListener {
+public class CreateGroupActivityActivity extends BaseFragmentActivity implements View.OnClickListener {
     private e c;
     private d d;
     private boolean e = false;
@@ -40,7 +42,7 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         e();
@@ -115,7 +117,7 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
         bundle.putLong("time", this.c.f());
     }
 
-    @Override // com.baidu.tbadk.core.e
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
         if (this.c != null) {
             this.c.a(i);
@@ -127,7 +129,7 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.d.cancelMessage();
@@ -135,14 +137,14 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
         MessageManager.getInstance().unRegisterListener(this.f);
     }
 
-    @Override // com.baidu.adp.base.b, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.c.a()) {
             f();
         } else if (view == this.c.b() && this.d != null && this.d.a() != null) {
             long f = this.c.f();
             if ((!this.e || this.c.g()) && 1000 * f < System.currentTimeMillis()) {
-                c(com.baidu.tieba.u.group_activity_time_val);
+                c(y.group_activity_time_val);
                 return;
             }
             this.d.a().setgActivityArea(this.c.d());
@@ -154,7 +156,7 @@ public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implemen
         }
     }
 
-    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             f();

@@ -24,7 +24,7 @@ public class e extends CustomMessageListener {
             NetWorkChangeMessage netWorkChangeMessage = (NetWorkChangeMessage) customResponsedMessage;
             if (!netWorkChangeMessage.hasError() && netWorkChangeMessage.mState == 0) {
                 BdLog.d("NetWorkChangeMessage drop");
-                this.a.r();
+                this.a.s();
             }
         }
     }

@@ -22,13 +22,13 @@ public class CustomTimerView extends LinearLayout {
 
     public CustomTimerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        LayoutInflater.from(context).inflate(com.baidu.tieba.s.custom_timer_view, (ViewGroup) this, true);
-        this.b = (TextView) findViewById(com.baidu.tieba.r.hour_num);
-        this.c = (TextView) findViewById(com.baidu.tieba.r.hour_text);
-        this.d = (TextView) findViewById(com.baidu.tieba.r.min_num);
-        this.e = (TextView) findViewById(com.baidu.tieba.r.min_text);
-        this.f = (TextView) findViewById(com.baidu.tieba.r.sec_num);
-        this.g = (TextView) findViewById(com.baidu.tieba.r.sec_text);
+        LayoutInflater.from(context).inflate(com.baidu.tieba.w.custom_timer_view, (ViewGroup) this, true);
+        this.b = (TextView) findViewById(com.baidu.tieba.v.hour_num);
+        this.c = (TextView) findViewById(com.baidu.tieba.v.hour_text);
+        this.d = (TextView) findViewById(com.baidu.tieba.v.min_num);
+        this.e = (TextView) findViewById(com.baidu.tieba.v.min_text);
+        this.f = (TextView) findViewById(com.baidu.tieba.v.sec_num);
+        this.g = (TextView) findViewById(com.baidu.tieba.v.sec_text);
     }
 
     public void setTextSize(int i) {

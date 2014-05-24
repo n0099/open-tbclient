@@ -44,7 +44,7 @@ class c extends com.baidu.adp.framework.listener.b {
                     this.a.showToast(responseUpdateMaskInfoMessage.getErrorString());
                     return;
                 }
-                this.a.showToast(this.a.getString(com.baidu.tieba.u.black_list_remove_success));
+                this.a.showToast(this.a.getString(com.baidu.tieba.y.black_list_remove_success));
                 aVar = this.a.c;
                 if (aVar != null) {
                     iVar2 = this.a.b;

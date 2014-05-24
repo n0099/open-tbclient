@@ -13,7 +13,7 @@ public class m implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof RequestMyLiveListLocalMessage)) {
             return null;
         }
-        byte[] a = com.baidu.tbadk.core.a.b.a().g().a("mylive_" + String.valueOf(((RequestMyLiveListLocalMessage) customMessage).getType()));
+        byte[] a = com.baidu.tbadk.core.a.b.a().h().a("mylive_" + String.valueOf(((RequestMyLiveListLocalMessage) customMessage).getType()));
         ResponseMyLiveListLocalMessage responseMyLiveListLocalMessage = new ResponseMyLiveListLocalMessage();
         try {
             responseMyLiveListLocalMessage.decodeInBackGround(MessageTypes.CMD_QUERY_MYLIVE_LOCAL, a);

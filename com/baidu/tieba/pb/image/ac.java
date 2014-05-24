@@ -133,20 +133,20 @@ public class ac extends PagerAdapter {
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         View inflate;
         if (i == this.f.j()) {
-            View inflate2 = this.a.inflate(com.baidu.tieba.s.image_pb_next, (ViewGroup) null);
-            ((TextView) inflate2.findViewById(com.baidu.tieba.r.thread_name)).setText(this.f.f());
+            View inflate2 = this.a.inflate(com.baidu.tieba.w.image_pb_next, (ViewGroup) null);
+            ((TextView) inflate2.findViewById(com.baidu.tieba.v.thread_name)).setText(this.f.f());
             viewGroup.addView(inflate2);
-            ImageView imageView = (ImageView) inflate2.findViewById(com.baidu.tieba.r.image);
-            TextView textView = (TextView) inflate2.findViewById(com.baidu.tieba.r.next);
-            TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.r.thread_name);
+            ImageView imageView = (ImageView) inflate2.findViewById(com.baidu.tieba.v.image);
+            TextView textView = (TextView) inflate2.findViewById(com.baidu.tieba.v.next);
+            TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.v.thread_name);
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 textView.setTextColor(bc.c(1));
                 textView2.setTextColor(bc.a(1));
-                imageView.setBackgroundResource(com.baidu.tieba.q.image_pb_next_default_1);
+                imageView.setBackgroundResource(com.baidu.tieba.u.image_pb_next_default_1);
             } else {
                 textView.setTextColor(-9539986);
                 textView2.setTextColor(-6250336);
-                imageView.setBackgroundResource(com.baidu.tieba.q.image_pb_next_default);
+                imageView.setBackgroundResource(com.baidu.tieba.u.image_pb_next_default);
             }
             return inflate2;
         }
@@ -155,14 +155,14 @@ public class ac extends PagerAdapter {
             this.r.remove(0);
             inflate = this.r.get(0);
         } else {
-            inflate = this.a.inflate(com.baidu.tieba.s.image_pb_list, (ViewGroup) null);
+            inflate = this.a.inflate(com.baidu.tieba.w.image_pb_list, (ViewGroup) null);
         }
         if (this.s.size() > 5) {
             this.s.clear();
         }
         this.s.add(inflate);
         BdLog.i(getClass().getName(), "instantiateItem", String.valueOf(this.s.size()));
-        ListView listView = (ListView) inflate.findViewById(com.baidu.tieba.r.image_pb_listview);
+        ListView listView = (ListView) inflate.findViewById(com.baidu.tieba.v.image_pb_listview);
         bc.a(listView, TbadkApplication.m252getInst().getSkinType());
         if (tVar == null) {
             if (this.i != null) {
@@ -240,9 +240,9 @@ public class ac extends PagerAdapter {
             }
             if (tVar != null) {
                 try {
-                    ((ListView) ((View) obj).findViewById(com.baidu.tieba.r.image_pb_listview)).setVerticalScrollBarEnabled(true);
+                    ((ListView) ((View) obj).findViewById(com.baidu.tieba.v.image_pb_listview)).setVerticalScrollBarEnabled(true);
                     this.l = (x) ((View) obj).getTag();
-                    ImagePbImageView imagePbImageView = (ImagePbImageView) ((View) obj).findViewById(com.baidu.tieba.r.image_pb_image);
+                    ImagePbImageView imagePbImageView = (ImagePbImageView) ((View) obj).findViewById(com.baidu.tieba.v.image_pb_image);
                     if (imagePbImageView != null) {
                         if (i == 0 && !this.k) {
                             imagePbImageView.setFirst(true);
@@ -272,12 +272,12 @@ public class ac extends PagerAdapter {
         this.c = new com.baidu.tbadk.editortool.ab(this.b);
         this.c.b("_big");
         this.c.f("pb");
-        this.m = com.baidu.adp.lib.util.h.b(this.b);
-        this.n = (com.baidu.adp.lib.util.h.c(this.b) * 3) / 5;
+        this.m = com.baidu.adp.lib.util.k.b(this.b);
+        this.n = (com.baidu.adp.lib.util.k.c(this.b) * 3) / 5;
         this.o = this.n >> 1;
         int threadImageMaxWidth = TbConfig.getThreadImageMaxWidth() < this.m ? TbConfig.getThreadImageMaxWidth() : this.m;
         this.n = TbConfig.getThreadImageMaxWidth() < this.n ? TbConfig.getThreadImageMaxWidth() : this.n;
-        this.c.a(threadImageMaxWidth - com.baidu.adp.lib.util.h.a(this.b, 8.0f), this.n);
+        this.c.a(threadImageMaxWidth - com.baidu.adp.lib.util.k.a(this.b, 8.0f), this.n);
         this.a = LayoutInflater.from(this.b);
         this.j = new ArrayList<>();
         this.h = new HashMap<>();

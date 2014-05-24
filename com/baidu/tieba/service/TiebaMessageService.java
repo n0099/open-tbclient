@@ -11,15 +11,20 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.data.ab;
 /* loaded from: classes.dex */
 public class TiebaMessageService extends Service {
-    private m a = null;
-    private m b = null;
-    private ab c = null;
-    private int d = 0;
-    private boolean e = false;
-    private final Handler f = new l(this);
+    public static final String GETMESSAGE_ONLY_ONCE = "getMessageAtOnce";
+    private static final int MESSAGE_GET_BOOKMARK = 2;
+    private static final int MESSAGE_GET_BOOKMARK_FREQUENCY = 1800;
+    private static final int MESSAGE_GET_MESSAGE = 1;
+    private static final int MESSAGE_GET_MESSAGE_ONCE = 3;
+    private q mMessageAsyncTask = null;
+    private q mBookmarkAsyncTask = null;
+    private ab mData = null;
+    private int mFlag = 0;
+    private boolean isServiceRunning = false;
+    private final Handler mHandler = new p(this);
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008001, new k());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008001, new o());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -32,14 +37,14 @@ public class TiebaMessageService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.e = false;
-        this.f.removeMessages(1);
-        this.f.removeMessages(2);
-        if (this.a != null) {
-            this.a.cancel();
+        this.isServiceRunning = false;
+        this.mHandler.removeMessages(1);
+        this.mHandler.removeMessages(2);
+        if (this.mMessageAsyncTask != null) {
+            this.mMessageAsyncTask.cancel();
         }
-        if (this.b != null) {
-            this.b.cancel();
+        if (this.mBookmarkAsyncTask != null) {
+            this.mBookmarkAsyncTask.cancel();
         }
     }
 
@@ -50,15 +55,15 @@ public class TiebaMessageService extends Service {
             stopSelf();
             return;
         }
-        this.d = 0;
+        this.mFlag = 0;
         if (intent != null) {
-            if (intent.getBooleanExtra("getMessageAtOnce", false)) {
-                this.f.removeMessages(3);
-                this.f.sendEmptyMessageDelayed(3, 3000L);
-            } else if (!this.e) {
-                this.f.removeMessages(1);
-                this.f.sendEmptyMessageDelayed(1, 3000L);
-                this.e = true;
+            if (intent.getBooleanExtra(GETMESSAGE_ONLY_ONCE, false)) {
+                this.mHandler.removeMessages(3);
+                this.mHandler.sendEmptyMessageDelayed(3, 3000L);
+            } else if (!this.isServiceRunning) {
+                this.mHandler.removeMessages(1);
+                this.mHandler.sendEmptyMessageDelayed(1, 3000L);
+                this.isServiceRunning = true;
             }
         }
     }
@@ -69,24 +74,24 @@ public class TiebaMessageService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
+    public void getMsg(int i) {
         try {
             if (TbadkApplication.getCurrentAccount() != null && TbadkApplication.getCurrentAccountName() != null) {
                 if (i == 1 || i == 3) {
-                    if (this.a != null) {
-                        this.a.cancel();
+                    if (this.mMessageAsyncTask != null) {
+                        this.mMessageAsyncTask.cancel();
                     }
-                    this.a = new m(this, i);
-                    this.a.execute(new String[0]);
+                    this.mMessageAsyncTask = new q(this, i);
+                    this.mMessageAsyncTask.execute(new String[0]);
                 } else if (i == 2) {
-                    if (this.b != null) {
-                        this.b.cancel();
+                    if (this.mBookmarkAsyncTask != null) {
+                        this.mBookmarkAsyncTask.cancel();
                     }
-                    if (this.a != null) {
-                        this.a.cancel();
+                    if (this.mMessageAsyncTask != null) {
+                        this.mMessageAsyncTask.cancel();
                     }
-                    this.b = new m(this, i);
-                    this.b.execute(new String[0]);
+                    this.mBookmarkAsyncTask = new q(this, i);
+                    this.mBookmarkAsyncTask.execute(new String[0]);
                 }
             }
         } catch (Exception e) {
@@ -95,32 +100,32 @@ public class TiebaMessageService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(int i) {
-        if (this.c != null && this.c.a() >= 0 && this.c.b() >= 0 && this.c.c() >= 0 && this.c.d() >= 0 && this.c.e() >= 0) {
+    public void broadcastMsg(int i) {
+        if (this.mData != null && this.mData.a() >= 0 && this.mData.b() >= 0 && this.mData.c() >= 0 && this.mData.d() >= 0 && this.mData.e() >= 0) {
             if (!TbadkApplication.m252getInst().isMsgReplymeOn()) {
-                this.c.a(0);
+                this.mData.a(0);
             }
             if (!TbadkApplication.m252getInst().isMsgAtmeOn()) {
-                this.c.b(0);
+                this.mData.b(0);
             }
             if (!TbadkApplication.m252getInst().isMsgFansOn()) {
-                this.c.c(0);
+                this.mData.c(0);
             }
             if (!TbadkApplication.m252getInst().isMsgChatOn()) {
-                this.c.d(0);
+                this.mData.d(0);
             }
             Intent intent = new Intent(com.baidu.tieba.data.d.b());
-            intent.putExtra("relay", this.c.a());
-            intent.putExtra("at_me", this.c.b());
-            intent.putExtra("fans", this.c.c());
-            intent.putExtra("pletter", this.c.d());
+            intent.putExtra("relay", this.mData.a());
+            intent.putExtra("at_me", this.mData.b());
+            intent.putExtra("fans", this.mData.c());
+            intent.putExtra("pletter", this.mData.d());
             if (i == 1) {
                 intent.putExtra("new_bookmark", com.baidu.tbadk.coreExtra.messageCenter.a.a().p());
             } else if (i == 2) {
-                intent.putExtra("new_bookmark", this.c.e());
+                intent.putExtra("new_bookmark", this.mData.e());
             }
             sendBroadcast(intent);
-            BdLog.i(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Integer.valueOf(this.c.a()), Integer.valueOf(this.c.b()), Integer.valueOf(this.c.c()), Integer.valueOf(this.c.e())));
+            BdLog.i(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Integer.valueOf(this.mData.a()), Integer.valueOf(this.mData.b()), Integer.valueOf(this.mData.c()), Integer.valueOf(this.mData.e())));
         }
     }
 }

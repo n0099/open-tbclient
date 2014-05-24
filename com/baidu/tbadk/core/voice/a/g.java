@@ -4,7 +4,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.voice.ae;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class g implements com.baidu.adp.lib.e.f {
     private al a = null;
@@ -48,11 +48,11 @@ public class g implements com.baidu.adp.lib.e.f {
         byte[] h = this.a.h();
         if (!this.a.c()) {
             dVar2.c = 3;
-            dVar2.d = ae.a(u.sync_mark_fail_con);
+            dVar2.d = ae.a(y.neterror);
             return dVar2;
         } else if (h == null || h.length == 0) {
             dVar2.c = 4;
-            dVar2.d = ae.a(u.voice_cache_error_no_file);
+            dVar2.d = ae.a(y.voice_cache_error_no_file);
             return dVar2;
         } else {
             int a = e.a(str, h);

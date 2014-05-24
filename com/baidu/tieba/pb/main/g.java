@@ -14,6 +14,6 @@ class g implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TbWebViewActivity.a(this.a, this.a.getString(com.baidu.tieba.u.member_benefits), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
+        TbWebViewActivity.a(this.a, this.a.getString(com.baidu.tieba.y.member_benefits), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
     }
 }

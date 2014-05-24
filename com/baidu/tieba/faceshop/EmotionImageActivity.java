@@ -39,7 +39,7 @@ public class EmotionImageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.emotion_activity);
+        setContentView(com.baidu.tieba.w.emotion_activity);
         a(bundle);
         a();
     }
@@ -75,10 +75,10 @@ public class EmotionImageActivity extends BaseActivity {
     private void a() {
         FrameLayout.LayoutParams layoutParams;
         com.baidu.adp.widget.a.a i;
-        this.a = (NavigationBar) findViewById(com.baidu.tieba.r.navigation_bar);
-        this.a.a(getString(com.baidu.tieba.u.emotion_image_title));
+        this.a = (NavigationBar) findViewById(com.baidu.tieba.v.navigation_bar);
+        this.a.a(getString(com.baidu.tieba.y.emotion_image_title));
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new k(this));
-        this.b = (GifView) findViewById(com.baidu.tieba.r.gifview);
+        this.b = (GifView) findViewById(com.baidu.tieba.v.gifview);
         if (this.l == 0 || this.m == 0) {
             layoutParams = new FrameLayout.LayoutParams(this.n, this.o, 17);
         } else {
@@ -90,18 +90,18 @@ public class EmotionImageActivity extends BaseActivity {
         if (a != null) {
             this.b.setGif(a);
         }
-        this.c = (TbImageView) findViewById(com.baidu.tieba.r.emotion_icon);
+        this.c = (TbImageView) findViewById(com.baidu.tieba.v.emotion_icon);
         if (!TextUtils.isEmpty(this.h)) {
             this.p.b(this.h, new m(this));
         } else {
-            com.baidu.tbadk.editortool.ag d = com.baidu.tbadk.editortool.ac.a().d(this.f);
+            com.baidu.tbadk.editortool.af d = com.baidu.tbadk.editortool.ac.a().d(this.f);
             if (d != null && (i = d.i()) != null) {
                 i.a(this.c);
             }
         }
-        this.d = (TextView) findViewById(com.baidu.tieba.r.emotion_pname);
+        this.d = (TextView) findViewById(com.baidu.tieba.v.emotion_pname);
         this.d.setText(this.g);
-        this.e = (TextView) findViewById(com.baidu.tieba.r.emotion_detail);
+        this.e = (TextView) findViewById(com.baidu.tieba.v.emotion_detail);
         this.e.setOnClickListener(new n(this));
     }
 
@@ -123,7 +123,7 @@ public class EmotionImageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().a(i == 1);
-        getLayoutMode().a(findViewById(com.baidu.tieba.r.emotion_image_root));
+        getLayoutMode().a(findViewById(com.baidu.tieba.v.emotion_image_root));
         this.a.c(i);
     }
 

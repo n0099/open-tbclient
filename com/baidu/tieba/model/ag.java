@@ -33,6 +33,8 @@ public class ag extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.z> {
         String str6;
         String str7;
         String str8;
+        String str9;
+        String str10;
         try {
             this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/like");
             StringBuilder sb = new StringBuilder("mForumName:");
@@ -52,8 +54,8 @@ public class ag extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.z> {
             str6 = this.a.c;
             if (!TextUtils.isEmpty(str6)) {
                 com.baidu.tbadk.core.util.al alVar4 = this.b;
-                str8 = this.a.c;
-                alVar4.a("pagefrom", str8);
+                str10 = this.a.c;
+                alVar4.a("pagefrom", str10);
             }
             this.b.a().a().a = true;
             String i = this.b.i();
@@ -63,6 +65,9 @@ public class ag extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.z> {
                 zVar.b(i);
                 str7 = this.a.b;
                 zVar.a(str7);
+                str8 = this.a.b;
+                str9 = this.a.a;
+                Hao123Model.addLikeData(str8, str9, zVar.b());
                 return zVar;
             }
         } catch (Exception e) {
@@ -76,8 +81,8 @@ public class ag extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.z> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(com.baidu.tieba.data.z zVar) {
-        com.baidu.adp.base.g gVar;
-        com.baidu.adp.base.g gVar2;
+        com.baidu.adp.base.e eVar;
+        com.baidu.adp.base.e eVar2;
         String str;
         this.a.d = null;
         if (zVar == null && this.b != null) {
@@ -86,23 +91,23 @@ public class ag extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.z> {
             str = this.a.mErrorString;
             BdLog.d("LikeModel", "onPostExecute", str);
         }
-        gVar = this.a.mLoadDataCallBack;
-        if (gVar != null) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(zVar);
+        eVar = this.a.mLoadDataCallBack;
+        if (eVar != null) {
+            eVar2 = this.a.mLoadDataCallBack;
+            eVar2.a(zVar);
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         if (this.b != null) {
             this.b.g();
             this.b = null;
         }
         this.a.d = null;
         super.cancel(true);
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(null);
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(null);
     }
 }

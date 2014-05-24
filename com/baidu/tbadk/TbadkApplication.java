@@ -15,12 +15,14 @@ import android.os.Handler;
 import android.os.Process;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.k;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.bdcvf.CertVerifier;
 import com.baidu.sapi2.SapiAccountManager;
@@ -31,6 +33,7 @@ import com.baidu.tbadk.core.atomData.x;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 import com.baidu.tbadk.core.util.LimitList;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -40,7 +43,6 @@ import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.coreExtra.d.m;
 import com.baidu.tbadk.coreExtra.d.p;
 import com.baidu.tbadk.coreExtra.d.q;
@@ -50,7 +52,7 @@ import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 import com.baidu.tbadk.editortool.ac;
 import com.baidu.tbadk.editortool.w;
 import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -68,7 +70,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class TbadkApplication extends com.baidu.adp.base.a {
+public class TbadkApplication extends BdBaseApplication {
     public static final int APP_ENTER_FORE_SEND_PV_INTERNAL = 3600000;
     public static final int APP_ENTER_FORE_SWITCH = 5;
     public static final int APP_EVENT_LOGIN = 1;
@@ -198,7 +200,7 @@ public class TbadkApplication extends com.baidu.adp.base.a {
         return sApp;
     }
 
-    @Override // com.baidu.adp.base.a, android.app.Application
+    @Override // com.baidu.adp.base.BdBaseApplication, android.app.Application
     public void onCreate() {
         super.onCreate();
         com.baidu.adp.lib.Disk.d.a().a(TbConfig.getTempDirName());
@@ -215,7 +217,7 @@ public class TbadkApplication extends com.baidu.adp.base.a {
     }
 
     private void initSapi() {
-        SapiAccountManager.getInstance().init(new SapiConfiguration.Builder(this).setProductLineInfo("tb", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK, "6e93e7659ae637845c7f83abee68a740").setRuntimeEnvironment(TbConfig.PASS_LOGIN_ADDRESS).registMode(RegistMode.FAST).loginShareStrategy(LoginShareStrategy.CHOICE).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(getString(u.register_tip)).build());
+        SapiAccountManager.getInstance().init(new SapiConfiguration.Builder(this).setProductLineInfo("tb", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK, "6e93e7659ae637845c7f83abee68a740").setRuntimeEnvironment(TbConfig.PASS_LOGIN_ADDRESS).registMode(RegistMode.FAST).loginShareStrategy(LoginShareStrategy.CHOICE).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(getString(y.register_tip)).build());
     }
 
     public boolean isNeedConfirm() {
@@ -273,7 +275,6 @@ public class TbadkApplication extends com.baidu.adp.base.a {
         initSetting();
         initWebsocketBase(context);
         TbFaceManager.a().a(this, new w());
-        ac.a().b();
         this.mFontSize = f.a().a("font_size", 2);
         try {
             com.baidu.adp.lib.c.a.a().a(m252getInst(), "tieba");
@@ -282,7 +283,7 @@ public class TbadkApplication extends com.baidu.adp.base.a {
         }
         if (isMainProcess()) {
             try {
-                registerReceiver(new com.baidu.tbadk.core.service.a(), new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+                registerReceiver(new NetworkChangeReceiver(), new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
@@ -329,7 +330,7 @@ public class TbadkApplication extends com.baidu.adp.base.a {
         super.onLowMemory();
     }
 
-    @Override // com.baidu.adp.base.a
+    @Override // com.baidu.adp.base.BdBaseApplication
     public void onAppMemoryLow() {
         int b = com.baidu.tbadk.imageManager.e.a().b();
         int max = (int) Math.max(b * 0.8d, TbConfig.getBigImageMaxUsedMemory());
@@ -468,7 +469,7 @@ public class TbadkApplication extends com.baidu.adp.base.a {
                     i++;
                 } else {
                     String str = runningAppProcesses.get(i).processName;
-                    if (str != null && (str.equalsIgnoreCase("com.baidu.tieba:pushservice_v1") || str.equalsIgnoreCase("com.baidu.tieba:remote") || str.equalsIgnoreCase("com.baidu.tieba:bdservice_v1") || str.equalsIgnoreCase("com.baidu.tieba:live"))) {
+                    if (str != null && (str.equalsIgnoreCase("com.baidu.tieba:remote") || str.equalsIgnoreCase("com.baidu.tieba:hao123_float") || str.equalsIgnoreCase("com.baidu.tieba:bdservice_v1") || str.equalsIgnoreCase("com.baidu.tieba:live"))) {
                         this._isMainProcess = Boolean.FALSE;
                     }
                 }
@@ -899,7 +900,7 @@ public class TbadkApplication extends com.baidu.adp.base.a {
     }
 
     public static void setCurrentAccount(AccountData accountData, Context context) {
-        if (com.baidu.adp.lib.util.h.c()) {
+        if (k.c()) {
             setCurrentAccountInUI(accountData, context);
         } else {
             m252getInst().handler.post(new d(accountData, context));
@@ -923,14 +924,15 @@ public class TbadkApplication extends com.baidu.adp.base.a {
             }
         }
         sendAccountChangedBroadcast(accountData);
-        if (z && accountData != null) {
+        if (z) {
             m252getInst().onAccountChanged(accountData, m252getInst());
         }
+        ac.a().b();
         LivePlayingStatusMgr.a().a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
     }
 
     protected void onAccountChanged(AccountData accountData, Application application) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2007006));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2007006, accountData));
     }
 
     public void onUserChanged() {
@@ -1022,22 +1024,22 @@ public class TbadkApplication extends com.baidu.adp.base.a {
     }
 
     public boolean getIsFirstUse() {
-        if (y.a("/package.cur/" + TbConfig.getVersion())) {
+        if (com.baidu.tbadk.core.util.y.a("/package.cur/" + TbConfig.getVersion())) {
             return false;
         }
-        setActiveVersion(y.d("/package.cur"));
+        setActiveVersion(com.baidu.tbadk.core.util.y.d("/package.cur"));
         return true;
     }
 
     public void setUsed() {
-        y.c("/package.cur");
-        y.b("/package.cur/" + TbConfig.getVersion());
+        com.baidu.tbadk.core.util.y.c("/package.cur");
+        com.baidu.tbadk.core.util.y.b("/package.cur/" + TbConfig.getVersion());
     }
 
     public void setActiveVersion(String str) {
         if (!be.c(str) && !"null".equals(str)) {
-            y.c("/package.last");
-            y.b("/package.last/" + str);
+            com.baidu.tbadk.core.util.y.c("/package.last");
+            com.baidu.tbadk.core.util.y.b("/package.last/" + str);
         }
     }
 
@@ -1050,9 +1052,9 @@ public class TbadkApplication extends com.baidu.adp.base.a {
             this.imagePvThread = Executors.newSingleThreadExecutor();
         }
         BdLog.i(getClass().getName(), "pv_addImagePv", "img_num=" + i + " img_total" + i2);
-        com.baidu.tbadk.c.c cVar = new com.baidu.tbadk.c.c(i, i2);
-        cVar.a(str);
-        this.imagePvThread.execute(cVar);
+        com.baidu.tbadk.c.d dVar = new com.baidu.tbadk.c.d(i, i2);
+        dVar.a(str);
+        this.imagePvThread.execute(dVar);
     }
 
     public boolean isHeadsetModeOn() {
@@ -1085,6 +1087,14 @@ public class TbadkApplication extends com.baidu.adp.base.a {
 
     public void setLocationShared(boolean z) {
         f.a().b("location_shared", z);
+    }
+
+    public boolean isTiebaHelperOpen() {
+        return f.a().a("tieba_helper_open", false);
+    }
+
+    public void setTiebaHelperOpen(boolean z) {
+        f.a().b("tieba_helper_open", z);
     }
 
     public String getLocationLng() {
@@ -1419,6 +1429,18 @@ public class TbadkApplication extends com.baidu.adp.base.a {
         return m252getInst().mMsgFrequency > 0;
     }
 
+    public String getVersionName() {
+        try {
+            if (getPackageManager() == null || getPackageManager().getPackageInfo(getPackageName(), 0) == null) {
+                return null;
+            }
+            return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            BdLog.detailException(e);
+            return null;
+        }
+    }
+
     public int getVersionCode() {
         try {
             if (getPackageManager() == null || getPackageManager().getPackageInfo(getPackageName(), 0) == null) {
@@ -1468,6 +1490,15 @@ public class TbadkApplication extends com.baidu.adp.base.a {
 
     public boolean isPassportV6ShouldOpen() {
         return f.a().a(new StringBuilder("passport_crash_count_").append(TbConfig.getVersion()).toString(), 0) <= getFeatureCrashAutoCloseLimit() && com.baidu.adp.lib.a.f.a().b("switch_login_passv6") != 1;
+    }
+
+    public void incHao123HelperCrashCount() {
+        String str = "hao123_helper_crash_count" + TbConfig.getVersion();
+        f.a().b(str, f.a().a(str, 0) + 1);
+    }
+
+    public boolean isHao123HelperShouldOpen() {
+        return f.a().a(new StringBuilder("hao123_helper_crash_count").append(TbConfig.getVersion()).toString(), 0) <= getFeatureCrashAutoCloseLimit() && com.baidu.adp.lib.a.f.a().b("switch_hao123_helper") != 1;
     }
 
     public boolean isLiveRecordOpen() {

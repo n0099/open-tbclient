@@ -11,16 +11,16 @@ public class ai implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        bj bjVar;
-        bj bjVar2;
-        bj bjVar3;
-        bjVar = this.a.E;
-        if (!bjVar.D()) {
-            bjVar3 = this.a.E;
-            bjVar3.b(false);
+        bq bqVar;
+        bq bqVar2;
+        bq bqVar3;
+        bqVar = this.a.D;
+        if (!bqVar.D()) {
+            bqVar3 = this.a.D;
+            bqVar3.b(false);
             return;
         }
-        bjVar2 = this.a.E;
-        bjVar2.b(true);
+        bqVar2 = this.a.D;
+        bqVar2.b(true);
     }
 }

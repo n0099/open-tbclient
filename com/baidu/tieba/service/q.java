@@ -1,78 +1,94 @@
 package com.baidu.tieba.service;
 
-import android.app.Notification;
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.data.VersionData;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.data.ab;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q extends Handler {
-    final /* synthetic */ TiebaUpdateService a;
+public class q extends BdAsyncTask<String, Integer, ab> {
+    int b;
+    final /* synthetic */ TiebaMessageService c;
+    al a = null;
+    private final TbadkApplication d = TbadkApplication.m252getInst();
+    private final String e = TbadkApplication.getCurrentAccount();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public q(TiebaUpdateService tiebaUpdateService) {
-        this.a = tiebaUpdateService;
+    public q(TiebaMessageService tiebaMessageService, int i) {
+        this.c = tiebaMessageService;
+        this.b = 0;
+        this.b = i;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        String str;
-        String str2;
-        boolean z;
-        Handler handler;
-        Handler handler2;
-        VersionData versionData;
-        Notification notification;
-        long j;
-        boolean z2;
-        long j2;
-        long j3;
-        long j4;
-        long j5;
-        long j6;
-        long j7;
-        super.handleMessage(message);
-        if (message.what == 900003) {
-            notification = this.a.c;
-            if (notification != null && message.arg2 > 0) {
-                j = this.a.m;
-                if (message.arg2 > j) {
-                    this.a.r = System.currentTimeMillis();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public ab doInBackground(String... strArr) {
+        ab abVar;
+        Exception e;
+        try {
+        } catch (Exception e2) {
+            abVar = null;
+            e = e2;
+        }
+        if (this.d.isMsgRemindOn() && this.e != null && this.e.length() > 0) {
+            this.a = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/msg");
+            if (this.b == 2) {
+                this.a.a("bookmark", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            }
+            String i = this.a.i();
+            if (this.a.a().b().b()) {
+                abVar = new ab();
+                try {
+                    abVar.a(i);
+                } catch (Exception e3) {
+                    e = e3;
+                    BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
+                    return abVar;
                 }
-                this.a.m = message.arg1;
-                this.a.k = message.arg2;
-                int i = (int) ((message.arg1 * 100) / message.arg2);
-                z2 = this.a.n;
-                if (z2) {
-                    j2 = this.a.j;
-                    j3 = this.a.l;
-                    if (j2 == j3) {
-                        TiebaUpdateService tiebaUpdateService = this.a;
-                        j4 = this.a.j;
-                        j5 = this.a.m;
-                        long j8 = j4 + j5;
-                        j6 = this.a.j;
-                        j7 = this.a.k;
-                        tiebaUpdateService.a(j8, j6 + j7);
-                        this.a.a(i);
-                    }
+            } else {
+                abVar = null;
+            }
+            return abVar;
+        }
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        this.c.mMessageAsyncTask = null;
+        this.c.mBookmarkAsyncTask = null;
+        if (this.a != null) {
+            this.a.g();
+        }
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(ab abVar) {
+        try {
+            super.onPostExecute(abVar);
+            this.c.mMessageAsyncTask = null;
+            this.c.mBookmarkAsyncTask = null;
+            if (abVar != null) {
+                this.c.mData = abVar;
+                if (this.e != null && this.e.length() > 0) {
+                    this.c.broadcastMsg(this.b);
                 }
             }
-        } else if (message.what == 2) {
-            str = this.a.h;
-            if (str != null) {
-                str2 = this.a.h;
-                if (str2.length() > 0) {
-                    z = this.a.i;
-                    if (!z) {
-                        this.a.i = true;
-                        return;
-                    }
-                    handler = this.a.u;
-                    handler2 = this.a.u;
-                    versionData = this.a.e;
-                    handler.sendMessageDelayed(handler2.obtainMessage(1, versionData), 100L);
-                }
-            }
+        } catch (Exception e) {
+            BdLog.e(getClass().getName(), "onPostExecute", e.getMessage());
         }
     }
 }

@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class CreateBarActivity extends BaseActivity {
     RelativeLayout b;
@@ -54,7 +56,7 @@ public class CreateBarActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.create_bar_activity);
+        setContentView(w.create_bar_activity);
         b();
         e();
         a();
@@ -109,34 +111,34 @@ public class CreateBarActivity extends BaseActivity {
     private void e() {
         this.q = new a(this);
         this.r = new b(this);
-        this.e = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.e = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e.a(getString(com.baidu.tieba.u.create_bar));
-        this.a = (RelativeLayout) findViewById(com.baidu.tieba.r.container);
-        this.c = findViewById(com.baidu.tieba.r.title);
-        this.d = (TextView) findViewById(com.baidu.tieba.r.text);
-        this.t = (TextView) findViewById(com.baidu.tieba.r.error);
-        this.f = (TextView) findViewById(com.baidu.tieba.r.info);
-        this.j = (RelativeLayout) findViewById(com.baidu.tieba.r.create);
+        this.e.a(getString(y.create_bar));
+        this.a = (RelativeLayout) findViewById(com.baidu.tieba.v.container);
+        this.c = findViewById(com.baidu.tieba.v.title);
+        this.d = (TextView) findViewById(com.baidu.tieba.v.text);
+        this.t = (TextView) findViewById(com.baidu.tieba.v.error);
+        this.f = (TextView) findViewById(com.baidu.tieba.v.info);
+        this.j = (RelativeLayout) findViewById(com.baidu.tieba.v.create);
         this.j.setOnClickListener(this.q);
-        this.g = (TextView) findViewById(com.baidu.tieba.r.info2);
-        this.h = (EditText) findViewById(com.baidu.tieba.r.edit_name);
+        this.g = (TextView) findViewById(com.baidu.tieba.v.info2);
+        this.h = (EditText) findViewById(com.baidu.tieba.v.edit_name);
         this.h.addTextChangedListener(this.r);
-        this.i = (EditText) findViewById(com.baidu.tieba.r.edit_vcode);
+        this.i = (EditText) findViewById(com.baidu.tieba.v.edit_vcode);
         this.i.addTextChangedListener(this.r);
         if (this.v) {
-            this.g.setText(getString(com.baidu.tieba.u.bar_name_valid));
+            this.g.setText(getString(y.bar_name_valid));
             this.h.setText(this.u);
         } else {
-            this.g.setText(getString(com.baidu.tieba.u.bar_name_invalid));
+            this.g.setText(getString(y.bar_name_invalid));
         }
-        this.b = (RelativeLayout) findViewById(com.baidu.tieba.r.create);
-        this.k = (FrameLayout) findViewById(com.baidu.tieba.r.image_button);
+        this.b = (RelativeLayout) findViewById(com.baidu.tieba.v.create);
+        this.k = (FrameLayout) findViewById(com.baidu.tieba.v.image_button);
         this.k.setOnClickListener(this.q);
-        this.l = (ImageView) findViewById(com.baidu.tieba.r.image);
+        this.l = (ImageView) findViewById(com.baidu.tieba.v.image);
         this.j.setEnabled(false);
-        this.m = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
-        this.n = (ProgressBar) findViewById(com.baidu.tieba.r.progress_image);
+        this.m = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
+        this.n = (ProgressBar) findViewById(com.baidu.tieba.v.progress_image);
         if (this.v) {
             this.i.requestFocus();
         }
@@ -150,15 +152,15 @@ public class CreateBarActivity extends BaseActivity {
         getLayoutMode().a((View) this.a);
         bc.a(this.d, i);
         bc.b(this.g, i);
-        String str = String.valueOf(this.u) + getString(com.baidu.tieba.u.bar_not_create);
+        String str = String.valueOf(this.u) + getString(y.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
         if (i == 1) {
-            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.o.noexit_create_bar_name_text_1)), 0, this.u.length(), 33);
-            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.o.skin_1_common_color)), this.u.length(), str.length(), 33);
-            this.b.setBackgroundResource(com.baidu.tieba.q.btn_general_start_selector_1);
+            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.s.noexit_create_bar_name_text_1)), 0, this.u.length(), 33);
+            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.s.skin_1_common_color)), this.u.length(), str.length(), 33);
+            this.b.setBackgroundResource(com.baidu.tieba.u.btn_general_start_selector_1);
         } else {
-            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.o.noexit_create_bar_name_text)), 0, this.u.length(), 33);
-            this.b.setBackgroundResource(com.baidu.tieba.q.btn_general_start_selector);
+            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.s.noexit_create_bar_name_text)), 0, this.u.length(), 33);
+            this.b.setBackgroundResource(com.baidu.tieba.u.btn_general_start_selector);
         }
         this.f.setText(spannableString);
         this.e.c(i);

@@ -28,10 +28,10 @@ class b extends com.baidu.adp.framework.listener.b {
         com.baidu.tieba.im.model.y yVar2;
         this.a.d();
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (socketResponsedMessage.getCmd() == 107109) {
             if (!(socketResponsedMessage instanceof ResponseLiveGroupOwnerGagMessage)) {
-                this.a.showToast(com.baidu.tieba.u.neterror);
+                this.a.showToast(com.baidu.tieba.y.neterror);
                 return;
             }
             ResponseLiveGroupOwnerGagMessage responseLiveGroupOwnerGagMessage = (ResponseLiveGroupOwnerGagMessage) socketResponsedMessage;
@@ -40,7 +40,7 @@ class b extends com.baidu.adp.framework.listener.b {
                     this.a.showToast(responseLiveGroupOwnerGagMessage.getErrorString());
                     return;
                 } else {
-                    this.a.showToast(com.baidu.tieba.u.neterror);
+                    this.a.showToast(com.baidu.tieba.y.neterror);
                     return;
                 }
             }
@@ -66,9 +66,9 @@ class b extends com.baidu.adp.framework.listener.b {
                         }
                     }
                     if (!TextUtils.isEmpty(requestLiveGroupOwnerGagMessage.getUserNames())) {
-                        this.a.showToast(String.valueOf(userNames) + this.a.getString(com.baidu.tieba.u.live_black_members_unset_success));
+                        this.a.showToast(String.valueOf(userNames) + this.a.getString(com.baidu.tieba.y.live_black_members_unset_success));
                     } else {
-                        this.a.showToast(com.baidu.tieba.u.live_black_members_unset_success);
+                        this.a.showToast(com.baidu.tieba.y.live_black_members_unset_success);
                     }
                 }
             }

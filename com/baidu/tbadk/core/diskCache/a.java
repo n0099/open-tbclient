@@ -9,6 +9,6 @@ class a extends Handler {
         if (message.what != 1) {
             return;
         }
-        ImagesInvalidService.e();
+        ImagesInvalidService.startService();
     }
 }

@@ -22,7 +22,7 @@ public class ad extends BaseAdapter {
 
     public ad(BaseActivity baseActivity, ArrayList<BarSuggestModel.Forum> arrayList) {
         this.a = baseActivity;
-        this.c = baseActivity.getText(com.baidu.tieba.u.forum).toString();
+        this.c = baseActivity.getText(com.baidu.tieba.y.forum).toString();
         this.e = arrayList;
         this.b = new com.baidu.tbadk.editortool.ab(baseActivity);
     }
@@ -66,14 +66,14 @@ public class ad extends BaseAdapter {
         BarSuggestModel.Forum item;
         try {
             if (view == null) {
-                view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.square_dialog_search_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.square_dialog_search_item, (ViewGroup) null);
                 afVar = new af(this, null);
-                afVar.b = (HeadImageView) view.findViewById(com.baidu.tieba.r.forum_avatar);
+                afVar.b = (HeadImageView) view.findViewById(com.baidu.tieba.v.forum_avatar);
                 afVar.b.setGifIconSupport(false);
-                afVar.a = (TextView) view.findViewById(com.baidu.tieba.r.name);
-                afVar.c = (TextView) view.findViewById(com.baidu.tieba.r.member_count);
-                afVar.d = (TextView) view.findViewById(com.baidu.tieba.r.thread_count);
-                afVar.e = (TextView) view.findViewById(com.baidu.tieba.r.slogan);
+                afVar.a = (TextView) view.findViewById(com.baidu.tieba.v.name);
+                afVar.c = (TextView) view.findViewById(com.baidu.tieba.v.member_count);
+                afVar.d = (TextView) view.findViewById(com.baidu.tieba.v.thread_count);
+                afVar.e = (TextView) view.findViewById(com.baidu.tieba.v.slogan);
                 view.setTag(afVar);
                 view2 = view;
             } else {
@@ -105,8 +105,8 @@ public class ad extends BaseAdapter {
                 afVar.a.setText(item.forum_name);
             }
             afVar.b.setTag(item.avatar);
-            afVar.c.setText(String.valueOf(this.a.getString(com.baidu.tieba.u.forum_list_attention_tv)) + " " + b(item.member_num));
-            afVar.d.setText(String.valueOf(this.a.getString(com.baidu.tieba.u.forum_list_thread_tv)) + " " + b(item.thread_num));
+            afVar.c.setText(String.valueOf(this.a.getString(com.baidu.tieba.y.forum_list_attention_tv)) + " " + b(item.member_num));
+            afVar.d.setText(String.valueOf(this.a.getString(com.baidu.tieba.y.forum_list_thread_tv)) + " " + b(item.thread_num));
             afVar.e.setText(item.slogan);
             a(view2);
         }
@@ -120,7 +120,7 @@ public class ad extends BaseAdapter {
 
     public String b(int i) {
         if (i >= 100000) {
-            return String.valueOf(String.valueOf(i / TbConfig.BIG_IMAGE_MIN_CAPACITY)) + this.a.getString(com.baidu.tieba.u.member_count_unit);
+            return String.valueOf(String.valueOf(i / TbConfig.BIG_IMAGE_MIN_CAPACITY)) + this.a.getString(com.baidu.tieba.y.member_count_unit);
         }
         return String.valueOf(i);
     }

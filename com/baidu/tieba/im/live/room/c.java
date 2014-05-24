@@ -25,11 +25,11 @@ class c {
         this.e = null;
         this.f = null;
         this.g = null;
-        this.b = LayoutInflater.from(context).inflate(com.baidu.tieba.s.live_group_like_list_item, (ViewGroup) null);
-        this.c = (HeadImageView) this.b.findViewById(com.baidu.tieba.r.zan_list_item_head);
-        this.d = (TextView) this.b.findViewById(com.baidu.tieba.r.zan_list_item_name);
-        this.e = (TextView) this.b.findViewById(com.baidu.tieba.r.zan_list_item_time);
-        this.f = (ImageView) this.b.findViewById(com.baidu.tieba.r.zan_list_item_line_bottom);
+        this.b = LayoutInflater.from(context).inflate(com.baidu.tieba.w.live_group_like_list_item, (ViewGroup) null);
+        this.c = (HeadImageView) this.b.findViewById(com.baidu.tieba.v.zan_list_item_head);
+        this.d = (TextView) this.b.findViewById(com.baidu.tieba.v.zan_list_item_name);
+        this.e = (TextView) this.b.findViewById(com.baidu.tieba.v.zan_list_item_time);
+        this.f = (ImageView) this.b.findViewById(com.baidu.tieba.v.zan_list_item_line_bottom);
         this.f.setVisibility(0);
         this.b.setTag(this);
         this.g = new com.baidu.tbadk.editortool.ab(context);

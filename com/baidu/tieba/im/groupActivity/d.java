@@ -1,15 +1,16 @@
 package com.baidu.tieba.im.groupActivity;
 
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.base.d {
+public class d extends com.baidu.adp.base.b {
     RequestCreateGroupActivityMessage a;
     private GroupActivityData b = new GroupActivityData();
-    private com.baidu.tbadk.core.e c;
+    private BaseFragmentActivity c;
 
-    public d(com.baidu.tbadk.core.e eVar) {
-        this.c = eVar;
+    public d(BaseFragmentActivity baseFragmentActivity) {
+        this.c = baseFragmentActivity;
     }
 
     public GroupActivityData a() {
@@ -32,16 +33,16 @@ public class d extends com.baidu.adp.base.d {
         }
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public void cancelMessage() {
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

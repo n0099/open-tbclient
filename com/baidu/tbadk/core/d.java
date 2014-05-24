@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.bg;
@@ -62,7 +63,7 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
             if (name.startsWith(String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".im") || name.startsWith(str2)) {
                 this.c.a(str, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
             } else {
-                com.baidu.adp.lib.util.h.a((Context) getActivity(), str);
+                k.a((Context) getActivity(), str);
             }
         }
     }
@@ -74,7 +75,7 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
             if (name.startsWith(String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".im") || name.startsWith(str)) {
                 this.c.a(i, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
             } else {
-                com.baidu.adp.lib.util.h.a((Context) getActivity(), i);
+                k.a((Context) getActivity(), i);
             }
         }
     }

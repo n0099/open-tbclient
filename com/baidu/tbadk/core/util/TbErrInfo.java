@@ -39,6 +39,7 @@ public class TbErrInfo {
     public static final int ERR_LIVE_PLAY_FILE = -1126;
     public static final int ERR_LIVE_PLAY_INVALID_CODEC = -1128;
     public static final int ERR_LIVE_PLAY_NETWORK = -1127;
+    public static final int ERR_LIVE_PLAY_NO_STREAM = -1129;
     public static final int ERR_LIVE_REMOTE_EXCEPTION = -1125;
     public static final int ERR_LIVE_SDK_INIT_FAILED = -1120;
     public static final int ERR_LIVE_SDK_PUB_FAILED = -1121;
@@ -92,67 +93,69 @@ public class TbErrInfo {
     public static String getErrMsg(int i) {
         Resources resources = TbadkApplication.m252getInst().getContext().getResources();
         switch (i) {
+            case ERR_LIVE_PLAY_NO_STREAM /* -1129 */:
+                return resources.getString(com.baidu.tieba.y.tb_err_play_no_stream);
             case ERR_LIVE_PLAY_INVALID_CODEC /* -1128 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_play_invalid_codec);
+                return resources.getString(com.baidu.tieba.y.tb_err_play_invalid_codec);
             case ERR_LIVE_PLAY_NETWORK /* -1127 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_play_network);
+                return resources.getString(com.baidu.tieba.y.tb_err_play_network);
             case ERR_LIVE_PLAY_FILE /* -1126 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_play_file);
+                return resources.getString(com.baidu.tieba.y.tb_err_play_file);
             case ERR_LIVE_REMOTE_EXCEPTION /* -1125 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_remote_exception);
+                return resources.getString(com.baidu.tieba.y.tb_err_remote_exception);
             case ERR_LIVE_TOKEN_EXPIRED /* -1124 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_token_expired);
+                return resources.getString(com.baidu.tieba.y.tb_err_token_expired);
             case ERR_LIVE_CONNECTION_KICKED /* -1123 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_connection_kicked);
+                return resources.getString(com.baidu.tieba.y.tb_err_connection_kicked);
             case ERR_LIVE_MM_MODULE_FAILED /* -1122 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_mm_module_failed);
+                return resources.getString(com.baidu.tieba.y.tb_err_mm_module_failed);
             case ERR_LIVE_SDK_PUB_FAILED /* -1121 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_sdk_pub_failed);
+                return resources.getString(com.baidu.tieba.y.tb_err_sdk_pub_failed);
             case ERR_LIVE_SDK_INIT_FAILED /* -1120 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_sdk_init_failed);
+                return resources.getString(com.baidu.tieba.y.tb_err_sdk_init_failed);
             case ERR_LIVE_LIB_LOAD /* -1119 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_load_lib_failed);
+                return resources.getString(com.baidu.tieba.y.tb_err_load_lib_failed);
             case ERR_LIVE_NOT_SUPPORT /* -1118 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_not_support);
+                return resources.getString(com.baidu.tieba.y.tb_err_not_support);
             case ERR_LOCATION_FAILED /* -85 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_location_failed);
+                return resources.getString(com.baidu.tieba.y.tb_err_location_failed);
             case ERR_VOICE_RECORD /* -84 */:
-                return resources.getString(com.baidu.tieba.u.voice_err_other);
+                return resources.getString(com.baidu.tieba.y.voice_err_other);
             case ERR_UNKNOW /* -52 */:
             case -7:
             case -2:
             case -1:
-                return resources.getString(com.baidu.tieba.u.neterror);
+                return resources.getString(com.baidu.tieba.y.neterror);
             case ERR_SERVER_UNKNOW /* -51 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_unknown);
+                return resources.getString(com.baidu.tieba.y.tb_err_unknown);
             case ERR_UOP_CREATE_GROUP_FAIL /* -48 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_create_group_failed);
+                return resources.getString(com.baidu.tieba.y.tb_err_create_group_failed);
             case ERR_UOP_SENDTEXT_INVALID /* -47 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_send_invalid);
+                return resources.getString(com.baidu.tieba.y.tb_err_send_invalid);
             case ERR_UOP_SENDTEXT_TOO_SHORT /* -46 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_send_too_short);
+                return resources.getString(com.baidu.tieba.y.tb_err_send_too_short);
             case ERR_UOP_SENDTEXT_TOO_LONG /* -45 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_send_too_long);
+                return resources.getString(com.baidu.tieba.y.tb_err_send_too_long);
             case ERR_UOP_SENDMSG_TOO_MORE /* -42 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_send_too_more);
+                return resources.getString(com.baidu.tieba.y.tb_err_send_too_more);
             case ERR_UOP_VOICE_TOO_SHORT /* -41 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_voice_short);
+                return resources.getString(com.baidu.tieba.y.tb_err_voice_short);
             case ERR_USER_OPERATE /* -40 */:
-                return resources.getString(com.baidu.tieba.u.tb_err_user_operation);
+                return resources.getString(com.baidu.tieba.y.tb_err_user_operation);
             case ERR_FILE_SD_FULL /* -26 */:
-                return resources.getString(com.baidu.tieba.u.error_sd_full);
+                return resources.getString(com.baidu.tieba.y.error_sd_full);
             case ERR_FILE_IO_SD /* -25 */:
-                return resources.getString(com.baidu.tieba.u.error_sd_error);
+                return resources.getString(com.baidu.tieba.y.error_sd_error);
             case ERR_FILE_SHARED_SD /* -24 */:
-                return resources.getString(com.baidu.tieba.u.error_sd_shared);
+                return resources.getString(com.baidu.tieba.y.error_sd_shared);
             case ERR_FILE_NO_SD /* -23 */:
-                return resources.getString(com.baidu.tieba.u.error_no_sdcard);
+                return resources.getString(com.baidu.tieba.y.error_no_sdcard);
             case -3:
-                return resources.getString(com.baidu.tieba.u.tb_err_data_format);
+                return resources.getString(com.baidu.tieba.y.tb_err_data_format);
             case 0:
                 return null;
             default:
-                return resources.getString(com.baidu.tieba.u.tb_err_undefine);
+                return resources.getString(com.baidu.tieba.y.tb_err_undefine);
         }
     }
 

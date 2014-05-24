@@ -46,7 +46,7 @@ public class a {
             AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
             String b2 = b(a(str));
             if (b2.indexOf("tbwebview=1") > 0) {
-                TbWebViewActivity.a(context, b2, true, (HashMap<String, r>) null);
+                TbWebViewActivity.a(context, b2, true, (HashMap<String, q>) null);
             } else if (b == 1) {
                 if (parseBDUSS != null) {
                     WebTbActivity.a(context, b2, parseBDUSS.mBduss, parseBDUSS.mPtoken);
@@ -103,7 +103,7 @@ public class a {
     }
 
     public static String a(String str) {
-        if (be.c(str) || str.indexOf("cuid=") <= -1) {
+        if (!be.c(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {

@@ -29,7 +29,7 @@ class ae extends com.baidu.adp.framework.listener.b {
         MetaData metaData;
         LiveRoomChatView z2;
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (socketResponsedMessage.getCmd() == 107108 && (socketResponsedMessage instanceof ResponseIncrLiveGroupLikeMessage)) {
             ResponseIncrLiveGroupLikeMessage responseIncrLiveGroupLikeMessage = (ResponseIncrLiveGroupLikeMessage) socketResponsedMessage;
             if (responseIncrLiveGroupLikeMessage.hasError()) {

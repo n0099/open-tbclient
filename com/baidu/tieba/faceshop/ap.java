@@ -69,39 +69,39 @@ public class ap {
 
     public ap(BaseActivity baseActivity) {
         this.a = baseActivity;
-        baseActivity.setContentView(com.baidu.tieba.s.face_package_detail_activity);
-        this.c = (LinearLayout) baseActivity.findViewById(com.baidu.tieba.r.face_package);
-        this.d = (NavigationBar) baseActivity.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        baseActivity.setContentView(com.baidu.tieba.w.face_package_detail_activity);
+        this.c = (LinearLayout) baseActivity.findViewById(com.baidu.tieba.v.face_package);
+        this.d = (NavigationBar) baseActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.h = this.d.a("");
-        this.e = (NoNetworkView) baseActivity.findViewById(com.baidu.tieba.r.view_no_network);
-        this.p = (LinearLayout) this.c.findViewById(com.baidu.tieba.r.face_package_container);
-        this.f = (TbImageView) this.c.findViewById(com.baidu.tieba.r.face_package_cover);
-        this.g = (TextView) this.c.findViewById(com.baidu.tieba.r.face_package_title);
-        this.i = (TextView) this.c.findViewById(com.baidu.tieba.r.face_package_price);
-        this.j = (TextView) this.c.findViewById(com.baidu.tieba.r.face_package_status);
-        this.k = (TextView) this.c.findViewById(com.baidu.tieba.r.face_package_btn);
-        this.l = (TextView) this.c.findViewById(com.baidu.tieba.r.face_package_info);
-        this.t = (GridView) this.c.findViewById(com.baidu.tieba.r.face_package_faces);
-        this.I = (TbImageView) this.c.findViewById(com.baidu.tieba.r.face_package_title_tag);
+        this.e = (NoNetworkView) baseActivity.findViewById(com.baidu.tieba.v.view_no_network);
+        this.p = (LinearLayout) this.c.findViewById(com.baidu.tieba.v.face_package_container);
+        this.f = (TbImageView) this.c.findViewById(com.baidu.tieba.v.face_package_cover);
+        this.g = (TextView) this.c.findViewById(com.baidu.tieba.v.face_package_title);
+        this.i = (TextView) this.c.findViewById(com.baidu.tieba.v.face_package_price);
+        this.j = (TextView) this.c.findViewById(com.baidu.tieba.v.face_package_status);
+        this.k = (TextView) this.c.findViewById(com.baidu.tieba.v.face_package_btn);
+        this.l = (TextView) this.c.findViewById(com.baidu.tieba.v.face_package_info);
+        this.t = (GridView) this.c.findViewById(com.baidu.tieba.v.face_package_faces);
+        this.I = (TbImageView) this.c.findViewById(com.baidu.tieba.v.face_package_title_tag);
         this.t.setSelection(-1);
         this.t.setOnItemLongClickListener(baseActivity);
-        this.m = (FrameLayout) this.c.findViewById(com.baidu.tieba.r.face_package_downloading);
-        this.n = (ImageView) this.c.findViewById(com.baidu.tieba.r.face_package_downloading_up);
-        this.o = (ImageView) this.c.findViewById(com.baidu.tieba.r.face_package_downloading_cancel);
+        this.m = (FrameLayout) this.c.findViewById(com.baidu.tieba.v.face_package_downloading);
+        this.n = (ImageView) this.c.findViewById(com.baidu.tieba.v.face_package_downloading_up);
+        this.o = (ImageView) this.c.findViewById(com.baidu.tieba.v.face_package_downloading_cancel);
         this.b = TbadkApplication.m252getInst().getSkinType();
         this.v = new com.baidu.tbadk.editortool.ab(baseActivity);
-        this.v.a(baseActivity.getResources().getDimensionPixelSize(com.baidu.tieba.p.faceshop_cover_width), baseActivity.getResources().getDimensionPixelSize(com.baidu.tieba.p.faceshop_cover_height));
+        this.v.a(baseActivity.getResources().getDimensionPixelSize(com.baidu.tieba.t.faceshop_cover_width), baseActivity.getResources().getDimensionPixelSize(com.baidu.tieba.t.faceshop_cover_height));
         this.w = new Handler();
         this.k.setOnClickListener(baseActivity);
         this.o.setOnClickListener(baseActivity);
-        Bitmap a = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.bg_content_buy_bar_down);
-        Bitmap a2 = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.bg_content_buy_bar_up);
+        Bitmap a = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.bg_content_buy_bar_down);
+        Bitmap a2 = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.bg_content_buy_bar_up);
         this.r = a.getWidth();
         this.q = a2.getWidth();
-        this.s = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.faceshop_page_padding);
-        this.x = new y(baseActivity, com.baidu.tieba.v.common_alert_dialog);
-        this.F = (ScrollView) this.c.findViewById(com.baidu.tieba.r.container_scrollview);
+        this.s = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.faceshop_page_padding);
+        this.x = new y(baseActivity, com.baidu.tieba.z.common_alert_dialog);
+        this.F = (ScrollView) this.c.findViewById(com.baidu.tieba.v.container_scrollview);
         a(baseActivity);
     }
 
@@ -109,22 +109,22 @@ public class ap {
         int skinType = TbadkApplication.m252getInst().getSkinType();
         this.y = new GifView(context);
         if (skinType == 1) {
-            this.y.setBackgroundResource(com.baidu.tieba.q.bg_expression_bubble_1);
+            this.y.setBackgroundResource(com.baidu.tieba.u.bg_expression_bubble_1);
         } else {
-            this.y.setBackgroundResource(com.baidu.tieba.q.bg_expression_bubble);
+            this.y.setBackgroundResource(com.baidu.tieba.u.bg_expression_bubble);
         }
         this.y.setVisibility(8);
         this.z = (WindowManager) context.getSystemService("window");
         this.A = new WindowManager.LayoutParams();
-        this.B = context.getResources().getDimensionPixelSize(com.baidu.tieba.p.face_tab_content_float_width);
-        this.C = context.getResources().getDimensionPixelSize(com.baidu.tieba.p.face_tab_content_float_height);
+        this.B = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.face_tab_content_float_width);
+        this.C = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.face_tab_content_float_height);
         this.A.width = this.B;
         this.A.height = this.C;
         this.A.gravity = 51;
         this.A.format = -3;
         this.A.type = LocationClientOption.MIN_SCAN_SPAN;
         this.A.flags |= 56;
-        this.G = com.baidu.adp.lib.util.h.a((Activity) context);
+        this.G = com.baidu.adp.lib.util.k.a((Activity) context);
         if (MenuKeyUtils.hasSmartBar()) {
             this.A.type = LocationClientOption.MIN_SCAN_SPAN;
             this.A.flags = 25165832;
@@ -139,7 +139,7 @@ public class ap {
 
     private void b(FacePackageData facePackageData) {
         if (facePackageData != null && facePackageData.faceList != null) {
-            this.t.setLayoutParams(new LinearLayout.LayoutParams(-1, ((com.baidu.adp.lib.util.h.b(this.a) - (this.s * 2)) / 4) * ((int) Math.ceil(facePackageData.faceList.size() / 4.0f))));
+            this.t.setLayoutParams(new LinearLayout.LayoutParams(-1, ((com.baidu.adp.lib.util.k.b(this.a) - (this.s * 2)) / 4) * ((int) Math.ceil(facePackageData.faceList.size() / 4.0f))));
         }
     }
 
@@ -175,7 +175,7 @@ public class ap {
             this.f.setTag(facePackageData.coverUrl);
             this.g.setText(facePackageData.pname);
             this.I.setTag(facePackageData.tagUrl);
-            this.i.setText(String.valueOf(this.a.getResources().getString(com.baidu.tieba.u.price_tip)) + facePackageData.price);
+            this.i.setText(String.valueOf(this.a.getResources().getString(com.baidu.tieba.y.price_tip)) + facePackageData.price);
             this.l.setText(facePackageData.pdesc);
             this.h.setText(facePackageData.pname);
             b(facePackageData);
@@ -232,7 +232,7 @@ public class ap {
         if (anVar != null && anVar.a() != null && anVar.a().facePackage != null) {
             FacePackageData facePackageData = anVar.a().facePackage;
             if (facePackageData.buyStatus == 1) {
-                this.j.setText(this.a.getResources().getString(com.baidu.tieba.u.has_buy));
+                this.j.setText(this.a.getResources().getString(com.baidu.tieba.y.has_buy));
                 this.j.setVisibility(0);
             } else {
                 this.j.setVisibility(8);
@@ -263,14 +263,14 @@ public class ap {
     public void b() {
         this.k.setVisibility(0);
         this.m.setVisibility(8);
-        this.k.setText(this.a.getResources().getString(com.baidu.tieba.u.downloaded));
+        this.k.setText(this.a.getResources().getString(com.baidu.tieba.y.downloaded));
         if (this.b == 1) {
-            this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.faceshop_downloaded_text_1));
-            this.k.setBackgroundResource(com.baidu.tieba.q.btn_content_buy_d_1);
+            this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.faceshop_downloaded_text_1));
+            this.k.setBackgroundResource(com.baidu.tieba.u.btn_content_buy_d_1);
             return;
         }
-        this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.faceshop_downloaded_text));
-        this.k.setBackgroundResource(com.baidu.tieba.q.btn_content_buy_d);
+        this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.faceshop_downloaded_text));
+        this.k.setBackgroundResource(com.baidu.tieba.u.btn_content_buy_d);
     }
 
     public void a(long j, long j2) {
@@ -286,38 +286,38 @@ public class ap {
     public void c() {
         this.k.setVisibility(0);
         this.m.setVisibility(8);
-        this.k.setText(this.a.getResources().getString(com.baidu.tieba.u.buy_package));
+        this.k.setText(this.a.getResources().getString(com.baidu.tieba.y.buy_package));
         if (this.b == 1) {
-            this.k.setBackgroundResource(com.baidu.tieba.q.faceshop_package_btn_selector_1);
+            this.k.setBackgroundResource(com.baidu.tieba.u.faceshop_package_btn_selector_1);
         } else {
-            this.k.setBackgroundResource(com.baidu.tieba.q.faceshop_package_btn_selector);
+            this.k.setBackgroundResource(com.baidu.tieba.u.faceshop_package_btn_selector);
         }
     }
 
     public void d() {
         this.k.setVisibility(0);
         this.m.setVisibility(8);
-        this.k.setText(this.a.getResources().getString(com.baidu.tieba.u.can_download));
+        this.k.setText(this.a.getResources().getString(com.baidu.tieba.y.can_download));
         if (this.b == 1) {
-            this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.faceshop_package_btn_text_1));
-            this.k.setBackgroundResource(com.baidu.tieba.q.faceshop_package_btn_selector_1);
+            this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.faceshop_package_btn_text_1));
+            this.k.setBackgroundResource(com.baidu.tieba.u.faceshop_package_btn_selector_1);
             return;
         }
-        this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.faceshop_package_btn_text));
-        this.k.setBackgroundResource(com.baidu.tieba.q.faceshop_package_btn_selector);
+        this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.faceshop_package_btn_text));
+        this.k.setBackgroundResource(com.baidu.tieba.u.faceshop_package_btn_selector);
     }
 
     private void r() {
         this.k.setVisibility(0);
         this.m.setVisibility(8);
-        this.k.setText(this.a.getResources().getString(com.baidu.tieba.u.off_the_shelf));
+        this.k.setText(this.a.getResources().getString(com.baidu.tieba.y.off_the_shelf));
         if (this.b == 1) {
-            this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.faceshop_downloaded_text_1));
-            this.k.setBackgroundResource(com.baidu.tieba.q.btn_content_buy_d_1);
+            this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.faceshop_downloaded_text_1));
+            this.k.setBackgroundResource(com.baidu.tieba.u.btn_content_buy_d_1);
             return;
         }
-        this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.faceshop_downloaded_text));
-        this.k.setBackgroundResource(com.baidu.tieba.q.btn_content_buy_d);
+        this.k.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.faceshop_downloaded_text));
+        this.k.setBackgroundResource(com.baidu.tieba.u.btn_content_buy_d);
     }
 
     public void e() {

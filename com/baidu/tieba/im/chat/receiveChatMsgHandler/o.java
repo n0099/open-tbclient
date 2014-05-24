@@ -18,7 +18,7 @@ public class o extends CustomMessageListener {
             GroupMsgData groupMsgData = (GroupMsgData) customResponsedMessage;
             BdLog.d("GET Personal Gid PULLMSG=" + groupMsgData.getGroupInfo().getGroupId());
             com.baidu.tieba.im.pushNotify.a.f().a(l.a(groupMsgData), l.a, new p(this));
-            com.baidu.tieba.im.chat.x.b().a(groupMsgData);
+            com.baidu.tieba.im.chat.w.b().a(groupMsgData);
         }
     }
 }

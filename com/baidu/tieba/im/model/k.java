@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.message.RequestFrsGroupsLocalMessage;
 import com.baidu.tieba.im.message.RequestFrsGroupsMessage;
@@ -13,7 +14,7 @@ import com.baidu.tieba.im.message.RequestUserPermissionMessage;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.base.d {
+public class k extends com.baidu.adp.base.b {
     private String a;
     private boolean b;
     private int c;
@@ -24,10 +25,10 @@ public class k extends com.baidu.adp.base.d {
     private int h;
     private GroupPermData i;
     private final Map<String, Boolean> j = new HashMap();
-    private com.baidu.tbadk.core.e k;
+    private BaseFragmentActivity k;
 
-    public k(com.baidu.tbadk.core.e eVar) {
-        this.k = eVar;
+    public k(BaseFragmentActivity baseFragmentActivity) {
+        this.k = baseFragmentActivity;
     }
 
     public void a(String str) {
@@ -72,8 +73,8 @@ public class k extends com.baidu.adp.base.d {
     }
 
     public void a(Activity activity) {
-        this.g = com.baidu.adp.lib.util.h.a((Context) activity, 70.0f);
-        this.h = com.baidu.adp.lib.util.h.a((Context) activity, 70.0f);
+        this.g = com.baidu.adp.lib.util.k.a((Context) activity, 70.0f);
+        this.h = com.baidu.adp.lib.util.k.a((Context) activity, 70.0f);
     }
 
     public int g() {
@@ -120,12 +121,12 @@ public class k extends com.baidu.adp.base.d {
         return this.a;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }
@@ -171,7 +172,7 @@ public class k extends com.baidu.adp.base.d {
         this.k.a(c(str, i, i2, i3, i4, i5));
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public void registerListener(MessageListener<?> messageListener) {
         this.k.a(messageListener);
     }

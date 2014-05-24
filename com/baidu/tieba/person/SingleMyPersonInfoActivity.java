@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
-public class SingleMyPersonInfoActivity extends com.baidu.tbadk.core.e {
+public class SingleMyPersonInfoActivity extends BaseFragmentActivity {
     private bm c;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Bundle a = a(bundle);
@@ -35,7 +36,7 @@ public class SingleMyPersonInfoActivity extends com.baidu.tbadk.core.e {
         return bundle2;
     }
 
-    @Override // com.baidu.tbadk.core.e
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
     }
 
@@ -47,7 +48,7 @@ public class SingleMyPersonInfoActivity extends com.baidu.tbadk.core.e {
         }
     }
 
-    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         return super.onKeyDown(i, keyEvent);
     }

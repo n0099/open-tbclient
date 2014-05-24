@@ -11,7 +11,7 @@ import com.baidu.gson.Gson;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.chat.x;
+import com.baidu.tieba.im.chat.w;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.f.r;
@@ -424,7 +424,7 @@ public class c {
         synchronized (this) {
             if (linkedList != null) {
                 this.b.addAndGet(linkedList.size());
-                if (!TextUtils.isEmpty(str) && linkedList != null && linkedList.size() != 0 && (TextUtils.isEmpty(str) || !str.equals(String.valueOf(x.a)))) {
+                if (!TextUtils.isEmpty(str) && linkedList != null && linkedList.size() != 0 && (TextUtils.isEmpty(str) || !str.equals(String.valueOf(w.a)))) {
                     ?? r1 = "tb_group_msg_";
                     String str2 = "tb_group_msg_" + str;
                     SQLiteDatabase a2 = g.a();

@@ -33,32 +33,32 @@ public class m {
     }
 
     public static void a(int i, WriteData writeData) {
-        s<String> d = com.baidu.tbadk.core.a.b.a().d();
+        s<String> e = com.baidu.tbadk.core.a.b.a().e();
         if (writeData != null && writeData.hasContentToSave()) {
-            d.b(a(i), writeData.toDraftString(), 604800000L);
+            e.b(a(i), writeData.toDraftString(), 604800000L);
         } else {
-            d.d(a(i));
+            e.d(a(i));
         }
     }
 
     public static void a(String str, WriteData writeData) {
         if (!be.c(str)) {
-            s<String> d = com.baidu.tbadk.core.a.b.a().d();
+            s<String> e = com.baidu.tbadk.core.a.b.a().e();
             if (writeData != null && writeData.hasContentToSave()) {
-                d.b(b(str), writeData.toDraftString(), 604800000L);
+                e.b(b(str), writeData.toDraftString(), 604800000L);
             } else {
-                d.d(b(str));
+                e.d(b(str));
             }
         }
     }
 
     public static void b(String str, WriteData writeData) {
         if (!be.c(str)) {
-            s<String> d = com.baidu.tbadk.core.a.b.a().d();
+            s<String> e = com.baidu.tbadk.core.a.b.a().e();
             if (writeData != null && writeData.hasContentToSave()) {
-                d.b(a(str), writeData.toDraftString(), 604800000L);
+                e.b(a(str), writeData.toDraftString(), 604800000L);
             } else {
-                d.d(a(str));
+                e.d(a(str));
             }
         }
     }

@@ -3,8 +3,9 @@ package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.chat.az;
+import com.baidu.tieba.im.chat.ay;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivity;
+import com.baidu.tieba.im.chat.officialBar.az;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.data.SystemMsgData;
@@ -78,16 +79,16 @@ public class l {
                         BdLog.d("see content1:" + commonMsgPojo + "lastPojo:" + commonMsgPojo3);
                         commonMsgPojo3.checkRidAndSelf();
                         String gid = commonMsgPojo3.getGid();
-                        if (((az) hashMap.get(gid)) != null) {
-                            az azVar = (az) hashMap.get(gid);
-                            azVar.b = commonMsgPojo3;
-                            azVar.c += i2;
+                        if (((ay) hashMap.get(gid)) != null) {
+                            ay ayVar = (ay) hashMap.get(gid);
+                            ayVar.b = commonMsgPojo3;
+                            ayVar.c += i2;
                         } else {
-                            az azVar2 = new az();
-                            azVar2.a = gid;
-                            azVar2.b = commonMsgPojo3;
-                            azVar2.c = i2;
-                            hashMap.put(azVar2.a, azVar2);
+                            ay ayVar2 = new ay();
+                            ayVar2.a = gid;
+                            ayVar2.b = commonMsgPojo3;
+                            ayVar2.c = i2;
+                            hashMap.put(ayVar2.a, ayVar2);
                         }
                         i2 = 0;
                         linkedList = new LinkedList();
@@ -117,16 +118,16 @@ public class l {
                         commonMsgPojo4.checkRidAndSelf();
                         String gid2 = commonMsgPojo4.getGid();
                         BdLog.d("see content2:" + commonMsgPojo + "lastPojo:" + commonMsgPojo4);
-                        if (((az) hashMap.get(gid2)) != null) {
-                            az azVar3 = (az) hashMap.get(gid2);
-                            azVar3.b = commonMsgPojo4;
-                            azVar3.c += i;
+                        if (((ay) hashMap.get(gid2)) != null) {
+                            ay ayVar3 = (ay) hashMap.get(gid2);
+                            ayVar3.b = commonMsgPojo4;
+                            ayVar3.c += i;
                         } else {
-                            az azVar4 = new az();
-                            azVar4.a = gid2;
-                            azVar4.b = commonMsgPojo4;
-                            azVar4.c = i;
-                            hashMap.put(azVar4.a, azVar4);
+                            ay ayVar4 = new ay();
+                            ayVar4.a = gid2;
+                            ayVar4.b = commonMsgPojo4;
+                            ayVar4.c = i;
+                            hashMap.put(ayVar4.a, ayVar4);
                         }
                         linkedList = new LinkedList();
                         i = 0;
@@ -141,9 +142,9 @@ public class l {
             } else {
                 boolean z = false;
                 for (String str : hashMap.keySet()) {
-                    az azVar5 = (az) hashMap.get(str);
-                    com.baidu.tieba.im.b.j.a().a(azVar5.a, azVar5.c, azVar5.b, false);
-                    if (a(azVar5.a, azVar5.c, azVar5.b)) {
+                    ay ayVar5 = (ay) hashMap.get(str);
+                    com.baidu.tieba.im.b.j.a().a(ayVar5.a, ayVar5.c, ayVar5.b, false);
+                    if (a(ayVar5.a, ayVar5.c, ayVar5.b)) {
                         z = true;
                     }
                 }
@@ -181,7 +182,7 @@ public class l {
                 if (!TextUtils.isEmpty(gid) && OfficialBarChatActivity.a && gid.equals(OfficialBarChatActivity.b)) {
                     z = false;
                 }
-                boolean d = com.baidu.tieba.im.chat.officialBar.az.a().d(TbadkApplication.getCurrentAccount(), commonMsgPojo.getGid());
+                boolean d = az.a().d(TbadkApplication.getCurrentAccount(), commonMsgPojo.getGid());
                 if (!z || d) {
                     z2 = z;
                 }

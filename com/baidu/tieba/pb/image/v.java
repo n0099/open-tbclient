@@ -6,10 +6,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.ap;
-import com.baidu.tbadk.core.atomData.bg;
+import com.baidu.tbadk.core.atomData.bh;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.ai;
 import com.baidu.tieba.util.AntiHelper;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -44,7 +45,7 @@ public class v extends BdAsyncTask<Integer, Integer, String> {
         if (this.b.getVcode() != null && this.b.getVcode().length() > 0) {
             this.c.a("vcode", this.b.getVcode());
         }
-        if (com.baidu.tieba.ad.c().z() < 3) {
+        if (ai.c().z() < 3) {
             this.c.a("vcode_tag", "11");
         }
         this.c.a("quote_id", this.b.getFloor());
@@ -82,7 +83,7 @@ public class v extends BdAsyncTask<Integer, Integer, String> {
                     }
                     return;
                 } else if (this.b != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bg(this.a, this.b, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bh(this.a, this.b, 12006)));
                     return;
                 } else {
                     return;

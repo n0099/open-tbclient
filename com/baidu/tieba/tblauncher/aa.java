@@ -1,39 +1,37 @@
 package com.baidu.tieba.tblauncher;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Intent;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.al;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements com.baidu.tbadk.core.b.a {
-    @Override // com.baidu.tbadk.core.b.a
-    public void a(Context context, int i) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2017001, new al(context).a(i)));
+public class aa extends BroadcastReceiver {
+    final /* synthetic */ MainTabActivity this$0;
+
+    private aa(MainTabActivity mainTabActivity) {
+        this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.b.a
-    public void a(Context context) {
-        String currentAccount = TbadkApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            a(context, 1);
-        } else {
-            a(context, 0);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aa(MainTabActivity mainTabActivity, aa aaVar) {
+        this(mainTabActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        if (intent.getAction().equals(TbConfig.getBroadcastActionNewVersion())) {
+            refreshNewVersion();
         }
     }
 
-    @Override // com.baidu.tbadk.core.b.a
-    public void a(Context context, int i, boolean z) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2017001, new al(context).b(i, z)));
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public Class<?> a() {
-        return MainTabActivity.class;
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public String b() {
-        return MainTabActivity.class.getName();
+    private void refreshNewVersion() {
+        if (TbadkApplication.checkNeedShowNewVersion()) {
+            this.this$0.R = true;
+        } else {
+            this.this$0.R = false;
+        }
+        this.this$0.a(false);
     }
 }

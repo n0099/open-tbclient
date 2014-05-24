@@ -4,28 +4,28 @@ import android.view.View;
 /* loaded from: classes.dex */
 class av implements Runnable {
     final /* synthetic */ au a;
-    private final /* synthetic */ com.baidu.tieba.data.ao b;
+    private final /* synthetic */ com.baidu.tieba.data.ap b;
     private final /* synthetic */ View c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(au auVar, com.baidu.tieba.data.ao aoVar, View view) {
+    public av(au auVar, com.baidu.tieba.data.ap apVar, View view) {
         this.a = auVar;
-        this.b = aoVar;
+        this.b = apVar;
         this.c = view;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         PbActivity pbActivity;
-        bj bjVar;
+        bq bqVar;
         PbActivity pbActivity2;
-        bc bcVar;
+        bj bjVar;
         pbActivity = this.a.a;
-        bjVar = pbActivity.E;
-        com.baidu.tieba.data.ao aoVar = this.b;
+        bqVar = pbActivity.D;
+        com.baidu.tieba.data.ap apVar = this.b;
         View view = this.c;
         pbActivity2 = this.a.a;
-        bcVar = pbActivity2.y;
-        bjVar.a(false, aoVar, true, null, null, view, bcVar.p().l());
+        bjVar = pbActivity2.x;
+        bqVar.a(false, apVar, true, null, null, view, bjVar.p().l());
     }
 }

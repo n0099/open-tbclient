@@ -42,7 +42,7 @@ public class aa extends com.baidu.adp.framework.listener.b {
         ad adVar;
         this.a.k();
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseHotLiveListMessage)) {
-            this.a.a(com.baidu.tieba.u.neterror);
+            this.a.a(com.baidu.tieba.y.neterror);
             return;
         }
         ResponseHotLiveListMessage responseHotLiveListMessage = (ResponseHotLiveListMessage) socketResponsedMessage;
@@ -62,7 +62,7 @@ public class aa extends com.baidu.adp.framework.listener.b {
                 this.a.b(responseHotLiveListMessage.getErrorString());
                 return;
             } else {
-                this.a.a(com.baidu.tieba.u.neterror);
+                this.a.a(com.baidu.tieba.y.neterror);
                 return;
             }
         }

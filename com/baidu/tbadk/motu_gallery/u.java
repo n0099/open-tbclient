@@ -1,102 +1,207 @@
 package com.baidu.tbadk.motu_gallery;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.view.View;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.TbConfig;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes.dex */
-class u implements View.OnClickListener {
-    final /* synthetic */ t a;
-    private final /* synthetic */ c b;
+public class u {
+    private static u a = null;
+    private List<c> b = new ArrayList();
+    private List<Uri> c;
+    private String d;
+    private boolean e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(t tVar, c cVar) {
-        this.a = tVar;
-        this.b = cVar;
+    public static u a() {
+        if (a == null) {
+            a = new u();
+        }
+        return a;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        n nVar;
-        n nVar2;
-        n nVar3;
-        n nVar4;
-        Context context;
-        n nVar5;
-        LinearLayout linearLayout;
-        n nVar6;
-        HorizontalScrollView horizontalScrollView;
-        n nVar7;
-        HorizontalScrollView horizontalScrollView2;
-        n nVar8;
-        n nVar9;
-        n nVar10;
-        LinearLayout linearLayout2;
-        n nVar11;
-        TextView textView;
-        n nVar12;
-        n nVar13;
-        n nVar14;
-        a aVar = (a) view;
-        nVar = this.a.a;
-        w wVar = nVar.a;
-        nVar2 = this.a.a;
-        if (wVar.a(nVar2) >= 10) {
-            aa.b(com.baidu.tieba.u.jigsaw_image_most);
-        } else if (!b.a(this.b.b)) {
-            aa.b(com.baidu.tieba.u.photo_size_scale_range_error);
-        } else {
-            Uri parse = Uri.parse(String.valueOf(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)) + "/" + String.valueOf(this.b.c));
-            nVar3 = this.a.a;
-            if (nVar3.a.b(parse)) {
-                nVar14 = this.a.a;
-                nVar14.a(parse);
-                return;
+    private u() {
+        a(new ArrayList());
+        this.e = false;
+    }
+
+    public int b() {
+        return this.b.size();
+    }
+
+    public int a(Uri uri) {
+        if (uri == null || this.b == null) {
+            return -1;
+        }
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 >= this.b.size()) {
+                return -1;
             }
-            nVar4 = this.a.a;
-            z zVar = new z(nVar4);
-            context = this.a.b;
-            int dimension = (int) context.getResources().getDimension(com.baidu.tieba.p.jigsawSelectedWidth);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimension, dimension);
-            layoutParams.setMargins(dimension / 10, 0, 0, 0);
-            zVar.setLayoutParams(layoutParams);
-            try {
-                if (zVar.a(parse)) {
-                    nVar8 = this.a.a;
-                    w wVar2 = nVar8.a;
-                    nVar9 = this.a.a;
-                    if (wVar2.a(nVar9, parse)) {
-                        nVar10 = this.a.a;
-                        linearLayout2 = nVar10.m;
-                        linearLayout2.addView(zVar);
-                        nVar11 = this.a.a;
-                        textView = nVar11.o;
-                        nVar12 = this.a.a;
-                        w wVar3 = nVar12.a;
-                        nVar13 = this.a.a;
-                        textView.setText(wVar3.e(nVar13));
-                    }
-                    aVar.setIsSelected(true);
-                    zVar.setOnClickListener(new v(this, zVar, aVar));
-                } else {
-                    aa.a(com.baidu.tieba.u.open_error);
-                }
-                nVar5 = this.a.a;
-                linearLayout = nVar5.m;
-                linearLayout.invalidate();
-                nVar6 = this.a.a;
-                horizontalScrollView = nVar6.n;
-                horizontalScrollView.invalidate();
-                nVar7 = this.a.a;
-                horizontalScrollView2 = nVar7.n;
-                horizontalScrollView2.fling(TbConfig.BIG_IMAGE_MIN_CAPACITY);
-            } catch (OutOfMemoryError e) {
-                e.printStackTrace();
+            if (!this.b.get(i2).d.equals(uri)) {
+                i = i2 + 1;
+            } else {
+                return i2;
             }
         }
+    }
+
+    public void a(c cVar) {
+        this.b.add(cVar);
+    }
+
+    public void c() {
+        this.b.clear();
+    }
+
+    public c a(int i) {
+        return this.b.get(i);
+    }
+
+    public int a(Context context) {
+        return c(context).size();
+    }
+
+    public boolean a(Context context, Uri uri) {
+        boolean z;
+        if (a(context) >= 10) {
+            return false;
+        }
+        try {
+            int dimension = (int) context.getResources().getDimension(com.baidu.tieba.t.jigsawSelectedImageWidth);
+            if (b.b(context, uri, dimension, dimension) == null) {
+                y.a(com.baidu.tieba.y.open_error);
+                return false;
+            }
+            Iterator<Uri> it = c(context).iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    z = false;
+                    break;
+                } else if (it.next().equals(uri)) {
+                    z = true;
+                    break;
+                }
+            }
+            if (z) {
+                return false;
+            }
+            c(context).add(uri);
+            return true;
+        } catch (OtherException e) {
+            e.printStackTrace();
+            y.a(com.baidu.tieba.y.open_error);
+            return false;
+        } catch (FileNotFoundException e2) {
+            e2.printStackTrace();
+            y.a(com.baidu.tieba.y.open_error);
+            return false;
+        } catch (OutOfMemoryError e3) {
+            e3.printStackTrace();
+            y.a(com.baidu.tieba.y.open_error);
+            return false;
+        }
+    }
+
+    public void b(Context context, Uri uri) {
+        c(context).remove(uri);
+        f(context);
+    }
+
+    public void b(Context context) {
+        c(context).clear();
+        f(context);
+    }
+
+    private void a(List<Uri> list) {
+        this.c = list;
+    }
+
+    public List<Uri> c(Context context) {
+        this.c.size();
+        return this.c;
+    }
+
+    public int d(Context context) {
+        return c(context).size();
+    }
+
+    public void a(String str) {
+        this.d = str;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public String e(Context context) {
+        return String.format(context.getResources().getString(com.baidu.tieba.y.jigsaw_selected_text), Integer.valueOf(d(context)), Integer.valueOf(10 - d(context)));
+    }
+
+    public Bitmap a(Context context, c cVar, int i) {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        Uri parse = Uri.parse(String.valueOf(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)) + "/" + String.valueOf(cVar.c));
+        try {
+            Bitmap a2 = b.a(context, parse, i, i);
+            if (a2 == null) {
+                return null;
+            }
+            try {
+                int a3 = w.a(context, parse, false);
+                if (a3 != 0) {
+                    Matrix matrix = new Matrix();
+                    matrix.setRotate(a3);
+                    return Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
+                }
+                return a2;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return bitmap2;
+            } catch (OutOfMemoryError e2) {
+                e2.printStackTrace();
+                return bitmap;
+            }
+        } catch (FileNotFoundException e3) {
+            e3.printStackTrace();
+            return null;
+        } catch (OutOfMemoryError e4) {
+            e4.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean e() {
+        boolean z = this.e;
+        this.e = false;
+        return z;
+    }
+
+    private void f(Context context) {
+    }
+
+    public boolean b(Uri uri) {
+        for (Uri uri2 : this.c) {
+            if (uri2.equals(uri)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Intent f() {
+        Intent intent = new Intent();
+        ArrayList<String> arrayList = new ArrayList<>();
+        for (Uri uri : this.c) {
+            arrayList.add(uri.toString());
+        }
+        intent.putStringArrayListExtra("selected_uris", arrayList);
+        return intent;
     }
 }

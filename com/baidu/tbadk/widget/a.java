@@ -20,7 +20,7 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.q;
+import com.baidu.tieba.u;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends ImageView {
@@ -478,7 +478,7 @@ public class a extends ImageView {
     }
 
     private void u() {
-        this.o = com.baidu.adp.lib.util.h.c(getContext()) * com.baidu.adp.lib.util.h.b(getContext()) * 2;
+        this.o = com.baidu.adp.lib.util.k.c(getContext()) * com.baidu.adp.lib.util.k.b(getContext()) * 2;
         if (this.o < 1690000) {
             this.o = 1690000;
         }
@@ -622,11 +622,11 @@ public class a extends ImageView {
             this.u.b();
         }
         if (this.M) {
-            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(q.pic_baidu_logo_black));
+            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.pic_baidu_logo_black));
         } else if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(q.pic_baidu_logo_d_1));
+            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.pic_baidu_logo_d_1));
         } else {
-            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(q.pic_baidu_logo_d));
+            super.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.pic_baidu_logo_d));
         }
         this.x = 2;
         r();

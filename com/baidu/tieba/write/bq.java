@@ -50,7 +50,7 @@ public class bq extends BdAsyncTask<String, Void, Bitmap> {
         if (d == null) {
             handler2 = this.a.C;
             handler2.postDelayed(new br(this), 500L);
-            this.a.showToast(com.baidu.tieba.u.plugin_config_not_found);
+            this.a.showToast(com.baidu.tieba.y.plugin_config_not_found);
             return;
         }
         PluginDownloadActivity.a(this.a, d);

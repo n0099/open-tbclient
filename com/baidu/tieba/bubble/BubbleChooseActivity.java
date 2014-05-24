@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
@@ -14,7 +14,7 @@ import com.baidu.tieba.data.BubbleListData;
 import com.baidu.tieba.model.f;
 import com.baidu.tieba.model.i;
 import com.baidu.tieba.model.j;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class BubbleChooseActivity extends BaseActivity {
     private e b;
@@ -64,7 +64,7 @@ public class BubbleChooseActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        this.c.a(0, 50, h.b(this), h.c(this));
+        this.c.a(0, 50, k.b(this), k.c(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -81,7 +81,7 @@ public class BubbleChooseActivity extends BaseActivity {
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.b.b()) {
-            TbWebViewActivity.b(this, getString(u.web_title_bubble_explain), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion());
+            TbWebViewActivity.b(this, getString(y.web_title_bubble_explain), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion());
         }
     }
 
@@ -100,14 +100,14 @@ public class BubbleChooseActivity extends BaseActivity {
             if (a.getBcode() == 0 || a.canUse() || a.isFree()) {
                 if (!a.isDef()) {
                     this.c.a(a.getBcode());
-                    this.c.a(a.getBcode(), h.b(this), h.c(this));
+                    this.c.a(a.getBcode(), k.b(this), k.c(this));
                     this.b.d();
                     return;
                 }
                 return;
             }
             this.c.b(a.getBcode());
-            TbWebViewActivity.b(this, getString(u.web_title_bubble_purchase), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeantshow?_client_version=" + TbConfig.getVersion());
+            TbWebViewActivity.b(this, getString(y.web_title_bubble_purchase), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeantshow?_client_version=" + TbConfig.getVersion());
         }
     }
 }

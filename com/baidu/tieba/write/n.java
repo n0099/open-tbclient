@@ -114,7 +114,7 @@ public class n extends BaseAdapter {
             c.a(oVar.b);
         } else {
             oVar.b.setTag(portrait);
-            oVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.photo));
+            oVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.photo));
         }
         if (this.a instanceof AtListActivity) {
             ((AtListActivity) this.a).getLayoutMode().a(skinType == 1);
@@ -125,11 +125,11 @@ public class n extends BaseAdapter {
 
     private o b() {
         o oVar = new o(this, null);
-        oVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.invite_friend_list_item, (ViewGroup) null);
-        oVar.b = (HeadImageView) oVar.a.findViewById(com.baidu.tieba.r.photo);
+        oVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.invite_friend_list_item, (ViewGroup) null);
+        oVar.b = (HeadImageView) oVar.a.findViewById(com.baidu.tieba.v.photo);
         oVar.b.setIsRound(true);
-        oVar.c = (TextView) oVar.a.findViewById(com.baidu.tieba.r.txt_user_name);
-        oVar.d = (TbCheckBox) oVar.a.findViewById(com.baidu.tieba.r.ckb_select);
+        oVar.c = (TextView) oVar.a.findViewById(com.baidu.tieba.v.txt_user_name);
+        oVar.d = (TbCheckBox) oVar.a.findViewById(com.baidu.tieba.v.ckb_select);
         if (this.d != null) {
             oVar.d.setStatedChangedListener(this.d);
         }

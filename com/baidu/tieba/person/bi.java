@@ -20,7 +20,7 @@ public class bi implements View.OnLongClickListener {
         DialogInterface.OnClickListener onClickListener;
         context = this.a.i;
         context2 = this.a.i;
-        String[] strArr = {context.getString(com.baidu.tieba.u.save), context2.getString(com.baidu.tieba.u.cancel)};
+        String[] strArr = {context.getString(com.baidu.tieba.y.save), context2.getString(com.baidu.tieba.y.cancel)};
         PersonImageActivity personImageActivity = this.a;
         onClickListener = this.a.f;
         personImageActivity.createListMenu(strArr, onClickListener);

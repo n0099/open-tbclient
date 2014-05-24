@@ -17,7 +17,7 @@ public class e implements View.OnClickListener {
         EditText editText;
         AtListActivity atListActivity = this.a;
         editText = this.a.b;
-        com.baidu.adp.lib.util.h.a(atListActivity, editText);
+        com.baidu.adp.lib.util.k.a(atListActivity, editText);
         this.a.finish();
     }
 }

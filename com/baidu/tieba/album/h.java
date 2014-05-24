@@ -22,8 +22,8 @@ public class h extends PagerAdapter {
     public h(AlbumActivity albumActivity, com.baidu.tbadk.img.e eVar) {
         this.a = albumActivity;
         this.b = eVar;
-        this.d = com.baidu.adp.lib.util.h.b(this.a);
-        this.e = com.baidu.adp.lib.util.h.c(this.a) - ((int) this.a.getResources().getDimension(com.baidu.tieba.p.album_bottom_height));
+        this.d = com.baidu.adp.lib.util.k.b(this.a);
+        this.e = com.baidu.adp.lib.util.k.c(this.a) - ((int) this.a.getResources().getDimension(com.baidu.tieba.t.album_bottom_height));
     }
 
     public void a(List<ImageFileInfo> list) {
@@ -65,8 +65,8 @@ public class h extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.album_big_image_item, (ViewGroup) null);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(com.baidu.tieba.r.big_image);
+        View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.album_big_image_item, (ViewGroup) null);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(com.baidu.tieba.v.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
         tbImageView.setNightDefaultResource(0);

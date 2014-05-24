@@ -17,7 +17,7 @@ public class af implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (!TextUtils.isEmpty(this.a.getStatisticsKey())) {
-            com.baidu.tbadk.core.g.a(this.a.getContext(), this.a.getStatisticsKey());
+            com.baidu.tbadk.core.f.a(this.a.getContext(), this.a.getStatisticsKey());
         }
         if (LivePlayingStatusMgr.a().c() != 0) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(this.a.getContext(), LivePlayingStatusMgr.a().c())));

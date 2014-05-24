@@ -6,7 +6,7 @@ import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.chat.receiveChatMsgHandler.ab;
-import com.baidu.tieba.im.chat.x;
+import com.baidu.tieba.im.chat.w;
 import com.baidu.tieba.im.db.n;
 import com.baidu.tieba.im.db.o;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
@@ -53,7 +53,7 @@ public class e {
     }
 
     public static boolean d() {
-        com.baidu.adp.lib.util.h.b();
+        com.baidu.adp.lib.util.k.b();
         if (TbadkApplication.isLogin()) {
             return a.a().a.get() && k.a().a.get() && j.a().a.get();
         }
@@ -118,7 +118,7 @@ public class e {
             UserData userData = (UserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) UserData.class);
             String str2 = "";
             if (userData != null) {
-                if (com.baidu.adp.lib.util.g.b(userData.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
+                if (com.baidu.adp.lib.util.j.b(userData.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
                     oldUserData.setToUserData(userData);
                 }
                 str2 = userData.getUserName();
@@ -192,7 +192,7 @@ public class e {
         ImMessageCenterPojo b;
         BdLog.d("see init private chat begin ");
         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-        imMessageCenterPojo.setGid(String.valueOf(x.a));
+        imMessageCenterPojo.setGid(String.valueOf(w.a));
         imMessageCenterPojo.setCustomGroupType(2);
         for (String str : o.d().b()) {
             BdLog.d("see init private chat id:" + str);
@@ -230,7 +230,7 @@ public class e {
         ImMessageCenterPojo b;
         BdLog.d("see init private chat begin ");
         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-        imMessageCenterPojo.setGid(String.valueOf(x.a));
+        imMessageCenterPojo.setGid(String.valueOf(w.a));
         imMessageCenterPojo.setCustomGroupType(4);
         for (String str : n.d().b()) {
             BdLog.d("see init private chat id:" + str);

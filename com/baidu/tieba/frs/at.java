@@ -1,13 +1,8 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.img.WriteImagesInfo;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
-public class at implements DialogInterface.OnClickListener {
+class at implements dg {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,42 +10,41 @@ public class at implements DialogInterface.OnClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        WriteImagesInfo writeImagesInfo;
-        WriteImagesInfo writeImagesInfo2;
-        WriteImagesInfo writeImagesInfo3;
-        WriteImagesInfo writeImagesInfo4;
-        String str;
-        WriteImagesInfo writeImagesInfo5;
-        WriteImagesInfo writeImagesInfo6;
-        if (i == 0) {
-            writeImagesInfo4 = this.a.Z;
-            if (writeImagesInfo4.getChosedFiles() != null) {
-                writeImagesInfo5 = this.a.Z;
-                int size = writeImagesInfo5.getChosedFiles().size();
-                writeImagesInfo6 = this.a.Z;
-                if (size >= writeImagesInfo6.getMaxImagesAllowed()) {
-                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.u.editor_mutiiamge_max), 10));
-                    return;
-                }
-            }
-            this.a.aa = String.valueOf(System.currentTimeMillis());
-            FrsActivity frsActivity = this.a;
-            str = this.a.aa;
-            com.baidu.tbadk.core.util.bb.a(frsActivity, str);
-        } else if (i == 1) {
-            writeImagesInfo = this.a.Z;
-            if (writeImagesInfo != null) {
-                writeImagesInfo2 = this.a.Z;
-                if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
-                    FrsActivity frsActivity2 = this.a;
-                    writeImagesInfo3 = this.a.Z;
-                    com.baidu.tbadk.core.atomData.a aVar = new com.baidu.tbadk.core.atomData.a(frsActivity2, writeImagesInfo3.toJsonString());
-                    aVar.setRequestCode(12002);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, aVar));
-                }
-            }
+    @Override // com.baidu.tieba.frs.dg
+    public void a(i iVar, j jVar) {
+        ct ctVar;
+        ct ctVar2;
+        ct ctVar3;
+        g gVar;
+        g gVar2;
+        ct ctVar4;
+        g gVar3;
+        g gVar4;
+        if (iVar.a) {
+            ctVar3 = this.a.w;
+            ctVar3.a(this.a.getString(com.baidu.tieba.y.add_fan_sucess));
+            gVar = this.a.I;
+            gVar.l().b(1);
+            gVar2 = this.a.I;
+            gVar2.l().c(iVar.c);
+            ctVar4 = this.a.w;
+            gVar3 = this.a.I;
+            ForumData g = gVar3.g();
+            gVar4 = this.a.I;
+            ctVar4.a(1, g, gVar4, false);
+            com.baidu.tieba.ai.c().e(true);
+            return;
         }
+        if (jVar.d == null || jVar.d.length() <= 0) {
+            ctVar = this.a.w;
+            ctVar.a(this.a.getString(com.baidu.tieba.y.add_fan_error));
+        } else {
+            ctVar2 = this.a.w;
+            ctVar2.a(jVar.d);
+        }
+        if (jVar.c != 120002) {
+            return;
+        }
+        this.a.E();
     }
 }

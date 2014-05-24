@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
+import android.graphics.Bitmap;
+import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-class i extends Thread {
+class i implements Runnable {
     final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,18 +12,26 @@ class i extends Thread {
         this.a = logoActivity;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
+    @Override // java.lang.Runnable
     public void run() {
-        Handler handler;
-        Handler handler2;
-        super.run();
-        try {
-            com.baidu.tbadk.core.util.l.a();
-            this.a.a(this.a.getCacheDir());
-        } catch (Exception e) {
+        Bitmap bitmap;
+        ImageView imageView;
+        ImageView imageView2;
+        Bitmap bitmap2;
+        ImageView imageView3;
+        AlphaAnimation alphaAnimation;
+        this.a.d = com.baidu.tbadk.core.util.g.a(this.a, u.logo);
+        bitmap = this.a.d;
+        if (bitmap != null) {
+            imageView = this.a.c;
+            if (imageView != null) {
+                imageView2 = this.a.c;
+                bitmap2 = this.a.d;
+                imageView2.setImageBitmap(bitmap2);
+                imageView3 = this.a.c;
+                alphaAnimation = this.a.e;
+                imageView3.startAnimation(alphaAnimation);
+            }
         }
-        handler = this.a.h;
-        handler2 = this.a.h;
-        handler.sendMessage(handler2.obtainMessage());
     }
 }

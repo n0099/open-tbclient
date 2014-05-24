@@ -1,22 +1,17 @@
 package com.baidu.tbadk.motu_gallery;
 
-import android.os.Handler;
+import android.view.View;
 /* loaded from: classes.dex */
-class f implements Runnable {
-    final /* synthetic */ d a;
+class f implements View.OnClickListener {
+    final /* synthetic */ JigsawAlbumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(d dVar) {
-        this.a = dVar;
+    public f(JigsawAlbumActivity jigsawAlbumActivity) {
+        this.a = jigsawAlbumActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Handler handler2;
-        this.a.c();
-        handler = this.a.u;
-        handler2 = this.a.u;
-        handler.sendMessage(handler2.obtainMessage(2));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.finish();
     }
 }

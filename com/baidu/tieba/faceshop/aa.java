@@ -1,6 +1,6 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
-public class aa extends com.baidu.adp.base.d {
+public class aa extends com.baidu.adp.base.b {
     private int c = 3;
     private ac a = null;
     private ab b = null;
@@ -21,12 +21,12 @@ public class aa extends com.baidu.adp.base.d {
         }
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();

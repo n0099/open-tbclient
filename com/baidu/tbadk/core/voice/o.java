@@ -11,10 +11,10 @@ public class o implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        x m;
-        m = this.a.m();
-        if (m != null) {
-            this.a.b(m);
+        x playView;
+        playView = this.a.getPlayView();
+        if (playView != null) {
+            this.a.startPlay(playView);
         }
     }
 }

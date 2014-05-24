@@ -1,6 +1,7 @@
 package com.baidu.tbadk.tbplugin;
 
 import android.content.Context;
+import com.baidu.adp.base.BdBaseApplication;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
@@ -31,11 +32,11 @@ public class l implements e {
                         arrayList.add(loadClass);
                     }
                 } catch (Exception e) {
-                    i.b(com.baidu.adp.base.a.getInst().getContext(), "Discovery installed failed: Nested Exception: " + e.getMessage());
+                    i.b(BdBaseApplication.getInst().getContext(), "Discovery installed failed: Nested Exception: " + e.getMessage());
                 }
             }
         } catch (ConcurrentModificationException e2) {
-            i.b(com.baidu.adp.base.a.getInst().getContext(), "Discovery installed failed: Nested Exception: " + e2.getMessage());
+            i.b(BdBaseApplication.getInst().getContext(), "Discovery installed failed: Nested Exception: " + e2.getMessage());
         }
         return arrayList;
     }

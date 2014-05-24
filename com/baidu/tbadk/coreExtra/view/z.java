@@ -30,7 +30,7 @@ public class z implements View.OnClickListener {
         if (!TextUtils.isEmpty(str)) {
             context = this.a.c;
             str2 = this.a.D;
-            com.baidu.tbadk.core.g.a(context, str2);
+            com.baidu.tbadk.core.f.a(context, str2);
         }
         this.a.h();
     }

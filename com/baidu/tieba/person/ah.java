@@ -29,11 +29,11 @@ public class ah implements ViewPager.OnPageChangeListener {
             avVar2 = this.a.u;
             if (avVar2.f()) {
                 context2 = this.a.a;
-                com.baidu.tbadk.core.g.a(context2, "person_self_scroll_click");
+                com.baidu.tbadk.core.f.a(context2, "person_self_scroll_click");
                 return;
             }
             context = this.a.a;
-            com.baidu.tbadk.core.g.a(context, "person_guid_scroll_click");
+            com.baidu.tbadk.core.f.a(context, "person_guid_scroll_click");
         }
     }
 

@@ -141,7 +141,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
             if (TbadkApplication.getCurrentAccountObj() != null) {
                 str = TbadkApplication.getCurrentAccountObj().getID();
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().s(), CACHE_KEY_PREFIX + str + this.selfData.b().getGroupId(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.b.a().t(), CACHE_KEY_PREFIX + str + this.selfData.b().getGroupId(), bArr);
         }
     }
 }

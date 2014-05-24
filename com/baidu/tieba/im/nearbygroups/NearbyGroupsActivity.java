@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.atomData.q;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
-import com.baidu.tieba.im.model.bd;
-import com.baidu.tieba.r;
+import com.baidu.tieba.im.model.be;
+import com.baidu.tieba.v;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class NearbyGroupsActivity extends BaseActivity {
     private m b = null;
-    private bd c = null;
+    private be c = null;
     private com.baidu.adp.lib.util.d d = null;
     private com.baidu.adp.widget.ListView.d e = new b(this);
     com.baidu.adp.lib.c.d a = new c(this);
@@ -38,7 +38,7 @@ public class NearbyGroupsActivity extends BaseActivity {
         this.b.a(new f(this));
         this.b.a(new g(this));
         this.d = new com.baidu.adp.lib.util.d(this);
-        this.c = new bd();
+        this.c = new be();
         this.c.setUniqueId(getUniqueId());
         registerListener(MessageTypes.CMD_NEARBY_GROUP, this.g);
         registerListener(MessageTypes.CMD_GET_USER_PERMISSION, this.g);
@@ -97,9 +97,9 @@ public class NearbyGroupsActivity extends BaseActivity {
             } else {
                 b();
             }
-        } else if (view.getId() == r.guide_setting) {
+        } else if (view.getId() == v.guide_setting) {
             this.d.a();
-        } else if (view.getId() == r.list_item_content && (tag = view.getTag()) != null) {
+        } else if (view.getId() == v.list_item_content && (tag = view.getTag()) != null) {
             sendMessage(new CustomMessage(2010011, new q(this, com.baidu.adp.lib.f.b.a(tag.toString(), 0L), 1)));
         }
     }

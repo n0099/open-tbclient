@@ -29,7 +29,7 @@ public abstract class n {
             String str2 = String.valueOf(str) + "@";
             synchronized (this.a) {
                 s<String> c = c();
-                List<t<String>> a2 = com.baidu.adp.lib.util.l.a(c);
+                List<t<String>> a2 = com.baidu.adp.lib.util.o.a(c);
                 if (a2 != null) {
                     for (t<String> tVar : a2) {
                         String str3 = tVar.a;

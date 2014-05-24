@@ -24,7 +24,7 @@ public class l implements View.OnClickListener {
         if (!this.b.k()) {
             this.c.i.setVisibility(4);
             this.c.j.setVisibility(0);
-            this.c.k.setText(com.baidu.tieba.u.signallforum_resigning);
+            this.c.k.setText(com.baidu.tieba.y.signallforum_resigning);
             this.b.c(true);
             aa aaVar = new aa();
             aaVar.a(this.a);
@@ -35,7 +35,7 @@ public class l implements View.OnClickListener {
             }
             aaVar.a(this.b.b(), sb);
             context = this.a.c;
-            com.baidu.tbadk.core.g.a(context, "signall_resign_click");
+            com.baidu.tbadk.core.f.a(context, "signall_resign_click");
         }
     }
 }

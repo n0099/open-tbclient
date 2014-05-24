@@ -8,7 +8,7 @@ import android.widget.RadioGroup;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public class ad extends com.baidu.adp.base.e {
+public class ad extends com.baidu.adp.base.c {
     private HotLiveListActivity a;
     private View b;
     private NavigationBar c;
@@ -30,29 +30,29 @@ public class ad extends com.baidu.adp.base.e {
         super(hotLiveListActivity);
         this.a = hotLiveListActivity;
         this.l = z;
-        hotLiveListActivity.setContentView(com.baidu.tieba.s.live_hot_list_activity);
+        hotLiveListActivity.setContentView(com.baidu.tieba.w.live_hot_list_activity);
         a(hotLiveListActivity);
         b(hotLiveListActivity);
         c(hotLiveListActivity);
     }
 
     private void a(HotLiveListActivity hotLiveListActivity) {
-        this.b = hotLiveListActivity.findViewById(com.baidu.tieba.r.view_root);
-        this.c = (NavigationBar) hotLiveListActivity.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.b = hotLiveListActivity.findViewById(com.baidu.tieba.v.view_root);
+        this.c = (NavigationBar) hotLiveListActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c.a(this.a.getString(com.baidu.tieba.u.group_tab_living_btn));
-        this.p = (NoNetworkView) hotLiveListActivity.findViewById(com.baidu.tieba.r.view_no_network);
+        this.c.a(this.a.getString(com.baidu.tieba.y.group_tab_living_btn));
+        this.p = (NoNetworkView) hotLiveListActivity.findViewById(com.baidu.tieba.v.view_no_network);
     }
 
     private void b(HotLiveListActivity hotLiveListActivity) {
-        this.d = (RadioGroup) hotLiveListActivity.findViewById(com.baidu.tieba.r.raidos_change);
-        this.e = (RadioButton) hotLiveListActivity.findViewById(com.baidu.tieba.r.radio_living);
+        this.d = (RadioGroup) hotLiveListActivity.findViewById(com.baidu.tieba.v.raidos_change);
+        this.e = (RadioButton) hotLiveListActivity.findViewById(com.baidu.tieba.v.radio_living);
         this.e.setChecked(true);
-        this.f = (RadioButton) hotLiveListActivity.findViewById(com.baidu.tieba.r.radio_review);
-        this.g = (RadioButton) hotLiveListActivity.findViewById(com.baidu.tieba.r.radio_foreshow);
-        this.h = (ViewGroup) hotLiveListActivity.findViewById(com.baidu.tieba.r.radio_living_line);
-        this.i = (ViewGroup) hotLiveListActivity.findViewById(com.baidu.tieba.r.radio_review_line);
-        this.j = (ViewGroup) hotLiveListActivity.findViewById(com.baidu.tieba.r.radio_foreshow_line);
+        this.f = (RadioButton) hotLiveListActivity.findViewById(com.baidu.tieba.v.radio_review);
+        this.g = (RadioButton) hotLiveListActivity.findViewById(com.baidu.tieba.v.radio_foreshow);
+        this.h = (ViewGroup) hotLiveListActivity.findViewById(com.baidu.tieba.v.radio_living_line);
+        this.i = (ViewGroup) hotLiveListActivity.findViewById(com.baidu.tieba.v.radio_review_line);
+        this.j = (ViewGroup) hotLiveListActivity.findViewById(com.baidu.tieba.v.radio_foreshow_line);
         if (!this.l) {
             this.f.setVisibility(8);
             this.i.setVisibility(8);
@@ -81,7 +81,7 @@ public class ad extends com.baidu.adp.base.e {
             this.m[i2] = new z();
             this.m[i2].a(this.n[i2]);
         }
-        this.k = (ViewPager) this.a.findViewById(com.baidu.tieba.r.viewpage);
+        this.k = (ViewPager) this.a.findViewById(com.baidu.tieba.v.viewpage);
         this.k.setAdapter(new ae(this.a.getSupportFragmentManager(), this.m));
         this.k.setOnPageChangeListener(this.a);
         this.k.setOffscreenPageLimit(2);
@@ -137,13 +137,13 @@ public class ad extends com.baidu.adp.base.e {
         }
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.c
     public void destroy() {
         super.destroy();
     }
 
     public void b() {
-        this.d.check(com.baidu.tieba.r.radio_living);
+        this.d.check(com.baidu.tieba.v.radio_living);
     }
 
     public ViewPager c() {

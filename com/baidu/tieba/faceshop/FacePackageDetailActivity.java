@@ -57,7 +57,7 @@ public class FacePackageDetailActivity extends BaseActivity {
             this.a.c(getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE));
             this.a.b(getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.PKG_ID));
             this.a.a(getIntent().getBooleanExtra(com.baidu.tbadk.core.frameworkData.a.IS_DOWNLOADING, false));
-            com.baidu.tbadk.core.g.a(this, getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE));
+            com.baidu.tbadk.core.f.a(this, getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE));
         }
         this.a.a(this.h);
     }
@@ -86,7 +86,7 @@ public class FacePackageDetailActivity extends BaseActivity {
                     switch (this.a.d()) {
                         case 2:
                         case 3:
-                            com.baidu.tbadk.core.g.a(this, "emotion_package_detail_free");
+                            com.baidu.tbadk.core.f.a(this, "emotion_package_detail_free");
                             String b = this.a.b();
                             DownloadData downloadData = new DownloadData(this.a.e());
                             downloadData.setStatus(1);
@@ -106,7 +106,7 @@ public class FacePackageDetailActivity extends BaseActivity {
                             }
                             break;
                         case 4:
-                            com.baidu.tbadk.core.g.a(this, "emotion_package_detail_buy");
+                            com.baidu.tbadk.core.f.a(this, "emotion_package_detail_buy");
                             b();
                             break;
                     }
@@ -132,7 +132,7 @@ public class FacePackageDetailActivity extends BaseActivity {
         DownloadData downloadData = new DownloadData(this.a.e());
         downloadData.setType(11);
         downloadData.setStatus(2);
-        downloadData.setStatusMsg(getResources().getString(com.baidu.tieba.u.neterror));
+        downloadData.setStatusMsg(getResources().getString(com.baidu.tieba.y.neterror));
         this.c.setLoadDataCallBack(new ak(this, downloadData));
     }
 

@@ -36,14 +36,14 @@ public class bx {
 
     public bx(BaseActivity baseActivity) {
         this.b = baseActivity;
-        baseActivity.setContentView(com.baidu.tieba.s.face_shop_activity);
-        this.c = (LinearLayout) baseActivity.findViewById(com.baidu.tieba.r.face_shop);
-        this.d = (NavigationBar) baseActivity.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.d.a(baseActivity.getResources().getString(com.baidu.tieba.u.face_store));
+        baseActivity.setContentView(com.baidu.tieba.w.face_shop_activity);
+        this.c = (LinearLayout) baseActivity.findViewById(com.baidu.tieba.v.face_shop);
+        this.d = (NavigationBar) baseActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.d.a(baseActivity.getResources().getString(com.baidu.tieba.y.face_store));
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getResources().getString(com.baidu.tieba.u.manage));
-        this.h = (NoNetworkView) baseActivity.findViewById(com.baidu.tieba.r.view_no_network);
-        this.f = (BdListView) baseActivity.findViewById(com.baidu.tieba.r.face_shop_list);
+        this.e = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getResources().getString(com.baidu.tieba.y.manage));
+        this.h = (NoNetworkView) baseActivity.findViewById(com.baidu.tieba.v.view_no_network);
+        this.f = (BdListView) baseActivity.findViewById(com.baidu.tieba.v.face_shop_list);
         this.i = new com.baidu.tbadk.core.view.q(baseActivity);
         this.g = new bp(baseActivity);
         this.j = new ca(this, baseActivity);
@@ -54,7 +54,7 @@ public class bx {
         this.l = new Handler();
         this.k = this.g.b();
         this.e.setOnClickListener(baseActivity);
-        this.n = new y(baseActivity, com.baidu.tieba.v.common_alert_dialog);
+        this.n = new y(baseActivity, com.baidu.tieba.z.common_alert_dialog);
     }
 
     public void a(FaceShopData faceShopData) {
@@ -104,8 +104,8 @@ public class bx {
         this.i.a(dVar);
     }
 
-    public void a(com.baidu.adp.widget.ListView.u uVar) {
-        this.f.setOnSrollToBottomListener(uVar);
+    public void a(com.baidu.adp.widget.ListView.x xVar) {
+        this.f.setOnSrollToBottomListener(xVar);
     }
 
     public void a(com.baidu.tbadk.core.view.m mVar) {

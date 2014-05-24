@@ -15,7 +15,7 @@ public class ImageForumListResponsedMessage extends JsonHttpResponsedMessage {
     public ArrayList<String> mIdList;
     public JSONObject mJSONObject;
     public com.baidu.tieba.data.ad mOwner;
-    public ArrayList<com.baidu.tieba.data.as> mThread;
+    public ArrayList<com.baidu.tieba.data.at> mThread;
     public int mTotal;
 
     public ImageForumListResponsedMessage(int i) {
@@ -55,9 +55,9 @@ public class ImageForumListResponsedMessage extends JsonHttpResponsedMessage {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            com.baidu.tieba.data.as asVar = new com.baidu.tieba.data.as();
-                            asVar.a(optJSONArray.optJSONObject(i));
-                            this.mThread.add(asVar);
+                            com.baidu.tieba.data.at atVar = new com.baidu.tieba.data.at();
+                            atVar.a(optJSONArray.optJSONObject(i));
+                            this.mThread.add(atVar);
                         }
                     }
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");

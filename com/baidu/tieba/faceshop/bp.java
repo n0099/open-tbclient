@@ -36,13 +36,13 @@ public class bp extends BaseAdapter {
 
     public bp(Context context) {
         this.c = context;
-        d = com.baidu.adp.lib.util.h.b(context);
-        this.e = d - (context.getResources().getDimensionPixelSize(com.baidu.tieba.p.faceshop_page_padding) * 2);
+        d = com.baidu.adp.lib.util.k.b(context);
+        this.e = d - (context.getResources().getDimensionPixelSize(com.baidu.tieba.t.faceshop_page_padding) * 2);
         this.f = (int) (this.e * 0.38495576f);
         this.g = new com.baidu.tbadk.editortool.ab(context);
         this.g.a(this.e, this.f);
-        this.h = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.bg_content_download_down).getWidth();
-        this.i = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.bg_content_download_up).getWidth();
+        this.h = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.bg_content_download_down).getWidth();
+        this.i = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.bg_content_download_up).getWidth();
         this.k = null;
         this.l = null;
     }
@@ -109,27 +109,27 @@ public class bp extends BaseAdapter {
         LayoutInflater from = LayoutInflater.from(this.c);
         if (i == 1) {
             bt btVar = new bt(this, null);
-            View inflate = from.inflate(com.baidu.tieba.s.face_shop_list_tem, (ViewGroup) null);
-            btVar.b = (TextView) inflate.findViewById(com.baidu.tieba.r.title);
-            btVar.a = (TbImageView) inflate.findViewById(com.baidu.tieba.r.image);
-            btVar.a.setDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d);
-            btVar.a.setNightDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d_1);
-            btVar.c = (FrameLayout) inflate.findViewById(com.baidu.tieba.r.btn);
-            btVar.d = (TextView) inflate.findViewById(com.baidu.tieba.r.btn_text);
-            btVar.e = (TextView) inflate.findViewById(com.baidu.tieba.r.downloaded);
-            btVar.g = (FrameLayout) inflate.findViewById(com.baidu.tieba.r.downloading);
-            btVar.f = (ImageView) inflate.findViewById(com.baidu.tieba.r.downloading_up);
-            btVar.h = (TextView) inflate.findViewById(com.baidu.tieba.r.intro);
-            btVar.i = (TbImageView) inflate.findViewById(com.baidu.tieba.r.icon);
+            View inflate = from.inflate(com.baidu.tieba.w.face_shop_list_tem, (ViewGroup) null);
+            btVar.b = (TextView) inflate.findViewById(com.baidu.tieba.v.title);
+            btVar.a = (TbImageView) inflate.findViewById(com.baidu.tieba.v.image);
+            btVar.a.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d);
+            btVar.a.setNightDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d_1);
+            btVar.c = (FrameLayout) inflate.findViewById(com.baidu.tieba.v.btn);
+            btVar.d = (TextView) inflate.findViewById(com.baidu.tieba.v.btn_text);
+            btVar.e = (TextView) inflate.findViewById(com.baidu.tieba.v.downloaded);
+            btVar.g = (FrameLayout) inflate.findViewById(com.baidu.tieba.v.downloading);
+            btVar.f = (ImageView) inflate.findViewById(com.baidu.tieba.v.downloading_up);
+            btVar.h = (TextView) inflate.findViewById(com.baidu.tieba.v.intro);
+            btVar.i = (TbImageView) inflate.findViewById(com.baidu.tieba.v.icon);
             btVar.i.setDefaultResource(0);
             btVar.i.setNightDefaultResource(0);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.e, this.f);
-            layoutParams.setMargins(0, 0, 0, this.c.getResources().getDimensionPixelSize(com.baidu.tieba.p.faceshop_img_marginBottom));
+            layoutParams.setMargins(0, 0, 0, this.c.getResources().getDimensionPixelSize(com.baidu.tieba.t.faceshop_img_marginBottom));
             btVar.a.setLayoutParams(layoutParams);
             btVar.d.setClickable(false);
             btVar.c.setClickable(true);
             btVar.c.setOnClickListener(this.a);
-            btVar.j = (TbImageView) inflate.findViewById(com.baidu.tieba.r.title_tag);
+            btVar.j = (TbImageView) inflate.findViewById(com.baidu.tieba.v.title_tag);
             inflate.setTag(btVar);
             return inflate;
         }
@@ -218,30 +218,30 @@ public class bp extends BaseAdapter {
         btVar.d.setText(btVar.k);
         btVar.d.setBackgroundResource(0);
         if (i == 1) {
-            btVar.c.setBackgroundResource(com.baidu.tieba.q.faceshop_list_btn_selector_1);
+            btVar.c.setBackgroundResource(com.baidu.tieba.u.faceshop_list_btn_selector_1);
         } else {
-            btVar.c.setBackgroundResource(com.baidu.tieba.q.faceshop_list_btn_selector);
+            btVar.c.setBackgroundResource(com.baidu.tieba.u.faceshop_list_btn_selector);
         }
     }
 
     private void c(bt btVar, int i) {
         btVar.d.setText((CharSequence) null);
         if (i == 1) {
-            btVar.c.setBackgroundResource(com.baidu.tieba.q.faceshop_list_download_selector_1);
-            btVar.d.setBackgroundResource(com.baidu.tieba.q.icon_content_download_1);
+            btVar.c.setBackgroundResource(com.baidu.tieba.u.faceshop_list_download_selector_1);
+            btVar.d.setBackgroundResource(com.baidu.tieba.u.icon_content_download_1);
             return;
         }
-        btVar.c.setBackgroundResource(com.baidu.tieba.q.faceshop_list_download_selector);
-        btVar.d.setBackgroundResource(com.baidu.tieba.q.icon_content_download);
+        btVar.c.setBackgroundResource(com.baidu.tieba.u.faceshop_list_download_selector);
+        btVar.d.setBackgroundResource(com.baidu.tieba.u.icon_content_download);
     }
 
     private void d(bt btVar, int i) {
         btVar.d.setText(btVar.k);
         btVar.d.setBackgroundResource(0);
         if (i == 1) {
-            btVar.c.setBackgroundResource(com.baidu.tieba.q.faceshop_list_btn_selector_1);
+            btVar.c.setBackgroundResource(com.baidu.tieba.u.faceshop_list_btn_selector_1);
         } else {
-            btVar.c.setBackgroundResource(com.baidu.tieba.q.faceshop_list_btn_selector);
+            btVar.c.setBackgroundResource(com.baidu.tieba.u.faceshop_list_btn_selector);
         }
     }
 
@@ -304,7 +304,7 @@ public class bp extends BaseAdapter {
     }
 
     public void b(int i) {
-        com.baidu.tbadk.core.g.a(this.c, "emotion_package_list_free");
+        com.baidu.tbadk.core.f.a(this.c, "emotion_package_list_free");
         FacePackageData facePackageData = (FacePackageData) getItem(i);
         if (facePackageData != null) {
             facePackageData.buyStatus = 1;
@@ -313,7 +313,7 @@ public class bp extends BaseAdapter {
     }
 
     public void c(int i) {
-        com.baidu.tbadk.core.g.a(this.c, "emotion_package_list_buy");
+        com.baidu.tbadk.core.f.a(this.c, "emotion_package_list_buy");
         FacePackageData facePackageData = (FacePackageData) getItem(i);
         if (this.b != null) {
             BaseActivity baseActivity = (BaseActivity) this.c;

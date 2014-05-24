@@ -11,7 +11,7 @@ public class q {
     private int e;
     private int f;
     private int g;
-    private com.baidu.tieba.home.r h = new com.baidu.tieba.home.r();
+    private com.baidu.tieba.home.s h = new com.baidu.tieba.home.s();
 
     public int a() {
         return this.a;
@@ -29,7 +29,7 @@ public class q {
         return this.g;
     }
 
-    public com.baidu.tieba.home.r e() {
+    public com.baidu.tieba.home.s e() {
         return this.h;
     }
 

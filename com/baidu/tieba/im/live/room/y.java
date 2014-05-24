@@ -13,8 +13,8 @@ class y implements Runnable {
         LiveRoomChatView z;
         String str;
         z = this.a.z();
-        ag Q = z.Q();
-        str = this.a.w;
-        Q.setRecordTime(str);
+        ag R = z.R();
+        str = this.a.x;
+        R.setRecordTime(str);
     }
 }

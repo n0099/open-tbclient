@@ -18,6 +18,6 @@ class z implements Runnable {
         editText.requestFocus();
         SquareSearchActivity squareSearchActivity = this.a;
         editText2 = this.a.c;
-        com.baidu.adp.lib.util.h.b(squareSearchActivity, editText2);
+        com.baidu.adp.lib.util.k.b(squareSearchActivity, editText2);
     }
 }

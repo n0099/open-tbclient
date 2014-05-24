@@ -36,9 +36,9 @@ public class w extends BdAsyncTask<Void, Void, Void> {
                 fileReader = new FileReader("/sys/class/switch/h2w/state");
                 try {
                     char[] cArr = new char[1024];
-                    this.a.k = Integer.valueOf(new String(cArr, 0, fileReader.read(cArr, 0, 1024)).trim()).intValue() != 0;
-                    if (this.a.k) {
-                        this.a.d(false);
+                    this.a.b_HEADSET_PLUG = Integer.valueOf(new String(cArr, 0, fileReader.read(cArr, 0, 1024)).trim()).intValue() != 0;
+                    if (this.a.b_HEADSET_PLUG) {
+                        this.a.setSpeakerphone(false);
                     }
                     if (fileReader != null) {
                         try {

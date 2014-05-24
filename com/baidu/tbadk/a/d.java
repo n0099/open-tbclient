@@ -18,7 +18,7 @@ public class d extends k {
             }
             boolean b = com.baidu.tbadk.message.websockt.c.b().b(socketMessage.getCmd());
             if (encodeInBackGround != null && b) {
-                encodeInBackGround = com.baidu.tbadk.c.d.a(com.baidu.tbadk.message.websockt.c.b().d(), encodeInBackGround);
+                encodeInBackGround = com.baidu.tbadk.c.e.a(com.baidu.tbadk.message.websockt.c.b().d(), encodeInBackGround);
             }
             socketMessage2.setSquencedId(a.a().b());
             return com.baidu.tbadk.message.websockt.a.a(b, z, socketMessage2.getCmd(), socketMessage2.getSquencedId(), encodeInBackGround);
@@ -31,7 +31,7 @@ public class d extends k {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            com.baidu.tbadk.c.a.a(byteArrayInputStream, byteArrayOutputStream);
+            com.baidu.tbadk.c.b.a(byteArrayInputStream, byteArrayOutputStream);
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {

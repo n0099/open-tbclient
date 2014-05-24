@@ -9,9 +9,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.k;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public class BdBaseActivity extends Activity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, i {
+public class BdBaseActivity extends Activity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, g {
     private int mId = 0;
     private boolean mIsScroll = false;
 
@@ -36,7 +37,7 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
     }
 
     public void showToast(String str) {
-        com.baidu.adp.lib.util.h.a(getApplicationContext(), str);
+        k.a(getApplicationContext(), str);
     }
 
     public void releaseResouce() {
@@ -97,7 +98,7 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
         MessageManager.getInstance().registerListener(i, messageListener);
     }
 
-    @Override // com.baidu.adp.base.i
+    @Override // com.baidu.adp.base.g
     public int getUniqueId() {
         return this.mId;
     }
@@ -118,17 +119,17 @@ public class BdBaseActivity extends Activity implements DialogInterface.OnClickL
         com.baidu.adp.lib.resourceLoader.d.a().b(this.mId);
     }
 
-    @Override // com.baidu.adp.base.i
+    @Override // com.baidu.adp.base.g
     public boolean isScroll() {
         return this.mIsScroll;
     }
 
-    @Override // com.baidu.adp.base.i
+    @Override // com.baidu.adp.base.g
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
-    @Override // com.baidu.adp.base.i
+    @Override // com.baidu.adp.base.g
     public void onPreLoad(BdListView bdListView) {
     }
 }

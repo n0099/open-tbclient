@@ -54,14 +54,14 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     public void a(Context context, AttributeSet attributeSet) {
         this.g = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.no_network_view, this);
-        this.c = (ImageView) findViewById(com.baidu.tieba.r.no_network_icon);
-        this.d = (TextView) findViewById(com.baidu.tieba.r.no_network_guide1);
-        this.e = (TextView) findViewById(com.baidu.tieba.r.no_network_guide2);
-        this.b = (TextView) findViewById(com.baidu.tieba.r.no_network_showmore);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.no_network_view, this);
+        this.c = (ImageView) findViewById(com.baidu.tieba.v.no_network_icon);
+        this.d = (TextView) findViewById(com.baidu.tieba.v.no_network_guide1);
+        this.e = (TextView) findViewById(com.baidu.tieba.v.no_network_guide2);
+        this.b = (TextView) findViewById(com.baidu.tieba.v.no_network_showmore);
         this.b.setOnClickListener(this);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.w.noNetworkView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.aa.noNetworkView);
             this.h = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();
         }
@@ -110,8 +110,8 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (z) {
             if (1 != this.i) {
                 this.i = 1;
-                this.d.setText(com.baidu.tieba.u.no_network_guide1);
-                this.e.setText(com.baidu.tieba.u.no_network_guide2);
+                this.d.setText(com.baidu.tieba.y.no_network_guide1);
+                this.e.setText(com.baidu.tieba.y.no_network_guide2);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
@@ -124,8 +124,8 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         } else if (this.h && !WebSocketStateHelper.a()) {
             if (2 != this.i) {
                 this.i = 2;
-                this.d.setText(com.baidu.tieba.u.offline_guide1);
-                this.e.setText(com.baidu.tieba.u.offline_guide2);
+                this.d.setText(com.baidu.tieba.y.offline_guide1);
+                this.e.setText(com.baidu.tieba.y.offline_guide2);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);
@@ -174,17 +174,17 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     public void a(int i) {
         if (i == 1) {
-            this.c.setImageResource(com.baidu.tieba.q.icon_error_1);
-            setBackgroundResource(com.baidu.tieba.q.bg_no_network_1);
-            this.b.setBackgroundResource(com.baidu.tieba.q.network_more_1);
+            this.c.setImageResource(com.baidu.tieba.u.icon_error_1);
+            setBackgroundResource(com.baidu.tieba.u.bg_no_network_1);
+            this.b.setBackgroundResource(com.baidu.tieba.u.network_more_1);
             this.d.setTextColor(-10523526);
             this.e.setTextColor(-8682095);
             this.b.setTextColor(-10523526);
             return;
         }
-        this.c.setImageResource(com.baidu.tieba.q.icon_error);
-        setBackgroundResource(com.baidu.tieba.q.bg_no_network);
-        this.b.setBackgroundResource(com.baidu.tieba.q.network_more);
+        this.c.setImageResource(com.baidu.tieba.u.icon_error);
+        setBackgroundResource(com.baidu.tieba.u.bg_no_network);
+        this.b.setBackgroundResource(com.baidu.tieba.u.network_more);
         this.d.setTextColor(-14277082);
         this.e.setTextColor(-5065030);
         this.b.setTextColor(-14277082);

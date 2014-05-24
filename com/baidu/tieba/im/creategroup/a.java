@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.base.e {
+public class a extends com.baidu.adp.base.c {
     private View a;
     private TextView b;
     private ImageView c;
@@ -33,9 +33,9 @@ public class a extends com.baidu.adp.base.e {
     }
 
     private void b() {
-        this.a = LayoutInflater.from(this.mContext).inflate(com.baidu.tieba.s.address_lbs_item, (ViewGroup) null);
-        this.b = (TextView) this.a.findViewById(com.baidu.tieba.r.text);
-        this.c = (ImageView) this.a.findViewById(com.baidu.tieba.r.group_address_list_item_selected);
+        this.a = LayoutInflater.from(this.mContext).inflate(com.baidu.tieba.w.address_lbs_item, (ViewGroup) null);
+        this.b = (TextView) this.a.findViewById(com.baidu.tieba.v.text);
+        this.c = (ImageView) this.a.findViewById(com.baidu.tieba.v.group_address_list_item_selected);
         this.a.setTag(this);
     }
 }

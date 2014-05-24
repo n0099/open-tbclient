@@ -656,24 +656,24 @@ public class g {
         int skinType = TbadkApplication.m252getInst().getSkinType();
         if (i > 15) {
             if (skinType == 1) {
-                return com.baidu.tieba.q.icon_grade_yellow_1;
+                return com.baidu.tieba.u.icon_grade_yellow_1;
             }
-            return com.baidu.tieba.q.icon_grade_yellow;
+            return com.baidu.tieba.u.icon_grade_yellow;
         } else if (i > 9) {
             if (skinType == 1) {
-                return com.baidu.tieba.q.icon_grade_red_1;
+                return com.baidu.tieba.u.icon_grade_red_1;
             }
-            return com.baidu.tieba.q.icon_grade_red;
+            return com.baidu.tieba.u.icon_grade_red;
         } else if (i > 3) {
             if (skinType == 1) {
-                return com.baidu.tieba.q.icon_grade_blue_1;
+                return com.baidu.tieba.u.icon_grade_blue_1;
             }
-            return com.baidu.tieba.q.icon_grade_blue;
+            return com.baidu.tieba.u.icon_grade_blue;
         } else if (i > 0) {
             if (skinType == 1) {
-                return com.baidu.tieba.q.icon_grade_green_1;
+                return com.baidu.tieba.u.icon_grade_green_1;
             }
-            return com.baidu.tieba.q.icon_grade_green;
+            return com.baidu.tieba.u.icon_grade_green;
         } else {
             return 0;
         }

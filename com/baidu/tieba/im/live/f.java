@@ -28,9 +28,17 @@ public class f extends CustomMessageListener {
             if (!liveChatRoomEventResponseMessage.hasError()) {
                 String data = liveChatRoomEventResponseMessage.getData();
                 if (!TextUtils.isEmpty(data) && (parseFromEventContent = LiveChatRoomEventData.parseFromEventContent(data)) != null && parseFromEventContent.mEventId != null) {
-                    if (("309".equals(parseFromEventContent.mEventId) || "107".equals(parseFromEventContent.mEventId)) && String.valueOf(parseFromEventContent.mGroupId).equals(this.a.i())) {
-                        BdLog.d("EVENT_ID_GROUP_END or EVENT_ID_DISMISS_GROUP");
-                        this.a.r();
+                    if ("309".equals(parseFromEventContent.mEventId) || "310".equals(parseFromEventContent.mEventId)) {
+                        if (String.valueOf(parseFromEventContent.mGroupId).equals(this.a.i())) {
+                            BdLog.d("EVENT_ID_GROUP_END or EVENT_ID_DISMISS_GROUP");
+                            this.a.s();
+                        }
+                    } else if ("308".equals(parseFromEventContent.mEventId)) {
+                        if (String.valueOf(parseFromEventContent.mGroupId).equals(this.a.i())) {
+                            this.a.a(true);
+                        }
+                    } else if ("318".equals(parseFromEventContent.mEventId) && String.valueOf(parseFromEventContent.mGroupId).equals(this.a.i())) {
+                        this.a.a(false);
                     }
                 }
             }

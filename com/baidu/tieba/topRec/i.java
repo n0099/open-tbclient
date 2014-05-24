@@ -2,7 +2,7 @@ package com.baidu.tieba.topRec;
 
 import android.view.animation.Animation;
 import android.widget.TextView;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Animation.AnimationListener {
@@ -30,13 +30,13 @@ public class i implements Animation.AnimationListener {
         if (i < 100) {
             textView5 = this.a.m;
             topRecActivity2 = this.a.j;
-            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getString(u.done))).append("(");
+            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getString(y.done))).append("(");
             i2 = this.a.k;
             textView5.setText(append.append(i2).append(")").toString());
         } else {
             textView = this.a.m;
             topRecActivity = this.a.j;
-            textView.setText(String.valueOf(topRecActivity.getString(u.done)) + "(99+)");
+            textView.setText(String.valueOf(topRecActivity.getString(y.done)) + "(99+)");
         }
         textView2 = this.a.m;
         textView2.invalidate();

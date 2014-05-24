@@ -10,7 +10,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class an {
     private Context a;
-    private com.baidu.tieba.data.ao b = new com.baidu.tieba.data.ao();
+    private com.baidu.tieba.data.ap b = new com.baidu.tieba.data.ap();
 
     public an(Context context, String str) {
         this.a = context;
@@ -28,24 +28,24 @@ public class an {
             AntiData antiData = new AntiData();
             antiData.parserJson(optJSONObject4);
             this.b.a(antiData);
-            com.baidu.tbadk.core.data.o oVar = new com.baidu.tbadk.core.data.o();
-            oVar.a(optJSONObject3);
-            this.b.a(oVar);
+            com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
+            nVar.a(optJSONObject3);
+            this.b.a(nVar);
             ForumData forumData = new ForumData();
             forumData.parserJson(optJSONObject2);
             this.b.a(forumData);
-            com.baidu.tieba.data.ah ahVar = new com.baidu.tieba.data.ah();
-            ahVar.a(optJSONObject);
-            ahVar.a(this.a);
-            this.b.a(ahVar);
+            com.baidu.tieba.data.ai aiVar = new com.baidu.tieba.data.ai();
+            aiVar.a(optJSONObject);
+            aiVar.a(this.a);
+            this.b.a(aiVar);
             int length = optJSONArray.length();
-            ArrayList<com.baidu.tieba.data.ah> arrayList = new ArrayList<>();
+            ArrayList<com.baidu.tieba.data.ai> arrayList = new ArrayList<>();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                com.baidu.tieba.data.ah ahVar2 = new com.baidu.tieba.data.ah();
-                ahVar2.a(jSONObject2);
-                ahVar2.a(this.a);
-                arrayList.add(ahVar2);
+                com.baidu.tieba.data.ai aiVar2 = new com.baidu.tieba.data.ai();
+                aiVar2.a(jSONObject2);
+                aiVar2.a(this.a);
+                arrayList.add(aiVar2);
             }
             this.b.a(arrayList);
             JSONObject optJSONObject5 = jSONObject.optJSONObject("page");
@@ -62,7 +62,7 @@ public class an {
         }
     }
 
-    public com.baidu.tieba.data.ao a() {
+    public com.baidu.tieba.data.ap a() {
         return this.b;
     }
 }

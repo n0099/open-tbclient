@@ -1,9 +1,8 @@
 package com.baidu.tieba.a;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.f;
 /* loaded from: classes.dex */
-public class a extends f {
+public class a extends com.baidu.tbadk.core.e {
     private static final String c = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumrecommend";
 
     public String g() {

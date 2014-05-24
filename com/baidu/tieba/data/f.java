@@ -79,7 +79,7 @@ public class f {
                 return spannableString;
             case 2:
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.b) + " ");
-                com.baidu.adp.widget.a.a g = com.baidu.tieba.ad.c().g(this.b);
+                com.baidu.adp.widget.a.a g = com.baidu.tieba.ai.c().g(this.b);
                 if (g != null) {
                     BitmapDrawable j2 = g.j();
                     j2.setBounds(0, 0, g.c(), g.d());
@@ -107,7 +107,7 @@ public class f {
                 if (!this.b.endsWith(" ")) {
                     this.b = String.valueOf(this.b) + " ";
                 }
-                String string = context.getString(com.baidu.tieba.u.video);
+                String string = context.getString(com.baidu.tieba.y.video);
                 SpannableString spannableString4 = new SpannableString(String.valueOf(string) + this.b);
                 spannableString4.setSpan(new g(this, context), string.length(), str.length() - 1, 33);
                 return spannableString4;
@@ -120,7 +120,7 @@ public class f {
             return null;
         }
         SpannableString spannableString = new SpannableString(String.valueOf(this.b) + " ");
-        com.baidu.adp.widget.a.a g = com.baidu.tieba.ad.c().g(this.b);
+        com.baidu.adp.widget.a.a g = com.baidu.tieba.ai.c().g(this.b);
         if (g != null) {
             BitmapDrawable j2 = g.j();
             if (i - i2 > 0) {

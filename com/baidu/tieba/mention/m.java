@@ -83,22 +83,22 @@ public class m {
         if (oVar != null) {
             if (oVar.m()) {
                 if (this.i == 2) {
-                    com.baidu.tbadk.core.g.a(this.c, "new_at_me_visit_post");
+                    com.baidu.tbadk.core.f.a(this.c, "new_at_me_visit_post");
                 } else if (this.i == 1) {
-                    com.baidu.tbadk.core.g.a(this.c, "new_my_reply_visit_post");
+                    com.baidu.tbadk.core.f.a(this.c, "new_my_reply_visit_post");
                     if ("zan".equals(oVar.a())) {
-                        com.baidu.tbadk.core.g.a(this.c, "zan_mlist");
+                        com.baidu.tbadk.core.f.a(this.c, "zan_mlist");
                     }
                 }
                 b(oVar);
                 return;
             }
             if (this.i == 2) {
-                com.baidu.tbadk.core.g.a(this.c, "new_at_me_visit_pb");
+                com.baidu.tbadk.core.f.a(this.c, "new_at_me_visit_pb");
             } else if (this.i == 1) {
-                com.baidu.tbadk.core.g.a(this.c, "new_my_reply_visit_pb");
+                com.baidu.tbadk.core.f.a(this.c, "new_my_reply_visit_pb");
                 if ("zan".equals(oVar.a())) {
-                    com.baidu.tbadk.core.g.a(this.c, "zan_mlist");
+                    com.baidu.tbadk.core.f.a(this.c, "zan_mlist");
                 }
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(this.c).a(oVar.j(), oVar.k(), "mention")));

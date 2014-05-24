@@ -1,72 +1,44 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
+import android.app.Activity;
+import android.os.Handler;
+import android.text.TextUtils;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.bp;
+import com.baidu.kirin.KirinConfig;
+import com.baidu.location.LocationClientOption;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class a extends BaseActivity {
-    protected ViewGroup a = null;
-    protected View b = null;
-    protected ImageView c = null;
-    protected TextView d = null;
-    protected ListView e = null;
-    protected Button f = null;
-    protected ViewGroup g;
+public class a {
+    private d a = null;
+    private Handler b = new Handler();
+    private Object c = null;
+    private final int d = KirinConfig.CONNECT_TIME_OUT;
+    private final int e = LocationClientOption.MIN_SCAN_SPAN;
+    private Runnable f = new b(this);
 
-    @Override // android.app.Activity
-    public void setContentView(int i) {
-        super.setContentView(i);
-        a();
+    public void a(d dVar) {
+        this.a = dVar;
     }
 
-    protected void a() {
-        if (this.a == null) {
-            this.a = (ViewGroup) findViewById(r.container);
-            if (this.a == null) {
-                this.a = (ViewGroup) findViewById(r.parent);
-            }
-            this.b = findViewById(r.title);
-            this.c = (ImageView) findViewById(r.back);
-            if (this.c != null) {
-                this.c.setOnClickListener(new b(this));
-            }
-            this.d = (TextView) findViewById(r.title_text);
+    public void a(Activity activity, Object obj) {
+        this.c = obj;
+        String g = com.baidu.tbadk.c.a.a().g();
+        long f = com.baidu.tbadk.c.a.a().f();
+        boolean c = com.baidu.tbadk.c.a.a().c();
+        if (TextUtils.isEmpty(g) || !c || f <= 0) {
             if (this.a != null) {
-                this.f = (Button) this.a.findViewWithTag("skin_top_more_button");
+                this.a.a(obj);
+                return;
             }
+            return;
         }
-        if (this.e == null) {
-            this.e = (ListView) findViewById(r.list);
-        }
-        this.g = (ViewGroup) findViewById(r.body_container);
-        bp.b(this.g);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        bc.a(this.c, i);
-        bc.d(this.b, i);
-        bc.d(this.d, i);
-        bc.b(this.a, i);
-        bc.e((TextView) this.f, i);
-        if (this.e != null) {
-            this.e.invalidateViews();
-        }
-        if (this.g != null) {
-            bp.a(this.g, i);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void b() {
-        finish();
+        long j = f >= 1000 ? f : 1000L;
+        long j2 = j <= 3000 ? j : 3000L;
+        TbImageView tbImageView = new TbImageView(activity);
+        tbImageView.setDefaultResource(0);
+        tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        tbImageView.setEvent(new c(this, activity.getWindow().getDecorView().findViewById(16908290), tbImageView, activity));
+        tbImageView.a(g, 10, false);
+        this.b.postDelayed(this.f, j2);
     }
 }

@@ -1,112 +1,80 @@
 package com.baidu.adp.base;
 
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.view.View;
-import android.widget.AdapterView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public class b extends FragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, i {
-    private int a = 0;
-    private boolean b = false;
+public abstract class b {
+    public static final int MODE_INVALID = 0;
+    protected int mLoadDataMode = 0;
+    protected int unique_id = 0;
+    protected e mLoadDataCallBack = null;
+    protected int mErrorCode = 0;
+    protected String mErrorString = null;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.a = com.baidu.adp.framework.d.a().b();
+    protected abstract boolean LoadData();
+
+    public abstract boolean cancelLoadData();
+
+    public int getLoadDataMode() {
+        return this.mLoadDataMode;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void setLoadDataCallBack(e eVar) {
+        this.mLoadDataCallBack = eVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public int getErrorCode() {
+        return this.mErrorCode;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        return true;
+    public void setErrorCode(int i) {
+        this.mErrorCode = i;
     }
 
-    public void a(String str) {
-        com.baidu.adp.lib.util.h.a(getApplicationContext(), str);
+    public String getErrorString() {
+        return this.mErrorString;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public void setErrorString(String str) {
+        this.mErrorString = str;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        return false;
+    public void setUniqueId(int i) {
+        this.unique_id = i;
     }
 
-    public void a(Message<?> message) {
-        if (message != null) {
-            if (message.getTag() == 0) {
-                message.setTag(this.a);
-            }
-            MessageManager.getInstance().sendMessage(message);
-        }
+    public void sendMessage(Message<?> message) {
+        check();
+        message.setTag(this.unique_id);
+        MessageManager.getInstance().sendMessage(message);
     }
 
-    public void a(NetMessage netMessage) {
-        if (netMessage != null) {
-            if (netMessage.getTag() == 0) {
-                netMessage.setTag(this.a);
-            }
-            MessageManager.getInstance().sendMessage(netMessage);
-        }
+    public void cancelMessage() {
+        check();
+        MessageManager.getInstance().removeCustomMessage(this.unique_id);
     }
 
-    public void a(MessageListener<?> messageListener) {
+    public void registerListener(MessageListener<?> messageListener) {
+        check();
         if (messageListener != null && messageListener.getTag() == 0) {
-            messageListener.setTag(this.a);
+            messageListener.setTag(this.unique_id);
         }
         MessageManager.getInstance().registerListener(messageListener);
     }
 
-    @Override // com.baidu.adp.base.i
-    public int getUniqueId() {
-        return this.a;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.a != 0) {
-            MessageManager.getInstance().unRegisterListener(this.a);
-            MessageManager.getInstance().removeMessage(this.a);
-            com.baidu.adp.lib.resourceLoader.d.a().a(this.a);
+    public void registerListener(int i, MessageListener<?> messageListener) {
+        check();
+        if (messageListener != null && messageListener.getTag() == 0) {
+            messageListener.setTag(this.unique_id);
         }
+        MessageManager.getInstance().registerListener(i, messageListener);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
-    public void onPause() {
-        super.onPause();
-        com.baidu.adp.lib.resourceLoader.d.a().b(this.a);
-    }
-
-    @Override // com.baidu.adp.base.i
-    public boolean isScroll() {
-        return this.b;
-    }
-
-    @Override // com.baidu.adp.base.i
-    public void setIsScroll(boolean z) {
-        this.b = z;
-    }
-
-    @Override // com.baidu.adp.base.i
-    public void onPreLoad(BdListView bdListView) {
+    private void check() {
+        if (this.unique_id == 0) {
+            BdLog.e(String.valueOf(getClass().getName()) + "'s unique_id wasn't seted!");
+        }
     }
 }

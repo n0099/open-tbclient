@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ SecretSettingActivity a;
@@ -33,13 +33,13 @@ class a extends com.baidu.adp.framework.listener.b {
         bVar.d();
         if (socketResponsedMessage.getCmd() == 104103) {
             if (!(socketResponsedMessage instanceof ResponseGetMaskInfoMessage)) {
-                this.a.showToast(u.neterror);
+                this.a.showToast(y.neterror);
                 return;
             }
             ResponseGetMaskInfoMessage responseGetMaskInfoMessage = (ResponseGetMaskInfoMessage) socketResponsedMessage;
             Message<?> orginalMessage = responseGetMaskInfoMessage.getOrginalMessage();
             if (!(orginalMessage instanceof RequestGetMaskInfoMessage)) {
-                this.a.showToast(u.neterror);
+                this.a.showToast(y.neterror);
             } else if (((RequestGetMaskInfoMessage) orginalMessage).getMaskType() == 8) {
                 if (responseGetMaskInfoMessage.getError() != 0) {
                     if (responseGetMaskInfoMessage.getError() > 0) {
@@ -49,7 +49,7 @@ class a extends com.baidu.adp.framework.listener.b {
                         }
                         return;
                     }
-                    this.a.showToast(u.neterror);
+                    this.a.showToast(y.neterror);
                     return;
                 }
                 if (responseGetMaskInfoMessage.getIsMask() != 0) {
@@ -62,13 +62,13 @@ class a extends com.baidu.adp.framework.listener.b {
             }
         } else if (socketResponsedMessage.getCmd() == 104102) {
             if (!(socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage)) {
-                this.a.showToast(u.neterror);
+                this.a.showToast(y.neterror);
                 return;
             }
             ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage;
             Message<?> orginalMessage2 = responseUpdateMaskInfoMessage.getOrginalMessage();
             if (!(orginalMessage2 instanceof RequestUpdateMaskInfoMessage)) {
-                this.a.showToast(u.neterror);
+                this.a.showToast(y.neterror);
             } else if (((RequestUpdateMaskInfoMessage) orginalMessage2).getMaskType() == 8) {
                 if (responseUpdateMaskInfoMessage.getError() == 0) {
                     bVar2 = this.a.b;
@@ -87,7 +87,7 @@ class a extends com.baidu.adp.framework.listener.b {
                         this.a.showToast(responseUpdateMaskInfoMessage.getErrorString());
                     }
                 } else {
-                    this.a.showToast(u.neterror);
+                    this.a.showToast(y.neterror);
                 }
             }
         }

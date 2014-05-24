@@ -7,6 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.groupInfo.RequestAddGroupUserMessage;
 import com.baidu.tieba.im.groupInfo.RequestDelSystemMessage;
 import com.baidu.tieba.im.groupInfo.ResponseDelSystemMessage;
+import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.b {
@@ -48,7 +49,7 @@ class a extends com.baidu.adp.framework.listener.b {
                         int error = socketResponsedMessage.getError();
                         String errorString = socketResponsedMessage.getErrorString();
                         if (TextUtils.isEmpty(errorString)) {
-                            this.a.showToast(com.baidu.tieba.u.validate_fail);
+                            this.a.showToast(y.validate_fail);
                         } else {
                             this.a.showToast(errorString);
                         }
@@ -75,7 +76,7 @@ class a extends com.baidu.adp.framework.listener.b {
                     aVar2 = this.a.d;
                     n.a(aVar2, a);
                     if (TextUtils.isEmpty(socketResponsedMessage.getErrorString())) {
-                        this.a.showToast(com.baidu.tieba.u.validate_succ);
+                        this.a.showToast(y.validate_succ);
                     } else {
                         this.a.showToast(socketResponsedMessage.getErrorString());
                     }

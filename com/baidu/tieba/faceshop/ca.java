@@ -25,12 +25,12 @@ public class ca extends com.baidu.adp.widget.ListView.e {
 
     @Override // com.baidu.adp.widget.ListView.e
     public View a() {
-        this.e = LayoutInflater.from(this.b).inflate(com.baidu.tieba.s.new_pb_list_more, (ViewGroup) null);
-        this.e.setPadding(0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.p.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.p.listview_item_margin));
-        this.c = (TextView) this.e.findViewById(com.baidu.tieba.r.pb_more_text);
-        this.f = this.e.findViewById(com.baidu.tieba.r.pb_more_view);
+        this.e = LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.new_pb_list_more, (ViewGroup) null);
+        this.e.setPadding(0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.listview_item_margin));
+        this.c = (TextView) this.e.findViewById(com.baidu.tieba.v.pb_more_text);
+        this.f = this.e.findViewById(com.baidu.tieba.v.pb_more_view);
         this.f.setVisibility(8);
-        this.d = (ProgressBar) this.e.findViewById(com.baidu.tieba.r.progress);
+        this.d = (ProgressBar) this.e.findViewById(com.baidu.tieba.v.progress);
         a(TbadkApplication.m252getInst().getSkinType());
         this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.e;
@@ -50,13 +50,13 @@ public class ca extends com.baidu.adp.widget.ListView.e {
     }
 
     public void e() {
-        this.c.setText(this.b.getText(com.baidu.tieba.u.loading));
+        this.c.setText(this.b.getText(com.baidu.tieba.y.loading));
         this.f.setVisibility(0);
     }
 
     public void f() {
         this.d.setVisibility(8);
-        this.c.setText(com.baidu.tieba.u.load_more);
+        this.c.setText(com.baidu.tieba.y.load_more);
     }
 
     @Override // com.baidu.adp.widget.ListView.e

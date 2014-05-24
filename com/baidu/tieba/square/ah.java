@@ -23,7 +23,7 @@ public class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, com
     private int i;
     private float j;
     private int k;
-    private ArrayList<at> l;
+    private ArrayList<au> l;
     private com.baidu.tbadk.editortool.ab m;
     private View n;
 
@@ -44,16 +44,16 @@ public class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, com
         this.m = null;
         this.n = null;
         this.a = context;
-        this.e = com.baidu.adp.lib.util.h.b(context);
-        this.c = context.getResources().getDimensionPixelSize(com.baidu.tieba.p.square_page_padding);
-        this.d = context.getResources().getDimensionPixelSize(com.baidu.tieba.p.square_forum_topic_margin);
-        this.f = context.getResources().getDimensionPixelSize(com.baidu.tieba.p.square_forum_topic_paddingBottom);
+        this.e = com.baidu.adp.lib.util.k.b(context);
+        this.c = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_page_padding);
+        this.d = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_forum_topic_margin);
+        this.f = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_forum_topic_paddingBottom);
         this.b = (LayoutInflater) context.getSystemService("layout_inflater");
-        ViewGroup viewGroup = (ViewGroup) this.b.inflate(com.baidu.tieba.s.forums_topics_recommend, (ViewGroup) this, true);
-        this.g.add((HeadImageView) viewGroup.findViewById(com.baidu.tieba.r.forum_topic_pic1));
-        this.g.add((HeadImageView) viewGroup.findViewById(com.baidu.tieba.r.forum_topic_pic2));
-        this.g.add((HeadImageView) viewGroup.findViewById(com.baidu.tieba.r.forum_topic_pic3));
-        this.g.add((HeadImageView) viewGroup.findViewById(com.baidu.tieba.r.forum_topic_pic4));
+        ViewGroup viewGroup = (ViewGroup) this.b.inflate(com.baidu.tieba.w.forums_topics_recommend, (ViewGroup) this, true);
+        this.g.add((HeadImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic1));
+        this.g.add((HeadImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic2));
+        this.g.add((HeadImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic3));
+        this.g.add((HeadImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic4));
         this.h = ((this.e - (this.c * 2)) - this.d) / 2;
         this.i = (int) (this.h * this.j);
         this.m = new com.baidu.tbadk.editortool.ab(context);
@@ -61,7 +61,7 @@ public class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, com
         setPadding(this.c, 0, this.c, 0);
     }
 
-    public boolean a(ArrayList<at> arrayList) {
+    public boolean a(ArrayList<au> arrayList) {
         this.l = b(arrayList);
         Iterator<HeadImageView> it = this.g.iterator();
         while (it.hasNext()) {
@@ -76,7 +76,7 @@ public class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, com
         return false;
     }
 
-    private ArrayList<at> b(ArrayList<at> arrayList) {
+    private ArrayList<au> b(ArrayList<au> arrayList) {
         if (arrayList != null) {
             int size = (arrayList.size() / 2) * 2;
             int i = size <= 4 ? size : 4;
@@ -88,16 +88,16 @@ public class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, com
         return null;
     }
 
-    private void c(ArrayList<at> arrayList) {
+    private void c(ArrayList<au> arrayList) {
         int size = arrayList.size();
         this.k = size;
         requestLayout();
         for (int i = 0; i < size; i++) {
             HeadImageView headImageView = this.g.get(i);
-            at atVar = arrayList.get(i);
+            au auVar = arrayList.get(i);
             headImageView.setVisibility(0);
-            headImageView.setTag(atVar.a());
-            headImageView.setOnClickListener(new ai(this, atVar, i));
+            headImageView.setTag(auVar.a());
+            headImageView.setOnClickListener(new ai(this, auVar, i));
         }
     }
 

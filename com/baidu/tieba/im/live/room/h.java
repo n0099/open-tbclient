@@ -24,13 +24,13 @@ class h extends com.baidu.adp.framework.listener.b {
         }
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 107107) {
             if (!(socketResponsedMessage instanceof SendForeNoticeResponseMessage)) {
-                this.a.showToast(com.baidu.tieba.u.neterror);
+                this.a.showToast(com.baidu.tieba.y.neterror);
                 return;
             }
             SendForeNoticeResponseMessage sendForeNoticeResponseMessage = (SendForeNoticeResponseMessage) socketResponsedMessage;
             if (sendForeNoticeResponseMessage.hasError()) {
-                if (com.baidu.adp.lib.util.g.b(sendForeNoticeResponseMessage.getUserMsg())) {
-                    this.a.showToast(com.baidu.tieba.u.neterror);
+                if (com.baidu.adp.lib.util.j.b(sendForeNoticeResponseMessage.getUserMsg())) {
+                    this.a.showToast(com.baidu.tieba.y.neterror);
                 } else {
                     this.a.showToast(sendForeNoticeResponseMessage.getUserMsg());
                 }

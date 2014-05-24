@@ -13,7 +13,7 @@ public class x implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof QueryGroupCountLocalMessage)) {
             return null;
         }
-        byte[] a = com.baidu.tbadk.core.a.b.a().u().a("p_enter_forum_group_info");
+        byte[] a = com.baidu.tbadk.core.a.b.a().v().a("p_enter_forum_group_info");
         ResponseQueryGroupCountLocalMessage responseQueryGroupCountLocalMessage = new ResponseQueryGroupCountLocalMessage();
         if (a != null) {
             try {

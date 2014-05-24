@@ -70,7 +70,7 @@ public class ab implements View.OnClickListener {
                     amVar4 = this.a.l;
                     if (amVar4.a().d() != null) {
                         amVar6 = this.a.l;
-                        str4 = amVar6.a().d().k();
+                        str4 = amVar6.a().d().p();
                     }
                     amVar5 = this.a.l;
                     str2 = str3;

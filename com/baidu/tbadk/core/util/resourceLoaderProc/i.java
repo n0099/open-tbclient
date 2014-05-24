@@ -1,4 +1,7 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
+
+import com.baidu.adp.lib.util.k;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class i extends a {
     private boolean a;
@@ -10,12 +13,12 @@ public class i extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public int b() {
-        return 0;
+        return k.b(TbadkApplication.m252getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public int c() {
-        return 0;
+        return k.c(TbadkApplication.m252getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a

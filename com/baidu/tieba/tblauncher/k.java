@@ -3,15 +3,15 @@ package com.baidu.tieba.tblauncher;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfig;
+import com.baidu.tbadk.core.atomData.al;
 /* loaded from: classes.dex */
-class k implements CustomMessageTask.CustomRunnable<Void> {
+class k implements CustomMessageTask.CustomRunnable<al> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
-        if (customMessage == null) {
-            return null;
+    public CustomResponsedMessage<?> run(CustomMessage<al> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), MainTabActivity.class);
+            customMessage.getData().startActivity();
         }
-        MainTabActivity.c = true;
-        return new CustomResponsedMessage<>(CmdConfig.MSG_NEW, true);
+        return null;
     }
 }

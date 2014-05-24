@@ -28,15 +28,15 @@ public class k implements TextWatcher {
             if (i5 != 0) {
                 return;
             }
-            this.a.k();
+            this.a.l();
             return;
         }
         this.a.a();
         i4 = this.a.z;
         if (i4 == 0) {
-            this.a.i();
-        } else {
             this.a.j();
+        } else {
+            this.a.k();
         }
     }
 
@@ -59,10 +59,10 @@ public class k implements TextWatcher {
         }
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             textView2 = this.a.e;
-            textView2.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.o.common_new_page_title_1));
+            textView2.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.s.common_new_page_title_1));
             return;
         }
         textView = this.a.e;
-        textView.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.o.white));
+        textView.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.s.white));
     }
 }

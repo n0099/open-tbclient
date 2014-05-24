@@ -4,8 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     private TextView a;
@@ -21,24 +22,24 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     }
 
     private void a() {
-        inflate(getContext(), s.p2ptalk_setting_black_man_view, this);
+        inflate(getContext(), w.p2ptalk_setting_black_man_view, this);
         setOrientation(1);
-        this.a = (TextView) findViewById(com.baidu.tieba.r.black_man_text);
+        this.a = (TextView) findViewById(v.black_man_text);
     }
 
     public void setSex(int i) {
         String string;
         switch (i) {
             case 1:
-                string = getResources().getString(u.he);
+                string = getResources().getString(y.he);
                 break;
             case 2:
-                string = getResources().getString(u.she);
+                string = getResources().getString(y.she);
                 break;
             default:
-                string = getResources().getString(u.it);
+                string = getResources().getString(y.it);
                 break;
         }
-        this.a.setText(getResources().getString(u.in_black_desc_1, string));
+        this.a.setText(getResources().getString(y.in_black_desc_1, string));
     }
 }

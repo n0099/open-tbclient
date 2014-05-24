@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Intent;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av implements View.OnClickListener {
-    final /* synthetic */ UpdateDialog a;
+public class av implements CustomMessageTask.CustomRunnable<Intent> {
+    final /* synthetic */ ai a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(UpdateDialog updateDialog) {
-        this.a = updateDialog;
+    public av(ai aiVar) {
+        this.a = aiVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        y yVar;
-        boolean z;
-        yVar = this.a.e;
-        yVar.dismiss();
-        this.a.finish();
-        z = this.a.a;
-        if (!z) {
-            return;
-        }
-        this.a.c();
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
+        UtilHelper.commenDealIntent(TbadkApplication.m252getInst(), customMessage.getData());
+        return null;
     }
 }

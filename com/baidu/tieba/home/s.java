@@ -1,14 +1,30 @@
 package com.baidu.tieba.home;
 
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-final class s extends u {
-    LinearLayout a;
-    RelativeLayout b;
-    TextView c;
-    TextView d;
-    TextView e;
-    s f;
+public class s {
+    private int a = -1;
+    private String b = null;
+    private String c = null;
+
+    public int a() {
+        return this.a;
+    }
+
+    public String b() {
+        return this.c;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optInt("errno");
+                this.b = jSONObject.optString("errmsg");
+                this.c = jSONObject.optString("usermsg");
+            } catch (Exception e) {
+                BdLog.e(getClass().getName(), "parserJson", e.getMessage());
+            }
+        }
+    }
 }

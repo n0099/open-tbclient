@@ -61,7 +61,7 @@ public class NewVcodeActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.new_vcode_activity);
+        setContentView(com.baidu.tieba.w.new_vcode_activity);
         f();
         a(bundle);
         if (a()) {
@@ -107,7 +107,7 @@ public class NewVcodeActivity extends BaseActivity {
     private boolean a() {
         if (this.j == null) {
             try {
-                this.j = (BaseWebView) findViewById(com.baidu.tieba.r.new_vcode_webview);
+                this.j = (BaseWebView) findViewById(com.baidu.tieba.v.new_vcode_webview);
                 com.baidu.tbadk.core.util.bc.a(this.j, TbadkApplication.m252getInst().getSkinType());
                 this.j.setHorizontalScrollBarEnabled(false);
                 this.j.setHorizontalScrollbarOverlay(false);
@@ -134,7 +134,7 @@ public class NewVcodeActivity extends BaseActivity {
                 return true;
             } catch (Exception e) {
                 BdLog.e(getClass().getName(), "", "NewVcodeActivity.initWebView error = " + e.getMessage());
-                com.baidu.tieba.ad.c().e(com.baidu.tieba.ad.c().z() + 1);
+                com.baidu.tieba.ai.c().e(com.baidu.tieba.ai.c().z() + 1);
                 return false;
             }
         }
@@ -151,7 +151,7 @@ public class NewVcodeActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         if (this.j != null) {
-            this.j.loadUrl(com.baidu.tieba.util.r.a(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/gridcaptcha?version=" + TbConfig.getVersion()));
+            this.j.loadUrl(com.baidu.tieba.util.r.b(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/gridcaptcha?version=" + TbConfig.getVersion()));
         }
     }
 
@@ -211,12 +211,12 @@ public class NewVcodeActivity extends BaseActivity {
     }
 
     private void f() {
-        this.e = (ProgressBar) findViewById(com.baidu.tieba.r.load_webview_progress);
-        this.f = (ProgressBar) findViewById(com.baidu.tieba.r.change_vcode_progress);
-        this.a = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.e = (ProgressBar) findViewById(com.baidu.tieba.v.load_webview_progress);
+        this.f = (ProgressBar) findViewById(com.baidu.tieba.v.change_vcode_progress);
+        this.a = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.p);
-        this.c = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.u.send), this.q);
-        this.d = (TextView) findViewById(com.baidu.tieba.r.webview_fail_view);
+        this.c = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.y.send), this.q);
+        this.d = (TextView) findViewById(com.baidu.tieba.v.webview_fail_view);
         this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.NewVcodeActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -230,7 +230,7 @@ public class NewVcodeActivity extends BaseActivity {
         this.g = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.NewVcodeActivity.6
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                NewVcodeActivity.this.DeinitWaitingDialog();
+                NewVcodeActivity.this.destroyWaitingDialog();
                 if (NewVcodeActivity.this.h != null) {
                     NewVcodeActivity.this.h.cancel();
                 }
@@ -252,7 +252,7 @@ public class NewVcodeActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         if (this.m != null && this.m.length() > 0) {
-            this.mWaitingDialog = ProgressDialog.show(this, "", getString(com.baidu.tieba.u.sending), true, true, this.g);
+            this.mWaitingDialog = ProgressDialog.show(this, "", getString(com.baidu.tieba.y.sending), true, true, this.g);
             this.mWaitingDialog.setCanceledOnTouchOutside(false);
             if (this.h != null) {
                 this.h.cancel();
@@ -265,7 +265,7 @@ public class NewVcodeActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class PostThreadTask extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.al> {
+    public class PostThreadTask extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.am> {
         private WriteData b;
         private com.baidu.tbadk.core.util.al c = null;
         private String d = null;
@@ -279,7 +279,7 @@ public class NewVcodeActivity extends BaseActivity {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
-        public com.baidu.tieba.data.al doInBackground(Integer... numArr) {
+        public com.baidu.tieba.data.am doInBackground(Integer... numArr) {
             Address b;
             this.c = new com.baidu.tbadk.core.util.al();
             this.c.a("anonymous", "0");
@@ -304,7 +304,7 @@ public class NewVcodeActivity extends BaseActivity {
                     this.c.a(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, String.valueOf(this.b.getLiveCardData().getGroupId()));
                     this.c.a("start_time", String.valueOf(this.b.getLiveCardData().getStartTime()));
                 }
-                if (!TbConfig.getPositionPagerId().equals(NewVcodeActivity.this.getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID)) && com.baidu.tieba.ad.c().m() && (b = com.baidu.adp.lib.c.a.a().b(false)) != null) {
+                if (!TbConfig.getPositionPagerId().equals(NewVcodeActivity.this.getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID)) && com.baidu.tieba.ai.c().m() && (b = com.baidu.adp.lib.c.a.a().b(false)) != null) {
                     this.c.a("lbs", String.valueOf(String.valueOf(b.getLatitude())) + "," + String.valueOf(b.getLongitude()));
                 }
             } else {
@@ -322,23 +322,23 @@ public class NewVcodeActivity extends BaseActivity {
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(this.d);
                 String error_msg = errorData.getError_msg();
-                if (com.baidu.adp.lib.util.g.b(error_msg)) {
-                    error_msg = com.baidu.tieba.ad.c().d().getString(com.baidu.tieba.u.send_success);
-                } else if (this.b.isHasImages() && com.baidu.adp.lib.util.g.b(String.valueOf(this.b.getContent()) + imagesCodeForPost)) {
-                    error_msg = com.baidu.tieba.ad.c().d().getString(com.baidu.tieba.u.img_upload_error);
+                if (com.baidu.adp.lib.util.j.b(error_msg)) {
+                    error_msg = com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.send_success);
+                } else if (this.b.isHasImages() && com.baidu.adp.lib.util.j.b(String.valueOf(this.b.getContent()) + imagesCodeForPost)) {
+                    error_msg = com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.img_upload_error);
                 }
-                com.baidu.tieba.data.al alVar = new com.baidu.tieba.data.al(errorData.getError_code(), error_msg, null);
-                if (!alVar.a()) {
+                com.baidu.tieba.data.am amVar = new com.baidu.tieba.data.am(errorData.getError_code(), error_msg, null);
+                if (!amVar.a()) {
                     this.b.deleteUploadedTempImages();
                     if (this.b.getType() == 1 && !this.b.isSubFloor()) {
                         com.baidu.tieba.util.m.b(this.b.getThreadId(), (WriteData) null);
                     }
                 }
-                return alVar;
-            } else if (this.b.isHasImages() && com.baidu.adp.lib.util.g.b(String.valueOf(this.b.getContent()) + imagesCodeForPost)) {
-                return new com.baidu.tieba.data.al(this.c.d(), com.baidu.tieba.ad.c().d().getString(com.baidu.tieba.u.img_upload_error), null);
+                return amVar;
+            } else if (this.b.isHasImages() && com.baidu.adp.lib.util.j.b(String.valueOf(this.b.getContent()) + imagesCodeForPost)) {
+                return new com.baidu.tieba.data.am(this.c.d(), com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.img_upload_error), null);
             } else {
-                return new com.baidu.tieba.data.al(this.c.d(), this.c.f(), null);
+                return new com.baidu.tieba.data.am(this.c.d(), this.c.f(), null);
             }
         }
 
@@ -356,13 +356,13 @@ public class NewVcodeActivity extends BaseActivity {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
-        public void onPostExecute(com.baidu.tieba.data.al alVar) {
-            super.onPostExecute(alVar);
+        public void onPostExecute(com.baidu.tieba.data.am amVar) {
+            super.onPostExecute(amVar);
             NewVcodeActivity.this.closeLoadingDialog();
             NewVcodeActivity.this.h = null;
-            if (alVar != null && this.c != null) {
+            if (amVar != null && this.c != null) {
                 if (this.c.a().b().b()) {
-                    NewVcodeActivity.this.showToast(alVar.c());
+                    NewVcodeActivity.this.showToast(amVar.c());
                     if (this.b.getLiveCardData() != null) {
                         NewVcodeActivity.this.sendMessage(new CustomMessage(2005001, new com.baidu.tbadk.core.atomData.m(NewVcodeActivity.this).c(this.b.getForumName(), "post live's thread")));
                     }
@@ -370,7 +370,7 @@ public class NewVcodeActivity extends BaseActivity {
                     NewVcodeActivity.this.finish();
                     return;
                 }
-                if (alVar.b()) {
+                if (amVar.b()) {
                     com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
                     fVar.a(this.d);
                     if (fVar.b() != null) {
@@ -379,12 +379,12 @@ public class NewVcodeActivity extends BaseActivity {
                         if (fVar.c().equals("4")) {
                             NewVcodeActivity.this.d();
                         } else {
-                            NewVcodeActivity.this.showToast(NewVcodeActivity.this.getString(com.baidu.tieba.u.change_vcode_type));
+                            NewVcodeActivity.this.showToast(NewVcodeActivity.this.getString(com.baidu.tieba.y.change_vcode_type));
                             NewVcodeActivity.this.finish();
                         }
                     }
                 }
-                NewVcodeActivity.this.showToast(alVar.c());
+                NewVcodeActivity.this.showToast(amVar.c());
             }
         }
     }
@@ -447,7 +447,7 @@ public class NewVcodeActivity extends BaseActivity {
                 if (fVar.c().equals("4")) {
                     NewVcodeActivity.this.d();
                 } else {
-                    NewVcodeActivity.this.showToast(NewVcodeActivity.this.getString(com.baidu.tieba.u.change_vcode_type));
+                    NewVcodeActivity.this.showToast(NewVcodeActivity.this.getString(com.baidu.tieba.y.change_vcode_type));
                     NewVcodeActivity.this.finish();
                 }
             } else {
@@ -490,7 +490,7 @@ public class NewVcodeActivity extends BaseActivity {
             if (!z) {
                 if (NewVcodeActivity.this.o != null) {
                     NewVcodeActivity.this.o.removeMessages(2);
-                    NewVcodeActivity.this.o.sendMessage(NewVcodeActivity.this.o.obtainMessage(2, NewVcodeActivity.this.getString(com.baidu.tieba.u.finish_input_vcode)));
+                    NewVcodeActivity.this.o.sendMessage(NewVcodeActivity.this.o.obtainMessage(2, NewVcodeActivity.this.getString(com.baidu.tieba.y.finish_input_vcode)));
                 }
             } else if (str != null && str.length() > 0 && str2 != null && str2.length() > 0) {
                 NewVcodeActivity.this.m = str;

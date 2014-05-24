@@ -6,7 +6,7 @@ public class b {
     private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/page";
     private com.baidu.tbadk.core.util.al b = null;
 
-    public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, com.baidu.tieba.data.af afVar) {
+    public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, com.baidu.tieba.data.ag agVar, boolean z5) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -14,9 +14,9 @@ public class b {
         this.b.a("kz", str);
         this.b.a("rn", String.valueOf(30));
         this.b.a("with_floor", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-        int b = com.baidu.adp.lib.util.h.b(com.baidu.tieba.ad.c().d());
-        int c = com.baidu.adp.lib.util.h.c(com.baidu.tieba.ad.c().d());
-        float f = com.baidu.tieba.ad.c().d().getResources().getDisplayMetrics().density;
+        int b = com.baidu.adp.lib.util.k.b(com.baidu.tieba.ai.c().d());
+        int c = com.baidu.adp.lib.util.k.c(com.baidu.tieba.ai.c().d());
+        float f = com.baidu.tieba.ai.c().d().getResources().getDisplayMetrics().density;
         int i6 = 1;
         if (com.baidu.tbadk.core.util.bf.a().d().equals("80")) {
             i6 = 2;
@@ -38,8 +38,13 @@ public class b {
             this.b.a("msg_click", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             this.b.a("message_id", String.valueOf(j));
         }
-        if (afVar != null) {
-            afVar.a(this.b);
+        if (agVar != null) {
+            agVar.a(this.b);
+        }
+        if (z5) {
+            this.b.a("banner", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+        } else {
+            this.b.a("banner", "0");
         }
         switch (i3) {
             case 1:

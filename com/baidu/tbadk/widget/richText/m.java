@@ -17,7 +17,7 @@ class m implements com.baidu.adp.lib.d.c<TextView> {
     /* renamed from: b */
     public TextView a() {
         BdLog.d("pool make TextView");
-        return new com.baidu.tbadk.widget.l(this.a);
+        return new com.baidu.tbadk.widget.m(this.a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

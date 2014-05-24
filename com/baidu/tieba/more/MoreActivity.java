@@ -15,7 +15,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.ay;
-import com.baidu.tbadk.core.atomData.bh;
+import com.baidu.tbadk.core.atomData.bi;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.data.PersonChangeData;
@@ -181,17 +181,17 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
     public void e() {
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            LoginActivity.a((Activity) this, getString(com.baidu.tieba.u.login_feedback), true, 12008);
+            LoginActivity.a((Activity) this, getString(com.baidu.tieba.y.login_feedback), true, 12008);
             return;
         }
         AntiData antiData = new AntiData();
         antiData.setIfpost(1);
         if (antiData != null && antiData.getIfpost() == 0) {
-            com.baidu.adp.lib.util.h.a((Context) this, antiData.getForbid_info());
+            com.baidu.adp.lib.util.k.a((Context) this, antiData.getForbid_info());
             return;
         }
         antiData.setIfVoice(false);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bh(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bi(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null)));
     }
 
     public void f() {
@@ -221,7 +221,7 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
     public void i() {
         String currentAccount = TbadkApplication.getCurrentAccount();
         if ((currentAccount == null || currentAccount.length() <= 0) && com.baidu.tbadk.core.account.a.b() <= 0) {
-            LoginActivity.a(this, 1, getString(com.baidu.tieba.u.login_manage_account), 11003);
+            LoginActivity.a(this, 1, getString(com.baidu.tieba.y.login_manage_account), 11003);
         } else {
             sendMessage(new CustomMessage(2017006, new com.baidu.tbadk.core.frameworkData.a(this)));
         }

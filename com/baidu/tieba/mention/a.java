@@ -20,17 +20,17 @@ public class a extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(com.baidu.tieba.s.at_me_activity, viewGroup, false);
+        View inflate = layoutInflater.inflate(com.baidu.tieba.w.at_me_activity, viewGroup, false);
         this.d = new com.baidu.tbadk.core.view.q(getActivity());
         this.d.a(this);
-        this.c = (BdListView) inflate.findViewById(com.baidu.tieba.r.atme_lv);
+        this.c = (BdListView) inflate.findViewById(com.baidu.tieba.v.atme_lv);
         this.c.setDividerHeight(0);
         this.c.setPullRefresh(this.d);
-        this.e = (LinearLayout) inflate.findViewById(com.baidu.tieba.r.bodyNotLogin);
-        this.g = new com.baidu.tbadk.core.view.k(inflate, com.baidu.tieba.q.individual_center_news, com.baidu.tieba.q.individual_center_news_1, com.baidu.tieba.r.no_data_container, com.baidu.tieba.r.no_data_image, com.baidu.tieba.r.no_data_image_text);
+        this.e = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.bodyNotLogin);
+        this.g = new com.baidu.tbadk.core.view.k(inflate, com.baidu.tieba.u.individual_center_news, com.baidu.tieba.u.individual_center_news_1, com.baidu.tieba.v.no_data_container, com.baidu.tieba.v.no_data_image, com.baidu.tieba.v.no_data_image_text);
         this.b = new m(this, 2, new b(this));
         this.b.a(this.c);
-        this.b.a((ViewGroup) inflate.findViewById(com.baidu.tieba.r.mention_layout_atme));
+        this.b.a((ViewGroup) inflate.findViewById(com.baidu.tieba.v.mention_layout_atme));
         this.b.a(this.g);
         this.b.a("c/u/feed/atme");
         this.b.c();
@@ -106,7 +106,7 @@ public class a extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.Li
 
     private void g() {
         if (this.f == null) {
-            this.f = new com.baidu.tbadk.core.view.b(getActivity(), getString(com.baidu.tieba.u.login_msg_tab), getString(com.baidu.tieba.u.login_msg_form), 3);
+            this.f = new com.baidu.tbadk.core.view.b(getActivity(), getString(com.baidu.tieba.y.login_msg_tab), getString(com.baidu.tieba.y.login_msg_form), 3);
             this.e.addView(this.f.b());
             this.f.b(TbadkApplication.m252getInst().getSkinType());
         } else {

@@ -31,7 +31,7 @@ class ac extends CustomMessageListener {
                 this.a.showToast(optString);
                 z = this.a.z();
                 if (optInt == 1) {
-                    z.ai();
+                    z.aj();
                     z.e(true);
                 } else if (optInt == 2) {
                     z.e(false);

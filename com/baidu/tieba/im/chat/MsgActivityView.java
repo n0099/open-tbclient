@@ -9,7 +9,7 @@ import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class MsgActivityView extends cd {
+public class MsgActivityView extends cc {
     private HeadImageView o;
     private TextView p;
     private TextView q;
@@ -19,16 +19,16 @@ public class MsgActivityView extends cd {
     private com.baidu.adp.lib.b.b u;
 
     public MsgActivityView(Context context) {
-        super(context, com.baidu.tieba.s.msg_msgactivity_view);
-        this.h = (TextView) a(com.baidu.tieba.r.tex_msgitem_time);
-        this.p = (TextView) a(com.baidu.tieba.r.msg_msgactivity_title);
-        this.q = (TextView) a(com.baidu.tieba.r.msg_msgactivity_time);
-        this.r = (TextView) a(com.baidu.tieba.r.msg_msgactivity_address);
-        this.o = (HeadImageView) a(com.baidu.tieba.r.img_msgactivity_photo);
+        super(context, com.baidu.tieba.w.msg_msgactivity_view);
+        this.h = (TextView) a(com.baidu.tieba.v.tex_msgitem_time);
+        this.p = (TextView) a(com.baidu.tieba.v.msg_msgactivity_title);
+        this.q = (TextView) a(com.baidu.tieba.v.msg_msgactivity_time);
+        this.r = (TextView) a(com.baidu.tieba.v.msg_msgactivity_address);
+        this.o = (HeadImageView) a(com.baidu.tieba.v.img_msgactivity_photo);
         this.o.setIsRound(false);
         this.o.setClickable(true);
-        a().setOnClickListener(new bx(this));
-        a().setOnLongClickListener(new by(this));
+        a().setOnClickListener(new bw(this));
+        a().setOnLongClickListener(new bx(this));
     }
 
     public void a(ChatMessage chatMessage) {
@@ -56,35 +56,35 @@ public class MsgActivityView extends cd {
                     int i6 = calendar.get(5);
                     switch (i3) {
                         case 0:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.u.seven);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.y.seven);
                             break;
                         case 1:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.u.one);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.y.one);
                             break;
                         case 2:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.u.two);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.y.two);
                             break;
                         case 3:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.u.three);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.y.three);
                             break;
                         case 4:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.u.four);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.y.four);
                             break;
                         case 5:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.u.five);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.y.five);
                             break;
                         case 6:
-                            string = this.mContext.getResources().getString(com.baidu.tieba.u.six);
+                            string = this.mContext.getResources().getString(com.baidu.tieba.y.six);
                             break;
                         default:
                             string = "";
                             break;
                     }
                     if (i > 12) {
-                        string2 = this.mContext.getResources().getString(com.baidu.tieba.u.pm);
+                        string2 = this.mContext.getResources().getString(com.baidu.tieba.y.pm);
                         i -= 12;
                     } else {
-                        string2 = this.mContext.getResources().getString(com.baidu.tieba.u.am);
+                        string2 = this.mContext.getResources().getString(com.baidu.tieba.y.am);
                     }
                     this.q.setText(String.format("%d-%d-%d %s %s %d:%d", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), string, string2, Integer.valueOf(i), Integer.valueOf(i2)));
                     if (TextUtils.isEmpty(optString3)) {
@@ -94,7 +94,7 @@ public class MsgActivityView extends cd {
                         this.r.setText(optString3);
                     }
                     this.o.setTag(optString4);
-                    this.o.setOnClickListener(new bz(this, optString5, optString6));
+                    this.o.setOnClickListener(new by(this, optString5, optString6));
                     this.o.a(optString4, 12, false);
                 }
             } catch (JSONException e) {
@@ -103,17 +103,17 @@ public class MsgActivityView extends cd {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.cd
+    @Override // com.baidu.tieba.im.chat.cc
     public void a(com.baidu.adp.lib.b.a aVar) {
         this.t = aVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.cd
+    @Override // com.baidu.tieba.im.chat.cc
     public void a(com.baidu.adp.lib.b.b bVar) {
         this.u = bVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.cd
+    @Override // com.baidu.tieba.im.chat.cc
     public void b(int i) {
         this.s = i;
     }

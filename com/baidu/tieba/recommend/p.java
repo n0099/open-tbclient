@@ -1,7 +1,7 @@
 package com.baidu.tieba.recommend;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.k> {
@@ -47,7 +47,7 @@ public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.k> {
                 a = eVar.a(str2, str);
                 break;
             case 1:
-                com.baidu.adp.lib.cache.s<String> K = ad.c().K();
+                com.baidu.adp.lib.cache.s<String> K = ai.c().K();
                 if (K != null) {
                     a = K.a("dailyrecommend");
                     break;

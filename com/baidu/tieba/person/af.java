@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdExpandImageView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import java.text.DecimalFormat;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
@@ -65,10 +66,10 @@ public class af extends RelativeLayout {
         this.r.setText("0");
         this.k = this.v.f();
         this.e.setVisibility(8);
-        this.m.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_forums_name_text_n));
-        this.o.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_post_name_text_n));
-        this.q.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_attention_name_text_n));
-        this.s.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_fans_name_text_n));
+        this.m.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_forums_name_text_n));
+        this.o.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_post_name_text_n));
+        this.q.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_attention_name_text_n));
+        this.s.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_fans_name_text_n));
         this.z = new ai(this, this.k);
         this.c.setAdapter(this.z);
         this.c.setOnPageChangeListener(new ah(this));
@@ -76,38 +77,38 @@ public class af extends RelativeLayout {
     }
 
     private void f() {
-        this.b = ((LayoutInflater) getContext().getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.person_center_head_view, (ViewGroup) this, true);
-        this.w = (BdExpandImageView) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_cover_im);
+        this.b = ((LayoutInflater) getContext().getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.person_center_head_view, (ViewGroup) this, true);
+        this.w = (BdExpandImageView) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_cover_im);
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.w.setImageDrawable(this.a.getResources().getDrawable(com.baidu.tieba.q.cent_banner_pic_n_1));
+            this.w.setImageDrawable(this.a.getResources().getDrawable(com.baidu.tieba.u.cent_banner_pic_n_1));
         } else {
-            this.w.setImageDrawable(this.a.getResources().getDrawable(com.baidu.tieba.q.cent_banner_pic_n));
+            this.w.setImageDrawable(this.a.getResources().getDrawable(com.baidu.tieba.u.cent_banner_pic_n));
         }
-        this.c = (ViewPager) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_viewpager);
-        this.d = (ImageView) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_back);
-        this.e = (ImageView) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_edit);
-        this.f = (LinearLayout) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_point);
-        this.g = (LinearLayout) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_forums);
+        this.c = (ViewPager) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_viewpager);
+        this.d = (ImageView) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_back);
+        this.e = (ImageView) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_edit);
+        this.f = (LinearLayout) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_point);
+        this.g = (LinearLayout) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_forums);
         this.g.setOnClickListener(this.v);
-        this.h = (LinearLayout) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_post);
+        this.h = (LinearLayout) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_post);
         this.h.setOnClickListener(this.v);
-        this.i = (FrameLayout) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_fans);
+        this.i = (FrameLayout) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_fans);
         this.i.setOnClickListener(this.v);
-        this.j = (LinearLayout) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_attention);
+        this.j = (LinearLayout) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_attention);
         this.j.setOnClickListener(this.v);
-        this.l = (TextView) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_forums_num);
-        this.m = (TextView) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_forums_name);
-        this.n = (TextView) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_post_num);
-        this.o = (TextView) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_post_name);
-        this.p = (TextView) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_attention_num);
-        this.q = (TextView) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_attention_name);
-        this.r = (TextView) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_fans_num);
-        this.s = (TextView) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_fans_name);
-        this.t = (ImageView) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_msg_icon);
+        this.l = (TextView) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_forums_num);
+        this.m = (TextView) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_forums_name);
+        this.n = (TextView) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_post_num);
+        this.o = (TextView) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_post_name);
+        this.p = (TextView) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_attention_num);
+        this.q = (TextView) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_attention_name);
+        this.r = (TextView) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_fans_num);
+        this.s = (TextView) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_fans_name);
+        this.t = (ImageView) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_msg_icon);
         this.t.setVisibility(8);
         this.d.setOnClickListener(this.v);
         this.e.setOnClickListener(this.v);
-        this.x = (ImageView) this.b.findViewById(com.baidu.tieba.r.user_info_center_head_progress);
+        this.x = (ImageView) this.b.findViewById(com.baidu.tieba.v.user_info_center_head_progress);
     }
 
     public ImageView getBackBtn() {
@@ -125,14 +126,14 @@ public class af extends RelativeLayout {
             ImageView imageView = (ImageView) this.f.getChildAt(i2);
             if (i2 == i % 2) {
                 if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                    imageView.setImageResource(com.baidu.tieba.q.icon_pop_dot_s_1);
+                    imageView.setImageResource(com.baidu.tieba.u.icon_pop_dot_s_1);
                 } else {
-                    imageView.setImageResource(com.baidu.tieba.q.icon_pop_dot_s);
+                    imageView.setImageResource(com.baidu.tieba.u.icon_pop_dot_s);
                 }
             } else if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                imageView.setImageResource(com.baidu.tieba.q.icon_pop_dot_n_1);
+                imageView.setImageResource(com.baidu.tieba.u.icon_pop_dot_n_1);
             } else {
-                imageView.setImageResource(com.baidu.tieba.q.icon_pop_dot_n);
+                imageView.setImageResource(com.baidu.tieba.u.icon_pop_dot_n);
             }
         }
     }
@@ -150,27 +151,27 @@ public class af extends RelativeLayout {
                     this.e.setVisibility(8);
                 }
                 if (avVar.g().getSex() == 1) {
-                    this.m.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_forums_name_text_b));
-                    this.o.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_post_name_text_b));
-                    this.q.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_attention_name_text_b));
-                    this.s.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_fans_name_text_b));
+                    this.m.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_forums_name_text_b));
+                    this.o.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_post_name_text_b));
+                    this.q.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_attention_name_text_b));
+                    this.s.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_fans_name_text_b));
                 } else if (avVar.g().getSex() == 2) {
-                    this.m.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_forums_name_text_g));
-                    this.o.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_post_name_text_g));
-                    this.q.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_attention_name_text_g));
-                    this.s.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_fans_name_text_g));
+                    this.m.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_forums_name_text_g));
+                    this.o.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_post_name_text_g));
+                    this.q.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_attention_name_text_g));
+                    this.s.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_fans_name_text_g));
                 } else {
-                    this.m.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_forums_name_text_n));
-                    this.o.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_post_name_text_n));
-                    this.q.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_attention_name_text_n));
-                    this.s.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_fans_name_text_n));
+                    this.m.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_forums_name_text_n));
+                    this.o.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_post_name_text_n));
+                    this.q.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_attention_name_text_n));
+                    this.s.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_fans_name_text_n));
                 }
             } else {
                 this.e.setVisibility(0);
-                this.m.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_forums_name_text));
-                this.o.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_post_name_text));
-                this.q.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_attention_name_text));
-                this.s.setText(this.a.getResources().getString(com.baidu.tieba.u.user_info_center_head_fans_name_text));
+                this.m.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_forums_name_text));
+                this.o.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_post_name_text));
+                this.q.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_attention_name_text));
+                this.s.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_fans_name_text));
             }
             this.z.notifyDataSetChanged();
         }
@@ -189,24 +190,24 @@ public class af extends RelativeLayout {
     }
 
     public int getForumId() {
-        return com.baidu.tieba.r.user_info_center_head_forums;
+        return com.baidu.tieba.v.user_info_center_head_forums;
     }
 
     public int getPostId() {
-        return com.baidu.tieba.r.user_info_center_head_post;
+        return com.baidu.tieba.v.user_info_center_head_post;
     }
 
     public int getFansId() {
-        return com.baidu.tieba.r.user_info_center_head_fans;
+        return com.baidu.tieba.v.user_info_center_head_fans;
     }
 
     public int getAttentionId() {
-        return com.baidu.tieba.r.user_info_center_head_attention;
+        return com.baidu.tieba.v.user_info_center_head_attention;
     }
 
     public void a(int i) {
-        ((com.baidu.tbadk.core.e) this.a).a().a(i == 1);
-        ((com.baidu.tbadk.core.e) this.a).a().a(this.b);
+        ((BaseFragmentActivity) this.a).a().a(i == 1);
+        ((BaseFragmentActivity) this.a).a().a(this.b);
     }
 
     public void a(boolean z) {
@@ -220,7 +221,7 @@ public class af extends RelativeLayout {
     public void a(float f) {
         if (!this.x.isShown()) {
             this.x.setVisibility(0);
-            this.x.setImageDrawable(getResources().getDrawable(com.baidu.tieba.q.icon_pop_refresh));
+            this.x.setImageDrawable(getResources().getDrawable(com.baidu.tieba.u.icon_pop_refresh));
         }
         RotateAnimation rotateAnimation = new RotateAnimation(this.A, f, 1, 0.5f, 1, 0.5f);
         rotateAnimation.setFillBefore(true);
@@ -242,18 +243,18 @@ public class af extends RelativeLayout {
     public void e() {
         if (!this.x.isShown()) {
             this.x.setVisibility(0);
-            this.x.setImageDrawable(getResources().getDrawable(com.baidu.tieba.q.icon_pop_refresh));
+            this.x.setImageDrawable(getResources().getDrawable(com.baidu.tieba.u.icon_pop_refresh));
         }
-        this.x.startAnimation((RotateAnimation) AnimationUtils.loadAnimation(getContext(), com.baidu.tieba.l.user_info_center_head_rotate));
+        this.x.startAnimation((RotateAnimation) AnimationUtils.loadAnimation(getContext(), com.baidu.tieba.p.user_info_center_head_rotate));
     }
 
     public void b(boolean z) {
         this.y = false;
         this.e.setVisibility(0);
         if (z) {
-            com.baidu.tbadk.core.util.bc.f(this.e, com.baidu.tieba.q.icon_pop_blacklist_d);
+            com.baidu.tbadk.core.util.bc.f(this.e, com.baidu.tieba.u.icon_pop_blacklist_d);
         } else {
-            com.baidu.tbadk.core.util.bc.f(this.e, com.baidu.tieba.q.icon_pop_blacklist);
+            com.baidu.tbadk.core.util.bc.f(this.e, com.baidu.tieba.u.icon_pop_blacklist);
         }
     }
 }

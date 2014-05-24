@@ -10,6 +10,9 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,31 +52,31 @@ public class i extends com.baidu.adp.widget.q {
         switch (getItemViewType(i)) {
             case 0:
                 if (view == null || view.getTag() == null) {
-                    view = this.c.inflate(com.baidu.tieba.s.daily_recommend_time, (ViewGroup) null);
+                    view = this.c.inflate(w.daily_recommend_time, (ViewGroup) null);
                     n nVar2 = new n();
-                    nVar2.a = (TextView) view.findViewById(com.baidu.tieba.r.time);
-                    nVar2.b = (TextView) view.findViewById(com.baidu.tieba.r.count);
+                    nVar2.a = (TextView) view.findViewById(v.time);
+                    nVar2.b = (TextView) view.findViewById(v.count);
                     a(nVar2);
-                    view.setTag(com.baidu.tieba.r.position, nVar2);
+                    view.setTag(v.position, nVar2);
                     nVar = nVar2;
                 } else {
-                    nVar = (n) view.getTag(com.baidu.tieba.r.position);
+                    nVar = (n) view.getTag(v.position);
                 }
                 view.setTag(Integer.valueOf(i));
                 a(nVar, i);
                 break;
             case 1:
                 if (view == null || view.getTag() == null) {
-                    view = this.c.inflate(com.baidu.tieba.s.daily_recommend_concentratio, (ViewGroup) null);
+                    view = this.c.inflate(w.daily_recommend_concentratio, (ViewGroup) null);
                     k kVar2 = new k();
-                    kVar2.a = view.findViewById(com.baidu.tieba.r.father);
-                    kVar2.b = (LinearLayout) view.findViewById(com.baidu.tieba.r.head_bottom);
-                    kVar2.c = view.findViewById(com.baidu.tieba.r.frs_line);
-                    kVar2.g = (TextView) view.findViewById(com.baidu.tieba.r.bar_name);
-                    kVar2.f = (TextView) view.findViewById(com.baidu.tieba.r.count);
-                    kVar2.e = (TextView) view.findViewById(com.baidu.tieba.r.desc);
-                    kVar2.d = (TextView) view.findViewById(com.baidu.tieba.r.title);
-                    kVar2.h = (TextView) view.findViewById(com.baidu.tieba.r.user_name);
+                    kVar2.a = view.findViewById(v.father);
+                    kVar2.b = (LinearLayout) view.findViewById(v.head_bottom);
+                    kVar2.c = view.findViewById(v.frs_line);
+                    kVar2.g = (TextView) view.findViewById(v.bar_name);
+                    kVar2.f = (TextView) view.findViewById(v.count);
+                    kVar2.e = (TextView) view.findViewById(v.desc);
+                    kVar2.d = (TextView) view.findViewById(v.title);
+                    kVar2.h = (TextView) view.findViewById(v.user_name);
                     a(kVar2);
                     view.setTag(kVar2);
                     kVar = kVar2;
@@ -100,8 +103,8 @@ public class i extends com.baidu.adp.widget.q {
     }
 
     private void a(n nVar) {
-        bc.a(nVar.a, com.baidu.tieba.o.cp_cont_i, 1);
-        bc.a(nVar.b, com.baidu.tieba.o.cp_cont_d, 1);
+        bc.a(nVar.a, com.baidu.tieba.s.cp_cont_i, 1);
+        bc.a(nVar.b, com.baidu.tieba.s.cp_cont_d, 1);
     }
 
     public void a(n nVar, int i) {
@@ -115,11 +118,11 @@ public class i extends com.baidu.adp.widget.q {
             }
             nVar.a.setText(this.f.format(date));
             if (mVar.d()) {
-                bc.f((View) nVar.a, com.baidu.tieba.q.icon_daily_sentence_bar_red);
+                bc.f((View) nVar.a, u.icon_daily_sentence_bar_red);
             } else {
-                bc.f((View) nVar.a, com.baidu.tieba.q.icon_daily_sentence_bar_gray);
+                bc.f((View) nVar.a, u.icon_daily_sentence_bar_gray);
             }
-            nVar.b.setText(String.valueOf(mVar.a()) + this.b.getResources().getString(u.hot_count));
+            nVar.b.setText(String.valueOf(mVar.a()) + this.b.getResources().getString(y.hot_count));
             if (this.a < i) {
                 nVar.a.setVisibility(0);
             }
@@ -127,22 +130,22 @@ public class i extends com.baidu.adp.widget.q {
     }
 
     private void a(k kVar) {
-        bc.f(kVar.a, com.baidu.tieba.o.cp_bg_line_c);
-        bc.f(kVar.b, com.baidu.tieba.q.daily_recommend_item_selector);
-        bc.f(kVar.c, com.baidu.tieba.o.cp_bg_line_b);
-        bc.a(kVar.d, com.baidu.tieba.o.cp_cont_b, 1);
+        bc.f(kVar.a, com.baidu.tieba.s.cp_bg_line_c);
+        bc.f(kVar.b, u.daily_recommend_item_selector);
+        bc.f(kVar.c, com.baidu.tieba.s.cp_bg_line_b);
+        bc.a(kVar.d, com.baidu.tieba.s.cp_cont_b, 1);
         int paddingLeft = kVar.f.getPaddingLeft();
         int paddingRight = kVar.f.getPaddingRight();
-        bc.a(kVar.f, com.baidu.tieba.o.cp_cont_d, 1);
-        kVar.f.setCompoundDrawablesWithIntrinsicBounds(this.g ? com.baidu.tieba.q.icon_comment_s_1 : com.baidu.tieba.q.icon_comment_s, 0, 0, 0);
+        bc.a(kVar.f, com.baidu.tieba.s.cp_cont_d, 1);
+        kVar.f.setCompoundDrawablesWithIntrinsicBounds(this.g ? u.icon_comment_s_1 : u.icon_comment_s, 0, 0, 0);
         kVar.f.setPadding(paddingLeft, 0, paddingRight, 0);
         int paddingLeft2 = kVar.h.getPaddingLeft();
         int paddingRight2 = kVar.h.getPaddingRight();
-        bc.a(kVar.h, com.baidu.tieba.o.cp_cont_d, 1);
-        kVar.h.setCompoundDrawablesWithIntrinsicBounds(this.g ? com.baidu.tieba.q.icon_name_1 : com.baidu.tieba.q.icon_name, 0, 0, 0);
+        bc.a(kVar.h, com.baidu.tieba.s.cp_cont_d, 1);
+        kVar.h.setCompoundDrawablesWithIntrinsicBounds(this.g ? u.icon_name_1 : u.icon_name, 0, 0, 0);
         kVar.h.setPadding(paddingLeft2, 0, paddingRight2, 0);
-        bc.a(kVar.e, com.baidu.tieba.o.cp_cont_c, 1);
-        bc.a(kVar.g, com.baidu.tieba.o.cp_cont_d, 1);
+        bc.a(kVar.e, com.baidu.tieba.s.cp_cont_c, 1);
+        bc.a(kVar.g, com.baidu.tieba.s.cp_cont_d, 1);
     }
 
     public void a(k kVar, int i) {
@@ -190,8 +193,8 @@ public class i extends com.baidu.adp.widget.q {
 
     @Override // com.baidu.adp.widget.q
     public View c() {
-        View inflate = this.c.inflate(com.baidu.tieba.s.daily_recommend_time, (ViewGroup) null);
-        inflate.findViewById(com.baidu.tieba.r.count).setVisibility(8);
+        View inflate = this.c.inflate(w.daily_recommend_time, (ViewGroup) null);
+        inflate.findViewById(v.count).setVisibility(8);
         return inflate;
     }
 
@@ -201,13 +204,13 @@ public class i extends com.baidu.adp.widget.q {
         if (i == -1) {
             View findViewWithTag = adapterView.findViewWithTag(Integer.valueOf(b(i)));
             if (findViewWithTag != null) {
-                findViewWithTag.findViewById(com.baidu.tieba.r.time).setVisibility(0);
+                findViewWithTag.findViewById(v.time).setVisibility(0);
                 return;
             }
             return;
         }
         m mVar = this.h.get(i);
-        TextView textView = (TextView) view.findViewById(com.baidu.tieba.r.time);
+        TextView textView = (TextView) view.findViewById(v.time);
         Date date2 = new Date();
         try {
             date = this.e.parse(mVar.c);
@@ -216,16 +219,16 @@ public class i extends com.baidu.adp.widget.q {
             date = date2;
         }
         textView.setText(this.f.format(date));
-        bc.a(textView, com.baidu.tieba.o.cp_cont_i, 1);
+        bc.a(textView, com.baidu.tieba.s.cp_cont_i, 1);
         if (i <= 0) {
-            bc.f((View) textView, com.baidu.tieba.q.icon_daily_sentence_bar_red_s);
+            bc.f((View) textView, u.icon_daily_sentence_bar_red_s);
         } else {
-            bc.f((View) textView, com.baidu.tieba.q.icon_daily_sentence_bar_gray_s);
+            bc.f((View) textView, u.icon_daily_sentence_bar_gray_s);
         }
         this.a = i;
         View findViewWithTag2 = adapterView.findViewWithTag(Integer.valueOf(b(i)));
         if (findViewWithTag2 != null) {
-            findViewWithTag2.findViewById(com.baidu.tieba.r.time).setVisibility(0);
+            findViewWithTag2.findViewById(v.time).setVisibility(0);
         }
     }
 

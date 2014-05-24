@@ -17,28 +17,28 @@ class q extends Handler {
         try {
             switch (message.what) {
                 case 0:
-                    this.a.n.setText("fps:" + com.baidu.adp.lib.debug.c.a());
+                    this.a.n.setText("fps:" + com.baidu.adp.lib.debug.d.a());
                     break;
                 case 1:
-                    this.a.o.setText("mem:" + com.baidu.adp.lib.debug.c.b());
+                    this.a.o.setText("mem:" + com.baidu.adp.lib.debug.d.b());
                     break;
                 case 2:
-                    this.a.p.setText("cpu:" + com.baidu.adp.lib.debug.c.c());
+                    this.a.p.setText("cpu:" + com.baidu.adp.lib.debug.d.c());
                     break;
                 case 3:
-                    this.a.q.setText("gc:" + com.baidu.adp.lib.debug.c.d());
+                    this.a.q.setText("gc:" + com.baidu.adp.lib.debug.d.d());
                     break;
                 case 4:
-                    this.a.r.setText("strictMode:" + com.baidu.adp.lib.debug.c.e());
+                    this.a.r.setText("strictMode:" + com.baidu.adp.lib.debug.d.e());
                     break;
                 case 5:
                     Log.i("Monitor", "battery run");
-                    this.a.s.setText("battery:" + com.baidu.adp.lib.debug.c.i());
+                    this.a.s.setText("battery:" + com.baidu.adp.lib.debug.d.i());
                     break;
                 case 6:
-                    this.a.v.setText("-T:" + com.baidu.adp.lib.debug.c.f().a() + "kb");
-                    this.a.t.setText("-S:" + com.baidu.adp.lib.debug.c.f().c() + "kb");
-                    this.a.u.setText("-R:" + com.baidu.adp.lib.debug.c.f().b() + "kb");
+                    this.a.v.setText("-T:" + com.baidu.adp.lib.debug.d.f().a() + "kb");
+                    this.a.t.setText("-S:" + com.baidu.adp.lib.debug.d.f().c() + "kb");
+                    this.a.u.setText("-R:" + com.baidu.adp.lib.debug.d.f().b() + "kb");
                     break;
             }
         } catch (Exception e) {

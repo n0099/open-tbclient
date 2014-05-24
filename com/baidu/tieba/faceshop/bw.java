@@ -73,7 +73,7 @@ public class bw extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(FaceShopData faceShopData) {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         FaceShopData faceShopData2;
         FaceShopData faceShopData3;
         super.onPostExecute(faceShopData);
@@ -87,9 +87,9 @@ public class bw extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
                 faceShopData3.add(faceShopData);
             }
         }
-        gVar = this.a.mLoadDataCallBack;
+        eVar = this.a.mLoadDataCallBack;
         faceShopData2 = this.a.a;
-        gVar.a(faceShopData2);
+        eVar.a(faceShopData2);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

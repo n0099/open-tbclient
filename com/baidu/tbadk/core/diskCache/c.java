@@ -18,7 +18,7 @@ class c extends DiskFileOperate implements com.baidu.adp.lib.Disk.a {
     public void c(boolean z) {
         BdLog.d("success = " + z);
         super.c(z);
-        ImagesInvalidService.f();
-        ImagesInvalidReceiver.a(z);
+        ImagesInvalidService.stopService();
+        ImagesInvalidReceiver.broadcast(z);
     }
 }

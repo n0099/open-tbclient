@@ -6,16 +6,16 @@ import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BroadcastReceiver {
-    final /* synthetic */ b a;
+    final /* synthetic */ b this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.a = bVar;
+        this.this$0 = bVar;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.a.b.unregisterReceiver(this);
-        com.baidu.adp.lib.debug.c.c(String.valueOf(intent.getIntExtra("level", 0)) + "%");
+        this.this$0.b.unregisterReceiver(this);
+        com.baidu.adp.lib.debug.d.c(String.valueOf(intent.getIntExtra("level", 0)) + "%");
     }
 }

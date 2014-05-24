@@ -24,17 +24,21 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bo;
-import com.baidu.tieba.r;
+import com.baidu.tieba.frs.WorldCupView;
+import com.baidu.tieba.frs.bp;
 import com.baidu.tieba.s;
 import com.baidu.tieba.switchs.features.BarDetailForFrsSwitchStatic;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class FrsHeaderView {
-    private static final int[] Y = {com.baidu.tieba.q.label_green, com.baidu.tieba.q.label_blue, com.baidu.tieba.q.label_orange, com.baidu.tieba.q.label_red, com.baidu.tieba.q.label_purple};
-    private static final int[] Z = {com.baidu.tieba.q.label_green_1, com.baidu.tieba.q.label_blue_1, com.baidu.tieba.q.label_orange_1, com.baidu.tieba.q.label_red_1, com.baidu.tieba.q.label_purple_1};
+    private static final int[] Y = {u.label_green, u.label_blue, u.label_orange, u.label_red, u.label_purple};
+    private static final int[] Z = {u.label_green_1, u.label_blue_1, u.label_orange_1, u.label_red_1, u.label_purple_1};
     private Activity B;
     private String C;
     private String D;
@@ -49,11 +53,14 @@ public class FrsHeaderView {
     private boolean aa;
     private int ab;
     private int ac;
-    private final bo ae;
+    private final bp ae;
     private final ViewGroup af;
     private ImageView ag;
     private UserIconBox ah;
     private boolean al;
+    private com.baidu.tbadk.core.data.q am;
+    private WorldCupView an;
+    private boolean ao;
     private TextView d;
     private TextView e;
     private TextView f;
@@ -86,7 +93,7 @@ public class FrsHeaderView {
     private String J = null;
     private com.baidu.tieba.frs.g K = null;
     private boolean L = false;
-    com.baidu.tbadk.core.data.o a = null;
+    com.baidu.tbadk.core.data.n a = null;
     private float U = 0.0f;
     private float V = 0.0f;
     private boolean W = false;
@@ -150,39 +157,40 @@ public class FrsHeaderView {
         this.C = str;
         this.D = str2;
         LayoutInflater from = LayoutInflater.from(activity);
-        this.t = from.inflate(s.frs_header, (ViewGroup) null);
-        this.u = this.t.findViewById(r.container);
-        this.y = from.inflate(s.frs_show_experience, (ViewGroup) null);
+        this.t = from.inflate(w.frs_header, (ViewGroup) null);
+        this.u = this.t.findViewById(v.container);
+        this.y = from.inflate(w.frs_show_experience, (ViewGroup) null);
         if (this.C == null || this.D == null) {
             this.t.setVisibility(8);
         }
-        this.p = (RelativeLayout) this.t.findViewById(r.btn_love_content);
-        this.af = (ViewGroup) this.t.findViewById(r.frs_forum_entry);
-        this.ag = (ImageView) this.t.findViewById(r.frs_enter_detail);
+        this.p = (RelativeLayout) this.t.findViewById(v.btn_love_content);
+        this.af = (ViewGroup) this.t.findViewById(v.frs_forum_entry);
+        this.ag = (ImageView) this.t.findViewById(v.frs_enter_detail);
         this.af.setVisibility(8);
         this.P = new a(this.t, this.B);
-        this.q = (TextView) this.t.findViewById(r.level_name);
-        this.r = (TextView) this.t.findViewById(r.level);
-        this.s = (ImageView) this.t.findViewById(r.love_level_top);
-        this.g = (FrameLayout) this.t.findViewById(r.love);
-        this.h = (Button) this.t.findViewById(r.btn_love);
-        this.i = (TextView) this.t.findViewById(r.tv_love);
-        this.j = (FrameLayout) this.t.findViewById(r.sign);
-        this.k = (Button) this.t.findViewById(r.btn_sign);
-        this.l = (TextView) this.t.findViewById(r.tv_sign);
-        this.m = (ProgressBar) this.t.findViewById(r.sign_progress);
-        this.n = (FrameLayout) this.t.findViewById(r.sign_done);
-        this.o = (TextView) this.t.findViewById(r.sign_done_text);
-        this.d = (TextView) this.t.findViewById(r.member_num_text);
-        this.e = (TextView) this.t.findViewById(r.post_num_text);
-        this.f = (TextView) this.t.findViewById(r.title_text);
-        this.O = (TextView) this.t.findViewById(r.frs_tag_text);
-        this.N = (HeadImageView) this.t.findViewById(r.frs_image);
+        this.q = (TextView) this.t.findViewById(v.level_name);
+        this.r = (TextView) this.t.findViewById(v.level);
+        this.s = (ImageView) this.t.findViewById(v.love_level_top);
+        this.g = (FrameLayout) this.t.findViewById(v.love);
+        this.h = (Button) this.t.findViewById(v.btn_love);
+        this.i = (TextView) this.t.findViewById(v.tv_love);
+        this.j = (FrameLayout) this.t.findViewById(v.sign);
+        this.k = (Button) this.t.findViewById(v.btn_sign);
+        this.l = (TextView) this.t.findViewById(v.tv_sign);
+        this.m = (ProgressBar) this.t.findViewById(v.sign_progress);
+        this.n = (FrameLayout) this.t.findViewById(v.sign_done);
+        this.o = (TextView) this.t.findViewById(v.sign_done_text);
+        this.d = (TextView) this.t.findViewById(v.member_num_text);
+        this.e = (TextView) this.t.findViewById(v.post_num_text);
+        this.f = (TextView) this.t.findViewById(v.title_text);
+        this.O = (TextView) this.t.findViewById(v.frs_tag_text);
+        this.N = (HeadImageView) this.t.findViewById(v.frs_image);
         this.N.setGifIconSupport(false);
-        this.ah = (UserIconBox) this.t.findViewById(r.frs_badge_box);
-        this.v = (FrameLayout) this.t.findViewById(r.frs_header_groups);
-        this.w = (TextView) this.t.findViewById(r.frs_header_groups_text);
-        this.ae = new bo(this.B);
+        this.ah = (UserIconBox) this.t.findViewById(v.frs_badge_box);
+        this.v = (FrameLayout) this.t.findViewById(v.frs_header_groups);
+        this.w = (TextView) this.t.findViewById(v.frs_header_groups_text);
+        this.ae = new bp(this.B);
+        this.an = (WorldCupView) this.t.findViewById(v.worldcup);
     }
 
     public void a(View.OnClickListener onClickListener) {
@@ -210,28 +218,31 @@ public class FrsHeaderView {
         this.N.invalidate();
         this.r.setBackgroundResource(com.baidu.tbadk.core.util.g.b(this.R));
         if (i == 1) {
-            this.u.setBackgroundColor(this.B.getResources().getColor(com.baidu.tieba.o.frs_header_bg_1));
+            this.u.setBackgroundColor(this.B.getResources().getColor(s.frs_header_bg_1));
             if (this.G >= 0 && this.G < Y.length) {
                 bc.e((View) this.O, Z[this.G]);
             }
-            this.i.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.q.icon_like_1, 0, 0, 0);
-            this.l.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.q.icon_sign_1, 0, 0, 0);
-            this.i.setShadowLayer(1.0f, 0.0f, 1.0f, this.B.getResources().getColor(com.baidu.tieba.o.frs_like_shadow_1));
-            this.l.setShadowLayer(1.0f, 0.0f, 1.0f, this.B.getResources().getColor(com.baidu.tieba.o.frs_sign_shadow_1));
-            bc.e(this.ag, com.baidu.tieba.q.icon_arrow_right_1);
-            this.v.setBackgroundResource(com.baidu.tieba.q.frs_top_item_bg_1);
-            return;
+            this.i.setCompoundDrawablesWithIntrinsicBounds(u.icon_like_1, 0, 0, 0);
+            this.l.setCompoundDrawablesWithIntrinsicBounds(u.icon_sign_1, 0, 0, 0);
+            this.i.setShadowLayer(1.0f, 0.0f, 1.0f, this.B.getResources().getColor(s.frs_like_shadow_1));
+            this.l.setShadowLayer(1.0f, 0.0f, 1.0f, this.B.getResources().getColor(s.frs_sign_shadow_1));
+            bc.e(this.ag, u.icon_arrow_right_1);
+            this.v.setBackgroundResource(u.frs_top_item_bg_1);
+        } else {
+            this.u.setBackgroundColor(this.B.getResources().getColor(s.frs_header_bg));
+            if (this.G >= 0 && this.G < Y.length) {
+                bc.e((View) this.O, Y[this.G]);
+            }
+            this.i.setCompoundDrawablesWithIntrinsicBounds(u.icon_like, 0, 0, 0);
+            this.l.setCompoundDrawablesWithIntrinsicBounds(u.icon_sign, 0, 0, 0);
+            this.i.setShadowLayer(1.0f, 0.0f, 1.0f, this.B.getResources().getColor(s.frs_like_shadow));
+            this.l.setShadowLayer(1.0f, 0.0f, 1.0f, this.B.getResources().getColor(s.frs_sign_shadow));
+            bc.e(this.ag, u.icon_arrow_right);
+            this.v.setBackgroundResource(u.frs_top_item_bg);
         }
-        this.u.setBackgroundColor(this.B.getResources().getColor(com.baidu.tieba.o.frs_header_bg));
-        if (this.G >= 0 && this.G < Y.length) {
-            bc.e((View) this.O, Y[this.G]);
+        if (this.an != null) {
+            this.an.a(i);
         }
-        this.i.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.q.icon_like, 0, 0, 0);
-        this.l.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.q.icon_sign, 0, 0, 0);
-        this.i.setShadowLayer(1.0f, 0.0f, 1.0f, this.B.getResources().getColor(com.baidu.tieba.o.frs_like_shadow));
-        this.l.setShadowLayer(1.0f, 0.0f, 1.0f, this.B.getResources().getColor(com.baidu.tieba.o.frs_sign_shadow));
-        bc.e(this.ag, com.baidu.tieba.q.icon_arrow_right);
-        this.v.setBackgroundResource(com.baidu.tieba.q.frs_top_item_bg);
     }
 
     public View a() {
@@ -252,19 +263,19 @@ public class FrsHeaderView {
         this.S = forumData.getCurScore();
         this.T = forumData.getLevelupScore();
         this.ak = forumData.getBadgeData();
+        this.am = forumData.getWorldCupData();
         this.K = gVar;
         this.t.setVisibility(0);
-        this.a = new com.baidu.tbadk.core.data.o();
-        com.baidu.tbadk.core.data.k kVar = new com.baidu.tbadk.core.data.k();
-        kVar.a(3);
-        kVar.a(this.J);
-        this.a.A().add(kVar);
+        this.a = new com.baidu.tbadk.core.data.n();
+        com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
+        jVar.a(3);
+        jVar.a(this.J);
+        this.a.F().add(jVar);
         this.P.a(forumData.getName());
         j();
     }
 
     private void j() {
-        int i = 0;
         if (this.d != null) {
             this.d.setText(String.valueOf(this.E));
         }
@@ -275,7 +286,7 @@ public class FrsHeaderView {
             if (this.ak != null && this.ak.size() > 0) {
                 this.C = UtilHelper.getFixedText(this.C, 7);
             }
-            this.f.setText(String.valueOf(this.C) + this.B.getString(u.forum));
+            this.f.setText(String.valueOf(this.C) + this.B.getString(y.forum));
         }
         if (this.H != null && this.H.length() > 0) {
             if (this.O != null) {
@@ -303,41 +314,41 @@ public class FrsHeaderView {
             } else {
                 this.v.setVisibility(0);
                 if (this.K.p().a() > 0) {
-                    this.w.setText(String.format(this.B.getString(u.frs_forum_groups), Integer.valueOf(this.K.p().a())));
+                    this.w.setText(String.format(this.B.getString(y.frs_forum_groups), Integer.valueOf(this.K.p().a())));
                 } else {
-                    this.w.setText(this.B.getString(u.frsgroup_title));
+                    this.w.setText(this.B.getString(y.frsgroup_title));
                 }
             }
         } else {
             this.v.setVisibility(0);
             if (this.K != null && this.K.p().a() > 0) {
-                this.w.setText(String.format(this.B.getString(u.frs_forum_groups), Integer.valueOf(this.K.p().a())));
+                this.w.setText(String.format(this.B.getString(y.frs_forum_groups), Integer.valueOf(this.K.p().a())));
             } else {
-                this.w.setText(this.B.getString(u.frsgroup_title));
+                this.w.setText(this.B.getString(y.frsgroup_title));
             }
         }
-        this.N.setDefaultResource(com.baidu.tieba.q.pic_avatar_ba_140);
-        this.N.setNightDefaultResource(com.baidu.tieba.q.pic_avatar_ba_140_1);
+        this.N.setDefaultResource(u.pic_avatar_ba_140);
+        this.N.setNightDefaultResource(u.pic_avatar_ba_140_1);
         this.N.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.N.a(this.J, 15, false);
         if (this.ah != null && this.ak != null && this.ak.size() > 0) {
             LinkedList linkedList = new LinkedList();
-            while (true) {
-                int i2 = i;
-                if (i2 < this.ak.size()) {
-                    IconData iconData = new IconData();
-                    iconData.setIconName(this.ak.get(i2).b());
-                    iconData.setIcon(this.ak.get(i2).a());
-                    this.aj = this.ak.get(i2).c();
-                    linkedList.add(iconData);
-                    i = i2 + 1;
-                } else {
-                    this.ah.setOnClickListener(this.c);
-                    this.ah.a(linkedList, 2, this.B.getResources().getDimensionPixelSize(com.baidu.tieba.p.frs_header_badge_width), this.B.getResources().getDimensionPixelSize(com.baidu.tieba.p.frs_header_badge_height), this.B.getResources().getDimensionPixelSize(com.baidu.tieba.p.frs_header_badge_margin));
-                    return;
-                }
+            for (int i = 0; i < this.ak.size(); i++) {
+                IconData iconData = new IconData();
+                iconData.setIconName(this.ak.get(i).b());
+                iconData.setIcon(this.ak.get(i).a());
+                this.aj = this.ak.get(i).c();
+                linkedList.add(iconData);
             }
+            this.ah.setOnClickListener(this.c);
+            this.ah.a(linkedList, 2, this.B.getResources().getDimensionPixelSize(t.frs_header_badge_width), this.B.getResources().getDimensionPixelSize(t.frs_header_badge_height), this.B.getResources().getDimensionPixelSize(t.frs_header_badge_margin));
         }
+        if (this.ao) {
+            this.an.setVisibility(0);
+            this.an.setData(this.am);
+            return;
+        }
+        this.an.setVisibility(8);
     }
 
     public void a(View view) {
@@ -347,10 +358,10 @@ public class FrsHeaderView {
             this.x.setBackgroundDrawable(new BitmapDrawable());
             this.x.setOutsideTouchable(true);
             this.x.setFocusable(true);
-            this.x.setWidth(this.B.getResources().getDimensionPixelSize(com.baidu.tieba.p.frs_header_btn_width));
-            this.x.setHeight(this.B.getResources().getDimensionPixelSize(com.baidu.tieba.p.frs_header_exp_height));
-            this.z = (TextView) this.y.findViewById(r.cur_experience);
-            this.A = (TextView) this.y.findViewById(r.levelup_experience);
+            this.x.setWidth(this.B.getResources().getDimensionPixelSize(t.frs_header_btn_width));
+            this.x.setHeight(this.B.getResources().getDimensionPixelSize(t.frs_header_exp_height));
+            this.z = (TextView) this.y.findViewById(v.cur_experience);
+            this.A = (TextView) this.y.findViewById(v.levelup_experience);
             k();
         }
         if (this.x.isShowing()) {
@@ -378,14 +389,14 @@ public class FrsHeaderView {
         this.A.setVisibility(0);
         if (this.T >= 10000) {
             if (this.T % TbConfig.BIG_IMAGE_MIN_CAPACITY == 0) {
-                this.A.setText(String.valueOf(this.B.getString(u.experience_divider)) + String.valueOf(this.T / TbConfig.BIG_IMAGE_MIN_CAPACITY) + this.B.getString(u.member_count_unit));
+                this.A.setText(String.valueOf(this.B.getString(y.experience_divider)) + String.valueOf(this.T / TbConfig.BIG_IMAGE_MIN_CAPACITY) + this.B.getString(y.member_count_unit));
                 return;
             } else {
-                this.A.setText(String.valueOf(this.B.getString(u.experience_divider)) + String.valueOf(this.T / 10000.0f) + this.B.getString(u.member_count_unit));
+                this.A.setText(String.valueOf(this.B.getString(y.experience_divider)) + String.valueOf(this.T / 10000.0f) + this.B.getString(y.member_count_unit));
                 return;
             }
         }
-        this.A.setText(String.valueOf(this.B.getString(u.experience_divider)) + String.valueOf(this.T));
+        this.A.setText(String.valueOf(this.B.getString(y.experience_divider)) + String.valueOf(this.T));
     }
 
     public void a(int i, String str, int i2, float f, boolean z) {
@@ -418,13 +429,13 @@ public class FrsHeaderView {
         this.p.setVisibility(0);
     }
 
-    private void b(boolean z) {
+    private void c(boolean z) {
         int width;
         float f = 0.0f;
-        Bitmap a = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.bg_frs_signin_bar_down);
+        Bitmap a = com.baidu.tbadk.core.util.g.a(u.bg_frs_signin_bar_down);
         if (a != null && (width = a.getWidth()) > 0) {
             if (z) {
-                this.q.setText(u.level_up);
+                this.q.setText(y.level_up);
                 this.r.setText(String.valueOf(this.R + 1));
             } else {
                 this.q.setText(this.Q);
@@ -455,24 +466,24 @@ public class FrsHeaderView {
             this.n.setVisibility(8);
             this.j.setVisibility(0);
             if (this.ab == 1) {
-                this.k.setBackgroundResource(com.baidu.tieba.q.frs_btn_sign_1);
+                this.k.setBackgroundResource(u.frs_btn_sign_1);
                 return;
             } else {
-                this.k.setBackgroundResource(com.baidu.tieba.q.frs_btn_sign);
+                this.k.setBackgroundResource(u.frs_btn_sign);
                 return;
             }
         }
         this.L = true;
         this.j.setVisibility(8);
         if (this.ab == 1) {
-            this.o.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.q.icon_sign_d_1, 0, 0, 0);
+            this.o.setCompoundDrawablesWithIntrinsicBounds(u.icon_sign_d_1, 0, 0, 0);
         } else {
-            this.o.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tieba.q.icon_sign_d, 0, 0, 0);
+            this.o.setCompoundDrawablesWithIntrinsicBounds(u.icon_sign_d, 0, 0, 0);
         }
         if (this.ac == 1) {
-            this.o.setText(this.B.getString(u.signed));
+            this.o.setText(this.B.getString(y.signed));
         } else {
-            this.o.setText(String.valueOf(this.B.getString(u.signed_less)) + String.valueOf(this.ac) + this.B.getString(u.day));
+            this.o.setText(String.valueOf(this.B.getString(y.signed_less)) + String.valueOf(this.ac) + this.B.getString(y.day));
         }
         this.n.setVisibility(0);
     }
@@ -496,7 +507,7 @@ public class FrsHeaderView {
         }
         this.U = f >= 1.0f ? 1.0f : f;
         this.X = f >= 1.0f;
-        b(this.X);
+        c(this.X);
     }
 
     public boolean c() {
@@ -529,5 +540,9 @@ public class FrsHeaderView {
 
     public void i() {
         this.al = true;
+    }
+
+    public void b(boolean z) {
+        this.ao = z;
     }
 }

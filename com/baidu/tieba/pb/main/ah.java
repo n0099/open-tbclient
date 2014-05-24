@@ -31,7 +31,7 @@ public class ah implements DialogInterface.OnClickListener {
                 int size = writeImagesInfo5.getChosedFiles().size();
                 writeImagesInfo6 = this.a.n;
                 if (size >= writeImagesInfo6.getMaxImagesAllowed()) {
-                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.u.editor_mutiiamge_max), 10));
+                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
                     return;
                 }
             }

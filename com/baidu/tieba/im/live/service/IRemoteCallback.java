@@ -10,6 +10,8 @@ public interface IRemoteCallback extends IInterface {
 
     void onLivePlayProgressUpdate(String str, int i, int i2);
 
+    void onLivePlayWarning(int i);
+
     void onLiveRecordTimeUpdate(int i);
 
     void onLiveStatusChangeEvent(LiveStatusParcelable liveStatusParcelable);
@@ -19,6 +21,7 @@ public interface IRemoteCallback extends IInterface {
         private static final String DESCRIPTOR = "com.baidu.tieba.im.live.service.IRemoteCallback";
         static final int TRANSACTION_onLiveErrorEvent = 2;
         static final int TRANSACTION_onLivePlayProgressUpdate = 3;
+        static final int TRANSACTION_onLivePlayWarning = 5;
         static final int TRANSACTION_onLiveRecordTimeUpdate = 4;
         static final int TRANSACTION_onLiveStatusChangeEvent = 1;
 
@@ -69,6 +72,11 @@ public interface IRemoteCallback extends IInterface {
                 case 4:
                     parcel.enforceInterface(DESCRIPTOR);
                     onLiveRecordTimeUpdate(parcel.readInt());
+                    parcel2.writeNoException();
+                    return true;
+                case 5:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    onLivePlayWarning(parcel.readInt());
                     parcel2.writeNoException();
                     return true;
                 case 1598968902:
@@ -156,6 +164,21 @@ public interface IRemoteCallback extends IInterface {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeInt(i);
                     this.mRemote.transact(4, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.im.live.service.IRemoteCallback
+            public void onLivePlayWarning(int i) {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(i);
+                    this.mRemote.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

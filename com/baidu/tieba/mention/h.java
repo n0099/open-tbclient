@@ -22,6 +22,6 @@ class h implements com.baidu.tbadk.imageManager.d {
             return;
         }
         this.b.setTag(this.c);
-        this.b.setImageResource(com.baidu.tieba.q.photo);
+        this.b.setImageResource(com.baidu.tieba.u.photo);
     }
 }

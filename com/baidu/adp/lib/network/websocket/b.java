@@ -10,9 +10,9 @@ class b extends r {
     public void a(byte[] bArr) {
         c cVar;
         c cVar2;
-        cVar = BdSocketLinkService.c;
+        cVar = BdSocketLinkService.connStateCallBack;
         if (cVar != null) {
-            cVar2 = BdSocketLinkService.c;
+            cVar2 = BdSocketLinkService.connStateCallBack;
             cVar2.a(bArr);
         }
     }
@@ -21,9 +21,9 @@ class b extends r {
     public void a(String str) {
         c cVar;
         c cVar2;
-        cVar = BdSocketLinkService.c;
+        cVar = BdSocketLinkService.connStateCallBack;
         if (cVar != null) {
-            cVar2 = BdSocketLinkService.c;
+            cVar2 = BdSocketLinkService.connStateCallBack;
             cVar2.a(str);
         }
     }
@@ -32,9 +32,9 @@ class b extends r {
     public void a(com.baidu.adp.lib.webSocket.d dVar) {
         c cVar;
         c cVar2;
-        cVar = BdSocketLinkService.c;
+        cVar = BdSocketLinkService.connStateCallBack;
         if (cVar != null) {
-            cVar2 = BdSocketLinkService.c;
+            cVar2 = BdSocketLinkService.connStateCallBack;
             cVar2.a(dVar);
         }
     }
@@ -45,11 +45,11 @@ class b extends r {
         c cVar;
         c cVar2;
         j.a().c();
-        handler = BdSocketLinkService.d;
+        handler = BdSocketLinkService.mHandler;
         handler.removeMessages(1);
-        cVar = BdSocketLinkService.c;
+        cVar = BdSocketLinkService.connStateCallBack;
         if (cVar != null) {
-            cVar2 = BdSocketLinkService.c;
+            cVar2 = BdSocketLinkService.connStateCallBack;
             cVar2.a(map);
         }
     }
@@ -60,19 +60,19 @@ class b extends r {
         c cVar;
         e eVar;
         c cVar2;
-        handler = BdSocketLinkService.d;
+        handler = BdSocketLinkService.mHandler;
         handler.removeMessages(1);
         boolean z = false;
-        cVar = BdSocketLinkService.c;
+        cVar = BdSocketLinkService.connStateCallBack;
         if (cVar != null) {
-            if (i != 0 && com.baidu.adp.framework.c.c.a().i() != null) {
+            if (i != 0 && i != 1 && com.baidu.adp.framework.c.c.a().i() != null) {
                 com.baidu.adp.framework.c.c.a().i().a("TiebaSocketLinkService", "close():" + str, i, (Message<?>) null);
             }
-            cVar2 = BdSocketLinkService.c;
+            cVar2 = BdSocketLinkService.connStateCallBack;
             z = cVar2.a(i, str);
         }
-        if (!z && com.baidu.adp.lib.util.h.d()) {
-            eVar = BdSocketLinkService.b;
+        if (!z && com.baidu.adp.lib.util.k.d()) {
+            eVar = BdSocketLinkService.reConnStra;
             eVar.a("onClose:" + i + ":" + str);
         }
     }

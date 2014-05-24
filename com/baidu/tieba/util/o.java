@@ -20,7 +20,7 @@ class o extends BdAsyncTask<String, String, WriteData> {
     public WriteData doInBackground(String... strArr) {
         String str;
         try {
-            str = com.baidu.tbadk.core.a.b.a().d().a(this.b);
+            str = com.baidu.tbadk.core.a.b.a().e().a(this.b);
         } catch (Exception e) {
             str = null;
         }

@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.view.HeadImageShaderView;
 /* loaded from: classes.dex */
-public class MsgrightView extends cd {
+public class MsgrightView extends cc {
     private static final String p = MsgrightView.class.getName();
     protected TextView o;
     private ProgressBar q;
@@ -19,17 +19,17 @@ public class MsgrightView extends cd {
     private HeadImageShaderView s;
 
     public MsgrightView(Context context) {
-        super(context, com.baidu.tieba.s.msg_msgright_view);
+        super(context, com.baidu.tieba.w.msg_msgright_view);
         b();
-        this.o = (TextView) a(com.baidu.tieba.r.img_msgitem_progressbar);
-        this.q = (ProgressBar) a(com.baidu.tieba.r.progress);
-        this.r = (ImageButton) a(com.baidu.tieba.r.btn_msgitem_resend);
-        this.s = (HeadImageShaderView) a(com.baidu.tieba.r.img_msgitem_photo);
+        this.o = (TextView) a(com.baidu.tieba.v.img_msgitem_progressbar);
+        this.q = (ProgressBar) a(com.baidu.tieba.v.progress);
+        this.r = (ImageButton) a(com.baidu.tieba.v.btn_msgitem_resend);
+        this.s = (HeadImageShaderView) a(com.baidu.tieba.v.img_msgitem_photo);
         this.s.setAutoChangeStyle(false);
-        this.s.setOnClickListener(new co(this));
+        this.s.setOnClickListener(new cn(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.cd
+    @Override // com.baidu.tieba.im.chat.cc
     public void a(View view, ChatMessage chatMessage) {
         if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null && (chatMessage.getLocalData().getStatus().shortValue() == 3 || chatMessage.getLocalData().getStatus().shortValue() == 2)) {
             if (this.o.getVisibility() != 8) {
@@ -42,13 +42,13 @@ public class MsgrightView extends cd {
                 this.j.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
             }
         } else {
-            this.j.setColorFilter(TbadkApplication.m252getInst().getApp().getResources().getColor(com.baidu.tieba.o.image_uploading_cover), PorterDuff.Mode.SRC_ATOP);
+            this.j.setColorFilter(TbadkApplication.m252getInst().getApp().getResources().getColor(com.baidu.tieba.s.image_uploading_cover), PorterDuff.Mode.SRC_ATOP);
             this.o.setText(String.valueOf(chatMessage.getProgressValue()) + "%");
             this.o.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.cd
+    @Override // com.baidu.tieba.im.chat.cc
     public void b(View view, ChatMessage chatMessage) {
         super.b(view, chatMessage);
         if (chatMessage == null) {
@@ -65,7 +65,7 @@ public class MsgrightView extends cd {
         }
         try {
             b(chatMessage);
-            this.s.getHeadImageView().setDefaultResource(com.baidu.tieba.q.photo);
+            this.s.getHeadImageView().setDefaultResource(com.baidu.tieba.u.photo);
             if (chatMessage.getUserInfo() != null) {
                 this.s.setUserId(chatMessage.getUserInfo().getUserId());
                 String b = TbadkApplication.isLogin() ? com.baidu.tieba.im.e.b() : null;
@@ -89,7 +89,7 @@ public class MsgrightView extends cd {
                 }
             }
             if (this.r.getVisibility() == 0) {
-                this.r.setOnClickListener(new cp(this));
+                this.r.setOnClickListener(new co(this));
             }
             this.i.setVisibility(8);
             c(8);

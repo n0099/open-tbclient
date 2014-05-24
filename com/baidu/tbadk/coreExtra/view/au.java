@@ -66,7 +66,7 @@ public class au extends RelativeLayout {
         this.b.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         addView(this.b);
         this.a = new ProgressBar(this.c, null, 16843399);
-        this.a.setIndeterminateDrawable(this.c.getResources().getDrawable(com.baidu.tieba.q.progressbar));
+        this.a.setIndeterminateDrawable(this.c.getResources().getDrawable(com.baidu.tieba.u.progressbar));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
         this.a.setLayoutParams(layoutParams);

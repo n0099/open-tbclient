@@ -1,6 +1,7 @@
 package com.baidu.android.defense;
 
 import android.content.Context;
+import com.baidu.tbadk.core.diskCache.ImagesInvalidReceiver;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -50,7 +51,7 @@ public class b extends Thread {
                                 if (readLine == null) {
                                     z = false;
                                     break;
-                                } else if (readLine.toLowerCase().contains("success")) {
+                                } else if (readLine.toLowerCase().contains(ImagesInvalidReceiver.SUCCESS)) {
                                     z = true;
                                     break;
                                 }

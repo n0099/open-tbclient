@@ -1,15 +1,26 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bw {
-    public static long a(long j) {
-        return 1 + j;
+public class bw implements View.OnClickListener {
+    final /* synthetic */ MsgActivityView a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bw(MsgActivityView msgActivityView) {
+        this.a = msgActivityView;
     }
 
-    public static long b(long j) {
-        return 100 * j;
-    }
-
-    public static long c(long j) {
-        return j / 100;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.b.a aVar;
+        com.baidu.adp.lib.b.a aVar2;
+        int i;
+        aVar = this.a.t;
+        if (aVar != null) {
+            aVar2 = this.a.t;
+            i = this.a.s;
+            aVar2.a(view, 8, i, 0L);
+        }
     }
 }

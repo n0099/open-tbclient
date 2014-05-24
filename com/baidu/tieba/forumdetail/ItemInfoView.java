@@ -17,13 +17,12 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
-import com.baidu.tbadk.editortool.w;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.forumdetail.ForumDetailData;
-import com.baidu.tieba.o;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class ItemInfoView extends RelativeLayout {
@@ -55,16 +54,16 @@ public class ItemInfoView extends RelativeLayout {
 
     public void a(Context context) {
         this.a = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(s.forum_detail_info, (ViewGroup) this, true);
-        this.b = (ViewGroup) findViewById(r.info_brief_box);
-        this.c = (TextView) findViewById(r.info_brief_content);
-        this.d = (ViewGroup) findViewById(r.info_dir_box);
-        this.e = (TextView) findViewById(r.info_dir_name);
-        this.f = (TextView) findViewById(r.info_rank_divider_line);
-        this.g = (ViewGroup) findViewById(r.info_rank_box);
-        this.h = (TextView) findViewById(r.info_rank_content);
-        this.i = (TextView) findViewById(r.info_badge_divider_line);
-        this.j = (ViewGroup) findViewById(r.info_badge_box);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(w.forum_detail_info, (ViewGroup) this, true);
+        this.b = (ViewGroup) findViewById(v.info_brief_box);
+        this.c = (TextView) findViewById(v.info_brief_content);
+        this.d = (ViewGroup) findViewById(v.info_dir_box);
+        this.e = (TextView) findViewById(v.info_dir_name);
+        this.f = (TextView) findViewById(v.info_rank_divider_line);
+        this.g = (ViewGroup) findViewById(v.info_rank_box);
+        this.h = (TextView) findViewById(v.info_rank_content);
+        this.i = (TextView) findViewById(v.info_badge_divider_line);
+        this.j = (ViewGroup) findViewById(v.info_badge_box);
     }
 
     public boolean a(ForumDetailData forumDetailData, BaseActivity baseActivity) {
@@ -90,7 +89,7 @@ public class ItemInfoView extends RelativeLayout {
                 if (forumDetailData.forumDir.rank != 0) {
                     this.h.setText(String.valueOf(forumDetailData.forumDir.rank));
                 } else {
-                    this.h.setText(getResources().getString(u.forum_detail_info_no_rank));
+                    this.h.setText(getResources().getString(y.forum_detail_info_no_rank));
                 }
                 if (this.d.getVisibility() == 8 && this.b.getVisibility() == 0) {
                     this.f.setVisibility(0);
@@ -106,7 +105,7 @@ public class ItemInfoView extends RelativeLayout {
             this.b.setVisibility(0);
             z = true;
         } else if (this.d.getVisibility() == 0) {
-            this.c.setText(getResources().getString(u.forum_detail_info_no_brief));
+            this.c.setText(getResources().getString(y.forum_detail_info_no_brief));
             this.b.setVisibility(0);
             z = true;
         }
@@ -121,7 +120,7 @@ public class ItemInfoView extends RelativeLayout {
     }
 
     private SpannableStringBuilder a(ForumDetailData.ForumContent[] forumContentArr, String str) {
-        w wVar = new w();
+        com.baidu.tbadk.editortool.w wVar = new com.baidu.tbadk.editortool.w();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(str) + IOUtils.LINE_SEPARATOR_UNIX);
         int length = forumContentArr.length;
         for (int i = 0; i < length; i++) {
@@ -143,10 +142,10 @@ public class ItemInfoView extends RelativeLayout {
 
     private void a(ForumDetailData forumDetailData) {
         ab abVar = new ab(this.a);
-        int a = com.baidu.adp.lib.util.h.a(this.a, 20.0f);
+        int a = com.baidu.adp.lib.util.k.a(this.a, 20.0f);
         abVar.a(a, a);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(a, a);
-        layoutParams.rightMargin = com.baidu.adp.lib.util.h.a(this.a, 6.0f);
+        layoutParams.rightMargin = com.baidu.adp.lib.util.k.a(this.a, 6.0f);
         int length = forumDetailData.badges.length;
         for (int i = 0; i < length; i++) {
             HeadImageView headImageView = new HeadImageView(this.a);
@@ -165,9 +164,9 @@ public class ItemInfoView extends RelativeLayout {
 
     public void a(BaseActivity baseActivity, int i) {
         if (i == 1) {
-            this.c.setTextColor(getResources().getColor(o.forum_detail_brief_txt_color_1));
+            this.c.setTextColor(getResources().getColor(s.forum_detail_brief_txt_color_1));
         } else {
-            this.c.setTextColor(getResources().getColor(o.forum_detail_brief_txt_color));
+            this.c.setTextColor(getResources().getColor(s.forum_detail_brief_txt_color));
         }
         baseActivity.getLayoutMode().a(i == 1);
         baseActivity.getLayoutMode().a((View) this);

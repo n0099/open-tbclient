@@ -1,7 +1,7 @@
 package com.baidu.tbadk.img.effect;
 
 import android.graphics.Bitmap;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.g;
 /* loaded from: classes.dex */
@@ -44,7 +44,7 @@ public class e extends b {
 
     @Override // com.baidu.tbadk.img.effect.b
     public Bitmap c(String str) {
-        int max = Math.max(h.b(TbadkApplication.m252getInst().getApp()), h.c(TbadkApplication.m252getInst().getApp()));
+        int max = Math.max(k.b(TbadkApplication.m252getInst().getApp()), k.c(TbadkApplication.m252getInst().getApp()));
         return a(g.a(str, max, max), true);
     }
 }

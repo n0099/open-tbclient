@@ -30,7 +30,7 @@ public class d implements View.OnClickListener {
             lVar4 = this.a.b;
             lVar4.a(true);
             textView3 = this.a.f;
-            textView3.setText(com.baidu.tieba.u.done);
+            textView3.setText(com.baidu.tieba.y.done);
             textView4 = this.a.f;
             bc.g(textView4, TbadkApplication.m252getInst().getSkinType());
             lVar5 = this.a.b;
@@ -40,7 +40,7 @@ public class d implements View.OnClickListener {
         lVar2 = this.a.b;
         lVar2.a(false);
         textView = this.a.f;
-        textView.setText(com.baidu.tieba.u.edit);
+        textView.setText(com.baidu.tieba.y.edit);
         textView2 = this.a.f;
         bc.i(textView2, TbadkApplication.m252getInst().getSkinType());
         lVar3 = this.a.b;

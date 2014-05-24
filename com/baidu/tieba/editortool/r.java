@@ -49,7 +49,7 @@ class r implements View.OnClickListener {
             writeImagesInfo2 = editorToolComponetContainer6.s;
             int size = writeImagesInfo2.size();
             editorToolComponetContainer7 = this.a.a;
-            String string = editorToolComponetContainer7.getResources().getString(com.baidu.tieba.u.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
+            String string = editorToolComponetContainer7.getResources().getString(com.baidu.tieba.y.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
             editorToolComponetContainer8 = this.a.a;
             editorToolComponetContainer8.j.setText(string);
             editorToolComponetContainer9 = this.a.a;

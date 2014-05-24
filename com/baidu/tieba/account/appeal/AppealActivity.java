@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.o;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class AppealActivity extends BaseActivity {
     private NavigationBar a;
@@ -38,20 +38,20 @@ public class AppealActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(s.account_appeal_activity);
-        this.a = (NavigationBar) findViewById(r.view_navigation_bar);
-        this.a.a(getString(u.appeal_title));
+        setContentView(w.account_appeal_activity);
+        this.a = (NavigationBar) findViewById(v.view_navigation_bar);
+        this.a.a(getString(y.appeal_title));
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(u.appeal_submit_btn), this.j);
-        this.b = (TextView) findViewById(r.forbid_id);
-        this.c = (TextView) findViewById(r.forbid_reason);
-        this.d = (TextView) findViewById(r.appeal_reason);
-        this.e = (TextView) findViewById(r.remain_text_count);
+        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(y.appeal_submit_btn), this.j);
+        this.b = (TextView) findViewById(v.forbid_id);
+        this.c = (TextView) findViewById(v.forbid_reason);
+        this.d = (TextView) findViewById(v.appeal_reason);
+        this.e = (TextView) findViewById(v.remain_text_count);
         this.e.setText(String.valueOf(150));
         this.d.setFocusable(true);
         this.d.setFocusableInTouchMode(true);
         this.d.requestFocus();
-        com.baidu.adp.lib.util.h.b(this, this.d);
+        com.baidu.adp.lib.util.k.b(this, this.d);
         this.d.addTextChangedListener(this.i);
         a();
     }
@@ -67,9 +67,9 @@ public class AppealActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, boolean z) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(u.anti_title));
+        builder.setTitle(getString(y.anti_title));
         builder.setMessage(str);
-        builder.setPositiveButton(getString(u.anti_no_chance_pos), new e(this, z));
+        builder.setPositiveButton(getString(y.anti_no_chance_pos), new e(this, z));
         builder.create().show();
     }
 
@@ -79,8 +79,8 @@ public class AppealActivity extends BaseActivity {
         super.onChangeSkinType(i);
         boolean z = i == 1;
         getLayoutMode().a(z);
-        getLayoutMode().a(findViewById(r.root));
+        getLayoutMode().a(findViewById(v.root));
         this.a.c(i);
-        this.d.setHintTextColor(getResources().getColor(z ? o.appeal_hint_1 : o.appeal_hint));
+        this.d.setHintTextColor(getResources().getColor(z ? s.appeal_hint_1 : s.appeal_hint));
     }
 }

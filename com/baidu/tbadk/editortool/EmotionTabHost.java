@@ -16,7 +16,7 @@ public class EmotionTabHost extends LinearLayout implements u {
     private LayoutInflater a;
     private EmotionTabContentView b;
     private EmotionTabWidgetView c;
-    private ArrayList<ag> d;
+    private ArrayList<af> d;
     private int e;
     private String f;
     private int g;
@@ -49,9 +49,9 @@ public class EmotionTabHost extends LinearLayout implements u {
     private void a(Context context) {
         removeAllViews();
         this.a = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.a.inflate(com.baidu.tieba.s.emotion_tab_host, (ViewGroup) this, true);
-        this.b = (EmotionTabContentView) findViewById(com.baidu.tieba.r.face_tab_content);
-        this.c = (EmotionTabWidgetView) findViewById(com.baidu.tieba.r.face_tab_widget);
+        this.a.inflate(com.baidu.tieba.w.emotion_tab_host, (ViewGroup) this, true);
+        this.b = (EmotionTabContentView) findViewById(com.baidu.tieba.v.face_tab_content);
+        this.c = (EmotionTabWidgetView) findViewById(com.baidu.tieba.v.face_tab_widget);
         this.c.setOnTabSelectedListener(this);
         setOrientation(1);
         this.g = TbadkApplication.m252getInst().getSkinType();
@@ -67,16 +67,16 @@ public class EmotionTabHost extends LinearLayout implements u {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        this.d = ac.a().d();
+        this.d = ac.a().c();
         this.c.setDatas(this.d);
         int size = this.d.size();
         int i = 0;
         for (int i2 = 0; i2 < size; i2++) {
-            ag agVar = this.d.get(i2);
-            if (this.f != null && this.f.equals(agVar.e())) {
+            af afVar = this.d.get(i2);
+            if (this.f != null && this.f.equals(afVar.e())) {
                 i = i2;
             }
-            a(agVar);
+            a(afVar);
         }
         setCurrentEmotionGroup(i);
     }
@@ -103,16 +103,16 @@ public class EmotionTabHost extends LinearLayout implements u {
         }
     }
 
-    private void a(ag agVar) {
-        this.c.a(agVar);
+    private void a(af afVar) {
+        this.c.a(afVar);
     }
 
     public void setCurrentEmotionGroup(int i) {
         if (i >= 0 && i < this.d.size() && i != this.e) {
-            ag agVar = this.d.get(i);
-            this.b.a(agVar);
+            af afVar = this.d.get(i);
+            this.b.a(afVar);
             if (this.h) {
-                if (agVar.c() == EmotionGroupType.LOCAL) {
+                if (afVar.c() == EmotionGroupType.LOCAL) {
                     this.c.setShowDelete(true);
                 } else {
                     this.c.setShowDelete(false);
@@ -120,7 +120,7 @@ public class EmotionTabHost extends LinearLayout implements u {
             }
             this.c.setCurrentTab(i);
             this.e = i;
-            this.f = agVar.e();
+            this.f = afVar.e();
         }
     }
 

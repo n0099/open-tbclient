@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.groupCard;
 
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.imageManager.d {
@@ -21,7 +21,7 @@ public class a implements com.baidu.tbadk.imageManager.d {
         dVar.b();
         if (aVar == null) {
             dVar4 = this.a.d;
-            dVar4.a(0, this.a.getString(u.group_card_error));
+            dVar4.a(0, this.a.getString(y.group_card_error));
             return;
         }
         this.a.i = aVar.h();

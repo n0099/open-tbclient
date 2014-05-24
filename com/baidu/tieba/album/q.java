@@ -24,7 +24,7 @@ public class q {
     public static q a() {
         if (a == null) {
             a = new q();
-            a.a(com.baidu.tieba.ad.c().d());
+            a.a(com.baidu.tieba.ai.c().d());
         }
         return a;
     }
@@ -81,7 +81,7 @@ public class q {
 
     public void c() {
         b();
-        Application d = com.baidu.tieba.ad.c().d();
+        Application d = com.baidu.tieba.ai.c().d();
         d.unregisterReceiver(this.c);
         d.getContentResolver().unregisterContentObserver(this.d);
         a = null;

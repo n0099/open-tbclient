@@ -22,7 +22,7 @@ public class c extends BaseAdapter {
         this.b = activity;
         this.c = hVar.d();
         this.d = new com.baidu.tbadk.editortool.ab(activity);
-        int a = com.baidu.adp.lib.util.h.a((Context) activity, 45.0f);
+        int a = com.baidu.adp.lib.util.k.a((Context) activity, 45.0f);
         this.d.a(a, a);
     }
 
@@ -52,7 +52,7 @@ public class c extends BaseAdapter {
         bp.a(view);
         if (itemViewType != 3) {
             int skinType = TbadkApplication.m252getInst().getSkinType();
-            View findViewById = view.findViewById(com.baidu.tieba.r.container);
+            View findViewById = view.findViewById(com.baidu.tieba.v.container);
             bp.a(findViewById, 1, skinType);
             if (itemViewType == 2) {
                 if (getCount() > 1) {
@@ -68,17 +68,17 @@ public class c extends BaseAdapter {
     private View a(ViewGroup viewGroup, int i) {
         LayoutInflater from = LayoutInflater.from(this.b);
         if (i == 3) {
-            return from.inflate(com.baidu.tieba.s.bar_home_list_line, viewGroup, false);
+            return from.inflate(com.baidu.tieba.w.bar_home_list_line, viewGroup, false);
         }
         if (i == 2) {
-            return from.inflate(com.baidu.tieba.s.bar_folder_first_dir_bottom_item, viewGroup, false);
+            return from.inflate(com.baidu.tieba.w.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
-        View inflate = from.inflate(com.baidu.tieba.s.bar_folder_first_dir_item, viewGroup, false);
+        View inflate = from.inflate(com.baidu.tieba.w.bar_folder_first_dir_item, viewGroup, false);
         inflate.setOnClickListener(this.a);
         g gVar = new g();
-        gVar.a = (HeadImageView) inflate.findViewById(com.baidu.tieba.r.portrait);
-        gVar.b = (TextView) inflate.findViewById(com.baidu.tieba.r.name);
-        gVar.c = (BestStringsFitTextView) inflate.findViewById(com.baidu.tieba.r.description);
+        gVar.a = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.portrait);
+        gVar.b = (TextView) inflate.findViewById(com.baidu.tieba.v.name);
+        gVar.c = (BestStringsFitTextView) inflate.findViewById(com.baidu.tieba.v.description);
         inflate.setTag(gVar);
         return inflate;
     }

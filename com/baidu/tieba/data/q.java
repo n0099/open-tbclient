@@ -28,7 +28,7 @@ public class q extends com.baidu.tbadk.core.util.a {
     private int j;
     private int k;
     private int l;
-    private ArrayList<com.baidu.tbadk.core.data.k> m;
+    private ArrayList<com.baidu.tbadk.core.data.j> m;
     private int p;
     private LinkedList<IconData> q;
     private LinkedList<IconData> r;
@@ -93,10 +93,10 @@ public class q extends com.baidu.tbadk.core.util.a {
                         this.m = new ArrayList<>();
                     }
                     for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        com.baidu.tbadk.core.data.k kVar = new com.baidu.tbadk.core.data.k();
-                        kVar.a(optJSONArray4.getJSONObject(i4));
-                        if (kVar.c() != null && kVar.c().length() > 0) {
-                            this.m.add(kVar);
+                        com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
+                        jVar.a(optJSONArray4.getJSONObject(i4));
+                        if (jVar.c() != null && jVar.c().length() > 0) {
+                            this.m.add(jVar);
                         }
                     }
                 }
@@ -145,7 +145,7 @@ public class q extends com.baidu.tbadk.core.util.a {
         if (str != null) {
             ArrayList arrayList = new ArrayList();
             if (this.p == 1) {
-                arrayList.add(Integer.valueOf(com.baidu.tieba.q.icon_voice));
+                arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_voice));
             }
             if (arrayList.size() > 0) {
                 StringBuilder sb = new StringBuilder();
@@ -205,7 +205,7 @@ public class q extends com.baidu.tbadk.core.util.a {
         return this.j;
     }
 
-    public ArrayList<com.baidu.tbadk.core.data.k> k() {
+    public ArrayList<com.baidu.tbadk.core.data.j> k() {
         return this.m;
     }
 
@@ -223,10 +223,10 @@ public class q extends com.baidu.tbadk.core.util.a {
             return null;
         }
         LinkedList<String> linkedList = new LinkedList<>();
-        Iterator<com.baidu.tbadk.core.data.k> it = this.m.iterator();
+        Iterator<com.baidu.tbadk.core.data.j> it = this.m.iterator();
         int i = 0;
         while (it.hasNext()) {
-            com.baidu.tbadk.core.data.k next = it.next();
+            com.baidu.tbadk.core.data.j next = it.next();
             i++;
             if (i > 3) {
                 break;

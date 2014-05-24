@@ -26,7 +26,7 @@ public class BdSoundGate {
     }
 
     public void a(int i, int i2) {
-        a().a(i, 0.0f, c.a(i2), 0.0f);
+        a().a(i, 0.0f, d.a(i2), 0.0f);
     }
 
     public void a(int i, float f, float f2, float f3) {

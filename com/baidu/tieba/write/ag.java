@@ -35,7 +35,7 @@ class ag implements com.baidu.tieba.model.as {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ap(this.a, 12006, writeData, false)));
                         return;
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bg(this.a, writeData, 12006)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bh(this.a, writeData, 12006)));
                         return;
                     }
                 }
@@ -70,6 +70,7 @@ class ag implements com.baidu.tieba.model.as {
             writeData6 = this.a.a;
             writeActivity.sendMessage(new CustomMessage(2005001, mVar.c(writeData6.getForumName(), "post live's thread")));
         }
+        this.a.setResult(-1);
         this.a.finish();
     }
 }

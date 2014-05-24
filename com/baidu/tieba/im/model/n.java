@@ -4,19 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tieba.im.message.RequestGroupLevelMessage;
 /* loaded from: classes.dex */
-public class n extends com.baidu.adp.base.d {
+public class n extends com.baidu.adp.base.b {
     private long a;
 
     public long a() {
         return this.a;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

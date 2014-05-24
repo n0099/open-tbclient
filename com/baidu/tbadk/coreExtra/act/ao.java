@@ -16,6 +16,6 @@ public class ao implements com.baidu.tbadk.coreExtra.view.v {
     public void a(AccountData accountData) {
         com.baidu.tbadk.core.account.a.a(accountData);
         TbadkApplication.setCurrentAccount(accountData, this.a.getBaseContext());
-        this.a.b();
+        this.a.c();
     }
 }

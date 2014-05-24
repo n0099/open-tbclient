@@ -3,7 +3,7 @@ package com.baidu.tieba.more;
 import com.baidu.tieba.model.MoreModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends com.baidu.adp.base.g {
+public class u extends com.baidu.adp.base.e {
     final /* synthetic */ MoreActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,11 +11,11 @@ public class u extends com.baidu.adp.base.g {
         this.a = moreActivity;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         if (obj != null && (obj instanceof MoreModel.TaskType)) {
             if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
-                this.a.showToast(this.a.getString(com.baidu.tieba.u.image_cash_del_suc));
+                this.a.showToast(this.a.getString(com.baidu.tieba.y.image_cash_del_suc));
             }
             this.a.closeLoadingDialog();
         }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
-class az extends com.baidu.adp.base.g {
+class az extends com.baidu.adp.base.e {
     final /* synthetic */ FacePurchaseRecordsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,7 +8,7 @@ class az extends com.baidu.adp.base.g {
         this.a = facePurchaseRecordsActivity;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         bg bgVar;
         bg bgVar2;
@@ -28,12 +28,12 @@ class az extends com.baidu.adp.base.g {
                     bgVar2.c();
                     return;
                 } else {
-                    this.a.showToast(com.baidu.tieba.u.neterror);
+                    this.a.showToast(com.baidu.tieba.y.neterror);
                     return;
                 }
             }
             return;
         }
-        this.a.showToast(com.baidu.tieba.u.neterror);
+        this.a.showToast(com.baidu.tieba.y.neterror);
     }
 }

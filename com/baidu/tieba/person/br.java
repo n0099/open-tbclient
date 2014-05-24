@@ -1,7 +1,7 @@
 package com.baidu.tieba.person;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br implements com.baidu.adp.widget.ListView.u {
+public class br implements com.baidu.adp.widget.ListView.x {
     final /* synthetic */ bm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ public class br implements com.baidu.adp.widget.ListView.u {
         this.a = bmVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.x
     public void f_() {
         com.baidu.tieba.model.av avVar;
         aj ajVar;

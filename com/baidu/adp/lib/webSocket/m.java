@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.webSocket;
 
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +44,7 @@ public class m {
 
     public boolean b() {
         if (m()) {
-            com.baidu.adp.lib.util.h.b();
+            com.baidu.adp.lib.util.k.b();
             BdLog.d("----open");
         }
         if (this.f != null) {
@@ -82,21 +83,21 @@ public class m {
 
     public boolean c() {
         if (m()) {
-            com.baidu.adp.lib.util.h.b();
+            com.baidu.adp.lib.util.k.b();
         }
         return (this.f == null || !this.f.f() || this.f.d()) ? false : true;
     }
 
     public boolean d() {
         if (m()) {
-            com.baidu.adp.lib.util.h.b();
+            com.baidu.adp.lib.util.k.b();
         }
         return this.f != null && this.f.f();
     }
 
     public boolean e() {
         if (m()) {
-            com.baidu.adp.lib.util.h.b();
+            com.baidu.adp.lib.util.k.b();
         }
         return this.f != null && this.f.e();
     }
@@ -105,7 +106,7 @@ public class m {
         boolean z = false;
         synchronized (this) {
             if (dVar != null) {
-                com.baidu.adp.lib.util.h.b();
+                com.baidu.adp.lib.util.k.b();
                 if (this.f != null) {
                     z = this.f.a(dVar);
                 } else if (dVar != null) {
@@ -128,7 +129,7 @@ public class m {
     }
 
     private boolean m() {
-        return com.baidu.adp.base.a.getInst().isDebugMode();
+        return BdBaseApplication.getInst().isDebugMode();
     }
 
     public void f() {

@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.cache;
 
 import android.content.Context;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdDatabaseNewCreatedMessage;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -11,7 +12,7 @@ public class BdCacheService extends CustomMessageListener {
     private static BdCacheService a;
     private aa b;
     private Context c;
-    private com.baidu.adp.base.h d;
+    private com.baidu.adp.base.f d;
     private final String e;
     private HashMap<String, s<String>> f;
     private HashMap<String, s<byte[]>> g;
@@ -59,14 +60,14 @@ public class BdCacheService extends CustomMessageListener {
         this.f = new HashMap<>();
         this.g = new HashMap<>();
         this.e = str;
-        if (com.baidu.adp.base.a.getInst() != null) {
-            this.h = com.baidu.adp.base.a.getInst().isDebugMode();
+        if (BdBaseApplication.getInst() != null) {
+            this.h = BdBaseApplication.getInst().isDebugMode();
         }
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
     public Context b() {
-        return this.c == null ? com.baidu.adp.base.a.getInst().getApp() : this.c;
+        return this.c == null ? BdBaseApplication.getInst().getApp() : this.c;
     }
 
     public static BdCacheService c() {
@@ -239,9 +240,9 @@ public class BdCacheService extends CustomMessageListener {
         return this.b;
     }
 
-    public com.baidu.adp.base.h e() {
+    public com.baidu.adp.base.f e() {
         if (this.d == null) {
-            this.d = new com.baidu.adp.base.h(b(), this.e);
+            this.d = new com.baidu.adp.base.f(b(), this.e);
         }
         return this.d;
     }

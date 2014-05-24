@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message.chat;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.chat.x;
+import com.baidu.tieba.im.chat.w;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReqIdl;
 import protobuf.CommitPersonalMsg.DataReq;
 /* loaded from: classes.dex */
@@ -17,7 +17,7 @@ public class PersonalChatMessage extends ChatMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.content = getContent();
             builder.toUid = Long.valueOf(getToUserId());
-            builder.groupId = Integer.valueOf(x.a);
+            builder.groupId = Integer.valueOf(w.a);
             builder.msgType = Integer.valueOf(getMsgType());
             builder.recordId = Long.valueOf(getRecordId());
             builder.toUserType = 0;

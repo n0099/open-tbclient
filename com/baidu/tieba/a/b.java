@@ -1,14 +1,13 @@
 package com.baidu.tieba.a;
 
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.f;
 import com.baidu.tbadk.core.util.bf;
-import com.baidu.tieba.ad;
-import com.baidu.tieba.u;
+import com.baidu.tieba.ai;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class b extends f {
+public class b extends com.baidu.tbadk.core.e {
     private static final String e = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/feed/forum";
     private int c = 0;
     private String d;
@@ -18,8 +17,8 @@ public class b extends f {
         a("rn", String.valueOf(20));
         this.a.a().a().a = true;
         a(e);
-        int b = h.b(ad.c().d());
-        int c = h.c(ad.c().d());
+        int b = k.b(ai.c().d());
+        int c = k.c(ai.c().d());
         float f = b / 320.0f;
         int i = bf.a().b() ? 2 : 1;
         this.a.a("scr_w", String.valueOf(b));
@@ -37,12 +36,12 @@ public class b extends f {
             return null;
         } else {
             this.c = -1;
-            this.d = ad.c().d().getResources().getString(u.neterror);
+            this.d = ai.c().d().getResources().getString(y.neterror);
             return null;
         }
     }
 
-    @Override // com.baidu.tbadk.core.f
+    @Override // com.baidu.tbadk.core.e
     public int e() {
         if (this.b != null) {
             return this.b.getErrorNumber();
@@ -53,7 +52,7 @@ public class b extends f {
         return -1;
     }
 
-    @Override // com.baidu.tbadk.core.f
+    @Override // com.baidu.tbadk.core.e
     public String f() {
         if (this.b != null) {
             return this.b.getErrorMsg();

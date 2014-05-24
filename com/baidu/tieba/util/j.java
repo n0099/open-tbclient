@@ -11,6 +11,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.editortool.ab;
+import com.baidu.tieba.u;
 import com.baidu.tieba.view.CustomTextView;
 import java.util.ArrayList;
 import java.util.List;
@@ -169,7 +170,7 @@ public class j {
     private TextView a(com.baidu.tieba.data.f fVar) {
         CustomTextView customTextView = new CustomTextView(this.a);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        int a = com.baidu.adp.lib.util.h.a(this.a, 15.0f);
+        int a = com.baidu.adp.lib.util.k.a(this.a, 15.0f);
         layoutParams.rightMargin = 0;
         layoutParams.leftMargin = 0;
         layoutParams.topMargin = a;
@@ -190,10 +191,10 @@ public class j {
 
     private ImageView a(List<com.baidu.tieba.data.f> list, com.baidu.tieba.data.f fVar, int i) {
         ImageView imageView = new ImageView(this.a);
-        int a = com.baidu.adp.lib.util.h.a(this.a, 105.0f);
-        int a2 = com.baidu.adp.lib.util.h.a(this.a, 105.0f);
+        int a = com.baidu.adp.lib.util.k.a(this.a, 105.0f);
+        int a2 = com.baidu.adp.lib.util.k.a(this.a, 105.0f);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a);
-        layoutParams.topMargin = com.baidu.adp.lib.util.h.a(this.a, 15.0f);
+        layoutParams.topMargin = com.baidu.adp.lib.util.k.a(this.a, 15.0f);
         layoutParams.bottomMargin = 0;
         com.baidu.adp.widget.a.a d = this.d.d(fVar.e());
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
@@ -203,7 +204,7 @@ public class j {
             d.a(imageView);
         } else {
             imageView.setTag(fVar.e());
-            imageView.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.image_default));
+            imageView.setImageBitmap(com.baidu.tbadk.core.util.g.a(u.image_default));
         }
         imageView.setClickable(true);
         imageView.setFocusable(false);

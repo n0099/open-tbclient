@@ -2,25 +2,27 @@ package com.baidu.tieba.service;
 
 import android.app.Service;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bd;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.model.bb;
+import com.baidu.tbadk.core.atomData.be;
+import com.baidu.tieba.model.bc;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
-    private static String a = null;
-    private o b = null;
-    private int c = 0;
-    private bb d = null;
-    private Handler e = new Handler();
-    private Runnable f = new n(this);
+    private static String mStatistics = null;
+    private s mSyncTask = null;
+    private int mHaveRetry = 0;
+    private bc mModel = null;
+    private Handler mHandler = new Handler();
+    private Runnable mRunnable = new r(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bd.class, TiebaSyncService.class);
+        TbadkApplication.m252getInst().RegisterIntent(be.class, TiebaSyncService.class);
+    }
+
+    public static void setMsgType(String str) {
+        mStatistics = str;
     }
 
     @Override // android.app.Service
@@ -34,54 +36,36 @@ public class TiebaSyncService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        if (this.b != null) {
-            this.b.cancel();
+    public void checkUpdata() {
+        if (this.mSyncTask != null) {
+            this.mSyncTask.cancel();
         }
-        this.b = new o(this, null);
-        this.b.execute(new String[0]);
+        this.mSyncTask = new s(this, null);
+        this.mSyncTask.execute(new String[0]);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.b != null) {
-            this.b.cancel();
+        if (this.mSyncTask != null) {
+            this.mSyncTask.cancel();
         }
-        this.c = 11;
-        this.e.removeCallbacks(this.f);
+        this.mHaveRetry = 11;
+        this.mHandler.removeCallbacks(this.mRunnable);
         super.onDestroy();
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        this.c = 0;
-        b();
+        this.mHaveRetry = 0;
+        checkUpdata();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        if (this.d != null) {
+    public void broadcastNewVersion() {
+        if (this.mModel != null) {
             sendBroadcast(new Intent(com.baidu.tieba.data.d.d()));
-            BdLog.i(getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", this.d.c().getNewVersion()));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String a(int i) {
-        String aPKMd5;
-        try {
-            if (i == com.baidu.tbadk.core.sharedPref.b.a().a("version_code", 0)) {
-                aPKMd5 = com.baidu.tbadk.core.sharedPref.b.a().a("apk_md5", "");
-            } else {
-                com.baidu.tbadk.core.sharedPref.b.a().b("version_code", i);
-                aPKMd5 = UtilHelper.getAPKMd5(TbadkApplication.m252getInst().getPackageManager().getPackageInfo(TbadkApplication.m252getInst().getPackageName(), 0));
-                com.baidu.tbadk.core.sharedPref.b.a().b("apk_md5", aPKMd5);
-            }
-            return aPKMd5;
-        } catch (PackageManager.NameNotFoundException e) {
-            BdLog.detailException(e);
-            return null;
+            BdLog.i(getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", this.mModel.c().getNewVersion()));
         }
     }
 }

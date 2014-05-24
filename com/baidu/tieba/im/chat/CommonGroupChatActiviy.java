@@ -18,8 +18,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class CommonGroupChatActiviy extends MsglistActivity {
-    private com.baidu.adp.framework.listener.b m = new ba(this, 0);
-    private CustomMessageListener n = new bb(this, 0);
+    private com.baidu.adp.framework.listener.b m = new az(this, 0);
+    private CustomMessageListener n = new ba(this, 0);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
@@ -54,16 +54,16 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
         GroupData groupData = (GroupData) intent.getSerializableExtra("group");
         String stringExtra = intent.getStringExtra("ObjTp");
         String valueOf = String.valueOf(groupData.getGroupId());
-        if (!com.baidu.tieba.im.model.bs.a().a(valueOf)) {
+        if (!com.baidu.tieba.im.model.bt.a().a(valueOf)) {
             new com.baidu.tieba.im.f.q("chat_pg", stringExtra, valueOf).start();
-            com.baidu.tieba.im.model.bs.a().a(valueOf, Long.valueOf(System.currentTimeMillis()));
+            com.baidu.tieba.im.model.bt.a().a(valueOf, Long.valueOf(System.currentTimeMillis()));
         }
         ((CommonGroupMsglistModel) this.e).a(groupData);
         b = String.valueOf(((CommonGroupMsglistModel) this.e).b().getGroupId());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dd, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putBoolean(com.baidu.tbadk.core.frameworkData.a.IS_ACCEPT_NOTIFY, this.e.i());
@@ -84,14 +84,14 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.dd, com.baidu.adp.lib.b.b
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.b.b
     public void b(View view, int i, int i2, long j) {
         super.b(view, i, i2, j);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0079  */
     /* JADX WARN: Removed duplicated region for block: B:61:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.im.chat.dd, com.baidu.adp.lib.b.a
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.b.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -185,7 +185,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
                 if (jSONObject.getString("eventId").equals("003") && string.equals(String.valueOf(b.getGroupId()))) {
-                    showToast(com.baidu.tieba.u.group_is_kicked, false);
+                    showToast(com.baidu.tieba.y.group_is_kicked, false);
                     finish();
                     BdLog.d("newSystemMessageNotify suc and closeBottom");
                 }
@@ -225,7 +225,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
                 if (jSONObject.getString("eventId").equals("107") && string.equals(String.valueOf(b.getGroupId()))) {
-                    showToast(com.baidu.tieba.u.group_is_dismiss, false);
+                    showToast(com.baidu.tieba.y.group_is_dismiss, false);
                     finish();
                     BdLog.d("dismiss suc");
                 }

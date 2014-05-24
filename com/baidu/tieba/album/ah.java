@@ -44,12 +44,12 @@ public class ah extends com.baidu.tbadk.core.d implements u {
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.e = layoutInflater.inflate(com.baidu.tieba.s.album_image_list_view, (ViewGroup) null);
-        this.f = (NavigationBar) this.e.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.e = layoutInflater.inflate(com.baidu.tieba.w.album_image_list_view, (ViewGroup) null);
+        this.f = (NavigationBar) this.e.findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.b);
         this.h = this.f.a("");
-        this.i = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.b.getString(com.baidu.tieba.u.cancel), this.b);
-        this.j = (GridView) this.e.findViewById(com.baidu.tieba.r.gv_image_list);
+        this.i = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.b.getString(com.baidu.tieba.y.cancel), this.b);
+        this.j = (GridView) this.e.findViewById(com.baidu.tieba.v.gv_image_list);
         this.k = new ab(this.b, this.c);
         this.j.setAdapter((ListAdapter) this.k);
         this.j.setOnScrollListener(this.k);
@@ -57,7 +57,7 @@ public class ah extends com.baidu.tbadk.core.d implements u {
         this.q = new aj(this);
         this.k.a(this.p);
         this.k.a(this.q);
-        this.l = this.e.findViewById(com.baidu.tieba.r.lay_no_data);
+        this.l = this.e.findViewById(com.baidu.tieba.v.lay_no_data);
         return this.e;
     }
 
@@ -143,18 +143,18 @@ public class ah extends com.baidu.tbadk.core.d implements u {
                 View childAt = this.j.getChildAt(i - firstVisiblePosition);
                 if (childAt != null) {
                     childAt.invalidate();
-                    ImageView imageView = (ImageView) childAt.findViewById(com.baidu.tieba.r.select_icon);
+                    ImageView imageView = (ImageView) childAt.findViewById(com.baidu.tieba.v.select_icon);
                     int skinType = TbadkApplication.m252getInst().getSkinType();
                     if (z) {
                         if (skinType == 1) {
-                            imageView.setBackgroundResource(com.baidu.tieba.q.btn_choose_photo_s_1);
+                            imageView.setBackgroundResource(com.baidu.tieba.u.btn_choose_photo_s_1);
                         } else {
-                            imageView.setBackgroundResource(com.baidu.tieba.q.btn_choose_photo_s);
+                            imageView.setBackgroundResource(com.baidu.tieba.u.btn_choose_photo_s);
                         }
                     } else if (skinType == 1) {
-                        imageView.setBackgroundResource(com.baidu.tieba.q.btn_choose_photo_n_1);
+                        imageView.setBackgroundResource(com.baidu.tieba.u.btn_choose_photo_n_1);
                     } else {
-                        imageView.setBackgroundResource(com.baidu.tieba.q.btn_choose_photo_n);
+                        imageView.setBackgroundResource(com.baidu.tieba.u.btn_choose_photo_n);
                     }
                 }
             }

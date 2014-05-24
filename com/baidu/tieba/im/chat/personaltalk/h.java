@@ -13,7 +13,7 @@ class h implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         k kVar;
-        com.baidu.tbadk.core.g.a(this.a, "personalchat_morepage_addblack");
+        com.baidu.tbadk.core.f.a(this.a, "personalchat_morepage_addblack");
         kVar = this.a.b;
         kVar.b(true);
     }

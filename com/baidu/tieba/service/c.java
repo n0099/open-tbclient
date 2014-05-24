@@ -1,24 +1,20 @@
 package com.baidu.tieba.service;
 
-import android.content.Intent;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbadkApplication;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-class c implements CustomMessageTask.CustomRunnable<String> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
-        String data = customMessage.getData();
-        Intent intent = new Intent(TbadkApplication.m252getInst(), FatalErrorService.class);
-        if (com.baidu.tbadk.core.frameworkData.a.START.equals(data)) {
-            TbadkApplication.m252getInst().startService(intent);
-            return null;
-        } else if (com.baidu.tbadk.core.frameworkData.a.STOP.equals(data)) {
-            TbadkApplication.m252getInst().stopService(intent);
-            return null;
-        } else {
-            return null;
-        }
+class c extends Handler {
+    final /* synthetic */ ClearTempService a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(ClearTempService clearTempService) {
+        this.a = clearTempService;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        this.a.stopSelf();
+        this.a.thread = null;
     }
 }

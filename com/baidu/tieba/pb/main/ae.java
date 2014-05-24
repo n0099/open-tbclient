@@ -10,8 +10,8 @@ class ae implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        bj bjVar;
-        bjVar = this.a.E;
-        bjVar.z();
+        bq bqVar;
+        bqVar = this.a.D;
+        bqVar.z();
     }
 }

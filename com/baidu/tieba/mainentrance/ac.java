@@ -38,7 +38,7 @@ public class ac extends BdAsyncTask<Object, Integer, SearchPostModel> {
         textView.setVisibility(8);
         SquareSearchActivity squareSearchActivity = this.b;
         editText = this.b.c;
-        com.baidu.adp.lib.util.h.a(squareSearchActivity, editText);
+        com.baidu.adp.lib.util.k.a(squareSearchActivity, editText);
         listView = this.b.m;
         if (listView.getVisibility() != 0) {
             progressBar = this.b.q;
@@ -100,12 +100,12 @@ public class ac extends BdAsyncTask<Object, Integer, SearchPostModel> {
         cVar2 = this.b.p;
         cVar2.notifyDataSetChanged();
         if (searchPostModel == null || this.c == null || !this.c.a().b().a()) {
-            this.b.showToast(this.b.getString(com.baidu.tieba.u.neterror));
+            this.b.showToast(this.b.getString(com.baidu.tieba.y.neterror));
         } else if (this.c.a().b().b()) {
             this.b.v = searchPostModel;
             cVar3 = this.b.p;
             cVar3.notifyDataSetChanged();
-            this.b.l();
+            this.b.m();
         } else {
             this.b.showToast(this.c.f());
         }

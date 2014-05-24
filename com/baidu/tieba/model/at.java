@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.al> {
+public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.am> {
     final /* synthetic */ ar a;
     private com.baidu.tieba.a.d b = null;
     private String c = null;
@@ -21,7 +21,7 @@ public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.al> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.data.al doInBackground(Integer... numArr) {
+    public com.baidu.tieba.data.am doInBackground(Integer... numArr) {
         WriteData writeData;
         boolean z;
         WriteData writeData2;
@@ -39,23 +39,23 @@ public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.al> {
         if (this.b.a() && this.c != null) {
             AntiData c = this.b.c();
             String error_msg = d.getError_msg();
-            if (com.baidu.adp.lib.util.g.b(error_msg)) {
-                error_msg = com.baidu.tieba.ad.c().d().getString(com.baidu.tieba.u.send_success);
+            if (com.baidu.adp.lib.util.j.b(error_msg)) {
+                error_msg = com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.send_success);
             }
-            com.baidu.tieba.data.al alVar = new com.baidu.tieba.data.al(d.getError_code(), error_msg, c);
+            com.baidu.tieba.data.am amVar = new com.baidu.tieba.data.am(d.getError_code(), error_msg, c);
             writeData2 = this.a.b;
             if (writeData2 != null) {
                 writeData3 = this.a.b;
-                if (writeData3.isHasImages() && !alVar.a()) {
+                if (writeData3.isHasImages() && !amVar.a()) {
                     writeData4 = this.a.b;
                     writeData4.deleteUploadedTempImages();
                 }
             }
-            return alVar;
+            return amVar;
         } else if (d != null) {
-            return new com.baidu.tieba.data.al(d.getError_code(), d.getError_msg(), null);
+            return new com.baidu.tieba.data.am(d.getError_code(), d.getError_msg(), null);
         } else {
-            return new com.baidu.tieba.data.al(-17, com.baidu.tieba.ad.c().d().getString(com.baidu.tieba.u.neterror), null);
+            return new com.baidu.tieba.data.am(-17, com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.neterror), null);
         }
     }
 
@@ -63,22 +63,22 @@ public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.al> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.data.al alVar) {
+    public void onPostExecute(com.baidu.tieba.data.am amVar) {
         as asVar;
         as asVar2;
-        super.onPostExecute(alVar);
+        super.onPostExecute(amVar);
         this.a.a = null;
-        if (!this.d && alVar != null) {
-            if (!alVar.a()) {
+        if (!this.d && amVar != null) {
+            if (!amVar.a()) {
                 asVar = this.a.c;
                 if (asVar != null) {
                     asVar2 = this.a.c;
-                    asVar2.a(true, alVar.c(), null, null, alVar.d());
+                    asVar2.a(true, amVar.c(), null, null, amVar.d());
                     return;
                 }
                 return;
             }
-            b(alVar);
+            b(amVar);
         }
     }
 
@@ -99,7 +99,7 @@ public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.al> {
         this.a.a = null;
     }
 
-    private void b(com.baidu.tieba.data.al alVar) {
+    private void b(com.baidu.tieba.data.am amVar) {
         as asVar;
         WriteData writeData;
         WriteData writeData2;
@@ -107,10 +107,10 @@ public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.al> {
         as asVar2;
         as asVar3;
         WriteData writeData4;
-        AntiData d = alVar.d();
-        if (!alVar.b()) {
+        AntiData d = amVar.d();
+        if (!amVar.b()) {
             asVar = this.a.c;
-            asVar.a(false, alVar.c(), null, null, alVar.d());
+            asVar.a(false, amVar.c(), null, null, amVar.d());
             return;
         }
         com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
@@ -125,7 +125,7 @@ public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.al> {
                 asVar2 = this.a.c;
                 if (asVar2 != null) {
                     asVar3 = this.a.c;
-                    String c = alVar.c();
+                    String c = amVar.c();
                     writeData4 = this.a.b;
                     asVar3.a(false, c, fVar, writeData4, d);
                 }

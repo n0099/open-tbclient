@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.VoiceData;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -116,9 +117,9 @@ public class PbEditor extends LinearLayout {
     }
 
     protected void i() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.pb_editor_view, (ViewGroup) this, true);
-        this.b = (PbEditorToolView) findViewById(com.baidu.tieba.r.pb_editor_tool_button);
-        this.c = (EditorToolComponetContainer) findViewById(com.baidu.tieba.r.pb_editor_tool_group);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.pb_editor_view, (ViewGroup) this, true);
+        this.b = (PbEditorToolView) findViewById(com.baidu.tieba.v.pb_editor_tool_button);
+        this.c = (EditorToolComponetContainer) findViewById(com.baidu.tieba.v.pb_editor_tool_group);
     }
 
     public boolean j() {
@@ -193,10 +194,10 @@ public class PbEditor extends LinearLayout {
             ((BaseActivity) this.a).getLayoutMode().a(i2 == 1);
             ((BaseActivity) this.a).getLayoutMode().a((View) this.b);
             ((BaseActivity) this.a).getLayoutMode().a((View) this.c);
-        } else if (this.a instanceof com.baidu.tbadk.core.e) {
-            ((com.baidu.tbadk.core.e) this.a).a().a(i2 == 1);
-            ((com.baidu.tbadk.core.e) this.a).a().a((View) this.b);
-            ((com.baidu.tbadk.core.e) this.a).a().a((View) this.c);
+        } else if (this.a instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) this.a).a().a(i2 == 1);
+            ((BaseFragmentActivity) this.a).a().a((View) this.b);
+            ((BaseFragmentActivity) this.a).a().a((View) this.c);
         }
     }
 

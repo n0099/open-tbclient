@@ -76,13 +76,13 @@ public class aa extends BdAsyncTask<String, String, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(Boolean bool) {
-        com.baidu.adp.base.g gVar;
-        com.baidu.adp.base.g gVar2;
+        com.baidu.adp.base.e eVar;
+        com.baidu.adp.base.e eVar2;
         super.onPostExecute(bool);
         this.c.c = null;
         if (this.d == null) {
-            gVar2 = this.c.mLoadDataCallBack;
-            gVar2.a(null);
+            eVar2 = this.c.mLoadDataCallBack;
+            eVar2.a(null);
             return;
         }
         ab abVar = new ab(this.c);
@@ -94,19 +94,19 @@ public class aa extends BdAsyncTask<String, String, Boolean> {
         } else {
             abVar.b = this.d.f();
         }
-        gVar = this.c.mLoadDataCallBack;
-        gVar.a(abVar);
+        eVar = this.c.mLoadDataCallBack;
+        eVar.a(abVar);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         if (this.d != null) {
             this.d.g();
         }
         this.c.c = null;
         super.cancel(true);
-        gVar = this.c.mLoadDataCallBack;
-        gVar.a(null);
+        eVar = this.c.mLoadDataCallBack;
+        eVar.a(null);
     }
 }

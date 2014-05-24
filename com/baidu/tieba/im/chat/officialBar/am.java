@@ -18,7 +18,7 @@ class am extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003155) {
-            this.a.showToast(com.baidu.tieba.u.cash_del_suc);
+            this.a.showToast(com.baidu.tieba.y.cash_del_suc);
         }
     }
 }

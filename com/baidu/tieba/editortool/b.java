@@ -38,13 +38,13 @@ public class b implements com.baidu.tieba.model.i {
                 if (!TextUtils.isEmpty(bubbleListData.getError_msg())) {
                     UtilHelper.showToast(this.a.d, bubbleListData.getError_msg());
                 } else {
-                    UtilHelper.showToast(this.a.d, com.baidu.tieba.u.neterror);
+                    UtilHelper.showToast(this.a.d, com.baidu.tieba.y.neterror);
                 }
             } else {
-                UtilHelper.showToast(this.a.d, com.baidu.tieba.u.neterror);
+                UtilHelper.showToast(this.a.d, com.baidu.tieba.y.neterror);
             }
         } else {
-            UtilHelper.showToast(this.a.d, com.baidu.tieba.u.neterror);
+            UtilHelper.showToast(this.a.d, com.baidu.tieba.y.neterror);
         }
         if (this.a.i() != null) {
             this.a.i().b();

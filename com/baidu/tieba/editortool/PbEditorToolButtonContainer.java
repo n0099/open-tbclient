@@ -33,7 +33,7 @@ public class PbEditorToolButtonContainer extends g {
     }
 
     protected void d() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.pb_editor_tool_button_container, (ViewGroup) this, true);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.pb_editor_tool_button_container, (ViewGroup) this, true);
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
@@ -41,22 +41,22 @@ public class PbEditorToolButtonContainer extends g {
         super.onLayout(z, i, i2, i3, i4);
         if (this.b.getTip() != null) {
             TextView tip = this.b.getTip();
-            int right = this.b.getRight() - com.baidu.adp.lib.util.h.a(this.a, 18.0f);
-            int top = this.b.getTop() - com.baidu.adp.lib.util.h.a(this.a, 2.0f);
+            int right = this.b.getRight() - com.baidu.adp.lib.util.k.a(this.a, 18.0f);
+            int top = this.b.getTop() - com.baidu.adp.lib.util.k.a(this.a, 2.0f);
             this.b.getTip().layout(right, top, tip.getMeasuredWidth() + right, tip.getMeasuredHeight() + top);
         }
         if (this.c.getTip() != null) {
             TextView tip2 = this.c.getTip();
-            int right2 = this.c.getRight() - com.baidu.adp.lib.util.h.a(this.a, 18.0f);
-            int top2 = this.c.getTop() - com.baidu.adp.lib.util.h.a(this.a, 2.0f);
+            int right2 = this.c.getRight() - com.baidu.adp.lib.util.k.a(this.a, 18.0f);
+            int top2 = this.c.getTop() - com.baidu.adp.lib.util.k.a(this.a, 2.0f);
             this.c.getTip().layout(right2, top2, tip2.getMeasuredWidth() + right2, tip2.getMeasuredHeight() + top2);
         }
     }
 
     protected void e() {
         d();
-        this.c = (EditorToolButton) findViewById(com.baidu.tieba.r.tool_more);
-        this.b = (EditorToolButton) findViewById(com.baidu.tieba.r.tool_audio);
+        this.c = (EditorToolButton) findViewById(com.baidu.tieba.v.tool_more);
+        this.b = (EditorToolButton) findViewById(com.baidu.tieba.v.tool_audio);
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.x xVar) {

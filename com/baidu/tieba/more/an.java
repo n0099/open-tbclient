@@ -10,15 +10,16 @@ import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextNewDotView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* loaded from: classes.dex */
-public class an extends com.baidu.adp.base.e {
+public class an extends com.baidu.adp.base.c {
     private SystemHelpSettingActivity a;
     private RelativeLayout b;
     private SettingTextSwitchView c;
     private SettingTextSwitchView d;
-    private TbSettingTextTipView e;
+    private SettingTextSwitchView e;
     private TbSettingTextTipView f;
-    private TbSettingTextNewDotView g;
-    private NavigationBar h;
+    private TbSettingTextTipView g;
+    private TbSettingTextNewDotView h;
+    private NavigationBar i;
 
     public an(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity);
@@ -29,29 +30,32 @@ public class an extends com.baidu.adp.base.e {
         this.e = null;
         this.f = null;
         this.g = null;
+        this.h = null;
         this.a = systemHelpSettingActivity;
-        this.a.setContentView(com.baidu.tieba.s.system_help_activity);
-        this.h = (NavigationBar) this.a.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.h.a(this.a.getString(com.baidu.tieba.u.systemhelpsetting));
-        this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c = (SettingTextSwitchView) this.a.findViewById(com.baidu.tieba.r.sv_shared_location);
+        this.a.setContentView(com.baidu.tieba.w.system_help_activity);
+        this.i = (NavigationBar) this.a.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.i.a(this.a.getString(com.baidu.tieba.y.systemhelpsetting));
+        this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.c = (SettingTextSwitchView) this.a.findViewById(com.baidu.tieba.v.sv_shared_location);
         this.c.setSwitchStateChangeListener(this.a);
-        this.d = (SettingTextSwitchView) this.a.findViewById(com.baidu.tieba.r.sv_earphone);
-        this.e = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.r.clear_cache);
-        this.e.e();
-        this.e.setOnClickListener(this.a);
-        this.f = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.r.clear_im);
+        this.d = (SettingTextSwitchView) this.a.findViewById(com.baidu.tieba.v.tieba_helper_open);
+        this.d.setSwitchStateChangeListener(this.a);
+        this.e = (SettingTextSwitchView) this.a.findViewById(com.baidu.tieba.v.sv_earphone);
+        this.f = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.v.clear_cache);
         this.f.e();
         this.f.setOnClickListener(this.a);
-        this.d.setSwitchStateChangeListener(this.a);
-        this.b = (RelativeLayout) this.a.findViewById(com.baidu.tieba.r.parent);
-        if (TbadkApplication.isLogin()) {
-            this.f.setVisibility(0);
-        } else {
-            this.f.setVisibility(8);
-        }
-        this.g = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(com.baidu.tieba.r.sv_plugin_center);
+        this.g = (TbSettingTextTipView) this.a.findViewById(com.baidu.tieba.v.clear_im);
+        this.g.e();
         this.g.setOnClickListener(this.a);
+        this.e.setSwitchStateChangeListener(this.a);
+        this.b = (RelativeLayout) this.a.findViewById(com.baidu.tieba.v.parent);
+        if (TbadkApplication.isLogin()) {
+            this.g.setVisibility(0);
+        } else {
+            this.g.setVisibility(8);
+        }
+        this.h = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(com.baidu.tieba.v.sv_plugin_center);
+        this.h.setOnClickListener(this.a);
     }
 
     public BdSwitchView a() {
@@ -62,30 +66,39 @@ public class an extends com.baidu.adp.base.e {
         return this.d.getSwitchView();
     }
 
-    public TbSettingTextTipView c() {
-        return this.e;
+    public SettingTextSwitchView c() {
+        return this.d;
     }
 
-    public TbSettingTextTipView d() {
+    public BdSwitchView d() {
+        return this.e.getSwitchView();
+    }
+
+    public TbSettingTextTipView e() {
         return this.f;
     }
 
+    public TbSettingTextTipView f() {
+        return this.g;
+    }
+
     public void a(int i) {
-        this.h.c(i);
-        this.d.a(i);
+        this.i.c(i);
+        this.e.a(i);
         this.c.a(i);
+        this.d.a(i);
         if (i == 1) {
-            bc.e(this.d, com.baidu.tieba.q.more_all_1);
-            bc.e(this.e, com.baidu.tieba.q.more_all_1);
+            bc.e(this.e, com.baidu.tieba.u.more_all_1);
+            bc.e(this.f, com.baidu.tieba.u.more_all_1);
         } else {
-            bc.e(this.d, com.baidu.tieba.q.more_all);
-            bc.e(this.e, com.baidu.tieba.q.more_all);
+            bc.e(this.e, com.baidu.tieba.u.more_all);
+            bc.e(this.f, com.baidu.tieba.u.more_all);
         }
         this.a.getLayoutMode().a(i == 1);
         this.a.getLayoutMode().a((View) this.b);
     }
 
-    public TbSettingTextNewDotView e() {
-        return this.g;
+    public TbSettingTextNewDotView g() {
+        return this.h;
     }
 }

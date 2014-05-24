@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.al;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.editortool.ab;
@@ -18,7 +19,7 @@ import com.baidu.tieba.model.aq;
 import com.baidu.tieba.view.RightSlideViewPager;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
-public class NewUserGuideActivity extends com.baidu.tbadk.core.e {
+public class NewUserGuideActivity extends BaseFragmentActivity {
     private ao c;
     private ab d;
     private boolean f;
@@ -53,11 +54,11 @@ public class NewUserGuideActivity extends com.baidu.tbadk.core.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         l();
-        setContentView(com.baidu.tieba.s.guide_activity_interestfrs);
+        setContentView(com.baidu.tieba.w.guide_activity_interestfrs);
         k();
         j();
     }
@@ -82,20 +83,20 @@ public class NewUserGuideActivity extends com.baidu.tbadk.core.e {
     }
 
     private void k() {
-        this.h = (RightSlideViewPager) findViewById(com.baidu.tieba.r.guide_viewPager);
+        this.h = (RightSlideViewPager) findViewById(com.baidu.tieba.v.guide_viewPager);
         this.h.setAdapter(new u(getSupportFragmentManager()));
         this.h.setTag("canScroll");
         this.h.setOnPageChangeListener(new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.c != null) {
@@ -110,11 +111,11 @@ public class NewUserGuideActivity extends com.baidu.tbadk.core.e {
         return this.c;
     }
 
-    @Override // com.baidu.tbadk.core.e
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
     }
 
-    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             i();

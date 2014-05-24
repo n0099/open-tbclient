@@ -68,7 +68,7 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
             imageView2.setImageBitmap(bitmap);
         } else {
             imageView = this.b.s;
-            imageView.setImageResource(com.baidu.tieba.q.background);
+            imageView.setImageResource(com.baidu.tieba.u.background);
         }
         progressBar = this.b.v;
         progressBar.setVisibility(8);

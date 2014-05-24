@@ -90,18 +90,4 @@ public class StringUtils {
         int i4 = i2 % 60;
         return String.valueOf(unitFormat(i3)) + ":" + unitFormat(i4) + ":" + unitFormat((i - (i3 * 3600)) - (i4 * 60));
     }
-
-    public static boolean compareUrlsBeforeQuestionMark(String str, String str2) {
-        if (isNull(str) || isNull(str2)) {
-            return false;
-        }
-        int indexOf = str.indexOf(63);
-        if (indexOf == -1) {
-            return str.equals(str2);
-        }
-        if (indexOf <= str2.length()) {
-            return str.substring(0, indexOf).equals(str2.substring(0, indexOf));
-        }
-        return false;
-    }
 }

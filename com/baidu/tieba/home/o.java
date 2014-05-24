@@ -1,26 +1,21 @@
 package com.baidu.tieba.home;
-
-import android.os.Bundle;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o extends CustomMessageListener {
+public class o implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ m a;
+    private final /* synthetic */ u b;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(int i) {
-        super(i);
+    public o(m mVar, u uVar) {
+        this.a = mVar;
+        this.b = uVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mainTab.d b;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2009002 && customResponsedMessage.getData() != null) {
-            EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
-            ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).a(enterForumDelegateStatic);
-            if (((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).b() != null && (b = enterForumDelegateStatic.b()) != null) {
-                b.a.setArguments(new Bundle());
-            }
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        Object tag = this.b.c.getTag();
+        if (tag != null && (tag instanceof String) && ((String) tag).equals(str)) {
+            this.b.c.invalidate();
         }
     }
 }

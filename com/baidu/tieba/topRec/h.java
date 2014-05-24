@@ -16,9 +16,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class h {
     NavigationBar a;
@@ -44,27 +46,27 @@ public class h {
         this.b = null;
         this.j = topRecActivity;
         this.b = new Handler();
-        this.j.setContentView(s.top_recommended_activity);
-        this.c = (BdListView) this.j.findViewById(r.top_list);
-        this.a = (NavigationBar) topRecActivity.findViewById(r.view_navigation_bar);
-        this.a.a(topRecActivity.getString(u.top_recommended));
-        View a = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, s.nb_item_top_rec, (View.OnClickListener) null);
-        this.d = (Button) a.findViewById(r.title_finish);
+        this.j.setContentView(w.top_recommended_activity);
+        this.c = (BdListView) this.j.findViewById(v.top_list);
+        this.a = (NavigationBar) topRecActivity.findViewById(v.view_navigation_bar);
+        this.a.a(topRecActivity.getString(y.top_recommended));
+        View a = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.nb_item_top_rec, (View.OnClickListener) null);
+        this.d = (Button) a.findViewById(v.title_finish);
         this.d.setOnClickListener(this.j);
-        this.m = (TextView) a.findViewById(r.title_finish_cover);
+        this.m = (TextView) a.findViewById(v.title_finish_cover);
         this.e = new com.baidu.tbadk.core.view.q(this.j);
-        this.g = (LinearLayout) topRecActivity.getLayoutInflater().inflate(s.forum_list_forum_footer, (ViewGroup) null);
-        this.f = this.g.findViewById(r.footer_background);
-        this.h = (TextView) this.g.findViewById(r.footer_text);
-        this.i = (ImageView) this.g.findViewById(r.footer_icon);
+        this.g = (LinearLayout) topRecActivity.getLayoutInflater().inflate(w.forum_list_forum_footer, (ViewGroup) null);
+        this.f = this.g.findViewById(v.footer_background);
+        this.h = (TextView) this.g.findViewById(v.footer_text);
+        this.i = (ImageView) this.g.findViewById(v.footer_icon);
         d();
-        this.o = AnimationUtils.loadAnimation(this.j, com.baidu.tieba.l.top_recommended_finish_a);
-        this.p = AnimationUtils.loadAnimation(this.j, com.baidu.tieba.l.top_recommended_finish_b);
+        this.o = AnimationUtils.loadAnimation(this.j, com.baidu.tieba.p.top_recommended_finish_a);
+        this.p = AnimationUtils.loadAnimation(this.j, com.baidu.tieba.p.top_recommended_finish_b);
         this.o.setAnimationListener(new i(this));
         this.p.setAnimationListener(new j(this));
-        this.d.setText(String.valueOf(this.j.getString(u.done)) + "(" + this.k + ")");
+        this.d.setText(String.valueOf(this.j.getString(y.done)) + "(" + this.k + ")");
         this.c.setPullRefresh(this.e);
-        this.l = (ProgressBar) this.j.findViewById(r.loading);
+        this.l = (ProgressBar) this.j.findViewById(v.loading);
         if (!o.a()) {
             this.q = new o(topRecActivity);
         }
@@ -95,9 +97,9 @@ public class h {
     public void a(int i) {
         this.d.invalidate();
         if (this.k < 100) {
-            this.m.setText(String.valueOf(this.j.getString(u.done)) + "(" + this.k + ")");
+            this.m.setText(String.valueOf(this.j.getString(y.done)) + "(" + this.k + ")");
         } else {
-            this.m.setText(String.valueOf(this.j.getString(u.done)) + "(99+)");
+            this.m.setText(String.valueOf(this.j.getString(y.done)) + "(99+)");
         }
         this.d.setText(" ");
         this.m.setVisibility(0);
@@ -107,17 +109,17 @@ public class h {
     }
 
     public void d() {
-        this.h.setText(this.j.getString(u.flist_expand_list));
+        this.h.setText(this.j.getString(y.flist_expand_list));
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.i.setBackgroundResource(com.baidu.tieba.q.ico_downward_1);
+            this.i.setBackgroundResource(u.ico_downward_1);
         } else {
-            this.i.setBackgroundResource(com.baidu.tieba.q.ico_downward);
+            this.i.setBackgroundResource(u.ico_downward);
         }
         this.g.setOnClickListener(this.j);
     }
 
     public void e() {
-        this.h.setText(this.j.getString(u.to_the_end));
+        this.h.setText(this.j.getString(y.to_the_end));
         this.i.setVisibility(8);
         this.g.setClickable(false);
         this.g.setOnClickListener(null);
@@ -125,7 +127,7 @@ public class h {
 
     public void b(int i) {
         this.a.c(i);
-        bc.b(this.j.findViewById(r.container), i);
+        bc.b(this.j.findViewById(v.container), i);
         bc.e((TextView) this.d, i);
         bc.d((TextView) this.d, i);
         bc.d(this.m, i);
@@ -136,8 +138,8 @@ public class h {
         }
         this.c.setDividerHeight(2);
         if (i == 1) {
-            this.f.setBackgroundResource(com.baidu.tieba.q.bg_black_banner_down_1);
-            this.h.setTextColor(this.j.getResources().getColor(com.baidu.tieba.o.flist_text_color_night));
+            this.f.setBackgroundResource(u.bg_black_banner_down_1);
+            this.h.setTextColor(this.j.getResources().getColor(s.flist_text_color_night));
             if (this.e != null) {
                 this.e.a(i);
             }
@@ -145,16 +147,16 @@ public class h {
                 this.i.setVisibility(8);
                 return;
             } else {
-                this.i.setImageResource(com.baidu.tieba.q.ico_downward_1);
+                this.i.setImageResource(u.ico_downward_1);
                 return;
             }
         }
-        this.f.setBackgroundResource(com.baidu.tieba.q.bg_black_banner_down);
-        this.h.setTextColor(this.j.getResources().getColor(com.baidu.tieba.o.flist_text_color_day));
+        this.f.setBackgroundResource(u.bg_black_banner_down);
+        this.h.setTextColor(this.j.getResources().getColor(s.flist_text_color_day));
         if (this.n) {
             this.i.setVisibility(8);
         } else {
-            this.i.setImageResource(com.baidu.tieba.q.ico_downward);
+            this.i.setImageResource(u.ico_downward);
         }
     }
 

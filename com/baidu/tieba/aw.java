@@ -1,31 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.data.CombineDownload;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw implements View.OnClickListener {
-    final /* synthetic */ UpdateDialog a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(UpdateDialog updateDialog) {
-        this.a = updateDialog;
+public class aw extends BdAsyncTask<String, Integer, String> {
+    private aw() {
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        y yVar;
-        boolean z;
-        CombineDownload combineDownload;
-        yVar = this.a.e;
-        yVar.a();
-        z = this.a.b;
-        if (z) {
-            UpdateDialog updateDialog = this.a;
-            combineDownload = this.a.d;
-            updateDialog.a(combineDownload.getAppUrl());
-            return;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aw(aw awVar) {
+        this();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        byte[] bArr;
+        byte[] bArr2;
+        bArr = ai.J;
+        synchronized (bArr) {
+            ai.K = Boolean.valueOf(com.baidu.tieba.util.r.a());
+            bArr2 = ai.J;
+            bArr2.notifyAll();
         }
-        this.a.b();
+        return null;
     }
 }

@@ -1,22 +1,25 @@
 package com.baidu.tieba.im.chat;
+
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tieba.im.message.GroupDeleteMsgResponsedMessage;
 /* loaded from: classes.dex */
-class bl extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ bk b;
+class bl implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(bk bkVar) {
-        this.b = bkVar;
+    public bl(bj bjVar) {
+        this.a = bjVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
         GroupSettingActivity groupSettingActivity;
-        bo boVar;
-        com.baidu.tieba.im.db.c a = com.baidu.tieba.im.db.c.a();
-        groupSettingActivity = this.b.a;
-        boVar = groupSettingActivity.b;
-        return Boolean.valueOf(a.e(boVar.b()));
+        GroupSettingActivity groupSettingActivity2;
+        groupSettingActivity = this.a.a;
+        groupSettingActivity.closeLoadingDialog();
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new GroupDeleteMsgResponsedMessage());
+        groupSettingActivity2 = this.a.a;
+        groupSettingActivity2.showToast(com.baidu.tieba.y.cash_del_suc, false);
     }
 }

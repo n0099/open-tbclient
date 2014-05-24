@@ -1,9 +1,10 @@
 package com.baidu.tieba.square;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements Runnable {
+public class ap implements View.OnClickListener {
     final /* synthetic */ ak a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,14 +12,14 @@ public class ap implements Runnable {
         this.a = akVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ay ayVar;
-        try {
-            ayVar = this.a.c;
-            ayVar.a();
-        } catch (Exception e) {
-            BdLog.e("SquareActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseFragmentActivity baseFragmentActivity;
+        BaseFragmentActivity baseFragmentActivity2;
+        baseFragmentActivity = this.a.h;
+        if (baseFragmentActivity instanceof SingleSquareActivity) {
+            baseFragmentActivity2 = this.a.h;
+            ((SingleSquareActivity) baseFragmentActivity2).e();
         }
     }
 }

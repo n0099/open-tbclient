@@ -1,19 +1,19 @@
 package com.baidu.tieba.forumfeed;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.core.voice.x;
 import com.baidu.tbadk.core.voice.z;
 /* loaded from: classes.dex */
-public class SingleForumFeedActivity extends com.baidu.tbadk.core.e implements z {
+public class SingleForumFeedActivity extends BaseFragmentActivity implements z {
     private a c;
     private VoiceManager d;
 
@@ -24,11 +24,11 @@ public class SingleForumFeedActivity extends com.baidu.tbadk.core.e implements z
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.d = new VoiceManager();
-        this.d.a((Activity) this);
+        this.d.onCreate(this);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         this.c = new a();
         FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
@@ -40,7 +40,7 @@ public class SingleForumFeedActivity extends com.baidu.tbadk.core.e implements z
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.d.b((Activity) this);
+        this.d.onStart(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -50,31 +50,31 @@ public class SingleForumFeedActivity extends com.baidu.tbadk.core.e implements z
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.d.c(this);
+        this.d.onResume(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.d.f(this);
+        this.d.onStop(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.d.e(this);
+        this.d.onSaveInstanceState(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.d.g(this);
+        this.d.onDestory(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -91,7 +91,7 @@ public class SingleForumFeedActivity extends com.baidu.tbadk.core.e implements z
         }
     }
 
-    @Override // com.baidu.tbadk.core.e
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
     }
 

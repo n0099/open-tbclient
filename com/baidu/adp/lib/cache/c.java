@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c<T> {
-    protected final com.baidu.adp.base.h a;
+    protected final com.baidu.adp.base.f a;
     protected String b;
     protected h c;
     protected g d;
@@ -29,8 +29,8 @@ public abstract class c<T> {
 
     protected abstract boolean b(String str);
 
-    public c(com.baidu.adp.base.h hVar) {
-        this.a = hVar;
+    public c(com.baidu.adp.base.f fVar) {
+        this.a = fVar;
     }
 
     public void a(f fVar, String str) {
@@ -206,7 +206,7 @@ public abstract class c<T> {
         }
     }
 
-    public com.baidu.adp.base.h d() {
+    public com.baidu.adp.base.f d() {
         return this.a;
     }
 }

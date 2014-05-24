@@ -27,7 +27,7 @@ public class n {
     }
 
     public void a(String str) {
-        if (!com.baidu.adp.lib.util.g.b(str)) {
+        if (!com.baidu.adp.lib.util.j.b(str)) {
             c().a("adp.stat.switch_data", str);
         }
     }

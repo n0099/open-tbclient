@@ -4,8 +4,8 @@ import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.tieba.r;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class a {
     View a;
@@ -22,14 +22,14 @@ public class a {
         this.e = null;
         this.e = context;
         this.a = view;
-        this.b = this.a.findViewById(r.frs_header_divider_fortune);
-        this.c = (FrameLayout) this.a.findViewById(r.frs_fortune_layout);
-        this.d = (TextView) this.a.findViewById(r.frs_header_fortune_arrow);
+        this.b = this.a.findViewById(v.frs_header_divider_fortune);
+        this.c = (FrameLayout) this.a.findViewById(v.frs_fortune_layout);
+        this.d = (TextView) this.a.findViewById(v.frs_header_fortune_arrow);
         this.d.setText("");
     }
 
     public void a(String str) {
-        this.d.setText(String.format(this.e.getResources().getString(u.frs_fu_text), str));
+        this.d.setText(String.format(this.e.getResources().getString(y.frs_fu_text), str));
     }
 
     public void a() {

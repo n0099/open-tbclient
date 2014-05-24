@@ -1,4 +1,6 @@
 package com.baidu.tieba.recommend;
+
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements q {
@@ -33,9 +35,9 @@ public class h implements q {
             rVar2.a((com.baidu.tieba.data.k) null);
             if (i != 1) {
                 if (str.equals("70000")) {
-                    this.a.showToast("已经无新数据了");
+                    this.a.showToast(y.no_more_data);
                 } else {
-                    this.a.showToast("获取数据失败");
+                    this.a.showToast(y.neterror);
                 }
             }
         }

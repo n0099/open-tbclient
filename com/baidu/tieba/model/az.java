@@ -3,17 +3,17 @@ package com.baidu.tieba.model;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class az extends com.baidu.adp.base.d {
+public class az extends com.baidu.adp.base.b {
     private String a = null;
     private String b = null;
     private ba c = null;
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

@@ -54,7 +54,7 @@ public class af extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.
                 this.c.a(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, String.valueOf(this.b.getLiveCardData().getGroupId()));
                 this.c.a("start_time", String.valueOf(this.b.getLiveCardData().getStartTime()));
             }
-            if (!TbConfig.getPositionPagerId().equals(this.a.getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID)) && com.baidu.tieba.ad.c().m() && (b = com.baidu.adp.lib.c.a.a().b(false)) != null) {
+            if (!TbConfig.getPositionPagerId().equals(this.a.getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID)) && com.baidu.tieba.ai.c().m() && (b = com.baidu.adp.lib.c.a.a().b(false)) != null) {
                 this.c.a("lbs", String.valueOf(String.valueOf(b.getLatitude())) + "," + String.valueOf(b.getLongitude()));
             }
         } else {
@@ -97,10 +97,10 @@ public class af extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(this.d);
                 if (errorData.getError_msg() == null || errorData.getError_msg().length() <= 0) {
-                    this.a.showToast(com.baidu.tieba.ad.c().d().getString(com.baidu.tieba.u.send_success));
+                    this.a.showToast(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.send_success));
                     this.b.deleteUploadedTempImages();
-                } else if (this.b.isHasImages() && com.baidu.adp.lib.util.g.b(String.valueOf(this.b.getContent()) + this.b.getImagesCodeForPost())) {
-                    this.a.showToast(com.baidu.tieba.ad.c().d().getString(com.baidu.tieba.u.img_upload_error));
+                } else if (this.b.isHasImages() && com.baidu.adp.lib.util.j.b(String.valueOf(this.b.getContent()) + this.b.getImagesCodeForPost())) {
+                    this.a.showToast(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.img_upload_error));
                 } else {
                     this.a.showToast(errorData.getError_msg());
                 }
@@ -109,8 +109,8 @@ public class af extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.
                     this.a.sendMessage(new CustomMessage(2005001, new com.baidu.tbadk.core.atomData.m(this.a).c(this.b.getForumName(), "post live's thread")));
                 }
                 this.a.finish();
-            } else if (this.b.isHasImages() && com.baidu.adp.lib.util.g.b(String.valueOf(this.b.getContent()) + this.b.getImagesCodeForPost())) {
-                this.a.showToast(com.baidu.tieba.ad.c().d().getString(com.baidu.tieba.u.img_upload_error));
+            } else if (this.b.isHasImages() && com.baidu.adp.lib.util.j.b(String.valueOf(this.b.getContent()) + this.b.getImagesCodeForPost())) {
+                this.a.showToast(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.img_upload_error));
             } else {
                 if (this.c.d() == 5 || this.c.d() == 6) {
                     com.baidu.tbadk.coreExtra.data.f fVar2 = new com.baidu.tbadk.coreExtra.data.f();

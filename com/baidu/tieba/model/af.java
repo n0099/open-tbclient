@@ -1,6 +1,6 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public class af extends com.baidu.adp.base.d {
+public class af extends com.baidu.adp.base.b {
     private String a = null;
     private String b = null;
     private String c = null;
@@ -11,12 +11,12 @@ public class af extends com.baidu.adp.base.d {
         this.e = str;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

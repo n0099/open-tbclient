@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.base.e {
+public class i extends com.baidu.adp.base.c {
     private IMBlackListActivity a;
     private NavigationBar b;
     private View c;
@@ -62,14 +62,14 @@ public class i extends com.baidu.adp.base.e {
     }
 
     private void e() {
-        this.a.setContentView(com.baidu.tieba.s.im_black_list);
-        this.c = this.a.findViewById(com.baidu.tieba.r.root_view);
-        this.b = (NavigationBar) this.c.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.a.setContentView(com.baidu.tieba.w.im_black_list);
+        this.c = this.a.findViewById(com.baidu.tieba.v.root_view);
+        this.b = (NavigationBar) this.c.findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.a(com.baidu.tieba.u.black_list_title);
-        this.d = (BdListView) this.c.findViewById(com.baidu.tieba.r.black_list);
-        this.f = (TextView) this.c.findViewById(com.baidu.tieba.r.no_data_container);
-        this.g = (ProgressBar) this.c.findViewById(com.baidu.tieba.r.progress);
+        this.b.a(com.baidu.tieba.y.black_list_title);
+        this.d = (BdListView) this.c.findViewById(com.baidu.tieba.v.black_list);
+        this.f = (TextView) this.c.findViewById(com.baidu.tieba.v.no_data_container);
+        this.g = (ProgressBar) this.c.findViewById(com.baidu.tieba.v.progress);
         this.e = new f(this.a);
         this.d.setAdapter((ListAdapter) this.e);
         d();

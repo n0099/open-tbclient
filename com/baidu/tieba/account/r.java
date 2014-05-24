@@ -116,7 +116,7 @@ public class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
         if (this.b.d() == 26) {
             this.a.y = 26;
             linearLayout = this.a.d;
-            linearLayout.setBackgroundResource(com.baidu.tieba.q.pass_input_wrong);
+            linearLayout.setBackgroundResource(com.baidu.tieba.u.pass_input_wrong);
             linearLayout2 = this.a.d;
             i = this.a.w;
             i2 = this.a.x;
@@ -145,7 +145,7 @@ public class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
         textView2 = this.a.i;
         textView2.setText((CharSequence) null);
         linearLayout = this.a.d;
-        linearLayout.setBackgroundResource(com.baidu.tieba.q.pass_input);
+        linearLayout.setBackgroundResource(com.baidu.tieba.u.pass_input);
         linearLayout2 = this.a.d;
         i = this.a.w;
         i2 = this.a.x;

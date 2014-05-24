@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
+import android.location.Address;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am implements com.baidu.tbadk.tbplugin.h {
-    final /* synthetic */ ad a;
+public class am implements com.baidu.adp.lib.c.d {
+    final /* synthetic */ ai a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(ad adVar) {
-        this.a = adVar;
+    public am(ai aiVar) {
+        this.a = aiVar;
     }
 
-    @Override // com.baidu.tbadk.tbplugin.h
-    public void a() {
-        if (TbadkApplication.m252getInst().isMainProcess()) {
-            this.a.b.post(new an(this));
-            return;
+    @Override // com.baidu.adp.lib.c.d
+    public void a(int i, String str, Address address) {
+        if (i == 0 && address != null) {
+            try {
+                String valueOf = String.valueOf(address.getLatitude());
+                String valueOf2 = String.valueOf(address.getLongitude());
+                if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
+                    TbadkApplication.m252getInst().setLocationLat(valueOf);
+                    TbadkApplication.m252getInst().setLocationLng(valueOf2);
+                    TbadkApplication.m252getInst().setLocationPos(address.getAddressLine(0));
+                }
+            } catch (IllegalStateException e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        com.baidu.tbadk.tbplugin.m.a().a("BdSocialShareSdk", "com.baidu.tbadk.plugins.BdSocialShareSdkDelegate");
-        com.baidu.tbadk.tbplugin.m.a().a("batsdk", "com.baidu.tbadk.plugins.BatSdkDelegate");
-        com.baidu.tbadk.tbplugin.m.a().a("motusdk", "com.baidu.tbadk.plugins.MotuPlugin");
-        com.baidu.tbadk.tbplugin.m.a().a("browser", "com.baidu.tbadk.plugins.BdBrowserDelegate");
-        com.baidu.tbadk.tbplugin.m.a().a("dqsdk", "com.baidu.tbadk.plugins.DQSdkPlugin");
-        com.baidu.tbadk.tbplugin.m.a().j();
     }
 }

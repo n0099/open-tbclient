@@ -16,6 +16,6 @@ public class ao implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.adp.lib.util.a.a(this.b);
-        com.baidu.adp.lib.util.h.a(view.getContext(), view.getResources().getString(com.baidu.tieba.u.copy_pb_url_success));
+        com.baidu.adp.lib.util.k.a(view.getContext(), view.getResources().getString(com.baidu.tieba.y.copy_pb_url_success));
     }
 }

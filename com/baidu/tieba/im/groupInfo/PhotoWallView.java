@@ -77,14 +77,14 @@ public class PhotoWallView extends FrameLayout {
 
     private void a(Context context) {
         this.c = context;
-        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.photo_wall_view, (ViewGroup) null));
-        this.d = (LinearLayout) findViewById(com.baidu.tieba.r.photo_wall_container);
-        this.e = (LinearLayout) findViewById(com.baidu.tieba.r.first_line);
-        this.f = (LinearLayout) findViewById(com.baidu.tieba.r.second_line);
+        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.photo_wall_view, (ViewGroup) null));
+        this.d = (LinearLayout) findViewById(com.baidu.tieba.v.photo_wall_container);
+        this.e = (LinearLayout) findViewById(com.baidu.tieba.v.first_line);
+        this.f = (LinearLayout) findViewById(com.baidu.tieba.v.second_line);
         this.f.setVisibility(8);
-        this.g = (LinearLayout) findViewById(com.baidu.tieba.r.lay_hint_text);
-        this.h = (TextView) findViewById(com.baidu.tieba.r.hint_text);
-        this.i = com.baidu.adp.lib.util.h.b(this.c);
+        this.g = (LinearLayout) findViewById(com.baidu.tieba.v.lay_hint_text);
+        this.h = (TextView) findViewById(com.baidu.tieba.v.hint_text);
+        this.i = com.baidu.adp.lib.util.k.b(this.c);
         this.j = new com.baidu.tbadk.editortool.ab(this.c);
     }
 
@@ -141,9 +141,9 @@ public class PhotoWallView extends FrameLayout {
                 tbImageView.setDefaultResource(0);
                 tbImageView.setNightDefaultResource(0);
                 if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                    tbImageView.setBackgroundResource(com.baidu.tieba.q.image_group_qzl_1);
+                    tbImageView.setBackgroundResource(com.baidu.tieba.u.image_group_qzl_1);
                 } else {
-                    tbImageView.setBackgroundResource(com.baidu.tieba.q.image_group_qzl);
+                    tbImageView.setBackgroundResource(com.baidu.tieba.u.image_group_qzl);
                 }
                 PhotoUrlData photoUrlData2 = list.get(i2);
                 if (photoUrlData2 != null) {
@@ -174,9 +174,9 @@ public class PhotoWallView extends FrameLayout {
         if (this.m) {
             this.g.setVisibility(0);
             if (size3 == 0) {
-                this.h.setText(this.c.getString(com.baidu.tieba.u.group_info_photo_add));
+                this.h.setText(this.c.getString(com.baidu.tieba.y.group_info_photo_add));
             } else {
-                this.h.setText(this.c.getString(com.baidu.tieba.u.group_info_photo_modify));
+                this.h.setText(this.c.getString(com.baidu.tieba.y.group_info_photo_modify));
             }
         }
         if (size3 < 8 && this.m) {
@@ -189,9 +189,9 @@ public class PhotoWallView extends FrameLayout {
             tbImageView4.setDefaultResource(0);
             tbImageView4.setNightDefaultResource(0);
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                tbImageView4.setBackgroundResource(com.baidu.tieba.q.live_room_setting_add_selector_1);
+                tbImageView4.setBackgroundResource(com.baidu.tieba.u.live_room_setting_add_selector_1);
             } else {
-                tbImageView4.setBackgroundResource(com.baidu.tieba.q.live_room_setting_add_selector);
+                tbImageView4.setBackgroundResource(com.baidu.tieba.u.live_room_setting_add_selector);
             }
             tbImageView4.setOnClickListener(new ai(this, size3));
             tbImageView4.setOnLongClickListener(null);
@@ -229,9 +229,9 @@ public class PhotoWallView extends FrameLayout {
     }
 
     private LinearLayout.LayoutParams a(int i) {
-        int dimensionPixelSize = (this.i - (this.c.getResources().getDimensionPixelSize(com.baidu.tieba.p.im_group_info_photo_wall_per_margin) * 6)) / 4;
+        int dimensionPixelSize = (this.i - (this.c.getResources().getDimensionPixelSize(com.baidu.tieba.t.im_group_info_photo_wall_per_margin) * 6)) / 4;
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
-        int dimensionPixelSize2 = this.c.getResources().getDimensionPixelSize(com.baidu.tieba.p.im_group_info_photo_wall_per_margin);
+        int dimensionPixelSize2 = this.c.getResources().getDimensionPixelSize(com.baidu.tieba.t.im_group_info_photo_wall_per_margin);
         if (i == 0) {
             layoutParams.leftMargin = dimensionPixelSize2;
             layoutParams.rightMargin = dimensionPixelSize2;

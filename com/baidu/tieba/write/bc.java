@@ -58,7 +58,7 @@ class bc implements View.OnFocusChangeListener {
                 writeData = this.a.a;
                 if (writeData.getType() == 0) {
                     editText4 = this.a.h;
-                    editText4.setHint(com.baidu.tieba.u.content);
+                    editText4.setHint(com.baidu.tieba.y.content);
                     return;
                 }
                 return;

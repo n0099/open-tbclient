@@ -1,119 +1,28 @@
 package com.baidu.tieba.pb.main;
 
-import android.os.Parcelable;
+import android.content.Context;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class bg {
-    private String a;
-    private boolean b;
-    private com.baidu.tieba.data.ae c;
-    private boolean d;
-    private Parcelable e;
-    private boolean f;
-    private boolean g;
-
-    public static bg a() {
-        bg bgVar;
-        bgVar = bh.a;
-        return bgVar;
-    }
-
-    private bg() {
-        this.a = null;
-        this.b = false;
-        this.c = null;
-        this.d = false;
-        this.e = null;
-        this.f = true;
-        this.g = false;
-    }
+class bg implements DialogInterface.OnClickListener {
+    final /* synthetic */ bf a;
+    private final /* synthetic */ com.baidu.tieba.data.ae b;
+    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bg(bg bgVar) {
-        this();
+    public bg(bf bfVar, com.baidu.tieba.data.ae aeVar, String str) {
+        this.a = bfVar;
+        this.b = aeVar;
+        this.c = str;
     }
 
-    public void a(String str, boolean z) {
-        this.b = false;
-        if (z) {
-            str = null;
-        }
-        if (str == null || str.length() < 1) {
-            f();
-            this.a = null;
-        } else if (!str.equals(this.a)) {
-            f();
-            this.a = str;
-        } else {
-            this.b = true;
-        }
-    }
-
-    public com.baidu.tieba.data.ae b() {
-        if (!this.b) {
-            this.d = false;
-            return null;
-        } else if (this.c != null && this.c.e() != null && this.c.e().size() > 0) {
-            this.d = true;
-            com.baidu.tieba.data.ae aeVar = this.c;
-            this.c = null;
-            return aeVar;
-        } else {
-            this.d = false;
-            this.c = null;
-            return null;
-        }
-    }
-
-    public Parcelable c() {
-        if (this.d) {
-            this.d = false;
-            Parcelable parcelable = this.e;
-            this.e = null;
-            return parcelable;
-        }
-        this.e = null;
-        return null;
-    }
-
-    public boolean d() {
-        return this.f;
-    }
-
-    public boolean e() {
-        return this.g;
-    }
-
-    public boolean a(com.baidu.tieba.data.ae aeVar, Parcelable parcelable, boolean z, boolean z2) {
-        this.b = false;
-        if (this.a == null) {
-            f();
-            return false;
-        } else if (aeVar == null) {
-            f();
-            return false;
-        } else if (aeVar.e() == null) {
-            f();
-            return false;
-        } else if (aeVar.e().size() < 1) {
-            f();
-            return false;
-        } else if (parcelable == null) {
-            f();
-            return false;
-        } else {
-            this.c = aeVar;
-            this.d = false;
-            this.e = parcelable;
-            this.f = z;
-            this.g = z2;
-            return true;
-        }
-    }
-
-    public void f() {
-        this.b = false;
-        this.c = null;
-        this.d = false;
-        this.e = null;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        az azVar;
+        Context context;
+        com.baidu.tbadk.f.a().b(this.b.d(), System.currentTimeMillis());
+        com.baidu.tbadk.core.util.bi a = com.baidu.tbadk.core.util.bi.a();
+        azVar = this.a.a;
+        context = azVar.b;
+        a.a(context, new String[]{this.c});
     }
 }

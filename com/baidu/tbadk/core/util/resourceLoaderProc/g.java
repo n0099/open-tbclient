@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.content.Context;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
@@ -20,7 +21,7 @@ public class g extends a {
         this.a = z;
         this.b = z2;
         this.c = z3;
-        this.d = Math.min(com.baidu.adp.lib.util.h.a((Context) TbadkApplication.m252getInst().getApp(), 427.0f), (int) TbConfig.PB_IMAGE_NEW_MAX_WIDTH);
+        this.d = Math.min(k.a((Context) TbadkApplication.m252getInst().getApp(), 427.0f), (int) TbConfig.PB_IMAGE_NEW_MAX_WIDTH);
         this.e = (int) (this.d * 1.6f);
     }
 

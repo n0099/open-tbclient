@@ -29,7 +29,7 @@ class i implements s {
         AlertDialog alertDialog2;
         AlertDialog alertDialog3;
         boolean z2;
-        com.baidu.tieba.home.r c = pVar.c();
+        com.baidu.tieba.home.s c = pVar.c();
         if (c != null && c.a() == 0) {
             yVar = this.a.a;
             a e = yVar.e();
@@ -41,7 +41,7 @@ class i implements s {
                 Intent intent = new Intent(this.a, SignAllForumActivity.class);
                 intent.addFlags(805306368);
                 intent.putExtra("signall_noyify_click", true);
-                this.a.a(this.a.getString(com.baidu.tieba.u.signallforum_back_finish, new Object[]{Integer.valueOf(size2), Integer.valueOf(size - size2)}), PendingIntent.getActivity(this.a, 0, intent, 134217728), 16);
+                this.a.a(this.a.getString(com.baidu.tieba.y.signallforum_back_finish, new Object[]{Integer.valueOf(size2), Integer.valueOf(size - size2)}), PendingIntent.getActivity(this.a, 0, intent, 134217728), 16);
                 z2 = this.a.f;
                 if (z2) {
                     return;
@@ -50,7 +50,7 @@ class i implements s {
             yVar2 = this.a.a;
             yVar2.f().notifyDataSetChanged();
             yVar3 = this.a.a;
-            yVar3.g().setText(this.a.getString(com.baidu.tieba.u.signallforum_res, new Object[]{Integer.valueOf(size2), Integer.valueOf(size - size2)}));
+            yVar3.g().setText(this.a.getString(com.baidu.tieba.y.signallforum_res, new Object[]{Integer.valueOf(size2), Integer.valueOf(size - size2)}));
             yVar4 = this.a.a;
             u c2 = yVar4.c();
             if (size != size2) {
@@ -63,9 +63,9 @@ class i implements s {
                         alertDialog3.show();
                     }
                 } else if (pVar.e() != 0) {
-                    com.baidu.adp.lib.util.h.a((Context) this.a, pVar.f());
+                    com.baidu.adp.lib.util.k.a((Context) this.a, pVar.f());
                 } else {
-                    this.a.showToast(com.baidu.tieba.u.signallforum_error);
+                    this.a.showToast(com.baidu.tieba.y.signallforum_error);
                 }
             }
             c2.a();

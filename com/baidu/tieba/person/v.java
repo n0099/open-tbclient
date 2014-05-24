@@ -6,6 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ColumnLayout;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
@@ -17,7 +18,7 @@ import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class v {
     protected UserIconBox a;
-    private final com.baidu.tbadk.core.e b;
+    private final BaseFragmentActivity b;
     private UserData c;
     private final NavigationBar d;
     private final View e;
@@ -36,32 +37,32 @@ public class v {
     private final MoreDiscoveryWidget r;
     private LinkedList<IconData> s;
 
-    public v(com.baidu.tbadk.core.e eVar, r rVar) {
+    public v(BaseFragmentActivity baseFragmentActivity, r rVar) {
         this.a = null;
-        this.b = eVar;
+        this.b = baseFragmentActivity;
         this.e = rVar.getView();
-        this.f = this.e.findViewById(com.baidu.tieba.r.parent);
-        this.d = (NavigationBar) this.f.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.d.a(this.b.getString(com.baidu.tieba.u.more));
-        this.a = (UserIconBox) this.e.findViewById(com.baidu.tieba.r.user_tshow_icon_box);
-        this.g = (ColumnLayout) this.f.findViewById(com.baidu.tieba.r.user_info);
+        this.f = this.e.findViewById(com.baidu.tieba.v.parent);
+        this.d = (NavigationBar) this.f.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.d.a(this.b.getString(com.baidu.tieba.y.more));
+        this.a = (UserIconBox) this.e.findViewById(com.baidu.tieba.v.user_tshow_icon_box);
+        this.g = (ColumnLayout) this.f.findViewById(com.baidu.tieba.v.user_info);
         this.g.setOnClickListener(rVar);
-        this.h = (LinearLayout) this.f.findViewById(com.baidu.tieba.r.user_layout);
-        this.i = (TextView) this.f.findViewById(com.baidu.tieba.r.user_login);
-        this.j = (HeadImageView) this.f.findViewById(com.baidu.tieba.r.user_photo);
+        this.h = (LinearLayout) this.f.findViewById(com.baidu.tieba.v.user_layout);
+        this.i = (TextView) this.f.findViewById(com.baidu.tieba.v.user_login);
+        this.j = (HeadImageView) this.f.findViewById(com.baidu.tieba.v.user_photo);
         this.j.setAutoChangeStyle(true);
         this.j.setIsRound(true);
-        this.k = (TextView) this.f.findViewById(com.baidu.tieba.r.user_name);
-        this.l = (TextView) this.f.findViewById(com.baidu.tieba.r.user_signature);
-        this.m = (ImageView) this.f.findViewById(com.baidu.tieba.r.user_remind);
-        this.n = (ProgressBar) this.f.findViewById(com.baidu.tieba.r.progress);
-        this.o = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.r.my_collection);
+        this.k = (TextView) this.f.findViewById(com.baidu.tieba.v.user_name);
+        this.l = (TextView) this.f.findViewById(com.baidu.tieba.v.user_signature);
+        this.m = (ImageView) this.f.findViewById(com.baidu.tieba.v.user_remind);
+        this.n = (ProgressBar) this.f.findViewById(com.baidu.tieba.v.progress);
+        this.o = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.v.my_collection);
         this.o.setOnClickListener(rVar);
-        this.p = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.r.member_benefits);
+        this.p = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.v.member_benefits);
         this.p.setOnClickListener(rVar);
-        this.q = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.r.face_store);
+        this.q = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.v.face_store);
         this.q.setOnClickListener(rVar);
-        this.r = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.r.settings);
+        this.r = (MoreDiscoveryWidget) this.f.findViewById(com.baidu.tieba.v.settings);
         this.r.setOnClickListener(rVar);
         a();
     }
@@ -70,7 +71,7 @@ public class v {
         this.j.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.j.setDefaultResource(0);
         this.j.setNightDefaultResource(0);
-        this.j.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.person_photo));
+        this.j.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.person_photo));
     }
 
     public void a(t tVar) {
@@ -103,7 +104,7 @@ public class v {
                 this.s = this.c.getTShowInfo();
                 if (this.a != null) {
                     this.a.removeAllViews();
-                    this.a.a(this.s, 4, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.p.big_icon_width), this.b.getResources().getDimensionPixelSize(com.baidu.tieba.p.big_icon_height), this.b.getResources().getDimensionPixelSize(com.baidu.tieba.p.big_icon_margin), true);
+                    this.a.a(this.s, 4, this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.big_icon_width), this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.big_icon_height), this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.big_icon_margin), true);
                 }
                 String intro = this.c.getIntro();
                 if (intro != null && intro.length() > 0) {
@@ -137,7 +138,7 @@ public class v {
     }
 
     public void c() {
-        VersionData B = com.baidu.tieba.ad.c().B();
+        VersionData B = com.baidu.tieba.ai.c().B();
         boolean z = B != null && B.hasNewVer();
         boolean a = com.baidu.tbadk.core.sharedPref.b.a().a(SettingTextFunctionIntroView.f, false);
         if (z || !a) {

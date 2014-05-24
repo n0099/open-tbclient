@@ -15,7 +15,7 @@ public class ay implements DialogInterface.OnCancelListener {
     public void onCancel(DialogInterface dialogInterface) {
         bg bgVar;
         bg bgVar2;
-        this.a.DeinitWaitingDialog();
+        this.a.destroyWaitingDialog();
         bgVar = this.a.x;
         if (bgVar != null) {
             bgVar2 = this.a.x;

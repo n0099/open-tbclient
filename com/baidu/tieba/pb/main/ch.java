@@ -1,24 +1,24 @@
 package com.baidu.tieba.pb.main;
 
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class ch implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ bj a;
+class ch implements Runnable {
+    final /* synthetic */ cg a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(bj bjVar) {
-        this.a = bjVar;
+    public ch(cg cgVar, ImageView imageView) {
+        this.a = cgVar;
+        this.b = imageView;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        BdListView bdListView;
-        if (aVar != null && !TextUtils.isEmpty(str)) {
-            bdListView = this.a.o;
-            com.baidu.tbadk.core.util.bp.a((ViewGroup) bdListView, false, (com.baidu.tbadk.core.util.br) new ci(this, str, aVar));
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        bq bqVar;
+        FrameLayout frameLayout;
+        bqVar = this.a.a;
+        frameLayout = bqVar.n;
+        frameLayout.removeView(this.b);
     }
 }

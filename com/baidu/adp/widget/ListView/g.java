@@ -14,13 +14,14 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
     private Context a;
-    private ArrayList<i> c;
-    private ArrayList<i> d;
+    private ArrayList<j> c;
+    private ArrayList<j> d;
     private boolean e;
     private DataSetObserver h;
     private ListAdapter b = null;
     private boolean f = false;
     private DataSetObserver g = null;
+    private i i = null;
 
     public g(Context context) {
         boolean z = false;
@@ -37,6 +38,10 @@ public class g extends BaseAdapter {
         }
         this.e = z;
         this.h = new h(this);
+    }
+
+    public void a(i iVar) {
+        this.i = iVar;
     }
 
     public int a() {
@@ -87,9 +92,9 @@ public class g extends BaseAdapter {
         return this.d.size();
     }
 
-    private boolean a(ArrayList<i> arrayList) {
+    private boolean a(ArrayList<j> arrayList) {
         if (arrayList != null) {
-            Iterator<i> it = arrayList.iterator();
+            Iterator<j> it = arrayList.iterator();
             while (it.hasNext()) {
                 if (!it.next().c) {
                     return false;
@@ -143,14 +148,14 @@ public class g extends BaseAdapter {
 
     public void a(View view, Object obj, boolean z, int i) {
         if (view != null) {
-            i iVar = new i(this);
-            iVar.a = view;
-            iVar.b = obj;
-            iVar.c = z;
+            j jVar = new j(this);
+            jVar.a = view;
+            jVar.b = obj;
+            jVar.c = z;
             if (i < 0 || i > this.c.size()) {
-                this.c.add(iVar);
+                this.c.add(jVar);
             } else {
-                this.c.add(i, iVar);
+                this.c.add(i, jVar);
             }
             notifyDataSetChanged();
         }
@@ -170,14 +175,14 @@ public class g extends BaseAdapter {
 
     public void b(View view, Object obj, boolean z, int i) {
         if (view != null) {
-            i iVar = new i(this);
-            iVar.a = view;
-            iVar.b = obj;
-            iVar.c = z;
+            j jVar = new j(this);
+            jVar.a = view;
+            jVar.b = obj;
+            jVar.c = z;
             if (i < 0 || i > this.d.size()) {
-                this.d.add(iVar);
+                this.d.add(jVar);
             } else {
-                this.d.add(i, iVar);
+                this.d.add(i, jVar);
             }
             notifyDataSetChanged();
         }
@@ -317,7 +322,7 @@ public class g extends BaseAdapter {
     private View g() {
         TextView textView = new TextView(this.a);
         textView.setText("资源加载失败！");
-        int a = com.baidu.adp.lib.util.h.a(this.a, 15.0f);
+        int a = com.baidu.adp.lib.util.k.a(this.a, 15.0f);
         textView.setPadding(a, a, a, a);
         return textView;
     }

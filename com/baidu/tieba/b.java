@@ -1,8 +1,7 @@
 package com.baidu.tieba;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b implements View.OnClickListener {
+public class b implements Runnable {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,8 +9,16 @@ class b implements View.OnClickListener {
         this.a = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.b();
+    @Override // java.lang.Runnable
+    public void run() {
+        d dVar;
+        d dVar2;
+        Object obj;
+        dVar = this.a.a;
+        if (dVar != null) {
+            dVar2 = this.a.a;
+            obj = this.a.c;
+            dVar2.a(obj);
+        }
     }
 }

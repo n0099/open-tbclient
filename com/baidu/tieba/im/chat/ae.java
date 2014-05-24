@@ -1,25 +1,25 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.im.message.chat.OfficialChatMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ x a;
-    private final /* synthetic */ OfficialChatMessage b;
+public class ae extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ w b;
+    private final /* synthetic */ CommonGroupChatMessage c;
+    private final /* synthetic */ ChatMessage d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(x xVar, OfficialChatMessage officialChatMessage) {
-        this.a = xVar;
-        this.b = officialChatMessage;
+    public ae(w wVar, CommonGroupChatMessage commonGroupChatMessage, ChatMessage chatMessage) {
+        this.b = wVar;
+        this.c = commonGroupChatMessage;
+        this.d = chatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        this.b.setLogTime(System.currentTimeMillis());
-        MessageManager.getInstance().sendMessage(this.b);
-        BdLog.d("SHANG sendMessage to queue");
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().b(this.c.getGroupId(), String.valueOf(this.d.getRecordId()), String.valueOf(this.d.getMsgId()), 2));
     }
 }

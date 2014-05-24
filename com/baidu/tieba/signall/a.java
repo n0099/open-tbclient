@@ -1,7 +1,7 @@
 package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
@@ -22,7 +22,7 @@ public class a {
     private ArrayList<b> l = new ArrayList<>();
     private ArrayList<b> m = new ArrayList<>();
     private HashMap<String, b> n = new HashMap<>();
-    private com.baidu.tieba.home.r o = new com.baidu.tieba.home.r();
+    private com.baidu.tieba.home.s o = new com.baidu.tieba.home.s();
     private int p;
 
     public String a() {
@@ -65,7 +65,7 @@ public class a {
         return this.k;
     }
 
-    public com.baidu.tieba.home.r k() {
+    public com.baidu.tieba.home.s k() {
         return this.o;
     }
 
@@ -99,7 +99,7 @@ public class a {
                         bVar.e(true);
                     }
                     this.l.add(bVar);
-                    ad.c().a(bVar.b(), bVar.m(), -1);
+                    ai.c().a(bVar.b(), bVar.m(), -1);
                 } else {
                     bVar.a(false);
                     bVar.b(true);
@@ -142,7 +142,7 @@ public class a {
                                 this.n.put(new StringBuilder(String.valueOf(bVar.a())).toString(), bVar);
                             } else {
                                 this.l.add(bVar);
-                                ad.c().a(bVar.b(), bVar.m(), -1);
+                                ai.c().a(bVar.b(), bVar.m(), -1);
                             }
                             this.k.add(bVar);
                         }

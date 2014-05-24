@@ -24,8 +24,8 @@ public class o extends a implements Runnable {
         super.b();
         while (true) {
             try {
-                com.baidu.adp.lib.debug.c.b(this.a.d());
-                com.baidu.adp.lib.debug.c.a(this.b.d());
+                com.baidu.adp.lib.debug.d.b(this.a.d());
+                com.baidu.adp.lib.debug.d.a(this.b.d());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {

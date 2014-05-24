@@ -43,11 +43,11 @@ public class k extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.b = layoutInflater.inflate(com.baidu.tieba.s.person_reply_fragment, viewGroup, false);
-        this.c = (BdListView) this.b.findViewById(com.baidu.tieba.r.listview_reply);
-        this.g = (TextView) this.b.findViewById(com.baidu.tieba.r.txt_listview_emptyview);
+        this.b = layoutInflater.inflate(com.baidu.tieba.w.person_reply_fragment, viewGroup, false);
+        this.c = (BdListView) this.b.findViewById(com.baidu.tieba.v.listview_reply);
+        this.g = (TextView) this.b.findViewById(com.baidu.tieba.v.txt_listview_emptyview);
         this.g.setText(getArguments().getString("key_empty_view_text"));
-        this.e = (ProgressBar) this.b.findViewById(com.baidu.tieba.r.person_post_progress);
+        this.e = (ProgressBar) this.b.findViewById(com.baidu.tieba.v.person_post_progress);
         return this.b;
     }
 
@@ -59,7 +59,7 @@ public class k extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
         this.c.setOnScrollListener(this);
         this.i = new PbListView(getActivity());
         this.c.setNextPage(this.i);
-        this.j = this.i.b().findViewById(com.baidu.tieba.r.pb_more_view);
+        this.j = this.i.b().findViewById(com.baidu.tieba.v.pb_more_view);
         this.j.setVisibility(8);
     }
 
@@ -110,11 +110,11 @@ public class k extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
         super.c(i);
         if (isAdded()) {
             if (this.j != null) {
-                TextView textView = (TextView) this.j.findViewById(com.baidu.tieba.r.pb_more_text);
+                TextView textView = (TextView) this.j.findViewById(com.baidu.tieba.v.pb_more_text);
                 if (i == 1) {
-                    textView.setTextColor(getResources().getColor(com.baidu.tieba.o.person_post_header_uname_1));
+                    textView.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_header_uname_1));
                 } else {
-                    textView.setTextColor(getResources().getColor(com.baidu.tieba.o.person_post_header_uname));
+                    textView.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_header_uname));
                 }
             }
             if (this.i != null) {

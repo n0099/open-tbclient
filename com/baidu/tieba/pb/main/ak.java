@@ -24,23 +24,23 @@ public class ak implements com.baidu.tbadk.core.dialog.c {
         com.baidu.tieba.model.ai aiVar4;
         com.baidu.tieba.model.ai aiVar5;
         com.baidu.tieba.model.ai aiVar6;
-        aiVar = this.a.z;
+        aiVar = this.a.y;
         if (aiVar.a()) {
-            aiVar5 = this.a.z;
+            aiVar5 = this.a.y;
             aiVar5.e();
-            aiVar6 = this.a.z;
+            aiVar6 = this.a.y;
             aiVar6.a(false);
         }
-        aiVar2 = this.a.z;
+        aiVar2 = this.a.y;
         aiVar2.a(this.b);
-        aiVar3 = this.a.z;
+        aiVar3 = this.a.y;
         aiVar3.a(true);
-        aiVar4 = this.a.z;
+        aiVar4 = this.a.y;
         aiVar4.d();
         this.c.setPostId(this.b.getPostId());
         Intent intent = new Intent();
         intent.putExtra("mark", this.c);
         this.a.setResult(-1, intent);
-        this.a.v();
+        this.a.w();
     }
 }

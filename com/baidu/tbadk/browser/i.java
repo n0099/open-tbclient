@@ -1,6 +1,7 @@
 package com.baidu.tbadk.browser;
 
 import android.view.View;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
@@ -13,6 +14,12 @@ public class i implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.a();
+        BaseWebView baseWebView;
+        BaseWebView baseWebView2;
+        baseWebView = this.a.f;
+        if (baseWebView.canGoBack()) {
+            baseWebView2 = this.a.f;
+            baseWebView2.goBack();
+        }
     }
 }

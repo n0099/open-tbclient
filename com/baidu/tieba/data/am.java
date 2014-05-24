@@ -1,36 +1,31 @@
 package com.baidu.tieba.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.baidu.tbadk.core.data.AntiData;
 /* loaded from: classes.dex */
 public class am {
-    private ArrayList<ac> a;
+    final int a;
+    final String b;
+    final AntiData c;
 
-    public am() {
-        a(new ArrayList<>());
+    public am(int i, String str, AntiData antiData) {
+        this.a = i;
+        this.b = str;
+        this.c = antiData;
     }
 
-    public void a(JSONArray jSONArray) {
-        if (jSONArray != null) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    ac acVar = new ac();
-                    acVar.a(jSONArray.getJSONObject(i));
-                    this.a.add(acVar);
-                } catch (Exception e) {
-                    BdLog.e("LikeForumListData", "parserJson", "error = " + e.getMessage());
-                    return;
-                }
-            }
-        }
+    public boolean a() {
+        return this.a != 0;
     }
 
-    public ArrayList<ac> a() {
-        return this.a;
+    public boolean b() {
+        return this.a == 5 || this.a == 6;
     }
 
-    public void a(ArrayList<ac> arrayList) {
-        this.a = arrayList;
+    public String c() {
+        return this.b;
+    }
+
+    public AntiData d() {
+        return this.c;
     }
 }

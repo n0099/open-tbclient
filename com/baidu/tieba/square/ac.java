@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ac extends BaseAdapter {
@@ -75,28 +76,28 @@ public class ac extends BaseAdapter {
         ae aeVar = (ae) view.getTag();
         int skinType = TbadkApplication.m252getInst().getSkinType();
         int count = getCount();
-        com.baidu.tbadk.core.e eVar = (com.baidu.tbadk.core.e) this.b;
-        eVar.a().a(skinType == 1);
-        eVar.a().a(view);
+        BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.b;
+        baseFragmentActivity.a().a(skinType == 1);
+        baseFragmentActivity.a().a(view);
         if (count > 2) {
             if (i == 0) {
                 if (skinType == 1) {
-                    aeVar.c.setBackgroundResource(com.baidu.tieba.q.bg_hot_up_1);
+                    aeVar.c.setBackgroundResource(com.baidu.tieba.u.bg_hot_up_1);
                 } else {
-                    aeVar.c.setBackgroundResource(com.baidu.tieba.q.bg_hot_up);
+                    aeVar.c.setBackgroundResource(com.baidu.tieba.u.bg_hot_up);
                 }
             } else if (i == count - 2) {
                 if (skinType == 1) {
-                    aeVar.c.setBackgroundResource(com.baidu.tieba.q.bg_hot_down_1);
+                    aeVar.c.setBackgroundResource(com.baidu.tieba.u.bg_hot_down_1);
                 } else {
-                    aeVar.c.setBackgroundResource(com.baidu.tieba.q.bg_hot_down);
+                    aeVar.c.setBackgroundResource(com.baidu.tieba.u.bg_hot_down);
                 }
             }
         } else if (count == 2 && i == 0) {
             if (skinType == 1) {
-                aeVar.c.setBackgroundResource(com.baidu.tieba.q.bg_hot_1);
+                aeVar.c.setBackgroundResource(com.baidu.tieba.u.bg_hot_1);
             } else {
-                aeVar.c.setBackgroundResource(com.baidu.tieba.q.bg_hot);
+                aeVar.c.setBackgroundResource(com.baidu.tieba.u.bg_hot);
             }
         }
         if (i >= 0 && this.c != null) {
@@ -118,11 +119,11 @@ public class ac extends BaseAdapter {
 
     private View a(int i, int i2) {
         if (i2 == 0) {
-            View inflate = LayoutInflater.from(this.b).inflate(com.baidu.tieba.s.forum_list_recommend_item, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.forum_list_recommend_item, (ViewGroup) null);
             ae aeVar = new ae(this, null);
-            aeVar.c = (LinearLayout) inflate.findViewById(com.baidu.tieba.r.container);
-            aeVar.a = (TextView) inflate.findViewById(com.baidu.tieba.r.forum_list_title_1);
-            aeVar.b = (TextView) inflate.findViewById(com.baidu.tieba.r.forum_list_title_2);
+            aeVar.c = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.container);
+            aeVar.a = (TextView) inflate.findViewById(com.baidu.tieba.v.forum_list_title_1);
+            aeVar.b = (TextView) inflate.findViewById(com.baidu.tieba.v.forum_list_title_2);
             aeVar.a.setClickable(true);
             aeVar.b.setClickable(true);
             aeVar.a.setOnClickListener(this.a);
@@ -131,7 +132,7 @@ public class ac extends BaseAdapter {
             return inflate;
         } else if (i2 == 1) {
             com.baidu.tieba.view.j jVar = new com.baidu.tieba.view.j(this.b);
-            jVar.setHeightPx(this.b.getResources().getDimensionPixelSize(com.baidu.tieba.p.square_forum_list_paddingBottom));
+            jVar.setHeightPx(this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_forum_list_paddingBottom));
             return jVar;
         } else {
             return null;

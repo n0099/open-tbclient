@@ -2,7 +2,8 @@ package com.baidu.tieba.im.group;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.chat.bw;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.im.chat.bv;
 import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.data.RandChatRoomData;
@@ -10,7 +11,7 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.ResponseEnterChatRoomMessage;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 import com.baidu.tieba.im.randchat.WaittingActivity;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.b {
@@ -27,8 +28,8 @@ public class d extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        com.baidu.tbadk.core.e eVar;
-        com.baidu.tbadk.core.e eVar2;
+        BaseFragmentActivity baseFragmentActivity;
+        BaseFragmentActivity baseFragmentActivity2;
         if (socketResponsedMessage.getCmd() == 103008) {
             if (socketResponsedMessage instanceof ResponseUserPermissionMessage) {
                 try {
@@ -49,10 +50,10 @@ public class d extends com.baidu.adp.framework.listener.b {
                 }
             }
         } else if (socketResponsedMessage.getCmd() == 106101) {
-            eVar = this.a.g;
-            eVar.b();
+            baseFragmentActivity = this.a.g;
+            baseFragmentActivity.b();
             if (!(socketResponsedMessage instanceof ResponseEnterChatRoomMessage)) {
-                this.a.a(u.neterror);
+                this.a.a(y.neterror);
                 return;
             }
             ResponseEnterChatRoomMessage responseEnterChatRoomMessage = (ResponseEnterChatRoomMessage) socketResponsedMessage;
@@ -64,21 +65,21 @@ public class d extends com.baidu.adp.framework.listener.b {
                     }
                     return;
                 }
-                this.a.a(u.neterror);
+                this.a.a(y.neterror);
                 return;
             }
             RandChatRoomData randChatRoomData = responseEnterChatRoomMessage.getRandChatRoomData();
             if (randChatRoomData != null && randChatRoomData.e() > 0) {
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                 imMessageCenterPojo.setGid(String.valueOf(randChatRoomData.d()));
-                imMessageCenterPojo.setPulled_msgId(bw.b(randChatRoomData.k()));
+                imMessageCenterPojo.setPulled_msgId(bv.b(randChatRoomData.k()));
                 imMessageCenterPojo.setCustomGroupType(3);
                 imMessageCenterPojo.setGroup_name("聊天室");
                 imMessageCenterPojo.setIs_delete(0);
                 imMessageCenterPojo.setIs_hidden(1);
                 com.baidu.tieba.im.f.i.a(imMessageCenterPojo);
-                eVar2 = this.a.g;
-                WaittingActivity.a(eVar2, randChatRoomData, 0);
+                baseFragmentActivity2 = this.a.g;
+                WaittingActivity.a(baseFragmentActivity2, randChatRoomData, 0);
             }
         }
     }

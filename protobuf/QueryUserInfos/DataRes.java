@@ -1,5 +1,6 @@
 package protobuf.QueryUserInfos;
 
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
@@ -23,7 +24,7 @@ public final class DataRes extends Message {
     public final Integer isBlacklist;
     @ProtoField(tag = 12, type = Message.Datatype.INT32)
     public final Integer isCoreuser;
-    @ProtoField(tag = 14, type = Message.Datatype.INT32)
+    @ProtoField(tag = DealIntentService.CLASS_TYPE_GROUP_EVENT, type = Message.Datatype.INT32)
     public final Integer isInterestman;
     @ProtoField(tag = 10, type = Message.Datatype.INT32)
     public final Integer meizhiLevel;

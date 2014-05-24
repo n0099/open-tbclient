@@ -54,9 +54,9 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
     }
 
     private void c() {
-        this.c = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.invite_friend_candidate_item_width);
-        this.d = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.invite_friend_candidate_item_height);
-        this.e = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.invite_friend_candidate_item_margin);
+        this.c = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.invite_friend_candidate_item_width);
+        this.d = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.invite_friend_candidate_item_height);
+        this.e = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.invite_friend_candidate_item_margin);
         this.b = new LinearLayout(this.a);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.width = -2;
@@ -75,7 +75,7 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
             this.h = h();
             this.h.setDrawBorder(false);
         }
-        this.h.setImageBitmap(com.baidu.tbadk.core.util.g.a(g() ? com.baidu.tieba.q.icon_add_pop_1 : com.baidu.tieba.q.icon_add_pop));
+        this.h.setImageBitmap(com.baidu.tbadk.core.util.g.a(g() ? com.baidu.tieba.u.icon_add_pop_1 : com.baidu.tieba.u.icon_add_pop));
         this.b.addView(this.h);
     }
 
@@ -105,7 +105,7 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
                     c.a(h);
                 } else {
                     h.setTag(eVar.c());
-                    h.setImageBitmap(com.baidu.tbadk.core.util.g.a(g() ? com.baidu.tieba.q.icon_add_pop_1 : com.baidu.tieba.q.icon_add_pop));
+                    h.setImageBitmap(com.baidu.tbadk.core.util.g.a(g() ? com.baidu.tieba.u.icon_add_pop_1 : com.baidu.tieba.u.icon_add_pop));
                 }
             }
             if (f()) {

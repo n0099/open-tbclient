@@ -46,9 +46,9 @@ public class q extends BaseAdapter {
         bp.a(view);
         if (itemViewType != 3) {
             int skinType = TbadkApplication.m252getInst().getSkinType();
-            View findViewById = view.findViewById(com.baidu.tieba.r.container);
-            View findViewById2 = view.findViewById(com.baidu.tieba.r.item_up);
-            View findViewById3 = view.findViewById(com.baidu.tieba.r.item_down);
+            View findViewById = view.findViewById(com.baidu.tieba.v.container);
+            View findViewById2 = view.findViewById(com.baidu.tieba.v.item_up);
+            View findViewById3 = view.findViewById(com.baidu.tieba.v.item_down);
             if (itemViewType == 0) {
                 findViewById2.setVisibility(0);
                 findViewById3.setVisibility(8);
@@ -68,12 +68,12 @@ public class q extends BaseAdapter {
     private View a(ViewGroup viewGroup, int i) {
         LayoutInflater from = LayoutInflater.from(this.b);
         if (i == 3) {
-            return from.inflate(com.baidu.tieba.s.bar_home_list_line, viewGroup, false);
+            return from.inflate(com.baidu.tieba.w.bar_home_list_line, viewGroup, false);
         }
-        View inflate = from.inflate(com.baidu.tieba.s.bar_folder_second_dir_item, viewGroup, false);
+        View inflate = from.inflate(com.baidu.tieba.w.bar_folder_second_dir_item, viewGroup, false);
         inflate.setOnClickListener(this.a);
         s sVar = new s();
-        sVar.a = (TextView) inflate.findViewById(com.baidu.tieba.r.name);
+        sVar.a = (TextView) inflate.findViewById(com.baidu.tieba.v.name);
         inflate.setTag(sVar);
         return inflate;
     }

@@ -10,9 +10,10 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class LiveRoomReplayPlayer extends RelativeLayout {
     private Context a;
@@ -56,16 +57,16 @@ public class LiveRoomReplayPlayer extends RelativeLayout {
     private void a(Context context) {
         this.a = context;
         this.b = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.c = this.b.inflate(s.live_room_replay_player, (ViewGroup) this, true);
-        this.d = (HeadImageView) this.c.findViewById(r.live_room_replay_player_hosthead);
+        this.c = this.b.inflate(w.live_room_replay_player, (ViewGroup) this, true);
+        this.d = (HeadImageView) this.c.findViewById(v.live_room_replay_player_hosthead);
         this.d.setIsRound(true);
-        this.e = (TextView) this.c.findViewById(r.live_room_replay_player_hostname);
-        this.f = (TextView) this.c.findViewById(r.live_room_replay_player_hostlike);
-        this.g = (TextView) this.c.findViewById(r.live_chat_room_player_position);
-        this.i = (TextView) this.c.findViewById(r.live_chat_room_player_duration);
-        this.j = (ImageView) this.c.findViewById(r.live_room_replay_player_pauseorplay);
-        com.baidu.adp.lib.util.h.a(this.a, this.j, 10, 10, 10, 10);
-        this.h = (SeekBar) this.c.findViewById(r.live_room_replay_player_seekbar);
+        this.e = (TextView) this.c.findViewById(v.live_room_replay_player_hostname);
+        this.f = (TextView) this.c.findViewById(v.live_room_replay_player_hostlike);
+        this.g = (TextView) this.c.findViewById(v.live_chat_room_player_position);
+        this.i = (TextView) this.c.findViewById(v.live_chat_room_player_duration);
+        this.j = (ImageView) this.c.findViewById(v.live_room_replay_player_pauseorplay);
+        k.a(this.a, this.j, 10, 10, 10, 10);
+        this.h = (SeekBar) this.c.findViewById(v.live_room_replay_player_seekbar);
         this.h.setOnSeekBarChangeListener(this.m);
     }
 

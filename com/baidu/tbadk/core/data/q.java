@@ -1,43 +1,49 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.Topic;
+import tbclient.FrsPage.WorldCup;
 /* loaded from: classes.dex */
 public class q {
-    private int a = 0;
-    private int b = 0;
-    private String c = "";
+    private t a;
+    private u b;
+    private s c;
+    private r d;
 
-    public int a() {
+    public t a() {
         return this.a;
     }
 
-    public int b() {
+    public u b() {
         return this.b;
     }
 
-    public String c() {
+    public s c() {
         return this.c;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("is_lpost", 0);
-                this.b = jSONObject.optInt("topic_type", 0);
-                this.c = jSONObject.optString("link", "");
-            } catch (Exception e) {
-                BdLog.e(getClass().getName(), "parserJson", "error = " + e.getMessage());
-            }
-        }
+    public r d() {
+        return this.d;
     }
 
-    public void a(Topic topic) {
-        if (topic != null) {
-            this.a = topic.is_lpost.intValue();
-            this.b = topic.topic_type.intValue();
-            this.c = topic.link;
+    public void a(WorldCup worldCup) {
+        if (worldCup != null) {
+            if (worldCup.game != null || worldCup.lottery != null || worldCup.news != null || worldCup.pk != null) {
+                if (worldCup.news != null) {
+                    this.a = new t();
+                    this.a.a(worldCup.news);
+                }
+                if (worldCup.pk != null) {
+                    this.b = new u();
+                    this.b.a(worldCup.pk);
+                }
+                if (worldCup.lottery != null) {
+                    this.c = new s();
+                    this.c.a(worldCup.lottery);
+                }
+                if (worldCup.game != null) {
+                    this.d = new r();
+                    this.d.a(worldCup.game);
+                }
+            }
         }
     }
 }

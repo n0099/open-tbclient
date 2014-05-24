@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
-class t implements cp {
+class t implements cw {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,17 +8,17 @@ class t implements cp {
         this.a = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.main.cp
-    public void a(com.baidu.tieba.data.ao aoVar) {
+    @Override // com.baidu.tieba.pb.main.cw
+    public void a(com.baidu.tieba.data.ap apVar) {
         com.baidu.tieba.pb.sub.f fVar;
         com.baidu.tieba.pb.sub.f fVar2;
-        bj bjVar;
-        fVar = this.a.C;
+        bq bqVar;
+        fVar = this.a.B;
         if (fVar != null) {
-            fVar2 = this.a.C;
+            fVar2 = this.a.B;
             if (fVar2.h()) {
-                bjVar = this.a.E;
-                bjVar.B();
+                bqVar = this.a.D;
+                bqVar.B();
             }
         }
     }

@@ -5,7 +5,7 @@ import android.widget.ProgressBar;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.im.message.ResponseSubscribeLiveGroupMessage;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.b {
@@ -30,14 +30,14 @@ public class e extends com.baidu.adp.framework.listener.b {
         progressBar.setVisibility(8);
         if (socketResponsedMessage.getCmd() == 107105) {
             if (!(socketResponsedMessage instanceof ResponseSubscribeLiveGroupMessage)) {
-                this.a.a(u.neterror);
+                this.a.a(y.neterror);
                 return;
             }
             ResponseSubscribeLiveGroupMessage responseSubscribeLiveGroupMessage = (ResponseSubscribeLiveGroupMessage) socketResponsedMessage;
             if (responseSubscribeLiveGroupMessage.getError() == 0) {
                 i = this.a.i;
                 if (i == 2) {
-                    this.a.a(u.live_mylive_canclmark_success);
+                    this.a.a(y.live_mylive_canclmark_success);
                     myLiveListAdapter = this.a.h;
                     liveCardData = this.a.j;
                     myLiveListAdapter.a(liveCardData);
@@ -47,7 +47,7 @@ public class e extends com.baidu.adp.framework.listener.b {
                     this.a.b(responseSubscribeLiveGroupMessage.getErrorString());
                 }
             } else {
-                this.a.a(u.neterror);
+                this.a.a(y.neterror);
             }
         }
     }

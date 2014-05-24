@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.a;
 
 import android.content.SharedPreferences;
+import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class e {
@@ -69,21 +70,21 @@ public class e {
     }
 
     private void b(int i) {
-        SharedPreferences.Editor edit = com.baidu.adp.base.a.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
+        SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
         edit.putInt(String.valueOf(this.e.a()) + b, i);
         edit.commit();
     }
 
     private int d() {
-        return com.baidu.adp.base.a.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.e.a()) + b, this.e.e());
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.e.a()) + b, this.e.e());
     }
 
     private int e() {
-        return com.baidu.adp.base.a.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.e.a()) + a, -1);
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.e.a()) + a, -1);
     }
 
     private void c(int i) {
-        SharedPreferences.Editor edit = com.baidu.adp.base.a.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
+        SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
         edit.putInt(String.valueOf(this.e.a()) + a, i);
         edit.commit();
     }

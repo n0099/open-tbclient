@@ -13,9 +13,9 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.forumdetail.ForumDetailData;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
+import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ItemHeaderView extends RelativeLayout {
     private Context a;
@@ -42,12 +42,12 @@ public class ItemHeaderView extends RelativeLayout {
 
     public void a(Context context) {
         this.a = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(s.forum_detail_header, (ViewGroup) this, true);
-        this.b = (HeadImageView) findViewById(r.h_forum_portrait);
-        this.d = (TextView) findViewById(r.h_forum_name);
-        this.c = (ImageView) findViewById(r.h_forum_rank);
-        this.e = (TextView) findViewById(r.h_fans_num);
-        this.f = (TextView) findViewById(r.h_thread_num);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(w.forum_detail_header, (ViewGroup) this, true);
+        this.b = (HeadImageView) findViewById(v.h_forum_portrait);
+        this.d = (TextView) findViewById(v.h_forum_name);
+        this.c = (ImageView) findViewById(v.h_forum_rank);
+        this.e = (TextView) findViewById(v.h_fans_num);
+        this.f = (TextView) findViewById(v.h_thread_num);
     }
 
     public boolean a(ForumDetailData forumDetailData) {
@@ -64,21 +64,21 @@ public class ItemHeaderView extends RelativeLayout {
         if (i2 > 0 && i2 <= 3) {
             if (skinType == 1) {
                 if (i2 == 1) {
-                    i = q.icon_brief_grade_orange_1;
+                    i = u.icon_brief_grade_orange_1;
                 } else {
-                    i = i2 == 2 ? q.icon_brief_grade_blue_1 : q.icon_brief_grade_green_1;
+                    i = i2 == 2 ? u.icon_brief_grade_blue_1 : u.icon_brief_grade_green_1;
                 }
             } else if (i2 == 1) {
-                i = q.icon_brief_grade_orange;
+                i = u.icon_brief_grade_orange;
             } else {
-                i = i2 == 2 ? q.icon_brief_grade_blue : q.icon_brief_grade_green;
+                i = i2 == 2 ? u.icon_brief_grade_blue : u.icon_brief_grade_green;
             }
             this.c.setImageResource(i);
             this.c.setVisibility(0);
         } else {
             this.c.setVisibility(8);
         }
-        int a = com.baidu.adp.lib.util.h.a(this.a, 80.0f);
+        int a = com.baidu.adp.lib.util.k.a(this.a, 80.0f);
         ab abVar = new ab(this.a);
         abVar.a(a, a);
         abVar.b(forumInfo.avatar, new j(this));

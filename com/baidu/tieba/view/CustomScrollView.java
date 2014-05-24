@@ -42,7 +42,7 @@ public class CustomScrollView extends ScrollView {
         if (i2 == 0 || z) {
             try {
                 if (this.a == null) {
-                    this.a = com.baidu.adp.lib.util.h.a(this, "mScroller");
+                    this.a = com.baidu.adp.lib.util.k.a(this, "mScroller");
                 }
                 Object obj = this.a.get(this);
                 if (obj != null && (obj instanceof Scroller)) {
@@ -60,7 +60,7 @@ public class CustomScrollView extends ScrollView {
     private void a() {
         try {
             if (this.a == null) {
-                this.a = com.baidu.adp.lib.util.h.a(this, "mScroller");
+                this.a = com.baidu.adp.lib.util.k.a(this, "mScroller");
             }
             Object obj = this.a.get(this);
             if (obj != null) {

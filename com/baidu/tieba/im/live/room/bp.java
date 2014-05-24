@@ -13,9 +13,9 @@ class bp implements View.OnFocusChangeListener {
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
         if (!z) {
-            com.baidu.adp.lib.util.h.a(this.a.b, this.a.e);
+            com.baidu.adp.lib.util.k.a(this.a.b, this.a.e);
         } else {
-            com.baidu.adp.lib.util.h.b(this.a.b, this.a.e);
+            com.baidu.adp.lib.util.k.b(this.a.b, this.a.e);
         }
     }
 }

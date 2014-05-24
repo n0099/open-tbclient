@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.Disk;
 
 import android.os.Environment;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,7 +9,7 @@ import java.io.File;
 public class b {
     private final String a = Environment.getExternalStorageDirectory().getAbsolutePath();
     private String b = String.valueOf(this.a) + "/baidu/";
-    private final String c = String.valueOf(com.baidu.adp.base.a.getInst().getFilesDir().getAbsolutePath()) + "/";
+    private final String c = String.valueOf(BdBaseApplication.getInst().getFilesDir().getAbsolutePath()) + "/";
 
     public void a(String str) {
         if (str != null) {

@@ -29,6 +29,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.view.ShutDownValidateTipView;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.core.d implements com.baidu.tbadk.imageManager.d {
     private ShutDownValidateTipView n;
@@ -94,7 +97,7 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tbadk.imageMa
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.t = -1;
         this.e = getActivity();
-        View inflate = layoutInflater.inflate(com.baidu.tieba.s.chat_list_activity, viewGroup, false);
+        View inflate = layoutInflater.inflate(w.chat_list_activity, viewGroup, false);
         a(inflate);
         TiebaStatic.eventStat(this.e, "enter_chatlist", "chatlistclick", 1, new Object[0]);
         return inflate;
@@ -166,7 +169,7 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tbadk.imageMa
                 }
             } else {
                 if (this.s == null) {
-                    this.s = new com.baidu.tbadk.core.view.b(this.e, this.e.getString(u.login_msg_tab), this.e.getString(u.login_msg_form), 3);
+                    this.s = new com.baidu.tbadk.core.view.b(this.e, this.e.getString(y.login_msg_tab), this.e.getString(y.login_msg_form), 3);
                     this.q.addView(this.s.b());
                     this.s.b(TbadkApplication.m252getInst().getSkinType());
                 } else {
@@ -206,12 +209,12 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tbadk.imageMa
     }
 
     private void a(View view) {
-        this.r = new com.baidu.tbadk.core.view.k(view, com.baidu.tieba.q.individual_center_news, com.baidu.tieba.q.individual_center_news_1, com.baidu.tieba.r.no_data_container, com.baidu.tieba.r.no_data_image, com.baidu.tieba.r.no_data_image_text);
-        this.n = (ShutDownValidateTipView) view.findViewById(com.baidu.tieba.r.view_no_validate);
+        this.r = new com.baidu.tbadk.core.view.k(view, u.individual_center_news, u.individual_center_news_1, v.no_data_container, v.no_data_image, v.no_data_image_text);
+        this.n = (ShutDownValidateTipView) view.findViewById(v.view_no_validate);
         this.n.setVisibility(8);
         this.n.setShutDownClickListener(new e(this));
-        this.q = (LinearLayout) view.findViewById(com.baidu.tieba.r.bodyNotLogin);
-        this.k = (BdListView) view.findViewById(com.baidu.tieba.r.chat_list_content);
+        this.q = (LinearLayout) view.findViewById(v.bodyNotLogin);
+        this.k = (BdListView) view.findViewById(v.chat_list_content);
         this.k.setDividerHeight(0);
         this.m = new com.baidu.tbadk.core.view.q(this.e);
         this.m.a(this.z);
@@ -332,9 +335,9 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tbadk.imageMa
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         this.p = new f(this, imMessageCenterShowItemData);
-        String string = this.e.getString(u.delete_user_chat);
+        String string = this.e.getString(y.delete_user_chat);
         AlertDialog.Builder builder = new AlertDialog.Builder(this.e);
-        builder.setTitle(u.operation);
+        builder.setTitle(y.operation);
         builder.setItems(new String[]{string}, this.p);
         this.b = builder.create();
         this.b.setCanceledOnTouchOutside(true);

@@ -7,7 +7,9 @@ public final class DataRes extends Message {
     public static final String DEFAULT_GACTIVITYAREA = "";
     public static final String DEFAULT_GACTIVITYTITLE = "";
     public static final String DEFAULT_GROUPNAME = "";
-    @ProtoField(tag = 5, type = Message.Datatype.STRING)
+    @ProtoField(tag = 5, type = Message.Datatype.INT64)
+    public final Long activityId;
+    @ProtoField(tag = 6, type = Message.Datatype.STRING)
     public final String gActivityArea;
     @ProtoField(tag = 4, type = Message.Datatype.INT64)
     public final Long gActivityTime;
@@ -19,6 +21,7 @@ public final class DataRes extends Message {
     public final String groupName;
     public static final Integer DEFAULT_GROUPID = 0;
     public static final Long DEFAULT_GACTIVITYTIME = 0L;
+    public static final Long DEFAULT_ACTIVITYID = 0L;
 
     /* synthetic */ DataRes(Builder builder, boolean z, DataRes dataRes) {
         this(builder, z);
@@ -47,6 +50,11 @@ public final class DataRes extends Message {
             } else {
                 this.gActivityTime = builder.gActivityTime;
             }
+            if (builder.activityId == null) {
+                this.activityId = DEFAULT_ACTIVITYID;
+            } else {
+                this.activityId = builder.activityId;
+            }
             if (builder.gActivityArea == null) {
                 this.gActivityArea = "";
                 return;
@@ -59,11 +67,13 @@ public final class DataRes extends Message {
         this.groupName = builder.groupName;
         this.gActivityTitle = builder.gActivityTitle;
         this.gActivityTime = builder.gActivityTime;
+        this.activityId = builder.activityId;
         this.gActivityArea = builder.gActivityArea;
     }
 
     /* loaded from: classes.dex */
     public final class Builder extends Message.Builder<DataRes> {
+        public Long activityId;
         public String gActivityArea;
         public Long gActivityTime;
         public String gActivityTitle;
@@ -77,6 +87,7 @@ public final class DataRes extends Message {
                 this.groupName = dataRes.groupName;
                 this.gActivityTitle = dataRes.gActivityTitle;
                 this.gActivityTime = dataRes.gActivityTime;
+                this.activityId = dataRes.activityId;
                 this.gActivityArea = dataRes.gActivityArea;
             }
         }

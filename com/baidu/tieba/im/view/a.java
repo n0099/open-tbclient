@@ -9,9 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import com.baidu.tieba.im.data.ChatRoomTopicData;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
 import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -49,13 +50,13 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     private void a() {
-        setContentView(s.chatterbox_dialog);
-        this.g = this.c.getResources().getString(u.chat_default_tip);
+        setContentView(w.chatterbox_dialog);
+        this.g = this.c.getResources().getString(y.chat_default_tip);
         this.h = null;
-        this.b = (Button) findViewById(com.baidu.tieba.r.chatterbox_custom);
+        this.b = (Button) findViewById(v.chatterbox_custom);
         this.b.setOnClickListener(new b(this));
-        this.a = (LinearLayout) findViewById(com.baidu.tieba.r.chatterbox_layout);
-        this.e = new e(this.c, v.NobackDialog);
+        this.a = (LinearLayout) findViewById(v.chatterbox_layout);
+        this.e = new e(this.c, z.NobackDialog);
     }
 
     public void a(d dVar) {
@@ -73,7 +74,7 @@ public class a extends Dialog implements View.OnClickListener {
         this.a.removeAllViews();
         this.d.clear();
         c cVar = new c(this, layoutInflater);
-        cVar.b(this.c.getResources().getString(u.chat_default_tip));
+        cVar.b(this.c.getResources().getString(y.chat_default_tip));
         cVar.a(this);
         this.d.add(cVar);
         this.a.addView(cVar.c());

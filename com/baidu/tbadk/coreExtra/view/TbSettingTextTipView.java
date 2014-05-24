@@ -83,15 +83,15 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     protected void f() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.b = (LinearLayout) findViewById(com.baidu.tieba.r.container);
-        this.c = (TextView) findViewById(com.baidu.tieba.r.text);
-        this.d = (TextView) findViewById(com.baidu.tieba.r.tip);
-        this.e = (ImageView) findViewById(com.baidu.tieba.r.arrow2);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.tb_setting_text_tip_view, (ViewGroup) this, true);
+        this.b = (LinearLayout) findViewById(com.baidu.tieba.v.container);
+        this.c = (TextView) findViewById(com.baidu.tieba.v.text);
+        this.d = (TextView) findViewById(com.baidu.tieba.v.tip);
+        this.e = (ImageView) findViewById(com.baidu.tieba.v.arrow2);
     }
 
     protected void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tieba.w.TbSettingView);
+        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tieba.aa.TbSettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         String string2 = obtainStyledAttributes.getString(3);

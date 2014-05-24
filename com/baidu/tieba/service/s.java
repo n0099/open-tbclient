@@ -1,152 +1,208 @@
 package com.baidu.tieba.service;
 
-import android.app.NotificationManager;
+import android.app.Application;
+import android.os.Build;
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.plugins.Hao123Plugin;
+import com.baidu.tieba.UpdateDialog;
+import com.baidu.tieba.ai;
+import com.baidu.tieba.bd;
 import com.baidu.tieba.data.VersionData;
-import java.io.File;
+import com.baidu.tieba.model.bc;
+import java.util.Date;
+import java.util.Random;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ TiebaUpdateService a;
-    private String b;
-    private al c = null;
-    private volatile boolean d = false;
+public class s extends BdAsyncTask<String, Integer, bc> {
+    al a;
+    final /* synthetic */ TiebaSyncService b;
 
-    public s(TiebaUpdateService tiebaUpdateService, String str) {
-        this.a = tiebaUpdateService;
-        this.b = null;
-        this.b = str;
+    private s(TiebaSyncService tiebaSyncService) {
+        this.b = tiebaSyncService;
+        this.a = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ s(TiebaSyncService tiebaSyncService, s sVar) {
+        this(tiebaSyncService);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00da, code lost:
-        r0 = r7.a.s;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00e0, code lost:
-        if (r0 == false) goto L27;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00e2, code lost:
-        r7.a.i = true;
-        r0 = r7.a.u;
-        r2 = r7.a.u;
-        r4 = r7.a.e;
-        r0.sendMessageDelayed(r2.obtainMessage(1, r4), 100);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0104, code lost:
-        r0 = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:5:0x0009, code lost:
-        r0 = r1;
-     */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Boolean doInBackground(String... strArr) {
-        Boolean bool;
+    public bc doInBackground(String... strArr) {
+        bc bcVar;
         Exception e;
-        File e2;
-        Handler handler;
-        boolean z;
-        long j;
-        Boolean bool2 = false;
-        while (true) {
-            try {
-                if (this.d) {
-                    break;
-                }
-                this.c = new al(this.b);
-                handler = this.a.v;
-                bool2 = Boolean.valueOf(this.c.a(String.valueOf(this.a.a) + ".tmp", handler, 900003));
-                if (bool2.booleanValue()) {
-                    break;
-                } else if (this.c.d() == -2) {
-                    bool = bool2;
-                    break;
-                } else {
-                    if (!this.c.a().b().c()) {
-                        try {
-                            Thread.sleep(10000L);
-                        } catch (Exception e3) {
-                        }
-                    }
-                    z = this.a.t;
-                    if (z && UtilHelper.isNetOk()) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        j = this.a.r;
-                        if (currentTimeMillis - j > 20000) {
-                            break;
-                        }
-                    }
-                }
-            } catch (Exception e4) {
-                bool = bool2;
-                e = e4;
-            }
-        }
+        String str;
+        String str2;
         try {
-            if (bool.booleanValue()) {
-                x.j(this.a.a);
-                File d = x.d(String.valueOf(this.a.a) + ".tmp");
-                if (d != null && (e2 = x.e(this.a.a)) != null && !d.renameTo(e2)) {
-                    BdLog.e(getClass().getName(), "doInBackground", "renameTo error");
-                    TiebaStatic.file("renameTo erro", "TiebaUpdateService.DownLoadingOtherAsyncTask");
+            this.a = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
+            this.a.a("_os_version", Build.VERSION.RELEASE);
+            StringBuffer stringBuffer = new StringBuffer(15);
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.k.b(ai.c().d())));
+            stringBuffer.append(",");
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.k.c(ai.c().d())));
+            this.a.a("_phone_screen", stringBuffer.toString());
+            this.a.a("scr_w", String.valueOf(com.baidu.adp.lib.util.k.b(ai.c().d())));
+            this.a.a("scr_h", String.valueOf(com.baidu.adp.lib.util.k.c(ai.c().d())));
+            this.a.a("scr_dip", String.valueOf(com.baidu.adp.lib.util.k.d(ai.c().d())));
+            if (TbadkApplication.m252getInst().getMsgFrequency() > 0) {
+                this.a.a("_msg_status", "0");
+            } else {
+                this.a.a("_msg_status", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            }
+            String D = ai.c().D();
+            if (D != null) {
+                if (D.length() < 1) {
+                    D = "0";
+                }
+                this.a.a("_active", D);
+            }
+            this.a.a("_pic_quality", String.valueOf(TbadkApplication.m252getInst().getViewImageQuality()));
+            str = TiebaSyncService.mStatistics;
+            if (str != null) {
+                al alVar = this.a;
+                str2 = TiebaSyncService.mStatistics;
+                alVar.a("_msg_type", str2);
+            }
+            String packageName = TbadkApplication.m252getInst().getPackageName();
+            this.a.a("package", packageName);
+            this.a.a("versioncode", new StringBuilder(String.valueOf(TbadkApplication.m252getInst().getVersionCode())).toString());
+            this.a.a("signmd5", UtilHelper.creatSignInt(TbadkApplication.m252getInst().getPackageManager().getPackageInfo(packageName, 64)));
+            this.a.a("md5", bd.a());
+            String i = this.a.i();
+            if (this.a.c()) {
+                ai.c().F();
+            }
+            if (this.a.a().b().b()) {
+                bcVar = new bc();
+                try {
+                    bcVar.a(i);
+                    if (TbadkApplication.getClientId() == null && bcVar.d().a() != null && bcVar.d().a().length() > 0) {
+                        TbadkApplication.saveClientId(this.b, bcVar.d().a());
+                        TbadkApplication.setClientId(bcVar.d().a());
+                    }
+                    TiebaSyncService.mStatistics = null;
+                    return bcVar;
+                } catch (Exception e2) {
+                    e = e2;
+                    BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
+                    return bcVar;
                 }
             }
-        } catch (Exception e5) {
-            e = e5;
-            BdLog.e(getClass().getName(), "doInBackground", e.getMessage());
-            return bool;
+            return null;
+        } catch (Exception e3) {
+            bcVar = null;
+            e = e3;
         }
-        return bool;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        super.cancel(true);
-        this.a.f = null;
-        this.d = true;
-        if (this.c != null) {
-            this.c.g();
+        this.b.mSyncTask = null;
+        if (this.a != null) {
+            this.a.g();
         }
+        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(Boolean bool) {
-        boolean z;
+    public void onPostExecute(bc bcVar) {
+        int i;
+        int i2;
         Handler handler;
+        Runnable runnable;
         Handler handler2;
-        VersionData versionData;
-        NotificationManager notificationManager;
-        super.onPostExecute(bool);
-        this.a.f = null;
-        try {
-            if (bool.booleanValue()) {
-                notificationManager = this.a.b;
-                notificationManager.cancel(14);
-                this.a.r = System.currentTimeMillis();
+        Runnable runnable2;
+        bc bcVar2;
+        int y;
+        bc bcVar3;
+        bc bcVar4;
+        bc bcVar5;
+        bc bcVar6;
+        bc bcVar7;
+        bc bcVar8;
+        bc bcVar9;
+        bc bcVar10;
+        bc bcVar11;
+        bc bcVar12;
+        super.onPostExecute(bcVar);
+        this.b.mSyncTask = null;
+        if (bcVar != null) {
+            com.baidu.tbadk.c.a.a().b();
+            this.b.mModel = bcVar;
+            bcVar2 = this.b.mModel;
+            if (bcVar2.c().hasNewVer()) {
+                ai c = ai.c();
+                bcVar3 = this.b.mModel;
+                c.a(bcVar3.c());
+                this.b.broadcastNewVersion();
+                bcVar4 = this.b.mModel;
+                String b = bcVar4.a().b();
+                bcVar5 = this.b.mModel;
+                if (bcVar5.c().forceUpdate()) {
+                    bcVar10 = this.b.mModel;
+                    if (bcVar10.a() != null) {
+                        Application d = ai.c().d();
+                        bcVar11 = this.b.mModel;
+                        VersionData c2 = bcVar11.c();
+                        bcVar12 = this.b.mModel;
+                        UpdateDialog.a(d, c2, bcVar12.b(), b);
+                    }
+                } else if (Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(TbadkApplication.m252getInst().getUpdateNotifyTime()).longValue() > 86400000) {
+                    bcVar6 = this.b.mModel;
+                    if (bcVar6.c().getStrategy() == 0) {
+                        bcVar7 = this.b.mModel;
+                        if (bcVar7.a() != null) {
+                            Application d2 = ai.c().d();
+                            bcVar8 = this.b.mModel;
+                            VersionData c3 = bcVar8.c();
+                            bcVar9 = this.b.mModel;
+                            UpdateDialog.a(d2, c3, bcVar9.b(), b);
+                        }
+                    }
+                }
             }
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "onPostExecute", e.getMessage());
-        }
-        z = this.a.i;
-        if (!z) {
-            this.a.i = true;
+            ai.c().G();
+            int nextInt = new Random().nextInt(TbConfig.BIG_IMAGE_MIN_CAPACITY) + 1;
+            int a = bcVar.a().a();
+            if (a > 0 && nextInt % a == 0 && (y = ai.c().y()) < 10) {
+                ai.c().d(y + 1);
+                com.baidu.tieba.util.r.a(this.b);
+            }
+            if (!TbadkApplication.m252getInst().isHao123HelperShouldOpen() && TbadkApplication.m252getInst().isTiebaHelperOpen()) {
+                TbadkApplication.m252getInst().setTiebaHelperOpen(false);
+                Hao123Plugin hao123Plugin = (Hao123Plugin) com.baidu.tbadk.tbplugin.m.a().b(Hao123Plugin.class);
+                if (hao123Plugin != null) {
+                    hao123Plugin.closeFloating(this.b);
+                }
+            }
+            this.b.stopSelf();
             return;
         }
-        handler = this.a.u;
-        handler2 = this.a.u;
-        versionData = this.a.e;
-        handler.sendMessageDelayed(handler2.obtainMessage(1, versionData), 100L);
+        TiebaSyncService tiebaSyncService = this.b;
+        i = tiebaSyncService.mHaveRetry;
+        tiebaSyncService.mHaveRetry = i + 1;
+        i2 = this.b.mHaveRetry;
+        if (i2 < 10) {
+            handler = this.b.mHandler;
+            runnable = this.b.mRunnable;
+            handler.removeCallbacks(runnable);
+            handler2 = this.b.mHandler;
+            runnable2 = this.b.mRunnable;
+            handler2.postDelayed(runnable2, TbConfig.USE_TIME_INTERVAL);
+            return;
+        }
+        this.b.stopSelf();
     }
 }

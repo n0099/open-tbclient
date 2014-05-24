@@ -5,7 +5,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.webkit.URLUtil;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.k;
 import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -189,7 +191,7 @@ public class TbConfig {
     public static String UPLOAD_IMG_URL = String.valueOf(SERVER_ADDRESS) + "c/s/uploadPicture";
 
     public static boolean getDebugSwitch() {
-        return com.baidu.adp.base.a.getInst().isDebugMode();
+        return BdBaseApplication.getInst().isDebugMode();
     }
 
     public static void degbugInit(Application application) {
@@ -250,7 +252,7 @@ public class TbConfig {
 
     public static int initPbImageSize(Context context) {
         int i = PB_IMAGE_NEW_MAX_WIDTH;
-        int a = com.baidu.adp.lib.util.h.a(context, 427.0f);
+        int a = k.a(context, 427.0f);
         if (a <= 640) {
             i = a;
         }
@@ -378,7 +380,7 @@ public class TbConfig {
     }
 
     public static void initBigImageWidth(Context context) {
-        int sqrt = (int) Math.sqrt(com.baidu.adp.lib.util.h.b(context) * com.baidu.adp.lib.util.h.c(context));
+        int sqrt = (int) Math.sqrt(k.b(context) * k.c(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }

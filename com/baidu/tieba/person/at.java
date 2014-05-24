@@ -38,7 +38,7 @@ public class at implements TextWatcher {
         this.a.a(0);
         this.a.e();
         if (length > 50) {
-            this.a.showToast(com.baidu.tieba.u.over_limit_tip);
+            this.a.showToast(com.baidu.tieba.y.over_limit_tip);
             int selectionEnd = Selection.getSelectionEnd(text);
             String substring = replaceAll.substring(0, 50);
             editText2 = this.a.n;

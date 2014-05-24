@@ -11,7 +11,6 @@ public class LiveNativeSender {
     public static final String TAG = "LiveNativeSender";
     public static String mNativeLibraryPath;
     public static boolean setted = false;
-    private boolean loadLibraryfailed;
     private OnStatusEventListener mStatusEventListener;
     private OnUserCmdEventListener mUsercommandCallbackEventListner;
 
@@ -26,52 +25,9 @@ public class LiveNativeSender {
     }
 
     public LiveNativeSender() {
-        loadLibrary();
     }
 
     public LiveNativeSender(OnJavaExceptionListener onJavaExceptionListener) {
-        loadLibrary();
-        if (this.loadLibraryfailed) {
-            onJavaExceptionListener.onJavaException();
-        }
-    }
-
-    private void loadLibrary() {
-        this.loadLibraryfailed = false;
-        if (!setted) {
-            try {
-                System.loadLibrary(FFMPEGLIB);
-                System.loadLibrary(AUDIOENGINE);
-                System.loadLibrary(LIVESENDER);
-                return;
-            } catch (UnsatisfiedLinkError e) {
-                Log.e(TAG, "load library failed");
-                this.loadLibraryfailed = true;
-                return;
-            }
-        }
-        try {
-            if (!mNativeLibraryPath.endsWith("/")) {
-                mNativeLibraryPath += "/";
-            }
-            System.load(mNativeLibraryPath + "libffmpeg.so");
-            System.load(mNativeLibraryPath + "libaudioels.so");
-            System.load(mNativeLibraryPath + "liblivesender.so");
-        } catch (UnsatisfiedLinkError e2) {
-            try {
-                System.loadLibrary(FFMPEGLIB);
-                System.loadLibrary(AUDIOENGINE);
-                System.loadLibrary(LIVESENDER);
-            } catch (UnsatisfiedLinkError e3) {
-                Log.e(TAG, "load library failed");
-                this.loadLibraryfailed = true;
-            }
-        }
-    }
-
-    public static void setLibraryPath(String str) {
-        mNativeLibraryPath = str;
-        setted = true;
     }
 
     public native void close();
@@ -103,10 +59,6 @@ public class LiveNativeSender {
     public native void enableAECM();
 
     public native void init();
-
-    public boolean isLoadLibraryfailed() {
-        return this.loadLibraryfailed;
-    }
 
     public native void pause();
 

@@ -41,7 +41,11 @@ public interface ILiveGroupManagerService extends IInterface {
 
     void resumePublish(String str);
 
+    void retryPlay();
+
     void seekPlayRecord(int i);
+
+    void setPublisherPaused(boolean z);
 
     void startPlay(String str, String str2, int i);
 
@@ -71,26 +75,28 @@ public interface ILiveGroupManagerService extends IInterface {
         static final int TRANSACTION_getCurrentUrl = 6;
         static final int TRANSACTION_getDurationOfRecord = 20;
         static final int TRANSACTION_getPositionOfRecord = 21;
-        static final int TRANSACTION_getRecordStatus = 22;
-        static final int TRANSACTION_getRecordTime = 27;
-        static final int TRANSACTION_getSignalStrength = 26;
+        static final int TRANSACTION_getRecordStatus = 23;
+        static final int TRANSACTION_getRecordTime = 28;
+        static final int TRANSACTION_getSignalStrength = 27;
         static final int TRANSACTION_pausePlay = 17;
         static final int TRANSACTION_pausePublish = 8;
-        static final int TRANSACTION_playOrRecord = 25;
+        static final int TRANSACTION_playOrRecord = 26;
         static final int TRANSACTION_registerCallback = 1;
         static final int TRANSACTION_requestStatusRebroadcast = 4;
         static final int TRANSACTION_resumePlay = 18;
         static final int TRANSACTION_resumePublish = 9;
+        static final int TRANSACTION_retryPlay = 22;
         static final int TRANSACTION_seekPlayRecord = 19;
+        static final int TRANSACTION_setPublisherPaused = 29;
         static final int TRANSACTION_startPlay = 15;
         static final int TRANSACTION_startPublish = 13;
         static final int TRANSACTION_startRecordInPublish = 10;
-        static final int TRANSACTION_stopAnyRunning = 24;
+        static final int TRANSACTION_stopAnyRunning = 25;
         static final int TRANSACTION_stopPlay = 16;
         static final int TRANSACTION_stopPublish = 14;
         static final int TRANSACTION_stopRecordInPublish = 11;
         static final int TRANSACTION_unregisterCallback = 2;
-        static final int TRANSACTION_whatIsRunning = 23;
+        static final int TRANSACTION_whatIsRunning = 24;
 
         public Stub() {
             attachInterface(this, DESCRIPTOR);
@@ -183,7 +189,7 @@ public interface ILiveGroupManagerService extends IInterface {
                     startPublish(parcel.readString());
                     parcel2.writeNoException();
                     return true;
-                case TRANSACTION_stopPublish /* 14 */:
+                case 14:
                     parcel.enforceInterface(DESCRIPTOR);
                     stopPublish(parcel.readString());
                     parcel2.writeNoException();
@@ -225,39 +231,49 @@ public interface ILiveGroupManagerService extends IInterface {
                     parcel2.writeNoException();
                     parcel2.writeInt(positionOfRecord);
                     return true;
-                case TRANSACTION_getRecordStatus /* 22 */:
+                case TRANSACTION_retryPlay /* 22 */:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    retryPlay();
+                    parcel2.writeNoException();
+                    return true;
+                case TRANSACTION_getRecordStatus /* 23 */:
                     parcel.enforceInterface(DESCRIPTOR);
                     int recordStatus = getRecordStatus();
                     parcel2.writeNoException();
                     parcel2.writeInt(recordStatus);
                     return true;
-                case TRANSACTION_whatIsRunning /* 23 */:
+                case TRANSACTION_whatIsRunning /* 24 */:
                     parcel.enforceInterface(DESCRIPTOR);
                     int whatIsRunning = whatIsRunning();
                     parcel2.writeNoException();
                     parcel2.writeInt(whatIsRunning);
                     return true;
-                case 24:
+                case 25:
                     parcel.enforceInterface(DESCRIPTOR);
                     stopAnyRunning();
                     parcel2.writeNoException();
                     return true;
-                case TRANSACTION_playOrRecord /* 25 */:
+                case TRANSACTION_playOrRecord /* 26 */:
                     parcel.enforceInterface(DESCRIPTOR);
                     playOrRecord(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt() != 0);
                     parcel2.writeNoException();
                     return true;
-                case TRANSACTION_getSignalStrength /* 26 */:
+                case TRANSACTION_getSignalStrength /* 27 */:
                     parcel.enforceInterface(DESCRIPTOR);
                     int signalStrength = getSignalStrength();
                     parcel2.writeNoException();
                     parcel2.writeInt(signalStrength);
                     return true;
-                case TRANSACTION_getRecordTime /* 27 */:
+                case TRANSACTION_getRecordTime /* 28 */:
                     parcel.enforceInterface(DESCRIPTOR);
                     int recordTime = getRecordTime();
                     parcel2.writeNoException();
                     parcel2.writeInt(recordTime);
+                    return true;
+                case TRANSACTION_setPublisherPaused /* 29 */:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    setPublisherPaused(parcel.readInt() != 0);
+                    parcel2.writeNoException();
                     return true;
                 case 1598968902:
                     parcel2.writeString(DESCRIPTOR);
@@ -490,7 +506,7 @@ public interface ILiveGroupManagerService extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
-                    this.mRemote.transact(Stub.TRANSACTION_stopPublish, obtain, obtain2, 0);
+                    this.mRemote.transact(14, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -606,6 +622,20 @@ public interface ILiveGroupManagerService extends IInterface {
             }
 
             @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
+            public void retryPlay() {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(Stub.TRANSACTION_retryPlay, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
             public int getRecordStatus() {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
@@ -641,7 +671,7 @@ public interface ILiveGroupManagerService extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(24, obtain, obtain2, 0);
+                    this.mRemote.transact(25, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -694,6 +724,21 @@ public interface ILiveGroupManagerService extends IInterface {
                     this.mRemote.transact(Stub.TRANSACTION_getRecordTime, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
+            public void setPublisherPaused(boolean z) {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(z ? 1 : 0);
+                    this.mRemote.transact(Stub.TRANSACTION_setPublisherPaused, obtain, obtain2, 0);
+                    obtain2.readException();
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();

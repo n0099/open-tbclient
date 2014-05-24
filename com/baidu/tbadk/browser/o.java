@@ -1,46 +1,28 @@
 package com.baidu.tbadk.browser;
 
-import android.view.LayoutInflater;
+import android.content.Intent;
 import android.view.View;
-import android.view.ViewGroup;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ TbWebViewActivity a;
+class o implements View.OnClickListener {
+    final /* synthetic */ n a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(TbWebViewActivity tbWebViewActivity) {
-        this.a = tbWebViewActivity;
+    public o(n nVar) {
+        this.a = nVar;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        View inflate = layoutInflater.inflate(com.baidu.tieba.s.tb_webview_pop_install_plugin, (ViewGroup) null);
-        if (inflate != null) {
-            inflate.findViewById(com.baidu.tieba.r.install).setOnClickListener(new p(this));
-            inflate.findViewById(com.baidu.tieba.r.btn_close);
-            inflate.setOnClickListener(new q(this));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbWebViewActivity tbWebViewActivity;
+        TbWebViewActivity tbWebViewActivity2;
+        try {
+            tbWebViewActivity = this.a.a;
+            Intent intent = new Intent(tbWebViewActivity, Class.forName("com.baidu.tieba.plugins.PluginDownloadActivity"));
+            intent.putExtra("plugin_config", com.baidu.tbadk.tbplugin.m.a().d("browser"));
+            tbWebViewActivity2 = this.a.a;
+            tbWebViewActivity2.startActivityForResult(intent, 1);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        return inflate;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int a() {
-        return 2;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int b() {
-        return 32;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int c() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int d() {
-        return 0;
     }
 }

@@ -1,21 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class ap implements Runnable {
-    final /* synthetic */ ad a;
-    private final /* synthetic */ Application b;
+class ap implements Runnable {
+    final /* synthetic */ ao a;
+    private final /* synthetic */ CustomMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(ad adVar, Application application) {
-        this.a = adVar;
-        this.b = application;
+    public ap(ao aoVar, CustomMessage customMessage) {
+        this.a = aoVar;
+        this.b = customMessage;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.b.sendBroadcast(new Intent("com.baidu.tieba.action.PLUGIN_DOWNLOAD"));
+        ai.a((AccountData) this.b.getData(), TbadkApplication.m252getInst());
     }
 }

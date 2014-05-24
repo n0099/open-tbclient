@@ -10,14 +10,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -138,8 +141,8 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     private View a(int i, View view, ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(TbadkApplication.m252getInst().getApp().getApplicationContext()).inflate(s.group_tab_banner, viewGroup, false);
-        BannerView bannerView = (BannerView) inflate.findViewById(r.group_banner);
+        View inflate = LayoutInflater.from(TbadkApplication.m252getInst().getApp().getApplicationContext()).inflate(w.group_tab_banner, viewGroup, false);
+        BannerView bannerView = (BannerView) inflate.findViewById(v.group_banner);
         bannerView.a("group_tab_banner_click", "group_tab_banner_close");
         if (!TextUtils.isEmpty(this.f) && !TextUtils.isEmpty(this.g)) {
             bannerView.a(this.f, this.g, "group_banner_date", 259200000L);
@@ -153,20 +156,20 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
         p a = p.a(view);
         if (a != null) {
             if (i == 1) {
-                a.a(u.group_title_find_group);
+                a.a(y.group_title_find_group);
                 a.a(false, false);
             } else if (i == 8) {
-                a.a(u.group_tab_mygroup);
+                a.a(y.group_tab_mygroup);
                 a.a(false, false);
             }
-            ((com.baidu.tbadk.core.e) this.a.getActivity()).a().a(TbadkApplication.m252getInst().getSkinType() == 1);
-            ((com.baidu.tbadk.core.e) this.a.getActivity()).a().a(a.a());
+            ((BaseFragmentActivity) this.a.getActivity()).a().a(TbadkApplication.m252getInst().getSkinType() == 1);
+            ((BaseFragmentActivity) this.a.getActivity()).a().a(a.a());
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 imageView2 = a.d;
-                imageView2.setImageResource(com.baidu.tieba.o.cp_bg_line_b_1);
+                imageView2.setImageResource(s.cp_bg_line_b_1);
             } else {
                 imageView = a.d;
-                imageView.setImageResource(com.baidu.tieba.o.cp_bg_line_b);
+                imageView.setImageResource(s.cp_bg_line_b);
             }
             a.b();
             return a.a();
@@ -177,19 +180,19 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
     private View c(int i, View view, ViewGroup viewGroup) {
         o oVar;
         if (view == null) {
-            view = LayoutInflater.from(this.a.getActivity()).inflate(s.tab_my_group_item, viewGroup, false);
+            view = LayoutInflater.from(this.a.getActivity()).inflate(w.tab_my_group_item, viewGroup, false);
             oVar = new o();
-            oVar.a = (LinearLayout) view.findViewById(r.click_head);
-            oVar.g = (ImageView) view.findViewById(r.diver_top);
-            oVar.h = (ImageView) view.findViewById(r.diver_top_px);
-            oVar.b = (HeadImageView) view.findViewById(r.item_head);
-            oVar.c = (TextView) view.findViewById(r.item_group_name);
-            oVar.d = (TextView) view.findViewById(r.item_group_num);
-            oVar.e = (TextView) view.findViewById(r.item_introduce);
-            oVar.f = (TextView) view.findViewById(r.isCreator);
-            oVar.i = (ImageView) view.findViewById(r.item_grade1);
-            oVar.j = (ImageView) view.findViewById(r.item_grade2);
-            oVar.k = (ImageView) view.findViewById(r.item_grade3);
+            oVar.a = (LinearLayout) view.findViewById(v.click_head);
+            oVar.g = (ImageView) view.findViewById(v.diver_top);
+            oVar.h = (ImageView) view.findViewById(v.diver_top_px);
+            oVar.b = (HeadImageView) view.findViewById(v.item_head);
+            oVar.c = (TextView) view.findViewById(v.item_group_name);
+            oVar.d = (TextView) view.findViewById(v.item_group_num);
+            oVar.e = (TextView) view.findViewById(v.item_introduce);
+            oVar.f = (TextView) view.findViewById(v.isCreator);
+            oVar.i = (ImageView) view.findViewById(v.item_grade1);
+            oVar.j = (ImageView) view.findViewById(v.item_grade2);
+            oVar.k = (ImageView) view.findViewById(v.item_grade3);
             oVar.l = new ImageView[4];
             oVar.l[1] = oVar.i;
             oVar.l[2] = oVar.j;
@@ -203,8 +206,8 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
         if (item != null && (item instanceof GroupInfoData)) {
             groupInfoData = (GroupInfoData) item;
         }
-        oVar.b.setDefaultResource(com.baidu.tieba.q.avatar_poto_defaul140);
-        oVar.b.setNightDefaultResource(com.baidu.tieba.q.avatar_poto_defaul140_1);
+        oVar.b.setDefaultResource(u.avatar_poto_defaul140);
+        oVar.b.setNightDefaultResource(u.avatar_poto_defaul140_1);
         oVar.b.setDrawBorder(true);
         if (groupInfoData != null) {
             String portrait = groupInfoData.getPortrait();
@@ -233,13 +236,13 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
             }
             a(oVar.l, groupInfoData.getGrade());
         }
-        ((com.baidu.tbadk.core.e) this.a.getActivity()).a().a(TbadkApplication.m252getInst().getSkinType() == 1);
-        ((com.baidu.tbadk.core.e) this.a.getActivity()).a().a(view);
+        ((BaseFragmentActivity) this.a.getActivity()).a().a(TbadkApplication.m252getInst().getSkinType() == 1);
+        ((BaseFragmentActivity) this.a.getActivity()).a().a(view);
         if (groupInfoData != null && groupInfoData.isMemGroup()) {
-            bc.a(oVar.c, com.baidu.tieba.o.cp_cont_b, 1);
-            bc.c(oVar.i, com.baidu.tieba.q.icon_vip_grade_big_small_s);
-            bc.c(oVar.j, com.baidu.tieba.q.icon_vip_grade_big_small_s);
-            bc.c(oVar.k, com.baidu.tieba.q.icon_vip_grade_big_small_s);
+            bc.a(oVar.c, s.cp_cont_b, 1);
+            bc.c(oVar.i, u.icon_vip_grade_big_small_s);
+            bc.c(oVar.j, u.icon_vip_grade_big_small_s);
+            bc.c(oVar.k, u.icon_vip_grade_big_small_s);
         }
         return view;
     }
@@ -251,7 +254,7 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
             nVar = (n) view.getTag();
         }
         if (nVar == null) {
-            view = LayoutInflater.from(TbadkApplication.m252getInst().getApp().getApplicationContext()).inflate(s.group_tab_item, viewGroup, false);
+            view = LayoutInflater.from(TbadkApplication.m252getInst().getApp().getApplicationContext()).inflate(w.group_tab_item, viewGroup, false);
             nVar = n.a(view);
             view.setTag(nVar);
         }
@@ -266,7 +269,7 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
                 } else {
                     nVar2.b.a("附近群组(" + this.e + ")", 5, str.length() - 1);
                 }
-                nVar2.b.setLeftIconRes(com.baidu.tieba.q.icon_nearby_group);
+                nVar2.b.setLeftIconRes(u.icon_nearby_group);
                 nVar2.b.getRightIcon().setVisibility(8);
                 nVar2.c.setVisibility(8);
                 break;
@@ -274,8 +277,8 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
                 nVar2.b.setLineTopVisibility(false);
                 nVar2.b.setLineTopPxVisibility(true);
                 nVar2.b.setLineBottomPxVisibility(false);
-                nVar2.b.setText(TbadkApplication.m252getInst().getApp().getResources().getString(u.group_tab_hotgroup));
-                nVar2.b.setLeftIconRes(com.baidu.tieba.q.icon_hot_group);
+                nVar2.b.setText(TbadkApplication.m252getInst().getApp().getResources().getString(y.group_tab_hotgroup));
+                nVar2.b.setLeftIconRes(u.icon_hot_group);
                 nVar2.b.getRightIcon().setVisibility(8);
                 nVar2.c.setVisibility(8);
                 break;
@@ -283,8 +286,8 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
                 nVar2.b.setLineTopVisibility(false);
                 nVar2.b.setLineTopPxVisibility(true);
                 nVar2.b.setLineBottomPxVisibility(false);
-                nVar2.b.setText(TbadkApplication.m252getInst().getApp().getResources().getString(u.group_tab_living_btn));
-                nVar2.b.setLeftIconRes(com.baidu.tieba.q.icon_live_telecast);
+                nVar2.b.setText(TbadkApplication.m252getInst().getApp().getResources().getString(y.group_tab_living_btn));
+                nVar2.b.setLeftIconRes(u.icon_live_telecast);
                 nVar2.b.getRightIcon().setVisibility(8);
                 nVar2.c.setVisibility(8);
                 break;
@@ -292,8 +295,8 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
                 nVar2.b.setLineTopVisibility(false);
                 nVar2.b.setLineTopPxVisibility(true);
                 nVar2.b.setLineBottomPxVisibility(false);
-                nVar2.b.setText(TbadkApplication.m252getInst().getApp().getResources().getString(u.group_tab_enterchatroom_btn));
-                nVar2.b.setLeftIconRes(com.baidu.tieba.q.icon_come_chat);
+                nVar2.b.setText(TbadkApplication.m252getInst().getApp().getResources().getString(y.group_tab_enterchatroom_btn));
+                nVar2.b.setLeftIconRes(u.icon_come_chat);
                 nVar2.b.getRightIcon().setVisibility(8);
                 nVar2.c.setVisibility(8);
                 break;
@@ -301,8 +304,8 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
                 nVar2.b.setLineTopVisibility(false);
                 nVar2.b.setLineTopPxVisibility(true);
                 nVar2.b.setLineBottomPxVisibility(false);
-                nVar2.b.setText(TbadkApplication.m252getInst().getApp().getResources().getString(u.group_tab_addgroup));
-                nVar2.b.setLeftIconRes(com.baidu.tieba.q.icon_qun_search);
+                nVar2.b.setText(TbadkApplication.m252getInst().getApp().getResources().getString(y.group_tab_addgroup));
+                nVar2.b.setLeftIconRes(u.icon_qun_search);
                 nVar2.b.getRightIcon().setVisibility(8);
                 nVar2.c.setVisibility(0);
                 break;
@@ -310,21 +313,21 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
                 nVar2.b.setLineTopVisibility(false);
                 nVar2.b.setLineTopPxVisibility(true);
                 nVar2.b.setLineBottomPxVisibility(true);
-                nVar2.b.setText(TbadkApplication.m252getInst().getApp().getResources().getString(u.group_tab_creategroup));
-                nVar2.b.setLeftIconRes(com.baidu.tieba.q.icon_add_group);
+                nVar2.b.setText(TbadkApplication.m252getInst().getApp().getResources().getString(y.group_tab_creategroup));
+                nVar2.b.setLeftIconRes(u.icon_add_group);
                 nVar2.b.getRightIcon().setVisibility(8);
                 nVar2.c.setVisibility(8);
                 break;
         }
         nVar2.b.setTag(Integer.valueOf(i));
-        ((com.baidu.tbadk.core.e) this.a.getActivity()).a().a(TbadkApplication.m252getInst().getSkinType() == 1);
-        ((com.baidu.tbadk.core.e) this.a.getActivity()).a().a(view);
-        bc.f(nVar2.b, com.baidu.tieba.q.list_item_selector);
-        bc.f(nVar2.a, com.baidu.tieba.o.cp_bg_line_d);
+        ((BaseFragmentActivity) this.a.getActivity()).a().a(TbadkApplication.m252getInst().getSkinType() == 1);
+        ((BaseFragmentActivity) this.a.getActivity()).a().a(view);
+        bc.f(nVar2.b, u.list_item_selector);
+        bc.f(nVar2.a, s.cp_bg_line_d);
         nVar2.b.a(TbadkApplication.m252getInst().getSkinType());
         nVar2.b.setOnClickListener(this.a);
-        bc.a(nVar2.b.getTextView(), com.baidu.tieba.o.cp_cont_b, 1);
-        bc.c(nVar2.b.getRightIcon(), com.baidu.tieba.q.icon_ba_top_arrow_big);
+        bc.a(nVar2.b.getTextView(), s.cp_cont_b, 1);
+        bc.c(nVar2.b.getRightIcon(), u.icon_ba_top_arrow_big);
         return view;
     }
 

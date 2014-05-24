@@ -14,6 +14,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.android.nebula.util.BDLocationManager;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -146,7 +147,7 @@ public final class d {
                     case 13:
                         str = "4G";
                         break;
-                    case 14:
+                    case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
                         str = "3G";
                         break;
                     case 15:

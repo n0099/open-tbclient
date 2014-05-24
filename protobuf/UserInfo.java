@@ -1,5 +1,6 @@
 package protobuf;
 
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
@@ -32,7 +33,7 @@ public final class UserInfo extends Message {
     public final Integer sex;
     @ProtoField(tag = 12, type = Message.Datatype.INT32)
     public final Integer sysGroupId;
-    @ProtoField(label = Message.Label.REPEATED, tag = 14)
+    @ProtoField(label = Message.Label.REPEATED, tag = DealIntentService.CLASS_TYPE_GROUP_EVENT)
     public final List<TshowInfo> tshowIcon;
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer userId;

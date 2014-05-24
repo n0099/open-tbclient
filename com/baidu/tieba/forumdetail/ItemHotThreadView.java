@@ -12,10 +12,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.forumdetail.ForumDetailData;
-import com.baidu.tieba.o;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
+import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class ItemHotThreadView extends LinearLayout {
@@ -39,7 +39,7 @@ public class ItemHotThreadView extends LinearLayout {
     public void a(Context context) {
         this.a = context;
         this.b = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.b.inflate(s.forum_detail_hot_thread, (ViewGroup) this, true);
+        this.b.inflate(w.forum_detail_hot_thread, (ViewGroup) this, true);
     }
 
     public boolean a(ForumDetailData forumDetailData) {
@@ -61,14 +61,14 @@ public class ItemHotThreadView extends LinearLayout {
         l lVar;
         View view;
         if (!this.c.containsKey(String.valueOf(threadInfo.tId))) {
-            view = this.b.inflate(s.forum_detail_hot_thread_item, (ViewGroup) this, false);
+            view = this.b.inflate(w.forum_detail_hot_thread_item, (ViewGroup) this, false);
             lVar = new l(null);
-            lVar.a = (TextView) view.findViewById(r.ht_item_title);
-            lVar.b = (TextView) view.findViewById(r.ht_item_content);
-            lVar.c = (TextView) view.findViewById(r.ht_label_pv);
-            lVar.d = (TextView) view.findViewById(r.ht_item_pv);
-            lVar.e = (TextView) view.findViewById(r.ht_item_reply);
-            lVar.f = (TextView) view.findViewById(r.ht_divider_line);
+            lVar.a = (TextView) view.findViewById(v.ht_item_title);
+            lVar.b = (TextView) view.findViewById(v.ht_item_content);
+            lVar.c = (TextView) view.findViewById(v.ht_label_pv);
+            lVar.d = (TextView) view.findViewById(v.ht_item_pv);
+            lVar.e = (TextView) view.findViewById(v.ht_item_reply);
+            lVar.f = (TextView) view.findViewById(v.ht_divider_line);
             view.setTag(lVar);
             this.c.put(String.valueOf(threadInfo.tId), view);
             addView(view);
@@ -94,25 +94,25 @@ public class ItemHotThreadView extends LinearLayout {
         lVar.d.setText(String.valueOf(threadInfo.viewNum));
         lVar.e.setText(String.valueOf(threadInfo.replyNum));
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            lVar.a.setTextColor(this.a.getResources().getColor(o.forum_detail_htitem_title_color_1));
-            lVar.b.setTextColor(this.a.getResources().getColor(o.forum_detail_htitem_txt_color_1));
-            lVar.c.setTextColor(this.a.getResources().getColor(o.forum_detail_ht_lbl_1));
-            lVar.d.setTextColor(this.a.getResources().getColor(o.forum_detail_ht_lbl_1));
-            lVar.e.setTextColor(this.a.getResources().getColor(o.forum_detail_ht_cmt_1));
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) this.a.getResources().getDrawable(q.icon_bestlittle_comment_b_1);
+            lVar.a.setTextColor(this.a.getResources().getColor(s.forum_detail_htitem_title_color_1));
+            lVar.b.setTextColor(this.a.getResources().getColor(s.forum_detail_htitem_txt_color_1));
+            lVar.c.setTextColor(this.a.getResources().getColor(s.forum_detail_ht_lbl_1));
+            lVar.d.setTextColor(this.a.getResources().getColor(s.forum_detail_ht_lbl_1));
+            lVar.e.setTextColor(this.a.getResources().getColor(s.forum_detail_ht_cmt_1));
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) this.a.getResources().getDrawable(u.icon_bestlittle_comment_b_1);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
             lVar.e.setCompoundDrawables(bitmapDrawable, null, null, null);
-            lVar.f.setBackgroundResource(o.forum_detail_sep_line_1);
+            lVar.f.setBackgroundResource(s.forum_detail_sep_line_1);
         } else {
-            lVar.a.setTextColor(this.a.getResources().getColor(o.forum_detail_htitem_title_color));
-            lVar.b.setTextColor(this.a.getResources().getColor(o.forum_detail_htitem_txt_color));
-            lVar.c.setTextColor(this.a.getResources().getColor(o.forum_detail_ht_lbl));
-            lVar.d.setTextColor(this.a.getResources().getColor(o.forum_detail_ht_lbl));
-            lVar.e.setTextColor(this.a.getResources().getColor(o.forum_detail_ht_cmt));
-            BitmapDrawable bitmapDrawable2 = (BitmapDrawable) this.a.getResources().getDrawable(q.icon_bestlittle_comment_b);
+            lVar.a.setTextColor(this.a.getResources().getColor(s.forum_detail_htitem_title_color));
+            lVar.b.setTextColor(this.a.getResources().getColor(s.forum_detail_htitem_txt_color));
+            lVar.c.setTextColor(this.a.getResources().getColor(s.forum_detail_ht_lbl));
+            lVar.d.setTextColor(this.a.getResources().getColor(s.forum_detail_ht_lbl));
+            lVar.e.setTextColor(this.a.getResources().getColor(s.forum_detail_ht_cmt));
+            BitmapDrawable bitmapDrawable2 = (BitmapDrawable) this.a.getResources().getDrawable(u.icon_bestlittle_comment_b);
             bitmapDrawable2.setBounds(0, 0, bitmapDrawable2.getIntrinsicWidth(), bitmapDrawable2.getIntrinsicHeight());
             lVar.e.setCompoundDrawables(bitmapDrawable2, null, null, null);
-            lVar.f.setBackgroundResource(o.forum_detail_sep_line);
+            lVar.f.setBackgroundResource(s.forum_detail_sep_line);
         }
         view.setOnClickListener(new k(this, String.valueOf(threadInfo.id)));
     }

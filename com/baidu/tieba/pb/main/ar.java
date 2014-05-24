@@ -13,22 +13,16 @@ class ar implements Handler.Callback {
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
-        bc bcVar;
         bj bjVar;
         switch (message.what) {
-            case 0:
-                bjVar = this.a.E;
-                bjVar.ae();
-                return false;
-            case 1:
-            default:
-                return false;
             case 2:
-                bcVar = this.a.y;
-                if (!bcVar.x()) {
+                bjVar = this.a.x;
+                if (!bjVar.x()) {
                     return false;
                 }
-                this.a.z();
+                this.a.A();
+                return false;
+            default:
                 return false;
         }
     }

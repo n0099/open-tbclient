@@ -11,6 +11,7 @@ import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.debug.service.SwitchDebugService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
@@ -28,9 +29,11 @@ public class LogoActivity extends BaseActivity {
     private AlphaAnimation e = null;
     private boolean f = false;
     private boolean g = false;
-    private final Handler h = new e(this);
-    private final Runnable i = new f(this);
-    private final Runnable j = new g(this);
+    private a h = new a();
+    private final Handler i = new h(this);
+    private final Runnable j = new i(this);
+    private final Runnable k = new j(this);
+    private final d l = new k(this);
 
     static {
         TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ak.class, LogoActivity.class);
@@ -64,12 +67,16 @@ public class LogoActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        this.h.a(this.l);
         TbadkApplication.m252getInst().markLauchTime();
+        if (!TbadkApplication.isLogin()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007015, null));
+        }
         a(getIntent());
         BdLog.i(getClass().getName(), "onCreate", null);
         getWindow().setFlags(1024, 1024);
-        setContentView(s.logo_activity);
-        this.c = (ImageView) findViewById(r.logo);
+        setContentView(w.logo_activity);
+        this.c = (ImageView) findViewById(v.logo);
         if (bundle != null) {
             com.baidu.tbadk.core.atomData.ak.a = bundle.getBoolean("is_first", true);
         } else {
@@ -77,10 +84,10 @@ public class LogoActivity extends BaseActivity {
         }
         this.e = new AlphaAnimation(1.0f, 1.0f);
         this.e.setDuration(500L);
-        this.e.setAnimationListener(new h(this));
+        this.e.setAnimationListener(new l(this));
         this.f = TbadkApplication.m252getInst().getIsFirstUse();
-        this.h.post(this.i);
-        new i(this).start();
+        this.i.post(this.j);
+        new m(this).start();
         MessageManager.getInstance().sendMessage(new CustomMessage(2008003, com.baidu.tbadk.core.frameworkData.a.START));
         if (TbConfig.getDebugSwitch()) {
             a();
@@ -115,7 +122,7 @@ public class LogoActivity extends BaseActivity {
         if (!this.g) {
             TbadkApplication.m252getInst().delLauchTime();
         }
-        this.h.removeCallbacks(this.j);
+        this.i.removeCallbacks(this.k);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -127,8 +134,8 @@ public class LogoActivity extends BaseActivity {
             finish();
             return;
         }
-        this.h.removeCallbacks(this.j);
-        this.h.postDelayed(this.j, TbConfig.NOTIFY_SOUND_INTERVAL);
+        this.i.removeCallbacks(this.k);
+        this.i.postDelayed(this.k, TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -168,12 +175,12 @@ public class LogoActivity extends BaseActivity {
     public void onStop() {
         super.onStop();
         c();
-        this.h.removeCallbacks(this.j);
+        this.i.removeCallbacks(this.k);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context) {
-        this.h.removeCallbacks(this.j);
+        this.i.removeCallbacks(this.k);
         b();
         if (com.baidu.tbadk.core.atomData.ak.b) {
             a(1);
@@ -186,8 +193,7 @@ public class LogoActivity extends BaseActivity {
             }
             a(1);
         } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.aq(this, com.baidu.tbadk.core.atomData.aq.c)));
-            finish();
+            this.h.a(this, null);
         }
     }
 
@@ -201,6 +207,11 @@ public class LogoActivity extends BaseActivity {
     }
 
     private void a(int i) {
+        this.h.a(this, Integer.valueOf(i));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(int i) {
         com.baidu.tbadk.core.atomData.ak.a = false;
         this.g = true;
         sendMessage(new CustomMessage(2017001, new com.baidu.tbadk.core.atomData.al(this).a(i)));

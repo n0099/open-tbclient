@@ -8,10 +8,11 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdExpandListView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes.dex */
 public class aj extends LinearLayout {
-    private final com.baidu.tbadk.core.e a;
+    private final BaseFragmentActivity a;
     private final bm b;
     private View c;
     private BdExpandListView d;
@@ -23,18 +24,18 @@ public class aj extends LinearLayout {
     private boolean j;
     private final Runnable k;
 
-    public aj(com.baidu.tbadk.core.e eVar, bm bmVar) {
-        super(eVar);
+    public aj(BaseFragmentActivity baseFragmentActivity, bm bmVar) {
+        super(baseFragmentActivity);
         this.j = false;
         this.k = new ak(this);
-        this.a = eVar;
+        this.a = baseFragmentActivity;
         this.b = bmVar;
         k();
     }
 
     private void k() {
         this.c = this.b.getView();
-        this.d = (BdExpandListView) this.c.findViewById(com.baidu.tieba.r.user_info_center_lv);
+        this.d = (BdExpandListView) this.c.findViewById(com.baidu.tieba.v.user_info_center_lv);
         a();
     }
 
@@ -63,17 +64,17 @@ public class aj extends LinearLayout {
         }
         this.d.removeFooterView(this.i.b());
         if (1 == TbadkApplication.m252getInst().getSkinType()) {
-            this.d.setBackgroundResource(com.baidu.tieba.o.person_center_list_no_data_bg_color_1);
+            this.d.setBackgroundResource(com.baidu.tieba.s.person_center_list_no_data_bg_color_1);
         } else {
-            this.d.setBackgroundResource(com.baidu.tieba.o.person_center_list_no_data_bg_color);
+            this.d.setBackgroundResource(com.baidu.tieba.s.person_center_list_no_data_bg_color);
         }
         this.d.setRecyclerListener(new al(this));
         this.e.a((PersonPostListData) null, (com.baidu.tieba.model.av) null);
         this.e.notifyDataSetChanged();
     }
 
-    public void setScrollToBottomListener(com.baidu.adp.widget.ListView.u uVar) {
-        this.d.setOnSrollToBottomListener(uVar);
+    public void setScrollToBottomListener(com.baidu.adp.widget.ListView.x xVar) {
+        this.d.setOnSrollToBottomListener(xVar);
     }
 
     public void setLoadMoreOnClickListener(View.OnClickListener onClickListener) {
@@ -99,13 +100,13 @@ public class aj extends LinearLayout {
             }
             if (avVar.a() != null && avVar.a().post_list != null && avVar.a().post_list.size() > 0) {
                 this.d.setNextPage(this.i);
-                this.d.setBackgroundResource(com.baidu.tieba.o.transparent);
+                this.d.setBackgroundResource(com.baidu.tieba.s.transparent);
             } else {
                 this.d.removeFooterView(this.i.b());
                 if (1 == TbadkApplication.m252getInst().getSkinType()) {
-                    this.d.setBackgroundResource(com.baidu.tieba.o.person_center_list_no_data_bg_color_1);
+                    this.d.setBackgroundResource(com.baidu.tieba.s.person_center_list_no_data_bg_color_1);
                 } else {
-                    this.d.setBackgroundResource(com.baidu.tieba.o.person_center_list_no_data_bg_color);
+                    this.d.setBackgroundResource(com.baidu.tieba.s.person_center_list_no_data_bg_color);
                 }
             }
             this.h.a(avVar);
@@ -146,7 +147,7 @@ public class aj extends LinearLayout {
     }
 
     public void f() {
-        if (com.baidu.tbadk.core.h.a().f()) {
+        if (com.baidu.tbadk.core.g.a().f()) {
             com.baidu.tbadk.core.util.ae.a(this.d, this.e.a(), 0, -1);
         }
     }

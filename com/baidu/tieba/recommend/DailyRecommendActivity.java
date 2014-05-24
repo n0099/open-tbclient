@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.widget.ListView.u;
+import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -18,7 +18,7 @@ public class DailyRecommendActivity extends BaseActivity {
     private o c;
     private String d;
     l a = new e(this);
-    private final u e = new f(this);
+    private final x e = new f(this);
     private final com.baidu.adp.widget.ListView.d f = new g(this);
 
     static {
@@ -50,7 +50,7 @@ public class DailyRecommendActivity extends BaseActivity {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void showToast(String str) {
-        com.baidu.adp.lib.util.h.a((Context) this, str);
+        com.baidu.adp.lib.util.k.a((Context) this, str);
     }
 
     private void c() {

@@ -34,7 +34,7 @@ public class AccountActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.account_activity);
+        setContentView(com.baidu.tieba.w.account_activity);
         a();
         b();
     }
@@ -60,16 +60,16 @@ public class AccountActivity extends BaseActivity {
     }
 
     private void b() {
-        this.d = (RelativeLayout) findViewById(com.baidu.tieba.r.account_container);
+        this.d = (RelativeLayout) findViewById(com.baidu.tieba.v.account_container);
         this.g = new b(this);
-        this.e = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.e = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e.a(getString(com.baidu.tieba.u.account_manager));
-        this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.u.edit));
+        this.e.a(getString(com.baidu.tieba.y.account_manager));
+        this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.y.edit));
         this.f.setOnClickListener(new d(this));
         this.b = new l(this, this.g);
         this.b.a(this.a);
-        this.c = (ListView) findViewById(com.baidu.tieba.r.list);
+        this.c = (ListView) findViewById(com.baidu.tieba.v.list);
         this.c.setAdapter((ListAdapter) this.b);
         this.c.setOnItemClickListener(new e(this));
     }

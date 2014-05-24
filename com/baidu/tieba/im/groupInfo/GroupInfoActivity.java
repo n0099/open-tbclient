@@ -34,7 +34,7 @@ import com.baidu.tieba.im.frsgroup.MembersActivity;
 import com.baidu.tieba.im.groupActivity.CreateGroupActivityActivity;
 import com.baidu.tieba.im.groupActivity.GroupActivityActivity;
 import com.baidu.tieba.im.groupCard.GroupCardActivity;
-import com.baidu.tieba.im.model.bx;
+import com.baidu.tieba.im.model.by;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 import java.util.ArrayList;
 import org.json.JSONException;
@@ -43,7 +43,7 @@ import org.json.JSONObject;
 public class GroupInfoActivity extends BaseActivity implements View.OnClickListener, View.OnLongClickListener, ae, af {
     private r f;
     private com.baidu.tieba.im.model.m g;
-    private bx h;
+    private by h;
     private p i;
     private final int a = 1;
     private final int b = 2;
@@ -162,7 +162,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
         } else {
             this.g.a(bundle);
         }
-        this.h = new bx();
+        this.h = new by();
         this.h.setUniqueId(getUniqueId());
     }
 
@@ -198,7 +198,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view == this.f.r()) {
             if (this.g.f().h()) {
-                com.baidu.tbadk.core.g.a(this, "edit_place_at_groupinfo");
+                com.baidu.tbadk.core.f.a(this, "edit_place_at_groupinfo");
                 GroupAddressLocateActivity.a(this, 21001, this.g.f().b().getPosition(), this.g.f().b().getBusiness(), (this.g.f().b().getFlag() & 1) == 1);
             }
         } else if (view == this.f.o()) {
@@ -223,10 +223,10 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
                         MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.p(this, (int) this.g.d(), this.g.f().b().getName(), this.g.f().b().getAuthorId(), "group_info")));
                     }
                 } else if (this.g.l()) {
-                    showToast(com.baidu.tieba.u.has_recent_join);
+                    showToast(com.baidu.tieba.y.has_recent_join);
                 } else if (this.g.f() != null) {
                     if (this.g.f().f() <= 0) {
-                        showToast(com.baidu.tieba.u.add_group_max);
+                        showToast(com.baidu.tieba.y.add_group_max);
                     } else if (com.baidu.tbadk.core.atomData.b.a == this.g.a()) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2010014, new com.baidu.tbadk.core.atomData.b(this, new StringBuilder().append(this.g.d()).toString(), this.g.f().e(), this.g.f().f())));
                     } else if (com.baidu.tbadk.core.atomData.b.b == this.g.a()) {

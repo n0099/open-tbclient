@@ -15,7 +15,7 @@ public class g implements DialogInterface.OnCancelListener {
     public void onCancel(DialogInterface dialogInterface) {
         v vVar;
         v vVar2;
-        this.a.DeinitWaitingDialog();
+        this.a.destroyWaitingDialog();
         vVar = this.a.t;
         if (vVar != null) {
             vVar2 = this.a.t;

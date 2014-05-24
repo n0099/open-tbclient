@@ -1,10 +1,10 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 /* loaded from: classes.dex */
-class w implements View.OnFocusChangeListener {
+class w implements RadioGroup.OnCheckedChangeListener {
     final /* synthetic */ Register2Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,25 +12,14 @@ class w implements View.OnFocusChangeListener {
         this.a = register2Activity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
+    @Override // android.widget.RadioGroup.OnCheckedChangeListener
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
         EditText editText;
-        EditText editText2;
-        ImageView imageView = null;
-        editText = this.a.t;
-        if (view == editText) {
-            imageView = this.a.k;
-        } else {
-            editText2 = this.a.v;
-            if (view == editText2) {
-                imageView = this.a.l;
-            }
-        }
-        if (imageView != null) {
-            if (z) {
-                imageView.setVisibility(0);
-            } else {
-                imageView.setVisibility(8);
+        if (i > 0) {
+            RadioButton radioButton = (RadioButton) this.a.findViewById(i);
+            if (radioButton.isChecked()) {
+                editText = this.a.t;
+                editText.setText(radioButton.getText());
             }
         }
     }

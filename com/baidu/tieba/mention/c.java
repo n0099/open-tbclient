@@ -18,6 +18,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.am;
 import com.baidu.tbadk.core.atomData.au;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
@@ -28,6 +29,7 @@ import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tieba.ai;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -38,7 +40,7 @@ public class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageChangeL
     private FragmentTabHost j;
     private FragmentManager k;
     private k l;
-    private com.baidu.tbadk.core.e m;
+    private BaseFragmentActivity m;
     private int d = -1;
     private View.OnClickListener f = null;
     private View h = null;
@@ -51,12 +53,12 @@ public class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageChangeL
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.m = (com.baidu.tbadk.core.e) activity;
+        this.m = (BaseFragmentActivity) activity;
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return layoutInflater.inflate(com.baidu.tieba.s.mention_activity, (ViewGroup) null);
+        return layoutInflater.inflate(com.baidu.tieba.w.mention_activity, (ViewGroup) null);
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
@@ -189,12 +191,12 @@ public class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageChangeL
             bVar.a = i;
             fragmentTabIndicator.setText(i2);
             fragmentTabIndicator.setGravity(17);
-            fragmentTabIndicator.b = com.baidu.tieba.o.main_bottom_button_color_1;
-            fragmentTabIndicator.a = com.baidu.tieba.o.main_bottom_button_color;
-            fragmentTabIndicator.a(0, getResources().getDimension(com.baidu.tieba.p.fontsize32));
+            fragmentTabIndicator.b = com.baidu.tieba.s.main_bottom_button_color_1;
+            fragmentTabIndicator.a = com.baidu.tieba.s.main_bottom_button_color;
+            fragmentTabIndicator.a(0, getResources().getDimension(com.baidu.tieba.t.fontsize32));
             bVar.b = fragmentTabIndicator;
             com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-            cVar.a = ((LayoutInflater) this.m.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.message_tip_item, (ViewGroup) null);
+            cVar.a = ((LayoutInflater) this.m.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.message_tip_item, (ViewGroup) null);
             cVar.h = fragmentTabIndicator;
             fragmentTabIndicator.a("msg_tip_key", cVar);
             this.o.add(fragmentTabIndicator);
@@ -210,11 +212,11 @@ public class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageChangeL
                 int a = this.l.a(i);
                 if (item != null) {
                     if (a == 0) {
-                        a(item, 0, com.baidu.tieba.u.mention_chatme);
+                        a(item, 0, com.baidu.tieba.y.mention_chatme);
                     } else if (a == 1) {
-                        a(item, 1, com.baidu.tieba.u.mention_replyme);
+                        a(item, 1, com.baidu.tieba.y.mention_replyme);
                     } else if (a == 2) {
-                        a(item, 2, com.baidu.tieba.u.mention_atme);
+                        a(item, 2, com.baidu.tieba.y.mention_atme);
                     }
                 }
             }
@@ -225,16 +227,16 @@ public class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageChangeL
     private void a(Bundle bundle) {
         this.f = new e(this);
         View view = getView();
-        this.g = (NavigationBar) view.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.i = (ImageView) this.g.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.s.widget_nb_item_addchat, this.f);
-        this.g.a(com.baidu.tieba.u.mention_title);
+        this.g = (NavigationBar) view.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.i = (ImageView) this.g.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.widget_nb_item_addchat, this.f);
+        this.g.a(com.baidu.tieba.y.mention_title);
         this.h = this.g.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.h.setOnClickListener(new f(this));
         this.k = getChildFragmentManager();
         this.l = new k(this.k);
-        this.j = (FragmentTabHost) view.findViewById(com.baidu.tieba.r.tab_host);
+        this.j = (FragmentTabHost) view.findViewById(com.baidu.tieba.v.tab_host);
         this.j.setup(getChildFragmentManager());
-        this.j.setTabWidgetBackgroundColor(getResources().getColor(com.baidu.tieba.o.maintab_bg));
+        this.j.setTabWidgetBackgroundColor(getResources().getColor(com.baidu.tieba.s.maintab_bg));
         this.j.setOnPageChangeListener(this);
         a();
         if (this.l.getCount() == 3) {
@@ -290,12 +292,12 @@ public class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageChangeL
             if (TbadkApplication.isLogin()) {
                 this.j.setBackgroundColor(-14538444);
             } else {
-                this.j.setBackgroundColor(this.m.getResources().getColor(com.baidu.tieba.o.bg_page_setting_1));
+                this.j.setBackgroundColor(this.m.getResources().getColor(com.baidu.tieba.s.bg_page_setting_1));
             }
         } else if (TbadkApplication.isLogin()) {
-            this.j.setBackgroundColor(this.m.getResources().getColor(com.baidu.tieba.o.backgroundcolor));
+            this.j.setBackgroundColor(this.m.getResources().getColor(com.baidu.tieba.s.backgroundcolor));
         } else {
-            this.j.setBackgroundColor(this.m.getResources().getColor(com.baidu.tieba.o.bg_page_setting));
+            this.j.setBackgroundColor(this.m.getResources().getColor(com.baidu.tieba.s.bg_page_setting));
         }
         this.g.c(i);
         this.j.a(i);
@@ -346,18 +348,18 @@ public class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageChangeL
         try {
             textView.setVisibility(0);
             boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
-            textView.setTextColor(com.baidu.tieba.ad.c().d().getResources().getColor(z ? com.baidu.tieba.o.top_msg_num_night : com.baidu.tieba.o.top_msg_num_day));
+            textView.setTextColor(ai.c().d().getResources().getColor(z ? com.baidu.tieba.s.top_msg_num_night : com.baidu.tieba.s.top_msg_num_day));
             if (i == 0) {
                 textView.setVisibility(8);
             } else if (i < 10) {
                 textView.setText(String.valueOf(i));
-                textView.setBackgroundResource(z ? com.baidu.tieba.q.icon_news_head_prompt_one_1 : com.baidu.tieba.q.icon_news_head_prompt_one);
+                textView.setBackgroundResource(z ? com.baidu.tieba.u.icon_news_head_prompt_one_1 : com.baidu.tieba.u.icon_news_head_prompt_one);
             } else if (i < 100) {
                 textView.setText(String.valueOf(i));
-                textView.setBackgroundResource(z ? com.baidu.tieba.q.icon_news_head_prompt_two_1 : com.baidu.tieba.q.icon_news_head_prompt_two);
+                textView.setBackgroundResource(z ? com.baidu.tieba.u.icon_news_head_prompt_two_1 : com.baidu.tieba.u.icon_news_head_prompt_two);
             } else {
                 textView.setText("   ");
-                textView.setBackgroundResource(z ? com.baidu.tieba.q.icon_news_head_prompt_more_1 : com.baidu.tieba.q.icon_news_head_prompt_more);
+                textView.setBackgroundResource(z ? com.baidu.tieba.u.icon_news_head_prompt_more_1 : com.baidu.tieba.u.icon_news_head_prompt_more);
             }
         } catch (Exception e) {
             BdLog.e(getClass(), "setTipMessage", e);

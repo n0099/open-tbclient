@@ -1,9 +1,9 @@
 package com.baidu.tieba.guide;
 
-import com.baidu.tieba.model.bd;
+import com.baidu.tieba.model.be;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements bd {
+public class z implements be {
     final /* synthetic */ x a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ public class z implements bd {
         this.a = xVar;
     }
 
-    @Override // com.baidu.tieba.model.bd
+    @Override // com.baidu.tieba.model.be
     public void a(String str, long j) {
         a aVar;
         int a = com.baidu.adp.lib.f.b.a(String.valueOf(j), 0);
@@ -20,10 +20,10 @@ public class z implements bd {
         this.a.a(a, false);
     }
 
-    @Override // com.baidu.tieba.model.bd
+    @Override // com.baidu.tieba.model.be
     public void b(String str, long j) {
         NewUserGuideActivity newUserGuideActivity;
         newUserGuideActivity = this.a.a;
-        newUserGuideActivity.c(com.baidu.tieba.u.error);
+        newUserGuideActivity.c(com.baidu.tieba.y.error);
     }
 }

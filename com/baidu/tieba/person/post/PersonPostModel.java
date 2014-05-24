@@ -1,6 +1,7 @@
 package com.baidu.tieba.person.post;
 
 import android.app.Activity;
+import com.baidu.adp.base.BdBaseFragmentActivity;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.annotations.SerializedName;
@@ -14,19 +15,19 @@ import tbclient.Abstract;
 import tbclient.UserPost.DataRes;
 import tbclient.UserPost.UserPostResIdl;
 /* loaded from: classes.dex */
-public class PersonPostModel extends com.baidu.adp.base.d implements Serializable {
+public class PersonPostModel extends com.baidu.adp.base.b implements Serializable {
     public static final int PAGE_SIZE = 20;
     private static int a = 0;
     private static String b = "";
     public List<PostList> post_list = new ArrayList();
     public int hide_post = 0;
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }
@@ -46,8 +47,8 @@ public class PersonPostModel extends com.baidu.adp.base.d implements Serializabl
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
         userPostPageRequestMessage.setmCallbackWeakReference(new WeakReference<>(fVar));
-        if (activity instanceof com.baidu.adp.base.b) {
-            ((com.baidu.adp.base.b) activity).a(userPostPageRequestMessage);
+        if (activity instanceof BdBaseFragmentActivity) {
+            ((BdBaseFragmentActivity) activity).a(userPostPageRequestMessage);
         } else {
             MessageManager.getInstance().sendMessage(userPostPageRequestMessage);
         }
@@ -336,6 +337,7 @@ public class PersonPostModel extends com.baidu.adp.base.d implements Serializabl
                 this.group_id = anchorInfo.group_id.intValue();
                 this.intro = anchorInfo.intro;
                 this.likers = anchorInfo.likers.intValue();
+                this.listeners = anchorInfo.listeners.intValue();
                 this.name = anchorInfo.name;
                 this.publisherId = anchorInfo.publisherId.intValue();
                 this.publisherName = anchorInfo.publisherName;

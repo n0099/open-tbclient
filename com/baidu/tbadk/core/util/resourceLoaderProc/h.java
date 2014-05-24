@@ -21,7 +21,7 @@ public class h extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.resourceLoader.g
     public boolean a() {
-        return com.baidu.tbadk.core.h.a().d();
+        return com.baidu.tbadk.core.g.a().d();
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a

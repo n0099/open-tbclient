@@ -12,8 +12,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.aa;
 import com.baidu.tieba.s;
+import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class GroupTabWidget extends RelativeLayout {
@@ -80,15 +82,15 @@ public class GroupTabWidget extends RelativeLayout {
     }
 
     private void a(AttributeSet attributeSet) {
-        LayoutInflater.from(getContext()).inflate(s.group_tab_widget, this);
-        this.d = findViewById(r.blank);
-        this.e = (ImageView) findViewById(r.left_icon);
-        this.f = (TextView) findViewById(r.text);
-        this.g = (ImageView) findViewById(r.right_arraw);
-        this.h = (ImageView) findViewById(r.diver_top);
-        this.i = (ImageView) findViewById(r.diver_top_px);
-        this.j = (ImageView) findViewById(r.diver_bottom_px);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, w.groupTabWidget);
+        LayoutInflater.from(getContext()).inflate(w.group_tab_widget, this);
+        this.d = findViewById(v.blank);
+        this.e = (ImageView) findViewById(v.left_icon);
+        this.f = (TextView) findViewById(v.text);
+        this.g = (ImageView) findViewById(v.right_arraw);
+        this.h = (ImageView) findViewById(v.diver_top);
+        this.i = (ImageView) findViewById(v.diver_top_px);
+        this.j = (ImageView) findViewById(v.diver_bottom_px);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, aa.groupTabWidget);
         this.f.setText(obtainStyledAttributes.getString(1));
         this.e.setImageDrawable(obtainStyledAttributes.getDrawable(0));
         this.k[0] = obtainStyledAttributes.getResourceId(0, 0);
@@ -131,12 +133,12 @@ public class GroupTabWidget extends RelativeLayout {
             Context context = getContext();
             if (context instanceof BaseActivity) {
                 z = ((BaseActivity) context).getLayoutMode().a();
-            } else if (!(context instanceof com.baidu.tbadk.core.e)) {
+            } else if (!(context instanceof BaseFragmentActivity)) {
                 z = false;
             } else {
-                z = ((com.baidu.tbadk.core.e) getContext()).a().a();
+                z = ((BaseFragmentActivity) getContext()).a().a();
             }
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(z ? getResources().getColor(com.baidu.tieba.o.im_near_group_count_1) : getResources().getColor(com.baidu.tieba.o.im_near_group_count)), i, i2, 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(z ? getResources().getColor(s.im_near_group_count_1) : getResources().getColor(s.im_near_group_count)), i, i2, 33);
         }
         this.f.setText(spannableStringBuilder);
     }
@@ -144,20 +146,20 @@ public class GroupTabWidget extends RelativeLayout {
     public void a(int i) {
         if (1 == i) {
             this.e.setImageResource(this.k[1]);
-            this.h.setImageResource(com.baidu.tieba.o.cp_bg_line_b_1);
-            this.i.setImageResource(com.baidu.tieba.o.cp_bg_line_b_1);
-            this.j.setImageResource(com.baidu.tieba.o.cp_bg_line_b_1);
+            this.h.setImageResource(s.cp_bg_line_b_1);
+            this.i.setImageResource(s.cp_bg_line_b_1);
+            this.j.setImageResource(s.cp_bg_line_b_1);
         } else {
             this.e.setImageResource(this.k[0]);
-            this.h.setImageResource(com.baidu.tieba.o.cp_bg_line_b);
-            this.i.setImageResource(com.baidu.tieba.o.cp_bg_line_b);
-            this.j.setImageResource(com.baidu.tieba.o.cp_bg_line_b);
+            this.h.setImageResource(s.cp_bg_line_b);
+            this.i.setImageResource(s.cp_bg_line_b);
+            this.j.setImageResource(s.cp_bg_line_b);
         }
         Context context = getContext();
         if (context instanceof BaseActivity) {
             ((BaseActivity) context).getLayoutMode().a((View) this);
-        } else if (context instanceof com.baidu.tbadk.core.e) {
-            ((com.baidu.tbadk.core.e) getContext()).a().a((View) this);
+        } else if (context instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) getContext()).a().a((View) this);
         }
         if (this.a) {
             a(this.f.getText().toString(), this.b, this.c);

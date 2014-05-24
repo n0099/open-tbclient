@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c {
     private View a;
@@ -31,10 +31,10 @@ public class c {
         this.d = null;
         this.e = new ab(context);
         this.e.d(true);
-        this.a = LayoutInflater.from(context).inflate(s.live_room_list_item, (ViewGroup) null);
-        this.b = (LiveBroadcastCard) this.a.findViewById(r.live_rom_item);
-        this.c = this.a.findViewById(r.live_rom_item_line_2dp);
-        this.d = this.a.findViewById(r.live_rom_item_line_1dp);
+        this.a = LayoutInflater.from(context).inflate(w.live_room_list_item, (ViewGroup) null);
+        this.b = (LiveBroadcastCard) this.a.findViewById(v.live_rom_item);
+        this.c = this.a.findViewById(v.live_rom_item_line_2dp);
+        this.d = this.a.findViewById(v.live_rom_item_line_1dp);
     }
 
     public void a() {

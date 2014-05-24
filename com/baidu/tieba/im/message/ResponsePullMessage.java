@@ -6,8 +6,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.data.IconData;
-import com.baidu.tieba.im.chat.bw;
+import com.baidu.tieba.im.chat.bv;
 import com.baidu.tieba.im.data.GroupIdTypeData;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.f.r;
@@ -95,7 +96,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                         try {
                             MsgInfo msgInfo = list.get(i3);
                             ChatMessage obtainMessage = obtainMessage(groupInfo, msgInfo);
-                            long b = bw.b(msgInfo.msgId.longValue());
+                            long b = bv.b(msgInfo.msgId.longValue());
                             obtainMessage.setMsgId(b);
                             obtainMessage.setGroupId(String.valueOf(msgInfo.groupId));
                             obtainMessage.setMsgType(msgInfo.msgType.intValue());
@@ -176,7 +177,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                 return new GroupMsgData(2015004);
             case 9:
             case 13:
-            case 14:
+            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
             case 15:
             case 16:
             case 17:
@@ -220,7 +221,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                 return new NotifyChatMessage();
             case 9:
             case 13:
-            case 14:
+            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
             case 15:
             case 16:
             case 17:

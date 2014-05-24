@@ -39,7 +39,7 @@ public class PersonImageActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         TbadkApplication.m252getInst().addRemoteActivity(this);
-        setContentView(com.baidu.tieba.s.person_image_activity);
+        setContentView(com.baidu.tieba.w.person_image_activity);
         a(bundle);
         a();
         ArrayList<String> arrayList = new ArrayList<>();
@@ -110,9 +110,9 @@ public class PersonImageActivity extends BaseActivity {
         this.e = new bi(this);
         this.f = new bj(this);
         this.g = new bk(this);
-        this.a = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
-        this.c = (MultiImageView) findViewById(com.baidu.tieba.r.viewpager);
-        this.c.setPageMargin(com.baidu.adp.lib.util.h.a((Context) this, 8.0f));
+        this.a = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
+        this.c = (MultiImageView) findViewById(com.baidu.tieba.v.viewpager);
+        this.c.setPageMargin(com.baidu.adp.lib.util.k.a((Context) this, 8.0f));
         this.c.a(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.c.setItemOnclickListener(this.d);
         this.c.setItemOnLongClickListener(this.e);

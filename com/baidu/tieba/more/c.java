@@ -5,10 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
 class c extends BroadcastReceiver {
-    final /* synthetic */ AboutActivity a;
+    final /* synthetic */ AboutActivity this$0;
 
     private c(AboutActivity aboutActivity) {
-        this.a = aboutActivity;
+        this.this$0 = aboutActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,8 +18,8 @@ class c extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (AboutActivity.a(this.a) != null) {
-            AboutActivity.a(this.a).c();
+        if (AboutActivity.a(this.this$0) != null) {
+            AboutActivity.a(this.this$0).c();
         }
     }
 }

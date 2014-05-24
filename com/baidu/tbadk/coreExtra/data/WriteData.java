@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.g;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
@@ -61,7 +61,7 @@ public class WriteData implements Serializable {
     }
 
     public boolean hasContentToSave() {
-        if (g.b(this.mContent) && g.b(this.mTitle)) {
+        if (j.b(this.mContent) && j.b(this.mTitle)) {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
                 return this.liveCardData != null && this.liveCardData.isModifyTime();
             }
@@ -89,7 +89,7 @@ public class WriteData implements Serializable {
     }
 
     public static WriteData fromDraftString(String str) {
-        if (g.b(str)) {
+        if (j.b(str)) {
             return null;
         }
         try {
@@ -265,7 +265,7 @@ public class WriteData implements Serializable {
                 int i2 = i;
                 if (i2 < chosedFiles.size()) {
                     ImageFileInfo imageFileInfo = chosedFiles.get(i2);
-                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !g.b(imageFileInfo.getFilePath())) {
+                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !j.b(imageFileInfo.getFilePath())) {
                         File file = new File(imageFileInfo.getFilePath());
                         if (file.exists()) {
                             file.delete();

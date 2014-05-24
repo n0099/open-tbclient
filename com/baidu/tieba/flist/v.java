@@ -54,11 +54,11 @@ public class v extends BdAsyncTask<Void, Void, ForumListModel> {
         try {
             z = this.b.e;
             if (z) {
-                com.baidu.adp.lib.cache.s<String> o = com.baidu.tbadk.core.a.b.a().o();
-                if (o != null) {
+                com.baidu.adp.lib.cache.s<String> p = com.baidu.tbadk.core.a.b.a().p();
+                if (p != null) {
                     StringBuilder append = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount())).append("_");
                     requestParams2 = this.b.b;
-                    str = o.a(append.append(requestParams2.menu_name).append("_list").toString());
+                    str = p.a(append.append(requestParams2.menu_name).append("_list").toString());
                 } else {
                     str = null;
                 }
@@ -93,7 +93,7 @@ public class v extends BdAsyncTask<Void, Void, ForumListModel> {
         if (forumListModel == null || !forumListModel.isOk()) {
             uVar = this.b.c;
             context = this.b.a;
-            String string = context.getString(com.baidu.tieba.u.neterror);
+            String string = context.getString(com.baidu.tieba.y.neterror);
             z = this.b.f;
             uVar.a(false, 0, forumListModel, string, z);
             return;

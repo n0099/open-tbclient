@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.TextView;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 class g implements TextWatcher {
@@ -29,6 +29,6 @@ class g implements TextWatcher {
         Context context;
         textView = this.a.d;
         context = this.a.a;
-        textView.setText(MessageFormat.format(context.getResources().getString(u.chat_custom_default_text), Integer.valueOf(editable.length())));
+        textView.setText(MessageFormat.format(context.getResources().getString(y.chat_custom_default_text), Integer.valueOf(editable.length())));
     }
 }

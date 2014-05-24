@@ -44,7 +44,7 @@ public class c implements com.baidu.tieba.model.j {
                 }
             }
         } else {
-            UtilHelper.showToast(this.a.d, com.baidu.tieba.u.bubble_setdefualt_error);
+            UtilHelper.showToast(this.a.d, com.baidu.tieba.y.bubble_setdefualt_error);
         }
         this.a.k();
         this.a.i().a(this.a);
@@ -57,13 +57,13 @@ public class c implements com.baidu.tieba.model.j {
                 if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
                     UtilHelper.showToast(this.a.d, setBubbleResultData.getError_msg());
                 } else {
-                    UtilHelper.showToast(this.a.d, com.baidu.tieba.u.neterror);
+                    UtilHelper.showToast(this.a.d, com.baidu.tieba.y.neterror);
                 }
             } else {
-                UtilHelper.showToast(this.a.d, com.baidu.tieba.u.neterror);
+                UtilHelper.showToast(this.a.d, com.baidu.tieba.y.neterror);
             }
         } else {
-            UtilHelper.showToast(this.a.d, com.baidu.tieba.u.neterror);
+            UtilHelper.showToast(this.a.d, com.baidu.tieba.y.neterror);
         }
         if (this.a.i() != null) {
             this.a.i().b();

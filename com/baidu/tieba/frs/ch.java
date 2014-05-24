@@ -1,16 +1,18 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ch implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.atomData.m> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.atomData.m> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), FrsImageActivity.class);
-            customMessage.getData().startActivity();
-        }
-        return null;
+public class ch implements DialogInterface.OnClickListener {
+    final /* synthetic */ FrsImageActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ch(FrsImageActivity frsImageActivity) {
+        this.a = frsImageActivity;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
     }
 }

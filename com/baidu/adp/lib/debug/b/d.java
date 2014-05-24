@@ -17,7 +17,7 @@ public class d implements View.OnClickListener {
     public void onClick(View view) {
         Context context;
         try {
-            com.baidu.adp.lib.debug.c.c = false;
+            com.baidu.adp.lib.debug.d.c = false;
             context = this.a.k;
             ((Activity) context).finish();
         } catch (Exception e) {

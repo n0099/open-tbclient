@@ -1,21 +1,23 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ak implements Runnable {
-    final /* synthetic */ aj a;
-    private final /* synthetic */ CustomMessage b;
+public class ak implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.data.k> {
+    final /* synthetic */ ai a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(aj ajVar, CustomMessage customMessage) {
-        this.a = ajVar;
-        this.b = customMessage;
+    public ak(ai aiVar) {
+        this.a = aiVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ad.a((AccountData) this.b.getData(), TbadkApplication.m252getInst());
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.data.k> customMessage) {
+        UtilHelper.showNotification(TbadkApplication.m252getInst(), customMessage.getData(), 13);
+        return null;
     }
 }

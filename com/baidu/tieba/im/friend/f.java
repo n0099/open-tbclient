@@ -78,11 +78,11 @@ public class f extends BaseAdapter {
 
     private h b() {
         h hVar = new h(this, null);
-        hVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.im_black_list_item, (ViewGroup) null);
-        hVar.b = (HeadImageView) hVar.a.findViewById(com.baidu.tieba.r.header_view);
+        hVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.im_black_list_item, (ViewGroup) null);
+        hVar.b = (HeadImageView) hVar.a.findViewById(com.baidu.tieba.v.header_view);
         hVar.b.setIsRound(true);
-        hVar.c = (TextView) hVar.a.findViewById(com.baidu.tieba.r.user_name);
-        hVar.d = (Button) hVar.a.findViewById(com.baidu.tieba.r.remove_button);
+        hVar.c = (TextView) hVar.a.findViewById(com.baidu.tieba.v.user_name);
+        hVar.d = (Button) hVar.a.findViewById(com.baidu.tieba.v.remove_button);
         hVar.a.setTag(hVar);
         hVar.d.setOnClickListener(this.d);
         return hVar;
@@ -110,7 +110,7 @@ public class f extends BaseAdapter {
                 return;
             }
             hVar.b.setTag(str);
-            hVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.photo));
+            hVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.photo));
         }
     }
 }

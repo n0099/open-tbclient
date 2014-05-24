@@ -24,9 +24,9 @@ class b implements com.baidu.tbadk.core.view.a {
             }
             str = this.a.f;
             if (!str.equals("from_about_page")) {
-                this.a.e();
+                this.a.f();
             }
-            CompatibleUtile.setAnim(this.a, 0, com.baidu.tieba.l.left);
+            CompatibleUtile.setAnim(this.a, 0, com.baidu.tieba.p.left);
             this.a.closeActivity();
         }
     }

@@ -44,149 +44,85 @@ public class LiveSenderControl {
         return false;
     }
 
-    public static void setLibraryPath(String str) {
-        LiveNativeSender.setLibraryPath(str);
-    }
-
     public void close() {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.close();
     }
 
     public int connect(String str) {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return -1;
-        }
         return this.mNativeSender.connect(str);
     }
 
     public void disableAECM() {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.disableAECM();
     }
 
     public void enableAECM() {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.enableAECM();
     }
 
     public void pause() {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.pause();
     }
 
     public void prepare() {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.init();
     }
 
     public int querySignalStrength() {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return -1;
-        }
         return this.mNativeSender.querySignalStrength();
     }
 
     public void resume() {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.resume();
     }
 
     public int sendUserCmd(String str, String str2) {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return -1;
-        }
         return this.mNativeSender.sendUserCmd(str, str2);
     }
 
     public int sendUserCmd(String str, String str2, LiveNativeSender.OnCommandResultListener onCommandResultListener) {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return -1;
-        }
         return this.mNativeSender.sendUserCmdCallback(str, str2, onCommandResultListener);
     }
 
     public void setAudioParams(int i, int i2) {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.setAudioParams(i, i2);
     }
 
     public void setEventListener(OnStatusEventListener onStatusEventListener) {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.setOnStatusEventListner(onStatusEventListener);
     }
 
     public void setLogLevel(int i) {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.setLogLevel(i);
     }
 
     public void setLoginInfo(String str, String str2, String str3, String str4, String str5, String str6) {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.setLoginInfo(str, str2, str3, str4, str5, str6);
         this.mPublishToken = str2;
     }
 
     public void setLoginInfo(Map<String, String> map) {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.setLoginInfoMap(map);
         this.mPublishToken = map.get("publishtoken");
     }
 
     public void setOption(String str, String str2) {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.setOptions(str, str2);
     }
 
     public void setUserCmdListener(OnUserCmdEventListener onUserCmdEventListener) {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.setOnUsercommandCallbackEventListner(onUserCmdEventListener);
     }
 
     public void shutdown() {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.shutdown();
     }
 
     public void start() {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.start(this.mPublishToken);
     }
 
     public void stop() {
-        if (this.mNativeSender.isLoadLibraryfailed()) {
-            return;
-        }
         this.mNativeSender.stop();
     }
 }

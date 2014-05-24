@@ -70,7 +70,7 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.image_pb_next);
+        this.i = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.image_pb_next);
         this.j = null;
         this.k = null;
         this.l = null;
@@ -90,7 +90,7 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.image_pb_next);
+        this.i = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.image_pb_next);
         this.j = null;
         this.k = null;
         this.l = null;
@@ -110,7 +110,7 @@ public class ImagePbImageView extends ImageView {
         this.f = new RectF();
         this.g = false;
         this.h = false;
-        this.i = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.image_pb_next);
+        this.i = com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.image_pb_next);
         this.j = null;
         this.k = null;
         this.l = null;
@@ -133,13 +133,13 @@ public class ImagePbImageView extends ImageView {
             this.g = false;
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 if (this.m == null) {
-                    this.l = new com.baidu.adp.widget.a.a(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.image_default_1), false, null);
+                    this.l = new com.baidu.adp.widget.a.a(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.image_default_1), false, null);
                     this.m = new SoftReference<>(this.l);
                 }
                 aVar = this.m.get();
             } else {
                 if (this.k == null) {
-                    this.j = new com.baidu.adp.widget.a.a(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.image_default), false, null);
+                    this.j = new com.baidu.adp.widget.a.a(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.image_default), false, null);
                     this.k = new SoftReference<>(this.j);
                 }
                 aVar = this.k.get();
@@ -153,7 +153,7 @@ public class ImagePbImageView extends ImageView {
             if (this.n >= 0) {
                 this.d.setAlpha(255 - ((this.n * MotionEventCompat.ACTION_MASK) / 10));
             }
-            int a = com.baidu.adp.lib.util.h.a(getContext(), 8.0f);
+            int a = com.baidu.adp.lib.util.k.a(getContext(), 8.0f);
             int c2 = aVar.c();
             int d = aVar.d();
             int width = getWidth() - a;

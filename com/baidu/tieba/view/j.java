@@ -31,10 +31,10 @@ public class j extends View {
     }
 
     public void setHeightDip(int i) {
-        this.a = com.baidu.adp.lib.util.h.a(getContext(), i);
+        this.a = com.baidu.adp.lib.util.k.a(getContext(), i);
     }
 
     public void setWidthDip(int i) {
-        this.b = com.baidu.adp.lib.util.h.a(getContext(), i);
+        this.b = com.baidu.adp.lib.util.k.a(getContext(), i);
     }
 }

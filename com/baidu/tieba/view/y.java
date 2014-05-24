@@ -19,7 +19,7 @@ class y implements View.OnClickListener {
         Activity activity;
         String str;
         Activity activity2;
-        if (view.getId() == com.baidu.tieba.r.search_bg_layout) {
+        if (view.getId() == com.baidu.tieba.v.search_bg_layout) {
             activity = this.a.a;
             str = this.a.b;
             TiebaStatic.eventStat(activity, str, "click", 1, new Object[0]);

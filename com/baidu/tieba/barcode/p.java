@@ -5,10 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
 final class p extends BroadcastReceiver {
-    final /* synthetic */ n a;
+    final /* synthetic */ n this$0;
 
     private p(n nVar) {
-        this.a = nVar;
+        this.this$0 = nVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,9 +20,9 @@ final class p extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if ("android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
             if (intent.getIntExtra("plugged", -1) <= 0) {
-                this.a.a();
+                this.this$0.a();
             } else {
-                n.a(this.a);
+                n.a(this.this$0);
             }
         }
     }

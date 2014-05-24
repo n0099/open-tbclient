@@ -15,9 +15,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.data.GroupActivityData;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.base.e {
+public class s extends com.baidu.adp.base.c {
     private static TextView u;
     private GroupActivityActivity a;
     private HeadImageView b;
@@ -45,41 +47,41 @@ public class s extends com.baidu.adp.base.e {
         super(groupActivityActivity);
         this.v = new v(null);
         this.a = groupActivityActivity;
-        groupActivityActivity.setContentView(com.baidu.tieba.s.im_group_activity_activity);
+        groupActivityActivity.setContentView(w.im_group_activity_activity);
         this.c = new ab(groupActivityActivity);
         a(groupActivityActivity);
         b(groupActivityActivity);
     }
 
     private void a(GroupActivityActivity groupActivityActivity) {
-        this.d = (NavigationBar) groupActivityActivity.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.d.a(groupActivityActivity.getResources().getString(com.baidu.tieba.u.group_activity));
+        this.d = (NavigationBar) groupActivityActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.d.a(groupActivityActivity.getResources().getString(y.group_activity));
         this.e = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, groupActivityActivity);
-        this.f = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupActivityActivity.getString(com.baidu.tieba.u.edit));
+        this.f = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupActivityActivity.getString(y.edit));
         this.f.setOnClickListener(new t(this, groupActivityActivity));
         this.f.setVisibility(8);
-        this.t = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupActivityActivity.getString(com.baidu.tieba.u.delete));
+        this.t = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupActivityActivity.getString(y.delete));
         this.t.setOnClickListener(groupActivityActivity);
         this.t.setVisibility(8);
     }
 
     private void b(GroupActivityActivity groupActivityActivity) {
-        this.g = (RelativeLayout) groupActivityActivity.findViewById(com.baidu.tieba.r.group_info_container);
-        this.b = (HeadImageView) groupActivityActivity.findViewById(com.baidu.tieba.r.group_head_pic);
+        this.g = (RelativeLayout) groupActivityActivity.findViewById(com.baidu.tieba.v.group_info_container);
+        this.b = (HeadImageView) groupActivityActivity.findViewById(com.baidu.tieba.v.group_head_pic);
         this.b.setAutoChangeStyle(true);
         this.b.setIsRound(true);
-        this.h = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.r.tv_group_activity_name);
-        this.i = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.r.txt_group_author);
-        this.j = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.r.txt_group_activity_content);
-        this.k = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.r.txt_group_activity_time);
-        this.l = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.r.txt_group_activity_place);
-        this.m = (LinearLayout) groupActivityActivity.findViewById(com.baidu.tieba.r.lay_group_activity_content);
-        this.n = (LinearLayout) groupActivityActivity.findViewById(com.baidu.tieba.r.lay_group_activity_place);
-        this.o = (LinearLayout) groupActivityActivity.findViewById(com.baidu.tieba.r.lay_group_activity_time);
-        this.p = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.r.txt_group_activity_end);
-        this.r = (ImageView) groupActivityActivity.findViewById(com.baidu.tieba.r.img_activity_time);
-        this.q = (ImageView) groupActivityActivity.findViewById(com.baidu.tieba.r.img_activity_place);
-        u = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.r.tv_group_activity_del_tip);
+        this.h = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.v.tv_group_activity_name);
+        this.i = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.v.txt_group_author);
+        this.j = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.v.txt_group_activity_content);
+        this.k = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.v.txt_group_activity_time);
+        this.l = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.v.txt_group_activity_place);
+        this.m = (LinearLayout) groupActivityActivity.findViewById(com.baidu.tieba.v.lay_group_activity_content);
+        this.n = (LinearLayout) groupActivityActivity.findViewById(com.baidu.tieba.v.lay_group_activity_place);
+        this.o = (LinearLayout) groupActivityActivity.findViewById(com.baidu.tieba.v.lay_group_activity_time);
+        this.p = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.v.txt_group_activity_end);
+        this.r = (ImageView) groupActivityActivity.findViewById(com.baidu.tieba.v.img_activity_time);
+        this.q = (ImageView) groupActivityActivity.findViewById(com.baidu.tieba.v.img_activity_place);
+        u = (TextView) groupActivityActivity.findViewById(com.baidu.tieba.v.tv_group_activity_del_tip);
     }
 
     public void a(GroupActivityData groupActivityData, boolean z) {
@@ -88,7 +90,7 @@ public class s extends com.baidu.adp.base.e {
                 this.c.c(groupActivityData.getActivityPortrait(), new u(this));
             }
             this.h.setText(groupActivityData.getgActivityTitle());
-            this.i.setText(String.valueOf(this.a.getResources().getString(com.baidu.tieba.u.group_activity_creator)) + "：" + groupActivityData.getUserName());
+            this.i.setText(String.valueOf(this.a.getResources().getString(y.group_activity_creator)) + "：" + groupActivityData.getUserName());
             if (com.baidu.tieba.im.e.c() != null && com.baidu.tieba.im.e.c().getID() != null && com.baidu.tieba.im.e.c().getID().equals(String.valueOf(groupActivityData.getUserId()))) {
                 if (groupActivityData.getIsEnd() == 1) {
                     this.f.setVisibility(8);
@@ -111,16 +113,16 @@ public class s extends com.baidu.adp.base.e {
             }
             if (groupActivityData.getIsEnd() == 1) {
                 this.p.setVisibility(0);
-                bc.c(this.r, com.baidu.tieba.q.icon_activity_time_n);
-                bc.c(this.q, com.baidu.tieba.q.icon_activity_lbs_n);
-                bc.a(this.k, com.baidu.tieba.o.group_activity_group_author, 1);
-                bc.a(this.l, com.baidu.tieba.o.group_activity_group_author, 1);
+                bc.c(this.r, com.baidu.tieba.u.icon_activity_time_n);
+                bc.c(this.q, com.baidu.tieba.u.icon_activity_lbs_n);
+                bc.a(this.k, com.baidu.tieba.s.group_activity_group_author, 1);
+                bc.a(this.l, com.baidu.tieba.s.group_activity_group_author, 1);
             } else {
                 this.p.setVisibility(8);
-                bc.c(this.r, com.baidu.tieba.q.icon_activity_time_s);
-                bc.c(this.q, com.baidu.tieba.q.icon_activity_lbs_s);
-                bc.a(this.k, com.baidu.tieba.o.group_activity_main_text, 1);
-                bc.a(this.l, com.baidu.tieba.o.group_activity_main_text, 1);
+                bc.c(this.r, com.baidu.tieba.u.icon_activity_time_s);
+                bc.c(this.q, com.baidu.tieba.u.icon_activity_lbs_s);
+                bc.a(this.k, com.baidu.tieba.s.group_activity_main_text, 1);
+                bc.a(this.l, com.baidu.tieba.s.group_activity_main_text, 1);
             }
             if (TextUtils.isEmpty(groupActivityData.getgActivityContent())) {
                 this.m.setVisibility(8);
@@ -145,7 +147,7 @@ public class s extends com.baidu.adp.base.e {
                 sb.append(be.a(year, month, date2));
                 sb.append(" ");
                 if (hours > 12) {
-                    sb.append(this.a.getResources().getString(com.baidu.tieba.u.afternoon));
+                    sb.append(this.a.getResources().getString(y.afternoon));
                     sb.append(hours - 12);
                     sb.append(":");
                     if (minutes < 10) {
@@ -153,7 +155,7 @@ public class s extends com.baidu.adp.base.e {
                     }
                     sb.append(minutes);
                 } else {
-                    sb.append(this.a.getResources().getString(com.baidu.tieba.u.morning));
+                    sb.append(this.a.getResources().getString(y.morning));
                     sb.append(hours);
                     sb.append(":");
                     if (minutes < 10) {
@@ -167,12 +169,12 @@ public class s extends com.baidu.adp.base.e {
             }
             if (TextUtils.isEmpty(groupActivityData.getgActivityArea())) {
                 this.n.setVisibility(8);
-                bc.f(this.o, com.baidu.tieba.q.bg_activity_down);
+                bc.f(this.o, com.baidu.tieba.u.bg_activity_down);
                 return;
             }
             this.n.setVisibility(0);
             this.l.setText(groupActivityData.getgActivityArea());
-            bc.f(this.o, com.baidu.tieba.q.bg_activity_middle);
+            bc.f(this.o, com.baidu.tieba.u.bg_activity_middle);
         }
     }
 
@@ -201,9 +203,9 @@ public class s extends com.baidu.adp.base.e {
 
     public void f() {
         if (this.s == null) {
-            CharSequence[] charSequenceArr = {this.a.getString(com.baidu.tieba.u.group_activity_eidt), this.a.getString(com.baidu.tieba.u.group_activity_delete)};
+            CharSequence[] charSequenceArr = {this.a.getString(y.group_activity_eidt), this.a.getString(y.group_activity_delete)};
             AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
-            builder.setTitle(this.a.getString(com.baidu.tieba.u.operation));
+            builder.setTitle(this.a.getString(y.operation));
             builder.setItems(charSequenceArr, this.a);
             this.s = builder.create();
             this.s.setCanceledOnTouchOutside(true);

@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.view.LiveRoomEntranceScrollView;
 /* loaded from: classes.dex */
-public class az extends com.baidu.adp.base.e {
+public class az extends com.baidu.adp.base.c {
     public static String a = "live_room_entrance_gif_s.gif";
     public static String b = "live_room_entrance_gif_b.gif";
     private Button c;
@@ -46,16 +46,16 @@ public class az extends com.baidu.adp.base.e {
     public az(LiveRoomEntranceActivity liveRoomEntranceActivity) {
         super(liveRoomEntranceActivity);
         this.e = liveRoomEntranceActivity;
-        liveRoomEntranceActivity.setContentView(com.baidu.tieba.s.activity_live_entrance);
-        this.f = (NavigationBar) liveRoomEntranceActivity.findViewById(com.baidu.tieba.r.lay_title_bar);
+        liveRoomEntranceActivity.setContentView(com.baidu.tieba.w.activity_live_entrance);
+        this.f = (NavigationBar) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.lay_title_bar);
         this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, liveRoomEntranceActivity);
-        this.f.a(com.baidu.tieba.u.liveroom);
-        this.h = (ImageView) liveRoomEntranceActivity.findViewById(com.baidu.tieba.r.live_room_entrance_spot);
-        this.c = (Button) liveRoomEntranceActivity.findViewById(com.baidu.tieba.r.btnEnter);
-        this.j = new ba(this, this.e.getResources().getDimensionPixelSize(com.baidu.tieba.p.ds200));
-        this.i = (LiveRoomEntranceScrollView) liveRoomEntranceActivity.findViewById(com.baidu.tieba.r.live_room_entrance_scrollview);
+        this.f.a(com.baidu.tieba.y.liveroom);
+        this.h = (ImageView) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.live_room_entrance_spot);
+        this.c = (Button) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.btnEnter);
+        this.j = new ba(this, this.e.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds200));
+        this.i = (LiveRoomEntranceScrollView) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.live_room_entrance_scrollview);
         this.i.setOnSizeChangeListener(this.j);
-        this.d = (EditText) liveRoomEntranceActivity.findViewById(com.baidu.tieba.r.homenameedit);
+        this.d = (EditText) liveRoomEntranceActivity.findViewById(com.baidu.tieba.v.homenameedit);
         this.c.setOnClickListener(liveRoomEntranceActivity);
         this.d.addTextChangedListener(new bb(this));
     }

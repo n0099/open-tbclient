@@ -13,7 +13,7 @@ import com.baidu.tieba.person.by;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class av extends com.baidu.adp.base.d {
+public class av extends com.baidu.adp.base.b {
     private long c;
     private long d;
     private long e;
@@ -208,12 +208,12 @@ public class av extends com.baidu.adp.base.d {
         return this.j;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

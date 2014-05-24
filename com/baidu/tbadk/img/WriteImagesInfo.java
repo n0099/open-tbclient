@@ -111,7 +111,7 @@ public class WriteImagesInfo implements Parcelable, Serializable {
     }
 
     public void parseJson(String str) {
-        if (!com.baidu.adp.lib.util.g.b(str)) {
+        if (!com.baidu.adp.lib.util.j.b(str)) {
             try {
                 parseJson(new JSONObject(str));
             } catch (JSONException e) {

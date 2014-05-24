@@ -1,68 +1,56 @@
 package com.baidu.tbadk.motu_gallery;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class t extends BaseAdapter {
-    final /* synthetic */ n a;
-    private Context b;
+class t implements View.OnClickListener {
+    final /* synthetic */ s a;
+    private final /* synthetic */ x b;
+    private final /* synthetic */ a c;
 
-    public t(n nVar, Context context) {
-        this.a = nVar;
-        this.b = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public t(s sVar, x xVar, a aVar) {
+        this.a = sVar;
+        this.b = xVar;
+        this.c = aVar;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.a.a.b();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return this.a.a.a(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewphotoLinkedHashMap viewphotoLinkedHashMap;
-        a aVar;
-        ViewphotoLinkedHashMap viewphotoLinkedHashMap2;
-        boolean z;
-        ViewphotoLinkedHashMap viewphotoLinkedHashMap3;
-        c a = this.a.a.a(i);
-        viewphotoLinkedHashMap = this.a.h;
-        if (viewphotoLinkedHashMap.containsKey(Integer.valueOf(i))) {
-            viewphotoLinkedHashMap3 = this.a.h;
-            aVar = (a) viewphotoLinkedHashMap3.get((Object) Integer.valueOf(i));
-        } else {
-            aVar = new a(this.b);
-            aVar.setLayoutParams(new AbsListView.LayoutParams(this.a.d, this.a.d));
-            aVar.setTag(Integer.valueOf(i));
-            aVar.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            aVar.setPadding(this.a.e, this.a.e, this.a.e, this.a.e);
-            aVar.setOnClickListener(new u(this, a));
-            viewphotoLinkedHashMap2 = this.a.h;
-            viewphotoLinkedHashMap2.put(Integer.valueOf(i), (ImageView) aVar);
-        }
-        z = this.a.p;
-        if (z) {
-            this.a.p = false;
-        }
-        if (a != null && w.a().b(a.d)) {
-            aVar.setIsSelected(true);
-        } else {
-            aVar.setIsSelected(false);
-        }
-        return aVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        r rVar;
+        JigsawAlbumListActivity jigsawAlbumListActivity;
+        r rVar2;
+        JigsawAlbumListActivity jigsawAlbumListActivity2;
+        r rVar3;
+        JigsawAlbumListActivity jigsawAlbumListActivity3;
+        LinearLayout linearLayout;
+        r rVar4;
+        JigsawAlbumListActivity jigsawAlbumListActivity4;
+        TextView textView;
+        r rVar5;
+        JigsawAlbumListActivity jigsawAlbumListActivity5;
+        r rVar6;
+        JigsawAlbumListActivity jigsawAlbumListActivity6;
+        rVar = this.a.a;
+        jigsawAlbumListActivity = rVar.a;
+        u uVar = jigsawAlbumListActivity.a;
+        rVar2 = this.a.a;
+        jigsawAlbumListActivity2 = rVar2.a;
+        uVar.b(jigsawAlbumListActivity2, this.b.getUri());
+        this.c.setIsSelected(false);
+        rVar3 = this.a.a;
+        jigsawAlbumListActivity3 = rVar3.a;
+        linearLayout = jigsawAlbumListActivity3.m;
+        linearLayout.removeView(view);
+        rVar4 = this.a.a;
+        jigsawAlbumListActivity4 = rVar4.a;
+        textView = jigsawAlbumListActivity4.o;
+        rVar5 = this.a.a;
+        jigsawAlbumListActivity5 = rVar5.a;
+        u uVar2 = jigsawAlbumListActivity5.a;
+        rVar6 = this.a.a;
+        jigsawAlbumListActivity6 = rVar6.a;
+        textView.setText(uVar2.e(jigsawAlbumListActivity6));
     }
 }

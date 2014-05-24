@@ -50,8 +50,8 @@ public class b extends BdAsyncTask<Object, h, h> {
         String str2;
         boolean z = true;
         h hVar = new h();
-        com.baidu.adp.lib.cache.s<String> r = com.baidu.tbadk.core.a.b.a().r();
-        String a = r.a("first_dir_cache_key");
+        com.baidu.adp.lib.cache.s<String> s = com.baidu.tbadk.core.a.b.a().s();
+        String a = s.a("first_dir_cache_key");
         if (a != null) {
             if (!a.equals("")) {
                 hVar.b(a);
@@ -72,7 +72,7 @@ public class b extends BdAsyncTask<Object, h, h> {
                             return null;
                         }
                     } else {
-                        r.a("first_dir_cache_key", i, 86400000L);
+                        s.a("first_dir_cache_key", i, 86400000L);
                     }
                 } else {
                     hVar.a(this.b.f());

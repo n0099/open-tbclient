@@ -17,17 +17,17 @@ class u implements com.baidu.tbadk.widget.richText.s {
 
     @Override // com.baidu.tbadk.widget.richText.s
     public void onClick(View view, String str, int i) {
-        bc bcVar;
+        bj bjVar;
         com.baidu.tbadk.widget.richText.a a;
         int i2;
         String a2;
         try {
             TiebaStatic.eventStat(this.a, "pic_pb", "");
-            bcVar = this.a.y;
-            com.baidu.tieba.data.ae p = bcVar.p();
+            bjVar = this.a.x;
+            com.baidu.tieba.data.af p = bjVar.p();
             a = this.a.a(str, i);
             ArrayList<com.baidu.tbadk.widget.richText.c> a3 = a.a();
-            i2 = this.a.ak;
+            i2 = this.a.ai;
             com.baidu.tbadk.widget.richText.c cVar = a3.get(i2);
             if (cVar != null) {
                 ArrayList<String> arrayList = new ArrayList<>();
@@ -37,22 +37,22 @@ class u implements com.baidu.tbadk.widget.richText.s {
                     String str2 = "";
                     int i3 = i;
                     for (int i4 = 0; i4 < size; i4++) {
-                        com.baidu.tieba.data.ah ahVar = p.e().get(i4);
-                        com.baidu.tbadk.widget.richText.a h = ahVar.h();
+                        com.baidu.tieba.data.ai aiVar = p.e().get(i4);
+                        com.baidu.tbadk.widget.richText.a p2 = aiVar.p();
                         int size2 = arrayList.size();
-                        i3 = this.a.a(h, a, i3, i, arrayList);
+                        i3 = this.a.a(p2, a, i3, i, arrayList);
                         int size3 = arrayList.size();
                         if (size2 != size3) {
                             str2 = arrayList.get(size3 - 1);
                         }
-                        ArrayList<com.baidu.tieba.data.ah> c = ahVar.c();
+                        ArrayList<com.baidu.tieba.data.ai> k = aiVar.k();
                         int i5 = 0;
                         while (true) {
                             int i6 = i5;
-                            if (i6 >= c.size()) {
+                            if (i6 >= k.size()) {
                                 break;
                             }
-                            i3 = this.a.a(c.get(i6).h(), a, i3, i, arrayList);
+                            i3 = this.a.a(k.get(i6).p(), a, i3, i, arrayList);
                             i5 = i6 + 1;
                         }
                     }
@@ -66,7 +66,7 @@ class u implements com.baidu.tbadk.widget.richText.s {
                             str4 = p.c().getId();
                         }
                         if (p.d() != null) {
-                            str5 = p.d().k();
+                            str5 = p.d().p();
                         }
                         z = p.m() == 1;
                     }
@@ -85,7 +85,7 @@ class u implements com.baidu.tbadk.widget.richText.s {
                         str7 = p.c().getId();
                     }
                     if (p.d() != null) {
-                        str8 = p.d().k();
+                        str8 = p.d().p();
                     }
                     z2 = p.m() == 1;
                 }

@@ -15,7 +15,7 @@ public class ba extends BdAsyncTask<String, String, String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.String, byte[]] */
+    /* JADX WARN: Type inference failed for: r5v0, types: [byte[], java.lang.String] */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(String... strArr) {
@@ -30,9 +30,9 @@ public class ba extends BdAsyncTask<String, String, String> {
                 } else if (this.b.d == 7) {
                     bd.a().b(this.b.k, this.b.j);
                 } else if (this.b.k != null) {
-                    com.baidu.adp.lib.cache.s<String> z = com.baidu.tbadk.core.a.b.a().z();
-                    if (z != null && this.b.h) {
-                        z.a(this.b.l, "gif", 315532800000L);
+                    com.baidu.adp.lib.cache.s<String> A = com.baidu.tbadk.core.a.b.a().A();
+                    if (A != null && this.b.h) {
+                        A.a(this.b.l, "gif", 315532800000L);
                     }
                     bd.a().a(this.b.k, this.b.j);
                 }

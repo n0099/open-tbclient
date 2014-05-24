@@ -24,7 +24,7 @@ public class AccessTokenManager {
     }
 
     public boolean getAccesssTokenInBackground(String str) {
-        if (com.baidu.adp.lib.util.g.b(str)) {
+        if (com.baidu.adp.lib.util.j.b(str)) {
             return false;
         }
         AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(str);

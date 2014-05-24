@@ -7,10 +7,12 @@ import android.widget.ProgressBar;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.base.e {
+public class s extends com.baidu.adp.base.c {
     private View a;
     private View b;
     private LiveNotifyActivity c;
@@ -34,27 +36,27 @@ public class s extends com.baidu.adp.base.e {
     }
 
     void a() {
-        this.a = View.inflate(this.c, com.baidu.tieba.s.updates_activity, null);
+        this.a = View.inflate(this.c, w.updates_activity, null);
         this.c.setContentView(this.a);
-        this.j = (NavigationBar) this.c.findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.j = (NavigationBar) this.c.findViewById(v.view_navigation_bar);
         this.b = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.j.a(this.c.getString(u.live_chat_room_more_livenotify));
-        this.k = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, com.baidu.tieba.s.updates_activity_nav_left, (View.OnClickListener) null);
-        this.l = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.s.updates_activity_nav_right, (View.OnClickListener) null);
-        this.i = (Button) this.k.findViewById(com.baidu.tieba.r.btn_delete);
+        this.j.a(this.c.getString(y.live_chat_room_more_livenotify));
+        this.k = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, w.updates_activity_nav_left, (View.OnClickListener) null);
+        this.l = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.updates_activity_nav_right, (View.OnClickListener) null);
+        this.i = (Button) this.k.findViewById(v.btn_delete);
         this.i.setOnClickListener(this.c);
         this.b.setOnClickListener(this.c);
-        this.d = (BdListView) this.a.findViewById(com.baidu.tieba.r.updates_list);
-        this.f = (ProgressBar) this.a.findViewById(com.baidu.tieba.r.pro_load);
-        this.g = (Button) this.l.findViewById(com.baidu.tieba.r.btn_edit);
+        this.d = (BdListView) this.a.findViewById(v.updates_list);
+        this.f = (ProgressBar) this.a.findViewById(v.pro_load);
+        this.g = (Button) this.l.findViewById(v.btn_edit);
         this.g.setOnClickListener(this.c);
-        this.h = (Button) this.l.findViewById(com.baidu.tieba.r.btn_cancel);
+        this.h = (Button) this.l.findViewById(v.btn_cancel);
         this.h.setOnClickListener(this.c);
         a(0);
         a(false);
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.c
     public void destroy() {
         super.destroy();
         if (this.e != null) {
@@ -94,7 +96,7 @@ public class s extends com.baidu.adp.base.e {
     }
 
     public void a(int i) {
-        this.i.setText(String.format(this.c.getString(u.del_count), Integer.valueOf(i)));
+        this.i.setText(String.format(this.c.getString(y.del_count), Integer.valueOf(i)));
         if (i == 0) {
             this.i.setEnabled(false);
         } else {

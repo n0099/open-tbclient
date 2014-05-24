@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
-public class LiveGroupHistoryActivity extends BaseActivity implements com.baidu.adp.widget.ListView.u {
+public class LiveGroupHistoryActivity extends BaseActivity implements com.baidu.adp.widget.ListView.x {
     private ak a;
     private com.baidu.tieba.im.model.z b;
     private com.baidu.tbadk.editortool.ab c;
@@ -50,7 +50,7 @@ public class LiveGroupHistoryActivity extends BaseActivity implements com.baidu.
     }
 
     private void c() {
-        showLoadingDialog(getString(com.baidu.tieba.u.group_tab_enterchatroom_loading), null);
+        showLoadingDialog(getString(com.baidu.tieba.y.group_tab_enterchatroom_loading), null);
         this.b.a(this.b.a(), this.b.b(), 20);
     }
 
@@ -88,7 +88,7 @@ public class LiveGroupHistoryActivity extends BaseActivity implements com.baidu.
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.x
     public void f_() {
         f();
     }

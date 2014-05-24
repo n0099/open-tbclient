@@ -110,11 +110,11 @@ public class s extends BaseAdapter {
 
     private w b() {
         w wVar = new w(this, null);
-        wVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.invite_friend_list_item, (ViewGroup) null);
-        wVar.b = (HeadImageView) wVar.a.findViewById(com.baidu.tieba.r.photo);
+        wVar.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.invite_friend_list_item, (ViewGroup) null);
+        wVar.b = (HeadImageView) wVar.a.findViewById(com.baidu.tieba.v.photo);
         wVar.b.setIsRound(true);
-        wVar.c = (TextView) wVar.a.findViewById(com.baidu.tieba.r.txt_user_name);
-        wVar.d = (TbCheckBox) wVar.a.findViewById(com.baidu.tieba.r.ckb_select);
+        wVar.c = (TextView) wVar.a.findViewById(com.baidu.tieba.v.txt_user_name);
+        wVar.d = (TbCheckBox) wVar.a.findViewById(com.baidu.tieba.v.ckb_select);
         wVar.a.setOnClickListener(this.g);
         if (this.d != null) {
             wVar.d.setStatedChangedListener(this.d);

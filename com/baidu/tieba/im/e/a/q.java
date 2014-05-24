@@ -21,7 +21,7 @@ public class q implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null || !(customMessage instanceof RequestLocalHistoryMessage)) {
             return null;
         }
-        byte[] a = com.baidu.tbadk.core.a.b.a().B().a(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
+        byte[] a = com.baidu.tbadk.core.a.b.a().C().a(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
         if (a == null) {
             return null;
         }

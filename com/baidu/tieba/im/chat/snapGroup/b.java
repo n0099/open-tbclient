@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.chat.bw;
+import com.baidu.tieba.im.chat.bv;
 import com.baidu.tieba.im.data.RandChatRoomData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.f.s;
@@ -12,7 +12,7 @@ import com.baidu.tieba.im.message.ResponseChatRoomInfoMessage;
 import com.baidu.tieba.im.message.ResponseEnterChatRoomMessage;
 import com.baidu.tieba.im.message.ResponseQuitChatRoomMessage;
 import com.baidu.tieba.im.randchat.WaittingActivity;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class b extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ SnapGroupChatActivity a;
@@ -32,7 +32,7 @@ class b extends com.baidu.adp.framework.listener.b {
         int i;
         int i2;
         int i3;
-        com.baidu.tieba.im.chat.h hVar;
+        com.baidu.tieba.im.chat.g gVar;
         switch (socketResponsedMessage.getCmd()) {
             case MessageTypes.CMD_QUERY_CHAT_ROOM_INFO /* 106001 */:
                 if (socketResponsedMessage instanceof ResponseChatRoomInfoMessage) {
@@ -45,7 +45,7 @@ class b extends com.baidu.adp.framework.listener.b {
             case MessageTypes.CMD_REQUEST_ENTER_CHAT_ROOM /* 106101 */:
                 this.a.closeLoadingDialog();
                 if (!(socketResponsedMessage instanceof ResponseEnterChatRoomMessage)) {
-                    this.a.showToast(u.neterror);
+                    this.a.showToast(y.neterror);
                     return;
                 }
                 ResponseEnterChatRoomMessage responseEnterChatRoomMessage = (ResponseEnterChatRoomMessage) socketResponsedMessage;
@@ -57,14 +57,14 @@ class b extends com.baidu.adp.framework.listener.b {
                         }
                         return;
                     }
-                    this.a.showToast(u.neterror);
+                    this.a.showToast(y.neterror);
                     return;
                 }
                 RandChatRoomData randChatRoomData = responseEnterChatRoomMessage.getRandChatRoomData();
                 if (randChatRoomData != null && randChatRoomData.e() > 0) {
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     imMessageCenterPojo.setGid(String.valueOf(randChatRoomData.d()));
-                    imMessageCenterPojo.setPulled_msgId(bw.b(randChatRoomData.k()));
+                    imMessageCenterPojo.setPulled_msgId(bv.b(randChatRoomData.k()));
                     imMessageCenterPojo.setCustomGroupType(3);
                     imMessageCenterPojo.setGroup_name("聊天室");
                     imMessageCenterPojo.setIs_delete(0);
@@ -88,8 +88,8 @@ class b extends com.baidu.adp.framework.listener.b {
                 return;
             case MessageTypes.CMD_QUIT_CHAT_ROOM /* 106102 */:
                 if (socketResponsedMessage instanceof ResponseQuitChatRoomMessage) {
-                    hVar = this.a.d;
-                    hVar.P();
+                    gVar = this.a.d;
+                    gVar.Q();
                     return;
                 }
                 return;

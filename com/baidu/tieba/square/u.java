@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class u extends BaseAdapter implements com.baidu.tieba.view.t {
     private y a = null;
-    private ArrayList<at> b = new ArrayList<>();
+    private ArrayList<au> b = new ArrayList<>();
     private v c;
 
     public u(Context context) {
@@ -16,7 +16,7 @@ public class u extends BaseAdapter implements com.baidu.tieba.view.t {
         this.c = new v(context);
     }
 
-    public void a(ArrayList<at> arrayList) {
+    public void a(ArrayList<au> arrayList) {
         this.b = arrayList;
         this.c.a(arrayList);
         this.a = this.c.getPagerAdapter();

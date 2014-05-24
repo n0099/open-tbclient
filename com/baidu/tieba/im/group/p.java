@@ -7,14 +7,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.bc;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class p {
-    private View a = LayoutInflater.from(TbadkApplication.m252getInst().getApp().getApplicationContext()).inflate(s.title_view_of_tab_group, (ViewGroup) null);
-    private TextView b = (TextView) this.a.findViewById(r.title_view_of_tab_group_text);
-    private ImageView c = (ImageView) this.a.findViewById(r.diver_top);
-    private ImageView d = (ImageView) this.a.findViewById(r.diver_bottom);
+    private View a = LayoutInflater.from(TbadkApplication.m252getInst().getApp().getApplicationContext()).inflate(w.title_view_of_tab_group, (ViewGroup) null);
+    private TextView b = (TextView) this.a.findViewById(v.title_view_of_tab_group_text);
+    private ImageView c = (ImageView) this.a.findViewById(v.diver_top);
+    private ImageView d = (ImageView) this.a.findViewById(v.diver_bottom);
 
     private p() {
         this.a.setTag(this);
@@ -45,6 +46,6 @@ class p {
     }
 
     public void b() {
-        bc.a(this.b, com.baidu.tieba.o.cp_cont_c, 1);
+        bc.a(this.b, s.cp_cont_c, 1);
     }
 }

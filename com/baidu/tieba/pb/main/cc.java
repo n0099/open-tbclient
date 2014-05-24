@@ -1,24 +1,34 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.FrameLayout;
+import android.view.View;
 import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cc implements Runnable {
-    final /* synthetic */ cb a;
-    private final /* synthetic */ ImageView b;
+public class cc implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ bq a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cc(cb cbVar, ImageView imageView) {
-        this.a = cbVar;
-        this.b = imageView;
+    public cc(bq bqVar) {
+        this.a = bqVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bj bjVar;
-        FrameLayout frameLayout;
-        bjVar = this.a.a;
-        frameLayout = bjVar.n;
-        frameLayout.removeView(this.b);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        BdListView bdListView;
+        BdListView bdListView2;
+        if (aVar != null) {
+            bdListView = this.a.o;
+            View findViewWithTag = bdListView.findViewWithTag(str);
+            while (findViewWithTag != null) {
+                if (findViewWithTag instanceof ImageView) {
+                    ImageView imageView = (ImageView) findViewWithTag;
+                    imageView.setTag(null);
+                    imageView.setImageBitmap(aVar.h());
+                }
+                bdListView2 = this.a.o;
+                findViewWithTag = bdListView2.findViewWithTag(str);
+            }
+        }
     }
 }

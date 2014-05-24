@@ -8,8 +8,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.GroupUpdateMessage;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
-import com.baidu.tieba.im.chat.bw;
-import com.baidu.tieba.im.chat.x;
+import com.baidu.tieba.im.chat.bv;
+import com.baidu.tieba.im.chat.w;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.pushNotify.p;
 import java.util.LinkedHashMap;
@@ -56,8 +56,8 @@ public class f extends com.baidu.adp.framework.listener.b {
                             if (groupUpdateMessage != null) {
                                 linkedList.add(String.valueOf(groupUpdateMessage.getGroupId()));
                                 if (groupUpdateMessage.getGroupType() == 6) {
-                                    if (groupUpdateMessage.getGroupId() != 0 && x.a != groupUpdateMessage.getGroupId()) {
-                                        x.a(groupUpdateMessage.getGroupId());
+                                    if (groupUpdateMessage.getGroupId() != 0 && w.a != groupUpdateMessage.getGroupId()) {
+                                        w.a(groupUpdateMessage.getGroupId());
                                         BdLog.d("see online1 gid Online=" + groupUpdateMessage.getGroupId());
                                     }
                                 } else if (groupUpdateMessage.getGroupType() == 11 || groupUpdateMessage.getGroupType() == 12) {
@@ -82,7 +82,7 @@ public class f extends com.baidu.adp.framework.listener.b {
                                 imMessageCenterPojo.setCustomGroupType(a.a(groupUpdateMessage2.getGroupType()));
                                 ImMessageCenterPojo a = com.baidu.tieba.im.b.e.a(new StringBuilder(String.valueOf(groupUpdateMessage2.getGroupId())).toString());
                                 if (a == null || a.getPulled_msgId() == 0 || a.getLast_rid() == 0) {
-                                    long b = bw.b(groupUpdateMessage2.getLastMsgId());
+                                    long b = bv.b(groupUpdateMessage2.getLastMsgId());
                                     imMessageCenterPojo.setPulled_msgId(b);
                                     imMessageCenterPojo.setLast_rid(b);
                                 }

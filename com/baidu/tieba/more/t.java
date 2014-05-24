@@ -3,7 +3,7 @@ package com.baidu.tieba.more;
 import com.baidu.tieba.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends com.baidu.adp.base.g {
+public class t extends com.baidu.adp.base.e {
     final /* synthetic */ MoreActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ public class t extends com.baidu.adp.base.g {
         this.a = moreActivity;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         com.baidu.tieba.person.t tVar;
         com.baidu.tieba.person.t tVar2;

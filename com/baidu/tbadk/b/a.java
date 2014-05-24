@@ -6,6 +6,7 @@ import com.baidu.adp.framework.a.f;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.stats.r;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.a.g;
@@ -133,7 +134,7 @@ public class a extends f {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam("sign", com.baidu.adp.lib.util.g.a(stringBuffer.toString()));
+        httpMessage.addParam("sign", j.a(stringBuffer.toString()));
     }
 
     private void c(HttpMessage httpMessage) {

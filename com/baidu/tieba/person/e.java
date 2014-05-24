@@ -43,11 +43,11 @@ public class e extends BdAsyncTask<Object, String, com.baidu.tieba.model.d> {
         String str2;
         String str3;
         String str4;
-        com.baidu.adp.lib.cache.s<String> p;
+        com.baidu.adp.lib.cache.s<String> q;
         try {
             str = this.a.r;
-            if (str == null && (p = com.baidu.tbadk.core.a.b.a().p()) != null) {
-                publishProgress(p.a(TbadkApplication.getCurrentAccount()));
+            if (str == null && (q = com.baidu.tbadk.core.a.b.a().q()) != null) {
+                publishProgress(q.a(TbadkApplication.getCurrentAccount()));
             }
             this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like");
             str2 = this.a.r;
@@ -81,10 +81,10 @@ public class e extends BdAsyncTask<Object, String, com.baidu.tieba.model.d> {
     }
 
     private void a(String str) {
-        com.baidu.adp.lib.cache.s<String> p;
+        com.baidu.adp.lib.cache.s<String> q;
         String currentAccount = TbadkApplication.getCurrentAccount();
-        if (currentAccount != null && (p = com.baidu.tbadk.core.a.b.a().p()) != null) {
-            p.a(currentAccount, str, 604800000L);
+        if (currentAccount != null && (q = com.baidu.tbadk.core.a.b.a().q()) != null) {
+            q.a(currentAccount, str, 604800000L);
         }
     }
 
@@ -154,17 +154,17 @@ public class e extends BdAsyncTask<Object, String, com.baidu.tieba.model.d> {
                     if (i != 2) {
                         i2 = this.a.s;
                         if (i2 == 1) {
-                            string = this.a.getString(com.baidu.tieba.u.he_attention_prefix);
+                            string = this.a.getString(com.baidu.tieba.y.he_attention_prefix);
                         } else {
-                            string = this.a.getString(com.baidu.tieba.u.its_attention_prefix);
+                            string = this.a.getString(com.baidu.tieba.y.its_attention_prefix);
                         }
                     } else {
-                        string = this.a.getString(com.baidu.tieba.u.she_attention_prefix);
+                        string = this.a.getString(com.baidu.tieba.y.she_attention_prefix);
                     }
                 } else {
-                    string = this.a.getString(com.baidu.tieba.u.my_attention_prefix);
+                    string = this.a.getString(com.baidu.tieba.y.my_attention_prefix);
                 }
-                String string2 = this.a.getString(com.baidu.tieba.u.top_rec_like_finish_b);
+                String string2 = this.a.getString(com.baidu.tieba.y.top_rec_like_finish_b);
                 view2 = this.a.c;
                 view2.setVisibility(0);
                 textView = this.a.e;

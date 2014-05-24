@@ -11,8 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class WaterFallView extends BdPullRefreshScrollView {
     private int b;
@@ -106,13 +106,13 @@ public class WaterFallView extends BdPullRefreshScrollView {
     private void j() {
         this.e = new p(this);
         this.g = new p(this);
-        this.n = com.baidu.adp.lib.util.h.a(getContext(), 20.0f);
-        this.b = com.baidu.adp.lib.util.h.a(getContext(), 3.0f);
-        this.c = (LinearLayout) LayoutInflater.from(getContext()).inflate(s.water_fall_view, (ViewGroup) null);
+        this.n = com.baidu.adp.lib.util.k.a(getContext(), 20.0f);
+        this.b = com.baidu.adp.lib.util.k.a(getContext(), 3.0f);
+        this.c = (LinearLayout) LayoutInflater.from(getContext()).inflate(w.water_fall_view, (ViewGroup) null);
         addView(this.c);
-        this.d = (LinearLayout) this.c.findViewById(r.line1);
-        this.f = (LinearLayout) this.c.findViewById(r.line2);
-        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.util.h.b(getContext()), 1073741824), 0);
+        this.d = (LinearLayout) this.c.findViewById(v.line1);
+        this.f = (LinearLayout) this.c.findViewById(v.line2);
+        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.util.k.b(getContext()), 1073741824), 0);
         this.j = this.d.getMeasuredWidth();
         k();
     }
@@ -135,7 +135,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
         }
         if (i2 == 0 || z) {
             try {
-                Object obj = com.baidu.adp.lib.util.h.a(this, "mScroller").get(this);
+                Object obj = com.baidu.adp.lib.util.k.a(this, "mScroller").get(this);
                 if (obj != null && (obj instanceof Scroller)) {
                     ((Scroller) obj).abortAnimation();
                 }

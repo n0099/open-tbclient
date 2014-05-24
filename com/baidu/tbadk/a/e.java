@@ -43,7 +43,7 @@ public class e extends l {
             }
             try {
                 if (bVar.d > 0) {
-                    bVar.b = com.baidu.tbadk.c.d.a(com.baidu.tbadk.message.websockt.c.b().d(), bVar.b, bVar.c, bVar.d);
+                    bVar.b = com.baidu.tbadk.c.e.a(com.baidu.tbadk.message.websockt.c.b().d(), bVar.b, bVar.c, bVar.d);
                     bVar.c = 0;
                     bVar.d = bVar.b.length;
                 }
@@ -69,7 +69,7 @@ public class e extends l {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            com.baidu.tbadk.c.a.b(byteArrayInputStream, byteArrayOutputStream);
+            com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream);
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {

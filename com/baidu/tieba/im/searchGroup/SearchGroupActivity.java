@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
-import com.baidu.tieba.im.model.bv;
-import com.baidu.tieba.r;
-import com.baidu.tieba.u;
+import com.baidu.tieba.im.model.bw;
+import com.baidu.tieba.v;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class SearchGroupActivity extends BaseActivity implements View.OnClickListener {
-    protected bv a;
+    protected bw a;
     private g b;
     private com.baidu.adp.framework.listener.b c = new d(this, MessageTypes.CMD_REQUEST_SEARCH_GROUP);
 
@@ -26,7 +26,7 @@ public class SearchGroupActivity extends BaseActivity implements View.OnClickLis
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = new g(this);
-        this.a = new bv();
+        this.a = new bw();
         registerListener(this.c);
     }
 
@@ -65,7 +65,7 @@ public class SearchGroupActivity extends BaseActivity implements View.OnClickLis
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == r.home_bt_search_s && (view.getTag() instanceof String)) {
+        if (view.getId() == v.home_bt_search_s && (view.getTag() instanceof String)) {
             a((String) view.getTag());
         }
     }
@@ -80,11 +80,11 @@ public class SearchGroupActivity extends BaseActivity implements View.OnClickLis
             } catch (NumberFormatException e) {
                 e.printStackTrace();
                 this.b.b();
-                showToast(u.groupid_error);
+                showToast(y.groupid_error);
                 return;
             }
         }
-        showToast(u.please_input_groupid);
+        showToast(y.please_input_groupid);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener

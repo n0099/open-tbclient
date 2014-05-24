@@ -9,13 +9,13 @@ public class DebugConfigActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        c.c = true;
+        d.c = true;
         a(new com.baidu.adp.lib.debug.b.c(this));
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
-        c.c = false;
+        d.c = false;
         super.onDestroy();
     }
 

@@ -16,22 +16,22 @@ class o implements com.baidu.tieba.im.a<Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Boolean bool) {
-        com.baidu.tieba.im.chat.h hVar;
-        com.baidu.tieba.im.chat.h hVar2;
-        com.baidu.tieba.im.chat.h hVar3;
+        com.baidu.tieba.im.chat.g gVar;
+        com.baidu.tieba.im.chat.g gVar2;
+        com.baidu.tieba.im.chat.g gVar3;
         if (bool != null) {
             if (bool.booleanValue()) {
-                hVar3 = this.a.d;
-                hVar3.L();
+                gVar3 = this.a.d;
+                gVar3.L();
             } else {
-                hVar = this.a.d;
-                hVar.M();
+                gVar = this.a.d;
+                gVar.M();
             }
             if (this.a.x() != null && this.b != null) {
                 String name = this.b.getName();
                 if (!TextUtils.isEmpty(name)) {
-                    hVar2 = this.a.d;
-                    hVar2.a(name, true);
+                    gVar2 = this.a.d;
+                    gVar2.a(name, true);
                 }
             }
         }

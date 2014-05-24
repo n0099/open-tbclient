@@ -33,7 +33,7 @@ public class bm implements CompoundButton.OnCheckedChangeListener {
                 linearLayout2 = this.a.l;
                 linearLayout2.setVisibility(8);
                 textView2 = this.a.n;
-                textView2.setText(this.a.getString(com.baidu.tieba.u.beautify));
+                textView2.setText(this.a.getString(com.baidu.tieba.y.beautify));
                 return;
             }
             radioButton2 = this.a.k;
@@ -43,7 +43,7 @@ public class bm implements CompoundButton.OnCheckedChangeListener {
                 linearLayout = this.a.l;
                 linearLayout.setVisibility(0);
                 textView = this.a.n;
-                textView.setText(this.a.getString(com.baidu.tieba.u.rotate));
+                textView.setText(this.a.getString(com.baidu.tieba.y.rotate));
             }
         }
     }

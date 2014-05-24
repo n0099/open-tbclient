@@ -37,13 +37,13 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
 
     private void f() {
         this.b = new i(this, null);
-        com.baidu.tieba.im.chat.x.b().a(this.b);
+        com.baidu.tieba.im.chat.w.b().a(this.b);
         MessageManager.getInstance().registerListener(MessageTypes.CMD_GET_PEER_INFO, this.c);
     }
 
     private void m() {
         MessageManager.getInstance().unRegisterListener(this.c);
-        com.baidu.tieba.im.chat.x.b().b(this.b);
+        com.baidu.tieba.im.chat.w.b().b(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -58,12 +58,12 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n() {
-        String string = this.t.getString(com.baidu.tieba.u.chat_permisson);
+        String string = this.t.getString(com.baidu.tieba.y.chat_permisson);
         if (this.a != null) {
             if (this.a.getSex() == 1) {
-                string = string.replaceAll(this.t.getString(com.baidu.tieba.u.it), this.t.getString(com.baidu.tieba.u.he));
+                string = string.replaceAll(this.t.getString(com.baidu.tieba.y.it), this.t.getString(com.baidu.tieba.y.he));
             } else if (this.a.getSex() == 2) {
-                string = string.replaceAll(this.t.getString(com.baidu.tieba.u.it), this.t.getString(com.baidu.tieba.u.she));
+                string = string.replaceAll(this.t.getString(com.baidu.tieba.y.it), this.t.getString(com.baidu.tieba.y.she));
             }
         }
         this.t.showToast(string, false);

@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,7 +23,7 @@ public class d implements l {
         BdPullRefreshScrollView bdPullRefreshScrollView;
         ViewGroup viewGroup;
         List list;
-        com.baidu.tbadk.core.e eVar;
+        BaseFragmentActivity baseFragmentActivity;
         View.OnClickListener onClickListener;
         ViewGroup viewGroup2;
         List list2;
@@ -47,8 +48,8 @@ public class d implements l {
             int size = nVar.c.size();
             for (int i = 0; i < size; i++) {
                 p pVar = nVar.c.get(i);
-                eVar = this.a.b;
-                DiscoverItemView discoverItemView2 = new DiscoverItemView(eVar);
+                baseFragmentActivity = this.a.b;
+                DiscoverItemView discoverItemView2 = new DiscoverItemView(baseFragmentActivity);
                 DiscoverItemView d = discoverItemView2.a(pVar.a).b(pVar.c).c(pVar.b).a(pVar.d).b(true).d(pVar.c);
                 onClickListener = this.a.w;
                 d.a(onClickListener);

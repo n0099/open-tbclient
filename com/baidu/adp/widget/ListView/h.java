@@ -14,12 +14,19 @@ public class h extends DataSetObserver {
     @Override // android.database.DataSetObserver
     public void onChanged() {
         DataSetObserver dataSetObserver;
+        i iVar;
+        i iVar2;
         DataSetObserver dataSetObserver2;
         super.onChanged();
         dataSetObserver = this.a.g;
         if (dataSetObserver != null) {
             dataSetObserver2 = this.a.g;
             dataSetObserver2.onChanged();
+        }
+        iVar = this.a.i;
+        if (iVar != null) {
+            iVar2 = this.a.i;
+            iVar2.a();
         }
     }
 

@@ -17,7 +17,7 @@ public class s {
     private int j = 0;
     private long k = 0;
     private long l = 0;
-    private aq m = new aq();
+    private ar m = new ar();
 
     public int a() {
         return this.a;

@@ -3,7 +3,7 @@ package com.baidu.tieba.faceshop;
 import com.baidu.tbadk.download.DownloadData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak extends com.baidu.adp.base.g {
+public class ak extends com.baidu.adp.base.e {
     final /* synthetic */ FacePackageDetailActivity a;
     private final /* synthetic */ DownloadData b;
 
@@ -13,7 +13,7 @@ public class ak extends com.baidu.adp.base.g {
         this.b = downloadData;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         an anVar;
         an anVar2;

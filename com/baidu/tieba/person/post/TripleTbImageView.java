@@ -34,7 +34,7 @@ public class TripleTbImageView extends ViewGroup {
         addView(this.b);
         addView(this.c);
         addView(this.d);
-        this.f = com.baidu.adp.lib.util.h.a(context, 6.0f);
+        this.f = com.baidu.adp.lib.util.k.a(context, 6.0f);
         if (g == null) {
             g = new com.baidu.tbadk.editortool.ab(context);
         }

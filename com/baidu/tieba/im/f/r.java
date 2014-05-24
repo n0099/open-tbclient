@@ -12,7 +12,7 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.SystemMsgData;
 import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -167,10 +167,10 @@ public class r {
             }
             return null;
         } else if (chatMessage.getMsgType() == 2) {
-            return TbadkApplication.m252getInst().getApp().getString(u.last_msg_pic);
+            return TbadkApplication.m252getInst().getApp().getString(y.last_msg_pic);
         } else {
             if (chatMessage.getMsgType() == 3) {
-                return TbadkApplication.m252getInst().getApp().getString(u.last_msg_voice);
+                return TbadkApplication.m252getInst().getApp().getString(y.last_msg_voice);
             }
             if (chatMessage.getMsgType() == 11) {
                 String b2 = b(chatMessage.getContent());
@@ -203,7 +203,7 @@ public class r {
                     }
                 }
             } else if (chatMessage.getMsgType() == 5) {
-                return TbadkApplication.m252getInst().getApp().getString(u.last_msg_invite);
+                return TbadkApplication.m252getInst().getApp().getString(y.last_msg_invite);
             } else {
                 if (chatMessage.getMsgType() == 6) {
                     String str = "";
@@ -217,7 +217,7 @@ public class r {
                     return null;
                 } else {
                     String content2 = chatMessage.getContent();
-                    String string = TbadkApplication.m252getInst().getApp().getString(u.last_msg_pic_text);
+                    String string = TbadkApplication.m252getInst().getApp().getString(y.last_msg_pic_text);
                     if (!TextUtils.isEmpty(content2)) {
                         try {
                             JSONArray jSONArray2 = new JSONArray(content2);
@@ -284,27 +284,27 @@ public class r {
                 } else if (optJSONObject == null) {
                     BdLog.e("eventParam == null");
                 } else if (optString.equals("003")) {
-                    str2 = TbadkApplication.m252getInst().getApp().getString(u.kick_out_myself);
+                    str2 = TbadkApplication.m252getInst().getApp().getString(y.kick_out_myself);
                 } else if (optString.equals("122") || optString.equals("121")) {
                     str2 = optString2;
                 } else if (optString.equals("105")) {
                     String optString3 = optJSONObject.optString("userId");
                     String optString4 = optJSONObject.optString("userName");
                     if (optString3.equals(TbadkApplication.getCurrentAccount())) {
-                        str2 = TbadkApplication.m252getInst().getApp().getString(u.join_group_myself);
+                        str2 = TbadkApplication.m252getInst().getApp().getString(y.join_group_myself);
                     } else {
-                        str2 = String.valueOf(optString4) + TbadkApplication.m252getInst().getApp().getString(u.join_group);
+                        str2 = String.valueOf(optString4) + TbadkApplication.m252getInst().getApp().getString(y.join_group);
                     }
                 } else if (optString.equals("106")) {
-                    str2 = optJSONObject.optString("userId").equals(TbadkApplication.getCurrentAccount()) ? TbadkApplication.m252getInst().getApp().getString(u.kick_out_myself) : optString2;
+                    str2 = optJSONObject.optString("userId").equals(TbadkApplication.getCurrentAccount()) ? TbadkApplication.m252getInst().getApp().getString(y.kick_out_myself) : optString2;
                 } else if (optString.equals("002")) {
-                    str2 = TbadkApplication.m252getInst().getApp().getString(u.join_group_myself);
+                    str2 = TbadkApplication.m252getInst().getApp().getString(y.join_group_myself);
                 } else if (optString.equals("109")) {
                     str2 = optString2;
                 } else if (optString.equals("110")) {
                     str2 = optString2;
                 } else if (optString.equals("202")) {
-                    str2 = String.valueOf(optJSONObject.optString("userName")) + TbadkApplication.m252getInst().getApp().getString(u.snap_group_chat_exit);
+                    str2 = String.valueOf(optJSONObject.optString("userName")) + TbadkApplication.m252getInst().getApp().getString(y.snap_group_chat_exit);
                 } else if (optString.equals("123")) {
                     str2 = optString2;
                 } else if (optString.equals("304")) {
@@ -335,7 +335,7 @@ public class r {
             } else if (optString.equals("003")) {
                 SystemMsgData systemMsgData = new SystemMsgData();
                 systemMsgData.setIsSelf(true);
-                systemMsgData.setContent(TbadkApplication.m252getInst().getApp().getString(u.kick_out_myself));
+                systemMsgData.setContent(TbadkApplication.m252getInst().getApp().getString(y.kick_out_myself));
                 return systemMsgData;
             } else if (optString.equals("122") || optString.equals("121")) {
                 SystemMsgData systemMsgData2 = new SystemMsgData();
@@ -348,10 +348,10 @@ public class r {
                 SystemMsgData systemMsgData3 = new SystemMsgData();
                 if (optString3.equals(TbadkApplication.getCurrentAccount())) {
                     systemMsgData3.setIsSelf(true);
-                    systemMsgData3.setContent(TbadkApplication.m252getInst().getApp().getString(u.join_group_myself));
+                    systemMsgData3.setContent(TbadkApplication.m252getInst().getApp().getString(y.join_group_myself));
                 } else {
                     systemMsgData3.setIsSelf(false);
-                    systemMsgData3.setContent(String.valueOf(optString4) + TbadkApplication.m252getInst().getApp().getString(u.join_group));
+                    systemMsgData3.setContent(String.valueOf(optString4) + TbadkApplication.m252getInst().getApp().getString(y.join_group));
                 }
                 return systemMsgData3;
             } else if (optString.equals("106")) {
@@ -359,7 +359,7 @@ public class r {
                 SystemMsgData systemMsgData4 = new SystemMsgData();
                 if (optString5.equals(TbadkApplication.getCurrentAccount())) {
                     systemMsgData4.setIsSelf(true);
-                    systemMsgData4.setContent(TbadkApplication.m252getInst().getApp().getString(u.kick_out_myself));
+                    systemMsgData4.setContent(TbadkApplication.m252getInst().getApp().getString(y.kick_out_myself));
                 } else {
                     systemMsgData4.setIsSelf(false);
                     systemMsgData4.setContent(optString2);
@@ -368,7 +368,7 @@ public class r {
             } else if (optString.equals("002")) {
                 SystemMsgData systemMsgData5 = new SystemMsgData();
                 systemMsgData5.setIsSelf(true);
-                systemMsgData5.setContent(TbadkApplication.m252getInst().getApp().getString(u.join_group_myself));
+                systemMsgData5.setContent(TbadkApplication.m252getInst().getApp().getString(y.join_group_myself));
                 return null;
             } else if (optString.equals("123")) {
                 SystemMsgData systemMsgData6 = new SystemMsgData();

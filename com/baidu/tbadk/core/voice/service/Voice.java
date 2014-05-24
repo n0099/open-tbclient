@@ -4,15 +4,19 @@ import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes.dex */
 public class Voice implements Parcelable {
-    public static final Parcelable.Creator<Voice> CREATOR = new e();
+    public static final Parcelable.Creator<Voice> CREATOR = new i();
     private String a;
     private int b;
+
+    public String a() {
+        return this.a;
+    }
 
     public void a(String str) {
         this.a = str;
     }
 
-    public int a() {
+    public int b() {
         return this.b;
     }
 

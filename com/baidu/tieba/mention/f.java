@@ -1,6 +1,7 @@
 package com.baidu.tieba.mention;
 
 import android.view.View;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
@@ -13,8 +14,8 @@ public class f implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.e eVar;
-        eVar = this.a.m;
-        eVar.finish();
+        BaseFragmentActivity baseFragmentActivity;
+        baseFragmentActivity = this.a.m;
+        baseFragmentActivity.finish();
     }
 }

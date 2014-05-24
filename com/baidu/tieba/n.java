@@ -1,127 +1,44 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfig;
+import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.frs.FRSPageSocketResponsedMessage;
+import com.baidu.tieba.frs.FrsPageHttpResponseMessage;
+import com.baidu.tieba.person.post.UserPostPageHttpResponseMessage;
+import com.baidu.tieba.person.post.UserPostPageSocketResponsedMessage;
 /* loaded from: classes.dex */
-public final class n {
-    public static final int adjustViewBounds = 2130771979;
-    public static final int adpFooterDurationTime = 2130771991;
-    public static final int adpFooterNeedRefreshDelta = 2130771988;
-    public static final int adpHeaderDurationTime = 2130771990;
-    public static final int adpHeaderHeight = 2130771989;
-    public static final int adpHeaderNeedRefreshDelta = 2130771987;
-    public static final int adpMode = 2130771986;
-    public static final int audioDayBackground = 2130772071;
-    public static final int audioDayKeyBoard = 2130772073;
-    public static final int audioHeight = 2130772076;
-    public static final int audioNightBackground = 2130772072;
-    public static final int audioNightKeyBoard = 2130772074;
-    public static final int audioWidth = 2130772075;
-    public static final int autoHide = 2130772001;
-    public static final int background = 2130772009;
-    public static final int beforeExpandHeight = 2130772022;
-    public static final int borderColor = 2130771972;
-    public static final int borderSurroundContent = 2130771973;
-    public static final int borderWidth = 2130771971;
-    public static final int border_color = 2130771983;
-    public static final int border_width = 2130771982;
-    public static final int bottomHeight = 2130772013;
-    public static final int bottomOffset = 2130772011;
-    public static final int circle_image = 2130772025;
-    public static final int circle_size = 2130772024;
-    public static final int color_dark = 2130772084;
-    public static final int columnOrientation = 2130772014;
-    public static final int corner_radius = 2130771981;
-    public static final int count = 2130772002;
-    public static final int custom_state_focused = 2130772080;
-    public static final int custom_state_skin = 2130772079;
-    public static final int defaultImage = 2130772037;
-    public static final int direction = 2130771992;
-    public static final int drawable = 2130771999;
-    public static final int drawerType = 2130771976;
-    public static final int empty_view = 2130771997;
-    public static final int expandDistance = 2130772023;
-    public static final int faceHeight = 2130772039;
-    public static final int faceWidth = 2130772038;
-    public static final int foregroundColor = 2130771980;
-    public static final int gifIcon = 2130771975;
-    public static final int group_img_src = 2130772065;
-    public static final int group_text = 2130772066;
-    public static final int hasBorder = 2130771970;
-    public static final int hideAt = 2130772070;
-    public static final int hideAudio = 2130772068;
-    public static final int hideCamera = 2130772067;
-    public static final int hideFace = 2130772069;
-    public static final int intro_singline = 2130772064;
-    public static final int isRadius = 2130772061;
-    public static final int isRound = 2130771969;
-    public static final int isShowGifTag = 2130772028;
-    public static final int is_left = 2130772027;
-    public static final int is_oval = 2130771985;
-    public static final int is_support_offline = 2130772059;
-    public static final int isblack = 2130772026;
-    public static final int layout_clear = 2130772018;
-    public static final int layout_column = 2130772017;
-    public static final int left = 2130772081;
-    public static final int leftOffset = 2130772003;
-    public static final int leftText = 2130772085;
-    public static final int leftWidth = 2130772005;
-    public static final int lineSpacing = 2130772034;
-    public static final int linkColor = 2130772033;
-    public static final int maxHeight = 2130771978;
-    public static final int maxImageHeight = 2130772036;
-    public static final int maxImageWidth = 2130772035;
-    public static final int maxWidth = 2130771977;
-    public static final int max_height = 2130771993;
-    public static final int measuretext = 2130772078;
-    public static final int mid = 2130772082;
-    public static final int nightBackground = 2130772019;
-    public static final int nightSrc = 2130772021;
-    public static final int nightTextColor = 2130772020;
-    public static final int percent = 2130772060;
-    public static final int play_type = 2130772077;
-    public static final int radius = 2130771968;
-    public static final int refresher_content = 2130771996;
-    public static final int refresher_head = 2130771995;
-    public static final int right = 2130772083;
-    public static final int rightOffset = 2130772004;
-    public static final int rightText = 2130772086;
-    public static final int rightWidth = 2130772006;
-    public static final int round_background = 2130771984;
-    public static final int segmentMargin = 2130772029;
-    public static final int selector = 2130772000;
-    public static final int settingShowArraw = 2130772047;
-    public static final int settingText = 2130772042;
-    public static final int settingTextColor = 2130772043;
-    public static final int settingTextSize = 2130772044;
-    public static final int settingTip = 2130772045;
-    public static final int settingTipColor = 2130772046;
-    public static final int showGifIcon = 2130771974;
-    public static final int showGifTag = 2130772062;
-    public static final int singleLine = 2130772041;
-    public static final int spacing = 2130771998;
-    public static final int spacingLeft = 2130772015;
-    public static final int spacingRight = 2130772016;
-    public static final int status = 2130772063;
-    public static final int tapBack = 2130772008;
-    public static final int tb_background = 2130772048;
-    public static final int tb_button = 2130772052;
-    public static final int tb_divider = 2130772054;
-    public static final int tb_drawableLeft = 2130772056;
-    public static final int tb_drawableRight = 2130772057;
-    public static final int tb_drawableTop = 2130772055;
-    public static final int tb_progressDrawable = 2130772058;
-    public static final int tb_src = 2130772050;
-    public static final int tb_style = 2130772051;
-    public static final int tb_textColor = 2130772049;
-    public static final int tb_textColorHint = 2130772053;
-    public static final int textColor = 2130772032;
-    public static final int textPadding = 2130772030;
-    public static final int textSize = 2130772031;
-    public static final int threshold_height = 2130771994;
-    public static final int titleDrawable = 2130772088;
-    public static final int titleText = 2130772087;
-    public static final int topHeight = 2130772012;
-    public static final int topOffset = 2130772010;
-    public static final int track = 2130772007;
-    public static final int videoImage = 2130772040;
-    public static final int widget_icon = 2130772089;
-    public static final int widget_text = 2130772090;
+public class n {
+    public static void a() {
+        b();
+        c();
+    }
+
+    public static void b() {
+        a(MessageTypes.CMD_FRS_PAGE, FRSPageSocketResponsedMessage.class, false);
+        a(MessageTypes.CMD_USER_POST_PAGE, UserPostPageSocketResponsedMessage.class, false);
+    }
+
+    private static void c() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfig.FRS_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/page?cmd=" + MessageTypes.CMD_FRS_PAGE);
+        tbHttpMessageTask.setIsNeedLogin(false);
+        tbHttpMessageTask.setResponsedClass(FrsPageHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfig.USER_POST_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/feed/userpost?cmd=" + MessageTypes.CMD_USER_POST_PAGE);
+        tbHttpMessageTask2.setIsNeedLogin(false);
+        tbHttpMessageTask2.setResponsedClass(UserPostPageHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask2);
+    }
+
+    private static com.baidu.tbadk.task.b a(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(i);
+        bVar.a(cls);
+        bVar.b(z);
+        bVar.setTimeOut(new com.baidu.adp.framework.c.g(ai.c().H(), ai.c().I(), ai.c().J()));
+        MessageManager.getInstance().registerTask(bVar);
+        return bVar;
+    }
 }

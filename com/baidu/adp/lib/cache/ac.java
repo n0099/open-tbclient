@@ -5,8 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public class ac extends c<String> {
-    public ac(com.baidu.adp.base.h hVar) {
-        super(hVar);
+    public ac(com.baidu.adp.base.f fVar) {
+        super(fVar);
     }
 
     @Override // com.baidu.adp.lib.cache.c

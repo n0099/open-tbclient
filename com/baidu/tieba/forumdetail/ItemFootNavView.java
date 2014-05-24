@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.model.af;
-import com.baidu.tieba.model.bc;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
+import com.baidu.tieba.model.bd;
 import com.baidu.tieba.switchs.features.BarDetailForDirSwitchStatic;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class ItemFootNavView extends LinearLayout {
     private Context a;
@@ -45,11 +45,11 @@ public class ItemFootNavView extends LinearLayout {
 
     public void a(Context context) {
         this.a = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(s.forum_detail_foot_nav, (ViewGroup) this, true);
-        this.b = (ViewGroup) findViewById(r.fn_care_box);
-        this.c = (TextView) findViewById(r.fn_care_btn);
-        this.d = (ImageView) findViewById(r.icon_brief_care);
-        this.e = (ViewGroup) findViewById(r.fn_enter_box);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(w.forum_detail_foot_nav, (ViewGroup) this, true);
+        this.b = (ViewGroup) findViewById(v.fn_care_box);
+        this.c = (TextView) findViewById(v.fn_care_btn);
+        this.d = (ImageView) findViewById(v.icon_brief_care);
+        this.e = (ViewGroup) findViewById(v.fn_enter_box);
     }
 
     public boolean a(ForumDetailData forumDetailData, BaseActivity baseActivity) {
@@ -72,7 +72,7 @@ public class ItemFootNavView extends LinearLayout {
         boolean z2 = (tag == null || ((Integer) tag).intValue() != 2) ? true : true;
         if (!z && !z2) {
             this.c.setTag(2);
-            LoginActivity.a((Activity) baseActivity, getResources().getString(u.login_to_use), true, 11034);
+            LoginActivity.a((Activity) baseActivity, getResources().getString(y.login_to_use), true, 11034);
             return;
         }
         this.c.setTag(3);
@@ -97,10 +97,10 @@ public class ItemFootNavView extends LinearLayout {
     }
 
     private void b(BaseActivity baseActivity, boolean z) {
-        bc bcVar = new bc();
-        bcVar.a(BarDetailForDirSwitchStatic.BAR_DETAIL_DIR);
-        bcVar.a(new i(this, baseActivity, z));
-        bcVar.a(this.f.forumInfo.forumName, this.f.forumInfo.forumID);
+        bd bdVar = new bd();
+        bdVar.a(BarDetailForDirSwitchStatic.BAR_DETAIL_DIR);
+        bdVar.a(new i(this, baseActivity, z));
+        bdVar.a(this.f.forumInfo.forumName, this.f.forumInfo.forumID);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -112,21 +112,21 @@ public class ItemFootNavView extends LinearLayout {
         int skinType = TbadkApplication.m252getInst().getSkinType();
         if (z) {
             if (skinType == 1) {
-                i4 = q.icon_brief_cancel_1;
+                i4 = u.icon_brief_cancel_1;
             } else {
-                i4 = q.icon_brief_cancel;
+                i4 = u.icon_brief_cancel;
             }
-            int i5 = u.forum_detail_fans_cancel;
+            int i5 = y.forum_detail_fans_cancel;
             this.b.setTag(0);
             i2 = i4;
             i3 = i5;
         } else {
             if (skinType == 1) {
-                i = q.icon_brief_attention_1;
+                i = u.icon_brief_attention_1;
             } else {
-                i = q.icon_brief_attention;
+                i = u.icon_brief_attention;
             }
-            int i6 = u.forum_detail_fans;
+            int i6 = y.forum_detail_fans;
             this.b.setTag(1);
             i2 = i;
             i3 = i6;

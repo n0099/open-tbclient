@@ -31,9 +31,9 @@ public class c extends LinearLayout {
 
     private void b() {
         setOrientation(0);
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.msg_multi_pic_text_bottom_view, (ViewGroup) this, true);
-        this.b = (TbImageView) findViewById(com.baidu.tieba.r.bottom_content_pic);
-        this.c = (TextView) findViewById(com.baidu.tieba.r.bottom_title);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.msg_multi_pic_text_bottom_view, (ViewGroup) this, true);
+        this.b = (TbImageView) findViewById(com.baidu.tieba.v.bottom_content_pic);
+        this.c = (TextView) findViewById(com.baidu.tieba.v.bottom_title);
     }
 
     public void a(t tVar, View view) {
@@ -46,8 +46,8 @@ public class c extends LinearLayout {
             if (!TextUtils.isEmpty(tVar.d)) {
                 setOnClickListener(new e(this, tVar));
             }
-            this.b.setDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d);
-            this.b.setNightDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d_1);
+            this.b.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d);
+            this.b.setNightDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d_1);
             if (!TextUtils.isEmpty(tVar.c)) {
                 this.b.setTag(tVar.c);
                 com.baidu.tbadk.editortool.ab abVar = new com.baidu.tbadk.editortool.ab(this.a);
@@ -73,9 +73,9 @@ public class c extends LinearLayout {
 
     public void a(boolean z) {
         if (z) {
-            this.c.setTextColor(getResources().getColor(com.baidu.tieba.o.official_msg_bottom_text_1));
+            this.c.setTextColor(getResources().getColor(com.baidu.tieba.s.official_msg_bottom_text_1));
         } else {
-            this.c.setTextColor(getResources().getColor(com.baidu.tieba.o.official_msg_bottom_text));
+            this.c.setTextColor(getResources().getColor(com.baidu.tieba.s.official_msg_bottom_text));
         }
     }
 }

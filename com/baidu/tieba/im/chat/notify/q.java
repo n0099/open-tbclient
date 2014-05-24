@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat.notify;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends com.baidu.adp.framework.listener.b {
@@ -24,7 +24,7 @@ public class q extends com.baidu.adp.framework.listener.b {
             if (responseDismissGroupMessage.getError() > 0) {
                 this.a.b(responseDismissGroupMessage.getErrorString());
             } else if (responseDismissGroupMessage.getError() < 0) {
-                this.a.a(u.neterror);
+                this.a.a(y.neterror);
             } else {
                 this.a.c(new StringBuilder(String.valueOf(responseDismissGroupMessage.getGroupId())).toString());
             }

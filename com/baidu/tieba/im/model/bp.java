@@ -1,21 +1,30 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class bp extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ PersonalMsglistModel b;
-    private final /* synthetic */ ChatMessage c;
+class bp extends CustomMessageListener {
+    final /* synthetic */ PersonalMsglistModel a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(PersonalMsglistModel personalMsglistModel, ChatMessage chatMessage) {
-        this.b = personalMsglistModel;
-        this.c = chatMessage;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bp(PersonalMsglistModel personalMsglistModel, int i) {
+        super(i);
+        this.a = personalMsglistModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.o.d().b(String.valueOf(this.b.a.getUserId()), String.valueOf(this.c.getMsgId())));
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() == 2015001) {
+                this.a.c(customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2003147) {
+                this.a.b(customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2003150) {
+                this.a.a(customResponsedMessage);
+            }
+        }
     }
 }

@@ -12,8 +12,8 @@ public class y {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(View view) {
-        this.a = (BdListView) view.findViewById(com.baidu.tieba.r.list);
-        this.b = (TextView) view.findViewById(com.baidu.tieba.r.no_post_view);
-        this.c = (ProgressBar) view.findViewById(com.baidu.tieba.r.progress);
+        this.a = (BdListView) view.findViewById(com.baidu.tieba.v.list);
+        this.b = (TextView) view.findViewById(com.baidu.tieba.v.no_post_view);
+        this.c = (ProgressBar) view.findViewById(com.baidu.tieba.v.progress);
     }
 }

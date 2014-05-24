@@ -12,6 +12,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
@@ -21,7 +22,7 @@ import com.baidu.tieba.more.MoreActivity;
 public class r extends com.baidu.tbadk.core.d {
     private static boolean e = false;
     private static boolean f = false;
-    private com.baidu.tbadk.core.e b;
+    private BaseFragmentActivity b;
     private v c;
     private t d;
     private final CustomMessageListener g;
@@ -29,7 +30,7 @@ public class r extends com.baidu.tbadk.core.d {
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.b = (com.baidu.tbadk.core.e) activity;
+        this.b = (BaseFragmentActivity) activity;
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
@@ -58,7 +59,7 @@ public class r extends com.baidu.tbadk.core.d {
     }
 
     public View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(com.baidu.tieba.s.more_discovery_activity, (ViewGroup) null);
+        return layoutInflater.inflate(com.baidu.tieba.w.more_discovery_activity, (ViewGroup) null);
     }
 
     public void a() {
@@ -92,7 +93,7 @@ public class r extends com.baidu.tbadk.core.d {
     @Override // com.baidu.tbadk.core.d, android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == com.baidu.tieba.r.user_info) {
+        if (id == com.baidu.tieba.v.user_info) {
             if (f && this.d != null) {
                 if (TbadkApplication.isLogin()) {
                     UserData a = this.d.a();
@@ -103,26 +104,26 @@ public class r extends com.baidu.tbadk.core.d {
                 LoginActivity.a((Activity) this.b, (String) null, true, 11003);
                 this.d.b(true);
             }
-        } else if (id == com.baidu.tieba.r.my_collection) {
+        } else if (id == com.baidu.tieba.v.my_collection) {
             if (TbadkApplication.getCurrentAccount() != null && TbadkApplication.getCurrentAccount().length() > 0) {
                 a(new CustomMessage(2017005, new com.baidu.tbadk.core.frameworkData.a(this.b)));
                 this.d.a(true);
                 return;
             }
             LoginActivity.a((Activity) this.b, (String) null, true, 103);
-        } else if (id == com.baidu.tieba.r.member_benefits) {
+        } else if (id == com.baidu.tieba.v.member_benefits) {
             com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_member_benifit", true);
             if (!TbadkApplication.isLogin()) {
                 LoginActivity.a((Activity) this.b, (String) null, true, 104);
                 return;
             }
             com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_member_benifit", true);
-            TbWebViewActivity.a(this.b, getString(com.baidu.tieba.u.member_benefits), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
-        } else if (id == com.baidu.tieba.r.face_store) {
+            TbWebViewActivity.a(this.b, getString(com.baidu.tieba.y.member_benefits), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
+        } else if (id == com.baidu.tieba.v.face_store) {
             TbadkApplication.m252getInst().setFaceShopVersion(TbadkApplication.m252getInst().getTempFaceShopVersion());
             TbadkApplication.m252getInst().setFaceShopNew(false);
             a(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.k(this.b, "faceshop_from_more")));
-        } else if (id == com.baidu.tieba.r.settings && this.d != null) {
+        } else if (id == com.baidu.tieba.v.settings && this.d != null) {
             PersonChangeData personChangeData = new PersonChangeData();
             if (this.d.a() != null) {
                 personChangeData.setName(this.d.a().getName_show());
@@ -154,7 +155,7 @@ public class r extends com.baidu.tbadk.core.d {
             } else if (i == 103) {
                 a(new CustomMessage(2017005, new com.baidu.tbadk.core.frameworkData.a(this.b)));
             } else if (i == 104) {
-                TbWebViewActivity.a(this.b, getString(com.baidu.tieba.u.member_benefits), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
+                TbWebViewActivity.a(this.b, getString(com.baidu.tieba.y.member_benefits), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
             }
         }
     }
@@ -173,7 +174,7 @@ public class r extends com.baidu.tbadk.core.d {
                     }
                 }
             }
-            com.baidu.tieba.ad.c().a((PersonChangeData) null);
+            com.baidu.tieba.ai.c().a((PersonChangeData) null);
         }
     }
 
@@ -201,9 +202,9 @@ public class r extends com.baidu.tbadk.core.d {
             if (!this.d.h()) {
                 i();
             }
-            PersonChangeData Q = com.baidu.tieba.ad.c().Q();
-            if (Q != null) {
-                a(Q);
+            PersonChangeData R = com.baidu.tieba.ai.c().R();
+            if (R != null) {
+                a(R);
             }
             if (com.baidu.tbadk.coreExtra.messageCenter.a.a().m() != this.d.c()) {
                 this.d.a(com.baidu.tbadk.coreExtra.messageCenter.a.a().m());

@@ -5,18 +5,18 @@ import android.os.Bundle;
 import com.baidu.tieba.im.message.RequestCommitInviteMessage;
 import protobuf.CommitInviteMsg.DataReq;
 /* loaded from: classes.dex */
-public class af extends com.baidu.adp.base.d {
+public class af extends com.baidu.adp.base.b {
     private ag a = null;
     private RequestCommitInviteMessage b;
     private int c;
     private int d;
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();

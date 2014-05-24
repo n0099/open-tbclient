@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.baidu.tieba.im.message.RequestLiveBlackMembersMessage;
 import com.baidu.tieba.im.message.RequestLiveGroupOwnerGagMessage;
 /* loaded from: classes.dex */
-public class y extends com.baidu.adp.base.d {
+public class y extends com.baidu.adp.base.b {
     private String a;
     private int b;
     private int c;
@@ -39,12 +39,12 @@ public class y extends com.baidu.adp.base.d {
         this.c = i;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

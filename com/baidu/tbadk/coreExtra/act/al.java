@@ -14,6 +14,6 @@ class al implements DialogInterface.OnCancelListener {
     public void onCancel(DialogInterface dialogInterface) {
         LoginActivity loginActivity;
         loginActivity = this.a.a;
-        loginActivity.DeinitWaitingDialog();
+        loginActivity.destroyWaitingDialog();
     }
 }

@@ -23,8 +23,8 @@ public class j extends BaseAdapter implements AbsListView.OnScrollListener {
     public j(AlbumActivity albumActivity) {
         this.b = albumActivity;
         this.c = albumActivity.g();
-        this.e = (int) this.b.getResources().getDimension(com.baidu.tieba.p.album_image_height);
-        this.d = com.baidu.adp.lib.util.h.b(this.b) / 2;
+        this.e = (int) this.b.getResources().getDimension(com.baidu.tieba.t.album_image_height);
+        this.d = com.baidu.adp.lib.util.k.b(this.b) / 2;
     }
 
     public void a(List<a> list) {
@@ -65,21 +65,21 @@ public class j extends BaseAdapter implements AbsListView.OnScrollListener {
         if (view != null) {
             lVar = (l) view.getTag();
         } else {
-            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.s.album_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.album_list_item, viewGroup, false);
             l lVar2 = new l(this, null);
-            lVar2.a = (HeadImageView) view.findViewById(com.baidu.tieba.r.item_head);
-            lVar2.b = (TextView) view.findViewById(com.baidu.tieba.r.album_name);
+            lVar2.a = (HeadImageView) view.findViewById(com.baidu.tieba.v.item_head);
+            lVar2.b = (TextView) view.findViewById(com.baidu.tieba.v.album_name);
             view.setTag(lVar2);
             lVar = lVar2;
         }
         lVar.a.setTag(null);
-        lVar.a.setNightDefaultResource(com.baidu.tieba.q.pic_image_h_not_1);
-        lVar.a.setDefaultResource(com.baidu.tieba.q.pic_image_h_not);
+        lVar.a.setNightDefaultResource(com.baidu.tieba.u.pic_image_h_not_1);
+        lVar.a.setDefaultResource(com.baidu.tieba.u.pic_image_h_not);
         a item = getItem(i);
         if (item != null) {
             if (!TextUtils.isEmpty(item.b())) {
                 item.b();
-                lVar.b.setText(String.valueOf(com.baidu.adp.lib.util.h.a(lVar.b.getPaint(), item.b(), this.d)) + "(" + item.c() + ")");
+                lVar.b.setText(String.valueOf(com.baidu.adp.lib.util.k.a(lVar.b.getPaint(), item.b(), this.d)) + "(" + item.c() + ")");
             } else {
                 lVar.b.setText("");
             }

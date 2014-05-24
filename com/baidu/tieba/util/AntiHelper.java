@@ -3,7 +3,7 @@ package com.baidu.tieba.util;
 import android.app.AlertDialog;
 import android.content.Context;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 public class AntiHelper {
@@ -89,25 +89,25 @@ public class AntiHelper {
         String string;
         String string2;
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(context.getString(u.anti_title));
+        builder.setTitle(context.getString(y.anti_title));
         if (operationType == OperationType.SIGN) {
-            String string3 = context.getString(u.anti_appeal_sign_base_tip);
+            String string3 = context.getString(y.anti_appeal_sign_base_tip);
             if (a(antiData)) {
-                string2 = context.getString(u.anti_type_forbid_sys);
+                string2 = context.getString(y.anti_type_forbid_sys);
             } else if (b(antiData)) {
-                string2 = context.getString(u.anti_type_forbid_bawu);
+                string2 = context.getString(y.anti_type_forbid_bawu);
             } else if (c(antiData)) {
-                string2 = context.getString(u.anti_type_hide);
+                string2 = context.getString(y.anti_type_hide);
             } else {
-                string2 = context.getString(u.anti_type_exception);
+                string2 = context.getString(y.anti_type_exception);
             }
-            string = MessageFormat.format(string3, string2, context.getString(u.anti_appeal_sign_com_tip));
+            string = MessageFormat.format(string3, string2, context.getString(y.anti_appeal_sign_com_tip));
         } else {
-            string = context.getString(u.anti_account_exception_tip);
+            string = context.getString(y.anti_account_exception_tip);
         }
         builder.setMessage(string);
-        builder.setNegativeButton(context.getString(u.anti_account_exception_pos), new a(context, pageType));
-        builder.setPositiveButton(context.getString(u.anti_account_exception_neg), new b());
+        builder.setNegativeButton(context.getString(y.anti_account_exception_pos), new a(context, pageType));
+        builder.setPositiveButton(context.getString(y.anti_account_exception_neg), new b());
         builder.create().show();
     }
 
@@ -115,25 +115,25 @@ public class AntiHelper {
         String format;
         String string;
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(context.getString(u.anti_title));
+        builder.setTitle(context.getString(y.anti_title));
         if (operationType == OperationType.SIGN) {
-            String string2 = context.getString(u.anti_appeal_sign_base_tip);
+            String string2 = context.getString(y.anti_appeal_sign_base_tip);
             if (a(antiData)) {
-                string = context.getString(u.anti_type_forbid_sys);
+                string = context.getString(y.anti_type_forbid_sys);
             } else if (b(antiData)) {
-                string = context.getString(u.anti_type_forbid_bawu);
+                string = context.getString(y.anti_type_forbid_bawu);
             } else if (c(antiData)) {
-                string = context.getString(u.anti_type_hide);
+                string = context.getString(y.anti_type_hide);
             } else {
-                string = context.getString(u.anti_type_exception);
+                string = context.getString(y.anti_type_exception);
             }
-            format = MessageFormat.format(string2, string, context.getString(u.anti_appeal_sign_bawu_tip));
+            format = MessageFormat.format(string2, string, context.getString(y.anti_appeal_sign_bawu_tip));
         } else {
-            format = MessageFormat.format(context.getString(u.anti_appeal_com_tip), antiData.getBlock_forum_name(), Integer.valueOf(antiData.getDays_tofree()));
+            format = MessageFormat.format(context.getString(y.anti_appeal_com_tip), antiData.getBlock_forum_name(), Integer.valueOf(antiData.getDays_tofree()));
         }
         builder.setMessage(format);
-        builder.setNegativeButton(context.getString(u.anti_appeal_btn_pos), new c(context, antiData));
-        builder.setPositiveButton(context.getString(u.anti_appeal_btn_neg), new d());
+        builder.setNegativeButton(context.getString(y.anti_appeal_btn_pos), new c(context, antiData));
+        builder.setPositiveButton(context.getString(y.anti_appeal_btn_neg), new d());
         builder.create().show();
     }
 
@@ -141,24 +141,24 @@ public class AntiHelper {
         String string;
         String string2;
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(context.getString(u.anti_title));
+        builder.setTitle(context.getString(y.anti_title));
         if (operationType == OperationType.SIGN) {
-            String string3 = context.getString(u.anti_appeal_sign_base_tip);
+            String string3 = context.getString(y.anti_appeal_sign_base_tip);
             if (a(antiData)) {
-                string2 = context.getString(u.anti_type_forbid_sys);
+                string2 = context.getString(y.anti_type_forbid_sys);
             } else if (b(antiData)) {
-                string2 = context.getString(u.anti_type_forbid_bawu);
+                string2 = context.getString(y.anti_type_forbid_bawu);
             } else if (c(antiData)) {
-                string2 = context.getString(u.anti_type_hide);
+                string2 = context.getString(y.anti_type_hide);
             } else {
-                string2 = context.getString(u.anti_type_exception);
+                string2 = context.getString(y.anti_type_exception);
             }
-            string = MessageFormat.format(string3, string2, context.getString(u.anti_appeal_sign_no_chance_tip));
+            string = MessageFormat.format(string3, string2, context.getString(y.anti_appeal_sign_no_chance_tip));
         } else {
-            string = context.getString(u.anti_no_chance_com_tip);
+            string = context.getString(y.anti_no_chance_com_tip);
         }
         builder.setMessage(string);
-        builder.setPositiveButton(context.getString(u.anti_no_chance_pos), new e());
+        builder.setPositiveButton(context.getString(y.anti_no_chance_pos), new e());
         builder.create().show();
     }
 
@@ -166,14 +166,14 @@ public class AntiHelper {
         if (!com.baidu.tbadk.core.sharedPref.b.a().a("anti_vcode_no_longer_tip", false)) {
             boolean isHas_chance = antiData.isHas_chance();
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle(context.getString(u.anti_title));
-            builder.setMessage(context.getString(isHas_chance ? u.anti_vocode_on_chance_tip : u.anti_vcode_tip));
+            builder.setTitle(context.getString(y.anti_title));
+            builder.setMessage(context.getString(isHas_chance ? y.anti_vocode_on_chance_tip : y.anti_vcode_tip));
             if (!isHas_chance) {
-                builder.setNegativeButton(context.getString(u.anti_vcode_pos), new f(context, pageType));
+                builder.setNegativeButton(context.getString(y.anti_vcode_pos), new f(context, pageType));
             } else {
-                builder.setNegativeButton(context.getString(u.anti_no_chance_pos), new g());
+                builder.setNegativeButton(context.getString(y.anti_no_chance_pos), new g());
             }
-            builder.setPositiveButton(context.getString(u.anti_vcode_neg), new h());
+            builder.setPositiveButton(context.getString(y.anti_vcode_neg), new h());
             builder.create().show();
         }
     }

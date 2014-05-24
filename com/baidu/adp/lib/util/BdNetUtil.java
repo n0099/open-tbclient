@@ -4,6 +4,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import android.telephony.TelephonyManager;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.tbadk.core.service.NetworkChangeReceiver;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class BdNetUtil {
 
@@ -55,7 +58,7 @@ public class BdNetUtil {
         NetworkStateInfo networkStateInfo;
         ?? e = NetworkStateInfo.UNAVAIL;
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) com.baidu.adp.base.a.getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) BdBaseApplication.getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo();
             if (!activeNetworkInfo.isAvailable()) {
                 networkStateInfo = NetworkStateInfo.UNAVAIL;
                 try {
@@ -65,10 +68,10 @@ public class BdNetUtil {
                     e = e2;
                 }
             } else if (activeNetworkInfo.getType() == 1) {
-                BdLog.i("NetWorkCore", "NetworkStateInfo", "WIFI");
+                BdLog.i("NetWorkCore", "NetworkStateInfo", NetworkChangeReceiver.WIFI_STRING);
                 networkStateInfo = NetworkStateInfo.WIFI;
             } else {
-                switch (((TelephonyManager) com.baidu.adp.base.a.getInst().getApp().getSystemService("phone")).getNetworkType()) {
+                switch (((TelephonyManager) BdBaseApplication.getInst().getApp().getSystemService("phone")).getNetworkType()) {
                     case 0:
                     case 1:
                     case 2:
@@ -86,7 +89,7 @@ public class BdNetUtil {
                     case 10:
                     case 12:
                     case 13:
-                    case 14:
+                    case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
                     case 15:
                         BdLog.i("NetWorkCore", "NetworkStateInfo", "ThreeG");
                         networkStateInfo = NetworkStateInfo.ThreeG;
@@ -107,10 +110,10 @@ public class BdNetUtil {
         NetTpyeEnmu netTpyeEnmu;
         NetTpyeEnmu netTpyeEnmu2 = NetTpyeEnmu.UNAVAIL;
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) com.baidu.adp.base.a.getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) BdBaseApplication.getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo();
             if (!activeNetworkInfo.isAvailable()) {
                 netTpyeEnmu = NetTpyeEnmu.UNAVAIL;
-            } else if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
+            } else if (activeNetworkInfo.getTypeName().equalsIgnoreCase(NetworkChangeReceiver.WIFI_STRING)) {
                 netTpyeEnmu = NetTpyeEnmu.WIFI;
             } else {
                 String defaultHost = Proxy.getDefaultHost();

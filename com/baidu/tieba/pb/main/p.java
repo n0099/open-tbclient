@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.main;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class p implements com.baidu.adp.widget.ListView.u {
+class p implements com.baidu.adp.widget.ListView.x {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,21 +10,21 @@ class p implements com.baidu.adp.widget.ListView.u {
         this.a = pbActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.x
     public void f_() {
-        bc bcVar;
         bj bjVar;
-        bc bcVar2;
+        bq bqVar;
         bj bjVar2;
-        bcVar = this.a.y;
-        if (bcVar.a(false)) {
-            bjVar2 = this.a.E;
-            bjVar2.v();
+        bq bqVar2;
+        bjVar = this.a.x;
+        if (bjVar.a(false)) {
+            bqVar2 = this.a.D;
+            bqVar2.v();
             TiebaStatic.eventStat(this.a, "pb_more", "pbclick", 1, new Object[0]);
             return;
         }
-        bjVar = this.a.E;
-        bcVar2 = this.a.y;
-        bjVar.c(bcVar2.p());
+        bqVar = this.a.D;
+        bjVar2 = this.a.x;
+        bqVar.c(bjVar2.p());
     }
 }

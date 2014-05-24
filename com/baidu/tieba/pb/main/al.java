@@ -19,6 +19,6 @@ public class al implements com.baidu.tbadk.core.dialog.c {
         Intent intent = new Intent();
         intent.putExtra("mark", this.b);
         this.a.setResult(-1, intent);
-        this.a.v();
+        this.a.w();
     }
 }

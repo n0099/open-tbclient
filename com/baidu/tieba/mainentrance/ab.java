@@ -67,7 +67,7 @@ public class ab extends BdAsyncTask<Object, Integer, BarSuggestModel> {
         progressBar.setVisibility(8);
         if (barSuggestModel != null) {
             this.b.u = barSuggestModel;
-            this.b.l();
+            this.b.m();
         }
         this.b.w = null;
     }

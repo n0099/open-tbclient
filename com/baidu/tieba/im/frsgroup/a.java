@@ -27,7 +27,7 @@ class a extends com.baidu.adp.framework.listener.b {
         kVar2 = this.a.c;
         kVar2.b(true);
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseUserPermissionMessage)) {
-            this.a.c(com.baidu.tieba.u.neterror);
+            this.a.c(com.baidu.tieba.y.neterror);
             return;
         }
         ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage;
@@ -39,7 +39,7 @@ class a extends com.baidu.adp.framework.listener.b {
                 }
                 return;
             }
-            this.a.c(com.baidu.tieba.u.neterror);
+            this.a.c(com.baidu.tieba.y.neterror);
             return;
         }
         GroupPermData groupPermData = responseUserPermissionMessage.getGroupPermData();

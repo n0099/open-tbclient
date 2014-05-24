@@ -7,16 +7,18 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class TiebaSocketReceiver extends BroadcastReceiver {
+    private static final String TAG = "TiebaIMReceiver";
+
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
             com.baidu.tbadk.core.log.a.a(UtilHelper.getNetStatusInfo(context));
             if (UtilHelper.isNetOk()) {
-                TiebaStatic.imLog("net change", "TiebaIMReceiver", "succ");
+                TiebaStatic.imLog("net change", TAG, "succ");
                 com.baidu.adp.framework.c.c.a().a(false, "net succ");
                 return;
             }
-            TiebaStatic.imLog("net change", "TiebaIMReceiver", "failed");
+            TiebaStatic.imLog("net change", TAG, "failed");
             return;
         }
         com.baidu.adp.framework.c.c.a().a(false, "calling or boot ");

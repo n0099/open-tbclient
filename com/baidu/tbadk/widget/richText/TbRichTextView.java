@@ -23,7 +23,7 @@ import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.w;
+import com.baidu.tieba.aa;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
@@ -175,7 +175,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         this.O = 19;
         this.Q = new l(this);
         d();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, w.TbRichTextView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, aa.TbRichTextView);
         this.i = obtainStyledAttributes.getDimensionPixelSize(0, 0);
         this.h = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         this.g = obtainStyledAttributes.getFloat(5, 1.2f);
@@ -192,7 +192,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
     }
 
     private void d() {
-        a = getContext().getResources().getDimensionPixelSize(com.baidu.tieba.p.adk_default_image_height);
+        a = getContext().getResources().getDimensionPixelSize(com.baidu.tieba.t.adk_default_image_height);
         if (getContext() instanceof j) {
             j jVar = (j) getContext();
             this.b = jVar.f();
@@ -223,7 +223,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         TextView textView;
         SpannableStringBuilder d;
         this.G = aVar;
-        this.F = com.baidu.adp.gif.d.a();
+        this.F = com.baidu.adp.gif.e.a();
         removeAllViews();
         if (aVar != null && (a2 = aVar.a()) != null) {
             Iterator<c> it = a2.iterator();
@@ -322,7 +322,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         if (imageView instanceof TbImageView) {
             ((TbImageView) imageView).a(c.f(), this.x ? 17 : 18, false);
         }
-        int[] a2 = com.baidu.adp.lib.util.h.a(c.c(), c.b(), i, i2);
+        int[] a2 = com.baidu.adp.lib.util.k.a(c.c(), c.b(), i, i2);
         if (a2 != null) {
             boolean z = !this.w;
             int[] iArr = {a2[0], a2[1]};
@@ -355,7 +355,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
             textView = this.c.a();
         }
         if (textView == null || textView.getParent() != null) {
-            textView = new com.baidu.tbadk.widget.l(context);
+            textView = new com.baidu.tbadk.widget.m(context);
         }
         textView.setPadding(this.h, 0, this.h, 0);
         return textView;
@@ -375,7 +375,6 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         textView.setTextColor(this.m);
         textView.setLinkTextColor(this.n);
         textView.setSingleLine(this.t);
-        textView.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
         if (cVar == null || (d = cVar.d()) == null) {
             return false;
         }
@@ -708,13 +707,13 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
             return;
         }
         Context context = getContext();
-        if (context == null || !(context instanceof com.baidu.adp.base.i)) {
+        if (context == null || !(context instanceof com.baidu.adp.base.g)) {
             i = 0;
             z = false;
         } else {
-            com.baidu.adp.base.i iVar = (com.baidu.adp.base.i) context;
-            int uniqueId = iVar.getUniqueId();
-            z = iVar.isScroll();
+            com.baidu.adp.base.g gVar = (com.baidu.adp.base.g) context;
+            int uniqueId = gVar.getUniqueId();
+            z = gVar.isScroll();
             i = uniqueId;
         }
         if (!(str.equals(this.N) && this.P == i)) {

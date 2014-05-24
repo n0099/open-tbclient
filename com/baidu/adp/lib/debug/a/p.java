@@ -28,28 +28,28 @@ public class p extends a implements Runnable {
             }
         }
         this.d = new q(this);
-        com.baidu.adp.lib.debug.c.b(d());
+        com.baidu.adp.lib.debug.d.b(d());
     }
 
     public q d() {
         q qVar = new q(this);
         qVar.b = a(String.valueOf("/proc/uid_stat/") + this.c + "/tcp_rcv");
         qVar.c = a(String.valueOf("/proc/uid_stat/") + this.c + "/tcp_snd");
-        qVar.a = com.baidu.adp.lib.debug.c.a(qVar.b + qVar.c);
+        qVar.a = com.baidu.adp.lib.debug.d.a(qVar.b + qVar.c);
         return qVar;
     }
 
     public q e() {
         q d = d();
-        this.d.b = com.baidu.adp.lib.debug.c.a(d.b - com.baidu.adp.lib.debug.c.h().b);
-        this.d.c = com.baidu.adp.lib.debug.c.a(d.c - com.baidu.adp.lib.debug.c.h().c);
-        this.d.a = com.baidu.adp.lib.debug.c.a(d.a - com.baidu.adp.lib.debug.c.h().a);
+        this.d.b = com.baidu.adp.lib.debug.d.a(d.b - com.baidu.adp.lib.debug.d.h().b);
+        this.d.c = com.baidu.adp.lib.debug.d.a(d.c - com.baidu.adp.lib.debug.d.h().c);
+        this.d.a = com.baidu.adp.lib.debug.d.a(d.a - com.baidu.adp.lib.debug.d.h().a);
         return this.d;
     }
 
     public double a(String str) {
         try {
-            return com.baidu.adp.lib.debug.c.a(Long.valueOf(Long.parseLong(new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("cat " + str).getInputStream())).readLine())).longValue() / 1024.0d);
+            return com.baidu.adp.lib.debug.d.a(Long.valueOf(Long.parseLong(new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("cat " + str).getInputStream())).readLine())).longValue() / 1024.0d);
         } catch (Throwable th) {
             th.printStackTrace();
             return 0.0d;
@@ -61,7 +61,7 @@ public class p extends a implements Runnable {
         super.b();
         while (true) {
             try {
-                com.baidu.adp.lib.debug.c.a(e());
+                com.baidu.adp.lib.debug.d.a(e());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {

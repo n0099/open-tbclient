@@ -2,7 +2,7 @@ package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class c {
     private com.baidu.tieba.data.r a = null;
-    private com.baidu.tieba.data.ap b = null;
+    private com.baidu.tieba.data.aq b = null;
 
     public com.baidu.tieba.data.r a() {
         return this.a;
@@ -12,11 +12,11 @@ public class c {
         this.a = rVar;
     }
 
-    public com.baidu.tieba.data.ap b() {
+    public com.baidu.tieba.data.aq b() {
         return this.b;
     }
 
-    public void a(com.baidu.tieba.data.ap apVar) {
-        this.b = apVar;
+    public void a(com.baidu.tieba.data.aq aqVar) {
+        this.b = aqVar;
     }
 }

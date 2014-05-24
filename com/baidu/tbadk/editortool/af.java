@@ -1,24 +1,70 @@
 package com.baidu.tbadk.editortool;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tbadk.core.message.EmptyMessage;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
-public class af implements Runnable {
-    final /* synthetic */ ac a;
-    private final /* synthetic */ ArrayList b;
+public abstract class af {
+    private com.baidu.adp.widget.a.a a;
+    private com.baidu.adp.widget.a.a b;
+    private int c;
+    private int d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ac acVar, ArrayList arrayList) {
-        this.a = acVar;
-        this.b = arrayList;
+    public abstract String a(int i);
+
+    public abstract boolean a(String str);
+
+    public abstract com.baidu.adp.widget.a.a b(String str);
+
+    public abstract com.baidu.adp.widget.a.a c(String str);
+
+    public abstract EmotionGroupType c();
+
+    public abstract int d();
+
+    public abstract String e();
+
+    public abstract String f();
+
+    public abstract int g();
+
+    public abstract int h();
+
+    public com.baidu.adp.widget.a.a i() {
+        return this.a;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.b = this.b;
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new EmptyMessage(MessageTypes.CMD_EMOTIONS_GROUP_CHANGED));
+    public void a(com.baidu.adp.widget.a.a aVar) {
+        if (aVar != null) {
+            aVar.h();
+        }
+        this.a = aVar;
+    }
+
+    public com.baidu.adp.widget.a.a a() {
+        return this.b;
+    }
+
+    public void b(com.baidu.adp.widget.a.a aVar) {
+        if (aVar != null) {
+            aVar.h();
+        }
+        this.b = aVar;
+    }
+
+    public int j() {
+        return this.d;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void b(int i) {
+        this.d = i;
+    }
+
+    public int k() {
+        return this.c;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void c(int i) {
+        this.c = i;
     }
 }

@@ -14,7 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.Scroller;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.p;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class DragHorizonScrollView extends ViewGroup implements View.OnLongClickListener, f, g {
@@ -98,8 +98,8 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         this.q = viewConfiguration.getScaledMaximumFlingVelocity();
         this.l = new Scroller(context, new LinearInterpolator());
         this.m = new Scroller(context);
-        this.u = getResources().getDimensionPixelSize(p.editor_muti_image_upload_scrollview_paddingleft);
-        this.v = getResources().getDimensionPixelSize(p.default_gap_24);
+        this.u = getResources().getDimensionPixelSize(t.editor_muti_image_upload_scrollview_paddingleft);
+        this.v = getResources().getDimensionPixelSize(t.default_gap_24);
     }
 
     @Override // android.view.View

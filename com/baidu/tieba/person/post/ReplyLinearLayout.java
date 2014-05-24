@@ -62,19 +62,19 @@ public class ReplyLinearLayout extends LinearLayout {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
                     textView2.setLayoutParams(b);
-                    bc.a(textView2, com.baidu.tieba.o.cp_cont_b, 1);
+                    bc.a(textView2, com.baidu.tieba.s.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
-                    bc.f((View) textView2, com.baidu.tieba.o.cp_bg_line_b);
+                    bc.f((View) textView2, com.baidu.tieba.s.cp_bg_line_b);
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
                     textView2.setLayoutParams(b);
-                    bc.a(textView2, com.baidu.tieba.o.cp_cont_f, 1);
+                    bc.a(textView2, com.baidu.tieba.s.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
                     textView2.setLayoutParams(b);
-                    bc.a(textView2, com.baidu.tieba.o.cp_cont_d, 1);
+                    bc.a(textView2, com.baidu.tieba.s.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);
             } else {
@@ -86,26 +86,26 @@ public class ReplyLinearLayout extends LinearLayout {
     private void a(TextView textView, int i) {
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             if (i == 0) {
-                textView.setTextColor(getResources().getColor(com.baidu.tieba.o.person_post_content_main_1));
-                textView.setPadding(0, com.baidu.adp.lib.util.h.a(getContext(), 10.0f), 0, com.baidu.adp.lib.util.h.a(getContext(), 10.0f));
+                textView.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_content_main_1));
+                textView.setPadding(0, com.baidu.adp.lib.util.k.a(getContext(), 10.0f), 0, com.baidu.adp.lib.util.k.a(getContext(), 10.0f));
             } else if (i % 3 == 2) {
-                textView.setTextColor(getResources().getColor(com.baidu.tieba.o.person_post_content_sub_1));
-                textView.setBackgroundResource(com.baidu.tieba.o.transparent);
-                textView.setPadding(0, com.baidu.adp.lib.util.h.a(getContext(), 10.0f), 0, com.baidu.adp.lib.util.h.a(getContext(), 2.0f));
+                textView.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_content_sub_1));
+                textView.setBackgroundResource(com.baidu.tieba.s.transparent);
+                textView.setPadding(0, com.baidu.adp.lib.util.k.a(getContext(), 10.0f), 0, com.baidu.adp.lib.util.k.a(getContext(), 2.0f));
             } else if (i % 3 == 0) {
-                textView.setTextColor(getResources().getColor(com.baidu.tieba.o.person_post_header_time_1));
-                textView.setPadding(0, com.baidu.adp.lib.util.h.a(getContext(), 2.0f), 0, com.baidu.adp.lib.util.h.a(getContext(), 10.0f));
+                textView.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_header_time_1));
+                textView.setPadding(0, com.baidu.adp.lib.util.k.a(getContext(), 2.0f), 0, com.baidu.adp.lib.util.k.a(getContext(), 10.0f));
             }
         } else if (i == 0) {
-            textView.setTextColor(getResources().getColor(com.baidu.tieba.o.person_post_content_main));
-            textView.setPadding(0, com.baidu.adp.lib.util.h.a(getContext(), 10.0f), 0, com.baidu.adp.lib.util.h.a(getContext(), 10.0f));
+            textView.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_content_main));
+            textView.setPadding(0, com.baidu.adp.lib.util.k.a(getContext(), 10.0f), 0, com.baidu.adp.lib.util.k.a(getContext(), 10.0f));
         } else if (i % 3 == 2) {
-            textView.setTextColor(getResources().getColor(com.baidu.tieba.o.person_post_content_sub));
-            textView.setBackgroundResource(com.baidu.tieba.o.transparent);
-            textView.setPadding(0, com.baidu.adp.lib.util.h.a(getContext(), 10.0f), 0, com.baidu.adp.lib.util.h.a(getContext(), 2.0f));
+            textView.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_content_sub));
+            textView.setBackgroundResource(com.baidu.tieba.s.transparent);
+            textView.setPadding(0, com.baidu.adp.lib.util.k.a(getContext(), 10.0f), 0, com.baidu.adp.lib.util.k.a(getContext(), 2.0f));
         } else if (i % 3 == 0) {
-            textView.setTextColor(getResources().getColor(com.baidu.tieba.o.person_post_header_time));
-            textView.setPadding(0, com.baidu.adp.lib.util.h.a(getContext(), 2.0f), 0, com.baidu.adp.lib.util.h.a(getContext(), 10.0f));
+            textView.setTextColor(getResources().getColor(com.baidu.tieba.s.person_post_header_time));
+            textView.setPadding(0, com.baidu.adp.lib.util.k.a(getContext(), 2.0f), 0, com.baidu.adp.lib.util.k.a(getContext(), 10.0f));
         }
     }
 }

@@ -102,11 +102,11 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (getItemViewType(i) == -1) {
-            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.s.live_list_foot, viewGroup, false);
-            View findViewById = view.findViewById(com.baidu.tieba.r.bottom_line);
-            ViewGroup viewGroup2 = (ViewGroup) view.findViewById(com.baidu.tieba.r.bottom_more);
-            TextView textView = (TextView) view.findViewById(com.baidu.tieba.r.more_title);
-            ProgressBar progressBar = (ProgressBar) view.findViewById(com.baidu.tieba.r.more_progress);
+            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.live_list_foot, viewGroup, false);
+            View findViewById = view.findViewById(com.baidu.tieba.v.bottom_line);
+            ViewGroup viewGroup2 = (ViewGroup) view.findViewById(com.baidu.tieba.v.bottom_more);
+            TextView textView = (TextView) view.findViewById(com.baidu.tieba.v.more_title);
+            ProgressBar progressBar = (ProgressBar) view.findViewById(com.baidu.tieba.v.more_progress);
             if (this.f) {
                 findViewById.setVisibility(8);
                 viewGroup2.setVisibility(8);
@@ -114,21 +114,21 @@ public class e extends BaseAdapter {
                 findViewById.setVisibility(8);
                 viewGroup2.setVisibility(0);
                 if (this.e) {
-                    textView.setText(com.baidu.tieba.u.live_frs_list_hasmore);
+                    textView.setText(com.baidu.tieba.y.live_frs_list_hasmore);
                     progressBar.setVisibility(0);
                 } else {
-                    textView.setText(com.baidu.tieba.u.live_frs_list_nomore);
+                    textView.setText(com.baidu.tieba.y.live_frs_list_nomore);
                     progressBar.setVisibility(8);
                 }
             }
         } else {
             if (view == null) {
-                view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.s.live_black_members_list_item, viewGroup, false);
+                view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.live_black_members_list_item, viewGroup, false);
                 g gVar = new g(this);
-                gVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.r.item_head);
-                gVar.b = (TextView) view.findViewById(com.baidu.tieba.r.item_name);
-                gVar.c = (ImageView) view.findViewById(com.baidu.tieba.r.item_sex);
-                gVar.d = (Button) view.findViewById(com.baidu.tieba.r.item_unset);
+                gVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.v.item_head);
+                gVar.b = (TextView) view.findViewById(com.baidu.tieba.v.item_name);
+                gVar.c = (ImageView) view.findViewById(com.baidu.tieba.v.item_sex);
+                gVar.d = (Button) view.findViewById(com.baidu.tieba.v.item_unset);
                 view.setTag(gVar);
             }
             int skinType = TbadkApplication.m252getInst().getSkinType();
@@ -142,19 +142,19 @@ public class e extends BaseAdapter {
                     case 1:
                         gVar2.c.setVisibility(0);
                         if (skinType == 1) {
-                            gVar2.c.setImageResource(com.baidu.tieba.q.icon_pop_qz_boy_1);
+                            gVar2.c.setImageResource(com.baidu.tieba.u.icon_pop_qz_boy_1);
                             break;
                         } else {
-                            gVar2.c.setImageResource(com.baidu.tieba.q.icon_pop_qz_boy);
+                            gVar2.c.setImageResource(com.baidu.tieba.u.icon_pop_qz_boy);
                             break;
                         }
                     case 2:
                         gVar2.c.setVisibility(0);
                         if (skinType == 1) {
-                            gVar2.c.setImageResource(com.baidu.tieba.q.icon_pop_qz_girl_1);
+                            gVar2.c.setImageResource(com.baidu.tieba.u.icon_pop_qz_girl_1);
                             break;
                         } else {
-                            gVar2.c.setImageResource(com.baidu.tieba.q.icon_pop_qz_girl);
+                            gVar2.c.setImageResource(com.baidu.tieba.u.icon_pop_qz_girl);
                             break;
                         }
                     default:

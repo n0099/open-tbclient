@@ -3,9 +3,9 @@ package com.baidu.tieba.pb.sub;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.data.ao;
+import com.baidu.tieba.data.ap;
 /* loaded from: classes.dex */
-public class g extends BdAsyncTask<Object, Integer, ao> {
+public class g extends BdAsyncTask<Object, Integer, ap> {
     protected a a = null;
     protected int b;
     final /* synthetic */ f c;
@@ -20,28 +20,28 @@ public class g extends BdAsyncTask<Object, Integer, ao> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public ao doInBackground(Object... objArr) {
+    public ap doInBackground(Object... objArr) {
         this.a = new a();
         try {
             String a = this.a.a(this.c.b, this.c.d, this.b, this.c.c, a());
             if (!this.a.a()) {
                 return null;
             }
-            ao aoVar = new ao();
-            aoVar.a(a, this.c.e);
-            String userId = (aoVar.m() == null || aoVar.m().t() == null) ? null : aoVar.m().t().getUserId();
+            ap apVar = new ap();
+            apVar.a(a, this.c.e);
+            String userId = (apVar.m() == null || apVar.m().y() == null) ? null : apVar.m().y().getUserId();
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= aoVar.c().size()) {
-                    return aoVar;
+                if (i2 >= apVar.c().size()) {
+                    return apVar;
                 }
-                boolean equals = userId.equals(aoVar.c().get(i2).g().getUserId());
+                boolean equals = userId.equals(apVar.c().get(i2).o().getUserId());
                 if (this.c.i == null) {
                     this.c.i = new ab(this.c.e);
                     this.c.i.d(true);
                 }
-                aoVar.c().get(i2).a(this.c.e, equals, this.c.i);
+                apVar.c().get(i2).a(this.c.e, equals, this.c.i);
                 i = i2 + 1;
             }
         } catch (Exception e) {
@@ -84,29 +84,29 @@ public class g extends BdAsyncTask<Object, Integer, ao> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(ao aoVar) {
+    public void onPostExecute(ap apVar) {
         this.c.g = null;
-        if (aoVar == null) {
+        if (apVar == null) {
             if (this.c.h != null) {
                 this.c.h.a(false, this.a.c(), this.a.b(), null);
                 return;
             }
             return;
         }
-        if (aoVar.a() != null) {
-            this.c.c = aoVar.a().d();
+        if (apVar.a() != null) {
+            this.c.c = apVar.a().l();
         }
-        if (aoVar.m() != null) {
-            this.c.b = aoVar.m().k();
+        if (apVar.m() != null) {
+            this.c.b = apVar.m().p();
         }
         if (this.b == 1) {
-            this.c.f = aoVar;
+            this.c.f = apVar;
         } else if (this.b == 2) {
-            this.c.f.b(aoVar, true);
+            this.c.f.b(apVar, true);
         } else if (this.b == 3) {
-            this.c.f.a(aoVar, false);
+            this.c.f.a(apVar, false);
         } else {
-            this.c.f.b(aoVar, false);
+            this.c.f.b(apVar, false);
         }
         if (this.c.h != null) {
             this.c.h.a(true, this.a.c(), this.a.b(), this.c.f);

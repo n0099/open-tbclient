@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
-public class BlackMembersListActivity extends BaseActivity implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.u {
+public class BlackMembersListActivity extends BaseActivity implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.x {
     private i a;
     private com.baidu.tieba.im.model.y b;
     private final com.baidu.adp.framework.listener.b c = new a(this, MessageTypes.CMD_LIVE_BLACK_MEMBERS_LIST);
@@ -53,7 +53,7 @@ public class BlackMembersListActivity extends BaseActivity implements AbsListVie
     }
 
     private void c() {
-        showLoadingDialog(getString(com.baidu.tieba.u.group_tab_enterchatroom_loading), null);
+        showLoadingDialog(getString(com.baidu.tieba.y.group_tab_enterchatroom_loading), null);
         this.b.a(this.b.b(), this.b.c(), 20);
     }
 
@@ -93,13 +93,13 @@ public class BlackMembersListActivity extends BaseActivity implements AbsListVie
         e e = this.a.e();
         if (!e.b()) {
             e.c(true);
-            textView.setText(com.baidu.tieba.u.done);
+            textView.setText(com.baidu.tieba.y.done);
             bc.g(textView, TbadkApplication.m252getInst().getSkinType());
             e.notifyDataSetChanged();
             return;
         }
         e.c(false);
-        textView.setText(com.baidu.tieba.u.edit);
+        textView.setText(com.baidu.tieba.y.edit);
         bc.i(textView, TbadkApplication.m252getInst().getSkinType());
         e.notifyDataSetChanged();
     }
@@ -132,7 +132,7 @@ public class BlackMembersListActivity extends BaseActivity implements AbsListVie
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.x
     public void f_() {
         g();
     }

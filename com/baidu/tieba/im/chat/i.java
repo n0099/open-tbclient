@@ -1,30 +1,31 @@
 package com.baidu.tieba.im.chat;
 
-import android.os.Handler;
-import android.os.Message;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends Handler {
-    final /* synthetic */ h a;
+public class i implements View.OnTouchListener {
+    final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar) {
-        this.a = hVar;
+    public i(g gVar) {
+        this.a = gVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Handler handler;
-        super.handleMessage(message);
-        switch (message.what) {
-            case 1:
-                handler = this.a.N;
-                handler.removeMessages(1);
-                this.a.t();
-                this.a.r();
-                return;
-            default:
-                return;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.a.d.setCursorVisible(true);
+            this.a.g();
+        } else if (motionEvent.getAction() == 0) {
+            this.a.V();
+            if (this.a.e.getVisibility() == 0) {
+                this.a.h();
+                this.a.i();
+                this.a.U();
+                return true;
+            }
         }
+        return false;
     }
 }

@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ap> {
+public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.aq> {
     final /* synthetic */ AtListActivity a;
     private com.baidu.tbadk.core.util.al b;
     private String c;
@@ -51,7 +51,7 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public com.baidu.tieba.data.ap doInBackground(String... strArr) {
+    public com.baidu.tieba.data.aq doInBackground(String... strArr) {
         com.baidu.tieba.model.c cVar;
         this.c = strArr[0];
         this.b = new com.baidu.tbadk.core.util.al();
@@ -63,16 +63,16 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ap> {
         this.b.a("q", this.c);
         String i = this.b.i();
         if (this.b.a().b().b()) {
-            com.baidu.tieba.data.ap apVar = new com.baidu.tieba.data.ap();
+            com.baidu.tieba.data.aq aqVar = new com.baidu.tieba.data.aq();
             cVar = this.a.k;
             com.baidu.tieba.data.r a = cVar.a();
             if (a != null) {
-                apVar.a(i, a.b());
+                aqVar.a(i, a.b());
             } else {
-                apVar.a(i, (HashMap<String, String>) null);
+                aqVar.a(i, (HashMap<String, String>) null);
             }
             if (AtListActivity.a != null && AtListActivity.a.size() > 0) {
-                Iterator<MetaData> it = apVar.a().iterator();
+                Iterator<MetaData> it = aqVar.a().iterator();
                 while (it.hasNext()) {
                     MetaData next = it.next();
                     Iterator<MetaData> it2 = AtListActivity.a.iterator();
@@ -88,7 +88,7 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ap> {
                     }
                 }
             }
-            return apVar;
+            return aqVar;
         }
         return null;
     }
@@ -97,7 +97,7 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(com.baidu.tieba.data.ap apVar) {
+    public void onPostExecute(com.baidu.tieba.data.aq aqVar) {
         ProgressBar progressBar;
         EditText editText;
         com.baidu.tieba.model.c cVar;
@@ -110,21 +110,21 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ap> {
         if (this.b.a().b().b() && this.c != null) {
             editText = this.a.b;
             if (editText.getText().toString().equals(this.c)) {
-                if (!apVar.a().isEmpty()) {
+                if (!aqVar.a().isEmpty()) {
                     this.a.a(false);
                 }
                 cVar = this.a.k;
-                cVar.a(apVar);
+                cVar.a(aqVar);
                 nVar = this.a.l;
-                nVar.a(apVar.a());
+                nVar.a(aqVar.a());
                 nVar2 = this.a.l;
                 nVar2.notifyDataSetInvalidated();
                 bdListView = this.a.d;
                 bdListView.setSelection(0);
-                super.onPostExecute(apVar);
+                super.onPostExecute(aqVar);
             }
         }
         this.a.showToast(this.b.f());
-        super.onPostExecute(apVar);
+        super.onPostExecute(aqVar);
     }
 }

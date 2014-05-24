@@ -30,7 +30,7 @@ class n implements Runnable {
         if (i2 <= 0) {
             this.a.o = true;
             textView2 = this.a.h;
-            textView2.setText(this.a.getString(com.baidu.tieba.u.resend_code));
+            textView2.setText(this.a.getString(com.baidu.tieba.y.resend_code));
             rVar = this.a.n;
             if (rVar == null) {
                 relativeLayout = this.a.l;
@@ -39,7 +39,7 @@ class n implements Runnable {
             }
             return;
         }
-        String string = this.a.getString(com.baidu.tieba.u.resend_code_second);
+        String string = this.a.getString(com.baidu.tieba.y.resend_code_second);
         i3 = this.a.p;
         String format = String.format(string, Integer.valueOf(i3));
         textView = this.a.h;

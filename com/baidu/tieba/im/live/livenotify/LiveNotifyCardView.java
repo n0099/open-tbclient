@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.live.livenotify;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,9 @@ import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -71,20 +75,20 @@ public class LiveNotifyCardView extends RelativeLayout {
 
     private void a(Context context, AttributeSet attributeSet) {
         this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.s.live_notify_card_view, this);
-        this.b = (ViewGroup) inflate.findViewById(com.baidu.tieba.r.live_notify_card_root);
-        this.c = (ViewGroup) inflate.findViewById(com.baidu.tieba.r.live_notify_card_card_middle);
-        this.d = (TextView) inflate.findViewById(com.baidu.tieba.r.live_notify_card_card_name);
-        this.e = (TextView) inflate.findViewById(com.baidu.tieba.r.live_notify_card_card_listener_count);
-        this.f = (TextView) inflate.findViewById(com.baidu.tieba.r.live_notify_card_card_liker_count);
-        this.g = (TextView) inflate.findViewById(com.baidu.tieba.r.live_notify_card_card_author);
-        this.h = (TextView) inflate.findViewById(com.baidu.tieba.r.live_notify_card_card_intro);
-        this.i = (ViewGroup) inflate.findViewById(com.baidu.tieba.r.live_notify_card_card_right);
-        this.j = (TextView) inflate.findViewById(com.baidu.tieba.r.live_notify_card_card_state_living);
-        this.k = (TextView) inflate.findViewById(com.baidu.tieba.r.live_notify_card_card_time);
-        this.l = (ViewGroup) inflate.findViewById(com.baidu.tieba.r.live_notify_card_card_state_willstart_layout);
-        this.m = (TextView) inflate.findViewById(com.baidu.tieba.r.live_notify_card_card_state_willstart_text);
-        this.n = (TextView) inflate.findViewById(com.baidu.tieba.r.live_notify_card_card_state_close);
+        View inflate = LayoutInflater.from(context).inflate(w.live_notify_card_view, this);
+        this.b = (ViewGroup) inflate.findViewById(v.live_notify_card_root);
+        this.c = (ViewGroup) inflate.findViewById(v.live_notify_card_card_middle);
+        this.d = (TextView) inflate.findViewById(v.live_notify_card_card_name);
+        this.e = (TextView) inflate.findViewById(v.live_notify_card_card_listener_count);
+        this.f = (TextView) inflate.findViewById(v.live_notify_card_card_liker_count);
+        this.g = (TextView) inflate.findViewById(v.live_notify_card_card_author);
+        this.h = (TextView) inflate.findViewById(v.live_notify_card_card_intro);
+        this.i = (ViewGroup) inflate.findViewById(v.live_notify_card_card_right);
+        this.j = (TextView) inflate.findViewById(v.live_notify_card_card_state_living);
+        this.k = (TextView) inflate.findViewById(v.live_notify_card_card_time);
+        this.l = (ViewGroup) inflate.findViewById(v.live_notify_card_card_state_willstart_layout);
+        this.m = (TextView) inflate.findViewById(v.live_notify_card_card_state_willstart_text);
+        this.n = (TextView) inflate.findViewById(v.live_notify_card_card_state_close);
         this.c.measure(0, 0);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
         layoutParams.height = this.c.getMeasuredHeight();
@@ -98,7 +102,11 @@ public class LiveNotifyCardView extends RelativeLayout {
             h.a().b(this);
             b();
             this.p = liveCardData.getGroupId();
-            this.d.setText(liveCardData.getName());
+            String name = liveCardData.getName();
+            if (!TextUtils.isEmpty(name) && name.length() > 7) {
+                name = String.valueOf(name.substring(0, 7)) + "...";
+            }
+            this.d.setText(name);
             this.e.setText(String.valueOf(liveCardData.getListeners() >= 0 ? liveCardData.getListeners() : 0));
             this.f.setText(String.valueOf(liveCardData.getLikers() >= 0 ? liveCardData.getLikers() : 0));
             this.g.setText(liveCardData.getPublisherName());
@@ -159,15 +167,15 @@ public class LiveNotifyCardView extends RelativeLayout {
     }
 
     private void e() {
-        this.m.setText(u.live_card_count_down);
-        bc.f((View) this.m, com.baidu.tieba.q.bg_live_orange);
+        this.m.setText(y.live_card_count_down);
+        bc.f((View) this.m, u.bg_live_orange);
         this.r = 2;
     }
 
     private void f() {
         this.k.setText(c(this.o));
-        this.m.setText(u.live_card_foreshowt);
-        bc.f((View) this.m, com.baidu.tieba.q.bg_live_yellow);
+        this.m.setText(y.live_card_foreshowt);
+        bc.f((View) this.m, u.bg_live_yellow);
         this.r = 1;
     }
 

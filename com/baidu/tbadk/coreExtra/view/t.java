@@ -44,6 +44,6 @@ public class t implements View.OnClickListener {
         }
         q qVar = this.a;
         baseActivity = this.a.j;
-        qVar.b(baseActivity.getString(com.baidu.tieba.u.input_name));
+        qVar.b(baseActivity.getString(com.baidu.tieba.y.input_name));
     }
 }

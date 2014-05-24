@@ -23,16 +23,16 @@ public class t implements Runnable {
         Handler handler3;
         Handler handler4;
         String str = com.baidu.tbadk.core.voice.a.e.a(ad.c(this.b)).a;
-        handler = this.a.s;
+        handler = this.a.mHandle;
         if (handler != null) {
-            handler2 = this.a.s;
-            handler2.removeCallbacks(this.a.c);
+            handler2 = this.a.mHandle;
+            handler2.removeCallbacks(this.a.stopingRecorderRunnable);
             if (StringUtils.isNull(str)) {
-                handler4 = this.a.s;
+                handler4 = this.a.mHandle;
                 handler4.post(new u(this));
                 return;
             }
-            handler3 = this.a.s;
+            handler3 = this.a.mHandle;
             handler3.post(new v(this, str, this.c));
         }
     }

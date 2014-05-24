@@ -13,8 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
@@ -66,7 +67,7 @@ public class a {
     public a(Activity activity) {
         this.l = activity;
         this.n = (LayoutInflater) activity.getSystemService("layout_inflater");
-        this.m = (ViewGroup) this.n.inflate(s.dialog_bdalert, (ViewGroup) null);
+        this.m = (ViewGroup) this.n.inflate(w.dialog_bdalert, (ViewGroup) null);
     }
 
     public a a() {
@@ -76,12 +77,12 @@ public class a {
         if (!this.o) {
             this.o = true;
             d();
-            TextView textView = (TextView) this.m.findViewById(r.title);
-            LinearLayout linearLayout = (LinearLayout) this.m.findViewById(r.content);
-            TextView textView2 = (TextView) this.m.findViewById(r.message);
-            Button button = (Button) this.m.findViewById(r.yes);
-            Button button2 = (Button) this.m.findViewById(r.no);
-            Button button3 = (Button) this.m.findViewById(r.cancel);
+            TextView textView = (TextView) this.m.findViewById(v.title);
+            LinearLayout linearLayout = (LinearLayout) this.m.findViewById(v.content);
+            TextView textView2 = (TextView) this.m.findViewById(v.message);
+            Button button = (Button) this.m.findViewById(v.yes);
+            Button button2 = (Button) this.m.findViewById(v.no);
+            Button button3 = (Button) this.m.findViewById(v.cancel);
             if (!TextUtils.isEmpty(this.b)) {
                 textView.setText(this.b);
             } else {
@@ -131,10 +132,10 @@ public class a {
             BaseActivity baseActivity = (BaseActivity) this.l;
             baseActivity.getLayoutMode().a(skinType == 1);
             baseActivity.getLayoutMode().a((View) this.m);
-        } else if (this.l instanceof com.baidu.tbadk.core.e) {
-            com.baidu.tbadk.core.e eVar = (com.baidu.tbadk.core.e) this.l;
-            eVar.a().a(skinType == 1);
-            eVar.a().a((View) this.m);
+        } else if (this.l instanceof BaseFragmentActivity) {
+            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.l;
+            baseFragmentActivity.a().a(skinType == 1);
+            baseFragmentActivity.a().a((View) this.m);
         }
     }
 

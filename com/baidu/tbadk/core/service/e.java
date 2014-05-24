@@ -1,73 +1,80 @@
 package com.baidu.tbadk.core.service;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
 /* loaded from: classes.dex */
-class e extends Handler {
+class e extends BdAsyncTask<Void, Void, PluginsConfig> {
     final /* synthetic */ PluginSyncService a;
-
-    private e(PluginSyncService pluginSyncService) {
-        this.a = pluginSyncService;
-    }
+    private Messenger b;
+    private al c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(PluginSyncService pluginSyncService, e eVar) {
-        this(pluginSyncService);
+    public e(PluginSyncService pluginSyncService, Messenger messenger) {
+        this.a = pluginSyncService;
+        this.b = messenger;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        f fVar;
-        f fVar2;
-        PluginsConfig pluginsConfig;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public PluginsConfig doInBackground(Void... voidArr) {
+        String str;
+        str = PluginSyncService.ADDRESS;
+        this.c = new al(str);
+        this.c.a("client_version", TbConfig.getVersion());
+        String i = this.c.i();
+        Log.d("PluginSyncService", i);
+        return PluginsConfig.parse(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(PluginsConfig pluginsConfig) {
         PluginsConfig pluginsConfig2;
-        f fVar3;
-        f fVar4;
-        switch (message.what) {
-            case 1:
-            default:
-                return;
-            case 2:
-                Log.d("PluginSyncService", "MSG_GET_CONFIG received");
-                pluginsConfig = this.a.c;
-                if (pluginsConfig == null) {
-                    fVar3 = this.a.d;
-                    if (fVar3 == null) {
-                        this.a.d = new f(this.a, message.replyTo);
-                        fVar4 = this.a.d;
-                        fVar4.execute(new Void[0]);
-                        return;
-                    }
-                    return;
-                }
-                Message obtain = Message.obtain((Handler) null, 2);
-                if (obtain != null && message.replyTo != null) {
-                    Bundle bundle = new Bundle();
-                    pluginsConfig2 = this.a.c;
-                    bundle.putSerializable("plugin_config", pluginsConfig2);
-                    obtain.setData(bundle);
-                    try {
-                        message.replyTo.send(obtain);
-                        Log.d("PluginSyncService", "MSG_GET_CONFIG response");
-                        return;
-                    } catch (RemoteException e) {
-                        return;
-                    }
-                }
-                return;
-            case 3:
-                fVar = this.a.d;
-                if (fVar == null) {
-                    this.a.d = new f(this.a, message.replyTo);
-                    fVar2 = this.a.d;
-                    fVar2.execute(new Void[0]);
-                    return;
-                }
-                return;
+        PluginsConfig pluginsConfig3;
+        PluginsConfig pluginsConfig4;
+        PluginsConfig pluginsConfig5;
+        this.a.mPluginsConfig = pluginsConfig;
+        pluginsConfig2 = this.a.mPluginsConfig;
+        if (pluginsConfig2 != null) {
+            pluginsConfig5 = this.a.mPluginsConfig;
+            Log.d("PluginSyncService", pluginsConfig5.toString());
         }
+        Message obtain = Message.obtain((Handler) null, 2);
+        if (obtain != null && this.b != null) {
+            Bundle bundle = new Bundle();
+            pluginsConfig4 = this.a.mPluginsConfig;
+            bundle.putSerializable("plugin_config", pluginsConfig4);
+            obtain.setData(bundle);
+            try {
+                this.b.send(obtain);
+                Log.d("PluginSyncService", "MSG_GET_CONFIG response");
+            } catch (RemoteException e) {
+            }
+        }
+        pluginsConfig3 = this.a.mPluginsConfig;
+        if (pluginsConfig3 != null) {
+            this.a.sendBroadcast(new Intent(TbConfig.getBroadcastActionNewVersion()));
+        }
+        this.a.mSyncWorker = null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel();
+        this.c.g();
+        this.c = null;
     }
 }

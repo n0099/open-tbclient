@@ -137,16 +137,16 @@ public class o extends BaseAdapter {
         try {
             if (getItemViewType(i) == 0) {
                 if (view == null || !(view.getTag() instanceof q)) {
-                    view4 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.home_mark_item, (ViewGroup) null);
+                    view4 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.home_mark_item, (ViewGroup) null);
                     qVar = new q(this, null);
-                    qVar.b = (TextView) view4.findViewById(com.baidu.tieba.r.home_lv_markitem_reply);
-                    qVar.c = (LinearLayout) view4.findViewById(com.baidu.tieba.r.home_lv_markitem_content);
-                    qVar.d = (TextView) view4.findViewById(com.baidu.tieba.r.home_lv_markitem_title);
-                    qVar.h = (Button) view4.findViewById(com.baidu.tieba.r.home_lv_markitem_delete);
-                    qVar.a = (ImageView) view4.findViewById(com.baidu.tieba.r.mark_comment_icon);
-                    qVar.f = (ImageView) view4.findViewById(com.baidu.tieba.r.new_mark_mention_fack);
-                    qVar.g = (LinearLayout) view4.findViewById(com.baidu.tieba.r.new_mark);
-                    qVar.e = (TextView) view4.findViewById(com.baidu.tieba.r.home_lv_markitem_forum_name);
+                    qVar.b = (TextView) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_reply);
+                    qVar.c = (LinearLayout) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_content);
+                    qVar.d = (TextView) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_title);
+                    qVar.h = (Button) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_delete);
+                    qVar.a = (ImageView) view4.findViewById(com.baidu.tieba.v.mark_comment_icon);
+                    qVar.f = (ImageView) view4.findViewById(com.baidu.tieba.v.new_mark_mention_fack);
+                    qVar.g = (LinearLayout) view4.findViewById(com.baidu.tieba.v.new_mark);
+                    qVar.e = (TextView) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_forum_name);
                     view4.setTag(qVar);
                 } else {
                     qVar = (q) view.getTag();
@@ -158,9 +158,9 @@ public class o extends BaseAdapter {
             } else if (view == null || !(view.getTag() instanceof p)) {
                 LayoutInflater from = LayoutInflater.from(this.a);
                 p pVar2 = new p(this, null);
-                view4 = from.inflate(com.baidu.tieba.s.page_item, (ViewGroup) null);
-                pVar2.a = (TextView) view4.findViewById(com.baidu.tieba.r.page_text);
-                pVar2.b = (ProgressBar) view4.findViewById(com.baidu.tieba.r.progress);
+                view4 = from.inflate(com.baidu.tieba.w.page_item, (ViewGroup) null);
+                pVar2.a = (TextView) view4.findViewById(com.baidu.tieba.v.page_text);
+                pVar2.b = (ProgressBar) view4.findViewById(com.baidu.tieba.v.progress);
                 if (this.g == null) {
                     this.g = new ArrayList<>();
                 }
@@ -179,32 +179,32 @@ public class o extends BaseAdapter {
             if (getItemViewType(i) == 1) {
                 if (this.i) {
                     pVar.b.setVisibility(0);
-                    pVar.a.setText(this.a.getString(com.baidu.tieba.u.loading));
+                    pVar.a.setText(this.a.getString(com.baidu.tieba.y.loading));
                     if (skinType == 1) {
-                        pVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.pb_more_txt_1));
+                        pVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.pb_more_txt_1));
                         view2 = view4;
                     } else {
-                        pVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.pb_more_txt));
+                        pVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.pb_more_txt));
                         view2 = view4;
                     }
                 } else if (!this.j) {
                     pVar.b.setVisibility(8);
-                    pVar.a.setText(this.a.getString(com.baidu.tieba.u.no_more_mark));
+                    pVar.a.setText(this.a.getString(com.baidu.tieba.y.no_more_mark));
                     if (skinType == 1) {
-                        pVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.pb_list_morebutton_nomore_text_1));
+                        pVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.pb_list_morebutton_nomore_text_1));
                         view2 = view4;
                     } else {
-                        pVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.pb_list_morebutton_nomore_text));
+                        pVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.pb_list_morebutton_nomore_text));
                         view2 = view4;
                     }
                 } else {
                     pVar.b.setVisibility(8);
-                    pVar.a.setText(this.a.getString(com.baidu.tieba.u.loading));
+                    pVar.a.setText(this.a.getString(com.baidu.tieba.y.loading));
                     if (skinType == 1) {
-                        pVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.pb_more_txt_1));
+                        pVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.pb_more_txt_1));
                         view2 = view4;
                     } else {
-                        pVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.pb_more_txt));
+                        pVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.pb_more_txt));
                         view2 = view4;
                     }
                 }
@@ -247,7 +247,7 @@ public class o extends BaseAdapter {
                         qVar.d.setText("");
                     }
                     if (!TextUtils.isEmpty(markData.getForumName())) {
-                        qVar.e.setText(String.valueOf(markData.getForumName()) + this.a.getString(com.baidu.tieba.u.bar));
+                        qVar.e.setText(String.valueOf(markData.getForumName()) + this.a.getString(com.baidu.tieba.y.bar));
                     } else {
                         qVar.e.setText("");
                     }

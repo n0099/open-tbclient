@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.base.d {
-    private ArrayList<com.baidu.tbadk.core.data.o> b;
+public class s extends com.baidu.adp.base.b {
+    private ArrayList<com.baidu.tbadk.core.data.n> b;
     private t a = null;
     private int c = 0;
 
@@ -16,7 +16,7 @@ public class s extends com.baidu.adp.base.d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<com.baidu.tbadk.core.data.o> a() {
+    public ArrayList<com.baidu.tbadk.core.data.n> a() {
         return this.b;
     }
 
@@ -52,9 +52,9 @@ public class s extends com.baidu.adp.base.d {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            com.baidu.tbadk.core.data.o oVar = new com.baidu.tbadk.core.data.o();
-                            oVar.a(jSONObject2);
-                            this.b.add(oVar);
+                            com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
+                            nVar.a(jSONObject2);
+                            this.b.add(nVar);
                         }
                     }
                 }
@@ -64,12 +64,12 @@ public class s extends com.baidu.adp.base.d {
         }
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();

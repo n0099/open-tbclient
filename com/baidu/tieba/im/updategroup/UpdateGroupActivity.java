@@ -9,11 +9,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.model.bx;
-import com.baidu.tieba.u;
+import com.baidu.tieba.im.model.by;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class UpdateGroupActivity extends BaseActivity {
-    private bx d;
+    private by d;
     private a c = null;
     private int e = 1;
     DialogInterface.OnClickListener a = new b(this);
@@ -31,7 +31,7 @@ public class UpdateGroupActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, int i) {
         if (i < 0) {
-            showToast(u.neterror);
+            showToast(y.neterror);
         } else if (!TextUtils.isEmpty(str)) {
             showToast(str);
         }
@@ -46,7 +46,7 @@ public class UpdateGroupActivity extends BaseActivity {
         int intExtra2 = intent.getIntExtra(com.baidu.tbadk.core.frameworkData.a.GROUP_ID, 0);
         String stringExtra = intent.getStringExtra("group_text");
         a(intExtra, intExtra2);
-        this.d = new bx();
+        this.d = new by();
         this.d.setUniqueId(getUniqueId());
         this.c.a(stringExtra);
         this.c.a(this.b);

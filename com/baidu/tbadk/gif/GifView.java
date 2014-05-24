@@ -12,12 +12,11 @@ import android.os.Looper;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.adp.base.i;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.newwidget.a.g;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.q;
+import com.baidu.tieba.u;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class GifView extends ImageView implements View.OnClickListener, g, Runnable {
@@ -62,8 +61,8 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
 
     public GifView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.b = q.pic_expression_upload_selector;
-        this.c = q.pic_expression_upload_selector_1;
+        this.b = u.pic_expression_upload_selector;
+        this.c = u.pic_expression_upload_selector_1;
         this.h = false;
         this.n = 12;
         this.o = 150;
@@ -74,15 +73,15 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
         this.A = 20;
         this.B = true;
         this.D = new c(this);
-        this.i = (BitmapDrawable) getResources().getDrawable(q.icon_content_animation);
+        this.i = (BitmapDrawable) getResources().getDrawable(u.icon_content_animation);
         this.i.setBounds(0, 0, this.i.getIntrinsicWidth(), this.i.getIntrinsicHeight());
         this.p = 30.0f;
-        BitmapDrawable bitmapDrawable = (BitmapDrawable) getResources().getDrawable(q.loading);
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) getResources().getDrawable(u.loading);
         if (bitmapDrawable != null) {
             a = bitmapDrawable.getBitmap();
             this.u.set(0, 0, a.getWidth(), a.getHeight());
         }
-        this.k = getResources().getDrawable(q.image_group_load_f);
+        this.k = getResources().getDrawable(u.image_group_load_f);
         a(this.k);
     }
 
@@ -391,13 +390,13 @@ public class GifView extends ImageView implements View.OnClickListener, g, Runna
         }
         boolean c = ab.c();
         Context context = getContext();
-        if (context == null || !(context instanceof i)) {
+        if (context == null || !(context instanceof com.baidu.adp.base.g)) {
             i = 0;
             z = false;
         } else {
-            i iVar = (i) context;
-            int uniqueId = iVar.getUniqueId();
-            z = iVar.isScroll();
+            com.baidu.adp.base.g gVar = (com.baidu.adp.base.g) context;
+            int uniqueId = gVar.getUniqueId();
+            z = gVar.isScroll();
             i = uniqueId;
         }
         if (!(aVar == this.z && this.C == i)) {

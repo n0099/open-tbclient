@@ -36,7 +36,7 @@ public class aw implements com.baidu.tbadk.editortool.x {
         } else if (i == 0) {
             v = this.a.v();
             if (v) {
-                this.a.showToast(com.baidu.tieba.u.over_limit_tip);
+                this.a.showToast(com.baidu.tieba.y.over_limit_tip);
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.c(this.a, 12004, true)));
             }
@@ -88,7 +88,7 @@ public class aw implements com.baidu.tbadk.editortool.x {
                 com.baidu.tbadk.core.util.bb.a(writeActivity3, str);
                 return;
             }
-            this.a.showToast(String.format(this.a.getString(com.baidu.tieba.u.editor_mutiiamge_max), 10));
+            this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
         } else if (i != 23) {
             if (i == 44) {
                 this.a.a(i);

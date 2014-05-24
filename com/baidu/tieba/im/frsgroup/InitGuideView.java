@@ -37,10 +37,10 @@ public class InitGuideView extends RelativeLayout {
     }
 
     public void a(Context context) {
-        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.im_frsgroup_guide, (ViewGroup) null));
-        this.a = (ImageView) findViewById(com.baidu.tieba.r.guide_img);
-        this.b = (TextView) findViewById(com.baidu.tieba.r.guide_tip1);
-        this.c = (TextView) findViewById(com.baidu.tieba.r.guide_tip2);
+        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.im_frsgroup_guide, (ViewGroup) null));
+        this.a = (ImageView) findViewById(com.baidu.tieba.v.guide_img);
+        this.b = (TextView) findViewById(com.baidu.tieba.v.guide_tip1);
+        this.c = (TextView) findViewById(com.baidu.tieba.v.guide_tip2);
     }
 
     private void setSkinType(int i) {
@@ -73,22 +73,22 @@ public class InitGuideView extends RelativeLayout {
     public void a(int i) {
         if (b(i)) {
             if (i == 1) {
-                this.a.setBackgroundResource(com.baidu.tieba.q.pic_go_ba_1);
+                this.a.setBackgroundResource(com.baidu.tieba.u.pic_go_ba_1);
                 this.b.setTextColor(-8815226);
                 this.c.setTextColor(-8815226);
                 if (this.d != null) {
-                    this.d.setBackgroundResource(com.baidu.tieba.q.btn_blue_square_1);
-                    this.d.setTextColor(TbadkApplication.m252getInst().getApp().getResources().getColor(com.baidu.tieba.o.c_acc5e0));
+                    this.d.setBackgroundResource(com.baidu.tieba.u.btn_blue_square_1);
+                    this.d.setTextColor(TbadkApplication.m252getInst().getApp().getResources().getColor(com.baidu.tieba.s.c_acc5e0));
                     return;
                 }
                 return;
             }
-            this.a.setBackgroundResource(com.baidu.tieba.q.pic_go_ba);
+            this.a.setBackgroundResource(com.baidu.tieba.u.pic_go_ba);
             this.b.setTextColor(-5065030);
             this.c.setTextColor(-5065030);
             if (this.d != null) {
-                this.d.setBackgroundResource(com.baidu.tieba.q.btn_blue_square);
-                this.d.setTextColor(TbadkApplication.m252getInst().getApp().getResources().getColor(com.baidu.tieba.o.white));
+                this.d.setBackgroundResource(com.baidu.tieba.u.btn_blue_square);
+                this.d.setTextColor(TbadkApplication.m252getInst().getApp().getResources().getColor(com.baidu.tieba.s.white));
             }
         }
     }
@@ -96,7 +96,7 @@ public class InitGuideView extends RelativeLayout {
     public void c() {
         setVisibility(0);
         getTip1().setVisibility(4);
-        getTip2().setText(com.baidu.tieba.u.frsgroup_no_recommend_tip);
+        getTip2().setText(com.baidu.tieba.y.frsgroup_no_recommend_tip);
         if (this.d != null) {
             this.d.setVisibility(8);
         }
@@ -105,9 +105,9 @@ public class InitGuideView extends RelativeLayout {
     public void a(GroupPermData groupPermData) {
         setVisibility(0);
         getTip1().setVisibility(4);
-        getTip2().setText(com.baidu.tieba.u.frsgroup_no_hot_tip);
+        getTip2().setText(com.baidu.tieba.y.frsgroup_no_hot_tip);
         if (groupPermData != null && this.d != null) {
-            this.d.setText(com.baidu.tieba.u.frsgroup_hot_create_group);
+            this.d.setText(com.baidu.tieba.y.frsgroup_hot_create_group);
             this.d.setVisibility(0);
         }
     }
@@ -117,9 +117,9 @@ public class InitGuideView extends RelativeLayout {
         if (groupPermData != null && groupPermData.isManager()) {
             getTip1().setVisibility(4);
             getTip2().setVisibility(0);
-            getTip2().setText(com.baidu.tieba.u.frsgroup_office_no_tip1_owner);
+            getTip2().setText(com.baidu.tieba.y.frsgroup_office_no_tip1_owner);
             if (this.d != null) {
-                this.d.setText(com.baidu.tieba.u.frsgroup_official_create_group);
+                this.d.setText(com.baidu.tieba.y.frsgroup_official_create_group);
                 this.d.setVisibility(0);
                 return;
             }
@@ -127,8 +127,8 @@ public class InitGuideView extends RelativeLayout {
         }
         getTip1().setVisibility(0);
         getTip2().setVisibility(0);
-        getTip1().setText(com.baidu.tieba.u.frsgroup_office_no_tip1_leaguer);
-        getTip2().setText(com.baidu.tieba.u.frsgroup_office_no_tip2_leaguer);
+        getTip1().setText(com.baidu.tieba.y.frsgroup_office_no_tip1_leaguer);
+        getTip2().setText(com.baidu.tieba.y.frsgroup_office_no_tip2_leaguer);
         if (this.d != null) {
             this.d.setVisibility(8);
         }
@@ -137,7 +137,7 @@ public class InitGuideView extends RelativeLayout {
     public void d() {
         setVisibility(0);
         getTip1().setVisibility(4);
-        getTip2().setText(com.baidu.tieba.u.members_no_person);
+        getTip2().setText(com.baidu.tieba.y.members_no_person);
         if (this.d != null) {
             this.d.setVisibility(8);
         }

@@ -45,7 +45,7 @@ public class bt extends BdAsyncTask<Object, Integer, Bitmap> {
                 return null;
             }
             if (c != null) {
-                int a = com.baidu.adp.lib.util.h.a((Context) this.a, 63.5f);
+                int a = com.baidu.adp.lib.util.k.a((Context) this.a, 63.5f);
                 if (Build.VERSION.SDK_INT >= 7) {
                     z = this.a.v;
                     if (z) {
@@ -54,7 +54,7 @@ public class bt extends BdAsyncTask<Object, Integer, Bitmap> {
                             if (b.equals(c)) {
                                 c = com.baidu.tbadk.core.util.g.a(com.baidu.tbadk.core.util.g.c(c, 100));
                             }
-                            Bitmap a2 = com.baidu.tbadk.core.util.g.a(b, com.baidu.adp.lib.util.h.a((Context) this.a, 5.0f), true);
+                            Bitmap a2 = com.baidu.tbadk.core.util.g.a(b, com.baidu.adp.lib.util.k.a((Context) this.a, 5.0f), true);
                             if (a2 != null) {
                                 obj = this.a.F;
                                 synchronized (obj) {

@@ -16,22 +16,22 @@ import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 /* loaded from: classes.dex */
 public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
-    private com.baidu.tieba.im.model.bx c;
+    private com.baidu.tieba.im.model.by c;
     private com.baidu.tieba.im.a<Boolean> e;
-    private br a = null;
-    private bo b = null;
-    private com.baidu.tieba.im.model.bt d = null;
-    private com.baidu.adp.framework.listener.b f = new bg(this, 0);
-    private final DialogInterface.OnClickListener g = new bh(this);
-    private com.baidu.adp.framework.listener.b h = new bi(this, 0);
+    private bq a = null;
+    private bn b = null;
+    private com.baidu.tieba.im.model.bu d = null;
+    private com.baidu.adp.framework.listener.b f = new bf(this, 0);
+    private final DialogInterface.OnClickListener g = new bg(this);
+    private com.baidu.adp.framework.listener.b h = new bh(this, 0);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new br(this);
-        this.b = new bo(this);
-        this.c = new com.baidu.tieba.im.model.bx();
+        this.a = new bq(this);
+        this.b = new bn(this);
+        this.c = new com.baidu.tieba.im.model.by();
         this.b.setUniqueId(getUniqueId());
         this.c.setUniqueId(getUniqueId());
         a();
@@ -39,7 +39,7 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
         this.a.a(this.g);
         this.a.b(a(this.b.d()));
         this.a.b();
-        this.e = new bj(this);
+        this.e = new bi(this);
         this.b.a(this.e);
         b();
     }
@@ -108,7 +108,7 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
             } else if (view.equals(this.a.a())) {
                 finish();
             } else if (view.equals(this.a.g())) {
-                new AlertDialog.Builder(this).setTitle(com.baidu.tieba.u.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.u.alert_clear_cache_group).setPositiveButton(com.baidu.tieba.u.alert_yes_button, new bk(this)).setNegativeButton(com.baidu.tieba.u.alert_no_button, new bn(this)).create().show();
+                new AlertDialog.Builder(this).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.alert_clear_cache_group).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new bj(this)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new bm(this)).create().show();
             } else if (view == this.a.e()) {
                 this.a.s();
             }
@@ -164,9 +164,9 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, int i) {
         if (i < 0) {
-            showToast(com.baidu.tieba.u.neterror);
+            showToast(com.baidu.tieba.y.neterror);
         } else if (TextUtils.isEmpty(str)) {
-            showToast(com.baidu.tieba.u.group_report_fail);
+            showToast(com.baidu.tieba.y.group_report_fail);
         } else {
             showToast(str);
         }

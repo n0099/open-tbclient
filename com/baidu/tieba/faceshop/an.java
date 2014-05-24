@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
-public class an extends com.baidu.adp.base.d {
+public class an extends com.baidu.adp.base.b {
     private boolean a;
     private int b;
     private String c;
@@ -22,9 +22,9 @@ public class an extends com.baidu.adp.base.d {
     public an() {
         this.j = 0;
         this.k = 0;
-        Context e = com.baidu.tieba.ad.c().e();
-        this.j = com.baidu.adp.lib.util.h.b(e);
-        this.k = com.baidu.adp.lib.util.h.c(e);
+        Context e = com.baidu.tieba.ai.c().e();
+        this.j = com.baidu.adp.lib.util.k.b(e);
+        this.k = com.baidu.adp.lib.util.k.c(e);
         this.l = e.getResources().getDisplayMetrics().density;
     }
 
@@ -106,12 +106,12 @@ public class an extends com.baidu.adp.base.d {
         }
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.i != null) {
             this.i.cancel();

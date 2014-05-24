@@ -39,9 +39,9 @@ public class EnterGuideCenterView extends RelativeLayout {
     }
 
     public void a(Context context) {
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.enter_forum_guide_center, this);
-        this.a = (ImageView) findViewById(com.baidu.tieba.r.img_bg_center);
-        this.b = (TextView) findViewById(com.baidu.tieba.r.tip_center);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.enter_forum_guide_center, this);
+        this.a = (ImageView) findViewById(com.baidu.tieba.v.img_bg_center);
+        this.b = (TextView) findViewById(com.baidu.tieba.v.tip_center);
     }
 
     public void setTipText(int i) {
@@ -70,11 +70,11 @@ public class EnterGuideCenterView extends RelativeLayout {
         if (b(i)) {
             bc.a(this, i);
             if (i == 1) {
-                this.a.setBackgroundResource(com.baidu.tieba.q.pic_go_ba_1);
+                this.a.setBackgroundResource(com.baidu.tieba.u.pic_go_ba_1);
                 this.b.setTextColor(-8815226);
                 return;
             }
-            this.a.setBackgroundResource(com.baidu.tieba.q.pic_go_ba);
+            this.a.setBackgroundResource(com.baidu.tieba.u.pic_go_ba);
             this.b.setTextColor(-5065030);
         }
     }

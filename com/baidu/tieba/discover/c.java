@@ -6,6 +6,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.an;
 import com.baidu.tbadk.core.atomData.az;
 import com.baidu.tbadk.core.atomData.ba;
@@ -13,7 +14,7 @@ import com.baidu.tbadk.core.atomData.bc;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.util.bi;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
@@ -34,21 +35,21 @@ public class c implements View.OnClickListener {
         DiscoverItemView discoverItemView6;
         DiscoverItemView discoverItemView7;
         DiscoverItemView discoverItemView8;
-        com.baidu.tbadk.core.e eVar;
-        com.baidu.tbadk.core.e eVar2;
+        BaseFragmentActivity baseFragmentActivity;
+        BaseFragmentActivity baseFragmentActivity2;
         DiscoverItemView discoverItemView9;
-        com.baidu.tbadk.core.e eVar3;
-        com.baidu.tbadk.core.e eVar4;
+        BaseFragmentActivity baseFragmentActivity3;
+        BaseFragmentActivity baseFragmentActivity4;
         boolean z;
-        com.baidu.tbadk.core.e eVar5;
+        BaseFragmentActivity baseFragmentActivity5;
         o oVar;
         o oVar2;
         o oVar3;
-        com.baidu.tbadk.core.e eVar6;
-        com.baidu.tbadk.core.e eVar7;
-        com.baidu.tbadk.core.e eVar8;
-        com.baidu.tbadk.core.e eVar9;
-        com.baidu.tbadk.core.e eVar10;
+        BaseFragmentActivity baseFragmentActivity6;
+        BaseFragmentActivity baseFragmentActivity7;
+        BaseFragmentActivity baseFragmentActivity8;
+        BaseFragmentActivity baseFragmentActivity9;
+        BaseFragmentActivity baseFragmentActivity10;
         discoverItemView = this.a.f;
         if (view != discoverItemView) {
             discoverItemView2 = this.a.g;
@@ -68,15 +69,15 @@ public class c implements View.OnClickListener {
                                         com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_member_benifit", true);
                                         String str = String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion();
                                         TbadkApplication.m252getInst().settShopUrl(str);
-                                        eVar2 = this.a.b;
-                                        TbWebViewActivity.a(eVar2, this.a.getString(u.member_benefits), str);
+                                        baseFragmentActivity2 = this.a.b;
+                                        TbWebViewActivity.a(baseFragmentActivity2, this.a.getString(y.member_benefits), str, true, false, true, true, null);
                                         return;
                                     } else if (view instanceof DiscoverItemView) {
                                         String str2 = ((DiscoverItemView) view).b;
                                         if (!be.c(str2)) {
                                             bi a = bi.a();
-                                            eVar = this.a.b;
-                                            a.a(eVar, new String[]{str2});
+                                            baseFragmentActivity = this.a.b;
+                                            a.a(baseFragmentActivity, new String[]{str2});
                                             return;
                                         }
                                         return;
@@ -89,13 +90,13 @@ public class c implements View.OnClickListener {
                                 discoverItemView9 = this.a.l;
                                 discoverItemView9.a(false);
                                 MessageManager messageManager = MessageManager.getInstance();
-                                eVar3 = this.a.b;
-                                messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.k(eVar3, "faceshop_from_more")));
+                                baseFragmentActivity3 = this.a.b;
+                                messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.k(baseFragmentActivity3, "faceshop_from_more")));
                                 return;
                             }
                             MessageManager messageManager2 = MessageManager.getInstance();
-                            eVar4 = this.a.b;
-                            messageManager2.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.f(eVar4, 16003)));
+                            baseFragmentActivity4 = this.a.b;
+                            messageManager2.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.f(baseFragmentActivity4, 16003)));
                             return;
                         }
                         z = this.a.q;
@@ -105,8 +106,8 @@ public class c implements View.OnClickListener {
                                 oVar2 = this.a.r;
                                 if (oVar2.b) {
                                     MessageManager messageManager3 = MessageManager.getInstance();
-                                    eVar6 = this.a.b;
-                                    messageManager3.sendMessage(new CustomMessage((int) CmdConfig.SIGN_ALL_FORUM_CUSTOM_CMD, new az(eVar6)));
+                                    baseFragmentActivity6 = this.a.b;
+                                    messageManager3.sendMessage(new CustomMessage((int) CmdConfig.SIGN_ALL_FORUM_CUSTOM_CMD, new az(baseFragmentActivity6)));
                                     return;
                                 }
                                 a aVar = this.a;
@@ -116,27 +117,27 @@ public class c implements View.OnClickListener {
                             }
                         }
                         a aVar2 = this.a;
-                        eVar5 = this.a.b;
-                        aVar2.b(eVar5.getString(u.no_signall_data));
+                        baseFragmentActivity5 = this.a.b;
+                        aVar2.b(baseFragmentActivity5.getString(y.no_signall_data));
                         return;
                     }
                     MessageManager messageManager4 = MessageManager.getInstance();
-                    eVar7 = this.a.b;
-                    messageManager4.sendMessage(new CustomMessage(2003001, new an(eVar7)));
+                    baseFragmentActivity7 = this.a.b;
+                    messageManager4.sendMessage(new CustomMessage(2003001, new an(baseFragmentActivity7)));
                     return;
                 }
                 MessageManager messageManager5 = MessageManager.getInstance();
-                eVar8 = this.a.b;
-                messageManager5.sendMessage(new CustomMessage((int) CmdConfig.SINGLE_FORUM_FEED_CUSTOM_CMD, new ba(eVar8)));
+                baseFragmentActivity8 = this.a.b;
+                messageManager5.sendMessage(new CustomMessage((int) CmdConfig.SINGLE_FORUM_FEED_CUSTOM_CMD, new ba(baseFragmentActivity8)));
                 return;
             }
             MessageManager messageManager6 = MessageManager.getInstance();
-            eVar9 = this.a.b;
-            messageManager6.sendMessage(new CustomMessage((int) CmdConfig.DAILY_RECOMMEND_CUSTOM_CMD, new com.baidu.tbadk.core.atomData.h(eVar9, "faxian")));
+            baseFragmentActivity9 = this.a.b;
+            messageManager6.sendMessage(new CustomMessage((int) CmdConfig.DAILY_RECOMMEND_CUSTOM_CMD, new com.baidu.tbadk.core.atomData.h(baseFragmentActivity9, "faxian")));
             return;
         }
         MessageManager messageManager7 = MessageManager.getInstance();
-        eVar10 = this.a.b;
-        messageManager7.sendMessage(new CustomMessage((int) CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new bc(eVar10)));
+        baseFragmentActivity10 = this.a.b;
+        messageManager7.sendMessage(new CustomMessage((int) CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new bc(baseFragmentActivity10)));
     }
 }

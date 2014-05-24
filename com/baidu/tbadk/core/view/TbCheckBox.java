@@ -34,9 +34,9 @@ public class TbCheckBox extends ImageView {
 
     public void a() {
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            setImageResource(d() ? com.baidu.tieba.q.btn_friend_choose_s_1 : com.baidu.tieba.q.btn_friend_choose_n_1);
+            setImageResource(d() ? com.baidu.tieba.u.btn_friend_choose_s_1 : com.baidu.tieba.u.btn_friend_choose_n_1);
         } else {
-            setImageResource(d() ? com.baidu.tieba.q.btn_friend_choose_s : com.baidu.tieba.q.btn_friend_choose_n);
+            setImageResource(d() ? com.baidu.tieba.u.btn_friend_choose_s : com.baidu.tieba.u.btn_friend_choose_n);
         }
     }
 

@@ -1,38 +1,26 @@
 package com.baidu.tieba.pb.main;
 
 import android.view.View;
-import android.view.animation.Animation;
+import com.baidu.tieba.view.PbListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br implements Animation.AnimationListener {
-    final /* synthetic */ bj a;
+public class br implements View.OnClickListener {
+    final /* synthetic */ bq a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(bj bjVar) {
-        this.a = bjVar;
+    public br(bq bqVar) {
+        this.a = bqVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbListView pbListView;
         boolean z;
-        View view;
-        View view2;
-        z = this.a.aR;
-        if (z) {
-            view = this.a.aL;
-            view.setVisibility(0);
-            view2 = this.a.aK;
-            view2.setVisibility(0);
-            return;
-        }
-        this.a.j.setVisibility(0);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+        pbListView = this.a.aU;
+        pbListView.d();
+        ay ayVar = this.a.l;
+        z = this.a.aV;
+        ayVar.a(z);
+        this.a.ai();
     }
 }

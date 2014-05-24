@@ -1,5 +1,7 @@
 package com.baidu.tieba.util;
 
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -17,7 +19,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class r {
-    public static String a(String str) {
+    public static int a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        String[] split = str.split("\\.");
+        int i = 0;
+        for (int i2 = 0; i2 < split.length; i2++) {
+            i |= Integer.valueOf(split[i2]).intValue() << ((3 - i2) * 8);
+        }
+        return i;
+    }
+
+    public static String b(String str) {
         if (be.c(str) || str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
@@ -39,7 +53,7 @@ public class r {
         context.startService(new Intent(context, PerformMonitorService.class));
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [255=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [280=5] */
     public static boolean a() {
         RandomAccessFile randomAccessFile;
         byte[] bArr;
@@ -157,5 +171,14 @@ public class r {
         } else {
             com.baidu.tbadk.browser.a.b(context, "http://m.baidu.com/?from=1001157a");
         }
+    }
+
+    public static boolean a(Activity activity) {
+        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) activity.getSystemService("activity")).getRunningTasks(100)) {
+            if (runningTaskInfo.baseActivity.getClassName().equals(activity.getClass().getName())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

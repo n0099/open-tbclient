@@ -42,8 +42,8 @@ public class k extends HorizontalScrollView {
     }
 
     private void a() {
-        this.a = (int) this.d.getResources().getDimension(com.baidu.tieba.p.ds4);
-        this.b = (int) this.d.getResources().getDimension(com.baidu.tieba.p.ds30);
+        this.a = (int) this.d.getResources().getDimension(com.baidu.tieba.t.ds4);
+        this.b = (int) this.d.getResources().getDimension(com.baidu.tieba.t.ds30);
         LinearLayout linearLayout = new LinearLayout(this.d);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
         linearLayout.setGravity(16);
@@ -51,7 +51,7 @@ public class k extends HorizontalScrollView {
         linearLayout.setPadding(this.b, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
         setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
         addView(linearLayout);
-        String[] stringArray = this.d.getResources().getStringArray(com.baidu.tieba.m.fiter_name);
+        String[] stringArray = this.d.getResources().getStringArray(com.baidu.tieba.q.fiter_name);
         this.e = new ImageView[stringArray.length];
         LayoutInflater from = LayoutInflater.from(this.d);
         int length = stringArray.length;
@@ -61,18 +61,18 @@ public class k extends HorizontalScrollView {
             String str = stringArray[i];
             String substring = str.substring(0, str.indexOf("|"));
             String substring2 = str.substring(str.indexOf("|") + 1);
-            View inflate = from.inflate(com.baidu.tieba.s.filter_item, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.r.filter_text);
+            View inflate = from.inflate(com.baidu.tieba.w.filter_item, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.v.filter_text);
             textView.setText(substring2);
             textView.setTag(substring);
-            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.r.filter_immage);
+            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.v.filter_immage);
             imageView.setPadding(this.a, this.a, this.a, this.a);
             imageView.setTag(textView);
             imageView.setOnClickListener(new m(this));
             if (substring.equals(this.j)) {
                 this.f = inflate;
                 this.g = imageView;
-                imageView.setBackgroundResource(com.baidu.tieba.q.bg_choose_filter);
+                imageView.setBackgroundResource(com.baidu.tieba.u.bg_choose_filter);
                 textView.setSelected(true);
             }
             imageView.setImageResource(a(substring));
@@ -107,7 +107,7 @@ public class k extends HorizontalScrollView {
                 ((TextView) this.g.getTag()).setSelected(false);
             }
             this.g = view;
-            view.setBackgroundResource(com.baidu.tieba.q.bg_choose_filter);
+            view.setBackgroundResource(com.baidu.tieba.u.bg_choose_filter);
             TextView textView = (TextView) view.getTag();
             textView.setSelected(true);
             this.j = (String) textView.getTag();
@@ -119,35 +119,35 @@ public class k extends HorizontalScrollView {
 
     public static int a(String str) {
         if (str == null) {
-            return com.baidu.tieba.q.motu_filter_normal;
+            return com.baidu.tieba.u.motu_filter_normal;
         }
         if (str.equals("normal")) {
-            return com.baidu.tieba.q.motu_filter_normal;
+            return com.baidu.tieba.u.motu_filter_normal;
         }
         if (str.equals("clvivid")) {
-            return com.baidu.tieba.q.motu_filter_skin;
+            return com.baidu.tieba.u.motu_filter_skin;
         }
         if (str.equals("cllomoscenery")) {
-            return com.baidu.tieba.q.motu_filter_lomo;
+            return com.baidu.tieba.u.motu_filter_lomo;
         }
         if (str.equals("clcaisefupian")) {
-            return com.baidu.tieba.q.motu_filter_classichdr;
+            return com.baidu.tieba.u.motu_filter_classichdr;
         }
         if (str.equals("clm3")) {
-            return com.baidu.tieba.q.motu_filter_nashiv;
+            return com.baidu.tieba.u.motu_filter_nashiv;
         }
         if (str.equals("cqiuse")) {
-            return com.baidu.tieba.q.motu_filter_fleeting;
+            return com.baidu.tieba.u.motu_filter_fleeting;
         }
         if (str.equals("clzaoan")) {
-            return com.baidu.tieba.q.motu_filter_bluetone;
+            return com.baidu.tieba.u.motu_filter_bluetone;
         }
         if (str.equals("clfuguscenery")) {
-            return com.baidu.tieba.q.motu_filter_elegant;
+            return com.baidu.tieba.u.motu_filter_elegant;
         }
         if (str.equals("clheibai")) {
-            return com.baidu.tieba.q.motu_filter_gray;
+            return com.baidu.tieba.u.motu_filter_gray;
         }
-        return com.baidu.tieba.q.motu_filter_normal;
+        return com.baidu.tieba.u.motu_filter_normal;
     }
 }

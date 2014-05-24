@@ -27,8 +27,8 @@ public class x {
         this.f = -1;
         this.f = i;
         context = vVar.a;
-        this.b = (FrameLayout) LayoutInflater.from(context).inflate(com.baidu.tieba.s.progress_tb_imageview, (ViewGroup) null);
-        this.c = (TbImageView) this.b.findViewById(com.baidu.tieba.r.progress_tb_imageview);
+        this.b = (FrameLayout) LayoutInflater.from(context).inflate(com.baidu.tieba.w.progress_tb_imageview, (ViewGroup) null);
+        this.c = (TbImageView) this.b.findViewById(com.baidu.tieba.v.progress_tb_imageview);
         this.c.setClickable(true);
         this.c.setDefaultResource(0);
         this.c.setNightDefaultResource(0);
@@ -36,7 +36,7 @@ public class x {
         context2 = vVar.a;
         this.e = new com.baidu.tbadk.img.e(context2);
         this.c.setOnClickListener(new y(this));
-        this.d = (ProgressBar) this.b.findViewById(com.baidu.tieba.r.progress_tb_imageview_progress);
+        this.d = (ProgressBar) this.b.findViewById(com.baidu.tieba.v.progress_tb_imageview_progress);
         this.d.setVisibility(8);
     }
 

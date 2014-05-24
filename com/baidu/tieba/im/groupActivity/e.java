@@ -11,13 +11,15 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.data.GroupActivityData;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.e {
+public class e extends com.baidu.adp.base.c {
     private CreateGroupActivityActivity a;
     private View b;
     private NavigationBar c;
@@ -50,26 +52,26 @@ public class e extends com.baidu.adp.base.e {
         this.s = 0;
         this.t = false;
         this.a = createGroupActivityActivity;
-        createGroupActivityActivity.setContentView(com.baidu.tieba.s.create_group_activity_activity);
+        createGroupActivityActivity.setContentView(w.create_group_activity_activity);
         h();
     }
 
     private void h() {
-        this.b = this.a.findViewById(com.baidu.tieba.r.parent);
-        this.c = (NavigationBar) this.a.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.c.a(com.baidu.tieba.u.group_activity_create);
+        this.b = this.a.findViewById(com.baidu.tieba.v.parent);
+        this.c = (NavigationBar) this.a.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.c.a(y.group_activity_create);
         this.d = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.setOnClickListener(this.a);
-        this.g = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getResources().getString(com.baidu.tieba.u.group_activity_create_btntext));
+        this.g = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getResources().getString(y.group_activity_create_btntext));
         this.g.setOnClickListener(this.a);
         this.g.setEnabled(false);
-        this.e = (EditText) this.a.findViewById(com.baidu.tieba.r.txt_group_activity_name);
-        this.f = (ImageButton) this.a.findViewById(com.baidu.tieba.r.btn_del_name);
-        this.h = (EditText) this.a.findViewById(com.baidu.tieba.r.txt_group_activity_place);
-        this.i = (ImageButton) this.a.findViewById(com.baidu.tieba.r.btn_del_place);
-        this.n = (EditText) this.a.findViewById(com.baidu.tieba.r.txt_group_activity_content);
-        this.j = (Button) this.a.findViewById(com.baidu.tieba.r.btn_create_group_date);
-        this.k = (Button) this.a.findViewById(com.baidu.tieba.r.btn_create_group_time);
+        this.e = (EditText) this.a.findViewById(com.baidu.tieba.v.txt_group_activity_name);
+        this.f = (ImageButton) this.a.findViewById(com.baidu.tieba.v.btn_del_name);
+        this.h = (EditText) this.a.findViewById(com.baidu.tieba.v.txt_group_activity_place);
+        this.i = (ImageButton) this.a.findViewById(com.baidu.tieba.v.btn_del_place);
+        this.n = (EditText) this.a.findViewById(com.baidu.tieba.v.txt_group_activity_content);
+        this.j = (Button) this.a.findViewById(com.baidu.tieba.v.btn_create_group_date);
+        this.k = (Button) this.a.findViewById(com.baidu.tieba.v.btn_create_group_time);
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
         this.o = calendar.get(1);
         this.p = calendar.get(2);
@@ -89,9 +91,9 @@ public class e extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void i() {
         if (this.r > 12) {
-            this.k.setText(String.valueOf(this.a.getResources().getString(com.baidu.tieba.u.afternoon)) + " " + (this.r - 12) + ":" + (this.s < 10 ? "0" : "") + this.s);
+            this.k.setText(String.valueOf(this.a.getResources().getString(y.afternoon)) + " " + (this.r - 12) + ":" + (this.s < 10 ? "0" : "") + this.s);
         } else {
-            this.k.setText(String.valueOf(this.a.getResources().getString(com.baidu.tieba.u.morning)) + " " + this.r + ":" + (this.s < 10 ? "0" : "") + this.s);
+            this.k.setText(String.valueOf(this.a.getResources().getString(y.morning)) + " " + this.r + ":" + (this.s < 10 ? "0" : "") + this.s);
         }
     }
 
@@ -100,7 +102,7 @@ public class e extends com.baidu.adp.base.e {
         this.j.setText(this.o + "-" + (this.p + 1) + "-" + this.q + " " + be.a(this.o, this.p, this.q));
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.c
     public void destroy() {
     }
 
@@ -164,8 +166,8 @@ public class e extends com.baidu.adp.base.e {
 
     public void a(GroupActivityData groupActivityData, boolean z) {
         if (z) {
-            this.g.setText(this.a.getString(com.baidu.tieba.u.done));
-            this.c.a(com.baidu.tieba.u.group_activity_edit_title);
+            this.g.setText(this.a.getString(y.done));
+            this.c.a(y.group_activity_edit_title);
             if (groupActivityData != null) {
                 b(groupActivityData.getgActivityContent());
                 a(groupActivityData.getgActivityTitle());
@@ -175,8 +177,8 @@ public class e extends com.baidu.adp.base.e {
             }
             return;
         }
-        this.g.setText(this.a.getString(com.baidu.tieba.u.group_activity_create_btntext));
-        this.c.a(com.baidu.tieba.u.group_activity_create);
+        this.g.setText(this.a.getString(y.group_activity_create_btntext));
+        this.c.a(y.group_activity_create);
     }
 
     public boolean g() {

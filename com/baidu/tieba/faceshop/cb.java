@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class cb extends com.baidu.tbadk.editortool.e {
-    private LinkedList<com.baidu.tbadk.editortool.ag> a = new LinkedList<>();
+    private LinkedList<com.baidu.tbadk.editortool.af> a = new LinkedList<>();
 
     @Override // com.baidu.tbadk.editortool.e
     public int a() {

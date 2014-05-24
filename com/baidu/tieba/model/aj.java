@@ -10,14 +10,14 @@ public class aj extends BdAsyncTask<Boolean, Integer, Boolean> {
     final /* synthetic */ ai a;
     private com.baidu.tbadk.core.util.al b = null;
     private boolean c;
-    private com.baidu.tieba.data.ar d;
+    private com.baidu.tieba.data.as d;
 
     public aj(ai aiVar, boolean z) {
         this.a = aiVar;
         this.c = true;
         this.d = null;
         this.c = z;
-        this.d = new com.baidu.tieba.data.ar();
+        this.d = new com.baidu.tieba.data.as();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

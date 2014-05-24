@@ -24,8 +24,10 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.data.RandChatRoomData;
-import com.baidu.tieba.im.model.ca;
+import com.baidu.tieba.im.model.cb;
 import com.baidu.tieba.im.randchat.WaitingTipView;
+import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -33,7 +35,7 @@ import java.util.List;
 public class WaittingActivity extends BaseActivity {
     private static /* synthetic */ int[] m;
     private f a;
-    private ca b;
+    private cb b;
     private com.baidu.tieba.im.model.j c;
     private com.baidu.tbadk.coreExtra.c.c e;
     private com.baidu.tbadk.coreExtra.c.c f;
@@ -110,7 +112,7 @@ public class WaittingActivity extends BaseActivity {
         this.b.a(this.k);
         this.b.a(this.j);
         this.c.registerListener(this.k);
-        com.baidu.tbadk.core.g.b(this, "rand_chat_wait_page_start");
+        com.baidu.tbadk.core.f.b(this, "rand_chat_wait_page_start");
     }
 
     @Override // android.app.Activity
@@ -139,9 +141,9 @@ public class WaittingActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         this.h = true;
-        com.baidu.tbadk.core.g.a(this, "rand_chat_wait_page_quit");
+        com.baidu.tbadk.core.f.a(this, "rand_chat_wait_page_quit");
         this.a.b().a();
-        showLoadingDialog(getString(com.baidu.tieba.u.rand_chat_waiting_quit_loading));
+        showLoadingDialog(getString(y.rand_chat_waiting_quit_loading));
         this.b.a(this.b.f().d(), false, 0);
     }
 
@@ -151,12 +153,12 @@ public class WaittingActivity extends BaseActivity {
 
     private void f() {
         com.baidu.tieba.im.f.i.a(String.valueOf(this.b.f().d()));
-        showLoadingDialog(getString(com.baidu.tieba.u.group_tab_enterchatroom_loading));
+        showLoadingDialog(getString(y.group_tab_enterchatroom_loading));
         this.c.a(this.b.f().d());
     }
 
     private void g() {
-        this.b = new ca(this);
+        this.b = new cb(this);
         this.b.a(getIntent());
         this.c = new com.baidu.tieba.im.model.j();
         this.c.setUniqueId(getUniqueId());
@@ -172,7 +174,7 @@ public class WaittingActivity extends BaseActivity {
         int bottomP = this.a.b().getBottomP();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.e().getLayoutParams();
         layoutParams.topMargin = bottomP;
-        this.d = new com.baidu.tieba.im.view.a(this, com.baidu.tieba.v.NobackDialog);
+        this.d = new com.baidu.tieba.im.view.a(this, z.NobackDialog);
         this.d.a(new r(this));
         a(this.b.f(), false);
         this.a.a(this);
@@ -409,8 +411,8 @@ public class WaittingActivity extends BaseActivity {
         this.i = type;
         switch (a()[type.ordinal()]) {
             case 1:
-                tipText.setText(getString(com.baidu.tieba.u.rand_chat_waiting_update_topic));
-                tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.q.icon_choice_join));
+                tipText.setText(getString(y.rand_chat_waiting_update_topic));
+                tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.u.icon_choice_join));
                 tipText.setVisibility(0);
                 circelBgView.setVisibility(0);
                 circelBgView.setHasBg(false);
@@ -422,8 +424,8 @@ public class WaittingActivity extends BaseActivity {
                 quitButton.setVisibility(8);
                 return;
             case 2:
-                tipText.setText(getString(com.baidu.tieba.u.rand_chat_waiting_first_enter_success, new Object[]{Integer.valueOf(((Integer) objArr[0]).intValue())}));
-                tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.q.icon_choice_join));
+                tipText.setText(getString(y.rand_chat_waiting_first_enter_success, new Object[]{Integer.valueOf(((Integer) objArr[0]).intValue())}));
+                tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.u.icon_choice_join));
                 tipText.setVisibility(0);
                 circelBgView.setVisibility(0);
                 circelBgView.setHasBg(false);
@@ -438,14 +440,14 @@ public class WaittingActivity extends BaseActivity {
                 int intValue = ((Integer) objArr[0]).intValue();
                 String str = (String) objArr[1];
                 String str2 = (String) objArr[2];
-                SpannableString spannableString = new SpannableString(getString(com.baidu.tieba.u.rand_chat_waiting_other_enter_success, new Object[]{str, String.valueOf(intValue)}));
-                spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.o.tip_view_text_name_color)), 0, str.length(), 34);
+                SpannableString spannableString = new SpannableString(getString(y.rand_chat_waiting_other_enter_success, new Object[]{str, String.valueOf(intValue)}));
+                spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.s.tip_view_text_name_color)), 0, str.length(), 34);
                 tipText.setText(spannableString);
                 com.baidu.adp.widget.a.a b = com.baidu.tbadk.imageManager.e.a().b(str2);
                 if (b != null) {
                     tipImageHead.setImageBitmap(b.h());
                 } else {
-                    tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.q.icon_choice_date));
+                    tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.u.icon_choice_date));
                     e.setTag(str2);
                 }
                 tipText.setVisibility(0);
@@ -459,9 +461,9 @@ public class WaittingActivity extends BaseActivity {
                 quitButton.setVisibility(8);
                 return;
             case 4:
-                tipText.setText(com.baidu.tieba.u.rand_chat_waiting_ready_chat);
-                tipImageText.setBackgroundResource(com.baidu.tieba.q.bg_choice_join_s);
-                tipImageText.setText(com.baidu.tieba.u.loading_view_ready);
+                tipText.setText(y.rand_chat_waiting_ready_chat);
+                tipImageText.setBackgroundResource(com.baidu.tieba.u.bg_choice_join_s);
+                tipImageText.setText(y.loading_view_ready);
                 tipText.setVisibility(0);
                 circelBgView.setVisibility(0);
                 circelBgView.setHasBg(false);
@@ -473,7 +475,7 @@ public class WaittingActivity extends BaseActivity {
                 quitButton.setVisibility(8);
                 return;
             case 5:
-                tipText.setText(com.baidu.tieba.u.rand_chat_waiting_drop_down_tip);
+                tipText.setText(y.rand_chat_waiting_drop_down_tip);
                 tipText.setVisibility(0);
                 circelBgView.setVisibility(8);
                 circelBgView.setHasBg(false);
@@ -487,14 +489,14 @@ public class WaittingActivity extends BaseActivity {
             case 6:
                 String str3 = (String) objArr[0];
                 String str4 = (String) objArr[1];
-                SpannableString spannableString2 = new SpannableString(String.valueOf(str3) + getString(com.baidu.tieba.u.rand_chat_waiting_quit));
-                spannableString2.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.o.tip_view_text_name_color)), 0, str3.length(), 34);
+                SpannableString spannableString2 = new SpannableString(String.valueOf(str3) + getString(y.rand_chat_waiting_quit));
+                spannableString2.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.s.tip_view_text_name_color)), 0, str3.length(), 34);
                 tipText.setText(spannableString2);
                 com.baidu.adp.widget.a.a b2 = com.baidu.tbadk.imageManager.e.a().b(str4);
                 if (b2 != null) {
                     tipImageHead.setImageBitmap(b2.h());
                 } else {
-                    tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.q.icon_choice_date));
+                    tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.u.icon_choice_date));
                     e.setTag(str4);
                 }
                 tipText.setVisibility(0);
@@ -510,12 +512,12 @@ public class WaittingActivity extends BaseActivity {
             case 7:
                 long longValue = ((Long) objArr[0]).longValue();
                 if (longValue < 60) {
-                    tipText.setText(getString(com.baidu.tieba.u.rand_chat_waiting_wait_time_second, new Object[]{String.valueOf(longValue)}));
+                    tipText.setText(getString(y.rand_chat_waiting_wait_time_second, new Object[]{String.valueOf(longValue)}));
                 } else {
-                    tipText.setText(getString(com.baidu.tieba.u.rand_chat_waiting_wait_time_minute, new Object[]{String.valueOf(longValue / 60)}));
+                    tipText.setText(getString(y.rand_chat_waiting_wait_time_minute, new Object[]{String.valueOf(longValue / 60)}));
                 }
-                tipImageText.setBackgroundResource(com.baidu.tieba.q.bg_choice_join_n);
-                tipImageText.setText(com.baidu.tieba.u.rand_chat_waiting_wait);
+                tipImageText.setBackgroundResource(com.baidu.tieba.u.bg_choice_join_n);
+                tipImageText.setText(y.rand_chat_waiting_wait);
                 tipText.setVisibility(0);
                 circelBgView.setVisibility(0);
                 circelBgView.setHasBg(false);
@@ -531,7 +533,7 @@ public class WaittingActivity extends BaseActivity {
                 return;
             case 9:
                 tipText.setText(this.b.b());
-                tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.q.icon_choice_date));
+                tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), com.baidu.tieba.u.icon_choice_date));
                 tipText.setVisibility(0);
                 circelBgView.setVisibility(0);
                 circelBgView.setHasBg(false);
@@ -570,7 +572,7 @@ public class WaittingActivity extends BaseActivity {
         if (view == this.a.f()) {
             k();
         } else if (view == this.a.d()) {
-            com.baidu.tbadk.core.g.a(this, "rand_chat_wait_page_changebtn");
+            com.baidu.tbadk.core.f.a(this, "rand_chat_wait_page_changebtn");
             l();
         } else {
             com.baidu.tieba.im.view.h c = this.a.c();

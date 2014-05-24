@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.im.live.mylive.MyLiveListAdapter;
 import com.baidu.tieba.im.message.RequestMyLiveListMessage;
 import com.baidu.tieba.im.message.ResponseMyLiveListMessage;
-import com.baidu.tieba.im.model.bc;
-import com.baidu.tieba.u;
+import com.baidu.tieba.im.model.bd;
+import com.baidu.tieba.y;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -27,26 +27,26 @@ public class b extends com.baidu.adp.framework.listener.b {
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         int i;
-        bc bcVar;
+        bd bdVar;
         MyLiveListAdapter myLiveListAdapter;
-        bc bcVar2;
+        bd bdVar2;
         MyLiveListAdapter myLiveListAdapter2;
         MyLiveListAdapter myLiveListAdapter3;
-        bc bcVar3;
-        bc bcVar4;
-        bc bcVar5;
+        bd bdVar3;
+        bd bdVar4;
+        bd bdVar5;
         MyLiveListAdapter myLiveListAdapter4;
         MyLiveListAdapter myLiveListAdapter5;
-        bc bcVar6;
+        bd bdVar6;
         MyLiveListAdapter myLiveListAdapter6;
         MyLiveListAdapter myLiveListAdapter7;
         MyLiveListAdapter myLiveListAdapter8;
         MyLiveListAdapter myLiveListAdapter9;
         this.a.j();
         if (socketResponsedMessage == null) {
-            this.a.a(u.neterror);
+            this.a.a(y.neterror);
         } else if (!(socketResponsedMessage instanceof ResponseMyLiveListMessage)) {
-            this.a.a(u.neterror);
+            this.a.a(y.neterror);
         } else {
             ResponseMyLiveListMessage responseMyLiveListMessage = (ResponseMyLiveListMessage) socketResponsedMessage;
             Message<?> orginalMessage = responseMyLiveListMessage.getOrginalMessage();
@@ -62,20 +62,20 @@ public class b extends com.baidu.adp.framework.listener.b {
                             }
                             return;
                         }
-                        this.a.a(u.neterror);
+                        this.a.a(y.neterror);
                         return;
                     }
                     com.baidu.tieba.im.data.d hotLiveListData = responseMyLiveListMessage.getHotLiveListData();
                     if (hotLiveListData != null && hotLiveListData.b() != null) {
                         List<LiveCardData> b = hotLiveListData.b();
-                        bcVar = this.a.c;
-                        if (!bcVar.a()) {
+                        bdVar = this.a.c;
+                        if (!bdVar.a()) {
                             myLiveListAdapter9 = this.a.h;
                             myLiveListAdapter9.b(true);
                         }
                         if (!hotLiveListData.a()) {
-                            bcVar6 = this.a.c;
-                            if (bcVar6.a()) {
+                            bdVar6 = this.a.c;
+                            if (bdVar6.a()) {
                                 myLiveListAdapter6 = this.a.h;
                                 myLiveListAdapter6.a(MyLiveListAdapter.BOTTOM_TYPE.NO_MORE);
                             } else if (b.size() == 0) {
@@ -91,18 +91,18 @@ public class b extends com.baidu.adp.framework.listener.b {
                             myLiveListAdapter = this.a.h;
                             myLiveListAdapter.a(MyLiveListAdapter.BOTTOM_TYPE.HAVE_MORE);
                         }
-                        bcVar2 = this.a.c;
-                        bcVar2.a(true);
+                        bdVar2 = this.a.c;
+                        bdVar2.a(true);
                         this.a.k();
                         myLiveListAdapter2 = this.a.h;
                         myLiveListAdapter2.c(true);
                         myLiveListAdapter3 = this.a.h;
                         myLiveListAdapter3.a(hotLiveListData.a());
-                        bcVar3 = this.a.c;
-                        bcVar3.b(b.size());
-                        bcVar4 = this.a.c;
-                        bcVar5 = this.a.c;
-                        bcVar4.c(bcVar5.c() + 1);
+                        bdVar3 = this.a.c;
+                        bdVar3.b(b.size());
+                        bdVar4 = this.a.c;
+                        bdVar5 = this.a.c;
+                        bdVar4.c(bdVar5.c() + 1);
                         myLiveListAdapter4 = this.a.h;
                         myLiveListAdapter4.a(b);
                         myLiveListAdapter5 = this.a.h;

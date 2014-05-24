@@ -78,35 +78,35 @@ public class ag extends RelativeLayout {
         this.d = new com.baidu.tbadk.editortool.ab(context);
         this.d.d(true);
         this.h = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.w = this.h.inflate(com.baidu.tieba.s.live_room_chat_header, (ViewGroup) this, true);
-        this.f = this.w.findViewById(com.baidu.tieba.r.header_root);
-        this.v = (ProgressBar) this.w.findViewById(com.baidu.tieba.r.progressBar);
-        this.q = (ImageView) this.w.findViewById(com.baidu.tieba.r.live_normal_bg);
-        this.r = (CircleRippleView) this.w.findViewById(com.baidu.tieba.r.live_room_ripple_view);
-        this.z = (HeadImageView) this.w.findViewById(com.baidu.tieba.r.header_view);
+        this.w = this.h.inflate(com.baidu.tieba.w.live_room_chat_header, (ViewGroup) this, true);
+        this.f = this.w.findViewById(com.baidu.tieba.v.header_root);
+        this.v = (ProgressBar) this.w.findViewById(com.baidu.tieba.v.progressBar);
+        this.q = (ImageView) this.w.findViewById(com.baidu.tieba.v.live_normal_bg);
+        this.r = (CircleRippleView) this.w.findViewById(com.baidu.tieba.v.live_room_ripple_view);
+        this.z = (HeadImageView) this.w.findViewById(com.baidu.tieba.v.header_view);
         this.z.setAutoChangeStyle(false);
         this.z.setDrawBorder(false);
         this.z.setIsRound(true);
-        this.z.setDefaultResource(com.baidu.tieba.q.pic_default_head);
+        this.z.setDefaultResource(com.baidu.tieba.u.pic_default_head);
         this.z.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.z.setGifIconSupport(false);
-        this.p = (ImageView) this.w.findViewById(com.baidu.tieba.r.live_stop_bg);
-        this.i = (TextView) this.w.findViewById(com.baidu.tieba.r.live_listener_count);
-        this.j = (ImageView) this.w.findViewById(com.baidu.tieba.r.live_record_icon);
-        this.k = (TextView) this.w.findViewById(com.baidu.tieba.r.live_record_time);
-        this.t = (ImageView) this.w.findViewById(com.baidu.tieba.r.live_small_set);
+        this.p = (ImageView) this.w.findViewById(com.baidu.tieba.v.live_stop_bg);
+        this.i = (TextView) this.w.findViewById(com.baidu.tieba.v.live_listener_count);
+        this.j = (ImageView) this.w.findViewById(com.baidu.tieba.v.live_record_icon);
+        this.k = (TextView) this.w.findViewById(com.baidu.tieba.v.live_record_time);
+        this.t = (ImageView) this.w.findViewById(com.baidu.tieba.v.live_small_set);
         this.t.setOnClickListener(this.g);
-        this.u = (ImageView) this.w.findViewById(com.baidu.tieba.r.live_room_like);
+        this.u = (ImageView) this.w.findViewById(com.baidu.tieba.v.live_room_like);
         this.u.setOnTouchListener(new am(this, null));
-        this.n = (ImageView) this.w.findViewById(com.baidu.tieba.r.live_room_anchor_portrait);
-        this.m = (LinearLayout) this.w.findViewById(com.baidu.tieba.r.live_room_anchor_portrait_ll);
-        this.s = (TextView) this.w.findViewById(com.baidu.tieba.r.live_chat_room_note);
-        this.A = this.w.findViewById(com.baidu.tieba.r.live_stop_host);
-        this.o = (TextView) this.w.findViewById(com.baidu.tieba.r.live_stop);
-        this.E = this.w.findViewById(com.baidu.tieba.r.live_chat_note_layout);
-        this.a = (TextView) this.w.findViewById(com.baidu.tieba.r.publish_show_text);
-        this.b = this.w.findViewById(com.baidu.tieba.r.image_show_layout);
-        this.c = (TbImageView) this.w.findViewById(com.baidu.tieba.r.image_show);
+        this.n = (ImageView) this.w.findViewById(com.baidu.tieba.v.live_room_anchor_portrait);
+        this.m = (LinearLayout) this.w.findViewById(com.baidu.tieba.v.live_room_anchor_portrait_ll);
+        this.s = (TextView) this.w.findViewById(com.baidu.tieba.v.live_chat_room_note);
+        this.A = this.w.findViewById(com.baidu.tieba.v.live_stop_host);
+        this.o = (TextView) this.w.findViewById(com.baidu.tieba.v.live_stop);
+        this.E = this.w.findViewById(com.baidu.tieba.v.live_chat_note_layout);
+        this.a = (TextView) this.w.findViewById(com.baidu.tieba.v.publish_show_text);
+        this.b = this.w.findViewById(com.baidu.tieba.v.image_show_layout);
+        this.c = (TbImageView) this.w.findViewById(com.baidu.tieba.v.image_show);
     }
 
     public void a(ChatMessage chatMessage) {
@@ -338,7 +338,7 @@ public class ag extends RelativeLayout {
 
     private LocalViewSize.ImageSize getMsgSPicMaxSize() {
         int i;
-        int b = com.baidu.adp.lib.util.h.b(getContext());
+        int b = com.baidu.adp.lib.util.k.b(getContext());
         if (b < 240) {
             i = b / 3;
         } else if (b <= 320) {
@@ -406,7 +406,7 @@ public class ag extends RelativeLayout {
     }
 
     private void g() {
-        this.n.setBackgroundDrawable(this.g.getResources().getDrawable(com.baidu.tieba.q.icon_live_voice_selector));
+        this.n.setBackgroundDrawable(this.g.getResources().getDrawable(com.baidu.tieba.u.icon_live_voice_selector));
         this.m.setVisibility(0);
         this.n.setVisibility(0);
     }
@@ -436,7 +436,7 @@ public class ag extends RelativeLayout {
 
     private void k() {
         this.r.b();
-        this.o.setText(this.g.getResources().getString(com.baidu.tieba.u.live_room_end));
+        this.o.setText(this.g.getResources().getString(com.baidu.tieba.y.live_room_end));
         this.z.setVisibility(0);
         this.o.setVisibility(0);
         this.p.setVisibility(0);
@@ -444,7 +444,7 @@ public class ag extends RelativeLayout {
 
     private void l() {
         h();
-        this.o.setText(this.g.getResources().getString(com.baidu.tieba.u.live_room_not_start));
+        this.o.setText(this.g.getResources().getString(com.baidu.tieba.y.live_room_not_start));
         if (this.C) {
             this.A.setVisibility(0);
             this.z.setVisibility(0);
@@ -459,7 +459,7 @@ public class ag extends RelativeLayout {
 
     private void m() {
         h();
-        this.o.setText(this.g.getResources().getString(com.baidu.tieba.u.live_room_pause));
+        this.o.setText(this.g.getResources().getString(com.baidu.tieba.y.live_room_pause));
         if (this.C) {
             this.A.setVisibility(0);
             this.z.setVisibility(0);
@@ -526,7 +526,7 @@ public class ag extends RelativeLayout {
 
     public void c() {
         int measureText;
-        String string = this.g.getString(com.baidu.tieba.u.live_chat_room_default_time);
+        String string = this.g.getString(com.baidu.tieba.y.live_chat_room_default_time);
         TextPaint paint = this.k.getPaint();
         if (string.length() != this.l) {
             if (string.length() <= 5) {
@@ -563,41 +563,41 @@ public class ag extends RelativeLayout {
     }
 
     public void e() {
-        this.u.setBackgroundDrawable(this.g.getResources().getDrawable(com.baidu.tieba.q.btn_live_no_praise_selector));
+        this.u.setBackgroundDrawable(this.g.getResources().getDrawable(com.baidu.tieba.u.btn_live_no_praise_selector));
     }
 
     public void f() {
-        this.u.setBackgroundDrawable(this.g.getResources().getDrawable(com.baidu.tieba.q.btn_live_praise_selector));
+        this.u.setBackgroundDrawable(this.g.getResources().getDrawable(com.baidu.tieba.u.btn_live_praise_selector));
     }
 
     public void a(View view, boolean z) {
         if (z) {
-            view.setAnimation(AnimationUtils.loadAnimation(this.g, com.baidu.tieba.l.praise_animation_scale2));
+            view.setAnimation(AnimationUtils.loadAnimation(this.g, com.baidu.tieba.p.praise_animation_scale2));
             new Handler().postDelayed(new ak(this), 200L);
         }
     }
 
     public void b(View view, boolean z) {
         if (z) {
-            view.setAnimation(AnimationUtils.loadAnimation(this.g, com.baidu.tieba.l.praise_animation_scale3));
+            view.setAnimation(AnimationUtils.loadAnimation(this.g, com.baidu.tieba.p.praise_animation_scale3));
             new Handler().postDelayed(new al(this), 600L);
         }
     }
 
     public void a(View view) {
-        view.setAnimation(AnimationUtils.loadAnimation(this.g, com.baidu.tieba.l.praise_animation_scale1));
+        view.setAnimation(AnimationUtils.loadAnimation(this.g, com.baidu.tieba.p.praise_animation_scale1));
     }
 
     public void setNoteText(String str) {
         if (TextUtils.isEmpty(str)) {
             if (this.C) {
-                this.s.setText(this.g.getString(com.baidu.tieba.u.live_group_note));
+                this.s.setText(this.g.getString(com.baidu.tieba.y.live_group_note));
                 return;
             } else {
                 this.s.setText("");
                 return;
             }
         }
-        this.s.setText(String.format(this.g.getString(com.baidu.tieba.u.live_chat_room_note), str));
+        this.s.setText(String.format(this.g.getString(com.baidu.tieba.y.live_chat_room_note), str));
     }
 }

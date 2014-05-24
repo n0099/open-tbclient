@@ -3,10 +3,9 @@ package com.baidu.tieba.im.live.room;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.chat.dd;
+import com.baidu.tieba.im.chat.TalkableActivity;
 /* loaded from: classes.dex */
-public class bc extends com.baidu.adp.base.e {
+public class bc extends com.baidu.adp.base.c {
     private View a;
     private View b;
     private View c;
@@ -24,10 +23,10 @@ public class bc extends com.baidu.adp.base.e {
     private TextView o;
     private TextView p;
     private View.OnClickListener q;
-    private dd r;
+    private TalkableActivity r;
 
-    public bc(dd ddVar, View.OnClickListener onClickListener) {
-        super(ddVar);
+    public bc(TalkableActivity talkableActivity, View.OnClickListener onClickListener) {
+        super(talkableActivity);
         this.a = null;
         this.b = null;
         this.c = null;
@@ -46,7 +45,7 @@ public class bc extends com.baidu.adp.base.e {
         this.p = null;
         this.q = null;
         this.r = null;
-        this.r = ddVar;
+        this.r = talkableActivity;
         this.q = onClickListener;
         m();
     }
@@ -71,57 +70,47 @@ public class bc extends com.baidu.adp.base.e {
 
     public void b(boolean z) {
         if (z) {
-            this.l.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.q.icon_live_attention_s, 0, 0);
+            this.l.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.u.icon_live_attention_s, 0, 0);
         } else {
-            this.l.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.q.icon_live_attention, 0, 0);
+            this.l.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.u.icon_live_attention, 0, 0);
         }
     }
 
     public void c(boolean z) {
         if (z) {
-            this.g.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.q.icon_live_tape_s, 0, 0);
+            this.g.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.u.icon_live_tape_s, 0, 0);
         } else {
-            this.g.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.q.icon_live_tape, 0, 0);
+            this.g.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.u.icon_live_tape, 0, 0);
         }
     }
 
     private void m() {
-        boolean isLiveRecordOpen = TbadkApplication.m252getInst().isLiveRecordOpen();
-        this.a = this.r.getLayoutInflater().inflate(com.baidu.tieba.s.im_chat_room_more_view, (ViewGroup) null);
-        this.b = this.a.findViewById(com.baidu.tieba.r.live_room_more_view_row1_host);
-        this.c = this.a.findViewById(com.baidu.tieba.r.live_room_more_view_row3_host);
-        this.d = (TextView) this.a.findViewById(com.baidu.tieba.r.live_room_more_view_inform_host);
+        this.a = this.r.getLayoutInflater().inflate(com.baidu.tieba.w.im_chat_room_more_view, (ViewGroup) null);
+        this.b = this.a.findViewById(com.baidu.tieba.v.live_room_more_view_row1_host);
+        this.c = this.a.findViewById(com.baidu.tieba.v.live_room_more_view_row3_host);
+        this.d = (TextView) this.a.findViewById(com.baidu.tieba.v.live_room_more_view_inform_host);
         this.d.setOnClickListener(this.q);
-        this.e = (TextView) this.a.findViewById(com.baidu.tieba.r.live_room_more_view_share_host);
+        this.e = (TextView) this.a.findViewById(com.baidu.tieba.v.live_room_more_view_share_host);
         this.e.setOnClickListener(this.q);
-        this.f = (TextView) this.a.findViewById(com.baidu.tieba.r.live_room_more_view_review_host);
-        this.g = (TextView) this.a.findViewById(com.baidu.tieba.r.live_room_more_view_tape_host);
-        if (isLiveRecordOpen) {
-            this.f.setOnClickListener(this.q);
-            this.g.setOnClickListener(this.q);
-        } else {
-            this.f.setVisibility(4);
-            this.g.setVisibility(4);
-        }
-        this.h = (TextView) this.a.findViewById(com.baidu.tieba.r.live_room_more_view_set_host);
+        this.f = (TextView) this.a.findViewById(com.baidu.tieba.v.live_room_more_view_review_host);
+        this.g = (TextView) this.a.findViewById(com.baidu.tieba.v.live_room_more_view_tape_host);
+        this.f.setVisibility(4);
+        this.g.setVisibility(4);
+        this.h = (TextView) this.a.findViewById(com.baidu.tieba.v.live_room_more_view_set_host);
         this.h.setOnClickListener(this.q);
-        this.i = (TextView) this.a.findViewById(com.baidu.tieba.r.live_room_more_view_exit_host);
+        this.i = (TextView) this.a.findViewById(com.baidu.tieba.v.live_room_more_view_exit_host);
         this.i.setOnClickListener(this.q);
-        this.j = this.a.findViewById(com.baidu.tieba.r.live_room_more_view_row1_guest);
-        this.k = this.a.findViewById(com.baidu.tieba.r.live_room_more_view_row3_guest);
-        this.l = (TextView) this.a.findViewById(com.baidu.tieba.r.live_room_more_view_attention_guest);
+        this.j = this.a.findViewById(com.baidu.tieba.v.live_room_more_view_row1_guest);
+        this.k = this.a.findViewById(com.baidu.tieba.v.live_room_more_view_row3_guest);
+        this.l = (TextView) this.a.findViewById(com.baidu.tieba.v.live_room_more_view_attention_guest);
         this.l.setOnClickListener(this.q);
-        this.m = (TextView) this.a.findViewById(com.baidu.tieba.r.live_room_more_view_share_guest);
+        this.m = (TextView) this.a.findViewById(com.baidu.tieba.v.live_room_more_view_share_guest);
         this.m.setOnClickListener(this.q);
-        this.n = (TextView) this.a.findViewById(com.baidu.tieba.r.live_room_more_view_review_guest);
-        if (isLiveRecordOpen) {
-            this.n.setOnClickListener(this.q);
-        } else {
-            this.n.setVisibility(4);
-        }
-        this.o = (TextView) this.a.findViewById(com.baidu.tieba.r.live_room_more_view_intro_guest);
+        this.n = (TextView) this.a.findViewById(com.baidu.tieba.v.live_room_more_view_review_guest);
+        this.n.setVisibility(4);
+        this.o = (TextView) this.a.findViewById(com.baidu.tieba.v.live_room_more_view_intro_guest);
         this.o.setOnClickListener(this.q);
-        this.p = (TextView) this.a.findViewById(com.baidu.tieba.r.live_room_more_view_exit_guest);
+        this.p = (TextView) this.a.findViewById(com.baidu.tieba.v.live_room_more_view_exit_guest);
         this.p.setOnClickListener(this.q);
     }
 

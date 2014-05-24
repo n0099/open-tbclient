@@ -35,7 +35,7 @@ class be extends com.baidu.adp.framework.listener.b {
         biVar = this.a.e;
         biVar.m();
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (socketResponsedMessage.getCmd() == 107008) {
             bhVar = this.a.f;
             if (bhVar.e() == socketResponsedMessage.getOrginalMessage() && (socketResponsedMessage instanceof ResponseLiveGroupInfoByGid)) {

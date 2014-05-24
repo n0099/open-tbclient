@@ -2,8 +2,8 @@ package com.baidu.tieba.im.nearbygroups;
 
 import android.location.Address;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.model.bd;
-import com.baidu.tieba.u;
+import com.baidu.tieba.im.model.be;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class c implements com.baidu.adp.lib.c.d {
     final /* synthetic */ NearbyGroupsActivity a;
@@ -22,9 +22,9 @@ class c implements com.baidu.adp.lib.c.d {
         m mVar5;
         m mVar6;
         m mVar7;
-        bd bdVar;
-        bd bdVar2;
-        bd bdVar3;
+        be beVar;
+        be beVar2;
+        be beVar3;
         if (i == 0) {
             if (address != null) {
                 mVar7 = this.a.b;
@@ -34,12 +34,12 @@ class c implements com.baidu.adp.lib.c.d {
                 TbadkApplication.m252getInst().setLocationLat(valueOf);
                 TbadkApplication.m252getInst().setLocationLng(valueOf2);
                 TbadkApplication.m252getInst().setLocationPos(address.getAdminArea());
-                bdVar = this.a.c;
-                bdVar.b(valueOf);
-                bdVar2 = this.a.c;
-                bdVar2.a(valueOf2);
-                bdVar3 = this.a.c;
-                bdVar3.h();
+                beVar = this.a.c;
+                beVar.b(valueOf);
+                beVar2 = this.a.c;
+                beVar2.a(valueOf2);
+                beVar3 = this.a.c;
+                beVar3.h();
             }
         } else if (i == 1 || i == 2) {
             mVar = this.a.b;
@@ -51,7 +51,7 @@ class c implements com.baidu.adp.lib.c.d {
             if (mVar3.g() != null) {
                 mVar6 = this.a.b;
                 if (mVar6.g().size() != 0) {
-                    this.a.showToast(u.nearby_group_gps_error);
+                    this.a.showToast(y.nearby_group_gps_error);
                     mVar5 = this.a.b;
                     mVar5.e();
                 }

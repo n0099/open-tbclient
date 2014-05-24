@@ -12,7 +12,7 @@ class br implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.util.h.a(this.a.b, this.a.e);
+        com.baidu.adp.lib.util.k.a(this.a.b, this.a.e);
         this.a.dismiss();
     }
 }

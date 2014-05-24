@@ -19,7 +19,7 @@ public class i implements CustomMessageTask.CustomRunnable<Object> {
         if (TbadkApplication.getCurrentAccountObj() != null) {
             str = TbadkApplication.getCurrentAccountObj().getID();
         }
-        byte[] a = com.baidu.tbadk.core.a.b.a().s().a("group_info" + str + requestGroupInfoLocalMessage.getGroupId());
+        byte[] a = com.baidu.tbadk.core.a.b.a().t().a("group_info" + str + requestGroupInfoLocalMessage.getGroupId());
         if (a != null) {
             ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = new ResponseGroupInfoLocalMessage();
             try {

@@ -12,17 +12,16 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.t;
-import com.baidu.adp.widget.ListView.u;
+import com.baidu.adp.widget.ListView.w;
+import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.view.q;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
+import com.baidu.tieba.v;
 /* loaded from: classes.dex */
-public class HotGroupFragment extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.ListView.d, t, u {
+public class HotGroupFragment extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.ListView.d, w, x {
     private BdListView b;
     private q c;
     private HotGroupActivity d;
@@ -42,8 +41,8 @@ public class HotGroupFragment extends com.baidu.tbadk.core.d implements com.baid
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(s.hot_group_fragment, (ViewGroup) null);
-        this.b = (BdListView) inflate.findViewById(r.hot_group_list);
+        View inflate = layoutInflater.inflate(com.baidu.tieba.w.hot_group_fragment, (ViewGroup) null);
+        this.b = (BdListView) inflate.findViewById(v.hot_group_list);
         this.b.a(this, 300L);
         this.c = new q(this.d);
         this.c.a(this);
@@ -52,7 +51,7 @@ public class HotGroupFragment extends com.baidu.tbadk.core.d implements com.baid
         this.b.setPullRefresh(this.c);
         this.b.setOnItemClickListener(this);
         this.b.setOnSrollToBottomListener(this);
-        this.e = (FrameLayout) inflate.findViewById(r.fragment_parent);
+        this.e = (FrameLayout) inflate.findViewById(v.fragment_parent);
         return inflate;
     }
 
@@ -93,7 +92,7 @@ public class HotGroupFragment extends com.baidu.tbadk.core.d implements com.baid
         super.onDestroyView();
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.x
     public void f_() {
         f();
     }
@@ -121,7 +120,7 @@ public class HotGroupFragment extends com.baidu.tbadk.core.d implements com.baid
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.t
+    @Override // com.baidu.adp.widget.ListView.w
     public void a(int i, int i2) {
         h();
     }

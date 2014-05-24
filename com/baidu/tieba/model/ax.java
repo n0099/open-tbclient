@@ -132,7 +132,7 @@ public class ax extends BdAsyncTask<Boolean, av, av> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onProgressUpdate(av... avVarArr) {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         boolean z = false;
         super.onProgressUpdate(avVarArr);
         av avVar = avVarArr[0];
@@ -143,8 +143,8 @@ public class ax extends BdAsyncTask<Boolean, av, av> {
         }
         this.a.mLoadDataMode = 2;
         this.a.setErrorString(null);
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(Boolean.valueOf(z));
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(Boolean.valueOf(z));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -152,17 +152,17 @@ public class ax extends BdAsyncTask<Boolean, av, av> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(av avVar) {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         Context context;
-        com.baidu.adp.base.g gVar2;
+        com.baidu.adp.base.e eVar2;
         by byVar;
         by byVar2;
-        com.baidu.adp.base.g gVar3;
+        com.baidu.adp.base.e eVar3;
         super.onPostExecute(avVar);
         this.a.q = null;
         av avVar2 = this.a;
-        gVar = this.a.mLoadDataCallBack;
-        avVar2.r = new com.baidu.tbadk.coreExtra.b.a(gVar);
+        eVar = this.a.mLoadDataCallBack;
+        avVar2.r = new com.baidu.tbadk.coreExtra.b.a(eVar);
         if (avVar != null) {
             UserData g = avVar.g();
             if (g != null) {
@@ -173,19 +173,19 @@ public class ax extends BdAsyncTask<Boolean, av, av> {
                 this.a.a(d);
             }
             this.a.mLoadDataMode = 1;
-            gVar3 = this.a.mLoadDataCallBack;
-            gVar3.a(true);
+            eVar3 = this.a.mLoadDataCallBack;
+            eVar3.a(true);
         } else {
             if (this.b != null && this.d) {
                 this.a.setErrorString(this.b.f());
             } else {
                 av avVar3 = this.a;
                 context = this.a.s;
-                avVar3.setErrorString(context.getString(com.baidu.tieba.u.neterror));
+                avVar3.setErrorString(context.getString(com.baidu.tieba.y.neterror));
             }
             this.a.mLoadDataMode = 1;
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(false);
+            eVar2 = this.a.mLoadDataCallBack;
+            eVar2.a(false);
         }
         byVar = this.a.t;
         if (byVar != null) {
@@ -196,7 +196,7 @@ public class ax extends BdAsyncTask<Boolean, av, av> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         super.cancel(true);
         this.c = true;
         if (this.b != null) {
@@ -204,7 +204,7 @@ public class ax extends BdAsyncTask<Boolean, av, av> {
             this.b = null;
         }
         this.a.q = null;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(false);
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(false);
     }
 }

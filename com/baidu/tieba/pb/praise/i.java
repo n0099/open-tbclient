@@ -10,13 +10,13 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.base.e {
+public class i extends com.baidu.adp.base.c {
     private e a;
     private PraiseListActivity b;
     private View c;
@@ -47,27 +47,27 @@ public class i extends com.baidu.adp.base.e {
         this.l = null;
         this.m = null;
         this.b = praiseListActivity;
-        praiseListActivity.setContentView(s.zan_list_activity);
-        this.c = praiseListActivity.findViewById(r.zan_list_page_parent);
-        this.d = (NavigationBar) praiseListActivity.findViewById(r.zan_list_page_navigationbar);
-        this.e = praiseListActivity.findViewById(r.zan_list_page_has_data_parent);
-        this.f = praiseListActivity.findViewById(r.zan_list_page_no_data_parent);
-        this.i = (BdListView) praiseListActivity.findViewById(r.zan_list_page_list);
-        this.m = (ProgressBar) praiseListActivity.findViewById(r.zan_list_page_progress);
+        praiseListActivity.setContentView(w.zan_list_activity);
+        this.c = praiseListActivity.findViewById(v.zan_list_page_parent);
+        this.d = (NavigationBar) praiseListActivity.findViewById(v.zan_list_page_navigationbar);
+        this.e = praiseListActivity.findViewById(v.zan_list_page_has_data_parent);
+        this.f = praiseListActivity.findViewById(v.zan_list_page_no_data_parent);
+        this.i = (BdListView) praiseListActivity.findViewById(v.zan_list_page_list);
+        this.m = (ProgressBar) praiseListActivity.findViewById(v.zan_list_page_progress);
         this.a = new e(praiseListActivity);
         this.i.setAdapter((ListAdapter) this.a);
         this.i.setOnScrollListener(this.a);
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.a("");
         LayoutInflater from = LayoutInflater.from(praiseListActivity);
-        this.g = from.inflate(s.zan_list_head, (ViewGroup) null);
+        this.g = from.inflate(w.zan_list_head, (ViewGroup) null);
         this.g.setOnClickListener(praiseListActivity);
-        this.h = (TextView) this.g.findViewById(r.zan_list_head_text);
+        this.h = (TextView) this.g.findViewById(v.zan_list_head_text);
         this.h.setText(str);
         this.i.addHeaderView(this.g);
-        this.j = from.inflate(s.zan_list_foot, (ViewGroup) null);
-        this.k = (TextView) this.j.findViewById(r.zan_list_foot_text_continue);
-        this.l = (TextView) this.j.findViewById(r.zan_list_foot_text_more);
+        this.j = from.inflate(w.zan_list_foot, (ViewGroup) null);
+        this.k = (TextView) this.j.findViewById(v.zan_list_foot_text_continue);
+        this.l = (TextView) this.j.findViewById(v.zan_list_foot_text_more);
         this.k.setOnClickListener(praiseListActivity);
         this.i.addFooterView(this.j);
         this.i.setOnItemClickListener(praiseListActivity);
@@ -94,7 +94,7 @@ public class i extends com.baidu.adp.base.e {
     public void a(int i, List<a> list, int i2, int i3) {
         this.m.setVisibility(8);
         if (i > 0) {
-            this.d.a(String.format(this.b.getString(u.praise_list_title_count), Integer.valueOf(i)));
+            this.d.a(String.format(this.b.getString(y.praise_list_title_count), Integer.valueOf(i)));
         } else {
             this.d.a("");
         }
@@ -118,13 +118,13 @@ public class i extends com.baidu.adp.base.e {
             case MessageTypes.CMD_PING /* 1003 */:
                 this.j.setVisibility(0);
                 if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                    this.j.setBackgroundResource(q.bg_pack_1);
+                    this.j.setBackgroundResource(u.bg_pack_1);
                 } else {
-                    this.j.setBackgroundResource(q.bg_pack);
+                    this.j.setBackgroundResource(u.bg_pack);
                 }
                 this.k.setVisibility(8);
                 this.l.setVisibility(0);
-                this.l.setText(String.format(this.b.getString(u.praise_item_more), Integer.valueOf(i3)));
+                this.l.setText(String.format(this.b.getString(y.praise_item_more), Integer.valueOf(i3)));
                 return;
             default:
                 this.j.setVisibility(8);
@@ -145,9 +145,9 @@ public class i extends com.baidu.adp.base.e {
         cVar.a(this.j);
         this.d.c(i);
         if (i == 1) {
-            this.j.setBackgroundResource(q.bg_pack_1);
+            this.j.setBackgroundResource(u.bg_pack_1);
         } else {
-            this.j.setBackgroundResource(q.bg_pack);
+            this.j.setBackgroundResource(u.bg_pack);
         }
     }
 

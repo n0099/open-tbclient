@@ -20,7 +20,7 @@ public class i implements com.baidu.adp.lib.debug.b {
         for (int i = 0; i < strArr.length; i++) {
             strArr2 = this.a.b;
             if (str.contains(strArr2[i])) {
-                com.baidu.adp.lib.debug.c.b(com.baidu.adp.lib.debug.c.d() + 1);
+                com.baidu.adp.lib.debug.d.b(com.baidu.adp.lib.debug.d.d() + 1);
                 return;
             }
         }

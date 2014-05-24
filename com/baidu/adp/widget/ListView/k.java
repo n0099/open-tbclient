@@ -1,8 +1,4 @@
 package com.baidu.adp.widget.ListView;
-
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements Runnable {
@@ -15,28 +11,50 @@ public class k implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        int childCount = this.a.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            a(this.a.getChildAt(i));
-        }
-        Context context = this.a.getContext();
-        if (context != null) {
-            ((com.baidu.adp.base.i) context).onPreLoad(this.a);
-        }
-    }
-
-    private void a(View view) {
-        if (view != null) {
-            if (view instanceof com.baidu.adp.newwidget.a.g) {
-                ((com.baidu.adp.newwidget.a.g) view).b();
-            }
-            if (view instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view;
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    a(viewGroup.getChildAt(i));
+        w wVar;
+        g gVar;
+        w wVar2;
+        g gVar2;
+        g gVar3;
+        g gVar4;
+        g gVar5;
+        g gVar6;
+        g gVar7;
+        int i = 0;
+        int i2 = -1;
+        wVar = this.a.i;
+        if (wVar != null) {
+            int firstVisiblePosition = this.a.getFirstVisiblePosition();
+            int lastVisiblePosition = this.a.getLastVisiblePosition();
+            gVar = this.a.b;
+            if (gVar != null) {
+                gVar2 = this.a.b;
+                if (gVar2.b() != null) {
+                    gVar3 = this.a.b;
+                    if (gVar3.a() > 0) {
+                        gVar4 = this.a.b;
+                        i2 = firstVisiblePosition - gVar4.c();
+                        if (i2 < 0) {
+                            i2 = 0;
+                        }
+                        gVar5 = this.a.b;
+                        int c = lastVisiblePosition - gVar5.c();
+                        gVar6 = this.a.b;
+                        if (c >= gVar6.a()) {
+                            gVar7 = this.a.b;
+                            c = gVar7.a() - 1;
+                        }
+                        if (c >= 0) {
+                            i = c;
+                        }
+                        wVar2 = this.a.i;
+                        wVar2.a(i2, i);
+                    }
                 }
             }
+            i = -1;
+            wVar2 = this.a.i;
+            wVar2.a(i2, i);
         }
     }
 }

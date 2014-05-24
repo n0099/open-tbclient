@@ -67,10 +67,10 @@ public class a extends BaseAdapter {
     }
 
     private View b() {
-        View inflate = this.b.getLayoutInflater().inflate(com.baidu.tieba.s.forum_list_dir_menu_item, (ViewGroup) null);
+        View inflate = this.b.getLayoutInflater().inflate(com.baidu.tieba.w.forum_list_dir_menu_item, (ViewGroup) null);
         this.a = new b(this);
-        this.a.a = (ImageView) inflate.findViewById(com.baidu.tieba.r.menu_choose);
-        this.a.b = (TextView) inflate.findViewById(com.baidu.tieba.r.menu_name);
+        this.a.a = (ImageView) inflate.findViewById(com.baidu.tieba.v.menu_choose);
+        this.a.b = (TextView) inflate.findViewById(com.baidu.tieba.v.menu_name);
         inflate.setTag(this.a);
         return inflate;
     }
@@ -79,17 +79,17 @@ public class a extends BaseAdapter {
         if (bVar != null && abVar != null) {
             bVar.b.setText("");
             if (i == 0) {
-                bVar.b.setText(String.valueOf(this.b.getString(com.baidu.tieba.u.forum_list_menu_all)) + abVar.b);
+                bVar.b.setText(String.valueOf(this.b.getString(com.baidu.tieba.y.forum_list_menu_all)) + abVar.b);
             } else {
                 bVar.b.setText(abVar.b);
             }
             if (i != this.d) {
                 bVar.a.setVisibility(4);
-                bVar.b.setTextColor(this.b.getResources().getColor(com.baidu.tieba.o.forum_list_menu_notselected));
+                bVar.b.setTextColor(this.b.getResources().getColor(com.baidu.tieba.s.forum_list_menu_notselected));
                 return;
             }
             bVar.a.setVisibility(0);
-            bVar.b.setTextColor(this.b.getResources().getColor(com.baidu.tieba.o.forum_list_menu_selected));
+            bVar.b.setTextColor(this.b.getResources().getColor(com.baidu.tieba.s.forum_list_menu_selected));
         }
     }
 }

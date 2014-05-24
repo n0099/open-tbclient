@@ -17,7 +17,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.base.e {
+public class v extends com.baidu.adp.base.c {
     private final int a;
     private String b;
     private String c;
@@ -51,16 +51,16 @@ public class v extends com.baidu.adp.base.e {
     }
 
     private void a(AlbumActivity albumActivity) {
-        albumActivity.setContentView(com.baidu.tieba.s.album_activity);
-        this.e = (LinearLayout) albumActivity.findViewById(com.baidu.tieba.r.parent);
-        this.f = (Button) albumActivity.findViewById(com.baidu.tieba.r.btn_done);
+        albumActivity.setContentView(com.baidu.tieba.w.album_activity);
+        this.e = (LinearLayout) albumActivity.findViewById(com.baidu.tieba.v.parent);
+        this.f = (Button) albumActivity.findViewById(com.baidu.tieba.v.btn_done);
         this.f.setOnClickListener(albumActivity);
-        this.g = (HorizontalScrollView) albumActivity.findViewById(com.baidu.tieba.r.bottom_scroll);
-        this.h = (LinearLayout) albumActivity.findViewById(com.baidu.tieba.r.bottom_container);
-        this.i = (RelativeLayout) albumActivity.findViewById(com.baidu.tieba.r.lay_bottom);
-        this.j = (ImageView) albumActivity.findViewById(com.baidu.tieba.r.add_more);
-        this.p = (int) this.k.getResources().getDimension(com.baidu.tieba.p.album_bottom_item_height);
-        this.q = (int) this.k.getResources().getDimension(com.baidu.tieba.p.default_gap_4);
+        this.g = (HorizontalScrollView) albumActivity.findViewById(com.baidu.tieba.v.bottom_scroll);
+        this.h = (LinearLayout) albumActivity.findViewById(com.baidu.tieba.v.bottom_container);
+        this.i = (RelativeLayout) albumActivity.findViewById(com.baidu.tieba.v.lay_bottom);
+        this.j = (ImageView) albumActivity.findViewById(com.baidu.tieba.v.add_more);
+        this.p = (int) this.k.getResources().getDimension(com.baidu.tieba.t.album_bottom_item_height);
+        this.q = (int) this.k.getResources().getDimension(com.baidu.tieba.t.default_gap_4);
     }
 
     public void a(int i) {
@@ -70,7 +70,7 @@ public class v extends com.baidu.adp.base.e {
         while (true) {
             int i3 = i2;
             if (i3 < this.o.length) {
-                this.o[i3] = (FrameLayout) from.inflate(com.baidu.tieba.s.album_bottom_item_view, (ViewGroup) null);
+                this.o[i3] = (FrameLayout) from.inflate(com.baidu.tieba.w.album_bottom_item_view, (ViewGroup) null);
                 i2 = i3 + 1;
             } else {
                 return;
@@ -83,7 +83,7 @@ public class v extends com.baidu.adp.base.e {
         if (frameLayout == null) {
             return null;
         }
-        return (TbImageView) frameLayout.findViewById(com.baidu.tieba.r.item_iv);
+        return (TbImageView) frameLayout.findViewById(com.baidu.tieba.v.item_iv);
     }
 
     public void a() {
@@ -171,11 +171,11 @@ public class v extends com.baidu.adp.base.e {
                     a.setLayoutParams(new FrameLayout.LayoutParams(this.p, this.p));
                     a.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.p + (this.q * 2), this.p + (this.q * 2));
-                    layoutParams.bottomMargin = ((int) this.k.getResources().getDimension(com.baidu.tieba.p.album_bottom_item_margin_bottom)) - this.q;
-                    layoutParams.topMargin = ((int) this.k.getResources().getDimension(com.baidu.tieba.p.album_bottom_item_margin_top)) - this.q;
-                    layoutParams.leftMargin = ((int) this.k.getResources().getDimension(com.baidu.tieba.p.album_bottom_item_margin_left)) - this.q;
+                    layoutParams.bottomMargin = ((int) this.k.getResources().getDimension(com.baidu.tieba.t.album_bottom_item_margin_bottom)) - this.q;
+                    layoutParams.topMargin = ((int) this.k.getResources().getDimension(com.baidu.tieba.t.album_bottom_item_margin_top)) - this.q;
+                    layoutParams.leftMargin = ((int) this.k.getResources().getDimension(com.baidu.tieba.t.album_bottom_item_margin_left)) - this.q;
                     this.o[i].setLayoutParams(layoutParams);
-                    this.o[i].setBackgroundResource(TbadkApplication.m252getInst().getSkinType() == 1 ? com.baidu.tieba.q.bg_add_photo_1 : com.baidu.tieba.q.bg_add_photo);
+                    this.o[i].setBackgroundResource(TbadkApplication.m252getInst().getSkinType() == 1 ? com.baidu.tieba.u.bg_add_photo_1 : com.baidu.tieba.u.bg_add_photo);
                     this.h.addView(this.o[i], this.h.getChildCount() - 1);
                     a(this.g);
                     a.setOnClickListener(new w(this, imageFileInfo));
@@ -248,14 +248,14 @@ public class v extends com.baidu.adp.base.e {
     public void e(int i) {
         if (TbadkApplication.m252getInst().getSkinType() != 1) {
             if (i == 2) {
-                this.i.setBackgroundResource(com.baidu.tieba.q.bg_pic_bottom_bar_special);
-                this.f.setBackgroundResource(com.baidu.tieba.q.album_done_btn_special);
-                this.j.setBackgroundResource(com.baidu.tieba.q.icon_bottom_add_photo_special);
+                this.i.setBackgroundResource(com.baidu.tieba.u.bg_pic_bottom_bar_special);
+                this.f.setBackgroundResource(com.baidu.tieba.u.album_done_btn_special);
+                this.j.setBackgroundResource(com.baidu.tieba.u.icon_bottom_add_photo_special);
                 return;
             }
-            this.i.setBackgroundResource(com.baidu.tieba.q.bg_pic_bottom_bar);
-            this.f.setBackgroundResource(com.baidu.tieba.q.album_done_btn);
-            this.j.setBackgroundResource(com.baidu.tieba.q.icon_bottom_add_photo);
+            this.i.setBackgroundResource(com.baidu.tieba.u.bg_pic_bottom_bar);
+            this.f.setBackgroundResource(com.baidu.tieba.u.album_done_btn);
+            this.j.setBackgroundResource(com.baidu.tieba.u.icon_bottom_add_photo);
         }
     }
 }

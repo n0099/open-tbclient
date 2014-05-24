@@ -2,7 +2,7 @@ package com.baidu.tieba.model;
 
 import com.baidu.tieba.data.MarkData;
 /* loaded from: classes.dex */
-public class ai extends com.baidu.adp.base.d {
+public class ai extends com.baidu.adp.base.b {
     private MarkData b;
     private boolean a = false;
     private aj c = null;
@@ -58,12 +58,12 @@ public class ai extends com.baidu.adp.base.d {
         this.c.execute(new Boolean[0]);
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.c != null) {
             this.c.cancel();

@@ -1,26 +1,25 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tieba.frs.FrsImageActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class bz implements View.OnClickListener {
+class bz extends CustomMessageListener {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(FrsImageActivity frsImageActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bz(FrsImageActivity frsImageActivity, int i) {
+        super(i);
         this.a = frsImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        FrsImageActivity.FooterType footerType;
-        int i;
-        footerType = this.a.j;
-        if (footerType == FrsImageActivity.FooterType.NEXT) {
-            FrsImageActivity frsImageActivity = this.a;
-            i = this.a.l;
-            frsImageActivity.c(i + 240);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2003124) {
+            return;
         }
+        this.a.a(customResponsedMessage);
     }
 }

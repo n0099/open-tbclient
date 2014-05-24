@@ -69,7 +69,7 @@ public class JsonReader implements Closeable {
                     } else if (i == 12) {
                         jsonReader.peeked = 8;
                         return;
-                    } else if (i == JsonReader.PEEKED_UNQUOTED_NAME) {
+                    } else if (i == 14) {
                         jsonReader.peeked = 10;
                         return;
                     } else {
@@ -187,7 +187,7 @@ public class JsonReader implements Closeable {
                 return JsonToken.STRING;
             case 12:
             case 13:
-            case PEEKED_UNQUOTED_NAME /* 14 */:
+            case 14:
                 return JsonToken.NAME;
             case 15:
             case 16:
@@ -253,8 +253,8 @@ public class JsonReader implements Closeable {
                     checkLenient();
                     this.pos--;
                     if (isLiteral((char) nextNonWhitespace)) {
-                        this.peeked = PEEKED_UNQUOTED_NAME;
-                        return PEEKED_UNQUOTED_NAME;
+                        this.peeked = 14;
+                        return 14;
                     }
                     throw syntaxError("Expected name");
             }
@@ -566,7 +566,7 @@ public class JsonReader implements Closeable {
         if (i == 0) {
             i = doPeek();
         }
-        if (i == PEEKED_UNQUOTED_NAME) {
+        if (i == 14) {
             nextQuotedValue = nextUnquotedValue();
         } else if (i == 12) {
             nextQuotedValue = nextQuotedValue('\'');
@@ -927,7 +927,7 @@ public class JsonReader implements Closeable {
             } else if (i2 == 2) {
                 this.stackSize--;
                 i--;
-            } else if (i2 == PEEKED_UNQUOTED_NAME || i2 == 10) {
+            } else if (i2 == 14 || i2 == 10) {
                 skipUnquotedValue();
             } else if (i2 == 8 || i2 == 12) {
                 skipQuotedValue('\'');

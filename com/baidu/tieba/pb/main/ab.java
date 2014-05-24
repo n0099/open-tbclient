@@ -31,23 +31,23 @@ public class ab implements com.baidu.tbadk.editortool.x {
         WriteImagesInfo writeImagesInfo9;
         String str;
         String str2;
-        bj bjVar;
-        bj bjVar2;
+        bq bqVar;
+        bq bqVar2;
         String str3;
-        bj bjVar3;
-        bj bjVar4;
+        bq bqVar3;
+        bq bqVar4;
         String str4;
         boolean b;
-        bj bjVar5;
-        bc bcVar;
+        bq bqVar5;
+        bj bjVar;
         boolean b2;
         boolean b3;
         boolean b4;
         if (i != 0) {
             if (i != 26) {
                 if (i == 10) {
-                    bcVar = this.a.y;
-                    if (bcVar.p() == null) {
+                    bjVar = this.a.x;
+                    if (bjVar.p() == null) {
                         return;
                     }
                     b2 = this.a.b(11001);
@@ -62,20 +62,20 @@ public class ab implements com.baidu.tbadk.editortool.x {
                         if (str2 != null) {
                             str3 = this.a.p;
                             if (str3.length() > 0) {
-                                bjVar3 = this.a.E;
-                                bjVar3.c(false);
-                                bjVar4 = this.a.E;
-                                bjVar4.d(false);
+                                bqVar3 = this.a.D;
+                                bqVar3.c(false);
+                                bqVar4 = this.a.D;
+                                bqVar4.d(false);
                                 PbActivity pbActivity = this.a;
                                 str4 = this.a.p;
                                 pbActivity.showToast(str4);
                                 return;
                             }
                         }
-                        bjVar = this.a.E;
-                        bjVar.c(true);
-                        bjVar2 = this.a.E;
-                        bjVar2.d(true);
+                        bqVar = this.a.D;
+                        bqVar.c(true);
+                        bqVar2 = this.a.D;
+                        bqVar2.d(true);
                         return;
                     } else if (i == 22) {
                         writeImagesInfo8 = this.a.n;
@@ -88,7 +88,7 @@ public class ab implements com.baidu.tbadk.editortool.x {
                             com.baidu.tbadk.core.util.bb.a(pbActivity2, str);
                             return;
                         }
-                        this.a.showToast(String.format(this.a.getString(com.baidu.tieba.u.editor_mutiiamge_max), 10));
+                        this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
                         return;
                     } else if (i == 23) {
                         writeImagesInfo5 = this.a.n;
@@ -119,7 +119,7 @@ public class ab implements com.baidu.tbadk.editortool.x {
                                             MessageManager messageManager = MessageManager.getInstance();
                                             PbActivity pbActivity4 = this.a;
                                             writeImagesInfo4 = this.a.n;
-                                            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bj(pbActivity4, 12012, writeImagesInfo4, intValue)));
+                                            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bk(pbActivity4, 12012, writeImagesInfo4, intValue)));
                                             return;
                                         }
                                         return;
@@ -130,11 +130,11 @@ public class ab implements com.baidu.tbadk.editortool.x {
                             }
                             return;
                         }
-                        alertDialog = this.a.ai;
+                        alertDialog = this.a.ag;
                         if (alertDialog == null) {
                             return;
                         }
-                        alertDialog2 = this.a.ai;
+                        alertDialog2 = this.a.ag;
                         alertDialog2.show();
                         return;
                     } else {
@@ -143,8 +143,8 @@ public class ab implements com.baidu.tbadk.editortool.x {
                 } else {
                     b = this.a.b(11027);
                     if (b) {
-                        bjVar5 = this.a.E;
-                        this.a.a(bjVar5.O());
+                        bqVar5 = this.a.D;
+                        this.a.a(bqVar5.O());
                         return;
                     }
                     return;

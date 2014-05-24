@@ -29,7 +29,7 @@ public class LiveRoomEntranceActivity extends BaseActivity {
         this.b = new ay(this);
         this.b.a(getIntent(), bundle);
         registerListener(this.f);
-        this.c = (AnimationSet) AnimationUtils.loadAnimation(this, com.baidu.tieba.l.live_room_entrance_spot_anim);
+        this.c = (AnimationSet) AnimationUtils.loadAnimation(this, com.baidu.tieba.p.live_room_entrance_spot_anim);
         this.a.e().setAnimation(this.c);
         this.d.post(this.e);
     }

@@ -1,47 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.location.LocationClientOption;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class c extends Handler {
-    final /* synthetic */ FileDownloader a;
+class c implements com.baidu.tbadk.widget.l {
+    final /* synthetic */ a a;
+    private final /* synthetic */ View b;
+    private final /* synthetic */ TbImageView c;
+    private final /* synthetic */ Activity d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(FileDownloader fileDownloader) {
-        this.a = fileDownloader;
+    public c(a aVar, View view, TbImageView tbImageView, Activity activity) {
+        this.a = aVar;
+        this.b = view;
+        this.c = tbImageView;
+        this.d = activity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Notification notification;
-        Notification notification2;
-        Notification notification3;
-        NotificationManager notificationManager;
-        Notification notification4;
-        super.handleMessage(message);
-        if (message.what == 900002) {
-            notification = this.a.b;
-            if (notification != null && message.arg2 > 0) {
-                notification2 = this.a.b;
-                notification2.contentView.setProgressBar(r.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
-                StringBuffer stringBuffer = new StringBuffer(20);
-                stringBuffer.append(String.valueOf(message.arg1 / LocationClientOption.MIN_SCAN_SPAN));
-                stringBuffer.append("K/");
-                stringBuffer.append(String.valueOf(message.arg2 / LocationClientOption.MIN_SCAN_SPAN));
-                stringBuffer.append("K");
-                notification3 = this.a.b;
-                notification3.contentView.setTextViewText(r.schedule, stringBuffer);
-                notificationManager = this.a.a;
-                notification4 = this.a.b;
-                notificationManager.notify(10, notification4);
-            }
-        } else if (message.what == 1) {
-            UtilHelper.install_apk(ad.c().d(), (String) message.obj);
-            this.a.stopSelf();
+    @Override // com.baidu.tbadk.widget.l
+    public void a(boolean z) {
+        if (this.b instanceof ViewGroup) {
+            ((ViewGroup) this.b).addView(this.c);
         }
+        com.baidu.tbadk.core.f.a(this.d, "lpage_tg_pic");
+    }
+
+    @Override // com.baidu.tbadk.widget.l
+    public void a() {
     }
 }

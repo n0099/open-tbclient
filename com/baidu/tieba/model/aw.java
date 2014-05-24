@@ -23,8 +23,8 @@ public class aw extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Context context;
-        com.baidu.adp.base.g gVar;
-        com.baidu.adp.base.g gVar2;
+        com.baidu.adp.base.e eVar;
+        com.baidu.adp.base.e eVar2;
         if (customResponsedMessage != null) {
             switch (customResponsedMessage.getCmd()) {
                 case MessageTypes.CMD_UPDATE_ATTENTION /* 2003118 */:
@@ -35,16 +35,16 @@ public class aw extends CustomMessageListener {
                             this.a.g().setHave_attention(updateAttentionMessage.isAttention() ? 0 : 1);
                             this.a.mLoadDataMode = 3;
                             this.a.setErrorString(updateAttentionMessage.getErrorString());
-                            gVar = this.a.mLoadDataCallBack;
-                            if (gVar != null) {
-                                gVar2 = this.a.mLoadDataCallBack;
-                                gVar2.a(Boolean.valueOf(updateAttentionMessage.isSucc()));
+                            eVar = this.a.mLoadDataCallBack;
+                            if (eVar != null) {
+                                eVar2 = this.a.mLoadDataCallBack;
+                                eVar2.a(Boolean.valueOf(updateAttentionMessage.isSucc()));
                                 return;
                             }
                             return;
                         } else if (data != null && !TextUtils.isEmpty(data.b)) {
                             context = this.a.s;
-                            com.baidu.adp.lib.util.h.a(context, data.b);
+                            com.baidu.adp.lib.util.k.a(context, data.b);
                             return;
                         } else {
                             return;

@@ -55,15 +55,15 @@ public class g {
                         downloadData.setWidth(Constants.MEDIA_INFO);
                         downloadData.setHeight(Constants.MEDIA_INFO);
                     } else {
-                        downloadData.setStatusMsg(com.baidu.tieba.ad.c().d().getString(com.baidu.tieba.u.download_fail));
+                        downloadData.setStatusMsg(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.download_fail));
                         downloadData.setStatus(2);
                     }
                 } else {
-                    downloadData.setStatusMsg(com.baidu.tieba.ad.c().d().getString(com.baidu.tieba.u.download_fail));
+                    downloadData.setStatusMsg(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.download_fail));
                     downloadData.setStatus(2);
                 }
             } else {
-                downloadData.setStatusMsg(com.baidu.tieba.ad.c().d().getString(com.baidu.tieba.u.download_fail));
+                downloadData.setStatusMsg(com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.y.download_fail));
                 downloadData.setStatus(2);
             }
             StringBuilder sb = new StringBuilder();

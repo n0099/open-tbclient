@@ -1,7 +1,7 @@
 package com.baidu.tieba.mention;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements com.baidu.adp.widget.ListView.u {
+public class r implements com.baidu.adp.widget.ListView.x {
     final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ public class r implements com.baidu.adp.widget.ListView.u {
         this.a = mVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.x
     public void f_() {
         this.a.h();
     }

@@ -1,7 +1,9 @@
 package com.baidu.tbadk.browser;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements com.baidu.tbadk.core.view.h {
+public class h implements View.OnClickListener {
     final /* synthetic */ TbWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,12 +11,8 @@ public class h implements com.baidu.tbadk.core.view.h {
         this.a = tbWebViewActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.h
-    public void a() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         this.a.a();
-    }
-
-    @Override // com.baidu.tbadk.core.view.h
-    public void b() {
     }
 }

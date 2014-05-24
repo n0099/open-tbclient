@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 /* loaded from: classes.dex */
 public class c extends DiskFileOperate {
     protected Bitmap g;
@@ -34,7 +34,7 @@ public class c extends DiskFileOperate {
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void a(byte[] bArr) {
         super.a(bArr);
-        if (!t() && h.a(bArr)) {
+        if (!t() && k.a(bArr)) {
             f(true);
         }
     }

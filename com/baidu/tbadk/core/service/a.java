@@ -1,49 +1,26 @@
 package com.baidu.tbadk.core.service;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.message.NetWorkChangeMessage;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.tbplugin.PluginsConfig;
+import com.baidu.tbadk.tbplugin.m;
 /* loaded from: classes.dex */
-public class a extends BroadcastReceiver {
-    public int a = -1;
+class a extends c {
+    final /* synthetic */ PluginDownloadService a;
+    private final /* synthetic */ PluginsConfig.PluginConfig c;
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            boolean z = activeNetworkInfo != null && activeNetworkInfo.isAvailable();
-            NoNetworkView.setIsHasNetwork(z);
-            if (z) {
-                if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
-                    if (this.a != 1) {
-                        if (this.a != -1) {
-                            bf.a().b(true);
-                            MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangeMessage(1));
-                        }
-                        this.a = 1;
-                    }
-                } else if (this.a != 2) {
-                    if (this.a != -1) {
-                        bf.a().b(false);
-                        MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangeMessage(2));
-                    }
-                    this.a = 2;
-                }
-            } else if (this.a != 0) {
-                this.a = 0;
-                MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangeMessage(0));
-            }
-            CompatibleUtile.dealWebView();
-        } catch (Throwable th) {
-            BdLog.e("NetworkChangeReceiver", "onReceiver", th.getMessage());
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(PluginDownloadService pluginDownloadService, PluginDownloadService pluginDownloadService2, PluginsConfig.PluginConfig pluginConfig) {
+        super(pluginDownloadService, null, null);
+        this.a = pluginDownloadService2;
+        this.c = pluginConfig;
+    }
+
+    @Override // com.baidu.tbadk.core.service.c, com.baidu.tbadk.download.a
+    public void a(DownloadData downloadData) {
+        super.a(downloadData);
+        BdLog.d("install file plugin");
+        new com.baidu.tbadk.tbplugin.f(this.a, m.a().a(this.c.name), downloadData.getPath(), this.a).a();
     }
 }

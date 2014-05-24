@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import com.baidu.sapi2.SapiAccount;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -109,5 +111,37 @@ public class SapiUtils {
             return 0;
         }
         return 0;
+    }
+
+    public static boolean webLogin(Context context, String str) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return false;
+        }
+        try {
+            CookieSyncManager.createInstance(context);
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.setAcceptCookie(true);
+            cookieManager.setCookie("http://www.baidu.com", "BDUSS=" + str + ";domain=baidu.com;path=/");
+            CookieSyncManager.getInstance().sync();
+            return true;
+        } catch (Throwable th) {
+            return false;
+        }
+    }
+
+    public static boolean webLogout(Context context) {
+        if (context == null) {
+            return false;
+        }
+        try {
+            CookieSyncManager.createInstance(context);
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.setAcceptCookie(true);
+            cookieManager.setCookie("http://www.baidu.com", "BDUSS=;domain=baidu.com;path=/");
+            CookieSyncManager.getInstance().sync();
+            return true;
+        } catch (Throwable th) {
+            return false;
+        }
     }
 }

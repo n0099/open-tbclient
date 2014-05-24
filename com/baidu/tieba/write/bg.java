@@ -12,6 +12,6 @@ class bg implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.showDialog(com.baidu.tieba.r.live_time_rel);
+        this.a.showDialog(com.baidu.tieba.v.live_time_rel);
     }
 }

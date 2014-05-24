@@ -1,13 +1,13 @@
 package com.baidu.tieba.forumdetail;
 
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
 import com.baidu.tieba.data.z;
 import com.baidu.tieba.model.af;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.base.g {
+public class h extends com.baidu.adp.base.e {
     final /* synthetic */ ItemFootNavView a;
     private final /* synthetic */ af b;
     private final /* synthetic */ BaseActivity c;
@@ -21,24 +21,24 @@ public class h extends com.baidu.adp.base.g {
         this.d = z;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         ForumDetailData forumDetailData;
         if (this.b.getErrorCode() == 22) {
-            this.c.showToast(this.c.getString(u.like_success));
+            this.c.showToast(this.c.getString(y.like_success));
             this.a.b(true);
             this.a.a(this.d);
         } else if (this.b.getErrorCode() != 0) {
             this.c.showToast(this.b.getErrorString());
         } else if (((z) obj) != null) {
-            this.c.showToast(this.c.getString(u.like_success));
-            ad c = ad.c();
+            this.c.showToast(this.c.getString(y.like_success));
+            ai c = ai.c();
             forumDetailData = this.a.f;
             c.e(forumDetailData.forumInfo.forumName);
             this.a.b(true);
             this.a.a(this.d);
         } else {
-            this.c.showToast(this.c.getString(u.neterror));
+            this.c.showToast(this.c.getString(y.neterror));
         }
     }
 }

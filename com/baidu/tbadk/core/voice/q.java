@@ -11,8 +11,8 @@ public class q implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (!this.a.e()) {
-            this.a.w();
+        if (!this.a.isPlaying()) {
+            this.a.unRegistSensor();
         }
     }
 }

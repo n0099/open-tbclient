@@ -97,12 +97,12 @@ public class p extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (getItemViewType(i) == -1) {
             if (view == null) {
-                view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.live_list_foot, viewGroup, false);
+                view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.live_list_foot, viewGroup, false);
                 r rVar = new r(this);
-                rVar.d = view.findViewById(com.baidu.tieba.r.bottom_line);
-                rVar.e = (ViewGroup) view.findViewById(com.baidu.tieba.r.bottom_more);
-                rVar.f = (TextView) view.findViewById(com.baidu.tieba.r.more_title);
-                rVar.g = (ProgressBar) view.findViewById(com.baidu.tieba.r.more_progress);
+                rVar.d = view.findViewById(com.baidu.tieba.v.bottom_line);
+                rVar.e = (ViewGroup) view.findViewById(com.baidu.tieba.v.bottom_more);
+                rVar.f = (TextView) view.findViewById(com.baidu.tieba.v.more_title);
+                rVar.g = (ProgressBar) view.findViewById(com.baidu.tieba.v.more_progress);
                 view.setTag(rVar);
             }
             r rVar2 = (r) view.getTag();
@@ -113,20 +113,20 @@ public class p extends BaseAdapter {
                 rVar2.d.setVisibility(8);
                 rVar2.e.setVisibility(0);
                 if (this.d) {
-                    rVar2.f.setText(com.baidu.tieba.u.live_frs_list_hasmore);
+                    rVar2.f.setText(com.baidu.tieba.y.live_frs_list_hasmore);
                     rVar2.g.setVisibility(0);
                 } else {
-                    rVar2.f.setText(com.baidu.tieba.u.live_frs_list_nomore);
+                    rVar2.f.setText(com.baidu.tieba.y.live_frs_list_nomore);
                     rVar2.g.setVisibility(8);
                 }
             }
         } else {
             if (view == null) {
-                view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.live_frs_list_item_native, viewGroup, false);
+                view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.live_frs_list_item_native, viewGroup, false);
                 r rVar3 = new r(this);
-                rVar3.a = (LiveBroadcastCard) view.findViewById(com.baidu.tieba.r.item_card);
-                rVar3.c = view.findViewById(com.baidu.tieba.r.live_list_item_line);
-                rVar3.b = (ViewGroup) view.findViewById(com.baidu.tieba.r.item_operate);
+                rVar3.a = (LiveBroadcastCard) view.findViewById(com.baidu.tieba.v.item_card);
+                rVar3.c = view.findViewById(com.baidu.tieba.v.live_list_item_line);
+                rVar3.b = (ViewGroup) view.findViewById(com.baidu.tieba.v.item_operate);
                 view.setTag(rVar3);
             }
             r rVar4 = (r) view.getTag();

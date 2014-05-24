@@ -8,7 +8,7 @@ import android.os.Handler;
 import android.view.SurfaceHolder;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.p;
+import com.baidu.tieba.t;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import java.io.IOException;
 /* loaded from: classes.dex */
@@ -119,7 +119,7 @@ public final class e {
         synchronized (this) {
             if (this.e == null) {
                 if (this.c != null && (b = this.b.b()) != null) {
-                    int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(p.bar_code_center_rect_size);
+                    int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(t.bar_code_center_rect_size);
                     int i = (b.x - dimensionPixelSize) / 2;
                     int i2 = (b.y - dimensionPixelSize) / 2;
                     this.e = new Rect(i, i2, i + dimensionPixelSize, dimensionPixelSize + i2);

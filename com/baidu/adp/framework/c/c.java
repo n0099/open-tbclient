@@ -81,19 +81,19 @@ public class c extends f {
     }
 
     public void h() {
-        BdSocketLinkService.a(this);
+        BdSocketLinkService.init(this);
     }
 
     public void a(boolean z, String str) {
-        BdSocketLinkService.a(z, str);
+        BdSocketLinkService.startService(z, str);
     }
 
     public void a(int i, String str) {
-        BdSocketLinkService.a(i, str);
+        BdSocketLinkService.close(i, str);
     }
 
     public void c(String str) {
-        BdSocketLinkService.b(str);
+        BdSocketLinkService.stopReConnStrategy(str);
     }
 
     public void a(d dVar) {

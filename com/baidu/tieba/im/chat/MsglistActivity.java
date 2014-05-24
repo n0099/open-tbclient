@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public abstract class MsglistActivity extends dd {
+public abstract class MsglistActivity extends TalkableActivity {
     public static boolean a;
     public static String b = "";
 
@@ -16,7 +16,7 @@ public abstract class MsglistActivity extends dd {
     protected abstract boolean p();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dd, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
@@ -28,7 +28,7 @@ public abstract class MsglistActivity extends dd {
                 if (p()) {
                     q();
                     m();
-                    cz.a = com.baidu.tbadk.editortool.ab.b();
+                    cy.a = com.baidu.tbadk.editortool.ab.b();
                 }
             }
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public abstract class MsglistActivity extends dd {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dd, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         try {
@@ -67,7 +67,7 @@ public abstract class MsglistActivity extends dd {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dd, com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.d != null) {
@@ -90,7 +90,7 @@ public abstract class MsglistActivity extends dd {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dd, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         BdLog.d("----ondestroy---");
         super.onDestroy();

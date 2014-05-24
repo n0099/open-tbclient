@@ -1,6 +1,6 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public class o extends com.baidu.adp.base.d {
+public class o extends com.baidu.adp.base.b {
     private com.baidu.tieba.data.n b;
     private q a = null;
     private boolean c = true;
@@ -39,12 +39,12 @@ public class o extends com.baidu.adp.base.d {
         this.d = rVar;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();

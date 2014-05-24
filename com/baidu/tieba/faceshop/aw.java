@@ -52,15 +52,15 @@ public class aw extends BaseAdapter {
         this.c.a(measuredWidth, measuredWidth);
         if (view == null) {
             ay ayVar = new ay(this, null);
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.face_package_item_image, (ViewGroup) null);
-            ayVar.a = (TbImageView) view.findViewById(com.baidu.tieba.r.image);
+            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.face_package_item_image, (ViewGroup) null);
+            ayVar.a = (TbImageView) view.findViewById(com.baidu.tieba.v.image);
             view.setTag(ayVar);
         }
         ay ayVar2 = (ay) view.getTag();
         view.setLayoutParams(new AbsListView.LayoutParams(measuredWidth, measuredWidth));
         String obj = getItem(i).toString();
         ayVar2.a.setTag(obj);
-        ayVar2.a.setBackgroundResource(TbadkApplication.m252getInst().getSkinType() == 1 ? com.baidu.tieba.q.btn_choose_face_selector_1 : com.baidu.tieba.q.btn_choose_face_selector);
+        ayVar2.a.setBackgroundResource(TbadkApplication.m252getInst().getSkinType() == 1 ? com.baidu.tieba.u.btn_choose_face_selector_1 : com.baidu.tieba.u.btn_choose_face_selector);
         this.c.b(obj, new ax(this, viewGroup));
         if (i == getCount() - 1) {
             viewGroup.invalidate();

@@ -14,7 +14,7 @@ public class CommonImageLayout extends ViewGroup {
     public TbImageView b;
     public TbImageView c;
     public TbImageView d;
-    private com.baidu.tbadk.core.data.k[] k;
+    private com.baidu.tbadk.core.data.j[] k;
     private int l;
     private boolean m;
     private boolean n;
@@ -32,7 +32,7 @@ public class CommonImageLayout extends ViewGroup {
 
     private void b() {
         if (a < 0.0f) {
-            a = com.baidu.adp.lib.util.h.b(this.o) / 320.0f;
+            a = com.baidu.adp.lib.util.k.b(this.o) / 320.0f;
             for (int i2 = 0; i2 < e.length; i2++) {
                 float[] fArr = e;
                 fArr[i2] = fArr[i2] * a;
@@ -53,9 +53,9 @@ public class CommonImageLayout extends ViewGroup {
         this.o = context;
         b();
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            drawable = getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg_1);
+            drawable = getResources().getDrawable(com.baidu.tieba.s.pb_default_image_bg_1);
         } else {
-            drawable = getResources().getDrawable(com.baidu.tieba.o.pb_default_image_bg);
+            drawable = getResources().getDrawable(com.baidu.tieba.s.pb_default_image_bg);
         }
         this.b = new TbImageView(context);
         this.c = new TbImageView(context);
@@ -98,8 +98,8 @@ public class CommonImageLayout extends ViewGroup {
         }
     }
 
-    public void setData(com.baidu.tbadk.core.data.k[] kVarArr) {
-        this.k = kVarArr;
+    public void setData(com.baidu.tbadk.core.data.j[] jVarArr) {
+        this.k = jVarArr;
         if (this.k == null || this.k.length <= 0) {
             if (this.b != null) {
                 this.b.setTag(null);
@@ -278,17 +278,17 @@ public class CommonImageLayout extends ViewGroup {
         this.l = i2;
     }
 
-    private void a(TbImageView tbImageView, com.baidu.tbadk.core.data.k kVar) {
+    private void a(TbImageView tbImageView, com.baidu.tbadk.core.data.j jVar) {
         if (tbImageView != null) {
-            String c = kVar.c();
-            if (kVar.b() == 5) {
+            String c = jVar.c();
+            if (jVar.b() == 5) {
                 c = null;
-                tbImageView.setDefaultResource(com.baidu.tieba.q.pic_video);
-                tbImageView.setNightDefaultResource(com.baidu.tieba.q.pic_video_1);
-                tbImageView.setOnClickListener(new g(this, kVar));
+                tbImageView.setDefaultResource(com.baidu.tieba.u.pic_video);
+                tbImageView.setNightDefaultResource(com.baidu.tieba.u.pic_video_1);
+                tbImageView.setOnClickListener(new g(this, jVar));
             } else {
-                tbImageView.setDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d);
-                tbImageView.setNightDefaultResource(com.baidu.tieba.q.pic_baidu_logo_d_1);
+                tbImageView.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d);
+                tbImageView.setNightDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d_1);
                 tbImageView.setClickable(false);
             }
             tbImageView.setTag(c);

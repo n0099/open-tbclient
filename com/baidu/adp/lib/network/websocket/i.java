@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.network.websocket;
 
 import android.app.Application;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.sapi2.shell.SapiErrorCode;
 /* loaded from: classes.dex */
 public class i {
@@ -29,7 +30,7 @@ public class i {
 
     public static String a(int i2) {
         int i3 = v - i2;
-        Application app = com.baidu.adp.base.a.getInst().getApp();
+        Application app = BdBaseApplication.getInst().getApp();
         return (i3 <= 199 || i3 >= 300) ? app.getString(com.baidu.adp.f.im_error_default) : app.getString(com.baidu.adp.f.im_error_codec);
     }
 }

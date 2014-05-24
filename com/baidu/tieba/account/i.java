@@ -22,7 +22,7 @@ public class i extends BdAsyncTask<Object, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.u.account_logining), new j(this));
+        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.account_logining), new j(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

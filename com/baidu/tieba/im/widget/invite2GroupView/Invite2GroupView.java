@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.data.InviteMsgData;
 import com.baidu.tieba.im.groupInfo.aa;
-import com.baidu.tieba.o;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public final class Invite2GroupView extends LinearLayout {
     private TextView a;
@@ -34,12 +34,12 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     private void a() {
-        LayoutInflater.from(getContext()).inflate(s.invite_to_group_view, this);
+        LayoutInflater.from(getContext()).inflate(w.invite_to_group_view, this);
         setOrientation(1);
-        this.a = (TextView) findViewById(r.chat_title);
-        this.b = (HeadImageView) findViewById(r.chat_group_img);
-        this.c = (TextView) findViewById(r.chat_group_desc);
-        this.d = (Button) findViewById(r.invite_btn);
+        this.a = (TextView) findViewById(v.chat_title);
+        this.b = (HeadImageView) findViewById(v.chat_group_img);
+        this.c = (TextView) findViewById(v.chat_group_desc);
+        this.d = (Button) findViewById(v.invite_btn);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup
@@ -55,8 +55,8 @@ public final class Invite2GroupView extends LinearLayout {
     private void b() {
         this.d.setEnabled(true);
         this.d.setTag(String.valueOf(this.e.getGroupId()));
-        this.d.setText(u.i_want_attent);
-        this.d.setTextColor(getContext().getResources().getColor(o.group_info_bottom_text));
+        this.d.setText(y.i_want_attent);
+        this.d.setTextColor(getContext().getResources().getColor(s.group_info_bottom_text));
         this.d.setOnClickListener(new a(this));
         this.a.setText(this.e.getTitle());
         this.b.setTag(this.e.getPortrait());
@@ -64,7 +64,7 @@ public final class Invite2GroupView extends LinearLayout {
         setOnClickListener(new b(this));
         if (com.baidu.tieba.im.b.e.a(String.valueOf(this.e.getGroupId())) != null) {
             if (String.valueOf(this.e.getGroupId()).equals(this.d.getTag())) {
-                this.d.setText(u.i_want_talk);
+                this.d.setText(y.i_want_talk);
                 this.d.setOnClickListener(new c(this));
                 return;
             }

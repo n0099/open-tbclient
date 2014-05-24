@@ -13,7 +13,7 @@ import com.baidu.tieba.im.chat.OfficialMsgImageActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.OfficialBarMsglistModel;
-import com.baidu.tieba.im.model.bi;
+import com.baidu.tieba.im.model.bj;
 /* loaded from: classes.dex */
 public class OfficialBarChatActivity extends CommonPersonalChatActivity {
     static {
@@ -44,13 +44,13 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity {
         UserData c;
         this.d = new OfficialBarMsglistView(this, this.e.i());
         this.d.setInputMethodManager((InputMethodManager) getSystemService("input_method"));
-        int i = com.baidu.tieba.im.chat.x.a;
+        int i = com.baidu.tieba.im.chat.w.a;
         if ((this.e instanceof OfficialBarMsglistModel) && (c = ((OfficialBarMsglistModel) this.e).c()) != null) {
             String str = "";
             if (!TextUtils.isEmpty(c.getUserName())) {
                 str = c.getUserName();
             }
-            this.d.a(String.valueOf(str) + getString(com.baidu.tieba.u.bar), false);
+            this.d.a(String.valueOf(str) + getString(com.baidu.tieba.y.bar), false);
             this.d.a(this.e.h(), i);
             this.d.a(new x(this));
         }
@@ -63,20 +63,20 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.dd, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
         a = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.dd, com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         a = true;
         if (!TextUtils.isEmpty(b)) {
             com.baidu.tbadk.coreExtra.messageCenter.a.a().f();
-            bi.a(b);
+            bj.a(b);
         }
     }
 
@@ -95,7 +95,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.dd, com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         UserData c;
         super.onClick(view);
@@ -104,7 +104,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.dd, com.baidu.adp.lib.b.a
+    @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.b.a
     public void a(View view, int i, int i2, long j) {
         ChatMessage a;
         String a2;

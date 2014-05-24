@@ -19,7 +19,7 @@ public class d implements h {
         Object tag = button.getTag();
         if (tag instanceof UserData) {
             UserData userData = (UserData) tag;
-            this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.u.group_tab_enterchatroom_loading), null);
+            this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.group_tab_enterchatroom_loading), null);
             yVar = this.a.b;
             yVar2 = this.a.b;
             yVar.a(yVar2.b(), 2, new String[]{userData.getUserId()}, new String[]{userData.getUserName()});

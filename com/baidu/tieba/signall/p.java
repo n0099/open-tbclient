@@ -10,7 +10,7 @@ public class p {
     private String b;
     private int c;
     private String d;
-    private com.baidu.tieba.home.r e = new com.baidu.tieba.home.r();
+    private com.baidu.tieba.home.s e = new com.baidu.tieba.home.s();
     private ArrayList<q> f = new ArrayList<>();
 
     public int a() {
@@ -21,7 +21,7 @@ public class p {
         return this.b;
     }
 
-    public com.baidu.tieba.home.r c() {
+    public com.baidu.tieba.home.s c() {
         return this.e;
     }
 

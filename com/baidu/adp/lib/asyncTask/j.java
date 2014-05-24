@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.asyncTask;
 
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import java.security.InvalidParameterException;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +20,7 @@ public abstract class j implements Runnable {
         try {
             this.a.run();
         } catch (OutOfMemoryError e) {
-            com.baidu.adp.base.a.getInst().onAppMemoryLow();
+            BdBaseApplication.getInst().onAppMemoryLow();
             System.gc();
         }
     }

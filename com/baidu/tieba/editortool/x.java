@@ -24,7 +24,7 @@ public class x implements com.baidu.tbadk.editortool.x {
                 com.baidu.tbadk.coreExtra.data.d dVar = (com.baidu.tbadk.coreExtra.data.d) obj;
                 if (dVar.a() != null) {
                     if (PbEditor.a(this.a.b.getEditText().getText().toString()) >= 10 && (this.a.a instanceof BaseActivity)) {
-                        ((BaseActivity) this.a.a).showToast(this.a.a.getResources().getString(com.baidu.tieba.u.too_many_face));
+                        ((BaseActivity) this.a.a).showToast(this.a.a.getResources().getString(com.baidu.tieba.y.too_many_face));
                         return;
                     } else {
                         this.a.b.getEditText().getText().insert(this.a.b.getEditText().getSelectionStart(), dVar.a());
@@ -89,7 +89,7 @@ public class x implements com.baidu.tbadk.editortool.x {
         } else if (i == 0) {
             v = this.a.v();
             if (v) {
-                com.baidu.adp.lib.util.h.a(this.a.getContext(), com.baidu.tieba.u.over_limit_tip);
+                com.baidu.adp.lib.util.k.a(this.a.getContext(), com.baidu.tieba.y.over_limit_tip);
             } else {
                 this.b.a(i, obj);
             }

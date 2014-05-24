@@ -36,7 +36,7 @@ public class bg extends BdAsyncTask<String, Integer, String> {
         this.a.closeLoadingDialog();
         if (this.b != null) {
             if (this.b.a().b().b()) {
-                this.a.showToast(this.a.getString(com.baidu.tieba.u.success));
+                this.a.showToast(this.a.getString(com.baidu.tieba.y.success));
                 Intent intent = new Intent();
                 bool = this.a.b;
                 if (bool.booleanValue()) {
@@ -44,7 +44,7 @@ public class bg extends BdAsyncTask<String, Integer, String> {
                 } else {
                     intent.putExtra("data", this.c.a());
                 }
-                com.baidu.tieba.ad.c().a(this.c.a());
+                com.baidu.tieba.ai.c().a(this.c.a());
                 this.a.setResult(-1, intent);
                 this.a.finish();
             } else {
@@ -59,7 +59,7 @@ public class bg extends BdAsyncTask<String, Integer, String> {
     public void onPreExecute() {
         DialogInterface.OnCancelListener onCancelListener;
         PersonChangeActivity personChangeActivity = this.a;
-        String string = this.a.getString(com.baidu.tieba.u.saving);
+        String string = this.a.getString(com.baidu.tieba.y.saving);
         onCancelListener = this.a.z;
         personChangeActivity.showLoadingDialog(string, onCancelListener);
         super.onPreExecute();

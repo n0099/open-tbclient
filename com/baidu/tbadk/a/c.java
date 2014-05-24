@@ -16,7 +16,7 @@ public class c implements com.baidu.adp.framework.c.e {
             i2 = message.getCmd();
             i3 = ((SocketMessage) message).getSquencedId();
         }
-        TiebaStatic.imError(str, i2, i3, str2, i);
+        TiebaStatic.imLog(i2, i3, str2, "BdSocketLinkService", "result", i, "");
     }
 
     @Override // com.baidu.adp.framework.c.e

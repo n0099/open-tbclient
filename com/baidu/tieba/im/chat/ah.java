@@ -1,25 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ x b;
-    private final /* synthetic */ PersonalChatMessage c;
-    private final /* synthetic */ ChatMessage d;
+public class ah implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ w a;
+    private final /* synthetic */ ResponsedMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(x xVar, PersonalChatMessage personalChatMessage, ChatMessage chatMessage) {
-        this.b = xVar;
-        this.c = personalChatMessage;
-        this.d = chatMessage;
+    public ah(w wVar, ResponsedMessage responsedMessage) {
+        this.a = wVar;
+        this.b = responsedMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.o.d().a(this.c.getUserId(), this.c.getToUserId(), String.valueOf(this.d.getRecordId()), String.valueOf(this.d.getMsgId()), 2));
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.a.a(this.b);
     }
 }

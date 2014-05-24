@@ -37,7 +37,7 @@ class j extends com.baidu.adp.framework.listener.b {
         w wVar10;
         this.a.e();
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseFrsLiveListMessage)) {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
             return;
         }
         ResponseFrsLiveListMessage responseFrsLiveListMessage = (ResponseFrsLiveListMessage) socketResponsedMessage;
@@ -46,7 +46,7 @@ class j extends com.baidu.adp.framework.listener.b {
                 this.a.showToast(responseFrsLiveListMessage.getErrorString());
                 return;
             } else {
-                this.a.showToast(com.baidu.tieba.u.neterror);
+                this.a.showToast(com.baidu.tieba.y.neterror);
                 return;
             }
         }

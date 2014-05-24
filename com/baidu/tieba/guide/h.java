@@ -62,13 +62,13 @@ public class h extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         k kVar;
         if (view == null) {
-            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.s.new_user_img_item, viewGroup, false);
+            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.w.new_user_img_item, viewGroup, false);
             kVar = new k(this, null);
-            kVar.b = (TbImageView) view.findViewById(com.baidu.tieba.r.pic);
-            kVar.c = (ImageView) view.findViewById(com.baidu.tieba.r.select_icon);
-            kVar.d = (RelativeLayout) view.findViewById(com.baidu.tieba.r.lay_select);
-            kVar.e = (TextView) view.findViewById(com.baidu.tieba.r.tv_fname);
-            kVar.a = (FrameLayout) view.findViewById(com.baidu.tieba.r.pic_layout);
+            kVar.b = (TbImageView) view.findViewById(com.baidu.tieba.v.pic);
+            kVar.c = (ImageView) view.findViewById(com.baidu.tieba.v.select_icon);
+            kVar.d = (RelativeLayout) view.findViewById(com.baidu.tieba.v.lay_select);
+            kVar.e = (TextView) view.findViewById(com.baidu.tieba.v.tv_fname);
+            kVar.a = (FrameLayout) view.findViewById(com.baidu.tieba.v.pic_layout);
             kVar.a.setOnClickListener(this.d);
             view.setTag(kVar);
         } else {
@@ -93,9 +93,9 @@ public class h extends BaseAdapter {
 
     public void a(ImageView imageView, boolean z) {
         if (!z) {
-            imageView.setBackgroundDrawable(this.b.getResources().getDrawable(com.baidu.tieba.q.icon_startpage2_add_pic_n));
+            imageView.setBackgroundDrawable(this.b.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_pic_n));
         } else {
-            imageView.setBackgroundDrawable(this.b.getResources().getDrawable(com.baidu.tieba.q.icon_startpage2_add_ba_s));
+            imageView.setBackgroundDrawable(this.b.getResources().getDrawable(com.baidu.tieba.u.icon_startpage2_add_ba_s));
         }
     }
 }

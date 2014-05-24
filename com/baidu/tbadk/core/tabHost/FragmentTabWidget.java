@@ -7,10 +7,10 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.o;
-import com.baidu.tieba.q;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class FragmentTabWidget extends LinearLayout {
     private int a;
@@ -49,8 +49,8 @@ public class FragmentTabWidget extends LinearLayout {
         this.f = new Paint(6);
         this.f.setAntiAlias(true);
         this.f.setStyle(Paint.Style.FILL);
-        this.g = h.a(getContext(), 1.0f);
-        this.h = h.a(getContext(), 3.0f);
+        this.g = k.a(getContext(), 1.0f);
+        this.h = k.a(getContext(), 3.0f);
         setWillNotDraw(false);
     }
 
@@ -119,11 +119,11 @@ public class FragmentTabWidget extends LinearLayout {
 
     public void a(int i) {
         if (i == 1) {
-            setBackgroundResource(q.bg_navigation_bar_1);
-            this.i = getResources().getColor(o.cp_link_tip_a_1);
+            setBackgroundResource(u.bg_navigation_bar_1);
+            this.i = getResources().getColor(s.cp_link_tip_a_1);
         } else {
-            setBackgroundResource(q.bg_navigation_bar);
-            this.i = getResources().getColor(o.cp_link_tip_a);
+            setBackgroundResource(u.bg_navigation_bar);
+            this.i = getResources().getColor(s.cp_link_tip_a);
         }
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {

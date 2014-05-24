@@ -2,10 +2,10 @@ package com.baidu.tieba.im.f;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.model.bu;
+import com.baidu.tieba.im.model.bv;
 /* loaded from: classes.dex */
 public class e {
-    private bu d;
+    private bv d;
     private h e;
     private double a = 0.0d;
     private double b = 0.0d;
@@ -16,7 +16,7 @@ public class e {
     public e(h hVar) {
         this.d = null;
         this.e = null;
-        this.d = new bu();
+        this.d = new bv();
         this.e = hVar;
         this.g.setTag(this.c);
         MessageManager.getInstance().registerListener(this.g);

@@ -9,10 +9,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
-public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClickListener {
+public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener {
     private static final String c = AlbumActivity.class.getName();
     private p d;
     private v e;
@@ -25,7 +26,7 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
@@ -91,15 +92,15 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
     void e() {
         int d = this.d.d();
         int h = this.d.h();
-        this.e.a(h != 0, getString(com.baidu.tieba.u.album_finish_btn, new Object[]{Integer.valueOf(h), Integer.valueOf(d)}));
+        this.e.a(h != 0, getString(com.baidu.tieba.y.album_finish_btn, new Object[]{Integer.valueOf(h), Integer.valueOf(d)}));
     }
 
-    @Override // com.baidu.tbadk.core.e
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
         this.e.d(i);
     }
 
-    @Override // com.baidu.adp.base.b, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.e.b()) {
             if (this.f == 0) {
@@ -152,7 +153,7 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
             if (getSupportFragmentManager().findFragmentByTag(this.e.c(i)) != null) {
                 beginTransaction.show(this.e.b(i));
             } else {
-                beginTransaction.add(com.baidu.tieba.r.fragment, this.e.b(i), this.e.c(i));
+                beginTransaction.add(com.baidu.tieba.v.fragment, this.e.b(i), this.e.c(i));
             }
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
@@ -175,7 +176,7 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
             this.e.a(imageFileInfo2);
             return true;
         }
-        a(String.format(getString(com.baidu.tieba.u.album_beyond_max_choose), Integer.valueOf(d)));
+        a(String.format(getString(com.baidu.tieba.y.album_beyond_max_choose), Integer.valueOf(d)));
         return false;
     }
 
@@ -191,7 +192,7 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
         return true;
     }
 
-    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             if (this.f == 0) {
@@ -259,7 +260,7 @@ public class AlbumActivity extends com.baidu.tbadk.core.e implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.g = true;

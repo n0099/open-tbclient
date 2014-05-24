@@ -1,8 +1,8 @@
 package com.baidu.tieba.tblauncher;
 
-import android.support.v4.view.ViewPager;
+import android.view.View;
 /* loaded from: classes.dex */
-class e implements ViewPager.OnPageChangeListener {
+class e implements View.OnClickListener {
     final /* synthetic */ GuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,15 +10,13 @@ class e implements ViewPager.OnPageChangeListener {
         this.a = guideActivity;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        str = this.a.f;
+        if (!str.equals("from_about_page")) {
+            this.a.f();
+        }
+        this.a.closeActivity();
     }
 }

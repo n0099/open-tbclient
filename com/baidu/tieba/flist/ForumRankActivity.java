@@ -14,6 +14,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.ai;
 import com.baidu.tieba.data.ForumInfoData;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
 /* loaded from: classes.dex */
@@ -31,7 +32,7 @@ public class ForumRankActivity extends BaseActivity {
     private Handler k = null;
     private String l = null;
     private boolean m = false;
-    private final com.baidu.adp.base.g n = new aa(this);
+    private final com.baidu.adp.base.e n = new aa(this);
     private final com.baidu.tbadk.core.util.ad o = new ab(this);
     private final AbsListView.OnScrollListener p = new ac(this);
     private final Runnable q = new ad(this);
@@ -50,24 +51,24 @@ public class ForumRankActivity extends BaseActivity {
 
     private void a() {
         this.k = new Handler();
-        setContentView(com.baidu.tieba.s.forum_rank_activity);
+        setContentView(com.baidu.tieba.w.forum_rank_activity);
         this.e = new TbImageView(this);
         this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.f = new com.baidu.tbadk.editortool.ab(this);
-        int b = com.baidu.adp.lib.util.h.b(this);
+        int b = com.baidu.adp.lib.util.k.b(this);
         this.f.a(b, b);
-        this.d = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.d = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a = (BdListView) findViewById(com.baidu.tieba.r.list);
-        this.e.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.util.h.b(this), (int) (com.baidu.adp.lib.util.h.b(this) * 0.5d)));
+        this.a = (BdListView) findViewById(com.baidu.tieba.v.list);
+        this.e.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.util.k.b(this), (int) (com.baidu.adp.lib.util.k.b(this) * 0.5d)));
         this.a.setOnScrollListener(this.p);
         this.e.setVisibility(8);
-        this.h = (LinearLayout) getLayoutInflater().inflate(com.baidu.tieba.s.forum_list_forum_footer, (ViewGroup) null);
+        this.h = (LinearLayout) getLayoutInflater().inflate(com.baidu.tieba.w.forum_list_forum_footer, (ViewGroup) null);
         this.h.setOnClickListener(new ae(this));
         this.i = new com.baidu.tbadk.core.view.q(this);
         this.a.setPullRefresh(this.i);
         this.i.a(new af(this));
-        this.j = (FrameLayout) findViewById(com.baidu.tieba.r.empty_textview_container);
+        this.j = (FrameLayout) findViewById(com.baidu.tieba.v.empty_textview_container);
     }
 
     @Override // android.app.Activity
@@ -100,7 +101,7 @@ public class ForumRankActivity extends BaseActivity {
     private void b() {
         ForumInfoData[] a = this.c.a();
         for (int i = 0; i < a.length; i++) {
-            int d = com.baidu.tieba.ad.c().d(a[i].forum_name);
+            int d = ai.c().d(a[i].forum_name);
             if (d == 1) {
                 a[i].is_like = 1;
             } else if (d == -1) {
@@ -139,20 +140,20 @@ public class ForumRankActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         this.d.c(i);
         if (i == 1) {
-            this.a.setBackgroundColor(getResources().getColor(com.baidu.tieba.o.skin_1_common_bg));
+            this.a.setBackgroundColor(getResources().getColor(com.baidu.tieba.s.skin_1_common_bg));
             this.c.a(true);
         } else {
-            this.a.setBackgroundColor(getResources().getColor(com.baidu.tieba.o.backgroundcolor));
+            this.a.setBackgroundColor(getResources().getColor(com.baidu.tieba.s.backgroundcolor));
             this.c.a(false);
         }
-        bc.b(findViewById(com.baidu.tieba.r.root_view), i);
+        bc.b(findViewById(com.baidu.tieba.v.root_view), i);
         this.i.a(i);
         if (i == 1) {
-            this.c.a(com.baidu.tieba.q.btn_add_end_1, com.baidu.tieba.q.btn_add_1);
-            this.h.setBackgroundResource(com.baidu.tieba.q.bg_black_banner_down_1);
+            this.c.a(com.baidu.tieba.u.btn_add_end_1, com.baidu.tieba.u.btn_add_1);
+            this.h.setBackgroundResource(com.baidu.tieba.u.bg_black_banner_down_1);
             return;
         }
-        this.c.a(com.baidu.tieba.q.btn_add_end, com.baidu.tieba.q.btn_add);
-        this.h.setBackgroundResource(com.baidu.tieba.q.bg_black_banner_down);
+        this.c.a(com.baidu.tieba.u.btn_add_end, com.baidu.tieba.u.btn_add);
+        this.h.setBackgroundResource(com.baidu.tieba.u.bg_black_banner_down);
     }
 }

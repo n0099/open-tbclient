@@ -8,22 +8,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class ak extends com.baidu.tbadk.core.d implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.d {
     public static boolean b = false;
-    private com.baidu.tbadk.core.e h;
+    private BaseFragmentActivity h;
     private NavigationBar k;
-    private ay c = null;
-    private au d = null;
+    private az c = null;
+    private av d = null;
     private boolean e = false;
     private boolean f = false;
     private long g = -1;
     private Handler i = null;
     private Runnable j = null;
-    private final av l = new al(this);
+    private final aw l = new al(this);
     private final com.baidu.tbadk.core.view.m m = new am(this);
     private final View.OnKeyListener n = new an(this);
     private final com.baidu.adp.widget.ListView.d o = new ao(this);
@@ -31,7 +32,7 @@ public class ak extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLi
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.h = (com.baidu.tbadk.core.e) activity;
+        this.h = (BaseFragmentActivity) activity;
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
@@ -54,7 +55,7 @@ public class ak extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLi
     }
 
     private View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(com.baidu.tieba.s.square_view, (ViewGroup) null);
+        return layoutInflater.inflate(com.baidu.tieba.w.square_view, (ViewGroup) null);
     }
 
     public static String a(String str, String str2) {
@@ -71,16 +72,16 @@ public class ak extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLi
     }
 
     private void f() {
-        this.c = new ay(this.h, this, this.n);
+        this.c = new az(this.h, this, this.n);
         this.c.a(this.o);
         this.c.c().setClickStatKey("sq_tb_search");
-        this.k = (NavigationBar) this.h.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.k.a(this.h.getString(com.baidu.tieba.u.ba_square));
+        this.k = (NavigationBar) this.h.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ap(this));
+        this.k.a(this.h.getString(com.baidu.tieba.y.ba_square));
     }
 
     private void g() {
-        this.d = new au();
+        this.d = new av();
         this.d.a(this.l);
         this.f = true;
         a(this.f);
@@ -98,7 +99,7 @@ public class ak extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLi
 
     public void a() {
         this.i = new Handler();
-        this.j = new ap(this);
+        this.j = new aq(this);
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment

@@ -1,40 +1,31 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
+import android.app.Activity;
+import android.widget.ListView;
+import com.baidu.tieba.editortool.PbEditor;
 /* loaded from: classes.dex */
-public class dd {
-    private long a;
-    private long b;
-    private long c;
-    private long d;
+public class dd implements Runnable {
+    private int a;
+    private int b;
+    private PbEditor c;
+    private ListView d;
+    private Activity e;
+    private int f;
 
-    public dd(Context context) {
-        a(0L);
-        b(0L);
-        c(0L);
+    public dd(Activity activity, int i, int i2, PbEditor pbEditor, ListView listView, int i3) {
+        this.b = i2;
+        this.a = i;
+        this.c = pbEditor;
+        this.d = listView;
+        this.f = i3;
+        this.e = activity;
     }
 
-    public void a(long j) {
-        this.a = j;
-    }
-
-    public void b(long j) {
-        this.b = j;
-    }
-
-    public long a() {
-        return this.b + this.c;
-    }
-
-    public void c(long j) {
-        this.c = j;
-    }
-
-    public long b() {
-        return this.d;
-    }
-
-    public void d(long j) {
-        this.d = j;
+    @Override // java.lang.Runnable
+    public void run() {
+        int[] iArr = new int[2];
+        this.c.getLocationInWindow(iArr);
+        this.d.setSelectionFromTop(this.a + this.d.getHeaderViewsCount(), ((iArr[1] - this.b) - this.f) - com.baidu.adp.lib.util.k.a(this.e));
+        this.d.invalidate();
     }
 }

@@ -18,7 +18,7 @@ public class w implements CustomMessageTask.CustomRunnable<Object> {
         if (TbadkApplication.getCurrentAccountObj() != null) {
             str = TbadkApplication.getCurrentAccountObj().getID();
         }
-        byte[] a = com.baidu.tbadk.core.a.b.a().u().a("p_group_info" + str);
+        byte[] a = com.baidu.tbadk.core.a.b.a().v().a("p_group_info" + str);
         ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
         if (a != null) {
             try {

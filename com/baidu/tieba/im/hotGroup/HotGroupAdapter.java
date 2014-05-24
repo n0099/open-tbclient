@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.o;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -122,22 +122,22 @@ public class HotGroupAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof a)) {
-            view = LayoutInflater.from(this.a).inflate(s.hot_group_item_view, viewGroup, false);
+            view = LayoutInflater.from(this.a).inflate(w.hot_group_item_view, viewGroup, false);
             a aVar2 = new a();
-            aVar2.a = (LinearLayout) view.findViewById(r.list_more);
-            aVar2.c = (TextView) view.findViewById(r.list_more_title);
-            aVar2.d = (ProgressBar) view.findViewById(r.list_more_progress);
-            aVar2.e = (ImageView) view.findViewById(r.list_more_line);
-            aVar2.b = (LinearLayout) view.findViewById(r.list_more_text);
-            aVar2.f = (LinearLayout) view.findViewById(r.click_head);
-            aVar2.g = (LinearLayout) view.findViewById(r.list_item_content);
-            aVar2.h = (HeadImageView) view.findViewById(r.item_head);
-            aVar2.i = (TextView) view.findViewById(r.group_name);
-            aVar2.j = (TextView) view.findViewById(r.item_group_num);
-            aVar2.k = (TextView) view.findViewById(r.group_intro);
-            aVar2.l = (ImageView) view.findViewById(r.item_grade1);
-            aVar2.m = (ImageView) view.findViewById(r.item_grade2);
-            aVar2.n = (ImageView) view.findViewById(r.item_grade3);
+            aVar2.a = (LinearLayout) view.findViewById(v.list_more);
+            aVar2.c = (TextView) view.findViewById(v.list_more_title);
+            aVar2.d = (ProgressBar) view.findViewById(v.list_more_progress);
+            aVar2.e = (ImageView) view.findViewById(v.list_more_line);
+            aVar2.b = (LinearLayout) view.findViewById(v.list_more_text);
+            aVar2.f = (LinearLayout) view.findViewById(v.click_head);
+            aVar2.g = (LinearLayout) view.findViewById(v.list_item_content);
+            aVar2.h = (HeadImageView) view.findViewById(v.item_head);
+            aVar2.i = (TextView) view.findViewById(v.group_name);
+            aVar2.j = (TextView) view.findViewById(v.item_group_num);
+            aVar2.k = (TextView) view.findViewById(v.group_intro);
+            aVar2.l = (ImageView) view.findViewById(v.item_grade1);
+            aVar2.m = (ImageView) view.findViewById(v.item_grade2);
+            aVar2.n = (ImageView) view.findViewById(v.item_grade3);
             aVar2.o = new ImageView[4];
             aVar2.o[1] = aVar2.l;
             aVar2.o[2] = aVar2.m;
@@ -148,7 +148,7 @@ public class HotGroupAdapter extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         aVar.h.setTag(null);
-        aVar.h.setDefaultResource(q.avatar_poto_defaul140);
+        aVar.h.setDefaultResource(u.avatar_poto_defaul140);
         aVar.h.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         aVar.h.setDrawBorder(true);
         if (getItemViewType(i) == 1) {
@@ -161,10 +161,10 @@ public class HotGroupAdapter extends BaseAdapter {
                 aVar.e.setVisibility(8);
                 aVar.b.setVisibility(0);
                 if (this.d == BOTTOM_TYPE.HAVE_MORE) {
-                    aVar.c.setText(u.frsgroup_load_more);
+                    aVar.c.setText(y.frsgroup_load_more);
                     aVar.d.setVisibility(0);
                 } else {
-                    aVar.c.setText(u.frsgroup_no_more);
+                    aVar.c.setText(y.frsgroup_no_more);
                     aVar.d.setVisibility(8);
                 }
             }
@@ -187,10 +187,10 @@ public class HotGroupAdapter extends BaseAdapter {
             this.a.a().a(TbadkApplication.m252getInst().getSkinType() == 1);
             this.a.a().a(view);
             if (item != null && item.isMemGroup()) {
-                bc.a(aVar.i, o.im_group_vip_text, 1);
-                bc.c(aVar.l, q.icon_vip_grade_big_small_s);
-                bc.c(aVar.m, q.icon_vip_grade_big_small_s);
-                bc.c(aVar.n, q.icon_vip_grade_big_small_s);
+                bc.a(aVar.i, s.im_group_vip_text, 1);
+                bc.c(aVar.l, u.icon_vip_grade_big_small_s);
+                bc.c(aVar.m, u.icon_vip_grade_big_small_s);
+                bc.c(aVar.n, u.icon_vip_grade_big_small_s);
             }
         }
         return view;

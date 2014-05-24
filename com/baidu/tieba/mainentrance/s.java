@@ -49,6 +49,6 @@ class s implements View.OnClickListener {
                 return;
             }
         }
-        this.a.showToast(this.a.getResources().getString(com.baidu.tieba.u.write_keyword));
+        this.a.showToast(this.a.getResources().getString(com.baidu.tieba.y.write_keyword));
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
-import com.baidu.tieba.im.chat.bw;
+import com.baidu.tieba.im.chat.bv;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.ResponseJoinLiveGroupMessage;
 /* loaded from: classes.dex */
@@ -40,12 +40,12 @@ class af extends com.baidu.adp.framework.listener.b {
         LiveRoomChatView z14;
         this.a.hideProgressBar();
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (socketResponsedMessage.getCmd() == 107103 && (socketResponsedMessage instanceof ResponseJoinLiveGroupMessage)) {
             ResponseJoinLiveGroupMessage responseJoinLiveGroupMessage = (ResponseJoinLiveGroupMessage) socketResponsedMessage;
             if (responseJoinLiveGroupMessage.hasError()) {
                 if (TextUtils.isEmpty(responseJoinLiveGroupMessage.getErrorString())) {
-                    this.a.showToast(com.baidu.tieba.u.neterror, false);
+                    this.a.showToast(com.baidu.tieba.y.neterror, false);
                 } else {
                     this.a.showToast(responseJoinLiveGroupMessage.getErrorString(), false);
                 }
@@ -57,13 +57,13 @@ class af extends com.baidu.adp.framework.listener.b {
             this.a.m = this.a.x().o;
             this.a.x().g_();
             if (this.a.x().b == null) {
-                this.a.showToast(com.baidu.tieba.u.neterror);
+                this.a.showToast(com.baidu.tieba.y.neterror);
                 return;
             }
             if (!com.baidu.tbadk.coreExtra.messageCenter.e.a().b(this.a.x().b().getGroupId())) {
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                 imMessageCenterPojo.setGid(String.valueOf(this.a.x().b().getGroupId()));
-                imMessageCenterPojo.setPulled_msgId(bw.b(this.a.x().b.lastMsgId.longValue()));
+                imMessageCenterPojo.setPulled_msgId(bv.b(this.a.x().b.lastMsgId.longValue()));
                 imMessageCenterPojo.setCustomGroupType(3);
                 imMessageCenterPojo.setGroup_name(this.a.x().j);
                 imMessageCenterPojo.setIs_delete(0);
@@ -83,11 +83,11 @@ class af extends com.baidu.adp.framework.listener.b {
             z5.e(this.a.x().l);
             if (this.a.x().d != null) {
                 z14 = this.a.z();
-                z14.Q().setUserCount(this.a.x().b.listeners.intValue());
+                z14.R().setUserCount(this.a.x().b.listeners.intValue());
             }
             if (this.a.x().b != null) {
                 z13 = this.a.z();
-                z13.Q().setNoteText(this.a.x().b.intro);
+                z13.R().setNoteText(this.a.x().b.intro);
             }
             z6 = this.a.z();
             z6.a(this.a.x().d, this.a.x().i, this.a.x().g);
@@ -107,12 +107,8 @@ class af extends com.baidu.adp.framework.listener.b {
                     boolean isNull = StringUtils.isNull(i);
                     if (com.baidu.tieba.im.live.b.b().g() == 0 || isNull || !i.equals(String.valueOf(this.a.x().b().getGroupId()))) {
                         this.a.b(this.a.x().b.streamId, String.valueOf(this.a.x().b.groupId), String.valueOf(this.a.x().b.deviceId), this.a.x().b.playUrl, false);
-                    }
-                    if (this.a.x().b.groupId != null) {
-                        LivePlayingStatusMgr.a().a(this.a.x().b.groupId.intValue(), LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
                         break;
                     }
-                    break;
                 case 5:
                     z8 = this.a.z();
                     z8.d(5);
@@ -123,7 +119,7 @@ class af extends com.baidu.adp.framework.listener.b {
                     z9 = this.a.z();
                     z9.d(6);
                     BdLog.d("case LiveMsglistModel.LiveType.END");
-                    com.baidu.tieba.im.live.b.b().r();
+                    com.baidu.tieba.im.live.b.b().s();
                     LivePlayingStatusMgr.a().a(this.a.x().b.groupId.intValue(), LivePlayingStatusMgr.LivePlayingStatus.NO_PUBLISHER);
                     break;
                 default:
@@ -132,7 +128,7 @@ class af extends com.baidu.adp.framework.listener.b {
             }
             if (this.a.x().q) {
                 z12 = this.a.z();
-                z12.U();
+                z12.V();
             }
             try {
                 z11 = this.a.s;

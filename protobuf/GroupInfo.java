@@ -3,6 +3,7 @@ package protobuf;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
@@ -23,7 +24,7 @@ public final class GroupInfo extends Message {
     public final Integer activeDay;
     @ProtoField(tag = 11, type = Message.Datatype.STRING)
     public final String album;
-    @ProtoField(tag = 14, type = Message.Datatype.INT32)
+    @ProtoField(tag = DealIntentService.CLASS_TYPE_GROUP_EVENT, type = Message.Datatype.INT32)
     public final Integer authorId;
     @ProtoField(tag = 29, type = Message.Datatype.INT32)
     public final Integer authorIsMeizhi;
@@ -41,7 +42,7 @@ public final class GroupInfo extends Message {
     public final Integer flag;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer forumId;
-    @ProtoField(tag = 25, type = Message.Datatype.STRING)
+    @ProtoField(tag = SapiAccountManager.VERSION_CODE, type = Message.Datatype.STRING)
     public final String forumName;
     @ProtoField(tag = 31, type = Message.Datatype.STRING)
     public final String forumShowName;
@@ -55,7 +56,7 @@ public final class GroupInfo extends Message {
     public final String intro;
     @ProtoField(tag = 28, type = Message.Datatype.INT32)
     public final Integer isGroupManager;
-    @ProtoField(tag = SapiAccountManager.VERSION_CODE, type = Message.Datatype.INT32)
+    @ProtoField(tag = 24, type = Message.Datatype.INT32)
     public final Integer isHidePosition;
     @ProtoField(tag = 34, type = Message.Datatype.INT32)
     public final Integer isMemberGroup;

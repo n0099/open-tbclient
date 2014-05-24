@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.base.e {
+public class k extends com.baidu.adp.base.c {
     private MyLiveActivity a;
     private View b;
     private TextView c;
@@ -34,28 +34,28 @@ public class k extends com.baidu.adp.base.e {
     public k(MyLiveActivity myLiveActivity) {
         super(myLiveActivity);
         this.a = myLiveActivity;
-        this.a.setContentView(s.mylive_activity);
+        this.a.setContentView(w.mylive_activity);
         c();
         d();
         e();
     }
 
     private void c() {
-        this.b = this.a.findViewById(r.mylive_activity_root);
-        this.d = (NavigationBar) this.a.findViewById(r.mylive_activity_navigationbar);
+        this.b = this.a.findViewById(v.mylive_activity_root);
+        this.d = (NavigationBar) this.a.findViewById(v.mylive_activity_navigationbar);
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.a(this.a.getString(u.live_mylive));
-        this.c = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(u.members_edit));
+        this.d.a(this.a.getString(y.live_mylive));
+        this.c = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(y.members_edit));
         this.c.setOnClickListener(this.a);
-        this.l = (NoNetworkView) this.a.findViewById(r.mylive_activity_view_no_network);
+        this.l = (NoNetworkView) this.a.findViewById(v.mylive_activity_view_no_network);
     }
 
     private void d() {
-        this.e = (RadioGroup) this.a.findViewById(r.mylive_activity_raidos_change);
-        this.f = (RadioButton) this.a.findViewById(r.mylive_activity_radio_mylive);
-        this.g = (RadioButton) this.a.findViewById(r.mylive_activity_radio_mymark);
-        this.h = (ViewGroup) this.a.findViewById(r.mylive_activity_radio_mylive_line);
-        this.i = (ViewGroup) this.a.findViewById(r.mylive_activity_radio_mymark_line);
+        this.e = (RadioGroup) this.a.findViewById(v.mylive_activity_raidos_change);
+        this.f = (RadioButton) this.a.findViewById(v.mylive_activity_radio_mylive);
+        this.g = (RadioButton) this.a.findViewById(v.mylive_activity_radio_mymark);
+        this.h = (ViewGroup) this.a.findViewById(v.mylive_activity_radio_mylive_line);
+        this.i = (ViewGroup) this.a.findViewById(v.mylive_activity_radio_mymark_line);
         this.k = new ViewGroup[2];
         this.k[0] = this.h;
         this.k[1] = this.i;
@@ -73,15 +73,15 @@ public class k extends com.baidu.adp.base.e {
         Bundle bundle2 = new Bundle();
         bundle2.putInt("KeyOfFragmentType", 2);
         this.j[1].setArguments(bundle2);
-        this.m = (ViewPager) this.a.findViewById(r.mylive_activity_fragment);
+        this.m = (ViewPager) this.a.findViewById(v.mylive_activity_fragment);
         this.m.setAdapter(new l(this.a.getSupportFragmentManager(), this.j));
         this.m.setOnPageChangeListener(this.a);
     }
 
     public void a(boolean z) {
         if (this.j != null && this.j.length > 1) {
-            this.j[0].a(z, this.a.getResources().getString(u.live_mylive_dismiss));
-            this.j[1].a(z, this.a.getResources().getString(u.del_post));
+            this.j[0].a(z, this.a.getResources().getString(y.live_mylive_dismiss));
+            this.j[1].a(z, this.a.getResources().getString(y.del_post));
         }
         if (this.c != null) {
             if (!z) {

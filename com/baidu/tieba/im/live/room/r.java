@@ -28,7 +28,7 @@ class r extends CustomMessageListener {
                 z = this.a.s;
                 if (z) {
                     z2 = this.a.z();
-                    if (z2.S() != 1 || this.a.x().r) {
+                    if (z2.T() != 1 || this.a.x().r) {
                         return;
                     }
                     this.a.D();

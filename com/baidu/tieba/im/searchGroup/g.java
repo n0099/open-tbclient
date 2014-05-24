@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.data.BaseGroupData;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -36,28 +36,28 @@ public class g {
 
     public g(SearchGroupActivity searchGroupActivity) {
         this.b = searchGroupActivity;
-        searchGroupActivity.setContentView(s.search_group_activity);
+        searchGroupActivity.setContentView(w.search_group_activity);
         f();
         e();
     }
 
     private void e() {
-        this.h = (TextView) this.b.findViewById(r.text_no_data);
-        this.h.setText(u.text_no_search_record_ground);
-        this.e = (EditText) this.b.findViewById(r.home_et_search);
-        this.e.setHint(u.search_group_by_id);
+        this.h = (TextView) this.b.findViewById(v.text_no_data);
+        this.h.setText(y.text_no_search_record_ground);
+        this.e = (EditText) this.b.findViewById(v.home_et_search);
+        this.e.setHint(y.search_group_by_id);
         this.e.setOnFocusChangeListener(new h(this));
-        this.g = (Button) this.b.findViewById(r.home_bt_search_s);
+        this.g = (Button) this.b.findViewById(v.home_bt_search_s);
         this.g.setOnClickListener(this.b);
-        this.f = (Button) this.b.findViewById(r.home_bt_search_del);
+        this.f = (Button) this.b.findViewById(v.home_bt_search_del);
         this.f.setOnClickListener(new i(this));
         this.e.addTextChangedListener(new j(this));
-        this.a = (BdListView) this.b.findViewById(r.home_lv_search);
+        this.a = (BdListView) this.b.findViewById(v.home_lv_search);
         this.a.a(new k(this), 90L);
         this.j = new e(this.b);
         this.a.setOnItemClickListener(this.b);
         this.a.setAdapter((ListAdapter) this.j);
-        this.i = (ProgressBar) this.b.findViewById(r.home_progress_search);
+        this.i = (ProgressBar) this.b.findViewById(v.home_progress_search);
         this.i.setVisibility(8);
         this.e.setText("");
         this.e.setInputType(2);
@@ -67,9 +67,9 @@ public class g {
     }
 
     private void f() {
-        this.c = this.b.findViewById(r.mparent);
-        this.d = (NavigationBar) this.b.findViewById(r.view_navigation_bar);
-        this.d.a(this.b.getResources().getString(u.search_group_text));
+        this.c = this.b.findViewById(v.mparent);
+        this.d = (NavigationBar) this.b.findViewById(v.view_navigation_bar);
+        this.d.a(this.b.getResources().getString(y.search_group_text));
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
@@ -78,7 +78,7 @@ public class g {
         this.b.getLayoutMode().a(this.c);
         bc.a(this.c, 0);
         this.d.c(0);
-        this.h.setCompoundDrawablesWithIntrinsicBounds(0, q.pic_search_fruitless, 0, 0);
+        this.h.setCompoundDrawablesWithIntrinsicBounds(0, u.pic_search_fruitless, 0, 0);
     }
 
     public void b() {

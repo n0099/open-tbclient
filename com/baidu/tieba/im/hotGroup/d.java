@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.hotGroup;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.message.RequestHotGroupsByLocalMessage;
 import com.baidu.tieba.im.message.RequestHotGroupsMessage;
@@ -12,8 +12,8 @@ public class d {
     private boolean f;
     private boolean g;
     private final int h = 30;
-    private int b = h.a(TbadkApplication.m252getInst().getContext(), 70.0f);
-    private int a = h.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+    private int b = k.a(TbadkApplication.m252getInst().getContext(), 70.0f);
+    private int a = k.a(TbadkApplication.m252getInst().getContext(), 70.0f);
     private int c = 30;
 
     public void a(int i) {

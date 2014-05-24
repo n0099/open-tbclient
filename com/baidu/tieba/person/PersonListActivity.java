@@ -38,7 +38,7 @@ public class PersonListActivity extends BaseActivity {
     private TextView o = null;
     private int p = 0;
     int a = 0;
-    private com.baidu.tieba.data.ag q = null;
+    private com.baidu.tieba.data.ah q = null;
     private final Runnable r = new ca(this);
 
     public static void a(Activity activity, boolean z, String str, int i) {
@@ -57,7 +57,7 @@ public class PersonListActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.person_list_activity);
+        setContentView(com.baidu.tieba.w.person_list_activity);
         a(bundle);
         a();
         b();
@@ -120,33 +120,33 @@ public class PersonListActivity extends BaseActivity {
 
     private void a() {
         boolean z = true;
-        this.m = (RelativeLayout) findViewById(com.baidu.tieba.r.parent);
-        this.n = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.m = (RelativeLayout) findViewById(com.baidu.tieba.v.parent);
+        this.n = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.o = this.n.a("");
         this.n.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f = (ProgressBar) findViewById(com.baidu.tieba.r.progress);
+        this.f = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
         String currentAccount = TbadkApplication.getCurrentAccount();
         String a = this.j.a();
         if (currentAccount != null && currentAccount.equals(a)) {
             if (this.j.c()) {
-                this.o.setText(com.baidu.tieba.u.my_attention);
+                this.o.setText(com.baidu.tieba.y.my_attention);
             } else {
-                this.o.setText(com.baidu.tieba.u.fans);
+                this.o.setText(com.baidu.tieba.y.fans);
             }
         } else if (this.j.c()) {
             if (this.p == 2) {
-                this.o.setText(com.baidu.tieba.u.her_attention_people);
+                this.o.setText(com.baidu.tieba.y.her_attention_people);
             } else if (this.p == 1) {
-                this.o.setText(com.baidu.tieba.u.his_attention_people);
+                this.o.setText(com.baidu.tieba.y.his_attention_people);
             } else {
-                this.o.setText(com.baidu.tieba.u.ta_attention_people);
+                this.o.setText(com.baidu.tieba.y.ta_attention_people);
             }
         } else if (this.p == 2) {
-            this.o.setText(com.baidu.tieba.u.attention_to_her);
+            this.o.setText(com.baidu.tieba.y.attention_to_her);
         } else if (this.p == 1) {
-            this.o.setText(com.baidu.tieba.u.attention_to_him);
+            this.o.setText(com.baidu.tieba.y.attention_to_him);
         } else {
-            this.o.setText(com.baidu.tieba.u.attention_to_ta);
+            this.o.setText(com.baidu.tieba.y.attention_to_ta);
         }
         cc ccVar = new cc(this);
         cd cdVar = new cd(this);
@@ -155,17 +155,17 @@ public class PersonListActivity extends BaseActivity {
             z = false;
         }
         this.g = new ci(this, getIntent().getBooleanExtra("follow", false), z, this.j.b(), ccVar, cdVar, ceVar);
-        this.b = (BdListView) findViewById(com.baidu.tieba.r.list);
+        this.b = (BdListView) findViewById(com.baidu.tieba.v.list);
         this.b.setAdapter((ListAdapter) this.g);
-        this.c = LayoutInflater.from(this).inflate(com.baidu.tieba.s.person_list_newheader, (ViewGroup) null);
-        this.d = this.c.findViewById(com.baidu.tieba.r.newheader_root);
+        this.c = LayoutInflater.from(this).inflate(com.baidu.tieba.w.person_list_newheader, (ViewGroup) null);
+        this.d = this.c.findViewById(com.baidu.tieba.v.newheader_root);
         this.c.setVisibility(8);
         this.c.setClickable(false);
         this.c.setEnabled(false);
-        this.e = (TextView) this.c.findViewById(com.baidu.tieba.r.person_list_title);
+        this.e = (TextView) this.c.findViewById(com.baidu.tieba.v.person_list_title);
         this.b.addHeaderView(this.c, null, false);
-        this.k = (LinearLayout) findViewById(com.baidu.tieba.r.no_data_container);
-        this.l = (TextView) findViewById(com.baidu.tieba.r.no_data_image_text);
+        this.k = (LinearLayout) findViewById(com.baidu.tieba.v.no_data_container);
+        this.l = (TextView) findViewById(com.baidu.tieba.v.no_data_image_text);
         this.b.setOnScrollListener(new cf(this));
         this.b.setOnSrollToBottomListener(new cg(this));
     }

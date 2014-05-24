@@ -20,7 +20,7 @@ public class i implements View.OnClickListener {
     public void onClick(View view) {
         Context context;
         Context context2;
-        String str = (String) SwitchDebugService.a.get("update_package_address");
+        String str = (String) SwitchDebugService.customConfig.get("update_package_address");
         if (str == null) {
             context = this.a.k;
             Toast makeText = Toast.makeText(context.getApplicationContext(), "更新地址没有配置！！！", 1);

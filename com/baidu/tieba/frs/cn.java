@@ -14,10 +14,10 @@ class cn implements com.baidu.tbadk.imageManager.d {
 
     @Override // com.baidu.tbadk.imageManager.d
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        cp cpVar;
+        cq cqVar;
         try {
-            cpVar = this.a.o;
-            View findViewWithTag = cpVar.l().a(2).findViewWithTag(str);
+            cqVar = this.a.o;
+            View findViewWithTag = cqVar.l().a(1).findViewWithTag(str);
             if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
                 findViewWithTag.invalidate();
             }

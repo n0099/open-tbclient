@@ -1,90 +1,50 @@
 package com.baidu.tieba.frs;
 
-import android.app.AlertDialog;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
+import android.content.DialogInterface;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements com.baidu.tbadk.editortool.x {
+public class al implements DialogInterface.OnClickListener {
     final /* synthetic */ FrsActivity a;
+    private final /* synthetic */ com.baidu.tbadk.core.data.n b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(FrsActivity frsActivity) {
+    public al(FrsActivity frsActivity, com.baidu.tbadk.core.data.n nVar) {
         this.a = frsActivity;
+        this.b = nVar;
     }
 
-    @Override // com.baidu.tbadk.editortool.x
-    public void a(int i, Object obj) {
-        AlertDialog alertDialog;
-        AlertDialog alertDialog2;
-        WriteImagesInfo writeImagesInfo;
-        WriteImagesInfo writeImagesInfo2;
-        WriteImagesInfo writeImagesInfo3;
-        WriteImagesInfo writeImagesInfo4;
-        WriteImagesInfo writeImagesInfo5;
-        WriteImagesInfo writeImagesInfo6;
-        WriteImagesInfo writeImagesInfo7;
-        WriteImagesInfo writeImagesInfo8;
-        WriteImagesInfo writeImagesInfo9;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
         String str;
-        if (i == 0) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.c(this.a, 12004, true)));
-        } else if (i != 10) {
-            if (i != 4) {
-                if (i == 22) {
-                    writeImagesInfo8 = this.a.Z;
-                    int size = writeImagesInfo8.size();
-                    writeImagesInfo9 = this.a.Z;
-                    if (size < writeImagesInfo9.getMaxImagesAllowed()) {
-                        this.a.aa = String.valueOf(System.currentTimeMillis());
-                        FrsActivity frsActivity = this.a;
-                        str = this.a.aa;
-                        com.baidu.tbadk.core.util.bb.a(frsActivity, str);
-                        return;
-                    }
-                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.u.editor_mutiiamge_max), 10));
-                } else if (i == 23) {
-                    writeImagesInfo5 = this.a.Z;
-                    if (writeImagesInfo5 != null) {
-                        writeImagesInfo6 = this.a.Z;
-                        if (!TextUtils.isEmpty(writeImagesInfo6.toJsonString())) {
-                            FrsActivity frsActivity2 = this.a;
-                            writeImagesInfo7 = this.a.Z;
-                            com.baidu.tbadk.core.atomData.a aVar = new com.baidu.tbadk.core.atomData.a(frsActivity2, writeImagesInfo7.toJsonString());
-                            aVar.setRequestCode(12002);
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, aVar));
-                        }
-                    }
-                } else if (i == 42) {
-                    int intValue = ((Integer) obj).intValue();
-                    writeImagesInfo = this.a.Z;
-                    if (writeImagesInfo != null) {
-                        writeImagesInfo2 = this.a.Z;
-                        if (writeImagesInfo2.getChosedFiles() != null) {
-                            writeImagesInfo3 = this.a.Z;
-                            int size2 = writeImagesInfo3.getChosedFiles().size();
-                            if (size2 >= 1 && intValue >= 0 && intValue < size2) {
-                                MessageManager messageManager = MessageManager.getInstance();
-                                FrsActivity frsActivity3 = this.a;
-                                writeImagesInfo4 = this.a.Z;
-                                messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bj(frsActivity3, 12012, writeImagesInfo4, intValue)));
-                            }
-                        }
-                    }
-                } else if (i != 7) {
-                } else {
-                    alertDialog = this.a.aA;
-                    if (alertDialog == null) {
-                        return;
-                    }
-                    alertDialog2 = this.a.aA;
-                    alertDialog2.show();
+        String str2;
+        boolean z;
+        ct ctVar;
+        switch (i) {
+            case 0:
+                str = this.a.u;
+                if (str != null) {
+                    FrsActivity frsActivity = this.a;
+                    com.baidu.tbadk.core.atomData.as asVar = new com.baidu.tbadk.core.atomData.as(this.a);
+                    com.baidu.tbadk.core.data.n nVar = this.b;
+                    str2 = this.a.n;
+                    z = this.a.v;
+                    frsActivity.sendMessage(new CustomMessage(2006001, asVar.a(nVar, str2, null, 18003, true, false, z)));
+                    break;
                 }
-            }
-        } else {
-            this.a.d((String) null);
+                break;
+            case 1:
+                this.a.c(this.b);
+                break;
+            case 2:
+                this.a.d(this.b);
+                break;
         }
+        com.baidu.tieba.util.p C = com.baidu.tieba.ai.c().C();
+        if (C != null && !C.b(this.b.p())) {
+            C.a(this.b.p());
+        }
+        ctVar = this.a.w;
+        ctVar.z();
     }
 }

@@ -5,10 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
 class bu extends BroadcastReceiver {
-    final /* synthetic */ WriteImageActivity a;
+    final /* synthetic */ WriteImageActivity this$0;
 
     private bu(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
+        this.this$0 = writeImageActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,14 +18,14 @@ class bu extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.a.releaseResouce();
+        this.this$0.releaseResouce();
         if (intent.getBooleanExtra("result", false)) {
-            WriteImageActivity.m(this.a);
+            WriteImageActivity.m(this.this$0);
             return;
         }
-        this.a.showToast(intent.getStringExtra("error"));
-        if (WriteImageActivity.i(this.a) != null) {
-            WriteImageActivity.i(this.a).setEnabled(false);
+        this.this$0.showToast(intent.getStringExtra("error"));
+        if (WriteImageActivity.i(this.this$0) != null) {
+            WriteImageActivity.i(this.this$0).setEnabled(false);
         }
     }
 }

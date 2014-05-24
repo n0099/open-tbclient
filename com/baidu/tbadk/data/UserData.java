@@ -22,6 +22,7 @@ public class UserData extends MetaData {
     private int like_bars;
     private String lng;
     private long loginTime;
+    private int managerLevel;
     private String password;
     private Permission permission;
     private String position;
@@ -95,6 +96,7 @@ public class UserData extends MetaData {
             this.password = user.passwd;
             this.posts_num = user.post_num.intValue();
             this.tb_age = user.tb_age;
+            this.managerLevel = user.is_manager.intValue();
             if (user.is_manager.intValue() == 1) {
                 this.isManager = true;
             } else {
@@ -102,6 +104,10 @@ public class UserData extends MetaData {
             }
             this.bimg_url = user.bimg_url;
         }
+    }
+
+    public boolean isBawu() {
+        return this.managerLevel == 1 || this.managerLevel == 2;
     }
 
     @Override // com.baidu.tbadk.data.MetaData

@@ -1,25 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ x b;
-    private final /* synthetic */ CommonGroupChatMessage c;
-    private final /* synthetic */ ChatMessage d;
+public class af implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ w a;
+    private final /* synthetic */ ResponsedMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(x xVar, CommonGroupChatMessage commonGroupChatMessage, ChatMessage chatMessage) {
-        this.b = xVar;
-        this.c = commonGroupChatMessage;
-        this.d = chatMessage;
+    public af(w wVar, ResponsedMessage responsedMessage) {
+        this.a = wVar;
+        this.b = responsedMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().b(this.c.getGroupId(), String.valueOf(this.d.getRecordId()), String.valueOf(this.d.getMsgId()), 2));
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.a.a(this.b);
     }
 }

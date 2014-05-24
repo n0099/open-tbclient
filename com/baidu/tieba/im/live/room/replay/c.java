@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.message.ResponseLiveRoomIntroMessage;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ LiveRoomReplayActivity a;
@@ -23,7 +23,7 @@ class c extends com.baidu.adp.framework.listener.b {
         NavigationBar navigationBar;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 107004) {
             if (!(socketResponsedMessage instanceof ResponseLiveRoomIntroMessage)) {
-                this.a.showToast(u.neterror);
+                this.a.showToast(y.neterror);
                 return;
             }
             ResponseLiveRoomIntroMessage responseLiveRoomIntroMessage = (ResponseLiveRoomIntroMessage) socketResponsedMessage;
@@ -35,7 +35,7 @@ class c extends com.baidu.adp.framework.listener.b {
                     }
                     return;
                 }
-                this.a.showToast(u.neterror);
+                this.a.showToast(y.neterror);
             } else if (responseLiveRoomIntroMessage.introData != null) {
                 this.a.a(responseLiveRoomIntroMessage.introData.getPublisherPortrait(), responseLiveRoomIntroMessage.introData.getPublisherName(), responseLiveRoomIntroMessage.introData.getLikers());
                 String name = responseLiveRoomIntroMessage.introData.getName();

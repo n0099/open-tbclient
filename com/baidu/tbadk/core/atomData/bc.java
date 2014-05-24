@@ -6,4 +6,10 @@ public class bc extends com.baidu.tbadk.core.frameworkData.a {
     public bc(Context context) {
         super(context);
     }
+
+    public bc(Context context, String str, boolean z) {
+        super(context);
+        getIntent().putExtra("start_from", str);
+        getIntent().putExtra("back_special", z);
+    }
 }

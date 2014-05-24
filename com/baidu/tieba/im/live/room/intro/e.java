@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.e {
+public class e extends com.baidu.adp.base.c {
     private ab a;
     private View b;
     private NavigationBar c;
@@ -31,11 +31,12 @@ public class e extends com.baidu.adp.base.e {
     private TextView k;
     private TextView l;
     private TextView m;
-    private View n;
-    private ProgressBar o;
-    private String p;
+    private TextView n;
+    private View o;
+    private ProgressBar p;
     private String q;
-    private final View.OnClickListener r;
+    private String r;
+    private final View.OnClickListener s;
 
     public e(LiveRoomIntroActivity liveRoomIntroActivity) {
         super(liveRoomIntroActivity);
@@ -54,40 +55,42 @@ public class e extends com.baidu.adp.base.e {
         this.m = null;
         this.n = null;
         this.o = null;
-        this.r = new f(this);
+        this.p = null;
+        this.s = new f(this);
         this.mContext = liveRoomIntroActivity;
         this.a = new ab(liveRoomIntroActivity);
-        liveRoomIntroActivity.setContentView(s.live_room_intro);
-        this.b = liveRoomIntroActivity.findViewById(r.live_room_intro_root);
-        this.c = (NavigationBar) liveRoomIntroActivity.findViewById(r.live_room_intro_navigationbar);
-        this.c.a(u.live_chat_room_more_intro);
+        liveRoomIntroActivity.setContentView(w.live_room_intro);
+        this.b = liveRoomIntroActivity.findViewById(v.live_room_intro_root);
+        this.c = (NavigationBar) liveRoomIntroActivity.findViewById(v.live_room_intro_navigationbar);
+        this.c.a(y.live_chat_room_more_intro);
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.o = (ProgressBar) liveRoomIntroActivity.findViewById(r.live_room_intro_listview_progress);
-        this.d = (BdListView) liveRoomIntroActivity.findViewById(r.live_room_intro_listview);
+        this.p = (ProgressBar) liveRoomIntroActivity.findViewById(v.live_room_intro_listview_progress);
+        this.d = (BdListView) liveRoomIntroActivity.findViewById(v.live_room_intro_listview);
         this.e = new b(liveRoomIntroActivity);
         this.d.setAdapter((ListAdapter) this.e);
         LayoutInflater from = LayoutInflater.from(liveRoomIntroActivity);
-        this.f = from.inflate(s.live_room_intro_head_host, (ViewGroup) null);
-        this.g = (HeadImageView) this.f.findViewById(r.live_room_intro_head_host_head);
-        this.h = (TextView) this.f.findViewById(r.live_room_intro_head_host_name);
-        this.i = (TextView) this.f.findViewById(r.live_room_intro_head_host_count);
+        this.f = from.inflate(w.live_room_intro_head_host, (ViewGroup) null);
+        this.g = (HeadImageView) this.f.findViewById(v.live_room_intro_head_host_head);
+        this.h = (TextView) this.f.findViewById(v.live_room_intro_head_host_name);
+        this.i = (TextView) this.f.findViewById(v.live_room_intro_head_host_count);
         this.g.setIsRound(true);
-        this.g.setOnClickListener(this.r);
+        this.g.setOnClickListener(this.s);
         this.d.addHeaderView(this.f);
-        this.j = from.inflate(s.live_room_intro_head_room, (ViewGroup) null);
-        this.k = (TextView) this.j.findViewById(r.live_room_intro_root_roonum);
-        this.l = (TextView) this.j.findViewById(r.live_room_intro_root_name);
-        this.m = (TextView) this.j.findViewById(r.live_room_intro_root_notice);
+        this.j = from.inflate(w.live_room_intro_head_room, (ViewGroup) null);
+        this.k = (TextView) this.j.findViewById(v.live_room_intro_root_roonum);
+        this.l = (TextView) this.j.findViewById(v.live_room_intro_root_name);
+        this.m = (TextView) this.j.findViewById(v.live_room_intro_root_notice);
+        this.n = (TextView) this.j.findViewById(v.live_room_intro_root_from);
         this.d.addHeaderView(this.j);
-        this.n = from.inflate(s.live_room_intro_head_livetitle, (ViewGroup) null);
-        this.d.addHeaderView(this.n);
+        this.o = from.inflate(w.live_room_intro_head_livetitle, (ViewGroup) null);
+        this.d.addHeaderView(this.o);
     }
 
     public void a(com.baidu.tbadk.core.c cVar, int i) {
         cVar.a(i == 1);
         cVar.a(this.b);
         cVar.a(this.j);
-        cVar.a(this.n);
+        cVar.a(this.o);
         this.c.c(i);
     }
 
@@ -99,8 +102,8 @@ public class e extends com.baidu.adp.base.e {
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r6v0 int)] */
     public void a(String str, String str2, int i, int i2) {
-        this.p = str2;
-        this.q = new StringBuilder().append(i2).toString();
+        this.q = str2;
+        this.r = new StringBuilder().append(i2).toString();
         com.baidu.adp.widget.a.a c = this.a.c(str);
         if (c != null) {
             c.a(this.g);
@@ -116,16 +119,17 @@ public class e extends com.baidu.adp.base.e {
         this.k.setText(new StringBuilder(String.valueOf(i)).toString());
         this.l.setText(str);
         this.m.setText(str2);
+        this.n.setText(str3);
     }
 
     public void a(List<LiveCardData> list) {
         this.e.a(list);
         this.e.notifyDataSetChanged();
         if (list == null || list.size() < 1) {
-            this.n.setVisibility(8);
+            this.o.setVisibility(8);
             return;
         }
-        this.n.setVisibility(0);
+        this.o.setVisibility(0);
         a();
     }
 
@@ -137,9 +141,9 @@ public class e extends com.baidu.adp.base.e {
 
     public void a(boolean z) {
         if (z) {
-            this.o.setVisibility(0);
+            this.p.setVisibility(0);
         } else {
-            this.o.setVisibility(8);
+            this.p.setVisibility(8);
         }
     }
 }

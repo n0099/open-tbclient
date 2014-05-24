@@ -34,7 +34,7 @@ public class ak implements DialogInterface.OnClickListener {
                 com.baidu.tbadk.core.util.bb.a(writeActivity, str);
                 return;
             }
-            this.a.showToast(String.format(this.a.getString(com.baidu.tieba.u.editor_mutiiamge_max), 10));
+            this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
         } else if (i == 1) {
             writeImagesInfo = this.a.C;
             if (writeImagesInfo != null) {

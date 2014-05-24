@@ -7,7 +7,7 @@ import com.baidu.tieba.im.message.RequestDelGroupActivityMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
 /* loaded from: classes.dex */
-public class r extends com.baidu.adp.base.d {
+public class r extends com.baidu.adp.base.b {
     private int a;
     private long b;
     private int c;
@@ -45,12 +45,12 @@ public class r extends com.baidu.adp.base.d {
         this.b = j;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }
@@ -74,7 +74,7 @@ public class r extends com.baidu.adp.base.d {
         this.g.sendMessage(this.d);
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public void cancelMessage() {
     }
 

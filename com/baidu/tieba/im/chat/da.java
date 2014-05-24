@@ -1,34 +1,29 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class da extends com.baidu.adp.lib.resourceLoader.c<com.baidu.adp.widget.a.a> {
-    private final /* synthetic */ TbImageView a;
+class da implements com.baidu.tbadk.core.util.br {
+    final /* synthetic */ cz a;
     private final /* synthetic */ String b;
+    private final /* synthetic */ com.baidu.adp.widget.a.a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public da(TbImageView tbImageView, String str) {
-        this.a = tbImageView;
+    public da(cz czVar, String str, com.baidu.adp.widget.a.a aVar) {
+        this.a = czVar;
         this.b = str;
+        this.c = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.resourceLoader.c
-    public void a(com.baidu.adp.widget.a.a aVar, String str) {
-        super.a((da) aVar, str);
-        this.a.a(this.b, 10, false);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.resourceLoader.c
-    public void a(Object... objArr) {
-        super.a(objArr);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.resourceLoader.c
-    public void a(String str) {
-        super.a(str);
+    @Override // com.baidu.tbadk.core.util.br
+    public boolean a(View view) {
+        if ((view instanceof HeadImageView) && this.b.equals(view.getTag())) {
+            view.setTag(null);
+            HeadImageView headImageView = (HeadImageView) view;
+            headImageView.f();
+            this.c.a(headImageView);
+            return false;
+        }
+        return false;
     }
 }

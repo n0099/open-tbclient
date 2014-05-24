@@ -5,10 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
 class as extends BroadcastReceiver {
-    final /* synthetic */ ar a;
+    final /* synthetic */ ar this$0;
 
     private as(ar arVar) {
-        this.a = arVar;
+        this.this$0 = arVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,6 +18,6 @@ class as extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.a.b();
+        this.this$0.b();
     }
 }

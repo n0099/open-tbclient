@@ -42,10 +42,10 @@ public class a extends ag {
         this.h = true;
         this.d = context;
         ai aiVar = new ai();
-        aiVar.a = com.baidu.tieba.q.icon_bubble;
+        aiVar.a = com.baidu.tieba.u.icon_bubble;
         aiVar.b = 0;
-        c(TbadkApplication.m252getInst().getResources().getDimensionPixelSize(com.baidu.tieba.p.ds26));
-        d(TbadkApplication.m252getInst().getResources().getDimensionPixelSize(com.baidu.tieba.p.ds30));
+        c(TbadkApplication.m252getInst().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds26));
+        d(TbadkApplication.m252getInst().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds30));
         a(aiVar);
         a(2);
         b(2);
@@ -63,7 +63,7 @@ public class a extends ag {
         if (i() != null) {
             i().a();
         }
-        this.a.a(0, 50, com.baidu.adp.lib.util.h.b(this.d), com.baidu.adp.lib.util.h.c(this.d));
+        this.a.a(0, 50, com.baidu.adp.lib.util.k.b(this.d), com.baidu.adp.lib.util.k.c(this.d));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

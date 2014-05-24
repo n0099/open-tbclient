@@ -158,7 +158,7 @@ public class al {
             iVar.a(i);
             String userId = iVar.a().getUserId();
             if (userId == null || userId.length() <= 0) {
-                this.a.b().c = TbadkApplication.m252getInst().getApp().getApplicationContext().getString(com.baidu.tieba.u.neterror);
+                this.a.b().c = TbadkApplication.m252getInst().getApp().getApplicationContext().getString(com.baidu.tieba.y.neterror);
                 return null;
             }
             AccountData accountData = new AccountData();
@@ -219,7 +219,7 @@ public class al {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        this.b.a("sign", com.baidu.adp.lib.util.g.a(stringBuffer.toString()));
+        this.b.a("sign", com.baidu.adp.lib.util.j.a(stringBuffer.toString()));
     }
 
     private String a(int i) {
@@ -308,15 +308,17 @@ public class al {
             if (currentAccountObj == null) {
                 TbadkApplication.m252getInst().handler.sendMessage(TbadkApplication.m252getInst().handler.obtainMessage(1));
                 return null;
-            } else if (a(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true) == null) {
+            }
+            com.baidu.tbadk.core.data.i a = a(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true);
+            com.baidu.tbadk.core.account.a.a(currentAccountObj.getAccount());
+            if (a == null) {
                 if (this.c != null) {
                     this.a.b().c = this.c.f();
                     return null;
                 }
                 return g;
-            } else {
-                return b(i);
             }
+            return b(i);
         } else {
             return g;
         }

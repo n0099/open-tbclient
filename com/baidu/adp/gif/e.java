@@ -1,12 +1,27 @@
 package com.baidu.adp.gif;
+
+import android.os.Build;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-class e implements a {
-    @Override // com.baidu.adp.gif.a
-    public com.baidu.adp.widget.a.a a(String str) {
-        NSGif a = NSGif.a(str);
-        if (a == null) {
-            return null;
+public class e {
+    public static final String[] a = {"ZTE-T U880", "U880"};
+
+    public static boolean a(String str) {
+        for (String str2 : a) {
+            if (str2.equals(str)) {
+                return false;
+            }
         }
-        return new com.baidu.adp.widget.a.a(a);
+        return true;
+    }
+
+    private static boolean b() {
+        return Build.VERSION.SDK_INT > 7;
+    }
+
+    public static boolean a() {
+        String str = Build.MODEL;
+        BdLog.d("NSGifCompat", "shouldUseNSGif", "model: " + str);
+        return a(str) && b() && NSGif.a;
     }
 }

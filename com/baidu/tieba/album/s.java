@@ -6,15 +6,15 @@ import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends BroadcastReceiver {
-    final /* synthetic */ q a;
+    final /* synthetic */ q this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(q qVar) {
-        this.a = qVar;
+        this.this$0 = qVar;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.a.a(intent);
+        this.this$0.a(intent);
     }
 }

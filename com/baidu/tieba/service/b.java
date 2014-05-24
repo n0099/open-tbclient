@@ -1,36 +1,37 @@
 package com.baidu.tieba.service;
 
-import android.os.Handler;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.x;
-import java.io.File;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.tieba.bd;
+import com.baidu.tieba.data.VersionData;
 /* loaded from: classes.dex */
-class b extends Thread {
-    final /* synthetic */ ClearTempService a;
+class b extends BroadcastReceiver {
+    final /* synthetic */ AsInstallService this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(ClearTempService clearTempService) {
-        this.a = clearTempService;
+    private b(AsInstallService asInstallService) {
+        this.this$0 = asInstallService;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Handler handler2;
-        super.run();
-        try {
-            File file = new File(x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME);
-            File file2 = new File(x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME);
-            File file3 = new File(x.a + "/" + TbConfig.getTempDirName() + "/voice");
-            this.a.a(file, false);
-            this.a.a(file2);
-            this.a.a(file3);
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "run", e.getMessage());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ b(AsInstallService asInstallService, b bVar) {
+        this(asInstallService);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        VersionData versionData;
+        VersionData versionData2;
+        if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {
+            String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
+            if (!TextUtils.isEmpty(schemeSpecificPart) && "com.baidu.appsearch".equals(schemeSpecificPart)) {
+                versionData = this.this$0.mVersionData;
+                if (versionData != null) {
+                    versionData2 = this.this$0.mVersionData;
+                    bd.a(context, versionData2);
+                }
+            }
         }
-        handler = this.a.c;
-        handler2 = this.a.c;
-        handler.sendMessage(handler2.obtainMessage());
     }
 }

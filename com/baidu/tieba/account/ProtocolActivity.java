@@ -19,7 +19,7 @@ public class ProtocolActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.account_protocol_activity);
+        setContentView(com.baidu.tieba.w.account_protocol_activity);
         a();
     }
 
@@ -34,18 +34,18 @@ public class ProtocolActivity extends BaseActivity {
     */
     private void a() {
         BufferedReader bufferedReader;
-        this.b = (RelativeLayout) findViewById(com.baidu.tieba.r.container);
-        this.c = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.b = (RelativeLayout) findViewById(com.baidu.tieba.v.container);
+        this.c = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         NavigationBar navigationBar = this.c;
-        String string = getString(com.baidu.tieba.u.account_protocol);
+        String string = getString(com.baidu.tieba.y.account_protocol);
         navigationBar.a(string);
-        this.a = (TextView) findViewById(com.baidu.tieba.r.text);
+        this.a = (TextView) findViewById(com.baidu.tieba.v.text);
         StringBuilder sb = new StringBuilder(1024);
         ?? r2 = 0;
         try {
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(getResources().openRawResource(com.baidu.tieba.t.baidu_protocol), "unicode"));
+                bufferedReader = new BufferedReader(new InputStreamReader(getResources().openRawResource(com.baidu.tieba.x.baidu_protocol), "unicode"));
                 while (true) {
                     try {
                         String readLine = bufferedReader.readLine();

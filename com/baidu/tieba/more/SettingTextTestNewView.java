@@ -17,18 +17,18 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
         String version;
         boolean z = false;
         boolean z2 = TbadkApplication.m252getInst().getSkinType() == 1;
-        VersionData B = com.baidu.tieba.ad.c().B();
+        VersionData B = com.baidu.tieba.ai.c().B();
         if (B != null && B.hasNewVer()) {
             z = true;
         }
         if (z) {
             this.d.setText("New");
-            this.d.setTextAppearance(this.a, z2 ? com.baidu.tieba.v.setting_version_prompt_text_1 : com.baidu.tieba.v.setting_version_prompt_text);
-            this.d.setBackgroundResource(z2 ? com.baidu.tieba.q.icon_news_text_prompt_1 : com.baidu.tieba.q.icon_news_text_prompt);
+            this.d.setTextAppearance(this.a, z2 ? com.baidu.tieba.z.setting_version_prompt_text_1 : com.baidu.tieba.z.setting_version_prompt_text);
+            this.d.setBackgroundResource(z2 ? com.baidu.tieba.u.icon_news_text_prompt_1 : com.baidu.tieba.u.icon_news_text_prompt);
             return;
         }
         this.d.setText((TbConfig.getVersionType() != 1 || be.c(TbConfig.getSubVersion())) ? TbConfig.getVersion() : String.valueOf(version) + "." + TbConfig.getSubVersion());
         this.d.setBackgroundDrawable(null);
-        this.d.setTextAppearance(this.a, z2 ? com.baidu.tieba.v.setting_version_text_1 : com.baidu.tieba.v.setting_version_text);
+        this.d.setTextAppearance(this.a, z2 ? com.baidu.tieba.z.setting_version_text_1 : com.baidu.tieba.z.setting_version_text);
     }
 }

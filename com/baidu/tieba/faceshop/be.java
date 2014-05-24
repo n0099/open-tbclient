@@ -2,7 +2,7 @@ package com.baidu.tieba.faceshop;
 
 import android.app.Application;
 /* loaded from: classes.dex */
-public class be extends com.baidu.adp.base.d {
+public class be extends com.baidu.adp.base.b {
     private bf a;
     private String b;
     private int c;
@@ -12,9 +12,9 @@ public class be extends com.baidu.adp.base.d {
     public be() {
         this.c = 0;
         this.d = 0;
-        Application d = com.baidu.tieba.ad.c().d();
-        this.c = com.baidu.adp.lib.util.h.b(d);
-        this.d = com.baidu.adp.lib.util.h.c(d);
+        Application d = com.baidu.tieba.ai.c().d();
+        this.c = com.baidu.adp.lib.util.k.b(d);
+        this.d = com.baidu.adp.lib.util.k.c(d);
         this.e = d.getResources().getDisplayMetrics().density;
     }
 
@@ -30,12 +30,12 @@ public class be extends com.baidu.adp.base.d {
         }
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();

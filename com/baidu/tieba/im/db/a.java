@@ -12,7 +12,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.chat.x;
+import com.baidu.tieba.im.chat.w;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.f.r;
@@ -378,7 +378,7 @@ public abstract class a {
                                 if (cursor != null) {
                                     while (cursor.moveToNext()) {
                                         ChatMessage newInstance = this.c.newInstance();
-                                        newInstance.setGroupId(String.valueOf(x.a));
+                                        newInstance.setGroupId(String.valueOf(w.a));
                                         newInstance.setContent(cursor.getString(cursor.getColumnIndex("content")));
                                         newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
                                         newInstance.setExtra(cursor.getString(cursor.getColumnIndex("ext")));

@@ -51,12 +51,12 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
                     c.recycle();
                     return null;
                 }
-                int a2 = com.baidu.adp.lib.util.h.a((Context) this.a, 63.5f);
+                int a2 = com.baidu.adp.lib.util.k.a((Context) this.a, 63.5f);
                 if (Build.VERSION.SDK_INT >= 7) {
                     z = this.a.A;
                     if (z) {
                         Bitmap b = com.baidu.tbadk.core.util.g.b(c, a2);
-                        Bitmap a3 = com.baidu.tbadk.core.util.g.a(b, com.baidu.adp.lib.util.h.a((Context) this.a, 5.0f), c != b);
+                        Bitmap a3 = com.baidu.tbadk.core.util.g.a(b, com.baidu.adp.lib.util.k.a((Context) this.a, 5.0f), c != b);
                         this.a.F = new HashMap();
                         this.a.G = new HashMap();
                         hashMap = this.a.F;

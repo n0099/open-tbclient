@@ -1,7 +1,7 @@
 package com.baidu.tieba.guide;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y extends com.baidu.adp.base.g {
+public class y extends com.baidu.adp.base.e {
     final /* synthetic */ x a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ public class y extends com.baidu.adp.base.g {
         this.a = xVar;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         a aVar;
         NewUserGuideActivity newUserGuideActivity;
@@ -17,7 +17,7 @@ public class y extends com.baidu.adp.base.g {
         NewUserGuideActivity newUserGuideActivity3;
         if (obj == null) {
             newUserGuideActivity3 = this.a.a;
-            newUserGuideActivity3.c(com.baidu.tieba.u.neterror);
+            newUserGuideActivity3.c(com.baidu.tieba.y.neterror);
         } else if (obj instanceof com.baidu.tieba.data.z) {
             int a = com.baidu.adp.lib.f.b.a(((com.baidu.tieba.data.z) obj).a(), 0);
             aVar = this.a.c;

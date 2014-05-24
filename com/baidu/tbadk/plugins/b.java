@@ -13,7 +13,7 @@ public class b implements k {
     }
 
     @Override // com.baidu.tbadk.tbplugin.k
-    public void a(int i, String str) {
+    public void onFinish(int i, String str) {
         if (i != 0) {
             BdLog.e("BdSocialShareSdkDelegate Installation Error: " + str);
         } else {
@@ -22,6 +22,6 @@ public class b implements k {
     }
 
     @Override // com.baidu.tbadk.tbplugin.k
-    public void a(int i) {
+    public void onProgress(int i) {
     }
 }

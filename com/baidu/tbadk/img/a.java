@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.LocalViewSize;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class a<T> {
     public T a;
@@ -88,7 +88,7 @@ public class a<T> {
             if (a.this.c != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
-                imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(u.send_error);
+                imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(y.send_error);
                 a.this.c.a(a.this.d, imageUploadResult);
             }
         }
@@ -111,7 +111,7 @@ public class a<T> {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
-                    imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(u.send_error);
+                    imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(y.send_error);
                     TiebaStatic.imgError("", TbErrInfo.ERR_IMG_SEND, imageUploadResult.error_msg, "");
                 }
                 a.this.c.a(a.this.d, imageUploadResult);

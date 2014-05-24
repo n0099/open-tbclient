@@ -12,8 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.text.MessageFormat;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
@@ -60,14 +61,14 @@ public class e extends Dialog implements View.OnClickListener {
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(s.chatterbox_edit_dialog);
-        this.b = (Button) findViewById(com.baidu.tieba.r.chatterbox_edit_confirm);
-        this.c = (Button) findViewById(com.baidu.tieba.r.chatterbox_edit_cancel);
+        setContentView(w.chatterbox_edit_dialog);
+        this.b = (Button) findViewById(v.chatterbox_edit_confirm);
+        this.c = (Button) findViewById(v.chatterbox_edit_cancel);
         this.c.setOnClickListener(this);
         this.b.setOnClickListener(this);
-        this.d = (TextView) findViewById(com.baidu.tieba.r.size_tip);
-        this.e = (EditText) findViewById(com.baidu.tieba.r.chat_editText);
-        this.d.setText(MessageFormat.format(this.a.getResources().getString(u.chat_custom_default_text), "0"));
+        this.d = (TextView) findViewById(v.size_tip);
+        this.e = (EditText) findViewById(v.chat_editText);
+        this.d.setText(MessageFormat.format(this.a.getResources().getString(y.chat_custom_default_text), "0"));
         this.e.addTextChangedListener(new g(this));
     }
 
@@ -83,7 +84,7 @@ public class e extends Dialog implements View.OnClickListener {
             this.g = this.e.getText().toString().trim().replace(IOUtils.LINE_SEPARATOR_UNIX, "").replace("\t", "");
             this.h = null;
             if (TextUtils.isEmpty(this.g)) {
-                UtilHelper.showToast(TbadkApplication.m252getInst().getApp().getApplicationContext(), u.chat_input);
+                UtilHelper.showToast(TbadkApplication.m252getInst().getApp().getApplicationContext(), y.chat_input);
                 return;
             } else if (this.f != null) {
                 this.f.a(this.g, this.h, false);

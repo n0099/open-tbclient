@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.v;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.Result;
@@ -57,10 +58,10 @@ public final class CaptureActivityHandler extends Handler {
         Bitmap bitmap;
         float f;
         String str = null;
-        if (message.what == com.baidu.tieba.r.restart_preview) {
+        if (message.what == v.restart_preview) {
             BdLog.d(getClass().getName(), "handleMessage", "Got restart preview message");
             b();
-        } else if (message.what == com.baidu.tieba.r.decode_succeeded) {
+        } else if (message.what == v.decode_succeeded) {
             BdLog.d(getClass().getName(), "handleMessage", "Got decode succeeded message");
             this.c = State.SUCCESS;
             Bundle data = message.getData();
@@ -74,14 +75,14 @@ public final class CaptureActivityHandler extends Handler {
                 f = 1.0f;
             }
             this.a.a((Result) message.obj, bitmap, f);
-        } else if (message.what == com.baidu.tieba.r.decode_failed) {
+        } else if (message.what == v.decode_failed) {
             this.c = State.PREVIEW;
-            this.d.a(this.b.a(), com.baidu.tieba.r.decode);
-        } else if (message.what == com.baidu.tieba.r.return_scan_result) {
+            this.d.a(this.b.a(), v.decode);
+        } else if (message.what == v.return_scan_result) {
             BdLog.d(getClass().getName(), "handleMessage", "Got return scan result message");
             this.a.setResult(-1, (Intent) message.obj);
             this.a.finish();
-        } else if (message.what == com.baidu.tieba.r.launch_product_query) {
+        } else if (message.what == v.launch_product_query) {
             BdLog.d(getClass().getName(), "handleMessage", "Got product query message");
             String str2 = (String) message.obj;
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -108,19 +109,19 @@ public final class CaptureActivityHandler extends Handler {
     public void a() {
         this.c = State.DONE;
         this.d.d();
-        Message.obtain(this.b.a(), com.baidu.tieba.r.quit).sendToTarget();
+        Message.obtain(this.b.a(), v.quit).sendToTarget();
         try {
             this.b.join(500L);
         } catch (InterruptedException e) {
         }
-        removeMessages(com.baidu.tieba.r.decode_succeeded);
-        removeMessages(com.baidu.tieba.r.decode_failed);
+        removeMessages(v.decode_succeeded);
+        removeMessages(v.decode_failed);
     }
 
     private void b() {
         if (this.c == State.SUCCESS) {
             this.c = State.PREVIEW;
-            this.d.a(this.b.a(), com.baidu.tieba.r.decode);
+            this.d.a(this.b.a(), v.decode);
             this.a.d();
         }
     }

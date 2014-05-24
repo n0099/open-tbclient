@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.DatabaseManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
 import com.baidu.tieba.data.MarkData;
 import java.util.ArrayList;
 import java.util.Date;
@@ -436,7 +436,7 @@ public class k {
                 objArr[2] = Integer.valueOf(TbadkApplication.m252getInst().isMsgFansOn() ? 1 : 0);
                 objArr[3] = Integer.valueOf(TbadkApplication.m252getInst().isMsgReplymeOn() ? 1 : 0);
                 objArr[4] = Integer.valueOf(TbadkApplication.m252getInst().isMsgAtmeOn() ? 1 : 0);
-                objArr[5] = Integer.valueOf(ad.c().r());
+                objArr[5] = Integer.valueOf(ai.c().r());
                 objArr[6] = Integer.valueOf(TbadkApplication.m252getInst().isMsgChatOn() ? 1 : 0);
                 objArr[7] = Integer.valueOf(TbadkApplication.m252getInst().isNoDisturbOn() ? 1 : 0);
                 objArr[8] = TbadkApplication.m252getInst().getNoDisturbStartTime();
@@ -452,7 +452,7 @@ public class k {
     public static void n() {
         BdLog.i("DatabaseManager", "getSetting", TbadkApplication.getCurrentAccountName());
         if (TbadkApplication.getCurrentAccount() == null || TbadkApplication.getCurrentAccount().length() <= 0 || TbadkApplication.getCurrentAccountName() == null) {
-            ad.c().b(0);
+            ai.c().b(0);
             return;
         }
         Cursor cursor = null;
@@ -460,56 +460,56 @@ public class k {
             try {
                 Cursor a2 = new DatabaseManager().a("select * from setting where account=?", new String[]{TbadkApplication.getCurrentAccount()});
                 if (a2 != null && a2.moveToFirst()) {
-                    ad.c().b(a2.getInt(1));
+                    ai.c().b(a2.getInt(1));
                     if (a2.getInt(2) == 0) {
-                        ad.c().i(false);
+                        ai.c().i(false);
                     } else {
-                        ad.c().i(true);
+                        ai.c().i(true);
                     }
                     if (a2.getInt(3) == 0) {
-                        ad.c().l(false);
+                        ai.c().l(false);
                     } else {
-                        ad.c().l(true);
+                        ai.c().l(true);
                     }
                     if (a2.getInt(4) == 0) {
-                        ad.c().j(false);
+                        ai.c().j(false);
                     } else {
-                        ad.c().j(true);
+                        ai.c().j(true);
                     }
-                    ad.c().a(a2.getInt(5));
+                    ai.c().a(a2.getInt(5));
                     if (a2.getInt(6) == 0) {
-                        ad.c().m(false);
+                        ai.c().m(false);
                     } else {
-                        ad.c().m(true);
+                        ai.c().m(true);
                     }
                     if (a2.getInt(7) == 0) {
-                        ad.c().g(false);
+                        ai.c().g(false);
                     } else {
-                        ad.c().g(true);
+                        ai.c().g(true);
                     }
                     String string = a2.getString(8);
                     if (TextUtils.isEmpty(string)) {
-                        ad.c().h(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                        ai.c().h(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
                     } else {
-                        ad.c().h(string);
+                        ai.c().h(string);
                     }
                     String string2 = a2.getString(9);
                     if (TextUtils.isEmpty(string2)) {
-                        ad.c().i(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                        ai.c().i(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                     } else {
-                        ad.c().i(string2);
+                        ai.c().i(string2);
                     }
                 } else {
-                    ad.c().b(TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
-                    ad.c().i(true);
-                    ad.c().l(true);
-                    ad.c().j(true);
-                    ad.c().f(true);
-                    ad.c().h(false);
-                    ad.c().m(true);
-                    ad.c().g(false);
-                    ad.c().h(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
-                    ad.c().i(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                    ai.c().b(TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
+                    ai.c().i(true);
+                    ai.c().l(true);
+                    ai.c().j(true);
+                    ai.c().f(true);
+                    ai.c().h(false);
+                    ai.c().m(true);
+                    ai.c().g(false);
+                    ai.c().h(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                    ai.c().i(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                 }
                 if (a2 != null) {
                     try {

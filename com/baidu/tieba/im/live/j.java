@@ -24,6 +24,7 @@ public class j implements ServiceConnection {
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         ILiveGroupManagerService iLiveGroupManagerService;
         IRemoteCallback iRemoteCallback;
+        BdLog.d("onServiceConnected");
         this.a.o = ILiveGroupManagerService.Stub.asInterface(iBinder);
         try {
             iLiveGroupManagerService = this.a.o;

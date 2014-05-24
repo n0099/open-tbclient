@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.model.bi;
+import com.baidu.tieba.im.model.bj;
 /* loaded from: classes.dex */
 class ar extends CustomMessageListener {
     final /* synthetic */ OfficialBarTipActivity a;
@@ -18,10 +18,10 @@ class ar extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bi biVar;
+        bj bjVar;
         com.baidu.tieba.im.a<Void> aVar;
-        biVar = this.a.a;
+        bjVar = this.a.a;
         aVar = this.a.d;
-        biVar.a(aVar);
+        bjVar.a(aVar);
     }
 }

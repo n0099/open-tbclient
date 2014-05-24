@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.coreExtra.message.GroupUpdateMessage;
 import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.chat.PersonalChatActivity;
-import com.baidu.tieba.im.chat.bw;
+import com.baidu.tieba.im.chat.bv;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivity;
 import com.baidu.tieba.im.chat.officialBar.OfficialSettingItemData;
 import com.baidu.tieba.im.chat.officialBar.az;
 import com.baidu.tieba.im.chat.personaltalk.PersonalSettingItemData;
-import com.baidu.tieba.im.chat.x;
+import com.baidu.tieba.im.chat.w;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
@@ -26,7 +26,7 @@ import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.im.message.ImSystemShowNotifyMessage;
 import com.baidu.tieba.im.model.r;
 import com.baidu.tieba.im.validate.ValidateItemData;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -106,8 +106,8 @@ public class a {
                 imMessageCenterPojo.setIs_hidden(0);
                 imMessageCenterPojo.setUnread_count(0);
                 imMessageCenterPojo.setLast_content(optString3);
-                imMessageCenterPojo.setLast_rid(bw.b(j));
-                imMessageCenterPojo.setPulled_msgId(bw.b(j));
+                imMessageCenterPojo.setLast_rid(bv.b(j));
+                imMessageCenterPojo.setPulled_msgId(bv.b(j));
                 com.baidu.tbadk.coreExtra.messageCenter.e.a().b(com.baidu.adp.lib.f.b.a(str, 0), j);
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put(imMessageCenterPojo.getGid(), 0L);
@@ -155,7 +155,7 @@ public class a {
         }
         UpdatesItemData updatesItemData = a3.get(0);
         imMessageCenterShowItemData.setFriendId(String.valueOf(6));
-        imMessageCenterShowItemData.setFriendName(TbadkApplication.m252getInst().getApp().getApplicationContext().getString(u.live_chat_room_more_livenotify));
+        imMessageCenterShowItemData.setFriendName(TbadkApplication.m252getInst().getApp().getApplicationContext().getString(y.live_chat_room_more_livenotify));
         imMessageCenterShowItemData.setTitle(updatesItemData.getTitle());
         imMessageCenterShowItemData.setMsgContent(updatesItemData.getContent());
         imMessageCenterShowItemData.setOwnerName(String.valueOf(6));
@@ -189,7 +189,7 @@ public class a {
         BdLog.d("得到群组动态消息+" + a2);
         UpdatesItemData updatesItemData = a4.get(0);
         imMessageCenterShowItemData.setFriendId(String.valueOf(3));
-        imMessageCenterShowItemData.setFriendName(TbadkApplication.m252getInst().getApp().getApplicationContext().getString(u.group_updates));
+        imMessageCenterShowItemData.setFriendName(TbadkApplication.m252getInst().getApp().getApplicationContext().getString(y.group_updates));
         imMessageCenterShowItemData.setTitle(updatesItemData.getTitle());
         imMessageCenterShowItemData.setMsgContent(updatesItemData.getContent());
         imMessageCenterShowItemData.setOwnerName(String.valueOf(3));
@@ -241,7 +241,7 @@ public class a {
             return false;
         }
         String gid = imMessageCenterPojo.getGid();
-        return ((!TextUtils.isEmpty(gid) && gid.equals(Integer.valueOf(x.a))) || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || imMessageCenterPojo.getLast_content_time() <= 0 || TextUtils.isEmpty(imMessageCenterPojo.getLast_content()) || imMessageCenterPojo.getCustomGroupType() == 3 || imMessageCenterPojo.getCustomGroupType() == 5) ? false : true;
+        return ((!TextUtils.isEmpty(gid) && gid.equals(Integer.valueOf(w.a))) || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || imMessageCenterPojo.getLast_content_time() <= 0 || TextUtils.isEmpty(imMessageCenterPojo.getLast_content()) || imMessageCenterPojo.getCustomGroupType() == 3 || imMessageCenterPojo.getCustomGroupType() == 5) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -461,7 +461,7 @@ public class a {
             return "";
         }
         String[] split = str.split(":");
-        return split.length == 2 ? String.valueOf(TbadkApplication.m252getInst().getContext().getString(u.official_msg_list_name, split[0])) + ":" + split[1] : str;
+        return split.length == 2 ? String.valueOf(TbadkApplication.m252getInst().getContext().getString(y.official_msg_list_name, split[0])) + ":" + split[1] : str;
     }
 
     public void b(String str) {
@@ -636,9 +636,9 @@ public class a {
         }
         BdLog.d("convertValidate is not null");
         ValidateItemData validateItemData = a3.get(0);
-        String str = String.valueOf(validateItemData.getUserName()) + TbadkApplication.m252getInst().getApp().getApplicationContext().getString(u.validate_im_apply_prefix1) + validateItemData.getGroupName();
+        String str = String.valueOf(validateItemData.getUserName()) + TbadkApplication.m252getInst().getApp().getApplicationContext().getString(y.validate_im_apply_prefix1) + validateItemData.getGroupName();
         imMessageCenterShowItemData.setFriendId(String.valueOf(2));
-        imMessageCenterShowItemData.setFriendName(TbadkApplication.m252getInst().getApp().getApplicationContext().getString(u.valicate));
+        imMessageCenterShowItemData.setFriendName(TbadkApplication.m252getInst().getApp().getApplicationContext().getString(y.valicate));
         imMessageCenterShowItemData.setMsgContent(str);
         imMessageCenterShowItemData.setOwnerName(String.valueOf(2));
         imMessageCenterShowItemData.setOwnerId(TbadkApplication.getCurrentAccount());

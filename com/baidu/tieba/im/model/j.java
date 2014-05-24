@@ -4,7 +4,7 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.message.RequestEnterChatRoomMessage;
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.base.d {
+public class j extends com.baidu.adp.base.b {
     private int a;
     private RequestEnterChatRoomMessage b;
 
@@ -12,12 +12,12 @@ public class j extends com.baidu.adp.base.d {
         return this.a;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }
@@ -36,7 +36,7 @@ public class j extends com.baidu.adp.base.d {
     public void b() {
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public void registerListener(MessageListener<?> messageListener) {
         super.registerListener(MessageTypes.CMD_REQUEST_ENTER_CHAT_ROOM, messageListener);
     }

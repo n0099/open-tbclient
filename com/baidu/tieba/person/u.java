@@ -83,7 +83,7 @@ public class u extends BdAsyncTask<Boolean, t, t> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onProgressUpdate(t... tVarArr) {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         boolean z = false;
         super.onProgressUpdate(tVarArr);
         t tVar = tVarArr[0];
@@ -93,13 +93,13 @@ public class u extends BdAsyncTask<Boolean, t, t> {
         }
         this.a.mLoadDataMode = 2;
         this.a.setErrorString(null);
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(Boolean.valueOf(z));
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(Boolean.valueOf(z));
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         super.cancel();
         this.d = true;
         if (this.b != null) {
@@ -107,8 +107,8 @@ public class u extends BdAsyncTask<Boolean, t, t> {
             this.b = null;
         }
         this.a.b = null;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(false);
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -117,9 +117,9 @@ public class u extends BdAsyncTask<Boolean, t, t> {
     /* renamed from: a */
     public void onPostExecute(t tVar) {
         Context context;
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         com.baidu.tbadk.editortool.ab abVar;
-        com.baidu.adp.base.g gVar2;
+        com.baidu.adp.base.e eVar2;
         super.onPostExecute(tVar);
         this.a.b = null;
         this.a.mLoadDataMode = 1;
@@ -128,8 +128,8 @@ public class u extends BdAsyncTask<Boolean, t, t> {
             this.a.a(tVar.a());
             abVar = this.a.f;
             abVar.e(tVar.a().getPortrait());
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(true);
+            eVar2 = this.a.mLoadDataCallBack;
+            eVar2.a(true);
             return;
         }
         this.a.k = false;
@@ -138,9 +138,9 @@ public class u extends BdAsyncTask<Boolean, t, t> {
         } else {
             t tVar2 = this.a;
             context = this.a.e;
-            tVar2.setErrorString(context.getString(com.baidu.tieba.u.neterror));
+            tVar2.setErrorString(context.getString(com.baidu.tieba.y.neterror));
         }
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(false);
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(false);
     }
 }

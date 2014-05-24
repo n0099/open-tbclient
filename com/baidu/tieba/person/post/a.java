@@ -31,19 +31,19 @@ class a implements View.OnClickListener {
     private final com.baidu.tbadk.editortool.ab o;
 
     public a(View view) {
-        this.a = (LinearLayout) view.findViewById(com.baidu.tieba.r.top_line);
-        this.b = (HeadImageView) view.findViewById(com.baidu.tieba.r.portrait);
-        this.c = (TextView) view.findViewById(com.baidu.tieba.r.username);
-        this.d = (TextView) view.findViewById(com.baidu.tieba.r.reply_time);
-        this.e = (TextView) view.findViewById(com.baidu.tieba.r.forum_name);
-        this.f = (TextView) view.findViewById(com.baidu.tieba.r.reply_count);
-        this.i = (LinearLayout) view.findViewById(com.baidu.tieba.r.item_content);
-        this.j = (ColumnLayout) view.findViewById(com.baidu.tieba.r.item_header);
-        this.k = (ColumnLayout) view.findViewById(com.baidu.tieba.r.item_footer);
-        this.g = (LinearLayout) view.findViewById(com.baidu.tieba.r.person_thread);
-        this.h = (LinearLayout) view.findViewById(com.baidu.tieba.r.person_child);
+        this.a = (LinearLayout) view.findViewById(com.baidu.tieba.v.top_line);
+        this.b = (HeadImageView) view.findViewById(com.baidu.tieba.v.portrait);
+        this.c = (TextView) view.findViewById(com.baidu.tieba.v.username);
+        this.d = (TextView) view.findViewById(com.baidu.tieba.v.reply_time);
+        this.e = (TextView) view.findViewById(com.baidu.tieba.v.forum_name);
+        this.f = (TextView) view.findViewById(com.baidu.tieba.v.reply_count);
+        this.i = (LinearLayout) view.findViewById(com.baidu.tieba.v.item_content);
+        this.j = (ColumnLayout) view.findViewById(com.baidu.tieba.v.item_header);
+        this.k = (ColumnLayout) view.findViewById(com.baidu.tieba.v.item_footer);
+        this.g = (LinearLayout) view.findViewById(com.baidu.tieba.v.person_thread);
+        this.h = (LinearLayout) view.findViewById(com.baidu.tieba.v.person_child);
         this.o = new com.baidu.tbadk.editortool.ab(view.getContext());
-        int a = com.baidu.adp.lib.util.h.a(view.getContext(), 42.0f);
+        int a = com.baidu.adp.lib.util.k.a(view.getContext(), 42.0f);
         this.o.a(a, a);
         if (this.i != null) {
             this.i.setOnClickListener(this);
@@ -59,7 +59,7 @@ class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == com.baidu.tieba.r.forum_name) {
+        if (view.getId() == com.baidu.tieba.v.forum_name) {
             if (view.getContext() instanceof BaseActivity) {
                 ((BaseActivity) view.getContext()).sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(view.getContext()).a((String) view.getTag(), "")));
             }
@@ -190,17 +190,17 @@ class a implements View.OnClickListener {
     }
 
     public void a(int i) {
-        bc.a(this.e, com.baidu.tieba.o.cp_cont_d, 1);
-        bc.a(this.d, com.baidu.tieba.o.cp_cont_d, 1);
-        bc.a(this.c, com.baidu.tieba.o.cp_cont_f, 1);
-        bc.f(this.g, com.baidu.tieba.o.cp_bg_line_c);
-        bc.f(this.h, com.baidu.tieba.q.daily_recommend_item_selector);
+        bc.a(this.e, com.baidu.tieba.s.cp_cont_d, 1);
+        bc.a(this.d, com.baidu.tieba.s.cp_cont_d, 1);
+        bc.a(this.c, com.baidu.tieba.s.cp_cont_f, 1);
+        bc.f(this.g, com.baidu.tieba.s.cp_bg_line_c);
+        bc.f(this.h, com.baidu.tieba.u.daily_recommend_item_selector);
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.f.setCompoundDrawablesWithIntrinsicBounds(this.f.getResources().getDrawable(com.baidu.tieba.q.icon_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
-            this.f.setTextColor(this.f.getResources().getColor(com.baidu.tieba.o.cp_link_tip_c_1));
+            this.f.setCompoundDrawablesWithIntrinsicBounds(this.f.getResources().getDrawable(com.baidu.tieba.u.icon_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.f.setTextColor(this.f.getResources().getColor(com.baidu.tieba.s.cp_link_tip_c_1));
             return;
         }
-        this.f.setCompoundDrawablesWithIntrinsicBounds(this.f.getResources().getDrawable(com.baidu.tieba.q.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.f.setTextColor(this.f.getResources().getColor(com.baidu.tieba.o.cp_link_tip_c));
+        this.f.setCompoundDrawablesWithIntrinsicBounds(this.f.getResources().getDrawable(com.baidu.tieba.u.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.f.setTextColor(this.f.getResources().getColor(com.baidu.tieba.s.cp_link_tip_c));
     }
 }

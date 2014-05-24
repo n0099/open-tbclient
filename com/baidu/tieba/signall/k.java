@@ -20,7 +20,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -81,28 +81,28 @@ public class k extends BaseAdapter implements AbsListView.OnScrollListener, ab {
 
     private View a(int i) {
         if (i == 0) {
-            View inflate = this.d.inflate(com.baidu.tieba.s.signallforum_item, (ViewGroup) null);
+            View inflate = this.d.inflate(com.baidu.tieba.w.signallforum_item, (ViewGroup) null);
             o oVar = new o(this);
-            oVar.a = (HeadImageView) inflate.findViewById(com.baidu.tieba.r.signallforum_item_avatar);
+            oVar.a = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_avatar);
             oVar.a.setIsRound(false);
             oVar.a.setGifIconSupport(false);
-            oVar.c = (TextView) inflate.findViewById(com.baidu.tieba.r.signallforum_item_name);
-            oVar.d = (TextView) inflate.findViewById(com.baidu.tieba.r.signallforum_item_level);
-            oVar.e = (TextView) inflate.findViewById(com.baidu.tieba.r.signallforum_item_exp);
-            oVar.f = (FrameLayout) inflate.findViewById(com.baidu.tieba.r.signallforum_item_res_container);
-            oVar.g = (TextView) inflate.findViewById(com.baidu.tieba.r.signallforum_item_days);
-            oVar.h = (RelativeLayout) inflate.findViewById(com.baidu.tieba.r.signallforum_item_resign_container);
-            oVar.i = (ImageView) inflate.findViewById(com.baidu.tieba.r.signallforum_item_resign_icon);
-            oVar.j = (ProgressBar) inflate.findViewById(com.baidu.tieba.r.signallforum_item_resign_progress);
-            oVar.k = (TextView) inflate.findViewById(com.baidu.tieba.r.signallforum_item_resign_text);
-            oVar.l = (TextView) inflate.findViewById(com.baidu.tieba.r.signallforum_item_error);
-            oVar.b = (LinearLayout) inflate.findViewById(com.baidu.tieba.r.signallforum_item_level_container);
-            oVar.m = (TextView) inflate.findViewById(com.baidu.tieba.r.signallforum_item_increaseexp);
+            oVar.c = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_name);
+            oVar.d = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_level);
+            oVar.e = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_exp);
+            oVar.f = (FrameLayout) inflate.findViewById(com.baidu.tieba.v.signallforum_item_res_container);
+            oVar.g = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_days);
+            oVar.h = (RelativeLayout) inflate.findViewById(com.baidu.tieba.v.signallforum_item_resign_container);
+            oVar.i = (ImageView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_resign_icon);
+            oVar.j = (ProgressBar) inflate.findViewById(com.baidu.tieba.v.signallforum_item_resign_progress);
+            oVar.k = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_resign_text);
+            oVar.l = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_error);
+            oVar.b = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.signallforum_item_level_container);
+            oVar.m = (TextView) inflate.findViewById(com.baidu.tieba.v.signallforum_item_increaseexp);
             inflate.setTag(oVar);
             return inflate;
         }
         View view = new View(this.c);
-        view.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.adp.lib.util.h.a(this.c, 1.0f)));
+        view.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.adp.lib.util.k.a(this.c, 1.0f)));
         return view;
     }
 
@@ -123,9 +123,9 @@ public class k extends BaseAdapter implements AbsListView.OnScrollListener, ab {
             oVar.l.setVisibility(8);
             oVar.g.setVisibility(0);
             oVar.h.setVisibility(8);
-            oVar.g.setText(String.format(this.c.getString(com.baidu.tieba.u.signallforum_days), Integer.valueOf(bVar.e())));
+            oVar.g.setText(String.format(this.c.getString(com.baidu.tieba.y.signallforum_days), Integer.valueOf(bVar.e())));
             if (bVar.o()) {
-                oVar.e.setText(this.c.getString(com.baidu.tieba.u.signallforum_uplevel));
+                oVar.e.setText(this.c.getString(com.baidu.tieba.y.signallforum_uplevel));
                 oVar.m.setVisibility(8);
             } else {
                 oVar.e.setText(String.valueOf(bVar.g()) + "/" + bVar.h());
@@ -170,11 +170,11 @@ public class k extends BaseAdapter implements AbsListView.OnScrollListener, ab {
             if (bVar.k()) {
                 oVar.i.setVisibility(4);
                 oVar.j.setVisibility(0);
-                oVar.k.setText(com.baidu.tieba.u.signallforum_resigning);
+                oVar.k.setText(com.baidu.tieba.y.signallforum_resigning);
             } else {
                 oVar.i.setVisibility(0);
                 oVar.j.setVisibility(4);
-                oVar.k.setText(com.baidu.tieba.u.signallforum_resign);
+                oVar.k.setText(com.baidu.tieba.y.signallforum_resign);
             }
             oVar.h.setOnClickListener(new l(this, bVar, oVar));
         } else {
@@ -235,7 +235,7 @@ public class k extends BaseAdapter implements AbsListView.OnScrollListener, ab {
     @Override // com.baidu.tieba.signall.ab
     public void a(String str, String str2) {
         if (!TextUtils.isEmpty(str2)) {
-            com.baidu.adp.lib.util.h.a(this.c, str2);
+            com.baidu.adp.lib.util.k.a(this.c, str2);
         }
         synchronized (this) {
             this.g.remove(str);
@@ -255,7 +255,7 @@ public class k extends BaseAdapter implements AbsListView.OnScrollListener, ab {
                     bVar.b(signData.getCountSignNum());
                     bVar.d(signData.getBonusPoint());
                     bVar.a(1);
-                    ad.c().a(bVar.b(), signData.getBonusPoint(), -1);
+                    ai.c().a(bVar.b(), signData.getBonusPoint(), -1);
                     ArrayList<b> m = this.b.m();
                     if (m.contains(bVar)) {
                         m.remove(bVar);
@@ -263,7 +263,7 @@ public class k extends BaseAdapter implements AbsListView.OnScrollListener, ab {
                     }
                     int size2 = this.b.j().size();
                     int size3 = this.b.l().size();
-                    this.k.setText(this.c.getString(com.baidu.tieba.u.signallforum_res, Integer.valueOf(size3), Integer.valueOf(size2 - size3)));
+                    this.k.setText(this.c.getString(com.baidu.tieba.y.signallforum_res, Integer.valueOf(size3), Integer.valueOf(size2 - size3)));
                 } else {
                     bVar.a(str2);
                 }

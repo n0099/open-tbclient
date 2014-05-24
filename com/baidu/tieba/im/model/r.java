@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class r extends com.baidu.adp.base.d {
+public class r extends com.baidu.adp.base.b {
     private static boolean c;
     private final List<ImMessageCenterShowItemData> a = new LinkedList();
     private final List<ImMessageCenterShowItemData> b = new LinkedList();
@@ -27,12 +27,12 @@ public class r extends com.baidu.adp.base.d {
         }
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

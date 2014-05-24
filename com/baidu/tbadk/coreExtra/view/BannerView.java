@@ -51,8 +51,8 @@ public class BannerView extends RelativeLayout {
 
     private void a(Context context) {
         this.g = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.bannerview, this);
-        this.f = (Button) findViewById(com.baidu.tieba.r.btn_close);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.bannerview, this);
+        this.f = (Button) findViewById(com.baidu.tieba.v.btn_close);
         this.f.setOnClickListener(this.b);
         setOnClickListener(this.b);
     }
@@ -75,7 +75,7 @@ public class BannerView extends RelativeLayout {
         if (!TextUtils.isEmpty(str)) {
             this.a = true;
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.h.b(getContext()) * this.j) + 0.5d);
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.b(getContext()) * this.j) + 0.5d);
             setLayoutParams(layoutParams);
             setImageUrl(str);
         }

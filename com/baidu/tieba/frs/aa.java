@@ -1,9 +1,8 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
-class aa extends CustomMessageListener {
+class aa extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,16 +15,18 @@ class aa extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
-    public void onMessage(CustomResponsedMessage customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            if (customResponsedMessage.getCmd() != 2003124) {
-                if (customResponsedMessage.getCmd() != 2003122) {
-                    return;
-                }
-                this.a.b(customResponsedMessage);
-                return;
-            }
-            this.a.a(customResponsedMessage);
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        dh dhVar;
+        if (socketResponsedMessage instanceof FRSPageSocketResponsedMessage) {
+            FRSPageSocketResponsedMessage fRSPageSocketResponsedMessage = (FRSPageSocketResponsedMessage) socketResponsedMessage;
+            j jVar = new j();
+            jVar.a = true;
+            jVar.b = fRSPageSocketResponsedMessage.hasNetworkError() ? false : true;
+            jVar.c = fRSPageSocketResponsedMessage.getError();
+            jVar.d = fRSPageSocketResponsedMessage.getErrorString();
+            jVar.e = fRSPageSocketResponsedMessage.getmDownSize();
+            dhVar = this.a.ad;
+            dhVar.a(fRSPageSocketResponsedMessage.getUpdateType(), false, jVar);
         }
     }
 }

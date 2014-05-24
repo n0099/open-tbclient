@@ -1,7 +1,9 @@
 package com.baidu.tieba.person;
+
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv extends com.baidu.adp.base.g {
+public class bv extends com.baidu.adp.base.e {
     final /* synthetic */ bm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,12 +11,12 @@ public class bv extends com.baidu.adp.base.g {
         this.a = bmVar;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         af afVar;
         com.baidu.tieba.model.av avVar;
         aj ajVar;
-        com.baidu.tbadk.core.e eVar;
+        BaseFragmentActivity baseFragmentActivity;
         com.baidu.tieba.model.av avVar2;
         com.baidu.tieba.model.av avVar3;
         aj ajVar2;
@@ -22,17 +24,17 @@ public class bv extends com.baidu.adp.base.g {
         com.baidu.tieba.model.av avVar5;
         com.baidu.tieba.model.av avVar6;
         boolean z;
-        com.baidu.tieba.model.e eVar2;
+        com.baidu.tieba.model.e eVar;
         af afVar2;
         com.baidu.tieba.model.av avVar7;
         aj ajVar3;
         com.baidu.tieba.model.av avVar8;
         com.baidu.tieba.model.av avVar9;
         aj ajVar4;
-        com.baidu.tbadk.core.e eVar3;
+        BaseFragmentActivity baseFragmentActivity2;
         com.baidu.tieba.model.av avVar10;
-        com.baidu.tbadk.core.e eVar4;
-        com.baidu.tbadk.core.e eVar5;
+        BaseFragmentActivity baseFragmentActivity3;
+        BaseFragmentActivity baseFragmentActivity4;
         af afVar3;
         afVar = this.a.n;
         if (afVar != null) {
@@ -48,15 +50,15 @@ public class bv extends com.baidu.adp.base.g {
                     ajVar4 = this.a.k;
                     if (ajVar4 != null) {
                         if (((Boolean) obj).booleanValue()) {
-                            eVar4 = this.a.f;
-                            eVar5 = this.a.f;
-                            eVar4.a(eVar5.getResources().getString(com.baidu.tieba.u.success));
+                            baseFragmentActivity3 = this.a.f;
+                            baseFragmentActivity4 = this.a.f;
+                            baseFragmentActivity3.a(baseFragmentActivity4.getResources().getString(com.baidu.tieba.y.success));
                             this.a.h();
                             return;
                         }
-                        eVar3 = this.a.f;
+                        baseFragmentActivity2 = this.a.f;
                         avVar10 = this.a.c;
-                        eVar3.a(avVar10.getErrorString());
+                        baseFragmentActivity2.a(avVar10.getErrorString());
                         return;
                     }
                     return;
@@ -67,9 +69,9 @@ public class bv extends com.baidu.adp.base.g {
         if (!((Boolean) obj).booleanValue()) {
             ajVar = this.a.k;
             ajVar.i();
-            eVar = this.a.f;
+            baseFragmentActivity = this.a.f;
             avVar2 = this.a.c;
-            eVar.a(avVar2.getErrorString());
+            baseFragmentActivity.a(avVar2.getErrorString());
             return;
         }
         this.a.m();
@@ -91,8 +93,8 @@ public class bv extends com.baidu.adp.base.g {
             } else {
                 z = false;
             }
-            eVar2 = this.a.d;
-            eVar2.a(z ? 1 : 0);
+            eVar = this.a.d;
+            eVar.a(z ? 1 : 0);
             afVar2 = this.a.n;
             afVar2.b(z);
         }

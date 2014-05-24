@@ -1,7 +1,7 @@
 package com.baidu.tbadk.tbplugin;
 /* loaded from: classes.dex */
 public interface k {
-    void a(int i);
+    void onFinish(int i, String str);
 
-    void a(int i, String str);
+    void onProgress(int i);
 }

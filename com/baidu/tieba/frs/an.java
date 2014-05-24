@@ -5,18 +5,15 @@ import android.content.DialogInterface;
 /* loaded from: classes.dex */
 public class an implements DialogInterface.OnClickListener {
     final /* synthetic */ FrsActivity a;
-    private final /* synthetic */ com.baidu.tbadk.core.data.b b;
-    private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(FrsActivity frsActivity, com.baidu.tbadk.core.data.b bVar, int i) {
+    public an(FrsActivity frsActivity) {
         this.a = frsActivity;
-        this.b = bVar;
-        this.c = i;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        this.a.b(this.b, this.c);
+        dialogInterface.dismiss();
+        this.a.V = null;
     }
 }

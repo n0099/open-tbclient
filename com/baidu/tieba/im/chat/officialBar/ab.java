@@ -26,7 +26,7 @@ public class ab extends com.baidu.adp.framework.listener.b {
         this.a.hideProgressBar();
         this.a.f = false;
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (socketResponsedMessage.getError() != 0) {
             this.a.showToast(socketResponsedMessage.getErrorString());
         } else if (socketResponsedMessage.getCmd() == 208002 && (socketResponsedMessage instanceof ResponseHistoryMessage)) {
@@ -46,7 +46,7 @@ public class ab extends com.baidu.adp.framework.listener.b {
                 }
             }
         } else {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         }
     }
 }

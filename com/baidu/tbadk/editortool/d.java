@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class d extends ag {
+public class d extends af {
     private String a;
     private String b;
     private int c;
@@ -36,7 +36,7 @@ public class d extends ag {
         }
     }
 
-    @Override // com.baidu.tbadk.editortool.ag
+    @Override // com.baidu.tbadk.editortool.af
     public String a(int i) {
         if (i >= this.e.size()) {
             return null;
@@ -44,17 +44,17 @@ public class d extends ag {
         return this.e.get(i);
     }
 
-    @Override // com.baidu.tbadk.editortool.ag
+    @Override // com.baidu.tbadk.editortool.af
     public boolean a(String str) {
         return this.e.contains(str);
     }
 
-    @Override // com.baidu.tbadk.editortool.ag
+    @Override // com.baidu.tbadk.editortool.af
     public EmotionGroupType c() {
         return EmotionGroupType.BIG_EMOTION;
     }
 
-    @Override // com.baidu.tbadk.editortool.ag
+    @Override // com.baidu.tbadk.editortool.af
     public com.baidu.adp.widget.a.a b(String str) {
         Bitmap c = ac.a().c(this.a, ac.a().a(str, false));
         if (c == null) {
@@ -63,32 +63,32 @@ public class d extends ag {
         return new com.baidu.adp.widget.a.a(c, false, str);
     }
 
-    @Override // com.baidu.tbadk.editortool.ag
+    @Override // com.baidu.tbadk.editortool.af
     public com.baidu.adp.widget.a.a c(String str) {
         return ac.a().d(this.a, ac.a().a(str, true));
     }
 
-    @Override // com.baidu.tbadk.editortool.ag
+    @Override // com.baidu.tbadk.editortool.af
     public int d() {
         return this.e.size();
     }
 
-    @Override // com.baidu.tbadk.editortool.ag
+    @Override // com.baidu.tbadk.editortool.af
     public String e() {
         return this.a;
     }
 
-    @Override // com.baidu.tbadk.editortool.ag
+    @Override // com.baidu.tbadk.editortool.af
     public String f() {
         return this.b;
     }
 
-    @Override // com.baidu.tbadk.editortool.ag
+    @Override // com.baidu.tbadk.editortool.af
     public int g() {
         return this.c;
     }
 
-    @Override // com.baidu.tbadk.editortool.ag
+    @Override // com.baidu.tbadk.editortool.af
     public int h() {
         return this.d;
     }

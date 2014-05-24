@@ -1,25 +1,38 @@
 package com.baidu.tieba.pb.main;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.View;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class by implements com.baidu.tbadk.editortool.x {
-    final /* synthetic */ bj a;
-    private final /* synthetic */ com.baidu.tbadk.editortool.x b;
+public class by implements Animation.AnimationListener {
+    final /* synthetic */ bq a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public by(bj bjVar, com.baidu.tbadk.editortool.x xVar) {
-        this.a = bjVar;
-        this.b = xVar;
+    public by(bq bqVar) {
+        this.a = bqVar;
     }
 
-    @Override // com.baidu.tbadk.editortool.x
-    public void a(int i, Object obj) {
-        PbActivity pbActivity;
-        if (i == 35 && !this.a.j.h() && !this.a.j.j()) {
-            pbActivity = this.a.m;
-            TiebaStatic.eventStat(pbActivity, "pb_reply", "pbclick", 1, new Object[0]);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        View view;
+        View view2;
+        z = this.a.aR;
+        if (z) {
+            view = this.a.aL;
+            view.setVisibility(0);
+            view2 = this.a.aK;
+            view2.setVisibility(0);
+            return;
         }
-        this.b.a(i, obj);
+        this.a.j.setVisibility(0);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

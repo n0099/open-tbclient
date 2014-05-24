@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.v;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;
@@ -30,9 +31,9 @@ final class l extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (this.c) {
-            if (message.what == com.baidu.tieba.r.decode) {
+            if (message.what == v.decode) {
                 a((byte[]) message.obj, message.arg1, message.arg2);
-            } else if (message.what == com.baidu.tieba.r.quit) {
+            } else if (message.what == v.quit) {
                 this.c = false;
                 Looper.myLooper().quit();
             }
@@ -61,14 +62,14 @@ final class l extends Handler {
         if (result != null) {
             BdLog.d(getClass().getName(), "decode", "Found barcode in " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
             if (b != null) {
-                Message obtain = Message.obtain(b, com.baidu.tieba.r.decode_succeeded, result);
+                Message obtain = Message.obtain(b, v.decode_succeeded, result);
                 Bundle bundle = new Bundle();
                 a(a, bundle);
                 obtain.setData(bundle);
                 obtain.sendToTarget();
             }
         } else if (b != null) {
-            Message.obtain(b, com.baidu.tieba.r.decode_failed).sendToTarget();
+            Message.obtain(b, v.decode_failed).sendToTarget();
         }
     }
 

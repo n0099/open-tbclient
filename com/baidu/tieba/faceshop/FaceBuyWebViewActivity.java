@@ -50,9 +50,9 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
     }
 
     private void b() {
-        setContentView(com.baidu.tieba.s.face_buy_webview_activity);
-        this.a = (BaseWebView) findViewById(com.baidu.tieba.r.webview);
-        this.b = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        setContentView(com.baidu.tieba.w.face_buy_webview_activity);
+        this.a = (BaseWebView) findViewById(com.baidu.tieba.v.webview);
+        this.b = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ae(this));
         this.b.a("");
         this.a.setOnLoadUrlListener(this);
@@ -146,12 +146,12 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
     public void c() {
         if (this.g == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(com.baidu.tieba.u.alerm_title);
+            builder.setTitle(com.baidu.tieba.y.alerm_title);
             builder.setIcon((Drawable) null);
             builder.setCancelable(false);
-            builder.setMessage(com.baidu.tieba.u.quit_buy_confirm);
-            builder.setPositiveButton(com.baidu.tieba.u.alert_yes_button, new af(this));
-            builder.setNegativeButton(com.baidu.tieba.u.alert_no_button, new ag(this));
+            builder.setMessage(com.baidu.tieba.y.quit_buy_confirm);
+            builder.setPositiveButton(com.baidu.tieba.y.alert_yes_button, new af(this));
+            builder.setNegativeButton(com.baidu.tieba.y.alert_no_button, new ag(this));
             this.g = builder.create();
         }
         this.g.show();

@@ -14,6 +14,6 @@ class b implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        new AlertDialog.Builder(this.a).setTitle(com.baidu.tieba.u.alerm_title).setIcon((Drawable) null).setCancelable(true).setItems(com.baidu.tieba.m.delete_account, new c(this, view)).create().show();
+        new AlertDialog.Builder(this.a).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(true).setItems(com.baidu.tieba.q.delete_account, new c(this, view)).create().show();
     }
 }

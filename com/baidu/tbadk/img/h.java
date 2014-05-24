@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.LinkedList;
@@ -186,7 +186,7 @@ public class h {
                     imageUploadResult = new ImageUploadResult();
                     try {
                         imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
-                        imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(u.file_not_exist);
+                        imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(y.file_not_exist);
                         TiebaStatic.imgError("", TbErrInfo.ERR_IMG_FILE, "file error: " + imageUploadResult.error_msg, sb.toString());
                     } catch (Exception e2) {
                         randomAccessFile = null;

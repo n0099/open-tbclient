@@ -17,7 +17,7 @@ public class TbSettingTextNewDotView extends TbSettingTextTipView {
         boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
         if (com.baidu.tbadk.tbplugin.m.a().n()) {
             this.d.setVisibility(0);
-            this.d.setBackgroundResource(z ? com.baidu.tieba.q.icon_news_head_new_1 : com.baidu.tieba.q.icon_news_head_new);
+            this.d.setBackgroundResource(z ? com.baidu.tieba.u.icon_news_head_new_1 : com.baidu.tieba.u.icon_news_head_new);
             return;
         }
         this.d.setVisibility(4);

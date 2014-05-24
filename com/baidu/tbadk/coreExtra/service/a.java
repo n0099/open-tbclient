@@ -9,8 +9,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.ak;
+import com.baidu.tbadk.core.f;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.g;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -67,7 +67,7 @@ public class a extends BdAsyncTask<String, Integer, String> {
                 } else if (10 == this.b.getIntExtra("class", -1)) {
                     this.b.putExtra("class", 12);
                 }
-                str2 = DealIntentService.b;
+                str2 = DealIntentService.ACTION_ON_POST_EXSIT;
                 return str2;
             }
         }
@@ -75,7 +75,7 @@ public class a extends BdAsyncTask<String, Integer, String> {
             a(i);
         }
         BdLog.d("see noti goto maintab app not active");
-        str = DealIntentService.c;
+        str = DealIntentService.ACTION_ON_POST_START;
         return str;
     }
 
@@ -87,9 +87,9 @@ public class a extends BdAsyncTask<String, Integer, String> {
         String str2;
         String str3;
         if (str != null) {
-            str2 = DealIntentService.b;
+            str2 = DealIntentService.ACTION_ON_POST_EXSIT;
             if (!str.equals(str2)) {
-                str3 = DealIntentService.c;
+                str3 = DealIntentService.ACTION_ON_POST_START;
                 if (str.equals(str3)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ak(this.a, this.b)));
                 }
@@ -139,8 +139,8 @@ public class a extends BdAsyncTask<String, Integer, String> {
             case 13:
             default:
                 return;
-            case 14:
-                g.a(this.a.getBaseContext(), "notify_group_event_click");
+            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
+                f.a(this.a.getBaseContext(), "notify_group_event_click");
                 return;
         }
     }

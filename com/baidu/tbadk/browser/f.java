@@ -1,11 +1,15 @@
 package com.baidu.tbadk.browser;
-
-import android.app.Activity;
 /* loaded from: classes.dex */
-public class f {
-    private final Activity a;
+class f implements Runnable {
+    final /* synthetic */ TbWebViewActivity a;
 
-    public f(Activity activity) {
-        this.a = activity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(TbWebViewActivity tbWebViewActivity) {
+        this.a = tbWebViewActivity;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.b();
     }
 }

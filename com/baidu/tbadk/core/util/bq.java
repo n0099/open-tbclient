@@ -39,38 +39,38 @@ public class bq implements br {
                 bp.a((CheckBox) view, this.a);
                 return false;
             } else if ("skin_sidebar_content".equals(tag)) {
-                ((TextView) view).setTextAppearance(TbadkApplication.m252getInst().getApp(), this.b ? com.baidu.tieba.v.sidebar_content_1 : com.baidu.tieba.v.sidebar_content);
+                ((TextView) view).setTextAppearance(TbadkApplication.m252getInst().getApp(), this.b ? com.baidu.tieba.z.sidebar_content_1 : com.baidu.tieba.z.sidebar_content);
                 return false;
             } else if ("skin_more_up".equals(tag)) {
                 if (view instanceof RadioButton) {
                     b4 = bp.b(this.b);
                     ((RadioButton) view).setTextColor(b4);
                 }
-                bc.e(view, this.b ? com.baidu.tieba.q.more_up_1 : com.baidu.tieba.q.more_up);
+                bc.e(view, this.b ? com.baidu.tieba.u.more_up_1 : com.baidu.tieba.u.more_up);
                 return false;
             } else if ("skin_more_middle".equals(tag)) {
                 if (view instanceof RadioButton) {
                     b3 = bp.b(this.b);
                     ((RadioButton) view).setTextColor(b3);
                 }
-                bc.e(view, this.b ? com.baidu.tieba.q.more_middle_1 : com.baidu.tieba.q.more_middle);
+                bc.e(view, this.b ? com.baidu.tieba.u.more_middle_1 : com.baidu.tieba.u.more_middle);
                 return false;
             } else if ("skin_more_down".equals(tag)) {
                 if (view instanceof RadioButton) {
                     b2 = bp.b(this.b);
                     ((RadioButton) view).setTextColor(b2);
                 }
-                bc.e(view, this.b ? com.baidu.tieba.q.more_down_1 : com.baidu.tieba.q.more_down);
+                bc.e(view, this.b ? com.baidu.tieba.u.more_down_1 : com.baidu.tieba.u.more_down);
                 return false;
             } else if ("skin_more_all".equals(tag)) {
                 if (view instanceof RadioButton) {
                     b = bp.b(this.b);
                     ((RadioButton) view).setTextColor(b);
                 }
-                bc.e(view, this.b ? com.baidu.tieba.q.more_all_1 : com.baidu.tieba.q.more_all);
+                bc.e(view, this.b ? com.baidu.tieba.u.more_all_1 : com.baidu.tieba.u.more_all);
                 return false;
             } else if ("skin_arrow".equals(tag)) {
-                ((ImageView) view).setImageResource(this.b ? com.baidu.tieba.q.icon_ba_top_arrow_big_1 : com.baidu.tieba.q.icon_ba_top_arrow_big);
+                ((ImageView) view).setImageResource(this.b ? com.baidu.tieba.u.icon_ba_top_arrow_big_1 : com.baidu.tieba.u.icon_ba_top_arrow_big);
                 return false;
             } else if ("skin_list_line".equals(tag)) {
                 bp.a(view, this.a);

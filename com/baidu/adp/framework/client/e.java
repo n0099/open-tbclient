@@ -1,5 +1,6 @@
 package com.baidu.adp.framework.client;
 
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketMessage;
@@ -12,7 +13,7 @@ import com.baidu.adp.lib.network.websocket.g;
 import com.baidu.adp.lib.network.websocket.i;
 import com.baidu.adp.lib.network.websocket.m;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -90,7 +91,7 @@ public class e extends a<SocketMessage, SocketMessageTask> implements com.baidu.
         this.e = new LinkedList<>();
         this.f = new LinkedList<>();
         this.g = true;
-        BdSocketLinkService.a(this);
+        BdSocketLinkService.setConnStateCallBack(this);
     }
 
     public void a(com.baidu.adp.framework.c.d dVar) {
@@ -118,12 +119,12 @@ public class e extends a<SocketMessage, SocketMessageTask> implements com.baidu.
     private void e() {
         g first;
         if (!this.e.isEmpty() && (first = this.e.getFirst()) != null) {
-            if (BdSocketLinkService.a()) {
-                BdSocketLinkService.a(false, "send message");
+            if (BdSocketLinkService.isClose()) {
+                BdSocketLinkService.startService(false, "send message");
             } else if (this.g && !first.o()) {
                 BdLog.d("The message quene is locked!");
             } else {
-                BdSocketLinkService.a(first);
+                BdSocketLinkService.sendMessage(first);
             }
         }
     }
@@ -155,7 +156,7 @@ public class e extends a<SocketMessage, SocketMessageTask> implements com.baidu.
         if (this.c != null) {
             this.c.a(i, str);
         }
-        if (!h.d() || e(this.f) || e(this.e) || e(this.d) || this.g) {
+        if (!k.d() || e(this.f) || e(this.e) || e(this.d) || this.g) {
             a();
             return false;
         }
@@ -168,7 +169,7 @@ public class e extends a<SocketMessage, SocketMessageTask> implements com.baidu.
                 break;
             }
             d.b();
-            a(d, i.r, com.baidu.adp.base.a.getInst().getString(com.baidu.adp.f.send_error));
+            a(d, i.r, BdBaseApplication.getInst().getString(com.baidu.adp.f.send_error));
         }
         if (this.e == null || this.e.size() <= 0) {
             return false;
@@ -176,7 +177,7 @@ public class e extends a<SocketMessage, SocketMessageTask> implements com.baidu.
         if (com.baidu.adp.framework.c.c.a().i() != null) {
             com.baidu.adp.framework.c.c.a().i().a("have retry message", "MessageQueue:reconnect", 0, (Message<?>) null);
         }
-        BdSocketLinkService.a(false, "have retry message");
+        BdSocketLinkService.startService(false, "have retry message");
         return true;
     }
 
@@ -266,7 +267,7 @@ public class e extends a<SocketMessage, SocketMessageTask> implements com.baidu.
             string = i.a(i3);
         } else {
             i2 = i.q;
-            string = com.baidu.adp.base.a.getInst().getString(com.baidu.adp.f.send_error);
+            string = BdBaseApplication.getInst().getString(com.baidu.adp.f.send_error);
         }
         a(gVar, i2, string);
         e();
@@ -445,7 +446,7 @@ public class e extends a<SocketMessage, SocketMessageTask> implements com.baidu.
         while (it.hasNext()) {
             g next = it.next();
             next.b();
-            a(next, i.r, com.baidu.adp.base.a.getInst().getString(com.baidu.adp.f.send_error));
+            a(next, i.r, BdBaseApplication.getInst().getString(com.baidu.adp.f.send_error));
         }
         linkedList.clear();
     }
@@ -492,7 +493,7 @@ public class e extends a<SocketMessage, SocketMessageTask> implements com.baidu.
     }
 
     public boolean b() {
-        return BdSocketLinkService.b() && !this.g;
+        return BdSocketLinkService.isOpen() && !this.g;
     }
 
     public boolean c() {

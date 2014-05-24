@@ -28,14 +28,14 @@ public class bg {
 
     public bg(BaseActivity baseActivity) {
         this.b = baseActivity;
-        baseActivity.setContentView(com.baidu.tieba.s.face_purchase_records_layout);
-        this.c = (LinearLayout) baseActivity.findViewById(com.baidu.tieba.r.purchase_record);
-        this.d = (NavigationBar) this.c.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.d.a(baseActivity.getResources().getString(com.baidu.tieba.u.purchase_record));
+        baseActivity.setContentView(com.baidu.tieba.w.face_purchase_records_layout);
+        this.c = (LinearLayout) baseActivity.findViewById(com.baidu.tieba.v.purchase_record);
+        this.d = (NavigationBar) this.c.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.d.a(baseActivity.getResources().getString(com.baidu.tieba.y.purchase_record));
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = (NoNetworkView) this.c.findViewById(com.baidu.tieba.r.view_no_network);
-        this.h = (TextView) this.c.findViewById(com.baidu.tieba.r.empty);
-        this.f = (BdListView) this.c.findViewById(com.baidu.tieba.r.purchase_record_list);
+        this.e = (NoNetworkView) this.c.findViewById(com.baidu.tieba.v.view_no_network);
+        this.h = (TextView) this.c.findViewById(com.baidu.tieba.v.empty);
+        this.f = (BdListView) this.c.findViewById(com.baidu.tieba.v.purchase_record_list);
         this.g = new com.baidu.tbadk.core.view.q(baseActivity);
         this.f.setPullRefresh(this.g);
         this.f.setOnScrollListener(this.a);

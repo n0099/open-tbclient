@@ -23,7 +23,7 @@ public class z implements DialogInterface.OnClickListener {
             groupInfoActivity = this.a.c;
             ((ClipboardManager) groupInfoActivity.getSystemService("clipboard")).setText(this.b);
             groupInfoActivity2 = this.a.c;
-            groupInfoActivity2.showToast(com.baidu.tieba.u.copy_success);
+            groupInfoActivity2.showToast(com.baidu.tieba.y.copy_success);
         } catch (Exception e) {
             BdLog.e("copy group number failed");
         }

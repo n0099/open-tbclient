@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.a.g;
+import com.baidu.adp.framework.a.h;
 import com.baidu.adp.framework.a.i;
 import com.baidu.adp.framework.a.k;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -23,7 +24,6 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.h;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -219,7 +219,7 @@ public class MessageManager {
 
     public void registerTask(MessageTask messageTask) {
         if (messageTask != null) {
-            h.b();
+            com.baidu.adp.lib.util.k.b();
             if (messageTask instanceof HttpMessageTask) {
                 this.mHttpManager.a((com.baidu.adp.framework.b.b) ((HttpMessageTask) messageTask));
             } else if (messageTask instanceof SocketMessageTask) {
@@ -247,7 +247,7 @@ public class MessageManager {
     }
 
     public void unRegisterTask(int i) {
-        h.b();
+        com.baidu.adp.lib.util.k.b();
         com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(i);
         if (manager != null) {
             manager.c(i);
@@ -277,7 +277,7 @@ public class MessageManager {
 
     public void registerListenerFromBackground(final MessageListener<?> messageListener) {
         if (messageListener != null) {
-            if (h.c()) {
+            if (com.baidu.adp.lib.util.k.c()) {
                 registerListener(messageListener);
             } else {
                 this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.2
@@ -292,7 +292,7 @@ public class MessageManager {
 
     public void registerListener(MessageListener<?> messageListener) {
         if (messageListener != null) {
-            h.b();
+            com.baidu.adp.lib.util.k.b();
             FrameHelper.TYPE a = FrameHelper.a(messageListener.getCmd());
             if (a == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
                 this.mHttpManager.a(0, (HttpMessageListener) messageListener);
@@ -308,7 +308,7 @@ public class MessageManager {
 
     public void registerListener(int i, MessageListener<?> messageListener) {
         if (messageListener != null) {
-            h.b();
+            com.baidu.adp.lib.util.k.b();
             FrameHelper.TYPE a = FrameHelper.a(i);
             if (a == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
                 this.mHttpManager.a(i, (HttpMessageListener) messageListener);
@@ -323,7 +323,7 @@ public class MessageManager {
     }
 
     public void unRegisterListener(MessageListener<?> messageListener) {
-        h.b();
+        com.baidu.adp.lib.util.k.b();
         if (messageListener != null) {
             int cmd = messageListener.getCmd();
             if (cmd != 0) {
@@ -347,7 +347,7 @@ public class MessageManager {
     }
 
     public void registerStickyMode(int i) {
-        h.b();
+        com.baidu.adp.lib.util.k.b();
         com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(i);
         if (manager != null) {
             manager.f(i);
@@ -355,40 +355,40 @@ public class MessageManager {
     }
 
     public void unRegisterStickyMode(int i) {
-        h.b();
+        com.baidu.adp.lib.util.k.b();
         com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(i);
         if (manager != null) {
             manager.g(i);
         }
     }
 
-    public void addMessageRule(com.baidu.adp.framework.a.h<?, ?> hVar) {
-        h.b();
+    public void addMessageRule(h<?, ?> hVar) {
+        com.baidu.adp.lib.util.k.b();
         this.mController.a(hVar);
     }
 
-    public void removeMessageRule(com.baidu.adp.framework.a.h<?, ?> hVar) {
-        h.b();
+    public void removeMessageRule(h<?, ?> hVar) {
+        com.baidu.adp.lib.util.k.b();
         this.mController.b(hVar);
     }
 
     public void addResponsedMessageRule(i<?> iVar) {
-        h.b();
+        com.baidu.adp.lib.util.k.b();
         this.mController.a(iVar);
     }
 
     public void removeResponsedMessageRule(i<?> iVar) {
-        h.b();
+        com.baidu.adp.lib.util.k.b();
         this.mController.b(iVar);
     }
 
     public void addRemovedMessageRule(g<?> gVar) {
-        h.b();
+        com.baidu.adp.lib.util.k.b();
         this.mController.a(gVar);
     }
 
     public void removeRemovedMessageRule(g<?> gVar) {
-        h.b();
+        com.baidu.adp.lib.util.k.b();
         this.mController.a(gVar);
     }
 

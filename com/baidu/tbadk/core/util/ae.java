@@ -109,7 +109,7 @@ public class ae {
                                             } else if (next.e != null) {
                                                 i11 += TbConfig.getBubbleImageSize();
                                             }
-                                            if (i13 > lastVisiblePosition && (i12 = i12 + next.c) > com.baidu.adp.lib.util.h.c(TbadkApplication.m252getInst().getApp())) {
+                                            if (i13 > lastVisiblePosition && (i12 = i12 + next.c) > com.baidu.adp.lib.util.k.c(TbadkApplication.m252getInst().getApp())) {
                                                 i7 = i12;
                                                 i8 = i11;
                                                 i9 = i10;

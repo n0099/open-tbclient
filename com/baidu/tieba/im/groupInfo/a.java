@@ -24,14 +24,14 @@ class a extends com.baidu.adp.framework.listener.b {
             int error = responseJoinGroupMessage.getError();
             String errorString = responseJoinGroupMessage.getErrorString();
             if (responseJoinGroupMessage.getError() != 0) {
-                String string = TextUtils.isEmpty(errorString) ? this.a.getString(com.baidu.tieba.u.group_apply_fail) : errorString;
+                String string = TextUtils.isEmpty(errorString) ? this.a.getString(com.baidu.tieba.y.group_apply_fail) : errorString;
                 BdLog.d("apply add group" + socketResponsedMessage.toString() + "err:" + error + " errMsg" + string);
                 this.a.f.setEnabled(true);
                 this.a.showToast(string);
                 return;
             }
             if (TextUtils.isEmpty(errorString)) {
-                errorString = this.a.getString(com.baidu.tieba.u.group_apply_succ);
+                errorString = this.a.getString(com.baidu.tieba.y.group_apply_succ);
             }
             this.a.showToast(errorString, false);
             if (error == 0) {

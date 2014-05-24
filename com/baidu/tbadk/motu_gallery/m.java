@@ -1,45 +1,25 @@
 package com.baidu.tbadk.motu_gallery;
 
 import android.graphics.Bitmap;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-public class m extends Thread {
-    final /* synthetic */ d a;
+class m extends Handler {
+    final /* synthetic */ JigsawAlbumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(d dVar) {
-        this.a = dVar;
+    public m(JigsawAlbumListActivity jigsawAlbumListActivity) {
+        this.a = jigsawAlbumListActivity;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        byte[] bArr;
-        ArrayList arrayList;
-        c b;
-        Map map;
-        w wVar;
-        Map map2;
-        bArr = this.a.s;
-        synchronized (bArr) {
-            try {
-                arrayList = this.a.f;
-                Iterator it = arrayList.iterator();
-                while (it.hasNext()) {
-                    b = this.a.b(((c) it.next()).a);
-                    map = this.a.h;
-                    if (!map.containsKey(b.b)) {
-                        wVar = this.a.k;
-                        Bitmap a = wVar.a(this.a, b, this.a.a(70.0f));
-                        map2 = this.a.h;
-                        map2.put(b.b, a);
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        switch (message.what) {
+            case 0:
+                this.a.a(message.arg1, (Bitmap) message.obj);
+                return;
+            default:
+                return;
         }
     }
 }

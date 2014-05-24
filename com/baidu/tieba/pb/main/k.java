@@ -17,62 +17,62 @@ class k implements com.baidu.tieba.model.as {
 
     @Override // com.baidu.tieba.model.as
     public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.f fVar, WriteData writeData, AntiData antiData) {
-        bj bjVar;
-        bj bjVar2;
+        bq bqVar;
+        bq bqVar2;
         WriteImagesInfo writeImagesInfo;
-        bj bjVar3;
+        bq bqVar3;
         com.baidu.tieba.model.ar arVar;
         com.baidu.tieba.model.ar arVar2;
         com.baidu.tieba.model.ar arVar3;
-        bc bcVar;
-        bc bcVar2;
-        bc bcVar3;
-        bj bjVar4;
+        bj bjVar;
+        bj bjVar2;
+        bj bjVar3;
+        bq bqVar4;
         com.baidu.tieba.pb.sub.f fVar2;
-        bc bcVar4;
+        bj bjVar4;
+        bq bqVar5;
         bj bjVar5;
-        bc bcVar5;
-        this.a.C();
-        bjVar = this.a.E;
-        bjVar.a(z);
-        bjVar2 = this.a.E;
+        this.a.D();
+        bqVar = this.a.D;
+        bqVar.a(z);
+        bqVar2 = this.a.D;
         writeImagesInfo = this.a.n;
-        bjVar2.a(writeImagesInfo, true);
+        bqVar2.a(writeImagesInfo, true);
         if (z) {
-            bjVar3 = this.a.E;
-            bjVar3.ac();
-            arVar = this.a.A;
+            bqVar3 = this.a.D;
+            bqVar3.ac();
+            arVar = this.a.z;
             WriteData a = arVar.a();
-            arVar2 = this.a.A;
+            arVar2 = this.a.z;
             arVar2.a((WriteData) null);
-            arVar3 = this.a.A;
+            arVar3 = this.a.z;
             arVar3.a(false);
-            bcVar = this.a.y;
-            bcVar.z();
+            bjVar = this.a.x;
+            bjVar.z();
             this.a.a(antiData, str);
-            bcVar2 = this.a.y;
-            if (!bcVar2.m()) {
-                bcVar5 = this.a.y;
-                com.baidu.tieba.util.m.b(bcVar5.f(), (WriteData) null);
+            bjVar2 = this.a.x;
+            if (!bjVar2.m()) {
+                bjVar5 = this.a.x;
+                com.baidu.tieba.util.m.b(bjVar5.f(), (WriteData) null);
             }
             if (a != null) {
                 String floor = a.getFloor();
                 if (a == null || a.getType() != 2) {
-                    bcVar3 = this.a.y;
-                    if (bcVar3.r()) {
-                        bjVar4 = this.a.E;
-                        bjVar4.t();
+                    bjVar3 = this.a.x;
+                    if (bjVar3.r()) {
+                        bqVar4 = this.a.D;
+                        bqVar4.t();
                         return;
                     }
                     return;
                 }
-                fVar2 = this.a.C;
+                fVar2 = this.a.B;
                 fVar2.i();
                 if (floor != null) {
-                    bcVar4 = this.a.y;
-                    com.baidu.tieba.data.ae p = bcVar4.p();
-                    bjVar5 = this.a.E;
-                    bjVar5.a(p);
+                    bjVar4 = this.a.x;
+                    com.baidu.tieba.data.af p = bjVar4.p();
+                    bqVar5 = this.a.D;
+                    bqVar5.a(p);
                 }
                 com.baidu.tieba.util.m.a(a.getThreadId(), this.a);
             }
@@ -86,7 +86,7 @@ class k implements com.baidu.tieba.model.as {
             if (fVar.c().equals("4")) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ap(this.a, 12006, writeData, false)));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bg(this.a, writeData, 12006)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bh(this.a, writeData, 12006)));
             }
         }
     }

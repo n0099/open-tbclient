@@ -5,10 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
 class j extends BroadcastReceiver {
-    final /* synthetic */ CaptureActivity a;
+    final /* synthetic */ CaptureActivity this$0;
 
     private j(CaptureActivity captureActivity) {
-        this.a = captureActivity;
+        this.this$0 = captureActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,11 +18,11 @@ class j extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.a.releaseResouce();
+        this.this$0.releaseResouce();
         if (intent.getBooleanExtra("result", false)) {
-            CaptureActivity.a(this.a);
+            CaptureActivity.a(this.this$0);
         } else {
-            this.a.showToast(intent.getStringExtra("error"));
+            this.this$0.showToast(intent.getStringExtra("error"));
         }
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.tblauncher;
 
+import android.widget.TextView;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 class t extends CustomMessageListener {
     final /* synthetic */ MainTabActivity a;
@@ -20,26 +20,17 @@ class t extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> a;
-        FragmentTabHost fragmentTabHost;
-        FragmentTabHost fragmentTabHost2;
-        MainTabActivity mainTabActivity;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2009002 && customResponsedMessage.getData() != null && (a = ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).a()) != null && a.size() != 0) {
-            fragmentTabHost = this.a.m;
-            fragmentTabHost.b();
-            Iterator<com.baidu.tbadk.mainTab.b> it = a.iterator();
-            while (it.hasNext()) {
-                com.baidu.tbadk.mainTab.b next = it.next();
-                if (next != null) {
-                    com.baidu.tbadk.mainTab.d b = next.b();
-                    MainTabActivity mainTabActivity2 = this.a;
-                    mainTabActivity = this.a.F;
-                    mainTabActivity2.a(b, next.a(mainTabActivity));
-                }
+        TextView textView;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003124) {
+            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
+                BdLog.e("transform error");
+            } else if (MainTabActivity.c) {
+                NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
+                int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme() + newsNotifyMessage.getMsgChat();
+                MainTabActivity mainTabActivity = this.a;
+                textView = this.a.B;
+                mainTabActivity.a(textView, msgReplyme);
             }
-            fragmentTabHost2 = this.a.m;
-            fragmentTabHost2.a();
-            this.a.a(this.a.getIntent());
         }
     }
 }

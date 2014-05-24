@@ -63,7 +63,7 @@ public class a extends com.baidu.tieba.im.pushNotify.n {
 
     @Override // com.baidu.tieba.im.pushNotify.n
     protected s<String> c() {
-        return com.baidu.tbadk.core.a.b.a().x();
+        return com.baidu.tbadk.core.a.b.a().y();
     }
 
     @Override // com.baidu.tieba.im.pushNotify.n

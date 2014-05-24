@@ -1,6 +1,6 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
-class am extends com.baidu.adp.base.g {
+class am extends com.baidu.adp.base.e {
     final /* synthetic */ FacePackageDetailActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,7 +8,7 @@ class am extends com.baidu.adp.base.g {
         this.a = facePackageDetailActivity;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         if (obj != null && (obj instanceof FaceBuyQueryData)) {
             FaceBuyQueryData faceBuyQueryData = (FaceBuyQueryData) obj;

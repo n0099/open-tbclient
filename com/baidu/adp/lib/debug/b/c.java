@@ -51,8 +51,8 @@ public class c extends View {
         this.f = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.d.switch_capture_package_item);
         this.j = (TextView) this.f.findViewById(com.baidu.adp.d.switch_capture_package);
         this.g = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.d.debug_close_item);
-        this.i.setText(com.baidu.adp.lib.debug.c.d ? "开" : "关");
-        this.j.setText(com.baidu.adp.lib.debug.c.e ? "开" : "关");
+        this.i.setText(com.baidu.adp.lib.debug.d.d ? "开" : "关");
+        this.j.setText(com.baidu.adp.lib.debug.d.e ? "开" : "关");
         this.d.setOnClickListener(new d(this));
         this.e.setOnClickListener(new e(this));
         this.f.setOnClickListener(new f(this));

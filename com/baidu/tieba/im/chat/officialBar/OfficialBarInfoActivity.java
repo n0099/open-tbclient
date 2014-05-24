@@ -92,7 +92,7 @@ public class OfficialBarInfoActivity extends BaseActivity implements View.OnClic
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.f.a()) {
-            new AlertDialog.Builder(this).setTitle(com.baidu.tieba.u.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.u.officical_bar_info_clean_alert).setPositiveButton(com.baidu.tieba.u.alert_yes_button, new ai(this)).setNegativeButton(com.baidu.tieba.u.alert_no_button, new aj(this)).create().show();
+            new AlertDialog.Builder(this).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.officical_bar_info_clean_alert).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new ai(this)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new aj(this)).create().show();
         } else if (view == this.f.b()) {
             OfficialBarHistoryActivity.a(this, this.c);
         } else if (view == this.f.c()) {

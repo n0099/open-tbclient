@@ -9,9 +9,12 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.base.c<UpdatesItemData> {
+public class i extends com.baidu.adp.base.a<UpdatesItemData> {
     private View b;
     private HeadImageView c;
     private TextView d;
@@ -25,21 +28,21 @@ public class i extends com.baidu.adp.base.c<UpdatesItemData> {
     private UpdatesItemData l;
 
     public i(UpdatesActivity updatesActivity) {
-        super(updatesActivity, com.baidu.tieba.s.updates_item);
+        super(updatesActivity, w.updates_item);
         this.k = updatesActivity;
         b();
     }
 
     void b() {
-        this.b = this.a.findViewById(com.baidu.tieba.r.root_view);
-        this.c = (HeadImageView) this.b.findViewById(com.baidu.tieba.r.iv_head);
-        this.d = (TextView) this.b.findViewById(com.baidu.tieba.r.tv_group_name);
-        this.e = (TextView) this.b.findViewById(com.baidu.tieba.r.tv_content);
-        this.f = (TextView) this.b.findViewById(com.baidu.tieba.r.tv_title);
-        this.g = (TextView) this.b.findViewById(com.baidu.tieba.r.tv_time);
-        this.h = (ImageView) this.b.findViewById(com.baidu.tieba.r.cb_select);
-        this.i = (RelativeLayout) this.b.findViewById(com.baidu.tieba.r.layout_body);
-        this.j = (RelativeLayout) this.b.findViewById(com.baidu.tieba.r.layout_title);
+        this.b = this.a.findViewById(v.root_view);
+        this.c = (HeadImageView) this.b.findViewById(v.iv_head);
+        this.d = (TextView) this.b.findViewById(v.tv_group_name);
+        this.e = (TextView) this.b.findViewById(v.tv_content);
+        this.f = (TextView) this.b.findViewById(v.tv_title);
+        this.g = (TextView) this.b.findViewById(v.tv_time);
+        this.h = (ImageView) this.b.findViewById(v.cb_select);
+        this.i = (RelativeLayout) this.b.findViewById(v.layout_body);
+        this.j = (RelativeLayout) this.b.findViewById(v.layout_title);
         this.c.setOnClickListener(new j(this));
         this.i.setClickable(true);
         this.i.setLongClickable(true);
@@ -70,7 +73,7 @@ public class i extends com.baidu.adp.base.c<UpdatesItemData> {
             if (!TextUtils.isEmpty(this.l.getTitle())) {
                 this.f.setText(this.l.getTitle());
             } else {
-                this.f.setText(this.k.getString(u.alerm_title));
+                this.f.setText(this.k.getString(y.alerm_title));
             }
             Date date = new Date();
             date.setTime(this.l.getTime());
@@ -94,9 +97,9 @@ public class i extends com.baidu.adp.base.c<UpdatesItemData> {
             this.k.getLayoutMode().a(this.a);
             this.h.setSelected(this.l.isSelected());
             if (this.l.isSelected()) {
-                this.i.setBackgroundResource(z ? com.baidu.tieba.q.bg_information_down_s_1 : com.baidu.tieba.q.bg_information_down_s);
+                this.i.setBackgroundResource(z ? u.bg_information_down_s_1 : u.bg_information_down_s);
             } else {
-                this.i.setBackgroundResource(z ? com.baidu.tieba.q.selector_group_updates_bottom_bg_1 : com.baidu.tieba.q.selector_group_updates_bottom_bg);
+                this.i.setBackgroundResource(z ? u.selector_group_updates_bottom_bg_1 : u.selector_group_updates_bottom_bg);
             }
             this.i.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }

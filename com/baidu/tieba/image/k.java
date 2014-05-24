@@ -4,7 +4,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<String, Integer, String> {
@@ -30,9 +30,9 @@ public class k extends BdAsyncTask<String, Integer, String> {
                 return x.b();
             case -1:
             default:
-                return this.c.getString(u.save_error);
+                return this.c.getString(y.save_error);
             case 0:
-                return this.c.getString(u.save_image_to_album);
+                return this.c.getString(y.save_image_to_album);
         }
     }
 

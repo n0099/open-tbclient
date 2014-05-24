@@ -34,10 +34,10 @@ public class HotLiveInitGuideView extends RelativeLayout {
     }
 
     public void a(Context context) {
-        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.s.im_frsgroup_guide, (ViewGroup) null));
-        this.a = (ImageView) findViewById(com.baidu.tieba.r.guide_img);
-        this.b = (TextView) findViewById(com.baidu.tieba.r.guide_tip1);
-        this.c = (TextView) findViewById(com.baidu.tieba.r.guide_tip2);
+        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.im_frsgroup_guide, (ViewGroup) null));
+        this.a = (ImageView) findViewById(com.baidu.tieba.v.guide_img);
+        this.b = (TextView) findViewById(com.baidu.tieba.v.guide_tip1);
+        this.c = (TextView) findViewById(com.baidu.tieba.v.guide_tip2);
     }
 
     private void setSkinType(int i) {
@@ -67,12 +67,12 @@ public class HotLiveInitGuideView extends RelativeLayout {
     public void a(int i) {
         if (b(i)) {
             if (i == 1) {
-                this.a.setBackgroundResource(com.baidu.tieba.q.pic_go_ba_1);
+                this.a.setBackgroundResource(com.baidu.tieba.u.pic_go_ba_1);
                 this.b.setTextColor(-8815226);
                 this.c.setTextColor(-8815226);
                 return;
             }
-            this.a.setBackgroundResource(com.baidu.tieba.q.pic_go_ba);
+            this.a.setBackgroundResource(com.baidu.tieba.u.pic_go_ba);
             this.b.setTextColor(-5065030);
             this.c.setTextColor(-5065030);
         }
@@ -81,20 +81,20 @@ public class HotLiveInitGuideView extends RelativeLayout {
     public void c() {
         setVisibility(0);
         getTip1().setVisibility(4);
-        getTip2().setText(com.baidu.tieba.u.live_hotlist_no_living_tip);
+        getTip2().setText(com.baidu.tieba.y.live_hotlist_no_living_tip);
     }
 
     public void d() {
         setVisibility(0);
         getTip1().setVisibility(4);
-        getTip2().setText(com.baidu.tieba.u.live_hotlist_no_review_tip);
+        getTip2().setText(com.baidu.tieba.y.live_hotlist_no_review_tip);
     }
 
     public void e() {
         setVisibility(0);
         getTip1().setVisibility(4);
         getTip2().setVisibility(0);
-        getTip2().setText(com.baidu.tieba.u.live_hotlist_no_foreshow_tip);
+        getTip2().setText(com.baidu.tieba.y.live_hotlist_no_foreshow_tip);
     }
 
     public TextView getTip1() {

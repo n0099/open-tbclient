@@ -102,8 +102,8 @@ public class p extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == this.b.size()) {
-            View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.big_image_next, (ViewGroup) null);
-            ((TextView) inflate.findViewById(com.baidu.tieba.r.thread_name)).setText(this.i);
+            View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.big_image_next, (ViewGroup) null);
+            ((TextView) inflate.findViewById(com.baidu.tieba.v.thread_name)).setText(this.i);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.c);
             inflate.setOnLongClickListener(this.d);

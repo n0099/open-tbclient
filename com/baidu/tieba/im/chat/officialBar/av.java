@@ -58,14 +58,14 @@ public class av extends BaseAdapter {
         if (view != null) {
             awVar = (aw) view.getTag();
         } else {
-            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.officialbar_msg_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.officialbar_msg_list_item, viewGroup, false);
             aw b = b(view);
             view.setTag(b);
             awVar = b;
         }
         ImMessageCenterShowItemData imMessageCenterShowItemData = (ImMessageCenterShowItemData) getItem(i);
         if (imMessageCenterShowItemData != null) {
-            awVar.c.setText(this.a.getString(com.baidu.tieba.u.official_msg_list_name, new Object[]{imMessageCenterShowItemData.getFriendName()}));
+            awVar.c.setText(this.a.getString(com.baidu.tieba.y.official_msg_list_name, new Object[]{imMessageCenterShowItemData.getFriendName()}));
             awVar.d.setText(a(imMessageCenterShowItemData.getMsgContent()));
             if (imMessageCenterShowItemData.getServerTime() != 0) {
                 awVar.e.setText(com.baidu.tbadk.core.util.be.f(new Date(imMessageCenterShowItemData.getServerTime())));
@@ -79,8 +79,8 @@ public class av extends BaseAdapter {
             }
             awVar.a.setTag(null);
             awVar.a.setDrawBorder(true);
-            awVar.a.setDefaultResource(com.baidu.tieba.q.avatar_poto_defaul140);
-            awVar.a.setNightDefaultResource(com.baidu.tieba.q.avatar_poto_defaul140);
+            awVar.a.setDefaultResource(com.baidu.tieba.u.avatar_poto_defaul140);
+            awVar.a.setNightDefaultResource(com.baidu.tieba.u.avatar_poto_defaul140);
             awVar.a.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
                 awVar.a.setTag(imMessageCenterShowItemData.getFriendPortrait());
@@ -122,43 +122,43 @@ public class av extends BaseAdapter {
         }
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             if (i == 0) {
-                textView.setBackgroundResource(com.baidu.tieba.q.icon_news_list_prompt_1);
+                textView.setBackgroundResource(com.baidu.tieba.u.icon_news_list_prompt_1);
                 textView.setText("");
                 imageView.setVisibility(0);
             } else if (i < 10) {
-                textView.setBackgroundResource(com.baidu.tieba.q.icon_news_head_prompt_one_1);
+                textView.setBackgroundResource(com.baidu.tieba.u.icon_news_head_prompt_one_1);
                 textView.setText(String.valueOf(i));
             } else if (i < 100) {
-                textView.setBackgroundResource(com.baidu.tieba.q.icon_news_head_prompt_two_1);
+                textView.setBackgroundResource(com.baidu.tieba.u.icon_news_head_prompt_two_1);
                 textView.setText(String.valueOf(i));
             } else {
-                textView.setBackgroundResource(com.baidu.tieba.q.icon_news_head_prompt_more_1);
+                textView.setBackgroundResource(com.baidu.tieba.u.icon_news_head_prompt_more_1);
                 textView.setText("");
             }
         } else if (i == 0) {
-            textView.setBackgroundResource(com.baidu.tieba.q.icon_news_list_prompt);
+            textView.setBackgroundResource(com.baidu.tieba.u.icon_news_list_prompt);
             textView.setText("");
             imageView.setVisibility(0);
         } else if (i < 10) {
-            textView.setBackgroundResource(com.baidu.tieba.q.icon_news_head_prompt_one);
+            textView.setBackgroundResource(com.baidu.tieba.u.icon_news_head_prompt_one);
             textView.setText(String.valueOf(i));
         } else if (i < 100) {
-            textView.setBackgroundResource(com.baidu.tieba.q.icon_news_head_prompt_two);
+            textView.setBackgroundResource(com.baidu.tieba.u.icon_news_head_prompt_two);
             textView.setText(String.valueOf(i));
         } else {
-            textView.setBackgroundResource(com.baidu.tieba.q.icon_news_head_prompt_more);
+            textView.setBackgroundResource(com.baidu.tieba.u.icon_news_head_prompt_more);
             textView.setText("");
         }
     }
 
     private aw b(View view) {
         aw awVar = new aw(null);
-        awVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.r.item_head);
-        awVar.b = (TextView) view.findViewById(com.baidu.tieba.r.item_new_message);
-        awVar.c = (TextView) view.findViewById(com.baidu.tieba.r.item_name);
-        awVar.d = (TextView) view.findViewById(com.baidu.tieba.r.item_last_msg_content);
-        awVar.e = (TextView) view.findViewById(com.baidu.tieba.r.item_time);
-        awVar.f = (ImageView) view.findViewById(com.baidu.tieba.r.item_bell);
+        awVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.v.item_head);
+        awVar.b = (TextView) view.findViewById(com.baidu.tieba.v.item_new_message);
+        awVar.c = (TextView) view.findViewById(com.baidu.tieba.v.item_name);
+        awVar.d = (TextView) view.findViewById(com.baidu.tieba.v.item_last_msg_content);
+        awVar.e = (TextView) view.findViewById(com.baidu.tieba.v.item_time);
+        awVar.f = (ImageView) view.findViewById(com.baidu.tieba.v.item_bell);
         return awVar;
     }
 

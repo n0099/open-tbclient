@@ -167,24 +167,24 @@ public class ad extends BaseAdapter {
             if (view == null) {
                 ag agVar2 = new ag();
                 if (getItemViewType(i) == 1) {
-                    View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.im_members_list_foot, viewGroup, false);
-                    agVar2.a = (LinearLayout) inflate.findViewById(com.baidu.tieba.r.list_more);
-                    agVar2.b = (TextView) inflate.findViewById(com.baidu.tieba.r.more_title);
-                    agVar2.c = (ProgressBar) inflate.findViewById(com.baidu.tieba.r.more_progress);
+                    View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.im_members_list_foot, viewGroup, false);
+                    agVar2.a = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.list_more);
+                    agVar2.b = (TextView) inflate.findViewById(com.baidu.tieba.v.more_title);
+                    agVar2.c = (ProgressBar) inflate.findViewById(com.baidu.tieba.v.more_progress);
                     view2 = inflate;
                 } else if (getItemViewType(i) == 2) {
-                    view2 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.im_list_divide, viewGroup, false);
+                    view2 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.im_list_divide, viewGroup, false);
                 } else {
-                    View inflate2 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.im_members_list_item, viewGroup, false);
-                    agVar2.e = (HeadImageView) inflate2.findViewById(com.baidu.tieba.r.item_head);
+                    View inflate2 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.im_members_list_item, viewGroup, false);
+                    agVar2.e = (HeadImageView) inflate2.findViewById(com.baidu.tieba.v.item_head);
                     agVar2.e.setIsRound(true);
                     agVar2.e.setAutoChangeStyle(true);
-                    agVar2.f = (TextView) inflate2.findViewById(com.baidu.tieba.r.item_name);
-                    agVar2.g = (ImageView) inflate2.findViewById(com.baidu.tieba.r.item_sex);
-                    agVar2.h = (TextView) inflate2.findViewById(com.baidu.tieba.r.item_time);
-                    agVar2.i = (TextView) inflate2.findViewById(com.baidu.tieba.r.item_address);
-                    agVar2.d = (ImageView) inflate2.findViewById(com.baidu.tieba.r.item_check);
-                    agVar2.j = (UserIconBox) inflate2.findViewById(com.baidu.tieba.r.user_tshow_icon_box);
+                    agVar2.f = (TextView) inflate2.findViewById(com.baidu.tieba.v.item_name);
+                    agVar2.g = (ImageView) inflate2.findViewById(com.baidu.tieba.v.item_sex);
+                    agVar2.h = (TextView) inflate2.findViewById(com.baidu.tieba.v.item_time);
+                    agVar2.i = (TextView) inflate2.findViewById(com.baidu.tieba.v.item_address);
+                    agVar2.d = (ImageView) inflate2.findViewById(com.baidu.tieba.v.item_check);
+                    agVar2.j = (UserIconBox) inflate2.findViewById(com.baidu.tieba.v.user_tshow_icon_box);
                     view2 = inflate2;
                 }
                 view2.setTag(agVar2);
@@ -195,10 +195,10 @@ public class ad extends BaseAdapter {
             }
             if (getItemViewType(i) == 1) {
                 if (this.c) {
-                    agVar.b.setText(com.baidu.tieba.u.members_load_more_person);
+                    agVar.b.setText(com.baidu.tieba.y.members_load_more_person);
                     agVar.c.setVisibility(0);
                 } else {
-                    agVar.b.setText(com.baidu.tieba.u.members_no_more_person);
+                    agVar.b.setText(com.baidu.tieba.y.members_no_more_person);
                     agVar.c.setVisibility(8);
                 }
             } else if (getItemViewType(i) == 2) {
@@ -214,7 +214,7 @@ public class ad extends BaseAdapter {
                         agVar.e.setImageBitmap(c.h());
                     } else {
                         agVar.e.setTag(portrait);
-                        agVar.e.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.photo));
+                        agVar.e.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.photo));
                     }
                 }
                 agVar.f.setText(userData.getUserName());
@@ -222,19 +222,19 @@ public class ad extends BaseAdapter {
                     case 1:
                         agVar.g.setVisibility(0);
                         if (skinType == 1) {
-                            agVar.g.setImageResource(com.baidu.tieba.q.icon_pop_boy_1);
+                            agVar.g.setImageResource(com.baidu.tieba.u.icon_pop_boy_1);
                             break;
                         } else {
-                            agVar.g.setImageResource(com.baidu.tieba.q.icon_pop_boy);
+                            agVar.g.setImageResource(com.baidu.tieba.u.icon_pop_boy);
                             break;
                         }
                     case 2:
                         agVar.g.setVisibility(0);
                         if (skinType == 1) {
-                            agVar.g.setImageResource(com.baidu.tieba.q.icon_pop_girl_1);
+                            agVar.g.setImageResource(com.baidu.tieba.u.icon_pop_girl_1);
                             break;
                         } else {
-                            agVar.g.setImageResource(com.baidu.tieba.q.icon_pop_girl);
+                            agVar.g.setImageResource(com.baidu.tieba.u.icon_pop_girl);
                             break;
                         }
                     default:
@@ -245,7 +245,7 @@ public class ad extends BaseAdapter {
                 agVar.i.setText(userData.getPosition());
                 this.i = userData.getTShowInfo();
                 if (agVar.j != null) {
-                    agVar.j.a(this.i, 2, this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.big_icon_width), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.big_icon_height), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.p.big_icon_margin), true);
+                    agVar.j.a(this.i, 2, this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.big_icon_width), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.big_icon_height), this.a.getResources().getDimensionPixelSize(com.baidu.tieba.t.big_icon_margin), true);
                 }
                 if (this.e) {
                     agVar.d.setVisibility(userData.getPermission().isController() ? 4 : 0);
@@ -286,7 +286,7 @@ public class ad extends BaseAdapter {
         }
         if (lastReplyTime <= 0) {
             if (b.a() == 1) {
-                return this.a.getString(com.baidu.tieba.u.members_no_speak);
+                return this.a.getString(com.baidu.tieba.y.members_no_speak);
             }
             return "";
         }

@@ -22,7 +22,7 @@ public class e implements View.OnClickListener {
             if (bubbleData != null) {
                 if (bubbleData.getBcode() == 0 || bubbleData.canUse() || bubbleData.isFree()) {
                     if (!bubbleData.isDef()) {
-                        this.a.a.a(bubbleData.getBcode(), com.baidu.adp.lib.util.h.b(this.a.d), com.baidu.adp.lib.util.h.c(this.a.d));
+                        this.a.a.a(bubbleData.getBcode(), com.baidu.adp.lib.util.k.b(this.a.d), com.baidu.adp.lib.util.k.c(this.a.d));
                         this.a.a.a(bubbleData.getBcode());
                         if (this.a.i() != null) {
                             this.a.i().a();
@@ -33,7 +33,7 @@ public class e implements View.OnClickListener {
                     return;
                 }
                 this.a.a.b(bubbleData.getBcode());
-                TbWebViewActivity.a(this.a.d, TbadkApplication.m252getInst().getString(com.baidu.tieba.u.web_title_bubble_purchase), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeantshow?_client_version=" + TbConfig.getVersion());
+                TbWebViewActivity.a(this.a.d, TbadkApplication.m252getInst().getString(com.baidu.tieba.y.web_title_bubble_purchase), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeantshow?_client_version=" + TbConfig.getVersion());
             }
         }
     }

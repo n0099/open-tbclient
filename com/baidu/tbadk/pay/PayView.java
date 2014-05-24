@@ -2,12 +2,12 @@ package com.baidu.tbadk.pay;
 
 import android.view.View;
 import android.widget.ProgressBar;
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.c;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class PayView extends e {
+public class PayView extends c {
     private BaseActivity mActivity;
     private ProgressBar mProgressBar;
     private View mRoot;
@@ -19,9 +19,9 @@ public class PayView extends e {
     }
 
     private void initUI() {
-        this.mActivity.setContentView(s.pay_activity);
-        this.mRoot = this.mActivity.findViewById(r.container);
-        this.mProgressBar = (ProgressBar) this.mActivity.findViewById(r.pay_progress);
+        this.mActivity.setContentView(w.pay_activity);
+        this.mRoot = this.mActivity.findViewById(v.container);
+        this.mProgressBar = (ProgressBar) this.mActivity.findViewById(v.pay_progress);
     }
 
     public void showProgress() {

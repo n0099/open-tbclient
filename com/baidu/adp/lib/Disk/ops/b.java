@@ -2,6 +2,7 @@ package com.baidu.adp.lib.Disk.ops;
 
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.ByteArrayInputStream;
@@ -33,7 +34,7 @@ public class b extends c {
                 if (this.h == null) {
                     this.h = new BitmapFactory.Options();
                     this.h.inDither = false;
-                    int i = com.baidu.adp.base.a.getInst().getResources().getDisplayMetrics().densityDpi;
+                    int i = BdBaseApplication.getInst().getResources().getDisplayMetrics().densityDpi;
                     this.h.inScreenDensity = i;
                     this.h.inTargetDensity = i;
                     this.h.inDensity = i;

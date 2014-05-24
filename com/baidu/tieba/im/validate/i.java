@@ -6,8 +6,11 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.base.c<ValidateItemData> {
+public class i extends com.baidu.adp.base.a<ValidateItemData> {
     private View b;
     private HeadImageView c;
     private TextView d;
@@ -18,19 +21,19 @@ public class i extends com.baidu.adp.base.c<ValidateItemData> {
     private ValidateItemData i;
 
     public i(ValidateActivity validateActivity) {
-        super(validateActivity, com.baidu.tieba.s.validate_item);
+        super(validateActivity, w.validate_item);
         this.h = validateActivity;
         b();
     }
 
     void b() {
-        this.b = this.a.findViewById(com.baidu.tieba.r.root_view);
-        this.c = (HeadImageView) this.b.findViewById(com.baidu.tieba.r.iv_head);
+        this.b = this.a.findViewById(v.root_view);
+        this.c = (HeadImageView) this.b.findViewById(v.iv_head);
         this.c.setIsRound(true);
-        this.d = (TextView) this.b.findViewById(com.baidu.tieba.r.tv_user_name);
-        this.e = (TextView) this.b.findViewById(com.baidu.tieba.r.tv_group_name);
-        this.f = (TextView) this.b.findViewById(com.baidu.tieba.r.tv_apply_reason);
-        this.g = (TextView) this.b.findViewById(com.baidu.tieba.r.btn_pass);
+        this.d = (TextView) this.b.findViewById(v.tv_user_name);
+        this.e = (TextView) this.b.findViewById(v.tv_group_name);
+        this.f = (TextView) this.b.findViewById(v.tv_apply_reason);
+        this.g = (TextView) this.b.findViewById(v.btn_pass);
         this.g.setOnClickListener(new j(this));
         this.c.setOnClickListener(new k(this));
         this.b.setOnLongClickListener(new l(this));
@@ -47,24 +50,24 @@ public class i extends com.baidu.adp.base.c<ValidateItemData> {
                 this.d.setText(this.i.getUserName());
             }
             if (!TextUtils.isEmpty(this.i.getGroupName())) {
-                this.e.setText(String.valueOf(this.h.getString(com.baidu.tieba.u.validate_im_apply_prefix)) + this.i.getGroupName());
+                this.e.setText(String.valueOf(this.h.getString(y.validate_im_apply_prefix)) + this.i.getGroupName());
             }
             if (!TextUtils.isEmpty(this.i.getApplyReason())) {
-                this.f.setText(String.valueOf(this.h.getString(com.baidu.tieba.u.validate_im_reason_prefix)) + this.i.getApplyReason());
+                this.f.setText(String.valueOf(this.h.getString(y.validate_im_reason_prefix)) + this.i.getApplyReason());
             }
             if (this.i.isPass()) {
                 this.g.setEnabled(false);
-                this.g.setText(this.h.getString(com.baidu.tieba.u.validate_im_btn_passed));
+                this.g.setText(this.h.getString(y.validate_im_btn_passed));
             } else {
                 this.g.setEnabled(true);
-                this.g.setText(this.h.getString(com.baidu.tieba.u.validate_im_btn_pass));
+                this.g.setText(this.h.getString(y.validate_im_btn_pass));
             }
             BdLog.d("isShown:" + this.i.isShown());
             if (!this.i.isShown()) {
                 if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                    this.b.setBackgroundResource(com.baidu.tieba.o.validate_item_background_sean_1);
+                    this.b.setBackgroundResource(com.baidu.tieba.s.validate_item_background_sean_1);
                 } else {
-                    this.b.setBackgroundResource(com.baidu.tieba.o.validate_item_background_sean);
+                    this.b.setBackgroundResource(com.baidu.tieba.s.validate_item_background_sean);
                 }
             }
         }

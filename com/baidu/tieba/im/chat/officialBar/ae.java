@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.chat.cz;
+import com.baidu.tieba.im.chat.cy;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -86,7 +86,7 @@ public class ae extends BaseAdapter {
                     };
                     chatMessage.setContent(baVar.c);
                     chatMessage.setMsgType(baVar.b);
-                    cz.a(this.a, aVar2.getRichTextView(), chatMessage, "official_history_adapter");
+                    cy.a(this.a, aVar2.getRichTextView(), chatMessage, "official_history_adapter");
                     return aVar;
                 case 1:
                     View aVar3 = view == null ? new a(this.a) : view;
@@ -101,7 +101,7 @@ public class ae extends BaseAdapter {
                     };
                     chatMessage2.setContent("[" + baVar.c + "]");
                     chatMessage2.setMsgType(baVar.b);
-                    cz.a(this.a, aVar3, aVar4.getImageView(), chatMessage2, 0L, "official_history_adapter");
+                    cy.a(this.a, aVar3, aVar4.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     aVar4.getImageView().setTag(Integer.valueOf(i));
                     aVar4.getImageView().setOnClickListener(this.b);
                     return aVar3;

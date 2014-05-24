@@ -22,7 +22,7 @@ class a implements p {
             } else if (i == 3) {
                 com.baidu.tbadk.core.sharedPref.b.a().b(SettingTextFunctionIntroView.f, true);
                 AboutActivity aboutActivity = this.a;
-                String string = this.a.getString(com.baidu.tieba.u.setting_funtion_intro);
+                String string = this.a.getString(com.baidu.tieba.y.setting_funtion_intro);
                 str = this.a.d;
                 TbWebViewActivity.b(aboutActivity, string, str);
             }

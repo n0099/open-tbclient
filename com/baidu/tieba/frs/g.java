@@ -21,9 +21,9 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class g {
     private ForumData a;
-    private ArrayList<com.baidu.tbadk.core.data.o> b;
+    private ArrayList<com.baidu.tbadk.core.data.n> b;
     private AntiData c;
-    private com.baidu.tbadk.core.data.m d;
+    private com.baidu.tbadk.core.data.l d;
     private com.baidu.tieba.data.s e;
     private boolean f;
     private UserData g;
@@ -31,8 +31,8 @@ public class g {
     private ArrayList<LiveCardData> p;
     private HashMap<String, MetaData> q;
     private int i = 0;
-    private dg j = null;
-    private df k = null;
+    private dh j = null;
+    private dg k = null;
     private boolean l = false;
     private k m = null;
     private h n = null;
@@ -74,7 +74,7 @@ public class g {
         this.a = new ForumData();
         this.b = new ArrayList<>();
         this.q = new HashMap<>();
-        this.d = new com.baidu.tbadk.core.data.m();
+        this.d = new com.baidu.tbadk.core.data.l();
         this.e = new com.baidu.tieba.data.s();
         this.g = new UserData();
         a(new AntiData());
@@ -101,14 +101,14 @@ public class g {
         this.a.setAnchorPower(anchorPower);
     }
 
-    public void a(com.baidu.tbadk.core.data.o oVar) {
-        while (!this.b.isEmpty() && this.b.get(0).p() == 2) {
+    public void a(com.baidu.tbadk.core.data.n nVar) {
+        while (!this.b.isEmpty() && this.b.get(0).u() == 2) {
             this.b.remove(0);
         }
-        this.b.add(0, oVar);
+        this.b.add(0, nVar);
     }
 
-    public ArrayList<com.baidu.tbadk.core.data.o> h() {
+    public ArrayList<com.baidu.tbadk.core.data.n> h() {
         return this.b;
     }
 
@@ -124,7 +124,7 @@ public class g {
         return this.c;
     }
 
-    public com.baidu.tbadk.core.data.m k() {
+    public com.baidu.tbadk.core.data.l k() {
         return this.d;
     }
 
@@ -178,11 +178,11 @@ public class g {
                 List<ThreadInfo> list2 = dataRes.thread_list;
                 if (list2 != null) {
                     for (int i2 = 0; i2 < list2.size(); i2++) {
-                        com.baidu.tbadk.core.data.o oVar = new com.baidu.tbadk.core.data.o();
-                        oVar.a(this.q);
-                        oVar.a(list2.get(i2));
-                        oVar.G();
-                        this.b.add(oVar);
+                        com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
+                        nVar.a(this.q);
+                        nVar.a(list2.get(i2));
+                        nVar.L();
+                        this.b.add(nVar);
                     }
                 }
                 this.c.parserProtobuf(dataRes.anti);
@@ -248,12 +248,12 @@ public class g {
         a(zVar);
     }
 
-    public void a(dg dgVar) {
-        this.j = dgVar;
+    public void a(dh dhVar) {
+        this.j = dhVar;
     }
 
-    public void a(df dfVar) {
-        this.k = dfVar;
+    public void a(dg dgVar) {
+        this.k = dgVar;
     }
 
     public int o() {

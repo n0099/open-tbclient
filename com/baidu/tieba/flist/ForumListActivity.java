@@ -137,7 +137,7 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.forum_list_activity);
+        setContentView(com.baidu.tieba.w.forum_list_activity);
         this.c = new w(this);
         this.c.i = (BdListView) a();
         this.c.j = (BdListView) c();
@@ -285,69 +285,69 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
         this.E.notifyDataSetChanged();
         if (i == 1) {
             if (this.c.u != null) {
-                this.c.u.setBackgroundDrawable(getResources().getDrawable(com.baidu.tieba.q.bg_allsproutpop_dropdown_1));
+                this.c.u.setBackgroundDrawable(getResources().getDrawable(com.baidu.tieba.u.bg_allsproutpop_dropdown_1));
             }
-            this.c.A.setImageResource(com.baidu.tieba.q.btn_allsproutpop_down_1);
-            this.c.e.setBackgroundResource(com.baidu.tieba.q.bg_up_bar_1);
-            this.f = getResources().getColor(com.baidu.tieba.o.flist_text_color_night);
-            this.g = getResources().getColor(com.baidu.tieba.o.forum_list_tab_text_select);
-            this.h = com.baidu.tieba.q.btn_pop_most_left_n_1;
-            this.i = com.baidu.tieba.q.btn_pop_most_right_n_1;
-            this.j = com.baidu.tieba.q.btn_pop_most_left_s_1;
-            this.k = com.baidu.tieba.q.btn_pop_most_right_s_1;
-            this.l = com.baidu.tieba.q.ico_downward_1;
-            this.m = com.baidu.tieba.q.ico_upward_1;
-            this.D.a(com.baidu.tieba.q.btn_add_end_1, com.baidu.tieba.q.btn_add_1);
-            this.E.a(com.baidu.tieba.q.btn_add_end_1, com.baidu.tieba.q.btn_add_1);
+            this.c.A.setImageResource(com.baidu.tieba.u.btn_allsproutpop_down_1);
+            this.c.e.setBackgroundResource(com.baidu.tieba.u.bg_up_bar_1);
+            this.f = getResources().getColor(com.baidu.tieba.s.flist_text_color_night);
+            this.g = getResources().getColor(com.baidu.tieba.s.forum_list_tab_text_select);
+            this.h = com.baidu.tieba.u.btn_pop_most_left_n_1;
+            this.i = com.baidu.tieba.u.btn_pop_most_right_n_1;
+            this.j = com.baidu.tieba.u.btn_pop_most_left_s_1;
+            this.k = com.baidu.tieba.u.btn_pop_most_right_s_1;
+            this.l = com.baidu.tieba.u.ico_downward_1;
+            this.m = com.baidu.tieba.u.ico_upward_1;
+            this.D.a(com.baidu.tieba.u.btn_add_end_1, com.baidu.tieba.u.btn_add_1);
+            this.E.a(com.baidu.tieba.u.btn_add_end_1, com.baidu.tieba.u.btn_add_1);
             this.c.k.setTextColor(this.f);
             this.c.l.setTextColor(this.f);
-            this.c.c.setBackgroundResource(com.baidu.tieba.q.bg_black_banner_down_1);
-            this.c.q.setTextColor(getResources().getColor(com.baidu.tieba.o.flist_text_color_night));
-            this.c.b.setBackgroundResource(com.baidu.tieba.q.bg_black_banner_down_1);
-            this.c.n.setTextColor(getResources().getColor(com.baidu.tieba.o.flist_text_color_night));
+            this.c.c.setBackgroundResource(com.baidu.tieba.u.bg_black_banner_down_1);
+            this.c.q.setTextColor(getResources().getColor(com.baidu.tieba.s.flist_text_color_night));
+            this.c.b.setBackgroundResource(com.baidu.tieba.u.bg_black_banner_down_1);
+            this.c.n.setTextColor(getResources().getColor(com.baidu.tieba.s.flist_text_color_night));
             if (this.c.s != null && this.c.t != null) {
                 this.c.s.a(i);
                 this.c.t.a(i);
             }
             if (this.B) {
-                this.c.o.setImageResource(com.baidu.tieba.q.ico_upward_1);
+                this.c.o.setImageResource(com.baidu.tieba.u.ico_upward_1);
             } else {
-                this.c.o.setImageResource(com.baidu.tieba.q.ico_downward_1);
+                this.c.o.setImageResource(com.baidu.tieba.u.ico_downward_1);
             }
             if (this.C) {
-                this.c.r.setImageResource(com.baidu.tieba.q.ico_upward_1);
+                this.c.r.setImageResource(com.baidu.tieba.u.ico_upward_1);
             } else {
-                this.c.r.setImageResource(com.baidu.tieba.q.ico_downward_1);
+                this.c.r.setImageResource(com.baidu.tieba.u.ico_downward_1);
             }
         } else {
             if (this.c.u != null) {
-                this.c.u.setBackgroundDrawable(getResources().getDrawable(com.baidu.tieba.q.bg_allsproutpop_dropdown_1));
+                this.c.u.setBackgroundDrawable(getResources().getDrawable(com.baidu.tieba.u.bg_allsproutpop_dropdown_1));
             }
-            this.c.A.setImageResource(com.baidu.tieba.q.btn_allsproutpop_down);
-            this.c.e.setBackgroundResource(com.baidu.tieba.q.bg_pop_most);
-            this.f = getResources().getColor(com.baidu.tieba.o.flist_text_color_day);
-            this.g = getResources().getColor(com.baidu.tieba.o.forum_list_tab_text_select);
-            this.h = com.baidu.tieba.q.btn_pop_most_left_n;
-            this.i = com.baidu.tieba.q.btn_pop_most_right_n;
-            this.j = com.baidu.tieba.q.btn_pop_most_left_s;
-            this.k = com.baidu.tieba.q.btn_pop_most_right_s;
-            this.l = com.baidu.tieba.q.ico_downward;
-            this.m = com.baidu.tieba.q.ico_upward;
-            this.D.a(com.baidu.tieba.q.btn_add_end, com.baidu.tieba.q.btn_add);
-            this.E.a(com.baidu.tieba.q.btn_add_end, com.baidu.tieba.q.btn_add);
-            this.c.c.setBackgroundResource(com.baidu.tieba.q.bg_black_banner_down);
-            this.c.q.setTextColor(getResources().getColor(com.baidu.tieba.o.flist_text_color_day));
-            this.c.b.setBackgroundResource(com.baidu.tieba.q.bg_black_banner_down);
-            this.c.n.setTextColor(getResources().getColor(com.baidu.tieba.o.flist_text_color_day));
+            this.c.A.setImageResource(com.baidu.tieba.u.btn_allsproutpop_down);
+            this.c.e.setBackgroundResource(com.baidu.tieba.u.bg_pop_most);
+            this.f = getResources().getColor(com.baidu.tieba.s.flist_text_color_day);
+            this.g = getResources().getColor(com.baidu.tieba.s.forum_list_tab_text_select);
+            this.h = com.baidu.tieba.u.btn_pop_most_left_n;
+            this.i = com.baidu.tieba.u.btn_pop_most_right_n;
+            this.j = com.baidu.tieba.u.btn_pop_most_left_s;
+            this.k = com.baidu.tieba.u.btn_pop_most_right_s;
+            this.l = com.baidu.tieba.u.ico_downward;
+            this.m = com.baidu.tieba.u.ico_upward;
+            this.D.a(com.baidu.tieba.u.btn_add_end, com.baidu.tieba.u.btn_add);
+            this.E.a(com.baidu.tieba.u.btn_add_end, com.baidu.tieba.u.btn_add);
+            this.c.c.setBackgroundResource(com.baidu.tieba.u.bg_black_banner_down);
+            this.c.q.setTextColor(getResources().getColor(com.baidu.tieba.s.flist_text_color_day));
+            this.c.b.setBackgroundResource(com.baidu.tieba.u.bg_black_banner_down);
+            this.c.n.setTextColor(getResources().getColor(com.baidu.tieba.s.flist_text_color_day));
             if (this.B) {
-                this.c.o.setImageResource(com.baidu.tieba.q.ico_upward);
+                this.c.o.setImageResource(com.baidu.tieba.u.ico_upward);
             } else {
-                this.c.o.setImageResource(com.baidu.tieba.q.ico_downward);
+                this.c.o.setImageResource(com.baidu.tieba.u.ico_downward);
             }
             if (this.C) {
-                this.c.r.setImageResource(com.baidu.tieba.q.ico_upward);
+                this.c.r.setImageResource(com.baidu.tieba.u.ico_upward);
             } else {
-                this.c.r.setImageResource(com.baidu.tieba.q.ico_downward);
+                this.c.r.setImageResource(com.baidu.tieba.u.ico_downward);
             }
         }
         if (this.c.d.getCurrentItem() == 0) {
@@ -366,15 +366,15 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == com.baidu.tieba.r.tab_recommends) {
+        if (id == com.baidu.tieba.v.tab_recommends) {
             this.c.d.setCurrentItem(0);
             this.p = 0;
             TiebaStatic.eventStat(view.getContext(), "recommend_list_click", "click", 1, new Object[0]);
-        } else if (id == com.baidu.tieba.r.tab_hot) {
+        } else if (id == com.baidu.tieba.v.tab_hot) {
             this.c.d.setCurrentItem(1);
             this.p = 1;
             TiebaStatic.eventStat(view.getContext(), "hot_list_click", "click", 1, new Object[0]);
-        } else if (id == com.baidu.tieba.r.title_menu) {
+        } else if (id == com.baidu.tieba.v.title_menu) {
             this.c.a(this.J);
         }
     }
@@ -395,7 +395,7 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
             this.D.a(min);
             this.D.a(forumInfoDataArr);
             this.B = false;
-            this.c.n.setText(getString(com.baidu.tieba.u.flist_expand_list));
+            this.c.n.setText(getString(com.baidu.tieba.y.flist_expand_list));
             this.c.o.setImageResource(this.l);
             return;
         }
@@ -421,7 +421,7 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
             this.E.a(min);
             this.E.a(forumInfoDataArr);
             this.C = false;
-            this.c.q.setText(getString(com.baidu.tieba.u.flist_expand_list));
+            this.c.q.setText(getString(com.baidu.tieba.y.flist_expand_list));
             this.c.r.setImageResource(this.l);
             return;
         }

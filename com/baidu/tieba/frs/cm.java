@@ -1,10 +1,9 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
-class cm implements com.baidu.tbadk.imageManager.d {
+class cm implements View.OnClickListener {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,17 +11,16 @@ class cm implements com.baidu.tbadk.imageManager.d {
         this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        cp cpVar;
-        try {
-            cpVar = this.a.o;
-            View findViewWithTag = cpVar.l().a(1).findViewWithTag(str);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
-                findViewWithTag.invalidate();
-            }
-        } catch (Exception e) {
-            BdLog.e(getClass().getName(), "imageLoaded", e.getMessage());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        if (view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.data.at)) {
+            com.baidu.tieba.data.at atVar = (com.baidu.tieba.data.at) view.getTag();
+            FrsImageActivity frsImageActivity = this.a;
+            com.baidu.tbadk.core.atomData.v vVar = new com.baidu.tbadk.core.atomData.v(this.a);
+            String d = atVar.d();
+            str = this.a.e;
+            frsImageActivity.sendMessage(new CustomMessage(2006002, vVar.a(d, str, atVar.c())));
         }
     }
 }

@@ -27,8 +27,8 @@ public class f implements View.OnClickListener {
         Context context6;
         Context context7;
         Context context8;
-        if (!com.baidu.adp.lib.debug.c.e) {
-            com.baidu.adp.lib.debug.c.e = true;
+        if (!com.baidu.adp.lib.debug.d.e) {
+            com.baidu.adp.lib.debug.d.e = true;
             textView2 = this.a.j;
             context5 = this.a.k;
             textView2.setText(((Activity) context5).getText(com.baidu.adp.f.item_open));
@@ -39,7 +39,7 @@ public class f implements View.OnClickListener {
             Toast.makeText(context6, sb.append(context8.getText(com.baidu.adp.f.item_open).toString()).toString(), 1).show();
             return;
         }
-        com.baidu.adp.lib.debug.c.e = false;
+        com.baidu.adp.lib.debug.d.e = false;
         textView = this.a.j;
         context = this.a.k;
         textView.setText(((Activity) context).getText(com.baidu.adp.f.item_close));

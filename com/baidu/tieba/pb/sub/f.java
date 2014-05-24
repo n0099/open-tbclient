@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.data.ao;
+import com.baidu.tieba.data.ap;
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.base.d {
+public class f extends com.baidu.adp.base.b {
     protected Context e;
-    protected ao f;
+    protected ap f;
     protected int a = 0;
     protected String b = null;
     protected String c = null;
@@ -40,7 +40,7 @@ public class f extends com.baidu.adp.base.d {
         this.e = null;
         this.f = null;
         this.e = context;
-        this.f = new ao();
+        this.f = new ap();
     }
 
     public void a(String str) {
@@ -64,10 +64,10 @@ public class f extends com.baidu.adp.base.d {
     }
 
     public void d() {
-        this.f = new ao();
+        this.f = new ap();
     }
 
-    public ao e() {
+    public ap e() {
         return this.f;
     }
 
@@ -78,9 +78,9 @@ public class f extends com.baidu.adp.base.d {
         WriteData writeData = new WriteData();
         writeData.setForumName(this.f.h().getName());
         writeData.setForumId(this.f.h().getId());
-        writeData.setFloor(this.f.a().d());
+        writeData.setFloor(this.f.a().l());
         writeData.setType(2);
-        writeData.setThreadId(this.f.m().k());
+        writeData.setThreadId(this.f.m().p());
         writeData.setFloorNum(0);
         return writeData;
     }
@@ -89,7 +89,7 @@ public class f extends com.baidu.adp.base.d {
         this.h = hVar;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
@@ -98,7 +98,7 @@ public class f extends com.baidu.adp.base.d {
         return this.a;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.g != null) {
             this.g.cancel();

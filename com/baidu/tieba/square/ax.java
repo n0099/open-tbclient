@@ -1,187 +1,91 @@
 package com.baidu.tieba.square;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends BaseAdapter implements com.baidu.tieba.view.t {
-    private ArrayList<BaseAdapter> a;
-    private com.baidu.tbadk.editortool.ab b;
-    private u c;
-    private ag d;
-    private ac e;
-    private i f;
+public class ax extends BdAsyncTask<Object, ar, ar> {
+    final /* synthetic */ av a;
+    private int c;
+    private com.baidu.tieba.a.c b = null;
+    private com.baidu.adp.lib.cache.s<String> d = null;
 
-    public ax(Context context) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.a = new ArrayList<>();
-        this.b = new com.baidu.tbadk.editortool.ab(context);
-        this.c = new u(context);
-        this.d = new ag(context);
-        this.e = new ac(context);
-        this.f = new i(context);
-        this.a.add(this.c);
-        this.a.add(this.d);
-        this.a.add(this.e);
-        this.a.add(this.f);
+    public ax(av avVar, int i) {
+        this.a = avVar;
+        this.c = 1;
+        this.c = i;
+        setPriority(3);
     }
 
-    public void a(aq aqVar) {
-        if (aqVar != null) {
-            if (this.c != null) {
-                this.c.a(aqVar.b());
-            }
-            if (this.d != null) {
-                this.d.a(aqVar.c());
-            }
-            if (this.e != null) {
-                this.e.a(aqVar.d());
-            }
-            if (this.f != null) {
-                this.f.a(aqVar.e());
-            }
-        }
-    }
-
-    public void a(int i) {
-        if (this.c != null) {
-            this.c.a(i);
-        }
-        notifyDataSetChanged();
-    }
-
-    public void a() {
-        if (this.c != null) {
-            this.c.a();
-        }
-    }
-
-    public void c() {
-        if (this.c != null) {
-            this.c.c();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        int i = 0;
-        Iterator<BaseAdapter> it = this.a.iterator();
-        while (true) {
-            int i2 = i;
-            if (it.hasNext()) {
-                i = it.next().getCount() + i2;
-            } else {
-                return i2;
-            }
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        int i2 = 0;
-        while (true) {
-            int i3 = i2;
-            if (i3 < this.a.size()) {
-                BaseAdapter baseAdapter = this.a.get(i3);
-                if (i < baseAdapter.getCount()) {
-                    return baseAdapter.getItem(i);
-                }
-                i -= baseAdapter.getCount();
-                i2 = i3 + 1;
-            } else {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public ar doInBackground(Object... objArr) {
+        ar arVar;
+        String str = null;
+        this.b = new com.baidu.tieba.a.c();
+        this.d = com.baidu.tbadk.core.a.b.a().r();
+        if (this.c == 0) {
+            String a = this.d.a("square_cache_key");
+            if (a == null) {
                 return null;
             }
-        }
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        int i;
-        int i2 = 0;
-        Iterator<BaseAdapter> it = this.a.iterator();
-        while (true) {
-            i = i2;
-            if (!it.hasNext()) {
-                break;
-            }
-            i2 = it.next().getViewTypeCount() + i;
-        }
-        if (i <= 0) {
-            return 1;
-        }
-        return i;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        int i2 = 0;
-        for (int i3 = 0; i3 < this.a.size(); i3++) {
-            BaseAdapter baseAdapter = this.a.get(i3);
-            if (i < baseAdapter.getCount()) {
-                return baseAdapter.getItemViewType(i) + i2;
-            }
-            i2 += baseAdapter.getViewTypeCount();
-            i -= baseAdapter.getCount();
-        }
-        return 0;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        int i2 = 0;
-        while (true) {
-            int i3 = i2;
-            if (i3 < this.a.size()) {
-                BaseAdapter baseAdapter = this.a.get(i3);
-                if (i < baseAdapter.getCount()) {
-                    return baseAdapter.getView(i, view, viewGroup);
-                }
-                i -= baseAdapter.getCount();
-                i2 = i3 + 1;
+            ar arVar2 = new ar();
+            arVar2.a(a);
+            if (!arVar2.a()) {
+                this.c = 1;
+                str = a;
+                arVar = arVar2;
             } else {
-                return null;
+                return arVar2;
             }
+        } else {
+            arVar = null;
         }
+        if (this.c == 1) {
+            this.a.d = System.currentTimeMillis();
+            str = this.b.g();
+            this.a.e = this.b.h();
+            this.a.f = this.b.i();
+            this.a.g = System.currentTimeMillis();
+        }
+        if (this.b.c()) {
+            arVar = new ar();
+            arVar.a(str);
+            this.d.a("square_cache_key", str, 86400000L);
+        }
+        return arVar;
     }
 
-    @Override // com.baidu.tieba.view.t
-    public void b() {
-        Iterator<BaseAdapter> it = this.a.iterator();
-        while (it.hasNext()) {
-            BaseAdapter next = it.next();
-            if (next instanceof com.baidu.tieba.view.t) {
-                ((com.baidu.tieba.view.t) next).b();
-            }
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel();
+        if (this.b != null) {
+            this.b.a();
         }
+        this.a.a = null;
     }
 
-    @Override // com.baidu.tieba.view.t
-    public void a(View view, int i, int i2) {
-        for (int i3 = 0; i3 < this.a.size(); i3++) {
-            BaseAdapter baseAdapter = this.a.get(i3);
-            if (baseAdapter instanceof com.baidu.tieba.view.t) {
-                ((com.baidu.tieba.view.t) baseAdapter).a(view, i < 0 ? 0 : i, i2 > baseAdapter.getCount() + (-1) ? baseAdapter.getCount() - 1 : i2);
-            }
-            BdLog.i(getClass().getName(), "startLoadImage", "start:" + i + "en:" + i2);
-            i -= baseAdapter.getCount();
-            i2 -= baseAdapter.getCount();
-            if (i2 < 0) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(ar arVar) {
+        aw awVar;
+        aw awVar2;
+        aw awVar3;
+        this.a.a = null;
+        this.a.b = arVar;
+        awVar = this.a.c;
+        if (awVar != null) {
+            if (this.c == 0 || this.b.c()) {
+                awVar2 = this.a.c;
+                awVar2.a(true, null, arVar);
                 return;
             }
+            String d = this.b.d();
+            awVar3 = this.a.c;
+            awVar3.a(false, d, arVar);
         }
     }
 }

@@ -4,6 +4,7 @@ import android.net.ConnectivityManager;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Pair;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
@@ -396,7 +397,7 @@ public class an extends Thread {
                         this.g = true;
                     }
                 } catch (SocketTimeoutException e) {
-                    if (!((ConnectivityManager) com.baidu.adp.base.a.getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo().isAvailable()) {
+                    if (!((ConnectivityManager) BdBaseApplication.getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo().isAvailable()) {
                         this.g = true;
                         a(new w(new SocketException("not net")));
                         return;
@@ -428,7 +429,7 @@ public class an extends Thread {
     }
 
     private boolean h() {
-        return com.baidu.adp.base.a.getInst().isDebugMode();
+        return BdBaseApplication.getInst().isDebugMode();
     }
 
     public void b() {

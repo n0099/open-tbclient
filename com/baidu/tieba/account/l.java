@@ -71,18 +71,18 @@ public class l extends BaseAdapter {
                     if (view == null) {
                         LayoutInflater from = LayoutInflater.from(this.a);
                         if (getItemViewType(i) == 0) {
-                            view2 = from.inflate(com.baidu.tieba.s.account_item, (ViewGroup) null);
+                            view2 = from.inflate(com.baidu.tieba.w.account_item, (ViewGroup) null);
                             mVar = new m(this, null);
-                            mVar.a = (TextView) view2.findViewById(com.baidu.tieba.r.account);
-                            mVar.c = (ImageView) view2.findViewById(com.baidu.tieba.r.active);
-                            mVar.d = (Button) view2.findViewById(com.baidu.tieba.r.delete);
-                            mVar.e = view2.findViewById(com.baidu.tieba.r.account_item_line_layout);
+                            mVar.a = (TextView) view2.findViewById(com.baidu.tieba.v.account);
+                            mVar.c = (ImageView) view2.findViewById(com.baidu.tieba.v.active);
+                            mVar.d = (Button) view2.findViewById(com.baidu.tieba.v.delete);
+                            mVar.e = view2.findViewById(com.baidu.tieba.v.account_item_line_layout);
                             mVar.d.setOnClickListener(this.d);
                             view2.setTag(mVar);
                         } else {
-                            view2 = from.inflate(com.baidu.tieba.s.account_add_item, (ViewGroup) null);
+                            view2 = from.inflate(com.baidu.tieba.w.account_add_item, (ViewGroup) null);
                             mVar = new m(this, null);
-                            mVar.b = (TextView) view2.findViewById(com.baidu.tieba.r.add_text);
+                            mVar.b = (TextView) view2.findViewById(com.baidu.tieba.v.add_text);
                             view2.setTag(mVar);
                         }
                     } else {

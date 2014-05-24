@@ -7,7 +7,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends Dialog {
@@ -40,25 +42,25 @@ public class o extends Dialog {
         PluginsConfig.PluginConfig pluginConfig3;
         PluginsConfig.PluginConfig pluginConfig4;
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.update_dialog);
-        this.b = (LinearLayout) findViewById(com.baidu.tieba.r.down_dialog);
-        this.n = (TextView) findViewById(com.baidu.tieba.r.update_tip);
-        this.c = (TextView) findViewById(com.baidu.tieba.r.newversion);
-        this.d = (TextView) findViewById(com.baidu.tieba.r.desc);
-        this.e = (Button) findViewById(com.baidu.tieba.r.update_button);
-        this.e.setText(this.a.getString(u.plugin_download_immediately));
-        this.f = (Button) findViewById(com.baidu.tieba.r.update_cancel);
-        this.g = (TextView) findViewById(com.baidu.tieba.r.downloading);
-        this.o = (TextView) findViewById(com.baidu.tieba.r.otherApp);
+        setContentView(w.update_dialog);
+        this.b = (LinearLayout) findViewById(v.down_dialog);
+        this.n = (TextView) findViewById(v.update_tip);
+        this.c = (TextView) findViewById(v.newversion);
+        this.d = (TextView) findViewById(v.desc);
+        this.e = (Button) findViewById(v.update_button);
+        this.e.setText(this.a.getString(y.plugin_download_immediately));
+        this.f = (Button) findViewById(v.update_cancel);
+        this.g = (TextView) findViewById(v.downloading);
+        this.o = (TextView) findViewById(v.otherApp);
         this.o.setVisibility(8);
         if (this.g != null) {
             this.k = this.g.getText().toString();
         }
-        this.h = (TextView) findViewById(com.baidu.tieba.r.app_size);
-        this.i = (LinearLayout) findViewById(com.baidu.tieba.r.cancel_dialog);
-        this.j = (Button) findViewById(com.baidu.tieba.r.sure_cancel);
-        this.l = (Button) findViewById(com.baidu.tieba.r.cancel_button);
-        this.m = (TextView) findViewById(com.baidu.tieba.r.cancel_tip);
+        this.h = (TextView) findViewById(v.app_size);
+        this.i = (LinearLayout) findViewById(v.cancel_dialog);
+        this.j = (Button) findViewById(v.sure_cancel);
+        this.l = (Button) findViewById(v.cancel_button);
+        this.m = (TextView) findViewById(v.cancel_tip);
         this.j.setOnClickListener(new p(this));
         this.l.setOnClickListener(new q(this));
         TextView textView = this.n;

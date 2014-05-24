@@ -1,6 +1,9 @@
 package com.baidu.tieba.frs;
 
+import android.app.Activity;
 import android.content.DialogInterface;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements DialogInterface.OnClickListener {
@@ -13,7 +16,19 @@ public class ao implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tieba.model.bd bdVar;
+        g gVar;
+        g gVar2;
         dialogInterface.dismiss();
-        this.a.W = null;
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (currentAccount != null && currentAccount.length() > 0) {
+            bdVar = this.a.K;
+            gVar = this.a.I;
+            String name = gVar.g().getName();
+            gVar2 = this.a.I;
+            bdVar.a(name, Long.valueOf(gVar2.g().getId()).longValue());
+            return;
+        }
+        LoginActivity.a((Activity) this.a, this.a.getString(com.baidu.tieba.y.login_to_use), true, 11036);
     }
 }

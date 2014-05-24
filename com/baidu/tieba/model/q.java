@@ -34,7 +34,7 @@ public class q extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.n> {
             return b();
         }
         if (i == 1) {
-            if (UtilHelper.getNetStatusInfo(com.baidu.tieba.ad.c().d().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
+            if (UtilHelper.getNetStatusInfo(com.baidu.tieba.ai.c().d().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
                 return a();
             }
             return b();

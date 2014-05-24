@@ -1,8 +1,7 @@
 package com.baidu.tbadk.editortool;
 
 import android.graphics.Bitmap;
-import android.os.Handler;
-import android.os.Looper;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import java.io.File;
@@ -13,7 +12,8 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class ac {
     private static ac a = new ac();
-    private ArrayList<ag> b = new ArrayList<>();
+    private static BdAsyncTaskParallel d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, com.baidu.adp.lib.asyncTask.l.a());
+    private ArrayList<af> b = new ArrayList<>();
     private List<e> c = new ArrayList();
 
     public static ac a() {
@@ -33,23 +33,11 @@ public class ac {
     }
 
     public void b() {
-        com.baidu.adp.lib.f.d.a().a(new ad(this));
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void c() {
-        ArrayList arrayList = new ArrayList();
-        ae aeVar = new ae(this, arrayList);
-        synchronized (this.c) {
-            for (int i = 0; i < this.c.size(); i++) {
-                this.c.get(i).a(aeVar);
-            }
-        }
-        new Handler(Looper.getMainLooper()).post(new af(this, arrayList));
+        new ad(this).execute(new Void[0]);
     }
 
     public boolean a(String str) {
-        Iterator<ag> it = this.b.iterator();
+        Iterator<af> it = this.b.iterator();
         while (it.hasNext()) {
             if (it.next().a(str)) {
                 return true;
@@ -81,13 +69,13 @@ public class ac {
         if (c2 != null) {
             return c2;
         }
-        Iterator<ag> it = this.b.iterator();
+        Iterator<af> it = this.b.iterator();
         while (true) {
             if (!it.hasNext()) {
                 aVar = c2;
                 break;
             }
-            ag next = it.next();
+            af next = it.next();
             if (next.a(str2)) {
                 aVar = next.b(str2);
                 break;
@@ -109,13 +97,13 @@ public class ac {
         if (c != null) {
             return c;
         }
-        Iterator<ag> it = this.b.iterator();
+        Iterator<af> it = this.b.iterator();
         while (true) {
             if (!it.hasNext()) {
                 aVar = c;
                 break;
             }
-            ag next = it.next();
+            af next = it.next();
             if (next.a(str2)) {
                 aVar = next.c(str2);
                 break;
@@ -130,10 +118,10 @@ public class ac {
 
     public String b(String str, boolean z) {
         if (!aa.c().e()) {
-            List<ag> d = aa.c().d();
+            List<af> d2 = aa.c().d();
             if (z) {
-                for (ag agVar : d) {
-                    if (agVar.a(str)) {
+                for (af afVar : d2) {
+                    if (afVar.a(str)) {
                         return str;
                     }
                 }
@@ -154,14 +142,14 @@ public class ac {
         }
     }
 
-    public ArrayList<ag> d() {
+    public ArrayList<af> c() {
         return this.b;
     }
 
-    public ag d(String str) {
-        Iterator<ag> it = this.b.iterator();
+    public af d(String str) {
+        Iterator<af> it = this.b.iterator();
         while (it.hasNext()) {
-            ag next = it.next();
+            af next = it.next();
             if (next.e().equals(str)) {
                 return next;
             }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeMessage;
-import com.baidu.tieba.q;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
     final /* synthetic */ LiveRoomReplayActivity a;
@@ -33,17 +33,17 @@ class d extends CustomMessageListener {
                 switch (data.status) {
                     case 17:
                         liveRoomReplayPlayer = this.a.e;
-                        liveRoomReplayPlayer.getPauseOrPlayView().setBackgroundResource(q.icon_live_head_go);
+                        liveRoomReplayPlayer.getPauseOrPlayView().setBackgroundResource(u.icon_live_head_go);
                         this.a.k = data.status;
                         break;
                     case 19:
                         liveRoomReplayPlayer3 = this.a.e;
-                        liveRoomReplayPlayer3.getPauseOrPlayView().setBackgroundResource(q.icon_live_head_stop);
+                        liveRoomReplayPlayer3.getPauseOrPlayView().setBackgroundResource(u.icon_live_head_stop);
                         this.a.k = data.status;
                         break;
                     case 20:
                         liveRoomReplayPlayer2 = this.a.e;
-                        liveRoomReplayPlayer2.getPauseOrPlayView().setBackgroundResource(q.icon_live_head_go);
+                        liveRoomReplayPlayer2.getPauseOrPlayView().setBackgroundResource(u.icon_live_head_go);
                         this.a.k = data.status;
                         break;
                 }

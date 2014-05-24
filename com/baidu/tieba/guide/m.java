@@ -27,13 +27,13 @@ public class m extends com.baidu.tbadk.core.d {
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(com.baidu.tieba.s.guide_introduce, (ViewGroup) null);
-        this.b = (ViewGroup) viewGroup2.findViewById(com.baidu.tieba.r.root_view);
-        this.d = (ImageView) viewGroup2.findViewById(com.baidu.tieba.r.image_tip_1);
-        this.e = (ImageView) viewGroup2.findViewById(com.baidu.tieba.r.image_tip_2);
-        this.f = (ImageView) viewGroup2.findViewById(com.baidu.tieba.r.image_tip_3);
-        this.b.setBackgroundResource(com.baidu.tieba.q.pic_bg_startpage);
-        this.g = (GoOnAnimView) viewGroup2.findViewById(com.baidu.tieba.r.tip_go_on);
+        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(com.baidu.tieba.w.guide_introduce, (ViewGroup) null);
+        this.b = (ViewGroup) viewGroup2.findViewById(com.baidu.tieba.v.root_view);
+        this.d = (ImageView) viewGroup2.findViewById(com.baidu.tieba.v.image_tip_1);
+        this.e = (ImageView) viewGroup2.findViewById(com.baidu.tieba.v.image_tip_2);
+        this.f = (ImageView) viewGroup2.findViewById(com.baidu.tieba.v.image_tip_3);
+        this.b.setBackgroundResource(com.baidu.tieba.u.pic_bg_startpage);
+        this.g = (GoOnAnimView) viewGroup2.findViewById(com.baidu.tieba.v.tip_go_on);
         this.h.removeMessages(0);
         this.h.removeMessages(1);
         this.h.sendEmptyMessageDelayed(0, 750L);
@@ -44,9 +44,9 @@ public class m extends com.baidu.tbadk.core.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        this.d.setImageResource(com.baidu.tieba.q.pic_startpage1_one);
-        this.e.setImageResource(com.baidu.tieba.q.pic_startpage1_two);
-        this.f.setImageResource(com.baidu.tieba.q.pic_startpage1_three);
+        this.d.setImageResource(com.baidu.tieba.u.pic_startpage1_one);
+        this.e.setImageResource(com.baidu.tieba.u.pic_startpage1_two);
+        this.f.setImageResource(com.baidu.tieba.u.pic_startpage1_three);
         a(this.d, true, 0L);
         a(this.e, false, 100L);
         a(this.f, true, 250L);

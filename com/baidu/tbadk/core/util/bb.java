@@ -6,6 +6,7 @@ import android.net.Uri;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import java.io.File;
 /* loaded from: classes.dex */
 public class bb {
@@ -14,8 +15,8 @@ public class bb {
             if (!x.a()) {
                 if (activity instanceof BaseActivity) {
                     ((BaseActivity) activity).showToast(x.b());
-                } else if (activity instanceof com.baidu.tbadk.core.e) {
-                    ((com.baidu.tbadk.core.e) activity).a(x.b());
+                } else if (activity instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) activity).a(x.b());
                 }
             } else {
                 File f = x.f("camera.jpg");
@@ -25,9 +26,9 @@ public class bb {
                     intent.putExtra("output", fromFile);
                     activity.startActivityForResult(intent, 12001);
                 } else if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(activity.getString(com.baidu.tieba.u.error_sd_error));
-                } else if (activity instanceof com.baidu.tbadk.core.e) {
-                    ((com.baidu.tbadk.core.e) activity).a(activity.getString(com.baidu.tieba.u.error_sd_error));
+                    ((BaseActivity) activity).showToast(activity.getString(com.baidu.tieba.y.error_sd_error));
+                } else if (activity instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) activity).a(activity.getString(com.baidu.tieba.y.error_sd_error));
                 }
             }
         } catch (Exception e) {
@@ -42,8 +43,8 @@ public class bb {
                 if (activity instanceof BaseActivity) {
                     ((BaseActivity) activity).showToast(x.b());
                     return;
-                } else if (activity instanceof com.baidu.tbadk.core.e) {
-                    ((com.baidu.tbadk.core.e) activity).a(x.b());
+                } else if (activity instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) activity).a(x.b());
                     return;
                 } else {
                     return;
@@ -66,9 +67,9 @@ public class bb {
             }
             if (!z) {
                 if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(activity.getString(com.baidu.tieba.u.error_sd_error));
-                } else if (activity instanceof com.baidu.tbadk.core.e) {
-                    ((com.baidu.tbadk.core.e) activity).a(activity.getString(com.baidu.tieba.u.error_sd_error));
+                    ((BaseActivity) activity).showToast(activity.getString(com.baidu.tieba.y.error_sd_error));
+                } else if (activity instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) activity).a(activity.getString(com.baidu.tieba.y.error_sd_error));
                 }
             }
         } catch (Exception e) {

@@ -63,7 +63,7 @@ public class bf {
 
     public void f() {
         boolean z = true;
-        if (com.baidu.tbadk.core.h.a().g() != 0 ? com.baidu.tbadk.core.h.a().g() != 1 : !this.b) {
+        if (com.baidu.tbadk.core.g.a().g() != 0 ? com.baidu.tbadk.core.g.a().g() != 1 : !this.b) {
             z = false;
         }
         a(z);
@@ -71,11 +71,11 @@ public class bf {
 
     public void g() {
         String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.h.a().g() == 0) {
+        if (com.baidu.tbadk.core.g.a().g() == 0) {
             if (c()) {
                 valueOf = String.valueOf(80);
             }
-        } else if (com.baidu.tbadk.core.h.a().g() == 1) {
+        } else if (com.baidu.tbadk.core.g.a().g() == 1) {
             valueOf = String.valueOf(80);
         }
         this.e = valueOf;
@@ -83,7 +83,7 @@ public class bf {
 
     public void h() {
         int i = TbConfig.POST_IMAGE_BIG;
-        switch (com.baidu.tbadk.core.h.a().e()) {
+        switch (com.baidu.tbadk.core.g.a().e()) {
             case 0:
                 if (!c()) {
                     i = 600;
@@ -106,6 +106,6 @@ public class bf {
     }
 
     public static boolean i() {
-        return x.a() && com.baidu.adp.gif.d.a();
+        return x.a() && com.baidu.adp.gif.e.a();
     }
 }

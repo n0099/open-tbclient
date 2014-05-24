@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.UserIconBox;
@@ -18,14 +19,15 @@ import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.account.SapiFastRegActivity;
 import com.baidu.tieba.model.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.model.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.d implements w {
     private VoiceManager b;
     private s c;
     private j d;
     private View e;
-    private com.baidu.tbadk.core.e g;
+    private BaseFragmentActivity g;
     private View h;
     private boolean i;
     private boolean f = false;
@@ -36,7 +38,7 @@ public class a extends com.baidu.tbadk.core.d implements w {
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.g = (com.baidu.tbadk.core.e) activity;
+        this.g = (BaseFragmentActivity) activity;
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
@@ -78,10 +80,10 @@ public class a extends com.baidu.tbadk.core.d implements w {
         if (d_()) {
             this.k = false;
             if (this.l == null) {
-                this.l = Boolean.valueOf(com.baidu.tbadk.core.h.a().f());
+                this.l = Boolean.valueOf(com.baidu.tbadk.core.g.a().f());
             } else {
-                this.k = this.l.booleanValue() ^ com.baidu.tbadk.core.h.a().f();
-                this.l = Boolean.valueOf(com.baidu.tbadk.core.h.a().f());
+                this.k = this.l.booleanValue() ^ com.baidu.tbadk.core.g.a().f();
+                this.l = Boolean.valueOf(com.baidu.tbadk.core.g.a().f());
             }
             boolean l = l();
             if (this.f != l) {
@@ -114,7 +116,7 @@ public class a extends com.baidu.tbadk.core.d implements w {
     @Override // com.baidu.tbadk.core.d, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == h.a()) {
-            LoginActivity.a(this.g, 0, getString(u.forum_feed_login_tip), 11003);
+            LoginActivity.a(this.g, 0, getString(y.forum_feed_login_tip), 11003);
         } else if (view.getId() == h.b()) {
             SapiFastRegActivity.a(this.g, 22002);
         } else if (view.getId() == h.c()) {
@@ -151,7 +153,7 @@ public class a extends com.baidu.tbadk.core.d implements w {
 
     private View a(LayoutInflater layoutInflater) {
         FrameLayout frameLayout = new FrameLayout(this.g);
-        this.h = layoutInflater.inflate(com.baidu.tieba.s.forum_feed_view, (ViewGroup) null);
+        this.h = layoutInflater.inflate(com.baidu.tieba.w.forum_feed_view, (ViewGroup) null);
         frameLayout.addView(this.h);
         return frameLayout;
     }
@@ -169,13 +171,13 @@ public class a extends com.baidu.tbadk.core.d implements w {
         this.c.g();
     }
 
-    private com.baidu.adp.base.g j() {
+    private com.baidu.adp.base.e j() {
         return new b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
-        com.baidu.tieba.model.u uVar = (com.baidu.tieba.model.u) obj;
+        u uVar = (u) obj;
         if (uVar != null && uVar.a != null && uVar.a.b() != null && uVar.a.b().size() > 0) {
             this.d.a(uVar.a);
             this.c.a(true);
@@ -268,7 +270,7 @@ public class a extends com.baidu.tbadk.core.d implements w {
             frameLayout.removeView(this.e);
         }
         int skinType = TbadkApplication.m252getInst().getSkinType();
-        this.e = h.a(this.g, getResources().getString(u.forum_feed_login_tip), skinType, this);
+        this.e = h.a(this.g, getResources().getString(y.forum_feed_login_tip), skinType, this);
         this.h.setVisibility(8);
         frameLayout.addView(this.e);
     }

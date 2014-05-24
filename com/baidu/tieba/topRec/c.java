@@ -1,10 +1,10 @@
 package com.baidu.tieba.topRec;
 
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
 import com.baidu.tieba.data.z;
 import com.baidu.tieba.model.af;
 /* loaded from: classes.dex */
-class c extends com.baidu.adp.base.g {
+class c extends com.baidu.adp.base.e {
     final /* synthetic */ TopRecActivity a;
     private final /* synthetic */ int b;
     private final /* synthetic */ int c;
@@ -16,7 +16,7 @@ class c extends com.baidu.adp.base.g {
         this.c = i2;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         TRForumListData tRForumListData;
         TRForumListData tRForumListData2;
@@ -40,7 +40,7 @@ class c extends com.baidu.adp.base.g {
                         return;
                     } else {
                         this.a.c();
-                        ad c = ad.c();
+                        ai c = ai.c();
                         tRForumListData3 = this.a.f;
                         c.e(tRForumListData3.forum_list[this.b].forum_name);
                         return;

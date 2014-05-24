@@ -8,6 +8,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.at;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
@@ -22,7 +23,7 @@ public class j implements View.OnClickListener {
     public void onClick(View view) {
         Activity activity;
         Activity activity2;
-        if (view.getId() == com.baidu.tieba.r.chat_head) {
+        if (view.getId() == v.chat_head) {
             HeadImageView headImageView = (HeadImageView) view;
             String userId = headImageView.getUserId();
             String userName = headImageView.getUserName();

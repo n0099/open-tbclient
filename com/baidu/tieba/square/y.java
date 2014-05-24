@@ -18,7 +18,7 @@ public class y extends PagerAdapter implements com.baidu.tbadk.imageManager.d, c
     private int i;
     private LayoutInflater k;
     private View l;
-    private ArrayList<at> c = null;
+    private ArrayList<au> c = null;
     private int d = 0;
     private ArrayList<View> e = new ArrayList<>();
     public ArrayList<HeadImageView> a = new ArrayList<>();
@@ -34,26 +34,26 @@ public class y extends PagerAdapter implements com.baidu.tbadk.imageManager.d, c
         this.f = context;
         this.k = LayoutInflater.from(context);
         this.g = new com.baidu.tbadk.editortool.ab(context);
-        this.h = com.baidu.adp.lib.util.h.b(context);
+        this.h = com.baidu.adp.lib.util.k.b(context);
         this.i = (int) (0.5f + (this.h * this.j));
         this.g.a(this.h, this.i);
     }
 
-    private void a(HeadImageView headImageView, at atVar, int i) {
-        headImageView.setTag(atVar.a());
+    private void a(HeadImageView headImageView, au auVar, int i) {
+        headImageView.setTag(auVar.a());
         headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.h, this.i));
-        headImageView.setOnClickListener(new z(this, atVar, i));
+        headImageView.setOnClickListener(new z(this, auVar, i));
         this.a.add(headImageView);
     }
 
-    public void a(ArrayList<at> arrayList) {
+    public void a(ArrayList<au> arrayList) {
         a();
         if (arrayList != null && arrayList.size() != 0) {
             this.d = arrayList.size();
             this.c = arrayList;
             int i = 0;
             while (i < this.d) {
-                HeadImageView headImageView = (HeadImageView) this.k.inflate(com.baidu.tieba.s.carousel_topics_recommend_item, (ViewGroup) null);
+                HeadImageView headImageView = (HeadImageView) this.k.inflate(com.baidu.tieba.w.carousel_topics_recommend_item, (ViewGroup) null);
                 a(headImageView, arrayList.get(i), i > 0 ? i - 1 : 0);
                 this.e.add(headImageView);
                 i++;

@@ -8,7 +8,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class aa extends com.baidu.adp.base.g {
+class aa extends com.baidu.adp.base.e {
     final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ class aa extends com.baidu.adp.base.g {
         this.a = forumRankActivity;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
         BdListView bdListView;
         r rVar;
@@ -60,7 +60,7 @@ class aa extends com.baidu.adp.base.g {
                     tbImageView3 = this.a.e;
                     ViewGroup.LayoutParams layoutParams = tbImageView3.getLayoutParams();
                     layoutParams.width = -1;
-                    layoutParams.height = (int) ((com.baidu.adp.lib.util.h.b(this.a) * 15.0f) / 32.0f);
+                    layoutParams.height = (int) ((com.baidu.adp.lib.util.k.b(this.a) * 15.0f) / 32.0f);
                     this.a.l = forumRankData.pic_url;
                 }
                 rVar = this.a.c;
@@ -95,10 +95,10 @@ class aa extends com.baidu.adp.base.g {
                 this.a.showToast(forumRankData.error.usermsg);
                 return;
             } else {
-                this.a.showToast(com.baidu.tieba.u.neterror);
+                this.a.showToast(com.baidu.tieba.y.neterror);
                 return;
             }
         }
-        this.a.showToast(com.baidu.tieba.u.neterror);
+        this.a.showToast(com.baidu.tieba.y.neterror);
     }
 }

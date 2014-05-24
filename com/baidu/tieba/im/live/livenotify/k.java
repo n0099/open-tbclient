@@ -8,9 +8,12 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
+import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.base.c<UpdatesItemData> {
+public class k extends com.baidu.adp.base.a<UpdatesItemData> {
     private LiveNotifyActivity b;
     private UpdatesItemData c;
     private View d;
@@ -22,7 +25,7 @@ public class k extends com.baidu.adp.base.c<UpdatesItemData> {
     private TextView j;
 
     public k(LiveNotifyActivity liveNotifyActivity) {
-        super(liveNotifyActivity, com.baidu.tieba.s.live_notify_list_item);
+        super(liveNotifyActivity, w.live_notify_list_item);
         this.d = null;
         this.e = null;
         this.f = null;
@@ -35,13 +38,13 @@ public class k extends com.baidu.adp.base.c<UpdatesItemData> {
     }
 
     void b() {
-        this.d = a(com.baidu.tieba.r.live_notfiy_list_item_root);
-        this.e = (LiveNotifyCardView) a(com.baidu.tieba.r.live_notfiy_list_item_card);
-        this.f = (HeadImageView) a(com.baidu.tieba.r.live_notfiy_list_item_userinfo_head);
-        this.g = (ImageView) a(com.baidu.tieba.r.live_notfiy_list_item_userinfo_delete);
-        this.h = (TextView) a(com.baidu.tieba.r.live_notfiy_list_item_userinfo_name);
-        this.i = (TextView) a(com.baidu.tieba.r.live_notfiy_list_item_userinfo_time);
-        this.j = (TextView) a(com.baidu.tieba.r.live_notfiy_list_item_userinfo_content);
+        this.d = a(v.live_notfiy_list_item_root);
+        this.e = (LiveNotifyCardView) a(v.live_notfiy_list_item_card);
+        this.f = (HeadImageView) a(v.live_notfiy_list_item_userinfo_head);
+        this.g = (ImageView) a(v.live_notfiy_list_item_userinfo_delete);
+        this.h = (TextView) a(v.live_notfiy_list_item_userinfo_name);
+        this.i = (TextView) a(v.live_notfiy_list_item_userinfo_time);
+        this.j = (TextView) a(v.live_notfiy_list_item_userinfo_content);
         this.d.setClickable(true);
         this.d.setOnClickListener(new l(this));
         this.g.setOnClickListener(new m(this));
@@ -79,9 +82,9 @@ public class k extends com.baidu.adp.base.c<UpdatesItemData> {
             this.b.getLayoutMode().a(this.a);
             this.g.setSelected(this.c.isSelected());
             if (this.c.isSelected()) {
-                this.d.setBackgroundResource(z ? com.baidu.tieba.q.bg_information_down_s_1 : com.baidu.tieba.q.bg_information_down_s);
+                this.d.setBackgroundResource(z ? u.bg_information_down_s_1 : u.bg_information_down_s);
             } else {
-                this.d.setBackgroundResource(z ? com.baidu.tieba.q.selector_group_updates_bottom_bg_1 : com.baidu.tieba.q.selector_group_updates_bottom_bg);
+                this.d.setBackgroundResource(z ? u.selector_group_updates_bottom_bg_1 : u.selector_group_updates_bottom_bg);
             }
             if (this.c.getLiveCardData() != null) {
                 this.e.setData(this.c.getLiveCardData());

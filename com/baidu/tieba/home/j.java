@@ -11,10 +11,10 @@ public class j implements com.baidu.tbadk.core.view.m {
 
     @Override // com.baidu.tbadk.core.view.m
     public void a(boolean z) {
-        p pVar;
+        q qVar;
         if (z) {
-            pVar = this.a.b;
-            pVar.b();
+            qVar = this.a.b;
+            qVar.b();
         }
     }
 }

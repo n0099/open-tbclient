@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.voice.a;
 
 import android.content.Context;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -28,7 +28,7 @@ public class b extends com.baidu.adp.lib.e.a<d> {
         } else {
             c cVar = this.b;
             context = this.a.b;
-            cVar.a(null, null, 1, context.getString(u.voice_cache_error_internal));
+            cVar.a(null, null, 1, context.getString(y.voice_cache_error_internal));
         }
         linkedList = this.a.a;
         linkedList.remove(str);

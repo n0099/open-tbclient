@@ -21,10 +21,10 @@ class h implements com.baidu.adp.widget.ListView.d {
             kVar2 = this.a.c;
             if (kVar2.i()) {
                 i = this.a.k;
-                if (i == com.baidu.adp.lib.util.h.a()) {
+                if (i == com.baidu.adp.lib.util.k.a()) {
                     bdListView = this.a.e;
                     bdListView.c();
-                    this.a.a(com.baidu.tieba.u.frsgroup_hot_cannot_refresh_tip);
+                    this.a.a(com.baidu.tieba.y.frsgroup_hot_cannot_refresh_tip);
                     return;
                 }
             }

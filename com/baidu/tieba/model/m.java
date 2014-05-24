@@ -11,7 +11,7 @@ import java.util.Iterator;
 public class m extends BdAsyncTask<Boolean, String, k> {
     final /* synthetic */ k b;
     private int e;
-    private com.baidu.tieba.data.ar f;
+    private com.baidu.tieba.data.as f;
     private com.baidu.tbadk.core.util.al c = null;
     private String d = null;
     Boolean a = false;
@@ -21,7 +21,7 @@ public class m extends BdAsyncTask<Boolean, String, k> {
         this.e = 0;
         this.f = null;
         this.e = i;
-        this.f = new com.baidu.tieba.data.ar();
+        this.f = new com.baidu.tieba.data.as();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -39,9 +39,9 @@ public class m extends BdAsyncTask<Boolean, String, k> {
         this.a = boolArr[0];
         k kVar = new k();
         if (this.a.booleanValue()) {
-            com.baidu.adp.lib.cache.s<String> n = com.baidu.tbadk.core.a.b.a().n();
-            if (n != null) {
-                publishProgress(n.a(TbadkApplication.getCurrentAccount()));
+            com.baidu.adp.lib.cache.s<String> o = com.baidu.tbadk.core.a.b.a().o();
+            if (o != null) {
+                publishProgress(o.a(TbadkApplication.getCurrentAccount()));
             }
             arrayList = this.b.e;
             if (arrayList == null) {
@@ -68,10 +68,10 @@ public class m extends BdAsyncTask<Boolean, String, k> {
     }
 
     private void a(String str) {
-        com.baidu.adp.lib.cache.s<String> n;
+        com.baidu.adp.lib.cache.s<String> o;
         String currentAccount = TbadkApplication.getCurrentAccount();
-        if (currentAccount != null && (n = com.baidu.tbadk.core.a.b.a().n()) != null) {
-            n.a(currentAccount, str, 604800000L);
+        if (currentAccount != null && (o = com.baidu.tbadk.core.a.b.a().o()) != null) {
+            o.a(currentAccount, str, 604800000L);
         }
     }
 

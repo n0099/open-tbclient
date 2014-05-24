@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.model.al;
 import java.util.ArrayList;
@@ -164,8 +165,8 @@ public class u extends BdAsyncTask<Object, Integer, al> {
             if (!this.b.c() || alVar == null) {
                 fragment = this.a.b;
                 FragmentActivity activity = fragment.getActivity();
-                if (activity != null && (activity instanceof com.baidu.tbadk.core.e)) {
-                    com.baidu.adp.lib.util.h.a((Context) ((com.baidu.tbadk.core.e) activity), this.b.f());
+                if (activity != null && (activity instanceof BaseFragmentActivity)) {
+                    com.baidu.adp.lib.util.k.a((Context) ((BaseFragmentActivity) activity), this.b.f());
                 }
             } else {
                 m mVar = this.a;

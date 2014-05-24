@@ -53,7 +53,7 @@ public class SnapChatMsgHelper extends b {
         if (!TextUtils.isEmpty(str)) {
             a(commonMsgPojo);
         }
-        com.baidu.tieba.im.chat.x.b().a(groupMsgData);
+        com.baidu.tieba.im.chat.w.b().a(groupMsgData);
     }
 
     public static void a(CommonMsgPojo commonMsgPojo) {

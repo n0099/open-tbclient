@@ -13,13 +13,13 @@ public class p implements Runnable {
     public void run() {
         Boolean bool;
         Boolean bool2;
-        bool = this.a.D;
+        bool = this.a.bSpeakerphoneOn;
         if (bool != null) {
-            bool2 = this.a.D;
+            bool2 = this.a.bSpeakerphoneOn;
             if (bool2.booleanValue()) {
-                this.a.j();
+                this.a.openSpeaker();
             } else {
-                this.a.k();
+                this.a.closeSpeaker();
             }
         }
     }

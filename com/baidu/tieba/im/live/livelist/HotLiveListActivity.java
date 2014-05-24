@@ -6,8 +6,9 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.RadioGroup;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
-public class HotLiveListActivity extends com.baidu.tbadk.core.e implements ViewPager.OnPageChangeListener, View.OnClickListener, RadioGroup.OnCheckedChangeListener {
+public class HotLiveListActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, View.OnClickListener, RadioGroup.OnCheckedChangeListener {
     private ad c;
     private com.baidu.tieba.im.model.p d;
     private boolean e;
@@ -19,7 +20,7 @@ public class HotLiveListActivity extends com.baidu.tbadk.core.e implements ViewP
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle, (Intent) null);
@@ -27,14 +28,14 @@ public class HotLiveListActivity extends com.baidu.tbadk.core.e implements ViewP
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         b(TbadkApplication.m252getInst().getSkinType());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
     }
@@ -77,7 +78,7 @@ public class HotLiveListActivity extends com.baidu.tbadk.core.e implements ViewP
         this.d.a(this);
     }
 
-    @Override // com.baidu.tbadk.core.e
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
         this.c.d(i);
     }
@@ -96,7 +97,7 @@ public class HotLiveListActivity extends com.baidu.tbadk.core.e implements ViewP
         }
     }
 
-    @Override // com.baidu.adp.base.b, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
     }
 
@@ -104,16 +105,16 @@ public class HotLiveListActivity extends com.baidu.tbadk.core.e implements ViewP
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         if (!this.f) {
             this.e = true;
-            if (i == com.baidu.tieba.r.radio_living) {
-                com.baidu.tbadk.core.g.a(this, "hot_now_list");
+            if (i == com.baidu.tieba.v.radio_living) {
+                com.baidu.tbadk.core.f.a(this, "hot_now_list");
                 this.d.a(1);
-            } else if (i == com.baidu.tieba.r.radio_review) {
-                com.baidu.tbadk.core.g.a(this, "hot_past_list");
+            } else if (i == com.baidu.tieba.v.radio_review) {
+                com.baidu.tbadk.core.f.a(this, "hot_past_list");
                 this.d.a(2);
-            } else if (i == com.baidu.tieba.r.radio_foreshow) {
+            } else if (i == com.baidu.tieba.v.radio_foreshow) {
                 this.d.a(3);
             } else {
-                com.baidu.tbadk.core.g.a(this, "hot_now_list");
+                com.baidu.tbadk.core.f.a(this, "hot_now_list");
                 this.d.a(1);
             }
             this.c.a(g());
@@ -151,15 +152,15 @@ public class HotLiveListActivity extends com.baidu.tbadk.core.e implements ViewP
                 i2 = i + 1;
             }
             if (i2 == 1) {
-                com.baidu.tbadk.core.g.a(this, "hot_now_list");
+                com.baidu.tbadk.core.f.a(this, "hot_now_list");
                 this.d.a(1);
             } else if (i2 == 2) {
-                com.baidu.tbadk.core.g.a(this, "hot_past_list");
+                com.baidu.tbadk.core.f.a(this, "hot_past_list");
                 this.d.a(2);
             } else if (i2 == 3) {
                 this.d.a(3);
             } else {
-                com.baidu.tbadk.core.g.a(this, "hot_now_list");
+                com.baidu.tbadk.core.f.a(this, "hot_now_list");
                 this.d.a(1);
             }
             this.c.c(i2);

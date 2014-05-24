@@ -91,7 +91,7 @@ public class f extends BdAsyncTask<ForumData, Integer, String> {
                         if (i3 < b.size()) {
                             i4 = this.a.l;
                             b.remove(i4);
-                            com.baidu.tieba.ad c = com.baidu.tieba.ad.c();
+                            com.baidu.tieba.ai c = com.baidu.tieba.ai.c();
                             str2 = this.a.m;
                             c.f(str2);
                             gVar = this.a.i;
@@ -103,7 +103,7 @@ public class f extends BdAsyncTask<ForumData, Integer, String> {
                         }
                     }
                 }
-                this.a.showToast(this.a.getString(com.baidu.tieba.u.success));
+                this.a.showToast(this.a.getString(com.baidu.tieba.y.success));
                 if (this.c != null && !TextUtils.isEmpty(this.c.getId())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2005004, this.c.getId()));
                     return;

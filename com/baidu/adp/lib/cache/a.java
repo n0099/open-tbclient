@@ -8,8 +8,8 @@ import com.baidu.adp.lib.util.BdLog;
 public class a extends c<byte[]> {
     private String g;
 
-    public a(com.baidu.adp.base.h hVar, String str) {
-        super(hVar);
+    public a(com.baidu.adp.base.f fVar, String str) {
+        super(fVar);
         this.g = str;
     }
 

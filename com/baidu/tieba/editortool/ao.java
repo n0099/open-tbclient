@@ -45,36 +45,36 @@ public class ao extends g {
         super.onLayout(z, i, i2, i3, i4);
         if (this.f.getTip() != null) {
             TextView tip = this.f.getTip();
-            int right = this.f.getRight() - com.baidu.adp.lib.util.h.a(this.a, 14.0f);
-            int top = this.f.getTop() - com.baidu.adp.lib.util.h.a(this.a, 2.0f);
+            int right = this.f.getRight() - com.baidu.adp.lib.util.k.a(this.a, 14.0f);
+            int top = this.f.getTop() - com.baidu.adp.lib.util.k.a(this.a, 2.0f);
             tip.layout(right, top, tip.getMeasuredWidth() + right, tip.getMeasuredHeight() + top);
         }
         if (this.d.getTip() != null) {
             TextView tip2 = this.d.getTip();
-            int right2 = this.d.getRight() - com.baidu.adp.lib.util.h.a(this.a, 14.0f);
-            int top2 = this.d.getTop() - com.baidu.adp.lib.util.h.a(this.a, 2.0f);
+            int right2 = this.d.getRight() - com.baidu.adp.lib.util.k.a(this.a, 14.0f);
+            int top2 = this.d.getTop() - com.baidu.adp.lib.util.k.a(this.a, 2.0f);
             tip2.layout(right2, top2, tip2.getMeasuredWidth() + right2, tip2.getMeasuredHeight() + top2);
         }
         if (this.g.getTip() != null) {
             TextView tip3 = this.g.getTip();
-            int right3 = this.g.getRight() - com.baidu.adp.lib.util.h.a(this.a, 14.0f);
-            int top3 = this.g.getTop() - com.baidu.adp.lib.util.h.a(this.a, 2.0f);
+            int right3 = this.g.getRight() - com.baidu.adp.lib.util.k.a(this.a, 14.0f);
+            int top3 = this.g.getTop() - com.baidu.adp.lib.util.k.a(this.a, 2.0f);
             tip3.layout(right3, top3, tip3.getMeasuredWidth() + right3, tip3.getMeasuredHeight() + top3);
         }
     }
 
     protected void d() {
         e();
-        this.b = (EditorToolButton) findViewById(com.baidu.tieba.r.select_face);
-        this.c = (EditorToolButton) findViewById(com.baidu.tieba.r.select_at);
-        this.d = (EditorToolButton) findViewById(com.baidu.tieba.r.select_image_albumn);
-        this.e = (EditorToolButton) findViewById(com.baidu.tieba.r.select_image);
-        this.f = (EditorToolButton) findViewById(com.baidu.tieba.r.select_audio);
-        this.g = (EditorToolButton) findViewById(com.baidu.tieba.r.select_privilege);
+        this.b = (EditorToolButton) findViewById(com.baidu.tieba.v.select_face);
+        this.c = (EditorToolButton) findViewById(com.baidu.tieba.v.select_at);
+        this.d = (EditorToolButton) findViewById(com.baidu.tieba.v.select_image_albumn);
+        this.e = (EditorToolButton) findViewById(com.baidu.tieba.v.select_image);
+        this.f = (EditorToolButton) findViewById(com.baidu.tieba.v.select_audio);
+        this.g = (EditorToolButton) findViewById(com.baidu.tieba.v.select_privilege);
     }
 
     protected void e() {
-        LayoutInflater.from(this.a).inflate(com.baidu.tieba.s.editor_tool_button_container, (ViewGroup) this, true);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.w.editor_tool_button_container, (ViewGroup) this, true);
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.x xVar) {
@@ -204,13 +204,13 @@ public class ao extends g {
     public void a(int i) {
         boolean z = i == 1;
         if (this.i != null) {
-            this.i.setBackgroundResource(z ? com.baidu.tieba.q.icon_news_head_prompt_one_1 : com.baidu.tieba.q.icon_news_head_prompt_one);
+            this.i.setBackgroundResource(z ? com.baidu.tieba.u.icon_news_head_prompt_one_1 : com.baidu.tieba.u.icon_news_head_prompt_one);
         }
         if (this.h != null) {
-            this.h.setBackgroundResource(z ? com.baidu.tieba.q.icon_news_head_prompt_one_1 : com.baidu.tieba.q.icon_news_head_prompt_one);
+            this.h.setBackgroundResource(z ? com.baidu.tieba.u.icon_news_head_prompt_one_1 : com.baidu.tieba.u.icon_news_head_prompt_one);
         }
         if (this.j != null) {
-            this.j.setBackgroundResource(z ? com.baidu.tieba.q.icon_news_list_prompt_1 : com.baidu.tieba.q.icon_news_list_prompt);
+            this.j.setBackgroundResource(z ? com.baidu.tieba.u.icon_news_list_prompt_1 : com.baidu.tieba.u.icon_news_list_prompt);
         }
     }
 

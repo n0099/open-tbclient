@@ -3,15 +3,16 @@ package com.baidu.tbadk.core.service;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
 import android.util.Log;
 import com.baidu.tbadk.download.DownloadData;
-import java.util.List;
 /* loaded from: classes.dex */
-class c extends Handler {
-    final /* synthetic */ PluginDownloadService a;
+class c implements com.baidu.tbadk.download.a {
+    final /* synthetic */ PluginDownloadService b;
 
     private c(PluginDownloadService pluginDownloadService) {
-        this.a = pluginDownloadService;
+        this.b = pluginDownloadService;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,44 +20,82 @@ class c extends Handler {
         this(pluginDownloadService);
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        DownloadData downloadData;
-        com.baidu.tbadk.download.a aVar;
-        com.baidu.tbadk.download.a aVar2;
-        List list;
-        List list2;
-        switch (message.what) {
-            case 1:
-                Log.d("PluginDownloadService", "on client bind");
-                list2 = this.a.b;
-                list2.add(message.replyTo);
-                return;
-            case 2:
-                Log.d("PluginDownloadService", "on client unbind");
-                list = this.a.b;
-                list.remove(message.replyTo);
-                return;
-            case 3:
-                Log.d("PluginDownloadService", "on client add download");
-                Bundle data = message.getData();
-                if (data != null && (downloadData = (DownloadData) data.getSerializable("download_data")) != null) {
-                    for (DownloadData downloadData2 : com.baidu.tbadk.download.b.a().b()) {
-                        if (downloadData2.getId().equals(downloadData.getId())) {
-                            aVar2 = this.a.c;
-                            downloadData.setCallback(aVar2);
-                            return;
-                        }
-                    }
-                    aVar = this.a.c;
-                    downloadData.setCallback(aVar);
-                    com.baidu.tbadk.download.b.a().a(downloadData);
-                    Log.d("PluginDownloadService", "on client add download succ");
-                    return;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ c(PluginDownloadService pluginDownloadService, c cVar, c cVar2) {
+        this(pluginDownloadService);
+    }
+
+    @Override // com.baidu.tbadk.download.a
+    public void b(DownloadData downloadData) {
+        Log.d("PluginDownloadService", "onFileUpdateProgress: " + downloadData);
+        for (Messenger messenger : PluginDownloadService.access$0(this.b)) {
+            Message obtain = Message.obtain(null, 5, null);
+            if (obtain != null) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("download_data", downloadData);
+                obtain.setData(bundle);
+                try {
+                    messenger.send(obtain);
+                } catch (RemoteException e) {
                 }
-                return;
-            default:
-                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.download.a
+    public boolean c(DownloadData downloadData) {
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.download.a
+    public boolean d(DownloadData downloadData) {
+        Log.d("PluginDownloadService", "onFileDownloaded: " + downloadData);
+        for (Messenger messenger : PluginDownloadService.access$0(this.b)) {
+            Message obtain = Message.obtain(null, 6, null);
+            if (obtain != null) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("download_data", downloadData);
+                obtain.setData(bundle);
+                try {
+                    messenger.send(obtain);
+                } catch (RemoteException e) {
+                }
+            }
+        }
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.download.a
+    public void a(DownloadData downloadData) {
+        Log.d("PluginDownloadService", "onFileDownloadSucceed: " + downloadData);
+        for (Messenger messenger : PluginDownloadService.access$0(this.b)) {
+            Message obtain = Message.obtain((Handler) null, 8);
+            if (obtain != null) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("download_data", downloadData);
+                obtain.setData(bundle);
+                try {
+                    messenger.send(obtain);
+                } catch (RemoteException e) {
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.download.a
+    public void a(DownloadData downloadData, int i, String str) {
+        Log.d("PluginDownloadService", "onFileDownloadFailed: " + downloadData);
+        for (Messenger messenger : PluginDownloadService.access$0(this.b)) {
+            Message obtain = Message.obtain((Handler) null, 7);
+            if (obtain != null) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("download_data", downloadData);
+                obtain.setData(bundle);
+                try {
+                    messenger.send(obtain);
+                } catch (RemoteException e) {
+                }
+            }
         }
     }
 }

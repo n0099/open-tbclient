@@ -22,7 +22,7 @@ public class g implements View.OnClickListener {
         if (!TextUtils.isEmpty(str)) {
             context = this.a.a;
             str2 = this.a.q;
-            com.baidu.tbadk.core.g.a(context, str2);
+            com.baidu.tbadk.core.f.a(context, str2);
         }
         this.a.g();
     }

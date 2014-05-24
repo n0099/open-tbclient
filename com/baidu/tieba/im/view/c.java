@@ -6,7 +6,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.s;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class c {
     final /* synthetic */ a a;
@@ -22,10 +23,10 @@ class c {
     }
 
     private void a(LayoutInflater layoutInflater) {
-        this.b = layoutInflater.inflate(s.chatterbox_dialog_item, (ViewGroup) null);
-        this.d = (TextView) this.b.findViewById(com.baidu.tieba.r.chatterbox_text);
-        this.c = (LinearLayout) this.b.findViewById(com.baidu.tieba.r.chatterbox_item_layout);
-        this.e = (ImageView) this.b.findViewById(com.baidu.tieba.r.chatterbox_selected);
+        this.b = layoutInflater.inflate(w.chatterbox_dialog_item, (ViewGroup) null);
+        this.d = (TextView) this.b.findViewById(v.chatterbox_text);
+        this.c = (LinearLayout) this.b.findViewById(v.chatterbox_item_layout);
+        this.e = (ImageView) this.b.findViewById(v.chatterbox_selected);
     }
 
     public boolean a(View view) {

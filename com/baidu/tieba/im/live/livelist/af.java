@@ -40,10 +40,10 @@ class af extends com.baidu.adp.framework.listener.b {
         ak akVar10;
         this.a.d();
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (socketResponsedMessage.getCmd() == 107005) {
             if (!(socketResponsedMessage instanceof ResponseLiveGroupHistoryMessage)) {
-                this.a.showToast(com.baidu.tieba.u.neterror);
+                this.a.showToast(com.baidu.tieba.y.neterror);
                 return;
             }
             ResponseLiveGroupHistoryMessage responseLiveGroupHistoryMessage = (ResponseLiveGroupHistoryMessage) socketResponsedMessage;
@@ -52,7 +52,7 @@ class af extends com.baidu.adp.framework.listener.b {
                     this.a.showToast(responseLiveGroupHistoryMessage.getErrorString());
                     return;
                 } else {
-                    this.a.showToast(com.baidu.tieba.u.neterror);
+                    this.a.showToast(com.baidu.tieba.y.neterror);
                     return;
                 }
             }
@@ -101,7 +101,7 @@ class af extends com.baidu.adp.framework.listener.b {
                 akVar4.c();
             }
         } else {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         }
     }
 }

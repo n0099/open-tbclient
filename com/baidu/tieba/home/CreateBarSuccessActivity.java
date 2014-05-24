@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class CreateBarSuccessActivity extends BaseActivity {
     public NavigationBar b;
@@ -29,7 +31,7 @@ public class CreateBarSuccessActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.s.create_bar_success_activity);
+        setContentView(w.create_bar_success_activity);
         a();
         b();
     }
@@ -42,11 +44,11 @@ public class CreateBarSuccessActivity extends BaseActivity {
     }
 
     private void b() {
-        this.a = (LinearLayout) findViewById(com.baidu.tieba.r.container);
-        this.b = (NavigationBar) findViewById(com.baidu.tieba.r.view_navigation_bar);
+        this.a = (LinearLayout) findViewById(com.baidu.tieba.v.container);
+        this.b = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.a(getString(com.baidu.tieba.u.create_bar));
-        this.d = (TextView) findViewById(com.baidu.tieba.r.text);
+        this.b.a(getString(y.create_bar));
+        this.d = (TextView) findViewById(com.baidu.tieba.v.text);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -55,14 +57,14 @@ public class CreateBarSuccessActivity extends BaseActivity {
         super.onChangeSkinType(i);
         getLayoutMode().a(i == 1);
         getLayoutMode().a((View) this.a);
-        String string = getString(com.baidu.tieba.u.create_bar_info1);
+        String string = getString(y.create_bar_info1);
         int length = string.length();
-        SpannableString spannableString = new SpannableString(String.valueOf(string) + this.c + getString(com.baidu.tieba.u.create_bar_info2));
+        SpannableString spannableString = new SpannableString(String.valueOf(string) + this.c + getString(y.create_bar_info2));
         if (i == 1) {
-            this.d.setTextColor(getResources().getColor(com.baidu.tieba.o.skin_1_common_color));
-            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.o.noexit_create_bar_name_text_1)), length, this.c.length() + length, 33);
+            this.d.setTextColor(getResources().getColor(com.baidu.tieba.s.skin_1_common_color));
+            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.s.noexit_create_bar_name_text_1)), length, this.c.length() + length, 33);
         } else {
-            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.o.noexit_create_bar_name_text)), length, this.c.length() + length, 33);
+            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.s.noexit_create_bar_name_text)), length, this.c.length() + length, 33);
         }
         this.d.setText(spannableString);
         this.b.c(i);

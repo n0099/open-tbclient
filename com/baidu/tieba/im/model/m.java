@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class m extends com.baidu.adp.base.d {
+public class m extends com.baidu.adp.base.b {
     private long a;
     private int b;
     private int c;
@@ -50,12 +50,12 @@ public class m extends com.baidu.adp.base.d {
         return this.b;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }
@@ -135,7 +135,7 @@ public class m extends com.baidu.adp.base.d {
         super.sendMessage(this.g);
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public void cancelMessage() {
         super.cancelMessage();
     }

@@ -14,6 +14,7 @@ public class b {
     }
 
     public synchronized void b() {
+        com.baidu.tbadk.coreExtra.messageCenter.e.a().b();
         com.baidu.tieba.im.chat.personaltalk.a.a().b();
         az.a().b();
         aa.a().b();

@@ -7,7 +7,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ag extends com.baidu.adp.base.e {
+public class ag extends com.baidu.adp.base.c {
     private BaseActivity a;
     private View b;
     private BdListView c;
@@ -22,15 +22,15 @@ public class ag extends com.baidu.adp.base.e {
     }
 
     private void b() {
-        this.b = View.inflate(this.a, com.baidu.tieba.s.official_bar_history_activity, null);
+        this.b = View.inflate(this.a, com.baidu.tieba.w.official_bar_history_activity, null);
         this.a.setContentView(this.b);
-        this.d = (NavigationBar) this.b.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.d.a(com.baidu.tieba.u.officical_bar_info_history);
+        this.d = (NavigationBar) this.b.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.d.a(com.baidu.tieba.y.officical_bar_info_history);
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c = (BdListView) this.b.findViewById(com.baidu.tieba.r.bar_history_list);
+        this.c = (BdListView) this.b.findViewById(com.baidu.tieba.v.bar_history_list);
         this.e = new ae(this.a);
         this.c.setAdapter((ListAdapter) this.e);
-        this.f = View.inflate(this.a, com.baidu.tieba.s.official_bar_history_item_occupy, null);
+        this.f = View.inflate(this.a, com.baidu.tieba.w.official_bar_history_item_occupy, null);
         this.c.addHeaderView(this.f);
         this.c.addFooterView(this.f);
     }
@@ -45,8 +45,8 @@ public class ag extends com.baidu.adp.base.e {
         this.d.c(i);
     }
 
-    public void a(com.baidu.adp.widget.ListView.u uVar) {
-        this.c.setOnSrollToBottomListener(uVar);
+    public void a(com.baidu.adp.widget.ListView.x xVar) {
+        this.c.setOnSrollToBottomListener(xVar);
     }
 
     public boolean a() {

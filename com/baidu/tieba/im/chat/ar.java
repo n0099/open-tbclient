@@ -1,24 +1,24 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ x a;
-    private final /* synthetic */ ResponseCommitPersonalMessage b;
+public class ar extends com.baidu.tieba.im.b<Void> {
+    private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(x xVar, ResponseCommitPersonalMessage responseCommitPersonalMessage) {
-        this.a = xVar;
-        this.b = responseCommitPersonalMessage;
+    public ar(int i) {
+        this.b = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        if (this.b != null) {
-            this.a.a((ResponsedMessage<?>) this.b);
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: b */
+    public Void a() {
+        if (TbadkApplication.getCurrentAccountName() != null) {
+            com.baidu.tieba.im.db.o.d().a(this.b);
+            return null;
         }
+        return null;
     }
 }

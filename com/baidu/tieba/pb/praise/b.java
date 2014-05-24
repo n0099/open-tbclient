@@ -9,8 +9,8 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class b {
     private View a;
@@ -34,11 +34,11 @@ public class b {
         this.d = null;
         this.e = null;
         this.f = null;
-        this.a = LayoutInflater.from(context).inflate(s.zan_list_item, (ViewGroup) null);
-        this.b = (HeadImageView) this.a.findViewById(r.zan_list_item_head);
-        this.c = (TextView) this.a.findViewById(r.zan_list_item_name);
-        this.d = (TextView) this.a.findViewById(r.zan_list_item_time);
-        this.e = (ImageView) this.a.findViewById(r.zan_list_item_line_bottom);
+        this.a = LayoutInflater.from(context).inflate(w.zan_list_item, (ViewGroup) null);
+        this.b = (HeadImageView) this.a.findViewById(v.zan_list_item_head);
+        this.c = (TextView) this.a.findViewById(v.zan_list_item_name);
+        this.d = (TextView) this.a.findViewById(v.zan_list_item_time);
+        this.e = (ImageView) this.a.findViewById(v.zan_list_item_line_bottom);
         this.e.setVisibility(0);
         this.a.setTag(this);
         this.f = new ab(context);

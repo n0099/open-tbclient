@@ -16,14 +16,14 @@ class k implements ad {
         r rVar;
         if (i == 0) {
             if (i2 == 0) {
-                this.a.showToast(this.a.getString(com.baidu.tieba.u.has_set_portrait));
+                this.a.showToast(this.a.getString(com.baidu.tieba.y.has_set_portrait));
                 return;
             }
             dialogInterface.dismiss();
             this.a.a(obj);
         } else if (i == 1) {
             if (i2 == 0) {
-                this.a.showToast(this.a.getString(com.baidu.tieba.u.group_portrait_cant_del));
+                this.a.showToast(this.a.getString(com.baidu.tieba.y.group_portrait_cant_del));
                 return;
             }
             dialogInterface.dismiss();

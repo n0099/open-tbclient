@@ -3,10 +3,10 @@ package com.baidu.tieba.im.chat;
 import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
-public class GroupMsgImageActivity extends a {
-    @Override // com.baidu.tieba.im.chat.a
-    protected void a(String str, bv bvVar) {
-        x.b().a(str, bvVar);
+public class GroupMsgImageActivity extends AbsMsgImageActivity {
+    @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
+    protected void a(String str, bu buVar) {
+        w.b().a(str, buVar);
     }
 
     public static void a(Context context, String str, long j, boolean z) {

@@ -26,7 +26,7 @@ class t extends com.baidu.adp.framework.listener.b {
         ahVar = this.a.b;
         ahVar.a(false);
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseRemoveMembersMessage)) {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
             return;
         }
         ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) socketResponsedMessage;
@@ -38,10 +38,10 @@ class t extends com.baidu.adp.framework.listener.b {
                 }
                 return;
             }
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
             return;
         }
-        this.a.showToast(com.baidu.tieba.u.members_delete_success);
+        this.a.showToast(com.baidu.tieba.y.members_delete_success);
         ahVar2 = this.a.b;
         ad f = ahVar2.f();
         adVar = this.a.c;

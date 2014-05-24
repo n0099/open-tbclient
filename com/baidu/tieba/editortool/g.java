@@ -32,12 +32,12 @@ public class g extends RelativeLayout {
     public TextView a(EditorToolButton editorToolButton, boolean z) {
         TextView textView = new TextView(this.a);
         textView.setTextSize(10.0f);
-        textView.setTextColor(this.a.getResources().getColor(d() ? com.baidu.tieba.o.top_msg_num_night : com.baidu.tieba.o.top_msg_num_day));
+        textView.setTextColor(this.a.getResources().getColor(d() ? com.baidu.tieba.s.top_msg_num_night : com.baidu.tieba.s.top_msg_num_day));
         textView.setGravity(17);
         if (z) {
-            textView.setBackgroundResource(d() ? com.baidu.tieba.q.icon_news_head_prompt_one_1 : com.baidu.tieba.q.icon_news_head_prompt_one);
+            textView.setBackgroundResource(d() ? com.baidu.tieba.u.icon_news_head_prompt_one_1 : com.baidu.tieba.u.icon_news_head_prompt_one);
         } else {
-            textView.setBackgroundResource(d() ? com.baidu.tieba.q.icon_news_list_prompt_1 : com.baidu.tieba.q.icon_news_list_prompt);
+            textView.setBackgroundResource(d() ? com.baidu.tieba.u.icon_news_list_prompt_1 : com.baidu.tieba.u.icon_news_list_prompt);
         }
         editorToolButton.a(textView);
         addView(textView);

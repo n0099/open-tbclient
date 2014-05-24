@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.b;
 
-import com.baidu.adp.base.g;
+import com.baidu.adp.base.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
@@ -82,18 +82,18 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        g gVar;
-        g gVar2;
+        e eVar;
+        e eVar2;
         super.cancel(true);
         if (this.b != null) {
             this.b.g();
             this.b = null;
         }
         this.a.a = null;
-        gVar = this.a.b;
-        if (gVar != null) {
-            gVar2 = this.a.b;
-            gVar2.a(false);
+        eVar = this.a.b;
+        if (eVar != null) {
+            eVar2 = this.a.b;
+            eVar2.a(false);
         }
     }
 }

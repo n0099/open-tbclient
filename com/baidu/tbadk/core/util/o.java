@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.content.Context;
 import android.os.Handler;
 import android.widget.Toast;
+import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class o {
     private static Toast a;
@@ -25,7 +26,7 @@ public class o {
                 if (a != null) {
                     a.setText(trim);
                 } else {
-                    a = Toast.makeText(com.baidu.adp.base.a.getInst().getApp(), trim, 0);
+                    a = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
                     a.setGravity(17, 0, i2);
                 }
                 b.postDelayed(c, i);
@@ -35,15 +36,15 @@ public class o {
     }
 
     public void a(String str, int i) {
-        a(str, i, com.baidu.adp.lib.util.h.a((Context) com.baidu.adp.base.a.getInst().getApp(), 100.0f));
+        a(str, i, com.baidu.adp.lib.util.k.a((Context) BdBaseApplication.getInst().getApp(), 100.0f));
     }
 
     public void a(int i, int i2) {
-        a(com.baidu.adp.base.a.getInst().getApp().getResources().getString(i), i2);
+        a(BdBaseApplication.getInst().getApp().getResources().getString(i), i2);
     }
 
     public void a(int i, int i2, int i3) {
-        a(com.baidu.adp.base.a.getInst().getApp().getResources().getString(i), i2, i3);
+        a(BdBaseApplication.getInst().getApp().getResources().getString(i), i2, i3);
     }
 
     public void b() {

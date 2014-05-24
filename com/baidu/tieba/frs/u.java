@@ -1,11 +1,8 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.text.TextUtils;
 /* loaded from: classes.dex */
-class u implements bj {
+class u implements dp {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,41 +10,26 @@ class u implements bj {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.bj
-    public void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.o oVar) {
-        cs csVar;
-        cs csVar2;
-        cs csVar3;
-        String str;
+    @Override // com.baidu.tieba.frs.dp
+    public void a(String str) {
         boolean z;
-        dm dmVar;
-        csVar = this.a.w;
-        if (i != csVar.v().f() || view2 == null || view == null) {
-            csVar2 = this.a.w;
-            if (i == csVar2.v().e()) {
-                this.a.j = oVar;
-                z = this.a.i;
-                if (!z) {
-                    this.a.i = true;
-                    dmVar = this.a.av;
-                    dmVar.a(oVar.i(), oVar.l(), oVar.j().getIsLike(), "frs");
-                    return;
-                }
-                return;
-            }
-            csVar3 = this.a.w;
-            if (i == csVar3.v().g()) {
-                FrsActivity frsActivity = this.a;
-                com.baidu.tbadk.core.atomData.as asVar = new com.baidu.tbadk.core.atomData.as(this.a);
-                str = this.a.n;
-                frsActivity.sendMessage(new CustomMessage(2006001, asVar.a(oVar, str, null, 18003, true, false, false)));
-                return;
-            }
-            return;
+        com.baidu.tbadk.core.data.n nVar;
+        z = this.a.k;
+        if (z) {
+            nVar = this.a.j;
+            this.a.c(nVar.o().getIsLike() == 1 ? 0 : 1);
         }
-        Rect rect = new Rect();
-        view.getDrawingRect(rect);
-        ((ViewGroup) view2).offsetDescendantRectToMyCoords(view, rect);
-        this.a.a(i2, oVar, rect.bottom);
+        this.a.i = false;
+        com.baidu.tieba.pb.main.bn.a().f();
+    }
+
+    @Override // com.baidu.tieba.frs.dp
+    public void b(String str) {
+        boolean z;
+        z = this.a.k;
+        if (z && !TextUtils.isEmpty(str)) {
+            this.a.showToast(str);
+        }
+        this.a.i = false;
     }
 }

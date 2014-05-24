@@ -65,7 +65,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     public BdAsyncTask() {
-        com.baidu.adp.lib.util.h.b();
+        com.baidu.adp.lib.util.k.b();
         this.mWorker = new a(this);
         this.mFuture = new b(this, this.mWorker, this);
     }
@@ -188,7 +188,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     public final boolean cancel(boolean z) {
-        com.baidu.adp.lib.util.h.b();
+        com.baidu.adp.lib.util.k.b();
         if (!this.isSelfExecute) {
             sDefaultExecutor.a((BdAsyncTask<?, ?, ?>) this);
         }
@@ -212,7 +212,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     public final BdAsyncTask<Params, Progress, Result> executeOnExecutor(Executor executor, Params... paramsArr) {
-        com.baidu.adp.lib.util.h.b();
+        com.baidu.adp.lib.util.k.b();
         if (this.mStatus != BdAsyncTaskStatus.PENDING) {
             switch ($SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus()[this.mStatus.ordinal()]) {
                 case 2:

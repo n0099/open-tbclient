@@ -24,7 +24,7 @@ class v implements br {
                 if (this.c != null) {
                     headImageView.setImageBitmap(this.c.h());
                 } else {
-                    headImageView.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.q.photo));
+                    headImageView.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.u.photo));
                 }
                 headImageView.invalidate();
             }

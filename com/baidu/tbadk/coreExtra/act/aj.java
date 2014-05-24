@@ -6,6 +6,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.be;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,7 +47,7 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.i
         textView = this.b.G;
         textView.setVisibility(4);
         textView2 = this.b.I;
-        textView2.setText(com.baidu.tieba.u.account_login_loading);
+        textView2.setText(com.baidu.tieba.y.account_login_loading);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -94,29 +95,19 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.i
         TextView textView5;
         TextView textView6;
         TextView textView7;
+        TextView textView8;
+        TextView textView9;
+        TextView textView10;
         String str;
         EditText editText;
         progressBar = this.b.w;
         progressBar.setVisibility(8);
         textView = this.b.I;
-        textView.setText(com.baidu.tieba.u.account_login);
+        textView.setText(com.baidu.tieba.y.account_login);
         this.b.m();
-        if (iVar != null) {
-            this.b.N = iVar;
-            this.b.h();
-        } else if (this.c != null) {
-            if ((!this.c.c() || this.c.d() != 5) && this.c.d() != 6) {
-                textView2 = this.b.G;
-                textView2.setVisibility(0);
-                textView3 = this.b.G;
-                textView3.setText(this.c.f());
-                textView4 = this.b.H;
-                textView4.setVisibility(8);
-                this.b.i();
-            } else {
-                com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
-                fVar.a(this.e);
-                if (fVar.b() == null) {
+        if (iVar == null) {
+            if (this.c != null) {
+                if ((!this.c.c() || this.c.d() != 5) && this.c.d() != 6) {
                     textView5 = this.b.G;
                     textView5.setVisibility(0);
                     textView6 = this.b.G;
@@ -125,17 +116,40 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.i
                     textView7.setVisibility(8);
                     this.b.i();
                 } else {
-                    this.b.h = fVar.a();
-                    this.b.i = fVar.b();
-                    Login2Activity login2Activity = this.b;
-                    str = this.b.i;
-                    login2Activity.a(str);
-                    this.b.j();
-                    Login2Activity login2Activity2 = this.b;
-                    editText = this.b.o;
-                    login2Activity2.f = editText.getText().toString();
+                    com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
+                    fVar.a(this.e);
+                    if (fVar.b() == null) {
+                        textView8 = this.b.G;
+                        textView8.setVisibility(0);
+                        textView9 = this.b.G;
+                        textView9.setText(this.c.f());
+                        textView10 = this.b.H;
+                        textView10.setVisibility(8);
+                        this.b.i();
+                    } else {
+                        this.b.h = fVar.a();
+                        this.b.i = fVar.b();
+                        Login2Activity login2Activity = this.b;
+                        str = this.b.i;
+                        login2Activity.a(str);
+                        this.b.j();
+                        Login2Activity login2Activity2 = this.b;
+                        editText = this.b.o;
+                        login2Activity2.f = editText.getText().toString();
+                    }
                 }
             }
+        } else if (be.c(iVar.a().getUserName())) {
+            textView2 = this.b.G;
+            textView2.setVisibility(0);
+            textView3 = this.b.G;
+            textView3.setText(this.b.getString(com.baidu.tieba.y.error_empty_username));
+            textView4 = this.b.H;
+            textView4.setVisibility(8);
+            this.b.i();
+        } else {
+            this.b.N = iVar;
+            this.b.h();
         }
         this.b.M = null;
     }
@@ -152,7 +166,7 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.i
         progressBar = this.b.w;
         progressBar.setVisibility(8);
         textView = this.b.I;
-        textView.setText(com.baidu.tieba.u.account_login);
+        textView.setText(com.baidu.tieba.y.account_login);
         this.b.m();
     }
 }

@@ -7,23 +7,23 @@ import android.os.IBinder;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class PerformMonitorService extends Service {
-    private com.baidu.adp.lib.debug.a.o b = null;
-    private com.baidu.adp.lib.debug.a.h c = null;
-    private com.baidu.adp.lib.debug.a.e d = null;
-    private com.baidu.adp.lib.debug.a.j e = null;
-    private boolean f = false;
-    private h g = null;
-    private Handler h = null;
-    public Runnable a = new e(this);
+    private com.baidu.adp.lib.debug.a.o mSRMonitor = null;
+    private com.baidu.adp.lib.debug.a.h mGCMonitor = null;
+    private com.baidu.adp.lib.debug.a.e mFpsMonitor = null;
+    private com.baidu.adp.lib.debug.a.j mLogcatMonitor = null;
+    private boolean isSampling = false;
+    private j mTask = null;
+    private Handler mHandler = null;
+    public Runnable sampleRunnable = new g(this);
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.b = new com.baidu.adp.lib.debug.a.o(getApplicationContext());
-        this.c = new com.baidu.adp.lib.debug.a.h();
-        this.d = new com.baidu.adp.lib.debug.a.e(getApplicationContext());
-        this.e = new com.baidu.adp.lib.debug.a.j();
-        this.h = new Handler();
+        this.mSRMonitor = new com.baidu.adp.lib.debug.a.o(getApplicationContext());
+        this.mGCMonitor = new com.baidu.adp.lib.debug.a.h();
+        this.mFpsMonitor = new com.baidu.adp.lib.debug.a.e(getApplicationContext());
+        this.mLogcatMonitor = new com.baidu.adp.lib.debug.a.j();
+        this.mHandler = new Handler();
     }
 
     @Override // android.app.Service
@@ -34,88 +34,88 @@ public class PerformMonitorService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.g == null && !this.f) {
-            a();
+        if (this.mTask == null && !this.isSampling) {
+            monitorOn();
         }
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        b();
+        monitorOff();
         super.onDestroy();
     }
 
-    public void a() {
+    public void monitorOn() {
         try {
-            if (!this.b.a()) {
-                new Thread(this.b).start();
+            if (!this.mSRMonitor.a()) {
+                new Thread(this.mSRMonitor).start();
             }
         } catch (Exception e) {
             BdLog.e(getClass().getName(), "monitorOn", e.toString());
         }
         try {
-            if (!this.c.a()) {
-                this.c.b();
+            if (!this.mGCMonitor.a()) {
+                this.mGCMonitor.b();
             }
         } catch (Exception e2) {
             BdLog.e(getClass().getName(), "monitorOn", e2.toString());
         }
         try {
-            if (!this.e.a()) {
-                new Thread(this.e).start();
+            if (!this.mLogcatMonitor.a()) {
+                new Thread(this.mLogcatMonitor).start();
             }
         } catch (Exception e3) {
             BdLog.e(getClass().getName(), "monitorOn", e3.toString());
         }
         try {
-            if (!this.d.a()) {
-                this.d.b();
+            if (!this.mFpsMonitor.a()) {
+                this.mFpsMonitor.b();
             }
         } catch (Exception e4) {
             BdLog.e(getClass().getName(), "monitorOn", e4.toString());
         }
-        this.f = true;
-        new Thread(this.a).start();
-        new Handler().postDelayed(new g(this), 10000L);
+        this.isSampling = true;
+        new Thread(this.sampleRunnable).start();
+        new Handler().postDelayed(new i(this), 10000L);
     }
 
-    public void b() {
+    public void monitorOff() {
         try {
-            if (this.b.a()) {
-                this.b.c();
+            if (this.mSRMonitor.a()) {
+                this.mSRMonitor.c();
             }
         } catch (Exception e) {
             BdLog.e(getClass().getName(), "monitorOff", e.toString());
         }
         try {
-            if (this.c.a()) {
-                this.c.c();
+            if (this.mGCMonitor.a()) {
+                this.mGCMonitor.c();
             }
         } catch (Exception e2) {
             BdLog.e(getClass().getName(), "monitorOff", e2.toString());
         }
         try {
-            if (this.e.a()) {
-                this.e.c();
+            if (this.mLogcatMonitor.a()) {
+                this.mLogcatMonitor.c();
             }
         } catch (Exception e3) {
             BdLog.e(getClass().getName(), "monitorOff", e3.toString());
         }
         try {
-            if (this.d.a()) {
-                this.d.c();
+            if (this.mFpsMonitor.a()) {
+                this.mFpsMonitor.c();
             }
         } catch (Exception e4) {
             BdLog.e(getClass().getName(), "monitorOff", e4.toString());
         }
-        this.f = false;
+        this.isSampling = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        if (this.g == null) {
-            this.g = new h(this, null);
-            this.g.execute(new String[0]);
+    public void startUpLoad() {
+        if (this.mTask == null) {
+            this.mTask = new j(this, null);
+            this.mTask.execute(new String[0]);
         }
     }
 }

@@ -10,27 +10,27 @@ class m implements ay {
 
     @Override // com.baidu.tieba.pb.main.ay
     public void a(boolean z) {
-        bc bcVar;
-        bc bcVar2;
-        bc bcVar3;
-        bc bcVar4;
-        bc bcVar5;
-        bc bcVar6;
+        bj bjVar;
+        bj bjVar2;
+        bj bjVar3;
+        bj bjVar4;
+        bj bjVar5;
+        bj bjVar6;
         if (z) {
-            bcVar6 = this.a.y;
-            bcVar6.b(true);
+            bjVar6 = this.a.x;
+            bjVar6.b(true);
             return;
         }
-        bcVar = this.a.y;
-        int d = bcVar.q().d();
-        bcVar2 = this.a.y;
-        if (d < bcVar2.q().a()) {
-            bcVar4 = this.a.y;
-            bcVar5 = this.a.y;
-            bcVar4.c(bcVar5.q().d() + 1);
+        bjVar = this.a.x;
+        int d = bjVar.q().d();
+        bjVar2 = this.a.x;
+        if (d < bjVar2.q().a()) {
+            bjVar4 = this.a.x;
+            bjVar5 = this.a.x;
+            bjVar4.c(bjVar5.q().d() + 1);
             return;
         }
-        bcVar3 = this.a.y;
-        bcVar3.a(true);
+        bjVar3 = this.a.x;
+        bjVar3.a(true);
     }
 }

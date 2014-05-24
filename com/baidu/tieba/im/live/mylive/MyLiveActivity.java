@@ -8,13 +8,14 @@ import android.widget.RadioGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.ae;
 import com.baidu.tbadk.core.atomData.an;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tieba.r;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class MyLiveActivity extends com.baidu.tbadk.core.e implements ViewPager.OnPageChangeListener, View.OnClickListener, RadioGroup.OnCheckedChangeListener {
+public class MyLiveActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, View.OnClickListener, RadioGroup.OnCheckedChangeListener {
     private k c;
     private boolean d = false;
     private boolean e = false;
@@ -25,7 +26,7 @@ public class MyLiveActivity extends com.baidu.tbadk.core.e implements ViewPager.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.e, com.baidu.adp.base.b, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle);
@@ -36,16 +37,16 @@ public class MyLiveActivity extends com.baidu.tbadk.core.e implements ViewPager.
         this.c.a();
     }
 
-    @Override // com.baidu.tbadk.core.e
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void b(int i) {
         this.c.e(i);
     }
 
-    @Override // com.baidu.adp.base.b, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.c.b()) {
-            String string = getString(u.members_edit);
-            String string2 = getString(u.group_create_step_done_tip);
+            String string = getString(y.members_edit);
+            String string2 = getString(y.group_create_step_done_tip);
             String charSequence = this.c.b().getText().toString();
             if (charSequence != null) {
                 if (charSequence.equals(string)) {
@@ -63,11 +64,11 @@ public class MyLiveActivity extends com.baidu.tbadk.core.e implements ViewPager.
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         if (!this.e) {
             this.d = true;
-            if (i == r.mylive_activity_radio_mylive) {
+            if (i == v.mylive_activity_radio_mylive) {
                 this.c.b(0);
                 this.c.c(0);
                 this.c.a(0);
-            } else if (i == r.mylive_activity_radio_mymark) {
+            } else if (i == v.mylive_activity_radio_mymark) {
                 this.c.b(1);
                 this.c.c(1);
                 this.c.a(1);

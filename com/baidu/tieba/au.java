@@ -1,27 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
-import com.baidu.tieba.data.VersionData;
+import android.app.Application;
+import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au implements DialogInterface.OnDismissListener {
-    final /* synthetic */ UpdateDialog a;
+public class au implements Runnable {
+    final /* synthetic */ ai a;
+    private final /* synthetic */ Application b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(UpdateDialog updateDialog) {
-        this.a = updateDialog;
+    public au(ai aiVar, Application application) {
+        this.a = aiVar;
+        this.b = application;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        y yVar;
-        VersionData versionData;
-        yVar = this.a.e;
-        yVar.dismiss();
-        versionData = this.a.c;
-        if (versionData.forceUpdate()) {
-            com.baidu.tbadk.core.b.b.a(this.a, Constants.MEDIA_INFO);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        this.b.sendBroadcast(new Intent("com.baidu.tieba.action.PLUGIN_DOWNLOAD"));
     }
 }

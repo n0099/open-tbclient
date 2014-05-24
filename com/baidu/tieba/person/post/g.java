@@ -66,7 +66,7 @@ public class g extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         j jVar;
         if (view == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.s.person_post_item_reply, viewGroup, false);
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(com.baidu.tieba.w.person_post_item_reply, viewGroup, false);
             jVar = new j(view);
             view.setTag(jVar);
         } else {
@@ -117,13 +117,13 @@ public class g extends BaseAdapter {
         strArr[0] = String.valueOf(a.thread_id);
         textView.setTag(strArr);
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            jVar.h.setTextColor(viewGroup.getResources().getColor(com.baidu.tieba.o.person_post_content_ori_1));
-            jVar.h.setBackgroundResource(com.baidu.tieba.q.person_post_line_1);
+            jVar.h.setTextColor(viewGroup.getResources().getColor(com.baidu.tieba.s.person_post_content_ori_1));
+            jVar.h.setBackgroundResource(com.baidu.tieba.u.person_post_line_1);
         } else {
-            jVar.h.setTextColor(viewGroup.getResources().getColor(com.baidu.tieba.o.person_post_content_ori));
-            jVar.h.setBackgroundResource(com.baidu.tieba.q.person_post_line);
+            jVar.h.setTextColor(viewGroup.getResources().getColor(com.baidu.tieba.s.person_post_content_ori));
+            jVar.h.setBackgroundResource(com.baidu.tieba.u.person_post_line);
         }
-        int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(com.baidu.tieba.p.person_post_reply_ori_padding);
+        int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(com.baidu.tieba.t.person_post_reply_ori_padding);
         jVar.h.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
         jVar.a(this.g);
         jVar.a(TbadkApplication.m252getInst().getSkinType());

@@ -1,16 +1,16 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ MsglistModel a;
-    private final /* synthetic */ PersonalChatMessage b;
+    private final /* synthetic */ CommonGroupChatMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(MsglistModel msglistModel, PersonalChatMessage personalChatMessage) {
+    public ay(MsglistModel msglistModel, CommonGroupChatMessage commonGroupChatMessage) {
         this.a = msglistModel;
-        this.b = personalChatMessage;
+        this.b = commonGroupChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

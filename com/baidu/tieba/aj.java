@@ -1,23 +1,30 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements CustomMessageTask.CustomRunnable<AccountData> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
-        if (com.baidu.adp.lib.util.h.c()) {
-            ad.a(customMessage.getData(), TbadkApplication.m252getInst());
-            return null;
-        } else if (ad.c() != null) {
-            ad.c().b.post(new ak(this, customMessage));
-            return null;
-        } else {
-            return null;
+public class aj implements Handler.Callback {
+    final /* synthetic */ ai a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aj(ai aiVar) {
+        this.a = aiVar;
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        switch (message.what) {
+            case 2:
+                MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.START));
+                return false;
+            case 3:
+                MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.STOP));
+                return false;
+            default:
+                return false;
         }
     }
 }

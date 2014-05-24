@@ -11,8 +11,8 @@ class a extends Handler {
         switch (message.what) {
             case 1:
                 BdLog.d("tcp建立和握手超时");
-                BdSocketLinkService.a("tcp or websocket handshake timeout");
-                eVar = BdSocketLinkService.b;
+                BdSocketLinkService.close("tcp or websocket handshake timeout");
+                eVar = BdSocketLinkService.reConnStra;
                 eVar.a("tcp or websocket handshake timeout");
                 return;
             default:

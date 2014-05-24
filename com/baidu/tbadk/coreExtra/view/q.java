@@ -58,29 +58,29 @@ public class q {
 
     public void a() {
         if (this.b == null) {
-            this.a = this.j.getLayoutInflater().inflate(com.baidu.tieba.s.main_input_username, (ViewGroup) null);
-            this.c = (EditText) this.a.findViewById(com.baidu.tieba.r.account);
-            this.c.setHint(String.valueOf(this.j.getString(com.baidu.tieba.u.input_name)) + ":");
-            this.i = (Button) this.a.findViewById(com.baidu.tieba.r.back);
+            this.a = this.j.getLayoutInflater().inflate(com.baidu.tieba.w.main_input_username, (ViewGroup) null);
+            this.c = (EditText) this.a.findViewById(com.baidu.tieba.v.account);
+            this.c.setHint(String.valueOf(this.j.getString(com.baidu.tieba.y.input_name)) + ":");
+            this.i = (Button) this.a.findViewById(com.baidu.tieba.v.back);
             this.i.setOnClickListener(new r(this));
-            this.k = (Button) this.a.findViewById(com.baidu.tieba.r.check_username);
+            this.k = (Button) this.a.findViewById(com.baidu.tieba.v.check_username);
             this.k.setOnClickListener(new s(this));
-            this.p = (ProgressBar) this.a.findViewById(com.baidu.tieba.r.check_progress);
-            this.o = (Button) this.a.findViewById(com.baidu.tieba.r.confirm);
+            this.p = (ProgressBar) this.a.findViewById(com.baidu.tieba.v.check_progress);
+            this.o = (Button) this.a.findViewById(com.baidu.tieba.v.confirm);
             this.o.setOnClickListener(new t(this));
-            this.q = (ProgressBar) this.a.findViewById(com.baidu.tieba.r.confirm_progress);
-            this.n = (TextView) this.a.findViewById(com.baidu.tieba.r.error_info);
-            this.d = (RadioGroup) this.a.findViewById(com.baidu.tieba.r.names_group);
-            this.f = (RadioButton) this.a.findViewById(com.baidu.tieba.r.name1);
-            this.g = (RadioButton) this.a.findViewById(com.baidu.tieba.r.name2);
-            this.h = (RadioButton) this.a.findViewById(com.baidu.tieba.r.name3);
+            this.q = (ProgressBar) this.a.findViewById(com.baidu.tieba.v.confirm_progress);
+            this.n = (TextView) this.a.findViewById(com.baidu.tieba.v.error_info);
+            this.d = (RadioGroup) this.a.findViewById(com.baidu.tieba.v.names_group);
+            this.f = (RadioButton) this.a.findViewById(com.baidu.tieba.v.name1);
+            this.g = (RadioButton) this.a.findViewById(com.baidu.tieba.v.name2);
+            this.h = (RadioButton) this.a.findViewById(com.baidu.tieba.v.name3);
             this.e = new u(this);
             this.f.setOnCheckedChangeListener(this.e);
             this.g.setOnCheckedChangeListener(this.e);
             this.h.setOnCheckedChangeListener(this.e);
-            this.r = (TextView) this.a.findViewById(com.baidu.tieba.r.phone_info);
+            this.r = (TextView) this.a.findViewById(com.baidu.tieba.v.phone_info);
             d();
-            this.b = new Dialog(this.j, com.baidu.tieba.v.input_username_dialog);
+            this.b = new Dialog(this.j, com.baidu.tieba.z.input_username_dialog);
             this.b.setCanceledOnTouchOutside(false);
             this.b.getWindow().setSoftInputMode(20);
             this.b.setCancelable(false);
@@ -91,21 +91,23 @@ public class q {
             d();
             b((String) null);
             if (this.s == null || this.s.length() <= 0) {
-                this.r.setText("Hi," + this.j.getString(com.baidu.tieba.u.bar_friend));
+                this.r.setText("Hi," + this.j.getString(com.baidu.tieba.y.bar_friend));
             } else {
                 this.r.setText("Hi," + this.s);
             }
-            this.b.show();
-            this.b.setContentView(this.a);
-            WindowManager.LayoutParams attributes = this.b.getWindow().getAttributes();
-            attributes.gravity = 51;
-            attributes.x = 0;
-            attributes.y = 0;
-            attributes.width = -1;
-            attributes.height = -1;
-            this.b.getWindow().setAttributes(attributes);
-            this.j.ShowSoftKeyPadDelay(this.c, 150);
-            this.c.requestFocus();
+            if (!this.j.isFinishing()) {
+                this.b.show();
+                this.b.setContentView(this.a);
+                WindowManager.LayoutParams attributes = this.b.getWindow().getAttributes();
+                attributes.gravity = 51;
+                attributes.x = 0;
+                attributes.y = 0;
+                attributes.width = -1;
+                attributes.height = -1;
+                this.b.getWindow().setAttributes(attributes);
+                this.j.ShowSoftKeyPadDelay(this.c, 150);
+                this.c.requestFocus();
+            }
         }
     }
 

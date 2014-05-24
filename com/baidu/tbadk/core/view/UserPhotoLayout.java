@@ -12,8 +12,8 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class UserPhotoLayout extends LinearLayout implements AbsListView.RecyclerListener {
     private com.baidu.adp.lib.d.b<HeadImageView> a;
-    private ab b;
-    private aa c;
+    private aa b;
+    private z c;
     private Context d;
     private List<MetaData> e;
     private int f;
@@ -55,14 +55,14 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.i = true;
         this.j = 6;
         this.d = context;
-        this.h = com.baidu.adp.lib.util.h.a(this.d, this.h);
-        this.f = (int) this.d.getResources().getDimension(com.baidu.tieba.p.ds60);
-        if (this.d instanceof ac) {
-            ac acVar = (ac) this.d;
-            this.a = acVar.c();
-            if (acVar.a() != null && this.b == null) {
-                this.b = new ab(acVar.b());
-                acVar.a().setRecyclerListener(this.b);
+        this.h = com.baidu.adp.lib.util.k.a(this.d, this.h);
+        this.f = (int) this.d.getResources().getDimension(com.baidu.tieba.t.ds60);
+        if (this.d instanceof ab) {
+            ab abVar = (ab) this.d;
+            this.a = abVar.c();
+            if (abVar.a() != null && this.b == null) {
+                this.b = new aa(abVar.b());
+                abVar.a().setRecyclerListener(this.b);
             }
         }
         setOnHierarchyChangeListener(new x(this));
@@ -71,13 +71,13 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        view.setOnClickListener(new z(this, getChildCount() - 1, null));
+        view.setOnClickListener(new y(this, getChildCount() - 1, null));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         super.addView(view, i);
-        view.setOnClickListener(new z(this, getChildCount() - 1, null));
+        view.setOnClickListener(new y(this, getChildCount() - 1, null));
     }
 
     public void a(List<MetaData> list, boolean z) {
@@ -98,7 +98,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
             a.setScaleType(ImageView.ScaleType.CENTER_CROP);
             addView(a);
             a.a(this.e.get(i).getPortrait(), 12, false);
-            a.setDefaultResource(com.baidu.tieba.q.photo);
+            a.setDefaultResource(com.baidu.tieba.u.photo);
         }
         requestLayout();
         invalidate();
@@ -153,8 +153,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
     }
 
-    public void setOnChildClickListener(aa aaVar) {
-        this.c = aaVar;
+    public void setOnChildClickListener(z zVar) {
+        this.c = zVar;
     }
 
     public void a() {
@@ -168,10 +168,6 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         if (view != null && (view instanceof UserPhotoLayout)) {
             a();
         }
-    }
-
-    public static com.baidu.adp.lib.d.b<HeadImageView> a(Context context, int i) {
-        return new com.baidu.adp.lib.d.b<>(new y(context), i, 0);
     }
 
     private HeadImageView a(Context context) {

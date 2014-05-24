@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
-class l extends com.baidu.adp.base.g {
+class l extends com.baidu.adp.base.e {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,19 +8,19 @@ class l extends com.baidu.adp.base.g {
         this.a = pbActivity;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void a(Object obj) {
-        bj bjVar;
+        bq bqVar;
         com.baidu.tieba.model.v vVar;
         com.baidu.tieba.model.v vVar2;
         com.baidu.tieba.model.v vVar3;
-        bc bcVar;
+        bj bjVar;
         if (obj != null) {
-            vVar2 = this.a.D;
+            vVar2 = this.a.C;
             switch (vVar2.getLoadDataMode()) {
                 case 0:
-                    bcVar = this.a.y;
-                    bcVar.z();
+                    bjVar = this.a.x;
+                    bjVar.z();
                     this.a.a((com.baidu.tieba.model.x) obj);
                     return;
                 case 1:
@@ -31,7 +31,7 @@ class l extends com.baidu.adp.base.g {
                 case 4:
                 case 5:
                     PbActivity pbActivity = this.a;
-                    vVar3 = this.a.D;
+                    vVar3 = this.a.C;
                     pbActivity.a(vVar3.getLoadDataMode(), (com.baidu.tieba.model.ab) obj);
                     return;
                 case 6:
@@ -41,8 +41,8 @@ class l extends com.baidu.adp.base.g {
                     return;
             }
         }
-        bjVar = this.a.E;
-        vVar = this.a.D;
-        bjVar.a(vVar.getLoadDataMode(), false, (String) null, false);
+        bqVar = this.a.D;
+        vVar = this.a.C;
+        bqVar.a(vVar.getLoadDataMode(), false, (String) null, false);
     }
 }

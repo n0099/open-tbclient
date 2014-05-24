@@ -36,11 +36,11 @@ public class an extends RelativeLayout {
     private void a(Context context) {
         this.a = (Activity) context;
         this.b = (LayoutInflater) context.getSystemService("layout_inflater");
-        View inflate = this.b.inflate(com.baidu.tieba.s.live_room_chat_like, (ViewGroup) this, true);
-        this.h = inflate.findViewById(com.baidu.tieba.r.chat_like_layout);
-        this.c = (TextView) inflate.findViewById(com.baidu.tieba.r.tvlike);
-        this.d = (ImageView) inflate.findViewById(com.baidu.tieba.r.ivlike);
-        this.e = (UserPhotoLayout) inflate.findViewById(com.baidu.tieba.r.horizontalScrollView);
+        View inflate = this.b.inflate(com.baidu.tieba.w.live_room_chat_like, (ViewGroup) this, true);
+        this.h = inflate.findViewById(com.baidu.tieba.v.chat_like_layout);
+        this.c = (TextView) inflate.findViewById(com.baidu.tieba.v.tvlike);
+        this.d = (ImageView) inflate.findViewById(com.baidu.tieba.v.ivlike);
+        this.e = (UserPhotoLayout) inflate.findViewById(com.baidu.tieba.v.horizontalScrollView);
         this.e.setAutoChangeStyle(false);
         this.e.setOnChildClickListener(new ao(this));
     }

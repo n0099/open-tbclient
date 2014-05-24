@@ -7,12 +7,12 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.data.BubbleListData;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.e {
+public class e extends com.baidu.adp.base.c {
     private NavigationBar a;
     private ViewGroup b;
     private GridView c;
@@ -24,16 +24,16 @@ public class e extends com.baidu.adp.base.e {
     public e(BubbleChooseActivity bubbleChooseActivity) {
         super(bubbleChooseActivity);
         this.f = bubbleChooseActivity;
-        bubbleChooseActivity.setContentView(s.bubble_activity_view);
-        this.a = (NavigationBar) bubbleChooseActivity.findViewById(r.lay_title_bar);
+        bubbleChooseActivity.setContentView(w.bubble_activity_view);
+        this.a = (NavigationBar) bubbleChooseActivity.findViewById(v.lay_title_bar);
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.a(u.bubble_choose);
-        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, s.bubble_explain, bubbleChooseActivity);
-        this.b = (ViewGroup) bubbleChooseActivity.findViewById(r.container);
-        this.c = (GridView) bubbleChooseActivity.findViewById(r.gv_bubble_list);
+        this.a.a(y.bubble_choose);
+        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.bubble_explain, bubbleChooseActivity);
+        this.b = (ViewGroup) bubbleChooseActivity.findViewById(v.container);
+        this.c = (GridView) bubbleChooseActivity.findViewById(v.gv_bubble_list);
         this.e = new d(bubbleChooseActivity);
         this.c.setAdapter((ListAdapter) this.e);
-        this.g = (ProgressBar) bubbleChooseActivity.findViewById(r.bubble_progress);
+        this.g = (ProgressBar) bubbleChooseActivity.findViewById(v.bubble_progress);
     }
 
     public void a(List<BubbleListData.BubbleData> list, boolean z) {

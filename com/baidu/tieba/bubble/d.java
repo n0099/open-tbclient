@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.data.BubbleListData;
-import com.baidu.tieba.p;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -25,8 +25,8 @@ public class d extends BaseAdapter {
         this.b = bubbleChooseActivity;
         this.c = new ab(this.b);
         this.c.d(true);
-        this.d = (int) this.b.getResources().getDimension(p.ds30);
-        this.e = (int) this.b.getResources().getDimension(p.ds30);
+        this.d = (int) this.b.getResources().getDimension(t.ds30);
+        this.e = (int) this.b.getResources().getDimension(t.ds30);
     }
 
     public List<BubbleListData.BubbleData> a() {

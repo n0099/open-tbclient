@@ -31,7 +31,7 @@ public class CombineDownload implements Serializable {
         return this.appProc;
     }
 
-    public int getIsShow() {
-        return this.isShow;
+    public boolean showCombineDownload() {
+        return this.isShow == 1;
     }
 }

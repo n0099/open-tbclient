@@ -34,7 +34,7 @@ class a extends com.baidu.adp.framework.listener.b {
         f fVar2;
         this.a.hideProgressBar();
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (socketResponsedMessage.getCmd() == 107006 && (socketResponsedMessage instanceof ResponseLiveGroupLikeListMessage)) {
             eVar = this.a.c;
             eVar.g();

@@ -92,7 +92,7 @@ public class s implements ViewPager.OnPageChangeListener {
                     textView5 = this.a.h;
                     textView5.setVisibility(8);
                     textView6 = this.a.g;
-                    textView6.setText(this.a.getString(com.baidu.tieba.u.image_recommend));
+                    textView6.setText(this.a.getString(com.baidu.tieba.y.image_recommend));
                     linearLayout2 = this.a.q;
                     linearLayout2.setVisibility(8);
                     baseViewPager = this.a.x;

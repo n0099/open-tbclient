@@ -13,7 +13,7 @@ class ar implements View.OnTouchListener {
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.a.ai();
+        this.a.aj();
         return false;
     }
 }

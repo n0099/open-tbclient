@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class al {
     private com.baidu.tieba.data.ab c = new com.baidu.tieba.data.ab();
     private ArrayList<com.baidu.tieba.data.o> a = new ArrayList<>();
-    private com.baidu.tbadk.core.data.m b = new com.baidu.tbadk.core.data.m();
+    private com.baidu.tbadk.core.data.l b = new com.baidu.tbadk.core.data.l();
     private boolean d = true;
 
     public boolean a() {
@@ -23,7 +23,7 @@ public class al {
         return this.a;
     }
 
-    public com.baidu.tbadk.core.data.m c() {
+    public com.baidu.tbadk.core.data.l c() {
         return this.b;
     }
 

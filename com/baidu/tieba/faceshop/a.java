@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.editortool.e {
-    private LinkedList<com.baidu.tbadk.editortool.ag> a;
+    private LinkedList<com.baidu.tbadk.editortool.af> a;
 
     @Override // com.baidu.tbadk.editortool.e
     public int a() {
@@ -42,7 +42,7 @@ public class a extends com.baidu.tbadk.editortool.e {
     public synchronized void a(List<com.baidu.tbadk.editortool.y> list) {
         if (list != null) {
             if (!list.isEmpty()) {
-                LinkedList<com.baidu.tbadk.editortool.ag> linkedList = new LinkedList<>();
+                LinkedList<com.baidu.tbadk.editortool.af> linkedList = new LinkedList<>();
                 boolean z = false;
                 for (com.baidu.tbadk.editortool.y yVar : list) {
                     if (!TextUtils.isEmpty(yVar.getGroupId()) && yVar.IsValid()) {

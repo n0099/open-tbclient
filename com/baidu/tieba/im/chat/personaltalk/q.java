@@ -6,8 +6,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
-import com.baidu.tieba.s;
+import com.baidu.tieba.t;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.LinkedList;
 import protobuf.QueryUserInfos.DataRes;
 import protobuf.QueryUserInfos.IconInfo;
@@ -25,18 +28,18 @@ public class q {
 
     public q(PersonalTalkSettingActivity personalTalkSettingActivity) {
         this.c = personalTalkSettingActivity;
-        this.c.setContentView(s.p2ptalk_setting_activity);
-        this.e = this.c.findViewById(com.baidu.tieba.r.person_talk_setting_parent);
-        this.d = (NavigationBar) this.e.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.d.a(this.c.getString(u.talk_detail));
+        this.c.setContentView(w.p2ptalk_setting_activity);
+        this.e = this.c.findViewById(v.person_talk_setting_parent);
+        this.d = (NavigationBar) this.e.findViewById(v.view_navigation_bar);
+        this.d.a(this.c.getString(y.talk_detail));
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a = (PersonaltalkSettingViewBlackManView) this.c.findViewById(com.baidu.tieba.r.black_status_view);
-        this.b = (PersonalTalkSettingViewSettingView) this.c.findViewById(com.baidu.tieba.r.setting_detail_view);
-        this.f = (HeadImageView) this.c.findViewById(com.baidu.tieba.r.photo);
+        this.a = (PersonaltalkSettingViewBlackManView) this.c.findViewById(v.black_status_view);
+        this.b = (PersonalTalkSettingViewSettingView) this.c.findViewById(v.setting_detail_view);
+        this.f = (HeadImageView) this.c.findViewById(v.photo);
         this.f.setIsRound(true);
-        this.g = (TextView) this.c.findViewById(com.baidu.tieba.r.name);
-        this.h = (UserIconBox) this.c.findViewById(com.baidu.tieba.r.user_icon_box);
-        this.i = (TextView) this.c.findViewById(com.baidu.tieba.r.user_desc);
+        this.g = (TextView) this.c.findViewById(v.name);
+        this.h = (UserIconBox) this.c.findViewById(v.user_icon_box);
+        this.i = (TextView) this.c.findViewById(v.user_desc);
     }
 
     public void a(int i) {
@@ -78,13 +81,13 @@ public class q {
         if (dataRes != null) {
             this.g.setText(dataRes.name);
             if (dataRes.sex.intValue() == 1) {
-                this.g.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.q.icon_pop_boy, 0);
+                this.g.setCompoundDrawablesWithIntrinsicBounds(0, 0, u.icon_pop_boy, 0);
             } else if (dataRes.sex.intValue() != 2) {
                 i = 4;
             } else if (dataRes.iconInfo.size() > 0 && dataRes.iconInfo.get(0).name.equals(IconData.meizhi_icon_name)) {
                 this.g.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
             } else {
-                this.g.setCompoundDrawablesWithIntrinsicBounds(0, 0, com.baidu.tieba.q.icon_pop_girl, 0);
+                this.g.setCompoundDrawablesWithIntrinsicBounds(0, 0, u.icon_pop_girl, 0);
             }
             this.i.setText(dataRes.intro);
             if (this.h != null) {
@@ -95,7 +98,7 @@ public class q {
                     iconData.setIcon(iconInfo.iconUrl);
                     linkedList.add(iconData);
                 }
-                this.h.a(linkedList, i, this.c.getResources().getDimensionPixelSize(com.baidu.tieba.p.person_icon_width), this.c.getResources().getDimensionPixelSize(com.baidu.tieba.p.person_icon_height), this.c.getResources().getDimensionPixelSize(com.baidu.tieba.p.person_icon_margin));
+                this.h.a(linkedList, i, this.c.getResources().getDimensionPixelSize(t.person_icon_width), this.c.getResources().getDimensionPixelSize(t.person_icon_height), this.c.getResources().getDimensionPixelSize(t.person_icon_margin));
             }
         }
     }

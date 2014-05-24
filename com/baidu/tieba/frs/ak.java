@@ -1,12 +1,13 @@
 package com.baidu.tieba.frs;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tieba.view.CustomTimerView;
+import android.app.AlertDialog;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak extends Handler {
+public class ak implements com.baidu.tbadk.editortool.x {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,53 +15,76 @@ public class ak extends Handler {
         this.a = frsActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        g gVar;
-        g gVar2;
-        long j;
-        g gVar3;
-        boolean z;
-        cs csVar;
-        g gVar4;
-        g gVar5;
-        cs csVar2;
-        switch (message.what) {
-            case 1:
-                removeMessages(1);
-                gVar = this.a.I;
-                if (gVar != null) {
-                    gVar2 = this.a.I;
-                    long g = gVar2.l().g();
-                    j = this.a.N;
-                    long nanoTime = g - ((System.nanoTime() / 1000000000) - j);
-                    if (nanoTime > 0) {
-                        csVar2 = this.a.w;
-                        CustomTimerView customTimerView = (CustomTimerView) csVar2.a(com.baidu.tieba.r.open_timer);
-                        if (customTimerView != null) {
-                            customTimerView.setTime(nanoTime);
+    @Override // com.baidu.tbadk.editortool.x
+    public void a(int i, Object obj) {
+        AlertDialog alertDialog;
+        AlertDialog alertDialog2;
+        WriteImagesInfo writeImagesInfo;
+        WriteImagesInfo writeImagesInfo2;
+        WriteImagesInfo writeImagesInfo3;
+        WriteImagesInfo writeImagesInfo4;
+        WriteImagesInfo writeImagesInfo5;
+        WriteImagesInfo writeImagesInfo6;
+        WriteImagesInfo writeImagesInfo7;
+        WriteImagesInfo writeImagesInfo8;
+        WriteImagesInfo writeImagesInfo9;
+        String str;
+        if (i == 0) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.c(this.a, 12004, true)));
+        } else if (i != 10) {
+            if (i != 4) {
+                if (i == 22) {
+                    writeImagesInfo8 = this.a.Y;
+                    int size = writeImagesInfo8.size();
+                    writeImagesInfo9 = this.a.Y;
+                    if (size < writeImagesInfo9.getMaxImagesAllowed()) {
+                        this.a.Z = String.valueOf(System.currentTimeMillis());
+                        FrsActivity frsActivity = this.a;
+                        str = this.a.Z;
+                        com.baidu.tbadk.core.util.bb.a(frsActivity, str);
+                        return;
+                    }
+                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
+                } else if (i == 23) {
+                    writeImagesInfo5 = this.a.Y;
+                    if (writeImagesInfo5 != null) {
+                        writeImagesInfo6 = this.a.Y;
+                        if (!TextUtils.isEmpty(writeImagesInfo6.toJsonString())) {
+                            FrsActivity frsActivity2 = this.a;
+                            writeImagesInfo7 = this.a.Y;
+                            com.baidu.tbadk.core.atomData.a aVar = new com.baidu.tbadk.core.atomData.a(frsActivity2, writeImagesInfo7.toJsonString());
+                            aVar.setRequestCode(12002);
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, aVar));
                         }
-                        sendMessageDelayed(obtainMessage(1), 1000L);
+                    }
+                } else if (i == 42) {
+                    int intValue = ((Integer) obj).intValue();
+                    writeImagesInfo = this.a.Y;
+                    if (writeImagesInfo != null) {
+                        writeImagesInfo2 = this.a.Y;
+                        if (writeImagesInfo2.getChosedFiles() != null) {
+                            writeImagesInfo3 = this.a.Y;
+                            int size2 = writeImagesInfo3.getChosedFiles().size();
+                            if (size2 >= 1 && intValue >= 0 && intValue < size2) {
+                                MessageManager messageManager = MessageManager.getInstance();
+                                FrsActivity frsActivity3 = this.a;
+                                writeImagesInfo4 = this.a.Y;
+                                messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bk(frsActivity3, 12012, writeImagesInfo4, intValue)));
+                            }
+                        }
+                    }
+                } else if (i != 7) {
+                } else {
+                    alertDialog = this.a.ax;
+                    if (alertDialog == null) {
                         return;
                     }
-                    gVar3 = this.a.I;
-                    gVar3.l().a(1);
-                    z = this.a.l;
-                    if (!z) {
-                        csVar = this.a.w;
-                        com.baidu.tieba.frs.view.j x = csVar.x();
-                        gVar4 = this.a.I;
-                        ForumData g2 = gVar4.g();
-                        gVar5 = this.a.I;
-                        x.a(g2, gVar5);
-                        return;
-                    }
-                    return;
+                    alertDialog2 = this.a.ax;
+                    alertDialog2.show();
                 }
-                return;
-            default:
-                super.handleMessage(message);
-                return;
+            }
+        } else {
+            this.a.d((String) null);
         }
     }
 }

@@ -25,7 +25,7 @@ public class j implements View.OnClickListener {
         intent.putExtras(bundle);
         AtListActivity atListActivity = this.a;
         editText = this.a.b;
-        com.baidu.adp.lib.util.h.a(atListActivity, editText);
+        com.baidu.adp.lib.util.k.a(atListActivity, editText);
         this.a.setResult(-1, intent);
         this.a.finish();
     }

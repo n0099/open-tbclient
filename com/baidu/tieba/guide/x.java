@@ -5,30 +5,30 @@ import android.view.View;
 import android.view.animation.ScaleAnimation;
 import com.baidu.tieba.data.InterestFrsData;
 import com.baidu.tieba.model.af;
-import com.baidu.tieba.model.bc;
+import com.baidu.tieba.model.bd;
 /* loaded from: classes.dex */
 public class x implements View.OnClickListener {
     private NewUserGuideActivity a;
     private InterestFrsData.Tag b;
     private a c;
     private af d;
-    private bc e;
+    private bd e;
 
     public x(NewUserGuideActivity newUserGuideActivity, InterestFrsData.Tag tag, t tVar) {
         this.a = newUserGuideActivity;
         this.b = tag;
         int btype = tag.getBtype();
         if (btype == 1) {
-            this.c = new v(this.a, com.baidu.tieba.v.NewUserDialog);
+            this.c = new v(this.a, com.baidu.tieba.z.NewUserDialog);
         } else if (btype == 2) {
-            this.c = new e(this.a, com.baidu.tieba.v.NewUserDialog);
+            this.c = new e(this.a, com.baidu.tieba.z.NewUserDialog);
         } else if (btype == 3) {
-            this.c = new l(this.a, com.baidu.tieba.v.NewUserDialog);
+            this.c = new l(this.a, com.baidu.tieba.z.NewUserDialog);
         }
         this.c.a(newUserGuideActivity.g());
         this.d = new af();
         this.d.setLoadDataCallBack(new y(this));
-        this.e = new bc();
+        this.e = new bd();
         this.e.a(new z(this));
         this.c.a(this);
         this.c.a(this.b);
@@ -46,9 +46,9 @@ public class x implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == com.baidu.tieba.r.box_close_layout) {
+        if (view.getId() == com.baidu.tieba.v.box_close_layout) {
             this.c.hide();
-        } else if ((view.getId() == com.baidu.tieba.r.ll_like || view.getId() == com.baidu.tieba.r.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
+        } else if ((view.getId() == com.baidu.tieba.v.ll_like || view.getId() == com.baidu.tieba.v.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) view.getTag();
             if (card.getIs_like() == 1) {
                 this.e.a(card.getFname(), card.getFid());

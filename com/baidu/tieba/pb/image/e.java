@@ -38,18 +38,18 @@ public class e implements View.OnClickListener {
             emotionTabHost2.setVisibility(8);
             ImagePbActivity imagePbActivity = this.a;
             editText3 = this.a.k;
-            com.baidu.adp.lib.util.h.b(imagePbActivity, editText3);
+            com.baidu.adp.lib.util.k.b(imagePbActivity, editText3);
             button2 = this.a.m;
-            button2.setBackgroundResource(com.baidu.tieba.q.sub_pb_face);
+            button2.setBackgroundResource(com.baidu.tieba.u.sub_pb_face);
             return;
         }
         keyboardLayout = this.a.r;
         keyboardLayout.setOnkbdStateListener(null);
         ImagePbActivity imagePbActivity2 = this.a;
         editText = this.a.k;
-        com.baidu.adp.lib.util.h.a(imagePbActivity2, editText);
+        com.baidu.adp.lib.util.k.a(imagePbActivity2, editText);
         this.b.postDelayed(this.c, 200L);
         button = this.a.m;
-        button.setBackgroundResource(com.baidu.tieba.q.sub_pb_keyboard);
+        button.setBackgroundResource(com.baidu.tieba.u.sub_pb_keyboard);
     }
 }

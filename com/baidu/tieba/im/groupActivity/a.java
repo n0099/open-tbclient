@@ -2,6 +2,7 @@ package com.baidu.tieba.im.groupActivity;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseCreateGroupActivityMessage;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ CreateGroupActivityActivity a;
@@ -20,16 +21,16 @@ class a extends com.baidu.adp.framework.listener.b {
         boolean z;
         this.a.e_();
         if (socketResponsedMessage == null) {
-            this.a.c(com.baidu.tieba.u.neterror);
+            this.a.c(y.neterror);
         } else if (socketResponsedMessage.getCmd() == 103120) {
             if (socketResponsedMessage instanceof ResponseCreateGroupActivityMessage) {
                 ResponseCreateGroupActivityMessage responseCreateGroupActivityMessage = (ResponseCreateGroupActivityMessage) socketResponsedMessage;
                 if (responseCreateGroupActivityMessage.getError() == 0) {
                     z = this.a.e;
                     if (z) {
-                        this.a.c(com.baidu.tieba.u.group_activity_edit_succ);
+                        this.a.c(y.group_activity_edit_succ);
                     } else {
-                        this.a.c(com.baidu.tieba.u.group_activity_create_succ);
+                        this.a.c(y.group_activity_create_succ);
                     }
                     this.a.setResult(-1);
                     this.a.finish();

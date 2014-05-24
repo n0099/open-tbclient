@@ -137,8 +137,10 @@ public final class ShareReceiver extends BroadcastReceiver {
                 return;
             case CHOICE:
                 for (SapiAccount sapiAccount : shareModel.a()) {
-                    if (!c.f().contains(sapiAccount) && a(sapiAccount)) {
-                        c.b(sapiAccount);
+                    if (c.d() == null || !c.d().uid.equals(sapiAccount.uid)) {
+                        if (!c.f().contains(sapiAccount) && a(sapiAccount)) {
+                            c.b(sapiAccount);
+                        }
                     }
                 }
                 return;

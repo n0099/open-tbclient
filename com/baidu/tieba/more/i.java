@@ -84,10 +84,10 @@ public class i extends BdAsyncTask<Object, Integer, String> {
             baseWebView2.setVisibility(8);
             linearLayout = this.a.e;
             linearLayout.setVisibility(0);
-            this.a.showToast(this.a.getString(com.baidu.tieba.u.system_no_service));
+            this.a.showToast(this.a.getString(com.baidu.tieba.y.neterror));
             return;
         }
-        String string = this.a.getString(com.baidu.tieba.u.server_404);
+        String string = this.a.getString(com.baidu.tieba.y.server_404);
         baseWebView = this.a.b;
         baseWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, string, "text/html", "utf-8", "");
     }

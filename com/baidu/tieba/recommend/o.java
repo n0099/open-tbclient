@@ -3,9 +3,9 @@ package com.baidu.tieba.recommend;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.tieba.ad;
+import com.baidu.tieba.ai;
 /* loaded from: classes.dex */
-public class o extends com.baidu.adp.base.d {
+public class o extends com.baidu.adp.base.b {
     public static String a = com.baidu.tbadk.core.frameworkData.a.ST_TYPE;
     private q b;
     private p d;
@@ -25,7 +25,7 @@ public class o extends com.baidu.adp.base.d {
         this.g = bundle.getString(a);
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return true;
     }
@@ -39,7 +39,7 @@ public class o extends com.baidu.adp.base.d {
         this.d.execute(new String[0]);
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         if (this.d != null) {
             this.d.cancel(true);
@@ -63,7 +63,7 @@ public class o extends com.baidu.adp.base.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        com.baidu.adp.lib.cache.s<String> K = ad.c().K();
+        com.baidu.adp.lib.cache.s<String> K = ai.c().K();
         if (K != null) {
             K.a("dailyrecommend", str, 2592000000L);
         }

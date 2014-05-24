@@ -136,7 +136,7 @@ public class b {
 
     public MessageSyncMessage l() {
         MessageSyncMessage messageSyncMessage = new MessageSyncMessage();
-        messageSyncMessage.setGroupMids(com.baidu.tbadk.coreExtra.messageCenter.e.a().b());
+        messageSyncMessage.setGroupMids(com.baidu.tbadk.coreExtra.messageCenter.e.a().c());
         messageSyncMessage.setForTimer(this.n);
         LocalViewSize.ImageSize d = LocalViewSize.a().d();
         if (d != null) {

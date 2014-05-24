@@ -3,6 +3,7 @@ package com.baidu.adp.lib.webSocket;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.IOException;
 import java.net.URI;
@@ -199,7 +200,7 @@ public class o implements k {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean n() {
-        return com.baidu.adp.base.a.getInst().isDebugMode();
+        return BdBaseApplication.getInst().isDebugMode();
     }
 
     public void g() {

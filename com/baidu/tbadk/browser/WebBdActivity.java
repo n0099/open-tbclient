@@ -19,7 +19,7 @@ public class WebBdActivity extends BaseActivity implements Observer {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str, String str2, String str3) {
         if (UtilHelper.webViewIsProbablyCorrupt(context)) {
-            com.baidu.adp.lib.util.h.a(context, context.getString(com.baidu.tieba.u.web_view_corrupted));
+            com.baidu.adp.lib.util.k.a(context, context.getString(com.baidu.tieba.y.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, WebBdActivity.class);
@@ -49,7 +49,7 @@ public class WebBdActivity extends BaseActivity implements Observer {
         }
         try {
             this.a.setActivity(this);
-            this.a.setCallback(new s(this));
+            this.a.setCallback(new r(this));
             this.a.onCreate(bundle);
         } catch (Throwable th) {
             BdLog.e("Exception: " + th.getMessage());

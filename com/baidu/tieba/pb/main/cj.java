@@ -1,33 +1,24 @@
 package com.baidu.tieba.pb.main;
 
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cj implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ bj a;
+class cj implements Runnable {
+    final /* synthetic */ ci a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cj(bj bjVar) {
-        this.a = bjVar;
+    public cj(ci ciVar, ImageView imageView) {
+        this.a = ciVar;
+        this.b = imageView;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        BdListView bdListView;
-        bdListView = this.a.o;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        if (aVar == null) {
-            if (imageView != null && (imageView instanceof TbImageView)) {
-                ((TbImageView) imageView).e();
-            }
-        } else if (imageView != null) {
-            if (imageView instanceof TbImageView) {
-                ((TbImageView) imageView).e();
-            } else {
-                imageView.invalidate();
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        bq bqVar;
+        FrameLayout frameLayout;
+        bqVar = this.a.a;
+        frameLayout = bqVar.n;
+        frameLayout.removeView(this.b);
     }
 }

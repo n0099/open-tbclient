@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 /* loaded from: classes.dex */
-public class ac extends com.baidu.adp.base.d {
-    @Override // com.baidu.adp.base.d
+public class ac extends com.baidu.adp.base.b {
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }
@@ -43,7 +43,7 @@ public class ac extends com.baidu.adp.base.d {
         MessageManager.getInstance().unRegisterListener(messageListener);
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }

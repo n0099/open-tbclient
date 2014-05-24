@@ -7,8 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class EditorToolButton extends ImageView {
-    protected static final int[] h = {com.baidu.tieba.n.custom_state_focused};
-    protected static final int[] i = {com.baidu.tieba.n.custom_state_skin};
+    protected static final int[] h = {com.baidu.tieba.r.custom_state_focused};
+    protected static final int[] i = {com.baidu.tieba.r.custom_state_skin};
     protected TextView a;
     protected Context b;
     protected boolean c;
@@ -40,7 +40,7 @@ public class EditorToolButton extends ImageView {
         this.f = false;
         this.g = 0;
         this.b = context;
-        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.w.custom_state);
+        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.aa.custom_state);
         this.c = obtainStyledAttributes.getBoolean(1, false);
         obtainStyledAttributes.recycle();
     }

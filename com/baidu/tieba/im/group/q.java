@@ -3,11 +3,12 @@ package com.baidu.tieba.im.group;
 import android.view.View;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.v;
 /* loaded from: classes.dex */
 public class q {
-    private com.baidu.tbadk.core.e a;
+    private BaseFragmentActivity a;
     private b b;
     private View c;
     private BdListView d;
@@ -15,17 +16,17 @@ public class q {
     private com.baidu.tbadk.core.view.q f;
     private NoNetworkView g;
 
-    public q(com.baidu.tbadk.core.e eVar, b bVar) {
-        this.a = eVar;
+    public q(BaseFragmentActivity baseFragmentActivity, b bVar) {
+        this.a = baseFragmentActivity;
         this.b = bVar;
         this.c = this.b.getView();
         this.f = new com.baidu.tbadk.core.view.q(this.a);
-        this.d = (BdListView) this.c.findViewById(r.list_view);
+        this.d = (BdListView) this.c.findViewById(v.list_view);
         this.d.setPullRefresh(this.f);
         this.e = new l(bVar);
         this.d.setAdapter((ListAdapter) this.e);
         this.d.setOnScrollListener(this.e);
-        this.g = (NoNetworkView) this.c.findViewById(r.view_no_network_group);
+        this.g = (NoNetworkView) this.c.findViewById(v.view_no_network_group);
     }
 
     public l a() {

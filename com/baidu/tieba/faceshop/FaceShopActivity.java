@@ -21,7 +21,7 @@ public class FaceShopActivity extends BaseActivity {
     private aa c;
     private final HashMap<String, DownloadData> d = new HashMap<>();
     private final com.baidu.tbadk.core.view.m e = new bj(this);
-    private final com.baidu.adp.base.g f = new bk(this);
+    private final com.baidu.adp.base.e f = new bk(this);
     private final CustomMessageListener g = new bl(this, 0);
 
     static {
@@ -55,7 +55,7 @@ public class FaceShopActivity extends BaseActivity {
             a = com.baidu.tbadk.core.atomData.k.a(bundle);
         } else {
             a = com.baidu.tbadk.core.atomData.k.a(getIntent());
-            com.baidu.tbadk.core.g.a(this, a);
+            com.baidu.tbadk.core.f.a(this, a);
         }
         this.b.a(a);
         this.b.setLoadDataCallBack(this.f);

@@ -35,10 +35,10 @@ class a extends com.baidu.adp.framework.listener.b {
         i iVar7;
         this.a.d();
         if (socketResponsedMessage == null) {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         } else if (socketResponsedMessage.getCmd() == 107009) {
             if (!(socketResponsedMessage instanceof ResponseLiveBlackMembersMessage)) {
-                this.a.showToast(com.baidu.tieba.u.neterror);
+                this.a.showToast(com.baidu.tieba.y.neterror);
                 return;
             }
             ResponseLiveBlackMembersMessage responseLiveBlackMembersMessage = (ResponseLiveBlackMembersMessage) socketResponsedMessage;
@@ -47,7 +47,7 @@ class a extends com.baidu.adp.framework.listener.b {
                     this.a.showToast(responseLiveBlackMembersMessage.getErrorString());
                     return;
                 } else {
-                    this.a.showToast(com.baidu.tieba.u.neterror);
+                    this.a.showToast(com.baidu.tieba.y.neterror);
                     return;
                 }
             }
@@ -84,7 +84,7 @@ class a extends com.baidu.adp.framework.listener.b {
                 }
             }
         } else {
-            this.a.showToast(com.baidu.tieba.u.neterror);
+            this.a.showToast(com.baidu.tieba.y.neterror);
         }
     }
 }

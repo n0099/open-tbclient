@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.BdLog;
 public class cb {
     public static void a(Activity activity) {
         try {
-            com.baidu.tbadk.motu_gallery.x.a(activity, 12002, null);
+            com.baidu.tbadk.motu_gallery.v.a(activity, 12002, null);
         } catch (Exception e) {
             BdLog.e("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
         }

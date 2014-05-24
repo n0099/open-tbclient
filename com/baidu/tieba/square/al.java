@@ -1,11 +1,12 @@
 package com.baidu.tieba.square;
 
 import android.os.Handler;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements av {
+public class al implements aw {
     final /* synthetic */ ak a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,34 +14,34 @@ public class al implements av {
         this.a = akVar;
     }
 
-    @Override // com.baidu.tieba.square.av
-    public void a(boolean z, String str, aq aqVar) {
-        ay ayVar;
+    @Override // com.baidu.tieba.square.aw
+    public void a(boolean z, String str, ar arVar) {
+        az azVar;
         boolean z2;
         long j;
         long j2;
-        au auVar;
+        av avVar;
         long j3;
-        au auVar2;
-        au auVar3;
-        au auVar4;
-        com.baidu.tbadk.core.e eVar;
-        ay ayVar2;
-        ay ayVar3;
+        av avVar2;
+        av avVar3;
+        av avVar4;
+        BaseFragmentActivity baseFragmentActivity;
+        az azVar2;
+        az azVar3;
         boolean z3;
-        ay ayVar4;
-        ay ayVar5;
-        au auVar5;
+        az azVar4;
+        az azVar5;
+        av avVar5;
         Handler handler;
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        ayVar = this.a.c;
-        ayVar.a(true, "");
-        if (z && aqVar != null) {
-            ayVar5 = this.a.c;
-            auVar5 = this.a.d;
-            ayVar5.a(auVar5.e());
+        azVar = this.a.c;
+        azVar.a(true, "");
+        if (z && arVar != null) {
+            azVar5 = this.a.c;
+            avVar5 = this.a.d;
+            azVar5.a(avVar5.e());
             handler = this.a.i;
             runnable = this.a.j;
             handler.removeCallbacks(runnable);
@@ -53,29 +54,29 @@ public class al implements av {
         z2 = this.a.f;
         if (z2) {
             this.a.f = false;
-            ayVar4 = this.a.c;
-            ayVar4.d();
+            azVar4 = this.a.c;
+            azVar4.d();
         } else {
             j = this.a.g;
             if (j > -1) {
                 long currentTimeMillis = System.currentTimeMillis();
                 j2 = this.a.g;
-                auVar = this.a.d;
-                long d = auVar.d();
+                avVar = this.a.d;
+                long d = avVar.d();
                 j3 = this.a.g;
                 long j4 = d - j3;
-                auVar2 = this.a.d;
-                long b = auVar2.b();
-                auVar3 = this.a.d;
-                long c = auVar3.c();
-                auVar4 = this.a.d;
-                TiebaStatic.page("op_square_enter", currentTimeMillis - j2, j4, b, c, currentTimeMillis - auVar4.a());
+                avVar2 = this.a.d;
+                long b = avVar2.b();
+                avVar3 = this.a.d;
+                long c = avVar3.c();
+                avVar4 = this.a.d;
+                TiebaStatic.page("op_square_enter", currentTimeMillis - j2, j4, b, c, currentTimeMillis - avVar4.a());
                 this.a.g = -1L;
             }
         }
         if (!UtilHelper.isNetOk()) {
-            ayVar3 = this.a.c;
-            ayVar3.e();
+            azVar3 = this.a.c;
+            azVar3.e();
             z3 = this.a.e;
             if (z3) {
                 return;
@@ -83,9 +84,9 @@ public class al implements av {
             this.a.h();
             return;
         }
-        eVar = this.a.h;
-        eVar.a(str);
-        ayVar2 = this.a.c;
-        ayVar2.f();
+        baseFragmentActivity = this.a.h;
+        baseFragmentActivity.a(str);
+        azVar2 = this.a.c;
+        azVar2.f();
     }
 }

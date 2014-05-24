@@ -26,7 +26,7 @@ public class GroupLevelActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.tbadk.core.g.b(this, "im_group_level_visit");
+        com.baidu.tbadk.core.f.b(this, "im_group_level_visit");
         a(bundle);
         b(bundle);
         a();
@@ -49,7 +49,7 @@ public class GroupLevelActivity extends BaseActivity {
         if (view == this.b.a()) {
             closeActivity();
         } else if (view == this.b.b()) {
-            com.baidu.tbadk.core.g.a(this, "im_group_level_upgrade_mem");
+            com.baidu.tbadk.core.f.a(this, "im_group_level_upgrade_mem");
             this.c.b();
         }
     }
@@ -81,9 +81,9 @@ public class GroupLevelActivity extends BaseActivity {
     private void b(Bundle bundle) {
         this.b = new o(this);
         this.c = new com.baidu.tbadk.core.dialog.a(this);
-        this.c.a(com.baidu.tieba.u.upgrade_mem_group_if_up);
-        this.c.a(com.baidu.tieba.u.alert_yes_btn, this.d);
-        this.c.b(com.baidu.tieba.u.alert_no_button, this.e);
+        this.c.a(com.baidu.tieba.y.upgrade_mem_group_if_up);
+        this.c.a(com.baidu.tieba.y.alert_yes_btn, this.d);
+        this.c.b(com.baidu.tieba.y.alert_no_button, this.e);
         this.c.a();
     }
 }

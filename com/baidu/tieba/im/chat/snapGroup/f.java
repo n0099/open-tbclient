@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.chat.snapGroup;
 
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tieba.im.chat.w;
+import com.baidu.tieba.im.chat.v;
 import com.baidu.tieba.im.model.MsglistModel;
 /* loaded from: classes.dex */
-class f implements w {
+class f implements v {
     final /* synthetic */ SnapGroupChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class f implements w {
         this.a = snapGroupChatActivity;
     }
 
-    @Override // com.baidu.tieba.im.chat.w
+    @Override // com.baidu.tieba.im.chat.v
     public void a(VoiceData.VoiceModel voiceModel) {
         MsglistModel msglistModel;
         if (voiceModel != null) {
@@ -21,7 +21,7 @@ class f implements w {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.w
+    @Override // com.baidu.tieba.im.chat.v
     public void a() {
     }
 }

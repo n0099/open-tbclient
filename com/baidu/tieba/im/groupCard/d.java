@@ -5,17 +5,16 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import com.baidu.adp.base.e;
-import com.baidu.adp.lib.util.h;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.share.g;
-import com.baidu.tieba.r;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class d extends e {
+public class d extends com.baidu.adp.base.c {
     private View a;
     private GroupCardActivity b;
     private LinearLayout c;
@@ -49,22 +48,22 @@ public class d extends e {
     }
 
     private void i() {
-        this.b.setContentView(s.group_card_activity);
-        this.a = this.b.findViewById(r.parent);
-        this.c = (LinearLayout) this.b.findViewById(r.groud_card_save);
+        this.b.setContentView(w.group_card_activity);
+        this.a = this.b.findViewById(v.parent);
+        this.c = (LinearLayout) this.b.findViewById(v.groud_card_save);
         this.c.setOnClickListener(this.b);
-        this.d = (LinearLayout) this.b.findViewById(r.group_card_share);
+        this.d = (LinearLayout) this.b.findViewById(v.group_card_share);
         if (g.a(this.b)) {
             this.d.setOnClickListener(this.b);
         } else {
             this.d.setVisibility(8);
         }
-        this.e = (LinearLayout) this.b.findViewById(r.group_card_setting);
-        this.g = (ProgressBar) this.b.findViewById(r.progress);
-        this.i = (ImageView) this.b.findViewById(r.group_card_inner_image);
-        this.h = (NavigationBar) this.b.findViewById(r.group_card_topbar);
+        this.e = (LinearLayout) this.b.findViewById(v.group_card_setting);
+        this.g = (ProgressBar) this.b.findViewById(v.progress);
+        this.i = (ImageView) this.b.findViewById(v.group_card_inner_image);
+        this.h = (NavigationBar) this.b.findViewById(v.group_card_topbar);
         this.h.setSystemClickable(false);
-        this.h.a(this.b.getResources().getString(u.group_card_name));
+        this.h.a(this.b.getResources().getString(y.group_card_name));
         this.f = this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.f.setOnClickListener(this.b);
     }
@@ -77,12 +76,12 @@ public class d extends e {
 
     public void a(int i, String str) {
         if (str != null) {
-            h.a((Context) this.b, str);
+            k.a((Context) this.b, str);
             return;
         }
         String errMsg = TbErrInfo.getErrMsg(i);
         if (errMsg != null && errMsg.length() > 0) {
-            h.a((Context) this.b, errMsg);
+            k.a((Context) this.b, errMsg);
         }
     }
 

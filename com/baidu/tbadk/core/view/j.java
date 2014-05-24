@@ -22,10 +22,10 @@ public class j implements View.OnClickListener {
         z = this.a.b;
         if (z) {
             int id = view.getId();
-            if (id == com.baidu.tieba.r.navigationBarGoBack) {
+            if (id == com.baidu.tieba.v.navigationBarGoBack) {
                 activity2 = this.a.g;
                 activity2.finish();
-            } else if (id == com.baidu.tieba.r.navigationBarHome) {
+            } else if (id == com.baidu.tieba.v.navigationBarHome) {
                 MessageManager messageManager = MessageManager.getInstance();
                 activity = this.a.g;
                 messageManager.dispatchResponsedMessage(new CustomResponsedMessage(2003004, activity));

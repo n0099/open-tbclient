@@ -1,9 +1,9 @@
 package com.baidu.tieba.pb.main;
 
-import com.baidu.tieba.frs.Cdo;
-import com.baidu.tieba.frs.dm;
+import com.baidu.tieba.frs.dn;
+import com.baidu.tieba.frs.dp;
 /* loaded from: classes.dex */
-class at implements Cdo {
+class at implements dp {
     final /* synthetic */ PbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,35 +11,35 @@ class at implements Cdo {
         this.a = pbActivity;
     }
 
-    @Override // com.baidu.tieba.frs.Cdo
+    @Override // com.baidu.tieba.frs.dp
     public void a(String str) {
-        dm dmVar;
-        bc bcVar;
+        dn dnVar;
+        bj bjVar;
         boolean z;
-        this.a.M = false;
-        dmVar = this.a.N;
-        if (dmVar != null) {
-            bcVar = this.a.y;
-            if (bcVar.p().d().j().getIsLike() == 1) {
+        this.a.L = false;
+        dnVar = this.a.M;
+        if (dnVar != null) {
+            bjVar = this.a.x;
+            if (bjVar.p().d().o().getIsLike() == 1) {
                 this.a.a(0);
             } else {
                 this.a.a(1);
             }
-            z = this.a.L;
+            z = this.a.K;
             if (!z) {
-                this.a.L = true;
+                this.a.K = true;
             } else {
-                this.a.L = false;
+                this.a.K = false;
             }
         }
     }
 
-    @Override // com.baidu.tieba.frs.Cdo
+    @Override // com.baidu.tieba.frs.dp
     public void b(String str) {
-        dm dmVar;
-        this.a.M = false;
-        dmVar = this.a.N;
-        if (dmVar != null && str != null) {
+        dn dnVar;
+        this.a.L = false;
+        dnVar = this.a.M;
+        if (dnVar != null && str != null) {
             this.a.showToast(str);
         }
     }

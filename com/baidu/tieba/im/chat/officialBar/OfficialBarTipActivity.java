@@ -9,10 +9,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tieba.im.model.bi;
+import com.baidu.tieba.im.model.bj;
 /* loaded from: classes.dex */
 public class OfficialBarTipActivity extends BaseActivity implements AbsListView.OnScrollListener {
-    private bi a;
+    private bj a;
     private ax b;
     private Handler c;
     private final com.baidu.tieba.im.a<Void> d = new ap(this);
@@ -40,7 +40,7 @@ public class OfficialBarTipActivity extends BaseActivity implements AbsListView.
     }
 
     private void a() {
-        showLoadingDialog(getString(com.baidu.tieba.u.loading), null);
+        showLoadingDialog(getString(com.baidu.tieba.y.loading), null);
         this.a.a(this.d);
     }
 
@@ -51,7 +51,7 @@ public class OfficialBarTipActivity extends BaseActivity implements AbsListView.
     }
 
     private void b() {
-        this.a = new bi();
+        this.a = new bj();
         this.c = new Handler();
     }
 

@@ -17,22 +17,28 @@ class av extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         az azVar;
-        AnimationSet animationSet;
         az azVar2;
+        AnimationSet animationSet;
+        az azVar3;
         AnimationSet animationSet2;
         Runnable runnable;
         switch (message.what) {
             case TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI /* 2000 */:
-                azVar = this.a.a;
-                ImageView e = azVar.e();
+                azVar2 = this.a.a;
+                ImageView e = azVar2.e();
                 animationSet = this.a.c;
                 e.setAnimation(animationSet);
-                azVar2 = this.a.a;
-                ImageView e2 = azVar2.e();
+                azVar3 = this.a.a;
+                ImageView e2 = azVar3.e();
                 animationSet2 = this.a.c;
                 e2.startAnimation(animationSet2);
                 runnable = this.a.e;
                 postDelayed(runnable, 2000L);
+                return;
+            case 2001:
+                azVar = this.a.a;
+                azVar.a();
+                this.a.finish();
                 return;
             default:
                 return;

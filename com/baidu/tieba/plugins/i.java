@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class i extends Handler {
     final /* synthetic */ PluginDetailActivity a;
@@ -47,7 +47,7 @@ class i extends Handler {
                         z = this.a.m;
                         if (!z) {
                             textView3 = this.a.f;
-                            textView3.setTextColor(this.a.getResources().getColor(com.baidu.tieba.o.cp_cont_d));
+                            textView3.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.cp_cont_d));
                             textView4 = this.a.f;
                             textView4.setText(String.format("正在下载插件：%d%%", Long.valueOf((downloadData3.getLength() * 100) / downloadData3.getSize())));
                             textView5 = this.a.f;
@@ -85,7 +85,7 @@ class i extends Handler {
                     pluginConfig2 = this.a.l;
                     if (id3.equals(pluginConfig2.name)) {
                         textView = this.a.f;
-                        textView.setText(this.a.getString(u.plugin_download_finished));
+                        textView.setText(this.a.getString(y.plugin_download_finished));
                         textView2 = this.a.f;
                         textView2.setEnabled(false);
                         this.a.m = true;

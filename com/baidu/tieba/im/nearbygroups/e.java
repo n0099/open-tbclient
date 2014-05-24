@@ -8,7 +8,7 @@ import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.message.ResponseNearbyGroupsMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
-import com.baidu.tieba.im.model.bd;
+import com.baidu.tieba.im.model.be;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ NearbyGroupsActivity a;
@@ -25,14 +25,14 @@ class e extends com.baidu.adp.framework.listener.b {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        bd bdVar;
+        be beVar;
         m mVar;
         m mVar2;
-        bd bdVar2;
-        bd bdVar3;
+        be beVar2;
+        be beVar3;
         m mVar3;
         m mVar4;
-        bd bdVar4;
+        be beVar4;
         if (socketResponsedMessage == null) {
             return;
         }
@@ -40,8 +40,8 @@ class e extends com.baidu.adp.framework.listener.b {
             if (socketResponsedMessage instanceof ResponseUpgradeMemberGroupMessage) {
                 ResponseUpgradeMemberGroupMessage responseUpgradeMemberGroupMessage = (ResponseUpgradeMemberGroupMessage) socketResponsedMessage;
                 if (responseUpgradeMemberGroupMessage.getError() == 0 || responseUpgradeMemberGroupMessage.getError() == 2230110) {
-                    bdVar4 = this.a.c;
-                    bdVar4.d();
+                    beVar4 = this.a.c;
+                    beVar4.d();
                 }
             }
         } else if (socketResponsedMessage.getCmd() != 103009) {
@@ -66,8 +66,8 @@ class e extends com.baidu.adp.framework.listener.b {
                 }
             }
         } else {
-            bdVar = this.a.c;
-            bdVar.a(false);
+            beVar = this.a.c;
+            beVar.a(false);
             if (!(socketResponsedMessage instanceof ResponseNearbyGroupsMessage)) {
                 mVar4 = this.a.b;
                 mVar4.e();
@@ -80,10 +80,10 @@ class e extends com.baidu.adp.framework.listener.b {
             } else {
                 NearbyGroupsData nearbyGroups = responseNearbyGroupsMessage.getNearbyGroups();
                 if (nearbyGroups != null) {
-                    bdVar2 = this.a.c;
-                    bdVar2.b(nearbyGroups.getHasMore());
-                    bdVar3 = this.a.c;
-                    bdVar3.a(nearbyGroups.getGeo());
+                    beVar2 = this.a.c;
+                    beVar2.b(nearbyGroups.getHasMore());
+                    beVar3 = this.a.c;
+                    beVar3.a(nearbyGroups.getGeo());
                 } else {
                     nearbyGroups = new NearbyGroupsData();
                 }

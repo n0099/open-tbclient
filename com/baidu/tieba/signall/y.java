@@ -16,7 +16,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class y extends com.baidu.adp.base.e {
+public class y extends com.baidu.adp.base.c {
     public static int a;
     private BaseActivity b;
     private NavigationBar c;
@@ -36,25 +36,25 @@ public class y extends com.baidu.adp.base.e {
         super(baseActivity);
         this.h = null;
         this.b = baseActivity;
-        this.b.setContentView(com.baidu.tieba.s.signallforum_view);
-        this.d = (RelativeLayout) this.b.findViewById(com.baidu.tieba.r.parent);
-        this.c = (NavigationBar) this.b.findViewById(com.baidu.tieba.r.view_navigation_bar);
-        this.c.a(this.b.getString(com.baidu.tieba.u.signallforum));
+        this.b.setContentView(com.baidu.tieba.w.signallforum_view);
+        this.d = (RelativeLayout) this.b.findViewById(com.baidu.tieba.v.parent);
+        this.c = (NavigationBar) this.b.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.c.a(this.b.getString(com.baidu.tieba.y.signallforum));
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new z(this));
-        this.g = (BdListView) this.b.findViewById(com.baidu.tieba.r.signallforum_list);
+        this.g = (BdListView) this.b.findViewById(com.baidu.tieba.v.signallforum_list);
         this.g.setOnItemClickListener(baseActivity);
         this.h = new com.baidu.tbadk.core.view.q(baseActivity);
         this.g.setPullRefresh(this.h);
-        this.n = (TextView) this.b.getLayoutInflater().inflate(com.baidu.tieba.s.signallforum_maxcount_warning, (ViewGroup) null);
+        this.n = (TextView) this.b.getLayoutInflater().inflate(com.baidu.tieba.w.signallforum_maxcount_warning, (ViewGroup) null);
         this.g.addFooterView(this.n);
         this.e = new u(this.b);
         this.f = this.e.getProgressBar();
         this.f.setOnClickListener(this.b);
         this.g.addHeaderView(this.e);
         this.e.setVisibility(8);
-        this.k = this.b.getLayoutInflater().inflate(com.baidu.tieba.s.signallforum_header, (ViewGroup) null);
-        this.l = (TextView) this.k.findViewById(com.baidu.tieba.r.signallforum_head_title);
-        this.m = (TextView) this.k.findViewById(com.baidu.tieba.r.signallforum_head_res);
+        this.k = this.b.getLayoutInflater().inflate(com.baidu.tieba.w.signallforum_header, (ViewGroup) null);
+        this.l = (TextView) this.k.findViewById(com.baidu.tieba.v.signallforum_head_title);
+        this.m = (TextView) this.k.findViewById(com.baidu.tieba.v.signallforum_head_res);
         this.g.addHeaderView(this.k);
         this.k.setVisibility(8);
         this.i = new k(this.b, this.m);
@@ -74,8 +74,8 @@ public class y extends com.baidu.adp.base.e {
         }
         this.c.c(i);
         this.h.a(i);
-        int i2 = i == 1 ? com.baidu.tieba.q.bg_ba_catalogue_1 : com.baidu.tieba.q.bg_ba_catalogue;
-        int i3 = i == 1 ? com.baidu.tieba.o.forum_detail_ht_title_color_1 : com.baidu.tieba.o.forum_detail_ht_title_color;
+        int i2 = i == 1 ? com.baidu.tieba.u.bg_ba_catalogue_1 : com.baidu.tieba.u.bg_ba_catalogue;
+        int i3 = i == 1 ? com.baidu.tieba.s.forum_detail_ht_title_color_1 : com.baidu.tieba.s.forum_detail_ht_title_color;
         this.k.setBackgroundResource(i2);
         this.l.setTextColor(resources.getColor(i3));
         this.m.setTextColor(resources.getColor(i3));
@@ -100,9 +100,9 @@ public class y extends com.baidu.adp.base.e {
             this.e.a();
             int size = this.j.j().size();
             int size2 = this.j.l().size();
-            this.m.setText(this.b.getString(com.baidu.tieba.u.signallforum_res, new Object[]{Integer.valueOf(size2), Integer.valueOf(size - size2)}));
+            this.m.setText(this.b.getString(com.baidu.tieba.y.signallforum_res, new Object[]{Integer.valueOf(size2), Integer.valueOf(size - size2)}));
         } else {
-            this.m.setText(String.format(this.b.getString(com.baidu.tieba.u.signallforum_count), Integer.valueOf(this.j.j().size())));
+            this.m.setText(String.format(this.b.getString(com.baidu.tieba.y.signallforum_count), Integer.valueOf(this.j.j().size())));
         }
         TextView message1 = this.e.getMessage1();
         SpannableString spannableString = new SpannableString(String.valueOf(this.j.b()) + this.j.c() + this.j.d());

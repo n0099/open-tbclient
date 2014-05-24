@@ -2,7 +2,7 @@ package com.baidu.tieba.bubble;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class c extends CustomMessageListener {
     final /* synthetic */ BubbleChooseActivity a;
@@ -18,7 +18,7 @@ class c extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.a.showToast(u.bubble_purchase_success);
+        this.a.showToast(y.bubble_purchase_success);
         this.a.d();
     }
 }

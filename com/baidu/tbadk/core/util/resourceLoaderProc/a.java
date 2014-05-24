@@ -9,6 +9,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.resourceLoader.BdResourceLoaderNetHelperStatic;
 import com.baidu.adp.lib.stats.s;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
@@ -102,8 +103,8 @@ public abstract class a implements com.baidu.adp.lib.resourceLoader.g<com.baidu.
         a.a();
         int b = i == 0 ? b() : i;
         int c = i2 == 0 ? c() : i2;
-        int a2 = b == 0 ? com.baidu.adp.lib.util.h.a((Context) TbadkApplication.m252getInst().getApp(), 105.0f) : b;
-        int a3 = c == 0 ? com.baidu.adp.lib.util.h.a((Context) TbadkApplication.m252getInst().getApp(), 105.0f) : c;
+        int a2 = b == 0 ? k.a((Context) TbadkApplication.m252getInst().getApp(), 105.0f) : b;
+        int a3 = c == 0 ? k.a((Context) TbadkApplication.m252getInst().getApp(), 105.0f) : c;
         boolean d = d();
         String a4 = d ? str : a(str, a2, a3);
         if (!(TbadkApplication.m252getInst().getCapabilityOfWebp() && com.baidu.adp.lib.a.f.a().b("webp_enable") == 1) || a4.indexOf("hiphotos.baidu.com") <= 0 || (lastIndexOf = a4.lastIndexOf(".jpg")) <= 0) {
@@ -162,7 +163,7 @@ public abstract class a implements com.baidu.adp.lib.resourceLoader.g<com.baidu.
                 }
                 return null;
             }
-            boolean z3 = eVar.d || com.baidu.adp.lib.util.h.a(bArr);
+            boolean z3 = eVar.d || k.a(bArr);
             Bitmap a9 = a(a7, a2, a3);
             if (a9 == null) {
                 ac.a(a6, str, str3, false, d, z2, bArr.length, "ResizeError", a6.b());
@@ -190,7 +191,7 @@ public abstract class a implements com.baidu.adp.lib.resourceLoader.g<com.baidu.
 
     @Override // com.baidu.adp.lib.resourceLoader.g
     public boolean a() {
-        return com.baidu.tbadk.core.h.a().f();
+        return com.baidu.tbadk.core.g.a().f();
     }
 
     @Override // com.baidu.adp.lib.resourceLoader.g
@@ -202,23 +203,26 @@ public abstract class a implements com.baidu.adp.lib.resourceLoader.g<com.baidu.
 
     protected String a(String str, int i, int i2) {
         StringBuilder sb = new StringBuilder(100);
-        sb.append(TbConfig.IMAGE_ADDRESS);
-        sb.append("src=");
-        sb.append(be.d(str));
-        sb.append("&width=");
-        sb.append(String.valueOf(i));
-        sb.append("&height=");
-        sb.append(String.valueOf(i2));
-        sb.append("&imgtype=0");
-        sb.append("&qulity=" + bf.a().d());
-        sb.append("&first_gif=1");
-        if (e()) {
-            sb.append("&ispv=1");
+        if (!str.startsWith(TbConfig.IMAGE_ADDRESS)) {
+            sb.append(TbConfig.IMAGE_ADDRESS);
+            sb.append("src=");
+            sb.append(be.d(str));
+            sb.append("&width=");
+            sb.append(String.valueOf(i));
+            sb.append("&height=");
+            sb.append(String.valueOf(i2));
+            sb.append("&imgtype=0");
+            sb.append("&qulity=" + bf.a().d());
+            sb.append("&first_gif=1");
+            if (e()) {
+                sb.append("&ispv=1");
+            }
+            if (f()) {
+                sb.append("&no_prefix=1");
+            }
+            return sb.toString();
         }
-        if (f()) {
-            sb.append("&no_prefix=1");
-        }
-        return sb.toString();
+        return str;
     }
 
     protected com.baidu.adp.lib.Disk.ops.c a(String str) {

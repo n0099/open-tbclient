@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class d {
     private int e = 0;
     private ArrayList<ForumData> a = new ArrayList<>();
-    private com.baidu.tbadk.core.data.m b = new com.baidu.tbadk.core.data.m();
+    private com.baidu.tbadk.core.data.l b = new com.baidu.tbadk.core.data.l();
     private Date c = null;
     private boolean d = true;
 

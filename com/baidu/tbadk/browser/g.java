@@ -1,6 +1,7 @@
 package com.baidu.tbadk.browser;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements Runnable {
+public class g implements com.baidu.tbadk.core.view.h {
     final /* synthetic */ TbWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,8 +9,12 @@ class g implements Runnable {
         this.a = tbWebViewActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.b();
+    @Override // com.baidu.tbadk.core.view.h
+    public void a() {
+        this.a.a();
+    }
+
+    @Override // com.baidu.tbadk.core.view.h
+    public void b() {
     }
 }

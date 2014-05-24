@@ -1,6 +1,7 @@
 package com.baidu.tbadk;
 
 import android.content.Context;
+import com.baidu.adp.lib.util.k;
 /* loaded from: classes.dex */
 public class h {
     public static String a = "ws://im.tieba.baidu.com:8000";
@@ -13,6 +14,6 @@ public class h {
     public static String h = "http://tieba.baidu.com/mo/q/liveshowshare?gid=";
 
     public static int a(Context context) {
-        return com.baidu.adp.lib.util.h.a(context, 300.0f);
+        return k.a(context, 300.0f);
     }
 }

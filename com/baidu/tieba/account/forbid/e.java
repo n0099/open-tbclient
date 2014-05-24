@@ -7,10 +7,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.o;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
+import com.baidu.tieba.u;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
@@ -41,10 +41,10 @@ public class e extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         g gVar;
         if (view == null) {
-            view = ((LayoutInflater) viewGroup.getContext().getSystemService("layout_inflater")).inflate(s.forbid_list_item, (ViewGroup) null);
+            view = ((LayoutInflater) viewGroup.getContext().getSystemService("layout_inflater")).inflate(w.forbid_list_item, (ViewGroup) null);
             g gVar2 = new g(null);
-            gVar2.a = (TextView) view.findViewById(r.reason_text);
-            gVar2.b = (ImageView) view.findViewById(r.check_img);
+            gVar2.a = (TextView) view.findViewById(v.reason_text);
+            gVar2.b = (ImageView) view.findViewById(v.check_img);
             view.setTag(gVar2);
             view.setOnClickListener(this.c);
             gVar = gVar2;
@@ -55,12 +55,12 @@ public class e extends BaseAdapter {
         boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
         gVar.a.setText(this.a[i]);
         if (gVar.c == this.b) {
-            gVar.b.setImageDrawable(viewGroup.getResources().getDrawable(z ? q.icon_found_information_choose_1 : q.icon_found_information_choose));
+            gVar.b.setImageDrawable(viewGroup.getResources().getDrawable(z ? u.icon_found_information_choose_1 : u.icon_found_information_choose));
             gVar.b.setVisibility(0);
-            gVar.a.setTextColor(viewGroup.getResources().getColor(z ? o.forbid_selected_txt_1 : o.forbid_selected_txt));
+            gVar.a.setTextColor(viewGroup.getResources().getColor(z ? s.forbid_selected_txt_1 : s.forbid_selected_txt));
         } else {
             gVar.b.setVisibility(4);
-            gVar.a.setTextColor(viewGroup.getResources().getColor(z ? o.appeal_com_text_1 : o.appeal_com_text));
+            gVar.a.setTextColor(viewGroup.getResources().getColor(z ? s.appeal_com_text_1 : s.appeal_com_text));
         }
         return view;
     }

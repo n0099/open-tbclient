@@ -54,10 +54,10 @@ public class bf extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchas
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(FacePurchaseRecordsData facePurchaseRecordsData) {
-        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.e eVar;
         this.a.a = null;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(facePurchaseRecordsData);
+        eVar = this.a.mLoadDataCallBack;
+        eVar.a(facePurchaseRecordsData);
         super.onPostExecute(facePurchaseRecordsData);
     }
 

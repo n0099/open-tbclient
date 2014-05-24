@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public class aj extends com.baidu.adp.base.d {
+public class aj extends com.baidu.adp.base.b {
     private Context d;
     private ak a = null;
     private al b = null;
@@ -41,12 +41,12 @@ public class aj extends com.baidu.adp.base.d {
         TbadkApplication.m252getInst().setHeadsetModeOn(z);
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.d
+    @Override // com.baidu.adp.base.b
     public boolean cancelLoadData() {
         return false;
     }

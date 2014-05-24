@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.message.ResponseNearbyGroupsLocalMessage;
-import com.baidu.tieba.im.model.bd;
+import com.baidu.tieba.im.model.be;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
     final /* synthetic */ NearbyGroupsActivity a;
@@ -21,18 +21,18 @@ class d extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bd bdVar;
+        be beVar;
         m mVar;
         m mVar2;
-        bd bdVar2;
-        bd bdVar3;
+        be beVar2;
+        be beVar3;
         m mVar3;
         boolean a;
-        bd bdVar4;
-        bd bdVar5;
+        be beVar4;
+        be beVar5;
         m mVar4;
-        bdVar = this.a.c;
-        bdVar.a(false);
+        beVar = this.a.c;
+        beVar.a(false);
         if (!(customResponsedMessage instanceof ResponseNearbyGroupsLocalMessage)) {
             mVar4 = this.a.b;
             mVar4.e();
@@ -41,12 +41,12 @@ class d extends CustomMessageListener {
         if (customResponsedMessage.getCmd() == 2003115 && UtilHelper.isNetOk()) {
             a = this.a.a(com.baidu.tieba.im.e.a().e());
             if (a) {
-                bdVar5 = this.a.c;
-                bdVar5.h();
+                beVar5 = this.a.c;
+                beVar5.h();
                 return;
             }
-            bdVar4 = this.a.c;
-            bdVar4.g();
+            beVar4 = this.a.c;
+            beVar4.g();
         }
         ResponseNearbyGroupsLocalMessage responseNearbyGroupsLocalMessage = (ResponseNearbyGroupsLocalMessage) customResponsedMessage;
         if (responseNearbyGroupsLocalMessage.getError() > 0) {
@@ -54,10 +54,10 @@ class d extends CustomMessageListener {
         } else {
             NearbyGroupsData nearbyGroups = responseNearbyGroupsLocalMessage.getNearbyGroups();
             if (nearbyGroups != null) {
-                bdVar2 = this.a.c;
-                bdVar2.b(nearbyGroups.getHasMore());
-                bdVar3 = this.a.c;
-                bdVar3.a(nearbyGroups.getGeo());
+                beVar2 = this.a.c;
+                beVar2.b(nearbyGroups.getHasMore());
+                beVar3 = this.a.c;
+                beVar3.a(nearbyGroups.getGeo());
             } else {
                 nearbyGroups = new NearbyGroupsData();
             }
