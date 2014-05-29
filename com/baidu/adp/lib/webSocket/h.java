@@ -8,11 +8,15 @@ class h implements g {
     private SocketChannel a;
     private long b;
     private String c;
+    private String d;
+    private String e;
 
     public h(String str, int i, am amVar) {
         this.a = null;
         this.b = 0L;
         this.c = null;
+        this.d = null;
+        this.e = null;
         this.a = SocketChannel.open();
         long currentTimeMillis = System.currentTimeMillis();
         InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
@@ -23,6 +27,8 @@ class h implements g {
         this.a.socket().connect(inetSocketAddress, amVar.f());
         this.a.socket().setSoTimeout(amVar.e());
         this.a.socket().setTcpNoDelay(amVar.d());
+        this.d = com.baidu.adp.lib.util.k.e();
+        this.e = com.baidu.adp.lib.util.k.f();
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
@@ -58,5 +64,15 @@ class h implements g {
     @Override // com.baidu.adp.lib.webSocket.g
     public long d() {
         return this.b;
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g
+    public String e() {
+        return this.d;
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g
+    public String f() {
+        return this.e;
     }
 }

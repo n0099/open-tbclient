@@ -137,7 +137,9 @@ public class a extends com.baidu.tbadk.core.d implements x, ae {
     }
 
     public void g() {
-        this.d.d();
+        if (this.d != null) {
+            this.d.d();
+        }
     }
 
     public boolean h() {

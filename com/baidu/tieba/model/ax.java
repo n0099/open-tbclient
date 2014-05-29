@@ -40,15 +40,15 @@ public class ax extends BdAsyncTask<Boolean, av, av> {
         boolean booleanValue = boolArr[0].booleanValue();
         this.d = boolArr[1].booleanValue();
         try {
-            if (this.a.f() && booleanValue && (b = com.baidu.tieba.util.k.b()) != null) {
+            if (this.a.g() && booleanValue && (b = com.baidu.tieba.util.k.b()) != null) {
                 this.e.b(b);
                 a(b);
                 publishProgress(this.e);
                 this.d = false;
             }
-            if (!this.c && this.a.e() != null) {
+            if (!this.c && this.a.f() != null) {
                 this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/profile");
-                this.b.a(SapiAccountManager.SESSION_UID, this.a.e());
+                this.b.a(SapiAccountManager.SESSION_UID, this.a.f());
                 this.b.a("need_post_count", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
                 com.baidu.tbadk.core.util.al alVar = this.b;
                 StringBuilder sb = new StringBuilder();
@@ -56,7 +56,7 @@ public class ax extends BdAsyncTask<Boolean, av, av> {
                 alVar.a("pn", sb.append(i).toString());
                 this.b.a("rn", "20");
                 this.b.a("has_plist", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-                if (this.a.f()) {
+                if (this.a.g()) {
                     this.b.a("is_owner", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
                 } else {
                     this.b.a("is_owner", "0");
@@ -67,15 +67,15 @@ public class ax extends BdAsyncTask<Boolean, av, av> {
                 }
                 this.e.b(i2);
                 a(i2);
-                if (this.a.f() && booleanValue) {
+                if (this.a.g() && booleanValue) {
                     com.baidu.tieba.util.k.c(i2);
                     AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
                     if (currentAccountObj == null) {
                         return null;
                     }
-                    if (this.e.g() != null && !TextUtils.isEmpty(this.e.g().getPortrait())) {
-                        com.baidu.tbadk.core.account.a.a(currentAccountObj.getAccount(), this.e.g().getPortrait());
-                        currentAccountObj.setPortrait(this.e.g().getPortrait());
+                    if (this.e.h() != null && !TextUtils.isEmpty(this.e.h().getPortrait())) {
+                        com.baidu.tbadk.core.account.a.a(currentAccountObj.getAccount(), this.e.h().getPortrait());
+                        currentAccountObj.setPortrait(this.e.h().getPortrait());
                     }
                 }
             }
@@ -137,8 +137,8 @@ public class ax extends BdAsyncTask<Boolean, av, av> {
         super.onProgressUpdate(avVarArr);
         av avVar = avVarArr[0];
         if (avVar != null) {
-            this.a.a(avVar.g());
-            this.a.a(avVar.d());
+            this.a.a(avVar.h());
+            this.a.a(avVar.e());
             z = true;
         }
         this.a.mLoadDataMode = 2;
@@ -164,13 +164,13 @@ public class ax extends BdAsyncTask<Boolean, av, av> {
         eVar = this.a.mLoadDataCallBack;
         avVar2.r = new com.baidu.tbadk.coreExtra.b.a(eVar);
         if (avVar != null) {
-            UserData g = avVar.g();
-            if (g != null) {
-                this.a.a(g);
+            UserData h = avVar.h();
+            if (h != null) {
+                this.a.a(h);
             }
-            AntiData d = avVar.d();
-            if (d != null) {
-                this.a.a(d);
+            AntiData e = avVar.e();
+            if (e != null) {
+                this.a.a(e);
             }
             this.a.mLoadDataMode = 1;
             eVar3 = this.a.mLoadDataCallBack;

@@ -116,9 +116,9 @@ public class NetWorkCoreByBdHttp implements aa {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [495=12] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r3v62 long)] */
-    /* JADX WARN: Removed duplicated region for block: B:135:0x0809  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0168  */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r3v64 long)] */
+    /* JADX WARN: Removed duplicated region for block: B:134:0x080a  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0168  */
     @Override // com.baidu.tbadk.core.util.aa
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -127,8 +127,8 @@ public class NetWorkCoreByBdHttp implements aa {
         com.baidu.adp.lib.network.willdelete.f fVar;
         com.baidu.adp.lib.network.willdelete.f fVar2;
         String str;
-        boolean z;
         String str2;
+        boolean z = true;
         com.baidu.adp.lib.network.willdelete.e.a().c(TbadkApplication.getCurrentAccount());
         try {
             int a = ar.a(this.d.a().a().a);
@@ -163,7 +163,9 @@ public class NetWorkCoreByBdHttp implements aa {
                 if (TbConfig.getDebugSwitch()) {
                     BdLog.d(getClass().getName(), "getNetData", str);
                 }
-                z = (this.d.a().a().d && !this.d.a().a().e) || this.d.a().e;
+                if ((!this.d.a().a().d || this.d.a().a().e) && !this.d.a().e) {
+                    z = false;
+                }
             } finally {
                 ar.c(this.d.a().a().a);
             }
@@ -266,7 +268,7 @@ public class NetWorkCoreByBdHttp implements aa {
             ar.c(this.d.a().a().a);
             return null;
         }
-        if (TbadkApplication.m252getInst().isMainProcess() && (str2 = fVar.b) != null) {
+        if (TbadkApplication.m252getInst().isMainProcess(true) && (str2 = fVar.b) != null) {
             try {
                 int parseInt = Integer.parseInt(str2);
                 if (parseInt > b) {

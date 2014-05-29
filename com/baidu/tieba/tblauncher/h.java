@@ -19,7 +19,7 @@ class h extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public Boolean doInBackground(String... strArr) {
-        return Boolean.valueOf(GuideActivity.f(this.a));
+        return Boolean.valueOf(GuideActivity.h(this.a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ class h extends BdAsyncTask<String, Integer, Boolean> {
     /* renamed from: a */
     public void onPostExecute(Boolean bool) {
         if (!bool.booleanValue()) {
-            GuideActivity.g(this.a);
+            GuideActivity.i(this.a);
         }
     }
 }

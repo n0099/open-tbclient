@@ -6,7 +6,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Handler;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.telephony.TelephonyManager;
@@ -171,11 +170,7 @@ public class NetWorkCore implements aa {
     }
 
     public static void j() {
-        if (Integer.parseInt(Build.VERSION.SDK) < 8) {
-            System.setProperty("http.keepAlive", "false");
-        } else {
-            System.setProperty("http.keepAlive", "true");
-        }
+        System.setProperty("http.keepAlive", "false");
         e = new am();
     }
 
@@ -315,9 +310,9 @@ public class NetWorkCore implements aa {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [737=12, 738=12, 739=12, 744=12, 745=12] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [738=12, 739=12, 740=12, 745=12, 746=12] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r7v22 long)] */
-    /* JADX WARN: Code restructure failed: missing block: B:210:0x07c1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:210:0x07c2, code lost:
         r17.o.c().a.e = r1 + 1;
         r17.o.c().a.f = r7;
         r3 = new com.baidu.tbadk.core.util.av();
@@ -327,26 +322,26 @@ public class NetWorkCore implements aa {
         r3.d = r1 + 1;
         r3.a = 2;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:211:0x0803, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:211:0x0804, code lost:
         if (r7 <= com.baidu.tbadk.TbConfig.NOTIFY_SOUND_INTERVAL) goto L195;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:212:0x0805, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:212:0x0806, code lost:
         com.baidu.tbadk.core.log.a.a(com.baidu.tbadk.core.log.k.a(r6.toString(), new java.lang.StringBuilder().append(r7).toString(), java.lang.String.valueOf(r3.c) + " |DNS Time" + r17.o.c().a.g + "|ConnectTime" + r17.o.c().a.c + "|current ip" + com.baidu.tbadk.core.util.UtilHelper.getIpFromDomain(com.baidu.tbadk.core.util.UtilHelper.getDomainName(r6.toString())), "old network download OK, retryCount:" + r3.d, ""));
      */
-    /* JADX WARN: Code restructure failed: missing block: B:213:0x0886, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:213:0x0887, code lost:
         com.baidu.tbadk.core.util.au.a(r3);
         com.baidu.tbadk.core.util.TiebaStatic.net(r17.o);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:214:0x0890, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:214:0x0891, code lost:
         com.baidu.tbadk.core.util.ar.c(r17.o.a().a().a);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:215:0x08a1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:215:0x08a2, code lost:
         if (r4 == null) goto L201;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:216:0x08a3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:216:0x08a4, code lost:
         r4.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:283:0x0a0f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:283:0x0a10, code lost:
         r2 = r3;
      */
     @Override // com.baidu.tbadk.core.util.aa
@@ -476,7 +471,7 @@ public class NetWorkCore implements aa {
                     } else if (!this.j.getContentType().contains("text/vnd.wap.wml")) {
                         String contentEncoding = this.j.getContentEncoding();
                         inputStream = this.j.getInputStream();
-                        if (TbadkApplication.m252getInst().isMainProcess() && (headerField = this.j.getHeaderField("Content-Length")) != null) {
+                        if (TbadkApplication.m252getInst().isMainProcess(true) && (headerField = this.j.getHeaderField("Content-Length")) != null) {
                             try {
                                 int parseInt = Integer.parseInt(headerField);
                                 if (parseInt > d) {
@@ -778,7 +773,7 @@ public class NetWorkCore implements aa {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1071=12, 1072=12, 1073=12, 1078=12, 1079=12, 1081=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1072=12, 1073=12, 1074=12, 1079=12, 1080=12, 1082=4] */
     /* JADX WARN: Removed duplicated region for block: B:222:0x073a A[Catch: Exception -> 0x0749, TRY_LEAVE, TryCatch #21 {Exception -> 0x0749, blocks: (B:220:0x0729, B:222:0x073a), top: B:295:0x0729 }] */
     /* JADX WARN: Removed duplicated region for block: B:225:0x0741 A[Catch: Exception -> 0x0747, TRY_LEAVE, TryCatch #30 {Exception -> 0x0747, blocks: (B:223:0x073d, B:225:0x0741), top: B:313:0x073d }] */
     @Override // com.baidu.tbadk.core.util.aa
@@ -1198,7 +1193,7 @@ public class NetWorkCore implements aa {
         return str;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1280=11, 1281=11, 1286=11, 1287=11, 1292=11, 1293=11, 1297=11, 1298=11] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1281=11, 1282=11, 1287=11, 1288=11, 1293=11, 1294=11, 1298=11, 1299=11] */
     /* JADX WARN: Removed duplicated region for block: B:106:0x038a A[Catch: all -> 0x05dd, TRY_LEAVE, TryCatch #13 {all -> 0x05dd, blocks: (B:41:0x00fd, B:43:0x010b, B:45:0x011d, B:76:0x0243, B:78:0x0257, B:79:0x025c, B:47:0x0121, B:49:0x0125, B:51:0x0133, B:52:0x0147, B:97:0x0301, B:100:0x0319, B:54:0x014d, B:56:0x019c, B:57:0x01ab, B:59:0x01bd, B:60:0x01c3, B:62:0x01cf, B:64:0x0217, B:117:0x03ae, B:119:0x03bd, B:121:0x03c2, B:123:0x03cf, B:186:0x0519, B:104:0x0369, B:106:0x038a, B:144:0x0418), top: B:316:0x00fd }] */
     /* JADX WARN: Removed duplicated region for block: B:111:0x0398 A[Catch: Exception -> 0x05fe, TRY_LEAVE, TryCatch #10 {Exception -> 0x05fe, blocks: (B:109:0x0394, B:111:0x0398), top: B:312:0x0394 }] */
     /* JADX WARN: Removed duplicated region for block: B:116:0x03a6  */
@@ -1781,7 +1776,7 @@ public class NetWorkCore implements aa {
         return this.o.b().a == 200 || this.o.b().a == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1455=8, 1457=8, 1458=8, 1463=8, 1464=8, 1469=8, 1470=8] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1456=8, 1458=8, 1459=8, 1464=8, 1465=8, 1470=8, 1471=8] */
     /* JADX WARN: Removed duplicated region for block: B:165:0x03cb A[Catch: Exception -> 0x0400, TRY_LEAVE, TryCatch #31 {Exception -> 0x0400, blocks: (B:163:0x03c5, B:165:0x03cb), top: B:269:0x03c5 }] */
     /* JADX WARN: Removed duplicated region for block: B:227:0x03d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:229:0x03c2 A[EXC_TOP_SPLITTER, SYNTHETIC] */

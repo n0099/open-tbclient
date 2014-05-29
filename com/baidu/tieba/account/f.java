@@ -7,12 +7,15 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.Gson;
+import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tieba.data.Hao123Data;
 import com.baidu.tieba.model.Hao123Model;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Object, Integer, AccountData> {
@@ -46,9 +49,24 @@ public class f extends BdAsyncTask<Object, Integer, AccountData> {
             }
             com.baidu.tieba.util.k.h(this.b.getID());
             if (this.b.getID().equals(TbadkApplication.getCurrentAccount())) {
+                SapiAccountManager.getInstance().logout();
                 this.c = 2;
                 a();
                 return null;
+            }
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (!TextUtils.isEmpty(this.b.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
+                Iterator<SapiAccount> it = loginAccounts.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    SapiAccount next = it.next();
+                    if (this.b.getID().equals(next.uid)) {
+                        SapiAccountManager.getInstance().removeLoginAccount(next);
+                        break;
+                    }
+                }
             }
             this.c = 0;
             return null;
@@ -95,7 +113,6 @@ public class f extends BdAsyncTask<Object, Integer, AccountData> {
                 lVar.notifyDataSetChanged();
                 break;
             case 2:
-                SapiAccountManager.getInstance().logout();
                 TbadkApplication.m252getInst().onUserChanged();
                 MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.STOP));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2008001, com.baidu.tbadk.core.frameworkData.a.START));

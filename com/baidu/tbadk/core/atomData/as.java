@@ -13,6 +13,23 @@ public class as extends com.baidu.tbadk.core.frameworkData.a {
         this.a = context;
     }
 
+    public as a(String str, String str2, String str3, int i) {
+        if (str != null) {
+            Intent intent = getIntent();
+            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, str);
+            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.POST_ID, str2);
+            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str3);
+            intent.putExtra("from_frs", true);
+            intent.putExtra("is_start_for_result", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            intent.putExtra(com.baidu.tbadk.core.frameworkData.a.REQUEST_CODE, i);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.a instanceof Activity)) {
+                intent.addFlags(268435456);
+            }
+        }
+        return this;
+    }
+
     public as a(String str, String str2, String str3) {
         if (str != null) {
             Intent intent = getIntent();

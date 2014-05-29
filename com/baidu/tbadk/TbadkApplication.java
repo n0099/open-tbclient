@@ -229,7 +229,7 @@ public class TbadkApplication extends BdBaseApplication {
 
     private void initAccount() {
         AccountData c;
-        if (isMainProcess()) {
+        if (isMainProcess(true)) {
             try {
                 if (m252getInst().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists() && (c = com.baidu.tbadk.core.account.a.c()) != null) {
                     setCurrentAccount(c, m252getInst());
@@ -281,7 +281,7 @@ public class TbadkApplication extends BdBaseApplication {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (isMainProcess()) {
+        if (isMainProcess(true)) {
             try {
                 registerReceiver(new NetworkChangeReceiver(), new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
             } catch (Exception e2) {
@@ -448,34 +448,37 @@ public class TbadkApplication extends BdBaseApplication {
         IS_APP_RUNNING = z;
     }
 
-    public boolean isMainProcess() {
-        boolean z = false;
+    public boolean isMainProcess(boolean z) {
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         if (this._isMainProcess != null) {
             return this._isMainProcess.booleanValue();
         }
         ActivityManager activityManager = (ActivityManager) getSystemService("activity");
-        if (activityManager == null) {
-            return true;
-        }
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
-        int myPid = Process.myPid();
-        if (runningAppProcesses != null) {
-            this._isMainProcess = Boolean.TRUE;
-            int i = 0;
-            while (true) {
-                if (i >= runningAppProcesses.size()) {
-                    break;
-                } else if (runningAppProcesses.get(i).pid != myPid) {
-                    i++;
-                } else {
+        if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
+            String packageName = getPackageName();
+            String[] strArr = {String.valueOf(packageName) + ":remote", String.valueOf(packageName) + ":hao123_float", String.valueOf(packageName) + ":bdservice_v1", String.valueOf(packageName) + ":live"};
+            int myPid = Process.myPid();
+            for (int i = 0; i < runningAppProcesses.size(); i++) {
+                if (runningAppProcesses.get(i).pid == myPid) {
                     String str = runningAppProcesses.get(i).processName;
-                    if (str != null && (str.equalsIgnoreCase("com.baidu.tieba:remote") || str.equalsIgnoreCase("com.baidu.tieba:hao123_float") || str.equalsIgnoreCase("com.baidu.tieba:bdservice_v1") || str.equalsIgnoreCase("com.baidu.tieba:live"))) {
-                        this._isMainProcess = Boolean.FALSE;
+                    if (str != null) {
+                        if (str.equalsIgnoreCase(packageName)) {
+                            this._isMainProcess = Boolean.TRUE;
+                            return true;
+                        }
+                        for (String str2 : strArr) {
+                            if (str.equalsIgnoreCase(str2)) {
+                                this._isMainProcess = Boolean.FALSE;
+                                return false;
+                            }
+                        }
+                        return z;
                     }
+                    return z;
                 }
             }
+            return z;
         }
-        z = true;
         return z;
     }
 
@@ -490,7 +493,7 @@ public class TbadkApplication extends BdBaseApplication {
     }
 
     protected void processResumeNum() {
-        if (isMainProcess()) {
+        if (isMainProcess(true)) {
             if (this.mResumeNum < 0) {
                 this.mResumeNum = 0;
             }
@@ -718,7 +721,7 @@ public class TbadkApplication extends BdBaseApplication {
     }
 
     private void saveFromToShare(String str) {
-        if (str != null && str.length() > 0 && isMainProcess()) {
+        if (str != null && str.length() > 0 && isMainProcess(true)) {
             saveString("from_id", str);
         }
     }
@@ -1498,7 +1501,20 @@ public class TbadkApplication extends BdBaseApplication {
     }
 
     public boolean isHao123HelperShouldOpen() {
-        return f.a().a(new StringBuilder("hao123_helper_crash_count").append(TbConfig.getVersion()).toString(), 0) <= getFeatureCrashAutoCloseLimit() && com.baidu.adp.lib.a.f.a().b("switch_hao123_helper") != 1;
+        String str = Build.MODEL;
+        if (TextUtils.isEmpty(str) || !str.startsWith("MI")) {
+            return f.a().a(new StringBuilder("hao123_helper_crash_count").append(TbConfig.getVersion()).toString(), 0) <= getFeatureCrashAutoCloseLimit() && com.baidu.adp.lib.a.f.a().b("switch_hao123_helper") != 1;
+        }
+        return false;
+    }
+
+    public void incDQCrashCount() {
+        String str = "dq_crash_count" + TbConfig.getVersion();
+        f.a().b(str, f.a().a(str, 0) + 1);
+    }
+
+    public boolean isDQShouldOpen() {
+        return f.a().a(new StringBuilder("dq_crash_count").append(TbConfig.getVersion()).toString(), 0) <= getFeatureCrashAutoCloseLimit();
     }
 
     public boolean isLiveRecordOpen() {

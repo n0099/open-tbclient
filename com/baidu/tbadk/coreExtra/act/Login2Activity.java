@@ -3,6 +3,7 @@ package com.baidu.tbadk.coreExtra.act;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
@@ -465,9 +468,14 @@ public class Login2Activity extends BaseActivity {
             accountData.setTbs(this.N.b().getTbs());
         }
         this.P = accountData;
-        if (this.P.getAccount() != null) {
+        if (!TextUtils.isEmpty(this.P.getAccount())) {
             com.baidu.tbadk.core.account.a.a(accountData);
             TbadkApplication.setCurrentAccount(this.P, getBaseContext());
+            SapiAccount sapiAccount = new SapiAccount();
+            sapiAccount.uid = this.P.getID();
+            sapiAccount.displayname = this.P.getAccount();
+            sapiAccount.bduss = this.P.getBDUSS();
+            SapiAccountManager.getInstance().validate(sapiAccount);
             a();
             return;
         }

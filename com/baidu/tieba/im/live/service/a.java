@@ -187,7 +187,7 @@ class a extends ILiveGroupManagerService.Stub {
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
-    public void closePublish(String str) {
+    public void closePublish(String str, boolean z) {
         int i;
         String str2;
         LiveSenderControl liveSenderControl;
@@ -208,6 +208,12 @@ class a extends ILiveGroupManagerService.Stub {
         }
         handler = this.a.mHandler;
         handler.sendEmptyMessage(15);
+        if (!z) {
+            try {
+                ((NotificationManager) this.a.getSystemService("notification")).cancel(20);
+            } catch (Exception e) {
+            }
+        }
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -283,7 +289,7 @@ class a extends ILiveGroupManagerService.Stub {
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
-    public void stopPlay(String str) {
+    public void stopPlay(String str, boolean z) {
         int i;
         String str2;
         Handler handler;
@@ -299,7 +305,7 @@ class a extends ILiveGroupManagerService.Stub {
         }
         handler = this.a.mHandler;
         handler.sendEmptyMessage(19);
-        if (!LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(str)) {
+        if (!z && !LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(str)) {
             try {
                 ((NotificationManager) this.a.getSystemService("notification")).cancel(20);
             } catch (Exception e) {
@@ -410,7 +416,7 @@ class a extends ILiveGroupManagerService.Stub {
         }
         str = this.a.mGroupId;
         str2 = this.a.mUrl;
-        playOrRecord(null, str, null, str2, null, null, true);
+        playOrRecord(null, str, null, str2, null, null, true, true);
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
@@ -459,18 +465,18 @@ class a extends ILiveGroupManagerService.Stub {
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
-    public void stopAnyRunning() {
+    public void stopAnyRunning(boolean z) {
         String str;
         String str2;
         switch (whatIsRunning()) {
             case 1:
                 str2 = this.a.mGroupId;
-                closePublish(str2);
+                closePublish(str2, z);
                 return;
             case 2:
             case 3:
                 str = this.a.mGroupId;
-                stopPlay(str);
+                stopPlay(str, z);
                 return;
             default:
                 return;
@@ -478,7 +484,7 @@ class a extends ILiveGroupManagerService.Stub {
     }
 
     @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
-    public void playOrRecord(String str, String str2, String str3, String str4, String str5, String str6, boolean z) {
+    public void playOrRecord(String str, String str2, String str3, String str4, String str5, String str6, boolean z, boolean z2) {
         int i;
         int i2;
         f fVar;
@@ -525,7 +531,7 @@ class a extends ILiveGroupManagerService.Stub {
                     }
                 }
             }
-            stopAnyRunning();
+            stopAnyRunning(z2);
             this.a.argsToBeStarted = new f(null);
             fVar = this.a.argsToBeStarted;
             fVar.b = str2;

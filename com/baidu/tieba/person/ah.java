@@ -27,7 +27,7 @@ public class ah implements ViewPager.OnPageChangeListener {
         avVar = this.a.u;
         if (avVar != null) {
             avVar2 = this.a.u;
-            if (avVar2.f()) {
+            if (avVar2.g()) {
                 context2 = this.a.a;
                 com.baidu.tbadk.core.f.a(context2, "person_self_scroll_click");
                 return;

@@ -41,7 +41,7 @@ public class d extends BdAsyncTask<HttpMessage, HttpResponsedMessage, HttpRespon
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:20:0x0146 -> B:29:0x006a). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:23:0x0153 -> B:31:0x006a). Please submit an issue!!! */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public HttpResponsedMessage doInBackground(HttpMessage... httpMessageArr) {
@@ -65,7 +65,6 @@ public class d extends BdAsyncTask<HttpMessage, HttpResponsedMessage, HttpRespon
         }
         try {
             HttpResponsedMessage newInstance = this.c.getResponsedClass().getConstructor(Integer.TYPE).newInstance(Integer.valueOf(this.b.getCmd()));
-            newInstance.setOrginalMessage(this.b);
             String str = "";
             if (this.d.c().size() > 0) {
                 str = this.d.c().get(this.d.c().size() - 1).h;
@@ -76,6 +75,10 @@ public class d extends BdAsyncTask<HttpMessage, HttpResponsedMessage, HttpRespon
             newInstance.setContentLength(this.d.b().e);
             newInstance.setContentType(this.d.b().d);
             newInstance.setDownSize(this.d.b().h);
+            if (!newInstance.isSuccess()) {
+                newInstance.setError(newInstance.getStatusCode());
+            }
+            newInstance.setOrginalMessage(this.b);
             if (newInstance.isSuccess()) {
                 try {
                     newInstance.decodeInBackGround(this.b.getCmd(), this.d.b().g);
@@ -85,8 +88,6 @@ public class d extends BdAsyncTask<HttpMessage, HttpResponsedMessage, HttpRespon
                     newInstance.setErrorString(BdBaseApplication.getInst().getString(com.baidu.adp.f.error_unkown_try_again));
                     BdLog.detailException(e2);
                 }
-            } else {
-                newInstance.setError(newInstance.getStatusCode());
             }
             newInstance.logStatInBackground(this.b.getCmd(), this.d);
             return newInstance;

@@ -29,14 +29,14 @@ public class d extends CustomMessageListener {
                 String accessToken = accessTokenUpdatedMessage.getAccessToken();
                 AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
                 if (parseBDUSS != null && bduss != null && bduss.equals(parseBDUSS.mBduss) && accessToken != null && accessToken.length() > 0) {
-                    str = this.a.c;
+                    str = this.a.e;
                     if (str != null) {
-                        str2 = this.a.c;
+                        str2 = this.a.e;
                         if (accessToken.equals(str2)) {
                             return;
                         }
                     }
-                    this.a.c = accessToken;
+                    this.a.e = accessToken;
                 }
             }
         }

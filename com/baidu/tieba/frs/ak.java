@@ -29,8 +29,14 @@ public class ak implements com.baidu.tbadk.editortool.x {
         WriteImagesInfo writeImagesInfo8;
         WriteImagesInfo writeImagesInfo9;
         String str;
+        ct ctVar;
         if (i == 0) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.c(this.a, 12004, true)));
+            ctVar = this.a.w;
+            if (ctVar.af()) {
+                this.a.showToast(com.baidu.tieba.y.over_limit_tip);
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.c(this.a, 12004, true)));
+            }
         } else if (i != 10) {
             if (i != 4) {
                 if (i == 22) {

@@ -85,6 +85,7 @@ public class TbConfig {
     public static final int NOTIFY_CHAT_ID = 16;
     public static final int NOTIFY_GROUP_EVENT = 18;
     public static final int NOTIFY_GROUP_ID = 17;
+    public static final int NOTIFY_LIVE_GROUP_END_EVENT = 22;
     public static final int NOTIFY_LIVE_GROUP_EVENT = 20;
     public static final int NOTIFY_LIVE_NOTIFY = 21;
     public static final int NOTIFY_MESSAGE_ID = 11;

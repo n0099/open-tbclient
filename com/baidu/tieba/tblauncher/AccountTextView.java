@@ -23,23 +23,18 @@ public class AccountTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     protected void onMeasure(int i, int i2) {
-        int i3;
-        String str = (String) getText();
+        String a = com.baidu.adp.lib.util.j.a(getText(), "");
         int size = View.MeasureSpec.getSize(i);
-        int measureText = (int) (getPaint().measureText(str) + getCompoundPaddingLeft() + getCompoundPaddingRight());
-        if (TextUtils.isEmpty(str) || str.equals(this.a) || measureText <= size) {
-            i3 = measureText;
-        } else {
-            String str2 = str;
-            i3 = measureText;
-            while (i3 > size && str2.length() > 1) {
-                str2 = str2.substring(0, str2.length() - 1);
-                i3 = (int) (getPaint().measureText(String.valueOf(str2) + "...") + getCompoundPaddingLeft() + getCompoundPaddingRight());
+        int measureText = (int) (getPaint().measureText(a) + getCompoundPaddingLeft() + getCompoundPaddingRight());
+        if (!TextUtils.isEmpty(a) && !a.equals(this.a) && measureText > size) {
+            while (measureText > size && a.length() > 1) {
+                a = a.substring(0, a.length() - 1);
+                measureText = (int) (getPaint().measureText(String.valueOf(a) + "...") + getCompoundPaddingLeft() + getCompoundPaddingRight());
             }
-            String str3 = String.valueOf(str2) + "...";
-            this.a = str3;
-            setText(str3);
+            String str = String.valueOf(a) + "...";
+            this.a = str;
+            setText(str);
         }
-        super.onMeasure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), i2);
+        super.onMeasure(View.MeasureSpec.makeMeasureSpec(measureText, 1073741824), i2);
     }
 }

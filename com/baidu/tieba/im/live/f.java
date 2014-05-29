@@ -32,6 +32,7 @@ public class f extends CustomMessageListener {
                         if (String.valueOf(parseFromEventContent.mGroupId).equals(this.a.i())) {
                             BdLog.d("EVENT_ID_GROUP_END or EVENT_ID_DISMISS_GROUP");
                             this.a.s();
+                            this.a.u();
                         }
                     } else if ("308".equals(parseFromEventContent.mEventId)) {
                         if (String.valueOf(parseFromEventContent.mGroupId).equals(this.a.i())) {

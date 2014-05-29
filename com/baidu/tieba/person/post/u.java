@@ -2,8 +2,9 @@ package com.baidu.tieba.person.post;
 
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u extends HttpMessageListener {
+public class u extends HttpMessageListener {
     final /* synthetic */ s a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

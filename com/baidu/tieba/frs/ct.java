@@ -116,7 +116,7 @@ public class ct {
         this.g = baseActivity;
         this.V = onClickListener;
         this.am = new Handler();
-        ag();
+        ah();
         this.al = TbadkApplication.m252getInst().isFirstGoFrs();
         if (this.al) {
             TbadkApplication.m252getInst().setFirstGoFrs(false);
@@ -132,11 +132,11 @@ public class ct {
         }
     }
 
-    private void ag() {
+    private void ah() {
         this.g.setContentView(com.baidu.tieba.w.frs_activity);
         this.R = new dq(this.g);
         this.h = (RelativeLayout) this.g.findViewById(com.baidu.tieba.v.frs);
-        ah();
+        ai();
         this.T = new SlidingMenu(this.g);
         this.T.setMode(1);
         this.T.setTouchModeAbove(1);
@@ -152,7 +152,7 @@ public class ct {
         this.O = (TextView) this.ak.findViewById(com.baidu.tieba.v.navigationTitle_frs);
         this.P = (ImageView) this.ak.findViewById(com.baidu.tieba.v.icon_bottom_title_image);
         this.ak.setOnClickListener(this.V);
-        ai();
+        aj();
         this.ah = this.ae.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.nb_item_frs_live, (View.OnClickListener) null);
         this.af = (Button) this.ah.findViewById(com.baidu.tieba.v.nb_item_live_text_btn);
         this.af.setOnClickListener(this.V);
@@ -206,14 +206,14 @@ public class ct {
         this.c = (PbEditor) this.g.findViewById(com.baidu.tieba.v.frs_editor);
     }
 
-    private void ah() {
+    private void ai() {
         this.ac = new BannerView(this.g);
         this.ac.setLayoutParams(new AbsListView.LayoutParams(-1, this.g.getResources().getDimensionPixelSize(com.baidu.tieba.t.frs_header_banner_height)));
         this.ac.setVisibility(8);
         this.ac.setBannerViewClickListener(new cz(this));
     }
 
-    private void ai() {
+    private void aj() {
         this.e = this.g.getLayoutInflater().inflate(com.baidu.tieba.w.frs_pop_more_window, (ViewGroup) null);
         this.F = new com.baidu.tbadk.core.view.i(this.g, this.e, this.ae, this.g.getResources().getDrawable(com.baidu.tieba.u.bg_pull_down_n), new da(this));
         this.G = this.e.findViewById(com.baidu.tieba.v.frs_pop_more_window_all_threads_layout);
@@ -501,26 +501,26 @@ public class ct {
     }
 
     public void A() {
-        aj();
+        ak();
         this.U = "normal_page";
         this.r.addHeaderView(this.z.a());
     }
 
     public void B() {
-        aj();
+        ak();
         this.U = "frs_page";
         this.r.addHeaderView(this.A.a());
     }
 
     public void C() {
         if (!"good_page".equals(this.U)) {
-            aj();
+            ak();
             this.U = "good_page";
             this.r.addHeaderView(this.B.a());
         }
     }
 
-    private void aj() {
+    private void ak() {
         if ("normal_page".equals(this.U)) {
             this.r.removeHeaderView(this.z.a());
         } else if ("frs_page".equals(this.U)) {
@@ -893,12 +893,12 @@ public class ct {
 
     public void U() {
         this.c.b(this.c.getEditText());
-        this.c.n();
+        this.c.o();
     }
 
     public void a(int i, com.baidu.tbadk.core.data.n nVar, int i2) {
-        this.c.m();
-        this.c.t();
+        this.c.n();
+        this.c.u();
         if (this.c.h()) {
             this.c.k();
         } else {
@@ -936,11 +936,11 @@ public class ct {
     }
 
     public void X() {
-        this.c.s();
+        this.c.t();
     }
 
     public void Y() {
-        this.c.r();
+        this.c.s();
     }
 
     public void Z() {
@@ -952,16 +952,16 @@ public class ct {
         if (z) {
             this.c.getEditText().setText("");
             this.c.b();
-            this.c.l();
+            this.c.m();
         }
     }
 
     public void aa() {
-        this.c.p();
+        this.c.q();
     }
 
     public void ab() {
-        this.c.q();
+        this.c.r();
     }
 
     public void d(String str) {
@@ -997,5 +997,9 @@ public class ct {
         if (this.A != null) {
             this.A.b(true);
         }
+    }
+
+    public boolean af() {
+        return this.c.l();
     }
 }

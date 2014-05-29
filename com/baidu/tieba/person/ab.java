@@ -96,7 +96,7 @@ public class ab extends RelativeLayout {
     }
 
     private void c() {
-        LinkedList<IconData> tShowInfo = this.z.g().getTShowInfo();
+        LinkedList<IconData> tShowInfo = this.z.h().getTShowInfo();
         if (tShowInfo == null || tShowInfo.size() <= 0 || tShowInfo.get(0) == null || TextUtils.isEmpty(tShowInfo.get(0).getIcon())) {
             this.l.setVisibility(8);
             this.r.setVisibility(8);
@@ -113,7 +113,7 @@ public class ab extends RelativeLayout {
     }
 
     public void a(com.baidu.tieba.model.av avVar, int i) {
-        if (avVar != null && avVar.g() != null) {
+        if (avVar != null && avVar.h() != null) {
             this.z = avVar;
             this.B = i;
             if (!b(this.B)) {
@@ -123,8 +123,8 @@ public class ab extends RelativeLayout {
                 e();
                 d();
                 if (this.B == 1) {
-                    AntiData d = this.z.d();
-                    if (AntiHelper.a(d) || AntiHelper.c(d)) {
+                    AntiData e = this.z.e();
+                    if (AntiHelper.a(e) || AntiHelper.c(e)) {
                         this.m.setVisibility(8);
                         this.k.setVisibility(0);
                         this.k.setVisibility(0);
@@ -139,7 +139,7 @@ public class ab extends RelativeLayout {
                 }
                 this.m.setVisibility(8);
                 this.k.setVisibility(0);
-                if (this.z.g().getHave_attention() == 1) {
+                if (this.z.h().getHave_attention() == 1) {
                     this.p.setVisibility(8);
                     this.q.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_viewpager_attention_text_cancel_name));
                     return;
@@ -152,9 +152,9 @@ public class ab extends RelativeLayout {
 
     private void d() {
         int i;
-        LinkedList<IconData> iconInfo = this.z.g().getIconInfo();
+        LinkedList<IconData> iconInfo = this.z.h().getIconInfo();
         if (iconInfo != null && iconInfo.size() > 0) {
-            LinkedList<IconData> tShowInfo = this.z.g().getTShowInfo();
+            LinkedList<IconData> tShowInfo = this.z.h().getTShowInfo();
             if (tShowInfo != null) {
                 i = tShowInfo.size();
             } else {
@@ -172,9 +172,9 @@ public class ab extends RelativeLayout {
     }
 
     private void e() {
-        this.w.setText(this.z.g().getUserName());
-        this.s.setText(this.z.g().getTb_age() + this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_viewpager_tb_age));
-        LinkedList<IconData> tShowInfo = this.z.g().getTShowInfo();
+        this.w.setText(this.z.h().getUserName());
+        this.s.setText(this.z.h().getTb_age() + this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_viewpager_tb_age));
+        LinkedList<IconData> tShowInfo = this.z.h().getTShowInfo();
         int skinType = TbadkApplication.m252getInst().getSkinType();
         if (tShowInfo != null && tShowInfo.size() > 0) {
             if (skinType == 1) {
@@ -190,14 +190,14 @@ public class ab extends RelativeLayout {
     }
 
     private void f() {
-        if (this.z.g().getSex() == 1) {
+        if (this.z.h().getSex() == 1) {
             this.x.setVisibility(0);
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 this.x.setImageResource(com.baidu.tieba.u.icon_pop_boy_1);
             } else {
                 this.x.setImageResource(com.baidu.tieba.u.icon_pop_boy);
             }
-        } else if (this.z.g().getSex() == 2) {
+        } else if (this.z.h().getSex() == 2) {
             this.x.setVisibility(0);
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 this.x.setImageResource(com.baidu.tieba.u.icon_pop_girl_1);
@@ -212,7 +212,7 @@ public class ab extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         if (this.z != null) {
-            LinkedList<IconData> iconInfo = this.z.g().getIconInfo();
+            LinkedList<IconData> iconInfo = this.z.h().getIconInfo();
             if (iconInfo.size() <= (this.C - a(this.a, 15.0f)) / a(this.a, 22.0f)) {
                 this.i.setVisibility(8);
                 this.y.setVisibility(0);
@@ -234,7 +234,7 @@ public class ab extends RelativeLayout {
             this.h.setVisibility(8);
             this.i.setVisibility(8);
             this.f.setVisibility(0);
-            this.f.setText(this.z.g().getIntro());
+            this.f.setText(this.z.h().getIntro());
             return true;
         }
         this.e.setVisibility(8);
@@ -248,10 +248,10 @@ public class ab extends RelativeLayout {
     }
 
     private void h() {
-        String portrait = this.z.g().getPortrait();
+        String portrait = this.z.h().getPortrait();
         if (portrait != null) {
             AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
-            if (currentAccountObj != null && currentAccountObj.getAccount().equals(this.z.g().getUserName())) {
+            if (currentAccountObj != null && currentAccountObj.getAccount().equals(this.z.h().getUserName())) {
                 currentAccountObj.setPortrait(portrait);
                 new ad(this).execute(currentAccountObj.getAccount(), portrait);
             }

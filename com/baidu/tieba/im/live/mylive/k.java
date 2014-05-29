@@ -93,8 +93,9 @@ public class k extends com.baidu.adp.base.c {
     }
 
     public void a(int i) {
-        if (this.j[i] != null && !this.j[i].h()) {
-            this.j[i].g();
+        a aVar = this.j[i];
+        if (aVar != null && !aVar.h()) {
+            aVar.g();
         }
     }
 

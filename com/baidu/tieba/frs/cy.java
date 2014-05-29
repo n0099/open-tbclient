@@ -5,9 +5,8 @@ import android.widget.AbsListView;
 import com.baidu.tbadk.core.view.UserPhotoLayout;
 import com.baidu.tieba.view.FrsCommonImageLayout;
 import com.baidu.tieba.voice.PlayVoiceBnt;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cy implements AbsListView.RecyclerListener {
+class cy implements AbsListView.RecyclerListener {
     final /* synthetic */ ct a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -48,7 +48,12 @@ public class av extends com.baidu.adp.base.b {
         this.n = z;
     }
 
-    private int o() {
+    public boolean c() {
+        List<PersonPostListData.PostList> list;
+        return (this.l == null || (list = this.l.post_list) == null || list.size() <= 0) ? false : true;
+    }
+
+    private int p() {
         List<PersonPostListData.PostList> list;
         if (this.l != null && (list = this.l.post_list) != null) {
             if (list.size() % 20 > 0) {
@@ -70,7 +75,7 @@ public class av extends com.baidu.adp.base.b {
         this.p = new com.baidu.tbadk.editortool.ab(context);
     }
 
-    public void c() {
+    public void d() {
         registerListener(this.u);
     }
 
@@ -78,7 +83,7 @@ public class av extends com.baidu.adp.base.b {
         this.t = byVar;
     }
 
-    public AntiData d() {
+    public AntiData e() {
         return this.o;
     }
 
@@ -86,7 +91,7 @@ public class av extends com.baidu.adp.base.b {
         this.o = antiData;
     }
 
-    public String e() {
+    public String f() {
         return this.b;
     }
 
@@ -98,7 +103,7 @@ public class av extends com.baidu.adp.base.b {
         this.a = z;
     }
 
-    public boolean f() {
+    public boolean g() {
         return this.a;
     }
 
@@ -106,14 +111,14 @@ public class av extends com.baidu.adp.base.b {
         this.k = userData;
     }
 
-    public UserData g() {
+    public UserData h() {
         return this.k;
     }
 
     public void a(PersonChangeData personChangeData) {
-        g().setSex(personChangeData.getSex());
-        g().setUserName(personChangeData.getName());
-        g().setIntro(personChangeData.getIntro());
+        h().setSex(personChangeData.getSex());
+        h().setUserName(personChangeData.getName());
+        h().setIntro(personChangeData.getIntro());
     }
 
     public void a(boolean z, boolean z2, int i) {
@@ -121,7 +126,7 @@ public class av extends com.baidu.adp.base.b {
             if (i == 1) {
                 this.m = 1;
             } else {
-                this.m = o();
+                this.m = p();
             }
             this.q = new ax(this);
             this.q.setPriority(3);
@@ -129,9 +134,9 @@ public class av extends com.baidu.adp.base.b {
         }
     }
 
-    public void h() {
-        if (g() != null && this.r != null) {
-            this.r.a(g().getHave_attention() != 1, g().getPortrait(), g().getUserId());
+    public void i() {
+        if (h() != null && this.r != null) {
+            this.r.a(h().getHave_attention() != 1, h().getPortrait(), h().getUserId());
         }
     }
 
@@ -156,7 +161,7 @@ public class av extends com.baidu.adp.base.b {
         }
     }
 
-    public com.baidu.tbadk.editortool.ab i() {
+    public com.baidu.tbadk.editortool.ab j() {
         return this.p;
     }
 
@@ -164,7 +169,7 @@ public class av extends com.baidu.adp.base.b {
         this.h = str;
     }
 
-    public String j() {
+    public String k() {
         return this.h;
     }
 
@@ -172,7 +177,7 @@ public class av extends com.baidu.adp.base.b {
         this.c = j;
     }
 
-    public long k() {
+    public long l() {
         return this.c;
     }
 
@@ -196,7 +201,7 @@ public class av extends com.baidu.adp.base.b {
         this.i = z;
     }
 
-    public boolean l() {
+    public boolean m() {
         return this.i;
     }
 
@@ -204,7 +209,7 @@ public class av extends com.baidu.adp.base.b {
         this.j = z;
     }
 
-    public boolean m() {
+    public boolean n() {
         return this.j;
     }
 
@@ -218,7 +223,7 @@ public class av extends com.baidu.adp.base.b {
         return false;
     }
 
-    public void n() {
+    public void o() {
         MessageManager.getInstance().unRegisterListener(this.u);
         if (this.q != null) {
             this.q.cancel();

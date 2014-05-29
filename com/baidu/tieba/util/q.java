@@ -29,22 +29,21 @@ public class q implements Thread.UncaughtExceptionHandler {
     private static final String e = String.valueOf(Environment.getExternalStorageDirectory().getPath()) + File.separator + "tieba" + File.separator + "oom" + File.separator;
     private final Thread.UncaughtExceptionHandler d = Thread.getDefaultUncaughtExceptionHandler();
 
-    /* JADX WARN: Removed duplicated region for block: B:101:0x0250  */
-    /* JADX WARN: Removed duplicated region for block: B:150:0x023d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:96:0x0242 A[Catch: Exception -> 0x02a8, TryCatch #9 {Exception -> 0x02a8, blocks: (B:94:0x023d, B:96:0x0242, B:98:0x0247), top: B:150:0x023d }] */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x0247 A[Catch: Exception -> 0x02a8, TRY_LEAVE, TryCatch #9 {Exception -> 0x02a8, blocks: (B:94:0x023d, B:96:0x0242, B:98:0x0247), top: B:150:0x023d }] */
+    /* JADX WARN: Removed duplicated region for block: B:100:0x0256 A[Catch: Exception -> 0x02b7, TRY_LEAVE, TryCatch #6 {Exception -> 0x02b7, blocks: (B:96:0x024c, B:98:0x0251, B:100:0x0256), top: B:145:0x024c }] */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x025f  */
+    /* JADX WARN: Removed duplicated region for block: B:145:0x024c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x0251 A[Catch: Exception -> 0x02b7, TryCatch #6 {Exception -> 0x02b7, blocks: (B:96:0x024c, B:98:0x0251, B:100:0x0256), top: B:145:0x024c }] */
     @Override // java.lang.Thread.UncaughtExceptionHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void uncaughtException(Thread thread, Throwable th) {
-        FileWriter fileWriter;
         PrintStream printStream;
         ByteArrayOutputStream byteArrayOutputStream;
         PrintStream printStream2;
         ByteArrayOutputStream byteArrayOutputStream2;
         String str;
-        FileWriter fileWriter2 = null;
+        FileWriter fileWriter = null;
         if (TbConfig.getDebugSwitch() && a(th)) {
             a();
         }
@@ -53,246 +52,229 @@ public class q implements Thread.UncaughtExceptionHandler {
             try {
                 printStream = new PrintStream(byteArrayOutputStream);
                 try {
-                    try {
-                        th.printStackTrace(printStream);
-                        String str2 = new String(byteArrayOutputStream.toByteArray());
-                        if (TbConfig.getDebugSwitch()) {
-                            str = TbConfig.FATAL_ERROR_DEBUG_FILE;
-                        } else {
-                            str = TbConfig.FATAL_ERROR_FILE;
-                        }
-                        File g = x.g(str);
-                        if (g != null && g.length() < 204800 && str2 != null) {
-                            fileWriter = new FileWriter(g, true);
+                    th.printStackTrace(printStream);
+                    String str2 = new String(byteArrayOutputStream.toByteArray());
+                    if (TbConfig.getDebugSwitch()) {
+                        str = TbConfig.FATAL_ERROR_DEBUG_FILE;
+                    } else {
+                        str = TbConfig.FATAL_ERROR_FILE;
+                    }
+                    File g = x.g(str);
+                    if (g != null && g.length() < 204800 && str2 != null) {
+                        FileWriter fileWriter2 = new FileWriter(g, true);
+                        try {
+                            a(fileWriter2, be.a(), null);
+                            a(fileWriter2, "tieba_crash_new_info", null);
+                            a(fileWriter2, "version", TbConfig.getVersion());
+                            a(fileWriter2, "model", Build.MODEL);
+                            a(fileWriter2, "android_version", Build.VERSION.RELEASE);
+                            a(fileWriter2, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
+                            a(fileWriter2, "from", TbConfig.getFrom());
+                            a(fileWriter2, "current_from", TbConfig.getCurrentFrom());
+                            a(fileWriter2, SapiAccountManager.SESSION_UID, TbadkApplication.getCurrentAccount());
+                            a(fileWriter2, "client_id", TbadkApplication.getClientId());
+                            a(fileWriter2, "imei", TbadkApplication.m252getInst().getImei());
+                            a(fileWriter2, "uname", TbadkApplication.getCurrentAccountName());
+                            a(fileWriter2, "activity", bg.b());
+                            a(fileWriter2, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
+                            a(fileWriter2, "crash_type", th.getClass().getName());
+                            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) ai.c().d().getSystemService("activity")).getRunningAppProcesses();
+                            int myPid = Process.myPid();
+                            if (runningAppProcesses != null) {
+                                int i = 0;
+                                while (true) {
+                                    if (i >= runningAppProcesses.size()) {
+                                        break;
+                                    } else if (runningAppProcesses.get(i).pid != myPid) {
+                                        i++;
+                                    } else {
+                                        a(fileWriter2, "process_name", runningAppProcesses.get(i).processName);
+                                        break;
+                                    }
+                                }
+                            }
+                            a(fileWriter2, "error", str2);
+                            a(fileWriter2, "tieba_crash_new_info_end", null);
+                            fileWriter2.append(IOUtils.LINE_SEPARATOR_UNIX);
+                            fileWriter2.flush();
+                            fileWriter = fileWriter2;
+                        } catch (Exception e2) {
+                            e = e2;
+                            fileWriter = fileWriter2;
+                            printStream2 = printStream;
+                            byteArrayOutputStream2 = byteArrayOutputStream;
                             try {
-                                a(fileWriter, be.a(), null);
-                                a(fileWriter, "tieba_crash_new_info", null);
-                                a(fileWriter, "version", TbConfig.getVersion());
-                                a(fileWriter, "model", Build.MODEL);
-                                a(fileWriter, "android_version", Build.VERSION.RELEASE);
-                                a(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-                                a(fileWriter, "from", TbConfig.getFrom());
-                                a(fileWriter, "current_from", TbConfig.getCurrentFrom());
-                                a(fileWriter, SapiAccountManager.SESSION_UID, TbadkApplication.getCurrentAccount());
-                                a(fileWriter, "client_id", TbadkApplication.getClientId());
-                                a(fileWriter, "imei", TbadkApplication.m252getInst().getImei());
-                                a(fileWriter, "uname", TbadkApplication.getCurrentAccountName());
-                                a(fileWriter, "activity", bg.b());
-                                a(fileWriter, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
-                                a(fileWriter, "crash_type", th.getClass().getName());
-                                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) ai.c().d().getSystemService("activity")).getRunningAppProcesses();
-                                int myPid = Process.myPid();
-                                if (runningAppProcesses != null) {
-                                    int i = 0;
-                                    while (true) {
-                                        if (i >= runningAppProcesses.size()) {
-                                            break;
-                                        } else if (runningAppProcesses.get(i).pid != myPid) {
-                                            i++;
+                                e.printStackTrace();
+                                if (printStream2 != null) {
+                                    try {
+                                        printStream2.close();
+                                    } catch (Exception e3) {
+                                        e3.printStackTrace();
+                                        if (!TbConfig.getDebugSwitch() && this.d != null) {
+                                            this.d.uncaughtException(thread, th);
+                                            return;
                                         } else {
-                                            a(fileWriter, "process_name", runningAppProcesses.get(i).processName);
-                                            break;
-                                        }
-                                    }
-                                }
-                                a(fileWriter, "error", str2);
-                                a(fileWriter, "tieba_crash_new_info_end", null);
-                                fileWriter.append(IOUtils.LINE_SEPARATOR_UNIX);
-                                fileWriter.flush();
-                                fileWriter2 = fileWriter;
-                            } catch (Exception e2) {
-                                e = e2;
-                                fileWriter2 = fileWriter;
-                                printStream2 = printStream;
-                                byteArrayOutputStream2 = byteArrayOutputStream;
-                                try {
-                                    e.printStackTrace();
-                                    if (printStream2 != null) {
-                                        try {
-                                            printStream2.close();
-                                        } catch (Exception e3) {
-                                            e3.printStackTrace();
-                                            if (!TbConfig.getDebugSwitch() && this.d != null) {
-                                                this.d.uncaughtException(thread, th);
-                                                return;
-                                            } else {
-                                                Process.killProcess(Process.myPid());
-                                                return;
-                                            }
-                                        }
-                                    }
-                                    if (byteArrayOutputStream2 != null) {
-                                        byteArrayOutputStream2.close();
-                                    }
-                                    if (fileWriter2 != null) {
-                                        fileWriter2.close();
-                                    }
-                                    if (!TbConfig.getDebugSwitch()) {
-                                    }
-                                    Process.killProcess(Process.myPid());
-                                    return;
-                                } catch (Throwable th2) {
-                                    th = th2;
-                                    byteArrayOutputStream = byteArrayOutputStream2;
-                                    printStream = printStream2;
-                                    fileWriter = fileWriter2;
-                                    if (printStream != null) {
-                                        try {
-                                            printStream.close();
-                                        } catch (Exception e4) {
-                                            e4.printStackTrace();
-                                            if (!TbConfig.getDebugSwitch()) {
-                                            }
                                             Process.killProcess(Process.myPid());
-                                            throw th;
+                                            return;
                                         }
                                     }
-                                    if (byteArrayOutputStream != null) {
-                                        byteArrayOutputStream.close();
-                                    }
-                                    if (fileWriter != null) {
-                                        fileWriter.close();
-                                    }
-                                    if (!TbConfig.getDebugSwitch() && this.d != null) {
-                                        this.d.uncaughtException(thread, th);
-                                    } else {
+                                }
+                                if (byteArrayOutputStream2 != null) {
+                                    byteArrayOutputStream2.close();
+                                }
+                                if (fileWriter != null) {
+                                    fileWriter.close();
+                                }
+                                if (!TbConfig.getDebugSwitch()) {
+                                }
+                                Process.killProcess(Process.myPid());
+                                return;
+                            } catch (Throwable th2) {
+                                th = th2;
+                                byteArrayOutputStream = byteArrayOutputStream2;
+                                printStream = printStream2;
+                                if (printStream != null) {
+                                    try {
+                                        printStream.close();
+                                    } catch (Exception e4) {
+                                        e4.printStackTrace();
+                                        if (!TbConfig.getDebugSwitch()) {
+                                        }
                                         Process.killProcess(Process.myPid());
+                                        throw th;
                                     }
-                                    throw th;
-                                }
-                            } catch (Throwable th3) {
-                                th = th3;
-                                if (printStream != null) {
                                 }
                                 if (byteArrayOutputStream != null) {
+                                    byteArrayOutputStream.close();
                                 }
                                 if (fileWriter != null) {
+                                    fileWriter.close();
                                 }
-                                if (!TbConfig.getDebugSwitch()) {
+                                if (!TbConfig.getDebugSwitch() && this.d != null) {
+                                    this.d.uncaughtException(thread, th);
+                                } else {
+                                    Process.killProcess(Process.myPid());
                                 }
-                                Process.killProcess(Process.myPid());
                                 throw th;
                             }
-                        }
-                        if (str2 != null) {
-                            try {
-                                if (str2.contains("java.lang.SecurityException: No permission to modify given thread")) {
-                                    TbadkApplication.m252getInst().setWebviewCrashCount(TbadkApplication.m252getInst().getWebviewCrashCount() + 1);
-                                } else if (str2.contains("com.baidu.location")) {
-                                    ai.c().A();
-                                } else if (str2.contains("Couldn't load mtprocessor-jni")) {
-                                    com.baidu.adp.lib.a.f.a().a("motu_sdk", 1);
-                                }
-                                if (str2.contains("com.baidu.sapi2")) {
-                                    TbadkApplication.m252getInst().incPassportV6CrashCount();
-                                }
-                                if (str2.contains("com.baidu.mobstat")) {
-                                    TbadkApplication.m252getInst().incMobstatCrashCount();
-                                }
-                                String[] strArr = c;
-                                int length = strArr.length;
-                                int i2 = 0;
-                                while (true) {
-                                    if (i2 >= length) {
-                                        break;
-                                    } else if (!str2.contains(strArr[i2])) {
-                                        i2++;
-                                    } else {
-                                        TbadkApplication.m252getInst().incHao123HelperCrashCount();
-                                        break;
-                                    }
-                                }
-                                String[] strArr2 = a;
-                                int length2 = strArr2.length;
-                                int i3 = 0;
-                                while (true) {
-                                    if (i3 >= length2) {
-                                        break;
-                                    } else if (!str2.contains(strArr2[i3])) {
-                                        i3++;
-                                    } else {
-                                        TbadkApplication.m252getInst().incMoPlusCrashCount();
-                                        break;
-                                    }
-                                }
-                                String[] strArr3 = b;
-                                int length3 = strArr3.length;
-                                int i4 = 0;
-                                while (true) {
-                                    if (i4 >= length3) {
-                                        break;
-                                    } else if (!str2.contains(strArr3[i4])) {
-                                        i4++;
-                                    } else {
-                                        TbadkApplication.m252getInst().incLiveSdkCrashCount();
-                                        break;
-                                    }
-                                }
-                                if (bg.a() != null && bg.a().indexOf("NewVcode") != -1) {
-                                    ai.c().e(ai.c().z() + 1);
-                                }
-                            } catch (Throwable th4) {
-                                th = th4;
-                                fileWriter = fileWriter2;
-                                if (printStream != null) {
-                                }
-                                if (byteArrayOutputStream != null) {
-                                }
-                                if (fileWriter != null) {
-                                }
-                                if (!TbConfig.getDebugSwitch()) {
-                                }
-                                Process.killProcess(Process.myPid());
-                                throw th;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileWriter = fileWriter2;
+                            if (printStream != null) {
                             }
-                        }
-                        com.baidu.adp.lib.a.f.a().a(str2);
-                        if (!TextUtils.isEmpty(str2)) {
-                            BdLog.e(str2);
-                        }
-                        if (printStream != null) {
-                            try {
-                                printStream.close();
-                            } catch (Exception e5) {
-                                e5.printStackTrace();
+                            if (byteArrayOutputStream != null) {
                             }
-                        }
-                        if (byteArrayOutputStream != null) {
-                            byteArrayOutputStream.close();
-                        }
-                        if (fileWriter2 != null) {
-                            fileWriter2.close();
-                        }
-                        if (TbConfig.getDebugSwitch() && this.d != null) {
-                            this.d.uncaughtException(thread, th);
-                        } else {
+                            if (fileWriter != null) {
+                            }
+                            if (!TbConfig.getDebugSwitch()) {
+                            }
                             Process.killProcess(Process.myPid());
+                            throw th;
                         }
-                    } catch (Throwable th5) {
-                        th = th5;
-                        fileWriter = null;
+                    }
+                    if (str2 != null) {
+                        if (str2.contains("java.lang.SecurityException: No permission to modify given thread")) {
+                            TbadkApplication.m252getInst().setWebviewCrashCount(TbadkApplication.m252getInst().getWebviewCrashCount() + 1);
+                        } else if (str2.contains("com.baidu.location")) {
+                            ai.c().A();
+                        } else if (str2.contains("Couldn't load mtprocessor-jni")) {
+                            com.baidu.adp.lib.a.f.a().a("motu_sdk", 1);
+                        }
+                        if (str2.contains("com.baidu.sapi2")) {
+                            TbadkApplication.m252getInst().incPassportV6CrashCount();
+                        }
+                        if (str2.contains("com.baidu.mobstat")) {
+                            TbadkApplication.m252getInst().incMobstatCrashCount();
+                        }
+                        String[] strArr = c;
+                        int length = strArr.length;
+                        int i2 = 0;
+                        while (true) {
+                            if (i2 >= length) {
+                                break;
+                            } else if (!str2.contains(strArr[i2])) {
+                                i2++;
+                            } else {
+                                TbadkApplication.m252getInst().incHao123HelperCrashCount();
+                                break;
+                            }
+                        }
+                        if (str2.contains("com.baidu.dq")) {
+                            TbadkApplication.m252getInst().incDQCrashCount();
+                        }
+                        String[] strArr2 = a;
+                        int length2 = strArr2.length;
+                        int i3 = 0;
+                        while (true) {
+                            if (i3 >= length2) {
+                                break;
+                            } else if (!str2.contains(strArr2[i3])) {
+                                i3++;
+                            } else {
+                                TbadkApplication.m252getInst().incMoPlusCrashCount();
+                                break;
+                            }
+                        }
+                        String[] strArr3 = b;
+                        int length3 = strArr3.length;
+                        int i4 = 0;
+                        while (true) {
+                            if (i4 >= length3) {
+                                break;
+                            } else if (!str2.contains(strArr3[i4])) {
+                                i4++;
+                            } else {
+                                TbadkApplication.m252getInst().incLiveSdkCrashCount();
+                                break;
+                            }
+                        }
+                        if (bg.a() != null && bg.a().indexOf("NewVcode") != -1) {
+                            ai.c().e(ai.c().z() + 1);
+                        }
+                    }
+                    com.baidu.adp.lib.a.f.a().a(str2);
+                    if (!TextUtils.isEmpty(str2)) {
+                        BdLog.e(str2);
+                    }
+                    if (printStream != null) {
+                        try {
+                            printStream.close();
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    if (byteArrayOutputStream != null) {
+                        byteArrayOutputStream.close();
+                    }
+                    if (fileWriter != null) {
+                        fileWriter.close();
+                    }
+                    if (TbConfig.getDebugSwitch() && this.d != null) {
+                        this.d.uncaughtException(thread, th);
+                    } else {
+                        Process.killProcess(Process.myPid());
                     }
                 } catch (Exception e6) {
                     e = e6;
                     printStream2 = printStream;
                     byteArrayOutputStream2 = byteArrayOutputStream;
+                } catch (Throwable th4) {
+                    th = th4;
                 }
             } catch (Exception e7) {
                 e = e7;
                 printStream2 = null;
                 byteArrayOutputStream2 = byteArrayOutputStream;
-            } catch (Throwable th6) {
-                th = th6;
-                fileWriter = null;
+            } catch (Throwable th5) {
+                th = th5;
                 printStream = null;
             }
         } catch (Exception e8) {
             e = e8;
             printStream2 = null;
             byteArrayOutputStream2 = null;
-        } catch (Throwable th7) {
-            th = th7;
-            fileWriter = null;
+        } catch (Throwable th6) {
+            th = th6;
             printStream = null;
             byteArrayOutputStream = null;
         }

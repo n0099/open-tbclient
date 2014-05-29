@@ -23,7 +23,7 @@ class ae extends BaseActivity.LoadDataCallBack {
                 this.a.closeLoadingDialog();
                 anVar2 = this.a.a;
                 anVar2.e().setTip("");
-                this.a.showToast(com.baidu.tieba.y.systemhelpsetting_clear_im_success);
+                this.a.showToast(com.baidu.tieba.y.systemhelpsetting_clear_cache_success);
             } else if (obj == MoreModel.TaskType.DO_IM_CLEAR) {
                 this.a.closeLoadingDialog();
                 this.a.showToast(com.baidu.tieba.y.systemhelpsetting_clear_im_success);

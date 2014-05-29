@@ -21,7 +21,7 @@ class ab extends HttpMessageListener {
         if (httpResponsedMessage instanceof FrsPageHttpResponseMessage) {
             FrsPageHttpResponseMessage frsPageHttpResponseMessage = (FrsPageHttpResponseMessage) httpResponsedMessage;
             j jVar = new j();
-            jVar.a = true;
+            jVar.a = frsPageHttpResponseMessage.getError() >= -13 && frsPageHttpResponseMessage.getError() <= -13;
             jVar.b = frsPageHttpResponseMessage.hasNetworkError() ? false : true;
             jVar.c = frsPageHttpResponseMessage.getError();
             jVar.d = frsPageHttpResponseMessage.getErrorString();

@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -17,6 +18,7 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c extends View {
     private static boolean p = false;
+    private static String r = com.baidu.adp.framework.c.c.a().d();
     ArrayList<HashMap<String, Object>> a;
     String[] b;
     String[] c;
@@ -66,6 +68,7 @@ public class c extends View {
         this.o.setText(((Activity) this.k).getText(p ? com.baidu.adp.f.item_close : com.baidu.adp.f.item_open));
         this.n.setOnClickListener(new j(this));
         this.q = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.d.switch_lcs_reOnline_item);
+        ((EditText) ((Activity) this.k).findViewById(com.baidu.adp.d.switch_lcs_reOnline_lcs_address)).setHint(r);
         this.q.setOnClickListener(new k(this));
     }
 

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.person.post.PersonPostModel;
 /* loaded from: classes.dex */
 public class p extends BaseAdapter implements c, f {
-    private PersonPostModel a;
+    public PersonPostModel a;
     private q b;
     private final String c;
     private String d;
@@ -187,7 +187,7 @@ public class p extends BaseAdapter implements c, f {
         } else if (id == com.baidu.tieba.v.username) {
             this.f.finish();
         } else if ((id == com.baidu.tieba.v.item_content || id == com.baidu.tieba.v.item_header || id == com.baidu.tieba.v.item_footer) && (strArr = (String[]) view.getTag()) != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(this.f).a(strArr[0], strArr[1], "person_post")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(this.f).a(strArr[0], strArr[1], "person_post", 18003)));
             BdLog.d("PersonThreadAdapter", "on", "start thread = " + strArr[0] + " post_id = " + strArr[1]);
         }
     }

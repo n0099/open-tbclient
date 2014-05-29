@@ -26,6 +26,6 @@ class av implements Runnable {
         View view = this.c;
         pbActivity2 = this.a.a;
         bjVar = pbActivity2.x;
-        bqVar.a(false, apVar, true, null, null, view, bjVar.p().l());
+        bqVar.a(false, apVar, true, null, null, view, bjVar.q().l());
     }
 }

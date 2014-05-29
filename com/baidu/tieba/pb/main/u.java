@@ -24,7 +24,7 @@ class u implements com.baidu.tbadk.widget.richText.s {
         try {
             TiebaStatic.eventStat(this.a, "pic_pb", "");
             bjVar = this.a.x;
-            com.baidu.tieba.data.af p = bjVar.p();
+            com.baidu.tieba.data.af q = bjVar.q();
             a = this.a.a(str, i);
             ArrayList<com.baidu.tbadk.widget.richText.c> a3 = a.a();
             i2 = this.a.ai;
@@ -32,15 +32,15 @@ class u implements com.baidu.tbadk.widget.richText.s {
             if (cVar != null) {
                 ArrayList<String> arrayList = new ArrayList<>();
                 if (cVar.c().d()) {
-                    int size = p.e().size();
+                    int size = q.e().size();
                     this.a.b = false;
                     String str2 = "";
                     int i3 = i;
                     for (int i4 = 0; i4 < size; i4++) {
-                        com.baidu.tieba.data.ai aiVar = p.e().get(i4);
-                        com.baidu.tbadk.widget.richText.a p2 = aiVar.p();
+                        com.baidu.tieba.data.ai aiVar = q.e().get(i4);
+                        com.baidu.tbadk.widget.richText.a p = aiVar.p();
                         int size2 = arrayList.size();
-                        i3 = this.a.a(p2, a, i3, i, arrayList);
+                        i3 = this.a.a(p, a, i3, i, arrayList);
                         int size3 = arrayList.size();
                         if (size2 != size3) {
                             str2 = arrayList.get(size3 - 1);
@@ -60,15 +60,15 @@ class u implements com.baidu.tbadk.widget.richText.s {
                     String str4 = null;
                     String str5 = null;
                     boolean z = false;
-                    if (p != null) {
-                        if (p.c() != null) {
-                            str3 = p.c().getName();
-                            str4 = p.c().getId();
+                    if (q != null) {
+                        if (q.c() != null) {
+                            str3 = q.c().getName();
+                            str4 = q.c().getId();
                         }
-                        if (p.d() != null) {
-                            str5 = p.d().p();
+                        if (q.d() != null) {
+                            str5 = q.d().p();
                         }
-                        z = p.m() == 1;
+                        z = q.m() == 1;
                     }
                     this.a.sendMessage(new CustomMessage((int) CmdConfig.IMAGE_VIEWER_CUSTOM_CMD, new com.baidu.tbadk.core.atomData.w(this.a).a(arrayList, i3, str3, str4, str5, z, str2)));
                     return;
@@ -79,15 +79,15 @@ class u implements com.baidu.tbadk.widget.richText.s {
                 String str7 = null;
                 String str8 = null;
                 boolean z2 = false;
-                if (p != null) {
-                    if (p.c() != null) {
-                        str6 = p.c().getName();
-                        str7 = p.c().getId();
+                if (q != null) {
+                    if (q.c() != null) {
+                        str6 = q.c().getName();
+                        str7 = q.c().getId();
                     }
-                    if (p.d() != null) {
-                        str8 = p.d().p();
+                    if (q.d() != null) {
+                        str8 = q.d().p();
                     }
-                    z2 = p.m() == 1;
+                    z2 = q.m() == 1;
                 }
                 this.a.sendMessage(new CustomMessage((int) CmdConfig.IMAGE_VIEWER_CUSTOM_CMD, new com.baidu.tbadk.core.atomData.w(this.a).a(arrayList, 0, str6, str7, str8, z2, arrayList.get(0))));
             }

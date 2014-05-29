@@ -28,11 +28,11 @@ public class aw extends CustomMessageListener {
         if (customResponsedMessage != null) {
             switch (customResponsedMessage.getCmd()) {
                 case MessageTypes.CMD_UPDATE_ATTENTION /* 2003118 */:
-                    if ((customResponsedMessage instanceof UpdateAttentionMessage) && this.a.g() != null) {
+                    if ((customResponsedMessage instanceof UpdateAttentionMessage) && this.a.h() != null) {
                         UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                         com.baidu.tbadk.coreExtra.message.a data = updateAttentionMessage.getData();
-                        if (this.a.g().getUserId() != null && data != null && this.a.g().getUserId().equals(data.c) && data.a) {
-                            this.a.g().setHave_attention(updateAttentionMessage.isAttention() ? 0 : 1);
+                        if (this.a.h().getUserId() != null && data != null && this.a.h().getUserId().equals(data.c) && data.a) {
+                            this.a.h().setHave_attention(updateAttentionMessage.isAttention() ? 0 : 1);
                             this.a.mLoadDataMode = 3;
                             this.a.setErrorString(updateAttentionMessage.getErrorString());
                             eVar = this.a.mLoadDataCallBack;

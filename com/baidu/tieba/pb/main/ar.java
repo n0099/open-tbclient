@@ -17,7 +17,7 @@ class ar implements Handler.Callback {
         switch (message.what) {
             case 2:
                 bjVar = this.a.x;
-                if (!bjVar.x()) {
+                if (!bjVar.y()) {
                     return false;
                 }
                 this.a.A();

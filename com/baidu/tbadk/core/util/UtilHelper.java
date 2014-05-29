@@ -325,6 +325,7 @@ public class UtilHelper {
     }
 
     public static boolean commenDealIntent(Context context, Intent intent) {
+        DQSdkPlugin dQSdkPlugin;
         if (intent != null) {
             switch (intent.getExtras().getInt("class", -1)) {
                 case 0:
@@ -334,7 +335,7 @@ public class UtilHelper {
                     String stringExtra = intent.getStringExtra("id");
                     String stringExtra2 = intent.getStringExtra("from");
                     if (intent.getBooleanExtra("is_message_pv", false)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(context).a(stringExtra, null, stringExtra2, intent.getLongExtra("message_id", 0L))));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(context).a(stringExtra, (String) null, stringExtra2, intent.getLongExtra("message_id", 0L))));
                         return true;
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(context).a(stringExtra, null, stringExtra2)));
@@ -432,8 +433,7 @@ public class UtilHelper {
                     String stringExtra5 = intent.getStringExtra(PayActivityConfig.QUAN_NUM);
                     String stringExtra6 = intent.getStringExtra(PayActivityConfig.IS_LEFT);
                     String stringExtra7 = intent.getStringExtra(PayActivityConfig.PROPS_MON);
-                    DQSdkPlugin dQSdkPlugin = (DQSdkPlugin) com.baidu.tbadk.tbplugin.m.a().b(DQSdkPlugin.class);
-                    if (dQSdkPlugin != null) {
+                    if (TbadkApplication.m252getInst().isDQShouldOpen() && (dQSdkPlugin = (DQSdkPlugin) com.baidu.tbadk.tbplugin.m.a().b(DQSdkPlugin.class)) != null) {
                         dQSdkPlugin.startActivity(context, stringExtra3, stringExtra4, stringExtra5, stringExtra6, stringExtra7);
                         return false;
                     }
@@ -602,10 +602,10 @@ public class UtilHelper {
         String substring = md5.substring(8, 24);
         long j2 = 0;
         for (int i = 0; i < 8; i++) {
-            j2 = (j2 * 16) + com.baidu.adp.lib.f.b.a(substring.substring(i, i + 1), 16);
+            j2 = (j2 * 16) + Integer.parseInt(substring.substring(i, i + 1), 16);
         }
         for (int i2 = 8; i2 < substring.length(); i2++) {
-            j = (j * 16) + com.baidu.adp.lib.f.b.a(substring.substring(i2, i2 + 1), 16);
+            j = (j * 16) + Integer.parseInt(substring.substring(i2, i2 + 1), 16);
         }
         return String.valueOf((j + j2) & 4294967295L);
     }

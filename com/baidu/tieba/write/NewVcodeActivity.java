@@ -151,7 +151,7 @@ public class NewVcodeActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         if (this.j != null) {
-            this.j.loadUrl(com.baidu.tieba.util.r.b(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/gridcaptcha?version=" + TbConfig.getVersion()));
+            this.j.loadUrl(com.baidu.tieba.util.r.a(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/gridcaptcha?version=" + TbConfig.getVersion()));
         }
     }
 

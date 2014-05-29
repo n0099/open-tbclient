@@ -73,7 +73,7 @@ public class bj extends com.baidu.adp.base.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void B() {
+    public void C() {
         if (this.B == null) {
             this.B = com.baidu.tbadk.core.a.b.a().b();
         }
@@ -162,30 +162,34 @@ public class bj extends com.baidu.adp.base.b {
     }
 
     public String f() {
+        return this.u;
+    }
+
+    public String g() {
         return this.d;
     }
 
-    public boolean g() {
+    public boolean h() {
         return this.f;
     }
 
-    public boolean h() {
+    public boolean i() {
         return this.g;
     }
 
-    public boolean i() {
+    public boolean j() {
         return this.q;
     }
 
-    public boolean j() {
+    public boolean k() {
         return this.r;
     }
 
-    public int k() {
+    public int l() {
         return this.h;
     }
 
-    public int l() {
+    public int m() {
         return this.i;
     }
 
@@ -197,18 +201,18 @@ public class bj extends com.baidu.adp.base.b {
         this.i = i;
     }
 
-    public boolean m() {
+    public boolean n() {
         return this.p;
     }
 
-    public boolean n() {
+    public boolean o() {
         if (this.v == null) {
             return false;
         }
         return this.v.a();
     }
 
-    public String o() {
+    public String p() {
         if (this.v == null || !this.v.i()) {
             return null;
         }
@@ -256,18 +260,18 @@ public class bj extends com.baidu.adp.base.b {
         }
     }
 
-    public com.baidu.tieba.data.af p() {
+    public com.baidu.tieba.data.af q() {
         return this.v;
     }
 
-    public com.baidu.tbadk.core.data.l q() {
+    public com.baidu.tbadk.core.data.l r() {
         if (this.v == null) {
             return null;
         }
         return this.v.f();
     }
 
-    public boolean r() {
+    public boolean s() {
         if (this.g) {
             if (this.v.f().f() == 0) {
                 a(true);
@@ -307,11 +311,11 @@ public class bj extends com.baidu.adp.base.b {
         return true;
     }
 
-    public boolean s() {
-        return (this.e == null || this.e.equals("0")) ? LoadData() : t();
+    public boolean t() {
+        return (this.e == null || this.e.equals("0")) ? LoadData() : u();
     }
 
-    public boolean t() {
+    public boolean u() {
         if (this.d == null || this.e == null) {
             return false;
         }
@@ -354,7 +358,7 @@ public class bj extends com.baidu.adp.base.b {
         return false;
     }
 
-    public boolean u() {
+    public boolean v() {
         this.f = !this.f;
         if (this.f) {
             this.g = true;
@@ -363,7 +367,7 @@ public class bj extends com.baidu.adp.base.b {
         return true;
     }
 
-    public boolean v() {
+    public boolean w() {
         this.g = !this.g;
         if (!this.g) {
             this.f = false;
@@ -372,11 +376,11 @@ public class bj extends com.baidu.adp.base.b {
         return true;
     }
 
-    public boolean w() {
+    public boolean x() {
         return (this.v == null || this.v.c() == null || this.v.d() == null) ? false : true;
     }
 
-    public boolean x() {
+    public boolean y() {
         if (this.v == null) {
             return false;
         }
@@ -414,7 +418,7 @@ public class bj extends com.baidu.adp.base.b {
         apVar.c(aiVar.s());
         String j = this.v.j();
         String l = aiVar.l();
-        if (x() && j != null && l != null && j.equals(l)) {
+        if (y() && j != null && l != null && j.equals(l)) {
             apVar.a(true);
             return apVar;
         }
@@ -439,7 +443,7 @@ public class bj extends com.baidu.adp.base.b {
         return b(e.get(i));
     }
 
-    public MarkData y() {
+    public MarkData z() {
         MarkData markData = new MarkData();
         Date date = new Date();
         markData.setAccount(TbadkApplication.getCurrentAccount());
@@ -466,20 +470,20 @@ public class bj extends com.baidu.adp.base.b {
         return markData;
     }
 
-    public void z() {
-        B();
-        String C = C();
+    public void A() {
+        C();
+        String D = D();
         if (this.r) {
-            if (this.B != null && C != null) {
-                this.B.b(C, "", 0L);
+            if (this.B != null && D != null) {
+                this.B.b(D, "", 0L);
             }
-        } else if (this.C != null && C != null) {
-            this.C.b(C, "", 0L);
+        } else if (this.C != null && D != null) {
+            this.C.b(D, "", 0L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String C() {
+    public String D() {
         String str = this.d;
         if (this.f) {
             str = String.valueOf(str) + "_host";

@@ -31,6 +31,8 @@ public class LoginActivity extends BaseActivity {
     public static void a() {
         if (Build.VERSION.SDK_INT < 9 || TbConfig.USE_OLD_LOGIN || !TbadkApplication.m252getInst().isPassportV6ShouldOpen()) {
             d = true;
+        } else {
+            d = false;
         }
     }
 

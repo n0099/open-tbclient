@@ -22,7 +22,7 @@ public class q extends Thread {
         String str;
         int i;
         boolean z;
-        boolean n;
+        boolean p;
         String str2;
         int i2;
         String str3;
@@ -65,8 +65,8 @@ public class q extends Thread {
                         this.a.b(new v());
                         return;
                     } catch (Throwable th) {
-                        n = this.a.n();
-                        if (n) {
+                        p = this.a.p();
+                        if (p) {
                             BdLog.i("----WebSocketConnector error. e:" + th.getMessage());
                         }
                         this.a.b(new y(new Exception(th)));

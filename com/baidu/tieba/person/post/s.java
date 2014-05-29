@@ -1,6 +1,7 @@
 package com.baidu.tieba.person.post;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -80,6 +81,32 @@ public class s extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
             this.c.a();
         }
         super.onDestroy();
+    }
+
+    @Override // android.support.v4.app.Fragment
+    public void onActivityResult(int i, int i2, Intent intent) {
+        String stringExtra;
+        boolean z;
+        super.onActivityResult(i, i2, intent);
+        if (i2 == -1 && i == 18003 && intent != null && (stringExtra = intent.getStringExtra("tid")) != null && this.c != null && this.c.getCount() > 0) {
+            int size = this.c.a.post_list.size();
+            int i3 = 0;
+            while (true) {
+                if (i3 >= size) {
+                    z = false;
+                    break;
+                } else if (!stringExtra.equals(new StringBuilder(String.valueOf(this.c.a.post_list.get(i3).thread_id)).toString())) {
+                    i3++;
+                } else {
+                    z = true;
+                    break;
+                }
+            }
+            if (z && intent.getIntExtra("type", -1) == 0) {
+                this.c.a.post_list.remove(i3);
+                this.c.notifyDataSetChanged();
+            }
+        }
     }
 
     public void a() {

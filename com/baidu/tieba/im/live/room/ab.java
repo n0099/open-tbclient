@@ -2,6 +2,8 @@ package com.baidu.tieba.im.live.room;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.coreExtra.live.LiveErrorMessage;
 /* loaded from: classes.dex */
 class ab extends CustomMessageListener {
     final /* synthetic */ LiveRoomChatActivity a;
@@ -19,6 +21,7 @@ class ab extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         LiveRoomChatView z;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003163) {
+            BdLog.d("Got CMD_LIVE_ERROR: " + ((LiveErrorMessage) customResponsedMessage).errorPrompt);
             z = this.a.z();
             z.d(1);
         }

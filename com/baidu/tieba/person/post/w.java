@@ -1,8 +1,9 @@
 package com.baidu.tieba.person.post;
 
 import java.util.TimerTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w extends TimerTask {
+public class w extends TimerTask {
     final /* synthetic */ s a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

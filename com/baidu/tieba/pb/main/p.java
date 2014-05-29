@@ -25,6 +25,6 @@ class p implements com.baidu.adp.widget.ListView.x {
         }
         bqVar = this.a.D;
         bjVar2 = this.a.x;
-        bqVar.c(bjVar2.p());
+        bqVar.c(bjVar2.q());
     }
 }

@@ -18,10 +18,13 @@ public class bc implements com.baidu.tieba.view.e {
     @Override // com.baidu.tieba.view.e
     public void a(int i) {
         Context context;
+        Context context2;
         if (this.b != null && this.b.a() != null && i >= 0 && i < this.b.a().size()) {
-            MessageManager messageManager = MessageManager.getInstance();
             context = this.a.b;
-            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(context, this.b.a().get(i).getGroupId())));
+            com.baidu.tbadk.core.f.a(context, "forum_live_ck");
+            MessageManager messageManager = MessageManager.getInstance();
+            context2 = this.a.b;
+            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(context2, this.b.a().get(i).getGroupId())));
         }
     }
 }

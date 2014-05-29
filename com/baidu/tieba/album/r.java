@@ -1,6 +1,7 @@
 package com.baidu.tieba.album;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r implements Runnable {
+public class r implements Runnable {
     final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

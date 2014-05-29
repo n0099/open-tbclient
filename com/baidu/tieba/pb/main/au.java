@@ -155,6 +155,7 @@ class au implements View.OnClickListener {
         bq bqVar57;
         bj bjVar23;
         bj bjVar24;
+        bj bjVar25;
         bq bqVar58;
         com.baidu.tieba.pb.sub.f fVar7;
         com.baidu.tieba.pb.sub.f fVar8;
@@ -162,7 +163,7 @@ class au implements View.OnClickListener {
         com.baidu.tieba.pb.sub.f fVar10;
         bq bqVar59;
         com.baidu.tbadk.core.view.i iVar8;
-        bj bjVar25;
+        bj bjVar26;
         boolean z;
         bp bpVar25;
         bp bpVar26;
@@ -176,16 +177,16 @@ class au implements View.OnClickListener {
         bp bpVar32;
         bp bpVar33;
         bp bpVar34;
-        bj bjVar26;
+        bj bjVar27;
         bp bpVar35;
         bq bqVar60;
         com.baidu.tieba.model.v vVar3;
         bq bqVar61;
-        bj bjVar27;
-        com.baidu.tieba.model.v vVar4;
         bj bjVar28;
+        com.baidu.tieba.model.v vVar4;
         bj bjVar29;
         bj bjVar30;
+        bj bjVar31;
         com.baidu.tieba.pb.sub.f fVar11;
         com.baidu.tieba.pb.sub.f fVar12;
         com.baidu.tieba.pb.sub.f fVar13;
@@ -194,16 +195,16 @@ class au implements View.OnClickListener {
         com.baidu.tieba.pb.sub.f fVar15;
         com.baidu.tieba.pb.sub.f fVar16;
         com.baidu.tieba.pb.sub.f fVar17;
-        bj bjVar31;
         bj bjVar32;
-        bq bqVar62;
         bj bjVar33;
+        bq bqVar62;
         bj bjVar34;
+        bj bjVar35;
         bq bqVar63;
         bqVar = this.a.D;
         if (view == bqVar.Q()) {
-            bjVar34 = this.a.x;
-            if (bjVar34.a(true)) {
+            bjVar35 = this.a.x;
+            if (bjVar35.a(true)) {
                 bqVar63 = this.a.D;
                 bqVar63.v();
                 return;
@@ -213,8 +214,8 @@ class au implements View.OnClickListener {
         bqVar2 = this.a.D;
         if (view == bqVar2.k) {
             bqVar62 = this.a.D;
-            bjVar33 = this.a.x;
-            if (!bqVar62.f(bjVar33.m())) {
+            bjVar34 = this.a.x;
+            if (!bqVar62.f(bjVar34.n())) {
                 this.a.closeActivity();
                 return;
             } else {
@@ -234,10 +235,10 @@ class au implements View.OnClickListener {
                         if (view != bqVar15.q()) {
                             bqVar16 = this.a.D;
                             if (view == bqVar16.ag()) {
-                                bjVar31 = this.a.x;
-                                if (bjVar31 != null) {
-                                    bjVar32 = this.a.x;
-                                    com.baidu.tbadk.browser.a.a(this.a, bjVar32.p().d().x().c());
+                                bjVar32 = this.a.x;
+                                if (bjVar32 != null) {
+                                    bjVar33 = this.a.x;
+                                    com.baidu.tbadk.browser.a.a(this.a, bjVar33.q().d().x().c());
                                     return;
                                 }
                                 return;
@@ -258,8 +259,8 @@ class au implements View.OnClickListener {
                                             int intValue = ((Integer) sparseArray.get(com.baidu.tieba.v.tag_manage_user_identity)).intValue();
                                             boolean booleanValue = ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_del_post_is_self)).booleanValue();
                                             int intValue2 = ((Integer) sparseArray.get(com.baidu.tieba.v.tag_del_post_type)).intValue();
-                                            bjVar27 = this.a.x;
-                                            if (bjVar27.m()) {
+                                            bjVar28 = this.a.x;
+                                            if (bjVar28.n()) {
                                                 fVar11 = this.a.B;
                                                 if (fVar11 != null) {
                                                     fVar12 = this.a.B;
@@ -286,12 +287,12 @@ class au implements View.OnClickListener {
                                                 return;
                                             }
                                             vVar4 = this.a.C;
-                                            bjVar28 = this.a.x;
-                                            String id2 = bjVar28.p().c().getId();
                                             bjVar29 = this.a.x;
-                                            String name2 = bjVar29.p().c().getName();
+                                            String id2 = bjVar29.q().c().getId();
                                             bjVar30 = this.a.x;
-                                            vVar4.a(id2, name2, bjVar30.p().d().p(), str, intValue2, intValue, booleanValue);
+                                            String name2 = bjVar30.q().c().getName();
+                                            bjVar31 = this.a.x;
+                                            vVar4.a(id2, name2, bjVar31.q().d().p(), str, intValue2, intValue, booleanValue);
                                             return;
                                         }
                                         return;
@@ -345,17 +346,17 @@ class au implements View.OnClickListener {
                                             bqVar25 = this.a.D;
                                             if (view == bqVar25.h) {
                                                 bjVar18 = this.a.x;
-                                                AdditionData n = bjVar18.p().n();
+                                                AdditionData n = bjVar18.q().n();
                                                 if (!TextUtils.isEmpty(n.getWarnMsg())) {
                                                     com.baidu.adp.lib.util.k.a((Context) this.a, n.getWarnMsg());
                                                     return;
                                                 } else if (n.getAlreadyCount() != n.getTotalCount()) {
                                                     bjVar19 = this.a.x;
-                                                    ForumData c = bjVar19.p().c();
+                                                    ForumData c = bjVar19.q().c();
                                                     bjVar20 = this.a.x;
-                                                    com.baidu.tbadk.core.data.n d = bjVar20.p().d();
+                                                    com.baidu.tbadk.core.data.n d = bjVar20.q().d();
                                                     bjVar21 = this.a.x;
-                                                    AntiData g = bjVar21.p().g();
+                                                    AntiData g = bjVar21.q().g();
                                                     if (d.p() != null) {
                                                         if (g != null && g.getIfpost() == 0) {
                                                             com.baidu.adp.lib.util.k.a((Context) this.a, g.getForbid_info());
@@ -400,10 +401,10 @@ class au implements View.OnClickListener {
                                                 bqVar52 = this.a.D;
                                                 bqVar52.ac();
                                                 bjVar15 = this.a.x;
-                                                if (bjVar15.q() != null) {
+                                                if (bjVar15.r() != null) {
                                                     bqVar53 = this.a.D;
                                                     bjVar16 = this.a.x;
-                                                    bqVar53.a(bjVar16.q());
+                                                    bqVar53.a(bjVar16.r());
                                                 }
                                                 TiebaStatic.eventStat(this.a, "pb_skip_page", "pbclick", 1, new Object[0]);
                                                 return;
@@ -414,7 +415,7 @@ class au implements View.OnClickListener {
                                                 bqVar50.ac();
                                                 this.a.D();
                                                 bjVar14 = this.a.x;
-                                                bjVar14.v();
+                                                bjVar14.w();
                                                 bqVar51 = this.a.D;
                                                 bqVar51.t();
                                                 TiebaStatic.eventStat(this.a, "pb_set_desc", "pbclick", 1, new Object[0]);
@@ -456,7 +457,7 @@ class au implements View.OnClickListener {
                                                             }
                                                             try {
                                                                 bjVar4 = this.a.x;
-                                                                if (bjVar4.p() != null) {
+                                                                if (bjVar4.q() != null) {
                                                                     bqVar31 = this.a.D;
                                                                     bqVar31.ac();
                                                                     SparseArray sparseArray3 = (SparseArray) view.getTag();
@@ -467,7 +468,7 @@ class au implements View.OnClickListener {
                                                                         com.baidu.tieba.data.ap a = bjVar5.a(aiVar);
                                                                         fVar = this.a.B;
                                                                         bjVar6 = this.a.x;
-                                                                        fVar.a(bjVar6.f());
+                                                                        fVar.a(bjVar6.g());
                                                                         fVar2 = this.a.B;
                                                                         fVar2.b(aiVar.l());
                                                                         fVar3 = this.a.B;
@@ -479,7 +480,7 @@ class au implements View.OnClickListener {
                                                                             iVar.dismiss();
                                                                             bqVar33 = this.a.D;
                                                                             bjVar8 = this.a.x;
-                                                                            bqVar33.a(true, a, false, null, null, view2, bjVar8.p().l());
+                                                                            bqVar33.a(true, a, false, null, null, view2, bjVar8.q().l());
                                                                             return;
                                                                         } else if (view.getId() != com.baidu.tieba.v.sub_pb_item) {
                                                                             handler = this.a.w;
@@ -495,7 +496,7 @@ class au implements View.OnClickListener {
                                                                             }
                                                                             bqVar32 = this.a.D;
                                                                             bjVar7 = this.a.x;
-                                                                            bqVar32.a(true, a, false, str2, str3, view2, bjVar7.p().l());
+                                                                            bqVar32.a(true, a, false, str2, str3, view2, bjVar7.q().l());
                                                                             return;
                                                                         }
                                                                     }
@@ -578,9 +579,9 @@ class au implements View.OnClickListener {
                                                                 }
                                                                 boolean z2 = false;
                                                                 bjVar11 = this.a.x;
-                                                                if (bjVar11.p().i()) {
+                                                                if (bjVar11.q().i()) {
                                                                     bjVar12 = this.a.x;
-                                                                    String j = bjVar12.p().j();
+                                                                    String j = bjVar12.q().j();
                                                                     if (aiVar3 != null && !com.baidu.adp.lib.util.j.b(j) && j.equals(aiVar3.l())) {
                                                                         z2 = true;
                                                                     }
@@ -627,7 +628,7 @@ class au implements View.OnClickListener {
                                                             return;
                                                         } else if (id3 == com.baidu.tieba.v.sub_pb_bottom_layout) {
                                                             bjVar10 = this.a.x;
-                                                            if (bjVar10.m()) {
+                                                            if (bjVar10.n()) {
                                                                 this.a.closeActivity();
                                                                 return;
                                                             }
@@ -659,7 +660,7 @@ class au implements View.OnClickListener {
                                                             bqVar35 = this.a.D;
                                                             bqVar35.ac();
                                                             bjVar9 = this.a.x;
-                                                            bjVar9.v();
+                                                            bjVar9.w();
                                                             bqVar36 = this.a.D;
                                                             bqVar36.t();
                                                             return;
@@ -686,7 +687,7 @@ class au implements View.OnClickListener {
                                         }
                                         this.a.D();
                                         bjVar22 = this.a.x;
-                                        bjVar22.u();
+                                        bjVar22.v();
                                         bqVar57 = this.a.D;
                                         bqVar57.t();
                                         TiebaStatic.eventStat(this.a, "pb_set_host", "pbclick", 1, new Object[0]);
@@ -697,16 +698,19 @@ class au implements View.OnClickListener {
                                 }
                                 TiebaStatic.eventStat(this.a, "pb_header_forum_name", "pbclick", 1, new Object[0]);
                                 bjVar23 = this.a.x;
-                                if (!bjVar23.i()) {
-                                    bjVar24 = this.a.x;
-                                    String name3 = bjVar24.p().c().getName();
-                                    if (com.baidu.tbadk.core.util.be.b(name3)) {
-                                        this.a.sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.a).a(name3, "tb_pb")));
+                                String name3 = bjVar23.q().c().getName();
+                                bjVar24 = this.a.x;
+                                if (!TextUtils.isEmpty(bjVar24.f())) {
+                                    bjVar25 = this.a.x;
+                                    if (bjVar25.f().equals(name3)) {
+                                        this.a.finish();
                                         return;
                                     }
+                                }
+                                if (com.baidu.tbadk.core.util.be.b(name3)) {
+                                    this.a.sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.a).a(name3, "tb_pb")));
                                     return;
                                 }
-                                this.a.finish();
                                 return;
                             }
                             iVar8 = this.a.G;
@@ -720,10 +724,10 @@ class au implements View.OnClickListener {
                                     bpVar35 = this.a.H;
                                     bpVar35.c().setTag(sparseArray11);
                                 }
-                                bjVar25 = this.a.x;
-                                if (bjVar25.p().i()) {
-                                    bjVar26 = this.a.x;
-                                    String j2 = bjVar26.p().j();
+                                bjVar26 = this.a.x;
+                                if (bjVar26.q().i()) {
+                                    bjVar27 = this.a.x;
+                                    String j2 = bjVar27.q().j();
                                     if (aiVar4 != null && !com.baidu.adp.lib.util.j.b(j2) && j2.equals(aiVar4.l())) {
                                         z = true;
                                         if (TbadkApplication.m252getInst().getSkinType() != 1) {
@@ -782,7 +786,7 @@ class au implements View.OnClickListener {
         bqVar4 = this.a.D;
         bqVar4.ad();
         bjVar = this.a.x;
-        if (bjVar.p().l() == 1) {
+        if (bjVar.q().l() == 1) {
             vVar = this.a.C;
             if (!vVar.b()) {
                 bqVar5 = this.a.D;
@@ -813,11 +817,11 @@ class au implements View.OnClickListener {
                     i = 6;
                 }
                 bjVar2 = this.a.x;
-                ForumData c2 = bjVar2.p().c();
+                ForumData c2 = bjVar2.q().c();
                 String name4 = c2.getName();
                 String id4 = c2.getId();
                 bjVar3 = this.a.x;
-                String p = bjVar3.p().d().p();
+                String p = bjVar3.q().d().p();
                 vVar2 = this.a.C;
                 bqVar11 = this.a.D;
                 vVar2.a(id4, name4, p, i, bqVar11.r());

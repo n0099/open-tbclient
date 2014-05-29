@@ -161,9 +161,12 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
     public void s() {
         if (!this.L && this.O) {
             this.L = true;
-            com.baidu.tbadk.core.data.n d2 = this.x.p().d();
+            com.baidu.tbadk.core.data.n d2 = this.x.q().d();
             if (d2 != null) {
-                this.M.a(d2.I(), d2.p(), d2.o() == null ? 0 : d2.o().getIsLike(), "pb");
+                int isLike = d2.o() == null ? 0 : d2.o().getIsLike();
+                if (this.M != null) {
+                    this.M.a(d2.I(), d2.p(), isLike, "pb");
+                }
             }
         }
     }
@@ -172,7 +175,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
     public void a(int i) {
         String sb;
         String sb2;
-        com.baidu.tbadk.core.data.n d2 = this.x.p().d();
+        com.baidu.tbadk.core.data.n d2 = this.x.q().d();
         if (i == 1) {
             PraiseData o = d2.o();
             AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
@@ -223,10 +226,10 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
             }
             this.D.a(sb, false);
         }
-        if (this.x.h()) {
+        if (this.x.i()) {
             this.D.l().notifyDataSetChanged();
         } else {
-            this.D.b(this.x.p());
+            this.D.b(this.x.q());
         }
     }
 
@@ -234,7 +237,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         this.x.b(bundle);
-        if (this.x.m()) {
+        if (this.x.n()) {
             this.B.b(bundle);
         }
         if (this.i != null) {
@@ -285,15 +288,15 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
         if (this.D != null) {
             this.D.aa();
         }
-        if (!this.x.m()) {
+        if (!this.x.n()) {
             WriteData a2 = this.z.a();
             if (a2 == null) {
                 a2 = new WriteData(1);
-                a2.setThreadId(this.x.f());
+                a2.setThreadId(this.x.g());
                 a2.setWriteImagesInfo(this.n);
             }
             a2.setContent(this.D.M());
-            com.baidu.tieba.util.m.b(this.x.f(), a2);
+            com.baidu.tieba.util.m.b(this.x.g(), a2);
         }
     }
 
@@ -313,7 +316,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
         if (this.i != null) {
             this.i.onResume(this);
         }
-        this.D.j.t();
+        this.D.j.u();
     }
 
     @Override // com.baidu.tieba.util.n
@@ -416,9 +419,9 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
         if (getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.REQUEST_CODE, -1) == 18003) {
             this.x.d(true);
         }
-        bn.a().a(this.x.e(), this.x.j());
-        if (!this.x.m()) {
-            this.x.s();
+        bn.a().a(this.x.e(), this.x.k());
+        if (!this.x.n()) {
+            this.x.t();
             this.D.t();
         } else {
             if (bundle != null) {
@@ -441,15 +444,15 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
             this.o = bundle.getString("photo_name");
         }
         this.n.setMaxImagesAllowed(10);
-        if (!this.x.m()) {
-            com.baidu.tieba.util.m.a(this.x.f(), this);
+        if (!this.x.n()) {
+            com.baidu.tieba.util.m.a(this.x.g(), this);
         }
         this.M.setUniqueId(getUniqueId());
         this.M.a();
     }
 
     public void k() {
-        this.D.a(this.x.h(), this.y.a());
+        this.D.a(this.x.i(), this.y.a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -469,10 +472,10 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Boolean bool) {
-        com.baidu.tieba.data.af p;
+        com.baidu.tieba.data.af q;
         String str = null;
-        if (this.x != null && (p = this.x.p()) != null && p.c() != null) {
-            str = p.c().getName();
+        if (this.x != null && (q = this.x.q()) != null && q.c() != null) {
+            str = q.c().getName();
         }
         if (com.baidu.tieba.c.a.a(str, bool)) {
             r();
@@ -499,11 +502,11 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AntiData antiData, String str) {
         if (AntiHelper.a(antiData) || AntiHelper.b(antiData) || AntiHelper.c(antiData) || AntiHelper.d(antiData)) {
-            if (!this.x.m()) {
-                antiData.setBlock_forum_name(this.x.p().c().getName());
-                antiData.setBlock_forum_id(this.x.p().c().getId());
-                antiData.setUser_name(this.x.p().h().getUserName());
-                antiData.setUser_id(this.x.p().h().getUserId());
+            if (!this.x.n()) {
+                antiData.setBlock_forum_name(this.x.q().c().getName());
+                antiData.setBlock_forum_id(this.x.q().c().getId());
+                antiData.setUser_name(this.x.q().h().getUserName());
+                antiData.setUser_id(this.x.q().h().getUserId());
             } else {
                 antiData.setBlock_forum_name(this.B.e().h().getName());
                 antiData.setBlock_forum_id(this.B.e().h().getId());
@@ -522,7 +525,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
         this.D.a(0, xVar.a, xVar.b, true);
         if (xVar.a) {
             if (xVar.c == 1) {
-                ArrayList<com.baidu.tieba.data.ai> e = this.x.p().e();
+                ArrayList<com.baidu.tieba.data.ai> e = this.x.q().e();
                 int size = e.size();
                 while (true) {
                     if (i < size) {
@@ -536,11 +539,11 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
                         break;
                     }
                 }
-                this.D.a(this.x.p());
+                this.D.a(this.x.q());
             } else if (xVar.c == 0) {
                 v();
             } else if (xVar.c == 2) {
-                ArrayList<com.baidu.tieba.data.ai> e2 = this.x.p().e();
+                ArrayList<com.baidu.tieba.data.ai> e2 = this.x.q().e();
                 int size2 = e2.size();
                 boolean z = false;
                 for (int i2 = 0; i2 < size2 && !z; i2++) {
@@ -559,7 +562,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
                             break;
                         }
                     }
-                    AdditionData n = this.x.p().n();
+                    AdditionData n = this.x.q().n();
                     com.baidu.tieba.data.ai aiVar = e2.get(i2);
                     ArrayList<com.baidu.tieba.data.ai> k = aiVar.k();
                     int size3 = k.size();
@@ -598,7 +601,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
                     }
                 }
                 if (z) {
-                    this.D.a(this.x.p());
+                    this.D.a(this.x.q());
                 }
                 if (this.D.D()) {
                     ArrayList<com.baidu.tieba.data.ai> c = this.B.e().c();
@@ -616,7 +619,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
                             break;
                         }
                     }
-                    this.D.a(this.B.e(), this.x.p().l());
+                    this.D.a(this.B.e(), this.x.q().l());
                     if (!z) {
                         String b = this.B.b();
                         while (i < size2) {
@@ -624,7 +627,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
                                 i++;
                             } else {
                                 e2.get(i).j();
-                                this.D.a(this.x.p());
+                                this.D.a(this.x.q());
                                 return;
                             }
                         }
@@ -651,27 +654,27 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
         if (abVar.a) {
             this.F = true;
             if (i == 2) {
-                this.x.p().d().d(1);
+                this.x.q().d().d(1);
                 this.x.a(1);
             } else if (i == 3) {
-                this.x.p().d().d(0);
+                this.x.q().d().d(0);
                 this.x.a(0);
             } else if (i == 4) {
-                this.x.p().d().c(1);
+                this.x.q().d().c(1);
                 this.x.b(1);
             } else if (i == 5) {
-                this.x.p().d().c(0);
+                this.x.q().d().c(0);
                 this.x.b(0);
             }
-            this.D.a(this.x.p(), this.x.h(), true);
+            this.D.a(this.x.q(), this.x.i(), true);
         }
     }
 
     private void v() {
-        if (this.x.i()) {
+        if (this.x.j()) {
             Intent intent = new Intent();
             intent.putExtra("type", 0);
-            intent.putExtra("tid", this.x.f());
+            intent.putExtra("tid", this.x.g());
             setResult(-1, intent);
         }
         if (B()) {
@@ -688,23 +691,19 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
     @Override // com.baidu.tbadk.BaseActivity
     public void closeActivity() {
         int isLike;
-        if (this.M != null) {
-            this.M.setLoadDataCallBack(null);
-            this.M = null;
-        }
         this.D.ac();
-        if (this.x != null && this.x.i()) {
+        if (this.x != null && this.x.j()) {
             Intent intent = new Intent();
             if (this.F) {
                 intent.putExtra("type", 2);
-                intent.putExtra("tid", this.x.f());
-                intent.putExtra("top_data", this.x.l());
-                intent.putExtra("good_data", this.x.k());
+                intent.putExtra("tid", this.x.g());
+                intent.putExtra("top_data", this.x.m());
+                intent.putExtra("good_data", this.x.l());
             }
             if (this.K) {
                 intent.putExtra("praise_changed", true);
-                intent.putExtra("praise_changed_tid", this.x.f());
-                PraiseData o = this.x.p().d().o();
+                intent.putExtra("praise_changed_tid", this.x.g());
+                PraiseData o = this.x.q().d().o();
                 if (o == null) {
                     isLike = 0;
                 } else {
@@ -716,11 +715,11 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
         }
         if (B()) {
             if (this.x != null && this.D != null && this.D.R() != null) {
-                com.baidu.tieba.data.af p = this.x.p();
-                if (p != null && p.h() != null) {
-                    p.h().setBimg_url(TbadkApplication.m252getInst().getDefaultBubble());
+                com.baidu.tieba.data.af q = this.x.q();
+                if (q != null && q.h() != null) {
+                    q.h().setBimg_url(TbadkApplication.m252getInst().getDefaultBubble());
                 }
-                bn.a().a(this.x.p(), this.D.R().onSaveInstanceState(), this.x.h(), this.x.g());
+                bn.a().a(this.x.q(), this.D.R().onSaveInstanceState(), this.x.i(), this.x.h());
             } else {
                 bn.a().f();
             }
@@ -735,7 +734,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
                 if (this.G != null) {
                     this.G.dismiss();
                 }
-                if (this.D.f(this.x.m())) {
+                if (this.D.f(this.x.n())) {
                     D();
                     return true;
                 }
@@ -828,11 +827,11 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
                     if (this.D.D()) {
                         this.B.i();
                     } else {
-                        if (this.x.r()) {
+                        if (this.x.s()) {
                             this.D.t();
                         }
-                        if (this.x != null && this.x.f() != null && !this.x.m()) {
-                            com.baidu.tieba.util.m.b(this.x.f(), (WriteData) null);
+                        if (this.x != null && this.x.g() != null && !this.x.n()) {
+                            com.baidu.tieba.util.m.b(this.x.g(), (WriteData) null);
                         }
                     }
                     this.D.a(this.n, true);
@@ -849,7 +848,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
                     c(intent);
                     return;
                 case 13008:
-                    AdditionData n = this.x.p().n();
+                    AdditionData n = this.x.q().n();
                     int totalCount = n.getTotalCount();
                     int alreadyCount = n.getAlreadyCount() + 1;
                     if (totalCount != alreadyCount) {
@@ -984,7 +983,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
     public void a(String str) {
         VoiceData.VoiceModel i;
         if (this.z.a() == null) {
-            if (!this.x.m()) {
+            if (!this.x.n()) {
                 WriteData a = this.x.a(str);
                 a.setWriteImagesInfo(this.n);
                 this.z.a(this.n.size() > 0);
@@ -1023,44 +1022,44 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
 
     /* JADX INFO: Access modifiers changed from: private */
     public void A() {
-        com.baidu.tieba.data.af p = this.x.p();
+        com.baidu.tieba.data.af q = this.x.q();
         this.x.c(true);
-        p.a(this.y.c());
-        this.D.a(p);
+        q.a(this.y.c());
+        this.D.a(q);
     }
 
     private boolean B() {
         if (this.x == null) {
             return true;
         }
-        if (this.x.x()) {
-            MarkData y = this.x.y();
-            if (y == null || !this.x.j()) {
+        if (this.x.y()) {
+            MarkData z = this.x.z();
+            if (z == null || !this.x.k()) {
                 return true;
             }
             MarkData f2 = this.x.f(this.D.K());
             if (f2 == null) {
                 Intent intent = new Intent();
-                intent.putExtra("mark", y);
+                intent.putExtra("mark", z);
                 setResult(-1, intent);
                 w();
                 return true;
-            } else if (f2.getPostId() == null || f2.getPostId().equals(y.getPostId())) {
+            } else if (f2.getPostId() == null || f2.getPostId().equals(z.getPostId())) {
                 Intent intent2 = new Intent();
-                intent2.putExtra("mark", y);
+                intent2.putExtra("mark", z);
                 setResult(-1, intent2);
                 w();
                 return true;
             } else {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this);
                 aVar.a(String.format(getString(com.baidu.tieba.y.alert_update_mark), Integer.valueOf(f2.getFloor())));
-                aVar.a(com.baidu.tieba.y.alert_yes_btn, new ak(this, f2, y));
-                aVar.b(com.baidu.tieba.y.alert_no_button, new al(this, y));
+                aVar.a(com.baidu.tieba.y.alert_yes_btn, new ak(this, f2, z));
+                aVar.b(com.baidu.tieba.y.alert_no_button, new al(this, z));
                 aVar.a();
                 aVar.b();
                 return false;
             }
-        } else if (this.x.p() == null || this.x.p().e() == null || this.x.p().e().size() <= 0 || !this.x.j()) {
+        } else if (this.x.q() == null || this.x.q().e() == null || this.x.q().e().size() <= 0 || !this.x.k()) {
             return true;
         } else {
             setResult(1);
@@ -1248,7 +1247,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(com.baidu.tieba.data.ai aiVar) {
         boolean z = false;
-        if (aiVar.l() != null && aiVar.l().equals(this.x.o())) {
+        if (aiVar.l() != null && aiVar.l().equals(this.x.p())) {
             z = true;
         }
         MarkData b = this.x.b(aiVar);
@@ -1265,13 +1264,13 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
 
     /* JADX INFO: Access modifiers changed from: private */
     public com.baidu.tbadk.widget.richText.a a(String str, int i) {
-        if (this.x == null || this.x.p() == null || str == null || i < 0) {
+        if (this.x == null || this.x.q() == null || str == null || i < 0) {
             return null;
         }
-        com.baidu.tieba.data.af p = this.x.p();
-        com.baidu.tbadk.widget.richText.a a = a(p.e(), str, i);
+        com.baidu.tieba.data.af q = this.x.q();
+        com.baidu.tbadk.widget.richText.a a = a(q.e(), str, i);
         if (a == null) {
-            ArrayList<com.baidu.tieba.data.ai> e = p.e();
+            ArrayList<com.baidu.tieba.data.ai> e = q.e();
             int size = e.size();
             for (int i2 = 0; i2 < size; i2++) {
                 a = a(e.get(i2).k(), str, i);
@@ -1379,13 +1378,13 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
 
     /* JADX INFO: Access modifiers changed from: private */
     public void E() {
-        if (this.x.w()) {
+        if (this.x.x()) {
             TiebaStatic.eventStat(this, "pb_share", "pbclick", 1, new Object[0]);
-            com.baidu.tieba.data.af p = this.x.p();
-            String name = p.c().getName();
-            String r = p.d().r();
-            String str = "http://tieba.baidu.com/p/" + this.x.f() + "?share=9105";
-            String[] b = p.b();
+            com.baidu.tieba.data.af q = this.x.q();
+            String name = q.c().getName();
+            String r = q.d().r();
+            String str = "http://tieba.baidu.com/p/" + this.x.g() + "?share=9105";
+            String[] b = q.b();
             String str2 = b[0];
             Uri parse = str2 == null ? null : Uri.parse(str2);
             String format = MessageFormat.format(getResources().getString(com.baidu.tieba.y.share_content_tpl), r, name, b[1]);
@@ -1436,10 +1435,10 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
 
     /* JADX INFO: Access modifiers changed from: private */
     public void H() {
-        com.baidu.tieba.data.af p = this.x.p();
-        if (p != null) {
-            boolean isIfAddition = p.g().isIfAddition();
-            AdditionData n = p.n();
+        com.baidu.tieba.data.af q = this.x.q();
+        if (q != null) {
+            boolean isIfAddition = q.g().isIfAddition();
+            AdditionData n = q.n();
             if (n == null) {
                 isIfAddition = false;
             }
@@ -1456,7 +1455,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (this.D.c() == view) {
-            com.baidu.tbadk.core.data.n d2 = this.x.p().d();
+            com.baidu.tbadk.core.data.n d2 = this.x.q().d();
             View childAt = ((ViewGroup) view).getChildAt(0);
             if (childAt != null) {
                 boolean z = d2.o() == null || d2.o().getIsLike() == 0;
@@ -1503,8 +1502,8 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, com.baidu.adp.base.g
     public void onPreLoad(BdListView bdListView) {
-        if (bdListView != null && this.x != null && this.x.p() != null && bdListView.equals(a())) {
-            com.baidu.tbadk.core.util.ay.a(bdListView, getUniqueId(), this.x.p().m() == 1 ? 17 : 18);
+        if (bdListView != null && this.x != null && this.x.q() != null && bdListView.equals(a())) {
+            com.baidu.tbadk.core.util.ay.a(bdListView, getUniqueId(), this.x.q().m() == 1 ? 17 : 18);
         }
     }
 }

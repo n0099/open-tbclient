@@ -157,7 +157,10 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
         setMeasuredDimension(i3, this.f);
         for (int i5 = 0; i5 < this.g; i5++) {
-            measureChild((TbImageView) getChildAt(i5), this.f, this.f);
+            TbImageView tbImageView = (TbImageView) getChildAt(i5);
+            if (tbImageView != null && tbImageView.getLayoutParams() != null) {
+                measureChild(tbImageView, this.f, this.f);
+            }
         }
     }
 

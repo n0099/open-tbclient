@@ -119,7 +119,7 @@ public class e extends com.baidu.adp.base.c {
         this.k.setText(new StringBuilder(String.valueOf(i)).toString());
         this.l.setText(str);
         this.m.setText(str2);
-        this.n.setText(str3);
+        this.n.setText(String.valueOf(str3) + "吧");
     }
 
     public void a(List<LiveCardData> list) {

@@ -2,6 +2,7 @@ package com.baidu.tieba.im.live.room;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeMessage;
 /* loaded from: classes.dex */
 class z extends CustomMessageListener {
@@ -22,11 +23,21 @@ class z extends CustomMessageListener {
         String str;
         String str2;
         LiveRoomChatView z2;
+        LiveRoomChatView z3;
+        LiveRoomChatView z4;
         if (customResponsedMessage.getCmd() == 2003161 && (customResponsedMessage instanceof LiveStatusChangeMessage)) {
             LiveStatusChangeMessage.LiveStatusData data = ((LiveStatusChangeMessage) customResponsedMessage).getData();
             z = this.a.s;
             if (z && this.a.x().b != null) {
                 String valueOf = String.valueOf(this.a.x().b.groupId);
+                if (data.status == 19 && valueOf.equals(data.groupId) && !this.a.x().r) {
+                    z3 = this.a.z();
+                    if (z3.T() != 3) {
+                        BdLog.d("Here is the chance to make up the START status.");
+                        z4 = this.a.z();
+                        z4.d(3);
+                    }
+                }
                 if (data.status == 4 && valueOf.equals(data.groupId) && this.a.x().r) {
                     z2 = this.a.z();
                     z2.d(5);

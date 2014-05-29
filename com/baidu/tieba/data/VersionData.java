@@ -9,13 +9,16 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class VersionData implements Serializable {
     private static final long serialVersionUID = 5102616316349188013L;
+    private String asDownloadUrl;
     private String clientId;
     private String newFile;
+    private int newVersionCode;
     private String newVersionDesc;
     private int newVersionRemind;
     private String patch;
     private String patchSize;
     private String size;
+    private String tiebaIconUrl;
     private int forceUpdate = 0;
     private int strategy = 0;
     private int hasNewVer = 0;
@@ -25,6 +28,9 @@ public class VersionData implements Serializable {
     public VersionData() {
         setClientId(null);
         this.newFile = null;
+        this.newVersionCode = -1;
+        this.tiebaIconUrl = null;
+        this.asDownloadUrl = null;
     }
 
     public void parserJson(String str) {
@@ -51,6 +57,9 @@ public class VersionData implements Serializable {
                 this.newVersionDesc = jSONObject.optString("new_version_desc", null);
                 this.patch = jSONObject.optString("patch");
                 this.patchSize = jSONObject.optString("patch_size");
+                this.newVersionCode = jSONObject.optInt("new_version_code", -1);
+                this.tiebaIconUrl = jSONObject.optString("tieba_iconurl", null);
+                this.asDownloadUrl = jSONObject.optString("as_downloadurl", null);
                 if (a()) {
                     this.hasNewVer = 1;
                     this.newFile = "tieba_" + this.newVer + ".apk";
@@ -154,5 +163,29 @@ public class VersionData implements Serializable {
 
     public void setPatchSize(String str) {
         this.patchSize = str;
+    }
+
+    public void setNewVersionCode(int i) {
+        this.newVersionCode = i;
+    }
+
+    public int getNewVersionCode() {
+        return this.newVersionCode;
+    }
+
+    public void setAsDownloadUrl(String str) {
+        this.asDownloadUrl = str;
+    }
+
+    public String getAsDownloadUrl() {
+        return this.asDownloadUrl;
+    }
+
+    public void setTiebaIconUrl(String str) {
+        this.tiebaIconUrl = str;
+    }
+
+    public String getTiebaIconUrl() {
+        return this.tiebaIconUrl;
     }
 }

@@ -35,9 +35,9 @@ public class j extends m {
 
     @Override // com.baidu.tieba.pb.sub.m
     public boolean a() {
-        if (this.L.o()) {
+        if (this.L.p()) {
             this.L.f();
-            this.L.n();
+            this.L.o();
             this.r.setEnabled(true);
         } else {
             this.f.finish();
@@ -70,32 +70,32 @@ public class j extends m {
         return this.O;
     }
 
-    private NavigationBar D() {
+    private NavigationBar E() {
         this.Q = (NavigationBar) this.b.findViewById(com.baidu.tieba.v.view_navigation_bar);
         return this.Q;
     }
 
-    private SubPbLoadPreviousView E() {
+    private SubPbLoadPreviousView F() {
         this.P = (SubPbLoadPreviousView) this.c.findViewById(com.baidu.tieba.v.sub_pb_load_previous);
         return this.P;
     }
 
     public void d() {
-        E().a();
+        F().a();
     }
 
     public void e() {
-        E().b();
+        F().b();
     }
 
     public void f() {
-        E().c();
+        F().c();
         this.c.setPadding(0, 0, 0, 0);
         ((i) this.e).d(false);
     }
 
     public void g() {
-        E().d();
+        F().d();
         this.c.setPadding(0, 0, 0, 0);
         ((i) this.e).d(true);
     }
@@ -110,8 +110,8 @@ public class j extends m {
     @Override // com.baidu.tieba.pb.sub.m
     public void a(int i) {
         super.a(i);
-        D().c(i);
-        E().a(i);
+        E().c(i);
+        F().a(i);
     }
 
     @Override // com.baidu.tieba.pb.sub.m
@@ -119,7 +119,7 @@ public class j extends m {
         LayoutInflater from = LayoutInflater.from(this.f);
         this.b = from.inflate(com.baidu.tieba.w.new_sub_pb_reply_layout, (ViewGroup) null);
         this.c = from.inflate(com.baidu.tieba.w.new_sub_pb_reply_head, (ViewGroup) null);
-        E().setOnClickListener(this.x);
+        F().setOnClickListener(this.x);
     }
 
     @Override // com.baidu.tieba.pb.sub.m

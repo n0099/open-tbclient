@@ -83,7 +83,6 @@ public class b {
 
     public void c() {
         this.e = false;
-        com.baidu.adp.lib.stats.h.a().a("lc_con", (String) null, (String) null, m.a().l(), 0, (String) null, "dns", Long.valueOf(m.a().j()), "ip", m.a().k(), "net", com.baidu.adp.lib.stats.h.a().c());
     }
 
     public void d() {

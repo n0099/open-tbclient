@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -102,16 +100,6 @@ public class WriteImageActivity extends BaseActivity {
             c();
         }
         a = getResources().getStringArray(com.baidu.tieba.q.fiter_name);
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        Drawable drawable = this.b.getDrawable();
-        if (drawable != null && (drawable instanceof BitmapDrawable) && ((BitmapDrawable) drawable).getBitmap() == null && this.h == null) {
-            this.h = new bt(this, null);
-            this.h.execute(new Object[0]);
-        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity

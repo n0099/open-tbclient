@@ -251,7 +251,7 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
         }
         if (i == 1) {
             this.v.setBackgroundResource(com.baidu.tieba.u.bg_bar_1);
-            if (this.f.canGoBack()) {
+            if (this.f != null && this.f.canGoBack()) {
                 this.o.setImageDrawable(getResources().getDrawable(com.baidu.tieba.u.icon_webview_return_n_1));
             } else {
                 this.o.setImageDrawable(getResources().getDrawable(com.baidu.tieba.u.icon_webview_return_dd));
@@ -261,7 +261,7 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
             this.p.setBackgroundResource(com.baidu.tieba.u.title_icon_bg_1);
         } else {
             this.v.setBackgroundResource(com.baidu.tieba.u.bg_bar);
-            if (this.f.canGoBack()) {
+            if (this.f != null && this.f.canGoBack()) {
                 this.o.setImageDrawable(getResources().getDrawable(com.baidu.tieba.u.icon_webview_return_n));
             } else {
                 this.o.setImageDrawable(getResources().getDrawable(com.baidu.tieba.u.icon_webview_return_dd));
@@ -422,6 +422,10 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
         super.onDestroy();
         if (this.s != null) {
             this.s.removeCallbacks(this.t);
+        }
+        if (this.f != null) {
+            this.f.destroy();
+            this.f = null;
         }
         TbadkApplication.m252getInst().delRemoteActivity(this);
     }

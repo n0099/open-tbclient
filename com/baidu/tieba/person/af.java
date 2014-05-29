@@ -139,23 +139,23 @@ public class af extends RelativeLayout {
     }
 
     public void a(com.baidu.tieba.model.av avVar) {
-        if (avVar.g() != null) {
+        if (avVar.h() != null) {
             this.u = avVar;
-            this.l.setText(c(avVar.g().getLike_bars()));
-            this.n.setText(c(avVar.g().getPosts_num()));
-            this.p.setText(c(avVar.g().getConcern_num()));
-            this.r.setText(c(avVar.g().getFans_num()));
+            this.l.setText(c(avVar.h().getLike_bars()));
+            this.n.setText(c(avVar.h().getPosts_num()));
+            this.p.setText(c(avVar.h().getConcern_num()));
+            this.r.setText(c(avVar.h().getFans_num()));
             this.k = this.v.f();
-            if (this.u != null && !this.u.f()) {
+            if (this.u != null && !this.u.g()) {
                 if (this.y) {
                     this.e.setVisibility(8);
                 }
-                if (avVar.g().getSex() == 1) {
+                if (avVar.h().getSex() == 1) {
                     this.m.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_forums_name_text_b));
                     this.o.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_post_name_text_b));
                     this.q.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_attention_name_text_b));
                     this.s.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_fans_name_text_b));
-                } else if (avVar.g().getSex() == 2) {
+                } else if (avVar.h().getSex() == 2) {
                     this.m.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_forums_name_text_g));
                     this.o.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_post_name_text_g));
                     this.q.setText(this.a.getResources().getString(com.baidu.tieba.y.user_info_center_head_attention_name_text_g));

@@ -24,7 +24,6 @@ public class ba implements View.OnClickListener {
         Object item = this.a.getItem(intValue);
         if (item instanceof com.baidu.tbadk.core.data.b) {
             com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) item;
-            com.baidu.tbadk.f.a().b(bVar.i(), System.currentTimeMillis());
             int k = bVar.k();
             if (k == 0) {
                 context4 = this.a.b;

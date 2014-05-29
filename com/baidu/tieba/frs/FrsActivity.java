@@ -239,16 +239,18 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
                     for (int i2 = 0; i2 < 3; i2++) {
                         com.baidu.tbadk.core.data.b bVar = bannerListData.a().get(new Random().nextInt(size2));
                         long a2 = com.baidu.tbadk.f.a().a(bVar.i(), 0L);
-                        if (!com.baidu.tieba.util.r.a(this, bVar.i()) && System.currentTimeMillis() - a2 > 86400000) {
-                            if (bVar.d() == 1) {
-                                if (!TbadkApplication.m252getInst().getHasShowAppForums().contains(this.n) && this.H) {
-                                    this.H = false;
-                                    if (this.G) {
-                                    }
-                                }
-                            }
+                        if (!com.baidu.tieba.util.r.a(this, bVar.i()) && ((bVar.d() != 1 || !TbadkApplication.m252getInst().getHasShowAppForums().contains(this.n)) && (bVar.d() != 2 || System.currentTimeMillis() - a2 > 86400000))) {
                             int e2 = (i + bVar.e()) - 1;
                             if (e2 < size && !TextUtils.isEmpty(bVar.i()) && !TextUtils.isEmpty(bVar.g())) {
+                                boolean b2 = b.a().b(bVar.i());
+                                boolean c2 = b.a().c(bVar.i());
+                                if (b2) {
+                                    bVar.a(1);
+                                } else if (c2) {
+                                    bVar.a(2);
+                                } else {
+                                    bVar.a(0);
+                                }
                                 gVar.h().add(e2, bVar);
                                 return;
                             }
@@ -505,7 +507,6 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
             Intent intent = new Intent();
             intent.putExtra("class", 2);
             intent.putExtra("fname", getIntent().getStringExtra("name"));
-            intent.putExtra("from", "from_hao123");
             MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ak(this, intent)));
             finish();
             return true;
@@ -729,7 +730,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
         NetworkInfo activeNetworkInfo;
         super.onResume();
         this.k = true;
-        this.w.c.t();
+        this.w.c.u();
         NoNetworkView r = this.w.r();
         if (r != null && r.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
             r.setVisible(false);
@@ -1053,7 +1054,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
                 this.n = this.I.g().getName();
                 this.w.c(this.n);
                 TbadkApplication.m252getInst().setDefaultBubble(this.I.i().getBimg_url());
-                this.w.c.t();
+                this.w.c.u();
                 G();
                 this.l = false;
                 ArrayList<com.baidu.tbadk.core.data.n> h = this.I.h();
@@ -1128,7 +1129,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
                         return true;
                     }
                     return true;
-                } else if (this.w.c.o()) {
+                } else if (this.w.c.p()) {
                     this.w.U();
                     return true;
                 } else {
@@ -1143,16 +1144,15 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
 
     public void a(com.baidu.tbadk.core.data.b bVar, int i) {
         String str;
-        com.baidu.tbadk.f.a().b(bVar.i(), System.currentTimeMillis());
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(com.baidu.tieba.y.anti_title);
         builder.setIcon((Drawable) null);
         builder.setCancelable(true);
         if (bVar.d() == 2) {
-            if (!TextUtils.isEmpty(bVar.a())) {
-                str = getString(com.baidu.tieba.y.confirm_download_app_web_url);
-            } else {
+            if (!TextUtils.isEmpty(bVar.j())) {
                 str = String.valueOf(getString(com.baidu.tieba.y.confirm_download_app)) + bVar.g() + getString(com.baidu.tieba.y.question_mark);
+            } else {
+                str = getString(com.baidu.tieba.y.confirm_download_app_web_url);
             }
         } else {
             str = String.valueOf(getString(com.baidu.tieba.y.confirm_download_app)) + bVar.g() + getString(com.baidu.tieba.y.question_mark);
@@ -1168,6 +1168,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
         if (!((TextUtils.isEmpty(bVar.i()) || TextUtils.isEmpty(bVar.g())) ? false : true)) {
             com.baidu.adp.lib.util.k.a((Context) this, com.baidu.tieba.y.pb_app_error);
         } else if (UtilHelper.isNetOk()) {
+            com.baidu.tbadk.f.a().b(bVar.i(), System.currentTimeMillis());
             TiebaStatic.eventStat(this, "frs_dl_app", "frs_recommend_app", 1, "app_name", bVar.i());
             new com.baidu.tbadk.core.util.az("frs_recommend_app", "frs_dl", bVar.i()).start();
             b.a().a(bVar.i(), bVar.j(), bVar.g(), i);

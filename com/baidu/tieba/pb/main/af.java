@@ -15,7 +15,7 @@ class af implements Runnable {
         bjVar = this.a.x;
         if (bjVar != null) {
             bjVar2 = this.a.x;
-            bjVar2.s();
+            bjVar2.t();
         }
     }
 }

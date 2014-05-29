@@ -1,8 +1,9 @@
 package com.baidu.tieba.person.post;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t extends com.baidu.adp.framework.listener.b {
+public class t extends com.baidu.adp.framework.listener.b {
     final /* synthetic */ s a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

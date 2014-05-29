@@ -34,7 +34,7 @@ public final class LiveGroupInfo extends Message {
     public final Integer forumId;
     @ProtoField(tag = SapiAccountManager.VERSION_CODE, type = Message.Datatype.STRING)
     public final String forumName;
-    @ProtoField(tag = 22, type = Message.Datatype.INT32)
+    @ProtoField(tag = TbConfig.NOTIFY_LIVE_GROUP_END_EVENT, type = Message.Datatype.INT32)
     public final Integer gagers;
     @ProtoField(tag = 10, type = Message.Datatype.INT32)
     public final Integer groupId;

@@ -41,7 +41,7 @@ class j implements com.baidu.tieba.pb.sub.h {
         if (!z) {
             if (i == 4 || i == 28) {
                 bjVar4 = this.a.x;
-                if (bjVar4.m()) {
+                if (bjVar4.n()) {
                     this.a.closeActivity();
                 }
             }
@@ -49,7 +49,7 @@ class j implements com.baidu.tieba.pb.sub.h {
             fVar = this.a.B;
             String b = fVar.b();
             bjVar = this.a.x;
-            ArrayList<com.baidu.tieba.data.ai> e = bjVar.p().e();
+            ArrayList<com.baidu.tieba.data.ai> e = bjVar.q().e();
             int i3 = 0;
             while (true) {
                 if (i3 < e.size()) {
@@ -82,7 +82,7 @@ class j implements com.baidu.tieba.pb.sub.h {
                     if (str2 != null) {
                         bqVar4 = this.a.D;
                         bjVar3 = this.a.x;
-                        int l = bjVar3.p().l();
+                        int l = bjVar3.q().l();
                         str3 = this.a.J;
                         boolean z2 = apVar.b() > 1;
                         fVar4 = this.a.B;
@@ -103,7 +103,7 @@ class j implements com.baidu.tieba.pb.sub.h {
             }
             bqVar3 = this.a.D;
             bjVar2 = this.a.x;
-            bqVar3.a(apVar, bjVar2.p().l());
+            bqVar3.a(apVar, bjVar2.q().l());
             i2 = apVar.i();
             if (i2 == null) {
             }

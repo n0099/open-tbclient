@@ -25,11 +25,11 @@ class w extends Handler {
                 if (TiebaUpdateService.access$26(this.a) > TiebaUpdateService.access$27(this.a)) {
                     TiebaUpdateService.access$16(this.a, System.currentTimeMillis());
                 }
-                int access$27 = (int) ((TiebaUpdateService.access$27(this.a) * 100) / TiebaUpdateService.access$26(this.a));
+                int access$23 = (int) ((TiebaUpdateService.access$23(this.a) + TiebaUpdateService.access$27(this.a)) / (TiebaUpdateService.access$22(this.a) + TiebaUpdateService.access$26(this.a)));
                 if (TiebaUpdateService.access$25(this.a)) {
                     if ((TiebaUpdateService.access$12(this.a) || TiebaUpdateService.access$13(this.a)) && TiebaUpdateService.access$22(this.a) == TiebaUpdateService.access$23(this.a)) {
                         TiebaUpdateService.access$31(this.a, TiebaUpdateService.access$23(this.a) + TiebaUpdateService.access$27(this.a), TiebaUpdateService.access$22(this.a) + TiebaUpdateService.access$26(this.a));
-                        this.a.sendBroadcast(access$27);
+                        this.a.sendBroadcast(access$23 * 100);
                     }
                 }
             }

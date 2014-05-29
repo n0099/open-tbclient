@@ -134,7 +134,6 @@ public class WebTbActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.a.pauseTimers();
         a("onPause");
     }
 
@@ -142,7 +141,6 @@ public class WebTbActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.a.resumeTimers();
         a("onResume");
     }
 

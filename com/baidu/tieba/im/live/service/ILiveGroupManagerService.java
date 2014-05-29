@@ -7,7 +7,7 @@ import android.os.Parcel;
 import com.baidu.tieba.im.live.service.IRemoteCallback;
 /* loaded from: classes.dex */
 public interface ILiveGroupManagerService extends IInterface {
-    void closePublish(String str);
+    void closePublish(String str, boolean z);
 
     void connectAndPublish(String str, String str2, String str3, String str4, String str5, String str6);
 
@@ -31,7 +31,7 @@ public interface ILiveGroupManagerService extends IInterface {
 
     void pausePublish(String str);
 
-    void playOrRecord(String str, String str2, String str3, String str4, String str5, String str6, boolean z);
+    void playOrRecord(String str, String str2, String str3, String str4, String str5, String str6, boolean z, boolean z2);
 
     void registerCallback(IRemoteCallback iRemoteCallback);
 
@@ -53,9 +53,9 @@ public interface ILiveGroupManagerService extends IInterface {
 
     void startRecordInPublish(String str);
 
-    void stopAnyRunning();
+    void stopAnyRunning(boolean z);
 
-    void stopPlay(String str);
+    void stopPlay(String str, boolean z);
 
     void stopPublish(String str);
 
@@ -181,7 +181,7 @@ public interface ILiveGroupManagerService extends IInterface {
                     return true;
                 case 12:
                     parcel.enforceInterface(DESCRIPTOR);
-                    closePublish(parcel.readString());
+                    closePublish(parcel.readString(), parcel.readInt() != 0);
                     parcel2.writeNoException();
                     return true;
                 case 13:
@@ -201,7 +201,7 @@ public interface ILiveGroupManagerService extends IInterface {
                     return true;
                 case 16:
                     parcel.enforceInterface(DESCRIPTOR);
-                    stopPlay(parcel.readString());
+                    stopPlay(parcel.readString(), parcel.readInt() != 0);
                     parcel2.writeNoException();
                     return true;
                 case 17:
@@ -231,7 +231,7 @@ public interface ILiveGroupManagerService extends IInterface {
                     parcel2.writeNoException();
                     parcel2.writeInt(positionOfRecord);
                     return true;
-                case TRANSACTION_retryPlay /* 22 */:
+                case 22:
                     parcel.enforceInterface(DESCRIPTOR);
                     retryPlay();
                     parcel2.writeNoException();
@@ -250,12 +250,12 @@ public interface ILiveGroupManagerService extends IInterface {
                     return true;
                 case 25:
                     parcel.enforceInterface(DESCRIPTOR);
-                    stopAnyRunning();
+                    stopAnyRunning(parcel.readInt() != 0);
                     parcel2.writeNoException();
                     return true;
                 case TRANSACTION_playOrRecord /* 26 */:
                     parcel.enforceInterface(DESCRIPTOR);
-                    playOrRecord(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt() != 0);
+                    playOrRecord(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt() != 0, parcel.readInt() != 0);
                     parcel2.writeNoException();
                     return true;
                 case TRANSACTION_getSignalStrength /* 27 */:
@@ -470,12 +470,13 @@ public interface ILiveGroupManagerService extends IInterface {
             }
 
             @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
-            public void closePublish(String str) {
+            public void closePublish(String str, boolean z) {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
+                    obtain.writeInt(z ? 1 : 0);
                     this.mRemote.transact(12, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
@@ -532,12 +533,13 @@ public interface ILiveGroupManagerService extends IInterface {
             }
 
             @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
-            public void stopPlay(String str) {
+            public void stopPlay(String str, boolean z) {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
+                    obtain.writeInt(z ? 1 : 0);
                     this.mRemote.transact(16, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
@@ -627,7 +629,7 @@ public interface ILiveGroupManagerService extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(Stub.TRANSACTION_retryPlay, obtain, obtain2, 0);
+                    this.mRemote.transact(22, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -666,11 +668,12 @@ public interface ILiveGroupManagerService extends IInterface {
             }
 
             @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
-            public void stopAnyRunning() {
+            public void stopAnyRunning(boolean z) {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(z ? 1 : 0);
                     this.mRemote.transact(25, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
@@ -680,7 +683,7 @@ public interface ILiveGroupManagerService extends IInterface {
             }
 
             @Override // com.baidu.tieba.im.live.service.ILiveGroupManagerService
-            public void playOrRecord(String str, String str2, String str3, String str4, String str5, String str6, boolean z) {
+            public void playOrRecord(String str, String str2, String str3, String str4, String str5, String str6, boolean z, boolean z2) {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -692,6 +695,7 @@ public interface ILiveGroupManagerService extends IInterface {
                     obtain.writeString(str5);
                     obtain.writeString(str6);
                     obtain.writeInt(z ? 1 : 0);
+                    obtain.writeInt(z2 ? 1 : 0);
                     this.mRemote.transact(Stub.TRANSACTION_playOrRecord, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {

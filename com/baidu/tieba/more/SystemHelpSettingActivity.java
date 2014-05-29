@@ -17,6 +17,7 @@ import com.baidu.tieba.plugins.PluginCenterActivity;
 public class SystemHelpSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
     private an a = null;
     private aj b = null;
+    private boolean c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -116,7 +117,8 @@ public class SystemHelpSettingActivity extends BaseActivity implements com.baidu
                     if (hao123Plugin != null) {
                         hao123Plugin.openFloating(this);
                     }
-                    if (TbadkApplication.isLogin()) {
+                    if (TbadkApplication.isLogin() && !this.c) {
+                        this.c = true;
                         new com.baidu.tieba.model.o().a(true);
                     }
                     com.baidu.tbadk.core.f.a(this, "tb_zs_setting");

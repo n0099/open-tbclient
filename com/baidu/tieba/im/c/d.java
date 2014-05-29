@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.c;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.webSocket.m;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -22,6 +23,7 @@ public class d implements com.baidu.adp.lib.network.websocket.c {
     @Override // com.baidu.adp.lib.network.websocket.c
     public void a(Map<String, String> map) {
         this.a.c();
+        com.baidu.adp.lib.stats.h.a().a("lc_con", (String) null, (String) null, m.a().l(), 0, (String) null, "dns", Long.valueOf(m.a().j()), "ip", m.a().k(), "net", com.baidu.adp.lib.stats.h.a().c(), "localdns", m.a().m(), "localdnsbak", m.a().n());
         com.baidu.tbadk.a.a.a().a(map);
     }
 

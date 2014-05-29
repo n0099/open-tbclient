@@ -57,7 +57,9 @@ public class bd {
         try {
             str = UtilHelper.creatSignInt(TbadkApplication.m252getInst().getPackageManager().getPackageInfo(TbadkApplication.m252getInst().getPackageName(), 64));
         } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
+            BdLog.detailException(e);
+        } catch (NumberFormatException e2) {
+            BdLog.detailException(e2);
         }
         Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
         intent.setFlags(268435488);
@@ -65,14 +67,14 @@ public class bd {
         intent.putExtra("backup", "0");
         intent.putExtra("func", "11");
         Bundle bundle = new Bundle();
-        bundle.putInt("versioncode", com.baidu.tieba.util.r.a(versionData.getNewVersion()));
+        bundle.putInt("versioncode", versionData.getNewVersionCode());
         bundle.putLong("patch_size", com.baidu.adp.lib.f.b.a(versionData.getPatchSize(), 0L));
         bundle.putString("patch_url", versionData.getPatch());
         bundle.putString("sname", context.getString(y.app_name));
         bundle.putString("packagename", TbadkApplication.m252getInst().getPackageName());
         bundle.putString("downurl", versionData.getUrl());
         bundle.putString("versionname", versionData.getNewVersion());
-        bundle.putString("iconurl", "");
+        bundle.putString("iconurl", versionData.getTiebaIconUrl());
         bundle.putString("updatetime", be.d(new Date(System.currentTimeMillis())));
         bundle.putString("size", versionData.getSize());
         bundle.putString("signmd5", str);

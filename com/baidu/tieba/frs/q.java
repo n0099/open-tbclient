@@ -247,7 +247,6 @@ class q implements View.OnClickListener {
             dt dtVar = (dt) view.getTag();
             if (dtVar != null) {
                 String str9 = dtVar.a;
-                TiebaStatic.eventStat(this.a, "sidebar_show", "sidebar_click", 1, "st_param", dtVar.b);
                 str5 = this.a.n;
                 if (str9.equals(str5)) {
                     ctVar27 = this.a.w;

@@ -26,24 +26,24 @@ public class p extends Handler {
         l lVar8;
         l lVar9;
         l lVar10;
-        boolean n;
+        boolean p;
         l lVar11;
-        boolean n2;
+        boolean p2;
         l lVar12;
         l lVar13;
         l lVar14;
         l lVar15;
-        boolean n3;
+        boolean p3;
         l lVar16;
-        boolean n4;
+        boolean p4;
         l lVar17;
-        boolean n5;
+        boolean p5;
         l lVar18;
         l lVar19;
-        boolean n6;
+        boolean p6;
         l lVar20;
         l lVar21;
-        boolean n7;
+        boolean p7;
         l lVar22;
         if (message.obj instanceof al) {
             al alVar = (al) message.obj;
@@ -53,8 +53,8 @@ public class p extends Handler {
                 lVar22.a(alVar.a);
                 return;
             }
-            n7 = this.a.n();
-            if (n7) {
+            p7 = this.a.p();
+            if (p7) {
                 BdLog.d("could not call onTextMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof af) {
@@ -65,8 +65,8 @@ public class p extends Handler {
                 lVar20.b(afVar.a);
                 return;
             }
-            n6 = this.a.n();
-            if (n6) {
+            p6 = this.a.p();
+            if (p6) {
                 BdLog.d("could not call onRawTextMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof t) {
@@ -77,14 +77,14 @@ public class p extends Handler {
                 lVar18.a(tVar.a);
                 return;
             }
-            n5 = this.a.n();
-            if (n5) {
+            p5 = this.a.p();
+            if (p5) {
                 BdLog.d("could not call onBinaryMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof ac) {
             ac acVar = (ac) message.obj;
-            n4 = this.a.n();
-            if (n4) {
+            p4 = this.a.p();
+            if (p4) {
                 BdLog.d("WebSockets Ping received");
             }
             ad adVar = new ad();
@@ -97,16 +97,16 @@ public class p extends Handler {
                 lVar16 = this.a.n;
                 lVar16.a();
             }
-            n3 = this.a.n();
-            if (n3) {
+            p3 = this.a.p();
+            if (p3) {
                 BdLog.d("WebSockets Pong received");
             }
         } else if (message.obj instanceof v) {
             this.a.a(1, (String) null);
         } else if (message.obj instanceof aj) {
             aj ajVar = (aj) message.obj;
-            n = this.a.n();
-            if (n) {
+            p = this.a.p();
+            if (p) {
                 BdLog.d("opening handshake received");
             }
             if (ajVar.a) {
@@ -124,8 +124,8 @@ public class p extends Handler {
                     }
                     return;
                 }
-                n2 = this.a.n();
-                if (n2) {
+                p2 = this.a.p();
+                if (p2) {
                     BdLog.d("could not call onOpen() .. handler already NULL");
                 }
                 this.a.a(6, "handler already NULL");

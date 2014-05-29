@@ -726,7 +726,7 @@ public class CustomViewAbove extends ViewGroup {
         switch (keyEvent.getKeyCode()) {
             case TbConfig.NOTIFY_LIVE_NOTIFY /* 21 */:
                 return arrowScroll(17);
-            case 22:
+            case TbConfig.NOTIFY_LIVE_GROUP_END_EVENT /* 22 */:
                 return arrowScroll(66);
             case BDLocation.TypeGpsLocation /* 61 */:
                 if (Build.VERSION.SDK_INT < 11) {

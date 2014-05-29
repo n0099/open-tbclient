@@ -304,7 +304,7 @@ public class bq {
         this.aW = this.q.findViewById(com.baidu.tieba.v.live_card_layout);
         this.aX = (LiveBroadcastCard) this.q.findViewById(com.baidu.tieba.v.item_card);
         this.q.setOnLongClickListener(new bs(this));
-        ah();
+        aj();
         this.I = new az(this.m);
         this.I.e(this.W);
         this.I.a(this.aF);
@@ -416,7 +416,7 @@ public class bq {
     }
 
     public void e() {
-        this.j.r();
+        this.j.s();
     }
 
     public void f() {
@@ -481,11 +481,11 @@ public class bq {
             this.aI.setText(string);
             this.aI.setVisibility(0);
             this.aI.setOnClickListener(this.W);
-            ai();
+            ak();
         }
     }
 
-    private void ah() {
+    private void aj() {
         this.aS = (LinearLayout) this.q.findViewById(com.baidu.tieba.v.btn_show_passed_pb);
         this.aU = new PbListView(this.m, PbListView.IconType.ICON_UP_WARD);
         this.aT = this.aU.a();
@@ -498,7 +498,7 @@ public class bq {
         this.aT.setBackgroundResource(skinType == 1 ? com.baidu.tieba.s.cp_bg_line_e_1 : com.baidu.tieba.s.cp_bg_line_e);
         this.aU.a(skinType == 1 ? com.baidu.tieba.s.cp_bg_line_e_1 : com.baidu.tieba.s.cp_bg_line_e);
         this.aU.c(com.baidu.tieba.s.cp_bg_line_e);
-        ai();
+        ak();
     }
 
     public void a(View view) {
@@ -713,7 +713,7 @@ public class bq {
         if (z) {
             this.j.getEditText().setText("");
             this.j.b();
-            this.j.l();
+            this.j.m();
             if (this.N != null) {
                 this.N.u();
             }
@@ -729,13 +729,13 @@ public class bq {
         this.R.e();
         this.aU.e();
         this.o.c();
-        ai();
+        ak();
     }
 
     public void x() {
         this.o.c();
         this.aS.setVisibility(8);
-        ai();
+        ak();
     }
 
     public void b(String str) {
@@ -779,7 +779,7 @@ public class bq {
         this.N.d(this.aY);
         this.N.y();
         this.n.addView(this.U);
-        aj();
+        al();
     }
 
     public void a(com.baidu.tbadk.editortool.x xVar) {
@@ -932,7 +932,7 @@ public class bq {
             this.N.s();
         }
         ac();
-        ak();
+        am();
     }
 
     public void F() {
@@ -967,7 +967,7 @@ public class bq {
         this.U.setVisibility(0);
         this.N.y();
         this.n.addView(this.U);
-        aj();
+        al();
     }
 
     public void a(com.baidu.tieba.data.ap apVar, int i, String str, boolean z, boolean z2) {
@@ -999,12 +999,12 @@ public class bq {
 
     public void H() {
         this.bc = true;
-        this.j.p();
+        this.j.q();
     }
 
     public void I() {
         this.bc = false;
-        this.j.q();
+        this.j.r();
     }
 
     public void a(DialogInterface.OnClickListener onClickListener, boolean z, boolean z2) {
@@ -1092,12 +1092,12 @@ public class bq {
         this.I.a(afVar);
         this.I.notifyDataSetChanged();
         a(new StringBuilder(String.valueOf(afVar.d().s())).toString());
-        ai();
+        ak();
     }
 
     public void b(com.baidu.tieba.data.af afVar) {
         PraiseData o;
-        boolean ai = ai();
+        boolean ak = ak();
         if (afVar != null && afVar.e() != null && afVar.e().size() > 0) {
             com.baidu.tieba.data.ai aiVar = afVar.e().get(0);
             if ((!this.aV || aiVar.m() != 1) && (o = afVar.d().o()) != null && o.getUser() != null && o.getUser().size() > 0) {
@@ -1116,7 +1116,7 @@ public class bq {
         this.F.setVisibility(8);
         if (afVar.f().g() == 0 && this.aV) {
             this.F.setVisibility(8);
-            if (ai) {
+            if (ak) {
                 this.E.setVisibility(0);
                 return;
             } else {
@@ -1331,7 +1331,7 @@ public class bq {
             this.aS.setVisibility(0);
             this.aU.e();
         }
-        ai();
+        ak();
         if (z) {
             if (afVar.f().f() == 0) {
                 this.R.a(this.m.getResources().getString(com.baidu.tieba.y.no_more_to_load));
@@ -1467,7 +1467,7 @@ public class bq {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ai() {
+    public boolean ak() {
         boolean z;
         boolean z2 = true;
         View findViewById = this.q.findViewById(com.baidu.tieba.v.pb_head_function_manage_root);
@@ -1627,7 +1627,7 @@ public class bq {
                     button.setVisibility(8);
                 }
             }
-            ai();
+            ak();
         }
     }
 
@@ -1927,7 +1927,7 @@ public class bq {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aj() {
+    public void al() {
         if (this.b != null) {
             this.b.setVisibility(8);
         }
@@ -1942,7 +1942,7 @@ public class bq {
         }
     }
 
-    private void ak() {
+    private void am() {
         if (this.b != null) {
             this.b.setVisibility(0);
         }
@@ -1997,5 +1997,16 @@ public class bq {
             }
         }
         this.o.setNextPage(this.R);
+    }
+
+    public boolean ah() {
+        return this.j.l();
+    }
+
+    public boolean ai() {
+        if (this.N == null) {
+            return false;
+        }
+        return this.N.D();
     }
 }

@@ -16,10 +16,14 @@ public class i implements View.OnClickListener {
     public void onClick(View view) {
         BaseWebView baseWebView;
         BaseWebView baseWebView2;
+        BaseWebView baseWebView3;
         baseWebView = this.a.f;
-        if (baseWebView.canGoBack()) {
+        if (baseWebView != null) {
             baseWebView2 = this.a.f;
-            baseWebView2.goBack();
+            if (baseWebView2.canGoBack()) {
+                baseWebView3 = this.a.f;
+                baseWebView3.goBack();
+            }
         }
     }
 }

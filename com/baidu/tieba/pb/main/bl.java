@@ -102,19 +102,19 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
     }
 
     private com.baidu.tieba.data.af a() {
-        String C;
+        String D;
         com.baidu.adp.lib.cache.s sVar;
         com.baidu.adp.lib.cache.t tVar;
         Context context;
         com.baidu.adp.lib.cache.s sVar2;
-        C = this.a.C();
-        this.a.B();
+        D = this.a.D();
+        this.a.C();
         sVar = this.a.C;
-        if (sVar == null || C == null) {
+        if (sVar == null || D == null) {
             tVar = null;
         } else {
             sVar2 = this.a.C;
-            tVar = sVar2.b(C);
+            tVar = sVar2.b(D);
         }
         if (tVar == null || tVar.b == 0) {
             return null;
@@ -129,20 +129,20 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
     }
 
     private com.baidu.tieba.data.af b() {
-        String C;
+        String D;
         com.baidu.adp.lib.cache.s sVar;
         com.baidu.adp.lib.cache.t tVar;
         Context context;
         String str;
         com.baidu.adp.lib.cache.s sVar2;
-        C = this.a.C();
-        this.a.B();
+        D = this.a.D();
+        this.a.C();
         sVar = this.a.B;
-        if (sVar == null || C == null) {
+        if (sVar == null || D == null) {
             tVar = null;
         } else {
             sVar2 = this.a.B;
-            tVar = sVar2.b(C);
+            tVar = sVar2.b(D);
         }
         if (tVar == null || tVar.b == 0) {
             return null;
@@ -341,11 +341,11 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00fb, code lost:
-        r0 = r14.a.C();
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0110, code lost:
+        r0 = r14.a.D();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x013f, code lost:
-        r0 = r14.a.C();
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x0154, code lost:
+        r0 = r14.a.D();
      */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
@@ -358,10 +358,10 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
         int size;
         com.baidu.tieba.data.af afVar3;
         com.baidu.tieba.data.af afVar4;
-        String C;
+        String D;
         com.baidu.adp.lib.cache.s sVar;
         boolean z;
-        String C2;
+        String D2;
         boolean z2;
         com.baidu.adp.lib.cache.s sVar2;
         com.baidu.adp.lib.cache.s sVar3;
@@ -377,6 +377,7 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
         PraiseData praiseData2;
         com.baidu.tieba.data.af afVar10;
         com.baidu.tieba.data.af afVar11;
+        com.baidu.tieba.data.af afVar12;
         PraiseData praiseData3;
         bk bkVar3;
         bk bkVar4;
@@ -410,17 +411,17 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
                         afVar.f().c(afVar.f().a());
                     }
                     c(afVar);
-                    if (this.d != null && C2 != null) {
-                        this.a.B();
+                    if (this.d != null && D2 != null) {
+                        this.a.C();
                         z2 = this.a.r;
                         if (z2) {
                             sVar3 = this.a.B;
-                            sVar3.b(C2, this.d, 604800000L);
+                            sVar3.b(D2, this.d, 604800000L);
                             size = 0;
                             break;
                         } else {
                             sVar2 = this.a.C;
-                            sVar2.b(C2, this.d, 86400000L);
+                            sVar2.b(D2, this.d, 86400000L);
                             size = 0;
                             break;
                         }
@@ -429,10 +430,10 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
                     break;
                 case 4:
                     c(afVar);
-                    if (this.d != null && C != null) {
-                        this.a.B();
+                    if (this.d != null && D != null) {
+                        this.a.C();
                         sVar = this.a.B;
-                        sVar.b(C, this.d, 2592000000L);
+                        sVar.b(D, this.d, 2592000000L);
                         size = 0;
                         break;
                     }
@@ -458,8 +459,8 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
                     PraiseData o = afVar8.d().o();
                     praiseData = this.a.J;
                     if (praiseData != null && !o.isPriaseDataValid()) {
-                        afVar11 = this.a.v;
-                        com.baidu.tbadk.core.data.n d = afVar11.d();
+                        afVar12 = this.a.v;
+                        com.baidu.tbadk.core.data.n d = afVar12.d();
                         praiseData3 = this.a.J;
                         d.a(praiseData3);
                     } else {
@@ -470,6 +471,8 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
                         afVar10 = this.a.v;
                         praiseData2.setPostId(afVar10.d().I());
                     }
+                    afVar11 = this.a.v;
+                    afVar11.d().b(afVar.d().s());
                 }
             }
             bkVar = this.a.z;

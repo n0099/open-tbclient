@@ -20,7 +20,7 @@ class at implements dp {
         dnVar = this.a.M;
         if (dnVar != null) {
             bjVar = this.a.x;
-            if (bjVar.p().d().o().getIsLike() == 1) {
+            if (bjVar.q().d().o().getIsLike() == 1) {
                 this.a.a(0);
             } else {
                 this.a.a(1);

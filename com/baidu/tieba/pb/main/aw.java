@@ -40,18 +40,18 @@ class aw implements bk {
         if (z && afVar != null) {
             TbadkApplication.m252getInst().setDefaultBubble(afVar.h().getBimg_url());
             bqVar4 = this.a.D;
-            bqVar4.j.t();
+            bqVar4.j.u();
             aiVar = this.a.y;
             aiVar.a(afVar.i());
             bqVar5 = this.a.D;
             bjVar5 = this.a.x;
-            bqVar5.a(afVar, i2, i3, bjVar5.h(), i4);
+            bqVar5.a(afVar, i2, i3, bjVar5.i(), i4);
             bqVar6 = this.a.D;
             bjVar6 = this.a.x;
-            bqVar6.a(afVar, bjVar6.h(), false, i2);
+            bqVar6.a(afVar, bjVar6.i(), false, i2);
             bqVar7 = this.a.D;
             bjVar7 = this.a.x;
-            bqVar7.e(bjVar7.g());
+            bqVar7.e(bjVar7.h());
             this.a.H();
             AntiData g = afVar.g();
             if (g != null) {

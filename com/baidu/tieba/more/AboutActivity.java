@@ -79,10 +79,10 @@ public class AboutActivity extends BaseActivity {
             TbadkApplication.m252getInst().refreshNewVersion(false);
             if (bcVar.c().hasNewVer()) {
                 if (bcVar.c().forceUpdate()) {
-                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), bcVar.c(), bcVar.b(), bcVar.a().b());
+                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), bcVar.c(), bcVar.b());
                 } else {
                     TbadkApplication.m252getInst().setUpdateNotifyTime(Long.valueOf(new Date().getTime()).longValue());
-                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), bcVar.c(), bcVar.b(), bcVar.a().b());
+                    UpdateDialog.a(com.baidu.tieba.ai.c().d(), bcVar.c(), bcVar.b());
                 }
             } else {
                 showToast(getResources().getString(com.baidu.tieba.y.neednot_update));

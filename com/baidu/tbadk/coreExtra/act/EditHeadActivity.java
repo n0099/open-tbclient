@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -112,16 +110,6 @@ public class EditHeadActivity extends BaseActivity {
         f = getResources().getStringArray(com.baidu.tieba.q.fiter_name);
         if (this.A) {
             TbadkApplication.m252getInst().sendImagePv(1, 1, "motu_pic");
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        Drawable drawable = this.g.getDrawable();
-        if (drawable != null && (drawable instanceof BitmapDrawable) && ((BitmapDrawable) drawable).getBitmap() == null && this.o == null) {
-            this.o = new m(this, null);
-            this.o.execute(new Object[0]);
         }
     }
 

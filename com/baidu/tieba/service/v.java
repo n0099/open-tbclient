@@ -51,6 +51,7 @@ class v extends Handler {
         long j18;
         long j19;
         long j20;
+        int i4;
         super.handleMessage(message);
         if (message.what == 0) {
             notification = this.a.mNotification;
@@ -69,7 +70,7 @@ class v extends Handler {
                 }
                 j5 = this.a.mMainApkCurSize;
                 j6 = this.a.mMainApkSize;
-                int i4 = (int) ((j5 * 100) / j6);
+                int i5 = (int) ((j5 * 100) / j6);
                 z3 = this.a.mHasOther;
                 if (z3) {
                     j12 = this.a.mOtherApkSize;
@@ -77,25 +78,26 @@ class v extends Handler {
                         TiebaUpdateService tiebaUpdateService = this.a;
                         j13 = this.a.mMainApkCurSize;
                         j14 = this.a.mOtherApkCurSize;
-                        long j21 = j13 + j14;
                         j15 = this.a.mMainApkSize;
                         j16 = this.a.mOtherApkSize;
-                        tiebaUpdateService.mProgressAfter = (int) (j21 / (j15 + j16));
+                        tiebaUpdateService.mProgressAfter = (int) (((j13 + j14) * 100) / (j15 + j16));
                         i = this.a.mProgressAfter;
                         i2 = this.a.mProgressBefore;
                         if (i >= i2) {
                             TiebaUpdateService tiebaUpdateService2 = this.a;
                             j17 = this.a.mMainApkCurSize;
                             j18 = this.a.mOtherApkCurSize;
-                            long j22 = j17 + j18;
+                            long j21 = j17 + j18;
                             j19 = this.a.mMainApkSize;
                             j20 = this.a.mOtherApkSize;
-                            tiebaUpdateService2.updateProgress(j22, j19 + j20);
-                            this.a.sendBroadcast(i4);
+                            tiebaUpdateService2.updateProgress(j21, j19 + j20);
+                            TiebaUpdateService tiebaUpdateService3 = this.a;
+                            i4 = this.a.mProgressAfter;
+                            tiebaUpdateService3.sendBroadcast(i4);
                         }
-                        TiebaUpdateService tiebaUpdateService3 = this.a;
+                        TiebaUpdateService tiebaUpdateService4 = this.a;
                         i3 = this.a.mProgressAfter;
-                        tiebaUpdateService3.mProgressBefore = i3;
+                        tiebaUpdateService4.mProgressBefore = i3;
                         return;
                     }
                 }
@@ -103,12 +105,12 @@ class v extends Handler {
                 if (z4) {
                     j9 = this.a.mOtherApkSize;
                     if (j9 == 0) {
-                        if (i4 < 70) {
-                            TiebaUpdateService tiebaUpdateService4 = this.a;
+                        if (i5 < 70) {
+                            TiebaUpdateService tiebaUpdateService5 = this.a;
                             j10 = this.a.mMainApkCurSize;
                             j11 = this.a.mMainApkSize;
-                            tiebaUpdateService4.updateProgress(j10, j11);
-                            this.a.sendBroadcast(i4);
+                            tiebaUpdateService5.updateProgress(j10, j11);
+                            this.a.sendBroadcast(i5);
                             return;
                         }
                         return;
@@ -116,11 +118,11 @@ class v extends Handler {
                 }
                 z5 = this.a.mHasOther;
                 if (!z5) {
-                    TiebaUpdateService tiebaUpdateService5 = this.a;
+                    TiebaUpdateService tiebaUpdateService6 = this.a;
                     j7 = this.a.mMainApkCurSize;
                     j8 = this.a.mMainApkSize;
-                    tiebaUpdateService5.updateProgress(j7, j8);
-                    this.a.sendBroadcast(i4);
+                    tiebaUpdateService6.updateProgress(j7, j8);
+                    this.a.sendBroadcast(i5);
                 }
             }
         } else if (message.what == 1) {

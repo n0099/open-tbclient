@@ -14,4 +14,8 @@ interface g {
     String c();
 
     long d();
+
+    String e();
+
+    String f();
 }

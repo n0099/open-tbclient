@@ -41,7 +41,7 @@ class ad implements View.OnClickListener {
             textView = this.a.n;
             textView.setCompoundDrawables(drawable, null, null, null);
         }
-        ahVar = this.a.w;
+        ahVar = this.a.x;
         z3 = this.a.e;
         ahVar.a(z3);
     }

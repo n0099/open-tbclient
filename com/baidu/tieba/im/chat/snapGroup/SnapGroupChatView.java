@@ -36,9 +36,8 @@ public class SnapGroupChatView extends CommonGroupMsglistView {
         return this.m;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.g
-    public void a(TalkableActivity talkableActivity, boolean z) {
+    protected void a(TalkableActivity talkableActivity, boolean z) {
         super.a(talkableActivity, z);
         this.p = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, talkableActivity.getString(y.snap_group_chat_change_group), talkableActivity);
         this.m = (HorizontalPanelView) ((ViewStub) talkableActivity.findViewById(v.snap_chat_header_stub)).inflate();

@@ -43,6 +43,9 @@ public class o extends Dialog {
         PluginsConfig.PluginConfig pluginConfig4;
         super.onCreate(bundle);
         setContentView(w.update_dialog);
+        findViewById(v.warning).setVisibility(8);
+        findViewById(v.incremental_button).setVisibility(8);
+        findViewById(v.incremental_size).setVisibility(8);
         this.b = (LinearLayout) findViewById(v.down_dialog);
         this.n = (TextView) findViewById(v.update_tip);
         this.c = (TextView) findViewById(v.newversion);

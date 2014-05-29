@@ -39,16 +39,18 @@ public class GuideActivity extends BaseActivity {
     private ArrayList<ImageView> h;
     private i i;
     private BaseViewPager j;
-    private ViewGroup l;
+    private ImageView k;
+    private boolean m;
+    private ViewGroup n;
     private h e = null;
     private String f = null;
-    private boolean k = true;
+    private boolean l = true;
     public boolean a = true;
-    private final com.baidu.tbadk.core.view.a m = new b(this);
-    private View.OnClickListener n = new c(this);
+    private final com.baidu.tbadk.core.view.a o = new b(this);
+    private View.OnClickListener p = new c(this);
     public View.OnClickListener b = new d(this);
     public View.OnClickListener c = new e(this);
-    private final ViewPager.OnPageChangeListener o = new f(this);
+    private final ViewPager.OnPageChangeListener q = new f(this);
     public HttpMessageListener d = new g(this, CmdConfig.JUMP_TO_NEW_GUIDE_HTTP_CMD);
 
     static {
@@ -70,8 +72,8 @@ public class GuideActivity extends BaseActivity {
         this.i = new i(this, null);
         this.j = (BaseViewPager) findViewById(com.baidu.tieba.v.guide_pager);
         this.j.setAdapter(this.i);
-        this.j.setOnScrollOutListener(this.m);
-        this.j.setOnPageChangeListener(this.o);
+        this.j.setOnScrollOutListener(this.o);
+        this.j.setOnPageChangeListener(this.q);
         if (bundle != null) {
             this.f = bundle.getString("from_page");
         } else {
@@ -109,13 +111,13 @@ public class GuideActivity extends BaseActivity {
         this.h.add((ImageView) inflate2.findViewById(com.baidu.tieba.v.image_second));
         this.h.add((ImageView) inflate3.findViewById(com.baidu.tieba.v.image_third));
         this.h.add((ImageView) inflate4.findViewById(com.baidu.tieba.v.image_forth));
-        this.l = (ViewGroup) inflate4.findViewById(com.baidu.tieba.v.guide_page_forth_hao123_open_layout);
-        ImageView imageView = (ImageView) inflate4.findViewById(com.baidu.tieba.v.radio_hao123_open);
+        this.n = (ViewGroup) inflate4.findViewById(com.baidu.tieba.v.guide_page_forth_hao123_open_layout);
+        this.k = (ImageView) inflate4.findViewById(com.baidu.tieba.v.radio_hao123_open);
         if (!TbadkApplication.m252getInst().isHao123HelperShouldOpen()) {
-            this.l.setVisibility(8);
+            this.n.setVisibility(8);
         }
-        imageView.setSelected(TbadkApplication.m252getInst().isTiebaHelperOpen());
-        imageView.setOnClickListener(this.n);
+        this.k.setSelected(TbadkApplication.m252getInst().isTiebaHelperOpen());
+        this.n.setOnClickListener(this.p);
         this.g.add(inflate);
         this.g.add(inflate2);
         this.g.add(inflate3);
@@ -189,7 +191,7 @@ public class GuideActivity extends BaseActivity {
 
     public void f() {
         boolean isFirstUse = TbadkApplication.m252getInst().getIsFirstUse();
-        if (this.k) {
+        if (this.l) {
             if (!this.a) {
                 if (!isFirstUse) {
                     sendMessage(new CustomMessage(2017001, new al(this).a(1)));
@@ -207,7 +209,7 @@ public class GuideActivity extends BaseActivity {
                 TbadkApplication.m252getInst().setFirstGoFrs(true);
             }
             finish();
-            this.k = false;
+            this.l = false;
         }
     }
 

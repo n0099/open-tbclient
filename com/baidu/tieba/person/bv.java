@@ -85,11 +85,11 @@ public class bv extends com.baidu.adp.base.e {
             ajVar2.a(avVar4);
         }
         avVar5 = this.a.c;
-        if (!avVar5.f()) {
+        if (!avVar5.g()) {
             avVar6 = this.a.c;
-            if (avVar6.g() != null) {
+            if (avVar6.h() != null) {
                 avVar7 = this.a.c;
-                z = avVar7.g().isMask();
+                z = avVar7.h().isMask();
             } else {
                 z = false;
             }

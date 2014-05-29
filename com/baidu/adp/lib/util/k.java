@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdNetUtil;
 import com.baidu.tbadk.TbConfig;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.util.Calendar;
 import java.util.Locale;
@@ -304,5 +306,23 @@ public class k {
         int a5 = a(context, i4);
         View view2 = (View) view.getParent();
         view2.post(new m(view, a4, a2, a5, a3, view2));
+    }
+
+    public static String e() {
+        try {
+            return new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns1").getInputStream())).readLine();
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
+            return null;
+        }
+    }
+
+    public static String f() {
+        try {
+            return new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns2").getInputStream())).readLine();
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
+            return null;
+        }
     }
 }

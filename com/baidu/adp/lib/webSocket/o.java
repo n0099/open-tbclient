@@ -33,7 +33,7 @@ public class o implements k {
     private d s = null;
 
     public o() {
-        if (n()) {
+        if (p()) {
             BdLog.d("created");
         }
         a();
@@ -44,7 +44,7 @@ public class o implements k {
             return false;
         }
         if (this.s != null || !f()) {
-            if (n()) {
+            if (p()) {
                 BdLog.d("mWebSocketSendData not null");
             }
             if (dVar != null) {
@@ -66,7 +66,7 @@ public class o implements k {
     }
 
     public void a(int i, String str) {
-        if (n()) {
+        if (p()) {
             BdLog.d("fail connection [code = " + i + ", reason = " + str);
         }
         this.o = false;
@@ -83,7 +83,7 @@ public class o implements k {
             try {
                 this.d.a();
             } catch (IOException e) {
-                if (n()) {
+                if (p()) {
                     e.printStackTrace();
                 }
             }
@@ -95,12 +95,12 @@ public class o implements k {
             try {
                 lVar.a(i, str);
             } catch (Exception e2) {
-                if (n()) {
+                if (p()) {
                     BdLog.d(e2.getMessage());
                 }
             }
         }
-        if (n()) {
+        if (p()) {
             BdLog.d("worker threads stopped");
         }
     }
@@ -172,7 +172,7 @@ public class o implements k {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
         this.c = new aq(handlerThread.getLooper(), this.a, this.d, this.e);
-        if (n()) {
+        if (p()) {
             BdLog.d("WS writer created and started");
         }
     }
@@ -181,7 +181,7 @@ public class o implements k {
     public void c() {
         this.b = new an(this.a, this.d, this.e, "WebSocketReader");
         this.b.start();
-        if (n()) {
+        if (p()) {
             BdLog.d("WS reader created and started");
         }
     }
@@ -199,7 +199,7 @@ public class o implements k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean n() {
+    public boolean p() {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
@@ -245,5 +245,19 @@ public class o implements k {
 
     public long m() {
         return this.r;
+    }
+
+    public String n() {
+        if (this.d != null) {
+            return this.d.e();
+        }
+        return null;
+    }
+
+    public String o() {
+        if (this.d != null) {
+            return this.d.f();
+        }
+        return null;
     }
 }

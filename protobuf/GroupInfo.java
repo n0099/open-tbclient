@@ -46,7 +46,7 @@ public final class GroupInfo extends Message {
     public final String forumName;
     @ProtoField(tag = 31, type = Message.Datatype.STRING)
     public final String forumShowName;
-    @ProtoField(tag = 22, type = Message.Datatype.INT32)
+    @ProtoField(tag = TbConfig.NOTIFY_LIVE_GROUP_END_EVENT, type = Message.Datatype.INT32)
     public final Integer grade;
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer groupId;

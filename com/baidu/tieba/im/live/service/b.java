@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.live.service;
 
-import android.app.NotificationManager;
 import android.os.Handler;
 import android.os.Message;
 import com.baidu.adp.lib.util.BdLog;
@@ -19,8 +18,8 @@ class b extends Handler {
         this.a = liveGroupManagerService;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:73:0x0378, code lost:
-        if (r0 == 4) goto L98;
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x0368, code lost:
+        if (r0 == 4) goto L96;
      */
     @Override // android.os.Handler
     /*
@@ -321,41 +320,37 @@ class b extends Handler {
                     }
                 }
                 liveSenderControl3 = this.a.mLiveSenderControl;
-                if (liveSenderControl3 != null) {
-                    try {
-                        ((NotificationManager) this.a.getSystemService("notification")).cancel(20);
-                    } catch (Exception e) {
-                    }
-                    z = this.a.mIsRecording;
-                    if (z) {
-                        LiveGroupManagerService liveGroupManagerService3 = this.a;
-                        liveSenderControl7 = this.a.mLiveSenderControl;
-                        liveGroupManagerService3.mCmdIdStopRecord = liveSenderControl7.sendUserCmd("stopRecord", "");
-                        this.a.mIsRecording = false;
-                        timer = this.a.mRecordTimer;
-                        if (timer != null) {
-                            timer2 = this.a.mRecordTimer;
-                            timer2.cancel();
-                            this.a.mRecordTimer = null;
-                        }
-                        this.a.mRecordTime = 0;
-                    }
-                    StringBuilder sb = new StringBuilder("do stopPublish in Handler when status is: ");
-                    i10 = this.a.mStatus;
-                    BdLog.d(sb.append(i10).toString());
-                    i11 = this.a.mStatus;
-                    if (i11 != 3) {
-                        i12 = this.a.mStatus;
-                        break;
-                    }
-                    liveSenderControl4 = this.a.mLiveSenderControl;
-                    liveSenderControl4.stop();
-                    liveSenderControl5 = this.a.mLiveSenderControl;
-                    liveSenderControl5.close();
-                    liveSenderControl6 = this.a.mLiveSenderControl;
-                    liveSenderControl6.shutdown();
+                if (liveSenderControl3 == null) {
                     return;
                 }
+                z = this.a.mIsRecording;
+                if (z) {
+                    LiveGroupManagerService liveGroupManagerService3 = this.a;
+                    liveSenderControl7 = this.a.mLiveSenderControl;
+                    liveGroupManagerService3.mCmdIdStopRecord = liveSenderControl7.sendUserCmd("stopRecord", "");
+                    this.a.mIsRecording = false;
+                    timer = this.a.mRecordTimer;
+                    if (timer != null) {
+                        timer2 = this.a.mRecordTimer;
+                        timer2.cancel();
+                        this.a.mRecordTimer = null;
+                    }
+                    this.a.mRecordTime = 0;
+                }
+                StringBuilder sb = new StringBuilder("do stopPublish in Handler when status is: ");
+                i10 = this.a.mStatus;
+                BdLog.d(sb.append(i10).toString());
+                i11 = this.a.mStatus;
+                if (i11 != 3) {
+                    i12 = this.a.mStatus;
+                    break;
+                }
+                liveSenderControl4 = this.a.mLiveSenderControl;
+                liveSenderControl4.stop();
+                liveSenderControl5 = this.a.mLiveSenderControl;
+                liveSenderControl5.close();
+                liveSenderControl6 = this.a.mLiveSenderControl;
+                liveSenderControl6.shutdown();
                 return;
             case 16:
                 i8 = this.a.mStatus;
@@ -435,7 +430,7 @@ class b extends Handler {
                 livePlayerControl4 = this.a.mPlayerCtrl;
                 livePlayerControl4.play();
                 return;
-            case 22:
+            case TbConfig.NOTIFY_LIVE_GROUP_END_EVENT /* 22 */:
                 str = this.a.mGroupId;
                 if (!LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(str)) {
                     return;

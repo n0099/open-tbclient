@@ -18,6 +18,9 @@ public class at implements com.baidu.tbadk.imageManager.d {
         EditText editText;
         if (aVar != null && aVar.h() != null && aVar.m() != null) {
             NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkApplication.m252getInst().getResources(), aVar.h(), aVar.h().getNinePatchChunk(), aVar.m(), null);
+            if (TbadkApplication.m252getInst().getSkinType() == 1) {
+                ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.pb.main.bq.a);
+            }
             editText = this.a.h;
             editText.setBackgroundDrawable(ninePatchDrawable);
         }

@@ -21,6 +21,6 @@ public class br implements View.OnClickListener {
         ay ayVar = this.a.l;
         z = this.a.aV;
         ayVar.a(z);
-        this.a.ai();
+        this.a.ak();
     }
 }

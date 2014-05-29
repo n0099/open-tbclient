@@ -1,7 +1,6 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class da implements com.baidu.tbadk.core.view.h {
+class da implements com.baidu.tbadk.core.view.h {
     final /* synthetic */ ct a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

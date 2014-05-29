@@ -33,7 +33,7 @@ class x implements View.OnLongClickListener {
                 if (aiVar.a() && this.a.c.l() != null) {
                     String l = this.a.c.l();
                     bjVar = this.a.x;
-                    if (l.equals(bjVar.o())) {
+                    if (l.equals(bjVar.p())) {
                         z = true;
                         boolean booleanValue = ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_is_subpb)).booleanValue();
                         bqVar = this.a.D;

@@ -58,6 +58,8 @@ public class ac {
 
     public static void a(com.baidu.adp.lib.stats.s sVar, String str, boolean z, String str2, boolean z2, Boolean bool, com.baidu.adp.lib.network.http.d dVar, String str3, long j2) {
         boolean z3;
+        String str4 = "";
+        String str5 = "";
         int indexOf = str2.indexOf("hiphotos");
         if (indexOf > 0 && indexOf < 20) {
             z3 = true;
@@ -68,8 +70,11 @@ public class ac {
         if (z3 && a2) {
             if (z) {
                 h.a().a(j2, str);
-            } else if (!TextUtils.isEmpty(e())) {
-                h.a().a(dVar.i, str);
+            } else {
+                str4 = e();
+                if (!TextUtils.isEmpty(str4)) {
+                    h.a().a(dVar.i, str);
+                }
             }
         }
         if (z3) {
@@ -105,6 +110,39 @@ public class ac {
             }
             if (a + b + c + d > 100) {
                 c();
+            }
+        }
+        if (a2) {
+            if (!z || !a2 || j2 >= 1500) {
+                if (sVar == null) {
+                    sVar = a();
+                }
+                String e2 = TextUtils.isEmpty(str4) ? e() : str4;
+                if (z3 && TextUtils.isEmpty("")) {
+                    str5 = a(str);
+                }
+                sVar.a("url", str);
+                sVar.a("act", "dl");
+                sVar.a("result", z ? "0" : TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+                sVar.a("fullurl", str2);
+                sVar.a("costTime", String.valueOf(j2));
+                sVar.a("dnsTime", String.valueOf(dVar.g));
+                sVar.a("connTime", String.valueOf(dVar.c));
+                sVar.a("rspTime", String.valueOf(dVar.d));
+                sVar.a("allTime", String.valueOf(dVar.f));
+                sVar.a("retry", String.valueOf(dVar.e));
+                sVar.a("localIp", n.a());
+                sVar.a("tiebaIp", e2);
+                sVar.a("cdnIp", str5);
+                sVar.a("isWifi", a2 ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
+                sVar.a("status", String.valueOf(dVar.j));
+                sVar.a("up", String.valueOf(dVar.a));
+                sVar.a("down", String.valueOf(dVar.b));
+                sVar.a("isCDN", z3 ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
+                sVar.a("isWebp", bool.booleanValue() ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
+                sVar.a("exception", dVar.h);
+                sVar.a("reason", str3);
+                com.baidu.adp.lib.stats.h.a().a("img", sVar);
             }
         }
     }

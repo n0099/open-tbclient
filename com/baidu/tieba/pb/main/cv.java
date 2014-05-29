@@ -17,7 +17,7 @@ public class cv implements View.OnClickListener {
         View view3;
         View view4;
         if (this.a.j != null) {
-            this.a.j.m();
+            this.a.j.n();
             this.a.y();
             this.a.aR = false;
         }

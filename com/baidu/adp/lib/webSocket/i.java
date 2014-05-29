@@ -14,6 +14,8 @@ class i implements g {
     private byte[] d;
     private long e;
     private String f;
+    private String g;
+    private String h;
 
     public i(String str, int i, am amVar) {
         this.a = null;
@@ -22,6 +24,8 @@ class i implements g {
         this.d = null;
         this.e = 0L;
         this.f = null;
+        this.g = null;
+        this.h = null;
         this.a = new Socket();
         long currentTimeMillis = System.currentTimeMillis();
         InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
@@ -35,6 +39,8 @@ class i implements g {
         this.b = this.a.getInputStream();
         this.c = this.a.getOutputStream();
         this.d = new byte[1024];
+        this.g = com.baidu.adp.lib.util.k.e();
+        this.h = com.baidu.adp.lib.util.k.f();
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
@@ -90,5 +96,15 @@ class i implements g {
     @Override // com.baidu.adp.lib.webSocket.g
     public long d() {
         return this.e;
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g
+    public String e() {
+        return this.g;
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g
+    public String f() {
+        return this.h;
     }
 }

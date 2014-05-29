@@ -22,12 +22,12 @@ class m implements ay {
             return;
         }
         bjVar = this.a.x;
-        int d = bjVar.q().d();
+        int d = bjVar.r().d();
         bjVar2 = this.a.x;
-        if (d < bjVar2.q().a()) {
+        if (d < bjVar2.r().a()) {
             bjVar4 = this.a.x;
             bjVar5 = this.a.x;
-            bjVar4.c(bjVar5.q().d() + 1);
+            bjVar4.c(bjVar5.r().d() + 1);
             return;
         }
         bjVar3 = this.a.x;

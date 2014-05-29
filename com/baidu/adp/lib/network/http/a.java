@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.network.http;
 
 import android.net.Proxy;
-import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetUtil;
 import java.io.ByteArrayInputStream;
@@ -28,11 +27,7 @@ public class a {
     private Timer f;
 
     static {
-        if (Integer.parseInt(Build.VERSION.SDK) < 8) {
-            System.setProperty("http.keepAlive", "false");
-        } else {
-            System.setProperty("http.keepAlive", "true");
-        }
+        System.setProperty("http.keepAlive", "false");
     }
 
     public a(e eVar) {

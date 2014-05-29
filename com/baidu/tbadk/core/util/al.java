@@ -3,13 +3,18 @@ package com.baidu.tbadk.core.util;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class al {
@@ -222,8 +227,14 @@ public class al {
         this.b.a("sign", com.baidu.adp.lib.util.j.a(stringBuffer.toString()));
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0102  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0189  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private String a(int i) {
         String g;
+        String str;
         switch (i) {
             case 1:
                 if (a().a().d) {
@@ -290,37 +301,57 @@ public class al {
                 }
                 if (g != null && this.a.b().b()) {
                     aq.b();
+                    str = g;
+                    if (this.a.b().a()) {
+                        au.a(this.d);
+                        au.b(this.e);
+                        return str;
+                    } else if (!this.a.b().b() && this.a.b().b == 1 && this.a.a().b) {
+                        this.a.b().c = "";
+                        AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
+                        AccountData c = currentAccountObj == null ? com.baidu.tbadk.core.account.a.c() : currentAccountObj;
+                        if (c == null) {
+                            TbadkApplication.m252getInst().handler.sendMessage(TbadkApplication.m252getInst().handler.obtainMessage(1));
+                            return null;
+                        }
+                        com.baidu.tbadk.core.data.i a = a(c.getAccount(), c.getPassword(), true);
+                        com.baidu.tbadk.core.account.a.a(c.getAccount());
+                        if (!TextUtils.isEmpty(c.getID())) {
+                            if (c.getID().equals(TbadkApplication.getCurrentAccount())) {
+                                SapiAccountManager.getInstance().logout();
+                            } else {
+                                List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+                                if (loginAccounts != null && loginAccounts.size() > 0) {
+                                    Iterator<SapiAccount> it = loginAccounts.iterator();
+                                    while (true) {
+                                        if (it.hasNext()) {
+                                            SapiAccount next = it.next();
+                                            if (c.getID().equals(next.uid)) {
+                                                SapiAccountManager.getInstance().removeLoginAccount(next);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (a == null) {
+                            if (this.c != null) {
+                                this.a.b().c = this.c.f();
+                                return null;
+                            }
+                            return str;
+                        }
+                        return b(i);
+                    } else {
+                        return str;
+                    }
                 }
             } else {
                 BdLog.d("手动取消网络请求");
             }
         }
-        if (!this.a.b().a()) {
-            au.a(this.d);
-            au.b(this.e);
-            return g;
-        } else if (!this.a.b().b() && this.a.b().b == 1 && this.a.a().b) {
-            this.a.b().c = "";
-            AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
-            if (currentAccountObj == null) {
-                currentAccountObj = com.baidu.tbadk.core.account.a.c();
-            }
-            if (currentAccountObj == null) {
-                TbadkApplication.m252getInst().handler.sendMessage(TbadkApplication.m252getInst().handler.obtainMessage(1));
-                return null;
-            }
-            com.baidu.tbadk.core.data.i a = a(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true);
-            com.baidu.tbadk.core.account.a.a(currentAccountObj.getAccount());
-            if (a == null) {
-                if (this.c != null) {
-                    this.a.b().c = this.c.f();
-                    return null;
-                }
-                return g;
-            }
-            return b(i);
-        } else {
-            return g;
+        str = g;
+        if (this.a.b().a()) {
         }
     }
 

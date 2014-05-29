@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.gif;
 
 import android.graphics.BitmapFactory;
-import android.os.Handler;
 import android.os.SystemClock;
 /* loaded from: classes.dex */
 class d extends Thread {
@@ -16,38 +15,23 @@ class d extends Thread {
         this(gifView);
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:11:0x002d */
     @Override // java.lang.Thread, java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void run() {
-        b bVar;
-        b bVar2;
-        b bVar3;
-        b bVar4;
-        boolean z;
-        b bVar5;
-        Handler handler;
-        bVar = this.a.a;
-        if (bVar != null) {
-            while (bVar2.b() != 1) {
-                z = this.a.c;
-                if (!z) {
-                    bVar5 = this.a.a;
-                    c d = bVar5.d();
+        if (GifView.a(this.a) != null) {
+            while (GifView.a(this.a).b() != 1) {
+                if (!GifView.c(this.a)) {
+                    c d = GifView.a(this.a).d();
                     if (d == null) {
                         SystemClock.sleep(50L);
                     } else {
                         if (d.a != null) {
-                            this.a.b = d.a;
+                            GifView.a(this.a, d.a);
                         } else if (d.c != null) {
-                            this.a.b = BitmapFactory.decodeFile(d.c);
+                            GifView.a(this.a, BitmapFactory.decodeFile(d.c));
                         }
                         long j = d.b;
-                        handler = this.a.g;
-                        if (handler != null) {
-                            this.a.b();
+                        if (GifView.d(this.a) != null) {
+                            GifView.b(this.a);
                             SystemClock.sleep(j);
                         } else {
                             return;
@@ -57,11 +41,9 @@ class d extends Thread {
                     SystemClock.sleep(50L);
                 }
             }
-            bVar3 = this.a.a;
-            this.a.b = bVar3.d().a;
-            bVar4 = this.a.a;
-            bVar4.a();
-            this.a.b();
+            GifView.a(this.a, GifView.a(this.a).d().a);
+            GifView.a(this.a).a();
+            GifView.b(this.a);
         }
     }
 }

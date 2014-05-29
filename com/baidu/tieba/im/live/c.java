@@ -24,7 +24,7 @@ public class c extends CustomMessageListener {
         if (!(customResponsedMessage instanceof LiveStatusRequestMessage) || ((LiveStatusRequestMessage) customResponsedMessage).hasError()) {
             return;
         }
-        handler = this.a.q;
+        handler = this.a.v;
         handler.sendEmptyMessage(10);
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.chat.snapGroup;
 
 import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k implements DialogInterface.OnClickListener {
+public class k implements DialogInterface.OnClickListener {
     final /* synthetic */ SnapGroupChatView a;
     private final /* synthetic */ SnapGroupChatActivity b;
 

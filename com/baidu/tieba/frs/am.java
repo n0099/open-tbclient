@@ -18,6 +18,7 @@ public class am implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tbadk.f.a().b(this.b.i(), System.currentTimeMillis());
         if (this.b.d() == 2) {
             String a = this.b.a();
             if (!TextUtils.isEmpty(a)) {

@@ -50,9 +50,16 @@ public class f {
                 File file = new File(b);
                 if (file.exists()) {
                     if (file.length() > 0) {
-                        z = b(b, sb);
+                        boolean b2 = b(b, sb);
+                        if (b2) {
+                            sb.append("-Succ2-");
+                            z = b2;
+                        } else {
+                            sb.append("-Error7-");
+                            z = b2;
+                        }
                     } else {
-                        sb.append("[Error6:soSize1]");
+                        sb.append("-Error6:soSize1-");
                         z = z2;
                     }
                 } else {
@@ -74,12 +81,12 @@ public class f {
         if (!b) {
             try {
                 System.loadLibrary(str);
-                sb.append("[Succ3]");
+                sb.append("-Succ3-");
                 return true;
             } catch (Throwable th) {
-                sb.append("[Error3:");
+                sb.append("-Error3:");
                 sb.append(String.valueOf(th.getClass().getName()) + "-" + th.getMessage());
-                sb.append("]");
+                sb.append("-");
                 return b;
             }
         }
@@ -87,23 +94,20 @@ public class f {
     }
 
     private boolean b(String str, StringBuilder sb) {
-        boolean z = false;
         if (!new File(str).exists()) {
-            sb.append("[Error1:");
+            sb.append("-Error1:");
             sb.append(str);
-            sb.append("_FileNotFound]");
+            sb.append("_FileNotFound-");
             return false;
         }
         try {
             System.load(str);
-            z = true;
-            sb.append("[Succ2]");
             return true;
         } catch (Throwable th) {
-            sb.append("[Error2:");
+            sb.append("-Error2:");
             sb.append(String.valueOf(th.getClass().getName()) + "-" + th.getMessage());
-            sb.append("]");
-            return z;
+            sb.append("-");
+            return false;
         }
     }
 
@@ -115,7 +119,7 @@ public class f {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + "lib" + str + ".so";
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [215=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [220=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(String str, String str2, StringBuilder sb) {
         ZipInputStream zipInputStream;
@@ -166,7 +170,7 @@ public class f {
                                 String b = b(str2);
                                 a(b, byteArrayOutputStream.toByteArray(), sb);
                                 if (b(b, sb)) {
-                                    sb.append("[Succ5]");
+                                    sb.append("-Succ5-");
                                     z = true;
                                     com.baidu.adp.lib.f.a.a((OutputStream) byteArrayOutputStream);
                                     break;
@@ -183,9 +187,9 @@ public class f {
                 } catch (IOException e4) {
                     e = e4;
                     zipInputStream2 = zipInputStream;
-                    sb.append("[Error5:");
+                    sb.append("-Error5:");
                     sb.append(String.valueOf(e.getClass().getName()) + "-" + e.getMessage());
-                    sb.append("]");
+                    sb.append("-");
                     com.baidu.adp.lib.f.a.a((InputStream) zipInputStream2);
                     return z;
                 } catch (Throwable th3) {
@@ -212,9 +216,9 @@ public class f {
                     com.baidu.adp.lib.f.a.a((OutputStream) fileOutputStream);
                 } catch (Exception e) {
                     e = e;
-                    sb.append("[Error4:");
+                    sb.append("-Error4:");
                     sb.append(String.valueOf(e.getClass().getName()) + "-" + e.getMessage());
-                    sb.append("]");
+                    sb.append("-");
                     com.baidu.adp.lib.f.a.a((OutputStream) fileOutputStream);
                 }
             } catch (Throwable th) {

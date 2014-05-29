@@ -40,7 +40,7 @@ import com.baidu.tieba.im.model.LiveMsglistModel;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.baidu.tieba.im.live.k {
+public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.baidu.tieba.im.live.l {
     private static String O;
     public boolean n;
     public bo o;
@@ -209,7 +209,7 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     public void onPause() {
         this.B = ((LiveRoomChatView) this.d).ah();
         super.onPause();
-        if (!this.w && x().b != null && (z().T() == 3 || z().T() == 5 || z().T() == 4)) {
+        if (!this.w && x().b != null && (z().T() == 3 || z().T() == 5 || z().T() == 4 || com.baidu.tieba.im.live.b.b().r() == 2 || com.baidu.tieba.im.live.b.b().r() == 1)) {
             b(com.baidu.tieba.y.live_room_notify);
         }
         a = false;
@@ -287,6 +287,7 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
         super.onCreate(bundle);
         this.y = this;
         x().a(getIntent(), bundle);
+        BdLog.addLogPackage("com.baidu.tieba.im.live.room.LiveRoomChatActivity");
         B();
     }
 
@@ -358,7 +359,7 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
         if (this.r != null) {
             this.r.d();
         }
-        com.baidu.tieba.im.live.b.b().a((com.baidu.tieba.im.live.k) null);
+        com.baidu.tieba.im.live.b.b().a((com.baidu.tieba.im.live.l) null);
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x00c1: IGET  (r6v12 java.lang.Integer A[REMOVE]) = 
@@ -415,7 +416,7 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
                 }
                 showToast(com.baidu.tieba.y.live_chat_room_recordstopped);
                 z().R().b();
-                com.baidu.tieba.im.live.b.b().a((com.baidu.tieba.im.live.k) null);
+                com.baidu.tieba.im.live.b.b().a((com.baidu.tieba.im.live.l) null);
                 com.baidu.tieba.im.live.b.b().c(com.baidu.tieba.im.live.b.b().i());
             } else {
                 showToast(com.baidu.tieba.y.live_chat_room_recordnotready);
@@ -622,7 +623,7 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
         return fVar;
     }
 
-    @Override // com.baidu.tieba.im.live.k
+    @Override // com.baidu.tieba.im.live.l
     public void a(int i) {
         if (i > 14340) {
             showToast("");

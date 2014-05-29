@@ -17,8 +17,8 @@ public class h extends IRemoteCallback.Stub {
     public void onLiveStatusChangeEvent(LiveStatusParcelable liveStatusParcelable) {
         Handler handler;
         Handler handler2;
-        handler = this.a.q;
-        handler2 = this.a.q;
+        handler = this.a.v;
+        handler2 = this.a.v;
         handler.sendMessage(handler2.obtainMessage(1, liveStatusParcelable));
     }
 
@@ -26,8 +26,8 @@ public class h extends IRemoteCallback.Stub {
     public void onLiveErrorEvent(String str) {
         Handler handler;
         Handler handler2;
-        handler = this.a.q;
-        handler2 = this.a.q;
+        handler = this.a.v;
+        handler2 = this.a.v;
         handler.sendMessage(handler2.obtainMessage(2, str));
     }
 
@@ -35,8 +35,8 @@ public class h extends IRemoteCallback.Stub {
     public void onLivePlayProgressUpdate(String str, int i, int i2) {
         Handler handler;
         Handler handler2;
-        handler = this.a.q;
-        handler2 = this.a.q;
+        handler = this.a.v;
+        handler2 = this.a.v;
         handler.sendMessage(handler2.obtainMessage(3, i, i2, str));
     }
 
@@ -44,8 +44,8 @@ public class h extends IRemoteCallback.Stub {
     public void onLiveRecordTimeUpdate(int i) {
         Handler handler;
         Handler handler2;
-        handler = this.a.q;
-        handler2 = this.a.q;
+        handler = this.a.v;
+        handler2 = this.a.v;
         handler.sendMessage(handler2.obtainMessage(4, i, i));
     }
 
@@ -53,8 +53,8 @@ public class h extends IRemoteCallback.Stub {
     public void onLivePlayWarning(int i) {
         Handler handler;
         Handler handler2;
-        handler = this.a.q;
-        handler2 = this.a.q;
+        handler = this.a.v;
+        handler2 = this.a.v;
         handler.sendMessage(handler2.obtainMessage(5, i, i));
     }
 }

@@ -38,7 +38,7 @@ public class PluginDownloadService extends Service implements k {
     @Override // com.baidu.tbadk.tbplugin.k
     public void onFinish(int i, String str) {
         m.a().q();
-        if (TbadkApplication.m252getInst().isMainProcess()) {
+        if (TbadkApplication.m252getInst().isMainProcess(true)) {
             sendBroadcast(new Intent(PluginReloadReceiver.ACTION_PLUGIN_RELOAD));
         }
     }

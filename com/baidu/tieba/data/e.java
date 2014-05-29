@@ -15,16 +15,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private String j;
-    private HashMap<String, Integer> q;
+    private HashMap<String, Integer> p;
     private final boolean a = true;
+    private boolean j = true;
     private boolean k = true;
-    private boolean l = true;
-    private int m = 100000;
-    private int n = TbConfig.POST_IMAGE_SMALL;
+    private int l = 100000;
+    private int m = TbConfig.POST_IMAGE_SMALL;
+    private int n = 10;
     private int o = 10;
-    private int p = 10;
-    private boolean s = false;
+    private boolean r = false;
     private int c = 0;
     private int d = 0;
     private int e = 1;
@@ -33,19 +32,15 @@ public class e {
     private String h = null;
     private String i = null;
     private final BannerData b = new BannerData();
-    private com.baidu.tbadk.core.data.e r = new com.baidu.tbadk.core.data.e();
+    private com.baidu.tbadk.core.data.e q = new com.baidu.tbadk.core.data.e();
 
     public e() {
-        this.q = null;
-        this.q = new HashMap<>();
+        this.p = null;
+        this.p = new HashMap<>();
     }
 
     public int a() {
-        return this.m;
-    }
-
-    public String b() {
-        return this.j;
+        return this.l;
     }
 
     public void a(JSONObject jSONObject) {
@@ -59,17 +54,16 @@ public class e {
                 this.h = jSONObject.optString("yijianfankui_fname");
                 this.i = jSONObject.optString("yijianfankui_fid");
                 this.e = jSONObject.optInt("img_chunk_upload_enable", 1);
-                this.n = jSONObject.optInt("kuainan_vote_cd", TbConfig.POST_IMAGE_SMALL);
-                this.o = jSONObject.optInt("kuainan_vote_max", 10);
-                this.p = jSONObject.optInt("kuainan_vote_rate", 10);
-                this.j = jSONObject.optString("as_downloadurl");
+                this.m = jSONObject.optInt("kuainan_vote_cd", TbConfig.POST_IMAGE_SMALL);
+                this.n = jSONObject.optInt("kuainan_vote_max", 10);
+                this.o = jSONObject.optInt("kuainan_vote_rate", 10);
                 int optInt = jSONObject.optInt("app_recommend", -1);
                 int optInt2 = jSONObject.optInt("use_baidu_statis_gbk", 1);
-                if (this.r == null) {
-                    this.r = new com.baidu.tbadk.core.data.e();
+                if (this.q == null) {
+                    this.q = new com.baidu.tbadk.core.data.e();
                 }
-                this.r.a(jSONObject.optString("photo_strategy"));
-                com.baidu.tbadk.core.util.h.a().a(this.r);
+                this.q.a(jSONObject.optString("photo_strategy"));
+                com.baidu.tbadk.core.util.h.a().a(this.q);
                 JSONArray optJSONArray = jSONObject.optJSONArray("switch");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
@@ -77,7 +71,7 @@ public class e {
                         if (jSONObject2 != null) {
                             String optString = jSONObject2.optString("name");
                             Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", -1));
-                            this.q.put(optString, valueOf);
+                            this.p.put(optString, valueOf);
                             if ("netlib_type".equals(optString)) {
                                 TbadkApplication.m252getInst().setNetWorkCoreType(jSONObject2.optInt("type", 1) == 0 ? 1 : 0);
                             } else if ("switch_login_passv6".equals(optString)) {
@@ -87,25 +81,25 @@ public class e {
                         }
                     }
                 }
-                if (this.q != null && this.q.size() > 0) {
-                    com.baidu.adp.lib.a.f.a().a(this.q);
+                if (this.p != null && this.p.size() > 0) {
+                    com.baidu.adp.lib.a.f.a().a(this.p);
                     if (com.baidu.adp.lib.a.f.a().b(LogSwitchStatic.LOG) == 0) {
                         com.baidu.tbadk.core.log.a.a(true);
                     } else {
                         com.baidu.tbadk.core.log.a.a(false);
                     }
                 }
-                this.l = jSONObject.optInt("is_pushservice_open", 1) == 1;
-                TbadkApplication.m252getInst().setIsPushServiceOpen(this.l);
+                this.k = jSONObject.optInt("is_pushservice_open", 1) == 1;
+                TbadkApplication.m252getInst().setIsPushServiceOpen(this.k);
                 TbadkApplication.m252getInst().setIsMoPlusOpen(jSONObject.optInt("is_moplus_open", 1) == 1);
-                if (!this.l) {
+                if (!this.k) {
                     UtilHelper.stopPushService(com.baidu.tieba.ai.c().d().getApplicationContext());
                 }
                 TbadkApplication.m252getInst().setFeatureCrashAutoCloseLimit(jSONObject.optInt("feature_crash_auto_close_limit", 3));
-                this.k = jSONObject.optInt("gpu_open", 1) == 1;
-                TbadkApplication.m252getInst().setGpuOpen(this.k);
-                this.s = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
-                VoiceManager.setVoiceUseSoftDecoder(this.s);
+                this.j = jSONObject.optInt("gpu_open", 1) == 1;
+                TbadkApplication.m252getInst().setGpuOpen(this.j);
+                this.r = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
+                VoiceManager.setVoiceUseSoftDecoder(this.r);
                 if (com.baidu.tieba.ai.c().E()) {
                     int optInt3 = jSONObject.optInt("open_abstract", 0);
                     if (!(optInt3 == 0 || TbadkApplication.m252getInst().getIsAbstractStatus() != 0)) {
@@ -118,10 +112,10 @@ public class e {
                 } else if (optInt == 0) {
                     com.baidu.tieba.ai.c().d(false);
                 }
-                com.baidu.tieba.ai.c().f(this.n);
-                com.baidu.tieba.ai.c().g(this.o);
-                com.baidu.tieba.ai.c().h(this.p);
-                this.m = jSONObject.optInt("perform_sample_param", 100000);
+                com.baidu.tieba.ai.c().f(this.m);
+                com.baidu.tieba.ai.c().g(this.n);
+                com.baidu.tieba.ai.c().h(this.o);
+                this.l = jSONObject.optInt("perform_sample_param", 100000);
                 JSONObject optJSONObject = jSONObject.optJSONObject("keepalive");
                 if (optJSONObject != null) {
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject("wifi");

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.WindowManager;
 import android.webkit.URLUtil;
 import com.baidu.tbadk.BaseActivity;
@@ -24,13 +23,12 @@ public class UpdateDialog extends BaseActivity {
     private ac h;
     private bc i;
 
-    public static void a(Context context, VersionData versionData, CombineDownload combineDownload, String str) {
+    public static void a(Context context, VersionData versionData, CombineDownload combineDownload) {
         if (versionData != null) {
             Intent intent = new Intent(context, UpdateDialog.class);
             intent.setFlags(268435456);
             intent.putExtra("tieba_apk_data", versionData);
             intent.putExtra("other_apk_data", combineDownload);
-            intent.putExtra("as_apk_url", str);
             context.startActivity(intent);
             ai.c().o(true);
             ai.c().a(combineDownload);
@@ -52,13 +50,17 @@ public class UpdateDialog extends BaseActivity {
         if (bundle != null) {
             this.e = (VersionData) bundle.getSerializable("tieba_apk_data");
             this.f = (CombineDownload) bundle.getSerializable("other_apk_data");
-            this.g = bundle.getString("as_apk_url");
+            if (this.e != null) {
+                this.g = this.e.getAsDownloadUrl();
+            }
         } else {
             Intent intent = getIntent();
             if (intent != null) {
                 this.e = (VersionData) intent.getSerializableExtra("tieba_apk_data");
                 this.f = (CombineDownload) intent.getSerializableExtra("other_apk_data");
-                this.g = intent.getStringExtra("as_apk_url");
+                if (this.e != null) {
+                    this.g = this.e.getAsDownloadUrl();
+                }
             }
         }
         if (this.e == null || !this.e.hasNewVer()) {
@@ -86,9 +88,6 @@ public class UpdateDialog extends BaseActivity {
         }
         if (this.f != null) {
             bundle.putSerializable("other_apk_data", this.f);
-        }
-        if (!TextUtils.isEmpty(this.g)) {
-            bundle.putString("as_apk_url", this.g);
         }
     }
 
@@ -128,6 +127,7 @@ public class UpdateDialog extends BaseActivity {
             intent.putExtra("tieba_apk_data", this.e);
         }
         if (z2 && URLUtil.isNetworkUrl(this.g)) {
+            intent.putExtra("tieba_apk_data", this.e);
             intent.putExtra("as_apk_url", this.g);
         }
         if (z3 && URLUtil.isNetworkUrl(this.f.getAppUrl())) {

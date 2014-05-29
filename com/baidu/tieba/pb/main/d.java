@@ -28,10 +28,10 @@ class d implements com.baidu.tieba.model.ak {
             bjVar = this.a.x;
             bjVar.c(z2);
             bjVar2 = this.a.x;
-            if (!bjVar2.x()) {
+            if (!bjVar2.y()) {
                 bqVar2 = this.a.D;
                 bjVar3 = this.a.x;
-                bqVar2.a(bjVar3.p());
+                bqVar2.a(bjVar3.q());
             } else {
                 this.a.A();
             }

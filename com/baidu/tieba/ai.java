@@ -113,7 +113,7 @@ public class ai {
 
     private void U() {
         com.baidu.tbadk.tbplugin.m.a(TbadkApplication.m252getInst());
-        new com.baidu.tbadk.plugins.a().a(e(), TbadkApplication.m252getInst().isMainProcess(), TbadkApplication.m252getInst().getIsFirstUse(), new ar(this));
+        new com.baidu.tbadk.plugins.a().a(e(), TbadkApplication.m252getInst().isMainProcess(false), TbadkApplication.m252getInst().getIsFirstUse(), new ar(this));
     }
 
     public static ai c() {
@@ -135,7 +135,7 @@ public class ai {
             messageManager.addMessageRule(new com.baidu.tbadk.b.a(0));
             messageManager.addResponsedMessageRule(new com.baidu.tbadk.b.c(0));
             messageManager.addRemovedMessageRule(new com.baidu.tbadk.b.b(0));
-            if (TbadkApplication.m252getInst().isMainProcess()) {
+            if (TbadkApplication.m252getInst().isMainProcess(true)) {
                 com.baidu.tbadk.core.sharedPref.b.a().b();
             }
             X();
@@ -149,7 +149,7 @@ public class ai {
             }
             U();
             this.b.postDelayed(new au(this, application), 2000L);
-            if (TbadkApplication.m252getInst().isMainProcess()) {
+            if (TbadkApplication.m252getInst().isMainProcess(true)) {
                 TiebaStatic.init(TbadkApplication.m252getInst());
                 if (TbadkApplication.m252getInst().getIsFirstUse()) {
                     com.baidu.adp.lib.a.f.a().b();
@@ -182,7 +182,7 @@ public class ai {
             aVar.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(aVar);
             W();
-            if (TbadkApplication.m252getInst().isMainProcess()) {
+            if (TbadkApplication.m252getInst().isMainProcess(true)) {
                 TbadkApplication.m252getInst().sendMessageForEnterBackground();
                 g();
             }

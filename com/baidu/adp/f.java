@@ -23,6 +23,7 @@ public final class f {
     public static final int im_error_default = 2131230740;
     public static final int item_close = 2131230727;
     public static final int item_open = 2131230726;
+    public static final int lcsReOnlineSucc = 2131230752;
     public static final int memoryerror = 2131230748;
     public static final int neterror = 2131230747;
     public static final int prompt = 2131230733;

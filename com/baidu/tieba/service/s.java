@@ -135,7 +135,6 @@ public class s extends BdAsyncTask<String, Integer, bc> {
         bc bcVar9;
         bc bcVar10;
         bc bcVar11;
-        bc bcVar12;
         super.onPostExecute(bcVar);
         this.b.mSyncTask = null;
         if (bcVar != null) {
@@ -148,27 +147,25 @@ public class s extends BdAsyncTask<String, Integer, bc> {
                 c.a(bcVar3.c());
                 this.b.broadcastNewVersion();
                 bcVar4 = this.b.mModel;
-                String b = bcVar4.a().b();
-                bcVar5 = this.b.mModel;
-                if (bcVar5.c().forceUpdate()) {
-                    bcVar10 = this.b.mModel;
-                    if (bcVar10.a() != null) {
+                if (bcVar4.c().forceUpdate()) {
+                    bcVar9 = this.b.mModel;
+                    if (bcVar9.a() != null) {
                         Application d = ai.c().d();
+                        bcVar10 = this.b.mModel;
+                        VersionData c2 = bcVar10.c();
                         bcVar11 = this.b.mModel;
-                        VersionData c2 = bcVar11.c();
-                        bcVar12 = this.b.mModel;
-                        UpdateDialog.a(d, c2, bcVar12.b(), b);
+                        UpdateDialog.a(d, c2, bcVar11.b());
                     }
                 } else if (Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(TbadkApplication.m252getInst().getUpdateNotifyTime()).longValue() > 86400000) {
-                    bcVar6 = this.b.mModel;
-                    if (bcVar6.c().getStrategy() == 0) {
-                        bcVar7 = this.b.mModel;
-                        if (bcVar7.a() != null) {
+                    bcVar5 = this.b.mModel;
+                    if (bcVar5.c().getStrategy() == 0) {
+                        bcVar6 = this.b.mModel;
+                        if (bcVar6.a() != null) {
                             Application d2 = ai.c().d();
+                            bcVar7 = this.b.mModel;
+                            VersionData c3 = bcVar7.c();
                             bcVar8 = this.b.mModel;
-                            VersionData c3 = bcVar8.c();
-                            bcVar9 = this.b.mModel;
-                            UpdateDialog.a(d2, c3, bcVar9.b(), b);
+                            UpdateDialog.a(d2, c3, bcVar8.b());
                         }
                     }
                 }

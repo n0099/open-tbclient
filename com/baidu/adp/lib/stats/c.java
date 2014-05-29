@@ -87,17 +87,21 @@ public abstract class c extends f {
 
     @Override // com.baidu.adp.lib.stats.f
     public void c(boolean z) {
-        if (!d() && this.m > 0) {
-            e eVar = new e(this, this.o, a(), DiskFileOperate.Action.APPEND, this, z);
-            eVar.e(this.c);
-            eVar.a(this.l.toString());
-            n();
-            if (this.d) {
-                eVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-                eVar.a(3);
-            }
-            if (!com.baidu.adp.lib.Disk.d.a().b(eVar)) {
-                this.i++;
+        if (!d()) {
+            if (this.m > 0) {
+                e eVar = new e(this, this.o, a(), DiskFileOperate.Action.APPEND, this, z);
+                eVar.e(this.c);
+                eVar.a(this.l.toString());
+                n();
+                if (this.d) {
+                    eVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+                    eVar.a(3);
+                }
+                if (!com.baidu.adp.lib.Disk.d.a().b(eVar)) {
+                    this.i++;
+                }
+            } else if (z) {
+                h.a().a(this, z);
             }
         }
     }

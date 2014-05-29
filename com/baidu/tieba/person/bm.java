@@ -65,7 +65,7 @@ public class bm extends com.baidu.tbadk.core.d {
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         a(bundle);
-        this.e = Boolean.valueOf(this.c.f());
+        this.e = Boolean.valueOf(this.c.g());
         l();
         return a(layoutInflater);
     }
@@ -73,7 +73,7 @@ public class bm extends com.baidu.tbadk.core.d {
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.c.n();
+        this.c.o();
     }
 
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
@@ -100,11 +100,11 @@ public class bm extends com.baidu.tbadk.core.d {
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         i();
-        if (this.c.e() != null && this.c.e().length() > 0 && this.e.booleanValue()) {
+        if (this.c.f() != null && this.c.f().length() > 0 && this.e.booleanValue()) {
             j();
         }
         com.baidu.tieba.util.k.b((Boolean) true);
-        if (this.c.e() != null && this.c.e().length() > 0) {
+        if (this.c.f() != null && this.c.f().length() > 0) {
             h();
         }
         this.g = new PersonChangeData();
@@ -133,7 +133,7 @@ public class bm extends com.baidu.tbadk.core.d {
     private void a(Bundle bundle) {
         this.d = new com.baidu.tieba.model.e();
         this.c = new com.baidu.tieba.model.av(this.f);
-        this.c.c();
+        this.c.d();
         if (getActivity() instanceof BaseFragmentActivity) {
             this.d.setUniqueId(((BaseFragmentActivity) getActivity()).getUniqueId());
             this.c.setUniqueId(((BaseFragmentActivity) getActivity()).getUniqueId());
@@ -177,7 +177,7 @@ public class bm extends com.baidu.tbadk.core.d {
     public void m() {
         this.m = null;
         this.m = new ArrayList();
-        if (this.c.f()) {
+        if (this.c.g()) {
             this.o.a(this.c, 1);
         } else {
             this.o.a(this.c, 3);
@@ -211,11 +211,11 @@ public class bm extends com.baidu.tbadk.core.d {
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         if (this.c != null) {
-            bundle.putBoolean("self", this.c.f());
-            bundle.putString("un", this.c.e());
-            bundle.putString("name", this.c.j());
-            bundle.putBoolean("tab_page", this.c.l());
-            bundle.putBoolean("tab_msg", this.c.m());
+            bundle.putBoolean("self", this.c.g());
+            bundle.putString("un", this.c.f());
+            bundle.putString("name", this.c.k());
+            bundle.putBoolean("tab_page", this.c.m());
+            bundle.putBoolean("tab_msg", this.c.n());
         }
     }
 
@@ -231,8 +231,8 @@ public class bm extends com.baidu.tbadk.core.d {
             h();
             q = false;
         } else if (d_()) {
-            this.e = Boolean.valueOf(this.c.f());
-            if (this.c.e() == null || this.c.e().length() <= 0) {
+            this.e = Boolean.valueOf(this.c.g());
+            if (this.c.f() == null || this.c.f().length() <= 0) {
                 TiebaStatic.eventStat(this.f, "home_login_show", "loginshow", 1, new Object[0]);
                 if (TbadkApplication.getCurrentAccount() != null) {
                     this.c.b(true);
@@ -245,12 +245,12 @@ public class bm extends com.baidu.tbadk.core.d {
                 return;
             }
             if (this.e.booleanValue()) {
-                if (com.baidu.tbadk.coreExtra.messageCenter.a.a().m() != this.c.k()) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.a.a().m() != this.c.l()) {
                     this.c.a(com.baidu.tbadk.coreExtra.messageCenter.a.a().m());
                     z = true;
                 }
-                if (z && this.c.k() > 0) {
-                    this.c.a(this.c.k());
+                if (z && this.c.l() > 0) {
+                    this.c.a(this.c.l());
                     this.n.a(true);
                 }
             }
@@ -273,7 +273,7 @@ public class bm extends com.baidu.tbadk.core.d {
     /* JADX INFO: Access modifiers changed from: private */
     public void o() {
         String format;
-        String userName = this.c.g() != null ? this.c.g().getUserName() : null;
+        String userName = this.c.h() != null ? this.c.h().getUserName() : null;
         if (userName != null) {
             if (this.j == null) {
                 p();
@@ -311,8 +311,8 @@ public class bm extends com.baidu.tbadk.core.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void t() {
-        if (this.c != null && this.c.g() != null) {
-            PersonImageActivity.a(this.f, a(this.f, this.c.g().getPortraitH()));
+        if (this.c != null && this.c.h() != null) {
+            PersonImageActivity.a(this.f, a(this.f, this.c.h().getPortraitH()));
         }
     }
 
@@ -321,13 +321,13 @@ public class bm extends com.baidu.tbadk.core.d {
     }
 
     private void u() {
-        this.c.h();
+        this.c.i();
     }
 
     private void v() {
         TiebaStatic.eventStat(this.f, "enter_chat", "personclick", 1, new Object[0]);
         try {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new com.baidu.tbadk.core.atomData.au(this.f, Long.parseLong(this.c.g().getUserId()), this.c.g().getUserName(), this.c.g().getPortrait(), this.c.g().getSex())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new com.baidu.tbadk.core.atomData.au(this.f, Long.parseLong(this.c.h().getUserId()), this.c.h().getUserName(), this.c.h().getPortrait(), this.c.h().getSex())));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -336,10 +336,10 @@ public class bm extends com.baidu.tbadk.core.d {
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onDestroy() {
         if (this.c != null) {
-            if (this.c.e() != null && this.c.e().length() > 0 && this.c.f()) {
+            if (this.c.f() != null && this.c.f().length() > 0 && this.c.g()) {
                 k();
             }
-            this.c.n();
+            this.c.o();
         }
         com.baidu.tieba.util.k.b((Boolean) true);
         super.onDestroy();
@@ -347,6 +347,8 @@ public class bm extends com.baidu.tbadk.core.d {
 
     @Override // android.support.v4.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
+        String stringExtra;
+        boolean z;
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             if (i == 101) {
@@ -374,10 +376,28 @@ public class bm extends com.baidu.tbadk.core.d {
                     this.g.setPhotoChanged(true);
                 }
                 r.a(true);
-                if (this.c.g() != null) {
-                    this.c.i().e(this.c.g().getPortrait());
+                if (this.c.h() != null) {
+                    this.c.j().e(this.c.h().getPortrait());
                 }
                 h();
+            } else if (i == 18003 && intent != null && (stringExtra = intent.getStringExtra("tid")) != null && this.c != null && this.c.c()) {
+                int size = this.c.a().post_list.size();
+                int i3 = 0;
+                while (true) {
+                    if (i3 >= size) {
+                        z = false;
+                        break;
+                    } else if (stringExtra.equals(new StringBuilder(String.valueOf(this.c.a().post_list.get(i3).thread_id)).toString())) {
+                        z = true;
+                        break;
+                    } else {
+                        i3++;
+                    }
+                }
+                if (z && intent.getIntExtra("type", -1) == 0) {
+                    this.c.a().post_list.remove(i3);
+                    this.k.a(this.c);
+                }
             }
         } else if (i2 == 0) {
             if (i == 12009) {
@@ -390,15 +410,15 @@ public class bm extends com.baidu.tbadk.core.d {
 
     private void a(Intent intent) {
         PersonChangeData personChangeData = (PersonChangeData) intent.getSerializableExtra("person_change_data");
-        if (personChangeData != null && this.c.g() != null) {
+        if (personChangeData != null && this.c.h() != null) {
             this.c.a(personChangeData);
             if (personChangeData.getPhotoChanged()) {
                 if (this.g != null) {
                     this.g.setPhotoChanged(true);
                 }
                 r.a(true);
-                if (this.c.g() != null) {
-                    this.c.i().e(this.c.g().getPortrait());
+                if (this.c.h() != null) {
+                    this.c.j().e(this.c.h().getPortrait());
                 }
             }
             h();
@@ -438,40 +458,40 @@ public class bm extends com.baidu.tbadk.core.d {
         if (view.getId() == this.n.getBackBtn().getId()) {
             this.f.finish();
         } else if (view.getId() == this.n.getEditBtn().getId()) {
-            if (!this.c.f()) {
+            if (!this.c.g()) {
                 s();
                 return;
             }
             PersonChangeData personChangeData = new PersonChangeData();
-            if (this.c.g() != null) {
-                personChangeData.setName(this.c.g().getName_show());
-                personChangeData.setIntro(this.c.g().getIntro());
-                personChangeData.setSex(this.c.g().getSex());
-                personChangeData.setPortrait(this.c.g().getPortrait());
+            if (this.c.h() != null) {
+                personChangeData.setName(this.c.h().getName_show());
+                personChangeData.setIntro(this.c.h().getIntro());
+                personChangeData.setSex(this.c.h().getSex());
+                personChangeData.setPortrait(this.c.h().getPortrait());
             }
             PersonChangeActivity.a(this.f, 101, personChangeData, true);
             com.baidu.tbadk.core.f.a(this.f, "person_editprofile_click");
         } else if (view.getId() == this.o.getAttentionBtn().getId()) {
-            if (this.c.g() != null) {
+            if (this.c.h() != null) {
                 if (TbadkApplication.getCurrentAccount() == null || TbadkApplication.getCurrentAccount().length() <= 0) {
                     LoginActivity.a((Activity) this.f, this.f.getResources().getString(com.baidu.tieba.y.login_to_attention), true, 11035);
-                } else if (!this.c.f()) {
+                } else if (!this.c.g()) {
                     u();
                 } else {
-                    AntiHelper.a(this.f, this.c.d(), AntiHelper.OperationType.ACCOUNT_RESTORE, AntiHelper.PageType.PERSON_INFO);
+                    AntiHelper.a(this.f, this.c.e(), AntiHelper.OperationType.ACCOUNT_RESTORE, AntiHelper.PageType.PERSON_INFO);
                 }
             }
         } else if (view.getId() == this.o.getSendBtn().getId()) {
-            if (this.c.g() != null) {
+            if (this.c.h() != null) {
                 if (TbadkApplication.getCurrentAccount() == null || TbadkApplication.getCurrentAccount().length() <= 0) {
                     LoginActivity.a((Activity) this.f, this.f.getResources().getString(com.baidu.tieba.y.login_to_chat), true, 11028);
-                } else if (!this.c.f()) {
+                } else if (!this.c.g()) {
                     v();
                 }
             }
         } else if (view.getId() == this.o.getUserIcon().getId()) {
-            if (this.c.g() != null) {
-                if (this.c.f()) {
+            if (this.c.h() != null) {
+                if (this.c.g()) {
                     if (this.h != null) {
                         this.h.show();
                         return;
@@ -481,30 +501,30 @@ public class bm extends com.baidu.tbadk.core.d {
                 t();
             }
         } else if (view.getId() == this.o.getUserIconView1().getId() || view.getId() == this.o.getUserIconView2().getId()) {
-            if (this.c.g() != null) {
+            if (this.c.h() != null) {
                 TbWebViewActivity.b(this.f, this.f.getString(com.baidu.tieba.y.user_icon_intro), String.valueOf(b) + "?st_type=person_user_icon");
             }
         } else if (view.getId() == this.n.getAttentionId()) {
-            if (this.c != null && this.c.g() != null) {
-                if (this.c.f()) {
+            if (this.c != null && this.c.h() != null) {
+                if (this.c.g()) {
                     com.baidu.tbadk.core.f.a(this.f, "person_self_attentionper_click");
                 } else {
                     com.baidu.tbadk.core.f.a(this.f, "person_guid_attentionper_click");
                 }
-                PersonListActivity.a(this.f, true, this.c.g().getUserId(), this.c.g() != null ? this.c.g().getSex() : 0);
+                PersonListActivity.a(this.f, true, this.c.h().getUserId(), this.c.h() != null ? this.c.h().getSex() : 0);
             }
         } else if (view.getId() == this.n.getPostId()) {
-            if (this.c != null && this.c.g() != null) {
-                if (this.c.f()) {
+            if (this.c != null && this.c.h() != null) {
+                if (this.c.g()) {
                     com.baidu.tbadk.core.f.a(this.f, "person_self_thread_click");
                 } else {
                     com.baidu.tbadk.core.f.a(this.f, "person_guid_thread_click");
                 }
-                PersonPostActivity.a(this.f, this.c.g().getUserId(), this.c.g().getSex(), this.c.g().getPortrait());
+                PersonPostActivity.a(this.f, this.c.h().getUserId(), this.c.h().getSex(), this.c.h().getPortrait());
             }
         } else if (view.getId() == this.n.getFansId()) {
-            if (this.c != null && this.c.g() != null) {
-                if (this.c.f()) {
+            if (this.c != null && this.c.h() != null) {
+                if (this.c.g()) {
                     com.baidu.tbadk.core.f.a(this.f, "person_self_attentionme_click");
                 } else {
                     com.baidu.tbadk.core.f.a(this.f, "person_guid_attentionme_click");
@@ -512,19 +532,19 @@ public class bm extends com.baidu.tbadk.core.d {
                 this.n.a(false);
                 this.n.b();
                 this.k.j();
-                PersonListActivity.a(this.f, false, this.c.g().getUserId(), this.c.g() != null ? this.c.g().getSex() : 0);
+                PersonListActivity.a(this.f, false, this.c.h().getUserId(), this.c.h() != null ? this.c.h().getSex() : 0);
             }
         } else if (view.getId() == this.n.getForumId()) {
-            if (this.c != null && this.c.g() != null) {
-                if (this.c.f()) {
-                    EditBarActivity.a(this.f, 103, null, this.c.g() != null ? this.c.g().getSex() : 0);
+            if (this.c != null && this.c.h() != null) {
+                if (this.c.g()) {
+                    EditBarActivity.a(this.f, 103, null, this.c.h() != null ? this.c.h().getSex() : 0);
                     com.baidu.tbadk.core.f.a(this.f, "person_self_attentionbar_click");
                     return;
                 }
-                EditBarActivity.a(this.f, 103, this.c.g().getUserId(), this.c.g() != null ? this.c.g().getSex() : 0);
+                EditBarActivity.a(this.f, 103, this.c.h().getUserId(), this.c.h() != null ? this.c.h().getSex() : 0);
                 com.baidu.tbadk.core.f.a(this.f, "person_guid_attentionbar_click");
             }
-        } else if (view.getId() == this.o.getUserVipView() && this.c.g() != null) {
+        } else if (view.getId() == this.o.getUserVipView() && this.c.h() != null) {
             TbWebViewActivity.a(this.f, getString(com.baidu.tieba.y.member_benefits), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
         }
     }

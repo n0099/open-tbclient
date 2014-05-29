@@ -13,7 +13,7 @@ public class ar implements com.baidu.tbadk.tbplugin.h {
 
     @Override // com.baidu.tbadk.tbplugin.h
     public void a() {
-        if (TbadkApplication.m252getInst().isMainProcess()) {
+        if (TbadkApplication.m252getInst().isMainProcess(false)) {
             this.a.b.post(new as(this));
             return;
         }

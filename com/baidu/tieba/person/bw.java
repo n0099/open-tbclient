@@ -18,7 +18,7 @@ public class bw implements DialogInterface.OnClickListener {
         com.baidu.tieba.model.e eVar2;
         com.baidu.tieba.model.e eVar3;
         avVar = this.a.c;
-        int a = com.baidu.adp.lib.f.b.a(avVar.e(), -1);
+        int a = com.baidu.adp.lib.f.b.a(avVar.f(), -1);
         if (a > 0) {
             eVar = this.a.d;
             if (eVar.a() == 1) {

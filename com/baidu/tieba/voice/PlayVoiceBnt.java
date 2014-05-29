@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.k;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbadkApplication;
@@ -165,8 +166,8 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
             } else {
                 formatVoiceTime = VoiceManager.formatVoiceTime(this.b.duration);
             }
-            String str = (String) this.d.getText();
-            if (str == null || !str.equals(formatVoiceTime)) {
+            String a = j.a(this.d.getText(), null);
+            if (a == null || !a.equals(formatVoiceTime)) {
                 this.d.setText(formatVoiceTime);
             }
         }

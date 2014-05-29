@@ -90,14 +90,12 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.a.resumeTimers();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.a.pauseTimers();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

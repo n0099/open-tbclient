@@ -12,7 +12,7 @@ public class t implements as {
     @Override // com.baidu.tieba.editortool.as
     public void a() {
         this.a.e();
-        this.a.g = false;
+        this.a.h = false;
     }
 
     @Override // com.baidu.tieba.editortool.as

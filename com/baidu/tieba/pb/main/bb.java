@@ -22,7 +22,6 @@ public class bb implements View.OnClickListener {
             context = this.a.b;
             com.baidu.tbadk.core.f.a(context, "pb_tb_btc");
             int h = aeVar.h();
-            com.baidu.tbadk.f.a().b(aeVar.d(), System.currentTimeMillis());
             if (h == 0) {
                 this.a.a(aeVar, intValue);
             } else if (h == 2) {

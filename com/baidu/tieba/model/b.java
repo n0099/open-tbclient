@@ -6,6 +6,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<String, Integer, bc> {
@@ -49,6 +50,11 @@ public class b extends BdAsyncTask<String, Integer, bc> {
             } else {
                 this.a.a("_msg_status", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             }
+            String packageName = TbadkApplication.m252getInst().getPackageName();
+            this.a.a("package", packageName);
+            this.a.a("versioncode", new StringBuilder(String.valueOf(TbadkApplication.m252getInst().getVersionCode())).toString());
+            this.a.a("signmd5", UtilHelper.creatSignInt(TbadkApplication.m252getInst().getPackageManager().getPackageInfo(packageName, 64)));
+            this.a.a("md5", com.baidu.tieba.bd.a());
             String i = this.a.i();
             if (!this.a.a().b().b()) {
                 return null;

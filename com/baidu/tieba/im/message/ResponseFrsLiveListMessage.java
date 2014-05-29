@@ -77,6 +77,7 @@ public class ResponseFrsLiveListMessage extends SocketResponsedMessage {
                 liveCardData2.setPortrait(liveGroupInfo2.portrait);
                 liveCardData2.setPublisherId(liveGroupInfo2.publisherId.intValue());
                 liveCardData2.setPublisherName(liveGroupInfo2.publisherName);
+                liveCardData2.setPublisherPortrait(liveGroupInfo2.publisherPortrait);
                 liveCardData2.setStartTime(liveGroupInfo2.startTime.intValue());
                 liveCardData2.setStatus(liveGroupInfo2.status.intValue());
                 liveCardData2.setStreamId(liveGroupInfo2.streamId);

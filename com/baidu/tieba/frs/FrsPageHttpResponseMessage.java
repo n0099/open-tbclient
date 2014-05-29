@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs;
 
+import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes.dex */
@@ -17,13 +18,20 @@ public class FrsPageHttpResponseMessage extends TbHttpResponsedMessage {
         super(i);
     }
 
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void setOrginalMessage(Message<?> message) {
+        super.setOrginalMessage(message);
+        if (message.getExtra() instanceof FRSPageRequestMessage) {
+            FRSPageRequestMessage fRSPageRequestMessage = (FRSPageRequestMessage) message.getExtra();
+            this.updateType = fRSPageRequestMessage.getUpdateType();
+            this.forumModel = fRSPageRequestMessage.getForumModel();
+            this.needCache = fRSPageRequestMessage.isNeedCache();
+            this.hasNetworkError = hasError();
+        }
+    }
+
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
-        FRSPageRequestMessage fRSPageRequestMessage = (FRSPageRequestMessage) getOrginalMessage().getExtra();
-        this.updateType = fRSPageRequestMessage.getUpdateType();
-        this.forumModel = fRSPageRequestMessage.getForumModel();
-        this.needCache = fRSPageRequestMessage.isNeedCache();
-        this.hasNetworkError = hasError();
         FrsPageResIdl a = this.forumModel.a(bArr);
         setError(a.error.errorno.intValue());
         setErrorString(a.error.usermsg);

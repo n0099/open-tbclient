@@ -26,7 +26,6 @@ public class bc implements View.OnClickListener {
             context = this.a.b;
             com.baidu.tbadk.core.f.a(context, "pb_tb_arc");
             new com.baidu.tbadk.core.util.az("", "pb_ck", aeVar.d()).start();
-            com.baidu.tbadk.f.a().b(aeVar.d(), System.currentTimeMillis());
             int h = aeVar.h();
             if (h == 0) {
                 context2 = this.a.b;

@@ -48,18 +48,18 @@ class k implements com.baidu.tieba.model.as {
             arVar3 = this.a.z;
             arVar3.a(false);
             bjVar = this.a.x;
-            bjVar.z();
+            bjVar.A();
             this.a.a(antiData, str);
             bjVar2 = this.a.x;
-            if (!bjVar2.m()) {
+            if (!bjVar2.n()) {
                 bjVar5 = this.a.x;
-                com.baidu.tieba.util.m.b(bjVar5.f(), (WriteData) null);
+                com.baidu.tieba.util.m.b(bjVar5.g(), (WriteData) null);
             }
             if (a != null) {
                 String floor = a.getFloor();
                 if (a == null || a.getType() != 2) {
                     bjVar3 = this.a.x;
-                    if (bjVar3.r()) {
+                    if (bjVar3.s()) {
                         bqVar4 = this.a.D;
                         bqVar4.t();
                         return;
@@ -70,9 +70,9 @@ class k implements com.baidu.tieba.model.as {
                 fVar2.i();
                 if (floor != null) {
                     bjVar4 = this.a.x;
-                    com.baidu.tieba.data.af p = bjVar4.p();
+                    com.baidu.tieba.data.af q = bjVar4.q();
                     bqVar5 = this.a.D;
-                    bqVar5.a(p);
+                    bqVar5.a(q);
                 }
                 com.baidu.tieba.util.m.a(a.getThreadId(), this.a);
             }

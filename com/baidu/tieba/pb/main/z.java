@@ -17,9 +17,9 @@ class z implements com.baidu.tbadk.core.view.m {
         z2 = this.a.e;
         if (!z2 && z) {
             bjVar = this.a.x;
-            if (!bjVar.n()) {
+            if (!bjVar.o()) {
                 bjVar2 = this.a.x;
-                if (bjVar2.s()) {
+                if (bjVar2.t()) {
                     bqVar = this.a.D;
                     bqVar.t();
                 }

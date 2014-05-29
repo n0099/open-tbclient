@@ -51,9 +51,9 @@ class f extends BdAsyncTask<byte[], String, SocketResponsedMessage> {
                 this.c = this.a.a(b2);
                 SocketMessage g = this.c != null ? this.c.g() : null;
                 if (g != null) {
-                    newInstance.setOrginalMessage(g);
                     newInstance.setmCostTime(currentTimeMillis - g.getmStartSendTime());
                     newInstance.setmRetry(g.getmRetryCount());
+                    newInstance.setOrginalMessage(g);
                 }
                 try {
                     newInstance.decodeInBackGround(a, this.b);

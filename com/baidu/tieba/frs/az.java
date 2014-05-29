@@ -790,6 +790,7 @@ public class az extends BaseAdapter implements View.OnClickListener {
             biVar.d.setText(com.baidu.tbadk.core.util.be.a(bVar.c() * 1000));
             if (com.baidu.tbadk.core.g.a().d()) {
                 biVar.b.setVisibility(0);
+                biVar.b.setDefaultResource(com.baidu.tieba.u.avatar_poto_defaul140);
                 if (this.j) {
                     biVar.b.setSuffix("_small");
                 } else {
@@ -800,7 +801,7 @@ public class az extends BaseAdapter implements View.OnClickListener {
                 biVar.b.setVisibility(8);
             }
             biVar.b.setTag(bVar.f());
-            if (com.baidu.tbadk.core.g.a().f()) {
+            if (com.baidu.tbadk.core.g.a().f() && !TextUtils.isEmpty(bVar.b())) {
                 biVar.f.setVisibility(0);
                 biVar.f.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d);
                 biVar.f.setNightDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d_1);

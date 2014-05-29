@@ -17,10 +17,13 @@ public class x implements com.baidu.tbadk.editortool.x {
 
     @Override // com.baidu.tbadk.editortool.x
     public void a(int i, Object obj) {
-        boolean v;
         Pattern pattern;
         if (i == 20) {
             if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.data.d)) {
+                if (this.a.l()) {
+                    com.baidu.adp.lib.util.k.a(this.a.getContext(), com.baidu.tieba.y.over_limit_tip);
+                    return;
+                }
                 com.baidu.tbadk.coreExtra.data.d dVar = (com.baidu.tbadk.coreExtra.data.d) obj;
                 if (dVar.a() != null) {
                     if (PbEditor.a(this.a.b.getEditText().getText().toString()) >= 10 && (this.a.a instanceof BaseActivity)) {
@@ -39,7 +42,7 @@ public class x implements com.baidu.tbadk.editortool.x {
         } else if (i == 21) {
             if (this.a.b.getEditText().getSelectionStart() > 0) {
                 String substring = this.a.b.getEditText().getText().toString().substring(0, this.a.b.getEditText().getSelectionStart());
-                pattern = PbEditor.f;
+                pattern = PbEditor.g;
                 Matcher matcher = pattern.matcher(substring);
                 if (matcher.find()) {
                     this.a.b.getEditText().getText().delete(this.a.b.getEditText().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.a.b.getEditText().getSelectionStart());
@@ -87,8 +90,7 @@ public class x implements com.baidu.tbadk.editortool.x {
             }
             this.b.a(i, obj);
         } else if (i == 0) {
-            v = this.a.v();
-            if (v) {
+            if (this.a.l()) {
                 com.baidu.adp.lib.util.k.a(this.a.getContext(), com.baidu.tieba.y.over_limit_tip);
             } else {
                 this.b.a(i, obj);

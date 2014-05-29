@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.live.room;
 
-import com.baidu.tieba.im.view.LiveRoomEntranceScrollView;
+import android.widget.Button;
+import com.baidu.tieba.im.view.LocateScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements com.baidu.tieba.im.view.l {
@@ -15,14 +16,16 @@ public class ba implements com.baidu.tieba.im.view.l {
 
     @Override // com.baidu.tieba.im.view.l
     public void a(int i, int i2, int i3, int i4) {
-        LiveRoomEntranceScrollView liveRoomEntranceScrollView;
-        LiveRoomEntranceScrollView liveRoomEntranceScrollView2;
+        LocateScrollView locateScrollView;
+        LocateScrollView locateScrollView2;
+        Button button;
         if (i2 - i4 < 0) {
-            liveRoomEntranceScrollView2 = this.a.i;
-            liveRoomEntranceScrollView2.scrollBy(0, this.b);
+            locateScrollView2 = this.a.i;
+            button = this.a.c;
+            locateScrollView2.a(button, this.b);
             return;
         }
-        liveRoomEntranceScrollView = this.a.i;
-        liveRoomEntranceScrollView.scrollBy(0, -this.b);
+        locateScrollView = this.a.i;
+        locateScrollView.a(null, 0);
     }
 }

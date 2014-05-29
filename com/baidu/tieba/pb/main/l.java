@@ -20,7 +20,7 @@ class l extends com.baidu.adp.base.e {
             switch (vVar2.getLoadDataMode()) {
                 case 0:
                     bjVar = this.a.x;
-                    bjVar.z();
+                    bjVar.A();
                     this.a.a((com.baidu.tieba.model.x) obj);
                     return;
                 case 1:

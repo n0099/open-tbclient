@@ -19,19 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class r {
-    public static int a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return 0;
-        }
-        String[] split = str.split("\\.");
-        int i = 0;
-        for (int i2 = 0; i2 < split.length; i2++) {
-            i |= Integer.valueOf(split[i2]).intValue() << ((3 - i2) * 8);
-        }
-        return i;
-    }
-
-    public static String b(String str) {
+    public static String a(String str) {
         if (be.c(str) || str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
@@ -158,6 +146,7 @@ public class r {
             }
             intent.putExtra("BROWSER_RESTART", true);
             intent.putExtra("EXTRA_URL_NEW_WINDOW", true);
+            intent.putExtra("isBackToLauncher", true);
             intent.addFlags(268435456);
             context.startActivity(intent);
         } catch (Exception e) {

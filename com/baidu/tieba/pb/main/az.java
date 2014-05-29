@@ -281,6 +281,7 @@ public class az extends BaseAdapter {
         if (!((TextUtils.isEmpty(aeVar.d()) || TextUtils.isEmpty(aeVar.b())) ? false : true)) {
             com.baidu.adp.lib.util.k.a(this.b, com.baidu.tieba.y.pb_app_error);
         } else if (UtilHelper.isNetOk()) {
+            com.baidu.tbadk.f.a().b(aeVar.d(), System.currentTimeMillis());
             aeVar.a(1);
             notifyDataSetChanged();
             new com.baidu.tbadk.core.util.az("", "pb_dl", aeVar.d()).start();
@@ -296,6 +297,7 @@ public class az extends BaseAdapter {
             com.baidu.adp.lib.util.k.a(this.b, com.baidu.tieba.y.pb_app_error);
             return;
         }
+        com.baidu.tbadk.f.a().b(aeVar.d(), System.currentTimeMillis());
         File d2 = com.baidu.tbadk.core.util.x.d(String.valueOf(d.replace(".", "_")) + ".apk");
         if (d2 != null) {
             Intent intent = new Intent();
@@ -1020,9 +1022,10 @@ public class az extends BaseAdapter {
                 }
                 for (int i = 0; i < 3; i++) {
                     com.baidu.tieba.data.ae aeVar = p.get(new Random(System.currentTimeMillis()).nextInt(size));
-                    if (!TextUtils.isEmpty(aeVar.b())) {
-                        String d = aeVar.d();
-                        boolean z = TextUtils.isEmpty(d) || !com.baidu.tieba.util.r.a(com.baidu.tieba.ai.c().e(), d);
+                    String b = aeVar.b();
+                    String d = aeVar.d();
+                    if (!TextUtils.isEmpty(b) && !TextUtils.isEmpty(d)) {
+                        boolean z = !com.baidu.tieba.util.r.a(com.baidu.tieba.ai.c().e(), d);
                         if (System.currentTimeMillis() - com.baidu.tbadk.f.a().a(d, 0L) < 86400000) {
                             z &= false;
                         }

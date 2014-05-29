@@ -34,9 +34,9 @@ public class ac implements com.baidu.tbadk.core.dialog.g {
             str7 = this.a.I;
             com.baidu.tieba.util.r.b(pbActivity2, str7);
             bjVar2 = this.a.x;
-            String f = bjVar2.f();
+            String g = bjVar2.g();
             str8 = this.a.I;
-            new a(f, str8, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK).start();
+            new a(g, str8, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK).start();
             dVar.c();
         } else if (i == 1) {
             TiebaStatic.eventStat(this.a, "pb_phone_sms", "sms");
@@ -47,9 +47,9 @@ public class ac implements com.baidu.tbadk.core.dialog.g {
             str4 = this.a.I;
             com.baidu.tieba.util.r.c(pbActivity4, str4);
             bjVar = this.a.x;
-            String f2 = bjVar.f();
+            String g2 = bjVar.g();
             str5 = this.a.I;
-            new a(f2, str5, TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT).start();
+            new a(g2, str5, TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT).start();
             dVar.c();
         } else if (i == 2) {
             PbActivity pbActivity5 = this.a;

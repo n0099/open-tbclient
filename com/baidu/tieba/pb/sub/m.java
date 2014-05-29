@@ -156,6 +156,7 @@ public class m {
         this.L = (PbEditor) this.b.findViewById(com.baidu.tieba.v.sub_pb_editor);
         this.L.a(true);
         this.L.getEditText().setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
+        this.L.setMaxTextCount(140);
     }
 
     protected void a(View.OnClickListener onClickListener) {
@@ -200,13 +201,13 @@ public class m {
 
     public boolean a() {
         this.R = false;
-        if (this.L.o()) {
+        if (this.L.p()) {
             this.L.f();
-            this.L.n();
+            this.L.o();
             this.r.setEnabled(true);
             return true;
         }
-        this.L.l();
+        this.L.m();
         this.Q = null;
         return false;
     }
@@ -234,11 +235,11 @@ public class m {
     }
 
     public void l() {
-        this.L.p();
+        this.L.q();
     }
 
     public void m() {
-        this.L.q();
+        this.L.r();
     }
 
     public View n() {
@@ -250,7 +251,7 @@ public class m {
     }
 
     public void p() {
-        this.L.r();
+        this.L.s();
     }
 
     public void a(ArrayList<String> arrayList) {
@@ -280,7 +281,7 @@ public class m {
 
     public void b(String str) {
         this.R = true;
-        this.L.m();
+        this.L.n();
         this.r.setEnabled(false);
         if (str != null) {
             this.L.getEditText().setText(this.f.getResources().getString(y.reply_sub_floor).replace("%s", str));
@@ -297,7 +298,7 @@ public class m {
 
     public void q() {
         this.R = false;
-        this.L.n();
+        this.L.o();
         this.r.setEnabled(true);
     }
 
@@ -314,7 +315,7 @@ public class m {
         this.e.a((ArrayList<ai>) null);
         this.e.notifyDataSetChanged();
         this.L.getEditText().setText("");
-        this.L.l();
+        this.L.m();
     }
 
     public String t() {
@@ -370,7 +371,7 @@ public class m {
     }
 
     public void u() {
-        this.L.l();
+        this.L.m();
     }
 
     public View v() {
@@ -573,5 +574,9 @@ public class m {
 
     public void d(boolean z) {
         this.a = z;
+    }
+
+    public boolean D() {
+        return this.L.l();
     }
 }

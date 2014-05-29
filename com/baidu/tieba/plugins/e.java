@@ -22,7 +22,7 @@ class e implements Runnable {
         if (this.b == 0) {
             this.a.showToast(this.a.getString(y.plugin_installation_finished));
             com.baidu.tbadk.tbplugin.m.a().q();
-            if (TbadkApplication.m252getInst().isMainProcess()) {
+            if (TbadkApplication.m252getInst().isMainProcess(true)) {
                 this.a.sendBroadcast(new Intent(PluginReloadReceiver.ACTION_PLUGIN_RELOAD));
             }
             this.a.a();

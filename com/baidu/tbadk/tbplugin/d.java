@@ -20,10 +20,12 @@ public class d {
     }
 
     public synchronized void a() {
+        String str;
         if (!this.d) {
-            String str = "";
             File[] listFiles = i.a().listFiles();
-            if (listFiles != null && listFiles.length != 0) {
+            if (listFiles == null || listFiles.length == 0) {
+                str = "";
+            } else {
                 StringBuilder sb = new StringBuilder();
                 for (File file : listFiles) {
                     sb.append(file.getAbsolutePath());
@@ -34,7 +36,7 @@ public class d {
             try {
                 this.a = new DexClassLoader(str, i.e().getAbsolutePath(), i.c().getAbsolutePath(), this.c.getClassLoader());
             } catch (Exception e) {
-                i.b(this.c, "ClassLoader initial failed: Nested Exception: " + e.getMessage());
+                i.b(this.c, "ClassLoader initial failed: Nested Exception: " + e.getMessage() + "; jars:" + str);
             }
             a(this.c, this.a);
         }

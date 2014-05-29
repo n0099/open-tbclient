@@ -22,11 +22,14 @@ public class i extends Handler {
         this.a = bVar;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        k kVar;
-        k kVar2;
+        int i;
+        boolean z;
+        Handler handler;
+        Runnable runnable;
+        l lVar;
+        l lVar2;
         switch (message.what) {
             case 1:
                 LiveStatusParcelable liveStatusParcelable = (LiveStatusParcelable) message.obj;
@@ -75,33 +78,48 @@ public class i extends Handler {
                 }
                 return;
             case 3:
-                int i = message.arg1;
-                int i2 = message.arg2;
+                int i2 = message.arg1;
+                int i3 = message.arg2;
                 String str2 = (String) message.obj;
-                BdLog.d("Live player new dur: " + i + ", pos: " + i2 + ", url: " + str2);
-                this.a.a(str2, i, i2);
+                BdLog.d("Live player new dur: " + i2 + ", pos: " + i3 + ", url: " + str2);
+                this.a.a(str2, i2, i3);
                 return;
             case 4:
-                int i3 = message.arg1;
-                BdLog.d("Live record time: " + i3);
-                kVar = this.a.i;
-                if (kVar != null) {
-                    kVar2 = this.a.i;
-                    kVar2.a(i3);
+                int i4 = message.arg1;
+                BdLog.d("Live record time: " + i4);
+                lVar = this.a.n;
+                if (lVar != null) {
+                    lVar2 = this.a.n;
+                    lVar2.a(i4);
                     return;
                 }
                 return;
             case 5:
                 BdLog.d("Live player warning.");
                 TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC), "");
-                UtilHelper.showToast(TbadkApplication.m252getInst().getApp(), y.live_error_play_no_stream);
-                this.a.p();
+                b bVar = this.a;
+                i = bVar.h;
+                bVar.h = i + 1;
+                z = this.a.j;
+                if (!z) {
+                    this.a.j = true;
+                    handler = this.a.v;
+                    runnable = this.a.w;
+                    handler.postDelayed(runnable, 20000L);
+                    return;
+                }
+                return;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            default:
+                super.handleMessage(message);
                 return;
             case 10:
                 BdLog.d("Live status as requested.");
                 this.a.h();
-                break;
+                return;
         }
-        super.handleMessage(message);
     }
 }

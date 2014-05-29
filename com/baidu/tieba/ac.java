@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.data.CombineDownload;
 import com.baidu.tieba.data.VersionData;
+import org.apache.commons.io.FileUtils;
 /* loaded from: classes.dex */
 public class ac extends Dialog {
     private Context a;
@@ -32,13 +33,14 @@ public class ac extends Dialog {
     private Button p;
     private Button q;
     private Button r;
-    private LinearLayout s;
-    private TextView t;
-    private Button u;
+    private TextView s;
+    private LinearLayout t;
+    private TextView u;
     private Button v;
-    private ah w;
-    private View.OnClickListener x;
+    private Button w;
+    private ah x;
     private View.OnClickListener y;
+    private View.OnClickListener z;
 
     public ac(Context context, int i) {
         super(context, i);
@@ -61,21 +63,22 @@ public class ac extends Dialog {
         this.k = (TextView) findViewById(v.downloading);
         this.l = (TextView) findViewById(v.warning);
         this.r = (Button) findViewById(v.incremental_button);
+        this.s = (TextView) findViewById(v.incremental_size);
         this.n = (TextView) findViewById(v.otherApp);
         this.o = (TextView) findViewById(v.app_size);
         this.m = this.k.getText().toString();
-        this.s = (LinearLayout) findViewById(v.cancel_dialog);
-        this.u = (Button) findViewById(v.sure_cancel);
-        this.v = (Button) findViewById(v.cancel_button);
-        this.t = (TextView) findViewById(v.cancel_tip);
-        this.u.setOnClickListener(this.x);
+        this.t = (LinearLayout) findViewById(v.cancel_dialog);
+        this.v = (Button) findViewById(v.sure_cancel);
+        this.w = (Button) findViewById(v.cancel_button);
+        this.u = (TextView) findViewById(v.cancel_tip);
         this.v.setOnClickListener(this.y);
+        this.w.setOnClickListener(this.z);
         String size = this.b.getSize();
         String newVersion = this.b.getNewVersion();
         String newVersionDesc = this.b.getNewVersionDesc();
         if (!TextUtils.isEmpty(size)) {
             this.o.setVisibility(0);
-            this.o.setText(((Object) this.o.getText()) + size + "MB");
+            this.o.setText(((Object) this.o.getText()) + (String.valueOf((int) (com.baidu.adp.lib.f.b.a(size, 0L) / FileUtils.ONE_MB)) + "MB"));
         } else {
             this.o.setVisibility(8);
         }
@@ -103,10 +106,14 @@ public class ac extends Dialog {
             this.n.setVisibility(8);
             this.d = false;
         }
-        if (this.b == null || TextUtils.isEmpty(this.b.getPatch())) {
+        if (this.b == null || TextUtils.isEmpty(this.b.getPatch()) || this.b.getNewVersionCode() < 0) {
             this.r.setVisibility(8);
+            this.s.setVisibility(8);
         }
-        if (this.r.isShown() && !bd.a(this.a.getPackageManager())) {
+        if (!TextUtils.isEmpty(this.b.getPatchSize())) {
+            this.s.setText(((Object) this.s.getText()) + (String.valueOf((int) (com.baidu.adp.lib.f.b.a(this.b.getPatchSize(), 0L) / FileUtils.ONE_MB)) + "MB"));
+        }
+        if (this.r.getVisibility() == 0 && !bd.a(this.a.getPackageManager())) {
             this.l.setVisibility(0);
         } else {
             this.l.setVisibility(8);
@@ -129,34 +136,34 @@ public class ac extends Dialog {
     public void onBackPressed() {
         super.onBackPressed();
         if (this.f) {
-            this.w.c();
+            this.x.c();
             this.h.setVisibility(8);
             if (this.g) {
-                this.t.setText(getContext().getString(y.download_exit));
+                this.u.setText(getContext().getString(y.download_exit));
             }
-            this.s.setVisibility(0);
+            this.t.setVisibility(0);
             return;
         }
-        this.w.b();
+        this.x.b();
     }
 
     public void a(VersionData versionData, CombineDownload combineDownload, ah ahVar) {
         this.b = versionData;
         this.c = combineDownload;
-        this.w = ahVar;
+        this.x = ahVar;
     }
 
     public void a() {
-        this.s.setVisibility(8);
+        this.t.setVisibility(8);
         this.h.setVisibility(0);
     }
 
     public void a(View.OnClickListener onClickListener) {
-        this.x = onClickListener;
+        this.y = onClickListener;
     }
 
     public void b(View.OnClickListener onClickListener) {
-        this.y = onClickListener;
+        this.z = onClickListener;
     }
 
     public void b(int i) {

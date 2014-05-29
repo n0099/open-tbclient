@@ -14,10 +14,7 @@ class p extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2010015 && customResponsedMessage.getData() != null) {
-            if (customResponsedMessage.getData() instanceof String) {
-                g.a((String) customResponsedMessage.getData());
-            }
-            com.baidu.tieba.im.b.e.e();
+            com.baidu.tieba.im.i.a(new q(this, customResponsedMessage), null);
         }
     }
 }

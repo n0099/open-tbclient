@@ -33,7 +33,7 @@ public class ai extends CustomMessageListener {
                 if ("310".equals(parseFromEventContent.mEventId)) {
                     i4 = this.a.b;
                     if (i4 != 0) {
-                        this.a.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.NO_PUBLISHER);
+                        this.a.d();
                     }
                 } else if ("307".equals(parseFromEventContent.mEventId)) {
                     this.a.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.PLAYING);

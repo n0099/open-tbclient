@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.network.willdelete;
 
 import android.content.Context;
-import android.os.Build;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,9 +25,7 @@ public class e {
     public void a(Context context, boolean z) {
         this.b = context;
         b.a = z;
-        if (Integer.parseInt(Build.VERSION.SDK) < 8) {
-            System.setProperty("http.keepAlive", "false");
-        }
+        System.setProperty("http.keepAlive", "false");
     }
 
     public void a(String str) {

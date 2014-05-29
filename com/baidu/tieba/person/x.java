@@ -136,16 +136,16 @@ public class x extends BaseAdapter {
             this.n = (TextView) this.l.findViewById(com.baidu.tieba.v.person_center_list_no_data_txt);
         }
         a(i);
-        if (avVar != null && avVar.g() != null) {
+        if (avVar != null && avVar.h() != null) {
             this.m.setVisibility(0);
             if (avVar.a() != null && avVar.a().hide_post != 0) {
                 this.n.setText(this.b.getResources().getString(com.baidu.tieba.y.his_post_not_available));
             } else if (avVar.a() == null || avVar.a().post_list.size() == 0) {
-                if (avVar.f()) {
+                if (avVar.g()) {
                     this.n.setText(this.b.getResources().getString(com.baidu.tieba.y.no_post_info));
-                } else if (avVar.g().getSex() == 1) {
+                } else if (avVar.h().getSex() == 1) {
                     this.n.setText(this.b.getResources().getString(com.baidu.tieba.y.he_no_post_info));
-                } else if (avVar.g().getSex() == 2) {
+                } else if (avVar.h().getSex() == 2) {
                     this.n.setText(this.b.getResources().getString(com.baidu.tieba.y.she_no_post_info));
                 } else {
                     this.n.setText(this.b.getResources().getString(com.baidu.tieba.y.ta_no_post_info));

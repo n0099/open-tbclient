@@ -67,6 +67,19 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
     }
 
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        if (this.m != null) {
+            int count = this.m.getCount();
+            for (int i3 = 0; i3 < count; i3++) {
+                Fragment item = this.m.getItem(i3);
+                if (item instanceof s) {
+                    ((s) item).onActivityResult(i, i2, intent);
+                }
+            }
+        }
+    }
+
     private void a(Bundle bundle) {
         this.j = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.j.a(String.format(getString(com.baidu.tieba.y.person_post), this.f));
