@@ -32,7 +32,7 @@ public class f implements x {
     }
 
     public int f() {
-        return com.baidu.tieba.im.f.t.b(this.d);
+        return com.baidu.tieba.im.e.t.b(this.d);
     }
 
     public void a(boolean z) {

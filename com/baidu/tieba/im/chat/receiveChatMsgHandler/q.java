@@ -154,7 +154,7 @@ public class q {
                 a = true;
                 ChatMessage chatMessage = commonMsgPojo.toChatMessage();
                 if (chatMessage != null) {
-                    SystemMsgData j = com.baidu.tieba.im.f.r.j(chatMessage);
+                    SystemMsgData j = com.baidu.tieba.im.e.r.j(chatMessage);
                     if (j != null && !j.getIsSelf()) {
                         z = false;
                     }

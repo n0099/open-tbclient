@@ -3,8 +3,8 @@ package com.baidu.tieba.im.friend;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.bp;
 import com.baidu.tbadk.core.util.br;
+import com.baidu.tbadk.core.util.bt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements com.baidu.tbadk.imageManager.d {
@@ -30,7 +30,7 @@ public class z implements com.baidu.tbadk.imageManager.d {
                 imageView = (ImageView) bdListView2.findViewWithTag(str);
             }
             inviteFriendCandidateList = this.a.i;
-            bp.a((ViewGroup) inviteFriendCandidateList, false, (br) new aa(this, str, aVar));
+            br.a((ViewGroup) inviteFriendCandidateList, false, (bt) new aa(this, str, aVar));
         }
     }
 }

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class ag extends com.baidu.adp.base.b {
     private String a;
@@ -52,9 +52,9 @@ public class ag extends com.baidu.adp.base.b {
     }
 
     public ForumRankData a() {
-        al alVar = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumsquarelist");
-        alVar.a("list_id", this.a);
-        alVar.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.c);
-        return (ForumRankData) new GsonBuilder().create().fromJson(alVar.i(), (Class<Object>) ForumRankData.class);
+        an anVar = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumsquarelist");
+        anVar.a("list_id", this.a);
+        anVar.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.c);
+        return (ForumRankData) new GsonBuilder().create().fromJson(anVar.i(), (Class<Object>) ForumRankData.class);
     }
 }

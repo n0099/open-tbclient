@@ -20,7 +20,7 @@ class bg implements DialogInterface.OnClickListener {
         az azVar;
         Context context;
         com.baidu.tbadk.f.a().b(this.b.d(), System.currentTimeMillis());
-        com.baidu.tbadk.core.util.bi a = com.baidu.tbadk.core.util.bi.a();
+        com.baidu.tbadk.core.util.bk a = com.baidu.tbadk.core.util.bk.a();
         azVar = this.a.a;
         context = azVar.b;
         a.a(context, new String[]{this.c});

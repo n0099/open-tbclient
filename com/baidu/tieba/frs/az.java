@@ -289,12 +289,12 @@ public class az extends BaseAdapter implements View.OnClickListener {
             blVar.g.setTag(Integer.valueOf(i));
             blVar.h.setTag(Integer.valueOf(i));
             blVar.h.setOnClickListener(this);
-            com.baidu.tbadk.core.util.bc.f(blVar.h, com.baidu.tieba.u.bg_live_card_up);
-            com.baidu.tbadk.core.util.bc.a(blVar.d, com.baidu.tieba.s.cp_cont_c, 1);
-            com.baidu.tbadk.core.util.bc.f(blVar.f, com.baidu.tieba.u.bg_live_card_middle);
-            com.baidu.tbadk.core.util.bc.a(blVar.b, com.baidu.tieba.s.cp_cont_c, 1);
-            com.baidu.tbadk.core.util.bc.f(blVar.e, com.baidu.tieba.s.cp_bg_line_b);
-            com.baidu.tbadk.core.util.bc.c(blVar.g, com.baidu.tieba.u.icon_frs_ba_arrows_live);
+            com.baidu.tbadk.core.util.be.f(blVar.h, com.baidu.tieba.u.bg_live_card_up);
+            com.baidu.tbadk.core.util.be.a(blVar.d, com.baidu.tieba.s.cp_cont_c, 1);
+            com.baidu.tbadk.core.util.be.f(blVar.f, com.baidu.tieba.u.bg_live_card_middle);
+            com.baidu.tbadk.core.util.be.a(blVar.b, com.baidu.tieba.s.cp_cont_c, 1);
+            com.baidu.tbadk.core.util.be.f(blVar.e, com.baidu.tieba.s.cp_bg_line_b);
+            com.baidu.tbadk.core.util.be.c(blVar.g, com.baidu.tieba.u.icon_frs_ba_arrows_live);
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 blVar.c.setSelector(this.b.getResources().getDrawable(com.baidu.tieba.u.dot_live_s_1));
                 blVar.c.setDrawable(this.b.getResources().getDrawable(com.baidu.tieba.u.dot_live_n_1));
@@ -461,8 +461,8 @@ public class az extends BaseAdapter implements View.OnClickListener {
         }
         boVar.a.setPadding(0, i3 == 0 ? this.m : this.n, 0, 0);
         com.baidu.tbadk.core.data.n nVar = (com.baidu.tbadk.core.data.n) getItem(i);
-        boVar.f.setText(com.baidu.tbadk.core.util.be.a(nVar.t() * 1000));
-        if (com.baidu.tbadk.core.g.a().d()) {
+        boVar.f.setText(com.baidu.tbadk.core.util.bg.a(nVar.t() * 1000));
+        if (com.baidu.tbadk.core.h.a().d()) {
             boVar.j.setVisibility(0);
             String portrait = nVar.y().getPortrait();
             boVar.j.setUserId(nVar.y().getUserId());
@@ -543,7 +543,7 @@ public class az extends BaseAdapter implements View.OnClickListener {
                 boVar.c.setVisibility(8);
             }
         }
-        if (com.baidu.tbadk.core.g.a().f()) {
+        if (com.baidu.tbadk.core.h.a().f()) {
             if (F != null) {
                 if (F.size() > 0) {
                     int i6 = 0;
@@ -603,7 +603,7 @@ public class az extends BaseAdapter implements View.OnClickListener {
             boVar.d.setVisibility(8);
         }
         if (nVar.o() != null && nVar.o().getNum() > 0) {
-            if (com.baidu.tbadk.core.g.a().d()) {
+            if (com.baidu.tbadk.core.h.a().d()) {
                 boVar.p.setVisibility(0);
                 boVar.p.setIsFromPb(false);
                 boVar.p.a(i2);
@@ -699,7 +699,7 @@ public class az extends BaseAdapter implements View.OnClickListener {
             com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) nVar;
             bhVar.d.setText(bVar.g());
             bhVar.e.setText(bVar.h());
-            if (com.baidu.tbadk.core.g.a().f()) {
+            if (com.baidu.tbadk.core.h.a().f()) {
                 bhVar.c.setVisibility(0);
                 if (this.j) {
                     bhVar.c.setSuffix("_small");
@@ -713,9 +713,9 @@ public class az extends BaseAdapter implements View.OnClickListener {
             bhVar.c.setTag(bVar.f());
             bhVar.f.setTag(Integer.valueOf(i));
             if (i2 == 1) {
-                com.baidu.tbadk.core.util.bc.e((View) bhVar.b, com.baidu.tieba.u.bg_label_1);
+                com.baidu.tbadk.core.util.be.e((View) bhVar.b, com.baidu.tieba.u.bg_label_1);
             } else {
-                com.baidu.tbadk.core.util.bc.e((View) bhVar.b, com.baidu.tieba.u.bg_label);
+                com.baidu.tbadk.core.util.be.e((View) bhVar.b, com.baidu.tieba.u.bg_label);
             }
             switch (bVar.k()) {
                 case 0:
@@ -787,8 +787,8 @@ public class az extends BaseAdapter implements View.OnClickListener {
             com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) nVar;
             biVar.c.setText(a(bVar.g()));
             biVar.e.setText(bVar.h());
-            biVar.d.setText(com.baidu.tbadk.core.util.be.a(bVar.c() * 1000));
-            if (com.baidu.tbadk.core.g.a().d()) {
+            biVar.d.setText(com.baidu.tbadk.core.util.bg.a(bVar.c() * 1000));
+            if (com.baidu.tbadk.core.h.a().d()) {
                 biVar.b.setVisibility(0);
                 biVar.b.setDefaultResource(com.baidu.tieba.u.avatar_poto_defaul140);
                 if (this.j) {
@@ -801,7 +801,7 @@ public class az extends BaseAdapter implements View.OnClickListener {
                 biVar.b.setVisibility(8);
             }
             biVar.b.setTag(bVar.f());
-            if (com.baidu.tbadk.core.g.a().f() && !TextUtils.isEmpty(bVar.b())) {
+            if (com.baidu.tbadk.core.h.a().f() && !TextUtils.isEmpty(bVar.b())) {
                 biVar.f.setVisibility(0);
                 biVar.f.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d);
                 biVar.f.setNightDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d_1);
@@ -910,7 +910,7 @@ public class az extends BaseAdapter implements View.OnClickListener {
             } else {
                 bjVar.b.setBackgroundResource(com.baidu.tieba.u.frs_item_control_bg);
             }
-            com.baidu.tbadk.core.util.bc.b(bjVar.c, i);
+            com.baidu.tbadk.core.util.be.b(bjVar.c, i);
         } else {
             bjVar.a.setVisibility(8);
         }
@@ -946,7 +946,7 @@ public class az extends BaseAdapter implements View.OnClickListener {
             } else {
                 bjVar.b.setBackgroundResource(com.baidu.tieba.u.frs_item_control_bg);
             }
-            com.baidu.tbadk.core.util.bc.b(bjVar.c, i);
+            com.baidu.tbadk.core.util.be.b(bjVar.c, i);
         } else {
             bjVar.a.setVisibility(8);
         }

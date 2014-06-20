@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.widget.ImageView;
 import com.baidu.kirin.KirinConfig;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class a {
@@ -13,7 +12,7 @@ public class a {
     private Handler b = new Handler();
     private Object c = null;
     private final int d = KirinConfig.CONNECT_TIME_OUT;
-    private final int e = LocationClientOption.MIN_SCAN_SPAN;
+    private final int e = 1000;
     private Runnable f = new b(this);
 
     public void a(d dVar) {
@@ -22,9 +21,9 @@ public class a {
 
     public void a(Activity activity, Object obj) {
         this.c = obj;
-        String g = com.baidu.tbadk.c.a.a().g();
-        long f = com.baidu.tbadk.c.a.a().f();
-        boolean c = com.baidu.tbadk.c.a.a().c();
+        String g = com.baidu.tbadk.b.a.a().g();
+        long f = com.baidu.tbadk.b.a.a().f();
+        boolean c = com.baidu.tbadk.b.a.a().c();
         if (TextUtils.isEmpty(g) || !c || f <= 0) {
             if (this.a != null) {
                 this.a.a(obj);

@@ -2,15 +2,15 @@ package com.baidu.android.systemmonitor.freqstatistic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Runnable {
-    final /* synthetic */ c a;
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(c cVar) {
-        this.a = cVar;
+    public g(b bVar) {
+        this.a = bVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.n();
+        this.a.m();
     }
 }

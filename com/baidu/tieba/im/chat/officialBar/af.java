@@ -25,7 +25,7 @@ public class af implements View.OnClickListener {
             return;
         }
         list2 = this.a.c;
-        String a = com.baidu.tieba.im.f.r.a("[" + ((ba) list2.get(intValue)).c + "]", true);
+        String a = com.baidu.tieba.im.e.r.a("[" + ((ba) list2.get(intValue)).c + "]", true);
         if (a != null) {
             OfficialHistoryImageActivity.a(this.a.a, a);
         }

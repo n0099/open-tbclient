@@ -9,7 +9,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     private static /* synthetic */ int[] $SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus = null;
     private static final int MESSAGE_POST_PROGRESS = 2;
     private static final int MESSAGE_POST_RESULT = 1;
-    private static final f sDefaultExecutor = f.a();
+    private static final f sDefaultExecutor = f.b();
     private static final d sHandler = new d(null);
     private final k<Result> mFuture;
     private final e<Params, Result> mWorker;
@@ -245,24 +245,24 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         this.mStatus = BdAsyncTaskStatus.FINISHED;
     }
 
-    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllTask(int i) {
-        return sDefaultExecutor.a(i);
+    public static void removeAllTask(int i) {
+        sDefaultExecutor.a(i);
     }
 
-    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllTask(int i, String str) {
-        return sDefaultExecutor.a(i, str);
+    public static void removeAllTask(int i, String str) {
+        sDefaultExecutor.a(i, str);
     }
 
-    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllQueueTask(int i) {
-        return sDefaultExecutor.b(i);
+    public static void removeAllWaitingTask(int i) {
+        sDefaultExecutor.b(i);
     }
 
-    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllQueueTask(int i, String str) {
-        return sDefaultExecutor.b(i, str);
+    public static void removeAllWaitingTask(int i, String str) {
+        sDefaultExecutor.b(i, str);
     }
 
     public static LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(int i) {
-        return sDefaultExecutor.d(i);
+        return sDefaultExecutor.c(i);
     }
 
     public static LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(int i, String str) {
@@ -278,14 +278,18 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     public static LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask(int i) {
-        return sDefaultExecutor.e(i);
+        return sDefaultExecutor.d(i);
     }
 
     public static BdAsyncTask<?, ?, ?> searchActivTask(String str) {
         return sDefaultExecutor.c(str);
     }
 
-    public static int findTaskNum(int i) {
-        return sDefaultExecutor.c(i);
+    public static int getTaskNum(int i) {
+        return getTaskNum(null, i);
+    }
+
+    public static int getTaskNum(String str, int i) {
+        return sDefaultExecutor.a(str, i);
     }
 }

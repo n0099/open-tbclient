@@ -96,7 +96,7 @@ public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widg
             }
             markData2.setNewCounts(0);
             if (markData != null) {
-                sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(this).a(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
+                sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.ar(this).a(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
             }
         }
         super.onItemClick(adapterView, view, i, j);

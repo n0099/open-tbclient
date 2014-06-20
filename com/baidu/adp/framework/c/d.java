@@ -1,9 +1,14 @@
 package com.baidu.adp.framework.c;
 /* loaded from: classes.dex */
-public interface d {
-    void a(com.baidu.adp.lib.network.websocket.g gVar);
+public class d {
+    protected e a = null;
+    protected int b = 1;
 
-    boolean a();
+    public int c() {
+        return this.b;
+    }
 
-    boolean a(byte[] bArr);
+    public e d() {
+        return this.a;
+    }
 }

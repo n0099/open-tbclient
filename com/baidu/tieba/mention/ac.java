@@ -4,7 +4,7 @@ import android.app.AlertDialog;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.model.am;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -13,7 +13,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class ac extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
     ArrayList<BasicNameValuePair> a;
     final /* synthetic */ PostActivity b;
-    private al c = null;
+    private an c = null;
     private String d;
 
     public ac(PostActivity postActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
@@ -39,7 +39,7 @@ public class ac extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
     public com.baidu.tieba.data.af doInBackground(Object... objArr) {
         com.baidu.tieba.data.af afVar = null;
         try {
-            this.c = new al(this.d);
+            this.c = new an(this.d);
             this.c.a(this.a);
             String i = this.c.i();
             if (this.c.a().b().b()) {

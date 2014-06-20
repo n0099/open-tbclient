@@ -4,12 +4,12 @@ import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ TiebaUpdateService a;
-    private al b;
+    private an b;
     private volatile boolean c;
 
     private t(TiebaUpdateService tiebaUpdateService) {
@@ -39,12 +39,12 @@ public class t extends BdAsyncTask<String, Integer, Boolean> {
         while (!this.c) {
             try {
                 str2 = this.a.mMainApkUrl;
-                this.b = new al(str2);
-                al alVar = this.b;
+                this.b = new an(str2);
+                an anVar = this.b;
                 str3 = this.a.mMainApkFileName;
                 String str4 = String.valueOf(str3) + ".tmp";
                 handler = this.a.mMainApkHandler;
-                bool2 = Boolean.valueOf(alVar.a(str4, handler, 0));
+                bool2 = Boolean.valueOf(anVar.a(str4, handler, 0));
                 if (bool2.booleanValue()) {
                     break;
                 } else if (this.b.d() == -2) {

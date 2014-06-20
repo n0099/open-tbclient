@@ -1,6 +1,6 @@
 package com.baidu.tieba.account.appeal;
 
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class c implements h {
@@ -26,7 +26,7 @@ class c implements h {
         AppealActivity appealActivity2;
         String string;
         appealActivity = this.a.a;
-        if (be.c(appealData.errMsg)) {
+        if (bg.c(appealData.errMsg)) {
             appealActivity2 = this.a.a;
             string = appealActivity2.getString(y.appeal_post_failure);
         } else {

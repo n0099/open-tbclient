@@ -2,12 +2,11 @@ package com.baidu.android.nebula.cmd;
 
 import android.content.Context;
 import com.baidu.android.moplus.util.NoProGuard;
-import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class GetServiceInfo implements NoProGuard, n {
+public class GetServiceInfo implements NoProGuard, d {
     private static final boolean DEBUG = false;
     private static final String TAG = "GetServiceInfo";
     private int mErrcode = -1;
@@ -18,35 +17,34 @@ public class GetServiceInfo implements NoProGuard, n {
         a.a(TAG);
     }
 
-    @Override // com.baidu.android.nebula.cmd.n
-    public void execute(com.baidu.android.nebula.a.d dVar, com.baidu.android.nebula.a.a aVar) {
+    @Override // com.baidu.android.nebula.cmd.d
+    public com.baidu.android.nebula.b.c execute(com.baidu.android.nebula.b.k kVar, Map map, Map map2, Map map3) {
         a.a(System.currentTimeMillis());
-        Map a = dVar.a();
-        if (a == null || a.size() < 1) {
+        if (map2 == null || map2.size() < 1) {
             a.a(-1);
-            return;
+            return null;
         }
-        String str = (String) a.get("callback");
-        a.d((String) a.get("mcmdf"));
+        String str = (String) map2.get("callback");
+        a.d((String) map2.get("mcmdf"));
         if (str == null) {
             a.a(-1);
-            return;
+            return null;
         }
-        this.mContext = com.baidu.android.nebula.d.c.a().c();
+        this.mContext = com.baidu.android.nebula.d.b.a().c();
         if (this.mContext == null) {
             a.a(-1);
-            return;
+            return null;
         }
         a.b(this.mContext.getPackageName());
-        if (!com.baidu.android.nebula.d.a.a(this.mContext).a(dVar.a("Referer"))) {
+        if (!com.baidu.android.nebula.d.a.a(this.mContext).a((String) map.get("referer"))) {
             this.mErrcode = 4;
         }
-        long e = com.baidu.android.moplus.util.b.e(this.mContext);
+        long e = com.baidu.android.moplus.util.a.e(this.mContext);
         JSONObject jSONObject = new JSONObject();
         try {
             if (this.mErrcode != 4) {
                 jSONObject.put("error", 0);
-                jSONObject.put("version", String.valueOf(16));
+                jSONObject.put("version", String.valueOf(20));
                 jSONObject.put("priority", String.valueOf(e));
                 jSONObject.put("packagename", this.mContext.getPackageName());
                 this.mErrcode = 0;
@@ -56,15 +54,13 @@ public class GetServiceInfo implements NoProGuard, n {
             }
         } catch (JSONException e2) {
         }
-        aVar.a("text/javascript");
-        aVar.a().put("Cache-Control", "no-cache");
-        aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
-        aVar.a(Constants.MEDIA_INFO);
+        com.baidu.android.nebula.b.c cVar = new com.baidu.android.nebula.b.c(str + " && " + str + "(" + jSONObject.toString() + ");");
         a.a(this.mErrcode);
+        return cVar;
     }
 
-    @Override // com.baidu.android.nebula.cmd.n
+    @Override // com.baidu.android.nebula.cmd.d
     public void writeToStatic() {
-        m.a().a(this.mContext, a.toString());
+        k.a().a(this.mContext, a.toString());
     }
 }

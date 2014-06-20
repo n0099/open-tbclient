@@ -147,8 +147,8 @@ public class aj extends LinearLayout {
     }
 
     public void f() {
-        if (com.baidu.tbadk.core.g.a().f()) {
-            com.baidu.tbadk.core.util.ae.a(this.d, this.e.a(), 0, -1);
+        if (com.baidu.tbadk.core.h.a().f()) {
+            com.baidu.tbadk.core.util.ag.a(this.d, this.e.a(), 0, -1);
         }
     }
 

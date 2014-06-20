@@ -8,7 +8,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ag;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.editortool.ab;
@@ -135,7 +135,7 @@ public class e extends com.baidu.adp.base.c {
 
     private void a() {
         if (this.d != null && this.e != null) {
-            ae.a(this.d, this.e.a(), 0, -1);
+            ag.a(this.d, this.e.a(), 0, -1);
         }
     }
 

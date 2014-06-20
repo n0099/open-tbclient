@@ -14,8 +14,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -239,7 +239,7 @@ public class g extends BaseAdapter {
                 if (c != null && c.size() > 0) {
                     com.baidu.tieba.data.w wVar = c.get(0);
                     jVar.e.setText(wVar.c());
-                    jVar.f.setText(be.a(oVar.e()));
+                    jVar.f.setText(bg.a(oVar.e()));
                     if (c.size() > 3) {
                         jVar.g.setText(String.format(this.a.getString(com.baidu.tieba.y.message_praise_like_list_more), c.get(0).c(), c.get(1).c(), c.get(2).c(), Integer.valueOf(oVar.b())));
                     } else if (c.size() > 2) {
@@ -253,7 +253,7 @@ public class g extends BaseAdapter {
                     jVar.i.setText(oVar.f());
                     if (oVar.g() != null && oVar.g().length() > 0) {
                         jVar.j.setVisibility(0);
-                        jVar.j.setText(String.valueOf(this.a.getString(com.baidu.tieba.y.reply_from)) + be.a(oVar.g(), 12).concat(this.d));
+                        jVar.j.setText(String.valueOf(this.a.getString(com.baidu.tieba.y.reply_from)) + bg.a(oVar.g(), 12).concat(this.d));
                     } else {
                         jVar.j.setVisibility(8);
                     }
@@ -279,7 +279,7 @@ public class g extends BaseAdapter {
                 }
             } else {
                 jVar.e.setText(oVar.l().getName_show());
-                jVar.f.setText(be.a(oVar.e()));
+                jVar.f.setText(bg.a(oVar.e()));
                 jVar.g.setText(oVar.h());
                 if (this.h == 1) {
                     if (oVar.d() == 1) {
@@ -291,7 +291,7 @@ public class g extends BaseAdapter {
                     }
                     if (oVar.g() != null && oVar.g().length() > 0) {
                         jVar.j.setVisibility(0);
-                        jVar.j.setText(String.valueOf(this.a.getString(com.baidu.tieba.y.reply_from)) + be.a(oVar.g(), 12).concat(this.d));
+                        jVar.j.setText(String.valueOf(this.a.getString(com.baidu.tieba.y.reply_from)) + bg.a(oVar.g(), 12).concat(this.d));
                     } else {
                         jVar.j.setVisibility(8);
                     }
@@ -324,11 +324,11 @@ public class g extends BaseAdapter {
     private void a(j jVar, View view) {
         int skinType = TbadkApplication.m252getInst().getSkinType();
         if (skinType == 1) {
-            bc.e(view, com.baidu.tieba.u.list_selector_1);
+            be.e(view, com.baidu.tieba.u.list_selector_1);
         } else {
-            bc.e(view, com.baidu.tieba.u.list_selector);
+            be.e(view, com.baidu.tieba.u.list_selector);
         }
-        bc.f(jVar.h, com.baidu.tieba.s.cp_bg_line_b);
+        be.f(jVar.h, com.baidu.tieba.s.cp_bg_line_b);
         if (skinType == 1) {
             if (jVar.l != null) {
                 jVar.l.setBackgroundResource(com.baidu.tieba.u.nearby_reply_bg_pressed_1);

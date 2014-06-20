@@ -225,8 +225,8 @@ public class e implements com.baidu.adp.lib.resourceLoader.b {
 
     @Override // com.baidu.adp.lib.resourceLoader.b
     public void a() {
-        if (this.i != null) {
-            this.i.b().a = true;
+        if (this.j != null) {
+            this.j.a();
         }
     }
 }

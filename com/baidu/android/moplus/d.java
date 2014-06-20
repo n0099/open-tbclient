@@ -1,32 +1,17 @@
 package com.baidu.android.moplus;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public final class d {
-    private d() {
+class d implements Runnable {
+    final /* synthetic */ MoPlusService a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(MoPlusService moPlusService) {
+        this.a = moPlusService;
     }
 
-    public static void a(Context context, boolean z) {
-        int i = z ? 0 : 16;
-        SharedPreferences.Editor edit = context.getSharedPreferences("pst", 0).edit();
-        edit.putInt("nd_restart", i);
-        edit.commit();
-    }
-
-    public static boolean a(Context context) {
-        return 16 > context.getSharedPreferences("pst", 0).getInt("nd_restart", 0);
-    }
-
-    public static String b(Context context) {
-        return context.getSharedPreferences("pst", 0).getString("s_e", "default");
-    }
-
-    public static void b(Context context, boolean z) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("pst", 0);
-        String str = z ? "enabled" : "disabled";
-        SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putString("s_e", str);
-        edit.commit();
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.a(new Intent());
     }
 }

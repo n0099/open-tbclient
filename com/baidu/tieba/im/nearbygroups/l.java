@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.s;
 import com.baidu.tieba.u;
@@ -65,7 +65,7 @@ public class l implements a {
                 this.d.setTag(f);
             }
             if (lVar.m()) {
-                bc.a(this.e, s.im_group_vip_text, 1);
+                be.a(this.e, s.im_group_vip_text, 1);
             } else {
                 this.b.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
                 this.b.getLayoutMode().a(this.e);
@@ -109,9 +109,9 @@ public class l implements a {
 
     private void a(ImageView[] imageViewArr, int i, boolean z) {
         if (z) {
-            bc.c(imageViewArr[1], u.icon_vip_grade_big_small_s);
-            bc.c(imageViewArr[2], u.icon_vip_grade_big_small_s);
-            bc.c(imageViewArr[3], u.icon_vip_grade_big_small_s);
+            be.c(imageViewArr[1], u.icon_vip_grade_big_small_s);
+            be.c(imageViewArr[2], u.icon_vip_grade_big_small_s);
+            be.c(imageViewArr[3], u.icon_vip_grade_big_small_s);
         } else {
             this.b.getLayoutMode().a(imageViewArr[1]);
             this.b.getLayoutMode().a(imageViewArr[2]);

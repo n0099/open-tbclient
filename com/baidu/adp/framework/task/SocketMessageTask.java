@@ -7,9 +7,8 @@ public class SocketMessageTask extends MessageTask {
     private boolean a;
     private boolean b;
     private boolean c;
-    private boolean d;
+    private Class<? extends SocketResponsedMessage> d;
     private DupLicateMode e;
-    private Class<? extends SocketResponsedMessage> f;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -33,8 +32,7 @@ public class SocketMessageTask extends MessageTask {
         super(i);
         this.a = false;
         this.b = false;
-        this.c = false;
-        this.d = true;
+        this.c = true;
         this.e = DupLicateMode.NONE;
     }
 
@@ -60,11 +58,11 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public Class<? extends SocketResponsedMessage> c() {
-        return this.f;
+        return this.d;
     }
 
     public void a(Class<? extends SocketResponsedMessage> cls) {
-        this.f = cls;
+        this.d = cls;
     }
 
     public boolean d() {
@@ -81,13 +79,5 @@ public class SocketMessageTask extends MessageTask {
 
     public void a(DupLicateMode dupLicateMode) {
         this.e = dupLicateMode;
-    }
-
-    public boolean f() {
-        return this.d;
-    }
-
-    public void d(boolean z) {
-        this.d = z;
     }
 }

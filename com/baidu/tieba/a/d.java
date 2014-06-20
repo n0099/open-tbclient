@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.WriteData;
@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class d {
     private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/thread/add";
     private static final String b = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/add";
-    private al c = null;
+    private an c = null;
     private ErrorData d;
     private AntiData e;
     private h f;
@@ -65,7 +65,7 @@ public class d {
                 return null;
             }
         }
-        this.c = new al();
+        this.c = new an();
         this.c.a().a().a = true;
         this.c.a("anonymous", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
         this.c.a("fid", writeData.getForumId());

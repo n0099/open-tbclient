@@ -12,10 +12,10 @@ import android.widget.LinearLayout;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bp;
 import com.baidu.tbadk.core.util.br;
+import com.baidu.tbadk.core.util.bt;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.t;
 import com.baidu.tieba.v;
@@ -80,7 +80,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
     }
 
     public void a(UserData userData) {
-        bp.a((ViewGroup) this.d, false, (br) new j(this, userData));
+        br.a((ViewGroup) this.d, false, (bt) new j(this, userData));
     }
 
     public void setData(List<UserData> list) {
@@ -149,7 +149,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
                 HeadImageView headImageView = (HeadImageView) view;
                 if (!TextUtils.isEmpty(headImageView.getUserId())) {
                     com.baidu.tbadk.core.f.a(getContext(), "snap_chat_member_head_click");
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new at(this.a, headImageView.getUserId(), headImageView.getUserName())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new as(this.a, headImageView.getUserId(), headImageView.getUserName())));
                     return;
                 }
                 BdLog.d("no user id");

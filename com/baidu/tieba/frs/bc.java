@@ -24,7 +24,7 @@ public class bc implements com.baidu.tieba.view.e {
             com.baidu.tbadk.core.f.a(context, "forum_live_ck");
             MessageManager messageManager = MessageManager.getInstance();
             context2 = this.a.b;
-            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(context2, this.b.a().get(i).getGroupId())));
+            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ad(context2, this.b.a().get(i).getGroupId())));
         }
     }
 }

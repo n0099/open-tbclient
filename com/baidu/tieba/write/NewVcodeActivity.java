@@ -54,7 +54,7 @@ public class NewVcodeActivity extends BaseActivity {
     };
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ap.class, NewVcodeActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ao.class, NewVcodeActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -108,7 +108,7 @@ public class NewVcodeActivity extends BaseActivity {
         if (this.j == null) {
             try {
                 this.j = (BaseWebView) findViewById(com.baidu.tieba.v.new_vcode_webview);
-                com.baidu.tbadk.core.util.bc.a(this.j, TbadkApplication.m252getInst().getSkinType());
+                com.baidu.tbadk.core.util.be.a(this.j, TbadkApplication.m252getInst().getSkinType());
                 this.j.setHorizontalScrollBarEnabled(false);
                 this.j.setHorizontalScrollbarOverlay(false);
                 this.j.setScrollBarStyle(33554432);
@@ -203,10 +203,10 @@ public class NewVcodeActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.a.c(i);
-        com.baidu.tbadk.core.util.bc.g(this.c, i);
-        com.baidu.tbadk.core.util.bc.a((View) this.d, i);
+        com.baidu.tbadk.core.util.be.g(this.c, i);
+        com.baidu.tbadk.core.util.be.a((View) this.d, i);
         if (this.j != null) {
-            com.baidu.tbadk.core.util.bc.a(this.j, TbadkApplication.m252getInst().getSkinType());
+            com.baidu.tbadk.core.util.be.a(this.j, TbadkApplication.m252getInst().getSkinType());
         }
     }
 
@@ -267,7 +267,7 @@ public class NewVcodeActivity extends BaseActivity {
     /* loaded from: classes.dex */
     public class PostThreadTask extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.am> {
         private WriteData b;
-        private com.baidu.tbadk.core.util.al c = null;
+        private com.baidu.tbadk.core.util.an c = null;
         private String d = null;
 
         public PostThreadTask(WriteData writeData) {
@@ -281,7 +281,7 @@ public class NewVcodeActivity extends BaseActivity {
         /* renamed from: a */
         public com.baidu.tieba.data.am doInBackground(Integer... numArr) {
             Address b;
-            this.c = new com.baidu.tbadk.core.util.al();
+            this.c = new com.baidu.tbadk.core.util.an();
             this.c.a("anonymous", "0");
             this.c.a("fid", this.b.getForumId());
             this.c.a("kw", this.b.getForumName());
@@ -392,7 +392,7 @@ public class NewVcodeActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class ChangeVcodeTask extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.data.f> {
-        volatile com.baidu.tbadk.core.util.al a;
+        volatile com.baidu.tbadk.core.util.an a;
         com.baidu.tbadk.coreExtra.data.f b;
 
         private ChangeVcodeTask() {
@@ -409,7 +409,7 @@ public class NewVcodeActivity extends BaseActivity {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public com.baidu.tbadk.coreExtra.data.f doInBackground(String... strArr) {
-            this.a = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+            this.a = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
             this.a.a("fid", NewVcodeActivity.this.b.getForumId());
             this.a.a("kw", NewVcodeActivity.this.b.getForumName());
             this.a.a("new_vcode", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);

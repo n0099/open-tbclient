@@ -17,7 +17,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
@@ -86,12 +86,12 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bc.a(this.b, i);
-        bc.d(this.c, i);
-        bc.d(this.d, i);
-        bc.a(this.a, i);
+        be.a(this.b, i);
+        be.d(this.c, i);
+        be.d(this.d, i);
+        be.a(this.a, i);
         if (this.f != null) {
-            bc.a(this.f, i);
+            be.a(this.f, i);
             a();
         }
     }
@@ -133,7 +133,7 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
 
     @Override // com.baidu.tbadk.coreExtra.view.g
     public boolean a(WebView webView, String str) {
-        if (!com.baidu.tbadk.c.f.a(this, str)) {
+        if (!com.baidu.tbadk.b.e.a(this, str)) {
             if (str.contains("jumptoapp_browser=classic_everyday")) {
                 if (str.contains("pn=")) {
                     String a = a(str, "pn=");
@@ -172,7 +172,7 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
                     super.showToast(getString(y.web_view_corrupted));
                 } else {
                     this.f = new BaseWebView(this);
-                    bc.a(this.f, TbadkApplication.m252getInst().getSkinType());
+                    be.a(this.f, TbadkApplication.m252getInst().getSkinType());
                     this.f.setOnLoadUrlListener(this);
                     this.f.setHorizontalScrollBarEnabled(false);
                     this.f.setHorizontalScrollbarOverlay(false);

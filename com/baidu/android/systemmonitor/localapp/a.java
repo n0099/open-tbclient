@@ -3,8 +3,8 @@ package com.baidu.android.systemmonitor.localapp;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import com.baidu.android.systemmonitor.c.c;
 import com.baidu.android.systemmonitor.security.md5.MD5;
+import com.baidu.android.systemmonitor.util.f;
 import java.io.File;
 import java.io.IOException;
 /* loaded from: classes.dex */
@@ -51,7 +51,7 @@ public class a implements Comparable {
 
     public String a(Context context) {
         PackageInfo b;
-        if (TextUtils.isEmpty(this.j) && (b = c.b(context, this.o)) != null) {
+        if (TextUtils.isEmpty(this.j) && (b = f.b(context, this.o)) != null) {
             c((String) b.applicationInfo.loadLabel(context.getPackageManager()));
         }
         return this.j;
@@ -71,9 +71,9 @@ public class a implements Comparable {
 
     public String b(Context context) {
         if (TextUtils.isEmpty(this.q)) {
-            PackageInfo b = c.b(context, this.o);
+            PackageInfo b = f.b(context, this.o);
             if (b != null) {
-                this.q = c.a(c.b(b.signatures[0].toCharsString().getBytes()));
+                this.q = f.a(f.b(b.signatures[0].toCharsString().getBytes()));
             } else {
                 this.q = "";
             }
@@ -89,7 +89,7 @@ public class a implements Comparable {
         if (TextUtils.isEmpty(this.l)) {
             File file = new File(this.v);
             if (!file.exists()) {
-                c.c(context, this.o);
+                f.c(context, this.o);
             }
             try {
                 this.l = MD5.a(MD5.a(file));

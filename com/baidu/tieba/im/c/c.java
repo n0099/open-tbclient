@@ -2,7 +2,7 @@ package com.baidu.tieba.im.c;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.d.m;
+import com.baidu.tbadk.coreExtra.websocketBase.PingManager;
 /* loaded from: classes.dex */
 class c extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ class c extends CustomMessageListener {
     /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2010017) {
-            m.a().e();
+            PingManager.d().f();
             b.a().b();
         }
     }

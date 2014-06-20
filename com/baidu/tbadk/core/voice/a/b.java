@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.voice.a;
 
 import android.content.Context;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.y;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,10 +38,10 @@ public class b extends com.baidu.adp.lib.e.a<d> {
     @Override // com.baidu.adp.lib.e.a
     public void c(String str, com.baidu.adp.lib.e.e eVar) {
         LinkedList linkedList;
-        al alVar;
+        an anVar;
         super.c(str, eVar);
-        if (eVar != null && (alVar = (al) eVar.a("network")) != null) {
-            alVar.g();
+        if (eVar != null && (anVar = (an) eVar.a("network")) != null) {
+            anVar.g();
         }
         linkedList = this.a.a;
         linkedList.remove(str);

@@ -17,12 +17,12 @@ class w implements com.baidu.tieba.im.a<Void> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Void r6) {
-        ((com.baidu.tbadk.core.atomData.ar) this.b.getData()).getIntent().setClass(((com.baidu.tbadk.core.atomData.ar) this.b.getData()).getContext(), OfficialBarChatActivity.class);
-        UserData a = ((com.baidu.tbadk.core.atomData.ar) this.b.getData()).a();
+        ((com.baidu.tbadk.core.atomData.aq) this.b.getData()).getIntent().setClass(((com.baidu.tbadk.core.atomData.aq) this.b.getData()).getContext(), OfficialBarChatActivity.class);
+        UserData a = ((com.baidu.tbadk.core.atomData.aq) this.b.getData()).a();
         if (a.getUserIdLong() == 0) {
             BdLog.d("userid = " + a.getUserId());
         } else {
-            ((com.baidu.tbadk.core.atomData.ar) this.b.getData()).startActivity();
+            ((com.baidu.tbadk.core.atomData.aq) this.b.getData()).startActivity();
         }
     }
 }

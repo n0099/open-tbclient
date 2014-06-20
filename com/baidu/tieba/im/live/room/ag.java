@@ -181,7 +181,7 @@ public class ag extends RelativeLayout {
                 view.setVisibility(8);
                 tbImageView.setOnClickListener(null);
                 JSONObject jSONObject = new JSONArray(chatMessage.getContent()).getJSONObject(0);
-                String a = com.baidu.tieba.im.f.r.a(jSONObject, true);
+                String a = com.baidu.tieba.im.e.r.a(jSONObject, true);
                 if (a == null) {
                     BdLog.e("invalid small pic in content:" + chatMessage.getContent());
                     return;
@@ -197,7 +197,7 @@ public class ag extends RelativeLayout {
                         aVar = com.baidu.tbadk.imageManager.e.a().c(a);
                         try {
                             if (aVar == null) {
-                                Bitmap a2 = com.baidu.tbadk.core.util.g.a(com.baidu.tbadk.core.util.aw.a().a(com.baidu.adp.lib.util.b.a().a(a)), 10.0f, true);
+                                Bitmap a2 = com.baidu.tbadk.core.util.g.a(com.baidu.tbadk.core.util.ay.a().a(com.baidu.adp.lib.util.b.a().a(a)), 10.0f, true);
                                 if (a2 != null) {
                                     aVar = new com.baidu.adp.widget.a.a(a2, false);
                                     if (chatMessage.getWidth() < 1) {

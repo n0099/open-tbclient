@@ -5,7 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class y extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ v a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
     private String c;
     private String d;
     private String e;
@@ -17,7 +17,7 @@ public class y extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(String... strArr) {
-        this.b = new com.baidu.tbadk.core.util.al(strArr[0]);
+        this.b = new com.baidu.tbadk.core.util.an(strArr[0]);
         this.b.a("day", this.g);
         this.b.a("un", this.f);
         this.b.a("fid", this.c);

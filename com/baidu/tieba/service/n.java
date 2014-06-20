@@ -6,12 +6,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<String, Integer, String> {
-    al a;
+    an a;
     final /* synthetic */ TiebaActiveService b;
 
     private n(TiebaActiveService tiebaActiveService) {
@@ -31,7 +31,7 @@ public class n extends BdAsyncTask<String, Integer, String> {
     public String doInBackground(String... strArr) {
         BdLog.i(getClass().getName(), "doBackGround", "send active...");
         try {
-            this.a = new al("http://114.113.149.3:8086/partnersService");
+            this.a = new an("http://114.113.149.3:8086/partnersService");
             this.a.a("apk", ai.c().d().getPackageName());
             this.a.a("imei", TbadkApplication.m252getInst().getImei());
             this.a.a("model", Build.MODEL);

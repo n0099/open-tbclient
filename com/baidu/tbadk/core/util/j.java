@@ -10,7 +10,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<Object, Integer, JSONObject> {
     final /* synthetic */ h a;
-    private final al b = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.CDN_LOG_ADDRESS);
+    private final an b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.CDN_LOG_ADDRESS);
     private final int c;
     private final int d;
     private final String e;
@@ -33,7 +33,7 @@ public class j extends BdAsyncTask<Object, Integer, JSONObject> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public JSONObject doInBackground(Object... objArr) {
-        if (this.a.b() == null || !this.a.b().a() || this.g == 0) {
+        if (this.a.b() == null || !this.a.b().d() || this.g == 0) {
             return null;
         }
         this.b.a("number", String.valueOf(this.h));
@@ -50,7 +50,7 @@ public class j extends BdAsyncTask<Object, Integer, JSONObject> {
             this.b.a("error", this.e);
         }
         String i = this.b.i();
-        if (TextUtils.isEmpty(i)) {
+        if (!this.b.c() || TextUtils.isEmpty(i)) {
             return null;
         }
         try {
@@ -61,6 +61,7 @@ public class j extends BdAsyncTask<Object, Integer, JSONObject> {
         }
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [398=6] */
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -68,43 +69,55 @@ public class j extends BdAsyncTask<Object, Integer, JSONObject> {
     public void onPostExecute(JSONObject jSONObject) {
         int i;
         com.baidu.tbadk.core.data.e eVar;
-        int i2;
         com.baidu.tbadk.core.data.e eVar2;
         super.onPostExecute(jSONObject);
         try {
-            if (jSONObject.optInt("error_code") != 0) {
-                h hVar = this.a;
-                i2 = hVar.i;
-                int i3 = i2 + 1;
-                hVar.i = i3;
-                if (i3 >= 5) {
-                    eVar2 = this.a.h;
-                    eVar2.a(false);
-                    return;
-                }
+            if (jSONObject == null) {
+                com.baidu.adp.lib.stats.s a = ac.a();
+                a.a("act", "fallback");
+                a.a("result", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+                a.a("type", "end");
+                com.baidu.adp.lib.stats.h.a().a("img", a);
                 return;
             }
-            if (jSONObject.optJSONObject("ret").optInt("err_no") != 0) {
-                h hVar2 = this.a;
-                i = hVar2.i;
-                int i4 = i + 1;
-                hVar2.i = i4;
-                if (i4 >= 5) {
-                    eVar = this.a.h;
-                    eVar.a(false);
-                }
+            h hVar = this.a;
+            i = hVar.i;
+            int i2 = i + 1;
+            hVar.i = i2;
+            if (i2 >= 5) {
+                eVar2 = this.a.h;
+                eVar2.a(false);
+                this.a.l = System.currentTimeMillis();
+                return;
+            }
+            if (jSONObject.optJSONObject("ret").optInt("err_no", -1) != 0) {
+                com.baidu.adp.lib.stats.s a2 = ac.a();
+                a2.a("act", "fallback");
+                a2.a("result", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+                a2.a("type", "end");
+                com.baidu.adp.lib.stats.h.a().a("img", a2);
+            } else {
+                com.baidu.adp.lib.stats.s a3 = ac.a();
+                a3.a("act", "fallback");
+                a3.a("result", "0");
+                a3.a("type", "end");
+                com.baidu.adp.lib.stats.h.a().a("img", a3);
+                this.a.c();
+                eVar = this.a.h;
+                eVar.a(false);
+                this.a.l = System.currentTimeMillis();
             }
             String optString = jSONObject.optString("photo_strategy");
             com.baidu.tbadk.core.data.e eVar3 = new com.baidu.tbadk.core.data.e();
             eVar3.a(optString);
-            if (eVar3.a() != this.a.b().a() || eVar3.d() != this.a.b().d() || eVar3.b() != this.a.b().b() || eVar3.c() != this.a.b().c()) {
-                this.a.a(eVar3);
+            if (eVar3.d() == this.a.b().d() && eVar3.g() == this.a.b().g() && eVar3.e() == this.a.b().e() && eVar3.f() == this.a.b().f()) {
+                return;
             }
+            this.a.a(eVar3);
         } catch (Exception e) {
-            com.baidu.tbadk.core.data.e eVar4 = new com.baidu.tbadk.core.data.e();
-            eVar4.a(false);
-            this.a.a(eVar4);
             BdLog.e("CDNLogger", "onPostExecute", e.getMessage());
+        } finally {
+            this.a.k = false;
         }
     }
 }

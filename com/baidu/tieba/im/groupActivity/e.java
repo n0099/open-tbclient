@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.w;
@@ -99,7 +99,7 @@ public class e extends com.baidu.adp.base.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        this.j.setText(this.o + "-" + (this.p + 1) + "-" + this.q + " " + be.a(this.o, this.p, this.q));
+        this.j.setText(this.o + "-" + (this.p + 1) + "-" + this.q + " " + bg.a(this.o, this.p, this.q));
     }
 
     @Override // com.baidu.adp.base.c

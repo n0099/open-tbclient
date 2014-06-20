@@ -1,9 +1,9 @@
 package com.baidu.tieba.barcode;
 
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements bm {
+public class d implements bo {
     final /* synthetic */ CaptureActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ public class d implements bm {
         this.a = captureActivity;
     }
 
-    @Override // com.baidu.tbadk.core.util.bm
+    @Override // com.baidu.tbadk.core.util.bo
     public void a() {
         this.a.onPause();
         this.a.onResume();

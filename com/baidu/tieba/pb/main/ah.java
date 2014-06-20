@@ -38,7 +38,7 @@ public class ah implements DialogInterface.OnClickListener {
             this.a.o = String.valueOf(System.currentTimeMillis());
             PbActivity pbActivity = this.a;
             str = this.a.o;
-            com.baidu.tbadk.core.util.bb.a(pbActivity, str);
+            com.baidu.tbadk.core.util.bd.a(pbActivity, str);
         } else if (i == 1) {
             writeImagesInfo = this.a.n;
             if (writeImagesInfo != null) {

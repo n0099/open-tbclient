@@ -1,30 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends BdAsyncTask<String, Integer, String> {
-    private aw() {
-    }
+public class aw implements DialogInterface.OnCancelListener {
+    final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aw(aw awVar) {
-        this();
+    public aw(UpdateDialog updateDialog) {
+        this.a = updateDialog;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        byte[] bArr;
-        byte[] bArr2;
-        bArr = ai.J;
-        synchronized (bArr) {
-            ai.K = Boolean.valueOf(com.baidu.tieba.util.r.a());
-            bArr2 = ai.J;
-            bArr2.notifyAll();
-        }
-        return null;
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        ac acVar;
+        acVar = this.a.h;
+        acVar.dismiss();
+        this.a.finish();
     }
 }

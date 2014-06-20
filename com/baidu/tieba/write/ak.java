@@ -31,7 +31,7 @@ public class ak implements DialogInterface.OnClickListener {
                 this.a.D = String.valueOf(System.currentTimeMillis());
                 WriteActivity writeActivity = this.a;
                 str = this.a.D;
-                com.baidu.tbadk.core.util.bb.a(writeActivity, str);
+                com.baidu.tbadk.core.util.bd.a(writeActivity, str);
                 return;
             }
             this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));

@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ak;
+import com.baidu.tbadk.core.atomData.aj;
 import com.baidu.tbadk.core.f;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -91,7 +91,7 @@ public class a extends BdAsyncTask<String, Integer, String> {
             if (!str.equals(str2)) {
                 str3 = DealIntentService.ACTION_ON_POST_START;
                 if (str.equals(str3)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ak(this.a, this.b)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new aj(this.a, this.b)));
                 }
             } else {
                 this.b.addFlags(268435456);

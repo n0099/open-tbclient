@@ -11,8 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.data.SearchPostModel;
 import com.baidu.tieba.data.ao;
 import java.util.ArrayList;
@@ -154,15 +154,15 @@ public class c extends BaseAdapter {
                 ao aoVar = (ao) getItem(i);
                 if (aoVar != null) {
                     eVar.d.setText(String.valueOf(aoVar.d()) + this.b.getString(com.baidu.tieba.y.bar));
-                    eVar.a.setText(be.a(aoVar.g()));
+                    eVar.a.setText(bg.a(aoVar.g()));
                     if (aoVar.f() == null || aoVar.f().length() < 1) {
                         eVar.e.setVisibility(8);
                     } else {
                         eVar.e.setVisibility(0);
-                        eVar.b.setText(Html.fromHtml(be.a(aoVar.f(), (Color) null)));
+                        eVar.b.setText(Html.fromHtml(bg.a(aoVar.f(), (Color) null)));
                     }
-                    eVar.c.setText(Html.fromHtml(be.a(aoVar.e(), (Color) null)));
-                    bc.b(eVar.b, skinType);
+                    eVar.c.setText(Html.fromHtml(bg.a(aoVar.e(), (Color) null)));
+                    be.b(eVar.b, skinType);
                     if (skinType == 0) {
                         eVar.f.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.s.square_dividing_line));
                         eVar.e.setBackgroundResource(com.baidu.tieba.u.bg_search_tiezi);
@@ -187,7 +187,7 @@ public class c extends BaseAdapter {
                     dVar.b.setVisibility(8);
                     dVar.a.setText(this.b.getString(com.baidu.tieba.y.pre_page));
                 }
-                bc.b(dVar.a, skinType);
+                be.b(dVar.a, skinType);
             } else {
                 if (this.c == 2) {
                     dVar.b.setVisibility(0);
@@ -196,7 +196,7 @@ public class c extends BaseAdapter {
                     dVar.b.setVisibility(8);
                     dVar.a.setText(this.b.getString(com.baidu.tieba.y.next_page));
                 }
-                bc.b(dVar.a, skinType);
+                be.b(dVar.a, skinType);
             }
         }
         return view;

@@ -1,9 +1,12 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.asyncTask.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class h extends a {
+    private static BdAsyncTaskParallel c = null;
     private String a;
     private int b;
 
@@ -19,9 +22,9 @@ public class h extends a {
         this.b = 110;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.resourceLoader.g
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.resourceLoader.h
     public boolean a() {
-        return com.baidu.tbadk.core.g.a().d();
+        return com.baidu.tbadk.core.h.a().d();
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -34,7 +37,7 @@ public class h extends a {
         return String.valueOf(this.a) + str;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.resourceLoader.g
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.resourceLoader.h
     public void a(String str, Object obj, Object... objArr) {
         com.baidu.tbadk.imageManager.e a = com.baidu.tbadk.imageManager.e.a();
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
@@ -43,18 +46,13 @@ public class h extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int b() {
-        return this.b;
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public int c() {
         return this.b;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean d() {
-        return false;
+    public int d() {
+        return this.b;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -65,5 +63,18 @@ public class h extends a {
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean f() {
         return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public boolean g() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.resourceLoader.h
+    public BdAsyncTaskParallel b() {
+        if (c == null) {
+            c = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, l.a());
+        }
+        return c;
     }
 }

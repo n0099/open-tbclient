@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.service;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.l;
 import java.io.File;
 import java.io.RandomAccessFile;
@@ -12,7 +12,7 @@ public class c {
     private String b;
     private String c;
     private com.baidu.tbadk.coreExtra.data.b d;
-    private al e;
+    private an e;
     private boolean f = false;
     private String g;
 
@@ -50,7 +50,7 @@ public class c {
                     byte[] bArr = new byte[i2];
                     int read = randomAccessFile.read(bArr, 0, i2);
                     if (read != -1) {
-                        this.e = new al(this.c);
+                        this.e = new an(this.c);
                         this.e.a("voice_chunk", bArr);
                         this.e.a("chunk_md5", this.d.a());
                         this.e.a("length", String.valueOf(read));

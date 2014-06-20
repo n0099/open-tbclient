@@ -16,12 +16,12 @@ public class cw implements com.baidu.tbadk.coreExtra.view.ag {
         g gVar;
         Button button;
         if (i == 0) {
-            button = this.a.af;
+            button = this.a.ae;
             button.setVisibility(8);
             return;
         }
         ct ctVar = this.a;
-        gVar = this.a.an;
+        gVar = this.a.am;
         ctVar.a(gVar);
     }
 }

@@ -11,8 +11,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.chat.personaltalk.PersonalSettingItemData;
@@ -129,10 +129,10 @@ public class s extends BaseAdapter {
                 tVar.j.setVisibility(8);
             }
             if (skinType == 1) {
-                bc.e((View) tVar.i, u.btn_w_square_1);
+                be.e((View) tVar.i, u.btn_w_square_1);
                 tVar.i.setTextColor(-8682095);
             } else {
-                bc.e((View) tVar.i, u.btn_w_square);
+                be.e((View) tVar.i, u.btn_w_square);
                 tVar.i.setTextColor(-14277082);
             }
         } else if (itemId == -2) {
@@ -148,19 +148,19 @@ public class s extends BaseAdapter {
                 tVar.j.setVisibility(8);
             }
             if (skinType == 1) {
-                bc.e((View) tVar.i, u.btn_w_square_1);
+                be.e((View) tVar.i, u.btn_w_square_1);
                 tVar.i.setTextColor(-8682095);
             } else {
-                bc.e((View) tVar.i, u.btn_w_square);
+                be.e((View) tVar.i, u.btn_w_square);
                 tVar.i.setTextColor(-14277082);
             }
         } else {
             if (skinType == 1) {
-                bc.e(view2, u.list_selector_1);
+                be.e(view2, u.list_selector_1);
             } else {
-                bc.e(view2, u.list_selector);
+                be.e(view2, u.list_selector);
             }
-            bc.f(tVar.g, com.baidu.tieba.s.cp_bg_line_b);
+            be.f(tVar.g, com.baidu.tieba.s.cp_bg_line_b);
             BdLog.d("count:" + getCount());
             tVar.a.setVisibility(0);
             tVar.g.setVisibility(0);
@@ -174,7 +174,7 @@ public class s extends BaseAdapter {
                     date.setTime(imMessageCenterShowItemData.getServerTime());
                     String str = "";
                     if (imMessageCenterShowItemData.getServerTime() != 0) {
-                        str = be.f(date);
+                        str = bg.f(date);
                     }
                     tVar.e.setText(str);
                     c(tVar, imMessageCenterShowItemData);

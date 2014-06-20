@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.voice.a;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.voice.ae;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class g implements com.baidu.adp.lib.e.f {
-    private al a = null;
+    private an a = null;
     private com.baidu.adp.lib.e.e b;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class g implements com.baidu.adp.lib.e.f {
             str2 = (String) this.b.a("from");
         }
         d dVar2 = new d();
-        this.a = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str + "&play_from=" + str2);
+        this.a = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str + "&play_from=" + str2);
         if (this.b != null) {
             this.b.a("network", this.a);
         }

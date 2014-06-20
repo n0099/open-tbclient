@@ -3,7 +3,6 @@ package com.baidu.tieba.data;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -165,7 +164,7 @@ public class e {
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("imNetworkTimeOut");
                 if (optJSONObject4 != null) {
-                    com.baidu.tieba.ai.c().a(new int[]{optJSONObject4.optInt("2gTo", 0) * LocationClientOption.MIN_SCAN_SPAN, optJSONObject4.optInt("3gTo", 0) * LocationClientOption.MIN_SCAN_SPAN, optJSONObject4.optInt("wifiTo", 0) * LocationClientOption.MIN_SCAN_SPAN});
+                    com.baidu.tieba.ai.c().a(new int[]{optJSONObject4.optInt("2gTo", 0) * 1000, optJSONObject4.optInt("3gTo", 0) * 1000, optJSONObject4.optInt("wifiTo", 0) * 1000});
                 }
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2010017));
                 TbadkApplication.m252getInst().setIsUseBaiduStatOn(optInt2 == 1);

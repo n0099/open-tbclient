@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.y;
@@ -86,7 +86,7 @@ public class p extends com.baidu.adp.base.c {
     public void a(int i) {
         this.c.getLayoutMode().a(i == 1);
         this.c.getLayoutMode().a(this.b);
-        bc.b(this.b, i);
+        be.b(this.b, i);
         this.a.c(i);
         if (i == 1) {
             this.b.setBackgroundResource(com.baidu.tieba.s.group_info_bg_1);

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<ForumData, Integer, String> {
     final /* synthetic */ EditBarActivity a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
     private ForumData c;
 
     private f(EditBarActivity editBarActivity) {
@@ -36,11 +36,11 @@ public class f extends BdAsyncTask<ForumData, Integer, String> {
         try {
             if (this.c != null && this.c.getId() != null && this.c.getName() != null) {
                 this.a.m = this.c.getName();
-                this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
+                this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
                 this.b.a("fid", this.c.getId());
-                com.baidu.tbadk.core.util.al alVar = this.b;
+                com.baidu.tbadk.core.util.an anVar = this.b;
                 str = this.a.m;
-                alVar.a("kw", str);
+                anVar.a("kw", str);
                 this.b.a("favo_type", String.valueOf(this.c.getFavo_type()));
                 this.b.a().a().a = true;
                 this.b.i();

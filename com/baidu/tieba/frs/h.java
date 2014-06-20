@@ -10,7 +10,7 @@ public class h extends BdAsyncTask<String, Integer, Boolean> {
     private final String c;
     private final String d;
     private final String e;
-    private com.baidu.tbadk.core.util.al b = null;
+    private com.baidu.tbadk.core.util.an b = null;
     private final i f = new i();
 
     public h(g gVar, String str, String str2, String str3) {
@@ -26,7 +26,7 @@ public class h extends BdAsyncTask<String, Integer, Boolean> {
     /* renamed from: a */
     public Boolean doInBackground(String... strArr) {
         try {
-            this.b = new com.baidu.tbadk.core.util.al(strArr[0]);
+            this.b = new com.baidu.tbadk.core.util.an(strArr[0]);
             this.b.a("fid", this.c);
             this.b.a("kw", this.d);
             this.b.a("is_like", this.e);

@@ -3,27 +3,23 @@ package com.baidu.android.systemmonitor.b;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
-public class b extends d {
+public class b extends c {
     public b(Context context) {
-        super(context, "devinfo.db", null, 1);
+        super(context, "mystatus.db", null, 1);
     }
 
-    @Override // com.baidu.android.systemmonitor.b.d
+    @Override // com.baidu.android.systemmonitor.b.c
     public void a(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL("CREATE TABLE power (_id INTEGER,startstamp LONG,stopstamp LONG);");
-        sQLiteDatabase.execSQL("CREATE TABLE charge (_id INTEGER,startstamp LONG,stopstamp LONG,chargetype INTEGER,startlevel INTEGER,stoplevel INTEGER,netype INTEGER,loc TEXT);");
-        sQLiteDatabase.execSQL("CREATE TABLE network (_id INTEGER,startstamp LONG,stopstamp LONG,netype INTEGER,flow LONG);");
-        sQLiteDatabase.execSQL("CREATE TABLE stinfo (_id INTEGER,startstamp LONG,pconum INTEGER,sconum INTEGER,msnum INTEGER,msinfo TEXT,calognum INTEGER,caloginfo TEXT,sdfall TEXT,pfall TEXT,pphnum INTEGER,sphnum INTEGER,pmpnum INTEGER,smpnum INTEGER,stvnum INTEGER);");
-        sQLiteDatabase.execSQL("CREATE TABLE apkdn (_id INTEGER,startstamp LONG,dnpath TEXT,downame TEXT);");
+        sQLiteDatabase.execSQL("CREATE TABLE astatus (_id INTEGER,pn TEXT primary key,lautimes INTEGER,totaltime LONG,lauper TEXT,laucur INTEGER,timeper TEXT,timecur LONG);");
+        sQLiteDatabase.execSQL("CREATE TABLE atrace (_id INTEGER,pn TEXT NOT NULL,startstamp LONG,stopstamp LONG,loc TEXT,startlevel INTEGER,stoplevel INTEGER,netype INTEGER,flow LONG);");
+        sQLiteDatabase.execSQL("CREATE TABLE achange (_id INTEGER,pn TEXT NOT NULL,an TEXT,time LONG,event INTEGER,vcode INTEGER,vcodeaft INTEGER,vn TEXT,vnaft TEXT);");
     }
 
-    @Override // com.baidu.android.systemmonitor.b.d
+    @Override // com.baidu.android.systemmonitor.b.c
     public void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS power");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE charge (_id INTEGER,startstamp LONG,stopstamp LONG,chargetype INTEGER,startlevel INTEGER,stoplevel INTEGER,netype INTEGER,loc TEXT);");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE network (_id INTEGER,startstamp LONG,stopstamp LONG,netype INTEGER,flow LONG);");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE stinfo (_id INTEGER,startstamp LONG,pconum INTEGER,sconum INTEGER,msnum INTEGER,msinfo TEXT,calognum INTEGER,caloginfo TEXT,sdfall TEXT,pfall TEXT,pphnum INTEGER,sphnum INTEGER,pmpnum INTEGER,smpnum INTEGER,stvnum INTEGER);");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE apkdn (_id INTEGER,startstamp LONG,dnpath TEXT,downame TEXT);");
+        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS astatus");
+        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS atrace");
+        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE achange (_id INTEGER,pn TEXT NOT NULL,an TEXT,time LONG,event INTEGER,vcode INTEGER,vcodeaft INTEGER,vn TEXT,vnaft TEXT);");
         a(sQLiteDatabase);
     }
 }

@@ -22,10 +22,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
-import com.baidu.tbadk.core.atomData.ak;
-import com.baidu.tbadk.core.atomData.aq;
-import com.baidu.tbadk.core.atomData.at;
-import com.baidu.tbadk.core.atomData.bi;
+import com.baidu.tbadk.core.atomData.aj;
+import com.baidu.tbadk.core.atomData.ap;
+import com.baidu.tbadk.core.atomData.as;
+import com.baidu.tbadk.core.atomData.bh;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
@@ -255,7 +255,7 @@ public class MainTabActivity extends BaseFragmentActivity {
             this.o.dismiss();
             AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new at(this.F, currentAccountObj.getID(), currentAccountObj.getAccount())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new as(this.F, currentAccountObj.getID(), currentAccountObj.getAccount())));
             }
             this.P = 0;
             a(true);
@@ -278,7 +278,7 @@ public class MainTabActivity extends BaseFragmentActivity {
                 return;
             }
             antiData.setIfVoice(false);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bi(this.F, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bh(this.F, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null)));
         } else if (view == this.y) {
             this.o.dismiss();
             a(new CustomMessage(2017006, new com.baidu.tbadk.core.frameworkData.a(this.F)));
@@ -431,7 +431,7 @@ public class MainTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        ak.a = false;
+        aj.a = false;
         if (g) {
             g = false;
             CompatibleUtile.setAnim(this, com.baidu.tieba.p.down, com.baidu.tieba.p.hold);
@@ -470,7 +470,7 @@ public class MainTabActivity extends BaseFragmentActivity {
         if (intExtra == 200) {
             finish();
         } else if (intExtra == 11) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new aq(this, aq.b)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ap(this, ap.b)));
             finish();
         } else if (intExtra == 12) {
             TbadkApplication.m252getInst().notifyAppEnterBackground();
@@ -549,7 +549,7 @@ public class MainTabActivity extends BaseFragmentActivity {
             return;
         }
         antiData.setIfVoice(false);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bi(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bh(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null)));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

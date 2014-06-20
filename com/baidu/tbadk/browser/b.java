@@ -5,10 +5,10 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bm;
 /* loaded from: classes.dex */
-class b implements bk {
-    @Override // com.baidu.tbadk.core.util.bk
+class b implements bm {
+    @Override // com.baidu.tbadk.core.util.bm
     public boolean a(Context context, String[] strArr) {
         String str = strArr[0];
         String str2 = strArr.length > 1 ? strArr[1] : null;

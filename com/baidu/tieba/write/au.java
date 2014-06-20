@@ -94,7 +94,7 @@ public class au implements com.baidu.tbadk.editortool.x {
                         MessageManager messageManager = MessageManager.getInstance();
                         WriteActivity writeActivity2 = this.a;
                         writeImagesInfo4 = this.a.C;
-                        messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bk(writeActivity2, 12012, writeImagesInfo4, intValue)));
+                        messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bj(writeActivity2, 12012, writeImagesInfo4, intValue)));
                     }
                 }
             }

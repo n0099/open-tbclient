@@ -1,22 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.location.Address;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements Runnable {
+public class al implements com.baidu.adp.lib.c.d {
     final /* synthetic */ ai a;
-    private final /* synthetic */ int[] b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ai aiVar, int[] iArr) {
+    public al(ai aiVar) {
         this.a = aiVar;
-        this.b = iArr;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2007004, new com.baidu.tbadk.core.atomData.aa(TbadkApplication.m252getInst(), this.b)));
+    @Override // com.baidu.adp.lib.c.d
+    public void a(int i, String str, Address address) {
+        if (i == 0 && address != null) {
+            try {
+                String valueOf = String.valueOf(address.getLatitude());
+                String valueOf2 = String.valueOf(address.getLongitude());
+                if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
+                    TbadkApplication.m252getInst().setLocationLat(valueOf);
+                    TbadkApplication.m252getInst().setLocationLng(valueOf2);
+                    TbadkApplication.m252getInst().setLocationPos(address.getAddressLine(0));
+                }
+            } catch (IllegalStateException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

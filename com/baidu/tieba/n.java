@@ -37,7 +37,7 @@ public class n {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(i);
         bVar.a(cls);
         bVar.b(z);
-        bVar.setTimeOut(new com.baidu.adp.framework.c.g(ai.c().H(), ai.c().I(), ai.c().J()));
+        bVar.setTimeOut(new com.baidu.adp.framework.c.e(ai.c().H(), ai.c().I(), ai.c().J()));
         MessageManager.getInstance().registerTask(bVar);
         return bVar;
     }

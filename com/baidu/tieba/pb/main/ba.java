@@ -38,7 +38,7 @@ public class ba extends CustomMessageListener {
                             if (status == 3 || status == 0) {
                                 o.a(2);
                             } else if (status == 2 || status == 4) {
-                                if (!com.baidu.tbadk.core.util.be.c(downloadData.getStatusMsg())) {
+                                if (!com.baidu.tbadk.core.util.bg.c(downloadData.getStatusMsg())) {
                                     context = this.a.b;
                                     com.baidu.adp.lib.util.k.a(context, downloadData.getStatusMsg());
                                 }

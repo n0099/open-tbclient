@@ -1,22 +1,14 @@
 package com.baidu.adp.framework.a;
-
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.task.MessageTask;
 /* loaded from: classes.dex */
-public abstract class h<T extends Message<?>, M extends MessageTask> extends j<T> {
-    public abstract T a(T t, M m);
+public abstract class h<T> extends com.baidu.adp.framework.c {
+    private int a;
 
     public h(int i) {
-        super(i);
+        this.a = 0;
+        this.a = i;
     }
 
-    public T b(T t, M m) {
-        if (t != null) {
-            if (a() == 0 || a() == t.getCmd()) {
-                return a(t, m);
-            }
-            return t;
-        }
-        return t;
+    public int a() {
+        return this.a;
     }
 }

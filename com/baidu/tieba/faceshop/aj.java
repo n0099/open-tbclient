@@ -49,7 +49,7 @@ class aj extends CustomMessageListener {
                                 facePackageData.downloaded = 1;
                                 facePackageData.downloading = 0;
                             } else if (status == 2 || status == 4) {
-                                if (!com.baidu.tbadk.core.util.be.c(downloadData.getStatusMsg())) {
+                                if (!com.baidu.tbadk.core.util.bg.c(downloadData.getStatusMsg())) {
                                     this.a.showToast(downloadData.getStatusMsg());
                                 }
                                 auVar = this.a.c;

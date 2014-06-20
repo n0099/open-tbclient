@@ -8,7 +8,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.List;
 import protobuf.QueryLiveGroupLikeList.LikeUserInfo;
@@ -89,15 +88,15 @@ public class f extends com.baidu.adp.base.c {
         this.b.a(list);
         this.b.notifyDataSetChanged();
         switch (i2) {
-            case MessageTypes.CMD_UPDATE_CLIENT_INFO /* 1001 */:
+            case 1001:
                 this.j.setVisibility(0);
                 this.k.setVisibility(0);
                 this.l.setVisibility(8);
                 return;
-            case MessageTypes.CMD_GROUP_UPDATE /* 1002 */:
+            case 1002:
                 this.j.setVisibility(8);
                 return;
-            case MessageTypes.CMD_PING /* 1003 */:
+            case 1003:
                 this.j.setVisibility(0);
                 if (TbadkApplication.m252getInst().getSkinType() == 1) {
                     this.j.setBackgroundResource(com.baidu.tieba.u.bg_pack_1);

@@ -82,4 +82,8 @@ public class e {
     public String toString() {
         return "pic:" + this.c.toString() + "  photo:" + this.b.toString();
     }
+
+    public String d() {
+        return this.c.c() + "/" + this.c.d() + "/" + this.c.e() + "_" + this.b.c() + "/" + this.b.d() + "/" + this.b.e();
+    }
 }

@@ -8,7 +8,7 @@ import com.baidu.tieba.data.MarkData;
 /* loaded from: classes.dex */
 public class aj extends BdAsyncTask<Boolean, Integer, Boolean> {
     final /* synthetic */ ai a;
-    private com.baidu.tbadk.core.util.al b = null;
+    private com.baidu.tbadk.core.util.an b = null;
     private boolean c;
     private com.baidu.tieba.data.as d;
 
@@ -34,19 +34,19 @@ public class aj extends BdAsyncTask<Boolean, Integer, Boolean> {
         MarkData markData2;
         MarkData markData3;
         if (this.c) {
-            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/addstore");
+            this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/addstore");
             k kVar = new k();
             markData3 = this.a.b;
             kVar.a(markData3);
             this.b.a("data", kVar.a(0, 1));
         } else {
-            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/rmstore");
-            com.baidu.tbadk.core.util.al alVar = this.b;
+            this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/rmstore");
+            com.baidu.tbadk.core.util.an anVar = this.b;
             markData = this.a.b;
-            alVar.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, markData.getAccount());
-            com.baidu.tbadk.core.util.al alVar2 = this.b;
+            anVar.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, markData.getAccount());
+            com.baidu.tbadk.core.util.an anVar2 = this.b;
             markData2 = this.a.b;
-            alVar2.a("tid", markData2.getId());
+            anVar2.a("tid", markData2.getId());
         }
         this.d.a(this.b.i());
         boolean z = this.d.a() == 0;

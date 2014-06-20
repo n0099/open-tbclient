@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.x;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 /* loaded from: classes.dex */
 class e {
     final /* synthetic */ a a;
-    private al b;
+    private an b;
 
     private e(a aVar) {
         this.a = aVar;
@@ -48,7 +48,7 @@ class e {
                     byteArrayOutputStream = new ByteArrayOutputStream(1024);
                     try {
                         if (z) {
-                            com.baidu.tbadk.c.b.a(fileInputStream, byteArrayOutputStream);
+                            com.baidu.tbadk.b.b.a(fileInputStream, byteArrayOutputStream);
                         } else {
                             byte[] bArr = new byte[1024];
                             while (true) {
@@ -80,7 +80,7 @@ class e {
                             }
                             return;
                         }
-                        this.b = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
+                        this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
                         this.b.a("cuid", TbadkApplication.getUniqueIdentifier());
                         this.b.a(SapiAccountManager.SESSION_UID, TbadkApplication.getCurrentAccount());
                         this.b.a("time", str5);

@@ -56,7 +56,7 @@ public class TiebaStatic {
                         i = aVar.b().a;
                     }
                     String str = null;
-                    String a = bg.a();
+                    String a = bi.a();
                     if (i != 0) {
                         str = aVar.b().c;
                         BdLog.i("api=" + aVar.a().b() + " downsize=" + aVar.c().a.b + " upsize=" + aVar.c().a.a + " dns=" + aVar.c().a.g + " from=" + a + " cost=" + aVar.c().a.f + " conTime=" + aVar.c().a.c + " rspTime=" + aVar.c().a.d + " retry=" + aVar.c().a.e + " errorCode=" + aVar.b().b);
@@ -85,9 +85,9 @@ public class TiebaStatic {
                     str2 = codecSeqId(String.valueOf(((SocketMessage) socketResponsedMessage.getOrginalMessage()).getSquencedId()));
                 }
                 if (str == null) {
-                    com.baidu.adp.lib.stats.h.a().a("im", String.valueOf(socketResponsedMessage.getCmd()), str2, null, socketResponsedMessage.getmDownSize(), 0L, socketResponsedMessage.getmCostTime(), 0L, 0L, socketResponsedMessage.getmRetry(), socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
+                    com.baidu.adp.lib.stats.h.a().a("im", String.valueOf(socketResponsedMessage.getCmd()), str2, null, socketResponsedMessage.getDownSize(), 0L, socketResponsedMessage.getCostTime(), 0L, 0L, socketResponsedMessage.getRetry(), socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
                 } else {
-                    com.baidu.adp.lib.stats.h.a().a("im", String.valueOf(socketResponsedMessage.getCmd()), str2, null, socketResponsedMessage.getmDownSize(), 0L, socketResponsedMessage.getmCostTime(), 0L, 0L, socketResponsedMessage.getmRetry(), socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), "msgtype", str);
+                    com.baidu.adp.lib.stats.h.a().a("im", String.valueOf(socketResponsedMessage.getCmd()), str2, null, socketResponsedMessage.getDownSize(), 0L, socketResponsedMessage.getCostTime(), 0L, 0L, socketResponsedMessage.getRetry(), socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), "msgtype", str);
                 }
             } catch (Exception e) {
                 BdLog.e("TiebaStatic", "net", e.toString());
@@ -129,7 +129,7 @@ public class TiebaStatic {
 
     public static void printDBExceptionLog(String str, int i, String str2, Object... objArr) {
         try {
-            com.baidu.adp.lib.stats.h.a().b(str, null, bg.a(), i, str2, objArr);
+            com.baidu.adp.lib.stats.h.a().b(str, null, bi.a(), i, str2, objArr);
         } catch (Exception e) {
             BdLog.e("TiebaStatic", "printDBExceptionLog", e.toString());
         }
@@ -162,7 +162,7 @@ public class TiebaStatic {
 
     public static void liveError(String str, int i, String str2, String str3) {
         try {
-            com.baidu.adp.lib.stats.h.a().d("op_live", str, bg.a(), i, str2, "live_inf", str3);
+            com.baidu.adp.lib.stats.h.a().d("op_live", str, bi.a(), i, str2, "live_inf", str3);
         } catch (Exception e) {
             BdLog.e("TiebaStatic", "liveError", e.toString());
         }
@@ -182,7 +182,7 @@ public class TiebaStatic {
 
     public static void voiceError(String str, int i, String str2, String str3) {
         try {
-            com.baidu.adp.lib.stats.h.a().c("op_voice", str, bg.a(), i, str2, "voice_inf", str3);
+            com.baidu.adp.lib.stats.h.a().c("op_voice", str, bi.a(), i, str2, "voice_inf", str3);
         } catch (Exception e) {
             BdLog.e("TiebaStatic", "voiceError", e.toString());
         }
@@ -287,7 +287,7 @@ public class TiebaStatic {
     }
 
     public static void file(String str, String str2) {
-        String a = bg.a();
+        String a = bi.a();
         try {
             if (x.a()) {
                 com.baidu.adp.lib.stats.h.a().a(str2, null, a, -27, str, "sd_state", getSdState(), "sd_size", Long.valueOf(x.e()));
@@ -304,7 +304,8 @@ public class TiebaStatic {
             ac.b();
             ac.c();
             ac.d();
-            com.baidu.adp.lib.stats.h.a().d();
+            com.baidu.adp.lib.resourceLoader.f.b();
+            com.baidu.adp.lib.stats.h.a().e();
         } catch (Exception e) {
             BdLog.e("TiebaStatic", "save", e.toString());
         }
@@ -344,7 +345,7 @@ public class TiebaStatic {
                         if (dVar.f >= 0 && dVar.c >= 0 && dVar.d >= 0) {
                             int i = dVar.i;
                             String str3 = null;
-                            String a = bg.a();
+                            String a = bi.a();
                             if (i != 0 && i != 200) {
                                 str3 = dVar.h;
                                 BdLog.i("api=" + getApiName(str2) + " downsize=" + dVar.b + " upsize=" + dVar.a + " dns=" + dVar.g + " from=" + a + " cost=" + dVar.f + " conTime=" + dVar.c + " rspTime=" + dVar.d + " retry=" + dVar.e + " errorCode=" + dVar.i);
@@ -385,7 +386,7 @@ public class TiebaStatic {
                                 }
                             }
                             String str4 = new String();
-                            String a = bg.a();
+                            String a = bi.a();
                             if (i2 != 0) {
                                 str4 = String.valueOf(str4) + dVar.h;
                                 if (!TextUtils.isEmpty(str3)) {

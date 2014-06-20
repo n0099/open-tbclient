@@ -9,27 +9,27 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class f extends a {
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int b() {
-        return 0;
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public int c() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean d() {
-        return true;
+    public int d() {
+        return 0;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean e() {
-        return false;
+        return true;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean f() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public boolean g() {
         return false;
     }
 

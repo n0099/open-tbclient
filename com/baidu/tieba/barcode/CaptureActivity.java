@@ -24,9 +24,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.service.TiebaPrepareImageService;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.bi;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bo;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.barcode.result.ZxingResult;
@@ -111,7 +111,7 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 12002 && intent != null && intent.getData() != null) {
-            TiebaPrepareImageService.StartService(i, intent.getData(), bf.a().e(), com.baidu.adp.lib.util.k.b(this));
+            TiebaPrepareImageService.StartService(i, intent.getData(), bh.a().e(), com.baidu.adp.lib.util.k.b(this));
         }
     }
 
@@ -137,7 +137,7 @@ public final class CaptureActivity extends BaseActivity implements SurfaceHolder
         }
         TiebaStatic.eventStat(this, "2d_code_scan_suc", "onclick", 1, new Object[0]);
         if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
-            bi.a().a((Context) this, new String[]{str}, true, (bm) new d(this));
+            bk.a().a((Context) this, new String[]{str}, true, (bo) new d(this));
             return;
         }
         com.baidu.tbadk.coreExtra.c.a.a(this, new e(this), str);

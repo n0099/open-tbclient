@@ -13,7 +13,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.as;
+import com.baidu.tbadk.core.atomData.ar;
 import com.baidu.tieba.model.al;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -101,7 +101,7 @@ public class m {
                     com.baidu.tbadk.core.f.a(this.c, "zan_mlist");
                 }
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(this.c).a(oVar.j(), oVar.k(), "mention")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new ar(this.c).a(oVar.j(), oVar.k(), "mention")));
         }
     }
 
@@ -264,7 +264,7 @@ public class m {
     }
 
     private void b(com.baidu.tieba.data.o oVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(this.c).b(oVar.j(), oVar.k(), "mention")));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new ar(this.c).b(oVar.j(), oVar.k(), "mention")));
     }
 
     public void g() {

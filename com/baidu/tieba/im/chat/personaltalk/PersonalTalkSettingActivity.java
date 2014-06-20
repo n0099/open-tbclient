@@ -9,7 +9,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.v;
 import com.baidu.tieba.y;
@@ -77,7 +77,7 @@ public class PersonalTalkSettingActivity extends BaseActivity implements com.bai
         int id = view.getId();
         if (id == v.user_info_lin) {
             if (this.b != null && this.b.b() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new at(this, String.valueOf(this.c), this.b.b().name)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new as(this, String.valueOf(this.c), this.b.b().name)));
             }
         } else if (id == v.remove_from_black_man) {
             new AlertDialog.Builder(this).setMessage(getString(y.add_black_alert, new Object[]{this.b.b().name})).setPositiveButton(y.alert_yes_button, new b(this)).setNegativeButton(y.alert_no_button, new c(this)).create().show();

@@ -62,7 +62,7 @@ class bl extends CustomMessageListener {
                                                 next.downloaded = 1;
                                                 next.downloading = 0;
                                             } else if (status == 2 || status == 4) {
-                                                if (!com.baidu.tbadk.core.util.be.c(downloadData2.getStatusMsg())) {
+                                                if (!com.baidu.tbadk.core.util.bg.c(downloadData2.getStatusMsg())) {
                                                     this.a.showToast(downloadData2.getStatusMsg());
                                                 }
                                                 a2.c();

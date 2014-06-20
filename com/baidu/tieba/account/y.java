@@ -4,12 +4,12 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends BdAsyncTask<String, Integer, Bitmap> {
     final /* synthetic */ Register2Activity a;
-    private al b = null;
+    private an b = null;
     private String c;
 
     public y(Register2Activity register2Activity, String str) {
@@ -46,7 +46,7 @@ public class y extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public Bitmap doInBackground(String... strArr) {
-        this.b = new al(this.c);
+        this.b = new an(this.c);
         return com.baidu.tbadk.core.util.g.a(this.b.h());
     }
 

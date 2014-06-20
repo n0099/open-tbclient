@@ -97,7 +97,7 @@ public class dq extends com.baidu.adp.base.c {
 
     public void f() {
         this.d.setOnSwitchStateChangeListener(null);
-        if (com.baidu.tbadk.core.g.a().f()) {
+        if (com.baidu.tbadk.core.h.a().f()) {
             this.d.a();
         } else {
             this.d.b();

@@ -22,7 +22,7 @@ public class du implements View.OnClickListener {
         context = this.a.a;
         com.baidu.tbadk.core.f.a(context, "wcup_qq");
         if (!TextUtils.isEmpty(this.b.a())) {
-            com.baidu.tbadk.core.util.bi a = com.baidu.tbadk.core.util.bi.a();
+            com.baidu.tbadk.core.util.bk a = com.baidu.tbadk.core.util.bk.a();
             context2 = this.a.a;
             a.a(context2, new String[]{this.b.a()});
         }

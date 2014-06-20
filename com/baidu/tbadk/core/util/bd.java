@@ -1,131 +1,94 @@
 package com.baidu.tbadk.core.util;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import java.io.File;
 /* loaded from: classes.dex */
 public class bd {
-    private static bd a;
-
-    public static synchronized bd a() {
-        bd bdVar;
-        synchronized (bd.class) {
-            if (a == null) {
-                a = new bd();
-            }
-            bdVar = a;
-        }
-        return bdVar;
-    }
-
-    public String a(String str) {
-        long j = 0;
-        for (byte b : str.getBytes()) {
-            j += b;
-        }
-        return "image/" + (j % 20);
-    }
-
-    public Bitmap b(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        return x.c(a(str), str);
-    }
-
-    public com.baidu.adp.widget.a.a a(String str, String str2) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        return x.d(str, str2);
-    }
-
-    public boolean c(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        return x.b(a(str), str);
-    }
-
-    public int d(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return -1;
-        }
-        return (int) x.a(a(str), str);
-    }
-
-    public int e(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return -1;
-        }
-        return (int) x.a(x.a(3), str);
-    }
-
-    public boolean b(String str, String str2) {
-        String str3 = x.a + "/" + TbConfig.getTempDirName() + "/";
-        if (!x.a(str3)) {
-            x.l(str3);
-        }
-        String str4 = String.valueOf(str3) + a(str2);
-        if (!x.a(str4)) {
-            x.l(str4);
-        }
-        String str5 = String.valueOf(str4) + "/" + str2;
-        if (str.equals(str5)) {
-            return false;
-        }
-        return x.a(str, str5, true);
-    }
-
-    public void a(String str, byte[] bArr) {
-        if (!TextUtils.isEmpty(str)) {
-            x.a(a(str), str, bArr);
-        }
-    }
-
-    public void b(String str, byte[] bArr) {
-        if (!TextUtils.isEmpty(str)) {
-            x.a(x.a(3), str, bArr);
-        }
-    }
-
-    private void a(File file) {
-        File[] listFiles = file.listFiles();
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
-                if (file2.isDirectory()) {
-                    a(file2);
-                    file2.delete();
-                } else if (!file2.delete()) {
-                    BdLog.e(getClass().getName(), "run", "list[i].delete error");
+    public static void a(Activity activity) {
+        try {
+            if (!x.a()) {
+                if (activity instanceof BaseActivity) {
+                    ((BaseActivity) activity).showToast(x.b());
+                } else if (activity instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) activity).a(x.b());
+                }
+            } else {
+                File f = x.f("camera.jpg");
+                if (f != null) {
+                    Uri fromFile = Uri.fromFile(f);
+                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                    intent.putExtra("output", fromFile);
+                    activity.startActivityForResult(intent, 12001);
+                } else if (activity instanceof BaseActivity) {
+                    ((BaseActivity) activity).showToast(activity.getString(com.baidu.tieba.y.error_sd_error));
+                } else if (activity instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) activity).a(activity.getString(com.baidu.tieba.y.error_sd_error));
                 }
             }
+        } catch (Exception e) {
+            BdLog.e("WriteUtil", "takePhoto", "error = " + e.getMessage());
         }
     }
 
-    public void b() {
-        a(new File(x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
-        a(new File(x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
-    }
-
-    public void c() {
-        b(new File(x.a + "/" + TbConfig.getTempDirName() + "/" + x.a(3)));
-    }
-
-    private void b(File file) {
-        long currentTimeMillis = System.currentTimeMillis();
-        File[] listFiles = file.listFiles();
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
-                if (file2.isDirectory()) {
-                    a(file2);
-                    file2.delete();
-                } else if (currentTimeMillis - file2.lastModified() >= -1702967296 && !file2.delete()) {
-                    BdLog.e(getClass().getName(), "run", "list[i].delete error");
+    public static void a(Activity activity, String str) {
+        String str2;
+        try {
+            if (!x.a()) {
+                if (activity instanceof BaseActivity) {
+                    ((BaseActivity) activity).showToast(x.b());
+                    return;
+                } else if (activity instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) activity).a(x.b());
+                    return;
+                } else {
+                    return;
                 }
             }
+            boolean z = false;
+            if (x.a(x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
+                File file = new File(String.valueOf(str2) + "/" + str);
+                if (!file.exists()) {
+                    z = file.createNewFile();
+                } else {
+                    z = true;
+                }
+                if (z) {
+                    Uri fromFile = Uri.fromFile(file);
+                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                    intent.putExtra("output", fromFile);
+                    activity.startActivityForResult(intent, 12001);
+                }
+            }
+            if (!z) {
+                if (activity instanceof BaseActivity) {
+                    ((BaseActivity) activity).showToast(activity.getString(com.baidu.tieba.y.error_sd_error));
+                } else if (activity instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) activity).a(activity.getString(com.baidu.tieba.y.error_sd_error));
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e("WriteUtil", "takePhoto", "error = " + e.getMessage());
+        }
+    }
+
+    public static void b(Activity activity) {
+        c(activity);
+    }
+
+    public static void c(Activity activity) {
+        try {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction("android.intent.action.GET_CONTENT");
+            activity.startActivityForResult(intent, 12002);
+        } catch (Exception e) {
+            BdLog.e("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
         }
     }
 }

@@ -22,7 +22,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.au;
+import com.baidu.tbadk.core.atomData.at;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -318,7 +318,7 @@ public class b extends com.baidu.tbadk.core.d implements com.baidu.tbadk.imageMa
                     String stringExtra3 = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
                     if (stringExtra2 != null && stringExtra != null) {
                         try {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new au(this.e, Long.parseLong(stringExtra), stringExtra2, stringExtra3, 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new at(this.e, Long.parseLong(stringExtra), stringExtra2, stringExtra3, 0)));
                             return;
                         } catch (Exception e) {
                             e.printStackTrace();

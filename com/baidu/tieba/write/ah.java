@@ -40,7 +40,7 @@ class ah implements TimePickerDialog.OnTimeSetListener {
             }
             textView = this.a.R;
             writeData5 = this.a.a;
-            textView.setText(com.baidu.tbadk.core.util.be.b(writeData5.getLiveCardData().getStartTime() * 1000));
+            textView.setText(com.baidu.tbadk.core.util.bg.b(writeData5.getLiveCardData().getStartTime() * 1000));
         }
     }
 }

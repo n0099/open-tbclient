@@ -27,8 +27,8 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.al;
-import com.baidu.tbadk.core.atomData.ao;
+import com.baidu.tbadk.core.atomData.ak;
+import com.baidu.tbadk.core.atomData.an;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -194,10 +194,10 @@ public class GuideActivity extends BaseActivity {
         if (this.l) {
             if (!this.a) {
                 if (!isFirstUse) {
-                    sendMessage(new CustomMessage(2017001, new al(this).a(1)));
+                    sendMessage(new CustomMessage(2017001, new ak(this).a(1)));
                 } else {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2009006, null));
-                    sendMessage(new CustomMessage(2017001, new al(this).a(2)));
+                    sendMessage(new CustomMessage(2017001, new ak(this).a(2)));
                 }
             } else {
                 c();
@@ -229,7 +229,7 @@ public class GuideActivity extends BaseActivity {
     }
 
     public void c() {
-        sendMessage(new CustomMessage((int) CmdConfig.NEW_USER_GUIDE_PAGE, new ao(this, false, true)));
+        sendMessage(new CustomMessage((int) CmdConfig.NEW_USER_GUIDE_PAGE, new an(this, false, true)));
     }
 
     public void g() {

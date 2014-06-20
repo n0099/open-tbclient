@@ -2,7 +2,7 @@ package com.baidu.tieba.person.post;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 /* loaded from: classes.dex */
 class j extends a {
     public ReplyLinearLayout g;
@@ -22,9 +22,9 @@ class j extends a {
     @Override // com.baidu.tieba.person.post.a
     public void a(int i) {
         super.a(i);
-        bc.f((View) this.h, com.baidu.tieba.s.cp_bg_line_e);
-        bc.a(this.h, com.baidu.tieba.s.cp_cont_b, 1);
-        bc.f(this.i, com.baidu.tieba.s.cp_bg_line_b);
-        bc.f(this.j, com.baidu.tieba.s.cp_bg_line_b);
+        be.f((View) this.h, com.baidu.tieba.s.cp_bg_line_e);
+        be.a(this.h, com.baidu.tieba.s.cp_cont_b, 1);
+        be.f(this.i, com.baidu.tieba.s.cp_bg_line_b);
+        be.f(this.j, com.baidu.tieba.s.cp_bg_line_b);
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
@@ -26,53 +26,45 @@ public class a implements View.OnClickListener {
         Context context;
         String str4;
         String str5;
-        String str6;
         c cVar3;
         c cVar4;
-        String str7;
         Context context2;
-        String str8;
-        button = this.a.f;
+        String str6;
+        button = this.a.e;
         if (view != button) {
             str = this.a.c;
             if (!TextUtils.isEmpty(str)) {
-                context = this.a.g;
+                context = this.a.f;
                 str4 = this.a.c;
                 com.baidu.tbadk.core.f.a(context, str4);
             }
-            cVar = this.a.l;
+            cVar = this.a.k;
             if (cVar == null) {
-                str2 = this.a.k;
+                str2 = this.a.j;
                 if (!TextUtils.isEmpty(str2)) {
-                    bi a = bi.a();
+                    bk a = bk.a();
                     Context context3 = this.a.getContext();
-                    str3 = this.a.k;
+                    str3 = this.a.j;
                     a.a(context3, new String[]{str3});
                     return;
                 }
                 return;
             }
-            cVar2 = this.a.l;
+            cVar2 = this.a.k;
             cVar2.a();
             return;
         }
         str5 = this.a.d;
         if (!TextUtils.isEmpty(str5)) {
-            context2 = this.a.g;
-            str8 = this.a.d;
-            com.baidu.tbadk.core.f.a(context2, str8);
+            context2 = this.a.f;
+            str6 = this.a.d;
+            com.baidu.tbadk.core.f.a(context2, str6);
         }
-        this.a.i = true;
+        this.a.h = true;
         this.a.setVisibility(8);
-        str6 = this.a.e;
-        if (!TextUtils.isEmpty(str6)) {
-            com.baidu.tbadk.f a2 = com.baidu.tbadk.f.a();
-            str7 = this.a.e;
-            a2.b(str7, System.currentTimeMillis());
-        }
-        cVar3 = this.a.l;
+        cVar3 = this.a.k;
         if (cVar3 != null) {
-            cVar4 = this.a.l;
+            cVar4 = this.a.k;
             cVar4.b();
         }
     }

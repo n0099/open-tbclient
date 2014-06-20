@@ -10,8 +10,8 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.ae;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.editortool.ab;
@@ -147,7 +147,7 @@ public class j extends com.baidu.adp.base.c {
     }
 
     public void a(int i) {
-        bc.e(this.e, s.forumfeed_frs_bg);
+        be.e(this.e, s.forumfeed_frs_bg);
         this.c.a().a(i == 1);
         this.c.a().a((View) this.e);
         this.b.setBackgroundColor(0);
@@ -182,8 +182,8 @@ public class j extends com.baidu.adp.base.c {
     }
 
     public void i() {
-        if (com.baidu.tbadk.core.g.a().f()) {
-            ae.a(this.b, this.a.b(), 0, -1);
+        if (com.baidu.tbadk.core.h.a().f()) {
+            ag.a(this.b, this.a.b(), 0, -1);
         }
     }
 

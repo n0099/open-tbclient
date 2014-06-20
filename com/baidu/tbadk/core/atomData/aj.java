@@ -1,24 +1,38 @@
 package com.baidu.tbadk.core.atomData;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 /* loaded from: classes.dex */
 public class aj extends com.baidu.tbadk.core.frameworkData.a {
-    public aj(Context context, int i, String str, int i2) {
-        super(context);
-        getIntent().putExtra("has_exit_dialog", false);
-        getIntent().putExtra("locate_type", i);
-        getIntent().putExtra("info", str);
-        setRequestCode(i2);
-        setIntentAction(IntentAction.ActivityForResult);
-    }
+    public static boolean a = true;
+    public static boolean b = false;
 
-    public aj(Context context, String str, boolean z, boolean z2) {
+    public aj(Context context, Intent intent) {
         super(context);
-        getIntent().putExtra("account", str);
-        getIntent().putExtra("has_exit_dialog", z);
-        if (z2) {
+        a = true;
+        b = true;
+        setIntentAction(IntentAction.Activity);
+        if (!(context instanceof Activity)) {
             getIntent().setFlags(268435456);
         }
+        if (intent != null) {
+            getIntent().putExtra("extra_intent", intent);
+        }
+        getIntent().addCategory("android.intent.category.LAUNCHER");
+        getIntent().setAction("android.intent.action.MAIN");
+    }
+
+    public aj(Context context, boolean z) {
+        super(context);
+        a = true;
+        b = z;
+        setIntentAction(IntentAction.Activity);
+        if (!(context instanceof Activity)) {
+            getIntent().setFlags(268435456);
+        }
+        getIntent().addCategory("android.intent.category.LAUNCHER");
+        getIntent().setAction("android.intent.action.MAIN");
     }
 }

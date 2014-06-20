@@ -46,7 +46,7 @@ public class m implements AdapterView.OnItemClickListener {
                         } else if (k == 2) {
                             this.a.a(bVar);
                         }
-                        new com.baidu.tbadk.core.util.az("", "frs_ck", bVar.g()).start();
+                        new com.baidu.tbadk.core.util.bb("", "frs_ck", bVar.g()).start();
                         TiebaStatic.eventStat(this.a, "frs_tb_arc", "");
                         return;
                     }
@@ -62,7 +62,7 @@ public class m implements AdapterView.OnItemClickListener {
                     }
                     String q = nVar.q();
                     if (nVar.u() == 2 && !q.startsWith("pb:")) {
-                        com.baidu.tbadk.core.util.bi a = com.baidu.tbadk.core.util.bi.a();
+                        com.baidu.tbadk.core.util.bk a = com.baidu.tbadk.core.util.bk.a();
                         FrsActivity frsActivity2 = this.a;
                         String[] strArr = new String[3];
                         strArr[0] = q;
@@ -74,9 +74,9 @@ public class m implements AdapterView.OnItemClickListener {
                         nVar.a(q.substring(3));
                     }
                     FrsActivity frsActivity3 = this.a;
-                    com.baidu.tbadk.core.atomData.as asVar = new com.baidu.tbadk.core.atomData.as(this.a);
+                    com.baidu.tbadk.core.atomData.ar arVar = new com.baidu.tbadk.core.atomData.ar(this.a);
                     str = this.a.n;
-                    frsActivity3.sendMessage(new CustomMessage(2006001, asVar.a(nVar, str, null, 18003, true, false, z)));
+                    frsActivity3.sendMessage(new CustomMessage(2006001, arVar.a(nVar, str, null, 18003, true, false, z)));
                 }
             } else {
                 TiebaStatic.eventStat(this.a, "frs_nextpage", "frsclick", 1, new Object[0]);

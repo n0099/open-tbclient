@@ -12,7 +12,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.HashMap;
 /* loaded from: classes.dex */
@@ -45,19 +45,22 @@ public class a {
             int b = com.baidu.adp.lib.a.f.a().b("baidu_webview");
             AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
             String b2 = b(a(str));
-            if (b2.indexOf("tbwebview=1") > 0) {
+            boolean z = b2.indexOf("tbwebview=1") > 0;
+            boolean z2 = b2.indexOf("tborientation=1") > 0;
+            boolean z3 = b2.indexOf("tbfullscreen=1") > 0;
+            if (z) {
                 TbWebViewActivity.a(context, b2, true, (HashMap<String, q>) null);
             } else if (b == 1) {
                 if (parseBDUSS != null) {
-                    WebTbActivity.a(context, b2, parseBDUSS.mBduss, parseBDUSS.mPtoken);
+                    WebTbActivity.a(context, b2, parseBDUSS.mBduss, parseBDUSS.mPtoken, z2, z3);
                 } else {
-                    WebTbActivity.a(context, b2, null, null);
+                    WebTbActivity.a(context, b2, null, null, z2, z3);
                 }
             } else if (Build.VERSION.SDK_INT >= 7 && b == 0) {
                 if (parseBDUSS != null) {
-                    WebBdActivity.a(context, b2, parseBDUSS.mBduss, parseBDUSS.mPtoken);
+                    WebBdActivity.a(context, b2, parseBDUSS.mBduss, parseBDUSS.mPtoken, z2, z3);
                 } else {
-                    WebBdActivity.a(context, b2, null, null);
+                    WebBdActivity.a(context, b2, null, null, z2, z3);
                 }
             } else {
                 c(context, b2);
@@ -72,16 +75,19 @@ public class a {
         try {
             int b2 = com.baidu.adp.lib.a.f.a().b("baidu_webview");
             AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
-            if (!(b.indexOf("tbwebview=1") > 0) && Build.VERSION.SDK_INT > 7 && b2 == 0) {
+            boolean z = b.indexOf("tbwebview=1") > 0;
+            boolean z2 = b.indexOf("tborientation=1") > 0;
+            boolean z3 = b.indexOf("tbfullscreen=1") > 0;
+            if (!z && Build.VERSION.SDK_INT > 7 && b2 == 0) {
                 if (parseBDUSS != null) {
-                    WebBdActivity.a(context, b, parseBDUSS.mBduss, parseBDUSS.mPtoken);
+                    WebBdActivity.a(context, b, parseBDUSS.mBduss, parseBDUSS.mPtoken, z2, z3);
                 } else {
-                    WebBdActivity.a(context, b, null, null);
+                    WebBdActivity.a(context, b, null, null, z2, z3);
                 }
             } else if (parseBDUSS != null) {
-                WebTbActivity.a(context, b, parseBDUSS.mBduss, parseBDUSS.mPtoken);
+                WebTbActivity.a(context, b, parseBDUSS.mBduss, parseBDUSS.mPtoken, z2, z3);
             } else {
-                WebTbActivity.a(context, b, null, null);
+                WebTbActivity.a(context, b, null, null, z2, z3);
             }
         } catch (Exception e) {
             BdLog.e("UtilHelper", "startInternalWebActivity", e.getMessage());
@@ -103,7 +109,7 @@ public class a {
     }
 
     public static String a(String str) {
-        if (!be.c(str) && str.indexOf("cuid=") <= -1) {
+        if (!bg.c(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -121,7 +127,7 @@ public class a {
     }
 
     public static String b(String str) {
-        return (be.c(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
+        return (bg.c(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     public static void a(Context context) {

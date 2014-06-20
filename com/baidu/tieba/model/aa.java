@@ -11,7 +11,7 @@ public class aa extends BdAsyncTask<String, String, Boolean> {
     ArrayList<com.baidu.tbadk.core.data.g> a;
     String b;
     final /* synthetic */ v c;
-    private com.baidu.tbadk.core.util.al d = null;
+    private com.baidu.tbadk.core.util.an d = null;
     private String e;
     private String f;
     private String g;
@@ -34,7 +34,7 @@ public class aa extends BdAsyncTask<String, String, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public Boolean doInBackground(String... strArr) {
-        this.d = new com.baidu.tbadk.core.util.al(strArr[0]);
+        this.d = new com.baidu.tbadk.core.util.an(strArr[0]);
         this.d.a("word", this.f);
         if (this.h != 6) {
             this.d.a("fid", this.e);

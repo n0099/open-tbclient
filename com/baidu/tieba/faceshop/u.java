@@ -80,16 +80,16 @@ public class u extends BaseAdapter {
         if (bitmap != null) {
             xVar.b.setImageBitmap(bitmap);
         } else {
-            com.baidu.tbadk.core.util.bc.c(xVar.b, com.baidu.tieba.u.pic_image_h_not);
+            com.baidu.tbadk.core.util.be.c(xVar.b, com.baidu.tieba.u.pic_image_h_not);
         }
         z = this.a.p;
         if (z) {
             list3 = this.a.b;
             list4 = this.a.a;
             if (list3.contains(((v) list4.get(i)).a)) {
-                com.baidu.tbadk.core.util.bc.c(xVar.a, com.baidu.tieba.u.btn_expression_choose_s);
+                com.baidu.tbadk.core.util.be.c(xVar.a, com.baidu.tieba.u.btn_expression_choose_s);
             } else {
-                com.baidu.tbadk.core.util.bc.c(xVar.a, com.baidu.tieba.u.btn_expression_choose_n);
+                com.baidu.tbadk.core.util.be.c(xVar.a, com.baidu.tieba.u.btn_expression_choose_n);
             }
             xVar.a.setVisibility(0);
             ImageView imageView = xVar.a;

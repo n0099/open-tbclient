@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.service.PerformMonitorService;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class r {
     public static String a(String str) {
-        if (be.c(str) || str.indexOf("cuid=") <= -1) {
+        if (bg.c(str) || str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {

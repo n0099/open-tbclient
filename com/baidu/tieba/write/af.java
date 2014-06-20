@@ -12,7 +12,7 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 public class af extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.data.f> {
     final /* synthetic */ VcodeActivity a;
     private WriteData b;
-    private com.baidu.tbadk.core.util.al c = null;
+    private com.baidu.tbadk.core.util.an c = null;
     private String d = null;
 
     public af(VcodeActivity vcodeActivity, WriteData writeData) {
@@ -28,7 +28,7 @@ public class af extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.
     public com.baidu.tbadk.coreExtra.data.f doInBackground(Integer... numArr) {
         EditText editText;
         Address b;
-        this.c = new com.baidu.tbadk.core.util.al();
+        this.c = new com.baidu.tbadk.core.util.an();
         this.c.a("anonymous", "0");
         this.c.a("fid", this.b.getForumId());
         this.c.a("kw", this.b.getForumName());

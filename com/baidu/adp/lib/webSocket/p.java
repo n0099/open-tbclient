@@ -142,7 +142,7 @@ public class p extends Handler {
             ai aiVar = (ai) message.obj;
             this.a.a(6, "Server error " + aiVar.a + " (" + aiVar.b + ")");
         } else if (message.obj instanceof x) {
-            this.a.a(2, "WebSockets connot connect");
+            this.a.a(2, "WebSockets connot connect:" + ((x) message.obj).b);
         } else if (message.obj instanceof ak) {
             lVar9 = this.a.n;
             if (lVar9 != null) {

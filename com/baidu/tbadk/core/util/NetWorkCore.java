@@ -162,7 +162,7 @@ public class NetWorkCore implements aa {
                     String string = query.getString(query.getColumnIndex("user"));
                     String string2 = query.getString(query.getColumnIndex("password"));
                     query.close();
-                    f = "Basic " + be.b((String.valueOf(string) + ":" + string2).getBytes());
+                    f = "Basic " + bg.b((String.valueOf(string) + ":" + string2).getBytes());
                 }
             } catch (Exception e2) {
             }
@@ -171,7 +171,7 @@ public class NetWorkCore implements aa {
 
     public static void j() {
         System.setProperty("http.keepAlive", "false");
-        e = new am();
+        e = new ao();
     }
 
     public static NetworkState a(Context context) {
@@ -208,9 +208,9 @@ public class NetWorkCore implements aa {
             if (this.j != null) {
                 this.j.disconnect();
                 try {
-                    int a2 = ar.a(k());
+                    int a2 = at.a(k());
                     if (a2 > 0) {
-                        ar.a().a(a2, 1);
+                        at.a().a(a2, 1);
                     }
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
@@ -315,7 +315,7 @@ public class NetWorkCore implements aa {
     /* JADX WARN: Code restructure failed: missing block: B:210:0x07c2, code lost:
         r17.o.c().a.e = r1 + 1;
         r17.o.c().a.f = r7;
-        r3 = new com.baidu.tbadk.core.util.av();
+        r3 = new com.baidu.tbadk.core.util.ax();
         r3.e = a(b(r17.i));
         r3.c = r17.n;
         r3.b = r7;
@@ -329,11 +329,11 @@ public class NetWorkCore implements aa {
         com.baidu.tbadk.core.log.a.a(com.baidu.tbadk.core.log.k.a(r6.toString(), new java.lang.StringBuilder().append(r7).toString(), java.lang.String.valueOf(r3.c) + " |DNS Time" + r17.o.c().a.g + "|ConnectTime" + r17.o.c().a.c + "|current ip" + com.baidu.tbadk.core.util.UtilHelper.getIpFromDomain(com.baidu.tbadk.core.util.UtilHelper.getDomainName(r6.toString())), "old network download OK, retryCount:" + r3.d, ""));
      */
     /* JADX WARN: Code restructure failed: missing block: B:213:0x0887, code lost:
-        com.baidu.tbadk.core.util.au.a(r3);
+        com.baidu.tbadk.core.util.aw.a(r3);
         com.baidu.tbadk.core.util.TiebaStatic.net(r17.o);
      */
     /* JADX WARN: Code restructure failed: missing block: B:214:0x0891, code lost:
-        com.baidu.tbadk.core.util.ar.c(r17.o.a().a().a);
+        com.baidu.tbadk.core.util.at.c(r17.o.a().a().a);
      */
     /* JADX WARN: Code restructure failed: missing block: B:215:0x08a2, code lost:
         if (r4 == null) goto L201;
@@ -355,9 +355,9 @@ public class NetWorkCore implements aa {
         String headerField;
         byte[] bArr = null;
         try {
-            int a2 = ar.a(this.o.a().a().a);
+            int a2 = at.a(this.o.a().a().a);
             if (a2 > 0) {
-                ar.a().a(a2);
+                at.a().a(a2);
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -379,7 +379,7 @@ public class NetWorkCore implements aa {
                     }
                     sb.append(this.o.a().a().b.get(i2).getName());
                     sb.append("=");
-                    sb.append(be.d(this.o.a().a().b.get(i2).getValue()));
+                    sb.append(bg.d(this.o.a().a().b.get(i2).getValue()));
                 }
                 str = sb.toString();
             }
@@ -399,7 +399,7 @@ public class NetWorkCore implements aa {
                         this.j = a(url);
                     } catch (Throwable th) {
                         try {
-                            ar.c(this.o.a().a().a);
+                            at.c(this.o.a().a().a);
                             if (0 != 0) {
                                 inputStream.close();
                             }
@@ -430,7 +430,7 @@ public class NetWorkCore implements aa {
                 }
                 if (this.m) {
                     try {
-                        ar.c(this.o.a().a().a);
+                        at.c(this.o.a().a().a);
                         if (0 != 0) {
                             inputStream.close();
                         }
@@ -450,13 +450,13 @@ public class NetWorkCore implements aa {
                     this.o.b().a = this.j.getResponseCode();
                     if (this.o.b().a != 200) {
                         this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i3;
-                        au.a.incrementAndGet();
+                        aw.a.incrementAndGet();
                         this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                         if (i3 == 0) {
                             TiebaStatic.net(this.o);
                         }
                         try {
-                            ar.c(this.o.a().a().a);
+                            at.c(this.o.a().a().a);
                             if (0 != 0) {
                                 inputStream.close();
                             }
@@ -475,9 +475,9 @@ public class NetWorkCore implements aa {
                             try {
                                 int parseInt = Integer.parseInt(headerField);
                                 if (parseInt > d) {
-                                    ar.c(this.o.a().a().a);
+                                    at.c(this.o.a().a().a);
                                     try {
-                                        ar.c(this.o.a().a().a);
+                                        at.c(this.o.a().a().a);
                                         if (inputStream != null) {
                                             inputStream.close();
                                         }
@@ -498,9 +498,9 @@ public class NetWorkCore implements aa {
                                     }
                                     if (!com.baidu.tbadk.imageManager.e.a().c(i4)) {
                                         BdLog.d("Image download cacelled. out of memory. url:[" + this.o.a().a().a + "], size:" + i4);
-                                        ar.c(this.o.a().a().a);
+                                        at.c(this.o.a().a().a);
                                         try {
-                                            ar.c(this.o.a().a().a);
+                                            at.c(this.o.a().a().a);
                                             if (inputStream != null) {
                                                 inputStream.close();
                                             }
@@ -568,7 +568,7 @@ public class NetWorkCore implements aa {
                                 if (contentEncoding != null && contentEncoding.contains("gzip")) {
                                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                     ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                    com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
+                                    com.baidu.tbadk.b.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                     bArr = byteArrayOutputStream2.toByteArray();
                                     break;
                                 }
@@ -578,13 +578,13 @@ public class NetWorkCore implements aa {
                                 e = e16;
                                 this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i3 + "|" + e.getClass() + "|" + e.getMessage();
                                 this.o.b().a = -12;
-                                au.a.incrementAndGet();
+                                aw.a.incrementAndGet();
                                 this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                                 if (i3 == 0) {
                                     TiebaStatic.net(this.o);
                                 }
                                 try {
-                                    ar.c(this.o.a().a().a);
+                                    at.c(this.o.a().a().a);
                                     if (inputStream != null) {
                                         inputStream.close();
                                     }
@@ -600,7 +600,7 @@ public class NetWorkCore implements aa {
                             } catch (SocketTimeoutException e19) {
                                 bArr = byteArray;
                                 e = e19;
-                                au.a.incrementAndGet();
+                                aw.a.incrementAndGet();
                                 this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i3 + "|" + e.getClass() + "|" + e.getMessage();
                                 this.o.b().a = -13;
                                 this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
@@ -608,7 +608,7 @@ public class NetWorkCore implements aa {
                                     TiebaStatic.net(this.o);
                                 }
                                 try {
-                                    ar.c(this.o.a().a().a);
+                                    at.c(this.o.a().a().a);
                                     if (inputStream != null) {
                                         inputStream.close();
                                     }
@@ -630,7 +630,7 @@ public class NetWorkCore implements aa {
                                 BdLog.e(getClass().getName(), "getNetData", "error = " + e.getMessage());
                                 TiebaStatic.net(this.o);
                                 try {
-                                    ar.c(this.o.a().a().a);
+                                    at.c(this.o.a().a().a);
                                     if (inputStream != null) {
                                         inputStream.close();
                                     }
@@ -647,7 +647,7 @@ public class NetWorkCore implements aa {
                             }
                         } else {
                             try {
-                                ar.c(this.o.a().a().a);
+                                at.c(this.o.a().a().a);
                                 if (inputStream != null) {
                                     inputStream.close();
                                 }
@@ -666,7 +666,7 @@ public class NetWorkCore implements aa {
                         this.o.b().a = 0;
                         i3--;
                         try {
-                            ar.c(this.o.a().a().a);
+                            at.c(this.o.a().a().a);
                             if (0 != 0) {
                                 inputStream.close();
                             }
@@ -680,7 +680,7 @@ public class NetWorkCore implements aa {
                         }
                     } else {
                         try {
-                            ar.c(this.o.a().a().a);
+                            at.c(this.o.a().a().a);
                             if (0 != 0) {
                                 inputStream.close();
                             }
@@ -709,7 +709,7 @@ public class NetWorkCore implements aa {
         } catch (Exception e32) {
             BdLog.e(getClass().getName(), "getNetData", e32.getMessage());
             this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + e32.getClass() + e32.getMessage();
-            ar.c(this.o.a().a().a);
+            at.c(this.o.a().a().a);
             return null;
         }
     }
@@ -793,9 +793,9 @@ public class NetWorkCore implements aa {
         StringBuilder sb = new StringBuilder(1024);
         StringBuilder sb2 = new StringBuilder(1024);
         try {
-            int a2 = ar.a(this.o.a().a().a);
+            int a2 = at.a(this.o.a().a().a);
             if (a2 > 0) {
-                ar.a().a(a2);
+                at.a().a(a2);
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -814,7 +814,7 @@ public class NetWorkCore implements aa {
                     sb.append("&");
                 }
                 sb.append(String.valueOf(name) + "=");
-                sb.append(be.d(value));
+                sb.append(bg.d(value));
                 sb2.append(name);
                 sb2.append("=");
                 sb2.append(value);
@@ -823,7 +823,7 @@ public class NetWorkCore implements aa {
         }
         if (this.o.a().a().f) {
             sb2.append("tiebaclient!!!");
-            String a3 = be.a(sb2.toString());
+            String a3 = bg.a(sb2.toString());
             if (sb.length() > 0) {
                 sb.append("&");
             }
@@ -850,7 +850,7 @@ public class NetWorkCore implements aa {
                 } catch (Throwable th2) {
                     th = th2;
                     try {
-                        ar.c(this.o.a().a().a);
+                        at.c(this.o.a().a().a);
                         if (inputStream != null) {
                             inputStream.close();
                         }
@@ -877,7 +877,7 @@ public class NetWorkCore implements aa {
             if (this.j == null) {
                 this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                 try {
-                    ar.c(this.o.a().a().a);
+                    at.c(this.o.a().a().a);
                     if (0 != 0) {
                         inputStream.close();
                     }
@@ -902,7 +902,7 @@ public class NetWorkCore implements aa {
                 }
                 if (this.m) {
                     try {
-                        ar.c(this.o.a().a().a);
+                        at.c(this.o.a().a().a);
                         if (0 != 0) {
                             inputStream.close();
                         }
@@ -942,14 +942,14 @@ public class NetWorkCore implements aa {
                             }
                         } else {
                             this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i3;
-                            au.a.incrementAndGet();
+                            aw.a.incrementAndGet();
                             z = true;
                             this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                             if (i3 == 0) {
                                 TiebaStatic.net(this.o);
                             }
                             try {
-                                ar.c(this.o.a().a().a);
+                                at.c(this.o.a().a().a);
                                 if (0 != 0) {
                                     inputStream.close();
                                 }
@@ -979,7 +979,7 @@ public class NetWorkCore implements aa {
                             this.j.disconnect();
                             if (this.m) {
                                 try {
-                                    ar.c(this.o.a().a().a);
+                                    at.c(this.o.a().a().a);
                                     if (inputStream5 != null) {
                                         inputStream5.close();
                                     }
@@ -1001,7 +1001,7 @@ public class NetWorkCore implements aa {
                                 if (contentEncoding != null && contentEncoding.contains("gzip")) {
                                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                     ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                    com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
+                                    com.baidu.tbadk.b.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                     byteArray = byteArrayOutputStream2.toByteArray();
                                     BdLog.i(getClass().getName(), "postNetData", "After ungzip data.zise = " + String.valueOf(byteArray.length));
                                 }
@@ -1013,16 +1013,16 @@ public class NetWorkCore implements aa {
                                     }
                                     this.o.c().a.e = i3 + 1;
                                     this.o.c().a.f = time2;
-                                    av avVar = new av();
-                                    avVar.e = a(b(this.i));
-                                    avVar.c = this.n;
-                                    avVar.b = time2;
-                                    avVar.d = i3 + 1;
-                                    avVar.a = 1;
-                                    au.a(avVar);
+                                    ax axVar = new ax();
+                                    axVar.e = a(b(this.i));
+                                    axVar.c = this.n;
+                                    axVar.b = time2;
+                                    axVar.d = i3 + 1;
+                                    axVar.a = 1;
+                                    aw.a(axVar);
                                     TiebaStatic.net(this.o);
                                     try {
-                                        ar.c(this.o.a().a().a);
+                                        at.c(this.o.a().a().a);
                                         if (inputStream5 != null) {
                                             inputStream5.close();
                                         }
@@ -1042,7 +1042,7 @@ public class NetWorkCore implements aa {
                                     inputStream4 = inputStream5;
                                     socketException = e17;
                                     str = str2;
-                                    au.a.incrementAndGet();
+                                    aw.a.incrementAndGet();
                                     this.o.b().a = -12;
                                     z = true;
                                     this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
@@ -1051,7 +1051,7 @@ public class NetWorkCore implements aa {
                                         TiebaStatic.net(this.o);
                                     }
                                     try {
-                                        ar.c(this.o.a().a().a);
+                                        at.c(this.o.a().a().a);
                                         if (inputStream4 != null) {
                                             inputStream4.close();
                                         }
@@ -1069,7 +1069,7 @@ public class NetWorkCore implements aa {
                                     socketTimeoutException = e20;
                                     str = str2;
                                     try {
-                                        au.a.incrementAndGet();
+                                        aw.a.incrementAndGet();
                                         this.o.b().a = -13;
                                         z = true;
                                         this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
@@ -1078,7 +1078,7 @@ public class NetWorkCore implements aa {
                                             TiebaStatic.net(this.o);
                                         }
                                         try {
-                                            ar.c(this.o.a().a().a);
+                                            at.c(this.o.a().a().a);
                                             if (inputStream3 != null) {
                                                 inputStream3.close();
                                             }
@@ -1094,7 +1094,7 @@ public class NetWorkCore implements aa {
                                     } catch (Throwable th4) {
                                         th = th4;
                                         inputStream = inputStream3;
-                                        ar.c(this.o.a().a().a);
+                                        at.c(this.o.a().a().a);
                                         if (inputStream != null) {
                                         }
                                         if (this.j != null) {
@@ -1111,7 +1111,7 @@ public class NetWorkCore implements aa {
                                     BdLog.e(getClass().getName(), "postNetData", th.getMessage());
                                     TiebaStatic.net(this.o);
                                     try {
-                                        ar.c(this.o.a().a().a);
+                                        at.c(this.o.a().a().a);
                                         if (inputStream2 != null) {
                                             inputStream2.close();
                                         }
@@ -1142,7 +1142,7 @@ public class NetWorkCore implements aa {
                         this.o.b().a = 0;
                         i3--;
                         try {
-                            ar.c(this.o.a().a().a);
+                            at.c(this.o.a().a().a);
                             if (0 != 0) {
                                 inputStream.close();
                             }
@@ -1157,7 +1157,7 @@ public class NetWorkCore implements aa {
                         i3++;
                     } else {
                         try {
-                            ar.c(this.o.a().a().a);
+                            at.c(this.o.a().a().a);
                             if (0 != 0) {
                                 inputStream.close();
                             }
@@ -1174,9 +1174,9 @@ public class NetWorkCore implements aa {
             }
         }
         TiebaStatic.net(this.o);
-        ar.c(this.o.a().a().a);
+        at.c(this.o.a().a().a);
         try {
-            ar.c(this.o.a().a().a);
+            at.c(this.o.a().a().a);
             if (0 != 0) {
                 inputStream.close();
             }
@@ -1378,7 +1378,7 @@ public class NetWorkCore implements aa {
                     }
                     if (this.o.b().a != 200) {
                         this.o.b().d = String.valueOf(String.valueOf(this.o.b().a)) + "|retryCount:" + i2;
-                        au.a.incrementAndGet();
+                        aw.a.incrementAndGet();
                         this.o.b().c = this.i.getResources().getString(com.baidu.tieba.y.neterror);
                         if (i2 == 0) {
                             TiebaStatic.net(this.o);
@@ -1454,7 +1454,7 @@ public class NetWorkCore implements aa {
                                     } else {
                                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                         ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                        com.baidu.tbadk.c.b.b(byteArrayInputStream, byteArrayOutputStream2);
+                                        com.baidu.tbadk.b.b.b(byteArrayInputStream, byteArrayOutputStream2);
                                         bArr = byteArrayOutputStream2.toByteArray();
                                     }
                                     String str3 = new String(bArr, 0, bArr.length, o());

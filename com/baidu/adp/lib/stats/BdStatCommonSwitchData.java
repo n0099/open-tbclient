@@ -1,8 +1,8 @@
 package com.baidu.adp.lib.stats;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
-import java.util.Random;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BdStatCommonSwitchData implements Serializable {
@@ -58,11 +58,16 @@ public class BdStatCommonSwitchData implements Serializable {
                 int optInt = jSONObject.optInt("percent", 100);
                 setPercent(optInt);
                 boolean z2 = jSONObject.optInt("is_open", 0) != 0;
-                if (!z2) {
-                    z = z2;
-                } else if (new Random().nextInt(101) > optInt) {
-                    z = false;
+                if (z2) {
+                    String b = h.a().b();
+                    if (!TextUtils.isEmpty(b)) {
+                        if (b.hashCode() % 100 >= optInt) {
+                            z = false;
+                        }
+                        setIs_open(z);
+                    }
                 }
+                z = z2;
                 setIs_open(z);
             } catch (Exception e) {
                 BdLog.e(getClass(), "parserJson", e);

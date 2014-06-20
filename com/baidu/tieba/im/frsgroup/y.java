@@ -36,7 +36,7 @@ public class y implements AdapterView.OnItemLongClickListener {
                 long userIdLong = userData.getUserIdLong();
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(Long.valueOf(userIdLong));
-                com.baidu.tieba.im.f.b.a((Activity) this.a, (DialogInterface.OnClickListener) new z(this, arrayList), (DialogInterface.OnClickListener) new aa(this));
+                com.baidu.tieba.im.e.b.a((Activity) this.a, (DialogInterface.OnClickListener) new z(this, arrayList), (DialogInterface.OnClickListener) new aa(this));
             }
             return true;
         }

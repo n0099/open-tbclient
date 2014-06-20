@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.voice.service;
 
 import android.content.Intent;
 import android.os.Handler;
-import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
 class d implements Runnable {
     final /* synthetic */ MediaService a;
@@ -24,7 +23,7 @@ class d implements Runnable {
         int i3 = (int) (currentTimeMillis - j);
         i = this.a.mElapsedTime;
         if (i != i3) {
-            this.a.mElapsedTime = i3 / LocationClientOption.MIN_SCAN_SPAN;
+            this.a.mElapsedTime = i3 / 1000;
             Intent intent = new Intent("com.baidu.recordElapsedTime");
             i2 = this.a.mElapsedTime;
             intent.putExtra("com.baidu.msg.recordElapsedTime", i2);

@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ac extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
     final /* synthetic */ aa a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
 
     private ac(aa aaVar) {
         this.a = aaVar;
@@ -26,7 +26,7 @@ public class ac extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
     public FaceBuyData doInBackground(Object... objArr) {
         String obj = objArr[0].toString();
         try {
-            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/buyfacepack");
+            this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/buyfacepack");
             this.b.a("pid", obj);
             return (FaceBuyData) new GsonBuilder().create().fromJson(this.b.i(), (Class<Object>) FaceBuyData.class);
         } catch (Exception e) {

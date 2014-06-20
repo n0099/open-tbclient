@@ -8,8 +8,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ColumnLayout;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.person.post.PersonPostModel;
 /* loaded from: classes.dex */
@@ -103,7 +103,7 @@ class a implements View.OnClickListener {
                             String str7 = postList.user_name;
                             strArr[0] = String.valueOf(postList.thread_id);
                             strArr[1] = String.valueOf(postList.post_id);
-                            String a = be.a(postList.create_time * 1000);
+                            String a = bg.a(postList.create_time * 1000);
                             String str8 = postList.forum_name;
                             str5 = String.valueOf(postList.reply_num);
                             str4 = str7;
@@ -115,7 +115,7 @@ class a implements View.OnClickListener {
                             strArr[0] = String.valueOf(postList.thread_id);
                             strArr[1] = String.valueOf(postList.content[0].post_id);
                             strArr[2] = String.valueOf(postList.content[0].post_type);
-                            String a2 = be.a(postList.create_time * 1000);
+                            String a2 = bg.a(postList.create_time * 1000);
                             String str10 = postList.forum_name;
                             str5 = String.valueOf(postList.reply_num);
                             str4 = str9;
@@ -190,11 +190,11 @@ class a implements View.OnClickListener {
     }
 
     public void a(int i) {
-        bc.a(this.e, com.baidu.tieba.s.cp_cont_d, 1);
-        bc.a(this.d, com.baidu.tieba.s.cp_cont_d, 1);
-        bc.a(this.c, com.baidu.tieba.s.cp_cont_f, 1);
-        bc.f(this.g, com.baidu.tieba.s.cp_bg_line_c);
-        bc.f(this.h, com.baidu.tieba.u.daily_recommend_item_selector);
+        be.a(this.e, com.baidu.tieba.s.cp_cont_d, 1);
+        be.a(this.d, com.baidu.tieba.s.cp_cont_d, 1);
+        be.a(this.c, com.baidu.tieba.s.cp_cont_f, 1);
+        be.f(this.g, com.baidu.tieba.s.cp_bg_line_c);
+        be.f(this.h, com.baidu.tieba.u.daily_recommend_item_selector);
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             this.f.setCompoundDrawablesWithIntrinsicBounds(this.f.getResources().getDrawable(com.baidu.tieba.u.icon_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
             this.f.setTextColor(this.f.getResources().getColor(com.baidu.tieba.s.cp_link_tip_c_1));

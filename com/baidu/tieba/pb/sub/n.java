@@ -4,7 +4,7 @@ import android.app.AlertDialog;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.y;
 import java.text.MessageFormat;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,7 +24,7 @@ public class n implements AdapterView.OnItemClickListener {
         if (sparseArray != null && (str = (String) sparseArray.get(com.baidu.tieba.v.tag_photo_username)) != null) {
             String editable = this.a.L.getEditText().getText().toString();
             String str2 = "^" + this.a.f.getResources().getString(y.reply_sub_floor).replace("%s", ".+") + "$";
-            if (be.c(editable) || editable.matches(str2)) {
+            if (bg.c(editable) || editable.matches(str2)) {
                 this.a.b(str);
                 this.a.a(i, view);
                 return;

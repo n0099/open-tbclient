@@ -3,14 +3,14 @@ package com.baidu.tieba.pb.image;
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends BdAsyncTask<Object, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
-    private al b;
+    private an b;
     private ArrayList<BasicNameValuePair> c;
     private String d;
     private boolean f;
@@ -33,7 +33,7 @@ public class r extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(Object... objArr) {
-        this.b = new al(this.d);
+        this.b = new an(this.d);
         this.b.a(this.c);
         this.e = this.b.i();
         return this.e;

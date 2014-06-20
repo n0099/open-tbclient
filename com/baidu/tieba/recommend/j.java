@@ -3,7 +3,7 @@ package com.baidu.tieba.recommend;
 import android.app.Activity;
 import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
@@ -22,7 +22,7 @@ public class j implements View.OnClickListener {
         Activity activity2;
         activity = this.a.b;
         TiebaStatic.eventStat(activity, "recommend_to_pb", "click");
-        bi a = bi.a();
+        bk a = bk.a();
         activity2 = this.a.b;
         a.a(activity2, new String[]{this.b.a()});
     }

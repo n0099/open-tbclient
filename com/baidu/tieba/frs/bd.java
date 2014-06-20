@@ -21,6 +21,6 @@ public class bd implements View.OnClickListener {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
         context = this.a.b;
-        messageManager.sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(context, this.b.y().getUserId(), this.b.y().getName_show())));
+        messageManager.sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(context, this.b.y().getUserId(), this.b.y().getName_show())));
     }
 }

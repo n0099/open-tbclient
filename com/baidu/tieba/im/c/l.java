@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.c;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.a.m;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
@@ -19,7 +18,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class l extends m {
+public class l extends com.baidu.adp.framework.a.j {
     private long a;
 
     public l() {
@@ -28,7 +27,7 @@ public class l extends m {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.i
+    @Override // com.baidu.adp.framework.a.g
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         GroupMsgData next;
         if (socketResponsedMessage instanceof ResponsePullMessage) {

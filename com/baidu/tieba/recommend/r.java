@@ -10,7 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.adp.widget.PinnedHeaderListView;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
@@ -94,13 +94,13 @@ public class r extends com.baidu.adp.base.c {
 
     public void a(int i) {
         this.j.c(i);
-        bc.f(this.b, com.baidu.tieba.s.cp_bg_line_c);
+        be.f(this.b, com.baidu.tieba.s.cp_bg_line_c);
         this.e.a(i);
         if (this.f != null) {
             this.f.d(i);
         }
-        bc.a(this.h, com.baidu.tieba.s.cp_link_tip_d, 1);
-        bc.f((View) this.h, u.bg_update);
+        be.a(this.h, com.baidu.tieba.s.cp_link_tip_d, 1);
+        be.f((View) this.h, u.bg_update);
         this.i.a();
     }
 

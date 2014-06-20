@@ -227,7 +227,7 @@ public class UtilHelper {
     }
 
     public static void quitDialog(Activity activity) {
-        new AlertDialog.Builder(activity).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.alert_quit_confirm).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new bn(activity)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new bo()).create().show();
+        new AlertDialog.Builder(activity).setTitle(com.baidu.tieba.y.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.alert_quit_confirm).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new bp(activity)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new bq()).create().show();
     }
 
     public static String getIpFromDomain(String str) {
@@ -335,10 +335,10 @@ public class UtilHelper {
                     String stringExtra = intent.getStringExtra("id");
                     String stringExtra2 = intent.getStringExtra("from");
                     if (intent.getBooleanExtra("is_message_pv", false)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(context).a(stringExtra, (String) null, stringExtra2, intent.getLongExtra("message_id", 0L))));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.ar(context).a(stringExtra, (String) null, stringExtra2, intent.getLongExtra("message_id", 0L))));
                         return true;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(context).a(stringExtra, null, stringExtra2)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.ar(context).a(stringExtra, null, stringExtra2)));
                     return true;
                 case 2:
                     MessageManager.getInstance().sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(context).a(intent.getStringExtra("fname"), intent.getStringExtra("from"))));
@@ -369,8 +369,8 @@ public class UtilHelper {
                     com.baidu.tbadk.coreExtra.messageCenter.a.a().a(com.baidu.tbadk.coreExtra.messageCenter.a.a().k(), com.baidu.tbadk.coreExtra.messageCenter.a.a().l(), intExtra3, com.baidu.tbadk.coreExtra.messageCenter.a.a().o());
                     BdLog.d("group_msg:" + intExtra5 + " group_msg_validate:" + intExtra6 + " group_msg_updates" + intExtra7 + "officialbar_msg=" + intExtra9);
                     if (intExtra2 > 0 || intExtra > 0 || intExtra4 > 0 || intExtra7 > 0 || intExtra6 > 0 || intExtra5 > 0 || intExtra9 > 0 || intExtra8 > 0) {
-                        com.baidu.tbadk.core.atomData.am.a = true;
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bb(context, intExtra10)));
+                        com.baidu.tbadk.core.atomData.al.a = true;
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ba(context, intExtra10)));
                         return false;
                     }
                 case 8:
@@ -400,15 +400,15 @@ public class UtilHelper {
                     com.baidu.tbadk.coreExtra.messageCenter.a.a().a(com.baidu.tbadk.coreExtra.messageCenter.a.a().k(), com.baidu.tbadk.coreExtra.messageCenter.a.a().l(), intExtra14, com.baidu.tbadk.coreExtra.messageCenter.a.a().o());
                     BdLog.d("group_msg1:" + intExtra15 + " group_msg_validate1 " + intExtra16 + " group_msg_updates1 " + intExtra17 + "officialbar_msg=" + intExtra19);
                     if (intExtra12 > 0 || intExtra11 > 0 || intExtra13 > 0 || intExtra17 > 0 || intExtra16 > 0 || intExtra15 > 0 || intExtra19 > 0 || intExtra18 > 0) {
-                        com.baidu.tbadk.core.atomData.am.a = true;
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bb(context, intExtra20)));
+                        com.baidu.tbadk.core.atomData.al.a = true;
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ba(context, intExtra20)));
                         return false;
                     }
                 case 12:
                     String currentAccount = TbadkApplication.getCurrentAccount();
                     String currentAccountName = TbadkApplication.getCurrentAccountName();
                     if (!TextUtils.isEmpty(currentAccount) && !TextUtils.isEmpty(currentAccountName)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(context, currentAccount, currentAccountName)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(context, currentAccount, currentAccountName)));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageTypes.CMD_ENTER_PERSONINFO_FROM_NOTIFI_LOCAL));
                         return false;
                     }
@@ -439,19 +439,19 @@ public class UtilHelper {
                     }
                     break;
                 case 16:
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ad(context)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ac(context)));
                     return true;
                 case 17:
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(context, com.baidu.adp.lib.f.b.a(intent.getStringExtra("groupid"), -1))));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ad(context, com.baidu.adp.lib.f.b.a(intent.getStringExtra("groupid"), -1))));
                     return true;
                 case 18:
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2017002, new com.baidu.tbadk.core.atomData.bd(context, "", false)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2017002, new com.baidu.tbadk.core.atomData.bc(context, "", false)));
                     return false;
                 case 19:
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new com.baidu.tbadk.core.atomData.bc(context)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new com.baidu.tbadk.core.atomData.bb(context)));
                     return false;
                 case 20:
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.aq(context, com.baidu.tbadk.core.atomData.aq.d)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ap(context, com.baidu.tbadk.core.atomData.ap.d)));
                     return false;
             }
         }
@@ -575,7 +575,7 @@ public class UtilHelper {
                     RemoteViews remoteViews = new RemoteViews(TbadkApplication.m252getInst().getApp().getPackageName(), com.baidu.tieba.w.custom_notification);
                     remoteViews.setImageViewResource(com.baidu.tieba.v.notification_icon, com.baidu.tieba.u.icon);
                     remoteViews.setTextViewText(com.baidu.tieba.v.notification_content, d);
-                    remoteViews.setTextViewText(com.baidu.tieba.v.notification_time, be.b(new Date()));
+                    remoteViews.setTextViewText(com.baidu.tieba.v.notification_time, bg.b(new Date()));
                     notification.contentView = remoteViews;
                     notification.defaults = -1;
                     if (!z) {

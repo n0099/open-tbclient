@@ -4,13 +4,13 @@ public abstract class d implements ap {
     private volatile byte[] a = null;
     private volatile boolean b = false;
 
-    protected abstract byte[] h();
+    protected abstract byte[] k();
 
-    public byte[] r() {
+    public byte[] s() {
         synchronized (this) {
             if (!this.b) {
                 this.b = true;
-                this.a = h();
+                this.a = k();
             }
         }
         return this.a;

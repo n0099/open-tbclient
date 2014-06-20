@@ -2,7 +2,7 @@ package com.baidu.tieba.im.updategroup;
 
 import android.text.InputFilter;
 import android.widget.ImageButton;
-import com.baidu.tieba.im.f.t;
+import com.baidu.tieba.im.e.t;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
@@ -14,7 +14,7 @@ public class f extends g {
         d(y.group_update_name);
         this.f = (ImageButton) updateGroupActivity.findViewById(v.button_del);
         this.f.setOnClickListener(updateGroupActivity);
-        this.b.setFilters(new InputFilter[]{new com.baidu.tieba.im.f.a(20)});
+        this.b.setFilters(new InputFilter[]{new com.baidu.tieba.im.e.a(20)});
     }
 
     @Override // com.baidu.tieba.im.updategroup.g

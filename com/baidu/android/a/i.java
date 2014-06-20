@@ -1,54 +1,34 @@
 package com.baidu.android.a;
 
 import android.content.Context;
-import android.os.Environment;
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 /* loaded from: classes.dex */
-public final class i {
-    private static i a = null;
-    private ArrayList b = new ArrayList();
+public class i extends SQLiteOpenHelper {
+    private Context a;
 
-    private i(Context context) {
-        b(context);
+    public i(Context context) {
+        super(context, "moplus_server_config.db", (SQLiteDatabase.CursorFactory) null, 1);
+        this.a = context;
     }
 
-    public static synchronized i a(Context context) {
-        i iVar;
-        synchronized (i.class) {
-            if (a == null) {
-                a = new i(context);
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        sQLiteDatabase.beginTransaction();
+        try {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE server_config_table (_id INTEGER PRIMARY KEY,name TEXT,type INTEGER,value TEXT);");
+                sQLiteDatabase.setTransactionSuccessful();
+            } catch (SQLException e) {
+                throw e;
             }
-            iVar = a;
-        }
-        return iVar;
-    }
-
-    private void b(Context context) {
-        ArrayList a2 = o.a(context.getApplicationContext()).a(2);
-        if (a2 == null || a2.size() == 0) {
-            return;
-        }
-        String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-        String str = !absolutePath.endsWith("/") ? absolutePath + "/" : absolutePath;
-        Iterator it = a2.iterator();
-        while (it.hasNext()) {
-            this.b.add(str + ((k) it.next()).b());
+        } finally {
+            sQLiteDatabase.endTransaction();
         }
     }
 
-    public static void c() {
-        if (a != null) {
-            a.b();
-        }
-        a = null;
-    }
-
-    public ArrayList a() {
-        return this.b;
-    }
-
-    public void b() {
-        this.b = null;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
     }
 }

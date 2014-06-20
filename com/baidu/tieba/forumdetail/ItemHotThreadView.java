@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.forumdetail.ForumDetailData;
 import com.baidu.tieba.s;
 import com.baidu.tieba.u;
@@ -85,7 +85,7 @@ public class ItemHotThreadView extends LinearLayout {
                 sb.append(threadInfo.abstracts[i].text);
             }
         }
-        if (!be.c(sb.toString().trim())) {
+        if (!bg.c(sb.toString().trim())) {
             lVar.b.setText(sb.toString());
             lVar.b.setVisibility(0);
         } else {

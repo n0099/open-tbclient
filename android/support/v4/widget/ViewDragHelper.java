@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
-import com.baidu.location.LocationClientOption;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class ViewDragHelper {
@@ -717,7 +716,7 @@ public class ViewDragHelper {
     }
 
     private void releaseViewForPointerUp() {
-        this.mVelocityTracker.computeCurrentVelocity(LocationClientOption.MIN_SCAN_SPAN, this.mMaxVelocity);
+        this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaxVelocity);
         dispatchViewReleased(clampMag(VelocityTrackerCompat.getXVelocity(this.mVelocityTracker, this.mActivePointerId), this.mMinVelocity, this.mMaxVelocity), clampMag(VelocityTrackerCompat.getYVelocity(this.mVelocityTracker, this.mActivePointerId), this.mMinVelocity, this.mMaxVelocity));
     }
 

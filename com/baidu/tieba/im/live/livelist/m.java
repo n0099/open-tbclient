@@ -32,7 +32,7 @@ public class m implements s {
                     arrayList.add(this.a.getString(com.baidu.tieba.y.live_frs_list__operate_cancel_hide));
                     break;
             }
-            com.baidu.tieba.im.f.b.a(this.a, (CharSequence[]) arrayList.toArray(new CharSequence[0]), new n(this, flag, liveCardData));
+            com.baidu.tieba.im.e.b.a(this.a, (CharSequence[]) arrayList.toArray(new CharSequence[0]), new n(this, flag, liveCardData));
         }
     }
 }

@@ -11,10 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.br;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 import com.baidu.tieba.u;
@@ -80,7 +80,7 @@ public class DiscoverItemView extends LinearLayout {
     public DiscoverItemView a(int i) {
         this.d = i;
         this.i.setAutoChangeStyle(false);
-        bc.c((ImageView) this.i, this.d);
+        be.c((ImageView) this.i, this.d);
         return this;
     }
 
@@ -173,26 +173,26 @@ public class DiscoverItemView extends LinearLayout {
             baseFragmentActivity.a().a((View) this);
         }
         if (this.d != 0) {
-            bc.c((ImageView) this.i, this.d);
+            be.c((ImageView) this.i, this.d);
         }
         this.i.b();
-        bp.a((ViewGroup) this, i);
-        bc.f(this, u.list_item_selector);
+        br.a((ViewGroup) this, i);
+        be.f(this, u.list_item_selector);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (be.c(this.c)) {
+        if (bg.c(this.c)) {
             this.c = String.valueOf(this.j.getText());
         }
         boolean z = this.n;
         if (this.n) {
             if (this.p == e) {
-                bc.c(this.k, this.p);
+                be.c(this.k, this.p);
             }
             if (this.o) {
-                z = !com.baidu.tbadk.f.a().a(ai.a(this.c), false);
+                z = !com.baidu.tbadk.f.a().a(ak.a(this.c), false);
             }
         }
         this.k.setVisibility(z ? 0 : 8);

@@ -70,7 +70,7 @@ public class c extends com.baidu.adp.lib.e.a<com.baidu.adp.widget.a.a> {
             this.a.a(dVar.a, dVar.c, dVar.b, dVar.d, false, dVar.e, dVar.f, dVar.g, true);
         }
         if (!this.b.f) {
-            new ba(this.b).execute(new String[0]);
+            new bc(this.b).execute(new String[0]);
         }
     }
 

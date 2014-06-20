@@ -41,7 +41,7 @@ public class al extends ClickableSpan {
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
         if (this.b != null && this.c != null && this.d != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(this.d, this.c, this.b)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this.d, this.c, this.b)));
         }
     }
 }

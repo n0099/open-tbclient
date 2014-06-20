@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
+import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
@@ -40,6 +41,30 @@ public final class a {
         return aVar;
     }
 
+    public ArrayList a() {
+        ArrayList arrayList;
+        synchronized (this.b) {
+            arrayList = new ArrayList(this.b.values());
+        }
+        return arrayList;
+    }
+
+    public ArrayList a(String str, boolean z) {
+        ArrayList arrayList = new ArrayList();
+        synchronized (this.b) {
+            for (PackageInfo packageInfo : this.b.values()) {
+                if (z) {
+                    if (TextUtils.equals(packageInfo.packageName, str)) {
+                        arrayList.add(packageInfo);
+                    }
+                } else if (packageInfo.packageName.startsWith(str)) {
+                    arrayList.add(packageInfo);
+                }
+            }
+        }
+        return arrayList;
+    }
+
     public void a(PackageInfo packageInfo) {
         if (packageInfo == null) {
             return;
@@ -56,17 +81,5 @@ public final class a {
         synchronized (this.b) {
             this.b.remove(str);
         }
-    }
-
-    public ArrayList b(String str) {
-        ArrayList arrayList = new ArrayList();
-        synchronized (this.b) {
-            for (PackageInfo packageInfo : this.b.values()) {
-                if (packageInfo.packageName.startsWith(str)) {
-                    arrayList.add(packageInfo);
-                }
-            }
-        }
-        return arrayList;
     }
 }

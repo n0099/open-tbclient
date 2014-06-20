@@ -36,25 +36,25 @@ public class cz implements com.baidu.tbadk.coreExtra.view.c {
         BaseActivity baseActivity8;
         BaseActivity baseActivity9;
         BaseActivity baseActivity10;
-        fVar = this.a.ai;
+        fVar = this.a.ah;
         String c = fVar.c();
-        fVar2 = this.a.ai;
+        fVar2 = this.a.ah;
         if (fVar2 != null) {
-            fVar3 = this.a.ai;
+            fVar3 = this.a.ah;
             if (fVar3.a() == 1) {
                 baseActivity10 = this.a.g;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.j(baseActivity10, c, false, "frs_banner")));
                 return;
             }
-            fVar4 = this.a.ai;
+            fVar4 = this.a.ah;
             if (fVar4.a() != 2) {
-                fVar5 = this.a.ai;
+                fVar5 = this.a.ah;
                 if (fVar5.a() == 3) {
                     baseActivity4 = this.a.g;
                     com.baidu.tbadk.browser.a.a(baseActivity4, c);
                     return;
                 }
-                fVar6 = this.a.ai;
+                fVar6 = this.a.ah;
                 if (fVar6.a() == 4) {
                     baseActivity = this.a.g;
                     if (baseActivity instanceof BaseActivity) {
@@ -64,7 +64,7 @@ public class cz implements com.baidu.tbadk.coreExtra.view.c {
                     }
                 }
             } else if (c.contains("tieba.baidu.com")) {
-                pattern = ct.aj;
+                pattern = ct.ai;
                 Matcher matcher = pattern.matcher(c);
                 if (matcher.find()) {
                     try {
@@ -72,13 +72,13 @@ public class cz implements com.baidu.tbadk.coreExtra.view.c {
                         baseActivity5 = this.a.g;
                         if (baseActivity5 instanceof BaseFragmentActivity) {
                             baseActivity9 = this.a.g;
-                            ((BaseFragmentActivity) baseActivity5).a(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(baseActivity9).a(group, null, "frs_banner")));
+                            ((BaseFragmentActivity) baseActivity5).a(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.ar(baseActivity9).a(group, null, "frs_banner")));
                         } else {
                             baseActivity6 = this.a.g;
                             if (baseActivity6 instanceof BaseActivity) {
                                 baseActivity7 = this.a.g;
                                 baseActivity8 = this.a.g;
-                                baseActivity7.sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(baseActivity8).a(group, null, "frs_banner")));
+                                baseActivity7.sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.ar(baseActivity8).a(group, null, "frs_banner")));
                             }
                         }
                     } catch (Exception e) {

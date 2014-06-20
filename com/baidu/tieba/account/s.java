@@ -7,13 +7,13 @@ import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ ActivationActivity a;
-    private al b;
+    private an b;
 
     private s(ActivationActivity activationActivity) {
         this.a = activationActivity;
@@ -52,10 +52,10 @@ public class s extends BdAsyncTask<String, Integer, Boolean> {
         RegistData registData;
         boolean z = false;
         try {
-            this.b = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
-            al alVar = this.b;
+            this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
+            an anVar = this.b;
             registData = this.a.q;
-            alVar.a("phonenum", registData.getPhone());
+            anVar.a("phonenum", registData.getPhone());
             this.b.i();
             if (this.b.a().b().b()) {
                 z = true;

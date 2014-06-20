@@ -5,13 +5,13 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Integer, Integer, String> {
     final /* synthetic */ a a;
-    private al b;
+    private an b;
     private boolean c;
     private String d;
     private String e;
@@ -45,7 +45,7 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
     public String doInBackground(Integer... numArr) {
         try {
             if (this.d != null) {
-                this.b = new al();
+                this.b = new an();
                 if (this.c) {
                     this.b.a(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
                 } else {

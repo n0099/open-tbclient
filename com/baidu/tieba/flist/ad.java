@@ -16,6 +16,6 @@ class ad implements Runnable {
         com.baidu.tbadk.editortool.ab abVar;
         bdListView = this.a.a;
         abVar = this.a.f;
-        com.baidu.tbadk.core.util.ae.a(bdListView, abVar, 0, -1);
+        com.baidu.tbadk.core.util.ag.a(bdListView, abVar, 0, -1);
     }
 }

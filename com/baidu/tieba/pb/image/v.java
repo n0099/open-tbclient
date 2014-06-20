@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ap;
-import com.baidu.tbadk.core.atomData.bh;
+import com.baidu.tbadk.core.atomData.ao;
+import com.baidu.tbadk.core.atomData.bg;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.util.AntiHelper;
@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class v extends BdAsyncTask<Integer, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
     private WriteData b;
-    private al c = null;
+    private an c = null;
     private boolean d = false;
 
     public v(ImagePbActivity imagePbActivity, WriteData writeData) {
@@ -35,7 +35,7 @@ public class v extends BdAsyncTask<Integer, Integer, String> {
         if (this.d) {
             return null;
         }
-        this.c = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/add");
+        this.c = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/add");
         this.c.a("anonymous", "0");
         this.c.a("fid", this.b.getForumId());
         this.c.a("kw", this.b.getForumName());
@@ -78,12 +78,12 @@ public class v extends BdAsyncTask<Integer, Integer, String> {
                 this.b.setVcodeUrl(fVar.b());
                 if (fVar.c().equals("4")) {
                     if (this.b != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ap(this.a, 12006, this.b, false)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ao(this.a, 12006, this.b, false)));
                         return;
                     }
                     return;
                 } else if (this.b != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bh(this.a, this.b, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bg(this.a, this.b, 12006)));
                     return;
                 } else {
                     return;

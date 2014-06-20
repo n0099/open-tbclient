@@ -31,7 +31,7 @@ public class bc {
             try {
                 this.a.parserJson(jSONObject.optJSONObject("version"));
                 this.b.a(jSONObject.optJSONObject("client"));
-                com.baidu.tbadk.c.a.a().a(jSONObject.optJSONObject("ad_config"));
+                com.baidu.tbadk.b.a.a().a(jSONObject.optJSONObject("ad_config"));
                 com.baidu.tbadk.core.util.n.a(jSONObject.optString("client_ip", null));
                 this.c.a(jSONObject.optJSONObject("config"));
                 this.d.parserJson(jSONObject.optJSONObject("combine_download"));

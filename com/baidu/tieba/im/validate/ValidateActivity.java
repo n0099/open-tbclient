@@ -13,7 +13,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.editortool.ab;
@@ -164,7 +164,7 @@ public class ValidateActivity extends BaseActivity implements AbsListView.OnScro
 
     private void a(ValidateItemData validateItemData) {
         if (validateItemData != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new at(this, validateItemData.getUserId(), validateItemData.getUserName())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new as(this, validateItemData.getUserId(), validateItemData.getUserName())));
         }
     }
 

@@ -2,7 +2,7 @@ package com.baidu.tieba.square;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements View.OnClickListener {
@@ -22,7 +22,7 @@ public class z implements View.OnClickListener {
         Context context;
         String b = this.b.b();
         String a = ak.a("carousel_recommend", String.valueOf(this.c));
-        bi a2 = bi.a();
+        bk a2 = bk.a();
         context = this.a.f;
         String[] strArr = new String[3];
         strArr[0] = b;

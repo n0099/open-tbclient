@@ -24,7 +24,7 @@ public class b implements View.OnClickListener {
             if (intValue < gVar.getCount()) {
                 gVar2 = this.a.i;
                 ForumData forumData = (ForumData) gVar2.getItem(intValue);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003006, new com.baidu.tbadk.core.atomData.ar(this.a, com.baidu.adp.lib.f.b.a(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003006, new com.baidu.tbadk.core.atomData.aq(this.a, com.baidu.adp.lib.f.b.a(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
             }
         }
     }

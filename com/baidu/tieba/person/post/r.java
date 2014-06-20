@@ -3,7 +3,7 @@ package com.baidu.tieba.person.post;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 import com.baidu.tieba.person.post.PersonPostModel;
 /* loaded from: classes.dex */
@@ -48,8 +48,8 @@ public class r extends a {
     @Override // com.baidu.tieba.person.post.a
     public void a(int i) {
         super.a(i);
-        bc.a(this.h, com.baidu.tieba.s.cp_cont_b, 1);
-        bc.a(this.i, com.baidu.tieba.s.cp_cont_f, 1);
-        bc.f(this.k, com.baidu.tieba.s.cp_bg_line_b);
+        be.a(this.h, com.baidu.tieba.s.cp_cont_b, 1);
+        be.a(this.i, com.baidu.tieba.s.cp_cont_f, 1);
+        be.f(this.k, com.baidu.tieba.s.cp_bg_line_b);
     }
 }

@@ -17,6 +17,6 @@ public class c implements Runnable {
         GroupListAdapter groupListAdapter;
         bdListView = this.a.e;
         groupListAdapter = this.a.i;
-        com.baidu.tbadk.core.util.ae.a(bdListView, groupListAdapter.b(), 0, -1);
+        com.baidu.tbadk.core.util.ag.a(bdListView, groupListAdapter.b(), 0, -1);
     }
 }

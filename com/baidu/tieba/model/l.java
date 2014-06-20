@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask<Boolean, Integer, Boolean> {
     final /* synthetic */ k a;
-    private com.baidu.tbadk.core.util.al b = null;
+    private com.baidu.tbadk.core.util.an b = null;
     private String c;
     private int d;
     private com.baidu.tieba.data.as e;
@@ -28,7 +28,7 @@ public class l extends BdAsyncTask<Boolean, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public Boolean doInBackground(Boolean... boolArr) {
-        this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/rmstore");
+        this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/rmstore");
         this.b.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, TbadkApplication.getCurrentAccount());
         this.b.a("tid", this.c);
         this.e.a(this.b.i());

@@ -16,7 +16,6 @@ import com.baidu.adp.f;
 import com.baidu.adp.lib.debug.DebugConfigActivity;
 import com.baidu.adp.lib.debug.d;
 import com.baidu.adp.lib.debug.e;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.core.frameworkData.a;
 import java.io.IOException;
 import java.util.List;
@@ -26,7 +25,7 @@ public class SwitchDebugService extends Service implements SensorEventListener {
     private String mPackageName;
     private static int ACCELERATION = 80;
     private static int ACCELERATION_ONE = 15;
-    private static int TIME_INTERVAL = LocationClientOption.MIN_SCAN_SPAN;
+    private static int TIME_INTERVAL = 1000;
     private static int ROCK_MIN_NUM = 4;
     private static int ROCK_MAX_INTERVAL = 500;
     public static Properties customConfig = null;

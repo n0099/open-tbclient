@@ -28,6 +28,6 @@ public class c implements com.baidu.tbadk.imageManager.d {
         }
         atListActivity2 = this.a.a;
         atSelectFriendList = atListActivity2.e;
-        com.baidu.tbadk.core.util.bp.a((ViewGroup) atSelectFriendList, false, (com.baidu.tbadk.core.util.br) new d(this, str, aVar));
+        com.baidu.tbadk.core.util.br.a((ViewGroup) atSelectFriendList, false, (com.baidu.tbadk.core.util.bt) new d(this, str, aVar));
     }
 }

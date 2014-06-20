@@ -183,7 +183,7 @@ public class FaceShopActivity extends BaseActivity {
                 String stringExtra = intent.getStringExtra("tag_order_id");
                 FacePackageData facePackageData = (FacePackageData) this.a.a().getItem(intExtra);
                 if (facePackageData != null) {
-                    String str = com.baidu.tbadk.core.util.be.c(stringExtra) ? facePackageData.orderId : stringExtra;
+                    String str = com.baidu.tbadk.core.util.bg.c(stringExtra) ? facePackageData.orderId : stringExtra;
                     this.a.j();
                     this.c = new aa();
                     this.c.setLoadDataCallBack(new bo(this, intExtra));

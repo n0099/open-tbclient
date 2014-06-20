@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbadkApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -43,7 +42,7 @@ public class PbEditorToolView extends LinearLayout {
         this.b = (PbEditorToolButtonContainer) findViewById(com.baidu.tieba.v.tool_button_container);
         this.c = (EditText) findViewById(com.baidu.tieba.v.reply_content);
         this.d = (Button) findViewById(com.baidu.tieba.v.pb_reply_post);
-        this.c.setFilters(new InputFilter[]{new InputFilter.LengthFilter(LocationClientOption.MIN_SCAN_SPAN)});
+        this.c.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1000)});
     }
 
     public void a(ArrayList<String> arrayList) {

@@ -4,7 +4,6 @@ import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.util.Log;
 import com.baidu.channelrtc.medialivesender.LiveSenderControl;
-import com.baidu.location.LocationClientOption;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -94,7 +93,7 @@ public class MyAudioRecorder implements h {
                 this.o = i;
                 this.l = i2;
                 this.p = i4;
-                this.q = (i2 * 120) / LocationClientOption.MIN_SCAN_SPAN;
+                this.q = (i2 * 120) / 1000;
                 this.n = (((this.q * 2) * this.m) * this.k) / 8;
                 if (this.n < AudioRecord.getMinBufferSize(i2, i3, i4)) {
                     this.n = AudioRecord.getMinBufferSize(i2, i3, i4);

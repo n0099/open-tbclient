@@ -20,7 +20,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -201,13 +201,13 @@ public class LiveBroadcastCard extends RelativeLayout {
             }
             this.u.setVisibility(this.z ? 0 : 8);
             if (this.A) {
-                bc.a(this.g, com.baidu.tieba.s.cp_cont_e, 1);
-                bc.a(this.i, com.baidu.tieba.s.cp_cont_e, 1);
-                bc.a(this.j, com.baidu.tieba.s.cp_cont_e, 1);
-                bc.a(this.k, com.baidu.tieba.s.cp_cont_e, 1);
-                bc.a(this.l, com.baidu.tieba.s.cp_cont_e, 1);
-                bc.c(this.v, com.baidu.tieba.u.icon_live_list_pop_d);
-                bc.c(this.w, com.baidu.tieba.u.icon_live_list_like_d);
+                be.a(this.g, com.baidu.tieba.s.cp_cont_e, 1);
+                be.a(this.i, com.baidu.tieba.s.cp_cont_e, 1);
+                be.a(this.j, com.baidu.tieba.s.cp_cont_e, 1);
+                be.a(this.k, com.baidu.tieba.s.cp_cont_e, 1);
+                be.a(this.l, com.baidu.tieba.s.cp_cont_e, 1);
+                be.c(this.v, com.baidu.tieba.u.icon_live_list_pop_d);
+                be.c(this.w, com.baidu.tieba.u.icon_live_list_like_d);
                 HeadImageView headImageView = this.e;
                 if (TbadkApplication.m252getInst().getSkinType() == 1) {
                     color = this.c.getResources().getColor(com.baidu.tieba.s.live_broadcast_card_head_mask_1);
@@ -217,13 +217,13 @@ public class LiveBroadcastCard extends RelativeLayout {
                 headImageView.setForegroundColor(color);
                 return;
             }
-            bc.a(this.g, com.baidu.tieba.s.cp_cont_b, 1);
-            bc.a(this.i, com.baidu.tieba.s.cp_cont_c, 1);
-            bc.a(this.j, com.baidu.tieba.s.cp_cont_c, 1);
-            bc.a(this.k, com.baidu.tieba.s.cp_cont_c, 1);
-            bc.a(this.l, com.baidu.tieba.s.cp_cont_d, 1);
-            bc.c(this.v, com.baidu.tieba.u.icon_live_list_pop);
-            bc.c(this.w, com.baidu.tieba.u.icon_live_list_like);
+            be.a(this.g, com.baidu.tieba.s.cp_cont_b, 1);
+            be.a(this.i, com.baidu.tieba.s.cp_cont_c, 1);
+            be.a(this.j, com.baidu.tieba.s.cp_cont_c, 1);
+            be.a(this.k, com.baidu.tieba.s.cp_cont_c, 1);
+            be.a(this.l, com.baidu.tieba.s.cp_cont_d, 1);
+            be.c(this.v, com.baidu.tieba.u.icon_live_list_pop);
+            be.c(this.w, com.baidu.tieba.u.icon_live_list_like);
             this.e.setForegroundColor(0);
         }
     }
@@ -288,7 +288,7 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.q.setVisibility(8);
         this.s.setVisibility(0);
         this.s.setText(com.baidu.tieba.y.live_card_close);
-        bc.a(this.s, com.baidu.tieba.s.cp_cont_d, 1);
+        be.a(this.s, com.baidu.tieba.s.cp_cont_d, 1);
         this.s.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.t.ds28));
         this.E = 4;
     }
@@ -298,27 +298,27 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.q.setVisibility(8);
         this.s.setVisibility(0);
         this.s.setText(com.baidu.tieba.y.live_card_hide);
-        bc.a(this.s, com.baidu.tieba.s.cp_cont_d, 1);
+        be.a(this.s, com.baidu.tieba.s.cp_cont_d, 1);
         this.s.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32));
         this.E = 5;
     }
 
     private void f() {
         this.r.setText(com.baidu.tieba.y.live_card_count_down);
-        bc.f((View) this.r, com.baidu.tieba.u.bg_live_orange);
+        be.f((View) this.r, com.baidu.tieba.u.bg_live_orange);
         this.E = 2;
     }
 
     private void g() {
         this.p.setText(c(this.B));
         this.r.setText(com.baidu.tieba.y.live_card_foreshowt);
-        bc.f((View) this.r, com.baidu.tieba.u.bg_live_yellow);
+        be.f((View) this.r, com.baidu.tieba.u.bg_live_yellow);
         this.E = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(this.c, this.C)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ad(this.c, this.C)));
     }
 
     @Override // android.view.ViewGroup, android.view.View

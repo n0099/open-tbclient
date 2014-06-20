@@ -1,12 +1,12 @@
 package com.baidu.adp.framework.task;
 
 import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.c.g;
+import com.baidu.adp.framework.c.e;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class HttpMessageTask extends MessageTask {
-    private g mConnectTimeOut;
+    private e mConnectTimeOut;
     private boolean mIsImm;
     private HTTP_METHOD mMethod;
     private boolean mNeedGzip;
@@ -83,12 +83,12 @@ public class HttpMessageTask extends MessageTask {
         return FrameHelper.b(this.mCmd);
     }
 
-    public g getConnectTimeOut() {
+    public e getConnectTimeOut() {
         return this.mConnectTimeOut;
     }
 
-    public void setConnectTimeOut(g gVar) {
-        this.mConnectTimeOut = gVar;
+    public void setConnectTimeOut(e eVar) {
+        this.mConnectTimeOut = eVar;
     }
 
     public BdAsyncTaskParallel getParallel() {

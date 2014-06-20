@@ -146,4 +146,8 @@ public class a<K, V> {
             b(i);
         }
     }
+
+    public final synchronized int e() {
+        return this.e;
+    }
 }

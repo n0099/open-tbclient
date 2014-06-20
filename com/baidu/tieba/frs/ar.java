@@ -38,7 +38,7 @@ public class ar implements DialogInterface.OnClickListener {
             this.a.Z = String.valueOf(System.currentTimeMillis());
             FrsActivity frsActivity = this.a;
             str = this.a.Z;
-            com.baidu.tbadk.core.util.bb.a(frsActivity, str);
+            com.baidu.tbadk.core.util.bd.a(frsActivity, str);
         } else if (i == 1) {
             writeImagesInfo = this.a.Y;
             if (writeImagesInfo != null) {

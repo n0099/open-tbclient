@@ -4,13 +4,13 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class b {
     private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/page";
-    private com.baidu.tbadk.core.util.al b = null;
+    private com.baidu.tbadk.core.util.an b = null;
 
     public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, com.baidu.tieba.data.ag agVar, boolean z5) {
         if (str == null || str.length() == 0) {
             return null;
         }
-        this.b = new com.baidu.tbadk.core.util.al(a);
+        this.b = new com.baidu.tbadk.core.util.an(a);
         this.b.a("kz", str);
         this.b.a("rn", String.valueOf(30));
         this.b.a("with_floor", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
@@ -18,7 +18,7 @@ public class b {
         int c = com.baidu.adp.lib.util.k.c(com.baidu.tieba.ai.c().d());
         float f = com.baidu.tieba.ai.c().d().getResources().getDisplayMetrics().density;
         int i6 = 1;
-        if (com.baidu.tbadk.core.util.bf.a().d().equals("80")) {
+        if (com.baidu.tbadk.core.util.bh.a().d().equals("80")) {
             i6 = 2;
         }
         this.b.a("scr_w", String.valueOf(b));

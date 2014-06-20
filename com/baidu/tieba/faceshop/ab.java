@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ab extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
     final /* synthetic */ aa a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
     private volatile boolean c;
 
     private ab(aa aaVar) {
@@ -31,9 +31,9 @@ public class ab extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> 
         int i2 = 0;
         FaceBuyQueryData faceBuyQueryData = null;
         String obj = objArr[0].toString();
-        if (!com.baidu.tbadk.core.util.be.c(obj)) {
+        if (!com.baidu.tbadk.core.util.bg.c(obj)) {
             Gson create = new GsonBuilder().create();
-            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/querybuyresult");
+            this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/querybuyresult");
             this.b.a("order_id", obj);
             while (!this.c) {
                 i = this.a.c;

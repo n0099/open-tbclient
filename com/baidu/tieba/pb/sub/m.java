@@ -24,8 +24,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
@@ -404,7 +404,7 @@ public class m {
             this.o.setOnClickListener(this.x);
             int skinType = TbadkApplication.m252getInst().getSkinType();
             this.m.setTextColor(this.f.getResources().getColor(skinType == 1 ? com.baidu.tieba.s.pb_listitem_post_time_1 : com.baidu.tieba.s.pb_listitem_post_time));
-            this.m.setText(be.a(aiVar.n()));
+            this.m.setText(bg.a(aiVar.n()));
             if (z) {
                 this.l.setVisibility(0);
                 if (skinType == 1) {
@@ -526,12 +526,12 @@ public class m {
             this.o.setImageResource(com.baidu.tieba.u.btn_pb_reply_selector_1);
             this.n.setTextColor(this.f.getResources().getColor(com.baidu.tieba.s.pb_listitem_content_1));
             this.n.setVideoImageId(com.baidu.tieba.u.pic_video_1);
-            bc.e((View) this.F, com.baidu.tieba.u.btn_post_dl_selector_1);
+            be.e((View) this.F, com.baidu.tieba.u.btn_post_dl_selector_1);
         } else {
             this.o.setImageResource(com.baidu.tieba.u.btn_pb_reply_selector);
             this.n.setTextColor(this.f.getResources().getColor(com.baidu.tieba.s.pb_listitem_content));
             this.n.setVideoImageId(com.baidu.tieba.u.pic_video);
-            bc.e((View) this.F, com.baidu.tieba.u.btn_post_dl_selector);
+            be.e((View) this.F, com.baidu.tieba.u.btn_post_dl_selector);
         }
         this.L.c(i);
     }

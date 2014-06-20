@@ -38,44 +38,30 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
         }
     }
 
-    public LinkedList<CustomMessage<?>> a(int i) {
-        return a(c.removeAllTask(i));
+    public void a(int i) {
+        a(0, i);
     }
 
     @Override // com.baidu.adp.framework.a
-    public LinkedList<CustomMessage<?>> a(int i, int i2) {
-        return a(c.removeAllTask(i2, String.valueOf(i)));
-    }
-
-    public LinkedList<CustomMessage<?>> a(LinkedList<BdAsyncTask<?, ?, ?>> linkedList) {
-        CustomMessage a;
-        LinkedList<CustomMessage<?>> linkedList2 = new LinkedList<>();
-        Iterator<BdAsyncTask<?, ?, ?>> it = linkedList.iterator();
-        while (it.hasNext()) {
-            BdAsyncTask<?, ?, ?> next = it.next();
-            if (next != null && (next instanceof c) && (a = ((c) next).a()) != null) {
-                linkedList2.add(a);
-            }
+    public void a(int i, int i2) {
+        String str = null;
+        if (i != 0) {
+            str = String.valueOf(i);
         }
-        return linkedList2;
+        c.removeAllTask(i2, str);
     }
 
     public LinkedList<CustomMessage<?>> b(int i) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(i);
-        LinkedList<CustomMessage<?>> linkedList = new LinkedList<>();
-        Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
-        while (it.hasNext()) {
-            BdAsyncTask<?, ?, ?> next = it.next();
-            if (next instanceof c) {
-                linkedList.add(((c) next).a());
-            }
-        }
-        return linkedList;
+        return b(0, i);
     }
 
     @Override // com.baidu.adp.framework.a
     public LinkedList<CustomMessage<?>> b(int i, int i2) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(i2, String.valueOf(i));
+        String str = null;
+        if (i != 0) {
+            str = String.valueOf(i);
+        }
+        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(i2, str);
         LinkedList<CustomMessage<?>> linkedList = new LinkedList<>();
         Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
         while (it.hasNext()) {

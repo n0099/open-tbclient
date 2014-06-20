@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.friend;
 
 import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.bp;
 import com.baidu.tbadk.core.util.br;
+import com.baidu.tbadk.core.util.bt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements com.baidu.tbadk.imageManager.d {
@@ -20,7 +20,7 @@ public class u implements com.baidu.tbadk.imageManager.d {
         viewGroup = this.a.f;
         if (viewGroup != null && str != null) {
             viewGroup2 = this.a.f;
-            bp.a(viewGroup2, false, (br) new v(this, str, aVar));
+            br.a(viewGroup2, false, (bt) new v(this, str, aVar));
         }
     }
 }

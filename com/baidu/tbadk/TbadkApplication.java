@@ -17,6 +17,8 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.client.socket.l;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
@@ -31,24 +33,24 @@ import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.tbadk.core.atomData.x;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 import com.baidu.tbadk.core.util.LimitList;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.coreExtra.d.m;
-import com.baidu.tbadk.coreExtra.d.p;
-import com.baidu.tbadk.coreExtra.d.q;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tbadk.coreExtra.message.ResponsedPingMessage;
 import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
+import com.baidu.tbadk.coreExtra.websocketBase.PingManager;
+import com.baidu.tbadk.coreExtra.websocketBase.p;
+import com.baidu.tbadk.coreExtra.websocketBase.r;
+import com.baidu.tbadk.coreExtra.websocketBase.z;
 import com.baidu.tbadk.editortool.ac;
 import com.baidu.tbadk.editortool.w;
 import com.baidu.tbadk.imageManager.TbFaceManager;
@@ -145,7 +147,7 @@ public class TbadkApplication extends BdBaseApplication {
         if (this.mLaunchTime > 0) {
             this.mLaunchTime = System.currentTimeMillis() - this.mLaunchTime;
             if (this.mLaunchTime > 0) {
-                new az("startup_time", String.valueOf(this.mLaunchTime));
+                new bb("startup_time", String.valueOf(this.mLaunchTime));
             }
             BdLog.i(getClass().getName(), "sendLaunchTime=", String.valueOf(this.mLaunchTime));
         }
@@ -251,7 +253,7 @@ public class TbadkApplication extends BdBaseApplication {
 
     public boolean getIsAbstract() {
         if (this.mIsAbstractOn == 0) {
-            if (bf.a().c()) {
+            if (bh.a().c()) {
                 return true;
             }
         } else if (this.mIsAbstractOn == 1) {
@@ -292,36 +294,52 @@ public class TbadkApplication extends BdBaseApplication {
     }
 
     private void initWebsocketBase(Context context) {
-        m.a().d();
-        q.a().b();
+        BdSocketLinkService.setAvailable(true);
+        int[] imTimeOut = getImTimeOut();
+        if (imTimeOut != null && imTimeOut.length == 3) {
+            com.baidu.adp.framework.c.c.a().a(imTimeOut[0], imTimeOut[1], imTimeOut[2]);
+        }
+        int[] socketReconnStratgy = getSocketReconnStratgy();
+        if (socketReconnStratgy != null && socketReconnStratgy.length > 0) {
+            l.a(socketReconnStratgy);
+        }
+        PingManager.d().e();
+        MessageManager.getInstance().getSocketClient().a(PingManager.d());
+        MessageManager.getInstance().addResponsedMessageRule(new z());
+        try {
+            com.baidu.adp.framework.client.socket.coder.d.a().a(h.a());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+        com.baidu.tbadk.coreExtra.websocketBase.w.a().b();
+        r.a().b();
         initSocket();
     }
 
     private static void initSocket() {
-        com.baidu.tbadk.task.b registerScoketTask = registerScoketTask(MessageTypes.CMD_UPDATE_CLIENT_INFO, ResponseOnlineMessage.class, false);
-        registerScoketTask.c(true);
-        registerScoketTask.d(false);
-        registerScoketTask.a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+        com.baidu.tbadk.task.b registerScoketTask = registerScoketTask(1001, ResponseOnlineMessage.class, false);
         registerScoketTask.setPriority(-3);
-        com.baidu.tbadk.task.b registerScoketTask2 = registerScoketTask(MessageTypes.CMD_PING, ResponsedPingMessage.class, false);
-        registerScoketTask2.c(true);
-        registerScoketTask2.d(false);
-        registerScoketTask2.a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+        registerScoketTask.c(false);
+        registerScoketTask.a(SocketMessageTask.DupLicateMode.REMOVE_ME);
+        com.baidu.tbadk.task.b registerScoketTask2 = registerScoketTask(1003, ResponsedPingMessage.class, false);
         registerScoketTask2.setPriority(-3);
-        com.baidu.tbadk.message.websockt.c.b().a(MessageTypes.CMD_UPDATE_CLIENT_INFO);
+        registerScoketTask2.a(SocketMessageTask.DupLicateMode.REMOVE_ME);
+        registerScoketTask2.c(false);
+        com.baidu.adp.framework.client.socket.coder.d.a().a(1001);
         MessageManager.getInstance().addResponsedMessageRule(new p());
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("Content-Type", "application/octet-stream"));
         arrayList.add(new BasicNameValuePair("cuid", getUniqueIdentifier()));
-        com.baidu.adp.framework.c.c.a().a(h.a);
-        com.baidu.adp.framework.c.c.a().b("im_version=2.1");
-        com.baidu.adp.framework.c.c.a().a(arrayList);
-        com.baidu.adp.framework.c.c.a().a(new com.baidu.tbadk.a.d());
-        com.baidu.adp.framework.c.c.a().a(new com.baidu.tbadk.a.e());
-        com.baidu.adp.framework.c.c.a().a(new com.baidu.tbadk.a.c());
-        com.baidu.adp.framework.c.c.a().a(new com.baidu.tbadk.a.b());
-        com.baidu.adp.framework.c.c.a().h();
-        com.baidu.adp.framework.c.c.a().a(false, "TiebaImApplication init");
+        String c = com.baidu.tbadk.coreExtra.websocketBase.a.a().c();
+        if (TextUtils.isEmpty(c)) {
+            l.a(h.a);
+        } else {
+            l.a(c);
+        }
+        l.b("im_version=2.1");
+        l.a(arrayList);
+        BdSocketLinkService.init();
+        BdSocketLinkService.startService(false, "TiebaImApplication init");
     }
 
     @Override // android.app.Application, android.content.ComponentCallbacks
@@ -532,7 +550,7 @@ public class TbadkApplication extends BdBaseApplication {
         if (!this.isInBackground.get()) {
             this.isInBackground.set(true);
             MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(true));
-            bg.a(null);
+            bi.a(null);
             TiebaStatic.save();
         }
     }
@@ -871,7 +889,7 @@ public class TbadkApplication extends BdBaseApplication {
     }
 
     public void setNetWorkCoreType(int i) {
-        aq.a(i);
+        as.a(i);
         saveInt("networkcore_type", i);
     }
 
@@ -911,9 +929,13 @@ public class TbadkApplication extends BdBaseApplication {
     }
 
     public static void setCurrentAccountInUI(AccountData accountData, Context context) {
-        boolean z = true;
-        if ((accountData != null || mAccount == null) && ((mAccount != null || accountData == null) && (mAccount == null || accountData == null || TextUtils.equals(mAccount.getAccount(), accountData.getAccount())))) {
-            z = false;
+        boolean z;
+        if (accountData == null && mAccount != null) {
+            z = true;
+        } else if (mAccount != null || accountData == null) {
+            z = (mAccount == null || accountData == null || TextUtils.equals(mAccount.getAccount(), accountData.getAccount())) ? false : true;
+        } else {
+            z = true;
         }
         mAccount = accountData;
         if (context != null) {
@@ -929,6 +951,7 @@ public class TbadkApplication extends BdBaseApplication {
         sendAccountChangedBroadcast(accountData);
         if (z) {
             m252getInst().onAccountChanged(accountData, m252getInst());
+            BdSocketLinkService.startService(true, "account changed");
         }
         ac.a().b();
         LivePlayingStatusMgr.a().a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
@@ -1040,7 +1063,7 @@ public class TbadkApplication extends BdBaseApplication {
     }
 
     public void setActiveVersion(String str) {
-        if (!be.c(str) && !"null".equals(str)) {
+        if (!bg.c(str) && !"null".equals(str)) {
             com.baidu.tbadk.core.util.y.c("/package.last");
             com.baidu.tbadk.core.util.y.b("/package.last/" + str);
         }
@@ -1055,7 +1078,7 @@ public class TbadkApplication extends BdBaseApplication {
             this.imagePvThread = Executors.newSingleThreadExecutor();
         }
         BdLog.i(getClass().getName(), "pv_addImagePv", "img_num=" + i + " img_total" + i2);
-        com.baidu.tbadk.c.d dVar = new com.baidu.tbadk.c.d(i, i2);
+        com.baidu.tbadk.b.d dVar = new com.baidu.tbadk.b.d(i, i2);
         dVar.a(str);
         this.imagePvThread.execute(dVar);
     }

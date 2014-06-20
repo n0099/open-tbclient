@@ -144,7 +144,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
     }
 
     private static void p() {
-        com.baidu.tbadk.core.util.bi.a().a(new aa());
+        com.baidu.tbadk.core.util.bk.a().a(new aa());
     }
 
     private void q() {
@@ -322,7 +322,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
     @Override // com.baidu.tieba.util.n
     public void a(WriteData writeData) {
         if (writeData != null) {
-            if (!com.baidu.tbadk.core.util.be.c(writeData.getContent()) && com.baidu.tbadk.core.util.be.c(this.D.M())) {
+            if (!com.baidu.tbadk.core.util.bg.c(writeData.getContent()) && com.baidu.tbadk.core.util.bg.c(this.D.M())) {
                 this.D.c(writeData.getContent());
             }
             if (writeData.getWriteImagesInfo() != null && this.n.size() == 0) {
@@ -381,8 +381,8 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
         this.D.a(this.ad);
         this.D.a(this.ae);
         this.D.a(this.ab);
-        this.D.g(com.baidu.tbadk.core.g.a().f());
-        this.D.h(com.baidu.tbadk.core.g.a().d());
+        this.D.g(com.baidu.tbadk.core.h.a().f());
+        this.D.h(com.baidu.tbadk.core.h.a().d());
         this.D.a(this.aj);
         this.D.a(this.ak);
         this.D.a(this.am);
@@ -780,7 +780,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
                     b(intent);
                     int size2 = this.n.size() - 1;
                     if (size2 > -1 && this.n != null && this.n.getChosedFiles() != null && (size = this.n.getChosedFiles().size()) >= 1 && size2 >= 0 && size2 < size) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bk(this, 12012, this.n, size2)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bj(this, 12012, this.n, size2)));
                         return;
                     }
                     return;
@@ -1120,7 +1120,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
 
     @Override // com.baidu.tbadk.widget.richText.j
     public void a(Context context, String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(this, str, null)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this, str, null)));
     }
 
     @Override // com.baidu.tbadk.widget.richText.j
@@ -1131,7 +1131,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
             if (matcher.find()) {
                 try {
                     String group = matcher.group();
-                    sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(this).a(group.substring(group.lastIndexOf("/") + 1), null, null)));
+                    sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.ar(this).a(group.substring(group.lastIndexOf("/") + 1), null, null)));
                     return;
                 } catch (Exception e) {
                     BdLog.e(getClass().getName(), "onClick", e.toString());
@@ -1141,7 +1141,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
             if (matcher2.find()) {
                 try {
                     String group2 = matcher2.group();
-                    sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(this).a(group2.substring(group2.lastIndexOf("=") + 1), null, null)));
+                    sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.ar(this).a(group2.substring(group2.lastIndexOf("=") + 1), null, null)));
                     return;
                 } catch (Exception e2) {
                     BdLog.e(getClass().getName(), "onClick", e2.toString());
@@ -1284,28 +1284,31 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
     }
 
     private com.baidu.tbadk.widget.richText.a a(ArrayList<com.baidu.tieba.data.ai> arrayList, String str, int i) {
+        ArrayList<com.baidu.tbadk.widget.richText.c> a;
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
             com.baidu.tbadk.widget.richText.a p = arrayList.get(i2).p();
-            ArrayList<com.baidu.tbadk.widget.richText.c> a = p.a();
-            int size = a.size();
-            int i3 = -1;
-            int i4 = 0;
-            while (i4 < size) {
-                if (a.get(i4) != null && a.get(i4).a() == 8) {
-                    i3++;
-                    if (a.get(i4).c().f().equals(str)) {
-                        int c = a.get(i4).c().c();
-                        int b = a.get(i4).c().b();
-                        if (c < 80 || b < 80 || b * c < 10000) {
-                            return null;
+            if (p != null && (a = p.a()) != null) {
+                int size = a.size();
+                int i3 = -1;
+                int i4 = 0;
+                while (i4 < size) {
+                    if (a.get(i4) != null && a.get(i4).a() == 8) {
+                        i3++;
+                        if (a.get(i4).c().f().equals(str)) {
+                            int c = a.get(i4).c().c();
+                            int b = a.get(i4).c().b();
+                            if (c < 80 || b < 80 || b * c < 10000) {
+                                return null;
+                            }
+                            this.ai = i4;
+                            return p;
+                        } else if (i3 <= i) {
                         }
-                        this.ai = i4;
-                        return p;
-                    } else if (i3 <= i) {
                     }
+                    i4++;
+                    i3 = i3;
                 }
-                i4++;
-                i3 = i3;
+                continue;
             }
         }
         return null;
@@ -1334,7 +1337,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
                 sb.append(String.valueOf((int) sqrt2));
             }
             sb.append("&src=");
-            sb.append(com.baidu.tbadk.core.util.be.d(c.e()));
+            sb.append(com.baidu.tbadk.core.util.bg.d(c.e()));
             return sb.toString();
         }
         return null;
@@ -1503,7 +1506,7 @@ public class PbActivity extends BaseActivity implements View.OnTouchListener, co
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, com.baidu.adp.base.g
     public void onPreLoad(BdListView bdListView) {
         if (bdListView != null && this.x != null && this.x.q() != null && bdListView.equals(a())) {
-            com.baidu.tbadk.core.util.ay.a(bdListView, getUniqueId(), this.x.q().m() == 1 ? 17 : 18);
+            com.baidu.tbadk.core.util.ba.a(bdListView, getUniqueId(), this.x.q().m() == 1 ? 17 : 18);
         }
     }
 }

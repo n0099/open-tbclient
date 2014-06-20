@@ -3,7 +3,6 @@ package com.baidu.android.systemmonitor;
 import android.content.Context;
 import android.os.Looper;
 import android.os.Process;
-import com.baidu.android.nebula.util.BDLocationManager;
 import com.baidu.android.systemmonitor.localapp.AppManager;
 /* loaded from: classes.dex */
 class f extends Thread {
@@ -21,13 +20,10 @@ class f extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         Context context;
-        Context context2;
         Looper.prepare();
         setName("SystemMonitor_AsyncInitThread");
         Process.setThreadPriority(10);
         context = this.a.mContext;
         AppManager.a(context).b();
-        context2 = this.a.mContext;
-        BDLocationManager.b(context2);
     }
 }

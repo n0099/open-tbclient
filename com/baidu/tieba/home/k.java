@@ -6,7 +6,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.data.x;
 import com.baidu.tieba.y;
@@ -14,7 +14,7 @@ import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<x, Integer, String> {
     final /* synthetic */ e a;
-    private al b = null;
+    private an b = null;
     private x c;
 
     public k(e eVar, x xVar) {
@@ -32,7 +32,7 @@ public class k extends BdAsyncTask<x, Integer, String> {
         if (xVar != null) {
             try {
                 if (xVar.a() != null && xVar.b() != null) {
-                    this.b = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavo");
+                    this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavo");
                     this.b.a("fid", xVar.a());
                     this.b.a("kw", xVar.b());
                     this.b.a().a().a = true;

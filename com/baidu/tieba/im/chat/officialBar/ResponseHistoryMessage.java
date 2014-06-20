@@ -3,6 +3,7 @@ package com.baidu.tieba.im.chat.officialBar;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.Date;
@@ -42,7 +43,7 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                 if (msgInfo != null) {
                     Date date = new Date();
                     date.setTime(msgInfo.sendTime.longValue() * 1000);
-                    baVar.a = com.baidu.tbadk.core.util.be.c(date);
+                    baVar.a = bg.c(date);
                     baVar.b = msgInfo.type.intValue();
                     baVar.c = msgInfo.content;
                     baVar.d = msgInfo.id.intValue();

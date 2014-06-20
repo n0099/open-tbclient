@@ -3,7 +3,7 @@ package com.baidu.tieba.topRec;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.topRec.TRForumListData;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
     int b;
     TRForumListData.TRForum c;
     final /* synthetic */ TopRecActivity d;
-    private al e;
+    private an e;
 
     private d(TopRecActivity topRecActivity) {
         this.d = topRecActivity;
@@ -43,7 +43,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
         }
         try {
             if (this.c != null && this.c.forum_id != 0 && this.c.forum_name != null) {
-                this.e = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
+                this.e = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
                 this.e.a("fid", String.valueOf(this.c.forum_id));
                 this.e.a("kw", this.c.forum_name);
                 this.e.a("favo_type", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);

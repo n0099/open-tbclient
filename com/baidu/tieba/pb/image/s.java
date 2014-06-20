@@ -5,7 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.BaseViewPager;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -96,7 +96,7 @@ public class s implements ViewPager.OnPageChangeListener {
                     linearLayout2 = this.a.q;
                     linearLayout2.setVisibility(8);
                     baseViewPager = this.a.x;
-                    bc.a(baseViewPager, TbadkApplication.m252getInst().getSkinType());
+                    be.a(baseViewPager, TbadkApplication.m252getInst().getSkinType());
                     return;
                 }
             }

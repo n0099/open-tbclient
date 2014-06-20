@@ -87,7 +87,7 @@ public class n implements l {
     @Override // com.baidu.adp.lib.webSocket.l
     public void b(d dVar) {
         if (dVar != null) {
-            dVar.c();
+            dVar.e();
         }
     }
 
@@ -101,7 +101,7 @@ public class n implements l {
     @Override // com.baidu.adp.lib.webSocket.l
     public void c(d dVar) {
         if (dVar != null) {
-            dVar.d();
+            dVar.f();
         }
     }
 }

@@ -93,7 +93,7 @@ public class FacePackageDetailActivity extends BaseActivity {
                             downloadData.setStatusMsg(null);
                             downloadData.setType(11);
                             g.a().a(downloadData);
-                            if (!com.baidu.tbadk.core.util.be.c(b)) {
+                            if (!com.baidu.tbadk.core.util.bg.c(b)) {
                                 if (this.a.a() != null && this.a.a().facePackage != null) {
                                     a(this.a.e(), this.a.a().facePackage.pname, b);
                                     break;
@@ -201,7 +201,7 @@ public class FacePackageDetailActivity extends BaseActivity {
             if (i == 10001) {
                 String stringExtra = intent.getStringExtra("tag_order_id");
                 if (this.a.a().facePackage != null) {
-                    if (com.baidu.tbadk.core.util.be.c(stringExtra)) {
+                    if (com.baidu.tbadk.core.util.bg.c(stringExtra)) {
                         stringExtra = this.a.f();
                     }
                     this.b.e();

@@ -10,9 +10,9 @@ public class j {
         a = null;
         if (a == null) {
             a = new Hashtable<>();
-            a.put(Integer.valueOf((int) MessageTypes.CMD_UPDATE_CLIENT_INFO), "上线");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_GROUP_UPDATE), "GROUP_UPDATE");
-            a.put(Integer.valueOf((int) MessageTypes.CMD_PING), "PING");
+            a.put(1001, "上线");
+            a.put(1002, "GROUP_UPDATE");
+            a.put(1003, "PING");
             a.put(Integer.valueOf((int) MessageTypes.CMD_MESSAGE_SYNC), "MESSAGE_SYNC");
             a.put(Integer.valueOf((int) MessageTypes.CMD_GROUP_CHAT_MSG), "GROUP_CHAT_MSG");
             a.put(Integer.valueOf((int) MessageTypes.CMD_COMMIT_PERSONAL_MSG), "CMD_COMMIT_PERSONAL_MSG");

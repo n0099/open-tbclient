@@ -321,9 +321,9 @@ class au implements View.OnClickListener {
                                         fVar8 = this.a.B;
                                         if (fVar8.a() != null) {
                                             PbActivity pbActivity = this.a;
-                                            com.baidu.tbadk.core.atomData.as asVar = new com.baidu.tbadk.core.atomData.as(this.a);
+                                            com.baidu.tbadk.core.atomData.ar arVar = new com.baidu.tbadk.core.atomData.ar(this.a);
                                             fVar9 = this.a.B;
-                                            pbActivity.sendMessage(new CustomMessage(2006001, asVar.a(fVar9.a(), null, null)));
+                                            pbActivity.sendMessage(new CustomMessage(2006001, arVar.a(fVar9.a(), null, null)));
                                             return;
                                         }
                                         return;
@@ -362,7 +362,7 @@ class au implements View.OnClickListener {
                                                             com.baidu.adp.lib.util.k.a((Context) this.a, g.getForbid_info());
                                                             return;
                                                         } else {
-                                                            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bi(this.a, 2, c.getId(), c.getName(), d.p(), n.getPostId(), 0, g, 13008, false, false, null, false, false, null, n, null)));
+                                                            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bh(this.a, 2, c.getId(), c.getName(), d.p(), n.getPostId(), 0, g, 13008, false, false, null, false, false, null, n, null)));
                                                             return;
                                                         }
                                                     }
@@ -707,7 +707,7 @@ class au implements View.OnClickListener {
                                         return;
                                     }
                                 }
-                                if (com.baidu.tbadk.core.util.be.b(name3)) {
+                                if (com.baidu.tbadk.core.util.bg.b(name3)) {
                                     this.a.sendMessage(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.a).a(name3, "tb_pb")));
                                     return;
                                 }

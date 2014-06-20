@@ -15,12 +15,12 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bb;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.coreExtra.act.EditHeadActivity;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
@@ -67,7 +67,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
     }
 
     private static void b() {
-        bi.a().a(new o());
+        bk.a().a(new o());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -209,7 +209,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
             }
         } else if (view == this.f.l()) {
             if (this.g.f() != null && this.g.f().b() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new at(this, String.valueOf(this.g.f().b().getAuthorId()), this.g.f().b().getAuthorName())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new as(this, String.valueOf(this.g.f().b().getAuthorId()), this.g.f().b().getAuthorName())));
             }
         } else if (view == this.f.m()) {
             GroupLevelActivity.a(this, this.g.d());
@@ -363,7 +363,7 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
                 case 12010:
                     PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra(EditHeadActivity.b);
                     if (photoUrlData != null) {
-                        aw.a().b(photoUrlData.getSmallurl(), com.baidu.tbadk.core.util.x.c(TbConfig.GROUP_HEAD_FILE), true, false, true);
+                        ay.a().b(photoUrlData.getSmallurl(), com.baidu.tbadk.core.util.x.c(TbConfig.GROUP_HEAD_FILE), true, false, true);
                     }
                     b(photoUrlData);
                     return;
@@ -375,9 +375,9 @@ public class GroupInfoActivity extends BaseActivity implements View.OnClickListe
             }
         } else if (i2 == 0) {
             if (i == 12010) {
-                bb.a(this);
+                bd.a(this);
             } else if (i == 12009) {
-                bb.b(this);
+                bd.b(this);
             }
         }
     }

@@ -11,7 +11,7 @@ import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.im.chat.bv;
 import com.baidu.tieba.im.data.GroupIdTypeData;
 import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.f.r;
+import com.baidu.tieba.im.e.r;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;
 import com.baidu.tieba.im.message.chat.NotifyChatMessage;

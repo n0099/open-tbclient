@@ -6,8 +6,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements com.baidu.tbadk.core.util.bk {
-    @Override // com.baidu.tbadk.core.util.bk
+public class ae implements com.baidu.tbadk.core.util.bm {
+    @Override // com.baidu.tbadk.core.util.bm
     public boolean a(Context context, String[] strArr) {
         String str;
         String lowerCase = strArr[0].toLowerCase();

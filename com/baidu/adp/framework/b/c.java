@@ -3,8 +3,7 @@ package com.baidu.adp.framework.b;
 import android.util.SparseArray;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.a.h;
-import com.baidu.adp.framework.c.f;
+import com.baidu.adp.framework.a.f;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -15,12 +14,12 @@ import java.security.InvalidParameterException;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public abstract class c<M extends Message, T extends MessageTask, R extends h, N extends ResponsedMessage<?>> implements com.baidu.adp.framework.a<M, T> {
+public abstract class c<M extends Message, T extends MessageTask, R extends f, N extends ResponsedMessage<?>> implements com.baidu.adp.framework.a<M, T> {
     protected MessageManager a;
     private final SparseArray<T> c = new SparseArray<>();
     private final SparseArray<N> d = new SparseArray<>();
     private final SparseArray<LinkedList<MessageListener<N>>> e = new SparseArray<>();
-    protected f b = null;
+    protected com.baidu.adp.framework.c.d b = null;
     private boolean f = false;
     private boolean g = false;
 
@@ -123,10 +122,10 @@ public abstract class c<M extends Message, T extends MessageTask, R extends h, N
             M b = b((c<M, T, R, N>) m, (M) t);
             if (this.b != null) {
                 if (t.getTimeOut() == null) {
-                    t.setTimeOut(this.b.k());
+                    t.setTimeOut(this.b.d());
                 }
                 if (t.getRetry() == 0) {
-                    t.setRetry(this.b.j());
+                    t.setRetry(this.b.c());
                 }
             }
             if (b != null) {

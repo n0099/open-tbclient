@@ -21,9 +21,9 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
     private bq a = null;
     private bn b = null;
     private com.baidu.tieba.im.model.bu d = null;
-    private com.baidu.adp.framework.listener.b f = new bf(this, 0);
+    private final com.baidu.adp.framework.listener.b f = new bf(this, 0);
     private final DialogInterface.OnClickListener g = new bg(this);
-    private com.baidu.adp.framework.listener.b h = new bh(this, 0);
+    private final com.baidu.adp.framework.listener.b h = new bh(this, 0);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

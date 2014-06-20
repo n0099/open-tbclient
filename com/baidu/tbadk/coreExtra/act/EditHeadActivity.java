@@ -24,8 +24,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.service.TiebaPrepareImageService;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.EditHeadsImageView;
 import java.util.HashMap;
@@ -98,9 +98,9 @@ public class EditHeadActivity extends BaseActivity {
         if (this.E == 12002 || this.E == 12001) {
             e();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.StartService(this.E, intent.getData(), bf.a().e());
+                TiebaPrepareImageService.StartService(this.E, intent.getData(), bh.a().e());
             } else {
-                TiebaPrepareImageService.StartService(this.E, null, bf.a().e());
+                TiebaPrepareImageService.StartService(this.E, null, bh.a().e());
             }
             f();
         } else {
@@ -255,7 +255,7 @@ public class EditHeadActivity extends BaseActivity {
         try {
             com.baidu.tbadk.core.util.x.a((String) null, str, bitmap, 80);
             if (this.D) {
-                new az("motu_pic", String.valueOf(this.z)).start();
+                new bb("motu_pic", String.valueOf(this.z)).start();
             }
             return true;
         } catch (Exception e2) {

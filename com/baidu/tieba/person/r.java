@@ -97,7 +97,7 @@ public class r extends com.baidu.tbadk.core.d {
             if (f && this.d != null) {
                 if (TbadkApplication.isLogin()) {
                     UserData a = this.d.a();
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(this.b, this.d.b(), a != null ? a.getName_show() : "")));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this.b, this.d.b(), a != null ? a.getName_show() : "")));
                     this.d.b(true);
                     return;
                 }

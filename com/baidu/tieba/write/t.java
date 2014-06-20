@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class t extends BdAsyncTask<Object, s, s> {
     final /* synthetic */ s a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
 
     private t(s sVar) {
         this.a = sVar;
@@ -23,7 +23,7 @@ public class t extends BdAsyncTask<Object, s, s> {
     /* renamed from: a */
     public s doInBackground(Object... objArr) {
         String obj = objArr[0].toString();
-        this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
+        this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
         this.b.a("kw", obj);
         String i = this.b.i();
         if (!this.b.a().b().b()) {

@@ -16,7 +16,6 @@ import android.widget.ListAdapter;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -122,11 +121,11 @@ public class ap {
         this.A.height = this.C;
         this.A.gravity = 51;
         this.A.format = -3;
-        this.A.type = LocationClientOption.MIN_SCAN_SPAN;
+        this.A.type = 1000;
         this.A.flags |= 56;
         this.G = com.baidu.adp.lib.util.k.a((Activity) context);
         if (MenuKeyUtils.hasSmartBar()) {
-            this.A.type = LocationClientOption.MIN_SCAN_SPAN;
+            this.A.type = 1000;
             this.A.flags = 25165832;
         }
     }

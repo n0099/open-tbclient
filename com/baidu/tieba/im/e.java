@@ -29,7 +29,6 @@ public class e {
     public static void a(Context context) {
         h.a();
         com.baidu.tieba.im.messageCenter.b.a();
-        com.baidu.tieba.im.d.a.a();
         LocalViewSize.a().a(context);
         com.baidu.tieba.im.messageCenter.a.a(context);
         com.baidu.tieba.im.c.b.a().a(context);
@@ -47,7 +46,6 @@ public class e {
         com.baidu.tbadk.coreExtra.messageCenter.a.a().d(0);
         com.baidu.tbadk.coreExtra.messageCenter.a.a().j();
         com.baidu.tieba.im.db.d.a().b();
-        com.baidu.adp.framework.c.c.a().a(true, "change Account");
     }
 
     public static String b() {

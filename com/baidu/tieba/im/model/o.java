@@ -3,8 +3,9 @@ package com.baidu.tieba.im.model;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o extends CustomMessageListener {
+public class o extends CustomMessageListener {
     final /* synthetic */ GroupMsglistModel a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

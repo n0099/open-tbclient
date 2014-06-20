@@ -2,10 +2,10 @@ package com.baidu.tieba.square;
 
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.br;
+import com.baidu.tbadk.core.util.bt;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class l implements br {
+class l implements bt {
     final /* synthetic */ k a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.adp.widget.a.a c;
@@ -17,7 +17,7 @@ class l implements br {
         this.c = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.br
+    @Override // com.baidu.tbadk.core.util.bt
     public boolean a(View view) {
         if (view != null && (view instanceof ImageView) && this.b != null && this.b.equals(view.getTag())) {
             HeadImageView headImageView = (HeadImageView) view;

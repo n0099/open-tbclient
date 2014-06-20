@@ -2,7 +2,6 @@ package com.baidu.tieba.pb.praise;
 
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -82,15 +81,15 @@ public class g extends HttpMessageListener {
         f fVar2 = this.a;
         i = fVar2.e;
         fVar2.e = i + 1;
-        int i8 = MessageTypes.CMD_UPDATE_CLIENT_INFO;
+        int i8 = 1001;
         i2 = this.a.e;
         if (i2 > 5) {
-            i8 = MessageTypes.CMD_PING;
+            i8 = 1003;
         }
         i3 = this.a.g;
         i4 = this.a.f;
         if (i3 >= i4) {
-            i8 = MessageTypes.CMD_GROUP_UPDATE;
+            i8 = 1002;
         }
         hVar7 = this.a.i;
         if (hVar7 != null) {

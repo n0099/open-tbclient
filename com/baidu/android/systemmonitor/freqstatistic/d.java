@@ -1,59 +1,67 @@
 package com.baidu.android.systemmonitor.freqstatistic;
 
-import android.database.Cursor;
-import android.text.TextUtils;
+import android.app.KeyguardManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.SystemClock;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d {
-    public String a;
-    public long b;
-    public int c;
-    public String d;
-    public int e;
-    public String f;
-    public int g;
-    public String h;
+public class d extends BroadcastReceiver {
+    final /* synthetic */ b a;
 
-    public d(Cursor cursor) {
-        this.d = "";
-        this.e = 0;
-        this.f = "";
-        this.g = 0;
-        int columnIndex = cursor.getColumnIndex("pn");
-        int columnIndex2 = cursor.getColumnIndex("time");
-        int columnIndex3 = cursor.getColumnIndex("event");
-        int columnIndex4 = cursor.getColumnIndex("vcode");
-        int columnIndex5 = cursor.getColumnIndex("vn");
-        int columnIndex6 = cursor.getColumnIndex("vcodeaft");
-        int columnIndex7 = cursor.getColumnIndex("vnaft");
-        int columnIndex8 = cursor.getColumnIndex("an");
-        this.a = cursor.getString(columnIndex);
-        this.h = cursor.getString(columnIndex8);
-        try {
-            this.a = com.baidu.android.systemmonitor.security.a.b(this.a);
-            this.h = com.baidu.android.systemmonitor.security.a.b(this.h);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.c = cursor.getInt(columnIndex3);
-        this.b = cursor.getLong(columnIndex2);
-        this.e = cursor.getInt(columnIndex4);
-        this.d = cursor.getString(columnIndex5);
-        this.g = cursor.getInt(columnIndex6);
-        this.f = cursor.getString(columnIndex7);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(b bVar) {
+        this.a = bVar;
     }
 
-    public d(String str) {
-        this.d = "";
-        this.e = 0;
-        this.f = "";
-        this.g = 0;
-        if (TextUtils.isEmpty(str)) {
-            return;
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        long j;
+        long j2;
+        long j3;
+        Context context2;
+        Context context3;
+        int i;
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        String action = intent.getAction();
+        if (action.equals("com.baidu.freqstatistic.summaryresults")) {
+            this.a.n();
+        } else if (action.equals("android.intent.action.TIME_SET") || action.equals("android.intent.action.TIMEZONE_CHANGED")) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            j = this.a.f;
+            j2 = this.a.d;
+            j3 = this.a.e;
+            long j4 = j + ((currentTimeMillis - j2) - (elapsedRealtime - j3));
+            this.a.f = j4;
+            context2 = this.a.b;
+            com.baidu.android.systemmonitor.util.e.a(context2.getApplicationContext(), j4);
+            this.a.d = currentTimeMillis;
+            this.a.e = elapsedRealtime;
+        } else if (action.equals("android.intent.action.SCREEN_OFF")) {
+            handler2 = this.a.t;
+            runnable2 = this.a.l;
+            handler2.postDelayed(runnable2, 500L);
+        } else if (!action.equals("android.intent.action.SCREEN_ON")) {
+            if (action.equals("android.intent.action.USER_PRESENT")) {
+                this.a.g = SystemClock.elapsedRealtime();
+                boolean unused = b.i = false;
+            }
+        } else {
+            this.a.g = SystemClock.elapsedRealtime();
+            context3 = this.a.b;
+            boolean unused2 = b.i = ((KeyguardManager) context3.getSystemService("keyguard")).inKeyguardRestrictedInputMode();
+            i = b.n;
+            if (i == 2) {
+                handler = this.a.t;
+                runnable = this.a.m;
+                handler.post(runnable);
+            }
         }
-        this.a = str;
-    }
-
-    public String toString() {
-        return "AppChange: packageName =" + this.a + " appname =" + this.h + "\u3000eventType =" + this.c + " changeStamp =" + this.b + " versionCode =" + this.e + " versionCodeAfter =" + this.g + " versionName =" + this.d + " versionNameAfter =" + this.f;
     }
 }

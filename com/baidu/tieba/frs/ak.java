@@ -47,7 +47,7 @@ public class ak implements com.baidu.tbadk.editortool.x {
                         this.a.Z = String.valueOf(System.currentTimeMillis());
                         FrsActivity frsActivity = this.a;
                         str = this.a.Z;
-                        com.baidu.tbadk.core.util.bb.a(frsActivity, str);
+                        com.baidu.tbadk.core.util.bd.a(frsActivity, str);
                         return;
                     }
                     this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
@@ -75,7 +75,7 @@ public class ak implements com.baidu.tbadk.editortool.x {
                                 MessageManager messageManager = MessageManager.getInstance();
                                 FrsActivity frsActivity3 = this.a;
                                 writeImagesInfo4 = this.a.Y;
-                                messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bk(frsActivity3, 12012, writeImagesInfo4, intValue)));
+                                messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bj(frsActivity3, 12012, writeImagesInfo4, intValue)));
                             }
                         }
                     }

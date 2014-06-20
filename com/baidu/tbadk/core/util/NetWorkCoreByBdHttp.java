@@ -106,9 +106,9 @@ public class NetWorkCoreByBdHttp implements aa {
     public void b() {
         this.a.a();
         try {
-            int a = ar.a(this.d.a().a().a);
+            int a = at.a(this.d.a().a().a);
             if (a > 0) {
-                ar.a().a(a, 1);
+                at.a().a(a, 1);
             }
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
@@ -131,9 +131,9 @@ public class NetWorkCoreByBdHttp implements aa {
         boolean z = true;
         com.baidu.adp.lib.network.willdelete.e.a().c(TbadkApplication.getCurrentAccount());
         try {
-            int a = ar.a(this.d.a().a().a);
+            int a = at.a(this.d.a().a().a);
             if (a > 0) {
-                ar.a().a(a);
+                at.a().a(a);
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -156,7 +156,7 @@ public class NetWorkCoreByBdHttp implements aa {
                         }
                         sb.append(this.d.a().a().b.get(i).getName());
                         sb.append("=");
-                        sb.append(be.d(this.d.a().a().b.get(i).getValue()));
+                        sb.append(bg.d(this.d.a().a().b.get(i).getValue()));
                     }
                     str = sb.toString();
                 }
@@ -167,7 +167,7 @@ public class NetWorkCoreByBdHttp implements aa {
                     z = false;
                 }
             } finally {
-                ar.c(this.d.a().a().a);
+                at.c(this.d.a().a().a);
             }
         } catch (BdHttpCancelException e3) {
             e = e3;
@@ -192,7 +192,7 @@ public class NetWorkCoreByBdHttp implements aa {
             throw new BdHttpCancelException();
         }
         long time = new Date().getTime();
-        fVar = com.baidu.adp.lib.network.willdelete.e.a().a(str, z, 5, 100, -1, new an(this, str, time), this.a, j());
+        fVar = com.baidu.adp.lib.network.willdelete.e.a().a(str, z, 5, 100, -1, new ap(this, str, time), this.a, j());
         if (fVar != null) {
             try {
                 if (fVar.c != null) {
@@ -204,7 +204,7 @@ public class NetWorkCoreByBdHttp implements aa {
                 this.d.b().c = this.c.getResources().getString(com.baidu.tieba.y.neterror);
                 this.d.b().d = String.valueOf(String.valueOf(this.d.b().a)) + "|retryCount:" + (this.d.c().a != null ? this.d.c().a.e : -1) + "|" + e.getClass() + "|" + e.getMessage();
                 this.d.b().a = -14;
-                ar.c(this.d.a().a().a);
+                at.c(this.d.a().a().a);
                 fVar = fVar2;
                 if (fVar != null) {
                 }
@@ -223,7 +223,7 @@ public class NetWorkCoreByBdHttp implements aa {
                 this.d.b().a = -15;
                 BdLog.e(getClass().getName(), "getNetData", " 内存溢出！error = " + e.getMessage());
                 TiebaStatic.net(this.d);
-                ar.c(this.d.a().a().a);
+                at.c(this.d.a().a().a);
                 if (fVar != null) {
                 }
             } catch (SocketException e12) {
@@ -232,7 +232,7 @@ public class NetWorkCoreByBdHttp implements aa {
                 this.d.b().d = String.valueOf(String.valueOf(this.d.b().a)) + "|retryCount:" + (this.d.c().a != null ? this.d.c().a.e : -1) + "|" + e.getClass() + "|" + e.getMessage();
                 this.d.b().a = -12;
                 TiebaStatic.net(this.d);
-                ar.c(this.d.a().a().a);
+                at.c(this.d.a().a().a);
                 if (fVar != null) {
                 }
             } catch (SocketTimeoutException e13) {
@@ -241,7 +241,7 @@ public class NetWorkCoreByBdHttp implements aa {
                 this.d.b().d = String.valueOf(String.valueOf(this.d.b().a)) + "|retryCount:" + (this.d.c().a != null ? this.d.c().a.e : -1) + "|" + e.getClass() + "|" + e.getMessage();
                 this.d.b().a = -13;
                 TiebaStatic.net(this.d);
-                ar.c(this.d.a().a().a);
+                at.c(this.d.a().a().a);
                 if (fVar != null) {
                 }
             } catch (Exception e14) {
@@ -251,13 +251,13 @@ public class NetWorkCoreByBdHttp implements aa {
                 this.d.b().a = -10;
                 BdLog.e(getClass().getName(), "getNetData", "error = " + e.getMessage());
                 TiebaStatic.net(this.d);
-                ar.c(this.d.a().a().a);
+                at.c(this.d.a().a().a);
                 if (fVar != null) {
                 }
             }
         }
         if (fVar == null) {
-            ar.c(this.d.a().a().a);
+            at.c(this.d.a().a().a);
             return null;
         }
         this.d.b().a = fVar.a;
@@ -265,7 +265,7 @@ public class NetWorkCoreByBdHttp implements aa {
             this.d.b().c = this.c.getResources().getString(com.baidu.tieba.y.neterror);
             this.d.b().d = String.valueOf(String.valueOf(this.d.b().a)) + "|retryCount:" + (this.d.c().a == null ? -1 : this.d.c().a.e);
             TiebaStatic.net(this.d);
-            ar.c(this.d.a().a().a);
+            at.c(this.d.a().a().a);
             return null;
         }
         if (TbadkApplication.m252getInst().isMainProcess(true) && (str2 = fVar.b) != null) {
@@ -274,7 +274,7 @@ public class NetWorkCoreByBdHttp implements aa {
                 if (parseInt > b) {
                     this.d.b().a = -11;
                     TiebaStatic.net(this.d);
-                    ar.c(this.d.a().a().a);
+                    at.c(this.d.a().a().a);
                     return null;
                 }
                 int i2 = parseInt * 10;
@@ -286,7 +286,7 @@ public class NetWorkCoreByBdHttp implements aa {
                         BdLog.d("Image download cacelled. out of memory. url:[" + this.d.a().a().a + "], size:" + i2);
                         this.d.b().a = -16;
                         TiebaStatic.net(this.d);
-                        ar.c(this.d.a().a().a);
+                        at.c(this.d.a().a().a);
                         return null;
                     }
                 }
@@ -295,16 +295,16 @@ public class NetWorkCoreByBdHttp implements aa {
             }
         }
         long time2 = new Date().getTime() - time;
-        av avVar = new av();
-        avVar.e = a(UtilHelper.getNetStatusInfo(this.c));
-        avVar.c = this.d.c().a.b;
-        avVar.b = time2;
-        avVar.d = this.d.c().a.e;
-        avVar.a = 2;
-        au.a(avVar);
-        au.a.set(this.d.c().a.e);
+        ax axVar = new ax();
+        axVar.e = a(UtilHelper.getNetStatusInfo(this.c));
+        axVar.c = this.d.c().a.b;
+        axVar.b = time2;
+        axVar.d = this.d.c().a.e;
+        axVar.a = 2;
+        aw.a(axVar);
+        aw.a.set(this.d.c().a.e);
         if (time2 > TbConfig.NOTIFY_SOUND_INTERVAL) {
-            com.baidu.tbadk.core.log.a.a(com.baidu.tbadk.core.log.k.a(str, new StringBuilder().append(time2).toString(), new StringBuilder(String.valueOf(avVar.c)).toString(), "download OK,|DNS Time" + this.d.c().a.g + "|ConnectTime" + this.d.c().a.c + "|current ip" + UtilHelper.getIpFromDomain(UtilHelper.getDomainName(str)) + " retryCount: " + avVar.d, ""));
+            com.baidu.tbadk.core.log.a.a(com.baidu.tbadk.core.log.k.a(str, new StringBuilder().append(time2).toString(), new StringBuilder(String.valueOf(axVar.c)).toString(), "download OK,|DNS Time" + this.d.c().a.g + "|ConnectTime" + this.d.c().a.c + "|current ip" + UtilHelper.getIpFromDomain(UtilHelper.getDomainName(str)) + " retryCount: " + axVar.d, ""));
         }
         TiebaStatic.net(this.d);
         if (fVar != null) {
@@ -380,9 +380,9 @@ public class NetWorkCoreByBdHttp implements aa {
         StringBuilder sb = new StringBuilder(1024);
         StringBuilder sb2 = new StringBuilder(1024);
         try {
-            int a = ar.a(this.d.a().a().a);
+            int a = at.a(this.d.a().a().a);
             if (a > 0) {
-                ar.a().a(a);
+                at.a().a(a);
             }
         } catch (Exception e8) {
             BdLog.e(e8.getMessage());
@@ -401,7 +401,7 @@ public class NetWorkCoreByBdHttp implements aa {
                     sb.append("&");
                 }
                 sb.append(String.valueOf(name) + "=");
-                sb.append(be.d(value));
+                sb.append(bg.d(value));
                 sb2.append(name);
                 sb2.append("=");
                 sb2.append(value);
@@ -410,7 +410,7 @@ public class NetWorkCoreByBdHttp implements aa {
         }
         if (this.d.a().a().f) {
             sb2.append("tiebaclient!!!");
-            String a2 = be.a(sb2.toString());
+            String a2 = bg.a(sb2.toString());
             if (sb.length() > 0) {
                 sb.append("&");
             }
@@ -424,7 +424,7 @@ public class NetWorkCoreByBdHttp implements aa {
         try {
             try {
                 if (this.a.c()) {
-                    ar.c(this.d.a().a().a);
+                    at.c(this.d.a().a().a);
                     return null;
                 }
                 com.baidu.adp.lib.network.willdelete.f a3 = com.baidu.adp.lib.network.willdelete.e.a().a(this.d.a().a().a, sb3.getBytes(), this.d.a().a().d, 5, -1, (com.baidu.adp.lib.network.willdelete.d) null, this.a, j());
@@ -438,10 +438,10 @@ public class NetWorkCoreByBdHttp implements aa {
                 if (this.d.b().a != 200) {
                     this.d.b().d = String.valueOf(String.valueOf(this.d.b().a)) + "|retryCount:" + (this.d.c().a == null ? -1 : this.d.c().a.e);
                     TiebaStatic.net(this.d);
-                    ar.c(this.d.a().a().a);
+                    at.c(this.d.a().a().a);
                     return null;
                 } else if (this.a.c()) {
-                    ar.c(this.d.a().a().a);
+                    at.c(this.d.a().a().a);
                     return null;
                 } else {
                     BdLog.i(getClass().getName(), "postNetData", "time = " + String.valueOf(this.d.c().a.f) + "ms");
@@ -451,14 +451,14 @@ public class NetWorkCoreByBdHttp implements aa {
                         if (this.d.a().a().f && this.d.a().a().g) {
                             a(str);
                         }
-                        av avVar = new av();
-                        avVar.e = a(UtilHelper.getNetStatusInfo(this.c));
-                        avVar.c = this.d.c().a.b;
-                        avVar.b = this.d.c().a.f;
-                        avVar.d = this.d.c().a.e;
-                        avVar.a = 1;
-                        au.a(avVar);
-                        au.a.set(this.d.c().a.e);
+                        ax axVar = new ax();
+                        axVar.e = a(UtilHelper.getNetStatusInfo(this.c));
+                        axVar.c = this.d.c().a.b;
+                        axVar.b = this.d.c().a.f;
+                        axVar.d = this.d.c().a.e;
+                        axVar.a = 1;
+                        aw.a(axVar);
+                        aw.a.set(this.d.c().a.e);
                         TiebaStatic.net(this.d);
                         return str;
                     } catch (BdHttpCancelException e9) {
@@ -512,7 +512,7 @@ public class NetWorkCoreByBdHttp implements aa {
                     }
                 }
             } finally {
-                ar.c(this.d.a().a().a);
+                at.c(this.d.a().a().a);
             }
         } catch (BdHttpCancelException e15) {
             e7 = e15;
@@ -553,7 +553,7 @@ public class NetWorkCoreByBdHttp implements aa {
                 }
                 com.baidu.adp.lib.network.willdelete.f a = com.baidu.adp.lib.network.willdelete.e.a().a(this.d.a().a().a, this.d.a().a().d, this.d.a().a().b, this.d.a().a().c, 5, -1, null, this.a, null, j());
                 this.d.b().a = a.a;
-                new Timer().schedule(new ap(this, null), 45000L);
+                new Timer().schedule(new ar(this, null), 45000L);
                 if (this.d.b().a != 200) {
                     this.d.b().d = String.valueOf(String.valueOf(this.d.b().a)) + "|retryCount:" + (this.d.c().a == null ? -1 : this.d.c().a.e);
                     TiebaStatic.net(this.d);
@@ -606,7 +606,7 @@ public class NetWorkCoreByBdHttp implements aa {
                     }
                 }
             } finally {
-                new Timer().schedule(new ap(this, null), 0L);
+                new Timer().schedule(new ar(this, null), 0L);
             }
         } catch (BdHttpCancelException e12) {
             e5 = e12;
@@ -635,7 +635,7 @@ public class NetWorkCoreByBdHttp implements aa {
                 TiebaStatic.net(this.d);
                 return false;
             }
-            return com.baidu.adp.lib.network.willdelete.e.a().a(this.d.a().a().a, x.g(str).getAbsolutePath(), false, i2, i3, -1, new ao(this, handler, i), this.a, j());
+            return com.baidu.adp.lib.network.willdelete.e.a().a(this.d.a().a().a, x.g(str).getAbsolutePath(), false, i2, i3, -1, new aq(this, handler, i), this.a, j());
         } catch (Exception e2) {
             this.d.b().a = -10;
             this.d.b().c = this.c.getResources().getString(com.baidu.tieba.y.neterror);

@@ -16,7 +16,7 @@ public class LiveGroupLikeListActivity extends BaseActivity {
     private com.baidu.adp.framework.listener.b d = new a(this, MessageTypes.CMD_LIVE_LIKE_LIST);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ac.class, LiveGroupLikeListActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ab.class, LiveGroupLikeListActivity.class);
         a = 5;
     }
 
@@ -56,7 +56,7 @@ public class LiveGroupLikeListActivity extends BaseActivity {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         LikeUserInfo a2 = this.c.a(i);
         if (a2 != null) {
-            sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(this, String.valueOf(a2.userId), a2.userName)));
+            sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this, String.valueOf(a2.userId), a2.userName)));
         }
     }
 }

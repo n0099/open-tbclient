@@ -5,7 +5,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import java.util.ArrayList;
@@ -207,7 +206,7 @@ public class n extends com.baidu.tbadk.core.util.a {
                 this.c = new StringBuilder().append(threadInfo.id).toString();
                 this.d = new StringBuilder().append(threadInfo.tid).toString();
                 this.e = threadInfo.title;
-                this.H = threadInfo.create_time.intValue() * LocationClientOption.MIN_SCAN_SPAN;
+                this.H = threadInfo.create_time.intValue() * 1000;
                 this.f = threadInfo.reply_num.intValue();
                 this.g = threadInfo.repost_num.intValue();
                 this.h = threadInfo.view_num.intValue();
@@ -230,7 +229,7 @@ public class n extends com.baidu.tbadk.core.util.a {
                 this.A = threadInfo.thread_type.intValue();
                 this.D = new StringBuilder().append(threadInfo.first_post_id).toString();
                 this.I = new StringBuilder().append(threadInfo.post_id).toString();
-                this.E = threadInfo.time.intValue() * LocationClientOption.MIN_SCAN_SPAN;
+                this.E = threadInfo.time.intValue() * 1000;
                 this.F = threadInfo.is_ntitle.intValue();
                 if ((this.p == null || this.p.getUserId().equals("0")) && this.o != null && !this.o.equals("0") && (metaData = this.G.get(this.o)) != null) {
                     this.p = metaData;
@@ -265,7 +264,7 @@ public class n extends com.baidu.tbadk.core.util.a {
                         Voice voice = list3.get(i3);
                         voiceModel.from = "frs_voice_play";
                         voiceModel.voiceId = voice.voice_md5;
-                        voiceModel.duration = voice.during_time.intValue() / LocationClientOption.MIN_SCAN_SPAN;
+                        voiceModel.duration = voice.during_time.intValue() / 1000;
                         this.b.add(voiceModel);
                     }
                 }
@@ -347,7 +346,7 @@ public class n extends com.baidu.tbadk.core.util.a {
                         JSONObject jSONObject2 = optJSONArray3.getJSONObject(i3);
                         voiceModel.from = "frs_voice_play";
                         voiceModel.voiceId = jSONObject2.optString("voice_md5");
-                        voiceModel.duration = jSONObject2.optInt("during_time") / LocationClientOption.MIN_SCAN_SPAN;
+                        voiceModel.duration = jSONObject2.optInt("during_time") / 1000;
                         this.b.add(voiceModel);
                     }
                 }
@@ -443,7 +442,7 @@ public class n extends com.baidu.tbadk.core.util.a {
         return this.C;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
     public LinkedList<String> getImageUrl() {
         ArrayList<j> F = F();
         if (F == null || K()) {
@@ -464,7 +463,7 @@ public class n extends com.baidu.tbadk.core.util.a {
         return linkedList;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
     public LinkedList<String> getPhotoUrl() {
         if (this.p == null) {
             return null;

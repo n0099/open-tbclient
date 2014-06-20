@@ -15,9 +15,9 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
     private static void b(ChatMessage chatMessage) {
-        VoiceMsgData g = com.baidu.tieba.im.f.r.g(chatMessage);
+        VoiceMsgData g = com.baidu.tieba.im.e.r.g(chatMessage);
         if (g != null) {
-            if (com.baidu.tieba.im.f.r.d(chatMessage)) {
+            if (com.baidu.tieba.im.e.r.d(chatMessage)) {
                 g.setHas_read(1);
             } else {
                 g.setHas_read(0);
@@ -30,7 +30,7 @@ public abstract class a {
         if (chatMessage.getMsgType() != 11) {
             return (chatMessage.getUserInfo() == null || chatMessage.getUserInfo().getUserId() == null || !chatMessage.getUserInfo().getUserId().equals(TbadkApplication.getCurrentAccount())) ? false : true;
         }
-        SystemMsgData j = com.baidu.tieba.im.f.r.j(chatMessage);
+        SystemMsgData j = com.baidu.tieba.im.e.r.j(chatMessage);
         return (j == null || j.getIsSelf()) ? false : true;
     }
 

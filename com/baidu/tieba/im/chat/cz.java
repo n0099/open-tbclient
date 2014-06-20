@@ -15,7 +15,7 @@ public class cz implements com.baidu.tbadk.imageManager.d {
     @Override // com.baidu.tbadk.imageManager.d
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         if (aVar != null && this.a != null && (this.a instanceof ViewGroup)) {
-            com.baidu.tbadk.core.util.bp.a((ViewGroup) this.a, false, (com.baidu.tbadk.core.util.br) new da(this, str, aVar));
+            com.baidu.tbadk.core.util.br.a((ViewGroup) this.a, false, (com.baidu.tbadk.core.util.bt) new da(this, str, aVar));
         }
     }
 }

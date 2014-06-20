@@ -14,26 +14,13 @@ public class HttpClient extends a<HttpMessage, HttpMessageTask> {
         super(messageManager);
     }
 
-    public LinkedList<HttpMessage> a(int i) {
-        return a(d.removeAllTask(i));
+    public void a(int i) {
+        d.removeAllTask(i);
     }
 
     @Override // com.baidu.adp.framework.a
-    public LinkedList<HttpMessage> a(int i, int i2) {
-        return a(d.removeAllTask(i2, String.valueOf(i)));
-    }
-
-    public LinkedList<HttpMessage> a(LinkedList<BdAsyncTask<?, ?, ?>> linkedList) {
-        HttpMessage a;
-        LinkedList<HttpMessage> linkedList2 = new LinkedList<>();
-        Iterator<BdAsyncTask<?, ?, ?>> it = linkedList.iterator();
-        while (it.hasNext()) {
-            BdAsyncTask<?, ?, ?> next = it.next();
-            if (next != null && (next instanceof d) && (a = ((d) next).a()) != null) {
-                linkedList2.add(a);
-            }
-        }
-        return linkedList2;
+    public void a(int i, int i2) {
+        d.removeAllTask(i2, String.valueOf(i));
     }
 
     public LinkedList<HttpMessage> b(int i) {
@@ -47,6 +34,19 @@ public class HttpClient extends a<HttpMessage, HttpMessageTask> {
             }
         }
         return a(searchAllTask);
+    }
+
+    public LinkedList<HttpMessage> a(LinkedList<BdAsyncTask<?, ?, ?>> linkedList) {
+        HttpMessage a;
+        LinkedList<HttpMessage> linkedList2 = new LinkedList<>();
+        Iterator<BdAsyncTask<?, ?, ?>> it = linkedList.iterator();
+        while (it.hasNext()) {
+            BdAsyncTask<?, ?, ?> next = it.next();
+            if (next != null && (next instanceof d) && (a = ((d) next).a()) != null) {
+                linkedList2.add(a);
+            }
+        }
+        return linkedList2;
     }
 
     @Override // com.baidu.adp.framework.a

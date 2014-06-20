@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 /* loaded from: classes.dex */
 public class EnterGuideCenterView extends RelativeLayout {
     private ImageView a;
@@ -68,7 +68,7 @@ public class EnterGuideCenterView extends RelativeLayout {
 
     public void a(int i) {
         if (b(i)) {
-            bc.a(this, i);
+            be.a(this, i);
             if (i == 1) {
                 this.a.setBackgroundResource(com.baidu.tieba.u.pic_go_ba_1);
                 this.b.setTextColor(-8815226);

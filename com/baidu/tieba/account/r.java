@@ -8,13 +8,13 @@ import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i> {
     final /* synthetic */ ActivationActivity a;
-    private al b;
+    private an b;
 
     private r(ActivationActivity activationActivity) {
         this.a = activationActivity;
@@ -40,31 +40,31 @@ public class r extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.i>
         RegistData registData6;
         RegistData registData7;
         try {
-            this.b = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
-            al alVar = this.b;
+            this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
+            an anVar = this.b;
             registData = this.a.q;
-            alVar.a("un", registData.getName());
-            al alVar2 = this.b;
+            anVar.a("un", registData.getName());
+            an anVar2 = this.b;
             registData2 = this.a.q;
-            alVar2.a("phonenum", registData2.getPhone());
-            al alVar3 = this.b;
+            anVar2.a("phonenum", registData2.getPhone());
+            an anVar3 = this.b;
             registData3 = this.a.q;
-            alVar3.a("passwd", registData3.getPsw());
+            anVar3.a("passwd", registData3.getPsw());
             registData4 = this.a.q;
             if (registData4.getVcode() != null) {
-                al alVar4 = this.b;
+                an anVar4 = this.b;
                 registData7 = this.a.q;
-                alVar4.a("vcode", registData7.getVcode());
+                anVar4.a("vcode", registData7.getVcode());
             }
             registData5 = this.a.q;
             if (registData5.getVcodeMd5() != null) {
-                al alVar5 = this.b;
+                an anVar5 = this.b;
                 registData6 = this.a.q;
-                alVar5.a("vcode_md5", registData6.getVcodeMd5());
+                anVar5.a("vcode_md5", registData6.getVcodeMd5());
             }
-            al alVar6 = this.b;
+            an anVar6 = this.b;
             editText = this.a.j;
-            alVar6.a("smscode", editText.getText().toString());
+            anVar6.a("smscode", editText.getText().toString());
             String i = this.b.i();
             if (this.b.a().b().b()) {
                 com.baidu.tbadk.core.data.i iVar = new com.baidu.tbadk.core.data.i();

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.data.ForumInfoData;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -61,14 +61,14 @@ public class ForumListModel extends com.baidu.adp.base.b implements Serializable
             i = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? 137 : 136;
         }
         b = requestParams.menu_name;
-        al alVar = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumrank");
-        alVar.a("rn", String.valueOf(requestParams.rn));
-        alVar.a("offset", String.valueOf(requestParams.offset));
-        alVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
-        alVar.a("menu_name", requestParams.menu_name);
-        alVar.a("menu_type", String.valueOf(i));
-        String i2 = alVar.i();
-        a = alVar.c();
+        an anVar = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumrank");
+        anVar.a("rn", String.valueOf(requestParams.rn));
+        anVar.a("offset", String.valueOf(requestParams.offset));
+        anVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
+        anVar.a("menu_name", requestParams.menu_name);
+        anVar.a("menu_type", String.valueOf(i));
+        String i2 = anVar.i();
+        a = anVar.c();
         BdLog.d("DataProvider", "fetch", "fetched raw string\n" + i2);
         ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(i2, (Class<Object>) ForumListModel.class);
         if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (p = com.baidu.tbadk.core.a.b.a().p()) != null)) {

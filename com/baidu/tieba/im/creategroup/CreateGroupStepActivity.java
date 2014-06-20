@@ -13,13 +13,13 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.coreExtra.act.EditHeadActivity;
 import com.baidu.tieba.im.data.GroupAddressInfoData;
 import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
-public class CreateGroupStepActivity extends BaseActivity implements TextWatcher, CompoundButton.OnCheckedChangeListener, com.baidu.tieba.im.f.h {
+public class CreateGroupStepActivity extends BaseActivity implements TextWatcher, CompoundButton.OnCheckedChangeListener, com.baidu.tieba.im.e.h {
     com.baidu.tieba.im.model.a b;
     n a = null;
     private int c = 1014;
@@ -114,10 +114,10 @@ public class CreateGroupStepActivity extends BaseActivity implements TextWatcher
         } else if (i2 == 0) {
             switch (i) {
                 case 12009:
-                    bb.b(this);
+                    bd.b(this);
                     return;
                 case 12010:
-                    bb.a(this);
+                    bd.a(this);
                     return;
                 default:
                     return;
@@ -231,7 +231,7 @@ public class CreateGroupStepActivity extends BaseActivity implements TextWatcher
         this.a.H();
     }
 
-    @Override // com.baidu.tieba.im.f.h
+    @Override // com.baidu.tieba.im.e.h
     public void a(String str, List<String> list, double d, double d2) {
         this.a.b(String.valueOf(d));
         this.a.a(String.valueOf(d2));
@@ -246,12 +246,12 @@ public class CreateGroupStepActivity extends BaseActivity implements TextWatcher
         this.a.e(str);
     }
 
-    @Override // com.baidu.tieba.im.f.h
+    @Override // com.baidu.tieba.im.e.h
     public void a() {
         this.a.o();
     }
 
-    @Override // com.baidu.tieba.im.f.h
+    @Override // com.baidu.tieba.im.e.h
     public void b() {
         this.a.n();
     }

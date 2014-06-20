@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.as;
+import com.baidu.tbadk.core.atomData.ar;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -40,7 +40,7 @@ public class l implements View.OnClickListener {
         if (mVar != null) {
             MessageManager messageManager = MessageManager.getInstance();
             context = this.a.a;
-            messageManager.sendMessage(new CustomMessage(2006001, new as(context).a(mVar.l, null, null)));
+            messageManager.sendMessage(new CustomMessage(2006001, new ar(context).a(mVar.l, null, null)));
             TiebaStatic.eventStat(this.b, "forum_feed_pbclick", "pb_click", 1, new Object[0]);
         }
     }

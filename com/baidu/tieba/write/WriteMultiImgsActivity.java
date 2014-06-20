@@ -36,7 +36,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
     private int r = 0;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bk.class, WriteMultiImgsActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bj.class, WriteMultiImgsActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -210,17 +210,17 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         this.j.c(i);
         if (i == 1) {
             if (this.l.isEnabled()) {
-                com.baidu.tbadk.core.util.bc.e((View) this.l, com.baidu.tieba.u.navi_done_text_bg_1);
+                com.baidu.tbadk.core.util.be.e((View) this.l, com.baidu.tieba.u.navi_done_text_bg_1);
                 this.l.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.navi_done_text_1));
                 return;
             }
-            com.baidu.tbadk.core.util.bc.e((View) this.l, com.baidu.tieba.u.btn_titlebar_finish_d_1);
+            com.baidu.tbadk.core.util.be.e((View) this.l, com.baidu.tieba.u.btn_titlebar_finish_d_1);
             this.l.setTextColor(getResources().getColor(com.baidu.tieba.s.navi_done_text_d_1));
         } else if (this.l.isEnabled()) {
-            com.baidu.tbadk.core.util.bc.e((View) this.l, com.baidu.tieba.u.navi_done_text_bg);
+            com.baidu.tbadk.core.util.be.e((View) this.l, com.baidu.tieba.u.navi_done_text_bg);
             this.l.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.navi_done_text));
         } else {
-            com.baidu.tbadk.core.util.bc.e((View) this.l, com.baidu.tieba.u.btn_titlebar_finish_d);
+            com.baidu.tbadk.core.util.be.e((View) this.l, com.baidu.tieba.u.btn_titlebar_finish_d);
             this.l.setTextColor(getResources().getColor(com.baidu.tieba.s.navi_done_text_d));
         }
     }

@@ -5,7 +5,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.data.IconData;
@@ -107,7 +106,7 @@ public class q extends com.baidu.tbadk.core.util.a {
                         JSONObject jSONObject3 = optJSONArray5.getJSONObject(i5);
                         voiceModel.from = "home_voice_play";
                         voiceModel.voiceId = jSONObject3.optString("voice_md5");
-                        voiceModel.duration = jSONObject3.optInt("during_time") / LocationClientOption.MIN_SCAN_SPAN;
+                        voiceModel.duration = jSONObject3.optInt("during_time") / 1000;
                         this.n.add(voiceModel);
                     }
                 }
@@ -217,7 +216,7 @@ public class q extends com.baidu.tbadk.core.util.a {
         return this.q;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
     public LinkedList<String> getImageUrl() {
         if (this.m == null) {
             return null;

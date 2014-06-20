@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class ao extends BdAsyncTask<Object, String, FacePackageDetailData> {
     final /* synthetic */ an a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
     private volatile boolean c;
 
     private ao(an anVar) {
@@ -49,26 +49,26 @@ public class ao extends BdAsyncTask<Object, String, FacePackageDetailData> {
                         StringBuilder sb = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount()));
                         str5 = this.a.d;
                         String a = B.a(sb.append(str5).toString());
-                        if (!com.baidu.tbadk.core.util.be.c(a)) {
+                        if (!com.baidu.tbadk.core.util.bg.c(a)) {
                             publishProgress(a);
                         }
                     }
-                    this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/getfacelist");
-                    com.baidu.tbadk.core.util.al alVar = this.b;
+                    this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/getfacelist");
+                    com.baidu.tbadk.core.util.an anVar = this.b;
                     i = this.a.j;
-                    alVar.a("scr_w", String.valueOf(i));
-                    com.baidu.tbadk.core.util.al alVar2 = this.b;
+                    anVar.a("scr_w", String.valueOf(i));
+                    com.baidu.tbadk.core.util.an anVar2 = this.b;
                     i2 = this.a.k;
-                    alVar2.a("scr_h", String.valueOf(i2));
-                    com.baidu.tbadk.core.util.al alVar3 = this.b;
+                    anVar2.a("scr_h", String.valueOf(i2));
+                    com.baidu.tbadk.core.util.an anVar3 = this.b;
                     f = this.a.l;
-                    alVar3.a("scr_dip", String.valueOf(f));
-                    com.baidu.tbadk.core.util.al alVar4 = this.b;
+                    anVar3.a("scr_dip", String.valueOf(f));
+                    com.baidu.tbadk.core.util.an anVar4 = this.b;
                     str3 = this.a.d;
-                    alVar4.a("pid", str3);
-                    com.baidu.tbadk.core.util.al alVar5 = this.b;
+                    anVar4.a("pid", str3);
+                    com.baidu.tbadk.core.util.an anVar5 = this.b;
                     str4 = this.a.c;
-                    alVar5.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str4);
+                    anVar5.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str4);
                     String i3 = this.b.i();
                     gsonBuilder = this.a.g;
                     facePackageDetailData = (FacePackageDetailData) gsonBuilder.create().fromJson(i3, (Class<Object>) FacePackageDetailData.class);

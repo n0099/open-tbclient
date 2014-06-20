@@ -19,19 +19,18 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.aw;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.atomData.av;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.data.RegistData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class Register2Activity extends BaseActivity {
-    private static int c = LocationClientOption.MIN_SCAN_SPAN;
+    private static int c = 1000;
     private static int d = 27;
     private static int e = 29;
     private static int f = 28;
@@ -79,7 +78,7 @@ public class Register2Activity extends BaseActivity {
     private final RadioGroup.OnCheckedChangeListener T = new w(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(aw.class, Register2Activity.class);
+        TbadkApplication.m252getInst().RegisterIntent(av.class, Register2Activity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -88,7 +87,7 @@ public class Register2Activity extends BaseActivity {
         super.onCreate(bundle);
         setContentView(com.baidu.tieba.w.account_register2_activity);
         h();
-        new az(TbConfig.ST_TYPE_REG).start();
+        new bb(TbConfig.ST_TYPE_REG).start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -175,8 +174,8 @@ public class Register2Activity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.M.c(i);
-        bc.a(this.b, i);
-        bc.c(this.a, i);
+        be.a(this.b, i);
+        be.c(this.a, i);
         n();
         k();
     }

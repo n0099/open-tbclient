@@ -37,7 +37,7 @@ class aa extends com.baidu.adp.base.e {
         TbImageView tbImageView3;
         BdListView bdListView4;
         TbImageView tbImageView4;
-        com.baidu.tbadk.core.util.ad adVar;
+        com.baidu.tbadk.core.util.af afVar;
         this.a.hideProgressBar();
         bdListView = this.a.a;
         bdListView.c();
@@ -49,8 +49,8 @@ class aa extends com.baidu.adp.base.e {
                     if (z) {
                         bdListView4 = this.a.a;
                         tbImageView4 = this.a.e;
-                        adVar = this.a.o;
-                        bdListView4.addHeaderView(tbImageView4, adVar, false);
+                        afVar = this.a.o;
+                        bdListView4.addHeaderView(tbImageView4, afVar, false);
                         this.a.m = false;
                     }
                     tbImageView = this.a.e;

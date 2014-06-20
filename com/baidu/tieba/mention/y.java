@@ -3,7 +3,7 @@ package com.baidu.tieba.mention;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tieba.data.ai;
 import com.baidu.tieba.model.am;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,7 +28,7 @@ public class y implements View.OnClickListener {
                 amVar3 = this.a.l;
                 ai aiVar = amVar3.a().e().get(0);
                 if (aiVar != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new at(this.a, aiVar.o().getUserId(), aiVar.o().getUserName())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new as(this.a, aiVar.o().getUserId(), aiVar.o().getUserName())));
                 }
             }
         }

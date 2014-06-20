@@ -23,15 +23,15 @@ public class i extends Handler {
                 return;
             case 2:
                 h hVar = this.a;
-                gVar = this.a.s;
+                gVar = this.a.t;
                 hVar.a((f) gVar, true, true);
                 h hVar2 = this.a;
-                aVar = this.a.t;
+                aVar = this.a.u;
                 hVar2.a((f) aVar, true, true);
                 h hVar3 = this.a;
-                bVar = this.a.u;
+                bVar = this.a.v;
                 hVar3.a((f) bVar, true, true);
-                this.a.k();
+                this.a.l();
                 return;
             case 3:
                 this.a.c((f) message.obj, message.arg1 > 0);

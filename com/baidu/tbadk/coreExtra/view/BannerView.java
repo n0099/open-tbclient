@@ -16,14 +16,13 @@ public class BannerView extends RelativeLayout {
     View.OnClickListener b;
     private String c;
     private String d;
-    private String e;
-    private Button f;
-    private Context g;
-    private com.baidu.tbadk.core.util.b h;
-    private boolean i;
-    private float j;
-    private String k;
-    private c l;
+    private Button e;
+    private Context f;
+    private com.baidu.tbadk.core.util.b g;
+    private boolean h;
+    private float i;
+    private String j;
+    private c k;
 
     public void a(String str, String str2) {
         if (str != null && str2 != null) {
@@ -36,10 +35,9 @@ public class BannerView extends RelativeLayout {
         super(context, attributeSet);
         this.c = "";
         this.d = "";
-        this.e = "";
-        this.h = null;
-        this.i = false;
-        this.j = 0.1388889f;
+        this.g = null;
+        this.h = false;
+        this.i = 0.1388889f;
         this.a = false;
         this.b = new a(this);
         a(context);
@@ -50,48 +48,44 @@ public class BannerView extends RelativeLayout {
     }
 
     private void a(Context context) {
-        this.g = context;
+        this.f = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.w.bannerview, this);
-        this.f = (Button) findViewById(com.baidu.tieba.v.btn_close);
-        this.f.setOnClickListener(this.b);
+        this.e = (Button) findViewById(com.baidu.tieba.v.btn_close);
+        this.e.setOnClickListener(this.b);
         setOnClickListener(this.b);
     }
 
-    public void a(String str, String str2, String str3, long j) {
-        this.e = str3;
-        this.k = str2;
-        this.a = false;
-        if (this.i) {
+    public void b(String str, String str2) {
+        this.j = str2;
+        if (!TextUtils.isEmpty(str)) {
+            this.a = true;
+        } else {
+            this.a = false;
+        }
+        if (this.h) {
             setVisibility(8);
             return;
         }
-        if (!TextUtils.isEmpty(this.e) || j == 0) {
-            if (System.currentTimeMillis() - com.baidu.tbadk.f.a().a(this.e, 0L) < j) {
-                setVisibility(8);
-                return;
-            }
-        }
         setVisibility(8);
         if (!TextUtils.isEmpty(str)) {
-            this.a = true;
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.b(getContext()) * this.j) + 0.5d);
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.b(getContext()) * this.i) + 0.5d);
             setLayoutParams(layoutParams);
             setImageUrl(str);
         }
     }
 
-    public void a(String str, String str2, long j) {
-        a(str, "", str2, j);
+    public void setData(String str) {
+        b(str, "");
     }
 
     private void setImageUrl(String str) {
-        if (this.h == null) {
-            this.h = new com.baidu.tbadk.core.util.b(this.g);
-            this.h.a(720, 100);
-            this.h.d(true);
+        if (this.g == null) {
+            this.g = new com.baidu.tbadk.core.util.b(this.f);
+            this.g.a(720, 100);
+            this.g.d(true);
         }
-        this.h.b(str, new b(this));
+        this.g.b(str, new b(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -103,13 +97,18 @@ public class BannerView extends RelativeLayout {
     }
 
     public void a() {
-        if (this.h != null) {
-            this.h.d();
-            this.h = null;
+        if (this.g != null) {
+            this.g.d();
+            this.g = null;
         }
     }
 
     public void setBannerViewClickListener(c cVar) {
-        this.l = cVar;
+        this.k = cVar;
+    }
+
+    public void b() {
+        this.h = false;
+        this.a = false;
     }
 }

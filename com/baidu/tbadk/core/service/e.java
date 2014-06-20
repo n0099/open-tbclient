@@ -9,13 +9,13 @@ import android.os.RemoteException;
 import android.util.Log;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
 /* loaded from: classes.dex */
 class e extends BdAsyncTask<Void, Void, PluginsConfig> {
     final /* synthetic */ PluginSyncService a;
     private Messenger b;
-    private al c;
+    private an c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PluginSyncService pluginSyncService, Messenger messenger) {
@@ -30,7 +30,7 @@ class e extends BdAsyncTask<Void, Void, PluginsConfig> {
     public PluginsConfig doInBackground(Void... voidArr) {
         String str;
         str = PluginSyncService.ADDRESS;
-        this.c = new al(str);
+        this.c = new an(str);
         this.c.a("client_version", TbConfig.getVersion());
         String i = this.c.i();
         Log.d("PluginSyncService", i);

@@ -10,7 +10,7 @@ class ab extends com.baidu.tbadk.core.util.a {
         this.a = forumRankActivity;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
     public LinkedList<String> getImageUrl() {
         String str;
         String str2;

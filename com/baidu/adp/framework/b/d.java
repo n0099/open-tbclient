@@ -1,30 +1,30 @@
 package com.baidu.adp.framework.b;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.a.n;
-import com.baidu.adp.framework.client.e;
+import com.baidu.adp.framework.a.k;
+import com.baidu.adp.framework.client.socket.j;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class d extends c<SocketMessage, SocketMessageTask, n, SocketResponsedMessage> {
-    private e c;
+public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMessage> {
+    private j c;
 
     public d(MessageManager messageManager) {
         super(messageManager);
         this.c = null;
-        this.c = new e(messageManager);
+        this.c = new j(messageManager);
         this.b = com.baidu.adp.framework.c.c.a();
     }
 
-    public LinkedList<SocketMessage> a(int i) {
-        return this.c.a(i);
+    public void a(int i) {
+        this.c.a(i);
     }
 
     @Override // com.baidu.adp.framework.a
-    public LinkedList<SocketMessage> a(int i, int i2) {
-        return this.c.a(i, i2);
+    public void a(int i, int i2) {
+        this.c.a(i, i2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,23 +48,7 @@ public class d extends c<SocketMessage, SocketMessageTask, n, SocketResponsedMes
         return this.c.b(i, i2);
     }
 
-    public void a(com.baidu.adp.framework.c.d dVar) {
-        this.c.a(dVar);
-    }
-
-    public void a(com.baidu.adp.lib.network.websocket.c cVar) {
-        this.c.a(cVar);
-    }
-
-    public void a(boolean z) {
-        this.c.a(z);
-    }
-
-    public boolean b() {
-        return this.c.b();
-    }
-
-    public boolean c() {
-        return this.c.c();
+    public j b() {
+        return this.c;
     }
 }

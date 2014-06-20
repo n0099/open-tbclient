@@ -85,7 +85,7 @@ public class b extends n {
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.n, com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.data.n, com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.e);

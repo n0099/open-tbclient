@@ -1,18 +1,18 @@
 package com.baidu.tieba.pb.sub;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.ai;
 /* loaded from: classes.dex */
 public class a {
     private static final String a = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/floor";
-    private al b = null;
+    private an b = null;
 
     public String a(String str, String str2, int i, String str3, int i2) {
         if (str == null || str3 == null) {
             return null;
         }
-        this.b = new al(a);
+        this.b = new an(a);
         this.b.a().a().a = true;
         this.b.a("kz", str);
         int b = com.baidu.adp.lib.util.k.b(ai.c().d());

@@ -2,15 +2,15 @@ package com.baidu.tbadk.coreExtra.service;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.util.l;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.AudioInfoData;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private al a;
+    private an a;
     private c b;
     private com.baidu.tbadk.coreExtra.data.c c;
     private String d;
@@ -27,7 +27,7 @@ public class b {
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.a = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + this.d);
+            this.a = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + this.d);
             return a(str, file);
         } catch (Exception e) {
             BdLog.e(getClass().getName(), "upload", e.getMessage());
@@ -37,7 +37,7 @@ public class b {
 
     private com.baidu.tbadk.coreExtra.data.c a(String str, File file) {
         String a;
-        String a2 = be.a(x.a(file));
+        String a2 = bg.a(x.a(file));
         if (a2 != null && a2.length() > 0) {
             a2 = a2.toLowerCase();
         }
@@ -66,7 +66,7 @@ public class b {
     }
 
     private String a(String str, com.baidu.tbadk.coreExtra.data.b bVar) {
-        this.a = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + this.e);
+        this.a = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + this.e);
         this.a.a("voice_md5", bVar.a());
         String i = this.a.i();
         if (i == null || !this.a.a().b().b()) {

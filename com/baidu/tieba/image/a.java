@@ -1,7 +1,7 @@
 package com.baidu.tieba.image;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.data.t;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -96,7 +96,7 @@ public class a {
             sb.append(String.valueOf(tVar.g()));
         }
         sb.append("&src=");
-        sb.append(be.d(tVar.b()));
+        sb.append(bg.d(tVar.b()));
         return sb.toString();
     }
 
@@ -104,7 +104,7 @@ public class a {
     public String a(String str) {
         int lastIndexOf;
         int indexOf;
-        String e = be.e(str);
+        String e = bg.e(str);
         if (e != null) {
             if (e.indexOf(".baidu.com") != -1 && (lastIndexOf = e.lastIndexOf("/")) != -1 && (indexOf = e.indexOf(".", lastIndexOf)) != -1) {
                 return e.substring(lastIndexOf + 1, indexOf);

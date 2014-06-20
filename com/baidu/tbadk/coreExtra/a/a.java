@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.a;
 
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -13,7 +13,7 @@ public class a {
     private a() {
         this.a = false;
         try {
-            if (!be.c(new BufferedReader(new InputStreamReader(TbadkApplication.m252getInst().getApp().getAssets().open("apk_ab_test.txt"))).readLine())) {
+            if (!bg.c(new BufferedReader(new InputStreamReader(TbadkApplication.m252getInst().getApp().getAssets().open("apk_ab_test.txt"))).readLine())) {
                 this.a = true;
             }
         } catch (Throwable th) {

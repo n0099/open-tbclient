@@ -12,9 +12,9 @@ import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.WebSocketStateHelper;
 import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -121,7 +121,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     this.j.get(i).a(false);
                 }
             }
-        } else if (this.h && !WebSocketStateHelper.a()) {
+        } else if (this.h && !BdSocketLinkService.isAvailable()) {
             if (2 != this.i) {
                 this.i = 2;
                 this.d.setText(com.baidu.tieba.y.offline_guide1);

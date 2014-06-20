@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 /* loaded from: classes.dex */
 public class AccountLoginHelper {
     private static AccountLoginHelper mHelper = null;
@@ -45,7 +45,7 @@ public class AccountLoginHelper {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(AccountData accountData) {
                     super.onPostExecute((C00111) accountData);
-                    if (accountData != null && !be.c(accountData.getPassword())) {
+                    if (accountData != null && !bg.c(accountData.getPassword())) {
                         c.a(accountData.getAccount(), accountData.getPassword(), AccountLoginHelper.this.mLoginCallBackForCacheAccount);
                     }
                 }

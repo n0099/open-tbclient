@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.view.NoSwipeableViewPager;
 import com.baidu.tieba.y;
@@ -43,7 +43,7 @@ public class n extends com.baidu.adp.base.c {
     private TextView s;
     private AlertDialog t;
     private NoSwipeableViewPager u;
-    private com.baidu.tieba.im.f.e v;
+    private com.baidu.tieba.im.e.e v;
     private int w;
     private int x;
     private int y;
@@ -255,7 +255,7 @@ public class n extends com.baidu.adp.base.c {
     }
 
     private void P() {
-        this.v = new com.baidu.tieba.im.f.e(this.a);
+        this.v = new com.baidu.tieba.im.e.e(this.a);
         this.v.a(this.a.getUniqueId());
         G();
     }
@@ -273,7 +273,7 @@ public class n extends com.baidu.adp.base.c {
     private void Q() {
         this.r.setOnClickListener(this.a);
         this.s.setOnClickListener(this.a);
-        this.i.c().setFilters(new InputFilter[]{new com.baidu.tieba.im.f.a(20)});
+        this.i.c().setFilters(new InputFilter[]{new com.baidu.tieba.im.e.a(20)});
         this.i.c().addTextChangedListener(this.a);
         this.j.c().addTextChangedListener(this.a);
         this.k.e().setOnClickListener(this.a);
@@ -374,17 +374,17 @@ public class n extends com.baidu.adp.base.c {
     private void R() {
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             if (this.m) {
-                bc.e((View) this.s, com.baidu.tieba.u.navi_done_text_bg_1);
+                be.e((View) this.s, com.baidu.tieba.u.navi_done_text_bg_1);
                 this.s.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.s.navi_done_text_1));
                 return;
             }
-            bc.e((View) this.s, com.baidu.tieba.u.btn_titlebar_finish_d_1);
+            be.e((View) this.s, com.baidu.tieba.u.btn_titlebar_finish_d_1);
             this.s.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.navi_done_text_d_1));
         } else if (this.m) {
-            bc.e((View) this.s, com.baidu.tieba.u.navi_done_text_bg);
+            be.e((View) this.s, com.baidu.tieba.u.navi_done_text_bg);
             this.s.setTextColor(this.a.getResources().getColorStateList(com.baidu.tieba.s.navi_done_text));
         } else {
-            bc.e((View) this.s, com.baidu.tieba.u.btn_titlebar_finish_d);
+            be.e((View) this.s, com.baidu.tieba.u.btn_titlebar_finish_d);
             this.s.setTextColor(this.a.getResources().getColor(com.baidu.tieba.s.navi_done_text_d));
         }
     }
@@ -519,7 +519,7 @@ public class n extends com.baidu.adp.base.c {
     public void a(int i) {
         this.a.getLayoutMode().a(i == 1);
         this.a.getLayoutMode().a(this.q);
-        bc.a(this.q, i);
+        be.a(this.q, i);
         this.p.c(i);
         R();
     }

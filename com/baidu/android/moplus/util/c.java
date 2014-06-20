@@ -1,50 +1,32 @@
 package com.baidu.android.moplus.util;
 
-import android.content.Context;
-import android.net.LocalServerSocket;
-import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.common.util.Util;
-import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
-public class c {
-    private static LocalServerSocket a;
-    private static c b;
+public class c implements ThreadFactory {
+    private final ThreadFactory a;
+    private final String b;
+    private final AtomicInteger c;
 
-    private c(Context context) {
+    public c(String str) {
+        this(str, Executors.defaultThreadFactory());
     }
 
-    public static c a(Context context) {
-        if (b == null) {
-            b = new c(context);
-        }
-        return b;
+    public c(String str, ThreadFactory threadFactory) {
+        this.c = new AtomicInteger(0);
+        this.b = str;
+        this.a = threadFactory;
     }
 
-    private String c(Context context) {
-        return Util.toMd5(("com.baidu.pushservice.singelinstancev1" + DeviceId.getDeviceID(context)).getBytes(), false);
+    private String a(int i) {
+        return String.format("%s-%d", this.b, Integer.valueOf(i));
     }
 
-    public boolean a() {
-        return a != null;
-    }
-
-    public void b() {
-        try {
-            if (a != null) {
-                a.close();
-                a = null;
-            }
-        } catch (IOException e) {
-        }
-    }
-
-    public boolean b(Context context) {
-        if (a == null) {
-            try {
-                a = new LocalServerSocket(c(context));
-            } catch (Exception e) {
-            }
-        }
-        return a != null;
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        Thread newThread = this.a.newThread(runnable);
+        newThread.setName(a(this.c.getAndIncrement()));
+        return newThread;
     }
 }

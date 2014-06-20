@@ -1,6 +1,5 @@
 package com.baidu.tbadk.widget.richText;
 
-import com.baidu.location.LocationClientOption;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class u {
@@ -15,7 +14,7 @@ public class u {
     public u(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.a = jSONObject.optString("voice_md5");
-            this.b = jSONObject.optInt("during_time") / LocationClientOption.MIN_SCAN_SPAN;
+            this.b = jSONObject.optInt("during_time") / 1000;
             this.c = jSONObject.optInt("is_sub");
         }
     }

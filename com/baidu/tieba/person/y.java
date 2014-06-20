@@ -50,7 +50,7 @@ public class y {
             aaVar.f.setPadding(this.b.getResources().getDimensionPixelSize(com.baidu.tieba.t.listview_item_padding), 0, 0, 0);
             aaVar.f.setText(String.valueOf(postList.forum_name) + string);
             aaVar.h.setText(String.valueOf(postList.reply_num));
-            aaVar.g.setText(com.baidu.tbadk.core.util.be.a(postList.create_time * 1000));
+            aaVar.g.setText(com.baidu.tbadk.core.util.bg.a(postList.create_time * 1000));
             if (postList.abs != null && postList.abs.length > 0 && TextUtils.isEmpty(postList.abs[0].text)) {
                 aaVar.e.setText(postList.abs[0].text);
                 aaVar.e.setVisibility(0);
@@ -68,7 +68,7 @@ public class y {
                 aaVar.r.a(a, this.a);
             } else {
                 aaVar.q.setVisibility(8);
-                if (com.baidu.tbadk.core.g.a().f()) {
+                if (com.baidu.tbadk.core.h.a().f()) {
                     aaVar.i.setVisibility(0);
                     PersonPostListData.Media[] mediaArr = postList.media;
                     if (mediaArr != null) {
@@ -170,7 +170,7 @@ public class y {
     private void a(aa aaVar) {
         Resources resources = this.b.getResources();
         aaVar.a.setBackgroundResource(com.baidu.tieba.u.forumfeed_frs_list_item_top_bg);
-        com.baidu.tbadk.core.util.bc.e((View) aaVar.c, com.baidu.tieba.u.bg_label);
+        com.baidu.tbadk.core.util.be.e((View) aaVar.c, com.baidu.tieba.u.bg_label);
         aaVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(com.baidu.tieba.u.icon_little_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
         aaVar.b.setBackgroundResource(com.baidu.tieba.u.forumfeed_frs_list_item_foot_bg);
     }
@@ -178,7 +178,7 @@ public class y {
     private void b(aa aaVar) {
         Resources resources = this.b.getResources();
         aaVar.a.setBackgroundResource(com.baidu.tieba.u.forumfeed_frs_list_item_top_bg_1);
-        com.baidu.tbadk.core.util.bc.e((View) aaVar.c, com.baidu.tieba.u.bg_label_1);
+        com.baidu.tbadk.core.util.be.e((View) aaVar.c, com.baidu.tieba.u.bg_label_1);
         aaVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(com.baidu.tieba.u.icon_little_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
         aaVar.b.setBackgroundResource(com.baidu.tieba.u.forumfeed_frs_list_item_foot_bg_1);
     }

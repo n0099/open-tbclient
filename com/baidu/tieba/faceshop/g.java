@@ -36,7 +36,7 @@ public class g {
     }
 
     public void a(String str, String str2, String str3) {
-        if (!com.baidu.tbadk.core.util.be.c(str) && !com.baidu.tbadk.core.util.be.c(str3)) {
+        if (!com.baidu.tbadk.core.util.bg.c(str) && !com.baidu.tbadk.core.util.bg.c(str3)) {
             DownloadData downloadData = new DownloadData(str, str2, str3, new f());
             downloadData.setStatusMsg(TbadkApplication.getCurrentAccount());
             downloadData.setType(11);

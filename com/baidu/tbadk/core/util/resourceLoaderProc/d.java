@@ -22,24 +22,19 @@ public class d extends a {
         this.e = TbadkApplication.m252getInst().getApp().getResources().getDimensionPixelSize(t.frs_header_photo_height);
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.resourceLoader.g
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.resourceLoader.h
     public boolean a() {
         return true;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int b() {
+    public int c() {
         return this.d;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int c() {
+    public int d() {
         return this.e;
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean d() {
-        return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -49,6 +44,11 @@ public class d extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean f() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public boolean g() {
         return false;
     }
 }

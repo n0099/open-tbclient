@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<k, Integer, Boolean> {
     final /* synthetic */ k a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
     private com.baidu.tieba.data.as c;
 
     private n(k kVar) {
@@ -36,7 +36,7 @@ public class n extends BdAsyncTask<k, Integer, Boolean> {
         k kVar = new k();
         try {
             kVar.i();
-            this.b = new com.baidu.tbadk.core.util.al();
+            this.b = new com.baidu.tbadk.core.util.an();
             this.b.a(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/addstore");
             int k = this.a.k();
             if (kVar.g() - 1 <= k) {

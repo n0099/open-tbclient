@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.atomData.p;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ag;
 import com.baidu.tbadk.core.view.q;
 import com.baidu.tbadk.coreExtra.view.EnterGuideCenterView;
 import com.baidu.tieba.im.data.GroupInfoData;
@@ -119,7 +119,7 @@ public class MyGroupFragment extends com.baidu.tbadk.core.d implements View.OnCl
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         if (this.b != null && this.f != null) {
-            ae.a(this.b, this.f.a(), 0, -1);
+            ag.a(this.b, this.f.a(), 0, -1);
         }
     }
 

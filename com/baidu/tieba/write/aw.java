@@ -85,7 +85,7 @@ public class aw implements com.baidu.tbadk.editortool.x {
                 this.a.D = String.valueOf(System.currentTimeMillis());
                 WriteActivity writeActivity3 = this.a;
                 str = this.a.D;
-                com.baidu.tbadk.core.util.bb.a(writeActivity3, str);
+                com.baidu.tbadk.core.util.bd.a(writeActivity3, str);
                 return;
             }
             this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));

@@ -2,7 +2,7 @@ package com.baidu.tbadk.tbplugin;
 
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.core.util.ab;
-import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.af;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +30,7 @@ public class PluginsConfig implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class PluginConfig implements ad, Serializable {
+    public class PluginConfig implements af, Serializable {
         public String description;
         public String icon;
         public String name;
@@ -42,29 +42,29 @@ public class PluginsConfig implements Serializable {
             return "PluginConfig{name='" + this.name + "', description='" + this.description + "', verbose='" + this.verbose + "', versions=" + Arrays.toString(this.versions) + ", newest=" + this.newest + '}';
         }
 
-        @Override // com.baidu.tbadk.core.util.ad
+        @Override // com.baidu.tbadk.core.util.af
         public boolean isSupportImageSize() {
             return false;
         }
 
-        @Override // com.baidu.tbadk.core.util.ad
+        @Override // com.baidu.tbadk.core.util.af
         public LinkedList<String> getImageUrl() {
             LinkedList<String> linkedList = new LinkedList<>();
             linkedList.add(this.icon);
             return linkedList;
         }
 
-        @Override // com.baidu.tbadk.core.util.ad
+        @Override // com.baidu.tbadk.core.util.af
         public LinkedList<ab> getImagesWithEmotions() {
             return null;
         }
 
-        @Override // com.baidu.tbadk.core.util.ad
+        @Override // com.baidu.tbadk.core.util.af
         public LinkedList<String> getPhotoUrl() {
             return null;
         }
 
-        @Override // com.baidu.tbadk.core.util.ad
+        @Override // com.baidu.tbadk.core.util.af
         public LinkedList<String> getForumPhotoUrl() {
             return null;
         }

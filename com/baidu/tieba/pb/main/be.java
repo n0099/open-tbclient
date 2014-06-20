@@ -18,9 +18,9 @@ public class be implements View.OnClickListener {
     public void onClick(View view) {
         Context context;
         String f = this.b.f();
-        if (!com.baidu.tbadk.core.util.be.c(f)) {
+        if (!com.baidu.tbadk.core.util.bg.c(f)) {
             com.baidu.tbadk.f.a().b(this.b.d(), System.currentTimeMillis());
-            com.baidu.tbadk.core.util.bi a = com.baidu.tbadk.core.util.bi.a();
+            com.baidu.tbadk.core.util.bk a = com.baidu.tbadk.core.util.bk.a();
             context = this.a.b;
             a.a(context, new String[]{f});
         }

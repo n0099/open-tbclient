@@ -1,24 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av implements CustomMessageTask.CustomRunnable<Intent> {
-    final /* synthetic */ ai a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public av(ai aiVar) {
-        this.a = aiVar;
+public class av extends BdAsyncTask<String, Integer, String> {
+    private av() {
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
-        UtilHelper.commenDealIntent(TbadkApplication.m252getInst(), customMessage.getData());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ av(av avVar) {
+        this();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public String doInBackground(String... strArr) {
+        byte[] bArr;
+        byte[] bArr2;
+        bArr = ai.J;
+        synchronized (bArr) {
+            ai.K = Boolean.valueOf(com.baidu.tieba.util.r.a());
+            bArr2 = ai.J;
+            bArr2.notifyAll();
+        }
         return null;
     }
 }

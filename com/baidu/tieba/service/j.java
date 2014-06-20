@@ -3,7 +3,7 @@ package com.baidu.tieba.service;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.x;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -13,7 +13,7 @@ import java.io.FileWriter;
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ PerformMonitorService a;
-    private al b;
+    private an b;
 
     private j(PerformMonitorService performMonitorService) {
         this.a = performMonitorService;
@@ -53,7 +53,7 @@ public class j extends BdAsyncTask<String, Integer, String> {
                         byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
                         try {
                             if (z) {
-                                com.baidu.tbadk.c.b.a(fileInputStream, byteArrayOutputStream2);
+                                com.baidu.tbadk.b.b.a(fileInputStream, byteArrayOutputStream2);
                             } else {
                                 byte[] bArr = new byte[1024];
                                 while (true) {
@@ -92,7 +92,7 @@ public class j extends BdAsyncTask<String, Integer, String> {
                                 }
                                 return;
                             }
-                            this.b = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
+                            this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
                             this.b.a("logfile", byteArray);
                             this.b.a("errortype", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                             this.b.j();

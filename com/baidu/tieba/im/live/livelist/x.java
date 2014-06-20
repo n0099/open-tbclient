@@ -29,12 +29,12 @@ public class x implements com.baidu.tbadk.coreExtra.view.ab {
                 if (hotLiveListActivity2.e().c() == 2) {
                     MessageManager messageManager = MessageManager.getInstance();
                     hotLiveListActivity4 = this.a.a;
-                    messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ab(hotLiveListActivity4, new StringBuilder(String.valueOf(liveCardData.getGroupId())).toString())));
+                    messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.aa(hotLiveListActivity4, new StringBuilder(String.valueOf(liveCardData.getGroupId())).toString())));
                     return;
                 }
                 MessageManager messageManager2 = MessageManager.getInstance();
                 hotLiveListActivity3 = this.a.a;
-                messageManager2.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(hotLiveListActivity3, liveCardData.getGroupId())));
+                messageManager2.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ad(hotLiveListActivity3, liveCardData.getGroupId())));
             }
         }
     }

@@ -19,8 +19,8 @@ import org.json.JSONObject;
 public class ReloginManager {
     private static ReloginManager b = new ReloginManager();
     private boolean a;
-    private ArrayList<HttpMessage> c = new ArrayList<>();
-    private HttpMessageListener d = new a(this, 1003001);
+    private final ArrayList<HttpMessage> c = new ArrayList<>();
+    private final HttpMessageListener d = new a(this, 1003001);
 
     private ReloginManager() {
         MessageManager messageManager = MessageManager.getInstance();
@@ -39,7 +39,7 @@ public class ReloginManager {
     }
 
     public void a(HttpMessage httpMessage) {
-        c(httpMessage);
+        b(httpMessage);
         if (!this.a) {
             this.a = true;
             AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
@@ -76,15 +76,25 @@ public class ReloginManager {
         TbadkApplication.m252getInst().handler.sendMessage(obtainMessage);
     }
 
-    private void c(HttpMessage httpMessage) {
+    private void b(HttpMessage httpMessage) {
         if (!this.c.contains(httpMessage)) {
             this.c.add(httpMessage);
         }
     }
 
-    public void b(HttpMessage httpMessage) {
-        if (this.c.contains(httpMessage)) {
-            this.c.remove(httpMessage);
+    public void a(int i) {
+        a(0, i);
+    }
+
+    public void a(int i, int i2) {
+        Iterator<HttpMessage> it = this.c.iterator();
+        while (it.hasNext()) {
+            HttpMessage next = it.next();
+            int tag = next.getTag();
+            int cmd = next.getCmd();
+            if ((i != 0 && tag == i2 && i == cmd) || (i == 0 && i2 != 0 && tag == i2)) {
+                it.remove();
+            }
         }
     }
 

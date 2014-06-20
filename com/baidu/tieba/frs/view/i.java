@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +26,7 @@ public class i implements View.OnClickListener {
         if (metaData != null) {
             MessageManager messageManager = MessageManager.getInstance();
             context = this.a.a;
-            messageManager.sendMessage(new CustomMessage(2003003, new at(context, metaData.getUserId(), metaData.getName_show())));
+            messageManager.sendMessage(new CustomMessage(2003003, new as(context, metaData.getUserId(), metaData.getName_show())));
         }
     }
 }

@@ -50,7 +50,11 @@ public class i extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        clearFocus();
+        try {
+            clearFocus();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override // android.view.View

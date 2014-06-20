@@ -6,8 +6,8 @@ import android.os.Message;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.aj;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.atomData.ai;
+import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes.dex */
 class a implements Handler.Callback {
     final /* synthetic */ TbadkApplication a;
@@ -27,12 +27,12 @@ class a implements Handler.Callback {
                 if (string == null) {
                     string = "";
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new aj((Context) this.a, string, false, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ai((Context) this.a, string, false, true)));
                 break;
             case 4:
                 long nanoTime = (((System.nanoTime() - this.a.mStartTime) / 1000000) - TbConfig.USE_TIME_INTERVAL) / 1000;
                 if (nanoTime > 0) {
-                    new az(TbConfig.ST_TYPE_USE, String.valueOf(nanoTime)).start();
+                    new bb(TbConfig.ST_TYPE_USE, String.valueOf(nanoTime)).start();
                 }
                 this.a.mStartTime = 0L;
                 break;

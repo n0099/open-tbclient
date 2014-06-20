@@ -16,9 +16,9 @@ public class bp implements DialogInterface.OnClickListener {
         if (i == 0) {
             this.a.t();
         } else if (i == 1) {
-            com.baidu.tbadk.core.util.bb.a(this.a.getActivity());
+            com.baidu.tbadk.core.util.bd.a(this.a.getActivity());
         } else if (i == 2) {
-            com.baidu.tbadk.core.util.bb.c(this.a.getActivity());
+            com.baidu.tbadk.core.util.bd.c(this.a.getActivity());
         }
     }
 }

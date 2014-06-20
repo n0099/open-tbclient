@@ -31,7 +31,7 @@ class bf extends com.baidu.adp.framework.listener.b {
                 this.a.hideProgressBar();
                 this.a.showToast(com.baidu.tieba.y.group_quit_suc);
                 bnVar3 = this.a.b;
-                com.baidu.tieba.im.f.i.a(bnVar3.b());
+                com.baidu.tieba.im.e.i.a(bnVar3.b());
                 com.baidu.tieba.im.pushNotify.a.f().b(false, (com.baidu.tieba.im.a<Void>) null);
                 this.a.finish();
             } else if (socketResponsedMessage.getCmd() == 103102) {
@@ -50,7 +50,7 @@ class bf extends com.baidu.adp.framework.listener.b {
                 if (socketResponsedMessage.getError() == 0) {
                     com.baidu.tbadk.core.f.a(this.a, "dismiss_group_success");
                     bnVar = this.a.b;
-                    com.baidu.tieba.im.f.i.a(bnVar.b());
+                    com.baidu.tieba.im.e.i.a(bnVar.b());
                     this.a.showToast(com.baidu.tieba.y.group_dismiss_success, false);
                     this.a.finish();
                     return;

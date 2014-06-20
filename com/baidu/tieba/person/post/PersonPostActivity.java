@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 /* loaded from: classes.dex */
@@ -196,7 +196,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     protected void b(int i) {
         this.j.c(i);
         this.l.a(i);
-        bc.f(this.l, com.baidu.tieba.s.cp_bg_line_c);
+        be.f(this.l, com.baidu.tieba.s.cp_bg_line_c);
         if (this.m != null) {
             int count = this.m.getCount();
             for (int i2 = 0; i2 < count; i2++) {

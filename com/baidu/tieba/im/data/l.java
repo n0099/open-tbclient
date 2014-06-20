@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.data;
 
 import com.baidu.tbadk.core.util.ab;
-import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.af;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class l extends k implements ad {
+public class l extends k implements af {
     private String a;
     private String b;
     private String c;
@@ -145,29 +145,29 @@ public class l extends k implements ad {
         this.r = z;
     }
 
-    @Override // com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.af
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.e);
         return linkedList;
     }
 
-    @Override // com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.af
     public LinkedList<String> getPhotoUrl() {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.af
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.af
     public boolean isSupportImageSize() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.af
     public LinkedList<ab> getImagesWithEmotions() {
         return null;
     }

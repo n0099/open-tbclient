@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 import com.baidu.tbadk.editortool.ab;
@@ -32,6 +32,7 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
     private int e = 0;
     private String f;
     private String g;
+    private BannerView h;
 
     public l(com.baidu.tbadk.core.d dVar) {
         this.b = null;
@@ -52,6 +53,9 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
 
     public void a(List<GroupInfoData> list) {
         this.d = list;
+        if (this.h != null) {
+            this.h.b();
+        }
     }
 
     @Override // android.widget.Adapter
@@ -141,13 +145,15 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     private View a(int i, View view, ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(TbadkApplication.m252getInst().getApp().getApplicationContext()).inflate(w.group_tab_banner, viewGroup, false);
-        BannerView bannerView = (BannerView) inflate.findViewById(v.group_banner);
-        bannerView.a("group_tab_banner_click", "group_tab_banner_close");
-        if (!TextUtils.isEmpty(this.f) && !TextUtils.isEmpty(this.g)) {
-            bannerView.a(this.f, this.g, "group_banner_date", 259200000L);
+        if (this.h == null) {
+            view = LayoutInflater.from(TbadkApplication.m252getInst().getApp().getApplicationContext()).inflate(w.group_tab_banner, viewGroup, false);
+            this.h = (BannerView) view.findViewById(v.group_banner);
         }
-        return inflate;
+        this.h.a("group_tab_banner_click", "group_tab_banner_close");
+        if (!TextUtils.isEmpty(this.f) && !TextUtils.isEmpty(this.g)) {
+            this.h.b(this.f, this.g);
+        }
+        return view;
     }
 
     private View b(int i, View view, ViewGroup viewGroup) {
@@ -239,10 +245,10 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
         ((BaseFragmentActivity) this.a.getActivity()).a().a(TbadkApplication.m252getInst().getSkinType() == 1);
         ((BaseFragmentActivity) this.a.getActivity()).a().a(view);
         if (groupInfoData != null && groupInfoData.isMemGroup()) {
-            bc.a(oVar.c, s.cp_cont_b, 1);
-            bc.c(oVar.i, u.icon_vip_grade_big_small_s);
-            bc.c(oVar.j, u.icon_vip_grade_big_small_s);
-            bc.c(oVar.k, u.icon_vip_grade_big_small_s);
+            be.a(oVar.c, s.cp_cont_b, 1);
+            be.c(oVar.i, u.icon_vip_grade_big_small_s);
+            be.c(oVar.j, u.icon_vip_grade_big_small_s);
+            be.c(oVar.k, u.icon_vip_grade_big_small_s);
         }
         return view;
     }
@@ -322,12 +328,12 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
         nVar2.b.setTag(Integer.valueOf(i));
         ((BaseFragmentActivity) this.a.getActivity()).a().a(TbadkApplication.m252getInst().getSkinType() == 1);
         ((BaseFragmentActivity) this.a.getActivity()).a().a(view);
-        bc.f(nVar2.b, u.list_item_selector);
-        bc.f(nVar2.a, s.cp_bg_line_d);
+        be.f(nVar2.b, u.list_item_selector);
+        be.f(nVar2.a, s.cp_bg_line_d);
         nVar2.b.a(TbadkApplication.m252getInst().getSkinType());
         nVar2.b.setOnClickListener(this.a);
-        bc.a(nVar2.b.getTextView(), s.cp_cont_b, 1);
-        bc.c(nVar2.b.getRightIcon(), u.icon_ba_top_arrow_big);
+        be.a(nVar2.b.getTextView(), s.cp_cont_b, 1);
+        be.c(nVar2.b.getRightIcon(), u.icon_ba_top_arrow_big);
         return view;
     }
 

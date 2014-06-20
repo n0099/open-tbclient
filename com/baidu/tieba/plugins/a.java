@@ -1,7 +1,7 @@
 package com.baidu.tieba.plugins;
 
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ag;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tbadk.tbplugin.PluginsConfig;
 /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ class a implements com.baidu.tbadk.tbplugin.r {
             cVar.notifyDataSetChanged();
             bdListView = this.a.b;
             abVar = this.a.e;
-            ae.a(bdListView, abVar, 0, -1);
+            ag.a(bdListView, abVar, 0, -1);
         }
     }
 }

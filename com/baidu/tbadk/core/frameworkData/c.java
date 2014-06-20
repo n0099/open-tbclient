@@ -1,20 +1,20 @@
 package com.baidu.tbadk.core.frameworkData;
 
-import com.baidu.adp.framework.a.m;
+import com.baidu.adp.framework.a.j;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.coreExtra.d.g;
+import com.baidu.tbadk.coreExtra.websocketBase.h;
 /* loaded from: classes.dex */
-class c extends m {
+class c extends j {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(int i) {
         super(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.i
+    @Override // com.baidu.adp.framework.a.g
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null) {
-            g.a().c(socketResponsedMessage.getCmd());
+            h.a().c(socketResponsedMessage.getCmd());
         }
         return socketResponsedMessage;
     }

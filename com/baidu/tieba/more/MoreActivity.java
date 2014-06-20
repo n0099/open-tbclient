@@ -14,8 +14,8 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ay;
-import com.baidu.tbadk.core.atomData.bi;
+import com.baidu.tbadk.core.atomData.ax;
+import com.baidu.tbadk.core.atomData.bh;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.data.PersonChangeData;
@@ -191,7 +191,7 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
             return;
         }
         antiData.setIfVoice(false);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bi(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bh(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null)));
     }
 
     public void f() {
@@ -244,6 +244,6 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
     }
 
     public void m() {
-        sendMessage(new CustomMessage(2003001, new ay(this)));
+        sendMessage(new CustomMessage(2003001, new ax(this)));
     }
 }

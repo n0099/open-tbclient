@@ -6,7 +6,7 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.v;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,12 +32,12 @@ public class j implements View.OnClickListener {
                 if (userId != null && userId.length() > 0) {
                     MessageManager messageManager = MessageManager.getInstance();
                     activity2 = this.a.e;
-                    messageManager.sendMessage(new CustomMessage(2003003, new at(activity2, userId, userName)));
+                    messageManager.sendMessage(new CustomMessage(2003003, new as(activity2, userId, userName)));
                 }
             } else if (!userName2.equals(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK) && !userName2.equals(TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT) && !userName2.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE) && !userName2.equals("6") && userId != null && userId.length() > 0) {
                 MessageManager messageManager2 = MessageManager.getInstance();
                 activity = this.a.e;
-                messageManager2.sendMessage(new CustomMessage(2003003, new at(activity, userId, userName)));
+                messageManager2.sendMessage(new CustomMessage(2003003, new as(activity, userId, userName)));
             }
         }
     }

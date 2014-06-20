@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.data.ai;
@@ -169,7 +169,7 @@ public class b extends BaseAdapter {
                     int a2 = cVar3.a();
                     String str = "";
                     if (a2 == 1) {
-                        str = (a.size() <= 1 || a.get(a.size() + (-2)).a() == a2) ? "  " + be.a(aiVar.n()) : be.a(aiVar.n());
+                        str = (a.size() <= 1 || a.get(a.size() + (-2)).a() == a2) ? "  " + bg.a(aiVar.n()) : bg.a(aiVar.n());
                         SpannableStringBuilder d = cVar3.d();
                         if (p.a) {
                             d.delete(d.length() - p.b, d.length());
@@ -181,7 +181,7 @@ public class b extends BaseAdapter {
                     } else if (p.a) {
                         cVar2 = cVar3;
                     } else {
-                        str = be.a(aiVar.n());
+                        str = bg.a(aiVar.n());
                         com.baidu.tbadk.widget.richText.c cVar4 = new com.baidu.tbadk.widget.richText.c(1);
                         cVar4.a((CharSequence) str);
                         p.a = true;

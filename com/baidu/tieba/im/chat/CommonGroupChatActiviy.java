@@ -55,7 +55,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
         String stringExtra = intent.getStringExtra("ObjTp");
         String valueOf = String.valueOf(groupData.getGroupId());
         if (!com.baidu.tieba.im.model.bt.a().a(valueOf)) {
-            new com.baidu.tieba.im.f.q("chat_pg", stringExtra, valueOf).start();
+            new com.baidu.tieba.im.e.q("chat_pg", stringExtra, valueOf).start();
             com.baidu.tieba.im.model.bt.a().a(valueOf, Long.valueOf(System.currentTimeMillis()));
         }
         ((CommonGroupMsglistModel) this.e).a(groupData);
@@ -107,7 +107,7 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
             case 2:
                 ChatMessage a4 = this.e.a(i2);
                 if (a4 != null && a4.getUserInfo() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(this, a4.getUserInfo().getUserId(), a4.getUserInfo().getUserName())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this, a4.getUserInfo().getUserId(), a4.getUserInfo().getUserName())));
                     return;
                 }
                 return;
@@ -117,13 +117,13 @@ public abstract class CommonGroupChatActiviy extends MsglistActivity {
             default:
                 return;
             case 4:
-                if (t() && (a2 = this.e.a(i2)) != null && com.baidu.tieba.im.f.r.a(a2) && (a3 = com.baidu.tieba.im.f.r.a(a2.getContent(), true)) != null && (this.e instanceof CommonGroupMsglistModel) && ((CommonGroupMsglistModel) this.e).b() != null) {
+                if (t() && (a2 = this.e.a(i2)) != null && com.baidu.tieba.im.e.r.a(a2) && (a3 = com.baidu.tieba.im.e.r.a(a2.getContent(), true)) != null && (this.e instanceof CommonGroupMsglistModel) && ((CommonGroupMsglistModel) this.e).b() != null) {
                     GroupMsgImageActivity.a(this, a3, ((CommonGroupMsglistModel) this.e).b().getGroupId(), false);
                     return;
                 }
                 return;
             case 7:
-                if (t() && this.e != null && (a = this.e.a(i2)) != null && com.baidu.tieba.im.f.r.b(a) && (content = a.getContent()) != null) {
+                if (t() && this.e != null && (a = this.e.a(i2)) != null && com.baidu.tieba.im.e.r.b(a) && (content = a.getContent()) != null) {
                     try {
                         jSONArray = new JSONArray(content);
                     } catch (Exception e) {

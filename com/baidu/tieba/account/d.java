@@ -3,7 +3,7 @@ package com.baidu.tieba.account;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
@@ -32,7 +32,7 @@ public class d implements View.OnClickListener {
             textView3 = this.a.f;
             textView3.setText(com.baidu.tieba.y.done);
             textView4 = this.a.f;
-            bc.g(textView4, TbadkApplication.m252getInst().getSkinType());
+            be.g(textView4, TbadkApplication.m252getInst().getSkinType());
             lVar5 = this.a.b;
             lVar5.notifyDataSetChanged();
             return;
@@ -42,7 +42,7 @@ public class d implements View.OnClickListener {
         textView = this.a.f;
         textView.setText(com.baidu.tieba.y.edit);
         textView2 = this.a.f;
-        bc.i(textView2, TbadkApplication.m252getInst().getSkinType());
+        be.i(textView2, TbadkApplication.m252getInst().getSkinType());
         lVar3 = this.a.b;
         lVar3.notifyDataSetChanged();
     }

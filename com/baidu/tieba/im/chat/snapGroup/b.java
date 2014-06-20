@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.chat.bv;
 import com.baidu.tieba.im.data.RandChatRoomData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.f.s;
+import com.baidu.tieba.im.e.s;
 import com.baidu.tieba.im.message.ResponseChatRoomInfoMessage;
 import com.baidu.tieba.im.message.ResponseEnterChatRoomMessage;
 import com.baidu.tieba.im.message.ResponseQuitChatRoomMessage;
@@ -69,7 +69,7 @@ class b extends com.baidu.adp.framework.listener.b {
                     imMessageCenterPojo.setGroup_name("聊天室");
                     imMessageCenterPojo.setIs_delete(0);
                     imMessageCenterPojo.setIs_hidden(1);
-                    com.baidu.tieba.im.f.i.a(imMessageCenterPojo);
+                    com.baidu.tieba.im.e.i.a(imMessageCenterPojo);
                     z = this.a.u;
                     if (!z) {
                         SnapGroupChatActivity snapGroupChatActivity = this.a;

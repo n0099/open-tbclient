@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.s;
@@ -106,11 +106,11 @@ public class e extends BaseAdapter implements View.OnClickListener {
         }
         g gVar2 = (g) view.getTag();
         int skinType = TbadkApplication.m252getInst().getSkinType();
-        bc.c(gVar2.b, skinType);
-        bc.c(gVar2.c, skinType);
-        bc.c(gVar2.d, skinType);
-        bc.c(gVar2.e, skinType);
-        bc.c(gVar2.f, skinType);
+        be.c(gVar2.b, skinType);
+        be.c(gVar2.c, skinType);
+        be.c(gVar2.d, skinType);
+        be.c(gVar2.e, skinType);
+        be.c(gVar2.f, skinType);
         if (skinType != 1) {
             gVar2.b.setTextColor(-14277082);
             gVar2.c.setTextColor(-6775644);

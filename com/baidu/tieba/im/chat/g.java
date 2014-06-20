@@ -512,7 +512,7 @@ public abstract class g extends com.baidu.adp.base.c implements com.baidu.tbadk.
     }
 
     private void a(ChatMessage chatMessage) {
-        if (chatMessage != null && !com.baidu.tieba.im.f.r.d(chatMessage)) {
+        if (chatMessage != null && !com.baidu.tieba.im.e.r.d(chatMessage)) {
             String b = b(chatMessage);
             if (!TextUtils.isEmpty(b)) {
                 this.G.setVisibility(0);
@@ -522,7 +522,7 @@ public abstract class g extends com.baidu.adp.base.c implements com.baidu.tbadk.
     }
 
     private String b(ChatMessage chatMessage) {
-        return com.baidu.tieba.im.f.r.i(chatMessage);
+        return com.baidu.tieba.im.e.r.i(chatMessage);
     }
 
     public void u() {

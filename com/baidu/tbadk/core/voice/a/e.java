@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.voice.a;
 
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.util.x;
 import java.io.File;
 /* loaded from: classes.dex */
@@ -14,7 +14,7 @@ public class e {
             dVar.c = 7;
             dVar.d = d.a(dVar.c);
         } else {
-            String a = be.a(x.i(str));
+            String a = bg.a(x.i(str));
             if (a == null) {
                 dVar.c = 5;
                 dVar.d = d.a(dVar.c);

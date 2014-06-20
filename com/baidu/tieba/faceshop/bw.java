@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbConfig;
 public class bw extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
     final /* synthetic */ bv a;
     private int b;
-    private com.baidu.tbadk.core.util.al c;
+    private com.baidu.tbadk.core.util.an c;
     private volatile boolean d;
 
     private bw(bv bvVar) {
@@ -36,7 +36,7 @@ public class bw extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
         this.b = ((Integer) objArr[0]).intValue();
         try {
             if (!this.d) {
-                this.c = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/getpacklist");
+                this.c = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/getpacklist");
                 if (this.b == 1) {
                     this.a.c = 0;
                 } else if (this.b == 2) {
@@ -44,22 +44,22 @@ public class bw extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
                     i = bvVar.c;
                     bvVar.c = i + 1;
                 }
-                com.baidu.tbadk.core.util.al alVar = this.c;
+                com.baidu.tbadk.core.util.an anVar = this.c;
                 i2 = this.a.f;
-                alVar.a("scr_w", String.valueOf(i2));
-                com.baidu.tbadk.core.util.al alVar2 = this.c;
+                anVar.a("scr_w", String.valueOf(i2));
+                com.baidu.tbadk.core.util.an anVar2 = this.c;
                 i3 = this.a.g;
-                alVar2.a("scr_h", String.valueOf(i3));
-                com.baidu.tbadk.core.util.al alVar3 = this.c;
+                anVar2.a("scr_h", String.valueOf(i3));
+                com.baidu.tbadk.core.util.an anVar3 = this.c;
                 f = this.a.h;
-                alVar3.a("scr_dip", String.valueOf(f));
-                com.baidu.tbadk.core.util.al alVar4 = this.c;
+                anVar3.a("scr_dip", String.valueOf(f));
+                com.baidu.tbadk.core.util.an anVar4 = this.c;
                 i4 = this.a.c;
-                alVar4.a("offset", String.valueOf(i4));
+                anVar4.a("offset", String.valueOf(i4));
                 this.c.a("limit", String.valueOf(10));
-                com.baidu.tbadk.core.util.al alVar5 = this.c;
+                com.baidu.tbadk.core.util.an anVar5 = this.c;
                 str = this.a.d;
-                alVar5.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str);
+                anVar5.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str);
                 return (FaceShopData) new GsonBuilder().create().fromJson(this.c.i(), (Class<Object>) FaceShopData.class);
             }
         } catch (Exception e) {

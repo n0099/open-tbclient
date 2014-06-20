@@ -79,7 +79,7 @@ class p extends com.baidu.adp.framework.listener.b {
                     }
                 }
                 cbVar4 = this.a.b;
-                com.baidu.tieba.im.f.i.a(String.valueOf(cbVar4.f().d()));
+                com.baidu.tieba.im.e.i.a(String.valueOf(cbVar4.f().d()));
                 this.a.finish();
             }
         } else if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 106101) {
@@ -107,7 +107,7 @@ class p extends com.baidu.adp.framework.listener.b {
             imMessageCenterPojo.setGroup_name("聊天室");
             imMessageCenterPojo.setIs_delete(0);
             imMessageCenterPojo.setIs_hidden(1);
-            com.baidu.tieba.im.f.i.a(imMessageCenterPojo);
+            com.baidu.tieba.im.e.i.a(imMessageCenterPojo);
             this.a.a(randChatRoomData, false);
             cbVar3 = this.a.b;
             cbVar3.b(randChatRoomData);

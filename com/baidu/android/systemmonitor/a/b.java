@@ -2,11 +2,10 @@ package com.baidu.android.systemmonitor.a;
 
 import android.content.Context;
 import android.os.Process;
-import com.baidu.android.a.l;
-import com.baidu.android.a.n;
-import com.baidu.android.common.net.ProxyHttpClient;
-import com.baidu.android.nebula.cmd.m;
-import com.baidu.android.systemmonitor.freqstatistic.e;
+import com.baidu.android.a.g;
+import com.baidu.android.a.t;
+import com.baidu.android.nebula.cmd.k;
+import com.baidu.android.systemmonitor.util.e;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.http.HttpResponse;
@@ -48,85 +47,89 @@ public class b extends Thread {
         Context context14;
         Process.setThreadPriority(10);
         context = this.b.b;
-        com.baidu.android.nebula.util.d a2 = com.baidu.android.nebula.util.d.a(context);
+        com.baidu.android.nebula.a.d a2 = com.baidu.android.nebula.a.d.a(context);
         context2 = this.b.b;
-        String a3 = a2.a(l.a(context2).a(), false);
+        String a3 = a2.a(t.a(context2).a(), false);
         context3 = this.b.b;
-        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(context3);
+        com.baidu.android.nebula.a.a aVar = new com.baidu.android.nebula.a.a(context3);
         HttpPost httpPost = new HttpPost(a3);
         try {
             a = this.b.a(this.a, this.c);
+            if (a == null) {
+                return;
+            }
             ByteArrayEntity byteArrayEntity = new ByteArrayEntity(a);
             httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded");
             httpPost.setEntity(byteArrayEntity);
-            HttpResponse execute = proxyHttpClient.execute(httpPost);
+            HttpResponse execute = aVar.execute(httpPost);
             if (execute.getStatusLine().getStatusCode() != 200) {
                 Iterator it = this.a.iterator();
                 while (it.hasNext()) {
-                    switch ((n) it.next()) {
+                    switch ((g) it.next()) {
                         case FREQ_STATISTIC:
                             context4 = this.b.b;
-                            e.a(context4).a(false);
+                            com.baidu.android.systemmonitor.freqstatistic.c.a(context4).a(false);
                             break;
                     }
                 }
             } else if (!EntityUtils.toString(execute.getEntity()).equals("ok")) {
                 Iterator it2 = this.a.iterator();
                 while (it2.hasNext()) {
-                    switch ((n) it2.next()) {
+                    switch ((g) it2.next()) {
                         case FREQ_STATISTIC:
                             context5 = this.b.b;
-                            e.a(context5).a(false);
+                            com.baidu.android.systemmonitor.freqstatistic.c.a(context5).a(false);
                             break;
                     }
                 }
             } else {
                 Iterator it3 = this.a.iterator();
                 while (it3.hasNext()) {
-                    switch ((n) it3.next()) {
+                    switch ((g) it3.next()) {
                         case FREQ_STATISTIC:
                             context14 = this.b.b;
-                            e.a(context14).a(true);
+                            com.baidu.android.systemmonitor.freqstatistic.c.a(context14).a(true);
                             break;
                         case APPCHANGE_STATISTIC:
                             context13 = this.b.b;
-                            e.a(context13).g();
+                            com.baidu.android.systemmonitor.freqstatistic.c.a(context13).g();
                             break;
                         case ACTIVE_EVENT:
                             context11 = this.b.b;
-                            com.baidu.android.systemmonitor.c.b.b(context11, true);
+                            e.b(context11, true);
                             context12 = this.b.b;
-                            com.baidu.android.systemmonitor.c.b.a(context12, "");
+                            e.a(context12, "");
                             break;
                         case POWER_EVENT:
                             context10 = this.b.b;
-                            com.baidu.android.systemmonitor.devicestatistic.d.a(context10).b(1, this.c);
+                            com.baidu.android.systemmonitor.devicestatistic.g.a(context10).b(1, this.c);
                             break;
                         case CHARGE_EVENT:
                             context9 = this.b.b;
-                            com.baidu.android.systemmonitor.devicestatistic.d.a(context9).b(2, this.c);
+                            com.baidu.android.systemmonitor.devicestatistic.g.a(context9).b(2, this.c);
                             break;
                         case STORE_INFORMATION:
                             context7 = this.b.b;
-                            com.baidu.android.systemmonitor.devicestatistic.d.a(context7).b(4, this.c);
+                            com.baidu.android.systemmonitor.devicestatistic.g.a(context7).b(4, this.c);
                             break;
                         case NETWORK_EVENT:
                             context8 = this.b.b;
-                            com.baidu.android.systemmonitor.devicestatistic.d.a(context8).b(3, this.c);
+                            com.baidu.android.systemmonitor.devicestatistic.g.a(context8).b(3, this.c);
                             break;
                         case APKDOWNLOAD_EVENT:
                             context6 = this.b.b;
-                            com.baidu.android.systemmonitor.devicestatistic.d.a(context6).b(5, this.c);
+                            com.baidu.android.systemmonitor.devicestatistic.g.a(context6).b(5, this.c);
                             break;
                         case PV_EVENT:
-                            m.a().c();
+                            k.a().c();
+                            k.d();
                             break;
                     }
                 }
             }
         } catch (Exception e) {
         } finally {
-            proxyHttpClient.close();
+            aVar.a();
         }
     }
 }

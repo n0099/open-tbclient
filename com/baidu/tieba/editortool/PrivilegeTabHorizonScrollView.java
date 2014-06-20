@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.widget.TbImageView;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -60,7 +60,7 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1);
         layoutParams.weight = 1.0f;
         this.i.setLayoutParams(layoutParams);
-        bc.f(this.i, com.baidu.tieba.u.bg_expression_bar_n);
+        be.f(this.i, com.baidu.tieba.u.bg_expression_bar_n);
         this.a.addView(this.i);
     }
 
@@ -83,7 +83,7 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
         tbImageView.setPadding(this.g, this.f, this.g, this.f);
         linearLayout.setClickable(true);
         linearLayout.setFocusable(true);
-        bc.c((ImageView) tbImageView, aiVar.b);
+        be.c((ImageView) tbImageView, aiVar.b);
         linearLayout.setOnClickListener(new aj(this, this.a.getChildCount() - 1, null));
         this.a.addView(linearLayout, this.a.getChildCount() - 1, this.e);
         return tbImageView;
@@ -104,7 +104,7 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
             this.b = i;
             LinearLayout linearLayout2 = (LinearLayout) this.a.getChildAt(this.b);
             linearLayout2.setSelected(true);
-            bc.c((ImageView) ((TbImageView) linearLayout2.getChildAt(0)), this.c.get(this.b).c().a);
+            be.c((ImageView) ((TbImageView) linearLayout2.getChildAt(0)), this.c.get(this.b).c().a);
         }
     }
 
@@ -131,9 +131,9 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
                     TbImageView tbImageView = (TbImageView) ((LinearLayout) childAt).getChildAt(0);
                     if (tbImageView != null) {
                         if (i2 == this.b) {
-                            bc.c((ImageView) tbImageView, this.c.get(i2).c().a);
+                            be.c((ImageView) tbImageView, this.c.get(i2).c().a);
                         } else {
-                            bc.c((ImageView) tbImageView, this.c.get(i2).c().b);
+                            be.c((ImageView) tbImageView, this.c.get(i2).c().b);
                         }
                     }
                 } else {

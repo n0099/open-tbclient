@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class o extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ EditHeadActivity a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
 
     private o(EditHeadActivity editHeadActivity) {
         this.a = editHeadActivity;
@@ -32,7 +32,7 @@ public class o extends BdAsyncTask<String, Integer, String> {
     public String doInBackground(String... strArr) {
         String str;
         Exception e;
-        this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_HEAD_MODIFY);
+        this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_HEAD_MODIFY);
         try {
             str = this.b.b(TbConfig.PERSON_HEAD_FILE);
             try {

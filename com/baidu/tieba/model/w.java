@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class w extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ v a;
-    private com.baidu.tbadk.core.util.al b = null;
+    private com.baidu.tbadk.core.util.an b = null;
     private String c;
     private String d;
     private String e;
@@ -38,7 +38,7 @@ public class w extends BdAsyncTask<String, Integer, String> {
         } else {
             str = String.valueOf(str2) + "c/c/bawu/delpost";
         }
-        this.b = new com.baidu.tbadk.core.util.al(str);
+        this.b = new com.baidu.tbadk.core.util.an(str);
         this.b.a("fid", this.c);
         this.b.a("word", this.d);
         this.b.a("z", this.e);

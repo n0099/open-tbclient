@@ -30,7 +30,7 @@ public class x extends BaseAdapter {
     private boolean j = false;
 
     public void a(PersonPostListData personPostListData, com.baidu.tieba.model.av avVar) {
-        a(com.baidu.tbadk.core.util.bf.a().b());
+        a(com.baidu.tbadk.core.util.bh.a().b());
         this.a = personPostListData;
         this.k = avVar;
         if (this.a == null || this.a.post_list == null || this.a.post_list.size() <= 0) {
@@ -45,7 +45,7 @@ public class x extends BaseAdapter {
         this.b = baseFragmentActivity;
         this.e = new com.baidu.tbadk.editortool.ab(baseFragmentActivity);
         this.f = com.baidu.adp.lib.util.k.b(baseFragmentActivity);
-        a(com.baidu.tbadk.core.util.bf.a().b());
+        a(com.baidu.tbadk.core.util.bh.a().b());
     }
 
     @Override // android.widget.Adapter

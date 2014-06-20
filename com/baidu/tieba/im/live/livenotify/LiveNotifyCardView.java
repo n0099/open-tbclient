@@ -11,10 +11,10 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ae;
+import com.baidu.tbadk.core.atomData.ad;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
@@ -168,20 +168,20 @@ public class LiveNotifyCardView extends RelativeLayout {
 
     private void e() {
         this.m.setText(y.live_card_count_down);
-        bc.f((View) this.m, u.bg_live_orange);
+        be.f((View) this.m, u.bg_live_orange);
         this.r = 2;
     }
 
     private void f() {
         this.k.setText(c(this.o));
         this.m.setText(y.live_card_foreshowt);
-        bc.f((View) this.m, u.bg_live_yellow);
+        be.f((View) this.m, u.bg_live_yellow);
         this.r = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ae(this.a, this.p)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ad(this.a, this.p)));
     }
 
     @Override // android.view.ViewGroup, android.view.View

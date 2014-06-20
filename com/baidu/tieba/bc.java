@@ -1,45 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tieba.data.CombineDownload;
+import com.baidu.tieba.data.VersionData;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class bc extends BroadcastReceiver {
-    final /* synthetic */ UpdateDialog this$0;
-
-    private bc(UpdateDialog updateDialog) {
-        this.this$0 = updateDialog;
+public class bc {
+    public static String a() {
+        String str = null;
+        try {
+            String versionName = TbadkApplication.m252getInst().getVersionName();
+            String a = com.baidu.tbadk.core.sharedPref.b.a().a("version_name", "");
+            if (!TextUtils.isEmpty(versionName)) {
+                if (versionName.equals(a)) {
+                    str = com.baidu.tbadk.core.sharedPref.b.a().a("apk_md5", "");
+                } else {
+                    com.baidu.tbadk.core.sharedPref.b.a().b("version_name", versionName);
+                    String aPKMd5 = UtilHelper.getAPKMd5(TbadkApplication.m252getInst().getPackageManager().getPackageInfo(TbadkApplication.m252getInst().getPackageName(), 0));
+                    com.baidu.tbadk.core.sharedPref.b.a().b("apk_md5", aPKMd5);
+                    str = aPKMd5;
+                }
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            BdLog.detailException(e);
+        }
+        return str;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bc(UpdateDialog updateDialog, bc bcVar) {
-        this(updateDialog);
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        ac acVar;
-        ac acVar2;
-        ac acVar3;
-        ac acVar4;
-        if (intent.getBooleanExtra("action_update_complete", false)) {
-            acVar4 = this.this$0.h;
-            acVar4.dismiss();
-            this.this$0.finish();
-        } else if (intent.getBooleanExtra("action_update_progress_interrupted", false)) {
-            acVar3 = this.this$0.h;
-            acVar3.dismiss();
-            this.this$0.showToast(this.this$0.getString(y.update_app_error));
-            this.this$0.finish();
-            this.this$0.b();
-        } else {
-            int intExtra = intent.getIntExtra("action_update_download_progress", 0);
-            acVar = this.this$0.h;
-            if (acVar != null) {
-                acVar2 = this.this$0.h;
-                acVar2.a(intExtra);
+    public static boolean a(PackageManager packageManager) {
+        for (PackageInfo packageInfo : packageManager.getInstalledPackages(8192)) {
+            if (packageInfo != null) {
+                String str = packageInfo.packageName;
+                if (!TextUtils.isEmpty(str) && str.equals("com.baidu.appsearch")) {
+                    return packageInfo.versionCode >= 16782633;
+                }
             }
         }
+        return false;
+    }
+
+    public static boolean a(Context context, CombineDownload combineDownload) {
+        return (combineDownload == null || com.baidu.tieba.util.r.a(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
+    }
+
+    public static void a(Context context, VersionData versionData) {
+        String str = "-1";
+        try {
+            str = UtilHelper.creatSignInt(TbadkApplication.m252getInst().getPackageManager().getPackageInfo(TbadkApplication.m252getInst().getPackageName(), 64));
+        } catch (PackageManager.NameNotFoundException e) {
+            BdLog.detailException(e);
+        } catch (NumberFormatException e2) {
+            BdLog.detailException(e2);
+        }
+        Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+        intent.setFlags(268435488);
+        intent.putExtra("id", TbadkApplication.m252getInst().getPackageName());
+        intent.putExtra("backup", "0");
+        intent.putExtra("func", "11");
+        Bundle bundle = new Bundle();
+        bundle.putInt("versioncode", versionData.getNewVersionCode());
+        bundle.putLong("patch_size", com.baidu.adp.lib.f.b.a(versionData.getPatchSize(), 0L));
+        bundle.putString("patch_url", versionData.getPatch());
+        bundle.putString("sname", context.getString(y.app_name));
+        bundle.putString("packagename", TbadkApplication.m252getInst().getPackageName());
+        bundle.putString("downurl", versionData.getUrl());
+        bundle.putString("versionname", versionData.getNewVersion());
+        bundle.putString("iconurl", versionData.getTiebaIconUrl());
+        bundle.putString("updatetime", bg.d(new Date(System.currentTimeMillis())));
+        bundle.putString("size", versionData.getSize());
+        bundle.putString("signmd5", str);
+        bundle.putString("tj", String.valueOf(str) + context.getString(y.app_name));
+        intent.putExtra("extra_client_downloadinfo", bundle);
+        context.startActivity(intent);
     }
 }

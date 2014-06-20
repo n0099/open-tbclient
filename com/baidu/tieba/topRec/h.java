@@ -14,7 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.s;
 import com.baidu.tieba.u;
@@ -127,10 +127,10 @@ public class h {
 
     public void b(int i) {
         this.a.c(i);
-        bc.b(this.j.findViewById(v.container), i);
-        bc.e((TextView) this.d, i);
-        bc.d((TextView) this.d, i);
-        bc.d(this.m, i);
+        be.b(this.j.findViewById(v.container), i);
+        be.e((TextView) this.d, i);
+        be.d((TextView) this.d, i);
+        be.d(this.m, i);
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             this.c.setDivider(new ColorDrawable(-13881543));
         } else {

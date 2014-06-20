@@ -19,7 +19,7 @@ public class at implements AdapterView.OnItemLongClickListener {
         axVar = this.a.b;
         Object item = axVar.b().getItem(i);
         if (item != null) {
-            com.baidu.tieba.im.f.b.b(this.a, new au(this, (ImMessageCenterShowItemData) item));
+            com.baidu.tieba.im.e.b.b(this.a, new au(this, (ImMessageCenterShowItemData) item));
             return false;
         }
         return false;

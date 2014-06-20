@@ -3,6 +3,7 @@ package com.baidu.tieba.faceshop;
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.resourceLoader.BdResourceLoaderNetHelperStatic;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
@@ -10,21 +11,21 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class p implements com.baidu.adp.lib.resourceLoader.g<com.baidu.adp.widget.a.a> {
-    @Override // com.baidu.adp.lib.resourceLoader.g
+public class p implements com.baidu.adp.lib.resourceLoader.h<com.baidu.adp.widget.a.a> {
+    @Override // com.baidu.adp.lib.resourceLoader.h
     public boolean a() {
-        return com.baidu.tbadk.core.g.a().f();
+        return com.baidu.tbadk.core.h.a().f();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.resourceLoader.g
+    @Override // com.baidu.adp.lib.resourceLoader.h
     /* renamed from: b */
     public com.baidu.adp.widget.a.a a(String str, Object... objArr) {
         return com.baidu.tbadk.imageManager.e.a().c(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.resourceLoader.g
+    @Override // com.baidu.adp.lib.resourceLoader.h
     /* renamed from: b */
     public com.baidu.adp.widget.a.a a(String str, com.baidu.adp.lib.resourceLoader.a aVar, Object... objArr) {
         com.baidu.adp.widget.a.a aVar2;
@@ -80,7 +81,7 @@ public class p implements com.baidu.adp.lib.resourceLoader.g<com.baidu.adp.widge
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.resourceLoader.g
+    @Override // com.baidu.adp.lib.resourceLoader.h
     /* renamed from: b */
     public com.baidu.adp.widget.a.a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.resourceLoader.a aVar, Object... objArr) {
         com.baidu.tbadk.core.util.a.e eVar;
@@ -151,7 +152,7 @@ public class p implements com.baidu.adp.lib.resourceLoader.g<com.baidu.adp.widge
         }
     }
 
-    @Override // com.baidu.adp.lib.resourceLoader.g
+    @Override // com.baidu.adp.lib.resourceLoader.h
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
             com.baidu.tbadk.imageManager.e.a().b(str, (com.baidu.adp.widget.a.a) obj);
@@ -234,6 +235,11 @@ public class p implements com.baidu.adp.lib.resourceLoader.g<com.baidu.adp.widge
             }
             return bitmap;
         }
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.resourceLoader.h
+    public BdAsyncTaskParallel b() {
         return null;
     }
 }

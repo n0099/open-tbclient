@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ag extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.z> {
     final /* synthetic */ af a;
-    private volatile com.baidu.tbadk.core.util.al b;
+    private volatile com.baidu.tbadk.core.util.an b;
 
     private ag(af afVar) {
         this.a = afVar;
@@ -36,26 +36,26 @@ public class ag extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.z> {
         String str9;
         String str10;
         try {
-            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/like");
+            this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/like");
             StringBuilder sb = new StringBuilder("mForumName:");
             str = this.a.a;
             StringBuilder append = sb.append(str).append(" mForumid:");
             str2 = this.a.b;
             BdLog.d("LikeModel", "doInBackground", append.append(str2).toString());
-            com.baidu.tbadk.core.util.al alVar = this.b;
+            com.baidu.tbadk.core.util.an anVar = this.b;
             str3 = this.a.a;
-            alVar.a("kw", str3);
-            com.baidu.tbadk.core.util.al alVar2 = this.b;
+            anVar.a("kw", str3);
+            com.baidu.tbadk.core.util.an anVar2 = this.b;
             str4 = this.a.b;
-            alVar2.a("fid", str4);
-            com.baidu.tbadk.core.util.al alVar3 = this.b;
+            anVar2.a("fid", str4);
+            com.baidu.tbadk.core.util.an anVar3 = this.b;
             str5 = this.a.e;
-            alVar3.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str5);
+            anVar3.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str5);
             str6 = this.a.c;
             if (!TextUtils.isEmpty(str6)) {
-                com.baidu.tbadk.core.util.al alVar4 = this.b;
+                com.baidu.tbadk.core.util.an anVar4 = this.b;
                 str10 = this.a.c;
-                alVar4.a("pagefrom", str10);
+                anVar4.a("pagefrom", str10);
             }
             this.b.a().a().a = true;
             String i = this.b.i();

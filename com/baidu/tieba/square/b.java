@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, h, h> {
     final /* synthetic */ BarFolderFirstDirActivity a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
 
     private b(BarFolderFirstDirActivity barFolderFirstDirActivity) {
         this.a = barFolderFirstDirActivity;
@@ -56,13 +56,13 @@ public class b extends BdAsyncTask<Object, h, h> {
             if (!a.equals("")) {
                 hVar.b(a);
                 publishProgress(hVar);
-                this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumdir");
+                this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumdir");
                 str = this.a.g;
                 if (str != null) {
-                    com.baidu.tbadk.core.util.al alVar = this.b;
+                    com.baidu.tbadk.core.util.an anVar = this.b;
                     String str3 = BarFolderFirstDirActivity.c;
                     str2 = this.a.g;
-                    alVar.a(str3, str2);
+                    anVar.a(str3, str2);
                 }
                 String i = this.b.i();
                 if (!this.b.a().b().b()) {
@@ -81,7 +81,7 @@ public class b extends BdAsyncTask<Object, h, h> {
             }
         }
         z = false;
-        this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumdir");
+        this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumdir");
         str = this.a.g;
         if (str != null) {
         }

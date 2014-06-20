@@ -14699,163 +14699,163 @@ public final class R {
         /* JADX INFO: Added by JADX */
         public static final int ds1008 = 0x7f070499;
         /* JADX INFO: Added by JADX */
-        public static final int guide_page_forth_raido_height = 0x7f07049a;
+        public static final int browser_tabwindow_height = 0x7f07049a;
         /* JADX INFO: Added by JADX */
-        public static final int browser_tabwindow_height = 0x7f07049b;
+        public static final int browser_float_searchbox_height = 0x7f07049b;
         /* JADX INFO: Added by JADX */
-        public static final int browser_float_searchbox_height = 0x7f07049c;
+        public static final int browser_browser_float_searchbox_shadow = 0x7f07049c;
         /* JADX INFO: Added by JADX */
-        public static final int browser_browser_float_searchbox_shadow = 0x7f07049d;
+        public static final int browser_bottom_toolbar_height = 0x7f07049d;
         /* JADX INFO: Added by JADX */
-        public static final int browser_bottom_toolbar_height = 0x7f07049e;
+        public static final int browser_progress_bar_height = 0x7f07049e;
         /* JADX INFO: Added by JADX */
-        public static final int browser_progress_bar_height = 0x7f07049f;
+        public static final int browser_checkmark_area = 0x7f07049f;
         /* JADX INFO: Added by JADX */
-        public static final int browser_checkmark_area = 0x7f0704a0;
+        public static final int browser_about_margin_vertical = 0x7f0704a0;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_margin_vertical = 0x7f0704a1;
+        public static final int browser_about_margin_horizontal = 0x7f0704a1;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_margin_horizontal = 0x7f0704a2;
+        public static final int browser_workspace_dot_margin = 0x7f0704a2;
         /* JADX INFO: Added by JADX */
-        public static final int browser_workspace_dot_margin = 0x7f0704a3;
+        public static final int browser_addview_height = 0x7f0704a3;
         /* JADX INFO: Added by JADX */
-        public static final int browser_addview_height = 0x7f0704a4;
+        public static final int browser_addview_top_margin = 0x7f0704a4;
         /* JADX INFO: Added by JADX */
-        public static final int browser_addview_top_margin = 0x7f0704a5;
+        public static final int browser_stop_loading_icon_size = 0x7f0704a5;
         /* JADX INFO: Added by JADX */
-        public static final int browser_stop_loading_icon_size = 0x7f0704a6;
+        public static final int browser_clear_content_icon_size = 0x7f0704a6;
         /* JADX INFO: Added by JADX */
-        public static final int browser_clear_content_icon_size = 0x7f0704a7;
+        public static final int browser_stop_loading_icon_margin_right = 0x7f0704a7;
         /* JADX INFO: Added by JADX */
-        public static final int browser_stop_loading_icon_margin_right = 0x7f0704a8;
+        public static final int browser_clear_content_icon_size_right = 0x7f0704a8;
         /* JADX INFO: Added by JADX */
-        public static final int browser_clear_content_icon_size_right = 0x7f0704a9;
+        public static final int browser_popup_window_padding = 0x7f0704a9;
         /* JADX INFO: Added by JADX */
-        public static final int browser_popup_window_padding = 0x7f0704aa;
+        public static final int browser_newding_pop_in_home_top = 0x7f0704aa;
         /* JADX INFO: Added by JADX */
-        public static final int browser_newding_pop_in_home_top = 0x7f0704ab;
+        public static final int browser_newding_pop_in_home_right = 0x7f0704ab;
         /* JADX INFO: Added by JADX */
-        public static final int browser_newding_pop_in_home_right = 0x7f0704ac;
+        public static final int browser_newding_pop_in_manager_top = 0x7f0704ac;
         /* JADX INFO: Added by JADX */
-        public static final int browser_newding_pop_in_manager_top = 0x7f0704ad;
+        public static final int newding_pop_in_manager_right = 0x7f0704ad;
         /* JADX INFO: Added by JADX */
-        public static final int newding_pop_in_manager_right = 0x7f0704ae;
+        public static final int browser_digital_clock_time_margin_top = 0x7f0704ae;
         /* JADX INFO: Added by JADX */
-        public static final int browser_digital_clock_time_margin_top = 0x7f0704af;
+        public static final int browser_digital_clock_time_margin_left = 0x7f0704af;
         /* JADX INFO: Added by JADX */
-        public static final int browser_digital_clock_time_margin_left = 0x7f0704b0;
+        public static final int browser_digital_clock_time_margin_right = 0x7f0704b0;
         /* JADX INFO: Added by JADX */
-        public static final int browser_digital_clock_time_margin_right = 0x7f0704b1;
+        public static final int browser_digital_clock_time_divider_top = 0x7f0704b1;
         /* JADX INFO: Added by JADX */
-        public static final int browser_digital_clock_time_divider_top = 0x7f0704b2;
+        public static final int browser_digital_clock_time_width = 0x7f0704b2;
         /* JADX INFO: Added by JADX */
-        public static final int browser_digital_clock_time_width = 0x7f0704b3;
+        public static final int browser_digital_clock_time_height = 0x7f0704b3;
         /* JADX INFO: Added by JADX */
-        public static final int browser_digital_clock_time_height = 0x7f0704b4;
+        public static final int browser_digital_clock_time_height_half = 0x7f0704b4;
         /* JADX INFO: Added by JADX */
-        public static final int browser_digital_clock_time_height_half = 0x7f0704b5;
+        public static final int browser_digital_clock_time_textsize = 0x7f0704b5;
         /* JADX INFO: Added by JADX */
-        public static final int browser_digital_clock_time_textsize = 0x7f0704b6;
+        public static final int browser_digital_clock_time_textoffset = 0x7f0704b6;
         /* JADX INFO: Added by JADX */
-        public static final int browser_digital_clock_time_textoffset = 0x7f0704b7;
+        public static final int browser_ding_manager_item_single_padding_left = 0x7f0704b7;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ding_manager_item_single_padding_left = 0x7f0704b8;
+        public static final int browser_about_product_more = 0x7f0704b8;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_product_more = 0x7f0704b9;
+        public static final int browser__progress_bar_height = 0x7f0704b9;
         /* JADX INFO: Added by JADX */
-        public static final int browser__progress_bar_height = 0x7f0704ba;
+        public static final int browser_wv_select_popwindow_width = 0x7f0704ba;
         /* JADX INFO: Added by JADX */
-        public static final int browser_wv_select_popwindow_width = 0x7f0704bb;
+        public static final int browser_wv_select_popwindow_height = 0x7f0704bb;
         /* JADX INFO: Added by JADX */
-        public static final int browser_wv_select_popwindow_height = 0x7f0704bc;
+        public static final int browser_context_menu_item_height = 0x7f0704bc;
         /* JADX INFO: Added by JADX */
-        public static final int browser_context_menu_item_height = 0x7f0704bd;
+        public static final int browser_context_menu_item_tv_font_size = 0x7f0704bd;
         /* JADX INFO: Added by JADX */
-        public static final int browser_context_menu_item_tv_font_size = 0x7f0704be;
+        public static final int browser_wv_select_popwindow_position = 0x7f0704be;
         /* JADX INFO: Added by JADX */
-        public static final int browser_wv_select_popwindow_position = 0x7f0704bf;
+        public static final int browser_ad_browser_tip = 0x7f0704bf;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ad_browser_tip = 0x7f0704c0;
+        public static final int browser_ad_browser_tip_ok = 0x7f0704c0;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ad_browser_tip_ok = 0x7f0704c1;
+        public static final int browser_ad_browser_tip_cancel = 0x7f0704c1;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ad_browser_tip_cancel = 0x7f0704c2;
+        public static final int square_search_view_width = 0x7f0704c2;
         /* JADX INFO: Added by JADX */
-        public static final int square_search_view_width = 0x7f0704c3;
+        public static final int square_search_line_divider = 0x7f0704c3;
         /* JADX INFO: Added by JADX */
-        public static final int square_search_line_divider = 0x7f0704c4;
+        public static final int square_search_line_divider_2 = 0x7f0704c4;
         /* JADX INFO: Added by JADX */
-        public static final int square_search_line_divider_2 = 0x7f0704c5;
+        public static final int daily_recommend_line = 0x7f0704c5;
         /* JADX INFO: Added by JADX */
-        public static final int daily_recommend_line = 0x7f0704c6;
+        public static final int fontSize_superSmall = 0x7f0704c6;
         /* JADX INFO: Added by JADX */
-        public static final int fontSize_superSmall = 0x7f0704c7;
+        public static final int fontSize_small = 0x7f0704c7;
         /* JADX INFO: Added by JADX */
-        public static final int fontSize_small = 0x7f0704c8;
+        public static final int fontSize_middle = 0x7f0704c8;
         /* JADX INFO: Added by JADX */
-        public static final int fontSize_middle = 0x7f0704c9;
+        public static final int fontSize_big = 0x7f0704c9;
         /* JADX INFO: Added by JADX */
-        public static final int fontSize_big = 0x7f0704ca;
+        public static final int fontSize_superBig = 0x7f0704ca;
         /* JADX INFO: Added by JADX */
-        public static final int fontSize_superBig = 0x7f0704cb;
+        public static final int fontSize_hugeBig = 0x7f0704cb;
         /* JADX INFO: Added by JADX */
-        public static final int fontSize_hugeBig = 0x7f0704cc;
+        public static final int search_box_margin = 0x7f0704cc;
         /* JADX INFO: Added by JADX */
-        public static final int search_box_margin = 0x7f0704cd;
+        public static final int fontSize_middleBig = 0x7f0704cd;
         /* JADX INFO: Added by JADX */
-        public static final int fontSize_middleBig = 0x7f0704ce;
+        public static final int fontSize_moreBig = 0x7f0704ce;
         /* JADX INFO: Added by JADX */
-        public static final int fontSize_moreBig = 0x7f0704cf;
+        public static final int fontSize_middleHugeBig = 0x7f0704cf;
         /* JADX INFO: Added by JADX */
-        public static final int fontSize_middleHugeBig = 0x7f0704d0;
+        public static final int floating_fontSize_life = 0x7f0704d0;
         /* JADX INFO: Added by JADX */
-        public static final int floating_fontSize_life = 0x7f0704d1;
+        public static final int floating_weather_fontSize = 0x7f0704d1;
         /* JADX INFO: Added by JADX */
-        public static final int floating_weather_fontSize = 0x7f0704d2;
+        public static final int floating_weather_fontSize_middle = 0x7f0704d2;
         /* JADX INFO: Added by JADX */
-        public static final int floating_weather_fontSize_middle = 0x7f0704d3;
+        public static final int floating_weather_text_button_padding = 0x7f0704d3;
         /* JADX INFO: Added by JADX */
-        public static final int floating_weather_text_button_padding = 0x7f0704d4;
+        public static final int floating_weather_date_size = 0x7f0704d4;
         /* JADX INFO: Added by JADX */
-        public static final int floating_weather_date_size = 0x7f0704d5;
+        public static final int floating_famous_icon_size = 0x7f0704d5;
         /* JADX INFO: Added by JADX */
-        public static final int floating_famous_icon_size = 0x7f0704d6;
+        public static final int floating_indicator_padding = 0x7f0704d6;
         /* JADX INFO: Added by JADX */
-        public static final int floating_indicator_padding = 0x7f0704d7;
+        public static final int floating_width_y = 0x7f0704d7;
         /* JADX INFO: Added by JADX */
-        public static final int floating_width_y = 0x7f0704d8;
+        public static final int floating_mybar_item_padding_left = 0x7f0704d8;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_item_padding_left = 0x7f0704d9;
+        public static final int floating_mybar_item_signin_margin_right = 0x7f0704d9;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_item_signin_margin_right = 0x7f0704da;
+        public static final int floating_mybar_item_level_padding_top = 0x7f0704da;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_item_level_padding_top = 0x7f0704db;
+        public static final int floating_mybar_login_button_height = 0x7f0704db;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_login_button_height = 0x7f0704dc;
+        public static final int floating_mybar_login_button_width = 0x7f0704dc;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_login_button_width = 0x7f0704dd;
+        public static final int floating_mybar_login_button_margin_top = 0x7f0704dd;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_login_button_margin_top = 0x7f0704de;
+        public static final int floating_mybar_empty_view_margin_left = 0x7f0704de;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_empty_view_margin_left = 0x7f0704df;
+        public static final int floating_mybar_empty_text_line_spacing = 0x7f0704df;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_empty_text_line_spacing = 0x7f0704e0;
+        public static final int floating_mybar_empty_go_button_width = 0x7f0704e0;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_empty_go_button_width = 0x7f0704e1;
+        public static final int floating_mybar_empty_go_button_margin_top = 0x7f0704e1;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_empty_go_button_margin_top = 0x7f0704e2;
+        public static final int floating_mybar_empty_go_button_margin_left = 0x7f0704e2;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_empty_go_button_margin_left = 0x7f0704e3;
+        public static final int floating_mybar_gridview_margin_left = 0x7f0704e3;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_gridview_margin_left = 0x7f0704e4;
+        public static final int floating_mybar_gridview_vertical_spacing = 0x7f0704e4;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_gridview_vertical_spacing = 0x7f0704e5;
+        public static final int floating_weather_pm_size = 0x7f0704e5;
         /* JADX INFO: Added by JADX */
-        public static final int floating_weather_pm_size = 0x7f0704e6;
+        public static final int floating_weather_pm_info_size = 0x7f0704e6;
         /* JADX INFO: Added by JADX */
-        public static final int floating_weather_pm_info_size = 0x7f0704e7;
+        public static final int floating_web_guide_bottom = 0x7f0704e7;
         /* JADX INFO: Added by JADX */
-        public static final int floating_web_guide_bottom = 0x7f0704e8;
+        public static final int guide_page_forth_raido_height = 0x7f0704e8;
     }
 
     /* JADX INFO: Added by JADX */
@@ -15855,3597 +15855,3597 @@ public final class R {
         /* JADX INFO: Added by JADX */
         public static final int tb_err_play_no_stream = 0x7f0801f0;
         /* JADX INFO: Added by JADX */
-        public static final int double_back_quit = 0x7f0801f1;
+        public static final int members_order_login_time_short = 0x7f0801f1;
         /* JADX INFO: Added by JADX */
-        public static final int login_home_tab = 0x7f0801f2;
+        public static final int members_order_join_time_short = 0x7f0801f2;
         /* JADX INFO: Added by JADX */
-        public static final int guide_page_first_tip_1 = 0x7f0801f3;
+        public static final int members_order_speak_time_short = 0x7f0801f3;
         /* JADX INFO: Added by JADX */
-        public static final int guide_page_first_tip_2 = 0x7f0801f4;
+        public static final int members_order_speak_time = 0x7f0801f4;
         /* JADX INFO: Added by JADX */
-        public static final int guide_page_second_tip_1 = 0x7f0801f5;
+        public static final int members_order_join_time = 0x7f0801f5;
         /* JADX INFO: Added by JADX */
-        public static final int guide_page_second_tip_2 = 0x7f0801f6;
+        public static final int members_order_login_time = 0x7f0801f6;
         /* JADX INFO: Added by JADX */
-        public static final int guide_page_third_btn = 0x7f0801f7;
+        public static final int group_create_lbs_tips_3 = 0x7f0801f7;
         /* JADX INFO: Added by JADX */
-        public static final int guide_page_forth_text = 0x7f0801f8;
+        public static final int group_create_lbs_tips_2 = 0x7f0801f8;
         /* JADX INFO: Added by JADX */
-        public static final int members_order_login_time_short = 0x7f0801f9;
+        public static final int group_create_lbs_tips_1 = 0x7f0801f9;
         /* JADX INFO: Added by JADX */
-        public static final int members_order_join_time_short = 0x7f0801fa;
+        public static final int log_msg_voice = 0x7f0801fa;
         /* JADX INFO: Added by JADX */
-        public static final int members_order_speak_time_short = 0x7f0801fb;
+        public static final int chat_custom_text = 0x7f0801fb;
         /* JADX INFO: Added by JADX */
-        public static final int members_order_speak_time = 0x7f0801fc;
+        public static final int frsgroup_official_create_group = 0x7f0801fc;
         /* JADX INFO: Added by JADX */
-        public static final int members_order_join_time = 0x7f0801fd;
+        public static final int group_is_dismiss = 0x7f0801fd;
         /* JADX INFO: Added by JADX */
-        public static final int members_order_login_time = 0x7f0801fe;
+        public static final int live_group_is_dismiss = 0x7f0801fe;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_lbs_tips_3 = 0x7f0801ff;
+        public static final int group_address_hide = 0x7f0801ff;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_lbs_tips_2 = 0x7f080200;
+        public static final int group_info_enter_chat = 0x7f080200;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_lbs_tips_1 = 0x7f080201;
+        public static final int group_create = 0x7f080201;
         /* JADX INFO: Added by JADX */
-        public static final int log_msg_voice = 0x7f080202;
+        public static final int rand_chat_waiting_wait_time_second = 0x7f080202;
         /* JADX INFO: Added by JADX */
-        public static final int chat_custom_text = 0x7f080203;
+        public static final int black_list_title = 0x7f080203;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_official_create_group = 0x7f080204;
+        public static final int is_group_meizi_icon = 0x7f080204;
         /* JADX INFO: Added by JADX */
-        public static final int group_is_dismiss = 0x7f080205;
+        public static final int frsgroup_office_no_tip1_leaguer = 0x7f080205;
         /* JADX INFO: Added by JADX */
-        public static final int live_group_is_dismiss = 0x7f080206;
+        public static final int rand_chat_waiting_other_enter_success = 0x7f080206;
         /* JADX INFO: Added by JADX */
-        public static final int group_address_hide = 0x7f080207;
+        public static final int log_msg_text = 0x7f080207;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_enter_chat = 0x7f080208;
+        public static final int morning = 0x7f080208;
         /* JADX INFO: Added by JADX */
-        public static final int group_create = 0x7f080209;
+        public static final int official_message_activity_title = 0x7f080209;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_wait_time_second = 0x7f08020a;
+        public static final int official_msg_list_name = 0x7f08020a;
         /* JADX INFO: Added by JADX */
-        public static final int black_list_title = 0x7f08020b;
+        public static final int group_update_fail = 0x7f08020b;
         /* JADX INFO: Added by JADX */
-        public static final int is_group_meizi_icon = 0x7f08020c;
+        public static final int group_create_step2_hint = 0x7f08020c;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_office_no_tip1_leaguer = 0x7f08020d;
+        public static final int validate_im_btn_passed = 0x7f08020d;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_other_enter_success = 0x7f08020e;
+        public static final int chat_input = 0x7f08020e;
         /* JADX INFO: Added by JADX */
-        public static final int log_msg_text = 0x7f08020f;
+        public static final int msglist_cancel_send_voice = 0x7f08020f;
         /* JADX INFO: Added by JADX */
-        public static final int morning = 0x7f080210;
+        public static final int group_activity_create_btntext = 0x7f080210;
         /* JADX INFO: Added by JADX */
-        public static final int official_message_activity_title = 0x7f080211;
+        public static final int frsgroup_create = 0x7f080211;
         /* JADX INFO: Added by JADX */
-        public static final int official_msg_list_name = 0x7f080212;
+        public static final int group_activity = 0x7f080212;
         /* JADX INFO: Added by JADX */
-        public static final int group_update_fail = 0x7f080213;
+        public static final int rand_chat_waiting_quit_yes = 0x7f080213;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step2_hint = 0x7f080214;
+        public static final int group_join_limit_str3 = 0x7f080214;
         /* JADX INFO: Added by JADX */
-        public static final int validate_im_btn_passed = 0x7f080215;
+        public static final int group_tab_living_btn = 0x7f080215;
         /* JADX INFO: Added by JADX */
-        public static final int chat_input = 0x7f080216;
+        public static final int group_join_limit_str1 = 0x7f080216;
         /* JADX INFO: Added by JADX */
-        public static final int msglist_cancel_send_voice = 0x7f080217;
+        public static final int group_join_limit_str5 = 0x7f080217;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_create_btntext = 0x7f080218;
+        public static final int group_card_name = 0x7f080218;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_create = 0x7f080219;
+        public static final int frsgroup_hot_create_group = 0x7f080219;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity = 0x7f08021a;
+        public static final int group_address_edit = 0x7f08021a;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_quit_yes = 0x7f08021b;
+        public static final int group_activity_delete = 0x7f08021b;
         /* JADX INFO: Added by JADX */
-        public static final int group_join_limit_str3 = 0x7f08021c;
+        public static final int snap_group_chat_quit_confirm_tip_cancel = 0x7f08021c;
         /* JADX INFO: Added by JADX */
-        public static final int group_tab_living_btn = 0x7f08021d;
+        public static final int group_update_success = 0x7f08021d;
         /* JADX INFO: Added by JADX */
-        public static final int group_join_limit_str1 = 0x7f08021e;
+        public static final int group_update_info = 0x7f08021e;
         /* JADX INFO: Added by JADX */
-        public static final int group_join_limit_str5 = 0x7f08021f;
+        public static final int frsgroup_hot_cannot_refresh_tip = 0x7f08021f;
         /* JADX INFO: Added by JADX */
-        public static final int group_card_name = 0x7f080220;
+        public static final int snap_group_chat_rule = 0x7f080220;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_hot_create_group = 0x7f080221;
+        public static final int group_delete_txt = 0x7f080221;
         /* JADX INFO: Added by JADX */
-        public static final int group_address_edit = 0x7f080222;
+        public static final int frsgroup_load_more = 0x7f080222;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_delete = 0x7f080223;
+        public static final int live_load_more = 0x7f080223;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_quit_confirm_tip_cancel = 0x7f080224;
+        public static final int msglist_officialInfo = 0x7f080224;
         /* JADX INFO: Added by JADX */
-        public static final int group_update_success = 0x7f080225;
+        public static final int rand_chat_waiting_remain_wait = 0x7f080225;
         /* JADX INFO: Added by JADX */
-        public static final int group_update_info = 0x7f080226;
+        public static final int group_tab_enterchatroom_freeze = 0x7f080226;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_hot_cannot_refresh_tip = 0x7f080227;
+        public static final int egg_breaker_tip_tdou_name = 0x7f080227;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_rule = 0x7f080228;
+        public static final int group_apply_send = 0x7f080228;
         /* JADX INFO: Added by JADX */
-        public static final int group_delete_txt = 0x7f080229;
+        public static final int group_open_receiver = 0x7f080229;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_load_more = 0x7f08022a;
+        public static final int group_create_group1 = 0x7f08022a;
         /* JADX INFO: Added by JADX */
-        public static final int live_load_more = 0x7f08022b;
+        public static final int group_create_group2 = 0x7f08022b;
         /* JADX INFO: Added by JADX */
-        public static final int msglist_officialInfo = 0x7f08022c;
+        public static final int has_recent_join = 0x7f08022c;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_remain_wait = 0x7f08022d;
+        public static final int group_setting = 0x7f08022d;
         /* JADX INFO: Added by JADX */
-        public static final int group_tab_enterchatroom_freeze = 0x7f08022e;
+        public static final int delete_user_chat = 0x7f08022e;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_tdou_name = 0x7f08022f;
+        public static final int i_want_talk = 0x7f08022f;
         /* JADX INFO: Added by JADX */
-        public static final int group_apply_send = 0x7f080230;
+        public static final int group_activity_create_place_tip = 0x7f080230;
         /* JADX INFO: Added by JADX */
-        public static final int group_open_receiver = 0x7f080231;
+        public static final int rand_chat_waiting_quit = 0x7f080231;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_group1 = 0x7f080232;
+        public static final int members_order = 0x7f080232;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_group2 = 0x7f080233;
+        public static final int chat_custom_default_text = 0x7f080233;
         /* JADX INFO: Added by JADX */
-        public static final int has_recent_join = 0x7f080234;
+        public static final int add_black_alert = 0x7f080234;
         /* JADX INFO: Added by JADX */
-        public static final int group_setting = 0x7f080235;
+        public static final int group_create_group1_tip = 0x7f080235;
         /* JADX INFO: Added by JADX */
-        public static final int delete_user_chat = 0x7f080236;
+        public static final int nearby_group_gps_close = 0x7f080236;
         /* JADX INFO: Added by JADX */
-        public static final int i_want_talk = 0x7f080237;
+        public static final int group_info_activity_finish = 0x7f080237;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_create_place_tip = 0x7f080238;
+        public static final int snap_group_chat_silence_warning = 0x7f080238;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_quit = 0x7f080239;
+        public static final int address_locate_failed_tryagain = 0x7f080239;
         /* JADX INFO: Added by JADX */
-        public static final int members_order = 0x7f08023a;
+        public static final int group_info_create_activity = 0x7f08023a;
         /* JADX INFO: Added by JADX */
-        public static final int chat_custom_default_text = 0x7f08023b;
+        public static final int validate_im_btn_pass = 0x7f08023b;
         /* JADX INFO: Added by JADX */
-        public static final int add_black_alert = 0x7f08023c;
+        public static final int snap_group_chat_remaining = 0x7f08023c;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_group1_tip = 0x7f08023d;
+        public static final int add_attention = 0x7f08023d;
         /* JADX INFO: Added by JADX */
-        public static final int nearby_group_gps_close = 0x7f08023e;
+        public static final int group_activity_delete_tip_lay = 0x7f08023e;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_activity_finish = 0x7f08023f;
+        public static final int group_info_activity_doing = 0x7f08023f;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_silence_warning = 0x7f080240;
+        public static final int egg_breaker_tip_badge_name = 0x7f080240;
         /* JADX INFO: Added by JADX */
-        public static final int address_locate_failed_tryagain = 0x7f080241;
+        public static final int upgrade_mem_group_over_max_num = 0x7f080241;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_create_activity = 0x7f080242;
+        public static final int is_group_recently_reply = 0x7f080242;
         /* JADX INFO: Added by JADX */
-        public static final int validate_im_btn_pass = 0x7f080243;
+        public static final int rand_chat_waiting_wait_time_no2 = 0x7f080243;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_remaining = 0x7f080244;
+        public static final int rand_chat_waiting_wait_time_no1 = 0x7f080244;
         /* JADX INFO: Added by JADX */
-        public static final int add_attention = 0x7f080245;
+        public static final int egg_breaker_tip_real_button = 0x7f080245;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_delete_tip_lay = 0x7f080246;
+        public static final int group_apply_join = 0x7f080246;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_activity_doing = 0x7f080247;
+        public static final int group_is_kicked = 0x7f080247;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_badge_name = 0x7f080248;
+        public static final int rand_chat_waiting_wait = 0x7f080248;
         /* JADX INFO: Added by JADX */
-        public static final int upgrade_mem_group_over_max_num = 0x7f080249;
+        public static final int group_report_txt = 0x7f080249;
         /* JADX INFO: Added by JADX */
-        public static final int is_group_recently_reply = 0x7f08024a;
+        public static final int grouplevel_level_2 = 0x7f08024a;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_wait_time_no2 = 0x7f08024b;
+        public static final int msglist_groupinfo = 0x7f08024b;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_wait_time_no1 = 0x7f08024c;
+        public static final int grouplevel_level_1 = 0x7f08024c;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_real_button = 0x7f08024d;
+        public static final int grouplevel_level_3 = 0x7f08024d;
         /* JADX INFO: Added by JADX */
-        public static final int group_apply_join = 0x7f08024e;
+        public static final int egg_breaker_tip_isee = 0x7f08024e;
         /* JADX INFO: Added by JADX */
-        public static final int group_is_kicked = 0x7f08024f;
+        public static final int group_info_activity_not_join_tip = 0x7f08024f;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_wait = 0x7f080250;
+        public static final int frsgroup_no_more = 0x7f080250;
         /* JADX INFO: Added by JADX */
-        public static final int group_report_txt = 0x7f080251;
+        public static final int snap_group_chat_quit_confirm_tip = 0x7f080251;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_level_2 = 0x7f080252;
+        public static final int group_activity_time_val = 0x7f080252;
         /* JADX INFO: Added by JADX */
-        public static final int msglist_groupinfo = 0x7f080253;
+        public static final int grouplevel_highest_grade = 0x7f080253;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_level_1 = 0x7f080254;
+        public static final int invite_friend = 0x7f080254;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_level_3 = 0x7f080255;
+        public static final int rand_chat_waiting_change_dialog = 0x7f080255;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_isee = 0x7f080256;
+        public static final int snap_group_chat_float_tip = 0x7f080256;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_activity_not_join_tip = 0x7f080257;
+        public static final int last_msg_pic = 0x7f080257;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_no_more = 0x7f080258;
+        public static final int group_create_step_photo = 0x7f080258;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_quit_confirm_tip = 0x7f080259;
+        public static final int cash_del_suc = 0x7f080259;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_time_val = 0x7f08025a;
+        public static final int black_list_no_data_text = 0x7f08025a;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_highest_grade = 0x7f08025b;
+        public static final int address_locate_noaddresslist = 0x7f08025b;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend = 0x7f08025c;
+        public static final int group_info_member = 0x7f08025c;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_change_dialog = 0x7f08025d;
+        public static final int group_info_address_hide = 0x7f08025d;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_float_tip = 0x7f08025e;
+        public static final int log_msg_pic = 0x7f08025e;
         /* JADX INFO: Added by JADX */
-        public static final int last_msg_pic = 0x7f08025f;
+        public static final int egg_breaker_tip = 0x7f08025f;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step_photo = 0x7f080260;
+        public static final int egg_breaker_tip_magic_egg_name = 0x7f080260;
         /* JADX INFO: Added by JADX */
-        public static final int cash_del_suc = 0x7f080261;
+        public static final int members_edit = 0x7f080261;
         /* JADX INFO: Added by JADX */
-        public static final int black_list_no_data_text = 0x7f080262;
+        public static final int nearby_group_gps_error = 0x7f080262;
         /* JADX INFO: Added by JADX */
-        public static final int address_locate_noaddresslist = 0x7f080263;
+        public static final int talk_detail = 0x7f080263;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_member = 0x7f080264;
+        public static final int validate_im_reason_prefix = 0x7f080264;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_address_hide = 0x7f080265;
+        public static final int grouplevel_current_level = 0x7f080265;
         /* JADX INFO: Added by JADX */
-        public static final int log_msg_pic = 0x7f080266;
+        public static final int mem_count = 0x7f080266;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip = 0x7f080267;
+        public static final int group_create_success = 0x7f080267;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_magic_egg_name = 0x7f080268;
+        public static final int egg_breaker_tip_emotion_button = 0x7f080268;
         /* JADX INFO: Added by JADX */
-        public static final int members_edit = 0x7f080269;
+        public static final int group_create_step_share_tip = 0x7f080269;
         /* JADX INFO: Added by JADX */
-        public static final int nearby_group_gps_error = 0x7f08026a;
+        public static final int group_activity_create = 0x7f08026a;
         /* JADX INFO: Added by JADX */
-        public static final int talk_detail = 0x7f08026b;
+        public static final int grouplevel_active_day = 0x7f08026b;
         /* JADX INFO: Added by JADX */
-        public static final int validate_im_reason_prefix = 0x7f08026c;
+        public static final int search_group_text = 0x7f08026c;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_current_level = 0x7f08026d;
+        public static final int no_recent_chat = 0x7f08026d;
         /* JADX INFO: Added by JADX */
-        public static final int mem_count = 0x7f08026e;
+        public static final int group_create_step_address = 0x7f08026e;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_success = 0x7f08026f;
+        public static final int group_info_activity = 0x7f08026f;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_emotion_button = 0x7f080270;
+        public static final int group_card_save_success = 0x7f080270;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step_share_tip = 0x7f080271;
+        public static final int group_info_invite = 0x7f080271;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_create = 0x7f080272;
+        public static final int add_group_title_second = 0x7f080272;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_active_day = 0x7f080273;
+        public static final int black_address_list_text = 0x7f080273;
         /* JADX INFO: Added by JADX */
-        public static final int search_group_text = 0x7f080274;
+        public static final int loading_view_ready = 0x7f080274;
         /* JADX INFO: Added by JADX */
-        public static final int no_recent_chat = 0x7f080275;
+        public static final int group_activity_end = 0x7f080275;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step_address = 0x7f080276;
+        public static final int members_delete_num = 0x7f080276;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_activity = 0x7f080277;
+        public static final int validate_im_apply_prefix = 0x7f080277;
         /* JADX INFO: Added by JADX */
-        public static final int group_card_save_success = 0x7f080278;
+        public static final int seven = 0x7f080278;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_invite = 0x7f080279;
+        public static final int clear_person_talk_history = 0x7f080279;
         /* JADX INFO: Added by JADX */
-        public static final int add_group_title_second = 0x7f08027a;
+        public static final int group_portrait_cant_del = 0x7f08027a;
         /* JADX INFO: Added by JADX */
-        public static final int black_address_list_text = 0x7f08027b;
+        public static final int remove_personal_history = 0x7f08027b;
         /* JADX INFO: Added by JADX */
-        public static final int loading_view_ready = 0x7f08027c;
+        public static final int rand_chat_waiting_title = 0x7f08027c;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_end = 0x7f08027d;
+        public static final int join_group = 0x7f08027d;
         /* JADX INFO: Added by JADX */
-        public static final int members_delete_num = 0x7f08027e;
+        public static final int upgrade_mem_group_cannot_up = 0x7f08027e;
         /* JADX INFO: Added by JADX */
-        public static final int validate_im_apply_prefix = 0x7f08027f;
+        public static final int group_dismiss_success = 0x7f08027f;
         /* JADX INFO: Added by JADX */
-        public static final int seven = 0x7f080280;
+        public static final int not_login_text = 0x7f080280;
         /* JADX INFO: Added by JADX */
-        public static final int clear_person_talk_history = 0x7f080281;
+        public static final int rand_chat_waiting_button_change = 0x7f080281;
         /* JADX INFO: Added by JADX */
-        public static final int group_portrait_cant_del = 0x7f080282;
+        public static final int updates_activity_title = 0x7f080282;
         /* JADX INFO: Added by JADX */
-        public static final int remove_personal_history = 0x7f080283;
+        public static final int group_apply_succ = 0x7f080283;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_title = 0x7f080284;
+        public static final int msglist_voice_tooshort = 0x7f080284;
         /* JADX INFO: Added by JADX */
-        public static final int join_group = 0x7f080285;
+        public static final int group_address_hide_hint = 0x7f080285;
         /* JADX INFO: Added by JADX */
-        public static final int upgrade_mem_group_cannot_up = 0x7f080286;
+        public static final int rand_chat_waiting_update_topic = 0x7f080286;
         /* JADX INFO: Added by JADX */
-        public static final int group_dismiss_success = 0x7f080287;
+        public static final int is_group_manager_icon = 0x7f080287;
         /* JADX INFO: Added by JADX */
-        public static final int not_login_text = 0x7f080288;
+        public static final int group_create_modify_photo_tip = 0x7f080288;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_button_change = 0x7f080289;
+        public static final int del_post = 0x7f080289;
         /* JADX INFO: Added by JADX */
-        public static final int updates_activity_title = 0x7f08028a;
+        public static final int group_info_share = 0x7f08028a;
         /* JADX INFO: Added by JADX */
-        public static final int group_apply_succ = 0x7f08028b;
+        public static final int msg_at = 0x7f08028b;
         /* JADX INFO: Added by JADX */
-        public static final int msglist_voice_tooshort = 0x7f08028c;
+        public static final int group_info_place = 0x7f08028c;
         /* JADX INFO: Added by JADX */
-        public static final int group_address_hide_hint = 0x7f08028d;
+        public static final int group_quit_alert = 0x7f08028d;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_update_topic = 0x7f08028e;
+        public static final int group_dismiss = 0x7f08028e;
         /* JADX INFO: Added by JADX */
-        public static final int is_group_manager_icon = 0x7f08028f;
+        public static final int group_msg_notify = 0x7f08028f;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_modify_photo_tip = 0x7f080290;
+        public static final int cancel_attention = 0x7f080290;
         /* JADX INFO: Added by JADX */
-        public static final int del_post = 0x7f080291;
+        public static final int group_quit = 0x7f080291;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_share = 0x7f080292;
+        public static final int msglist_personInfo = 0x7f080292;
         /* JADX INFO: Added by JADX */
-        public static final int msg_at = 0x7f080293;
+        public static final int snap_group_chat_times_up = 0x7f080293;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_place = 0x7f080294;
+        public static final int rand_chat_waiting_first_enter_success = 0x7f080294;
         /* JADX INFO: Added by JADX */
-        public static final int group_quit_alert = 0x7f080295;
+        public static final int group_updates = 0x7f080295;
         /* JADX INFO: Added by JADX */
-        public static final int group_dismiss = 0x7f080296;
+        public static final int rand_chat_waiting_quit_no = 0x7f080296;
         /* JADX INFO: Added by JADX */
-        public static final int group_msg_notify = 0x7f080297;
+        public static final int group_update_name = 0x7f080297;
         /* JADX INFO: Added by JADX */
-        public static final int cancel_attention = 0x7f080298;
+        public static final int group_activity_edit_title = 0x7f080298;
         /* JADX INFO: Added by JADX */
-        public static final int group_quit = 0x7f080299;
+        public static final int copy_success = 0x7f080299;
         /* JADX INFO: Added by JADX */
-        public static final int msglist_personInfo = 0x7f08029a;
+        public static final int group_info_number = 0x7f08029a;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_times_up = 0x7f08029b;
+        public static final int group_report_lllegal = 0x7f08029b;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_first_enter_success = 0x7f08029c;
+        public static final int copy_group_number = 0x7f08029c;
         /* JADX INFO: Added by JADX */
-        public static final int group_updates = 0x7f08029d;
+        public static final int group_create_step4_hint = 0x7f08029d;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_quit_no = 0x7f08029e;
+        public static final int group_tab_mygroup = 0x7f08029e;
         /* JADX INFO: Added by JADX */
-        public static final int group_update_name = 0x7f08029f;
+        public static final int group_info_join = 0x7f08029f;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_edit_title = 0x7f0802a0;
+        public static final int group_tab_addgroup = 0x7f0802a0;
         /* JADX INFO: Added by JADX */
-        public static final int copy_success = 0x7f0802a1;
+        public static final int grouplevel_vip_current_level = 0x7f0802a1;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_number = 0x7f0802a2;
+        public static final int members_dialog_remove_more_message = 0x7f0802a2;
         /* JADX INFO: Added by JADX */
-        public static final int group_report_lllegal = 0x7f0802a3;
+        public static final int can_upgrade_mem_group = 0x7f0802a3;
         /* JADX INFO: Added by JADX */
-        public static final int copy_group_number = 0x7f0802a4;
+        public static final int upgrade_mem_group_left_num = 0x7f0802a4;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step4_hint = 0x7f0802a5;
+        public static final int upgrade_mem_group = 0x7f0802a5;
         /* JADX INFO: Added by JADX */
-        public static final int group_tab_mygroup = 0x7f0802a6;
+        public static final int snap_group_chat_change_group_limit_tip = 0x7f0802a6;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_join = 0x7f0802a7;
+        public static final int add_group_title_main = 0x7f0802a7;
         /* JADX INFO: Added by JADX */
-        public static final int group_tab_addgroup = 0x7f0802a8;
+        public static final int group_create_step_intro = 0x7f0802a8;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_vip_current_level = 0x7f0802a9;
+        public static final int group_create_step3_hint = 0x7f0802a9;
         /* JADX INFO: Added by JADX */
-        public static final int members_dialog_remove_more_message = 0x7f0802aa;
+        public static final int group_add_group_switch = 0x7f0802aa;
         /* JADX INFO: Added by JADX */
-        public static final int can_upgrade_mem_group = 0x7f0802ab;
+        public static final int address_locate_failed_opengps = 0x7f0802ab;
         /* JADX INFO: Added by JADX */
-        public static final int upgrade_mem_group_left_num = 0x7f0802ac;
+        public static final int validate_fail = 0x7f0802ac;
         /* JADX INFO: Added by JADX */
-        public static final int upgrade_mem_group = 0x7f0802ad;
+        public static final int group_address_show = 0x7f0802ad;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_change_group_limit_tip = 0x7f0802ae;
+        public static final int group_create_step_tip = 0x7f0802ae;
         /* JADX INFO: Added by JADX */
-        public static final int add_group_title_main = 0x7f0802af;
+        public static final int group_create_fail = 0x7f0802af;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step_intro = 0x7f0802b0;
+        public static final int group_create_tips_lbs = 0x7f0802b0;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step3_hint = 0x7f0802b1;
+        public static final int address_locating = 0x7f0802b1;
         /* JADX INFO: Added by JADX */
-        public static final int group_add_group_switch = 0x7f0802b2;
+        public static final int my_group = 0x7f0802b2;
         /* JADX INFO: Added by JADX */
-        public static final int address_locate_failed_opengps = 0x7f0802b3;
+        public static final int group_report_sex = 0x7f0802b3;
         /* JADX INFO: Added by JADX */
-        public static final int validate_fail = 0x7f0802b4;
+        public static final int address_pos_list = 0x7f0802b4;
         /* JADX INFO: Added by JADX */
-        public static final int group_address_show = 0x7f0802b5;
+        public static final int six = 0x7f0802b5;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step_tip = 0x7f0802b6;
+        public static final int group_title_find_group = 0x7f0802b6;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_fail = 0x7f0802b7;
+        public static final int rand_chat_waiting_ready_chat = 0x7f0802b7;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_tips_lbs = 0x7f0802b8;
+        public static final int grouplevel_active_day_value = 0x7f0802b8;
         /* JADX INFO: Added by JADX */
-        public static final int address_locating = 0x7f0802b9;
+        public static final int group_info_grade = 0x7f0802b9;
         /* JADX INFO: Added by JADX */
-        public static final int my_group = 0x7f0802ba;
+        public static final int grouplevel_title = 0x7f0802ba;
         /* JADX INFO: Added by JADX */
-        public static final int group_report_sex = 0x7f0802bb;
+        public static final int add_succ = 0x7f0802bb;
         /* JADX INFO: Added by JADX */
-        public static final int address_pos_list = 0x7f0802bc;
+        public static final int frsgroup_office_no_tip2_leaguer = 0x7f0802bc;
         /* JADX INFO: Added by JADX */
-        public static final int six = 0x7f0802bd;
+        public static final int members_title = 0x7f0802bd;
         /* JADX INFO: Added by JADX */
-        public static final int group_title_find_group = 0x7f0802be;
+        public static final int group_create_step2_tip = 0x7f0802be;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_ready_chat = 0x7f0802bf;
+        public static final int hot_group = 0x7f0802bf;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_active_day_value = 0x7f0802c0;
+        public static final int last_msg_invite = 0x7f0802c0;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_grade = 0x7f0802c1;
+        public static final int members_load_more_person = 0x7f0802c1;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_title = 0x7f0802c2;
+        public static final int snap_group_chat_change_group = 0x7f0802c2;
         /* JADX INFO: Added by JADX */
-        public static final int add_succ = 0x7f0802c3;
+        public static final int del_count = 0x7f0802c3;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_office_no_tip2_leaguer = 0x7f0802c4;
+        public static final int rand_chat_waiting_drop_down_tip = 0x7f0802c4;
         /* JADX INFO: Added by JADX */
-        public static final int members_title = 0x7f0802c5;
+        public static final int group_activity_creator = 0x7f0802c5;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step2_tip = 0x7f0802c6;
+        public static final int msg_delete = 0x7f0802c6;
         /* JADX INFO: Added by JADX */
-        public static final int hot_group = 0x7f0802c7;
+        public static final int msg_mute = 0x7f0802c7;
         /* JADX INFO: Added by JADX */
-        public static final int last_msg_invite = 0x7f0802c8;
+        public static final int im_share_content = 0x7f0802c8;
         /* JADX INFO: Added by JADX */
-        public static final int members_load_more_person = 0x7f0802c9;
+        public static final int im_live_share_content = 0x7f0802c9;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_change_group = 0x7f0802ca;
+        public static final int snap_group_chat_exit = 0x7f0802ca;
         /* JADX INFO: Added by JADX */
-        public static final int del_count = 0x7f0802cb;
+        public static final int group_info_photo_modify = 0x7f0802cb;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_drop_down_tip = 0x7f0802cc;
+        public static final int rand_chat_waiting_button_quit = 0x7f0802cc;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_creator = 0x7f0802cd;
+        public static final int group_activity_delete_succ = 0x7f0802cd;
         /* JADX INFO: Added by JADX */
-        public static final int msg_delete = 0x7f0802ce;
+        public static final int i_want_attent = 0x7f0802ce;
         /* JADX INFO: Added by JADX */
-        public static final int msg_mute = 0x7f0802cf;
+        public static final int last_msg_voice = 0x7f0802cf;
         /* JADX INFO: Added by JADX */
-        public static final int im_share_content = 0x7f0802d0;
+        public static final int last_msg_pic_text = 0x7f0802d0;
         /* JADX INFO: Added by JADX */
-        public static final int im_live_share_content = 0x7f0802d1;
+        public static final int group_apply_edit_hint = 0x7f0802d1;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_exit = 0x7f0802d2;
+        public static final int validate_im_apply_prefix1 = 0x7f0802d2;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_photo_modify = 0x7f0802d3;
+        public static final int five = 0x7f0802d3;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_button_quit = 0x7f0802d4;
+        public static final int group_report_fail = 0x7f0802d4;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_delete_succ = 0x7f0802d5;
+        public static final int egg_breaker_tip_retroactive_tip_down = 0x7f0802d5;
         /* JADX INFO: Added by JADX */
-        public static final int i_want_attent = 0x7f0802d6;
+        public static final int am = 0x7f0802d6;
         /* JADX INFO: Added by JADX */
-        public static final int last_msg_voice = 0x7f0802d7;
+        public static final int nearby_group_title = 0x7f0802d7;
         /* JADX INFO: Added by JADX */
-        public static final int last_msg_pic_text = 0x7f0802d8;
+        public static final int group_step_info_error = 0x7f0802d8;
         /* JADX INFO: Added by JADX */
-        public static final int group_apply_edit_hint = 0x7f0802d9;
+        public static final int group_info_intro = 0x7f0802d9;
         /* JADX INFO: Added by JADX */
-        public static final int validate_im_apply_prefix1 = 0x7f0802da;
+        public static final int group_activity_create_quit = 0x7f0802da;
         /* JADX INFO: Added by JADX */
-        public static final int five = 0x7f0802db;
+        public static final int add_group_max = 0x7f0802db;
         /* JADX INFO: Added by JADX */
-        public static final int group_report_fail = 0x7f0802dc;
+        public static final int invite_friend_no_data_now = 0x7f0802dc;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_retroactive_tip_down = 0x7f0802dd;
+        public static final int send_msg = 0x7f0802dd;
         /* JADX INFO: Added by JADX */
-        public static final int am = 0x7f0802de;
+        public static final int msg_resend = 0x7f0802de;
         /* JADX INFO: Added by JADX */
-        public static final int nearby_group_title = 0x7f0802df;
+        public static final int pm = 0x7f0802df;
         /* JADX INFO: Added by JADX */
-        public static final int group_step_info_error = 0x7f0802e0;
+        public static final int copy_group_introduction = 0x7f0802e0;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_intro = 0x7f0802e1;
+        public static final int egg_breaker_tip_emotion_tip_down = 0x7f0802e1;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_create_quit = 0x7f0802e2;
+        public static final int group_create_step1_hint = 0x7f0802e2;
         /* JADX INFO: Added by JADX */
-        public static final int add_group_max = 0x7f0802e3;
+        public static final int tv_word_count = 0x7f0802e3;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_no_data_now = 0x7f0802e4;
+        public static final int group_activity_edit_succ = 0x7f0802e4;
         /* JADX INFO: Added by JADX */
-        public static final int send_msg = 0x7f0802e5;
+        public static final int members_cancel = 0x7f0802e5;
         /* JADX INFO: Added by JADX */
-        public static final int msg_resend = 0x7f0802e6;
+        public static final int frsgroup_hot = 0x7f0802e6;
         /* JADX INFO: Added by JADX */
-        public static final int pm = 0x7f0802e7;
+        public static final int in_black_desc_2 = 0x7f0802e7;
         /* JADX INFO: Added by JADX */
-        public static final int copy_group_introduction = 0x7f0802e8;
+        public static final int in_black_desc_1 = 0x7f0802e8;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_emotion_tip_down = 0x7f0802e9;
+        public static final int group_apply_fail = 0x7f0802e9;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step1_hint = 0x7f0802ea;
+        public static final int group_create_step1_tip = 0x7f0802ea;
         /* JADX INFO: Added by JADX */
-        public static final int tv_word_count = 0x7f0802eb;
+        public static final int groupid_error = 0x7f0802eb;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_edit_succ = 0x7f0802ec;
+        public static final int rand_chat_waiting_quit_loading = 0x7f0802ec;
         /* JADX INFO: Added by JADX */
-        public static final int members_cancel = 0x7f0802ed;
+        public static final int rand_chat_waiting_wait_time_minute = 0x7f0802ed;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_hot = 0x7f0802ee;
+        public static final int group_activity_edit_quit = 0x7f0802ee;
         /* JADX INFO: Added by JADX */
-        public static final int in_black_desc_2 = 0x7f0802ef;
+        public static final int please_input_groupid = 0x7f0802ef;
         /* JADX INFO: Added by JADX */
-        public static final int in_black_desc_1 = 0x7f0802f0;
+        public static final int egg_breaker_tip_retroactive_name = 0x7f0802f0;
         /* JADX INFO: Added by JADX */
-        public static final int group_apply_fail = 0x7f0802f1;
+        public static final int group_add_group_switch_success = 0x7f0802f1;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step1_tip = 0x7f0802f2;
+        public static final int group_dismiss_alert = 0x7f0802f2;
         /* JADX INFO: Added by JADX */
-        public static final int groupid_error = 0x7f0802f3;
+        public static final int cannot_find_location = 0x7f0802f3;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_quit_loading = 0x7f0802f4;
+        public static final int group_activity_delete_tip = 0x7f0802f4;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_wait_time_minute = 0x7f0802f5;
+        public static final int frsgroup_office_no_tip1_owner = 0x7f0802f5;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_edit_quit = 0x7f0802f6;
+        public static final int msglist_push_talk = 0x7f0802f6;
         /* JADX INFO: Added by JADX */
-        public static final int please_input_groupid = 0x7f0802f7;
+        public static final int group_activity_create_succ = 0x7f0802f7;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_retroactive_name = 0x7f0802f8;
+        public static final int char_settings = 0x7f0802f8;
         /* JADX INFO: Added by JADX */
-        public static final int group_add_group_switch_success = 0x7f0802f9;
+        public static final int black_list_remove_text = 0x7f0802f9;
         /* JADX INFO: Added by JADX */
-        public static final int group_dismiss_alert = 0x7f0802fa;
+        public static final int person_notify = 0x7f0802fa;
         /* JADX INFO: Added by JADX */
-        public static final int cannot_find_location = 0x7f0802fb;
+        public static final int group_create_step3_tip = 0x7f0802fb;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_delete_tip = 0x7f0802fc;
+        public static final int group_close_receiver = 0x7f0802fc;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_office_no_tip1_owner = 0x7f0802fd;
+        public static final int secretSetting_title = 0x7f0802fd;
         /* JADX INFO: Added by JADX */
-        public static final int msglist_push_talk = 0x7f0802fe;
+        public static final int nearby_group_no_more = 0x7f0802fe;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_create_succ = 0x7f0802ff;
+        public static final int is_group_new_create = 0x7f0802ff;
         /* JADX INFO: Added by JADX */
-        public static final int char_settings = 0x7f080300;
+        public static final int group_activity_eidt = 0x7f080300;
         /* JADX INFO: Added by JADX */
-        public static final int black_list_remove_text = 0x7f080301;
+        public static final int group_report_success = 0x7f080301;
         /* JADX INFO: Added by JADX */
-        public static final int person_notify = 0x7f080302;
+        public static final int members_no_person = 0x7f080302;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step3_tip = 0x7f080303;
+        public static final int group_address_success = 0x7f080303;
         /* JADX INFO: Added by JADX */
-        public static final int group_close_receiver = 0x7f080304;
+        public static final int frsgroup_recommend = 0x7f080304;
         /* JADX INFO: Added by JADX */
-        public static final int secretSetting_title = 0x7f080305;
+        public static final int egg_breaker_tip_emotion_name = 0x7f080305;
         /* JADX INFO: Added by JADX */
-        public static final int nearby_group_no_more = 0x7f080306;
+        public static final int grouplevel_level_normal = 0x7f080306;
         /* JADX INFO: Added by JADX */
-        public static final int is_group_new_create = 0x7f080307;
+        public static final int it = 0x7f080307;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_eidt = 0x7f080308;
+        public static final int afternoon = 0x7f080308;
         /* JADX INFO: Added by JADX */
-        public static final int group_report_success = 0x7f080309;
+        public static final int nearby_group_gps_no_data = 0x7f080309;
         /* JADX INFO: Added by JADX */
-        public static final int members_no_person = 0x7f08030a;
+        public static final int two = 0x7f08030a;
         /* JADX INFO: Added by JADX */
-        public static final int group_address_success = 0x7f08030b;
+        public static final int search_group_by_id = 0x7f08030b;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_recommend = 0x7f08030c;
+        public static final int grouplevel_level_condition = 0x7f08030c;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_emotion_name = 0x7f08030d;
+        public static final int chat_permisson = 0x7f08030d;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_level_normal = 0x7f08030e;
+        public static final int members_dialog_remove_one_message = 0x7f08030e;
         /* JADX INFO: Added by JADX */
-        public static final int it = 0x7f08030f;
+        public static final int alert_clear_cache_group = 0x7f08030f;
         /* JADX INFO: Added by JADX */
-        public static final int afternoon = 0x7f080310;
+        public static final int group_address_option = 0x7f080310;
         /* JADX INFO: Added by JADX */
-        public static final int nearby_group_gps_no_data = 0x7f080311;
+        public static final int group_report = 0x7f080311;
         /* JADX INFO: Added by JADX */
-        public static final int two = 0x7f080312;
+        public static final int grouplevel_level_intro = 0x7f080312;
         /* JADX INFO: Added by JADX */
-        public static final int search_group_by_id = 0x7f080313;
+        public static final int group_update_canel = 0x7f080313;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_level_condition = 0x7f080314;
+        public static final int group_report_ad = 0x7f080314;
         /* JADX INFO: Added by JADX */
-        public static final int chat_permisson = 0x7f080315;
+        public static final int frsgroup_no_recommend_tip = 0x7f080315;
         /* JADX INFO: Added by JADX */
-        public static final int members_dialog_remove_one_message = 0x7f080316;
+        public static final int operate_copy = 0x7f080316;
         /* JADX INFO: Added by JADX */
-        public static final int alert_clear_cache_group = 0x7f080317;
+        public static final int search_group_id = 0x7f080317;
         /* JADX INFO: Added by JADX */
-        public static final int group_address_option = 0x7f080318;
+        public static final int add_group_toast_noresult = 0x7f080318;
         /* JADX INFO: Added by JADX */
-        public static final int group_report = 0x7f080319;
+        public static final int group_info_photo_add = 0x7f080319;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_level_intro = 0x7f08031a;
+        public static final int frsgroup_no_hot_tip = 0x7f08031a;
         /* JADX INFO: Added by JADX */
-        public static final int group_update_canel = 0x7f08031b;
+        public static final int group_card_save = 0x7f08031b;
         /* JADX INFO: Added by JADX */
-        public static final int group_report_ad = 0x7f08031c;
+        public static final int validate_succ = 0x7f08031c;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_no_recommend_tip = 0x7f08031d;
+        public static final int group_quit_suc = 0x7f08031d;
         /* JADX INFO: Added by JADX */
-        public static final int operate_copy = 0x7f08031e;
+        public static final int snap_group_chat_kick_out_by_silence = 0x7f08031e;
         /* JADX INFO: Added by JADX */
-        public static final int search_group_id = 0x7f08031f;
+        public static final int snap_group_chat_change_confirm_tip = 0x7f08031f;
         /* JADX INFO: Added by JADX */
-        public static final int add_group_toast_noresult = 0x7f080320;
+        public static final int nearby_group_setting = 0x7f080320;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_photo_add = 0x7f080321;
+        public static final int msglist_voice_cancel = 0x7f080321;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_no_hot_tip = 0x7f080322;
+        public static final int egg_breaker_tip_magic_egg_tip_down = 0x7f080322;
         /* JADX INFO: Added by JADX */
-        public static final int group_card_save = 0x7f080323;
+        public static final int text_no_search_record_ground = 0x7f080323;
         /* JADX INFO: Added by JADX */
-        public static final int validate_succ = 0x7f080324;
+        public static final int agree = 0x7f080324;
         /* JADX INFO: Added by JADX */
-        public static final int group_quit_suc = 0x7f080325;
+        public static final int kick_out_myself = 0x7f080325;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_kick_out_by_silence = 0x7f080326;
+        public static final int count300 = 0x7f080326;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_change_confirm_tip = 0x7f080327;
+        public static final int group_create_can_create_num = 0x7f080327;
         /* JADX INFO: Added by JADX */
-        public static final int nearby_group_setting = 0x7f080328;
+        public static final int group_info_author = 0x7f080328;
         /* JADX INFO: Added by JADX */
-        public static final int msglist_voice_cancel = 0x7f080329;
+        public static final int im_share_title = 0x7f080329;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_magic_egg_tip_down = 0x7f08032a;
+        public static final int join_group_myself = 0x7f08032a;
         /* JADX INFO: Added by JADX */
-        public static final int text_no_search_record_ground = 0x7f08032b;
+        public static final int chat_default_title = 0x7f08032b;
         /* JADX INFO: Added by JADX */
-        public static final int agree = 0x7f08032c;
+        public static final int has_set_portrait = 0x7f08032c;
         /* JADX INFO: Added by JADX */
-        public static final int kick_out_myself = 0x7f08032d;
+        public static final int group_info_set_portrait = 0x7f08032d;
         /* JADX INFO: Added by JADX */
-        public static final int count300 = 0x7f08032e;
+        public static final int group_create_normal_tips_2 = 0x7f08032e;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_can_create_num = 0x7f08032f;
+        public static final int group_update_done = 0x7f08032f;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_author = 0x7f080330;
+        public static final int group_create_normal_tips_3 = 0x7f080330;
         /* JADX INFO: Added by JADX */
-        public static final int im_share_title = 0x7f080331;
+        public static final int group_create_group2_tip = 0x7f080331;
         /* JADX INFO: Added by JADX */
-        public static final int join_group_myself = 0x7f080332;
+        public static final int snap_group_chat_finished = 0x7f080332;
         /* JADX INFO: Added by JADX */
-        public static final int chat_default_title = 0x7f080333;
+        public static final int group_info_notice = 0x7f080333;
         /* JADX INFO: Added by JADX */
-        public static final int has_set_portrait = 0x7f080334;
+        public static final int snap_group_chat_quit_confirm_tip_ok = 0x7f080334;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_set_portrait = 0x7f080335;
+        public static final int snap_group_chat_chatting = 0x7f080335;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_normal_tips_2 = 0x7f080336;
+        public static final int four = 0x7f080336;
         /* JADX INFO: Added by JADX */
-        public static final int group_update_done = 0x7f080337;
+        public static final int members_delete_success = 0x7f080337;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_normal_tips_3 = 0x7f080338;
+        public static final int group_create_step_name = 0x7f080338;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_group2_tip = 0x7f080339;
+        public static final int grouplevel_level_member = 0x7f080339;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_finished = 0x7f08033a;
+        public static final int group_create_number = 0x7f08033a;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_notice = 0x7f08033b;
+        public static final int group_info_forum = 0x7f08033b;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_quit_confirm_tip_ok = 0x7f08033c;
+        public static final int upgrade_mem_group_if_up = 0x7f08033c;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_chatting = 0x7f08033d;
+        public static final int group_info_name = 0x7f08033d;
         /* JADX INFO: Added by JADX */
-        public static final int four = 0x7f08033e;
+        public static final int group_create_share = 0x7f08033e;
         /* JADX INFO: Added by JADX */
-        public static final int members_delete_success = 0x7f08033f;
+        public static final int msglist_no_push = 0x7f08033f;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step_name = 0x7f080340;
+        public static final int valicate = 0x7f080340;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_level_member = 0x7f080341;
+        public static final int chat_room_topic = 0x7f080341;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_number = 0x7f080342;
+        public static final int group_create_name = 0x7f080342;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_forum = 0x7f080343;
+        public static final int group_activity_create_name_tip = 0x7f080343;
         /* JADX INFO: Added by JADX */
-        public static final int upgrade_mem_group_if_up = 0x7f080344;
+        public static final int websocket_type = 0x7f080344;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_name = 0x7f080345;
+        public static final int disagree = 0x7f080345;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_share = 0x7f080346;
+        public static final int only_send_me = 0x7f080346;
         /* JADX INFO: Added by JADX */
-        public static final int msglist_no_push = 0x7f080347;
+        public static final int msg_img_save = 0x7f080347;
         /* JADX INFO: Added by JADX */
-        public static final int valicate = 0x7f080348;
+        public static final int group_create_tips_normal = 0x7f080348;
         /* JADX INFO: Added by JADX */
-        public static final int chat_room_topic = 0x7f080349;
+        public static final int forum_not_like_tip = 0x7f080349;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_name = 0x7f08034a;
+        public static final int group_update_alert_save = 0x7f08034a;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_create_name_tip = 0x7f08034b;
+        public static final int group_create_step_done_tip = 0x7f08034b;
         /* JADX INFO: Added by JADX */
-        public static final int websocket_type = 0x7f08034c;
+        public static final int updates_activity_del_limit = 0x7f08034c;
         /* JADX INFO: Added by JADX */
-        public static final int disagree = 0x7f08034d;
+        public static final int group_create_normal_tips_1 = 0x7f08034d;
         /* JADX INFO: Added by JADX */
-        public static final int only_send_me = 0x7f08034e;
+        public static final int egg_breaker_tip_isee_tip = 0x7f08034e;
         /* JADX INFO: Added by JADX */
-        public static final int msg_img_save = 0x7f08034f;
+        public static final int chat_select = 0x7f08034f;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_tips_normal = 0x7f080350;
+        public static final int group_card_error = 0x7f080350;
         /* JADX INFO: Added by JADX */
-        public static final int forum_not_like_tip = 0x7f080351;
+        public static final int group_my_name = 0x7f080351;
         /* JADX INFO: Added by JADX */
-        public static final int group_update_alert_save = 0x7f080352;
+        public static final int group_step_name_error = 0x7f080352;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step_done_tip = 0x7f080353;
+        public static final int group_info_forum_author = 0x7f080353;
         /* JADX INFO: Added by JADX */
-        public static final int updates_activity_del_limit = 0x7f080354;
+        public static final int group_card_share = 0x7f080354;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_normal_tips_1 = 0x7f080355;
+        public static final int group_info_refuse_join = 0x7f080355;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_isee_tip = 0x7f080356;
+        public static final int group_tab_creategroup = 0x7f080356;
         /* JADX INFO: Added by JADX */
-        public static final int chat_select = 0x7f080357;
+        public static final int remove_succ = 0x7f080357;
         /* JADX INFO: Added by JADX */
-        public static final int group_card_error = 0x7f080358;
+        public static final int official_message_activity_no_data = 0x7f080358;
         /* JADX INFO: Added by JADX */
-        public static final int group_my_name = 0x7f080359;
+        public static final int three = 0x7f080359;
         /* JADX INFO: Added by JADX */
-        public static final int group_step_name_error = 0x7f08035a;
+        public static final int group_info_activity_guide_toast1 = 0x7f08035a;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_forum_author = 0x7f08035b;
+        public static final int group_info_activity_guide_toast2 = 0x7f08035b;
         /* JADX INFO: Added by JADX */
-        public static final int group_card_share = 0x7f08035c;
+        public static final int group_tab_enterchatroom_loading = 0x7f08035c;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_refuse_join = 0x7f08035d;
+        public static final int group_tab_hotgroup = 0x7f08035d;
         /* JADX INFO: Added by JADX */
-        public static final int group_tab_creategroup = 0x7f08035e;
+        public static final int group_activity_create_content_tip = 0x7f08035e;
         /* JADX INFO: Added by JADX */
-        public static final int remove_succ = 0x7f08035f;
+        public static final int one = 0x7f08035f;
         /* JADX INFO: Added by JADX */
-        public static final int official_message_activity_no_data = 0x7f080360;
+        public static final int egg_breaker_tip_real_title = 0x7f080360;
         /* JADX INFO: Added by JADX */
-        public static final int three = 0x7f080361;
+        public static final int address_current_pos = 0x7f080361;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_activity_guide_toast1 = 0x7f080362;
+        public static final int frsgroup_official = 0x7f080362;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_activity_guide_toast2 = 0x7f080363;
+        public static final int members_no_speak = 0x7f080363;
         /* JADX INFO: Added by JADX */
-        public static final int group_tab_enterchatroom_loading = 0x7f080364;
+        public static final int chat_default_tip = 0x7f080364;
         /* JADX INFO: Added by JADX */
-        public static final int group_tab_hotgroup = 0x7f080365;
+        public static final int rand_chat_waiting_net_error = 0x7f080365;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_create_content_tip = 0x7f080366;
+        public static final int members_no_more_person = 0x7f080366;
         /* JADX INFO: Added by JADX */
-        public static final int one = 0x7f080367;
+        public static final int rand_chat_waiting_quit_message = 0x7f080367;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_real_title = 0x7f080368;
+        public static final int editor_mutiiamge_drag_tip = 0x7f080368;
         /* JADX INFO: Added by JADX */
-        public static final int address_current_pos = 0x7f080369;
+        public static final int group_join_limit_remind = 0x7f080369;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_official = 0x7f08036a;
+        public static final int officical_bar_info_title = 0x7f08036a;
         /* JADX INFO: Added by JADX */
-        public static final int members_no_speak = 0x7f08036b;
+        public static final int officical_bar_info_authen = 0x7f08036b;
         /* JADX INFO: Added by JADX */
-        public static final int chat_default_tip = 0x7f08036c;
+        public static final int officical_bar_info_notify = 0x7f08036c;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_net_error = 0x7f08036d;
+        public static final int officical_bar_info_history = 0x7f08036d;
         /* JADX INFO: Added by JADX */
-        public static final int members_no_more_person = 0x7f08036e;
+        public static final int officical_bar_info_clean = 0x7f08036e;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_quit_message = 0x7f08036f;
+        public static final int officical_bar_info_clean_alert = 0x7f08036f;
         /* JADX INFO: Added by JADX */
-        public static final int editor_mutiiamge_drag_tip = 0x7f080370;
+        public static final int visit = 0x7f080370;
         /* JADX INFO: Added by JADX */
-        public static final int group_join_limit_remind = 0x7f080371;
+        public static final int read_all = 0x7f080371;
         /* JADX INFO: Added by JADX */
-        public static final int officical_bar_info_title = 0x7f080372;
+        public static final int official_fake_message = 0x7f080372;
         /* JADX INFO: Added by JADX */
-        public static final int officical_bar_info_authen = 0x7f080373;
+        public static final int official_msg_pre = 0x7f080373;
         /* JADX INFO: Added by JADX */
-        public static final int officical_bar_info_notify = 0x7f080374;
+        public static final int action_settings = 0x7f080374;
         /* JADX INFO: Added by JADX */
-        public static final int officical_bar_info_history = 0x7f080375;
+        public static final int liveroomhometip = 0x7f080375;
         /* JADX INFO: Added by JADX */
-        public static final int officical_bar_info_clean = 0x7f080376;
+        public static final int liveroom = 0x7f080376;
         /* JADX INFO: Added by JADX */
-        public static final int officical_bar_info_clean_alert = 0x7f080377;
+        public static final int liveroomforcasttip = 0x7f080377;
         /* JADX INFO: Added by JADX */
-        public static final int visit = 0x7f080378;
+        public static final int liveroomhomenametip = 0x7f080378;
         /* JADX INFO: Added by JADX */
-        public static final int read_all = 0x7f080379;
+        public static final int liveroomhomestarttip = 0x7f080379;
         /* JADX INFO: Added by JADX */
-        public static final int official_fake_message = 0x7f08037a;
+        public static final int live_chat_room_note = 0x7f08037a;
         /* JADX INFO: Added by JADX */
-        public static final int official_msg_pre = 0x7f08037b;
+        public static final int live_chat_room_forcast_note = 0x7f08037b;
         /* JADX INFO: Added by JADX */
-        public static final int action_settings = 0x7f08037c;
+        public static final int live_chat_room_more_livenotify = 0x7f08037c;
         /* JADX INFO: Added by JADX */
-        public static final int liveroomhometip = 0x7f08037d;
+        public static final int live_chat_room_more_share = 0x7f08037d;
         /* JADX INFO: Added by JADX */
-        public static final int liveroom = 0x7f08037e;
+        public static final int live_chat_room_more_review = 0x7f08037e;
         /* JADX INFO: Added by JADX */
-        public static final int liveroomforcasttip = 0x7f08037f;
+        public static final int live_chat_room_more_record = 0x7f08037f;
         /* JADX INFO: Added by JADX */
-        public static final int liveroomhomenametip = 0x7f080380;
+        public static final int live_chat_room_more_setting = 0x7f080380;
         /* JADX INFO: Added by JADX */
-        public static final int liveroomhomestarttip = 0x7f080381;
+        public static final int live_chat_room_more_quit = 0x7f080381;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_note = 0x7f080382;
+        public static final int live_chat_room_more_attention = 0x7f080382;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_forcast_note = 0x7f080383;
+        public static final int live_chat_room_more_intro = 0x7f080383;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_more_livenotify = 0x7f080384;
+        public static final int live_chat_room_nonwifi_prompts_pub = 0x7f080384;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_more_share = 0x7f080385;
+        public static final int live_chat_room_nonwifi_prompts_pub_yes = 0x7f080385;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_more_review = 0x7f080386;
+        public static final int live_chat_room_nonwifi_prompts_pub_no = 0x7f080386;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_more_record = 0x7f080387;
+        public static final int live_chat_room_nonwifi_prompts_play = 0x7f080387;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_more_setting = 0x7f080388;
+        public static final int live_chat_room_nonwifi_prompts_play_yes = 0x7f080388;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_more_quit = 0x7f080389;
+        public static final int live_chat_room_nonwifi_prompts_play_no = 0x7f080389;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_more_attention = 0x7f08038a;
+        public static final int live_chat_room_intro_roomnum = 0x7f08038a;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_more_intro = 0x7f08038b;
+        public static final int live_chat_room_intro_name = 0x7f08038b;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_nonwifi_prompts_pub = 0x7f08038c;
+        public static final int live_chat_room_intro_notice = 0x7f08038c;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_nonwifi_prompts_pub_yes = 0x7f08038d;
+        public static final int live_chat_room_intro_from = 0x7f08038d;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_nonwifi_prompts_pub_no = 0x7f08038e;
+        public static final int live_chat_room_intro_livelist_title = 0x7f08038e;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_nonwifi_prompts_play = 0x7f08038f;
+        public static final int live_chat_room_host_name_prefix = 0x7f08038f;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_nonwifi_prompts_play_yes = 0x7f080390;
+        public static final int live_room_setting_cover = 0x7f080390;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_nonwifi_prompts_play_no = 0x7f080391;
+        public static final int live_room_setting_name_hint = 0x7f080391;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_intro_roomnum = 0x7f080392;
+        public static final int live_room_setting_intro_hint = 0x7f080392;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_intro_name = 0x7f080393;
+        public static final int live_room_setting = 0x7f080393;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_intro_notice = 0x7f080394;
+        public static final int live_frs_list_title = 0x7f080394;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_intro_from = 0x7f080395;
+        public static final int live_chat_room_recordnotready = 0x7f080395;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_intro_livelist_title = 0x7f080396;
+        public static final int live_chat_room_recordstarted = 0x7f080396;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_host_name_prefix = 0x7f080397;
+        public static final int live_chat_room_recordstopped = 0x7f080397;
         /* JADX INFO: Added by JADX */
-        public static final int live_room_setting_cover = 0x7f080398;
+        public static final int live_chat_room_remindernotice = 0x7f080398;
         /* JADX INFO: Added by JADX */
-        public static final int live_room_setting_name_hint = 0x7f080399;
+        public static final int live_chat_room_default_time = 0x7f080399;
         /* JADX INFO: Added by JADX */
-        public static final int live_room_setting_intro_hint = 0x7f08039a;
+        public static final int live_frs_list_hasmore = 0x7f08039a;
         /* JADX INFO: Added by JADX */
-        public static final int live_room_setting = 0x7f08039b;
+        public static final int live_hotlist_title = 0x7f08039b;
         /* JADX INFO: Added by JADX */
-        public static final int live_frs_list_title = 0x7f08039c;
+        public static final int live_hotlist_tab_living = 0x7f08039c;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_recordnotready = 0x7f08039d;
+        public static final int live_hotlist_tab_review = 0x7f08039d;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_recordstarted = 0x7f08039e;
+        public static final int live_hotlist_tab_foreshow = 0x7f08039e;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_recordstopped = 0x7f08039f;
+        public static final int live_hotlist_has_more = 0x7f08039f;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_remindernotice = 0x7f0803a0;
+        public static final int live_hotlist_no_more = 0x7f0803a0;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_default_time = 0x7f0803a1;
+        public static final int live_hotlist_no_living_tip = 0x7f0803a1;
         /* JADX INFO: Added by JADX */
-        public static final int live_frs_list_hasmore = 0x7f0803a2;
+        public static final int live_hotlist_no_review_tip = 0x7f0803a2;
         /* JADX INFO: Added by JADX */
-        public static final int live_hotlist_title = 0x7f0803a3;
+        public static final int live_hotlist_no_foreshow_tip = 0x7f0803a3;
         /* JADX INFO: Added by JADX */
-        public static final int live_hotlist_tab_living = 0x7f0803a4;
+        public static final int live_error_user_not_login = 0x7f0803a4;
         /* JADX INFO: Added by JADX */
-        public static final int live_hotlist_tab_review = 0x7f0803a5;
+        public static final int live_error_init_failed = 0x7f0803a5;
         /* JADX INFO: Added by JADX */
-        public static final int live_hotlist_tab_foreshow = 0x7f0803a6;
+        public static final int live_error_publish_failed = 0x7f0803a6;
         /* JADX INFO: Added by JADX */
-        public static final int live_hotlist_has_more = 0x7f0803a7;
+        public static final int live_error_create_engine_failed = 0x7f0803a7;
         /* JADX INFO: Added by JADX */
-        public static final int live_hotlist_no_more = 0x7f0803a8;
+        public static final int live_error_accesstoken_null_or_expire = 0x7f0803a8;
         /* JADX INFO: Added by JADX */
-        public static final int live_hotlist_no_living_tip = 0x7f0803a9;
+        public static final int live_error_connection_closed = 0x7f0803a9;
         /* JADX INFO: Added by JADX */
-        public static final int live_hotlist_no_review_tip = 0x7f0803aa;
+        public static final int live_error_play_file = 0x7f0803aa;
         /* JADX INFO: Added by JADX */
-        public static final int live_hotlist_no_foreshow_tip = 0x7f0803ab;
+        public static final int live_error_play_network = 0x7f0803ab;
         /* JADX INFO: Added by JADX */
-        public static final int live_error_user_not_login = 0x7f0803ac;
+        public static final int live_error_play_invalid_codec = 0x7f0803ac;
         /* JADX INFO: Added by JADX */
-        public static final int live_error_init_failed = 0x7f0803ad;
+        public static final int live_error_play_no_stream_retry = 0x7f0803ad;
         /* JADX INFO: Added by JADX */
-        public static final int live_error_publish_failed = 0x7f0803ae;
+        public static final int live_error_play_no_stream = 0x7f0803ae;
         /* JADX INFO: Added by JADX */
-        public static final int live_error_create_engine_failed = 0x7f0803af;
+        public static final int live_chat_room_mute_success = 0x7f0803af;
         /* JADX INFO: Added by JADX */
-        public static final int live_error_accesstoken_null_or_expire = 0x7f0803b0;
+        public static final int live_chat_room_mute_msg = 0x7f0803b0;
         /* JADX INFO: Added by JADX */
-        public static final int live_error_connection_closed = 0x7f0803b1;
+        public static final int live_frs_list_recommend_top = 0x7f0803b1;
         /* JADX INFO: Added by JADX */
-        public static final int live_error_play_file = 0x7f0803b2;
+        public static final int live_frs_list_recommend_foot = 0x7f0803b2;
         /* JADX INFO: Added by JADX */
-        public static final int live_error_play_network = 0x7f0803b3;
+        public static final int live_frs_list_nomore = 0x7f0803b3;
         /* JADX INFO: Added by JADX */
-        public static final int live_error_play_invalid_codec = 0x7f0803b4;
+        public static final int live_frs_list__operate_top = 0x7f0803b4;
         /* JADX INFO: Added by JADX */
-        public static final int live_error_play_no_stream_retry = 0x7f0803b5;
+        public static final int live_frs_list__operate_hide = 0x7f0803b5;
         /* JADX INFO: Added by JADX */
-        public static final int live_error_play_no_stream = 0x7f0803b6;
+        public static final int live_frs_list__operate_cancel_top = 0x7f0803b6;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_mute_success = 0x7f0803b7;
+        public static final int live_frs_list__operate_cancel_hide = 0x7f0803b7;
         /* JADX INFO: Added by JADX */
-        public static final int live_chat_room_mute_msg = 0x7f0803b8;
+        public static final int live_hotlist_load_more = 0x7f0803b8;
         /* JADX INFO: Added by JADX */
-        public static final int live_frs_list_recommend_top = 0x7f0803b9;
+        public static final int live_room_attentioned = 0x7f0803b9;
         /* JADX INFO: Added by JADX */
-        public static final int live_frs_list_recommend_foot = 0x7f0803ba;
+        public static final int live_room_cancel_attention = 0x7f0803ba;
         /* JADX INFO: Added by JADX */
-        public static final int live_frs_list_nomore = 0x7f0803bb;
+        public static final int black_list = 0x7f0803bb;
         /* JADX INFO: Added by JADX */
-        public static final int live_frs_list__operate_top = 0x7f0803bc;
+        public static final int black_list_member = 0x7f0803bc;
         /* JADX INFO: Added by JADX */
-        public static final int live_frs_list__operate_hide = 0x7f0803bd;
+        public static final int live_mylive = 0x7f0803bd;
         /* JADX INFO: Added by JADX */
-        public static final int live_frs_list__operate_cancel_top = 0x7f0803be;
+        public static final int live_mymark = 0x7f0803be;
         /* JADX INFO: Added by JADX */
-        public static final int live_frs_list__operate_cancel_hide = 0x7f0803bf;
+        public static final int live_mylive_dismiss = 0x7f0803bf;
         /* JADX INFO: Added by JADX */
-        public static final int live_hotlist_load_more = 0x7f0803c0;
+        public static final int live_mylive_dismiss_success = 0x7f0803c0;
         /* JADX INFO: Added by JADX */
-        public static final int live_room_attentioned = 0x7f0803c1;
+        public static final int live_mylive_canclmark_success = 0x7f0803c1;
         /* JADX INFO: Added by JADX */
-        public static final int live_room_cancel_attention = 0x7f0803c2;
+        public static final int live_exit_group = 0x7f0803c2;
         /* JADX INFO: Added by JADX */
-        public static final int black_list = 0x7f0803c3;
+        public static final int live_check_group = 0x7f0803c3;
         /* JADX INFO: Added by JADX */
-        public static final int black_list_member = 0x7f0803c4;
+        public static final int live_room_notify = 0x7f0803c4;
         /* JADX INFO: Added by JADX */
-        public static final int live_mylive = 0x7f0803c5;
+        public static final int live_room_end_notify = 0x7f0803c5;
         /* JADX INFO: Added by JADX */
-        public static final int live_mymark = 0x7f0803c6;
+        public static final int live_room_not_start = 0x7f0803c6;
         /* JADX INFO: Added by JADX */
-        public static final int live_mylive_dismiss = 0x7f0803c7;
+        public static final int live_room_pause = 0x7f0803c7;
         /* JADX INFO: Added by JADX */
-        public static final int live_mylive_dismiss_success = 0x7f0803c8;
+        public static final int reminder_notice_only_one = 0x7f0803c8;
         /* JADX INFO: Added by JADX */
-        public static final int live_mylive_canclmark_success = 0x7f0803c9;
+        public static final int input_worlds_max = 0x7f0803c9;
         /* JADX INFO: Added by JADX */
-        public static final int live_exit_group = 0x7f0803ca;
+        public static final int remind_notice_not_null = 0x7f0803ca;
         /* JADX INFO: Added by JADX */
-        public static final int live_check_group = 0x7f0803cb;
+        public static final int live_room_end = 0x7f0803cb;
         /* JADX INFO: Added by JADX */
-        public static final int live_room_notify = 0x7f0803cc;
+        public static final int live_room_entrance_hint = 0x7f0803cc;
         /* JADX INFO: Added by JADX */
-        public static final int live_room_end_notify = 0x7f0803cd;
+        public static final int live_mylive_dismiss_hint = 0x7f0803cd;
         /* JADX INFO: Added by JADX */
-        public static final int live_room_not_start = 0x7f0803ce;
+        public static final int live_group_note = 0x7f0803ce;
         /* JADX INFO: Added by JADX */
-        public static final int live_room_pause = 0x7f0803cf;
+        public static final int live_black_members_title = 0x7f0803cf;
         /* JADX INFO: Added by JADX */
-        public static final int reminder_notice_only_one = 0x7f0803d0;
+        public static final int live_black_members_list_item_unset = 0x7f0803d0;
         /* JADX INFO: Added by JADX */
-        public static final int input_worlds_max = 0x7f0803d1;
+        public static final int live_black_members_unset_success = 0x7f0803d1;
         /* JADX INFO: Added by JADX */
-        public static final int remind_notice_not_null = 0x7f0803d2;
+        public static final int live_black_members_no_data = 0x7f0803d2;
         /* JADX INFO: Added by JADX */
-        public static final int live_room_end = 0x7f0803d3;
+        public static final int mylive_mylive_nodata = 0x7f0803d3;
         /* JADX INFO: Added by JADX */
-        public static final int live_room_entrance_hint = 0x7f0803d4;
+        public static final int mylive_mymark_nodata = 0x7f0803d4;
         /* JADX INFO: Added by JADX */
-        public static final int live_mylive_dismiss_hint = 0x7f0803d5;
+        public static final int like_list_title_count = 0x7f0803d5;
         /* JADX INFO: Added by JADX */
-        public static final int live_group_note = 0x7f0803d6;
+        public static final int live_replay_interrupt_other_notice = 0x7f0803d6;
         /* JADX INFO: Added by JADX */
-        public static final int live_black_members_title = 0x7f0803d7;
+        public static final int live_replay_interrupt_other_notice_yes = 0x7f0803d7;
         /* JADX INFO: Added by JADX */
-        public static final int live_black_members_list_item_unset = 0x7f0803d8;
+        public static final int live_replay_interrupt_other_notice_no = 0x7f0803d8;
         /* JADX INFO: Added by JADX */
-        public static final int live_black_members_unset_success = 0x7f0803d9;
+        public static final int live_group_histroy_title = 0x7f0803d9;
         /* JADX INFO: Added by JADX */
-        public static final int live_black_members_no_data = 0x7f0803da;
+        public static final int live_group_histroy_no_data = 0x7f0803da;
         /* JADX INFO: Added by JADX */
-        public static final int mylive_mylive_nodata = 0x7f0803db;
+        public static final int op_result_saved = 0x7f0803db;
         /* JADX INFO: Added by JADX */
-        public static final int mylive_mymark_nodata = 0x7f0803dc;
+        public static final int op_result_copied = 0x7f0803dc;
         /* JADX INFO: Added by JADX */
-        public static final int like_list_title_count = 0x7f0803dd;
+        public static final int op_result_deleted = 0x7f0803dd;
         /* JADX INFO: Added by JADX */
-        public static final int live_replay_interrupt_other_notice = 0x7f0803de;
+        public static final int live_no_more_data = 0x7f0803de;
         /* JADX INFO: Added by JADX */
-        public static final int live_replay_interrupt_other_notice_yes = 0x7f0803df;
+        public static final int live_end_notify = 0x7f0803df;
         /* JADX INFO: Added by JADX */
-        public static final int live_replay_interrupt_other_notice_no = 0x7f0803e0;
+        public static final int browser_app_name = 0x7f0803e0;
         /* JADX INFO: Added by JADX */
-        public static final int live_group_histroy_title = 0x7f0803e1;
+        public static final int browser_load_empty_tip = 0x7f0803e1;
         /* JADX INFO: Added by JADX */
-        public static final int live_group_histroy_no_data = 0x7f0803e2;
+        public static final int browser_widget_search_name = 0x7f0803e2;
         /* JADX INFO: Added by JADX */
-        public static final int op_result_saved = 0x7f0803e3;
+        public static final int browser_widget_ding_name = 0x7f0803e3;
         /* JADX INFO: Added by JADX */
-        public static final int op_result_copied = 0x7f0803e4;
+        public static final int browser_widget_ding_title = 0x7f0803e4;
         /* JADX INFO: Added by JADX */
-        public static final int op_result_deleted = 0x7f0803e5;
+        public static final int browser_trans_ding_name = 0x7f0803e5;
         /* JADX INFO: Added by JADX */
-        public static final int live_no_more_data = 0x7f0803e6;
+        public static final int browser_wood_ding_name = 0x7f0803e6;
         /* JADX INFO: Added by JADX */
-        public static final int live_end_notify = 0x7f0803e7;
+        public static final int browser_widget_clock_name = 0x7f0803e7;
         /* JADX INFO: Added by JADX */
-        public static final int browser_app_name = 0x7f0803e8;
+        public static final int browser_widget_clock_title = 0x7f0803e8;
         /* JADX INFO: Added by JADX */
-        public static final int browser_load_empty_tip = 0x7f0803e9;
+        public static final int analog_clock_name = 0x7f0803e9;
         /* JADX INFO: Added by JADX */
-        public static final int browser_widget_search_name = 0x7f0803ea;
+        public static final int browser_digital_clock_name = 0x7f0803ea;
         /* JADX INFO: Added by JADX */
-        public static final int browser_widget_ding_name = 0x7f0803eb;
+        public static final int browser_digital_clock_calendar_original_text = 0x7f0803eb;
         /* JADX INFO: Added by JADX */
-        public static final int browser_widget_ding_title = 0x7f0803ec;
+        public static final int browser_widget_ding_text_main_orginal = 0x7f0803ec;
         /* JADX INFO: Added by JADX */
-        public static final int browser_trans_ding_name = 0x7f0803ed;
+        public static final int browser_widget_ding_text_description_orginal = 0x7f0803ed;
         /* JADX INFO: Added by JADX */
-        public static final int browser_wood_ding_name = 0x7f0803ee;
+        public static final int browser_app_title = 0x7f0803ee;
         /* JADX INFO: Added by JADX */
-        public static final int browser_widget_clock_name = 0x7f0803ef;
+        public static final int browser_widget_title = 0x7f0803ef;
         /* JADX INFO: Added by JADX */
-        public static final int browser_widget_clock_title = 0x7f0803f0;
+        public static final int browser_msg_activity_not_found = 0x7f0803f0;
         /* JADX INFO: Added by JADX */
-        public static final int analog_clock_name = 0x7f0803f1;
+        public static final int browser_str_browser_select = 0x7f0803f1;
         /* JADX INFO: Added by JADX */
-        public static final int browser_digital_clock_name = 0x7f0803f2;
+        public static final int browser_choose_upload = 0x7f0803f2;
         /* JADX INFO: Added by JADX */
-        public static final int browser_digital_clock_calendar_original_text = 0x7f0803f3;
+        public static final int browser_uploads_disabled = 0x7f0803f3;
         /* JADX INFO: Added by JADX */
-        public static final int browser_widget_ding_text_main_orginal = 0x7f0803f4;
+        public static final int browser_loadSuspendedTitle = 0x7f0803f4;
         /* JADX INFO: Added by JADX */
-        public static final int browser_widget_ding_text_description_orginal = 0x7f0803f5;
+        public static final int browser_loadSuspended = 0x7f0803f5;
         /* JADX INFO: Added by JADX */
-        public static final int browser_app_title = 0x7f0803f6;
+        public static final int browser_ssl_warnings_header = 0x7f0803f6;
         /* JADX INFO: Added by JADX */
-        public static final int browser_widget_title = 0x7f0803f7;
+        public static final int browser_ssl_continue = 0x7f0803f7;
         /* JADX INFO: Added by JADX */
-        public static final int browser_msg_activity_not_found = 0x7f0803f8;
+        public static final int browser_security_warning = 0x7f0803f8;
         /* JADX INFO: Added by JADX */
-        public static final int browser_str_browser_select = 0x7f0803f9;
+        public static final int browser_ssl_untrusted = 0x7f0803f9;
         /* JADX INFO: Added by JADX */
-        public static final int browser_choose_upload = 0x7f0803fa;
+        public static final int browser_ssl_mismatch = 0x7f0803fa;
         /* JADX INFO: Added by JADX */
-        public static final int browser_uploads_disabled = 0x7f0803fb;
+        public static final int browser_ssl_expired = 0x7f0803fb;
         /* JADX INFO: Added by JADX */
-        public static final int browser_loadSuspendedTitle = 0x7f0803fc;
+        public static final int browser_ssl_not_yet_valid = 0x7f0803fc;
         /* JADX INFO: Added by JADX */
-        public static final int browser_loadSuspended = 0x7f0803fd;
+        public static final int browser_FrameFormResubmitLabel = 0x7f0803fd;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ssl_warnings_header = 0x7f0803fe;
+        public static final int browser_FrameFormResubmitMessage = 0x7f0803fe;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ssl_continue = 0x7f0803ff;
+        public static final int browser_about_head_about = 0x7f0803ff;
         /* JADX INFO: Added by JADX */
-        public static final int browser_security_warning = 0x7f080400;
+        public static final int browser_about_logo_text1 = 0x7f080400;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ssl_untrusted = 0x7f080401;
+        public static final int browser_about_logo_text2 = 0x7f080401;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ssl_mismatch = 0x7f080402;
+        public static final int browser_about_product_zhangbai_text = 0x7f080402;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ssl_expired = 0x7f080403;
+        public static final int browser_about_product_appsearch_text = 0x7f080403;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ssl_not_yet_valid = 0x7f080404;
+        public static final int browser_about_product_browser_text = 0x7f080404;
         /* JADX INFO: Added by JADX */
-        public static final int browser_FrameFormResubmitLabel = 0x7f080405;
+        public static final int browser_about_product_inputmethod_text = 0x7f080405;
         /* JADX INFO: Added by JADX */
-        public static final int browser_FrameFormResubmitMessage = 0x7f080406;
+        public static final int browser_about_check_update = 0x7f080406;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_head_about = 0x7f080407;
+        public static final int browser_about_checking = 0x7f080407;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_logo_text1 = 0x7f080408;
+        public static final int browser_about_product_title = 0x7f080408;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_logo_text2 = 0x7f080409;
+        public static final int browser_about_search_title = 0x7f080409;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_product_zhangbai_text = 0x7f08040a;
+        public static final int browser_about_search_content_summary = 0x7f08040a;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_product_appsearch_text = 0x7f08040b;
+        public static final int browser_about_search_content_summary2 = 0x7f08040b;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_product_browser_text = 0x7f08040c;
+        public static final int browser_update_toast_already_latest = 0x7f08040c;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_product_inputmethod_text = 0x7f08040d;
+        public static final int browser_update_toast_bad_net = 0x7f08040d;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_check_update = 0x7f08040e;
+        public static final int browser_update_checkbox_text = 0x7f08040e;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_checking = 0x7f08040f;
+        public static final int browser_auto_update_dialog_button_update = 0x7f08040f;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_product_title = 0x7f080410;
+        public static final int browser_auto_update_dialog_button_later = 0x7f080410;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_title = 0x7f080411;
+        public static final int browser_auto_update_dialog_button_close = 0x7f080411;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_summary = 0x7f080412;
+        public static final int browser_positive_update_dialog_button_ok = 0x7f080412;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_summary2 = 0x7f080413;
+        public static final int browser_positive_update_dialog_button_later = 0x7f080413;
         /* JADX INFO: Added by JADX */
-        public static final int browser_update_toast_already_latest = 0x7f080414;
+        public static final int browser_dialog_positive_button_text = 0x7f080414;
         /* JADX INFO: Added by JADX */
-        public static final int browser_update_toast_bad_net = 0x7f080415;
+        public static final int browser_dialog_nagtive_button_text = 0x7f080415;
         /* JADX INFO: Added by JADX */
-        public static final int browser_update_checkbox_text = 0x7f080416;
+        public static final int browser_find_high_package_dialog_title = 0x7f080416;
         /* JADX INFO: Added by JADX */
-        public static final int browser_auto_update_dialog_button_update = 0x7f080417;
+        public static final int browser_update_finish_title = 0x7f080417;
         /* JADX INFO: Added by JADX */
-        public static final int browser_auto_update_dialog_button_later = 0x7f080418;
+        public static final int browser_update_unfinish_title = 0x7f080418;
         /* JADX INFO: Added by JADX */
-        public static final int browser_auto_update_dialog_button_close = 0x7f080419;
+        public static final int browser_update_finish_message = 0x7f080419;
         /* JADX INFO: Added by JADX */
-        public static final int browser_positive_update_dialog_button_ok = 0x7f08041a;
+        public static final int browser_update_failed_message = 0x7f08041a;
         /* JADX INFO: Added by JADX */
-        public static final int browser_positive_update_dialog_button_later = 0x7f08041b;
+        public static final int browser_about_search_content_seg1 = 0x7f08041b;
         /* JADX INFO: Added by JADX */
-        public static final int browser_dialog_positive_button_text = 0x7f08041c;
+        public static final int browser_about_search_content_seg2 = 0x7f08041c;
         /* JADX INFO: Added by JADX */
-        public static final int browser_dialog_nagtive_button_text = 0x7f08041d;
+        public static final int browser_about_search_content_seg21 = 0x7f08041d;
         /* JADX INFO: Added by JADX */
-        public static final int browser_find_high_package_dialog_title = 0x7f08041e;
+        public static final int browser_about_search_content_seg22 = 0x7f08041e;
         /* JADX INFO: Added by JADX */
-        public static final int browser_update_finish_title = 0x7f08041f;
+        public static final int browser_about_search_content_seg23 = 0x7f08041f;
         /* JADX INFO: Added by JADX */
-        public static final int browser_update_unfinish_title = 0x7f080420;
+        public static final int browser_about_search_content_seg24 = 0x7f080420;
         /* JADX INFO: Added by JADX */
-        public static final int browser_update_finish_message = 0x7f080421;
+        public static final int browser_about_search_content_seg25 = 0x7f080421;
         /* JADX INFO: Added by JADX */
-        public static final int browser_update_failed_message = 0x7f080422;
+        public static final int browser_about_search_content_seg26 = 0x7f080422;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_seg1 = 0x7f080423;
+        public static final int browser_about_search_content_seg3 = 0x7f080423;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_seg2 = 0x7f080424;
+        public static final int browser_about_search_content_seg4 = 0x7f080424;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_seg21 = 0x7f080425;
+        public static final int browser_about_search_content_seg41 = 0x7f080425;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_seg22 = 0x7f080426;
+        public static final int browser_about_search_content_seg42 = 0x7f080426;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_seg23 = 0x7f080427;
+        public static final int browser_about_search_content_tail = 0x7f080427;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_seg24 = 0x7f080428;
+        public static final int browser_uuid = 0x7f080428;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_seg25 = 0x7f080429;
+        public static final int browser_builderVersion = 0x7f080429;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_seg26 = 0x7f08042a;
+        public static final int browser_contextmenu_openlink = 0x7f08042a;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_seg3 = 0x7f08042b;
+        public static final int browser_contextmenu_savelink = 0x7f08042b;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_seg4 = 0x7f08042c;
+        public static final int browser_contextmenu_copy = 0x7f08042c;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_seg41 = 0x7f08042d;
+        public static final int browser_contextmenu_copylink = 0x7f08042d;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_seg42 = 0x7f08042e;
+        public static final int browser_contextmenu_download_image = 0x7f08042e;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_search_content_tail = 0x7f08042f;
+        public static final int browser_contextmenu_view_image = 0x7f08042f;
         /* JADX INFO: Added by JADX */
-        public static final int browser_uuid = 0x7f080430;
+        public static final int browser_contextmenu_dial_dot = 0x7f080430;
         /* JADX INFO: Added by JADX */
-        public static final int browser_builderVersion = 0x7f080431;
+        public static final int browser_contextmenu_add_contact = 0x7f080431;
         /* JADX INFO: Added by JADX */
-        public static final int browser_contextmenu_openlink = 0x7f080432;
+        public static final int browser_contextmenu_send_mail = 0x7f080432;
         /* JADX INFO: Added by JADX */
-        public static final int browser_contextmenu_savelink = 0x7f080433;
+        public static final int browser_contextmenu_map = 0x7f080433;
         /* JADX INFO: Added by JADX */
-        public static final int browser_contextmenu_copy = 0x7f080434;
+        public static final int browser_search_clear_history = 0x7f080434;
         /* JADX INFO: Added by JADX */
-        public static final int browser_contextmenu_copylink = 0x7f080435;
+        public static final int browser_search_clear_history_tips = 0x7f080435;
         /* JADX INFO: Added by JADX */
-        public static final int browser_contextmenu_download_image = 0x7f080436;
+        public static final int browser_search_nohistory_tips = 0x7f080436;
         /* JADX INFO: Added by JADX */
-        public static final int browser_contextmenu_view_image = 0x7f080437;
+        public static final int browser_search_nohistory_privatemode_tips = 0x7f080437;
         /* JADX INFO: Added by JADX */
-        public static final int browser_contextmenu_dial_dot = 0x7f080438;
+        public static final int browser_search_close_private_mode = 0x7f080438;
         /* JADX INFO: Added by JADX */
-        public static final int browser_contextmenu_add_contact = 0x7f080439;
+        public static final int browser_search_visit_direct = 0x7f080439;
         /* JADX INFO: Added by JADX */
-        public static final int browser_contextmenu_send_mail = 0x7f08043a;
+        public static final int browser_search_go = 0x7f08043a;
         /* JADX INFO: Added by JADX */
-        public static final int browser_contextmenu_map = 0x7f08043b;
+        public static final int browser_search_cancel = 0x7f08043b;
         /* JADX INFO: Added by JADX */
-        public static final int browser_search_clear_history = 0x7f08043c;
+        public static final int browser_download_title = 0x7f08043c;
         /* JADX INFO: Added by JADX */
-        public static final int browser_search_clear_history_tips = 0x7f08043d;
+        public static final int browser_download_no_sdcard_dlg_title = 0x7f08043d;
         /* JADX INFO: Added by JADX */
-        public static final int browser_search_nohistory_tips = 0x7f08043e;
+        public static final int browser_download_no_sdcard_dlg_msg = 0x7f08043e;
         /* JADX INFO: Added by JADX */
-        public static final int browser_search_nohistory_privatemode_tips = 0x7f08043f;
+        public static final int browser_download_sdcard_busy_dlg_title = 0x7f08043f;
         /* JADX INFO: Added by JADX */
-        public static final int browser_search_close_private_mode = 0x7f080440;
+        public static final int browser_download_sdcard_busy_dlg_msg = 0x7f080440;
         /* JADX INFO: Added by JADX */
-        public static final int browser_search_visit_direct = 0x7f080441;
+        public static final int browser_download_no_application_title = 0x7f080441;
         /* JADX INFO: Added by JADX */
-        public static final int browser_search_go = 0x7f080442;
+        public static final int browser_no_downloads = 0x7f080442;
         /* JADX INFO: Added by JADX */
-        public static final int browser_search_cancel = 0x7f080443;
+        public static final int browser_download_error = 0x7f080443;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_title = 0x7f080444;
+        public static final int browser_download_success = 0x7f080444;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_no_sdcard_dlg_title = 0x7f080445;
+        public static final int browser_download_begin = 0x7f080445;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_no_sdcard_dlg_msg = 0x7f080446;
+        public static final int browser_download_running = 0x7f080446;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_sdcard_busy_dlg_title = 0x7f080447;
+        public static final int browser_download_pending = 0x7f080447;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_sdcard_busy_dlg_msg = 0x7f080448;
+        public static final int browser_cancel = 0x7f080448;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_no_application_title = 0x7f080449;
+        public static final int browser_ok = 0x7f080449;
         /* JADX INFO: Added by JADX */
-        public static final int browser_no_downloads = 0x7f08044a;
+        public static final int browser_button_queue_for_wifi = 0x7f08044a;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_error = 0x7f08044b;
+        public static final int browser_wifi_required_title = 0x7f08044b;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_success = 0x7f08044c;
+        public static final int browser_wifi_required_body = 0x7f08044c;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_begin = 0x7f08044d;
+        public static final int browser_wifi_recommended_title = 0x7f08044d;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_running = 0x7f08044e;
+        public static final int browser_wifi_recommended_body = 0x7f08044e;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_pending = 0x7f08044f;
+        public static final int browser_button_cancel_download = 0x7f08044f;
         /* JADX INFO: Added by JADX */
-        public static final int browser_cancel = 0x7f080450;
+        public static final int browser_button_start_now = 0x7f080450;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ok = 0x7f080451;
+        public static final int browser_deselect_all = 0x7f080451;
         /* JADX INFO: Added by JADX */
-        public static final int browser_button_queue_for_wifi = 0x7f080452;
+        public static final int browser_download_unknown_title = 0x7f080452;
         /* JADX INFO: Added by JADX */
-        public static final int browser_wifi_required_title = 0x7f080453;
+        public static final int browser_notification_need_wifi_for_size = 0x7f080453;
         /* JADX INFO: Added by JADX */
-        public static final int browser_wifi_required_body = 0x7f080454;
+        public static final int browser_notification_filename_separator = 0x7f080454;
         /* JADX INFO: Added by JADX */
-        public static final int browser_wifi_recommended_title = 0x7f080455;
+        public static final int browser_notification_filename_extras = 0x7f080455;
         /* JADX INFO: Added by JADX */
-        public static final int browser_wifi_recommended_body = 0x7f080456;
+        public static final int browser_notification_download_complete = 0x7f080456;
         /* JADX INFO: Added by JADX */
-        public static final int browser_button_cancel_download = 0x7f080457;
+        public static final int browser_notification_download_failed = 0x7f080457;
         /* JADX INFO: Added by JADX */
-        public static final int browser_button_start_now = 0x7f080458;
+        public static final int browser_missing_title = 0x7f080458;
         /* JADX INFO: Added by JADX */
-        public static final int browser_deselect_all = 0x7f080459;
+        public static final int browser_download_queued = 0x7f080459;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_unknown_title = 0x7f08045a;
+        public static final int browser_download_menu_sort_by_size = 0x7f08045a;
         /* JADX INFO: Added by JADX */
-        public static final int browser_notification_need_wifi_for_size = 0x7f08045b;
+        public static final int browser_download_menu_sort_by_date = 0x7f08045b;
         /* JADX INFO: Added by JADX */
-        public static final int browser_notification_filename_separator = 0x7f08045c;
+        public static final int browser_dialog_file_missing_body = 0x7f08045c;
         /* JADX INFO: Added by JADX */
-        public static final int browser_notification_filename_extras = 0x7f08045d;
+        public static final int browser_dialog_title_queued_body = 0x7f08045d;
         /* JADX INFO: Added by JADX */
-        public static final int browser_notification_download_complete = 0x7f08045e;
+        public static final int browser_dialog_queued_body = 0x7f08045e;
         /* JADX INFO: Added by JADX */
-        public static final int browser_notification_download_failed = 0x7f08045f;
+        public static final int browser_keep_queued_download = 0x7f08045f;
         /* JADX INFO: Added by JADX */
-        public static final int browser_missing_title = 0x7f080460;
+        public static final int browser_remove_download = 0x7f080460;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_queued = 0x7f080461;
+        public static final int browser_delete_download = 0x7f080461;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_menu_sort_by_size = 0x7f080462;
+        public static final int browser_dialog_file_already_exists = 0x7f080462;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_menu_sort_by_date = 0x7f080463;
+        public static final int browser_dialog_insufficient_space_on_external = 0x7f080463;
         /* JADX INFO: Added by JADX */
-        public static final int browser_dialog_file_missing_body = 0x7f080464;
+        public static final int browser_dialog_insufficient_space_on_cache = 0x7f080464;
         /* JADX INFO: Added by JADX */
-        public static final int browser_dialog_title_queued_body = 0x7f080465;
+        public static final int browser_dialog_media_not_found = 0x7f080465;
         /* JADX INFO: Added by JADX */
-        public static final int browser_dialog_queued_body = 0x7f080466;
+        public static final int browser_dialog_cannot_resume = 0x7f080466;
         /* JADX INFO: Added by JADX */
-        public static final int browser_keep_queued_download = 0x7f080467;
+        public static final int browser_dialog_failed_body = 0x7f080467;
         /* JADX INFO: Added by JADX */
-        public static final int browser_remove_download = 0x7f080468;
+        public static final int browser_dialog_title_not_available = 0x7f080468;
         /* JADX INFO: Added by JADX */
-        public static final int browser_delete_download = 0x7f080469;
+        public static final int browser_retry_download = 0x7f080469;
         /* JADX INFO: Added by JADX */
-        public static final int browser_dialog_file_already_exists = 0x7f08046a;
+        public static final int browser_cancel_running_download = 0x7f08046a;
         /* JADX INFO: Added by JADX */
-        public static final int browser_dialog_insufficient_space_on_external = 0x7f08046b;
+        public static final int browser_download_not_support = 0x7f08046b;
         /* JADX INFO: Added by JADX */
-        public static final int browser_dialog_insufficient_space_on_cache = 0x7f08046c;
+        public static final int browser_geolocation_permissions_prompt_message = 0x7f08046c;
         /* JADX INFO: Added by JADX */
-        public static final int browser_dialog_media_not_found = 0x7f08046d;
+        public static final int browser_geolocation_permissions_prompt_share = 0x7f08046d;
         /* JADX INFO: Added by JADX */
-        public static final int browser_dialog_cannot_resume = 0x7f08046e;
+        public static final int browser_geolocation_permissions_prompt_dont_share = 0x7f08046e;
         /* JADX INFO: Added by JADX */
-        public static final int browser_dialog_failed_body = 0x7f08046f;
+        public static final int browser_geolocation_permissions_prompt_remember = 0x7f08046f;
         /* JADX INFO: Added by JADX */
-        public static final int browser_dialog_title_not_available = 0x7f080470;
+        public static final int browser_geolocation_permissions_prompt_toast_allowed = 0x7f080470;
         /* JADX INFO: Added by JADX */
-        public static final int browser_retry_download = 0x7f080471;
+        public static final int browser_geolocation_permissions_prompt_toast_disallowed = 0x7f080471;
         /* JADX INFO: Added by JADX */
-        public static final int browser_cancel_running_download = 0x7f080472;
+        public static final int browser_voice_start = 0x7f080472;
         /* JADX INFO: Added by JADX */
-        public static final int browser_download_not_support = 0x7f080473;
+        public static final int browser_once = 0x7f080473;
         /* JADX INFO: Added by JADX */
-        public static final int browser_geolocation_permissions_prompt_message = 0x7f080474;
+        public static final int browser_voice_search_recognize_fail = 0x7f080474;
         /* JADX INFO: Added by JADX */
-        public static final int browser_geolocation_permissions_prompt_share = 0x7f080475;
+        public static final int browser_voice_nodifying = 0x7f080475;
         /* JADX INFO: Added by JADX */
-        public static final int browser_geolocation_permissions_prompt_dont_share = 0x7f080476;
+        public static final int browser_voice_end_speak = 0x7f080476;
         /* JADX INFO: Added by JADX */
-        public static final int browser_geolocation_permissions_prompt_remember = 0x7f080477;
+        public static final int browser_preference = 0x7f080477;
         /* JADX INFO: Added by JADX */
-        public static final int browser_geolocation_permissions_prompt_toast_allowed = 0x7f080478;
+        public static final int browser_private_setting = 0x7f080478;
         /* JADX INFO: Added by JADX */
-        public static final int browser_geolocation_permissions_prompt_toast_disallowed = 0x7f080479;
+        public static final int browser_clear_cookies = 0x7f080479;
         /* JADX INFO: Added by JADX */
-        public static final int browser_voice_start = 0x7f08047a;
+        public static final int browser_clear_search_history = 0x7f08047a;
         /* JADX INFO: Added by JADX */
-        public static final int browser_once = 0x7f08047b;
+        public static final int browser_open_private_mode = 0x7f08047b;
         /* JADX INFO: Added by JADX */
-        public static final int browser_voice_search_recognize_fail = 0x7f08047c;
+        public static final int browser_local_search_setting = 0x7f08047c;
         /* JADX INFO: Added by JADX */
-        public static final int browser_voice_nodifying = 0x7f08047d;
+        public static final int browser_change_home_bg_setting = 0x7f08047d;
         /* JADX INFO: Added by JADX */
-        public static final int browser_voice_end_speak = 0x7f08047e;
+        public static final int browser_change_home_bg = 0x7f08047e;
         /* JADX INFO: Added by JADX */
-        public static final int browser_preference = 0x7f08047f;
+        public static final int browser_about_baidu_search_seeting = 0x7f08047f;
         /* JADX INFO: Added by JADX */
-        public static final int browser_private_setting = 0x7f080480;
+        public static final int browser_delete = 0x7f080480;
         /* JADX INFO: Added by JADX */
-        public static final int browser_clear_cookies = 0x7f080481;
+        public static final int browser_confirm_clean_search_history = 0x7f080481;
         /* JADX INFO: Added by JADX */
-        public static final int browser_clear_search_history = 0x7f080482;
+        public static final int browser_confirm_clean_visit_cookies = 0x7f080482;
         /* JADX INFO: Added by JADX */
-        public static final int browser_open_private_mode = 0x7f080483;
+        public static final int browser_confirm_clean = 0x7f080483;
         /* JADX INFO: Added by JADX */
-        public static final int browser_local_search_setting = 0x7f080484;
+        public static final int browser_cancel_clean = 0x7f080484;
         /* JADX INFO: Added by JADX */
-        public static final int browser_change_home_bg_setting = 0x7f080485;
+        public static final int browser_changebg__activity_name = 0x7f080485;
         /* JADX INFO: Added by JADX */
-        public static final int browser_change_home_bg = 0x7f080486;
+        public static final int browser_finish_clean_search_history = 0x7f080486;
         /* JADX INFO: Added by JADX */
-        public static final int browser_about_baidu_search_seeting = 0x7f080487;
+        public static final int browser_finish_clean_visit_cookies = 0x7f080487;
         /* JADX INFO: Added by JADX */
-        public static final int browser_delete = 0x7f080488;
+        public static final int browser_settings_download = 0x7f080488;
         /* JADX INFO: Added by JADX */
-        public static final int browser_confirm_clean_search_history = 0x7f080489;
+        public static final int browser_settings_changebg_success = 0x7f080489;
         /* JADX INFO: Added by JADX */
-        public static final int browser_confirm_clean_visit_cookies = 0x7f08048a;
+        public static final int browser_privacy_setting_footer_prompt = 0x7f08048a;
         /* JADX INFO: Added by JADX */
-        public static final int browser_confirm_clean = 0x7f08048b;
+        public static final int browser_select_local_picture = 0x7f08048b;
         /* JADX INFO: Added by JADX */
-        public static final int browser_cancel_clean = 0x7f08048c;
+        public static final int browser_crop_save_text = 0x7f08048c;
         /* JADX INFO: Added by JADX */
-        public static final int browser_changebg__activity_name = 0x7f08048d;
+        public static final int browser_crop_discard_text = 0x7f08048d;
         /* JADX INFO: Added by JADX */
-        public static final int browser_finish_clean_search_history = 0x7f08048e;
+        public static final int browser_wallpaper = 0x7f08048e;
         /* JADX INFO: Added by JADX */
-        public static final int browser_finish_clean_visit_cookies = 0x7f08048f;
+        public static final int browser_savingImage = 0x7f08048f;
         /* JADX INFO: Added by JADX */
-        public static final int browser_settings_download = 0x7f080490;
+        public static final int browser_multiface_crop_help = 0x7f080490;
         /* JADX INFO: Added by JADX */
-        public static final int browser_settings_changebg_success = 0x7f080491;
+        public static final int browser_ding_manager_activity_name = 0x7f080491;
         /* JADX INFO: Added by JADX */
-        public static final int browser_privacy_setting_footer_prompt = 0x7f080492;
+        public static final int browser_ding_manager_show_more_activity_name = 0x7f080492;
         /* JADX INFO: Added by JADX */
-        public static final int browser_select_local_picture = 0x7f080493;
+        public static final int browser_ding_added = 0x7f080493;
         /* JADX INFO: Added by JADX */
-        public static final int browser_crop_save_text = 0x7f080494;
+        public static final int browser_btn_ding_manager_title_bar_cancel = 0x7f080494;
         /* JADX INFO: Added by JADX */
-        public static final int browser_crop_discard_text = 0x7f080495;
+        public static final int browser_btn_ding_manager_title_bar_refresh = 0x7f080495;
         /* JADX INFO: Added by JADX */
-        public static final int browser_wallpaper = 0x7f080496;
+        public static final int browser_ding_head_prompt = 0x7f080496;
         /* JADX INFO: Added by JADX */
-        public static final int browser_savingImage = 0x7f080497;
+        public static final int browser_ding_foot_prompt = 0x7f080497;
         /* JADX INFO: Added by JADX */
-        public static final int browser_multiface_crop_help = 0x7f080498;
+        public static final int browser_btn_ding_manager_add = 0x7f080498;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ding_manager_activity_name = 0x7f080499;
+        public static final int browser_net_error = 0x7f080499;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ding_manager_show_more_activity_name = 0x7f08049a;
+        public static final int browser_ding_data_error = 0x7f08049a;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ding_added = 0x7f08049b;
+        public static final int browser_ding_dialog_out_of_count = 0x7f08049b;
         /* JADX INFO: Added by JADX */
-        public static final int browser_btn_ding_manager_title_bar_cancel = 0x7f08049c;
+        public static final int browser_ding_dialog_ok = 0x7f08049c;
         /* JADX INFO: Added by JADX */
-        public static final int browser_btn_ding_manager_title_bar_refresh = 0x7f08049d;
+        public static final int browser_dataLoading = 0x7f08049d;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ding_head_prompt = 0x7f08049e;
+        public static final int browser_currentLoading = 0x7f08049e;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ding_foot_prompt = 0x7f08049f;
+        public static final int browser_localDataLoading = 0x7f08049f;
         /* JADX INFO: Added by JADX */
-        public static final int browser_btn_ding_manager_add = 0x7f0804a0;
+        public static final int browser_localLoading = 0x7f0804a0;
         /* JADX INFO: Added by JADX */
-        public static final int browser_net_error = 0x7f0804a1;
+        public static final int browser_widgetLoading = 0x7f0804a1;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ding_data_error = 0x7f0804a2;
+        public static final int browser_addSuccess = 0x7f0804a2;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ding_dialog_out_of_count = 0x7f0804a3;
+        public static final int browser_shortcut_add_dialog_title = 0x7f0804a3;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ding_dialog_ok = 0x7f0804a4;
+        public static final int browser_shortcut_add_dialog_ok = 0x7f0804a4;
         /* JADX INFO: Added by JADX */
-        public static final int browser_dataLoading = 0x7f0804a5;
+        public static final int browser_shortcut_add_dialog_cancel = 0x7f0804a5;
         /* JADX INFO: Added by JADX */
-        public static final int browser_currentLoading = 0x7f0804a6;
+        public static final int browser_suggestion_item_description = 0x7f0804a6;
         /* JADX INFO: Added by JADX */
-        public static final int browser_localDataLoading = 0x7f0804a7;
+        public static final int browser_webview_error_retry_button = 0x7f0804a7;
         /* JADX INFO: Added by JADX */
-        public static final int browser_localLoading = 0x7f0804a8;
+        public static final int browser_webview_error_back_button = 0x7f0804a8;
         /* JADX INFO: Added by JADX */
-        public static final int browser_widgetLoading = 0x7f0804a9;
+        public static final int browser_webview_error_file_not_found = 0x7f0804a9;
         /* JADX INFO: Added by JADX */
-        public static final int browser_addSuccess = 0x7f0804aa;
+        public static final int browser_webview_error_fail_connection = 0x7f0804aa;
         /* JADX INFO: Added by JADX */
-        public static final int browser_shortcut_add_dialog_title = 0x7f0804ab;
+        public static final int browser_app_auto_download_dialog_title = 0x7f0804ab;
         /* JADX INFO: Added by JADX */
-        public static final int browser_shortcut_add_dialog_ok = 0x7f0804ac;
+        public static final int browser_app_auto_download_dialog_ok = 0x7f0804ac;
         /* JADX INFO: Added by JADX */
-        public static final int browser_shortcut_add_dialog_cancel = 0x7f0804ad;
+        public static final int browser_app_auto_download_dialog_cancel = 0x7f0804ad;
         /* JADX INFO: Added by JADX */
-        public static final int browser_suggestion_item_description = 0x7f0804ae;
+        public static final int browser_app_auto_download_dialog_text_prefix = 0x7f0804ae;
         /* JADX INFO: Added by JADX */
-        public static final int browser_webview_error_retry_button = 0x7f0804af;
+        public static final int browser_app_auto_download_dialog_checkbox_text = 0x7f0804af;
         /* JADX INFO: Added by JADX */
-        public static final int browser_webview_error_back_button = 0x7f0804b0;
+        public static final int browser_app_download_description_postfix = 0x7f0804b0;
         /* JADX INFO: Added by JADX */
-        public static final int browser_webview_error_file_not_found = 0x7f0804b1;
+        public static final int browser_text_selection_tip = 0x7f0804b1;
         /* JADX INFO: Added by JADX */
-        public static final int browser_webview_error_fail_connection = 0x7f0804b2;
+        public static final int browser_text_selection_fail_tip = 0x7f0804b2;
         /* JADX INFO: Added by JADX */
-        public static final int browser_app_auto_download_dialog_title = 0x7f0804b3;
+        public static final int browser_text_selection_ok_tip = 0x7f0804b3;
         /* JADX INFO: Added by JADX */
-        public static final int browser_app_auto_download_dialog_ok = 0x7f0804b4;
+        public static final int browser_copy = 0x7f0804b4;
         /* JADX INFO: Added by JADX */
-        public static final int browser_app_auto_download_dialog_cancel = 0x7f0804b5;
+        public static final int browser_search = 0x7f0804b5;
         /* JADX INFO: Added by JADX */
-        public static final int browser_app_auto_download_dialog_text_prefix = 0x7f0804b6;
+        public static final int browser_share_content = 0x7f0804b6;
         /* JADX INFO: Added by JADX */
-        public static final int browser_app_auto_download_dialog_checkbox_text = 0x7f0804b7;
+        public static final int browser_share_waiting = 0x7f0804b7;
         /* JADX INFO: Added by JADX */
-        public static final int browser_app_download_description_postfix = 0x7f0804b8;
+        public static final int browser_share_channel = 0x7f0804b8;
         /* JADX INFO: Added by JADX */
-        public static final int browser_text_selection_tip = 0x7f0804b9;
+        public static final int browser_menu_open = 0x7f0804b9;
         /* JADX INFO: Added by JADX */
-        public static final int browser_text_selection_fail_tip = 0x7f0804ba;
+        public static final int browser_menu_copy = 0x7f0804ba;
         /* JADX INFO: Added by JADX */
-        public static final int browser_text_selection_ok_tip = 0x7f0804bb;
+        public static final int browser_menu_select_text = 0x7f0804bb;
         /* JADX INFO: Added by JADX */
-        public static final int browser_copy = 0x7f0804bc;
+        public static final int browser_menu_share = 0x7f0804bc;
         /* JADX INFO: Added by JADX */
-        public static final int browser_search = 0x7f0804bd;
+        public static final int browser_menu_save_image = 0x7f0804bd;
         /* JADX INFO: Added by JADX */
-        public static final int browser_share_content = 0x7f0804be;
+        public static final int browser_menu_load_image = 0x7f0804be;
         /* JADX INFO: Added by JADX */
-        public static final int browser_share_waiting = 0x7f0804bf;
+        public static final int browser_menu_save_anchor = 0x7f0804bf;
         /* JADX INFO: Added by JADX */
-        public static final int browser_share_channel = 0x7f0804c0;
+        public static final int browser_tab_default_text = 0x7f0804c0;
         /* JADX INFO: Added by JADX */
-        public static final int browser_menu_open = 0x7f0804c1;
+        public static final int browser_too_many_windows_msg = 0x7f0804c1;
         /* JADX INFO: Added by JADX */
-        public static final int browser_menu_copy = 0x7f0804c2;
+        public static final int browser_search_page_null_text1 = 0x7f0804c2;
         /* JADX INFO: Added by JADX */
-        public static final int browser_menu_select_text = 0x7f0804c3;
+        public static final int browser_search_page_null_text2 = 0x7f0804c3;
         /* JADX INFO: Added by JADX */
-        public static final int browser_menu_share = 0x7f0804c4;
+        public static final int browser_ad_browser_tip = 0x7f0804c4;
         /* JADX INFO: Added by JADX */
-        public static final int browser_menu_save_image = 0x7f0804c5;
+        public static final int browser_ad_browser_tip_ok = 0x7f0804c5;
         /* JADX INFO: Added by JADX */
-        public static final int browser_menu_load_image = 0x7f0804c6;
+        public static final int browser_ad_browser_tip_cancel = 0x7f0804c6;
         /* JADX INFO: Added by JADX */
-        public static final int browser_menu_save_anchor = 0x7f0804c7;
+        public static final int msg_loading_video = 0x7f0804c7;
         /* JADX INFO: Added by JADX */
-        public static final int browser_tab_default_text = 0x7f0804c8;
+        public static final int shortcut_name = 0x7f0804c8;
         /* JADX INFO: Added by JADX */
-        public static final int browser_too_many_windows_msg = 0x7f0804c9;
+        public static final int fr_myapp_forfloat_title = 0x7f0804c9;
         /* JADX INFO: Added by JADX */
-        public static final int browser_search_page_null_text1 = 0x7f0804ca;
+        public static final int weather_unknown = 0x7f0804ca;
         /* JADX INFO: Added by JADX */
-        public static final int browser_search_page_null_text2 = 0x7f0804cb;
+        public static final int server_not_ready = 0x7f0804cb;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ad_browser_tip = 0x7f0804cc;
+        public static final int home_weather_title = 0x7f0804cc;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ad_browser_tip_ok = 0x7f0804cd;
+        public static final int searchbox_hint = 0x7f0804cd;
         /* JADX INFO: Added by JADX */
-        public static final int browser_ad_browser_tip_cancel = 0x7f0804ce;
+        public static final int http_error_0 = 0x7f0804ce;
         /* JADX INFO: Added by JADX */
-        public static final int msg_loading_video = 0x7f0804cf;
+        public static final int http_error_1 = 0x7f0804cf;
         /* JADX INFO: Added by JADX */
-        public static final int shortcut_name = 0x7f0804d0;
+        public static final int http_error_2 = 0x7f0804d0;
         /* JADX INFO: Added by JADX */
-        public static final int fr_myapp_forfloat_title = 0x7f0804d1;
+        public static final int http_error_3 = 0x7f0804d1;
         /* JADX INFO: Added by JADX */
-        public static final int weather_unknown = 0x7f0804d2;
+        public static final int http_error_4 = 0x7f0804d2;
         /* JADX INFO: Added by JADX */
-        public static final int server_not_ready = 0x7f0804d3;
+        public static final int http_error_5 = 0x7f0804d3;
         /* JADX INFO: Added by JADX */
-        public static final int home_weather_title = 0x7f0804d4;
+        public static final int http_error_6 = 0x7f0804d4;
         /* JADX INFO: Added by JADX */
-        public static final int searchbox_hint = 0x7f0804d5;
+        public static final int china_mobile = 0x7f0804d5;
         /* JADX INFO: Added by JADX */
-        public static final int http_error_0 = 0x7f0804d6;
+        public static final int china_unicom = 0x7f0804d6;
         /* JADX INFO: Added by JADX */
-        public static final int http_error_1 = 0x7f0804d7;
+        public static final int china_telecom = 0x7f0804d7;
         /* JADX INFO: Added by JADX */
-        public static final int http_error_2 = 0x7f0804d8;
+        public static final int floating_weather_title = 0x7f0804d8;
         /* JADX INFO: Added by JADX */
-        public static final int http_error_3 = 0x7f0804d9;
+        public static final int floating_weather_hotwords = 0x7f0804d9;
         /* JADX INFO: Added by JADX */
-        public static final int http_error_4 = 0x7f0804da;
+        public static final int floating_weather_fivedays = 0x7f0804da;
         /* JADX INFO: Added by JADX */
-        public static final int http_error_5 = 0x7f0804db;
+        public static final int floating_weather_info_default = 0x7f0804db;
         /* JADX INFO: Added by JADX */
-        public static final int http_error_6 = 0x7f0804dc;
+        public static final int home_weather_info_city_default = 0x7f0804dc;
         /* JADX INFO: Added by JADX */
-        public static final int china_mobile = 0x7f0804dd;
+        public static final int home_weather_info_weather_default = 0x7f0804dd;
         /* JADX INFO: Added by JADX */
-        public static final int china_unicom = 0x7f0804de;
+        public static final int floating_famous_del = 0x7f0804de;
         /* JADX INFO: Added by JADX */
-        public static final int china_telecom = 0x7f0804df;
+        public static final int floating_famous_most_visitor = 0x7f0804df;
         /* JADX INFO: Added by JADX */
-        public static final int floating_weather_title = 0x7f0804e0;
+        public static final int floating_famous_recent_task = 0x7f0804e0;
         /* JADX INFO: Added by JADX */
-        public static final int floating_weather_hotwords = 0x7f0804e1;
+        public static final int floating_main_logo = 0x7f0804e1;
         /* JADX INFO: Added by JADX */
-        public static final int floating_weather_fivedays = 0x7f0804e2;
+        public static final int floating_main_mybar = 0x7f0804e2;
         /* JADX INFO: Added by JADX */
-        public static final int floating_weather_info_default = 0x7f0804e3;
+        public static final int floating_main_net = 0x7f0804e3;
         /* JADX INFO: Added by JADX */
-        public static final int home_weather_info_city_default = 0x7f0804e4;
+        public static final int floating_main_news = 0x7f0804e4;
         /* JADX INFO: Added by JADX */
-        public static final int home_weather_info_weather_default = 0x7f0804e5;
+        public static final int floating_main_life = 0x7f0804e5;
         /* JADX INFO: Added by JADX */
-        public static final int floating_famous_del = 0x7f0804e6;
+        public static final int floating_main_entertainment = 0x7f0804e6;
         /* JADX INFO: Added by JADX */
-        public static final int floating_famous_most_visitor = 0x7f0804e7;
+        public static final int floating_common_empty = 0x7f0804e7;
         /* JADX INFO: Added by JADX */
-        public static final int floating_famous_recent_task = 0x7f0804e8;
+        public static final int floating_setting_switch = 0x7f0804e8;
         /* JADX INFO: Added by JADX */
-        public static final int floating_main_logo = 0x7f0804e9;
+        public static final int floating_setting_weather = 0x7f0804e9;
         /* JADX INFO: Added by JADX */
-        public static final int floating_main_mybar = 0x7f0804ea;
+        public static final int floating_setting_news = 0x7f0804ea;
         /* JADX INFO: Added by JADX */
-        public static final int floating_main_net = 0x7f0804eb;
+        public static final int location_city_choose = 0x7f0804eb;
         /* JADX INFO: Added by JADX */
-        public static final int floating_main_news = 0x7f0804ec;
+        public static final int location_prompt = 0x7f0804ec;
         /* JADX INFO: Added by JADX */
-        public static final int floating_main_life = 0x7f0804ed;
+        public static final int location_ok = 0x7f0804ed;
         /* JADX INFO: Added by JADX */
-        public static final int floating_main_entertainment = 0x7f0804ee;
+        public static final int location_cancel = 0x7f0804ee;
         /* JADX INFO: Added by JADX */
-        public static final int floating_common_empty = 0x7f0804ef;
+        public static final int location_not_prompt = 0x7f0804ef;
         /* JADX INFO: Added by JADX */
-        public static final int floating_setting_switch = 0x7f0804f0;
+        public static final int location_message = 0x7f0804f0;
         /* JADX INFO: Added by JADX */
-        public static final int floating_setting_weather = 0x7f0804f1;
+        public static final int location_disabled = 0x7f0804f1;
         /* JADX INFO: Added by JADX */
-        public static final int floating_setting_news = 0x7f0804f2;
+        public static final int floating_mybar_no_login = 0x7f0804f2;
         /* JADX INFO: Added by JADX */
-        public static final int location_city_choose = 0x7f0804f3;
+        public static final int floating_mybar_login = 0x7f0804f3;
         /* JADX INFO: Added by JADX */
-        public static final int location_prompt = 0x7f0804f4;
+        public static final int floating_mybar_register = 0x7f0804f4;
         /* JADX INFO: Added by JADX */
-        public static final int location_ok = 0x7f0804f5;
+        public static final int floating_mybar_empty = 0x7f0804f5;
         /* JADX INFO: Added by JADX */
-        public static final int location_cancel = 0x7f0804f6;
+        public static final int floating_mybar_empty_go = 0x7f0804f6;
         /* JADX INFO: Added by JADX */
-        public static final int location_not_prompt = 0x7f0804f7;
+        public static final int floating_mybar_search_text = 0x7f0804f7;
         /* JADX INFO: Added by JADX */
-        public static final int location_message = 0x7f0804f8;
+        public static final int floating_mybar_title_more = 0x7f0804f8;
         /* JADX INFO: Added by JADX */
-        public static final int location_disabled = 0x7f0804f9;
+        public static final int floating_main_search_text = 0x7f0804f9;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_no_login = 0x7f0804fa;
+        public static final int no_more_data = 0x7f0804fa;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_login = 0x7f0804fb;
+        public static final int no_more_mark = 0x7f0804fb;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_register = 0x7f0804fc;
+        public static final int search_bar_post_1 = 0x7f0804fc;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_empty = 0x7f0804fd;
+        public static final int vcode_change_image = 0x7f0804fd;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_empty_go = 0x7f0804fe;
+        public static final int setting_funtion_intro = 0x7f0804fe;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_search_text = 0x7f0804ff;
+        public static final int input_active_code = 0x7f0804ff;
         /* JADX INFO: Added by JADX */
-        public static final int floating_mybar_title_more = 0x7f080500;
+        public static final int write_keyword = 0x7f080500;
         /* JADX INFO: Added by JADX */
-        public static final int floating_main_search_text = 0x7f080501;
+        public static final int nick_name = 0x7f080501;
         /* JADX INFO: Added by JADX */
-        public static final int no_more_data = 0x7f080502;
+        public static final int enter_forum_guide_tip = 0x7f080502;
         /* JADX INFO: Added by JADX */
-        public static final int no_more_mark = 0x7f080503;
+        public static final int enter_forum_guide_notice = 0x7f080503;
         /* JADX INFO: Added by JADX */
-        public static final int search_bar_post_1 = 0x7f080504;
+        public static final int enter_forum_recommend_focus = 0x7f080504;
         /* JADX INFO: Added by JADX */
-        public static final int vcode_change_image = 0x7f080505;
+        public static final int user_info_center_head_post_name_text_b = 0x7f080505;
         /* JADX INFO: Added by JADX */
-        public static final int setting_funtion_intro = 0x7f080506;
+        public static final int like_browser_bar = 0x7f080506;
         /* JADX INFO: Added by JADX */
-        public static final int input_active_code = 0x7f080507;
+        public static final int browser_image_quality = 0x7f080507;
         /* JADX INFO: Added by JADX */
-        public static final int write_keyword = 0x7f080508;
+        public static final int video = 0x7f080508;
         /* JADX INFO: Added by JADX */
-        public static final int nick_name = 0x7f080509;
+        public static final int user_info_center_head_post_name_text_g = 0x7f080509;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_guide_tip = 0x7f08050a;
+        public static final int is_flowmode_2g3gopen = 0x7f08050a;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_guide_notice = 0x7f08050b;
+        public static final int forum_list_thread_tv = 0x7f08050b;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_recommend_focus = 0x7f08050c;
+        public static final int view_image_quality_low_menu = 0x7f08050c;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_post_name_text_b = 0x7f08050d;
+        public static final int share_to = 0x7f08050d;
         /* JADX INFO: Added by JADX */
-        public static final int like_browser_bar = 0x7f08050e;
+        public static final int signallforum_success = 0x7f08050e;
         /* JADX INFO: Added by JADX */
-        public static final int browser_image_quality = 0x7f08050f;
+        public static final int homepage = 0x7f08050f;
         /* JADX INFO: Added by JADX */
-        public static final int video = 0x7f080510;
+        public static final int ba_square = 0x7f080510;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_post_name_text_g = 0x7f080511;
+        public static final int send_reply = 0x7f080511;
         /* JADX INFO: Added by JADX */
-        public static final int is_flowmode_2g3gopen = 0x7f080512;
+        public static final int close_tb = 0x7f080512;
         /* JADX INFO: Added by JADX */
-        public static final int forum_list_thread_tv = 0x7f080513;
+        public static final int bar_name_invalid = 0x7f080513;
         /* JADX INFO: Added by JADX */
-        public static final int view_image_quality_low_menu = 0x7f080514;
+        public static final int sign_point_new = 0x7f080514;
         /* JADX INFO: Added by JADX */
-        public static final int share_to = 0x7f080515;
+        public static final int anti_account_exception_neg = 0x7f080515;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_success = 0x7f080516;
+        public static final int its_fans_prefix = 0x7f080516;
         /* JADX INFO: Added by JADX */
-        public static final int homepage = 0x7f080517;
+        public static final int editor_dialog_title = 0x7f080517;
         /* JADX INFO: Added by JADX */
-        public static final int ba_square = 0x7f080518;
+        public static final int its_attention_prefix = 0x7f080518;
         /* JADX INFO: Added by JADX */
-        public static final int send_reply = 0x7f080519;
+        public static final int my_attention = 0x7f080519;
         /* JADX INFO: Added by JADX */
-        public static final int close_tb = 0x7f08051a;
+        public static final int appeal_max_size = 0x7f08051a;
         /* JADX INFO: Added by JADX */
-        public static final int bar_name_invalid = 0x7f08051b;
+        public static final int del_thread_confirm = 0x7f08051b;
         /* JADX INFO: Added by JADX */
-        public static final int sign_point_new = 0x7f08051c;
+        public static final int update_after = 0x7f08051c;
         /* JADX INFO: Added by JADX */
-        public static final int anti_account_exception_neg = 0x7f08051d;
+        public static final int app_downloading = 0x7f08051d;
         /* JADX INFO: Added by JADX */
-        public static final int its_fans_prefix = 0x7f08051e;
+        public static final int cancel_tip = 0x7f08051e;
         /* JADX INFO: Added by JADX */
-        public static final int editor_dialog_title = 0x7f08051f;
+        public static final int sure_cancel = 0x7f08051f;
         /* JADX INFO: Added by JADX */
-        public static final int its_attention_prefix = 0x7f080520;
+        public static final int cancel_text = 0x7f080520;
         /* JADX INFO: Added by JADX */
-        public static final int my_attention = 0x7f080521;
+        public static final int hour = 0x7f080521;
         /* JADX INFO: Added by JADX */
-        public static final int appeal_max_size = 0x7f080522;
+        public static final int bar_name_rule = 0x7f080522;
         /* JADX INFO: Added by JADX */
-        public static final int del_thread_confirm = 0x7f080523;
+        public static final int sign_remind_time = 0x7f080523;
         /* JADX INFO: Added by JADX */
-        public static final int update_after = 0x7f080524;
+        public static final int forum_detail_ht_title = 0x7f080524;
         /* JADX INFO: Added by JADX */
-        public static final int app_downloading = 0x7f080525;
+        public static final int pull_view_release_more = 0x7f080525;
         /* JADX INFO: Added by JADX */
-        public static final int cancel_tip = 0x7f080526;
+        public static final int my_post = 0x7f080526;
         /* JADX INFO: Added by JADX */
-        public static final int sure_cancel = 0x7f080527;
+        public static final int putin_account = 0x7f080527;
         /* JADX INFO: Added by JADX */
-        public static final int cancel_text = 0x7f080528;
+        public static final int signallforum_res = 0x7f080528;
         /* JADX INFO: Added by JADX */
-        public static final int hour = 0x7f080529;
+        public static final int signallforum = 0x7f080529;
         /* JADX INFO: Added by JADX */
-        public static final int bar_name_rule = 0x7f08052a;
+        public static final int btn_account_exception = 0x7f08052a;
         /* JADX INFO: Added by JADX */
-        public static final int sign_remind_time = 0x7f08052b;
+        public static final int mange_show_setting = 0x7f08052b;
         /* JADX INFO: Added by JADX */
-        public static final int forum_detail_ht_title = 0x7f08052c;
+        public static final int neednot_update = 0x7f08052c;
         /* JADX INFO: Added by JADX */
-        public static final int pull_view_release_more = 0x7f08052d;
+        public static final int draft_save_success = 0x7f08052d;
         /* JADX INFO: Added by JADX */
-        public static final int my_post = 0x7f08052e;
+        public static final int go_to_discuss_post = 0x7f08052e;
         /* JADX INFO: Added by JADX */
-        public static final int putin_account = 0x7f08052f;
+        public static final int her_no_fan_other = 0x7f08052f;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_res = 0x7f080530;
+        public static final int add_fan_error = 0x7f080530;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum = 0x7f080531;
+        public static final int clear_cash = 0x7f080531;
         /* JADX INFO: Added by JADX */
-        public static final int btn_account_exception = 0x7f080532;
+        public static final int him_no_fan_other = 0x7f080532;
         /* JADX INFO: Added by JADX */
-        public static final int mange_show_setting = 0x7f080533;
+        public static final int current_page = 0x7f080533;
         /* JADX INFO: Added by JADX */
-        public static final int neednot_update = 0x7f080534;
+        public static final int user_info_center_head_attention_name_text = 0x7f080534;
         /* JADX INFO: Added by JADX */
-        public static final int draft_save_success = 0x7f080535;
+        public static final int sign = 0x7f080535;
         /* JADX INFO: Added by JADX */
-        public static final int go_to_discuss_post = 0x7f080536;
+        public static final int signallforum_resign = 0x7f080536;
         /* JADX INFO: Added by JADX */
-        public static final int her_no_fan_other = 0x7f080537;
+        public static final int hd_photo = 0x7f080537;
         /* JADX INFO: Added by JADX */
-        public static final int add_fan_error = 0x7f080538;
+        public static final int day = 0x7f080538;
         /* JADX INFO: Added by JADX */
-        public static final int clear_cash = 0x7f080539;
+        public static final int post_recommend_title = 0x7f080539;
         /* JADX INFO: Added by JADX */
-        public static final int him_no_fan_other = 0x7f08053a;
+        public static final int pb_double_click_tips = 0x7f08053a;
         /* JADX INFO: Added by JADX */
-        public static final int current_page = 0x7f08053b;
+        public static final int ta_posts = 0x7f08053b;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_attention_name_text = 0x7f08053c;
+        public static final int pre_page = 0x7f08053c;
         /* JADX INFO: Added by JADX */
-        public static final int sign = 0x7f08053d;
+        public static final int write_title_hint = 0x7f08053d;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_resign = 0x7f08053e;
+        public static final int signed_label = 0x7f08053e;
         /* JADX INFO: Added by JADX */
-        public static final int hd_photo = 0x7f08053f;
+        public static final int is_close = 0x7f08053f;
         /* JADX INFO: Added by JADX */
-        public static final int day = 0x7f080540;
+        public static final int ba_dongtai = 0x7f080540;
         /* JADX INFO: Added by JADX */
-        public static final int post_recommend_title = 0x7f080541;
+        public static final int discover_item_mylive = 0x7f080541;
         /* JADX INFO: Added by JADX */
-        public static final int pb_double_click_tips = 0x7f080542;
+        public static final int ba_dongtai_title = 0x7f080542;
         /* JADX INFO: Added by JADX */
-        public static final int ta_posts = 0x7f080543;
+        public static final int frs_remind_noforum = 0x7f080543;
         /* JADX INFO: Added by JADX */
-        public static final int pre_page = 0x7f080544;
+        public static final int anti_account_exception_tip = 0x7f080544;
         /* JADX INFO: Added by JADX */
-        public static final int write_title_hint = 0x7f080545;
+        public static final int lbl_appeal_reason_prefix = 0x7f080545;
         /* JADX INFO: Added by JADX */
-        public static final int signed_label = 0x7f080546;
+        public static final int buy_package = 0x7f080546;
         /* JADX INFO: Added by JADX */
-        public static final int is_close = 0x7f080547;
+        public static final int face_store = 0x7f080547;
         /* JADX INFO: Added by JADX */
-        public static final int ba_dongtai = 0x7f080548;
+        public static final int user_info_center_head_post_name_text_n = 0x7f080548;
         /* JADX INFO: Added by JADX */
-        public static final int discover_item_mylive = 0x7f080549;
+        public static final int signallforum_begin = 0x7f080549;
         /* JADX INFO: Added by JADX */
-        public static final int ba_dongtai_title = 0x7f08054a;
+        public static final int frs_create_forum = 0x7f08054a;
         /* JADX INFO: Added by JADX */
-        public static final int frs_remind_noforum = 0x7f08054b;
+        public static final int clean_search = 0x7f08054b;
         /* JADX INFO: Added by JADX */
-        public static final int anti_account_exception_tip = 0x7f08054c;
+        public static final int create_bar_info2 = 0x7f08054c;
         /* JADX INFO: Added by JADX */
-        public static final int lbl_appeal_reason_prefix = 0x7f08054d;
+        public static final int create_bar_info1 = 0x7f08054d;
         /* JADX INFO: Added by JADX */
-        public static final int buy_package = 0x7f08054e;
+        public static final int is_save_draft = 0x7f08054e;
         /* JADX INFO: Added by JADX */
-        public static final int face_store = 0x7f08054f;
+        public static final int bar_name = 0x7f08054f;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_post_name_text_n = 0x7f080550;
+        public static final int more_advice = 0x7f080550;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_begin = 0x7f080551;
+        public static final int cancel_top = 0x7f080551;
         /* JADX INFO: Added by JADX */
-        public static final int frs_create_forum = 0x7f080552;
+        public static final int recommend_apps = 0x7f080552;
         /* JADX INFO: Added by JADX */
-        public static final int clean_search = 0x7f080553;
+        public static final int query_buy_fail_mail = 0x7f080553;
         /* JADX INFO: Added by JADX */
-        public static final int create_bar_info2 = 0x7f080554;
+        public static final int add_mark_on_pb = 0x7f080554;
         /* JADX INFO: Added by JADX */
-        public static final int create_bar_info1 = 0x7f080555;
+        public static final int her_attention_people = 0x7f080555;
         /* JADX INFO: Added by JADX */
-        public static final int is_save_draft = 0x7f080556;
+        public static final int ta_attention_people = 0x7f080556;
         /* JADX INFO: Added by JADX */
-        public static final int bar_name = 0x7f080557;
+        public static final int my_attention_prefix = 0x7f080557;
         /* JADX INFO: Added by JADX */
-        public static final int more_advice = 0x7f080558;
+        public static final int login_to_attention = 0x7f080558;
         /* JADX INFO: Added by JADX */
-        public static final int cancel_top = 0x7f080559;
+        public static final int browser_image_thrift_on_tip = 0x7f080559;
         /* JADX INFO: Added by JADX */
-        public static final int recommend_apps = 0x7f08055a;
+        public static final int version_info = 0x7f08055a;
         /* JADX INFO: Added by JADX */
-        public static final int query_buy_fail_mail = 0x7f08055b;
+        public static final int bar_name_long = 0x7f08055b;
         /* JADX INFO: Added by JADX */
-        public static final int add_mark_on_pb = 0x7f08055c;
+        public static final int person_post_lv_empty_guest = 0x7f08055c;
         /* JADX INFO: Added by JADX */
-        public static final int her_attention_people = 0x7f08055d;
+        public static final int frs_noforum = 0x7f08055d;
         /* JADX INFO: Added by JADX */
-        public static final int ta_attention_people = 0x7f08055e;
+        public static final int btn_show_passed_pb_aftre = 0x7f08055e;
         /* JADX INFO: Added by JADX */
-        public static final int my_attention_prefix = 0x7f08055f;
+        public static final int voice_stop_tip = 0x7f08055f;
         /* JADX INFO: Added by JADX */
-        public static final int login_to_attention = 0x7f080560;
+        public static final int user_info_center_head_fans_name_text_n = 0x7f080560;
         /* JADX INFO: Added by JADX */
-        public static final int browser_image_thrift_on_tip = 0x7f080561;
+        public static final int home = 0x7f080561;
         /* JADX INFO: Added by JADX */
-        public static final int version_info = 0x7f080562;
+        public static final int relogin_cacel = 0x7f080562;
         /* JADX INFO: Added by JADX */
-        public static final int bar_name_long = 0x7f080563;
+        public static final int three_point = 0x7f080563;
         /* JADX INFO: Added by JADX */
-        public static final int person_post_lv_empty_guest = 0x7f080564;
+        public static final int closure_user = 0x7f080564;
         /* JADX INFO: Added by JADX */
-        public static final int frs_noforum = 0x7f080565;
+        public static final int flist_loading = 0x7f080565;
         /* JADX INFO: Added by JADX */
-        public static final int btn_show_passed_pb_aftre = 0x7f080566;
+        public static final int not_save = 0x7f080566;
         /* JADX INFO: Added by JADX */
-        public static final int voice_stop_tip = 0x7f080567;
+        public static final int she_no_like_forum_other = 0x7f080567;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_fans_name_text_n = 0x7f080568;
+        public static final int voice_record_press_to_record = 0x7f080568;
         /* JADX INFO: Added by JADX */
-        public static final int home = 0x7f080569;
+        public static final int lbl_forbid_reason = 0x7f080569;
         /* JADX INFO: Added by JADX */
-        public static final int relogin_cacel = 0x7f08056a;
+        public static final int appeal_title = 0x7f08056a;
         /* JADX INFO: Added by JADX */
-        public static final int three_point = 0x7f08056b;
+        public static final int anti_type_forbid_bawu = 0x7f08056b;
         /* JADX INFO: Added by JADX */
-        public static final int closure_user = 0x7f08056c;
+        public static final int add_reply = 0x7f08056c;
         /* JADX INFO: Added by JADX */
-        public static final int flist_loading = 0x7f08056d;
+        public static final int is_2g3gopen = 0x7f08056d;
         /* JADX INFO: Added by JADX */
-        public static final int not_save = 0x7f08056e;
+        public static final int ta_attention_forums = 0x7f08056e;
         /* JADX INFO: Added by JADX */
-        public static final int she_no_like_forum_other = 0x7f08056f;
+        public static final int view_previous_floor = 0x7f08056f;
         /* JADX INFO: Added by JADX */
-        public static final int voice_record_press_to_record = 0x7f080570;
+        public static final int search_in_baidu_text = 0x7f080570;
         /* JADX INFO: Added by JADX */
-        public static final int lbl_forbid_reason = 0x7f080571;
+        public static final int sending = 0x7f080571;
         /* JADX INFO: Added by JADX */
-        public static final int appeal_title = 0x7f080572;
+        public static final int guide_main_description = 0x7f080572;
         /* JADX INFO: Added by JADX */
-        public static final int anti_type_forbid_bawu = 0x7f080573;
+        public static final int bar_first_dir_name = 0x7f080573;
         /* JADX INFO: Added by JADX */
-        public static final int add_reply = 0x7f080574;
+        public static final int user_info_center_head_fans_name_text_b = 0x7f080574;
         /* JADX INFO: Added by JADX */
-        public static final int is_2g3gopen = 0x7f080575;
+        public static final int no_more_msg = 0x7f080575;
         /* JADX INFO: Added by JADX */
-        public static final int ta_attention_forums = 0x7f080576;
+        public static final int square = 0x7f080576;
         /* JADX INFO: Added by JADX */
-        public static final int view_previous_floor = 0x7f080577;
+        public static final int user_info_center_head_fans_name_text_g = 0x7f080577;
         /* JADX INFO: Added by JADX */
-        public static final int search_in_baidu_text = 0x7f080578;
+        public static final int change_vcode = 0x7f080578;
         /* JADX INFO: Added by JADX */
-        public static final int sending = 0x7f080579;
+        public static final int attention_cancel_info = 0x7f080579;
         /* JADX INFO: Added by JADX */
-        public static final int guide_main_description = 0x7f08057a;
+        public static final int download_baidu_video_dialog = 0x7f08057a;
         /* JADX INFO: Added by JADX */
-        public static final int bar_first_dir_name = 0x7f08057b;
+        public static final int appeal_submit_btn = 0x7f08057b;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_fans_name_text_b = 0x7f08057c;
+        public static final int group_errphone = 0x7f08057c;
         /* JADX INFO: Added by JADX */
-        public static final int no_more_msg = 0x7f08057d;
+        public static final int update_app_error = 0x7f08057d;
         /* JADX INFO: Added by JADX */
-        public static final int square = 0x7f08057e;
+        public static final int her_no_attention_other = 0x7f08057e;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_fans_name_text_g = 0x7f08057f;
+        public static final int def_good_class = 0x7f08057f;
         /* JADX INFO: Added by JADX */
-        public static final int change_vcode = 0x7f080580;
+        public static final int login_home_tab = 0x7f080580;
         /* JADX INFO: Added by JADX */
-        public static final int attention_cancel_info = 0x7f080581;
+        public static final int quit_buy_confirm = 0x7f080581;
         /* JADX INFO: Added by JADX */
-        public static final int download_baidu_video_dialog = 0x7f080582;
+        public static final int qrcode = 0x7f080582;
         /* JADX INFO: Added by JADX */
-        public static final int appeal_submit_btn = 0x7f080583;
+        public static final int anti_appeal_sign_com_tip = 0x7f080583;
         /* JADX INFO: Added by JADX */
-        public static final int group_errphone = 0x7f080584;
+        public static final int signallforum_ing = 0x7f080584;
         /* JADX INFO: Added by JADX */
-        public static final int update_app_error = 0x7f080585;
+        public static final int person_post_reply_no_more = 0x7f080585;
         /* JADX INFO: Added by JADX */
-        public static final int her_no_attention_other = 0x7f080586;
+        public static final int view_mid = 0x7f080586;
         /* JADX INFO: Added by JADX */
-        public static final int def_good_class = 0x7f080587;
+        public static final int forbid_operation = 0x7f080587;
         /* JADX INFO: Added by JADX */
-        public static final int quit_buy_confirm = 0x7f080588;
+        public static final int person_post_reply = 0x7f080588;
         /* JADX INFO: Added by JADX */
-        public static final int qrcode = 0x7f080589;
+        public static final int anti_type_exception = 0x7f080589;
         /* JADX INFO: Added by JADX */
-        public static final int anti_appeal_sign_com_tip = 0x7f08058a;
+        public static final int anti_appeal_sign_bawu_tip = 0x7f08058a;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_ing = 0x7f08058b;
+        public static final int signallforum_resigning = 0x7f08058b;
         /* JADX INFO: Added by JADX */
-        public static final int person_post_reply_no_more = 0x7f08058c;
+        public static final int pic = 0x7f08058c;
         /* JADX INFO: Added by JADX */
-        public static final int view_mid = 0x7f08058d;
+        public static final int album_list_no_data = 0x7f08058d;
         /* JADX INFO: Added by JADX */
-        public static final int forbid_operation = 0x7f08058e;
+        public static final int forum_feed_login_tip = 0x7f08058e;
         /* JADX INFO: Added by JADX */
-        public static final int person_post_reply = 0x7f08058f;
+        public static final int reply_from = 0x7f08058f;
         /* JADX INFO: Added by JADX */
-        public static final int anti_type_exception = 0x7f080590;
+        public static final int view_host = 0x7f080590;
         /* JADX INFO: Added by JADX */
-        public static final int anti_appeal_sign_bawu_tip = 0x7f080591;
+        public static final int go_to_live_post_prefix = 0x7f080591;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_resigning = 0x7f080592;
+        public static final int share_location = 0x7f080592;
         /* JADX INFO: Added by JADX */
-        public static final int pic = 0x7f080593;
+        public static final int tieba_helper_open = 0x7f080593;
         /* JADX INFO: Added by JADX */
-        public static final int album_list_no_data = 0x7f080594;
+        public static final int user_info_center_head_viewpager_send_text_name = 0x7f080594;
         /* JADX INFO: Added by JADX */
-        public static final int forum_feed_login_tip = 0x7f080595;
+        public static final int manage = 0x7f080595;
         /* JADX INFO: Added by JADX */
-        public static final int reply_from = 0x7f080596;
+        public static final int check_version_update = 0x7f080596;
         /* JADX INFO: Added by JADX */
-        public static final int view_host = 0x7f080597;
+        public static final int update_client = 0x7f080597;
         /* JADX INFO: Added by JADX */
-        public static final int go_to_live_post_prefix = 0x7f080598;
+        public static final int add_to_window = 0x7f080598;
         /* JADX INFO: Added by JADX */
-        public static final int share_location = 0x7f080599;
+        public static final int hide = 0x7f080599;
         /* JADX INFO: Added by JADX */
-        public static final int tieba_helper_open = 0x7f08059a;
+        public static final int person_info_text = 0x7f08059a;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_viewpager_send_text_name = 0x7f08059b;
+        public static final int person_post_lv_empty_host = 0x7f08059b;
         /* JADX INFO: Added by JADX */
-        public static final int manage = 0x7f08059c;
+        public static final int image_cash_del_suc = 0x7f08059c;
         /* JADX INFO: Added by JADX */
-        public static final int check_version_update = 0x7f08059d;
+        public static final int search_post_text = 0x7f08059d;
         /* JADX INFO: Added by JADX */
-        public static final int update_client = 0x7f08059e;
+        public static final int view_post = 0x7f08059e;
         /* JADX INFO: Added by JADX */
-        public static final int add_to_window = 0x7f08059f;
+        public static final int copy = 0x7f08059f;
         /* JADX INFO: Added by JADX */
-        public static final int hide = 0x7f0805a0;
+        public static final int forum_detail_info_badge_title = 0x7f0805a0;
         /* JADX INFO: Added by JADX */
-        public static final int person_info_text = 0x7f0805a1;
+        public static final int resend_code_second = 0x7f0805a1;
         /* JADX INFO: Added by JADX */
-        public static final int person_post_lv_empty_host = 0x7f0805a2;
+        public static final int radio_forbid_10 = 0x7f0805a2;
         /* JADX INFO: Added by JADX */
-        public static final int image_cash_del_suc = 0x7f0805a3;
+        public static final int select_friend = 0x7f0805a3;
         /* JADX INFO: Added by JADX */
-        public static final int search_post_text = 0x7f0805a4;
+        public static final int text_page = 0x7f0805a4;
         /* JADX INFO: Added by JADX */
-        public static final int view_post = 0x7f0805a5;
+        public static final int default_forbid_reason = 0x7f0805a5;
         /* JADX INFO: Added by JADX */
-        public static final int copy = 0x7f0805a6;
+        public static final int his_fans_suffix = 0x7f0805a6;
         /* JADX INFO: Added by JADX */
-        public static final int forum_detail_info_badge_title = 0x7f0805a7;
+        public static final int she_attention_prefix = 0x7f0805a7;
         /* JADX INFO: Added by JADX */
-        public static final int resend_code_second = 0x7f0805a8;
+        public static final int search_in_baidu = 0x7f0805a8;
         /* JADX INFO: Added by JADX */
-        public static final int radio_forbid_10 = 0x7f0805a9;
+        public static final int unlike_failure = 0x7f0805a9;
         /* JADX INFO: Added by JADX */
-        public static final int select_friend = 0x7f0805aa;
+        public static final int no_disturb_mode_time = 0x7f0805aa;
         /* JADX INFO: Added by JADX */
-        public static final int text_page = 0x7f0805ab;
+        public static final int no_forum_data = 0x7f0805ab;
         /* JADX INFO: Added by JADX */
-        public static final int default_forbid_reason = 0x7f0805ac;
+        public static final int no_cache_delete = 0x7f0805ac;
         /* JADX INFO: Added by JADX */
-        public static final int his_fans_suffix = 0x7f0805ad;
+        public static final int level_up = 0x7f0805ad;
         /* JADX INFO: Added by JADX */
-        public static final int she_attention_prefix = 0x7f0805ae;
+        public static final int star_bar_level_up = 0x7f0805ae;
         /* JADX INFO: Added by JADX */
-        public static final int search_in_baidu = 0x7f0805af;
+        public static final int him_no_attention_other = 0x7f0805af;
         /* JADX INFO: Added by JADX */
-        public static final int unlike_failure = 0x7f0805b0;
+        public static final int signallforum_maxdays = 0x7f0805b0;
         /* JADX INFO: Added by JADX */
-        public static final int no_disturb_mode_time = 0x7f0805b1;
+        public static final int load_motu_failed = 0x7f0805b1;
         /* JADX INFO: Added by JADX */
-        public static final int no_forum_data = 0x7f0805b2;
+        public static final int pb_reply_hint = 0x7f0805b2;
         /* JADX INFO: Added by JADX */
-        public static final int no_cache_delete = 0x7f0805b3;
+        public static final int person_post_thread_no_more = 0x7f0805b3;
         /* JADX INFO: Added by JADX */
-        public static final int level_up = 0x7f0805b4;
+        public static final int downloaded = 0x7f0805b4;
         /* JADX INFO: Added by JADX */
-        public static final int star_bar_level_up = 0x7f0805b5;
+        public static final int resend_code = 0x7f0805b5;
         /* JADX INFO: Added by JADX */
-        public static final int him_no_attention_other = 0x7f0805b6;
+        public static final int pack_up = 0x7f0805b6;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_maxdays = 0x7f0805b7;
+        public static final int post_x_floor = 0x7f0805b7;
         /* JADX INFO: Added by JADX */
-        public static final int load_motu_failed = 0x7f0805b8;
+        public static final int forum_detail_info_rank_title = 0x7f0805b8;
         /* JADX INFO: Added by JADX */
-        public static final int pb_reply_hint = 0x7f0805b9;
+        public static final int my_info = 0x7f0805b9;
         /* JADX INFO: Added by JADX */
-        public static final int person_post_thread_no_more = 0x7f0805ba;
+        public static final int tieba_client = 0x7f0805ba;
         /* JADX INFO: Added by JADX */
-        public static final int downloaded = 0x7f0805bb;
+        public static final int login_manage_account = 0x7f0805bb;
         /* JADX INFO: Added by JADX */
-        public static final int resend_code = 0x7f0805bc;
+        public static final int add_thread = 0x7f0805bc;
         /* JADX INFO: Added by JADX */
-        public static final int pack_up = 0x7f0805bd;
+        public static final int forum_detail_title = 0x7f0805bd;
         /* JADX INFO: Added by JADX */
-        public static final int post_x_floor = 0x7f0805be;
+        public static final int add_to_window_succ = 0x7f0805be;
         /* JADX INFO: Added by JADX */
-        public static final int forum_detail_info_rank_title = 0x7f0805bf;
+        public static final int upload_image_quality = 0x7f0805bf;
         /* JADX INFO: Added by JADX */
-        public static final int my_info = 0x7f0805c0;
+        public static final int ba_all_sign = 0x7f0805c0;
         /* JADX INFO: Added by JADX */
-        public static final int tieba_client = 0x7f0805c1;
+        public static final int not_have_attention = 0x7f0805c1;
         /* JADX INFO: Added by JADX */
-        public static final int login_manage_account = 0x7f0805c2;
+        public static final int signallforum_exp = 0x7f0805c2;
         /* JADX INFO: Added by JADX */
-        public static final int add_thread = 0x7f0805c3;
+        public static final int lbl_forbid_id = 0x7f0805c3;
         /* JADX INFO: Added by JADX */
-        public static final int forum_detail_title = 0x7f0805c4;
+        public static final int send_post = 0x7f0805c4;
         /* JADX INFO: Added by JADX */
-        public static final int add_to_window_succ = 0x7f0805c5;
+        public static final int user_info_center_head_viewpager_tb_age = 0x7f0805c5;
         /* JADX INFO: Added by JADX */
-        public static final int upload_image_quality = 0x7f0805c6;
+        public static final int forbid_id = 0x7f0805c6;
         /* JADX INFO: Added by JADX */
-        public static final int ba_all_sign = 0x7f0805c7;
+        public static final int enter_forum = 0x7f0805c7;
         /* JADX INFO: Added by JADX */
-        public static final int not_have_attention = 0x7f0805c8;
+        public static final int enter_forum_search_tip = 0x7f0805c8;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_exp = 0x7f0805c9;
+        public static final int login_feedback = 0x7f0805c9;
         /* JADX INFO: Added by JADX */
-        public static final int lbl_forbid_id = 0x7f0805ca;
+        public static final int browsing_settings = 0x7f0805ca;
         /* JADX INFO: Added by JADX */
-        public static final int send_post = 0x7f0805cb;
+        public static final int login_to_post = 0x7f0805cb;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_viewpager_tb_age = 0x7f0805cc;
+        public static final int pb_nodata = 0x7f0805cc;
         /* JADX INFO: Added by JADX */
-        public static final int forbid_id = 0x7f0805cd;
+        public static final int question_mark = 0x7f0805cd;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum = 0x7f0805ce;
+        public static final int sign_success = 0x7f0805ce;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_search_tip = 0x7f0805cf;
+        public static final int editor_dialog_no = 0x7f0805cf;
         /* JADX INFO: Added by JADX */
-        public static final int login_feedback = 0x7f0805d0;
+        public static final int frs_fortune_bag = 0x7f0805d0;
         /* JADX INFO: Added by JADX */
-        public static final int browsing_settings = 0x7f0805d1;
+        public static final int anti_appeal_btn_pos = 0x7f0805d1;
         /* JADX INFO: Added by JADX */
-        public static final int login_to_post = 0x7f0805d2;
+        public static final int voice_restart_tip = 0x7f0805d2;
         /* JADX INFO: Added by JADX */
-        public static final int pb_nodata = 0x7f0805d3;
+        public static final int signallforum_back_signing = 0x7f0805d3;
         /* JADX INFO: Added by JADX */
-        public static final int question_mark = 0x7f0805d4;
+        public static final int alerm_delete = 0x7f0805d4;
         /* JADX INFO: Added by JADX */
-        public static final int sign_success = 0x7f0805d5;
+        public static final int alert_clear_all_cache = 0x7f0805d5;
         /* JADX INFO: Added by JADX */
-        public static final int editor_dialog_no = 0x7f0805d6;
+        public static final int album_finish_btn = 0x7f0805d6;
         /* JADX INFO: Added by JADX */
-        public static final int frs_fortune_bag = 0x7f0805d7;
+        public static final int browser_image_thrift_tip = 0x7f0805d7;
         /* JADX INFO: Added by JADX */
-        public static final int anti_appeal_btn_pos = 0x7f0805d8;
+        public static final int anti_no_chance_com_tip = 0x7f0805d8;
         /* JADX INFO: Added by JADX */
-        public static final int voice_restart_tip = 0x7f0805d9;
+        public static final int her_fans_suffix = 0x7f0805d9;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_back_signing = 0x7f0805da;
+        public static final int commit_top = 0x7f0805da;
         /* JADX INFO: Added by JADX */
-        public static final int alerm_delete = 0x7f0805db;
+        public static final int lbl_forbid_user = 0x7f0805db;
         /* JADX INFO: Added by JADX */
-        public static final int alert_clear_all_cache = 0x7f0805dc;
+        public static final int forbid_failure = 0x7f0805dc;
         /* JADX INFO: Added by JADX */
-        public static final int album_finish_btn = 0x7f0805dd;
+        public static final int user_with_colon = 0x7f0805dd;
         /* JADX INFO: Added by JADX */
-        public static final int browser_image_thrift_tip = 0x7f0805de;
+        public static final int add_mark = 0x7f0805de;
         /* JADX INFO: Added by JADX */
-        public static final int anti_no_chance_com_tip = 0x7f0805df;
+        public static final int text_no_suggest = 0x7f0805df;
         /* JADX INFO: Added by JADX */
-        public static final int her_fans_suffix = 0x7f0805e0;
+        public static final int font_size_mid = 0x7f0805e0;
         /* JADX INFO: Added by JADX */
-        public static final int commit_top = 0x7f0805e1;
+        public static final int signallforum_days = 0x7f0805e1;
         /* JADX INFO: Added by JADX */
-        public static final int lbl_forbid_user = 0x7f0805e2;
+        public static final int black_list_added = 0x7f0805e2;
         /* JADX INFO: Added by JADX */
-        public static final int forbid_failure = 0x7f0805e3;
+        public static final int person = 0x7f0805e3;
         /* JADX INFO: Added by JADX */
-        public static final int user_with_colon = 0x7f0805e4;
+        public static final int emotion_manage_title_nodata = 0x7f0805e4;
         /* JADX INFO: Added by JADX */
-        public static final int add_mark = 0x7f0805e5;
+        public static final int signallforum_count = 0x7f0805e5;
         /* JADX INFO: Added by JADX */
-        public static final int text_no_suggest = 0x7f0805e6;
+        public static final int off_the_shelf = 0x7f0805e6;
         /* JADX INFO: Added by JADX */
-        public static final int font_size_mid = 0x7f0805e7;
+        public static final int lbl_appeal_reason_num = 0x7f0805e7;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_days = 0x7f0805e8;
+        public static final int alert_clear_cache = 0x7f0805e8;
         /* JADX INFO: Added by JADX */
-        public static final int black_list_added = 0x7f0805e9;
+        public static final int image_pb_imagethread = 0x7f0805e9;
         /* JADX INFO: Added by JADX */
-        public static final int person = 0x7f0805ea;
+        public static final int his_attention_forums = 0x7f0805ea;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_title_nodata = 0x7f0805eb;
+        public static final int day_one = 0x7f0805eb;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_count = 0x7f0805ec;
+        public static final int tieba_downloading = 0x7f0805ec;
         /* JADX INFO: Added by JADX */
-        public static final int off_the_shelf = 0x7f0805ed;
+        public static final int as_downloading = 0x7f0805ed;
         /* JADX INFO: Added by JADX */
-        public static final int lbl_appeal_reason_num = 0x7f0805ee;
+        public static final int setting_version_text = 0x7f0805ee;
         /* JADX INFO: Added by JADX */
-        public static final int alert_clear_cache = 0x7f0805ef;
+        public static final int fifty = 0x7f0805ef;
         /* JADX INFO: Added by JADX */
-        public static final int image_pb_imagethread = 0x7f0805f0;
+        public static final int relogin_fail = 0x7f0805f0;
         /* JADX INFO: Added by JADX */
-        public static final int his_attention_forums = 0x7f0805f1;
+        public static final int mention_replyme_thread = 0x7f0805f1;
         /* JADX INFO: Added by JADX */
-        public static final int day_one = 0x7f0805f2;
+        public static final int data_loading_1 = 0x7f0805f2;
         /* JADX INFO: Added by JADX */
-        public static final int tieba_downloading = 0x7f0805f3;
+        public static final int topic = 0x7f0805f3;
         /* JADX INFO: Added by JADX */
-        public static final int as_downloading = 0x7f0805f4;
+        public static final int user_info_center_head_viewpager_forum_age_text = 0x7f0805f4;
         /* JADX INFO: Added by JADX */
-        public static final int setting_version_text = 0x7f0805f5;
+        public static final int bar_not_create = 0x7f0805f5;
         /* JADX INFO: Added by JADX */
-        public static final int fifty = 0x7f0805f6;
+        public static final int day_ten = 0x7f0805f6;
         /* JADX INFO: Added by JADX */
-        public static final int relogin_fail = 0x7f0805f7;
+        public static final int his_posts = 0x7f0805f7;
         /* JADX INFO: Added by JADX */
-        public static final int mention_replyme_thread = 0x7f0805f8;
+        public static final int no_fan_other = 0x7f0805f8;
         /* JADX INFO: Added by JADX */
-        public static final int data_loading_1 = 0x7f0805f9;
+        public static final int anti_no_chance_pos = 0x7f0805f9;
         /* JADX INFO: Added by JADX */
-        public static final int topic = 0x7f0805fa;
+        public static final int mention_chatme = 0x7f0805fa;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_viewpager_forum_age_text = 0x7f0805fb;
+        public static final int view_pb = 0x7f0805fb;
         /* JADX INFO: Added by JADX */
-        public static final int bar_not_create = 0x7f0805fc;
+        public static final int member_count_unit = 0x7f0805fc;
         /* JADX INFO: Added by JADX */
-        public static final int day_ten = 0x7f0805fd;
+        public static final int appeal_min_size = 0x7f0805fd;
         /* JADX INFO: Added by JADX */
-        public static final int his_posts = 0x7f0805fe;
+        public static final int no_post_info = 0x7f0805fe;
         /* JADX INFO: Added by JADX */
-        public static final int no_fan_other = 0x7f0805ff;
+        public static final int query_buy_fail_tel = 0x7f0805ff;
         /* JADX INFO: Added by JADX */
-        public static final int anti_no_chance_pos = 0x7f080600;
+        public static final int sync_mark_fail = 0x7f080600;
         /* JADX INFO: Added by JADX */
-        public static final int mention_chatme = 0x7f080601;
+        public static final int remind = 0x7f080601;
         /* JADX INFO: Added by JADX */
-        public static final int view_pb = 0x7f080602;
+        public static final int degree = 0x7f080602;
         /* JADX INFO: Added by JADX */
-        public static final int member_count_unit = 0x7f080603;
+        public static final int sign_remind = 0x7f080603;
         /* JADX INFO: Added by JADX */
-        public static final int appeal_min_size = 0x7f080604;
+        public static final int signallforum_error = 0x7f080604;
         /* JADX INFO: Added by JADX */
-        public static final int no_post_info = 0x7f080605;
+        public static final int eyeshield_mode = 0x7f080605;
         /* JADX INFO: Added by JADX */
-        public static final int query_buy_fail_tel = 0x7f080606;
+        public static final int her_posts = 0x7f080606;
         /* JADX INFO: Added by JADX */
-        public static final int sync_mark_fail = 0x7f080607;
+        public static final int send = 0x7f080607;
         /* JADX INFO: Added by JADX */
-        public static final int remind = 0x7f080608;
+        public static final int user_info_center_head_viewpager_title_text = 0x7f080608;
         /* JADX INFO: Added by JADX */
-        public static final int degree = 0x7f080609;
+        public static final int reply_sub_floor = 0x7f080609;
         /* JADX INFO: Added by JADX */
-        public static final int sign_remind = 0x7f08060a;
+        public static final int mebibyte = 0x7f08060a;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_error = 0x7f08060b;
+        public static final int fan_count_down = 0x7f08060b;
         /* JADX INFO: Added by JADX */
-        public static final int eyeshield_mode = 0x7f08060c;
+        public static final int reply_prefix = 0x7f08060c;
         /* JADX INFO: Added by JADX */
-        public static final int her_posts = 0x7f08060d;
+        public static final int image_quality_high_menu = 0x7f08060d;
         /* JADX INFO: Added by JADX */
-        public static final int send = 0x7f08060e;
+        public static final int image_pb_noreply = 0x7f08060e;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_viewpager_title_text = 0x7f08060f;
+        public static final int dailyrecommend_title = 0x7f08060f;
         /* JADX INFO: Added by JADX */
-        public static final int reply_sub_floor = 0x7f080610;
+        public static final int metion_groupmessage = 0x7f080610;
         /* JADX INFO: Added by JADX */
-        public static final int mebibyte = 0x7f080611;
+        public static final int forum_detail_info_brief_title = 0x7f080611;
         /* JADX INFO: Added by JADX */
-        public static final int fan_count_down = 0x7f080612;
+        public static final int my_mention = 0x7f080612;
         /* JADX INFO: Added by JADX */
-        public static final int reply_prefix = 0x7f080613;
+        public static final int reply_sub_floor_confirm = 0x7f080613;
         /* JADX INFO: Added by JADX */
-        public static final int image_quality_high_menu = 0x7f080614;
+        public static final int anti_account_exception_pos = 0x7f080614;
         /* JADX INFO: Added by JADX */
-        public static final int image_pb_noreply = 0x7f080615;
+        public static final int closeapp = 0x7f080615;
         /* JADX INFO: Added by JADX */
-        public static final int dailyrecommend_title = 0x7f080616;
+        public static final int mark = 0x7f080616;
         /* JADX INFO: Added by JADX */
-        public static final int metion_groupmessage = 0x7f080617;
+        public static final int marked = 0x7f080617;
         /* JADX INFO: Added by JADX */
-        public static final int forum_detail_info_brief_title = 0x7f080618;
+        public static final int anti_appeal_com_tip = 0x7f080618;
         /* JADX INFO: Added by JADX */
-        public static final int my_mention = 0x7f080619;
+        public static final int reg_info = 0x7f080619;
         /* JADX INFO: Added by JADX */
-        public static final int reply_sub_floor_confirm = 0x7f08061a;
+        public static final int new_fans = 0x7f08061a;
         /* JADX INFO: Added by JADX */
-        public static final int anti_account_exception_pos = 0x7f08061b;
+        public static final int its_fans_suffix = 0x7f08061b;
         /* JADX INFO: Added by JADX */
-        public static final int closeapp = 0x7f08061c;
+        public static final int relogin_statement = 0x7f08061c;
         /* JADX INFO: Added by JADX */
-        public static final int mark = 0x7f08061d;
+        public static final int forum_name_suffix = 0x7f08061d;
         /* JADX INFO: Added by JADX */
-        public static final int marked = 0x7f08061e;
+        public static final int emotion_detail_tip = 0x7f08061e;
         /* JADX INFO: Added by JADX */
-        public static final int anti_appeal_com_tip = 0x7f08061f;
+        public static final int browser_image_thrift = 0x7f08061f;
         /* JADX INFO: Added by JADX */
-        public static final int reg_info = 0x7f080620;
+        public static final int flist_expand_list = 0x7f080620;
         /* JADX INFO: Added by JADX */
-        public static final int new_fans = 0x7f080621;
+        public static final int he_no_post_info = 0x7f080621;
         /* JADX INFO: Added by JADX */
-        public static final int its_fans_suffix = 0x7f080622;
+        public static final int signallforum_uplevel = 0x7f080622;
         /* JADX INFO: Added by JADX */
-        public static final int relogin_statement = 0x7f080623;
+        public static final int guide_intro_tip = 0x7f080623;
         /* JADX INFO: Added by JADX */
-        public static final int forum_name_suffix = 0x7f080624;
+        public static final int frs_forum_groups = 0x7f080624;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_detail_tip = 0x7f080625;
+        public static final int user_name_rule = 0x7f080625;
         /* JADX INFO: Added by JADX */
-        public static final int browser_image_thrift = 0x7f080626;
+        public static final int lbl_appeal_reason_suffix = 0x7f080626;
         /* JADX INFO: Added by JADX */
-        public static final int flist_expand_list = 0x7f080627;
+        public static final int download_fail_tip = 0x7f080627;
         /* JADX INFO: Added by JADX */
-        public static final int he_no_post_info = 0x7f080628;
+        public static final int anti_type_forbid_sys = 0x7f080628;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_uplevel = 0x7f080629;
+        public static final int quite = 0x7f080629;
         /* JADX INFO: Added by JADX */
-        public static final int guide_intro_tip = 0x7f08062a;
+        public static final int user = 0x7f08062a;
         /* JADX INFO: Added by JADX */
-        public static final int frs_forum_groups = 0x7f08062b;
+        public static final int attention_to_her = 0x7f08062b;
         /* JADX INFO: Added by JADX */
-        public static final int user_name_rule = 0x7f08062c;
+        public static final int my_fans_prefix = 0x7f08062c;
         /* JADX INFO: Added by JADX */
-        public static final int lbl_appeal_reason_suffix = 0x7f08062d;
+        public static final int text_post = 0x7f08062d;
         /* JADX INFO: Added by JADX */
-        public static final int download_fail_tip = 0x7f08062e;
+        public static final int view_reverse = 0x7f08062e;
         /* JADX INFO: Added by JADX */
-        public static final int anti_type_forbid_sys = 0x7f08062f;
+        public static final int hint_squence_to_browse = 0x7f08062f;
         /* JADX INFO: Added by JADX */
-        public static final int quite = 0x7f080630;
+        public static final int call_phone = 0x7f080630;
         /* JADX INFO: Added by JADX */
-        public static final int user = 0x7f080631;
+        public static final int thread = 0x7f080631;
         /* JADX INFO: Added by JADX */
-        public static final int attention_to_her = 0x7f080632;
+        public static final int pb_img_click_tip = 0x7f080632;
         /* JADX INFO: Added by JADX */
-        public static final int my_fans_prefix = 0x7f080633;
+        public static final int forum_detail_fans_cancel = 0x7f080633;
         /* JADX INFO: Added by JADX */
-        public static final int text_post = 0x7f080634;
+        public static final int user_info_center_head_viewpager_attention_text_name = 0x7f080634;
         /* JADX INFO: Added by JADX */
-        public static final int view_reverse = 0x7f080635;
+        public static final int view_subject = 0x7f080635;
         /* JADX INFO: Added by JADX */
-        public static final int hint_squence_to_browse = 0x7f080636;
+        public static final int he_attention_prefix = 0x7f080636;
         /* JADX INFO: Added by JADX */
-        public static final int call_phone = 0x7f080637;
+        public static final int anti_vcode_pos = 0x7f080637;
         /* JADX INFO: Added by JADX */
-        public static final int thread = 0x7f080638;
+        public static final int view_image_quality_high_menu = 0x7f080638;
         /* JADX INFO: Added by JADX */
-        public static final int pb_img_click_tip = 0x7f080639;
+        public static final int number = 0x7f080639;
         /* JADX INFO: Added by JADX */
-        public static final int forum_detail_fans_cancel = 0x7f08063a;
+        public static final int download_will_begin = 0x7f08063a;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_viewpager_attention_text_name = 0x7f08063b;
+        public static final int not_have_like_bars = 0x7f08063b;
         /* JADX INFO: Added by JADX */
-        public static final int view_subject = 0x7f08063c;
+        public static final int commit_good = 0x7f08063c;
         /* JADX INFO: Added by JADX */
-        public static final int he_attention_prefix = 0x7f08063d;
+        public static final int not_have_fans = 0x7f08063d;
         /* JADX INFO: Added by JADX */
-        public static final int anti_vcode_pos = 0x7f08063e;
+        public static final int person_info = 0x7f08063e;
         /* JADX INFO: Added by JADX */
-        public static final int view_image_quality_high_menu = 0x7f08063f;
+        public static final int view = 0x7f08063f;
         /* JADX INFO: Added by JADX */
-        public static final int number = 0x7f080640;
+        public static final int image_quality_low_menu = 0x7f080640;
         /* JADX INFO: Added by JADX */
-        public static final int download_will_begin = 0x7f080641;
+        public static final int is_alwaysopen = 0x7f080641;
         /* JADX INFO: Added by JADX */
-        public static final int not_have_like_bars = 0x7f080642;
+        public static final int top_recommended = 0x7f080642;
         /* JADX INFO: Added by JADX */
-        public static final int commit_good = 0x7f080643;
+        public static final int psw_tip = 0x7f080643;
         /* JADX INFO: Added by JADX */
-        public static final int not_have_fans = 0x7f080644;
+        public static final int next_page = 0x7f080644;
         /* JADX INFO: Added by JADX */
-        public static final int person_info = 0x7f080645;
+        public static final int login_to_chat = 0x7f080645;
         /* JADX INFO: Added by JADX */
-        public static final int view = 0x7f080646;
+        public static final int no_purchase_records = 0x7f080646;
         /* JADX INFO: Added by JADX */
-        public static final int image_quality_low_menu = 0x7f080647;
+        public static final int man = 0x7f080647;
         /* JADX INFO: Added by JADX */
-        public static final int is_alwaysopen = 0x7f080648;
+        public static final int install = 0x7f080648;
         /* JADX INFO: Added by JADX */
-        public static final int top_recommended = 0x7f080649;
+        public static final int frs_good = 0x7f080649;
         /* JADX INFO: Added by JADX */
-        public static final int psw_tip = 0x7f08064a;
+        public static final int forum_list_menu_all = 0x7f08064a;
         /* JADX INFO: Added by JADX */
-        public static final int next_page = 0x7f08064b;
+        public static final int reply_suffix = 0x7f08064b;
         /* JADX INFO: Added by JADX */
-        public static final int login_to_chat = 0x7f08064c;
+        public static final int anti_appeal_sign_no_chance_tip = 0x7f08064c;
         /* JADX INFO: Added by JADX */
-        public static final int no_purchase_records = 0x7f08064d;
+        public static final int appeal_post_success = 0x7f08064d;
         /* JADX INFO: Added by JADX */
-        public static final int man = 0x7f08064e;
+        public static final int user_psw_rule = 0x7f08064e;
         /* JADX INFO: Added by JADX */
-        public static final int install = 0x7f08064f;
+        public static final int forum_feed_goto_square = 0x7f08064f;
         /* JADX INFO: Added by JADX */
-        public static final int frs_good = 0x7f080650;
+        public static final int load_fail = 0x7f080650;
         /* JADX INFO: Added by JADX */
-        public static final int forum_list_menu_all = 0x7f080651;
+        public static final int recommend_app = 0x7f080651;
         /* JADX INFO: Added by JADX */
-        public static final int reply_suffix = 0x7f080652;
+        public static final int group_errphone_tip = 0x7f080652;
         /* JADX INFO: Added by JADX */
-        public static final int anti_appeal_sign_no_chance_tip = 0x7f080653;
+        public static final int forumfeed = 0x7f080653;
         /* JADX INFO: Added by JADX */
-        public static final int appeal_post_success = 0x7f080654;
+        public static final int close = 0x7f080654;
         /* JADX INFO: Added by JADX */
-        public static final int user_psw_rule = 0x7f080655;
+        public static final int unlike_success = 0x7f080655;
         /* JADX INFO: Added by JADX */
-        public static final int forum_feed_goto_square = 0x7f080656;
+        public static final int signallforum_finished = 0x7f080656;
         /* JADX INFO: Added by JADX */
-        public static final int load_fail = 0x7f080657;
+        public static final int voice_restart = 0x7f080657;
         /* JADX INFO: Added by JADX */
-        public static final int recommend_app = 0x7f080658;
+        public static final int emotion_manage_title = 0x7f080658;
         /* JADX INFO: Added by JADX */
-        public static final int group_errphone_tip = 0x7f080659;
+        public static final int mention_replyme_nodata = 0x7f080659;
         /* JADX INFO: Added by JADX */
-        public static final int forumfeed = 0x7f08065a;
+        public static final int login_to_use = 0x7f08065a;
         /* JADX INFO: Added by JADX */
-        public static final int close = 0x7f08065b;
+        public static final int reply_x_floor = 0x7f08065b;
         /* JADX INFO: Added by JADX */
-        public static final int unlike_success = 0x7f08065c;
+        public static final int price_tip = 0x7f08065c;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_finished = 0x7f08065d;
+        public static final int mention_title = 0x7f08065d;
         /* JADX INFO: Added by JADX */
-        public static final int voice_restart = 0x7f08065e;
+        public static final int over_limit_tip = 0x7f08065e;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_title = 0x7f08065f;
+        public static final int attention_n = 0x7f08065f;
         /* JADX INFO: Added by JADX */
-        public static final int mention_replyme_nodata = 0x7f080660;
+        public static final int enter_forum_guide_cover_search = 0x7f080660;
         /* JADX INFO: Added by JADX */
-        public static final int login_to_use = 0x7f080661;
+        public static final int sex = 0x7f080661;
         /* JADX INFO: Added by JADX */
-        public static final int reply_x_floor = 0x7f080662;
+        public static final int today_advice_update = 0x7f080662;
         /* JADX INFO: Added by JADX */
-        public static final int price_tip = 0x7f080663;
+        public static final int image_quality_auto_menu = 0x7f080663;
         /* JADX INFO: Added by JADX */
-        public static final int mention_title = 0x7f080664;
+        public static final int browsing_settings_tip = 0x7f080664;
         /* JADX INFO: Added by JADX */
-        public static final int over_limit_tip = 0x7f080665;
+        public static final int is_wifiopen_dialog = 0x7f080665;
         /* JADX INFO: Added by JADX */
-        public static final int attention_n = 0x7f080666;
+        public static final int pb_img_loading_tip = 0x7f080666;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_guide_cover_search = 0x7f080667;
+        public static final int attention_y = 0x7f080667;
         /* JADX INFO: Added by JADX */
-        public static final int sex = 0x7f080668;
+        public static final int search_bar_text = 0x7f080668;
         /* JADX INFO: Added by JADX */
-        public static final int today_advice_update = 0x7f080669;
+        public static final int experience = 0x7f080669;
         /* JADX INFO: Added by JADX */
-        public static final int image_quality_auto_menu = 0x7f08066a;
+        public static final int all = 0x7f08066a;
         /* JADX INFO: Added by JADX */
-        public static final int browsing_settings_tip = 0x7f08066b;
+        public static final int android_feedback = 0x7f08066b;
         /* JADX INFO: Added by JADX */
-        public static final int is_wifiopen_dialog = 0x7f08066c;
+        public static final int account_logining = 0x7f08066c;
         /* JADX INFO: Added by JADX */
-        public static final int pb_img_loading_tip = 0x7f08066d;
+        public static final int user_info_center_head_forums_name_text_g = 0x7f08066d;
         /* JADX INFO: Added by JADX */
-        public static final int attention_y = 0x7f08066e;
+        public static final int user_info_center_head_forums_name_text_b = 0x7f08066e;
         /* JADX INFO: Added by JADX */
-        public static final int search_bar_text = 0x7f08066f;
+        public static final int view_image_quality_close_menu = 0x7f08066f;
         /* JADX INFO: Added by JADX */
-        public static final int experience = 0x7f080670;
+        public static final int retry_rightnow = 0x7f080670;
         /* JADX INFO: Added by JADX */
-        public static final int all = 0x7f080671;
+        public static final int confirm_giveup = 0x7f080671;
         /* JADX INFO: Added by JADX */
-        public static final int android_feedback = 0x7f080672;
+        public static final int user_info_center_head_forums_name_text_n = 0x7f080672;
         /* JADX INFO: Added by JADX */
-        public static final int account_logining = 0x7f080673;
+        public static final int album_big_image_title = 0x7f080673;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_forums_name_text_g = 0x7f080674;
+        public static final int user_info_center_head_fans_name_text = 0x7f080674;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_forums_name_text_b = 0x7f080675;
+        public static final int forum_detail_enter = 0x7f080675;
         /* JADX INFO: Added by JADX */
-        public static final int view_image_quality_close_menu = 0x7f080676;
+        public static final int message_remind = 0x7f080676;
         /* JADX INFO: Added by JADX */
-        public static final int retry_rightnow = 0x7f080677;
+        public static final int sign_remind_time_text = 0x7f080677;
         /* JADX INFO: Added by JADX */
-        public static final int confirm_giveup = 0x7f080678;
+        public static final int go_to_interview_post = 0x7f080678;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_forums_name_text_n = 0x7f080679;
+        public static final int login_now = 0x7f080679;
         /* JADX INFO: Added by JADX */
-        public static final int album_big_image_title = 0x7f08067a;
+        public static final int metion_chatmessage = 0x7f08067a;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_fans_name_text = 0x7f08067b;
+        public static final int sign_point = 0x7f08067b;
         /* JADX INFO: Added by JADX */
-        public static final int forum_detail_enter = 0x7f08067c;
+        public static final int del_mark_success = 0x7f08067c;
         /* JADX INFO: Added by JADX */
-        public static final int message_remind = 0x7f08067d;
+        public static final int bar_manager = 0x7f08067d;
         /* JADX INFO: Added by JADX */
-        public static final int sign_remind_time_text = 0x7f08067e;
+        public static final int account_regedit_baidu = 0x7f08067e;
         /* JADX INFO: Added by JADX */
-        public static final int go_to_interview_post = 0x7f08067f;
+        public static final int editor_dialog_yes = 0x7f08067f;
         /* JADX INFO: Added by JADX */
-        public static final int login_now = 0x7f080680;
+        public static final int month = 0x7f080680;
         /* JADX INFO: Added by JADX */
-        public static final int metion_chatmessage = 0x7f080681;
+        public static final int mark_nodata = 0x7f080681;
         /* JADX INFO: Added by JADX */
-        public static final int sign_point = 0x7f080682;
+        public static final int forum_feed_nodata_tip1 = 0x7f080682;
         /* JADX INFO: Added by JADX */
-        public static final int del_mark_success = 0x7f080683;
+        public static final int emotion_image_detail = 0x7f080683;
         /* JADX INFO: Added by JADX */
-        public static final int bar_manager = 0x7f080684;
+        public static final int forum_feed_nodata_tip2 = 0x7f080684;
         /* JADX INFO: Added by JADX */
-        public static final int account_regedit_baidu = 0x7f080685;
+        public static final int anti_vocode_on_chance_tip = 0x7f080685;
         /* JADX INFO: Added by JADX */
-        public static final int editor_dialog_yes = 0x7f080686;
+        public static final int album_beyond_max_choose = 0x7f080686;
         /* JADX INFO: Added by JADX */
-        public static final int month = 0x7f080687;
+        public static final int remain_text_count = 0x7f080687;
         /* JADX INFO: Added by JADX */
-        public static final int mark_nodata = 0x7f080688;
+        public static final int server_404 = 0x7f080688;
         /* JADX INFO: Added by JADX */
-        public static final int forum_feed_nodata_tip1 = 0x7f080689;
+        public static final int me = 0x7f080689;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_image_detail = 0x7f08068a;
+        public static final int choose_sex = 0x7f08068a;
         /* JADX INFO: Added by JADX */
-        public static final int forum_feed_nodata_tip2 = 0x7f08068b;
+        public static final int cancel_good = 0x7f08068b;
         /* JADX INFO: Added by JADX */
-        public static final int anti_vocode_on_chance_tip = 0x7f08068c;
+        public static final int web_title_bubble_purchase = 0x7f08068c;
         /* JADX INFO: Added by JADX */
-        public static final int album_beyond_max_choose = 0x7f08068d;
+        public static final int web_title_bubble_explain = 0x7f08068d;
         /* JADX INFO: Added by JADX */
-        public static final int remain_text_count = 0x7f08068e;
+        public static final int query_buy_fail_title = 0x7f08068e;
         /* JADX INFO: Added by JADX */
-        public static final int server_404 = 0x7f08068f;
+        public static final int add_account = 0x7f08068f;
         /* JADX INFO: Added by JADX */
-        public static final int me = 0x7f080690;
+        public static final int she_no_post_info = 0x7f080690;
         /* JADX INFO: Added by JADX */
-        public static final int choose_sex = 0x7f080691;
+        public static final int has_buy = 0x7f080691;
         /* JADX INFO: Added by JADX */
-        public static final int cancel_good = 0x7f080692;
+        public static final int account = 0x7f080692;
         /* JADX INFO: Added by JADX */
-        public static final int web_title_bubble_purchase = 0x7f080693;
+        public static final int had_liked_forum = 0x7f080693;
         /* JADX INFO: Added by JADX */
-        public static final int web_title_bubble_explain = 0x7f080694;
+        public static final int view_auto = 0x7f080694;
         /* JADX INFO: Added by JADX */
-        public static final int query_buy_fail_title = 0x7f080695;
+        public static final int retry = 0x7f080695;
         /* JADX INFO: Added by JADX */
-        public static final int add_account = 0x7f080696;
+        public static final int second = 0x7f080696;
         /* JADX INFO: Added by JADX */
-        public static final int she_no_post_info = 0x7f080697;
+        public static final int img_upload_error = 0x7f080697;
         /* JADX INFO: Added by JADX */
-        public static final int has_buy = 0x7f080698;
+        public static final int his_attention_people = 0x7f080698;
         /* JADX INFO: Added by JADX */
-        public static final int account = 0x7f080699;
+        public static final int self_intro = 0x7f080699;
         /* JADX INFO: Added by JADX */
-        public static final int had_liked_forum = 0x7f08069a;
+        public static final int forum_detail_info_bar_title = 0x7f08069a;
         /* JADX INFO: Added by JADX */
-        public static final int view_auto = 0x7f08069b;
+        public static final int delete_post = 0x7f08069b;
         /* JADX INFO: Added by JADX */
-        public static final int retry = 0x7f08069c;
+        public static final int calc_cache_size = 0x7f08069c;
         /* JADX INFO: Added by JADX */
-        public static final int second = 0x7f08069d;
+        public static final int to_the_end = 0x7f08069d;
         /* JADX INFO: Added by JADX */
-        public static final int img_upload_error = 0x7f08069e;
+        public static final int quick_register = 0x7f08069e;
         /* JADX INFO: Added by JADX */
-        public static final int his_attention_people = 0x7f08069f;
+        public static final int upgrade_alter = 0x7f08069f;
         /* JADX INFO: Added by JADX */
-        public static final int self_intro = 0x7f0806a0;
+        public static final int anti_appeal_sign_base_tip = 0x7f0806a0;
         /* JADX INFO: Added by JADX */
-        public static final int forum_detail_info_bar_title = 0x7f0806a1;
+        public static final int update_mark_failed = 0x7f0806a1;
         /* JADX INFO: Added by JADX */
-        public static final int delete_post = 0x7f0806a2;
+        public static final int redirect_to = 0x7f0806a2;
         /* JADX INFO: Added by JADX */
-        public static final int calc_cache_size = 0x7f0806a3;
+        public static final int like_success_and_addto_list = 0x7f0806a3;
         /* JADX INFO: Added by JADX */
-        public static final int to_the_end = 0x7f0806a4;
+        public static final int hot_check = 0x7f0806a4;
         /* JADX INFO: Added by JADX */
-        public static final int quick_register = 0x7f0806a5;
+        public static final int hot_count = 0x7f0806a5;
         /* JADX INFO: Added by JADX */
-        public static final int upgrade_alter = 0x7f0806a6;
+        public static final int signallforum_back_finish = 0x7f0806a6;
         /* JADX INFO: Added by JADX */
-        public static final int anti_appeal_sign_base_tip = 0x7f0806a7;
+        public static final int signallforum_warning = 0x7f0806a7;
         /* JADX INFO: Added by JADX */
-        public static final int update_mark_failed = 0x7f0806a8;
+        public static final int enter_forum_guide_cover_find = 0x7f0806a8;
         /* JADX INFO: Added by JADX */
-        public static final int redirect_to = 0x7f0806a9;
+        public static final int sms_phone = 0x7f0806a9;
         /* JADX INFO: Added by JADX */
-        public static final int like_success_and_addto_list = 0x7f0806aa;
+        public static final int person_post_thread = 0x7f0806aa;
         /* JADX INFO: Added by JADX */
-        public static final int hot_check = 0x7f0806ab;
+        public static final int person_post = 0x7f0806ab;
         /* JADX INFO: Added by JADX */
-        public static final int hot_count = 0x7f0806ac;
+        public static final int rise = 0x7f0806ac;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_back_finish = 0x7f0806ad;
+        public static final int click_change_pic = 0x7f0806ad;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_warning = 0x7f0806ae;
+        public static final int mention_atme_nodata = 0x7f0806ae;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_guide_cover_find = 0x7f0806af;
+        public static final int package_tip_right = 0x7f0806af;
         /* JADX INFO: Added by JADX */
-        public static final int sms_phone = 0x7f0806b0;
+        public static final int anti_account_restore = 0x7f0806b0;
         /* JADX INFO: Added by JADX */
-        public static final int person_post_thread = 0x7f0806b1;
+        public static final int anti_appeal_btn_neg = 0x7f0806b1;
         /* JADX INFO: Added by JADX */
-        public static final int person_post = 0x7f0806b2;
+        public static final int album_list_no_data_1 = 0x7f0806b2;
         /* JADX INFO: Added by JADX */
-        public static final int rise = 0x7f0806b3;
+        public static final int voice_play_tip = 0x7f0806b3;
         /* JADX INFO: Added by JADX */
-        public static final int click_change_pic = 0x7f0806b4;
+        public static final int view_image_quality_auto_menu = 0x7f0806b4;
         /* JADX INFO: Added by JADX */
-        public static final int mention_atme_nodata = 0x7f0806b5;
+        public static final int attention_cancel = 0x7f0806b5;
         /* JADX INFO: Added by JADX */
-        public static final int package_tip_right = 0x7f0806b6;
+        public static final int confirm_download_app = 0x7f0806b6;
         /* JADX INFO: Added by JADX */
-        public static final int anti_account_restore = 0x7f0806b7;
+        public static final int editor_mutiiamge_text = 0x7f0806b7;
         /* JADX INFO: Added by JADX */
-        public static final int anti_appeal_btn_neg = 0x7f0806b8;
+        public static final int is_downloading = 0x7f0806b8;
         /* JADX INFO: Added by JADX */
-        public static final int album_list_no_data_1 = 0x7f0806b9;
+        public static final int download_baidu_video = 0x7f0806b9;
         /* JADX INFO: Added by JADX */
-        public static final int voice_play_tip = 0x7f0806ba;
+        public static final int mention_atme = 0x7f0806ba;
         /* JADX INFO: Added by JADX */
-        public static final int view_image_quality_auto_menu = 0x7f0806bb;
+        public static final int add_intro = 0x7f0806bb;
         /* JADX INFO: Added by JADX */
-        public static final int attention_cancel = 0x7f0806bc;
+        public static final int forum_no_data_tip = 0x7f0806bc;
         /* JADX INFO: Added by JADX */
-        public static final int confirm_download_app = 0x7f0806bd;
+        public static final int systemhelpsetting = 0x7f0806bd;
         /* JADX INFO: Added by JADX */
-        public static final int editor_mutiiamge_text = 0x7f0806be;
+        public static final int systemhelpsetting_clear_im_success = 0x7f0806be;
         /* JADX INFO: Added by JADX */
-        public static final int is_downloading = 0x7f0806bf;
+        public static final int systemhelpsetting_clear_cache_success = 0x7f0806bf;
         /* JADX INFO: Added by JADX */
-        public static final int download_baidu_video = 0x7f0806c0;
+        public static final int day_three = 0x7f0806c0;
         /* JADX INFO: Added by JADX */
-        public static final int mention_atme = 0x7f0806c1;
+        public static final int forbid_page_title = 0x7f0806c1;
         /* JADX INFO: Added by JADX */
-        public static final int add_intro = 0x7f0806c2;
+        public static final int promoted_message_text = 0x7f0806c2;
         /* JADX INFO: Added by JADX */
-        public static final int forum_no_data_tip = 0x7f0806c3;
+        public static final int experience_divider = 0x7f0806c3;
         /* JADX INFO: Added by JADX */
-        public static final int systemhelpsetting = 0x7f0806c4;
+        public static final int forbid_success = 0x7f0806c4;
         /* JADX INFO: Added by JADX */
-        public static final int systemhelpsetting_clear_im_success = 0x7f0806c5;
+        public static final int her_attention_forums = 0x7f0806c5;
         /* JADX INFO: Added by JADX */
-        public static final int systemhelpsetting_clear_cache_success = 0x7f0806c6;
+        public static final int voice_record_release_to_stop = 0x7f0806c6;
         /* JADX INFO: Added by JADX */
-        public static final int day_three = 0x7f0806c7;
+        public static final int copyright = 0x7f0806c7;
         /* JADX INFO: Added by JADX */
-        public static final int forbid_page_title = 0x7f0806c8;
+        public static final int title_activity_emotion_manage = 0x7f0806c8;
         /* JADX INFO: Added by JADX */
-        public static final int promoted_message_text = 0x7f0806c9;
+        public static final int content = 0x7f0806c9;
         /* JADX INFO: Added by JADX */
-        public static final int experience_divider = 0x7f0806ca;
+        public static final int sign_user = 0x7f0806ca;
         /* JADX INFO: Added by JADX */
-        public static final int forbid_success = 0x7f0806cb;
+        public static final int no_recommond_forum = 0x7f0806cb;
         /* JADX INFO: Added by JADX */
-        public static final int her_attention_forums = 0x7f0806cc;
+        public static final int floor = 0x7f0806cc;
         /* JADX INFO: Added by JADX */
-        public static final int voice_record_release_to_stop = 0x7f0806cd;
+        public static final int is_floor = 0x7f0806cd;
         /* JADX INFO: Added by JADX */
-        public static final int copyright = 0x7f0806ce;
+        public static final int show_all_live = 0x7f0806ce;
         /* JADX INFO: Added by JADX */
-        public static final int title_activity_emotion_manage = 0x7f0806cf;
+        public static final int show_all = 0x7f0806cf;
         /* JADX INFO: Added by JADX */
-        public static final int content = 0x7f0806d0;
+        public static final int sub_pb_load_more = 0x7f0806d0;
         /* JADX INFO: Added by JADX */
-        public static final int sign_user = 0x7f0806d1;
+        public static final int no_receive_code = 0x7f0806d1;
         /* JADX INFO: Added by JADX */
-        public static final int no_recommond_forum = 0x7f0806d2;
+        public static final int search_quick_response = 0x7f0806d2;
         /* JADX INFO: Added by JADX */
-        public static final int floor = 0x7f0806d3;
+        public static final int mention_replyme_post = 0x7f0806d3;
         /* JADX INFO: Added by JADX */
-        public static final int is_floor = 0x7f0806d4;
+        public static final int mention_praiseme_post = 0x7f0806d4;
         /* JADX INFO: Added by JADX */
-        public static final int show_all_live = 0x7f0806d5;
+        public static final int no_like_forum_other = 0x7f0806d5;
         /* JADX INFO: Added by JADX */
-        public static final int show_all = 0x7f0806d6;
+        public static final int editor_mutiiamge_image_error = 0x7f0806d6;
         /* JADX INFO: Added by JADX */
-        public static final int sub_pb_load_more = 0x7f0806d7;
+        public static final int image_show_setting = 0x7f0806d7;
         /* JADX INFO: Added by JADX */
-        public static final int no_receive_code = 0x7f0806d8;
+        public static final int browser_image_thrift_off_tip = 0x7f0806d8;
         /* JADX INFO: Added by JADX */
-        public static final int search_quick_response = 0x7f0806d9;
+        public static final int view_high = 0x7f0806d9;
         /* JADX INFO: Added by JADX */
-        public static final int mention_replyme_post = 0x7f0806da;
+        public static final int my_bar = 0x7f0806da;
         /* JADX INFO: Added by JADX */
-        public static final int mention_praiseme_post = 0x7f0806db;
+        public static final int shortcut_has_add = 0x7f0806db;
         /* JADX INFO: Added by JADX */
-        public static final int no_like_forum_other = 0x7f0806dc;
+        public static final int reply = 0x7f0806dc;
         /* JADX INFO: Added by JADX */
-        public static final int editor_mutiiamge_image_error = 0x7f0806dd;
+        public static final int grade = 0x7f0806dd;
         /* JADX INFO: Added by JADX */
-        public static final int image_show_setting = 0x7f0806de;
+        public static final int query_buy_loading = 0x7f0806de;
         /* JADX INFO: Added by JADX */
-        public static final int browser_image_thrift_off_tip = 0x7f0806df;
+        public static final int user_icon_intro = 0x7f0806df;
         /* JADX INFO: Added by JADX */
-        public static final int view_high = 0x7f0806e0;
+        public static final int editor_mutiiamge_max = 0x7f0806e0;
         /* JADX INFO: Added by JADX */
-        public static final int my_bar = 0x7f0806e1;
+        public static final int has_buy2 = 0x7f0806e1;
         /* JADX INFO: Added by JADX */
-        public static final int shortcut_has_add = 0x7f0806e2;
+        public static final int sign_notification_content = 0x7f0806e2;
         /* JADX INFO: Added by JADX */
-        public static final int reply = 0x7f0806e3;
+        public static final int guide_main_next = 0x7f0806e3;
         /* JADX INFO: Added by JADX */
-        public static final int grade = 0x7f0806e4;
+        public static final int guide_main_title = 0x7f0806e4;
         /* JADX INFO: Added by JADX */
-        public static final int query_buy_loading = 0x7f0806e5;
+        public static final int attention_to_ta = 0x7f0806e5;
         /* JADX INFO: Added by JADX */
-        public static final int user_icon_intro = 0x7f0806e6;
+        public static final int purchase_record = 0x7f0806e6;
         /* JADX INFO: Added by JADX */
-        public static final int editor_mutiiamge_max = 0x7f0806e7;
+        public static final int search_post_hint = 0x7f0806e7;
         /* JADX INFO: Added by JADX */
-        public static final int has_buy2 = 0x7f0806e8;
+        public static final int no_disturb_mode = 0x7f0806e8;
         /* JADX INFO: Added by JADX */
-        public static final int sign_notification_content = 0x7f0806e9;
+        public static final int del_post_confirm = 0x7f0806e9;
         /* JADX INFO: Added by JADX */
-        public static final int guide_main_next = 0x7f0806ea;
+        public static final int top_rec_like_finish_a = 0x7f0806ea;
         /* JADX INFO: Added by JADX */
-        public static final int guide_main_title = 0x7f0806eb;
+        public static final int ta = 0x7f0806eb;
         /* JADX INFO: Added by JADX */
-        public static final int attention_to_ta = 0x7f0806ec;
+        public static final int top_rec_like_finish_b = 0x7f0806ec;
         /* JADX INFO: Added by JADX */
-        public static final int purchase_record = 0x7f0806ed;
+        public static final int downloading2 = 0x7f0806ed;
         /* JADX INFO: Added by JADX */
-        public static final int search_post_hint = 0x7f0806ee;
+        public static final int flow_mode_title = 0x7f0806ee;
         /* JADX INFO: Added by JADX */
-        public static final int no_disturb_mode = 0x7f0806ef;
+        public static final int is_flowmode_alwaysopen = 0x7f0806ef;
         /* JADX INFO: Added by JADX */
-        public static final int del_post_confirm = 0x7f0806f0;
+        public static final int new_version = 0x7f0806f0;
         /* JADX INFO: Added by JADX */
-        public static final int top_rec_like_finish_a = 0x7f0806f1;
+        public static final int signallforum_signnow = 0x7f0806f1;
         /* JADX INFO: Added by JADX */
-        public static final int ta = 0x7f0806f2;
+        public static final int add_fan_sucess = 0x7f0806f2;
         /* JADX INFO: Added by JADX */
-        public static final int top_rec_like_finish_b = 0x7f0806f3;
+        public static final int view_low = 0x7f0806f3;
         /* JADX INFO: Added by JADX */
-        public static final int downloading2 = 0x7f0806f4;
+        public static final int new_version_format = 0x7f0806f4;
         /* JADX INFO: Added by JADX */
-        public static final int flow_mode_title = 0x7f0806f5;
+        public static final int incremental_update_size = 0x7f0806f5;
         /* JADX INFO: Added by JADX */
-        public static final int is_flowmode_alwaysopen = 0x7f0806f6;
+        public static final int as_download_warning = 0x7f0806f6;
         /* JADX INFO: Added by JADX */
-        public static final int new_version = 0x7f0806f7;
+        public static final int incremental_update = 0x7f0806f7;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_signnow = 0x7f0806f8;
+        public static final int normal_update = 0x7f0806f8;
         /* JADX INFO: Added by JADX */
-        public static final int add_fan_sucess = 0x7f0806f9;
+        public static final int update_now = 0x7f0806f9;
         /* JADX INFO: Added by JADX */
-        public static final int view_low = 0x7f0806fa;
+        public static final int update_later = 0x7f0806fa;
         /* JADX INFO: Added by JADX */
-        public static final int new_version_format = 0x7f0806fb;
+        public static final int download_exit = 0x7f0806fb;
         /* JADX INFO: Added by JADX */
-        public static final int incremental_update_size = 0x7f0806fc;
+        public static final int create_bar = 0x7f0806fc;
         /* JADX INFO: Added by JADX */
-        public static final int as_download_warning = 0x7f0806fd;
+        public static final int browse_setting = 0x7f0806fd;
         /* JADX INFO: Added by JADX */
-        public static final int incremental_update = 0x7f0806fe;
+        public static final int remove_mark = 0x7f0806fe;
         /* JADX INFO: Added by JADX */
-        public static final int normal_update = 0x7f0806ff;
+        public static final int frs_nodata = 0x7f0806ff;
         /* JADX INFO: Added by JADX */
-        public static final int update_now = 0x7f080700;
+        public static final int search_friend = 0x7f080700;
         /* JADX INFO: Added by JADX */
-        public static final int update_later = 0x7f080701;
+        public static final int inform = 0x7f080701;
         /* JADX INFO: Added by JADX */
-        public static final int download_exit = 0x7f080702;
+        public static final int lbl_forbid_days = 0x7f080702;
         /* JADX INFO: Added by JADX */
-        public static final int create_bar = 0x7f080703;
+        public static final int user_info_center_head_post_name_text = 0x7f080703;
         /* JADX INFO: Added by JADX */
-        public static final int browse_setting = 0x7f080704;
+        public static final int delete_like_info = 0x7f080704;
         /* JADX INFO: Added by JADX */
-        public static final int remove_mark = 0x7f080705;
+        public static final int hint_appeal_reason = 0x7f080705;
         /* JADX INFO: Added by JADX */
-        public static final int frs_nodata = 0x7f080706;
+        public static final int anti_vcode_tip = 0x7f080706;
         /* JADX INFO: Added by JADX */
-        public static final int search_friend = 0x7f080707;
+        public static final int forum = 0x7f080707;
         /* JADX INFO: Added by JADX */
-        public static final int inform = 0x7f080708;
+        public static final int radio_forbid_1 = 0x7f080708;
         /* JADX INFO: Added by JADX */
-        public static final int lbl_forbid_days = 0x7f080709;
+        public static final int radio_forbid_3 = 0x7f080709;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_post_name_text = 0x7f08070a;
+        public static final int image_quality_mid_menu = 0x7f08070a;
         /* JADX INFO: Added by JADX */
-        public static final int delete_like_info = 0x7f08070b;
+        public static final int comment_number = 0x7f08070b;
         /* JADX INFO: Added by JADX */
-        public static final int hint_appeal_reason = 0x7f08070c;
+        public static final int emotion_image_title = 0x7f08070c;
         /* JADX INFO: Added by JADX */
-        public static final int anti_vcode_tip = 0x7f08070d;
+        public static final int forbid_btn_txt = 0x7f08070d;
         /* JADX INFO: Added by JADX */
-        public static final int forum = 0x7f08070e;
+        public static final int input_under_characters = 0x7f08070e;
         /* JADX INFO: Added by JADX */
-        public static final int radio_forbid_1 = 0x7f08070f;
+        public static final int font_size_small = 0x7f08070f;
         /* JADX INFO: Added by JADX */
-        public static final int radio_forbid_3 = 0x7f080710;
+        public static final int too_many_face = 0x7f080710;
         /* JADX INFO: Added by JADX */
-        public static final int image_quality_mid_menu = 0x7f080711;
+        public static final int is_flowmode_close = 0x7f080711;
         /* JADX INFO: Added by JADX */
-        public static final int comment_number = 0x7f080712;
+        public static final int account_manager = 0x7f080712;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_image_title = 0x7f080713;
+        public static final int flist_collapse_list = 0x7f080713;
         /* JADX INFO: Added by JADX */
-        public static final int forbid_btn_txt = 0x7f080714;
+        public static final int everyday_classical = 0x7f080714;
         /* JADX INFO: Added by JADX */
-        public static final int input_under_characters = 0x7f080715;
+        public static final int success = 0x7f080715;
         /* JADX INFO: Added by JADX */
-        public static final int font_size_small = 0x7f080716;
+        public static final int user_info_center_head_attention_name_text_b = 0x7f080716;
         /* JADX INFO: Added by JADX */
-        public static final int too_many_face = 0x7f080717;
+        public static final int user_info_center_head_attention_name_text_g = 0x7f080717;
         /* JADX INFO: Added by JADX */
-        public static final int is_flowmode_close = 0x7f080718;
+        public static final int he_no_like_forum_other = 0x7f080718;
         /* JADX INFO: Added by JADX */
-        public static final int account_manager = 0x7f080719;
+        public static final int no_disturb_end_time = 0x7f080719;
         /* JADX INFO: Added by JADX */
-        public static final int flist_collapse_list = 0x7f08071a;
+        public static final int user_info_center_head_attention_name_text_n = 0x7f08071a;
         /* JADX INFO: Added by JADX */
-        public static final int everyday_classical = 0x7f08071b;
+        public static final int show_image = 0x7f08071b;
         /* JADX INFO: Added by JADX */
-        public static final int success = 0x7f08071c;
+        public static final int anti_vcode_neg = 0x7f08071c;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_attention_name_text_b = 0x7f08071d;
+        public static final int forum_list_attention_tv = 0x7f08071d;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_attention_name_text_g = 0x7f08071e;
+        public static final int forum_list_star_attention_tv = 0x7f08071e;
         /* JADX INFO: Added by JADX */
-        public static final int he_no_like_forum_other = 0x7f08071f;
+        public static final int frs_remind_create = 0x7f08071f;
         /* JADX INFO: Added by JADX */
-        public static final int no_disturb_end_time = 0x7f080720;
+        public static final int syncing = 0x7f080720;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_attention_name_text_n = 0x7f080721;
+        public static final int add_fan = 0x7f080721;
         /* JADX INFO: Added by JADX */
-        public static final int show_image = 0x7f080722;
+        public static final int appeal_post_failure = 0x7f080722;
         /* JADX INFO: Added by JADX */
-        public static final int anti_vcode_neg = 0x7f080723;
+        public static final int can_download = 0x7f080723;
         /* JADX INFO: Added by JADX */
-        public static final int forum_list_attention_tv = 0x7f080724;
+        public static final int input_vcode = 0x7f080724;
         /* JADX INFO: Added by JADX */
-        public static final int forum_list_star_attention_tv = 0x7f080725;
+        public static final int change_sex = 0x7f080725;
         /* JADX INFO: Added by JADX */
-        public static final int frs_remind_create = 0x7f080726;
+        public static final int forum_detail_info_no_brief = 0x7f080726;
         /* JADX INFO: Added by JADX */
-        public static final int syncing = 0x7f080727;
+        public static final int commit_good_to = 0x7f080727;
         /* JADX INFO: Added by JADX */
-        public static final int add_fan = 0x7f080728;
+        public static final int no_more_to_load = 0x7f080728;
         /* JADX INFO: Added by JADX */
-        public static final int appeal_post_failure = 0x7f080729;
+        public static final int font_size = 0x7f080729;
         /* JADX INFO: Added by JADX */
-        public static final int can_download = 0x7f08072a;
+        public static final int frs_fu_text = 0x7f08072a;
         /* JADX INFO: Added by JADX */
-        public static final int input_vcode = 0x7f08072b;
+        public static final int title = 0x7f08072b;
         /* JADX INFO: Added by JADX */
-        public static final int change_sex = 0x7f08072c;
+        public static final int mention_replyme = 0x7f08072c;
         /* JADX INFO: Added by JADX */
-        public static final int forum_detail_info_no_brief = 0x7f08072d;
+        public static final int is_wifiopen = 0x7f08072d;
         /* JADX INFO: Added by JADX */
-        public static final int commit_good_to = 0x7f08072e;
+        public static final int anti_type_hide = 0x7f08072e;
         /* JADX INFO: Added by JADX */
-        public static final int no_more_to_load = 0x7f08072f;
+        public static final int user_info_center_head_viewpager_attention_text_cancel_name = 0x7f08072f;
         /* JADX INFO: Added by JADX */
-        public static final int font_size = 0x7f080730;
+        public static final int post_new_thread = 0x7f080730;
         /* JADX INFO: Added by JADX */
-        public static final int frs_fu_text = 0x7f080731;
+        public static final int frs_badge_intro = 0x7f080731;
         /* JADX INFO: Added by JADX */
-        public static final int title = 0x7f080732;
+        public static final int signed = 0x7f080732;
         /* JADX INFO: Added by JADX */
-        public static final int mention_replyme = 0x7f080733;
+        public static final int logout = 0x7f080733;
         /* JADX INFO: Added by JADX */
-        public static final int is_wifiopen = 0x7f080734;
+        public static final int share_format = 0x7f080734;
         /* JADX INFO: Added by JADX */
-        public static final int anti_type_hide = 0x7f080735;
+        public static final int view_close = 0x7f080735;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_viewpager_attention_text_cancel_name = 0x7f080736;
+        public static final int user_server_agreement = 0x7f080736;
         /* JADX INFO: Added by JADX */
-        public static final int post_new_thread = 0x7f080737;
+        public static final int alert_update_mark = 0x7f080737;
         /* JADX INFO: Added by JADX */
-        public static final int frs_badge_intro = 0x7f080738;
+        public static final int btn_show_passed_pb = 0x7f080738;
         /* JADX INFO: Added by JADX */
-        public static final int signed = 0x7f080739;
+        public static final int show = 0x7f080739;
         /* JADX INFO: Added by JADX */
-        public static final int logout = 0x7f08073a;
+        public static final int relogin_retry = 0x7f08073a;
         /* JADX INFO: Added by JADX */
-        public static final int share_format = 0x7f08073b;
+        public static final int skip_page = 0x7f08073b;
         /* JADX INFO: Added by JADX */
-        public static final int view_close = 0x7f08073c;
+        public static final int forbid_duration = 0x7f08073c;
         /* JADX INFO: Added by JADX */
-        public static final int user_server_agreement = 0x7f08073d;
+        public static final int user_info_center_head_forums_name_text = 0x7f08073d;
         /* JADX INFO: Added by JADX */
-        public static final int alert_update_mark = 0x7f08073e;
+        public static final int activation_code = 0x7f08073e;
         /* JADX INFO: Added by JADX */
-        public static final int btn_show_passed_pb = 0x7f08073f;
+        public static final int change_vcode_type = 0x7f08073f;
         /* JADX INFO: Added by JADX */
-        public static final int show = 0x7f080740;
+        public static final int remind_tone = 0x7f080740;
         /* JADX INFO: Added by JADX */
-        public static final int relogin_retry = 0x7f080741;
+        public static final int woman = 0x7f080741;
         /* JADX INFO: Added by JADX */
-        public static final int skip_page = 0x7f080742;
+        public static final int package_tip_left = 0x7f080742;
         /* JADX INFO: Added by JADX */
-        public static final int forbid_duration = 0x7f080743;
+        public static final int no_disturb_start_time = 0x7f080743;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_head_forums_name_text = 0x7f080744;
+        public static final int attention_to_him = 0x7f080744;
         /* JADX INFO: Added by JADX */
-        public static final int activation_code = 0x7f080745;
+        public static final int discover = 0x7f080745;
         /* JADX INFO: Added by JADX */
-        public static final int change_vcode_type = 0x7f080746;
+        public static final int bar_name_valid = 0x7f080746;
         /* JADX INFO: Added by JADX */
-        public static final int remind_tone = 0x7f080747;
+        public static final int setting_goto_guide = 0x7f080747;
         /* JADX INFO: Added by JADX */
-        public static final int woman = 0x7f080748;
+        public static final int his_post_not_available = 0x7f080748;
         /* JADX INFO: Added by JADX */
-        public static final int package_tip_left = 0x7f080749;
+        public static final int no_attention_other = 0x7f080749;
         /* JADX INFO: Added by JADX */
-        public static final int no_disturb_start_time = 0x7f08074a;
+        public static final int forum_detail_browse = 0x7f08074a;
         /* JADX INFO: Added by JADX */
-        public static final int attention_to_him = 0x7f08074b;
+        public static final int account_protocol = 0x7f08074b;
         /* JADX INFO: Added by JADX */
-        public static final int discover = 0x7f08074c;
+        public static final int image_error = 0x7f08074c;
         /* JADX INFO: Added by JADX */
-        public static final int bar_name_valid = 0x7f08074d;
+        public static final int show_photo = 0x7f08074d;
         /* JADX INFO: Added by JADX */
-        public static final int setting_goto_guide = 0x7f08074e;
+        public static final int image_pb_comment_fail = 0x7f08074e;
         /* JADX INFO: Added by JADX */
-        public static final int his_post_not_available = 0x7f08074f;
+        public static final int forum_detail_fans = 0x7f08074f;
         /* JADX INFO: Added by JADX */
-        public static final int no_attention_other = 0x7f080750;
+        public static final int secretSetting = 0x7f080750;
         /* JADX INFO: Added by JADX */
-        public static final int forum_detail_browse = 0x7f080751;
+        public static final int remind_vibrate = 0x7f080751;
         /* JADX INFO: Added by JADX */
-        public static final int account_protocol = 0x7f080752;
+        public static final int finish_input_vcode = 0x7f080752;
         /* JADX INFO: Added by JADX */
-        public static final int image_error = 0x7f080753;
+        public static final int forum_detail_thread = 0x7f080753;
         /* JADX INFO: Added by JADX */
-        public static final int show_photo = 0x7f080754;
+        public static final int fans = 0x7f080754;
         /* JADX INFO: Added by JADX */
-        public static final int image_pb_comment_fail = 0x7f080755;
+        public static final int show_good = 0x7f080755;
         /* JADX INFO: Added by JADX */
-        public static final int forum_detail_fans = 0x7f080756;
+        public static final int ta_no_post_info = 0x7f080756;
         /* JADX INFO: Added by JADX */
-        public static final int secretSetting = 0x7f080757;
+        public static final int like_forum_menu = 0x7f080757;
         /* JADX INFO: Added by JADX */
-        public static final int remind_vibrate = 0x7f080758;
+        public static final int minute = 0x7f080758;
         /* JADX INFO: Added by JADX */
-        public static final int finish_input_vcode = 0x7f080759;
+        public static final int font_size_big = 0x7f080759;
         /* JADX INFO: Added by JADX */
-        public static final int forum_detail_thread = 0x7f08075a;
+        public static final int share = 0x7f08075a;
         /* JADX INFO: Added by JADX */
-        public static final int fans = 0x7f08075b;
+        public static final int sign_remind_outline = 0x7f08075b;
         /* JADX INFO: Added by JADX */
-        public static final int show_good = 0x7f08075c;
+        public static final int error = 0x7f08075c;
         /* JADX INFO: Added by JADX */
-        public static final int ta_no_post_info = 0x7f08075d;
+        public static final int clear_im = 0x7f08075d;
         /* JADX INFO: Added by JADX */
-        public static final int like_forum_menu = 0x7f08075e;
+        public static final int like_success = 0x7f08075e;
         /* JADX INFO: Added by JADX */
-        public static final int minute = 0x7f08075f;
+        public static final int my_fans_suffix = 0x7f08075f;
         /* JADX INFO: Added by JADX */
-        public static final int font_size_big = 0x7f080760;
+        public static final int signallforum_failed = 0x7f080760;
         /* JADX INFO: Added by JADX */
-        public static final int share = 0x7f080761;
+        public static final int frs_no_image = 0x7f080761;
         /* JADX INFO: Added by JADX */
-        public static final int sign_remind_outline = 0x7f080762;
+        public static final int forum_detail_info_no_rank = 0x7f080762;
         /* JADX INFO: Added by JADX */
-        public static final int error = 0x7f080763;
+        public static final int account_suggest = 0x7f080763;
         /* JADX INFO: Added by JADX */
-        public static final int clear_im = 0x7f080764;
+        public static final int signed_less = 0x7f080764;
         /* JADX INFO: Added by JADX */
-        public static final int like_success = 0x7f080765;
+        public static final int pull_view_pull_more = 0x7f080765;
         /* JADX INFO: Added by JADX */
-        public static final int my_fans_suffix = 0x7f080766;
+        public static final int retry_location = 0x7f080766;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_failed = 0x7f080767;
+        public static final int half_minute = 0x7f080767;
         /* JADX INFO: Added by JADX */
-        public static final int frs_no_image = 0x7f080768;
+        public static final int like_nodata = 0x7f080768;
         /* JADX INFO: Added by JADX */
-        public static final int forum_detail_info_no_rank = 0x7f080769;
+        public static final int eyeshield_mode_open = 0x7f080769;
         /* JADX INFO: Added by JADX */
-        public static final int account_suggest = 0x7f08076a;
+        public static final int guest_attention = 0x7f08076a;
         /* JADX INFO: Added by JADX */
-        public static final int signed_less = 0x7f08076b;
+        public static final int catalogue_name = 0x7f08076b;
         /* JADX INFO: Added by JADX */
-        public static final int pull_view_pull_more = 0x7f08076c;
+        public static final int click_to_refresh = 0x7f08076c;
         /* JADX INFO: Added by JADX */
-        public static final int retry_location = 0x7f08076d;
+        public static final int image_quality_high = 0x7f08076d;
         /* JADX INFO: Added by JADX */
-        public static final int half_minute = 0x7f08076e;
+        public static final int loading_vcode = 0x7f08076e;
         /* JADX INFO: Added by JADX */
-        public static final int like_nodata = 0x7f08076f;
+        public static final int account_apassword = 0x7f08076f;
         /* JADX INFO: Added by JADX */
-        public static final int eyeshield_mode_open = 0x7f080770;
+        public static final int pulldown_lasttime = 0x7f080770;
         /* JADX INFO: Added by JADX */
-        public static final int guest_attention = 0x7f080771;
+        public static final int normal_mode = 0x7f080771;
         /* JADX INFO: Added by JADX */
-        public static final int catalogue_name = 0x7f080772;
+        public static final int def_pos = 0x7f080772;
         /* JADX INFO: Added by JADX */
-        public static final int click_to_refresh = 0x7f080773;
+        public static final int media_play_info = 0x7f080773;
         /* JADX INFO: Added by JADX */
-        public static final int image_quality_high = 0x7f080774;
+        public static final int installed = 0x7f080774;
         /* JADX INFO: Added by JADX */
-        public static final int loading_vcode = 0x7f080775;
+        public static final int unfold_like_forum = 0x7f080775;
         /* JADX INFO: Added by JADX */
-        public static final int account_apassword = 0x7f080776;
+        public static final int format_floor = 0x7f080776;
         /* JADX INFO: Added by JADX */
-        public static final int pulldown_lasttime = 0x7f080777;
+        public static final int send_message = 0x7f080777;
         /* JADX INFO: Added by JADX */
-        public static final int normal_mode = 0x7f080778;
+        public static final int mention = 0x7f080778;
         /* JADX INFO: Added by JADX */
-        public static final int def_pos = 0x7f080779;
+        public static final int shake_finish = 0x7f080779;
         /* JADX INFO: Added by JADX */
-        public static final int media_play_info = 0x7f08077a;
+        public static final int flist_show_cover = 0x7f08077a;
         /* JADX INFO: Added by JADX */
-        public static final int installed = 0x7f08077b;
+        public static final int enter_forum_group = 0x7f08077b;
         /* JADX INFO: Added by JADX */
-        public static final int unfold_like_forum = 0x7f08077c;
+        public static final int change = 0x7f08077c;
         /* JADX INFO: Added by JADX */
-        public static final int format_floor = 0x7f08077d;
+        public static final int goto_setting = 0x7f08077d;
         /* JADX INFO: Added by JADX */
-        public static final int send_message = 0x7f08077e;
+        public static final int may_have_more = 0x7f08077e;
         /* JADX INFO: Added by JADX */
-        public static final int mention = 0x7f08077f;
+        public static final int account_male = 0x7f08077f;
         /* JADX INFO: Added by JADX */
-        public static final int shake_finish = 0x7f080780;
+        public static final int his_post = 0x7f080780;
         /* JADX INFO: Added by JADX */
-        public static final int flist_show_cover = 0x7f080781;
+        public static final int kn_kn = 0x7f080781;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_group = 0x7f080782;
+        public static final int login_block_group_tip = 0x7f080782;
         /* JADX INFO: Added by JADX */
-        public static final int change = 0x7f080783;
+        public static final int floor_to_topic = 0x7f080783;
         /* JADX INFO: Added by JADX */
-        public static final int goto_setting = 0x7f080784;
+        public static final int click_look_pre = 0x7f080784;
         /* JADX INFO: Added by JADX */
-        public static final int may_have_more = 0x7f080785;
+        public static final int update = 0x7f080785;
         /* JADX INFO: Added by JADX */
-        public static final int account_male = 0x7f080786;
+        public static final int attention_success = 0x7f080786;
         /* JADX INFO: Added by JADX */
-        public static final int his_post = 0x7f080787;
+        public static final int my_chat = 0x7f080787;
         /* JADX INFO: Added by JADX */
-        public static final int kn_kn = 0x7f080788;
+        public static final int view_info = 0x7f080788;
         /* JADX INFO: Added by JADX */
-        public static final int login_block_group_tip = 0x7f080789;
+        public static final int image_quality_mid = 0x7f080789;
         /* JADX INFO: Added by JADX */
-        public static final int floor_to_topic = 0x7f08078a;
+        public static final int pk_end = 0x7f08078a;
         /* JADX INFO: Added by JADX */
-        public static final int click_look_pre = 0x7f08078b;
+        public static final int loc_gps_off = 0x7f08078b;
         /* JADX INFO: Added by JADX */
-        public static final int update = 0x7f08078c;
+        public static final int want_login = 0x7f08078c;
         /* JADX INFO: Added by JADX */
-        public static final int attention_success = 0x7f08078d;
+        public static final int result_tip_fourth = 0x7f08078d;
         /* JADX INFO: Added by JADX */
-        public static final int my_chat = 0x7f08078e;
+        public static final int delete_all_user_chat = 0x7f08078e;
         /* JADX INFO: Added by JADX */
-        public static final int view_info = 0x7f08078f;
+        public static final int pb_reply_num = 0x7f08078f;
         /* JADX INFO: Added by JADX */
-        public static final int image_quality_mid = 0x7f080790;
+        public static final int frsgroup_no_first = 0x7f080790;
         /* JADX INFO: Added by JADX */
-        public static final int pk_end = 0x7f080791;
+        public static final int view_brightness_low = 0x7f080791;
         /* JADX INFO: Added by JADX */
-        public static final int loc_gps_off = 0x7f080792;
+        public static final int tow_minute = 0x7f080792;
         /* JADX INFO: Added by JADX */
-        public static final int want_login = 0x7f080793;
+        public static final int loc_out_of_time = 0x7f080793;
         /* JADX INFO: Added by JADX */
-        public static final int result_tip_fourth = 0x7f080794;
+        public static final int pk_support = 0x7f080794;
         /* JADX INFO: Added by JADX */
-        public static final int delete_all_user_chat = 0x7f080795;
+        public static final int ellipsis = 0x7f080795;
         /* JADX INFO: Added by JADX */
-        public static final int pb_reply_num = 0x7f080796;
+        public static final int close_remind = 0x7f080796;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_no_first = 0x7f080797;
+        public static final int downloading = 0x7f080797;
         /* JADX INFO: Added by JADX */
-        public static final int view_brightness_low = 0x7f080798;
+        public static final int recommend_forums_unlogin = 0x7f080798;
         /* JADX INFO: Added by JADX */
-        public static final int tow_minute = 0x7f080799;
+        public static final int remind_later = 0x7f080799;
         /* JADX INFO: Added by JADX */
-        public static final int loc_out_of_time = 0x7f08079a;
+        public static final int pk_ticket_count = 0x7f08079a;
         /* JADX INFO: Added by JADX */
-        public static final int pk_support = 0x7f08079b;
+        public static final int data_more = 0x7f08079b;
         /* JADX INFO: Added by JADX */
-        public static final int ellipsis = 0x7f08079c;
+        public static final int invalid_user = 0x7f08079c;
         /* JADX INFO: Added by JADX */
-        public static final int close_remind = 0x7f08079d;
+        public static final int dis_suffix_m = 0x7f08079d;
         /* JADX INFO: Added by JADX */
-        public static final int downloading = 0x7f08079e;
+        public static final int share_weixin_turn_off = 0x7f08079e;
         /* JADX INFO: Added by JADX */
-        public static final int recommend_forums_unlogin = 0x7f08079f;
+        public static final int login_to_shake = 0x7f08079f;
         /* JADX INFO: Added by JADX */
-        public static final int remind_later = 0x7f0807a0;
+        public static final int lottery = 0x7f0807a0;
         /* JADX INFO: Added by JADX */
-        public static final int pk_ticket_count = 0x7f0807a1;
+        public static final int pk_will_start = 0x7f0807a1;
         /* JADX INFO: Added by JADX */
-        public static final int data_more = 0x7f0807a2;
+        public static final int t_show_title = 0x7f0807a2;
         /* JADX INFO: Added by JADX */
-        public static final int invalid_user = 0x7f0807a3;
+        public static final int editimage = 0x7f0807a3;
         /* JADX INFO: Added by JADX */
-        public static final int dis_suffix_m = 0x7f0807a4;
+        public static final int kn_ladders = 0x7f0807a4;
         /* JADX INFO: Added by JADX */
-        public static final int share_weixin_turn_off = 0x7f0807a5;
+        public static final int start_now = 0x7f0807a5;
         /* JADX INFO: Added by JADX */
-        public static final int login_to_shake = 0x7f0807a6;
+        public static final int user_info_center_over_num = 0x7f0807a6;
         /* JADX INFO: Added by JADX */
-        public static final int lottery = 0x7f0807a7;
+        public static final int too_much_tags = 0x7f0807a7;
         /* JADX INFO: Added by JADX */
-        public static final int pk_will_start = 0x7f0807a8;
+        public static final int enter = 0x7f0807a8;
         /* JADX INFO: Added by JADX */
-        public static final int t_show_title = 0x7f0807a9;
+        public static final int update_new_ver = 0x7f0807a9;
         /* JADX INFO: Added by JADX */
-        public static final int editimage = 0x7f0807aa;
+        public static final int group_create_step3 = 0x7f0807aa;
         /* JADX INFO: Added by JADX */
-        public static final int kn_ladders = 0x7f0807ab;
+        public static final int group_create_step4 = 0x7f0807ab;
         /* JADX INFO: Added by JADX */
-        public static final int start_now = 0x7f0807ac;
+        public static final int group_create_step1 = 0x7f0807ac;
         /* JADX INFO: Added by JADX */
-        public static final int user_info_center_over_num = 0x7f0807ad;
+        public static final int confirm_save = 0x7f0807ad;
         /* JADX INFO: Added by JADX */
-        public static final int too_much_tags = 0x7f0807ae;
+        public static final int group_create_step2 = 0x7f0807ae;
         /* JADX INFO: Added by JADX */
-        public static final int enter = 0x7f0807af;
+        public static final int pulldown_refresh = 0x7f0807af;
         /* JADX INFO: Added by JADX */
-        public static final int update_new_ver = 0x7f0807b0;
+        public static final int installing = 0x7f0807b0;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step3 = 0x7f0807b1;
+        public static final int group_create_step4_tip = 0x7f0807b1;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step4 = 0x7f0807b2;
+        public static final int explore = 0x7f0807b2;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step1 = 0x7f0807b3;
+        public static final int search_bar_post = 0x7f0807b3;
         /* JADX INFO: Added by JADX */
-        public static final int confirm_save = 0x7f0807b4;
+        public static final int enter_forum_like = 0x7f0807b4;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step2 = 0x7f0807b5;
+        public static final int voice_record_delete_tip = 0x7f0807b5;
         /* JADX INFO: Added by JADX */
-        public static final int pulldown_refresh = 0x7f0807b6;
+        public static final int need_update = 0x7f0807b6;
         /* JADX INFO: Added by JADX */
-        public static final int installing = 0x7f0807b7;
+        public static final int loc_gps_net_off = 0x7f0807b7;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step4_tip = 0x7f0807b8;
+        public static final int signallforum_level_to_five = 0x7f0807b8;
         /* JADX INFO: Added by JADX */
-        public static final int explore = 0x7f0807b9;
+        public static final int loc_net_off = 0x7f0807b9;
         /* JADX INFO: Added by JADX */
-        public static final int search_bar_post = 0x7f0807ba;
+        public static final int write_msg = 0x7f0807ba;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_like = 0x7f0807bb;
+        public static final int share_weixin_friend_no = 0x7f0807bb;
         /* JADX INFO: Added by JADX */
-        public static final int voice_record_delete_tip = 0x7f0807bc;
+        public static final int network_not_wifi = 0x7f0807bc;
         /* JADX INFO: Added by JADX */
-        public static final int need_update = 0x7f0807bd;
+        public static final int view_images = 0x7f0807bd;
         /* JADX INFO: Added by JADX */
-        public static final int loc_gps_net_off = 0x7f0807be;
+        public static final int timeout = 0x7f0807be;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_level_to_five = 0x7f0807bf;
+        public static final int delete_mark = 0x7f0807bf;
         /* JADX INFO: Added by JADX */
-        public static final int loc_net_off = 0x7f0807c0;
+        public static final int open_flow_mode = 0x7f0807c0;
         /* JADX INFO: Added by JADX */
-        public static final int write_msg = 0x7f0807c1;
+        public static final int msglist_express = 0x7f0807c1;
         /* JADX INFO: Added by JADX */
-        public static final int share_weixin_friend_no = 0x7f0807c2;
+        public static final int sms_code_sent_to = 0x7f0807c2;
         /* JADX INFO: Added by JADX */
-        public static final int network_not_wifi = 0x7f0807c3;
+        public static final int get_res_error = 0x7f0807c3;
         /* JADX INFO: Added by JADX */
-        public static final int view_images = 0x7f0807c4;
+        public static final int feature = 0x7f0807c4;
         /* JADX INFO: Added by JADX */
-        public static final int timeout = 0x7f0807c5;
+        public static final int my_mini_post = 0x7f0807c5;
         /* JADX INFO: Added by JADX */
-        public static final int delete_mark = 0x7f0807c6;
+        public static final int grouplevel_level_0 = 0x7f0807c6;
         /* JADX INFO: Added by JADX */
-        public static final int open_flow_mode = 0x7f0807c7;
+        public static final int grade_colon = 0x7f0807c7;
         /* JADX INFO: Added by JADX */
-        public static final int msglist_express = 0x7f0807c8;
+        public static final int msglist_camera = 0x7f0807c8;
         /* JADX INFO: Added by JADX */
-        public static final int sms_code_sent_to = 0x7f0807c9;
+        public static final int group_tab_enterchatroom_tip = 0x7f0807c9;
         /* JADX INFO: Added by JADX */
-        public static final int get_res_error = 0x7f0807ca;
+        public static final int click_look_next = 0x7f0807ca;
         /* JADX INFO: Added by JADX */
-        public static final int feature = 0x7f0807cb;
+        public static final int promote_message_off = 0x7f0807cb;
         /* JADX INFO: Added by JADX */
-        public static final int my_mini_post = 0x7f0807cc;
+        public static final int share_result_send_success = 0x7f0807cc;
         /* JADX INFO: Added by JADX */
-        public static final int grouplevel_level_0 = 0x7f0807cd;
+        public static final int account_err_protocol = 0x7f0807cd;
         /* JADX INFO: Added by JADX */
-        public static final int grade_colon = 0x7f0807ce;
+        public static final int dialog_button_know = 0x7f0807ce;
         /* JADX INFO: Added by JADX */
-        public static final int msglist_camera = 0x7f0807cf;
+        public static final int image_quality_cant_set = 0x7f0807cf;
         /* JADX INFO: Added by JADX */
-        public static final int group_tab_enterchatroom_tip = 0x7f0807d0;
+        public static final int your_location = 0x7f0807d0;
         /* JADX INFO: Added by JADX */
-        public static final int click_look_next = 0x7f0807d1;
+        public static final int dis_suffix_km = 0x7f0807d1;
         /* JADX INFO: Added by JADX */
-        public static final int promote_message_off = 0x7f0807d2;
+        public static final int sex_tip = 0x7f0807d2;
         /* JADX INFO: Added by JADX */
-        public static final int share_result_send_success = 0x7f0807d3;
+        public static final int default_username = 0x7f0807d3;
         /* JADX INFO: Added by JADX */
-        public static final int account_err_protocol = 0x7f0807d4;
+        public static final int mark_guide = 0x7f0807d4;
         /* JADX INFO: Added by JADX */
-        public static final int dialog_button_know = 0x7f0807d5;
+        public static final int remind_tone_close = 0x7f0807d5;
         /* JADX INFO: Added by JADX */
-        public static final int image_quality_cant_set = 0x7f0807d6;
+        public static final int search_groups = 0x7f0807d6;
         /* JADX INFO: Added by JADX */
-        public static final int your_location = 0x7f0807d7;
+        public static final int share_weixin_no = 0x7f0807d7;
         /* JADX INFO: Added by JADX */
-        public static final int dis_suffix_km = 0x7f0807d8;
+        public static final int delete_account_only = 0x7f0807d8;
         /* JADX INFO: Added by JADX */
-        public static final int sex_tip = 0x7f0807d9;
+        public static final int dis_prefix = 0x7f0807d9;
         /* JADX INFO: Added by JADX */
-        public static final int default_username = 0x7f0807da;
+        public static final int view_images_open = 0x7f0807da;
         /* JADX INFO: Added by JADX */
-        public static final int mark_guide = 0x7f0807db;
+        public static final int edit_profile = 0x7f0807db;
         /* JADX INFO: Added by JADX */
-        public static final int remind_tone_close = 0x7f0807dc;
+        public static final int signallforum_no_signs = 0x7f0807dc;
         /* JADX INFO: Added by JADX */
-        public static final int search_groups = 0x7f0807dd;
+        public static final int night_mode = 0x7f0807dd;
         /* JADX INFO: Added by JADX */
-        public static final int share_weixin_no = 0x7f0807de;
+        public static final int my_home_page = 0x7f0807de;
         /* JADX INFO: Added by JADX */
-        public static final int delete_account_only = 0x7f0807df;
+        public static final int flow_mode = 0x7f0807df;
         /* JADX INFO: Added by JADX */
-        public static final int dis_prefix = 0x7f0807e0;
+        public static final int image_quality = 0x7f0807e0;
         /* JADX INFO: Added by JADX */
-        public static final int view_images_open = 0x7f0807e1;
+        public static final int network_wifi = 0x7f0807e1;
         /* JADX INFO: Added by JADX */
-        public static final int edit_profile = 0x7f0807e2;
+        public static final int voice_recording_tip = 0x7f0807e2;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_no_signs = 0x7f0807e3;
+        public static final int attention = 0x7f0807e3;
         /* JADX INFO: Added by JADX */
-        public static final int night_mode = 0x7f0807e4;
+        public static final int msglist_image = 0x7f0807e4;
         /* JADX INFO: Added by JADX */
-        public static final int my_home_page = 0x7f0807e5;
+        public static final int network_accept = 0x7f0807e5;
         /* JADX INFO: Added by JADX */
-        public static final int flow_mode = 0x7f0807e6;
+        public static final int like_success_three_times = 0x7f0807e6;
         /* JADX INFO: Added by JADX */
-        public static final int image_quality = 0x7f0807e7;
+        public static final int camera = 0x7f0807e7;
         /* JADX INFO: Added by JADX */
-        public static final int network_wifi = 0x7f0807e8;
+        public static final int thrift_mode = 0x7f0807e8;
         /* JADX INFO: Added by JADX */
-        public static final int voice_recording_tip = 0x7f0807e9;
+        public static final int delete_user_chat_done = 0x7f0807e9;
         /* JADX INFO: Added by JADX */
-        public static final int attention = 0x7f0807ea;
+        public static final int nearby_group_text = 0x7f0807ea;
         /* JADX INFO: Added by JADX */
-        public static final int msglist_image = 0x7f0807eb;
+        public static final int group_card_share_title = 0x7f0807eb;
         /* JADX INFO: Added by JADX */
-        public static final int network_accept = 0x7f0807ec;
+        public static final int view_brightness_middle = 0x7f0807ec;
         /* JADX INFO: Added by JADX */
-        public static final int like_success_three_times = 0x7f0807ed;
+        public static final int view_images_quality = 0x7f0807ed;
         /* JADX INFO: Added by JADX */
-        public static final int camera = 0x7f0807ee;
+        public static final int info = 0x7f0807ee;
         /* JADX INFO: Added by JADX */
-        public static final int thrift_mode = 0x7f0807ef;
+        public static final int error_play = 0x7f0807ef;
         /* JADX INFO: Added by JADX */
-        public static final int delete_user_chat_done = 0x7f0807f0;
+        public static final int remind_frequency = 0x7f0807f0;
         /* JADX INFO: Added by JADX */
-        public static final int nearby_group_text = 0x7f0807f1;
+        public static final int kn_description = 0x7f0807f1;
         /* JADX INFO: Added by JADX */
-        public static final int group_card_share_title = 0x7f0807f2;
+        public static final int manage_mode = 0x7f0807f2;
         /* JADX INFO: Added by JADX */
-        public static final int view_brightness_middle = 0x7f0807f3;
+        public static final int click_load_more = 0x7f0807f3;
         /* JADX INFO: Added by JADX */
-        public static final int view_images_quality = 0x7f0807f4;
+        public static final int install_media = 0x7f0807f4;
         /* JADX INFO: Added by JADX */
-        public static final int info = 0x7f0807f5;
+        public static final int like = 0x7f0807f5;
         /* JADX INFO: Added by JADX */
-        public static final int error_play = 0x7f0807f6;
+        public static final int format_grade = 0x7f0807f6;
         /* JADX INFO: Added by JADX */
-        public static final int remind_frequency = 0x7f0807f7;
+        public static final int login_person_tab = 0x7f0807f7;
         /* JADX INFO: Added by JADX */
-        public static final int kn_description = 0x7f0807f8;
+        public static final int person_post_reply_tips = 0x7f0807f8;
         /* JADX INFO: Added by JADX */
-        public static final int manage_mode = 0x7f0807f9;
+        public static final int promote_message_on = 0x7f0807f9;
         /* JADX INFO: Added by JADX */
-        public static final int click_load_more = 0x7f0807fa;
+        public static final int flist_hide_cover = 0x7f0807fa;
         /* JADX INFO: Added by JADX */
-        public static final int install_media = 0x7f0807fb;
+        public static final int fan_num = 0x7f0807fb;
         /* JADX INFO: Added by JADX */
-        public static final int like = 0x7f0807fc;
+        public static final int delete_account_and_group_cache = 0x7f0807fc;
         /* JADX INFO: Added by JADX */
-        public static final int format_grade = 0x7f0807fd;
+        public static final int my_forums = 0x7f0807fd;
         /* JADX INFO: Added by JADX */
-        public static final int login_person_tab = 0x7f0807fe;
+        public static final int kn_start_shake = 0x7f0807fe;
         /* JADX INFO: Added by JADX */
-        public static final int person_post_reply_tips = 0x7f0807ff;
+        public static final int isopen = 0x7f0807ff;
         /* JADX INFO: Added by JADX */
-        public static final int promote_message_on = 0x7f080800;
+        public static final int result_tip_first = 0x7f080800;
         /* JADX INFO: Added by JADX */
-        public static final int flist_hide_cover = 0x7f080801;
+        public static final int post = 0x7f080801;
         /* JADX INFO: Added by JADX */
-        public static final int fan_num = 0x7f080802;
+        public static final int theme = 0x7f080802;
         /* JADX INFO: Added by JADX */
-        public static final int delete_account_and_group_cache = 0x7f080803;
+        public static final int login_home_tab_group = 0x7f080803;
         /* JADX INFO: Added by JADX */
-        public static final int my_forums = 0x7f080804;
+        public static final int kn_pk = 0x7f080804;
         /* JADX INFO: Added by JADX */
-        public static final int kn_start_shake = 0x7f080805;
+        public static final int share_app = 0x7f080805;
         /* JADX INFO: Added by JADX */
-        public static final int isopen = 0x7f080806;
+        public static final int close_flow_mode = 0x7f080806;
         /* JADX INFO: Added by JADX */
-        public static final int result_tip_first = 0x7f080807;
+        public static final int check_new = 0x7f080807;
         /* JADX INFO: Added by JADX */
-        public static final int post = 0x7f080808;
+        public static final int goto_setting_tip = 0x7f080808;
         /* JADX INFO: Added by JADX */
-        public static final int theme = 0x7f080809;
+        public static final int view_sequence = 0x7f080809;
         /* JADX INFO: Added by JADX */
-        public static final int login_home_tab_group = 0x7f08080a;
+        public static final int right_now = 0x7f08080a;
         /* JADX INFO: Added by JADX */
-        public static final int kn_pk = 0x7f08080b;
+        public static final int account_goregedit = 0x7f08080b;
         /* JADX INFO: Added by JADX */
-        public static final int share_app = 0x7f08080c;
+        public static final int view_good = 0x7f08080c;
         /* JADX INFO: Added by JADX */
-        public static final int close_flow_mode = 0x7f08080d;
+        public static final int group_create_no_personinfo = 0x7f08080d;
         /* JADX INFO: Added by JADX */
-        public static final int check_new = 0x7f08080e;
+        public static final int recommend_forums = 0x7f08080e;
         /* JADX INFO: Added by JADX */
-        public static final int goto_setting_tip = 0x7f08080f;
+        public static final int forbid_user = 0x7f08080f;
         /* JADX INFO: Added by JADX */
-        public static final int view_sequence = 0x7f080810;
+        public static final int result_tip_third = 0x7f080810;
         /* JADX INFO: Added by JADX */
-        public static final int right_now = 0x7f080811;
+        public static final int voice_delete = 0x7f080811;
         /* JADX INFO: Added by JADX */
-        public static final int account_goregedit = 0x7f080812;
+        public static final int global_uniq = 0x7f080812;
         /* JADX INFO: Added by JADX */
-        public static final int view_good = 0x7f080813;
+        public static final int search_group = 0x7f080813;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_no_personinfo = 0x7f080814;
+        public static final int five_minute = 0x7f080814;
         /* JADX INFO: Added by JADX */
-        public static final int recommend_forums = 0x7f080815;
+        public static final int relogin_yi_statement = 0x7f080815;
         /* JADX INFO: Added by JADX */
-        public static final int forbid_user = 0x7f080816;
+        public static final int recommend_title = 0x7f080816;
         /* JADX INFO: Added by JADX */
-        public static final int result_tip_third = 0x7f080817;
+        public static final int add_fan_tip = 0x7f080817;
         /* JADX INFO: Added by JADX */
-        public static final int voice_delete = 0x7f080818;
+        public static final int egg_breaker_tip_real_gift = 0x7f080818;
         /* JADX INFO: Added by JADX */
-        public static final int global_uniq = 0x7f080819;
+        public static final int select_tags = 0x7f080819;
         /* JADX INFO: Added by JADX */
-        public static final int search_group = 0x7f08081a;
+        public static final int account_female = 0x7f08081a;
         /* JADX INFO: Added by JADX */
-        public static final int five_minute = 0x7f08081b;
+        public static final int signallforum_signlater = 0x7f08081b;
         /* JADX INFO: Added by JADX */
-        public static final int relogin_yi_statement = 0x7f08081c;
+        public static final int group_address = 0x7f08081c;
         /* JADX INFO: Added by JADX */
-        public static final int recommend_title = 0x7f08081d;
+        public static final int fold_like_forum = 0x7f08081d;
         /* JADX INFO: Added by JADX */
-        public static final int add_fan_tip = 0x7f08081e;
+        public static final int group_create_private_isee = 0x7f08081e;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_real_gift = 0x7f08081f;
+        public static final int recommend_on = 0x7f08081f;
         /* JADX INFO: Added by JADX */
-        public static final int select_tags = 0x7f080820;
+        public static final int pause = 0x7f080820;
         /* JADX INFO: Added by JADX */
-        public static final int account_female = 0x7f080821;
+        public static final int person_center_list_no_data_text = 0x7f080821;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_signlater = 0x7f080822;
+        public static final int unlike = 0x7f080822;
         /* JADX INFO: Added by JADX */
-        public static final int group_address = 0x7f080823;
+        public static final int editor_dialog_camera_to_image_content = 0x7f080823;
         /* JADX INFO: Added by JADX */
-        public static final int fold_like_forum = 0x7f080824;
+        public static final int alert_clean_history = 0x7f080824;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_private_isee = 0x7f080825;
+        public static final int forum_block_tip = 0x7f080825;
         /* JADX INFO: Added by JADX */
-        public static final int recommend_on = 0x7f080826;
+        public static final int recommend = 0x7f080826;
         /* JADX INFO: Added by JADX */
-        public static final int pause = 0x7f080827;
+        public static final int view_brightness_normal = 0x7f080827;
         /* JADX INFO: Added by JADX */
-        public static final int person_center_list_no_data_text = 0x7f080828;
+        public static final int group_tab_nearbygroup = 0x7f080828;
         /* JADX INFO: Added by JADX */
-        public static final int unlike = 0x7f080829;
+        public static final int click_get = 0x7f080829;
         /* JADX INFO: Added by JADX */
-        public static final int editor_dialog_camera_to_image_content = 0x7f08082a;
+        public static final int voice_play_stop_tip = 0x7f08082a;
         /* JADX INFO: Added by JADX */
-        public static final int alert_clean_history = 0x7f08082b;
+        public static final int off = 0x7f08082b;
         /* JADX INFO: Added by JADX */
-        public static final int forum_block_tip = 0x7f08082c;
+        public static final int group_create_private_tip = 0x7f08082c;
         /* JADX INFO: Added by JADX */
-        public static final int recommend = 0x7f08082d;
+        public static final int nearby_pb_nodata = 0x7f08082d;
         /* JADX INFO: Added by JADX */
-        public static final int view_brightness_normal = 0x7f08082e;
+        public static final int my_fans = 0x7f08082e;
         /* JADX INFO: Added by JADX */
-        public static final int group_tab_nearbygroup = 0x7f08082f;
+        public static final int on = 0x7f08082f;
         /* JADX INFO: Added by JADX */
-        public static final int click_get = 0x7f080830;
+        public static final int pulldown_loosen = 0x7f080830;
         /* JADX INFO: Added by JADX */
-        public static final int voice_play_stop_tip = 0x7f080831;
+        public static final int apk_error = 0x7f080831;
         /* JADX INFO: Added by JADX */
-        public static final int off = 0x7f080832;
+        public static final int snap_group_chat_kick_out = 0x7f080832;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_private_tip = 0x7f080833;
+        public static final int share_load_img_failed = 0x7f080833;
         /* JADX INFO: Added by JADX */
-        public static final int nearby_pb_nodata = 0x7f080834;
+        public static final int abstract_state = 0x7f080834;
         /* JADX INFO: Added by JADX */
-        public static final int my_fans = 0x7f080835;
+        public static final int comment = 0x7f080835;
         /* JADX INFO: Added by JADX */
-        public static final int on = 0x7f080836;
+        public static final int frs_relative_music = 0x7f080836;
         /* JADX INFO: Added by JADX */
-        public static final int pulldown_loosen = 0x7f080837;
+        public static final int load_more_atlast = 0x7f080837;
         /* JADX INFO: Added by JADX */
-        public static final int apk_error = 0x7f080838;
+        public static final int kn_data_no_vote = 0x7f080838;
         /* JADX INFO: Added by JADX */
-        public static final int snap_group_chat_kick_out = 0x7f080839;
+        public static final int kick_out = 0x7f080839;
         /* JADX INFO: Added by JADX */
-        public static final int share_load_img_failed = 0x7f08083a;
+        public static final int guide_ten_years = 0x7f08083a;
         /* JADX INFO: Added by JADX */
-        public static final int abstract_state = 0x7f08083b;
+        public static final int upload = 0x7f08083b;
         /* JADX INFO: Added by JADX */
-        public static final int comment = 0x7f08083c;
+        public static final int like_bar = 0x7f08083c;
         /* JADX INFO: Added by JADX */
-        public static final int frs_relative_music = 0x7f08083d;
+        public static final int delete_account_cancle = 0x7f08083d;
         /* JADX INFO: Added by JADX */
-        public static final int load_more_atlast = 0x7f08083e;
+        public static final int error_unkown = 0x7f08083e;
         /* JADX INFO: Added by JADX */
-        public static final int kn_data_no_vote = 0x7f08083f;
+        public static final int share_qzone_no = 0x7f08083f;
         /* JADX INFO: Added by JADX */
-        public static final int kick_out = 0x7f080840;
+        public static final int image_quality_low = 0x7f080840;
         /* JADX INFO: Added by JADX */
-        public static final int guide_ten_years = 0x7f080841;
+        public static final int image_fail_tip = 0x7f080841;
         /* JADX INFO: Added by JADX */
-        public static final int upload = 0x7f080842;
+        public static final int frs_i_create = 0x7f080842;
         /* JADX INFO: Added by JADX */
-        public static final int like_bar = 0x7f080843;
+        public static final int attention_fail = 0x7f080843;
         /* JADX INFO: Added by JADX */
-        public static final int delete_account_cancle = 0x7f080844;
+        public static final int network_title = 0x7f080844;
         /* JADX INFO: Added by JADX */
-        public static final int error_unkown = 0x7f080845;
+        public static final int download_error = 0x7f080845;
         /* JADX INFO: Added by JADX */
-        public static final int share_qzone_no = 0x7f080846;
+        public static final int upgrade_mem_group_already_up = 0x7f080846;
         /* JADX INFO: Added by JADX */
-        public static final int image_quality_low = 0x7f080847;
+        public static final int kn_total_vote = 0x7f080847;
         /* JADX INFO: Added by JADX */
-        public static final int image_fail_tip = 0x7f080848;
+        public static final int alert_clear_one_account_cache = 0x7f080848;
         /* JADX INFO: Added by JADX */
-        public static final int frs_i_create = 0x7f080849;
+        public static final int hot_group_from = 0x7f080849;
         /* JADX INFO: Added by JADX */
-        public static final int attention_fail = 0x7f08084a;
+        public static final int kn = 0x7f08084a;
         /* JADX INFO: Added by JADX */
-        public static final int network_title = 0x7f08084b;
+        public static final int download_install = 0x7f08084b;
         /* JADX INFO: Added by JADX */
-        public static final int download_error = 0x7f08084c;
+        public static final int upload_head_fail = 0x7f08084c;
         /* JADX INFO: Added by JADX */
-        public static final int upgrade_mem_group_already_up = 0x7f08084d;
+        public static final int bar_search = 0x7f08084d;
         /* JADX INFO: Added by JADX */
-        public static final int kn_total_vote = 0x7f08084e;
+        public static final int share_sina_no = 0x7f08084e;
         /* JADX INFO: Added by JADX */
-        public static final int alert_clear_one_account_cache = 0x7f08084f;
+        public static final int data_loading = 0x7f08084f;
         /* JADX INFO: Added by JADX */
-        public static final int hot_group_from = 0x7f080850;
+        public static final int tag_is_null = 0x7f080850;
         /* JADX INFO: Added by JADX */
-        public static final int kn = 0x7f080851;
+        public static final int login_get_msg = 0x7f080851;
         /* JADX INFO: Added by JADX */
-        public static final int download_install = 0x7f080852;
+        public static final int account_account_limit = 0x7f080852;
         /* JADX INFO: Added by JADX */
-        public static final int upload_head_fail = 0x7f080853;
+        public static final int text_confirm = 0x7f080853;
         /* JADX INFO: Added by JADX */
-        public static final int bar_search = 0x7f080854;
+        public static final int text_cancel = 0x7f080854;
         /* JADX INFO: Added by JADX */
-        public static final int share_sina_no = 0x7f080855;
+        public static final int change_head = 0x7f080855;
         /* JADX INFO: Added by JADX */
-        public static final int data_loading = 0x7f080856;
+        public static final int mark_remind = 0x7f080856;
         /* JADX INFO: Added by JADX */
-        public static final int tag_is_null = 0x7f080857;
+        public static final int result_tip_second = 0x7f080857;
         /* JADX INFO: Added by JADX */
-        public static final int login_get_msg = 0x7f080858;
+        public static final int add_tag_fail = 0x7f080858;
         /* JADX INFO: Added by JADX */
-        public static final int account_account_limit = 0x7f080859;
+        public static final int share_no_data = 0x7f080859;
         /* JADX INFO: Added by JADX */
-        public static final int text_confirm = 0x7f08085a;
+        public static final int browse_setting_spannable = 0x7f08085a;
         /* JADX INFO: Added by JADX */
-        public static final int text_cancel = 0x7f08085b;
+        public static final int group_card_share_cancel = 0x7f08085b;
         /* JADX INFO: Added by JADX */
-        public static final int change_head = 0x7f08085c;
+        public static final int abstract_off = 0x7f08085c;
         /* JADX INFO: Added by JADX */
-        public static final int mark_remind = 0x7f08085d;
+        public static final int clear_image_cache = 0x7f08085d;
         /* JADX INFO: Added by JADX */
-        public static final int result_tip_second = 0x7f08085e;
+        public static final int address_error = 0x7f08085e;
         /* JADX INFO: Added by JADX */
-        public static final int add_tag_fail = 0x7f08085f;
+        public static final int result_tip_share = 0x7f08085f;
         /* JADX INFO: Added by JADX */
-        public static final int share_no_data = 0x7f080860;
+        public static final int face_string = 0x7f080860;
         /* JADX INFO: Added by JADX */
-        public static final int browse_setting_spannable = 0x7f080861;
+        public static final int my_history = 0x7f080861;
         /* JADX INFO: Added by JADX */
-        public static final int group_card_share_cancel = 0x7f080862;
+        public static final int account_err_account = 0x7f080862;
         /* JADX INFO: Added by JADX */
-        public static final int abstract_off = 0x7f080863;
+        public static final int about_info = 0x7f080863;
         /* JADX INFO: Added by JADX */
-        public static final int clear_image_cache = 0x7f080864;
+        public static final int shake_left_time = 0x7f080864;
         /* JADX INFO: Added by JADX */
-        public static final int address_error = 0x7f080865;
+        public static final int chatroom = 0x7f080865;
         /* JADX INFO: Added by JADX */
-        public static final int result_tip_share = 0x7f080866;
+        public static final int star_timer_title = 0x7f080866;
         /* JADX INFO: Added by JADX */
-        public static final int face_string = 0x7f080867;
+        public static final int load_prev_page = 0x7f080867;
         /* JADX INFO: Added by JADX */
-        public static final int my_history = 0x7f080868;
+        public static final int kn_support_ta = 0x7f080868;
         /* JADX INFO: Added by JADX */
-        public static final int account_err_account = 0x7f080869;
+        public static final int pulldown_loading = 0x7f080869;
         /* JADX INFO: Added by JADX */
-        public static final int about_info = 0x7f08086a;
+        public static final int frs_relative_video = 0x7f08086a;
         /* JADX INFO: Added by JADX */
-        public static final int shake_left_time = 0x7f08086b;
+        public static final int kn_hsy = 0x7f08086b;
         /* JADX INFO: Added by JADX */
-        public static final int chatroom = 0x7f08086c;
+        public static final int kn_total_rank = 0x7f08086c;
         /* JADX INFO: Added by JADX */
-        public static final int star_timer_title = 0x7f08086d;
+        public static final int person_account_btn = 0x7f08086d;
         /* JADX INFO: Added by JADX */
-        public static final int load_prev_page = 0x7f08086e;
+        public static final int load_next_page = 0x7f08086e;
         /* JADX INFO: Added by JADX */
-        public static final int kn_support_ta = 0x7f08086f;
+        public static final int account_err_passwd = 0x7f08086f;
         /* JADX INFO: Added by JADX */
-        public static final int pulldown_loading = 0x7f080870;
+        public static final int share_result = 0x7f080870;
         /* JADX INFO: Added by JADX */
-        public static final int frs_relative_video = 0x7f080871;
+        public static final int deal_link_error = 0x7f080871;
         /* JADX INFO: Added by JADX */
-        public static final int kn_hsy = 0x7f080872;
+        public static final int cancel_view_host = 0x7f080872;
         /* JADX INFO: Added by JADX */
-        public static final int kn_total_rank = 0x7f080873;
+        public static final int update_success = 0x7f080873;
         /* JADX INFO: Added by JADX */
-        public static final int person_account_btn = 0x7f080874;
+        public static final int about_tieba = 0x7f080874;
         /* JADX INFO: Added by JADX */
-        public static final int load_next_page = 0x7f080875;
+        public static final int signallforum_title = 0x7f080875;
         /* JADX INFO: Added by JADX */
-        public static final int account_err_passwd = 0x7f080876;
+        public static final int rand_chat_waiting_wait_time = 0x7f080876;
         /* JADX INFO: Added by JADX */
-        public static final int share_result = 0x7f080877;
+        public static final int interest_add = 0x7f080877;
         /* JADX INFO: Added by JADX */
-        public static final int deal_link_error = 0x7f080878;
+        public static final int shake_guide = 0x7f080878;
         /* JADX INFO: Added by JADX */
-        public static final int cancel_view_host = 0x7f080879;
+        public static final int view_images_close = 0x7f080879;
         /* JADX INFO: Added by JADX */
-        public static final int update_success = 0x7f08087a;
+        public static final int recommend_relative_forum = 0x7f08087a;
         /* JADX INFO: Added by JADX */
-        public static final int about_tieba = 0x7f08087b;
+        public static final int bd_browser_dex_loading_failed = 0x7f08087b;
         /* JADX INFO: Added by JADX */
-        public static final int signallforum_title = 0x7f08087c;
+        public static final int nosign_forum = 0x7f08087c;
         /* JADX INFO: Added by JADX */
-        public static final int rand_chat_waiting_wait_time = 0x7f08087d;
+        public static final int view_all = 0x7f08087d;
         /* JADX INFO: Added by JADX */
-        public static final int interest_add = 0x7f08087e;
+        public static final int its_bar = 0x7f08087e;
         /* JADX INFO: Added by JADX */
-        public static final int shake_guide = 0x7f08087f;
+        public static final int bar_all_categories = 0x7f08087f;
         /* JADX INFO: Added by JADX */
-        public static final int view_images_close = 0x7f080880;
+        public static final int media_download_wifi_info = 0x7f080880;
         /* JADX INFO: Added by JADX */
-        public static final int recommend_relative_forum = 0x7f080881;
+        public static final int media_download_info = 0x7f080881;
         /* JADX INFO: Added by JADX */
-        public static final int bd_browser_dex_loading_failed = 0x7f080882;
+        public static final int enter_group = 0x7f080882;
         /* JADX INFO: Added by JADX */
-        public static final int nosign_forum = 0x7f080883;
+        public static final int write_content_hint = 0x7f080883;
         /* JADX INFO: Added by JADX */
-        public static final int view_all = 0x7f080884;
+        public static final int tip = 0x7f080884;
         /* JADX INFO: Added by JADX */
-        public static final int its_bar = 0x7f080885;
+        public static final int fail = 0x7f080885;
         /* JADX INFO: Added by JADX */
-        public static final int bar_all_categories = 0x7f080886;
+        public static final int flow_mode_set_tip = 0x7f080886;
         /* JADX INFO: Added by JADX */
-        public static final int media_download_wifi_info = 0x7f080887;
+        public static final int group_add_group = 0x7f080887;
         /* JADX INFO: Added by JADX */
-        public static final int media_download_info = 0x7f080888;
+        public static final int baidu_media = 0x7f080888;
         /* JADX INFO: Added by JADX */
-        public static final int enter_group = 0x7f080889;
+        public static final int pk_ing = 0x7f080889;
         /* JADX INFO: Added by JADX */
-        public static final int write_content_hint = 0x7f08088a;
+        public static final int from_album = 0x7f08088a;
         /* JADX INFO: Added by JADX */
-        public static final int tip = 0x7f08088b;
+        public static final int remind_tone_open = 0x7f08088b;
         /* JADX INFO: Added by JADX */
-        public static final int fail = 0x7f08088c;
+        public static final int isclose = 0x7f08088c;
         /* JADX INFO: Added by JADX */
-        public static final int flow_mode_set_tip = 0x7f08088d;
+        public static final int not_support_media = 0x7f08088d;
         /* JADX INFO: Added by JADX */
-        public static final int group_add_group = 0x7f08088e;
+        public static final int remind_info = 0x7f08088e;
         /* JADX INFO: Added by JADX */
-        public static final int baidu_media = 0x7f08088f;
+        public static final int his_fans = 0x7f08088f;
         /* JADX INFO: Added by JADX */
-        public static final int pk_ing = 0x7f080890;
+        public static final int start_shake = 0x7f080890;
         /* JADX INFO: Added by JADX */
-        public static final int from_album = 0x7f080891;
+        public static final int search_post = 0x7f080891;
         /* JADX INFO: Added by JADX */
-        public static final int remind_tone_open = 0x7f080892;
+        public static final int update_attention_error = 0x7f080892;
         /* JADX INFO: Added by JADX */
-        public static final int isclose = 0x7f080893;
+        public static final int like_bars = 0x7f080893;
         /* JADX INFO: Added by JADX */
-        public static final int not_support_media = 0x7f080894;
+        public static final int eyeshield_mode_close = 0x7f080894;
         /* JADX INFO: Added by JADX */
-        public static final int remind_info = 0x7f080895;
+        public static final int frs_header_attention = 0x7f080895;
         /* JADX INFO: Added by JADX */
-        public static final int his_fans = 0x7f080896;
+        public static final int new_user_guide_tip = 0x7f080896;
         /* JADX INFO: Added by JADX */
-        public static final int start_shake = 0x7f080897;
+        public static final int media_play = 0x7f080897;
         /* JADX INFO: Added by JADX */
-        public static final int search_post = 0x7f080898;
+        public static final int his_attention = 0x7f080898;
         /* JADX INFO: Added by JADX */
-        public static final int update_attention_error = 0x7f080899;
+        public static final int group_tab_quick_response = 0x7f080899;
         /* JADX INFO: Added by JADX */
-        public static final int like_bars = 0x7f08089a;
+        public static final int no_freind = 0x7f08089a;
         /* JADX INFO: Added by JADX */
-        public static final int eyeshield_mode_close = 0x7f08089b;
+        public static final int interest_all = 0x7f08089b;
         /* JADX INFO: Added by JADX */
-        public static final int frs_header_attention = 0x7f08089c;
+        public static final int kn_all = 0x7f08089c;
         /* JADX INFO: Added by JADX */
-        public static final int new_user_guide_tip = 0x7f08089d;
+        public static final int share_iamge_title_default = 0x7f08089d;
         /* JADX INFO: Added by JADX */
-        public static final int media_play = 0x7f08089e;
+        public static final int info_flow = 0x7f08089e;
         /* JADX INFO: Added by JADX */
-        public static final int his_attention = 0x7f08089f;
+        public static final int pk_not_start = 0x7f08089f;
         /* JADX INFO: Added by JADX */
-        public static final int group_tab_quick_response = 0x7f0808a0;
+        public static final int add_to_screen = 0x7f0808a0;
         /* JADX INFO: Added by JADX */
-        public static final int no_freind = 0x7f0808a1;
+        public static final int add_to_desktop = 0x7f0808a1;
         /* JADX INFO: Added by JADX */
-        public static final int interest_all = 0x7f0808a2;
+        public static final int account_err_apasswd = 0x7f0808a2;
         /* JADX INFO: Added by JADX */
-        public static final int kn_all = 0x7f0808a3;
+        public static final int voice_cancel = 0x7f0808a3;
         /* JADX INFO: Added by JADX */
-        public static final int share_iamge_title_default = 0x7f0808a4;
+        public static final int edit_head = 0x7f0808a4;
         /* JADX INFO: Added by JADX */
-        public static final int info_flow = 0x7f0808a5;
+        public static final int have = 0x7f0808a5;
         /* JADX INFO: Added by JADX */
-        public static final int pk_not_start = 0x7f0808a6;
+        public static final int casually_stroll_pleasure = 0x7f0808a6;
         /* JADX INFO: Added by JADX */
-        public static final int add_to_screen = 0x7f0808a7;
+        public static final int click_screen_to_refresh = 0x7f0808a7;
         /* JADX INFO: Added by JADX */
-        public static final int add_to_desktop = 0x7f0808a8;
+        public static final int forum_recommend_title = 0x7f0808a8;
         /* JADX INFO: Added by JADX */
-        public static final int account_err_apasswd = 0x7f0808a9;
+        public static final int voice_guide_btn = 0x7f0808a9;
         /* JADX INFO: Added by JADX */
-        public static final int voice_cancel = 0x7f0808aa;
+        public static final int editor_dialog_image_to_camera_content = 0x7f0808aa;
         /* JADX INFO: Added by JADX */
-        public static final int edit_head = 0x7f0808ab;
+        public static final int notify = 0x7f0808ab;
         /* JADX INFO: Added by JADX */
-        public static final int have = 0x7f0808ac;
+        public static final int members_no_more = 0x7f0808ac;
         /* JADX INFO: Added by JADX */
-        public static final int casually_stroll_pleasure = 0x7f0808ad;
+        public static final int _30_second = 0x7f0808ad;
         /* JADX INFO: Added by JADX */
-        public static final int click_screen_to_refresh = 0x7f0808ae;
+        public static final int plus_text = 0x7f0808ae;
         /* JADX INFO: Added by JADX */
-        public static final int forum_recommend_title = 0x7f0808af;
+        public static final int cancel2 = 0x7f0808af;
         /* JADX INFO: Added by JADX */
-        public static final int voice_guide_btn = 0x7f0808b0;
+        public static final int abstract_on = 0x7f0808b0;
         /* JADX INFO: Added by JADX */
-        public static final int editor_dialog_image_to_camera_content = 0x7f0808b1;
+        public static final int frs_item_abstract_more_text = 0x7f0808b1;
         /* JADX INFO: Added by JADX */
-        public static final int notify = 0x7f0808b2;
+        public static final int frs_item_praise_text = 0x7f0808b2;
         /* JADX INFO: Added by JADX */
-        public static final int members_no_more = 0x7f0808b3;
+        public static final int frs_item_reply_text = 0x7f0808b3;
         /* JADX INFO: Added by JADX */
-        public static final int _30_second = 0x7f0808b4;
+        public static final int frs_item_common_image_canvas_text1 = 0x7f0808b4;
         /* JADX INFO: Added by JADX */
-        public static final int plus_text = 0x7f0808b5;
+        public static final int frs_item_common_image_canvas_text2 = 0x7f0808b5;
         /* JADX INFO: Added by JADX */
-        public static final int cancel2 = 0x7f0808b6;
+        public static final int write_addition_create = 0x7f0808b6;
         /* JADX INFO: Added by JADX */
-        public static final int abstract_on = 0x7f0808b7;
+        public static final int write_addition_last = 0x7f0808b7;
         /* JADX INFO: Added by JADX */
-        public static final int frs_item_abstract_more_text = 0x7f0808b8;
+        public static final int write_addition_hint = 0x7f0808b8;
         /* JADX INFO: Added by JADX */
-        public static final int frs_item_praise_text = 0x7f0808b9;
+        public static final int write_addition_title = 0x7f0808b9;
         /* JADX INFO: Added by JADX */
-        public static final int frs_item_reply_text = 0x7f0808ba;
+        public static final int write_addition_success = 0x7f0808ba;
         /* JADX INFO: Added by JADX */
-        public static final int frs_item_common_image_canvas_text1 = 0x7f0808bb;
+        public static final int write_addition_success1 = 0x7f0808bb;
         /* JADX INFO: Added by JADX */
-        public static final int frs_item_common_image_canvas_text2 = 0x7f0808bc;
+        public static final int write_addition_limit = 0x7f0808bc;
         /* JADX INFO: Added by JADX */
-        public static final int write_addition_create = 0x7f0808bd;
+        public static final int write_addition_update = 0x7f0808bd;
         /* JADX INFO: Added by JADX */
-        public static final int write_addition_last = 0x7f0808be;
+        public static final int write_no_prefix = 0x7f0808be;
         /* JADX INFO: Added by JADX */
-        public static final int write_addition_hint = 0x7f0808bf;
+        public static final int message_praise_like_list_more = 0x7f0808bf;
         /* JADX INFO: Added by JADX */
-        public static final int write_addition_title = 0x7f0808c0;
+        public static final int message_praise_like_list_3 = 0x7f0808c0;
         /* JADX INFO: Added by JADX */
-        public static final int write_addition_success = 0x7f0808c1;
+        public static final int message_praise_like_list_2 = 0x7f0808c1;
         /* JADX INFO: Added by JADX */
-        public static final int write_addition_success1 = 0x7f0808c2;
+        public static final int message_praise_like_list_1 = 0x7f0808c2;
         /* JADX INFO: Added by JADX */
-        public static final int write_addition_limit = 0x7f0808c3;
+        public static final int bubble_notuse_text = 0x7f0808c3;
         /* JADX INFO: Added by JADX */
-        public static final int write_addition_update = 0x7f0808c4;
+        public static final int frs_item_more_reply_item1 = 0x7f0808c4;
         /* JADX INFO: Added by JADX */
-        public static final int write_no_prefix = 0x7f0808c5;
+        public static final int frs_item_more_reply_item2 = 0x7f0808c5;
         /* JADX INFO: Added by JADX */
-        public static final int message_praise_like_list_more = 0x7f0808c6;
+        public static final int common_praise_view_text3 = 0x7f0808c6;
         /* JADX INFO: Added by JADX */
-        public static final int message_praise_like_list_3 = 0x7f0808c7;
+        public static final int bubble_choose = 0x7f0808c7;
         /* JADX INFO: Added by JADX */
-        public static final int message_praise_like_list_2 = 0x7f0808c8;
+        public static final int bubble_purchase_success = 0x7f0808c8;
         /* JADX INFO: Added by JADX */
-        public static final int message_praise_like_list_1 = 0x7f0808c9;
+        public static final int bubble_setdefualt_error = 0x7f0808c9;
         /* JADX INFO: Added by JADX */
-        public static final int bubble_notuse_text = 0x7f0808ca;
+        public static final int explain = 0x7f0808ca;
         /* JADX INFO: Added by JADX */
-        public static final int frs_item_more_reply_item1 = 0x7f0808cb;
+        public static final int no_signall_data = 0x7f0808cb;
         /* JADX INFO: Added by JADX */
-        public static final int frs_item_more_reply_item2 = 0x7f0808cc;
+        public static final int frs_item_more_reply_item = 0x7f0808cc;
         /* JADX INFO: Added by JADX */
-        public static final int common_praise_view_text3 = 0x7f0808cd;
+        public static final int live_broadcast = 0x7f0808cd;
         /* JADX INFO: Added by JADX */
-        public static final int bubble_choose = 0x7f0808ce;
+        public static final int live_time_tips = 0x7f0808ce;
         /* JADX INFO: Added by JADX */
-        public static final int bubble_purchase_success = 0x7f0808cf;
+        public static final int live_start_time_error = 0x7f0808cf;
         /* JADX INFO: Added by JADX */
-        public static final int bubble_setdefualt_error = 0x7f0808d0;
+        public static final int hot_live_tips = 0x7f0808d0;
         /* JADX INFO: Added by JADX */
-        public static final int explain = 0x7f0808d1;
+        public static final int plugin_center = 0x7f0808d1;
         /* JADX INFO: Added by JADX */
-        public static final int no_signall_data = 0x7f0808d2;
+        public static final int plugin_disabled = 0x7f0808d2;
         /* JADX INFO: Added by JADX */
-        public static final int frs_item_more_reply_item = 0x7f0808d3;
+        public static final int plugin_enabled = 0x7f0808d3;
         /* JADX INFO: Added by JADX */
-        public static final int live_broadcast = 0x7f0808d4;
+        public static final int plugin_enable = 0x7f0808d4;
         /* JADX INFO: Added by JADX */
-        public static final int live_time_tips = 0x7f0808d5;
+        public static final int plugin_update = 0x7f0808d5;
         /* JADX INFO: Added by JADX */
-        public static final int live_start_time_error = 0x7f0808d6;
+        public static final int plugin_no_plugins = 0x7f0808d6;
         /* JADX INFO: Added by JADX */
-        public static final int hot_live_tips = 0x7f0808d7;
+        public static final int plugin_size = 0x7f0808d7;
         /* JADX INFO: Added by JADX */
-        public static final int plugin_center = 0x7f0808d8;
+        public static final int plugin_installation_finished = 0x7f0808d8;
         /* JADX INFO: Added by JADX */
-        public static final int plugin_disabled = 0x7f0808d9;
+        public static final int plugin_installation_failed = 0x7f0808d9;
         /* JADX INFO: Added by JADX */
-        public static final int plugin_enabled = 0x7f0808da;
+        public static final int plugin_download_finished = 0x7f0808da;
         /* JADX INFO: Added by JADX */
-        public static final int plugin_enable = 0x7f0808db;
+        public static final int plugin_download_immediately = 0x7f0808db;
         /* JADX INFO: Added by JADX */
-        public static final int plugin_update = 0x7f0808dc;
+        public static final int plugin_config_not_found = 0x7f0808dc;
         /* JADX INFO: Added by JADX */
-        public static final int plugin_no_plugins = 0x7f0808dd;
+        public static final int live_api_error = 0x7f0808dd;
         /* JADX INFO: Added by JADX */
-        public static final int plugin_size = 0x7f0808de;
+        public static final int plugin_downloading_progress = 0x7f0808de;
         /* JADX INFO: Added by JADX */
-        public static final int plugin_installation_finished = 0x7f0808df;
+        public static final int pb_app_download = 0x7f0808df;
         /* JADX INFO: Added by JADX */
-        public static final int plugin_installation_failed = 0x7f0808e0;
+        public static final int pb_app_see = 0x7f0808e0;
         /* JADX INFO: Added by JADX */
-        public static final int plugin_download_finished = 0x7f0808e1;
+        public static final int pb_app_see_ask = 0x7f0808e1;
         /* JADX INFO: Added by JADX */
-        public static final int plugin_download_immediately = 0x7f0808e2;
+        public static final int pb_app_download_ask = 0x7f0808e2;
         /* JADX INFO: Added by JADX */
-        public static final int plugin_config_not_found = 0x7f0808e3;
+        public static final int pb_app_error = 0x7f0808e3;
         /* JADX INFO: Added by JADX */
-        public static final int live_api_error = 0x7f0808e4;
+        public static final int pk_tips1 = 0x7f0808e4;
         /* JADX INFO: Added by JADX */
-        public static final int plugin_downloading_progress = 0x7f0808e5;
+        public static final int pk_tips2 = 0x7f0808e5;
         /* JADX INFO: Added by JADX */
-        public static final int pb_app_download = 0x7f0808e6;
+        public static final int pk_tips3 = 0x7f0808e6;
         /* JADX INFO: Added by JADX */
-        public static final int pb_app_see = 0x7f0808e7;
+        public static final int pk_tips4 = 0x7f0808e7;
         /* JADX INFO: Added by JADX */
-        public static final int pb_app_see_ask = 0x7f0808e8;
+        public static final int lottery_tips1 = 0x7f0808e8;
         /* JADX INFO: Added by JADX */
-        public static final int pb_app_download_ask = 0x7f0808e9;
+        public static final int lottery_tips2 = 0x7f0808e9;
         /* JADX INFO: Added by JADX */
-        public static final int pb_app_error = 0x7f0808ea;
+        public static final int lottery_tips3 = 0x7f0808ea;
         /* JADX INFO: Added by JADX */
-        public static final int pk_tips1 = 0x7f0808eb;
+        public static final int enter_forum_hao123_note = 0x7f0808eb;
         /* JADX INFO: Added by JADX */
-        public static final int pk_tips2 = 0x7f0808ec;
+        public static final int confirm_download_app_web_url = 0x7f0808ec;
         /* JADX INFO: Added by JADX */
-        public static final int pk_tips3 = 0x7f0808ed;
+        public static final int frs_app_recommend_name = 0x7f0808ed;
         /* JADX INFO: Added by JADX */
-        public static final int pk_tips4 = 0x7f0808ee;
+        public static final int double_back_quit = 0x7f0808ee;
         /* JADX INFO: Added by JADX */
-        public static final int lottery_tips1 = 0x7f0808ef;
+        public static final int guide_page_first_tip_1 = 0x7f0808ef;
         /* JADX INFO: Added by JADX */
-        public static final int lottery_tips2 = 0x7f0808f0;
+        public static final int guide_page_first_tip_2 = 0x7f0808f0;
         /* JADX INFO: Added by JADX */
-        public static final int lottery_tips3 = 0x7f0808f1;
+        public static final int guide_page_second_tip_1 = 0x7f0808f1;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_hao123_note = 0x7f0808f2;
+        public static final int guide_page_second_tip_2 = 0x7f0808f2;
         /* JADX INFO: Added by JADX */
-        public static final int confirm_download_app_web_url = 0x7f0808f3;
+        public static final int guide_page_third_btn = 0x7f0808f3;
         /* JADX INFO: Added by JADX */
-        public static final int frs_app_recommend_name = 0x7f0808f4;
+        public static final int guide_page_forth_text = 0x7f0808f4;
     }
 
     /* JADX INFO: Added by JADX */

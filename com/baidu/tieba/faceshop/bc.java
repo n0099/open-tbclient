@@ -92,7 +92,7 @@ public class bc extends BaseAdapter {
             bdVar.b.setText(facePurchasePackageData.pname);
             Date date = new Date();
             date.setTime(facePurchasePackageData.puyTime * 1000);
-            bdVar.c.setText(com.baidu.tbadk.core.util.be.d(date));
+            bdVar.c.setText(com.baidu.tbadk.core.util.bg.d(date));
         }
     }
 }

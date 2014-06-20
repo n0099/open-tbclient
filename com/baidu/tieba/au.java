@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
-import android.app.Application;
 import android.content.Intent;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au implements Runnable {
+public class au implements CustomMessageTask.CustomRunnable<Intent> {
     final /* synthetic */ ai a;
-    private final /* synthetic */ Application b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(ai aiVar, Application application) {
+    public au(ai aiVar) {
         this.a = aiVar;
-        this.b = application;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.b.sendBroadcast(new Intent("com.baidu.tieba.action.PLUGIN_DOWNLOAD"));
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
+        UtilHelper.commenDealIntent(TbadkApplication.m252getInst(), customMessage.getData());
+        return null;
     }
 }

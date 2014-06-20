@@ -24,7 +24,7 @@ class aa extends com.baidu.adp.framework.listener.b {
             jVar.b = fRSPageSocketResponsedMessage.hasNetworkError() ? false : true;
             jVar.c = fRSPageSocketResponsedMessage.getError();
             jVar.d = fRSPageSocketResponsedMessage.getErrorString();
-            jVar.e = fRSPageSocketResponsedMessage.getmDownSize();
+            jVar.e = fRSPageSocketResponsedMessage.getDownSize();
             dhVar = this.a.ad;
             dhVar.a(fRSPageSocketResponsedMessage.getUpdateType(), false, jVar);
         }

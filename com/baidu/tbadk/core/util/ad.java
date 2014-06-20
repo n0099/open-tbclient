@@ -1,15 +1,34 @@
 package com.baidu.tbadk.core.util;
-
-import java.util.LinkedList;
 /* loaded from: classes.dex */
-public interface ad {
-    LinkedList<String> getForumPhotoUrl();
+class ad {
+    int a;
+    ae b;
+    ae c;
+    ae d;
+    ae e;
 
-    LinkedList<String> getImageUrl();
+    private ad() {
+        this.a = 0;
+        this.b = new ae(null);
+        this.c = new ae(null);
+        this.d = new ae(null);
+        this.e = new ae(null);
+    }
 
-    LinkedList<ab> getImagesWithEmotions();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ad(ad adVar) {
+        this();
+    }
 
-    LinkedList<String> getPhotoUrl();
+    public int a() {
+        return this.b.a + this.c.a + this.d.a + this.e.a;
+    }
 
-    boolean isSupportImageSize();
+    public void b() {
+        this.a = 0;
+        this.b.a();
+        this.c.a();
+        this.d.a();
+        this.e.a();
+    }
 }

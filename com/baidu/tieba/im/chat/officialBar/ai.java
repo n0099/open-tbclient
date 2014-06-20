@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.DialogInterface;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
@@ -19,10 +20,9 @@ class ai implements DialogInterface.OnClickListener {
         OfficialBarInfoActivity officialBarInfoActivity = this.a;
         i2 = this.a.c;
         officialBarInfoActivity.sendMessage(new CustomMessage((int) MessageTypes.CMD_DEL_OFFICIAL_DB, String.valueOf(i2)));
-        com.baidu.adp.framework.c.c a = com.baidu.adp.framework.c.c.a();
         StringBuilder sb = new StringBuilder("clear cache by official:");
         str = this.a.d;
-        a.a(true, sb.append(str).toString());
+        BdSocketLinkService.startService(true, sb.append(str).toString());
         dialogInterface.cancel();
     }
 }

@@ -2,12 +2,12 @@ package com.baidu.tieba.util;
 
 import com.baidu.adp.lib.cache.s;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class m {
     public static void a(String str, n nVar) {
-        if (be.c(str)) {
+        if (bg.c(str)) {
             if (nVar != null) {
                 nVar.a(null);
                 return;
@@ -18,7 +18,7 @@ public class m {
     }
 
     public static void b(String str, n nVar) {
-        if (be.c(str)) {
+        if (bg.c(str)) {
             if (nVar != null) {
                 nVar.a(null);
                 return;
@@ -42,7 +42,7 @@ public class m {
     }
 
     public static void a(String str, WriteData writeData) {
-        if (!be.c(str)) {
+        if (!bg.c(str)) {
             s<String> e = com.baidu.tbadk.core.a.b.a().e();
             if (writeData != null && writeData.hasContentToSave()) {
                 e.b(b(str), writeData.toDraftString(), 604800000L);
@@ -53,7 +53,7 @@ public class m {
     }
 
     public static void b(String str, WriteData writeData) {
-        if (!be.c(str)) {
+        if (!bg.c(str)) {
             s<String> e = com.baidu.tbadk.core.a.b.a().e();
             if (writeData != null && writeData.hasContentToSave()) {
                 e.b(a(str), writeData.toDraftString(), 604800000L);

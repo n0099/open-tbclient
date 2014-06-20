@@ -29,12 +29,12 @@ public class ap extends BdAsyncTask<Void, Void, InterestFrsData> {
     public InterestFrsData doInBackground(Void... voidArr) {
         String str;
         str = ao.a;
-        com.baidu.tbadk.core.util.al alVar = new com.baidu.tbadk.core.util.al(str);
-        alVar.a("user_type", String.valueOf(this.a));
-        alVar.a("offset", String.valueOf(this.b));
-        alVar.a("limit", String.valueOf(this.c));
-        String i = alVar.i();
-        if (alVar.a().b().b()) {
+        com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an(str);
+        anVar.a("user_type", String.valueOf(this.a));
+        anVar.a("offset", String.valueOf(this.b));
+        anVar.a("limit", String.valueOf(this.c));
+        String i = anVar.i();
+        if (anVar.a().b().b()) {
             try {
                 return (InterestFrsData) new GsonBuilder().create().fromJson(i, (Class<Object>) InterestFrsData.class);
             } catch (Exception e) {
@@ -46,8 +46,8 @@ public class ap extends BdAsyncTask<Void, Void, InterestFrsData> {
             }
         }
         InterestFrsData interestFrsData2 = new InterestFrsData();
-        interestFrsData2.setErrno(alVar.d() == 0 ? TbErrInfo.ERR_IMG_GET_REMOTE : alVar.d());
-        interestFrsData2.setErrmsg(alVar.f());
+        interestFrsData2.setErrno(anVar.d() == 0 ? TbErrInfo.ERR_IMG_GET_REMOTE : anVar.d());
+        interestFrsData2.setErrmsg(anVar.f());
         return interestFrsData2;
     }
 

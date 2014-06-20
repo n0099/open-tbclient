@@ -2,7 +2,6 @@ package com.baidu.tieba.im.live.room;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tieba.im.message.ResponseLiveGroupLikeListMessage;
 import protobuf.QueryLiveGroupLikeList.LikeUserInfo;
 /* loaded from: classes.dex */
@@ -62,15 +61,15 @@ class a extends com.baidu.adp.framework.listener.b {
                 eVar3 = this.a.c;
                 int size = eVar3.b().size();
                 int likers = responseLiveGroupLikeListMessage.getLikers();
-                int i2 = MessageTypes.CMD_UPDATE_CLIENT_INFO;
+                int i2 = 1001;
                 eVar4 = this.a.c;
                 int a = eVar4.a();
                 i = LiveGroupLikeListActivity.a;
                 if (a > i) {
-                    i2 = MessageTypes.CMD_PING;
+                    i2 = 1003;
                 }
                 if (size >= likers) {
-                    i2 = MessageTypes.CMD_GROUP_UPDATE;
+                    i2 = 1002;
                 }
                 fVar = this.a.b;
                 eVar5 = this.a.c;

@@ -72,7 +72,7 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     private final com.baidu.adp.framework.listener.b N = new j(this, MessageTypes.CMD_LIVE_GROUP_OWNER_GAG);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ae.class, LiveRoomChatActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ad.class, LiveRoomChatActivity.class);
         O = "http";
     }
 
@@ -181,7 +181,7 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
     }
 
     private void a(ChatMessage chatMessage) {
-        com.baidu.tieba.im.f.b.c(this, new m(this, chatMessage));
+        com.baidu.tieba.im.e.b.c(this, new m(this, chatMessage));
     }
 
     @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.MsglistActivity
@@ -395,7 +395,7 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
         } else if (view == z().Z().d()) {
             z().z();
             if (x().b != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ab(this, new StringBuilder().append(x().b.groupId).toString())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.aa(this, new StringBuilder().append(x().b.groupId).toString())));
             }
         } else if (view == z().Z().e()) {
             z().z();
@@ -424,7 +424,7 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
         } else if (view == z().Z().f()) {
             z().z();
             if (x().r) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ai(this.y, x().b().getGroupId())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ah(this.y, x().b().getGroupId())));
             }
         } else if (view == z().Z().g()) {
             z().z();
@@ -448,13 +448,13 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
         } else if (view == z().Z().j()) {
             z().z();
             if (x().b != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ab(this, new StringBuilder().append(x().b.groupId).toString())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.aa(this, new StringBuilder().append(x().b.groupId).toString())));
             }
         } else if (view == z().Z().k()) {
             z().z();
             if (x().b != null) {
                 TiebaStatic.eventStat(getBaseContext(), "livem_brief", "click");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ag(this, x().b.groupId.intValue(), x().b.publisherId.intValue(), x().b.publisherName)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.af(this, x().b.groupId.intValue(), x().b.publisherId.intValue(), x().b.publisherName)));
             }
         } else if (view == z().Z().l()) {
             z().z();
@@ -484,15 +484,15 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
                 }
             }
         } else if (view == z().W().getForcastBtn()) {
-            com.baidu.tbadk.core.atomData.bi biVar = new com.baidu.tbadk.core.atomData.bi(this, 0, String.valueOf(x().b.forumId), x().e, null, null, 0, null, 13003, false, false, null, false, false, null, null, null);
-            biVar.a(x().b.groupId.intValue(), x().m, x().j, x().h, x().i, x().b.publisherName, x().l, x().k);
+            com.baidu.tbadk.core.atomData.bh bhVar = new com.baidu.tbadk.core.atomData.bh(this, 0, String.valueOf(x().b.forumId), x().e, null, null, 0, null, 13003, false, false, null, false, false, null, null, null);
+            bhVar.a(x().b.groupId.intValue(), x().m, x().j, x().h, x().i, x().b.publisherName, x().l, x().k);
             com.baidu.tbadk.core.f.a(this.y, "pub_notice_bt");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, biVar));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, bhVar));
         } else if (z().W().getLiveRoomCloseBtn() == view) {
             z().W().setVisibility(8);
         } else if (z().R().getSettingButton() == view || z().R().getNoteLayout() == view) {
             if (x().r) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ai(this.y, x().b().getGroupId())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ah(this.y, x().b().getGroupId())));
             }
         } else if (z().R().getmLiveRoomLike() == view) {
             if (z().R().d() && x().b != null) {
@@ -506,7 +506,7 @@ public class LiveRoomChatActivity extends CommonGroupChatActiviy implements com.
                 sendMessage(requestIncrLiveGroupLikeMessage);
             }
         } else if (z().X().getRoot() == view && x().b != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ac(this, x().b.name, x().b.groupId.intValue(), x().i)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ab(this, x().b.name, x().b.groupId.intValue(), x().i)));
         }
     }
 

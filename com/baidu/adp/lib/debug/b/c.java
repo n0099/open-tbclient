@@ -18,7 +18,7 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c extends View {
     private static boolean p = false;
-    private static String r = com.baidu.adp.framework.c.c.a().d();
+    private static String r = com.baidu.adp.framework.client.socket.l.b();
     ArrayList<HashMap<String, Object>> a;
     String[] b;
     String[] c;

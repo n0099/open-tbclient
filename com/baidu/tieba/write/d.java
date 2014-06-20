@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes.dex */
-class d implements com.baidu.tbadk.core.util.br {
+class d implements com.baidu.tbadk.core.util.bt {
     final /* synthetic */ c a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.adp.widget.a.a c;
@@ -16,7 +16,7 @@ class d implements com.baidu.tbadk.core.util.br {
         this.c = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.br
+    @Override // com.baidu.tbadk.core.util.bt
     public boolean a(View view) {
         if ((view instanceof ImageView) && view.getTag() != null) {
             Object tag = view.getTag();

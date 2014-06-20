@@ -12,7 +12,6 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.Scroller;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.t;
 import java.util.ArrayList;
@@ -279,7 +278,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                     break;
                 case 1:
                     VelocityTracker velocityTracker = this.o;
-                    velocityTracker.computeCurrentVelocity(LocationClientOption.MIN_SCAN_SPAN, this.q);
+                    velocityTracker.computeCurrentVelocity(1000, this.q);
                     int xVelocity = (int) velocityTracker.getXVelocity();
                     if (Math.abs(xVelocity) > this.p) {
                         removeCallbacks(this.H);

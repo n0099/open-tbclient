@@ -3,12 +3,12 @@ package com.baidu.tieba.im.view;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.br;
+import com.baidu.tbadk.core.util.bt;
 import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements br {
+public class j implements bt {
     final /* synthetic */ HorizontalPanelView a;
     private final /* synthetic */ UserData b;
 
@@ -18,7 +18,7 @@ public class j implements br {
         this.b = userData;
     }
 
-    @Override // com.baidu.tbadk.core.util.br
+    @Override // com.baidu.tbadk.core.util.bt
     public boolean a(View view) {
         List list;
         LinearLayout linearLayout;

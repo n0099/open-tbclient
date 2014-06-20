@@ -3,7 +3,7 @@ package com.baidu.tieba.data;
 import android.graphics.Color;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ao {
@@ -56,8 +56,8 @@ public class ao {
                 this.f.parserJson(jSONObject.optJSONObject("author"));
                 this.g = jSONObject.optString("content");
                 this.d = jSONObject.optString("fname");
-                this.c = be.a(this.c, (Color) null);
-                String a = be.a(this.g, (Color) null);
+                this.c = bg.a(this.c, (Color) null);
+                String a = bg.a(this.g, (Color) null);
                 if (!a.equals(this.g)) {
                     this.g = a;
                     this.i = false;

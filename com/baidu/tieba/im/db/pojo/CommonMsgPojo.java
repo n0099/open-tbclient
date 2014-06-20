@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.chat.w;
 import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.im.f.r;
+import com.baidu.tieba.im.e.r;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;

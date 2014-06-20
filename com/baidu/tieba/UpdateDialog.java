@@ -21,7 +21,7 @@ public class UpdateDialog extends BaseActivity {
     private CombineDownload f;
     private String g;
     private ac h;
-    private bc i;
+    private bb i;
 
     public static void a(Context context, VersionData versionData, CombineDownload combineDownload) {
         if (versionData != null) {
@@ -69,11 +69,11 @@ public class UpdateDialog extends BaseActivity {
         if (this.e.hasNewVer()) {
             this.h = new ac(this, z.common_alert_dialog);
             this.h.setCancelable(false);
-            this.h.a(this.e, this.f, new bb(this, null));
-            this.h.setOnCancelListener(new ax(this));
-            this.h.setOnDismissListener(new ay(this));
-            this.h.a(new az(this));
-            this.h.b(new ba(this));
+            this.h.a(this.e, this.f, new ba(this, null));
+            this.h.setOnCancelListener(new aw(this));
+            this.h.setOnDismissListener(new ax(this));
+            this.h.a(new ay(this));
+            this.h.b(new az(this));
             if (!isFinishing()) {
                 this.h.show();
             }
@@ -105,7 +105,7 @@ public class UpdateDialog extends BaseActivity {
     }
 
     private void a() {
-        this.i = new bc(this, null);
+        this.i = new bb(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.APP_UPDATE_ACTION);
         registerReceiver(this.i, intentFilter);

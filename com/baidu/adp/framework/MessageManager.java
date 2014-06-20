@@ -3,10 +3,13 @@ package com.baidu.adp.framework;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.a.e;
+import com.baidu.adp.framework.a.f;
 import com.baidu.adp.framework.a.g;
-import com.baidu.adp.framework.a.h;
 import com.baidu.adp.framework.a.i;
-import com.baidu.adp.framework.a.k;
+import com.baidu.adp.framework.client.socket.j;
+import com.baidu.adp.framework.client.socket.l;
+import com.baidu.adp.framework.client.socket.m;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.listener.MessageListener;
@@ -24,13 +27,14 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class MessageManager {
+    private static final String MODULE_NAME = "msgmgr";
     private static MessageManager sInstance = null;
-    private k mController;
+    private i mController;
     private com.baidu.adp.framework.b.a mCustomManager;
     private com.baidu.adp.framework.b.b mHttpManager;
     private com.baidu.adp.framework.b.d mSocketManager;
@@ -56,12 +60,12 @@ public class MessageManager {
         this.mHttpManager = new com.baidu.adp.framework.b.b(this);
         this.mSocketManager = new com.baidu.adp.framework.b.d(this);
         this.mCustomManager = new com.baidu.adp.framework.b.a(this);
-        this.mController = new k();
+        this.mController = new i();
         this.mUIHandler = new Handler(Looper.getMainLooper());
     }
 
-    public com.baidu.adp.framework.b.d getSocketManager() {
-        return this.mSocketManager;
+    public j getSocketClient() {
+        return this.mSocketManager.b();
     }
 
     private com.baidu.adp.framework.b.c<?, ?, ?, ?> getManager(int i) {
@@ -112,12 +116,14 @@ public class MessageManager {
         if (netMessage == null) {
             return false;
         }
-        if (this.mSocketManager.b() && (netMessage.getNetType() == NetMessage.NetType.AUTO || netMessage.getNetType() == NetMessage.NetType.SOCKET)) {
+        if (getSocketClient().c() && (netMessage.getNetType() == NetMessage.NetType.AUTO || netMessage.getNetType() == NetMessage.NetType.SOCKET)) {
             com.baidu.adp.lib.debug.a.a("Request_Socket", netMessage);
             if (this.mSocketManager.c(netMessage.getSocketMessage(), null)) {
+                m.a(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
                 return true;
             }
         }
+        m.a(MODULE_NAME, netMessage.getHttpMessage(), 0, "sendMessage", 0, "http");
         com.baidu.adp.lib.debug.a.a("Request_Http", netMessage);
         return this.mHttpManager.c(netMessage.getHttpMessage(), null);
     }
@@ -163,51 +169,32 @@ public class MessageManager {
     public void removeMessage(int i, int i2) {
         com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(i);
         if (manager != null) {
-            ruleRemovedMessage(manager.a(i, i2));
-        } else {
-            BdLog.e("cmd invalid");
+            manager.a(i, i2);
+            this.mController.a(i, i2);
+            return;
         }
+        BdLog.e("cmd invalid");
     }
 
     public void removeSocketMessage(int i) {
-        ruleRemovedMessage(this.mSocketManager.a(i));
+        this.mSocketManager.a(i);
+        this.mController.a(i);
     }
 
     public void removeCustomMessage(int i) {
-        ruleRemovedMessage(this.mCustomManager.a(i));
+        this.mCustomManager.a(i);
+        this.mController.a(i);
     }
 
     public void removeHttpMessage(int i) {
-        ruleRemovedMessage(this.mHttpManager.a(i));
+        this.mHttpManager.a(i);
+        this.mController.a(i);
     }
 
     public void removeMessage(int i) {
         removeSocketMessage(i);
         removeCustomMessage(i);
         removeHttpMessage(i);
-    }
-
-    private void ruleRemovedMessage(LinkedList<?> linkedList) {
-        if (linkedList != null) {
-            Iterator<?> it = linkedList.iterator();
-            while (it.hasNext()) {
-                Object next = it.next();
-                if (next != null && (next instanceof Message)) {
-                    if (next instanceof HttpMessage) {
-                        com.baidu.adp.lib.debug.a.a("Remove_Http", next);
-                        this.mController.a((HttpMessage) next);
-                    } else if (next instanceof SocketMessage) {
-                        com.baidu.adp.lib.debug.a.a("Remove_Socket", next);
-                        this.mController.a((SocketMessage) next);
-                    } else if (next instanceof CustomMessage) {
-                        com.baidu.adp.lib.debug.a.a("Remove_Custom", next);
-                        this.mController.a((CustomMessage) next);
-                    } else {
-                        BdLog.e("message invalid" + ((Message) next).getCmd());
-                    }
-                }
-            }
-        }
     }
 
     public void abortResponsedMessage(ResponsedMessage<?> responsedMessage) {
@@ -219,7 +206,7 @@ public class MessageManager {
 
     public void registerTask(MessageTask messageTask) {
         if (messageTask != null) {
-            com.baidu.adp.lib.util.k.b();
+            k.b();
             if (messageTask instanceof HttpMessageTask) {
                 this.mHttpManager.a((com.baidu.adp.framework.b.b) ((HttpMessageTask) messageTask));
             } else if (messageTask instanceof SocketMessageTask) {
@@ -247,7 +234,7 @@ public class MessageManager {
     }
 
     public void unRegisterTask(int i) {
-        com.baidu.adp.lib.util.k.b();
+        k.b();
         com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(i);
         if (manager != null) {
             manager.c(i);
@@ -277,7 +264,7 @@ public class MessageManager {
 
     public void registerListenerFromBackground(final MessageListener<?> messageListener) {
         if (messageListener != null) {
-            if (com.baidu.adp.lib.util.k.c()) {
+            if (k.c()) {
                 registerListener(messageListener);
             } else {
                 this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.2
@@ -292,7 +279,7 @@ public class MessageManager {
 
     public void registerListener(MessageListener<?> messageListener) {
         if (messageListener != null) {
-            com.baidu.adp.lib.util.k.b();
+            k.b();
             FrameHelper.TYPE a = FrameHelper.a(messageListener.getCmd());
             if (a == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
                 this.mHttpManager.a(0, (HttpMessageListener) messageListener);
@@ -308,7 +295,7 @@ public class MessageManager {
 
     public void registerListener(int i, MessageListener<?> messageListener) {
         if (messageListener != null) {
-            com.baidu.adp.lib.util.k.b();
+            k.b();
             FrameHelper.TYPE a = FrameHelper.a(i);
             if (a == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
                 this.mHttpManager.a(i, (HttpMessageListener) messageListener);
@@ -323,7 +310,7 @@ public class MessageManager {
     }
 
     public void unRegisterListener(MessageListener<?> messageListener) {
-        com.baidu.adp.lib.util.k.b();
+        k.b();
         if (messageListener != null) {
             int cmd = messageListener.getCmd();
             if (cmd != 0) {
@@ -347,7 +334,7 @@ public class MessageManager {
     }
 
     public void registerStickyMode(int i) {
-        com.baidu.adp.lib.util.k.b();
+        k.b();
         com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(i);
         if (manager != null) {
             manager.f(i);
@@ -355,61 +342,45 @@ public class MessageManager {
     }
 
     public void unRegisterStickyMode(int i) {
-        com.baidu.adp.lib.util.k.b();
+        k.b();
         com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(i);
         if (manager != null) {
             manager.g(i);
         }
     }
 
-    public void addMessageRule(h<?, ?> hVar) {
-        com.baidu.adp.lib.util.k.b();
-        this.mController.a(hVar);
+    public void addMessageRule(f<?, ?> fVar) {
+        k.b();
+        this.mController.a(fVar);
     }
 
-    public void removeMessageRule(h<?, ?> hVar) {
-        com.baidu.adp.lib.util.k.b();
-        this.mController.b(hVar);
+    public void removeMessageRule(f<?, ?> fVar) {
+        k.b();
+        this.mController.b(fVar);
     }
 
-    public void addResponsedMessageRule(i<?> iVar) {
-        com.baidu.adp.lib.util.k.b();
-        this.mController.a(iVar);
-    }
-
-    public void removeResponsedMessageRule(i<?> iVar) {
-        com.baidu.adp.lib.util.k.b();
-        this.mController.b(iVar);
-    }
-
-    public void addRemovedMessageRule(g<?> gVar) {
-        com.baidu.adp.lib.util.k.b();
+    public void addResponsedMessageRule(g<?> gVar) {
+        k.b();
         this.mController.a(gVar);
     }
 
-    public void removeRemovedMessageRule(g<?> gVar) {
-        com.baidu.adp.lib.util.k.b();
-        this.mController.a(gVar);
+    public void removeResponsedMessageRule(g<?> gVar) {
+        k.b();
+        this.mController.b(gVar);
     }
 
-    public k getController() {
+    public void addRemovedMessageRule(e eVar) {
+        k.b();
+        this.mController.a(eVar);
+    }
+
+    public void removeRemovedMessageRule(e eVar) {
+        k.b();
+        this.mController.b(eVar);
+    }
+
+    public i getController() {
         return this.mController;
-    }
-
-    public void setOnMesssageCallback(com.baidu.adp.framework.c.d dVar) {
-        this.mSocketManager.a(dVar);
-    }
-
-    public void setConnStateCallback(com.baidu.adp.lib.network.websocket.c cVar) {
-        this.mSocketManager.a(cVar);
-    }
-
-    public void setSocketMessageBlock(boolean z) {
-        this.mSocketManager.a(z);
-    }
-
-    protected boolean isQueueBlocked() {
-        return this.mSocketManager.c();
     }
 
     public void dispatchResponsedMessage(ResponsedMessage<?> responsedMessage) {
@@ -425,7 +396,7 @@ public class MessageManager {
         } else if (a == FrameHelper.TYPE.SOCKET && (responsedMessage instanceof SocketResponsedMessage)) {
             com.baidu.adp.lib.debug.a.a("Response_Socket", responsedMessage);
             Message<?> orginalMessage = responsedMessage.getOrginalMessage();
-            if (responsedMessage.getError() == -2003001 && orginalMessage != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof NetMessage)) {
+            if (responsedMessage.getError() == l.o && orginalMessage != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof NetMessage)) {
                 NetMessage netMessage = (NetMessage) orginalMessage.getExtra();
                 if (netMessage.getHttpMessage() != null && ((netMessage.getNetType() == NetMessage.NetType.AUTO || netMessage.getNetType() == NetMessage.NetType.HTTP) && sendMessage(netMessage.getHttpMessage()))) {
                     this.mCustomManager.a((com.baidu.adp.framework.b.a) new CustomResponsedMessage(CmdConfig.CMD_DEBUGLOG_SPECIFIED, Integer.valueOf(responsedMessage.getCmd())));

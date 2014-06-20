@@ -3,8 +3,8 @@ package com.baidu.tieba.account.forbid;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.bg;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -35,17 +35,17 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     public ForbidResultData doInBackground(String... strArr) {
         String str;
         str = h.a;
-        al alVar = new al(str);
-        alVar.a("day", this.e);
-        alVar.a("un", this.d);
-        alVar.a("fid", this.a);
-        alVar.a("word", this.b);
-        alVar.a("z", this.c);
-        alVar.a("reason", this.f);
-        alVar.a("ntn", "banid");
-        alVar.a().a().a = true;
-        String i = alVar.i();
-        if (alVar.a().b().b()) {
+        an anVar = new an(str);
+        anVar.a("day", this.e);
+        anVar.a("un", this.d);
+        anVar.a("fid", this.a);
+        anVar.a("word", this.b);
+        anVar.a("z", this.c);
+        anVar.a("reason", this.f);
+        anVar.a("ntn", "banid");
+        anVar.a().a().a = true;
+        String i = anVar.i();
+        if (anVar.a().b().b()) {
             try {
                 return (ForbidResultData) new GsonBuilder().create().fromJson(i, (Class<Object>) ForbidResultData.class);
             } catch (Exception e) {
@@ -56,8 +56,8 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
             }
         }
         ForbidResultData forbidResultData2 = new ForbidResultData();
-        forbidResultData2.errNo = alVar.d();
-        forbidResultData2.errMsg = alVar.f();
+        forbidResultData2.errNo = anVar.d();
+        forbidResultData2.errMsg = anVar.f();
         return forbidResultData2;
     }
 
@@ -69,7 +69,7 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
         super.onPostExecute(forbidResultData);
         j jVar = this.g.get();
         if (jVar != null) {
-            if (forbidResultData.errNo == 0 && be.c(forbidResultData.errMsg)) {
+            if (forbidResultData.errNo == 0 && bg.c(forbidResultData.errMsg)) {
                 jVar.a(forbidResultData);
             } else {
                 jVar.b(forbidResultData);

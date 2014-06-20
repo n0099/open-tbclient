@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<Object, Integer, t> {
     final /* synthetic */ BarFolderSecondDirActivity a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
 
     private p(BarFolderSecondDirActivity barFolderSecondDirActivity) {
         this.a = barFolderSecondDirActivity;
@@ -31,16 +31,16 @@ public class p extends BdAsyncTask<Object, Integer, t> {
         qVar = this.a.i;
         t a = qVar.a();
         try {
-            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/seconddir");
-            com.baidu.tbadk.core.util.al alVar = this.b;
+            this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/seconddir");
+            com.baidu.tbadk.core.util.an anVar = this.b;
             str = this.a.k;
-            alVar.a("menu_name", str);
-            com.baidu.tbadk.core.util.al alVar2 = this.b;
+            anVar.a("menu_name", str);
+            com.baidu.tbadk.core.util.an anVar2 = this.b;
             str2 = this.a.l;
-            alVar2.a("menu_type", str2);
-            com.baidu.tbadk.core.util.al alVar3 = this.b;
+            anVar2.a("menu_type", str2);
+            com.baidu.tbadk.core.util.an anVar3 = this.b;
             str3 = this.a.m;
-            alVar3.a("menu_id", str3);
+            anVar3.a("menu_id", str3);
             String i = this.b.i();
             if (this.b.a().b().b()) {
                 a.b(i);

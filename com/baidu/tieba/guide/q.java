@@ -3,7 +3,7 @@ package com.baidu.tieba.guide;
 import android.view.View;
 import android.widget.Button;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.al;
+import com.baidu.tbadk.core.atomData.ak;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.data.InterestFrsData;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,9 +36,9 @@ public class q implements View.OnClickListener {
                 }
                 p pVar = this.a;
                 newUserGuideActivity2 = this.a.o;
-                al alVar = new al(newUserGuideActivity2);
+                ak akVar = new ak(newUserGuideActivity2);
                 z = this.a.r;
-                pVar.a(new CustomMessage(2017001, alVar.a(1, z)));
+                pVar.a(new CustomMessage(2017001, akVar.a(1, z)));
                 newUserGuideActivity3 = this.a.o;
                 newUserGuideActivity3.finish();
                 return;

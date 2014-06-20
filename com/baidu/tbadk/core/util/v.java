@@ -7,10 +7,10 @@ public class v extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        al alVar = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IN_PV_ADDRESS);
-        alVar.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, TbConfig.ST_TYPE_ENTER_FORE);
-        alVar.a("os_version", Build.VERSION.RELEASE);
-        alVar.a("subapp_type", "im");
-        alVar.i();
+        an anVar = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IN_PV_ADDRESS);
+        anVar.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, TbConfig.ST_TYPE_ENTER_FORE);
+        anVar.a("os_version", Build.VERSION.RELEASE);
+        anVar.a("subapp_type", "im");
+        anVar.i();
     }
 }

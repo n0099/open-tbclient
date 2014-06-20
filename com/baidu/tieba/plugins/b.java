@@ -1,7 +1,7 @@
 package com.baidu.tieba.plugins;
 
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ag;
 import com.baidu.tbadk.editortool.ab;
 /* loaded from: classes.dex */
 class b implements Runnable {
@@ -18,6 +18,6 @@ class b implements Runnable {
         ab abVar;
         bdListView = this.a.b;
         abVar = this.a.e;
-        ae.a(bdListView, abVar, 0, 0);
+        ag.a(bdListView, abVar, 0, 0);
     }
 }

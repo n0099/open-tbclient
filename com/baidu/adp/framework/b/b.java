@@ -1,14 +1,13 @@
 package com.baidu.adp.framework.b;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.a.f;
 import com.baidu.adp.framework.client.HttpClient;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class b extends c<HttpMessage, HttpMessageTask, f, HttpResponsedMessage> {
+public class b extends c<HttpMessage, HttpMessageTask, com.baidu.adp.framework.a.d, HttpResponsedMessage> {
     private HttpClient c;
 
     public b(MessageManager messageManager) {
@@ -33,19 +32,13 @@ public class b extends c<HttpMessage, HttpMessageTask, f, HttpResponsedMessage> 
         return this.a.getController().a(httpMessage, httpMessageTask);
     }
 
-    public LinkedList<HttpMessage> a(int i) {
-        if (i == 0) {
-            return null;
-        }
-        return this.c.a(i);
+    public void a(int i) {
+        this.c.a(i);
     }
 
     @Override // com.baidu.adp.framework.a
-    public LinkedList<HttpMessage> a(int i, int i2) {
-        if (i2 == 0) {
-            return null;
-        }
-        return this.c.a(i, i2);
+    public void a(int i, int i2) {
+        this.c.a(i, i2);
     }
 
     public LinkedList<HttpMessage> b(int i) {

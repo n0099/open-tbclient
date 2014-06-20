@@ -21,12 +21,12 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ax;
+import com.baidu.tbadk.core.atomData.aw;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.download.CancelDownloadMessage;
 import java.util.ArrayList;
@@ -111,7 +111,7 @@ public class Login2Activity extends BaseActivity {
             a(com.baidu.tieba.v.mobile_login);
         }
         ShowSoftKeyPadDelay(this.o, 150);
-        new az(TbConfig.ST_TYPE_LOGIN).start();
+        new bb(TbConfig.ST_TYPE_LOGIN).start();
     }
 
     @Override // android.app.Activity
@@ -247,8 +247,8 @@ public class Login2Activity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.L.c(i);
-        bc.a(this.I, i);
-        bc.c(this.a, i);
+        be.a(this.I, i);
+        be.c(this.a, i);
         if (i == 1) {
             this.H.setTextColor(getResources().getColor(com.baidu.tieba.s.skin_1_common_color));
         } else {
@@ -293,9 +293,9 @@ public class Login2Activity extends BaseActivity {
         String editable2 = this.p.getText().toString();
         String editable3 = this.q.getText().toString();
         if (this.B.getVisibility() == 8) {
-            z = be.c(editable) || be.c(editable2);
+            z = bg.c(editable) || bg.c(editable2);
         } else {
-            z = be.c(editable) || be.c(editable2) || be.c(editable3);
+            z = bg.c(editable) || bg.c(editable2) || bg.c(editable3);
         }
         if (!z) {
             this.r.setEnabled(true);
@@ -424,9 +424,9 @@ public class Login2Activity extends BaseActivity {
     public void g() {
         if (this.M == null) {
             String editable = this.o.getText().toString();
-            this.g = be.b(this.p.getText().toString().getBytes());
+            this.g = bg.b(this.p.getText().toString().getBytes());
             if (editable.length() > 0 && this.g.length() > 0) {
-                if (!this.m || !be.c(this.q.getText().toString())) {
+                if (!this.m || !bg.c(this.q.getText().toString())) {
                     l();
                     StringBuffer stringBuffer = new StringBuffer(30);
                     stringBuffer.append(TbConfig.SERVER_ADDRESS);
@@ -625,9 +625,9 @@ public class Login2Activity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void p() {
         o();
-        ax axVar = new ax(this);
-        axVar.setRequestCode(22002);
-        axVar.setIntentAction(IntentAction.ActivityForResult);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, axVar));
+        aw awVar = new aw(this);
+        awVar.setRequestCode(22002);
+        awVar.setIntentAction(IntentAction.ActivityForResult);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, awVar));
     }
 }

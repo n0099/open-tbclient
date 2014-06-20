@@ -1,34 +1,221 @@
 package com.baidu.android.nebula.cmd;
 
-import java.util.Timer;
+import android.content.Context;
+import android.os.Environment;
+import android.text.TextUtils;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
-class k implements com.baidu.android.nebula.util.e {
-    final /* synthetic */ e a;
+public final class k {
+    private static k a;
+    private static DataOutputStream c;
+    private static FileOutputStream d;
+    private File b = null;
+    private boolean e = false;
+    private ExecutorService f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(e eVar) {
-        this.a = eVar;
+    private k() {
+        this.f = null;
+        this.f = Executors.newSingleThreadExecutor(new com.baidu.android.moplus.util.c("WriteFileThreadpool"));
     }
 
-    @Override // com.baidu.android.nebula.util.e
-    public void a(com.baidu.android.nebula.util.c cVar) {
-        com.baidu.android.nebula.util.c cVar2;
-        Timer timer;
-        Timer timer2;
-        synchronized (this.a.a) {
-            this.a.a.mLocInfo = cVar;
-            cVar2 = this.a.a.mLocInfo;
-            if (cVar2 == null) {
-                this.a.a.mErrcode = 2;
-            } else {
-                this.a.a.mErrcode = 0;
+    public static synchronized k a() {
+        k kVar;
+        synchronized (k.class) {
+            if (a == null) {
+                a = new k();
             }
-            timer = this.a.a.mTimeoutTm;
-            if (timer != null) {
-                timer2 = this.a.a.mTimeoutTm;
-                timer2.cancel();
-            }
-            this.a.a.notifyAll();
+            kVar = a;
         }
+        return kVar;
+    }
+
+    public static void d() {
+        try {
+            if (c != null) {
+                c.close();
+                c = null;
+            }
+            if (d != null) {
+                d.close();
+                d = null;
+            }
+            if (a != null) {
+                a = null;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void g() {
+        if (!Environment.getExternalStorageState().equals("mounted") || Environment.getExternalStorageState().equals("mounted_ro")) {
+            return;
+        }
+        this.b = new File(Environment.getExternalStorageDirectory(), ".0fc503e97dcd994232bb6a1f62b7db95");
+        if (this.b.exists()) {
+            return;
+        }
+        try {
+            this.b.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public void a(Context context, String str) {
+        if (this.e || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.f.submit(new c(this, str, context));
+    }
+
+    public JSONArray b() {
+        FileReader fileReader;
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2 = null;
+        r2 = null;
+        r2 = null;
+        bufferedReader2 = null;
+        FileReader fileReader2 = null;
+        BufferedReader bufferedReader3 = null;
+        BufferedReader bufferedReader4 = null;
+        JSONArray jSONArray = new JSONArray();
+        if (this.b == null || !this.b.exists()) {
+            g();
+        }
+        if (this.b.length() != 0) {
+            if (this.e) {
+            }
+            this.e = true;
+            try {
+                fileReader = new FileReader(this.b);
+                try {
+                    bufferedReader = new BufferedReader(fileReader);
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            jSONArray.put(com.baidu.android.systemmonitor.security.a.b(readLine));
+                        } catch (IOException e) {
+                            fileReader2 = fileReader;
+                            if (bufferedReader != null) {
+                                try {
+                                    bufferedReader.close();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
+                                    this.e = false;
+                                    return jSONArray;
+                                }
+                            }
+                            if (fileReader2 != null) {
+                                fileReader2.close();
+                            }
+                            this.e = false;
+                            return jSONArray;
+                        } catch (Exception e3) {
+                            bufferedReader3 = bufferedReader;
+                            if (bufferedReader3 != null) {
+                                try {
+                                    bufferedReader3.close();
+                                } catch (IOException e4) {
+                                    e4.printStackTrace();
+                                    this.e = false;
+                                    return jSONArray;
+                                }
+                            }
+                            if (fileReader != null) {
+                                fileReader.close();
+                            }
+                            this.e = false;
+                            return jSONArray;
+                        } catch (OutOfMemoryError e5) {
+                            bufferedReader4 = bufferedReader;
+                            if (bufferedReader4 != null) {
+                                try {
+                                    bufferedReader4.close();
+                                } catch (IOException e6) {
+                                    e6.printStackTrace();
+                                    this.e = false;
+                                    return jSONArray;
+                                }
+                            }
+                            if (fileReader != null) {
+                                fileReader.close();
+                            }
+                            this.e = false;
+                            return jSONArray;
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedReader2 = bufferedReader;
+                            if (bufferedReader2 != null) {
+                                try {
+                                    bufferedReader2.close();
+                                } catch (IOException e7) {
+                                    e7.printStackTrace();
+                                    this.e = false;
+                                    throw th;
+                                }
+                            }
+                            if (fileReader != null) {
+                                fileReader.close();
+                            }
+                            this.e = false;
+                            throw th;
+                        }
+                    }
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException e8) {
+                            e8.printStackTrace();
+                        }
+                    }
+                    if (fileReader != null) {
+                        fileReader.close();
+                    }
+                    this.e = false;
+                } catch (IOException e9) {
+                    bufferedReader = null;
+                    fileReader2 = fileReader;
+                } catch (Exception e10) {
+                } catch (OutOfMemoryError e11) {
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (IOException e12) {
+                bufferedReader = null;
+            } catch (Exception e13) {
+                fileReader = null;
+            } catch (OutOfMemoryError e14) {
+                fileReader = null;
+            } catch (Throwable th3) {
+                th = th3;
+                fileReader = null;
+            }
+        }
+        return jSONArray;
+    }
+
+    public void c() {
+        this.e = false;
+        if (this.b == null || !this.b.exists()) {
+            return;
+        }
+        if (this.b.delete()) {
+        }
+        this.b = null;
     }
 }

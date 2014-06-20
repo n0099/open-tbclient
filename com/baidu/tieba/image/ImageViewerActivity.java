@@ -18,8 +18,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tieba.v;
@@ -101,7 +101,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.m.setBackgroundColor(bc.d(i));
+            this.m.setBackgroundColor(be.d(i));
         } else {
             this.m.setBackgroundColor(-16777216);
         }
@@ -325,7 +325,7 @@ public class ImageViewerActivity extends BaseActivity implements com.baidu.tbadk
     private String a(String str) {
         int lastIndexOf;
         int indexOf;
-        String e = be.e(str);
+        String e = bg.e(str);
         if (e != null) {
             if (e.indexOf(".baidu.com") != -1 && (lastIndexOf = e.lastIndexOf("/")) != -1 && (indexOf = e.indexOf(".", lastIndexOf)) != -1) {
                 return e.substring(lastIndexOf + 1, indexOf);

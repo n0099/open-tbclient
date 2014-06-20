@@ -122,7 +122,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity {
             default:
                 return;
             case 4:
-                if (t() && (a = this.e.a(i2)) != null && com.baidu.tieba.im.f.r.a(a) && (a2 = com.baidu.tieba.im.f.r.a(a.getContent(), true)) != null && (this.e instanceof CommonPersonalMsglistModel) && ((CommonPersonalMsglistModel) this.e).c() != null) {
+                if (t() && (a = this.e.a(i2)) != null && com.baidu.tieba.im.e.r.a(a) && (a2 = com.baidu.tieba.im.e.r.a(a.getContent(), true)) != null && (this.e instanceof CommonPersonalMsglistModel) && ((CommonPersonalMsglistModel) this.e).c() != null) {
                     OfficialMsgImageActivity.a(this, a2, ((CommonPersonalMsglistModel) this.e).c().getUserIdLong());
                     return;
                 }

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -134,7 +133,7 @@ public class r extends BroadcastReceiver {
                     voiceModel4 = this.this$0.mCurPlayModel;
                     if (voiceModel4 != null) {
                         voiceModel7 = this.this$0.mCurPlayModel;
-                        i = voiceModel7.duration * LocationClientOption.MIN_SCAN_SPAN;
+                        i = voiceModel7.duration * 1000;
                     }
                     long longExtra = intent.getLongExtra("com.baidu.msg.durationTime2", i);
                     Log.d("testVoice", "duration_msec=" + longExtra);

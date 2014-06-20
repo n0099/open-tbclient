@@ -3,8 +3,8 @@ package com.baidu.tieba.account.appeal;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.bg;
 import java.lang.ref.WeakReference;
 import org.apache.commons.io.IOUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,11 +28,11 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
     public ForbidReasonData doInBackground(String... strArr) {
         String str;
         str = j.a;
-        al alVar = new al(str);
-        alVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
-        alVar.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.b);
-        String i = alVar.i();
-        if (alVar.a().b().b()) {
+        an anVar = new an(str);
+        anVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
+        anVar.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.b);
+        String i = anVar.i();
+        if (anVar.a().b().b()) {
             try {
                 ForbidReasonData forbidReasonData = (ForbidReasonData) new GsonBuilder().create().fromJson(i, (Class<Object>) ForbidReasonData.class);
                 forbidReasonData.reason = forbidReasonData.reason.replaceAll("\\\\n", IOUtils.LINE_SEPARATOR_UNIX);
@@ -45,8 +45,8 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
             }
         }
         ForbidReasonData forbidReasonData3 = new ForbidReasonData();
-        forbidReasonData3.error.a = alVar.d();
-        forbidReasonData3.error.b = alVar.f();
+        forbidReasonData3.error.a = anVar.d();
+        forbidReasonData3.error.b = anVar.f();
         return forbidReasonData3;
     }
 
@@ -58,7 +58,7 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
         super.onPostExecute(forbidReasonData);
         l lVar = this.c.get();
         if (lVar != null) {
-            if (forbidReasonData.error.a == 0 && be.c(forbidReasonData.error.b)) {
+            if (forbidReasonData.error.a == 0 && bg.c(forbidReasonData.error.b)) {
                 lVar.a(forbidReasonData);
             } else {
                 lVar.b(forbidReasonData);

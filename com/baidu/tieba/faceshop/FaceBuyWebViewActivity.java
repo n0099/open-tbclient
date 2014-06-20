@@ -113,7 +113,7 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
             this.b.c(i);
         }
         if (this.a != null) {
-            com.baidu.tbadk.core.util.bc.a(this.a, i);
+            com.baidu.tbadk.core.util.be.a(this.a, i);
         }
     }
 
@@ -158,7 +158,7 @@ public class FaceBuyWebViewActivity extends BaseActivity implements com.baidu.tb
     @Override // com.baidu.tbadk.coreExtra.view.g
     public boolean a(WebView webView, String str) {
         if (str != null) {
-            if (com.baidu.tbadk.core.util.be.c(str) || com.baidu.tbadk.core.util.be.c(this.d)) {
+            if (com.baidu.tbadk.core.util.bg.c(str) || com.baidu.tbadk.core.util.bg.c(this.d)) {
                 return false;
             }
             if (str.toLowerCase().contains(this.d.toLowerCase())) {

@@ -30,7 +30,7 @@ public class z implements View.OnClickListener {
         if (aaVar != null) {
             baseFragmentActivity = this.a.b;
             baseFragmentActivity2 = this.a.b;
-            baseFragmentActivity.a(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(baseFragmentActivity2).a(aaVar.l, (String) null, (String) null, 18003)));
+            baseFragmentActivity.a(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.ar(baseFragmentActivity2).a(aaVar.l, (String) null, (String) null, 18003)));
         }
     }
 }

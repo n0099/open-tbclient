@@ -27,7 +27,7 @@ public class cc implements View.OnClickListener {
                 ciVar3 = this.a.g;
                 UserData userData = (UserData) ciVar3.getItem(intValue);
                 if (userData != null && userData.getUserId() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(this.a, userData.getUserId(), userData.getName_show())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this.a, userData.getUserId(), userData.getName_show())));
                 }
             }
         }

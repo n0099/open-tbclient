@@ -7,7 +7,7 @@ import android.view.View;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
-class cp implements com.baidu.tbadk.core.util.br {
+class cp implements com.baidu.tbadk.core.util.bt {
     final /* synthetic */ co a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.adp.widget.a.a c;
@@ -19,7 +19,7 @@ class cp implements com.baidu.tbadk.core.util.br {
         this.c = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.br
+    @Override // com.baidu.tbadk.core.util.bt
     public boolean a(View view) {
         SparseArray sparseArray;
         bq bqVar;

@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.data.GroupInfoData;
@@ -112,10 +112,10 @@ public class a extends BaseAdapter {
         ((BaseFragmentActivity) this.a.getActivity()).a().a(TbadkApplication.m252getInst().getSkinType() == 1);
         ((BaseFragmentActivity) this.a.getActivity()).a().a(view);
         if (groupInfoData != null && groupInfoData.isMemGroup()) {
-            bc.a(bVar.d, s.im_group_vip_text, 1);
-            bc.c(bVar.i, u.icon_vip_grade_big_small_s);
-            bc.c(bVar.j, u.icon_vip_grade_big_small_s);
-            bc.c(bVar.k, u.icon_vip_grade_big_small_s);
+            be.a(bVar.d, s.im_group_vip_text, 1);
+            be.c(bVar.i, u.icon_vip_grade_big_small_s);
+            be.c(bVar.j, u.icon_vip_grade_big_small_s);
+            be.c(bVar.k, u.icon_vip_grade_big_small_s);
         }
         return view;
     }

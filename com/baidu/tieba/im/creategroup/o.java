@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.creategroup;
 
 import android.content.DialogInterface;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.bd;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements DialogInterface.OnClickListener {
@@ -15,9 +15,9 @@ public class o implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == 0) {
-            bb.a(this.a.a);
+            bd.a(this.a.a);
         } else if (i == 1) {
-            bb.b(this.a.a);
+            bd.b(this.a.a);
         }
     }
 }

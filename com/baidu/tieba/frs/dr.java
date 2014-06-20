@@ -15,10 +15,10 @@ public class dr implements com.baidu.adp.widget.BdSwitchView.c {
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
-            com.baidu.tbadk.core.g.a().c(0);
-            com.baidu.tbadk.core.g.a().a(true);
+            com.baidu.tbadk.core.h.a().c(0);
+            com.baidu.tbadk.core.h.a().a(true);
         } else {
-            com.baidu.tbadk.core.g.a().a(false);
+            com.baidu.tbadk.core.h.a().a(false);
         }
         this.a.k = true;
     }

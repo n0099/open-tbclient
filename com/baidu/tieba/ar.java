@@ -1,22 +1,15 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements com.baidu.tbadk.tbplugin.h {
-    final /* synthetic */ ai a;
+class ar implements Runnable {
+    final /* synthetic */ aq a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(ai aiVar) {
-        this.a = aiVar;
+    public ar(aq aqVar) {
+        this.a = aqVar;
     }
 
-    @Override // com.baidu.tbadk.tbplugin.h
-    public void a() {
-        if (TbadkApplication.m252getInst().isMainProcess(false)) {
-            this.a.b.post(new as(this));
-            return;
-        }
+    @Override // java.lang.Runnable
+    public void run() {
         com.baidu.tbadk.tbplugin.m.a().a("BdSocialShareSdk", "com.baidu.tbadk.plugins.BdSocialShareSdkDelegate");
         com.baidu.tbadk.tbplugin.m.a().a("batsdk", "com.baidu.tbadk.plugins.BatSdkDelegate");
         com.baidu.tbadk.tbplugin.m.a().a("motusdk", "com.baidu.tbadk.plugins.MotuPlugin");

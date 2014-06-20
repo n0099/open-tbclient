@@ -1,11 +1,17 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class ao extends com.baidu.tbadk.core.frameworkData.a {
-    public ao(Context context, boolean z, boolean z2) {
+    public ao(Context context, int i, WriteData writeData, boolean z) {
         super(context);
-        getIntent().putExtra("is_new_user", z);
-        getIntent().putExtra("has_like_bar", z2);
+        setRequestCode(i);
+        setIntentAction(IntentAction.ActivityForResult);
+        if (writeData != null) {
+            getIntent().putExtra("model", writeData);
+            getIntent().putExtra("is_ad", z);
+        }
     }
 }

@@ -208,7 +208,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
     private void w() {
         showLoadingDialog(getString(y.group_tab_enterchatroom_loading), new g(this));
         this.o.a(this.p);
-        com.baidu.tieba.im.f.i.a(String.valueOf(this.p));
+        com.baidu.tieba.im.e.i.a(String.valueOf(this.p));
         com.baidu.tbadk.core.f.a(getApplicationContext(), "snap_chat_change_room");
     }
 
@@ -229,7 +229,7 @@ public class SnapGroupChatActivity extends CommonGroupChatActiviy implements Abs
         x().V().b();
         x().U().b();
         this.q.a();
-        com.baidu.tieba.im.f.i.a(String.valueOf(this.p));
+        com.baidu.tieba.im.e.i.a(String.valueOf(this.p));
         a = false;
         b = "";
     }

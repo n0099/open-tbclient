@@ -15,7 +15,7 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.mobstat.StatService;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tieba.u;
 import com.baidu.tieba.y;
 import com.compatible.menukey.MenuKeyUtils;
@@ -35,7 +35,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity {
         MenuKeyUtils.hideSmartBarMenu(this);
         super.onCreate(bundle);
         TbadkApplication.setIsAppRunning(true);
-        bg.a(getClass().getName());
+        bi.a(getClass().getName());
         this.e = new c();
         if (TbadkApplication.m252getInst().getIsUseBaiduStatOn()) {
             try {
@@ -60,7 +60,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity {
             }
         }
         TbadkApplication.m252getInst().AddResumeNum();
-        bg.a(getClass().getName());
+        bi.a(getClass().getName());
     }
 
     public void a(int i) {

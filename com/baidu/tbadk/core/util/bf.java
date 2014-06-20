@@ -1,111 +1,131 @@
 package com.baidu.tbadk.core.util;
 
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import java.io.File;
 /* loaded from: classes.dex */
 public class bf {
-    private static bf a = null;
-    private boolean b = false;
-    private boolean c = false;
-    private int d = TbConfig.POST_IMAGE_SMALL;
-    private String e = String.valueOf(45);
+    private static bf a;
 
-    public static bf a() {
-        if (a == null) {
-            synchronized (bf.class) {
+    public static synchronized bf a() {
+        bf bfVar;
+        synchronized (bf.class) {
+            if (a == null) {
                 a = new bf();
             }
+            bfVar = a;
         }
-        return a;
+        return bfVar;
     }
 
-    public bf() {
-        k();
-        j();
-    }
-
-    private void j() {
-        f();
-        g();
-        h();
-    }
-
-    public void a(boolean z) {
-        this.c = z;
-    }
-
-    public boolean b() {
-        return this.c;
-    }
-
-    public void b(boolean z) {
-        this.b = z;
-        j();
-    }
-
-    private void k() {
-        this.b = UtilHelper.getNetStatusInfo(TbadkApplication.m252getInst().getApp().getApplicationContext()) == UtilHelper.NetworkStateInfo.WIFI;
-    }
-
-    public boolean c() {
-        return this.b;
-    }
-
-    public String d() {
-        return this.e;
-    }
-
-    public int e() {
-        h();
-        return this.d;
-    }
-
-    public void f() {
-        boolean z = true;
-        if (com.baidu.tbadk.core.g.a().g() != 0 ? com.baidu.tbadk.core.g.a().g() != 1 : !this.b) {
-            z = false;
+    public String a(String str) {
+        long j = 0;
+        for (byte b : str.getBytes()) {
+            j += b;
         }
-        a(z);
+        return "image/" + (j % 20);
     }
 
-    public void g() {
-        String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.g.a().g() == 0) {
-            if (c()) {
-                valueOf = String.valueOf(80);
-            }
-        } else if (com.baidu.tbadk.core.g.a().g() == 1) {
-            valueOf = String.valueOf(80);
+    public Bitmap b(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
-        this.e = valueOf;
+        return x.c(a(str), str);
     }
 
-    public void h() {
-        int i = TbConfig.POST_IMAGE_BIG;
-        switch (com.baidu.tbadk.core.g.a().e()) {
-            case 0:
-                if (!c()) {
-                    i = 600;
-                    break;
+    public com.baidu.adp.widget.a.a a(String str, String str2) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        return x.d(str, str2);
+    }
+
+    public boolean c(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return x.b(a(str), str);
+    }
+
+    public int d(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return -1;
+        }
+        return (int) x.a(a(str), str);
+    }
+
+    public int e(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return -1;
+        }
+        return (int) x.a(x.a(3), str);
+    }
+
+    public boolean b(String str, String str2) {
+        String str3 = x.a + "/" + TbConfig.getTempDirName() + "/";
+        if (!x.a(str3)) {
+            x.l(str3);
+        }
+        String str4 = String.valueOf(str3) + a(str2);
+        if (!x.a(str4)) {
+            x.l(str4);
+        }
+        String str5 = String.valueOf(str4) + "/" + str2;
+        if (str.equals(str5)) {
+            return false;
+        }
+        return x.a(str, str5, true);
+    }
+
+    public void a(String str, byte[] bArr) {
+        if (!TextUtils.isEmpty(str)) {
+            x.a(a(str), str, bArr);
+        }
+    }
+
+    public void b(String str, byte[] bArr) {
+        if (!TextUtils.isEmpty(str)) {
+            x.a(x.a(3), str, bArr);
+        }
+    }
+
+    private void a(File file) {
+        File[] listFiles = file.listFiles();
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    a(file2);
+                    file2.delete();
+                } else if (!file2.delete()) {
+                    BdLog.e(getClass().getName(), "run", "list[i].delete error");
                 }
-                break;
-            case 1:
-                break;
-            case 2:
-                i = 750;
-                break;
-            case 3:
-                i = 600;
-                break;
-            default:
-                i = 750;
-                break;
+            }
         }
-        this.d = i;
     }
 
-    public static boolean i() {
-        return x.a() && com.baidu.adp.gif.e.a();
+    public void b() {
+        a(new File(x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
+        a(new File(x.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
+    }
+
+    public void c() {
+        b(new File(x.a + "/" + TbConfig.getTempDirName() + "/" + x.a(3)));
+    }
+
+    private void b(File file) {
+        long currentTimeMillis = System.currentTimeMillis();
+        File[] listFiles = file.listFiles();
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    a(file2);
+                    file2.delete();
+                } else if (currentTimeMillis - file2.lastModified() >= -1702967296 && !file2.delete()) {
+                    BdLog.e(getClass().getName(), "run", "list[i].delete error");
+                }
+            }
+        }
     }
 }

@@ -1,48 +1,26 @@
 package com.baidu.tbadk.a;
 
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.lib.network.websocket.CoderException;
-import com.baidu.adp.lib.network.websocket.i;
-import com.baidu.adp.lib.network.websocket.k;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class d extends k {
-    @Override // com.baidu.adp.lib.network.websocket.k
-    public byte[] a(SocketMessage socketMessage, boolean z) {
-        try {
-            SocketMessage socketMessage2 = socketMessage instanceof SocketMessage ? socketMessage : null;
-            byte[] encodeInBackGround = socketMessage.encodeInBackGround();
-            if (encodeInBackGround != null && z) {
-                encodeInBackGround = a(encodeInBackGround, 0, encodeInBackGround.length);
-            }
-            boolean b = com.baidu.tbadk.message.websockt.c.b().b(socketMessage.getCmd());
-            if (encodeInBackGround != null && b) {
-                encodeInBackGround = com.baidu.tbadk.c.e.a(com.baidu.tbadk.message.websockt.c.b().d(), encodeInBackGround);
-            }
-            socketMessage2.setSquencedId(a.a().b());
-            return com.baidu.tbadk.message.websockt.a.a(b, z, socketMessage2.getCmd(), socketMessage2.getSquencedId(), encodeInBackGround);
-        } catch (Exception e) {
-            throw new CoderException(i.k);
-        }
+public class d extends com.baidu.adp.framework.a.d {
+    public d(int i) {
+        super(i);
     }
 
-    protected byte[] a(byte[] bArr, int i, int i2) {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            com.baidu.tbadk.c.b.a(byteArrayInputStream, byteArrayOutputStream);
-            byteArrayOutputStream.flush();
-            return byteArrayOutputStream.toByteArray();
-        } finally {
-            try {
-                byteArrayOutputStream.close();
-            } catch (Exception e) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.f
+    public HttpMessage a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
+            TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
+            if (ReloginManager.a().b() && tbHttpMessageTask.isNeedLogin()) {
+                ReloginManager.a().a(httpMessage);
+                return null;
             }
-            try {
-                byteArrayInputStream.close();
-            } catch (Exception e2) {
-            }
+            return httpMessage;
         }
+        return httpMessage;
     }
 }

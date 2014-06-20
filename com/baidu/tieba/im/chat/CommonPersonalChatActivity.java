@@ -85,7 +85,7 @@ public abstract class CommonPersonalChatActivity extends MsglistActivity {
         super.a(view, i, i2, j);
         switch (i) {
             case 7:
-                if (t() && this.e != null && (a = this.e.a(i2)) != null && com.baidu.tieba.im.f.r.b(a) && (content = a.getContent()) != null) {
+                if (t() && this.e != null && (a = this.e.a(i2)) != null && com.baidu.tieba.im.e.r.b(a) && (content = a.getContent()) != null) {
                     try {
                         jSONArray = new JSONArray(content);
                     } catch (Exception e) {

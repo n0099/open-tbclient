@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.an;
+import com.baidu.tbadk.core.atomData.am;
+import com.baidu.tbadk.core.atomData.ay;
 import com.baidu.tbadk.core.atomData.az;
-import com.baidu.tbadk.core.atomData.ba;
-import com.baidu.tbadk.core.atomData.bc;
+import com.baidu.tbadk.core.atomData.bb;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -74,8 +74,8 @@ public class c implements View.OnClickListener {
                                         return;
                                     } else if (view instanceof DiscoverItemView) {
                                         String str2 = ((DiscoverItemView) view).b;
-                                        if (!be.c(str2)) {
-                                            bi a = bi.a();
+                                        if (!bg.c(str2)) {
+                                            bk a = bk.a();
                                             baseFragmentActivity = this.a.b;
                                             a.a(baseFragmentActivity, new String[]{str2});
                                             return;
@@ -107,7 +107,7 @@ public class c implements View.OnClickListener {
                                 if (oVar2.b) {
                                     MessageManager messageManager3 = MessageManager.getInstance();
                                     baseFragmentActivity6 = this.a.b;
-                                    messageManager3.sendMessage(new CustomMessage((int) CmdConfig.SIGN_ALL_FORUM_CUSTOM_CMD, new az(baseFragmentActivity6)));
+                                    messageManager3.sendMessage(new CustomMessage((int) CmdConfig.SIGN_ALL_FORUM_CUSTOM_CMD, new ay(baseFragmentActivity6)));
                                     return;
                                 }
                                 a aVar = this.a;
@@ -123,12 +123,12 @@ public class c implements View.OnClickListener {
                     }
                     MessageManager messageManager4 = MessageManager.getInstance();
                     baseFragmentActivity7 = this.a.b;
-                    messageManager4.sendMessage(new CustomMessage(2003001, new an(baseFragmentActivity7)));
+                    messageManager4.sendMessage(new CustomMessage(2003001, new am(baseFragmentActivity7)));
                     return;
                 }
                 MessageManager messageManager5 = MessageManager.getInstance();
                 baseFragmentActivity8 = this.a.b;
-                messageManager5.sendMessage(new CustomMessage((int) CmdConfig.SINGLE_FORUM_FEED_CUSTOM_CMD, new ba(baseFragmentActivity8)));
+                messageManager5.sendMessage(new CustomMessage((int) CmdConfig.SINGLE_FORUM_FEED_CUSTOM_CMD, new az(baseFragmentActivity8)));
                 return;
             }
             MessageManager messageManager6 = MessageManager.getInstance();
@@ -138,6 +138,6 @@ public class c implements View.OnClickListener {
         }
         MessageManager messageManager7 = MessageManager.getInstance();
         baseFragmentActivity10 = this.a.b;
-        messageManager7.sendMessage(new CustomMessage((int) CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new bc(baseFragmentActivity10)));
+        messageManager7.sendMessage(new CustomMessage((int) CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new bb(baseFragmentActivity10)));
     }
 }

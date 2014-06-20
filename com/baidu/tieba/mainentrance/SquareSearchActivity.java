@@ -24,9 +24,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ak;
+import com.baidu.tbadk.core.atomData.aj;
 import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.ai;
@@ -108,7 +108,7 @@ public class SquareSearchActivity extends BaseActivity {
         if ("from_hao123".equals(getIntent().getStringExtra("start_from")) && com.baidu.tieba.util.r.a((Activity) this)) {
             Intent intent = new Intent();
             intent.putExtra("class", 18);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ak(this, intent)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new aj(this, intent)));
             finish();
             return true;
         }
@@ -400,7 +400,7 @@ public class SquareSearchActivity extends BaseActivity {
         this.E.a(i);
         getLayoutMode().a(i == 1);
         getLayoutMode().a((View) this.h);
-        bc.a(this.h, i);
+        be.a(this.h, i);
         if (this.l != null) {
             this.l.notifyDataSetChanged();
         }
@@ -420,8 +420,8 @@ public class SquareSearchActivity extends BaseActivity {
             this.c.setHintTextColor(-11643034);
             this.r.setTextColor(getResources().getColor(com.baidu.tieba.s.no_data_search_text_content_night));
             this.a.setImageResource(com.baidu.tieba.u.icon_search_ba_1);
-            bc.e((View) this.r, com.baidu.tieba.u.clear_search_btn_drawable_1);
-            bc.e(this.f, com.baidu.tieba.u.square_inputbox_top_1);
+            be.e((View) this.r, com.baidu.tieba.u.clear_search_btn_drawable_1);
+            be.e(this.f, com.baidu.tieba.u.square_inputbox_top_1);
             this.e.setTextColor(getResources().getColor(com.baidu.tieba.s.common_new_page_title_1));
             this.t.setTextColor(-11446171);
             this.t.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.u.pic_search_fruitless_1, 0, 0);
@@ -434,8 +434,8 @@ public class SquareSearchActivity extends BaseActivity {
         this.c.setTextColor(-2300171);
         this.c.setHintTextColor(-10195067);
         this.r.setTextColor(getResources().getColor(com.baidu.tieba.s.no_data_search_text_content));
-        bc.e((View) this.r, com.baidu.tieba.u.clear_search_btn_drawable);
-        bc.e(this.f, com.baidu.tieba.u.square_inputbox_top);
+        be.e((View) this.r, com.baidu.tieba.u.clear_search_btn_drawable);
+        be.e(this.f, com.baidu.tieba.u.square_inputbox_top);
         this.t.setTextColor(-3618616);
         this.t.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.u.pic_search_fruitless, 0, 0);
     }

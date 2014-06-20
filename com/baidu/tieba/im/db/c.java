@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.chat.w;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.f.r;
+import com.baidu.tieba.im.e.r;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import java.util.Iterator;

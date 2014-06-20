@@ -18,10 +18,10 @@ public class cs implements DialogInterface.OnClickListener {
         BaseActivity baseActivity2;
         if (i == 0) {
             baseActivity2 = this.a.b;
-            com.baidu.tbadk.core.util.bb.a(baseActivity2);
+            com.baidu.tbadk.core.util.bd.a(baseActivity2);
         } else if (i == 1) {
             baseActivity = this.a.b;
-            com.baidu.tbadk.core.util.bb.b(baseActivity);
+            com.baidu.tbadk.core.util.bd.b(baseActivity);
         }
     }
 }

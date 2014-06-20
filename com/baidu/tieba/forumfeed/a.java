@@ -80,10 +80,10 @@ public class a extends com.baidu.tbadk.core.d implements w {
         if (d_()) {
             this.k = false;
             if (this.l == null) {
-                this.l = Boolean.valueOf(com.baidu.tbadk.core.g.a().f());
+                this.l = Boolean.valueOf(com.baidu.tbadk.core.h.a().f());
             } else {
-                this.k = this.l.booleanValue() ^ com.baidu.tbadk.core.g.a().f();
-                this.l = Boolean.valueOf(com.baidu.tbadk.core.g.a().f());
+                this.k = this.l.booleanValue() ^ com.baidu.tbadk.core.h.a().f();
+                this.l = Boolean.valueOf(com.baidu.tbadk.core.h.a().f());
             }
             boolean l = l();
             if (this.f != l) {

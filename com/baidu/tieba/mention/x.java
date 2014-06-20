@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bi;
+import com.baidu.tbadk.core.atomData.bh;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tieba.data.ai;
 import com.baidu.tieba.model.am;
@@ -46,7 +46,7 @@ public class x implements View.OnClickListener {
                         int m = aiVar.m();
                         AntiData g = a.g();
                         amVar5 = this.a.l;
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bi(postActivity, 2, name, p, l, l2, m, g, 13001, false, amVar5.a().k(), null, false, false, null, null, null)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bh(postActivity, 2, name, p, l, l2, m, g, 13001, false, amVar5.a().k(), null, false, false, null, null, null)));
                     } else if (a.g() == null || a.g().getIfpost() != 0) {
                         PostActivity postActivity2 = this.a;
                         String name2 = a.c().getName();
@@ -55,7 +55,7 @@ public class x implements View.OnClickListener {
                         int m2 = aiVar.m();
                         AntiData g2 = a.g();
                         amVar4 = this.a.l;
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bi(postActivity2, 1, name2, p2, l3, null, m2, g2, 13002, false, amVar4.a().k(), null, false, false, null, null, null)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bh(postActivity2, 1, name2, p2, l3, null, m2, g2, 13002, false, amVar4.a().k(), null, false, false, null, null, null)));
                     } else {
                         com.baidu.adp.lib.util.k.a((Context) this.a, a.g().getForbid_info());
                     }

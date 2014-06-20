@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.br;
 import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -47,13 +47,13 @@ public class c extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            bp.b(view);
+            br.b(view);
         }
-        bp.a(view);
+        br.a(view);
         if (itemViewType != 3) {
             int skinType = TbadkApplication.m252getInst().getSkinType();
             View findViewById = view.findViewById(com.baidu.tieba.v.container);
-            bp.a(findViewById, 1, skinType);
+            br.a(findViewById, 1, skinType);
             if (itemViewType == 2) {
                 if (getCount() > 1) {
                     findViewById.setVisibility(0);

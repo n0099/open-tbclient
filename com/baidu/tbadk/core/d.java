@@ -16,7 +16,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tbadk.core.util.o;
 /* loaded from: classes.dex */
 public abstract class d extends Fragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
@@ -93,7 +93,7 @@ public abstract class d extends Fragment implements DialogInterface.OnClickListe
         super.onResume();
         if (d_()) {
             b(TbadkApplication.m252getInst().getSkinType());
-            bg.a(getClass().getName());
+            bi.a(getClass().getName());
             if (this.d) {
                 e();
             }

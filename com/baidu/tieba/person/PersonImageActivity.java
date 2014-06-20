@@ -56,7 +56,7 @@ public class PersonImageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.c.setBackgroundColor(com.baidu.tbadk.core.util.bc.d(i));
+            this.c.setBackgroundColor(com.baidu.tbadk.core.util.be.d(i));
         } else {
             this.c.setBackgroundColor(-16777216);
         }

@@ -2,7 +2,7 @@ package com.baidu.tieba.square;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements View.OnClickListener {
@@ -25,7 +25,7 @@ public class ad implements View.OnClickListener {
         }
         String a = ak.a("forum_list_recommend", afVar.c());
         if (afVar != null) {
-            bi a2 = bi.a();
+            bk a2 = bk.a();
             context = this.a.b;
             String[] strArr = new String[3];
             strArr[0] = afVar.b();

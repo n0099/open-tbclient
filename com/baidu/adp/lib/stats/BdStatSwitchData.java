@@ -2,7 +2,6 @@ package com.baidu.adp.lib.stats;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.location.LocationClientOption;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -74,7 +73,7 @@ public class BdStatSwitchData implements Serializable {
     }
 
     public int getUploadMilliInterval() {
-        return this.uploadInterval * LocationClientOption.MIN_SCAN_SPAN;
+        return this.uploadInterval * 1000;
     }
 
     public void setUploadInterval(int i) {

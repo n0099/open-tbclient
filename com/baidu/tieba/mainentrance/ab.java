@@ -5,7 +5,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.model.BarSuggestModel;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class ab extends BdAsyncTask<Object, Integer, BarSuggestModel> {
     BasicNameValuePair a;
     final /* synthetic */ SquareSearchActivity b;
-    private al c = null;
+    private an c = null;
     private String d;
 
     public ab(SquareSearchActivity squareSearchActivity, String str, BasicNameValuePair basicNameValuePair, boolean z) {
@@ -44,7 +44,7 @@ public class ab extends BdAsyncTask<Object, Integer, BarSuggestModel> {
     /* renamed from: a */
     public BarSuggestModel doInBackground(Object... objArr) {
         try {
-            this.c = new al(this.d);
+            this.c = new an(this.d);
             this.c.a(this.a);
             String i = this.c.i();
             if (i == null) {

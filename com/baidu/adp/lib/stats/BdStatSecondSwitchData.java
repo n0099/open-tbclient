@@ -1,11 +1,13 @@
 package com.baidu.adp.lib.stats;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BdStatSecondSwitchData implements Serializable {
     private static final long serialVersionUID = -7490260966510945264L;
+    private int percent = 100;
     private String type = null;
     private boolean is_open = false;
 
@@ -26,10 +28,23 @@ public class BdStatSecondSwitchData implements Serializable {
     }
 
     public void parserJson(JSONObject jSONObject) {
+        boolean z = true;
         if (jSONObject != null) {
             try {
-                setIs_open(jSONObject.optInt("is_open", 0) != 0);
                 setType(jSONObject.optString("type"));
+                int optInt = jSONObject.optInt("percent", 100);
+                boolean z2 = jSONObject.optInt("is_open", 0) != 0;
+                if (z2) {
+                    String b = h.a().b();
+                    if (!TextUtils.isEmpty(b)) {
+                        if (b.hashCode() % 100 >= optInt) {
+                            z = false;
+                        }
+                        setIs_open(z);
+                    }
+                }
+                z = z2;
+                setIs_open(z);
             } catch (Exception e) {
                 BdLog.e(getClass(), "parserJson", e);
             }

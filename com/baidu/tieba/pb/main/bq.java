@@ -1181,7 +1181,7 @@ public class bq {
             }
             sparseArray.put(com.baidu.tieba.v.tag_clip_board, a2);
             sparseArray.put(com.baidu.tieba.v.tag_is_subpb, false);
-            this.A.setText(com.baidu.tbadk.core.util.be.a(a2.n()));
+            this.A.setText(com.baidu.tbadk.core.util.bg.a(a2.n()));
             afVar.d().L();
             this.t.setVisibility(0);
             this.t.setText(afVar.d().J());

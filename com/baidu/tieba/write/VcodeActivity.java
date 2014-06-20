@@ -31,7 +31,7 @@ public class VcodeActivity extends BaseActivity {
     private final View.OnClickListener n = new ab(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bh.class, VcodeActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bg.class, VcodeActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -80,11 +80,11 @@ public class VcodeActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         int i2;
         super.onChangeSkinType(i);
-        com.baidu.tbadk.core.util.bc.a(this.k, i);
+        com.baidu.tbadk.core.util.be.a(this.k, i);
         this.a.c(i);
-        com.baidu.tbadk.core.util.bc.g(this.c, i);
+        com.baidu.tbadk.core.util.be.g(this.c, i);
         if (i == 1) {
-            i2 = com.baidu.tbadk.core.util.bc.a(i);
+            i2 = com.baidu.tbadk.core.util.be.a(i);
         } else {
             i2 = -12895429;
         }

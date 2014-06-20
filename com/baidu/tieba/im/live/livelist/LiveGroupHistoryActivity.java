@@ -17,7 +17,7 @@ public class LiveGroupHistoryActivity extends BaseActivity implements com.baidu.
     private final com.baidu.adp.framework.listener.b e = new af(this, MessageTypes.CMD_LIVE_GROUP_HISTORY);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ab.class, LiveGroupHistoryActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.aa.class, LiveGroupHistoryActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -97,7 +97,7 @@ public class LiveGroupHistoryActivity extends BaseActivity implements com.baidu.
     public void g() {
         LiveCardData d = this.b.d();
         if (d != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ah(this, d.getName(), this.d, d.getGroupId(), d.getPublisherId(), d.getPublisherName())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ag(this, d.getName(), this.d, d.getGroupId(), d.getPublisherId(), d.getPublisherName())));
         }
     }
 }

@@ -364,6 +364,6 @@ public class bb {
         if (str == null) {
             return null;
         }
-        return com.baidu.tbadk.core.util.bi.a(context, str);
+        return com.baidu.tbadk.core.util.bk.a(context, str);
     }
 }

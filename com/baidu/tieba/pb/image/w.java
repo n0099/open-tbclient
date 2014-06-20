@@ -2,8 +2,8 @@ package com.baidu.tieba.pb.image;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.bg;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -50,7 +50,7 @@ public class w extends BdAsyncTask<String, Integer, String> {
                     if (str != null && str.length() > 0) {
                         uVar5 = this.a.F;
                         if (uVar5 != null) {
-                            if (be.f(str) != null) {
+                            if (bg.f(str) != null) {
                                 String str2 = String.valueOf(f) + ".jpg";
                                 int i3 = 0;
                                 while (com.baidu.tbadk.core.util.x.b(str2) && i3 < 10000) {
@@ -62,7 +62,7 @@ public class w extends BdAsyncTask<String, Integer, String> {
                                     str2 = com.baidu.tbadk.core.util.x.a((String) null, str2, c.h(), 80);
                                 }
                                 if (str2 != null) {
-                                    new aj(this.a).a(str2);
+                                    new al(this.a).a(str2);
                                     return this.a.getString(com.baidu.tieba.y.save_image_to_album);
                                 }
                                 return com.baidu.tbadk.core.util.x.b();

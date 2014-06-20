@@ -1369,14 +1369,14 @@ public class x {
                     BdLog.e("Failed to decode the webp when save file.");
                 }
             }
-            if (be.f(str) != null) {
+            if (bg.f(str) != null) {
                 String str3 = String.valueOf(f) + str2;
                 for (int i2 = 0; b(str3) && i2 < 10000; i2++) {
                     str3 = String.valueOf(f) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;
                 }
                 String a2 = a(str3, bArr);
                 if (a2 != null) {
-                    new aj(context).a(a2);
+                    new al(context).a(a2);
                     i = 0;
                     return 0;
                 }

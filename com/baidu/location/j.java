@@ -99,7 +99,7 @@ public class j {
     public static boolean G = true;
     public static int i = 20;
     public static int g = TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI;
-    public static int l = LocationClientOption.MIN_SCAN_SPAN;
+    public static int l = 1000;
     public static long z = 1200000;
     public static long B = 20;
     public static long q = 300000;

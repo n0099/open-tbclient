@@ -1,11 +1,11 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
 /* loaded from: classes.dex */
 public class bd extends com.baidu.tbadk.core.frameworkData.a {
-    public bd(Context context, String str, boolean z) {
+    public bd(Context context) {
         super(context);
-        getIntent().putExtra("start_from", str);
-        getIntent().putExtra("back_special", z);
+        setIntentAction(IntentAction.StartService);
     }
 }

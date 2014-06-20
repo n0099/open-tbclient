@@ -9,7 +9,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 class g extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ FileDownloader a;
-    private com.baidu.tbadk.core.util.al b = null;
+    private com.baidu.tbadk.core.util.an b = null;
     private volatile boolean c = false;
     private final String d;
     private final String e;
@@ -30,7 +30,7 @@ class g extends BdAsyncTask<String, Integer, Boolean> {
         Boolean bool = false;
         while (!this.c) {
             try {
-                this.b = new com.baidu.tbadk.core.util.al(this.d);
+                this.b = new com.baidu.tbadk.core.util.an(this.d);
                 handler = this.a.handler;
                 bool = Boolean.valueOf(this.b.a(String.valueOf(this.e) + ".tmp", handler, TbConfig.NET_MSG_GETLENTH));
                 if (bool.booleanValue() || this.b.d() == -2) {

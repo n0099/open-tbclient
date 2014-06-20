@@ -17,6 +17,6 @@ class aq implements Runnable {
         axVar = this.a.b;
         BdListView a = axVar.a();
         axVar2 = this.a.b;
-        com.baidu.tbadk.core.util.ae.a(a, axVar2.b().a(), 0, -1);
+        com.baidu.tbadk.core.util.ag.a(a, axVar2.b().a(), 0, -1);
     }
 }

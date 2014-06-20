@@ -10,27 +10,27 @@ public abstract class SocketResponsedMessage extends ResponsedMessage<byte[]> {
         return getError() != 0;
     }
 
-    public int getmDownSize() {
+    public int getDownSize() {
         return this.mDownSize;
     }
 
-    public void setmDownSize(int i) {
+    public void setDownSize(int i) {
         this.mDownSize = i;
     }
 
-    public int getmRetry() {
+    public int getRetry() {
         return this.mRetry;
     }
 
-    public void setmRetry(int i) {
+    public void setRetry(int i) {
         this.mRetry = i;
     }
 
-    public long getmCostTime() {
+    public long getCostTime() {
         return this.mCostTime;
     }
 
-    public void setmCostTime(long j) {
+    public void setCostTime(long j) {
         this.mCostTime = j;
     }
 

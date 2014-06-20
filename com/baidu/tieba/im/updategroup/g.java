@@ -10,9 +10,9 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.im.f.t;
+import com.baidu.tieba.im.e.t;
 import com.baidu.tieba.s;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
@@ -144,17 +144,17 @@ public abstract class g extends com.baidu.adp.base.c implements a {
     protected void m() {
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             if (this.l) {
-                bc.e((View) this.e, u.navi_done_text_bg_1);
+                be.e((View) this.e, u.navi_done_text_bg_1);
                 this.e.setTextColor(this.g.getResources().getColorStateList(s.navi_done_text_1));
                 return;
             }
-            bc.e((View) this.e, u.btn_titlebar_finish_d_1);
+            be.e((View) this.e, u.btn_titlebar_finish_d_1);
             this.e.setTextColor(this.g.getResources().getColor(s.navi_done_text_d_1));
         } else if (this.l) {
-            bc.e((View) this.e, u.navi_done_text_bg);
+            be.e((View) this.e, u.navi_done_text_bg);
             this.e.setTextColor(this.g.getResources().getColorStateList(s.navi_done_text));
         } else {
-            bc.e((View) this.e, u.btn_titlebar_finish_d);
+            be.e((View) this.e, u.btn_titlebar_finish_d);
             this.e.setTextColor(this.g.getResources().getColor(s.navi_done_text_d));
         }
     }
@@ -175,8 +175,8 @@ public abstract class g extends com.baidu.adp.base.c implements a {
         this.g.getLayoutMode().a(i == 1);
         this.g.getLayoutMode().a(this.d);
         this.c.c(i);
-        bc.b(this.d, i);
-        bc.g(this.e, i);
+        be.b(this.d, i);
+        be.g(this.e, i);
         m();
         if (i == 1) {
             this.b.setHintTextColor(this.g.getResources().getColor(s.create_group_input_hintcolor_1));

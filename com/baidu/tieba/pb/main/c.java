@@ -19,7 +19,7 @@ class c implements com.baidu.adp.lib.d.c<ImageView> {
     public ImageView a() {
         Drawable drawable;
         TbImageView tbImageView = new TbImageView(this.a);
-        boolean f = com.baidu.tbadk.core.g.a().f();
+        boolean f = com.baidu.tbadk.core.h.a().f();
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             drawable = this.a.getResources().getDrawable(com.baidu.tieba.s.pb_default_image_bg_1);
         } else {
@@ -65,7 +65,7 @@ class c implements com.baidu.adp.lib.d.c<ImageView> {
                 drawable = this.a.getResources().getDrawable(com.baidu.tieba.s.pb_default_image_bg);
             }
             tbImageView.setDefaultBg(drawable);
-            if (com.baidu.tbadk.core.g.a().f()) {
+            if (com.baidu.tbadk.core.h.a().f()) {
                 tbImageView.setNightDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d_1);
                 tbImageView.setDefaultResource(com.baidu.tieba.u.pic_baidu_logo_d);
                 tbImageView.setAdjustViewBounds(false);

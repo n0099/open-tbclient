@@ -15,7 +15,6 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.IndicatorView;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.gif.GifView;
 import com.compatible.menukey.MenuKeyUtils;
 import java.util.ArrayList;
@@ -83,12 +82,12 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         this.d.height = this.j;
         this.d.gravity = 51;
         this.d.format = -3;
-        this.d.type = LocationClientOption.MIN_SCAN_SPAN;
+        this.d.type = 1000;
         this.d.flags |= 56;
         this.h = (ViewGroup) ((Activity) getContext()).getWindow().getDecorView();
         this.n = (IndicatorView) findViewById(com.baidu.tieba.v.face_tab_indicator);
         if (MenuKeyUtils.hasSmartBar()) {
-            this.d.type = LocationClientOption.MIN_SCAN_SPAN;
+            this.d.type = 1000;
             this.d.flags = 25165832;
         }
     }

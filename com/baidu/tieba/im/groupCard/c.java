@@ -3,8 +3,8 @@ package com.baidu.tieba.im.groupCard;
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -40,7 +40,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
                 groupCardActivity2 = this.c.b;
                 return groupCardActivity2.getString(y.save_error);
             }
-            if (be.f(this.a) == null) {
+            if (bg.f(this.a) == null) {
                 groupCardActivity5 = this.c.b;
                 return groupCardActivity5.getString(y.save_error);
             }
@@ -51,7 +51,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
             String a = x.a((String) null, str, this.b, 80);
             if (a != null) {
                 groupCardActivity3 = this.c.b;
-                new aj(groupCardActivity3).a(a);
+                new al(groupCardActivity3).a(a);
                 groupCardActivity4 = this.c.b;
                 return groupCardActivity4.getString(y.save_image_to_album);
             }

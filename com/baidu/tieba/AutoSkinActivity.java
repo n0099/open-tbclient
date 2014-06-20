@@ -7,7 +7,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.br;
 /* loaded from: classes.dex */
 public class AutoSkinActivity extends BaseActivity {
     protected ViewGroup a = null;
@@ -44,23 +45,23 @@ public class AutoSkinActivity extends BaseActivity {
             this.e = (ListView) findViewById(v.list);
         }
         this.g = (ViewGroup) findViewById(v.body_container);
-        bp.b(this.g);
+        br.b(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tbadk.core.util.bc.a(this.c, i);
-        com.baidu.tbadk.core.util.bc.d(this.b, i);
-        com.baidu.tbadk.core.util.bc.d(this.d, i);
-        com.baidu.tbadk.core.util.bc.b(this.a, i);
-        com.baidu.tbadk.core.util.bc.e((TextView) this.f, i);
+        be.a(this.c, i);
+        be.d(this.b, i);
+        be.d(this.d, i);
+        be.b(this.a, i);
+        be.e((TextView) this.f, i);
         if (this.e != null) {
             this.e.invalidateViews();
         }
         if (this.g != null) {
-            bp.a(this.g, i);
+            br.a(this.g, i);
         }
     }
 

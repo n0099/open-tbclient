@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.c;
 
 import android.util.SparseArray;
-import com.baidu.adp.framework.a.n;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.util.BdLog;
@@ -10,13 +9,13 @@ import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.message.MessageSyncMessage;
 /* loaded from: classes.dex */
-public class k extends n {
+public class k extends com.baidu.adp.framework.a.k {
     public k() {
         super(MessageTypes.CMD_MESSAGE_SYNC);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.h
+    @Override // com.baidu.adp.framework.a.f
     public SocketMessage a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         String str;
         StringBuilder sb = new StringBuilder((int) Constants.MEDIA_INFO);

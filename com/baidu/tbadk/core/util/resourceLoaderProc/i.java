@@ -12,27 +12,27 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int b() {
+    public int c() {
         return k.b(TbadkApplication.m252getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int c() {
+    public int d() {
         return k.c(TbadkApplication.m252getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean d() {
+    public boolean e() {
         return this.a;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean e() {
+    public boolean f() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean f() {
+    public boolean g() {
         return false;
     }
 }

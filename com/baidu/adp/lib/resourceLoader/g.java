@@ -1,15 +1,20 @@
 package com.baidu.adp.lib.resourceLoader;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public interface g<T> {
-    T a(String str, a aVar, Object... objArr);
+class g extends BroadcastReceiver {
+    private g() {
+    }
 
-    T a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, a aVar, Object... objArr);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ g(g gVar) {
+        this();
+    }
 
-    T a(String str, Object... objArr);
-
-    void a(String str, Object obj, Object... objArr);
-
-    boolean a();
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        BdResourceLoaderNetHelperStatic.a(com.baidu.adp.lib.network.willdelete.h.a());
+    }
 }

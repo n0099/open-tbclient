@@ -14,7 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
@@ -150,8 +150,8 @@ public class CreateBarActivity extends BaseActivity {
         super.onChangeSkinType(i);
         getLayoutMode().a(i == 1);
         getLayoutMode().a((View) this.a);
-        bc.a(this.d, i);
-        bc.b(this.g, i);
+        be.a(this.d, i);
+        be.b(this.g, i);
         String str = String.valueOf(this.u) + getString(y.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
         if (i == 1) {

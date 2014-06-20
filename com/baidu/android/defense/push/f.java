@@ -1,55 +1,22 @@
 package com.baidu.android.defense.push;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public final class f {
-    private static f b = null;
-    private Context a;
-
-    private f(Context context) {
-        this.a = null;
-        this.a = context.getApplicationContext();
+public class f extends c {
+    public f(String str, Context context) {
+        super(str, context);
     }
 
-    public static f a(Context context) {
-        if (b == null) {
-            b = new f(context);
+    @Override // com.baidu.android.defense.push.c, com.baidu.android.defense.push.n
+    public boolean b() {
+        if (this.c) {
+            Iterator it = this.a.iterator();
+            while (it.hasNext()) {
+                com.baidu.android.defense.a.d.a().a(new com.baidu.android.defense.a.b(this.d, (com.baidu.android.defense.a.a) it.next()));
+            }
+            return true;
         }
-        return b;
-    }
-
-    public i a(String str) {
-        String str2;
-        try {
-            str2 = new JSONObject(str).getString(com.baidu.tbadk.core.frameworkData.a.CMD);
-        } catch (JSONException e) {
-            str2 = null;
-        }
-        if (TextUtils.isEmpty(str2)) {
-            return null;
-        }
-        if ("appinstall".equals(str2)) {
-            return new l(str, this.a);
-        }
-        if ("appuninstall".equals(str2)) {
-            return new h(str, this.a);
-        }
-        if ("appfreeze".equals(str2)) {
-            return new c(str, this.a);
-        }
-        if ("appunfreeze".equals(str2)) {
-            return new j(str, this.a);
-        }
-        if ("filepush".equals(str2)) {
-            return new g(str, this.a);
-        }
-        if (TbConfig.SETTINGFILE.equals(str2)) {
-            return new k(str, this.a);
-        }
-        return null;
+        return false;
     }
 }

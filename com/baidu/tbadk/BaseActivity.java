@@ -18,7 +18,7 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.mobstat.StatService;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tbadk.core.util.o;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.u;
@@ -51,7 +51,7 @@ public class BaseActivity extends BdBaseActivity {
             CompatibleUtile.getInstance().openGpu(this);
         }
         TbadkApplication.setIsAppRunning(true);
-        bg.a(getClass().getName());
+        bi.a(getClass().getName());
         if (TbadkApplication.m252getInst().getIsUseBaiduStatOn()) {
             try {
                 StatService.setAppChannel(TbConfig.getFrom());
@@ -361,7 +361,7 @@ public class BaseActivity extends BdBaseActivity {
             }
         }
         TbadkApplication.m252getInst().AddResumeNum();
-        bg.a(getClass().getName());
+        bi.a(getClass().getName());
     }
 
     public void changeSkinType(int i) {

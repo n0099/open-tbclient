@@ -15,8 +15,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.model.am;
 import com.baidu.tieba.view.CustomTextView;
@@ -144,19 +144,19 @@ public class PostActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bc.a(this.c, i);
-        bc.a(this.e, i);
-        bc.e((TextView) this.d, i);
-        bc.a(this.g, i);
-        bc.d(this.b, i);
-        bc.b(this.o, i);
+        be.a(this.c, i);
+        be.a(this.e, i);
+        be.e((TextView) this.d, i);
+        be.a(this.g, i);
+        be.d(this.b, i);
+        be.b(this.o, i);
         if (i == 1) {
             this.s.setTextColor(getResources().getColor(com.baidu.tieba.s.skin_1_second_common_color));
-            bc.e((View) this.p, com.baidu.tieba.u.floor_bg_1);
+            be.e((View) this.p, com.baidu.tieba.u.floor_bg_1);
             return;
         }
         this.s.setTextColor(-12040120);
-        bc.e((View) this.p, com.baidu.tieba.u.floor_bg);
+        be.e((View) this.p, com.baidu.tieba.u.floor_bg);
     }
 
     private void b() {
@@ -223,7 +223,7 @@ public class PostActivity extends BaseActivity {
                 } else {
                     this.q.setText((CharSequence) null);
                 }
-                this.r.setText(be.a(aiVar.n()));
+                this.r.setText(bg.a(aiVar.n()));
                 this.p.setVisibility(0);
                 this.p.setText(String.valueOf(String.valueOf(aiVar.m())) + getString(com.baidu.tieba.y.floor));
                 ArrayList<com.baidu.tieba.data.f> r = aiVar.r();

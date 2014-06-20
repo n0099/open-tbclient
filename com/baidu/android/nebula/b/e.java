@@ -1,34 +1,42 @@
 package com.baidu.android.nebula.b;
 
-import java.io.ByteArrayOutputStream;
-import java.util.zip.GZIPOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.net.SocketException;
 /* loaded from: classes.dex */
-public final class e {
-    private e() {
+class e implements Runnable {
+    final /* synthetic */ Socket a;
+    final /* synthetic */ InputStream b;
+    final /* synthetic */ i c;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(i iVar, Socket socket, InputStream inputStream) {
+        this.c = iVar;
+        this.a = socket;
+        this.b = inputStream;
     }
 
-    public static byte[] a(byte[] bArr) {
-        byte[] bArr2;
-        Exception e;
-        ByteArrayOutputStream byteArrayOutputStream;
+    @Override // java.lang.Runnable
+    public void run() {
+        b bVar;
+        OutputStream outputStream = null;
         try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-            gZIPOutputStream.write(bArr);
-            gZIPOutputStream.finish();
-            gZIPOutputStream.close();
-            bArr2 = byteArrayOutputStream.toByteArray();
-        } catch (Exception e2) {
-            bArr2 = null;
-            e = e2;
+            outputStream = this.a.getOutputStream();
+            bVar = this.c.a.g;
+            l lVar = new l(this.c.a, bVar.a(), this.b, outputStream, this.a.getInetAddress());
+            while (!this.a.isClosed()) {
+                lVar.f();
+            }
+        } catch (Exception e) {
+            if (!(e instanceof SocketException) || !"NanoHttpd Shutdown".equals(e.getMessage())) {
+                e.printStackTrace();
+            }
+        } finally {
+            h.b(outputStream);
+            h.b(this.b);
+            h.d(this.a);
+            this.c.a.b(this.a);
         }
-        try {
-            byteArrayOutputStream.close();
-        } catch (Exception e3) {
-            e = e3;
-            e.printStackTrace();
-            return bArr2;
-        }
-        return bArr2;
     }
 }

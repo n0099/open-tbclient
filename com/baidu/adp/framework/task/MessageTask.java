@@ -1,13 +1,13 @@
 package com.baidu.adp.framework.task;
 
-import com.baidu.adp.framework.c.g;
+import com.baidu.adp.framework.c.e;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class MessageTask {
     protected final int mCmd;
     protected int mPriority;
     protected int mRetry;
-    protected g mTimeOut;
+    protected e mTimeOut;
 
     public abstract boolean checkCmd();
 
@@ -26,12 +26,12 @@ public abstract class MessageTask {
         return this.mCmd;
     }
 
-    public g getTimeOut() {
+    public e getTimeOut() {
         return this.mTimeOut;
     }
 
-    public void setTimeOut(g gVar) {
-        this.mTimeOut = gVar;
+    public void setTimeOut(e eVar) {
+        this.mTimeOut = eVar;
     }
 
     public int getRetry() {

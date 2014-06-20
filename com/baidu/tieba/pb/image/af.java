@@ -6,14 +6,14 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ ac a;
-    private al b = null;
+    private an b = null;
     private int c;
     private int d;
     private String e;
@@ -52,10 +52,10 @@ public class af extends BdAsyncTask<String, Integer, String> {
     /* renamed from: a */
     public String doInBackground(String... strArr) {
         String str;
-        this.b = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/piccomment");
-        al alVar = this.b;
+        this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/piccomment");
+        an anVar = this.b;
         str = this.a.e;
-        alVar.a("kw", str);
+        anVar.a("kw", str);
         this.b.a("pic_id", this.f);
         this.b.a("tid", this.e);
         this.b.a("pn", String.valueOf(this.c));

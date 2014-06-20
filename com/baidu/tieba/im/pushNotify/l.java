@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.pushNotify;
 
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
@@ -20,7 +21,7 @@ class l extends CustomMessageListener {
             a.f().d((ImMessageCenterShowItemData) null);
             a.f().c((ImMessageCenterShowItemData) null);
             a.f().b(false, (com.baidu.tieba.im.a<Void>) null);
-            com.baidu.adp.framework.c.c.a().a(true, "clear cache");
+            BdSocketLinkService.startService(true, "clear cache");
         }
     }
 }

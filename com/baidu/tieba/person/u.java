@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class u extends BdAsyncTask<Boolean, t, t> {
     final /* synthetic */ t a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
     private t c;
     private volatile boolean d;
     private boolean e;
@@ -54,7 +54,7 @@ public class u extends BdAsyncTask<Boolean, t, t> {
             }
         }
         if (!this.d && this.a.b() != null) {
-            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/profile");
+            this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/profile");
             this.b.a(SapiAccountManager.SESSION_UID, this.a.b());
             this.b.a("has_plist", "0");
             String i = this.b.i();

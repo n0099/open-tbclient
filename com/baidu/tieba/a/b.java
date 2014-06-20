@@ -3,7 +3,7 @@ package com.baidu.tieba.a;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
@@ -20,7 +20,7 @@ public class b extends com.baidu.tbadk.core.e {
         int b = k.b(ai.c().d());
         int c = k.c(ai.c().d());
         float f = b / 320.0f;
-        int i = bf.a().b() ? 2 : 1;
+        int i = bh.a().b() ? 2 : 1;
         this.a.a("scr_w", String.valueOf(b));
         this.a.a("scr_h", String.valueOf(c));
         this.a.a("scr_dip", String.valueOf(f));

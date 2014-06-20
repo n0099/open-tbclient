@@ -94,16 +94,16 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
             String string2 = getString(com.baidu.tieba.y.cancel);
             if (i == 12002) {
                 if (intent != null && intent.getData() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bj(this, 12002, 12009, intent.getData(), null, null, null, a, string, string2, "")));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bi(this, 12002, 12009, intent.getData(), null, null, null, a, string, string2, "")));
                 }
             } else if (i == 12001) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bj(this, 12001, 12010, null, null, null, null, a, string, string2, "")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bi(this, 12001, 12010, null, null, null, null, a, string, string2, "")));
             }
         } else if (i2 == 0) {
             if (i == 12010) {
-                com.baidu.tbadk.core.util.bb.a(this);
+                com.baidu.tbadk.core.util.bd.a(this);
             } else if (i == 12009) {
-                com.baidu.tbadk.core.util.bb.b(this);
+                com.baidu.tbadk.core.util.bd.b(this);
             }
         }
     }
@@ -265,7 +265,7 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
 
     @Override // com.baidu.tbadk.widget.richText.j
     public void b(Context context, String str) {
-        com.baidu.tbadk.core.util.bi.a().a(context, new String[]{str});
+        com.baidu.tbadk.core.util.bk.a().a(context, new String[]{str});
     }
 
     @Override // com.baidu.tbadk.widget.richText.j
@@ -360,11 +360,11 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
             finish();
         } else if (view == this.d.D()) {
             if (t()) {
-                com.baidu.tbadk.core.util.bb.a(this);
+                com.baidu.tbadk.core.util.bd.a(this);
             }
         } else if (view == this.d.E()) {
             if (t()) {
-                com.baidu.tbadk.core.util.bb.b(this);
+                com.baidu.tbadk.core.util.bd.b(this);
             }
         } else if (view == this.d.B()) {
             u();
@@ -505,7 +505,7 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
             this.e.c(i);
             showToast(com.baidu.tieba.y.op_result_deleted);
         } else if (str.equals(getString(com.baidu.tieba.y.msg_img_save))) {
-            String a2 = com.baidu.tieba.im.f.r.a(a.getContent(), true);
+            String a2 = com.baidu.tieba.im.e.r.a(a.getContent(), true);
             if (a2 != null) {
                 this.i = new cw(a2, this);
                 this.i.a();
@@ -543,15 +543,15 @@ public abstract class TalkableActivity extends BaseActivity implements View.OnTo
             default:
                 return;
             case 5:
-                if (!t() || (a2 = this.e.a(i2)) == null || !com.baidu.tieba.im.f.r.c(a2)) {
+                if (!t() || (a2 = this.e.a(i2)) == null || !com.baidu.tieba.im.e.r.c(a2)) {
                 }
                 return;
             case 6:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(this, TbadkApplication.getCurrentAccount(), TbadkApplication.getCurrentAccountName())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this, TbadkApplication.getCurrentAccount(), TbadkApplication.getCurrentAccountName())));
                 return;
             case 8:
                 ChatMessage a3 = this.e.a(i2);
-                if (a3 != null && com.baidu.tieba.im.f.r.e(a3) && (a = this.e.a(i2)) != null && (content = a.getContent()) != null) {
+                if (a3 != null && com.baidu.tieba.im.e.r.e(a3) && (a = this.e.a(i2)) != null && (content = a.getContent()) != null) {
                     try {
                         JSONObject optJSONObject = new JSONObject(content).optJSONObject("eventParam");
                         if (optJSONObject != null) {

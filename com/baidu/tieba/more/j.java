@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
@@ -205,7 +205,7 @@ public class j extends com.baidu.adp.base.c {
             if (TbadkApplication.m252getInst().getSkinType() != 1) {
                 com.baidu.tieba.ai.c().c(i);
                 a(i);
-                new az(TbConfig.ST_TYPE_EYESHIELD_MODE).start();
+                new bb(TbConfig.ST_TYPE_EYESHIELD_MODE).start();
             } else {
                 return;
             }
@@ -245,7 +245,7 @@ public class j extends com.baidu.adp.base.c {
 
     public void a(boolean z) {
         this.f.setSwitchStateChangeListener(null);
-        if (com.baidu.tbadk.core.g.a().h()) {
+        if (com.baidu.tbadk.core.h.a().h()) {
             this.f.b(z);
         } else {
             this.f.a(z);
@@ -259,11 +259,11 @@ public class j extends com.baidu.adp.base.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void x() {
-        if (!com.baidu.tbadk.core.g.a().f()) {
+        if (!com.baidu.tbadk.core.h.a().f()) {
             this.g.setTip(this.mContext.getString(com.baidu.tieba.y.view_close));
-        } else if (com.baidu.tbadk.core.g.a().g() == 1) {
+        } else if (com.baidu.tbadk.core.h.a().g() == 1) {
             this.g.setTip(this.mContext.getString(com.baidu.tieba.y.view_high));
-        } else if (com.baidu.tbadk.core.g.a().g() == 2) {
+        } else if (com.baidu.tbadk.core.h.a().g() == 2) {
             this.g.setTip(this.mContext.getString(com.baidu.tieba.y.view_low));
         } else {
             this.g.setTip(this.mContext.getString(com.baidu.tieba.y.view_auto));
@@ -272,7 +272,7 @@ public class j extends com.baidu.adp.base.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void y() {
-        switch (com.baidu.tbadk.core.g.a().e()) {
+        switch (com.baidu.tbadk.core.h.a().e()) {
             case 0:
                 this.h.setTip(this.mContext.getString(com.baidu.tieba.y.view_auto));
                 return;
@@ -291,7 +291,7 @@ public class j extends com.baidu.adp.base.c {
     }
 
     public void o() {
-        switch (com.baidu.tbadk.core.g.a().c()) {
+        switch (com.baidu.tbadk.core.h.a().c()) {
             case 0:
                 this.i.setTip(this.mContext.getString(com.baidu.tieba.y.is_wifiopen));
                 return;

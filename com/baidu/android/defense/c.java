@@ -5,12 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
-import com.baidu.android.common.security.AESUtil;
-import com.baidu.android.common.security.Base64;
-import com.baidu.android.defense.b.e;
-import com.baidu.android.defense.push.d;
-import com.baidu.android.defense.push.f;
-import com.baidu.android.defense.push.i;
+import com.baidu.android.a.s;
+import com.baidu.android.defense.pkgmanager.d;
+import com.baidu.android.defense.push.j;
+import com.baidu.android.defense.push.n;
+import com.baidu.android.nebula.a.k;
+import com.baidu.android.nebula.a.l;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -60,8 +60,8 @@ public final class c {
         if (this.c != null) {
             this.b.registerReceiver(this.c, intentFilter);
         }
-        d.a(this.b).a();
-        e.a(this.b);
+        j.a(this.b).a();
+        d.a(this.b);
     }
 
     private void b(Intent intent) {
@@ -69,7 +69,7 @@ public final class c {
         if (TextUtils.isEmpty(stringExtra)) {
             return;
         }
-        e.a(this.b).a(stringExtra, this.b);
+        d.a(this.b).b(stringExtra, this.b);
     }
 
     private void c() {
@@ -80,14 +80,14 @@ public final class c {
 
     private void d() {
         c();
-        d.e();
-        e.b();
-        com.baidu.android.defense.a.b.b();
+        j.d();
+        d.b();
+        com.baidu.android.defense.a.d.b();
     }
 
     public void a(Intent intent) {
-        byte[] bytes;
-        i a2;
+        byte[] byteArrayExtra;
+        n a2;
         if (intent == null) {
             return;
         }
@@ -97,28 +97,29 @@ public final class c {
         }
         if ("action_appinstall".equals(action)) {
             b(intent);
-        } else if ("com.baidu.android.pushservice.action.RECEIVE".equals(action) || "com.baidu.android.pushservice.action.internal.RECEIVE".equals(action)) {
-            if ("method_bind".equals(intent.getStringExtra("method"))) {
-                d.a(this.b).a();
+        } else if ("com.baidu.android.pushservice.action.RECEIVE".equals(action) || "com.baidu.android.pushservice.action.sdk.RECEIVE".equals(action) || "com.baidu.android.pushservice.action.internal.RECEIVE".equals(action)) {
+            String stringExtra = intent.getStringExtra("method");
+            if ("method_bind".equals(stringExtra) || "method_sdk_bind".equals(stringExtra)) {
+                j.a(this.b).a();
             }
-        } else if ("com.baidu.android.pushservice.action.MESSAGE".equals(action) || "com.baidu.pushservice.action.supper.MESSAGE".equals(action)) {
-            if ("com.baidu.android.pushservice.action.MESSAGE".equals(action)) {
-                bytes = intent.getByteArrayExtra("message");
+        } else if ("com.baidu.android.pushservice.action.MESSAGE".equals(action) || "com.baidu.android.pushservice.action.SDK_MESSAGE".equals(action)) {
+            if ("com.baidu.android.pushservice.action.MESSAGE".equals(action) || "com.baidu.android.pushservice.action.SDK_MESSAGE".equals(action)) {
+                byteArrayExtra = intent.getByteArrayExtra("message");
             } else {
-                String stringExtra = intent.getStringExtra("message");
-                bytes = stringExtra != null ? stringExtra.getBytes() : null;
+                String stringExtra2 = intent.getStringExtra("message");
+                byteArrayExtra = stringExtra2 != null ? stringExtra2.getBytes() : null;
             }
             try {
-                bytes = AESUtil.decrypt("0102030405060708", "moplus@appsearch", bytes != null ? Base64.decode(bytes) : null);
+                byteArrayExtra = l.b("0102030405060708", "moplus@appsearch", byteArrayExtra != null ? k.a(byteArrayExtra) : null);
             } catch (Exception e) {
             }
-            if (bytes != null) {
+            if (byteArrayExtra != null) {
                 try {
-                    String str = new String(bytes, "utf-8");
-                    if (new JSONObject(str).getInt("message_type") != 1 || (a2 = f.a(this.b).a(str)) == null) {
-                        return;
+                    String str = new String(byteArrayExtra, "utf-8");
+                    if (new JSONObject(str).getInt("message_type") == 1 && (a2 = com.baidu.android.defense.push.l.a(this.b).a(str)) != null) {
+                        a2.b();
                     }
-                    a2.b();
+                    s.a(this.b).m();
                 } catch (UnsupportedEncodingException e2) {
                 } catch (JSONException e3) {
                 }

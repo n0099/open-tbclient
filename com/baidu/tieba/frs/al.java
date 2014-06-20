@@ -25,11 +25,11 @@ public class al implements DialogInterface.OnClickListener {
                 str = this.a.u;
                 if (str != null) {
                     FrsActivity frsActivity = this.a;
-                    com.baidu.tbadk.core.atomData.as asVar = new com.baidu.tbadk.core.atomData.as(this.a);
+                    com.baidu.tbadk.core.atomData.ar arVar = new com.baidu.tbadk.core.atomData.ar(this.a);
                     com.baidu.tbadk.core.data.n nVar = this.b;
                     str2 = this.a.n;
                     z = this.a.v;
-                    frsActivity.sendMessage(new CustomMessage(2006001, asVar.a(nVar, str2, null, 18003, true, false, z)));
+                    frsActivity.sendMessage(new CustomMessage(2006001, arVar.a(nVar, str2, null, 18003, true, false, z)));
                     break;
                 }
                 break;

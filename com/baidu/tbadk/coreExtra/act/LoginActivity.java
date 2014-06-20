@@ -24,7 +24,7 @@ public class LoginActivity extends BaseActivity {
     private final com.baidu.tbadk.core.account.g e = new ak(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.aj.class, LoginActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ai.class, LoginActivity.class);
         a();
     }
 
@@ -154,7 +154,7 @@ public class LoginActivity extends BaseActivity {
         if (TbadkApplication.m252getInst().getIsFirstUse()) {
             sendMessage(new CustomMessage(2017000, new com.baidu.tbadk.core.atomData.r(this).a("from_logo_page")));
         } else {
-            sendMessage(new CustomMessage(2017001, new com.baidu.tbadk.core.atomData.al(this).a(1)));
+            sendMessage(new CustomMessage(2017001, new com.baidu.tbadk.core.atomData.ak(this).a(1)));
         }
         finish();
     }

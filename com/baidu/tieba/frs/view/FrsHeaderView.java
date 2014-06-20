@@ -19,7 +19,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
@@ -220,24 +220,24 @@ public class FrsHeaderView {
         if (i == 1) {
             this.u.setBackgroundColor(this.B.getResources().getColor(s.frs_header_bg_1));
             if (this.G >= 0 && this.G < Y.length) {
-                bc.e((View) this.O, Z[this.G]);
+                be.e((View) this.O, Z[this.G]);
             }
             this.i.setCompoundDrawablesWithIntrinsicBounds(u.icon_like_1, 0, 0, 0);
             this.l.setCompoundDrawablesWithIntrinsicBounds(u.icon_sign_1, 0, 0, 0);
             this.i.setShadowLayer(1.0f, 0.0f, 1.0f, this.B.getResources().getColor(s.frs_like_shadow_1));
             this.l.setShadowLayer(1.0f, 0.0f, 1.0f, this.B.getResources().getColor(s.frs_sign_shadow_1));
-            bc.e(this.ag, u.icon_arrow_right_1);
+            be.e(this.ag, u.icon_arrow_right_1);
             this.v.setBackgroundResource(u.frs_top_item_bg_1);
         } else {
             this.u.setBackgroundColor(this.B.getResources().getColor(s.frs_header_bg));
             if (this.G >= 0 && this.G < Y.length) {
-                bc.e((View) this.O, Y[this.G]);
+                be.e((View) this.O, Y[this.G]);
             }
             this.i.setCompoundDrawablesWithIntrinsicBounds(u.icon_like, 0, 0, 0);
             this.l.setCompoundDrawablesWithIntrinsicBounds(u.icon_sign, 0, 0, 0);
             this.i.setShadowLayer(1.0f, 0.0f, 1.0f, this.B.getResources().getColor(s.frs_like_shadow));
             this.l.setShadowLayer(1.0f, 0.0f, 1.0f, this.B.getResources().getColor(s.frs_sign_shadow));
-            bc.e(this.ag, u.icon_arrow_right);
+            be.e(this.ag, u.icon_arrow_right);
             this.v.setBackgroundResource(u.frs_top_item_bg);
         }
         if (this.an != null) {
@@ -296,9 +296,9 @@ public class FrsHeaderView {
                 this.G = Integer.parseInt(this.I);
                 if (this.G >= 0 && this.G < Y.length) {
                     if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                        bc.e((View) this.O, Z[this.G]);
+                        be.e((View) this.O, Z[this.G]);
                     } else {
-                        bc.e((View) this.O, Y[this.G]);
+                        be.e((View) this.O, Y[this.G]);
                     }
                 }
             }

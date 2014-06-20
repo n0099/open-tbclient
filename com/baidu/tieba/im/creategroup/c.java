@@ -55,7 +55,7 @@ public class c implements x {
     }
 
     public int e() {
-        return com.baidu.tieba.im.f.t.b(this.d);
+        return com.baidu.tieba.im.e.t.b(this.d);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x

@@ -10,9 +10,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.as;
+import com.baidu.tbadk.core.atomData.ar;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.person.post.PersonPostModel;
 /* loaded from: classes.dex */
 public class p extends BaseAdapter implements c, f {
@@ -113,7 +113,7 @@ public class p extends BaseAdapter implements c, f {
             rVar.m.a(a, this.e);
         } else {
             rVar.l.setVisibility(8);
-            if (com.baidu.tbadk.core.g.a().f() && postList.media != null && postList.media.length > 0) {
+            if (com.baidu.tbadk.core.h.a().f() && postList.media != null && postList.media.length > 0) {
                 int min = Math.min(postList.media.length, 3);
                 String[] strArr = new String[min];
                 for (int i2 = 0; i2 < min; i2++) {
@@ -148,7 +148,7 @@ public class p extends BaseAdapter implements c, f {
         }
         rVar.a(this);
         rVar.a(TbadkApplication.m252getInst().getSkinType());
-        bc.f(rVar.n, com.baidu.tieba.s.cp_bg_line_b);
+        be.f(rVar.n, com.baidu.tieba.s.cp_bg_line_b);
         rVar.m.a(TbadkApplication.m252getInst().getSkinType());
         this.f.a().a(TbadkApplication.m252getInst().getSkinType() == 1);
         this.f.a().a(rVar.g);
@@ -187,7 +187,7 @@ public class p extends BaseAdapter implements c, f {
         } else if (id == com.baidu.tieba.v.username) {
             this.f.finish();
         } else if ((id == com.baidu.tieba.v.item_content || id == com.baidu.tieba.v.item_header || id == com.baidu.tieba.v.item_footer) && (strArr = (String[]) view.getTag()) != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new as(this.f).a(strArr[0], strArr[1], "person_post", 18003)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2006001, new ar(this.f).a(strArr[0], strArr[1], "person_post", 18003)));
             BdLog.d("PersonThreadAdapter", "on", "start thread = " + strArr[0] + " post_id = " + strArr[1]);
         }
     }

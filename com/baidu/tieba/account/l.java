@@ -11,7 +11,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
@@ -91,7 +91,7 @@ public class l extends BaseAdapter {
                     }
                     if (getItemViewType(i) == 0) {
                         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                            mVar.a.setTextColor(bc.a(1));
+                            mVar.a.setTextColor(be.a(1));
                         } else {
                             mVar.a.setTextColor(-12895429);
                         }
@@ -115,7 +115,7 @@ public class l extends BaseAdapter {
                         }
                     } else {
                         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                            mVar.b.setTextColor(bc.a(1));
+                            mVar.b.setTextColor(be.a(1));
                         } else {
                             mVar.b.setTextColor(-12895429);
                         }

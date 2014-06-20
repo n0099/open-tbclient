@@ -51,7 +51,7 @@ public abstract class c extends f {
         boolean z2 = false;
         if (g()) {
             z2 = true;
-        } else if (z && System.currentTimeMillis() - i() >= h.a().e()) {
+        } else if (z && System.currentTimeMillis() - i() >= h.a().f()) {
             z2 = true;
         }
         if (z2) {

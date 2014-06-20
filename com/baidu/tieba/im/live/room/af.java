@@ -68,7 +68,7 @@ class af extends com.baidu.adp.framework.listener.b {
                 imMessageCenterPojo.setGroup_name(this.a.x().j);
                 imMessageCenterPojo.setIs_delete(0);
                 imMessageCenterPojo.setIs_hidden(1);
-                com.baidu.tieba.im.f.i.a(imMessageCenterPojo);
+                com.baidu.tieba.im.e.i.a(imMessageCenterPojo);
             }
             z = this.a.z();
             z.d(this.a.x().j);

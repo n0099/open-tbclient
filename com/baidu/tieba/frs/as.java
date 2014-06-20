@@ -137,7 +137,7 @@ class as implements dh {
         }
         if (jVar != null && jVar.b) {
             ctVar24 = this.a.w;
-            ctVar24.v().a(com.baidu.tbadk.core.util.bf.a().b());
+            ctVar24.v().a(com.baidu.tbadk.core.util.bh.a().b());
             FrsActivity.A = 0L;
             FrsActivity.B = 0L;
             FrsActivity.C = 0;

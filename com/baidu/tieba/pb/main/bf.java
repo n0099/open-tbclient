@@ -21,7 +21,7 @@ public class bf implements View.OnClickListener {
         Context context;
         Context context2;
         String f = this.b.f();
-        if (!com.baidu.tbadk.core.util.be.c(f)) {
+        if (!com.baidu.tbadk.core.util.bg.c(f)) {
             context = this.a.b;
             AlertDialog.Builder title = new AlertDialog.Builder(context).setTitle(com.baidu.tieba.y.del_post_tip);
             context2 = this.a.b;

@@ -23,7 +23,6 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
 import com.baidu.location.BDLocation;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbConfig;
 import com.slidingmenu.lib.SlidingMenu;
 import java.util.ArrayList;
@@ -537,7 +536,7 @@ public class CustomViewAbove extends ViewGroup {
                             break;
                         } else if (this.mIsBeingDragged) {
                             VelocityTracker velocityTracker = this.mVelocityTracker;
-                            velocityTracker.computeCurrentVelocity(LocationClientOption.MIN_SCAN_SPAN, this.mMaximumVelocity);
+                            velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                             int xVelocity = (int) VelocityTrackerCompat.getXVelocity(velocityTracker, this.mActivePointerId);
                             float scrollX = (getScrollX() - getDestScrollX(this.mCurItem)) / getBehindWidth();
                             int pointerIndex = getPointerIndex(motionEvent, this.mActivePointerId);

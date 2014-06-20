@@ -9,7 +9,6 @@ import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
-import com.baidu.location.LocationClientOption;
 import java.io.File;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
@@ -342,7 +341,7 @@ public class MediaService extends Service implements MediaPlayer.OnErrorListener
         }
         long b = this.mVoice.b();
         if (b == 0 && (this.mPlayer instanceof j)) {
-            b = ((j) this.mPlayer).getDuration() / LocationClientOption.MIN_SCAN_SPAN;
+            b = ((j) this.mPlayer).getDuration() / 1000;
         }
         return (int) b;
     }
@@ -365,7 +364,7 @@ public class MediaService extends Service implements MediaPlayer.OnErrorListener
         intent.setFlags(1073741824);
         intent.putExtra("com.baidu.playPrepared_err_code", -1);
         int voiceTotalTime = getVoiceTotalTime();
-        long j = voiceTotalTime * LocationClientOption.MIN_SCAN_SPAN;
+        long j = voiceTotalTime * 1000;
         long voiceTotalTimeByMediaPlayer = getVoiceTotalTimeByMediaPlayer();
         if (voiceTotalTimeByMediaPlayer - j > 1000 || voiceTotalTimeByMediaPlayer < j) {
             voiceTotalTimeByMediaPlayer = j;

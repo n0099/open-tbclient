@@ -19,7 +19,7 @@ public class aj implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         LiveRoomChatActivity liveRoomChatActivity;
-        String a = com.baidu.tieba.im.f.r.a(this.b.getContent(), true);
+        String a = com.baidu.tieba.im.e.r.a(this.b.getContent(), true);
         Context context = this.a.getContext();
         liveRoomChatActivity = this.a.g;
         GroupMsgImageActivity.a(context, a, liveRoomChatActivity.x().b().getGroupId(), false);

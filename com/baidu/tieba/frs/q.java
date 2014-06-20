@@ -323,7 +323,7 @@ class q implements View.OnClickListener {
                                 gVar7 = this.a.I;
                                 int a2 = com.baidu.adp.lib.f.b.a(gVar7.g().getId(), 0);
                                 gVar8 = this.a.I;
-                                messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.af(frsActivity5, a2, gVar8.g().getName())));
+                                messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(frsActivity5, a2, gVar8.g().getName())));
                                 return;
                             }
                             FrsActivity frsActivity6 = this.a;

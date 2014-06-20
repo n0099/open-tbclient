@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.be;
+import com.baidu.tbadk.core.atomData.bd;
 import com.baidu.tieba.model.bc;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
@@ -18,7 +18,7 @@ public class TiebaSyncService extends Service {
     private Runnable mRunnable = new r(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(be.class, TiebaSyncService.class);
+        TbadkApplication.m252getInst().RegisterIntent(bd.class, TiebaSyncService.class);
     }
 
     public static void setMsgType(String str) {

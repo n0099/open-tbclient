@@ -152,7 +152,7 @@ public class WaittingActivity extends BaseActivity {
     }
 
     private void f() {
-        com.baidu.tieba.im.f.i.a(String.valueOf(this.b.f().d()));
+        com.baidu.tieba.im.e.i.a(String.valueOf(this.b.f().d()));
         showLoadingDialog(getString(y.group_tab_enterchatroom_loading));
         this.c.a(this.b.f().d());
     }
@@ -595,11 +595,11 @@ public class WaittingActivity extends BaseActivity {
     }
 
     private void k() {
-        com.baidu.tieba.im.f.b.a((Context) this, (DialogInterface.OnClickListener) new i(this), (DialogInterface.OnClickListener) new j(this));
+        com.baidu.tieba.im.e.b.a((Context) this, (DialogInterface.OnClickListener) new i(this), (DialogInterface.OnClickListener) new j(this));
     }
 
     private void l() {
-        com.baidu.tieba.im.f.b.b((Context) this, (DialogInterface.OnClickListener) new k(this), (DialogInterface.OnClickListener) new l(this));
+        com.baidu.tieba.im.e.b.b((Context) this, (DialogInterface.OnClickListener) new k(this), (DialogInterface.OnClickListener) new l(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

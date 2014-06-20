@@ -63,7 +63,7 @@ public class WriteImageActivity extends BaseActivity {
     private final View.OnClickListener G = new bi(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bj.class, WriteImageActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bi.class, WriteImageActivity.class);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -90,9 +90,9 @@ public class WriteImageActivity extends BaseActivity {
         if (this.A == 12002 || this.A == 12001) {
             d();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.StartService(this.A, intent.getData(), com.baidu.tbadk.core.util.bf.a().e(), this.u);
+                TiebaPrepareImageService.StartService(this.A, intent.getData(), com.baidu.tbadk.core.util.bh.a().e(), this.u);
             } else {
-                TiebaPrepareImageService.StartService(this.A, null, com.baidu.tbadk.core.util.bf.a().e(), this.u);
+                TiebaPrepareImageService.StartService(this.A, null, com.baidu.tbadk.core.util.bh.a().e(), this.u);
             }
             e();
         } else {
@@ -184,17 +184,17 @@ public class WriteImageActivity extends BaseActivity {
         this.p.c(i);
         if (i == 1) {
             if (this.d.isEnabled()) {
-                com.baidu.tbadk.core.util.bc.e((View) this.d, com.baidu.tieba.u.navi_done_text_bg_1);
+                com.baidu.tbadk.core.util.be.e((View) this.d, com.baidu.tieba.u.navi_done_text_bg_1);
                 this.d.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.navi_done_text_1));
                 return;
             }
-            com.baidu.tbadk.core.util.bc.e((View) this.d, com.baidu.tieba.u.btn_titlebar_finish_d_1);
+            com.baidu.tbadk.core.util.be.e((View) this.d, com.baidu.tieba.u.btn_titlebar_finish_d_1);
             this.d.setTextColor(getResources().getColor(com.baidu.tieba.s.navi_done_text_d_1));
         } else if (this.d.isEnabled()) {
-            com.baidu.tbadk.core.util.bc.e((View) this.d, com.baidu.tieba.u.navi_done_text_bg);
+            com.baidu.tbadk.core.util.be.e((View) this.d, com.baidu.tieba.u.navi_done_text_bg);
             this.d.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.navi_done_text));
         } else {
-            com.baidu.tbadk.core.util.bc.e((View) this.d, com.baidu.tieba.u.btn_titlebar_finish_d);
+            com.baidu.tbadk.core.util.be.e((View) this.d, com.baidu.tieba.u.btn_titlebar_finish_d);
             this.d.setTextColor(getResources().getColor(com.baidu.tieba.s.navi_done_text_d));
         }
     }
@@ -213,10 +213,10 @@ public class WriteImageActivity extends BaseActivity {
         if (TextUtils.isEmpty(this.B)) {
             if (this.z || this.A != 12003) {
                 this.d.setText(getString(com.baidu.tieba.y.done));
-                com.baidu.tbadk.core.util.bc.g(this.d, TbadkApplication.m252getInst().getSkinType());
+                com.baidu.tbadk.core.util.be.g(this.d, TbadkApplication.m252getInst().getSkinType());
             } else {
                 this.d.setText(getString(com.baidu.tieba.y.delete));
-                com.baidu.tbadk.core.util.bc.k(this.d, TbadkApplication.m252getInst().getSkinType());
+                com.baidu.tbadk.core.util.be.k(this.d, TbadkApplication.m252getInst().getSkinType());
             }
         } else {
             this.d.setText(this.B);
@@ -272,7 +272,7 @@ public class WriteImageActivity extends BaseActivity {
             }
             Bitmap a2 = com.baidu.tbadk.core.util.g.a(this.q, i);
             if (a2 != null && com.baidu.tbadk.core.util.x.a((String) null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, a2, 80) != null) {
-                new com.baidu.tbadk.core.util.az("motu_pic", String.valueOf(this.t)).start();
+                new com.baidu.tbadk.core.util.bb("motu_pic", String.valueOf(this.t)).start();
                 return true;
             }
         } catch (Exception e) {

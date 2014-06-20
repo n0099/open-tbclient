@@ -1,17 +1,17 @@
 package com.baidu.android.systemmonitor.a;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Handler;
 import android.text.TextUtils;
-import com.baidu.android.a.j;
-import com.baidu.android.a.n;
-import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.nebula.cmd.m;
-import com.baidu.android.nebula.util.BDLocationManager;
-import com.baidu.android.systemmonitor.devicestatistic.a.f;
-import com.baidu.android.systemmonitor.freqstatistic.e;
-import com.baidu.android.systemmonitor.freqstatistic.k;
+import com.baidu.android.a.g;
+import com.baidu.android.a.s;
+import com.baidu.android.nebula.cmd.k;
+import com.baidu.android.systemmonitor.util.e;
+import com.baidu.android.systemmonitor.util.f;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -43,70 +43,121 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public byte[] a(ArrayList arrayList, long j) {
+        String str;
         boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4 = false;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("commonprams", a());
             JSONObject jSONObject2 = new JSONObject();
-            boolean z2 = false;
             Iterator it = arrayList.iterator();
+            boolean z5 = false;
+            boolean z6 = false;
             while (it.hasNext()) {
-                switch (c.a[((n) it.next()).ordinal()]) {
+                switch (c.a[((g) it.next()).ordinal()]) {
                     case 1:
                         jSONObject2.put("apptrace", d());
-                        z = z2;
+                        z = z4;
+                        z2 = z5;
+                        z3 = z6;
                         break;
                     case 2:
                         jSONObject2.put("appchange", c());
-                        z = z2;
+                        z = z4;
+                        z2 = z5;
+                        z3 = z6;
                         break;
                     case 3:
                         jSONObject2.put("event_active", b());
-                        z = z2;
+                        z = z4;
+                        z2 = z5;
+                        z3 = z6;
                         break;
                     case 4:
                         jSONObject2.put("operationevent_power", d(j));
-                        z = z2;
+                        z = z4;
+                        z2 = z5;
+                        z3 = z6;
                         break;
                     case 5:
                         jSONObject2.put("operationevent_charge", c(j));
-                        z = z2;
+                        z = z4;
+                        z2 = z5;
+                        z3 = z6;
                         break;
                     case 6:
                         jSONObject2.put("storeinformation", b(j));
-                        z = z2;
+                        z = z4;
+                        z2 = z5;
+                        z3 = z6;
                         break;
                     case 7:
                         jSONObject2.put("operationevent_network", a(j));
-                        z = z2;
+                        z = z4;
+                        z2 = z5;
+                        z3 = z6;
                         break;
                     case 8:
                         jSONObject2.put("operationevent_apkdownload", e(j));
-                        z = z2;
+                        z = z4;
+                        z2 = z5;
+                        z3 = z6;
                         break;
                     case 9:
+                        z = z4;
+                        z2 = z5;
+                        z3 = true;
+                        break;
+                    case 10:
+                        z = z4;
+                        z3 = z6;
+                        z2 = true;
+                        break;
+                    case 11:
                         z = true;
+                        z2 = z5;
+                        z3 = z6;
                         break;
                     default:
-                        z = z2;
+                        z = z4;
+                        z2 = z5;
+                        z3 = z6;
                         break;
                 }
-                z2 = z;
+                z6 = z3;
+                z5 = z2;
+                z4 = z;
             }
-            if (z2) {
+            if (z6) {
                 jSONObject.put("logtype", "inapppv");
-                jSONObject.put("data", m.a().b());
+                if (k.a().b().length() == 0) {
+                    return null;
+                }
+                jSONObject.put("data", k.a().b());
+            } else if (z5) {
+                jSONObject.put("logtype", "userlist");
+                jSONObject.put("data", h());
+            } else if (z4) {
+                jSONObject.put("logtype", "localserver");
+                JSONArray jSONArray = new JSONArray();
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("status", "failed");
+                jSONObject3.put("time", System.currentTimeMillis());
+                jSONArray.put(jSONObject3);
+                jSONObject.put("data", jSONArray);
             } else {
                 jSONObject.put("data", jSONObject2);
             }
         } catch (JSONException e) {
         }
-        String str = null;
         try {
             str = com.baidu.android.systemmonitor.security.a.a(jSONObject.toString());
         } catch (Exception e2) {
+            str = null;
         }
-        return com.baidu.android.systemmonitor.c.c.a(str.getBytes());
+        return f.a(str.getBytes());
     }
 
     public static void g() {
@@ -116,19 +167,39 @@ public final class a {
         }
     }
 
+    private JSONArray h() {
+        JSONArray jSONArray = new JSONArray();
+        try {
+            for (ResolveInfo resolveInfo : this.b.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.android.moplus.action.START"), 0)) {
+                JSONObject jSONObject = new JSONObject();
+                String str = resolveInfo.activityInfo.packageName;
+                SharedPreferences sharedPreferences = this.b.createPackageContext(str, 2).getSharedPreferences(str + ".push_sync", 1);
+                int i = sharedPreferences.getInt("version", 0);
+                long j = sharedPreferences.getLong("priority", 0L);
+                jSONObject.put("packageName", str);
+                jSONObject.put("verison", i);
+                jSONObject.put("priority", j);
+                jSONArray.put(jSONObject);
+            }
+            return jSONArray;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     public JSONArray a(long j) {
         JSONArray jSONArray = new JSONArray();
-        ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.d.a(this.b).a(3, j);
+        ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.g.a(this.b).a(3, j);
         try {
             new JSONObject();
             Iterator it = a2.iterator();
             while (it.hasNext()) {
-                f fVar = (f) it.next();
+                com.baidu.android.systemmonitor.devicestatistic.a.f fVar = (com.baidu.android.systemmonitor.devicestatistic.a.f) it.next();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("startstamp", String.valueOf(fVar.n / 1000));
-                jSONObject.put("stopstamp", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).a / 1000));
-                jSONObject.put("netflow", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).c));
-                jSONObject.put("nettype", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).b));
+                jSONObject.put("stopstamp", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.c) fVar).a / 1000));
+                jSONObject.put("netflow", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.c) fVar).c));
+                jSONObject.put("nettype", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.c) fVar).b));
                 jSONArray.put(jSONObject);
             }
         } catch (Exception e) {
@@ -139,9 +210,9 @@ public final class a {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("vername", com.baidu.android.nebula.util.d.a(this.b).c());
-            jSONObject.put("appname", com.baidu.android.nebula.util.d.a(this.b).b());
-            jSONObject.put("appid", com.baidu.android.nebula.util.d.a(this.b).a());
+            jSONObject.put("vername", com.baidu.android.nebula.a.d.a(this.b).c());
+            jSONObject.put("appname", com.baidu.android.nebula.a.d.a(this.b).b());
+            jSONObject.put("appid", com.baidu.android.nebula.a.d.a(this.b).a());
         } catch (JSONException e) {
         }
         return jSONObject;
@@ -153,27 +224,27 @@ public final class a {
 
     public JSONArray b(long j) {
         JSONArray jSONArray = new JSONArray();
-        ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.d.a(this.b).a(4, j);
+        ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.g.a(this.b).a(4, j);
         try {
             new JSONObject();
             Iterator it = a2.iterator();
             while (it.hasNext()) {
-                f fVar = (f) it.next();
+                com.baidu.android.systemmonitor.devicestatistic.a.f fVar = (com.baidu.android.systemmonitor.devicestatistic.a.f) it.next();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("startstamp", String.valueOf(fVar.n / 1000));
-                jSONObject.put("phonecontactsnum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).a));
-                jSONObject.put("simcontactsnum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).b));
-                jSONObject.put("smsnum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).c));
-                jSONObject.put("smsinfo", ((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).d);
-                jSONObject.put("calllognum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).e));
-                jSONObject.put("callloginfo", ((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).f);
-                jSONObject.put("sdcardfreeall", ((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).g);
-                jSONObject.put("phonefreeall", ((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).h);
-                jSONObject.put("phonephotonum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).i));
-                jSONObject.put("sdcardphotonum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).j));
-                jSONObject.put("phonemp3num", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).k));
-                jSONObject.put("sdcardmp3num", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).l));
-                jSONObject.put("sdcardtvnum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).m));
+                jSONObject.put("phonecontactsnum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).a));
+                jSONObject.put("simcontactsnum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).b));
+                jSONObject.put("smsnum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).c));
+                jSONObject.put("smsinfo", ((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).d);
+                jSONObject.put("calllognum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).e));
+                jSONObject.put("callloginfo", ((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).f);
+                jSONObject.put("sdcardfreeall", ((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).g);
+                jSONObject.put("phonefreeall", ((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).h);
+                jSONObject.put("phonephotonum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).i));
+                jSONObject.put("sdcardphotonum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).j));
+                jSONObject.put("phonemp3num", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).k));
+                jSONObject.put("sdcardmp3num", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).l));
+                jSONObject.put("sdcardtvnum", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) fVar).m));
                 jSONArray.put(jSONObject);
             }
         } catch (Exception e) {
@@ -182,7 +253,7 @@ public final class a {
     }
 
     public JSONObject b() {
-        String a2 = com.baidu.android.systemmonitor.c.b.a(this.b);
+        String a2 = e.a(this.b);
         if (!TextUtils.isEmpty(a2)) {
             try {
                 return new JSONObject(com.baidu.android.systemmonitor.security.a.b(a2));
@@ -194,21 +265,21 @@ public final class a {
         try {
             jSONObject.put("activetime", String.valueOf(System.currentTimeMillis() / 1000));
             jSONObject.put("manufacturer", Build.MANUFACTURER);
-            jSONObject.put("deviceid", DeviceId.getDeviceID(this.b));
-            jSONObject.put("imei", com.baidu.android.systemmonitor.c.d.c(this.b));
+            jSONObject.put("deviceid", com.baidu.android.nebula.a.b.a(this.b));
+            jSONObject.put("imei", com.baidu.android.systemmonitor.util.b.c(this.b));
             jSONObject.put("model", Build.MODEL);
             jSONObject.put("osversion", Build.VERSION.RELEASE);
-            jSONObject.put("pix", com.baidu.android.systemmonitor.c.d.e(this.b));
-            jSONObject.put("basebandversion", com.baidu.android.systemmonitor.c.d.h());
-            jSONObject.put("kernelversion", com.baidu.android.systemmonitor.c.d.g());
-            jSONObject.put("operator", com.baidu.android.systemmonitor.c.d.d(this.b));
-            jSONObject.put("location", BDLocationManager.c(this.b.getApplicationContext()));
-            jSONObject.put("nettype", String.valueOf(com.baidu.android.systemmonitor.c.d.b(this.b)));
-            jSONObject.put("ip", com.baidu.android.systemmonitor.c.d.d());
+            jSONObject.put("pix", com.baidu.android.systemmonitor.util.b.e(this.b));
+            jSONObject.put("basebandversion", com.baidu.android.systemmonitor.util.b.h());
+            jSONObject.put("kernelversion", com.baidu.android.systemmonitor.util.b.g());
+            jSONObject.put("operator", com.baidu.android.systemmonitor.util.b.d(this.b));
+            jSONObject.put("location", com.baidu.android.nebula.a.e.a(this.b).c());
+            jSONObject.put("nettype", String.valueOf(com.baidu.android.systemmonitor.util.b.b(this.b)));
+            jSONObject.put("ip", com.baidu.android.systemmonitor.util.b.d());
         } catch (JSONException e3) {
         }
         try {
-            com.baidu.android.systemmonitor.c.b.a(this.b, com.baidu.android.systemmonitor.security.a.a(jSONObject.toString()));
+            e.a(this.b, com.baidu.android.systemmonitor.security.a.a(jSONObject.toString()));
             return jSONObject;
         } catch (Exception e4) {
             return jSONObject;
@@ -217,25 +288,25 @@ public final class a {
 
     public JSONArray c() {
         JSONArray jSONArray = new JSONArray();
-        ArrayList f = e.a(this.b).f();
+        ArrayList f = com.baidu.android.systemmonitor.freqstatistic.c.a(this.b).f();
         try {
             new JSONObject();
             Iterator it = f.iterator();
             while (it.hasNext()) {
-                com.baidu.android.systemmonitor.freqstatistic.d dVar = (com.baidu.android.systemmonitor.freqstatistic.d) it.next();
+                com.baidu.android.systemmonitor.freqstatistic.e eVar = (com.baidu.android.systemmonitor.freqstatistic.e) it.next();
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("event", String.valueOf(dVar.c));
-                jSONObject.put("packagename", dVar.a);
-                jSONObject.put("appname", dVar.h);
-                jSONObject.put("time", String.valueOf(dVar.b / 1000));
-                if (dVar.c == 1) {
-                    jSONObject.put("vercodebefore", String.valueOf(dVar.e));
-                    jSONObject.put("vernamebefore", dVar.d);
-                    jSONObject.put("vercodeafter", String.valueOf(dVar.g));
-                    jSONObject.put("vernameafter", dVar.f);
+                jSONObject.put("event", String.valueOf(eVar.c));
+                jSONObject.put("packagename", eVar.a);
+                jSONObject.put("appname", eVar.h);
+                jSONObject.put("time", String.valueOf(eVar.b / 1000));
+                if (eVar.c == 1) {
+                    jSONObject.put("vercodebefore", String.valueOf(eVar.e));
+                    jSONObject.put("vernamebefore", eVar.d);
+                    jSONObject.put("vercodeafter", String.valueOf(eVar.g));
+                    jSONObject.put("vernameafter", eVar.f);
                 } else {
-                    jSONObject.put("vercode", String.valueOf(dVar.e));
-                    jSONObject.put("vername", dVar.d);
+                    jSONObject.put("vercode", String.valueOf(eVar.e));
+                    jSONObject.put("vername", eVar.d);
                 }
                 jSONArray.put(jSONObject);
             }
@@ -246,12 +317,12 @@ public final class a {
 
     public JSONArray c(long j) {
         JSONArray jSONArray = new JSONArray();
-        ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.d.a(this.b).a(2, j);
+        ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.g.a(this.b).a(2, j);
         try {
             new JSONObject();
             Iterator it = a2.iterator();
             while (it.hasNext()) {
-                f fVar = (f) it.next();
+                com.baidu.android.systemmonitor.devicestatistic.a.f fVar = (com.baidu.android.systemmonitor.devicestatistic.a.f) it.next();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("startstamp", String.valueOf(fVar.n / 1000));
                 jSONObject.put("stopstamp", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.e) fVar).e / 1000));
@@ -269,15 +340,15 @@ public final class a {
 
     public JSONArray d(long j) {
         JSONArray jSONArray = new JSONArray();
-        ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.d.a(this.b).a(1, j);
+        ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.g.a(this.b).a(1, j);
         try {
             new JSONObject();
             Iterator it = a2.iterator();
             while (it.hasNext()) {
-                f fVar = (f) it.next();
+                com.baidu.android.systemmonitor.devicestatistic.a.f fVar = (com.baidu.android.systemmonitor.devicestatistic.a.f) it.next();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("startstamp", String.valueOf(fVar.n / 1000));
-                jSONObject.put("stopstamp", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.c) fVar).a / 1000));
+                jSONObject.put("stopstamp", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.b) fVar).a / 1000));
                 jSONArray.put(jSONObject);
             }
         } catch (Exception e) {
@@ -289,9 +360,9 @@ public final class a {
         System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
         try {
-            HashMap c = e.a(this.b).c();
+            HashMap c = com.baidu.android.systemmonitor.freqstatistic.c.a(this.b).c();
             new JSONObject();
-            for (k kVar : c.values()) {
+            for (com.baidu.android.systemmonitor.freqstatistic.k kVar : c.values()) {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("appname", kVar.b);
                 jSONObject2.put("issysapp", String.valueOf(kVar.e));
@@ -382,16 +453,16 @@ public final class a {
 
     public JSONArray e(long j) {
         JSONArray jSONArray = new JSONArray();
-        ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.d.a(this.b).a(5, j);
+        ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.g.a(this.b).a(5, j);
         try {
             new JSONObject();
             Iterator it = a2.iterator();
             while (it.hasNext()) {
-                f fVar = (f) it.next();
+                com.baidu.android.systemmonitor.devicestatistic.a.f fVar = (com.baidu.android.systemmonitor.devicestatistic.a.f) it.next();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("startstamp", String.valueOf(fVar.n / 1000));
-                jSONObject.put("downloadpath", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.b) fVar).a));
-                jSONObject.put("apkname", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.b) fVar).b));
+                jSONObject.put("downloadpath", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).a));
+                jSONObject.put("apkname", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) fVar).b));
                 jSONArray.put(jSONObject);
             }
         } catch (Exception e) {
@@ -400,14 +471,14 @@ public final class a {
     }
 
     public void e() {
-        new com.baidu.android.a.e(this.b).a();
-        if (j.a(this.b).a()) {
+        new com.baidu.android.a.a(this.b).a();
+        if (s.a(this.b).a()) {
             ArrayList arrayList = new ArrayList();
-            if (!com.baidu.android.systemmonitor.c.b.b(this.b)) {
-                arrayList.add(n.ACTIVE_EVENT);
+            if (!e.b(this.b)) {
+                arrayList.add(g.ACTIVE_EVENT);
             }
-            arrayList.add(n.FREQ_STATISTIC);
-            arrayList.add(n.APPCHANGE_STATISTIC);
+            arrayList.add(g.FREQ_STATISTIC);
+            arrayList.add(g.APPCHANGE_STATISTIC);
             a(arrayList);
         }
         this.c.postDelayed(this.d, 30000L);

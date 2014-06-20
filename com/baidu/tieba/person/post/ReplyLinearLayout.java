@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -62,19 +62,19 @@ public class ReplyLinearLayout extends LinearLayout {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
                     textView2.setLayoutParams(b);
-                    bc.a(textView2, com.baidu.tieba.s.cp_cont_b, 1);
+                    be.a(textView2, com.baidu.tieba.s.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
-                    bc.f((View) textView2, com.baidu.tieba.s.cp_bg_line_b);
+                    be.f((View) textView2, com.baidu.tieba.s.cp_bg_line_b);
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
                     textView2.setLayoutParams(b);
-                    bc.a(textView2, com.baidu.tieba.s.cp_cont_f, 1);
+                    be.a(textView2, com.baidu.tieba.s.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
                     textView2.setLayoutParams(b);
-                    bc.a(textView2, com.baidu.tieba.s.cp_cont_d, 1);
+                    be.a(textView2, com.baidu.tieba.s.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);
             } else {

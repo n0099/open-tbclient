@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 import com.baidu.tbadk.core.atomData.PayActivityConfig;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
@@ -19,7 +19,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void closePage(String str) {
-        if (!be.c(str)) {
+        if (!bg.c(str)) {
             Toast.makeText(this.mActivity, str, 0).show();
         }
         this.mActivity.finish();
@@ -36,7 +36,7 @@ public class TbJsBridge {
         fVar.a = str;
         fVar.b = str2;
         fVar.c = str4;
-        if (!be.c(str3)) {
+        if (!bg.c(str3)) {
             fVar.d = Uri.parse(str3);
         }
         com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this.mActivity);

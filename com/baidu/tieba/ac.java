@@ -113,7 +113,7 @@ public class ac extends Dialog {
         if (!TextUtils.isEmpty(this.b.getPatchSize())) {
             this.s.setText(((Object) this.s.getText()) + (String.valueOf((int) (com.baidu.adp.lib.f.b.a(this.b.getPatchSize(), 0L) / FileUtils.ONE_MB)) + "MB"));
         }
-        if (this.r.getVisibility() == 0 && !bd.a(this.a.getPackageManager())) {
+        if (this.r.getVisibility() == 0 && !bc.a(this.a.getPackageManager())) {
             this.l.setVisibility(0);
         } else {
             this.l.setVisibility(8);

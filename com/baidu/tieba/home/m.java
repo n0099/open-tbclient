@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 import com.baidu.tbadk.editortool.ab;
@@ -29,12 +29,13 @@ public class m extends BaseAdapter {
     private ab j;
     private View.OnClickListener k;
     private View.OnLongClickListener l;
+    private BannerView m;
     private y b = null;
     private an c = null;
     private int d = 0;
     private int e = 0;
     private int f = 0;
-    private View.OnClickListener m = new n(this);
+    private View.OnClickListener n = new n(this);
 
     public void a(boolean z) {
         this.i = z;
@@ -145,21 +146,21 @@ public class m extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 1) {
-            View inflate = LayoutInflater.from(this.a).inflate(w.home_like_guide, (ViewGroup) null);
+            view = LayoutInflater.from(this.a).inflate(w.home_like_guide, (ViewGroup) null);
             if (b() <= 4) {
-                inflate.setVisibility(0);
+                view.setVisibility(0);
             } else {
-                inflate.setVisibility(8);
+                view.setVisibility(8);
             }
-            inflate.setOnClickListener(this.m);
-            a(inflate);
-            return inflate;
+            view.setOnClickListener(this.n);
+            a(view);
         } else if (itemViewType == 2) {
-            View inflate2 = LayoutInflater.from(this.a).inflate(w.home_like_item_banner, (ViewGroup) null);
-            BannerView bannerView = (BannerView) inflate2.findViewById(com.baidu.tieba.v.home_like_banner_view);
-            bannerView.a("enter_bar_bck", "");
-            bannerView.a(this.g.f().a(), this.g.f().b(), "enter_forum_banner_date", 259200000L);
-            return inflate2;
+            if (this.m == null) {
+                view = LayoutInflater.from(this.a).inflate(w.home_like_item_banner, (ViewGroup) null);
+                this.m = (BannerView) view.findViewById(com.baidu.tieba.v.home_like_banner_view);
+            }
+            this.m.a("enter_bar_bck", "");
+            this.m.b(this.g.f().a(), this.g.f().b());
         } else if (itemViewType == 0) {
             if (this.h) {
                 i--;
@@ -184,23 +185,19 @@ public class m extends BaseAdapter {
                     if ((i * 2) + 1 < this.b.a().size()) {
                         tVar.f.b.setVisibility(0);
                         a(this.b.a().get((i * 2) + 1), tVar.f);
-                        return view;
+                    } else {
+                        tVar.f.b.setVisibility(4);
                     }
-                    tVar.f.b.setVisibility(4);
-                    return view;
                 }
-                return view;
             }
-            return view;
         } else if (itemViewType == 4) {
-            View inflate3 = LayoutInflater.from(this.a).inflate(w.home_new_recommend_notice, (ViewGroup) null);
+            view = LayoutInflater.from(this.a).inflate(w.home_new_recommend_notice, (ViewGroup) null);
             if (c() > 0) {
-                inflate3.setVisibility(0);
+                view.setVisibility(0);
             } else {
-                inflate3.setVisibility(8);
+                view.setVisibility(8);
             }
-            a(inflate3);
-            return inflate3;
+            a(view);
         } else if (itemViewType == 3) {
             if (this.h) {
                 i--;
@@ -210,11 +207,11 @@ public class m extends BaseAdapter {
             }
             int b = (i - 1) - ((b() + 1) / 2);
             int skinType2 = TbadkApplication.m252getInst().getSkinType();
-            View a = a((u) null);
-            u uVar = 0 == 0 ? (u) a.getTag() : null;
+            view = a((u) null);
+            u uVar = 0 == 0 ? (u) view.getTag() : null;
             if (uVar != null && this.c != null && this.c.a() != null) {
                 this.a.a().a(skinType2 == 1);
-                this.a.a().a(a);
+                this.a.a().a(view);
                 if (b >= 0) {
                     if (b * 2 < this.c.a().size()) {
                         a(this.c.a().get(b * 2), uVar);
@@ -222,17 +219,13 @@ public class m extends BaseAdapter {
                     if ((b * 2) + 1 < this.c.a().size()) {
                         uVar.f.b.setVisibility(0);
                         a(this.c.a().get((b * 2) + 1), uVar.f);
-                        return a;
+                    } else {
+                        uVar.f.b.setVisibility(4);
                     }
-                    uVar.f.b.setVisibility(4);
-                    return a;
                 }
-                return a;
             }
-            return a;
-        } else {
-            return view;
         }
+        return view;
     }
 
     private void a(View view) {
@@ -295,12 +288,12 @@ public class m extends BaseAdapter {
     private void b(int i, t tVar) {
         if (tVar != null && tVar.b(i)) {
             if (i == 1) {
-                bc.e(tVar.b, com.baidu.tieba.u.home_like_item_bg_1);
-                bc.e(tVar.f.b, com.baidu.tieba.u.home_like_item_bg_1);
+                be.e(tVar.b, com.baidu.tieba.u.home_like_item_bg_1);
+                be.e(tVar.f.b, com.baidu.tieba.u.home_like_item_bg_1);
                 return;
             }
-            bc.e(tVar.b, com.baidu.tieba.u.home_like_item_bg);
-            bc.e(tVar.f.b, com.baidu.tieba.u.home_like_item_bg);
+            be.e(tVar.b, com.baidu.tieba.u.home_like_item_bg);
+            be.e(tVar.f.b, com.baidu.tieba.u.home_like_item_bg);
         }
     }
 
@@ -346,6 +339,9 @@ public class m extends BaseAdapter {
 
     public void a(com.baidu.tieba.data.n nVar) {
         this.g = nVar;
+        if (this.m != null) {
+            this.m.b();
+        }
         if (nVar.f() != null && nVar.f().a() != null) {
             this.h = true;
         } else {

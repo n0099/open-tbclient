@@ -7,8 +7,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.kirin.KirinConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.y;
 import java.io.File;
@@ -22,7 +22,7 @@ import org.apache.commons.io.FileUtils;
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
     final /* synthetic */ b a;
-    private al b = new al();
+    private an b = new an();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
@@ -84,10 +84,10 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         }
         if (!file.exists()) {
             this.b.a(downloadDataArr[0].getUrl());
-            al alVar = this.b;
+            an anVar = this.b;
             String str = String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp";
             handler = this.a.f;
-            if (!Boolean.valueOf(alVar.a(str, handler, TbConfig.NET_MSG_GETLENTH, 3, KirinConfig.CONNECT_TIME_OUT)).booleanValue()) {
+            if (!Boolean.valueOf(anVar.a(str, handler, TbConfig.NET_MSG_GETLENTH, 3, KirinConfig.CONNECT_TIME_OUT)).booleanValue()) {
                 return 3;
             }
             File d = x.d(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp");
@@ -102,7 +102,7 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
             }
         }
         try {
-            if (!be.c(downloadDataArr[0].getCheck())) {
+            if (!bg.c(downloadDataArr[0].getCheck())) {
                 try {
                     fileInputStream = new FileInputStream(downloadDataArr[0].getPath());
                 } catch (FileNotFoundException e2) {
@@ -134,7 +134,7 @@ public class d extends BdAsyncTask<DownloadData, DownloadData, Integer> {
                     }
                     throw th;
                 }
-                if (!be.a(fileInputStream).equalsIgnoreCase(downloadDataArr[0].getCheck())) {
+                if (!bg.a(fileInputStream).equalsIgnoreCase(downloadDataArr[0].getCheck())) {
                     i = 4;
                     if (fileInputStream != null) {
                         try {

@@ -9,7 +9,7 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, Integer, String> {
     final /* synthetic */ AppsActivity a;
-    private com.baidu.tbadk.core.util.al b = null;
+    private com.baidu.tbadk.core.util.an b = null;
     private String c;
 
     public i(AppsActivity appsActivity, String str) {
@@ -40,7 +40,7 @@ public class i extends BdAsyncTask<Object, Integer, String> {
         if (this.c == null) {
             return null;
         }
-        this.b = new com.baidu.tbadk.core.util.al(this.c);
+        this.b = new com.baidu.tbadk.core.util.an(this.c);
         this.b.a().a().a().g = false;
         this.b.a("client", "android");
         return this.b.i();

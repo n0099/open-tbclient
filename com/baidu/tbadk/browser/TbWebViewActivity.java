@@ -23,11 +23,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
-import com.baidu.tbadk.core.atomData.bf;
+import com.baidu.tbadk.core.atomData.be;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import java.util.Date;
@@ -37,7 +36,7 @@ import java.util.HashMap;
 public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.coreExtra.view.g {
     private static HashMap<String, q> a = null;
     private boolean j;
-    private com.baidu.tbadk.c.g k;
+    private com.baidu.tbadk.b.f k;
     private View l;
     private View m;
     private View n;
@@ -60,7 +59,7 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
     private final Runnable t = new f(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bf.class, TbWebViewActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(be.class, TbWebViewActivity.class);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -82,7 +81,7 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
         }
         this.d = intent.getBooleanExtra("tag_cookie", false);
         this.j = intent.getBooleanExtra("tag_enable_js", false);
-        if (be.c(this.c)) {
+        if (bg.c(this.c)) {
             com.baidu.adp.lib.util.k.a((Context) this, getResources().getString(com.baidu.tieba.y.url_is_null));
             return;
         }
@@ -174,9 +173,9 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
     }
 
     private void d() {
-        if (!be.c(this.c)) {
+        if (!bg.c(this.c)) {
             if (this.c.indexOf("_client_version") < 0) {
-                if (be.c(Uri.parse(this.c).getQuery())) {
+                if (bg.c(Uri.parse(this.c).getQuery())) {
                     this.c = String.valueOf(this.c) + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     this.c = String.valueOf(this.c) + "&_client_version=" + TbConfig.getVersion();
@@ -242,9 +241,9 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bc.a(this.e, i);
+        com.baidu.tbadk.core.util.be.a(this.e, i);
         if (this.f != null) {
-            bc.a(this.f, i);
+            com.baidu.tbadk.core.util.be.a(this.f, i);
         }
         if (this.u != null && this.u.getVisibility() == 0) {
             this.u.c(i);
@@ -275,10 +274,10 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
 
     @Override // com.baidu.tbadk.coreExtra.view.g
     public boolean a(WebView webView, String str) {
-        if (be.c(str)) {
+        if (bg.c(str)) {
             return false;
         }
-        if (com.baidu.tbadk.c.f.a(this, str)) {
+        if (com.baidu.tbadk.b.e.a(this, str)) {
             return true;
         }
         this.c = str;
@@ -303,7 +302,7 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
         if (this.f == null) {
             try {
                 this.f = new BaseWebView(this);
-                bc.a(this.f, TbadkApplication.m252getInst().getSkinType());
+                com.baidu.tbadk.core.util.be.a(this.f, TbadkApplication.m252getInst().getSkinType());
                 this.f.getSettings().setJavaScriptEnabled(true);
                 this.f.getSettings().setAllowFileAccess(true);
                 this.f.getSettings().setDatabaseEnabled(true);
@@ -381,13 +380,13 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
                 if (parseBDUSS.mPtoken != null) {
                     str = str3;
                     str2 = parseBDUSS.mPtoken;
-                    com.baidu.tbadk.c.g gVar = new com.baidu.tbadk.c.g(str, str2);
-                    if (this.k == null && (this.k == null || !this.k.equals(gVar))) {
+                    com.baidu.tbadk.b.f fVar = new com.baidu.tbadk.b.f(str, str2);
+                    if (this.k == null && (this.k == null || !this.k.equals(fVar))) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    this.k = gVar;
+                    this.k = fVar;
                     if (this.f == null && z) {
                         a.a(this);
                         this.s.postDelayed(this.t, 100L);
@@ -397,11 +396,11 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
             }
             str = str3;
             str2 = "";
-            com.baidu.tbadk.c.g gVar2 = new com.baidu.tbadk.c.g(str, str2);
+            com.baidu.tbadk.b.f fVar2 = new com.baidu.tbadk.b.f(str, str2);
             if (this.k == null) {
             }
             z = false;
-            this.k = gVar2;
+            this.k = fVar2;
             if (this.f == null) {
             }
         }

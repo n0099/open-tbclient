@@ -12,7 +12,7 @@ import com.baidu.tbadk.BaseActivity;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GroupAddressLocateActivity extends BaseActivity implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c, com.baidu.tieba.im.f.h {
+public class GroupAddressLocateActivity extends BaseActivity implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c, com.baidu.tieba.im.e.h {
     private boolean c = false;
     private boolean d = false;
     private String e = null;
@@ -130,7 +130,7 @@ public class GroupAddressLocateActivity extends BaseActivity implements AdapterV
         return this.i;
     }
 
-    @Override // com.baidu.tieba.im.f.h
+    @Override // com.baidu.tieba.im.e.h
     public void a(String str, List<String> list, double d, double d2) {
         this.j.b(String.valueOf(d));
         this.j.a(String.valueOf(d2));
@@ -153,12 +153,12 @@ public class GroupAddressLocateActivity extends BaseActivity implements AdapterV
         }
     }
 
-    @Override // com.baidu.tieba.im.f.h
+    @Override // com.baidu.tieba.im.e.h
     public void a() {
         this.j.g();
     }
 
-    @Override // com.baidu.tieba.im.f.h
+    @Override // com.baidu.tieba.im.e.h
     public void b() {
         this.j.h();
     }

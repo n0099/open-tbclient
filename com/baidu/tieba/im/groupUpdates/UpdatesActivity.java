@@ -16,7 +16,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.frsgroup.GroupLevelActivity;
@@ -229,7 +229,7 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
                     } else if (!updatesType.equals("dismiss_group")) {
                         if (updatesType.equals("group_event_info")) {
                             com.baidu.tbadk.core.f.a(this, "update_activity_group_event_click");
-                            bi.a().a(this, new String[]{updatesItemData.getEventLink()});
+                            bk.a().a(this, new String[]{updatesItemData.getEventLink()});
                         } else if (updatesType.equals("group_activitys_change")) {
                             GroupActivityActivity.a(this, com.baidu.adp.lib.f.b.a(updatesItemData.getGroupActivityId(), 0), com.baidu.adp.lib.f.b.a(updatesItemData.getGroupId(), 0L), 1);
                         } else {

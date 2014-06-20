@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
-import com.baidu.tieba.data.VersionData;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay implements DialogInterface.OnDismissListener {
+public class ay implements View.OnClickListener {
     final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,15 +11,16 @@ public class ay implements DialogInterface.OnDismissListener {
         this.a = updateDialog;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
         ac acVar;
-        VersionData versionData;
+        z = this.a.a;
+        if (z) {
+            this.a.b();
+        }
         acVar = this.a.h;
         acVar.dismiss();
-        versionData = this.a.e;
-        if (versionData.forceUpdate()) {
-            com.baidu.tbadk.core.b.b.a(this.a, Constants.MEDIA_INFO);
-        }
+        this.a.finish();
     }
 }

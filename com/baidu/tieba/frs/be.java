@@ -18,8 +18,8 @@ public class be implements View.OnClickListener {
     public void onClick(View view) {
         Context context;
         String a = this.b.a();
-        if (!com.baidu.tbadk.core.util.be.c(a)) {
-            com.baidu.tbadk.core.util.bi a2 = com.baidu.tbadk.core.util.bi.a();
+        if (!com.baidu.tbadk.core.util.bg.c(a)) {
+            com.baidu.tbadk.core.util.bk a2 = com.baidu.tbadk.core.util.bk.a();
             context = this.a.b;
             a2.a(context, new String[]{a});
         }

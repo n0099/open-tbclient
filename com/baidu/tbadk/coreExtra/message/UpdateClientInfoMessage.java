@@ -4,7 +4,6 @@ import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.squareup.wire.ByteString;
 import java.util.HashMap;
@@ -23,7 +22,7 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
     private int width;
 
     public UpdateClientInfoMessage() {
-        super(MessageTypes.CMD_UPDATE_CLIENT_INFO);
+        super(1001);
         this.device = new HashMap();
         try {
             if (TbadkApplication.m252getInst().getLocationShared()) {

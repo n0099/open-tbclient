@@ -2,7 +2,7 @@ package com.baidu.tieba.discover;
 
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
@@ -29,7 +29,7 @@ public class h implements View.OnClickListener {
         if (z) {
             z2 = this.a.o;
             if (z2) {
-                String a = ai.a(this.a.c);
+                String a = ak.a(this.a.c);
                 if (!com.baidu.tbadk.f.a().a(a, false)) {
                     com.baidu.tbadk.f.a().b(a, true);
                     imageView = this.a.k;

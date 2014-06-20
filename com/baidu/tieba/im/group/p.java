@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.s;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
@@ -46,6 +46,6 @@ class p {
     }
 
     public void b() {
-        bc.a(this.b, s.cp_cont_c, 1);
+        be.a(this.b, s.cp_cont_c, 1);
     }
 }

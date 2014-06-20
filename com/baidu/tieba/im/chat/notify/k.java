@@ -8,9 +8,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.au;
+import com.baidu.tbadk.core.atomData.at;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.groupUpdates.UpdatesActivity;
@@ -146,9 +146,9 @@ public class k implements AdapterView.OnItemClickListener {
             long parseLong = Long.parseLong(imMessageCenterShowItemData.getFriendId());
             activity = this.a.e;
             com.baidu.tbadk.core.f.a(activity, "tab_msg_personal_chat_click");
-            new az(TbConfig.ST_TYPE_PCHAT, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK).start();
+            new bb(TbConfig.ST_TYPE_PCHAT, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK).start();
             activity2 = this.a.e;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new au(activity2, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new at(activity2, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
         } catch (Exception e) {
             e.printStackTrace();
         }

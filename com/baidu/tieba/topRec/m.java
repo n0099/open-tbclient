@@ -4,13 +4,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<Object, Integer, TRForumListData> {
     TRForumListData a;
     final /* synthetic */ l b;
-    private al c;
+    private an c;
 
     private m(l lVar) {
         this.b = lVar;
@@ -30,7 +30,7 @@ public class m extends BdAsyncTask<Object, Integer, TRForumListData> {
     public TRForumListData doInBackground(Object... objArr) {
         String i;
         try {
-            this.c = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/random_recommend_forum");
+            this.c = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/random_recommend_forum");
             this.c.a("rn", "100");
             i = this.c.i();
             BdLog.d("TopRecModel", "doInBackground", i);

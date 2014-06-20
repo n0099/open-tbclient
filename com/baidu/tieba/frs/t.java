@@ -39,9 +39,9 @@ class t implements bk {
             ctVar3 = this.a.w;
             if (i == ctVar3.v().g()) {
                 FrsActivity frsActivity = this.a;
-                com.baidu.tbadk.core.atomData.as asVar = new com.baidu.tbadk.core.atomData.as(this.a);
+                com.baidu.tbadk.core.atomData.ar arVar = new com.baidu.tbadk.core.atomData.ar(this.a);
                 str = this.a.n;
-                frsActivity.sendMessage(new CustomMessage(2006001, asVar.a(nVar, str, null, 18003, true, false, false)));
+                frsActivity.sendMessage(new CustomMessage(2006001, arVar.a(nVar, str, null, 18003, true, false, false)));
                 return;
             }
             return;

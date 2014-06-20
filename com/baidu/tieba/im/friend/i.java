@@ -84,7 +84,7 @@ public class i extends com.baidu.adp.base.c {
     }
 
     public void c() {
-        com.baidu.tbadk.core.util.ae.a(this.d, this.e.a(), null, this.h, null, 0, 1);
+        com.baidu.tbadk.core.util.ag.a(this.d, this.e.a(), null, this.h, null, 0, 1);
     }
 
     public void d() {

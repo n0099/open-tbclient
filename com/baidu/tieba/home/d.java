@@ -6,12 +6,12 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Bitmap> {
     final /* synthetic */ CreateBarActivity a;
-    private al b;
+    private an b;
     private volatile boolean c;
 
     private d(CreateBarActivity createBarActivity) {
@@ -44,7 +44,7 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     /* renamed from: a */
     public Bitmap doInBackground(String... strArr) {
         try {
-            this.b = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+            this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
             this.b.a("fid", "0");
             this.b.a("pub_type", "0");
             this.b.a("fname", "");
@@ -60,7 +60,7 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
                 if (this.c) {
                     return null;
                 }
-                this.b = new al(fVar.b());
+                this.b = new an(fVar.b());
                 return com.baidu.tbadk.core.util.g.a(this.b.h());
             }
             return null;

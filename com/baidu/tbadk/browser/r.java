@@ -12,6 +12,6 @@ class r implements BdBrowserDelegate.Callback {
 
     @Override // com.baidu.tbadk.plugins.BdBrowserDelegate.Callback
     public boolean shouldOverrideUrlLoading(String str) {
-        return com.baidu.tbadk.c.f.a(this.a, str);
+        return com.baidu.tbadk.b.e.a(this.a, str);
     }
 }

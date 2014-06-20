@@ -30,7 +30,7 @@ public class ao implements com.baidu.tbadk.core.view.z {
                 if (metaData != null) {
                     MessageManager messageManager = MessageManager.getInstance();
                     activity = this.a.a;
-                    messageManager.sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(activity, metaData.getUserId(), metaData.getName_show())));
+                    messageManager.sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(activity, metaData.getUserId(), metaData.getName_show())));
                 }
             }
         }

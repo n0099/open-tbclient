@@ -1,69 +1,25 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.Context;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.widget.ImageView;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class aj implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection a;
-    private Context b;
-    private String c;
-    private String d;
-    private String[] e;
-    private String[] f;
-    private int g;
-    private boolean h;
-    private ak i;
+class aj implements com.baidu.tbadk.imageManager.d {
+    private final /* synthetic */ ListView a;
 
-    public aj(Context context) {
-        this.b = context;
-        this.a = new MediaScannerConnection(this.b, this);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aj(ListView listView) {
+        this.a = listView;
     }
 
-    public void a(String str) {
-        this.c = str;
-        String substring = this.c.substring(this.c.lastIndexOf("."));
-        this.d = "image/jpeg";
-        if (substring.equals(".gif")) {
-            this.d = "image/gif";
-        }
-        this.a.connect();
-    }
-
-    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
-    public void onMediaScannerConnected() {
-        if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d)) {
-            this.a.scanFile(this.c, this.d);
-        }
-        if (this.e != null && this.f != null && this.e.length == this.f.length) {
-            int length = this.e.length;
-            for (int i = 0; i < length; i++) {
-                this.a.scanFile(this.e[i], this.f[i]);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null) {
+            ImageView imageView = (ImageView) this.a.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setImageBitmap(aVar.h());
+                imageView = (ImageView) this.a.findViewWithTag(str);
             }
-        }
-    }
-
-    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
-    public void onScanCompleted(String str, Uri uri) {
-        if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && str.equals(this.c)) {
-            this.a.disconnect();
-            this.c = null;
-            this.d = null;
-            this.h = true;
-        } else if (this.e != null && this.f != null && this.e.length == this.f.length) {
-            this.g--;
-            if (this.g == 0) {
-                this.a.disconnect();
-                this.e = null;
-                this.f = null;
-                this.h = true;
-            } else {
-                this.h = false;
-            }
-        }
-        if (this.h && this.i != null) {
-            this.i.a();
         }
     }
 }

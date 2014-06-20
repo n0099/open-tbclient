@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core;
 
 import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class e {
-    protected al a;
+    protected an a;
     protected NewErrorData b = null;
 
     public e() {
         this.a = null;
-        this.a = new al();
+        this.a = new an();
     }
 
     public void a() {

@@ -166,7 +166,7 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x006b, code lost:
-        if (r1 != false) goto L51;
+        if (r1 != false) goto L53;
      */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
@@ -176,6 +176,7 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
     public com.baidu.tieba.data.af doInBackground(Object... objArr) {
         boolean z;
         com.baidu.tieba.data.af afVar;
+        com.baidu.tieba.data.af afVar2;
         boolean z2;
         com.baidu.tieba.data.af a;
         String str;
@@ -229,8 +230,8 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
         }
         this.a.I = false;
         try {
-            afVar = this.a.v;
-            ArrayList<com.baidu.tieba.data.ai> e = afVar.e();
+            afVar2 = this.a.v;
+            ArrayList<com.baidu.tieba.data.ai> e = afVar2.e();
             switch (this.c) {
                 case 1:
                     this.a.e = e.get(e.size() - 1).l();
@@ -284,16 +285,15 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
             this.a.E = this.b.g();
             this.a.F = this.b.h();
             this.a.G = System.currentTimeMillis();
-            com.baidu.tieba.data.af afVar2 = new com.baidu.tieba.data.af();
+            afVar = new com.baidu.tieba.data.af();
             String str4 = this.d;
             context = this.a.y;
-            afVar2.a(str4, context);
+            afVar.a(str4, context);
             if (!this.b.b()) {
-                afVar2 = null;
+                afVar = null;
             }
-            if (afVar2 != null) {
-                b(afVar2);
-                return afVar2;
+            if (afVar != null) {
+                b(afVar);
             } else if (this.b != null) {
                 this.a.setErrorString(this.b.e());
                 this.a.setErrorCode(this.b.f());
@@ -306,18 +306,19 @@ public class bl extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
                     agVar4.a((int) ((nanoTime - j2) / 1000000));
                     agVar5 = bj.x;
                     agVar5.b(this.b.d());
-                    return afVar2;
+                } else {
+                    agVar2 = bj.x;
+                    agVar2.c(1);
                 }
-                agVar2 = bj.x;
-                agVar2.c(1);
-                return afVar2;
-            } else {
-                return afVar2;
             }
         } catch (Exception e2) {
             BdLog.e("PbAsyncTask", "doInBackground", "error = " + e2.getMessage());
-            return null;
+            afVar = null;
         }
+        if (afVar == null && this.e != null) {
+            return this.e;
+        }
+        return afVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

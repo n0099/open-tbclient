@@ -13,9 +13,9 @@ class az implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == 0) {
-            com.baidu.tbadk.core.util.bb.a(this.a);
+            com.baidu.tbadk.core.util.bd.a(this.a);
         } else if (i == 1) {
-            com.baidu.tbadk.core.util.bb.c(this.a);
+            com.baidu.tbadk.core.util.bd.c(this.a);
         }
     }
 }

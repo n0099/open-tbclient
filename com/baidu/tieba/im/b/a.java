@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.db.pojo.OldUserData;
-import com.baidu.tieba.im.f.r;
+import com.baidu.tieba.im.e.r;
 import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedList;

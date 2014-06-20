@@ -80,7 +80,7 @@ public class y extends com.baidu.adp.base.c implements x {
     }
 
     public void b() {
-        com.baidu.tbadk.core.util.ae.a(this.e, this.f.a(), null, this.n, null, 0, 1);
+        com.baidu.tbadk.core.util.ag.a(this.e, this.f.a(), null, this.n, null, 0, 1);
     }
 
     public void c() {

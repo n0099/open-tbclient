@@ -71,7 +71,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.j.setBackgroundColor(com.baidu.tbadk.core.util.bc.d(i));
+            this.j.setBackgroundColor(com.baidu.tbadk.core.util.be.d(i));
         } else {
             this.j.setBackgroundColor(-16777216);
         }

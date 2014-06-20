@@ -72,13 +72,13 @@ public class m {
         if (!this.f.c()) {
             this.f.e(true);
             this.g.setText(com.baidu.tieba.y.done);
-            com.baidu.tbadk.core.util.bc.g(this.g, TbadkApplication.m252getInst().getSkinType());
+            com.baidu.tbadk.core.util.be.g(this.g, TbadkApplication.m252getInst().getSkinType());
             this.f.notifyDataSetChanged();
             return;
         }
         this.f.e(false);
         this.g.setText(com.baidu.tieba.y.edit);
-        com.baidu.tbadk.core.util.bc.i(this.g, TbadkApplication.m252getInst().getSkinType());
+        com.baidu.tbadk.core.util.be.i(this.g, TbadkApplication.m252getInst().getSkinType());
         this.f.notifyDataSetChanged();
     }
 

@@ -15,7 +15,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class ApplyJoinGroupActivity extends BaseActivity {
@@ -156,7 +156,7 @@ public class ApplyJoinGroupActivity extends BaseActivity {
         getLayoutMode().a(i == 1);
         getLayoutMode().a(this.a);
         this.q.c(i);
-        bc.f(this.f, 0);
+        be.f(this.f, 0);
     }
 
     private boolean g() {

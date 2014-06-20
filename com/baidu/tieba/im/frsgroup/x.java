@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.at;
+import com.baidu.tbadk.core.atomData.as;
 import com.baidu.tbadk.core.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -30,7 +30,7 @@ public class x implements AdapterView.OnItemClickListener {
                 }
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new at(this.a, new StringBuilder(String.valueOf(userData.getUserId())).toString(), userData.getUserName())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new as(this.a, new StringBuilder(String.valueOf(userData.getUserId())).toString(), userData.getUserName())));
         }
     }
 }

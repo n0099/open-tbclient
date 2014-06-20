@@ -18,7 +18,7 @@ public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ah, com.baidu.t
     private final String b;
     private final boolean c;
     private final int d;
-    private com.baidu.tbadk.core.util.al e = null;
+    private com.baidu.tbadk.core.util.an e = null;
     private boolean f;
 
     public ch(PersonListActivity personListActivity, String str, boolean z, int i, boolean z2) {
@@ -70,7 +70,7 @@ public class ch extends BdAsyncTask<String, com.baidu.tieba.data.ah, com.baidu.t
         com.baidu.tieba.model.ay ayVar2;
         com.baidu.tieba.model.ay ayVar3;
         com.baidu.tieba.model.ay ayVar4;
-        this.e = new com.baidu.tbadk.core.util.al();
+        this.e = new com.baidu.tbadk.core.util.an();
         com.baidu.tieba.data.ah ahVar = null;
         if (this.f) {
             ayVar3 = this.a.j;

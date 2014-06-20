@@ -1,9 +1,7 @@
 package com.baidu.adp.lib.asyncTask;
-
-import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
 public final class l {
-    private static int a = LocationClientOption.MIN_SCAN_SPAN;
+    private static int a = 1000;
     private int b = 0;
 
     public static synchronized l a() {

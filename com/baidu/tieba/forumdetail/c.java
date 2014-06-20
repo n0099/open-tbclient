@@ -3,8 +3,8 @@ package com.baidu.tieba.forumdetail;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.bg;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -27,11 +27,11 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
     public ForumDetailData doInBackground(String... strArr) {
         String str;
         str = b.a;
-        al alVar = new al(str);
-        alVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
-        alVar.a("need_good_thread", this.b);
-        String i = alVar.i();
-        if (alVar.a().b().b()) {
+        an anVar = new an(str);
+        anVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
+        anVar.a("need_good_thread", this.b);
+        String i = anVar.i();
+        if (anVar.a().b().b()) {
             try {
                 return (ForumDetailData) new GsonBuilder().create().fromJson(i, (Class<Object>) ForumDetailData.class);
             } catch (Exception e) {
@@ -43,8 +43,8 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
             }
         }
         ForumDetailData forumDetailData2 = new ForumDetailData();
-        forumDetailData2.errorNo = alVar.d();
-        forumDetailData2.errorMsg = alVar.f();
+        forumDetailData2.errorNo = anVar.d();
+        forumDetailData2.errorMsg = anVar.f();
         return forumDetailData2;
     }
 
@@ -56,7 +56,7 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
         super.onPostExecute(forumDetailData);
         d dVar = this.c.get();
         if (dVar != null) {
-            if (be.c(forumDetailData.errorMsg)) {
+            if (bg.c(forumDetailData.errorMsg)) {
                 dVar.a(forumDetailData);
             } else {
                 dVar.b(forumDetailData);

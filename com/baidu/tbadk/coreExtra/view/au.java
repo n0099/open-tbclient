@@ -9,7 +9,7 @@ import com.baidu.adp.lib.resourceLoader.BdResourceLoaderNetHelperStatic;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 /* loaded from: classes.dex */
 public class au extends RelativeLayout {
     protected ProgressBar a;
@@ -155,7 +155,7 @@ public class au extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public byte[] a(String str) {
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, be.f(str), DiskFileOperate.Action.READ);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, bg.f(str), DiskFileOperate.Action.READ);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         cVar.b(true);
         cVar.d(false);
@@ -182,7 +182,7 @@ public class au extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, byte[] bArr, boolean z) {
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, be.f(str), DiskFileOperate.Action.WRITE);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, bg.f(str), DiskFileOperate.Action.WRITE);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         cVar.b(true);
         cVar.a(bArr);

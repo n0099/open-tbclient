@@ -5,11 +5,11 @@ import android.os.SystemClock;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements Runnable {
-    final /* synthetic */ c a;
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(c cVar) {
-        this.a = cVar;
+    public j(b bVar) {
+        this.a = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,14 +17,14 @@ public class j implements Runnable {
         boolean z;
         Handler handler;
         Runnable runnable;
-        z = c.h;
+        z = b.h;
         if (!z) {
-            boolean unused = c.h = true;
+            boolean unused = b.h = true;
             this.a.g = SystemClock.elapsedRealtime();
         }
-        this.a.n();
+        this.a.m();
         handler = this.a.t;
         runnable = this.a.m;
-        handler.postDelayed(runnable, 30000L);
+        handler.postDelayed(runnable, 10000L);
     }
 }

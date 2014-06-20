@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bc;
+import com.baidu.tbadk.core.atomData.bb;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 /* loaded from: classes.dex */
 class p implements View.OnClickListener {
@@ -19,6 +19,6 @@ class p implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new bc(this.b)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfig.SINGLE_SQUARE_CUSTOM_CMD, new bb(this.b)));
     }
 }

@@ -8,7 +8,6 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
-import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
 public class GestureDetectorCompat {
     private final GestureDetectorCompatImpl mImpl;
@@ -229,7 +228,7 @@ public class GestureDetectorCompat {
                     } else {
                         VelocityTracker velocityTracker = this.mVelocityTracker;
                         int pointerId = MotionEventCompat.getPointerId(motionEvent, 0);
-                        velocityTracker.computeCurrentVelocity(LocationClientOption.MIN_SCAN_SPAN, this.mMaximumFlingVelocity);
+                        velocityTracker.computeCurrentVelocity(1000, this.mMaximumFlingVelocity);
                         float yVelocity = VelocityTrackerCompat.getYVelocity(velocityTracker, pointerId);
                         float xVelocity = VelocityTrackerCompat.getXVelocity(velocityTracker, pointerId);
                         onFling = (Math.abs(yVelocity) > ((float) this.mMinimumFlingVelocity) || Math.abs(xVelocity) > ((float) this.mMinimumFlingVelocity)) ? this.mListener.onFling(this.mCurrentDownEvent, motionEvent, xVelocity, yVelocity) : false;
@@ -301,7 +300,7 @@ public class GestureDetectorCompat {
                     this.mDownFocusX = f3;
                     this.mLastFocusY = f4;
                     this.mDownFocusY = f4;
-                    this.mVelocityTracker.computeCurrentVelocity(LocationClientOption.MIN_SCAN_SPAN, this.mMaximumFlingVelocity);
+                    this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumFlingVelocity);
                     int actionIndex2 = MotionEventCompat.getActionIndex(motionEvent);
                     int pointerId2 = MotionEventCompat.getPointerId(motionEvent, actionIndex2);
                     float xVelocity2 = VelocityTrackerCompat.getXVelocity(this.mVelocityTracker, pointerId2);

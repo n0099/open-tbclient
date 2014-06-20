@@ -2,9 +2,9 @@ package com.baidu.tieba.im.friend;
 
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.br;
+import com.baidu.tbadk.core.util.bt;
 /* loaded from: classes.dex */
-class aa implements br {
+class aa implements bt {
     final /* synthetic */ z a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.adp.widget.a.a c;
@@ -16,7 +16,7 @@ class aa implements br {
         this.c = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.br
+    @Override // com.baidu.tbadk.core.util.bt
     public boolean a(View view) {
         if ((view instanceof ImageView) && view.getTag() != null) {
             Object tag = view.getTag();

@@ -9,7 +9,7 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends BdAsyncTask<String, Integer, Bitmap> {
-    volatile com.baidu.tbadk.core.util.al a;
+    volatile com.baidu.tbadk.core.util.an a;
     com.baidu.tbadk.coreExtra.data.f b;
     final /* synthetic */ VcodeActivity c;
     private volatile boolean d;
@@ -52,28 +52,28 @@ public class ae extends BdAsyncTask<String, Integer, Bitmap> {
         WriteData writeData6;
         String str = strArr[0];
         if (str == null || str.length() <= 0) {
-            this.a = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
-            com.baidu.tbadk.core.util.al alVar = this.a;
+            this.a = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+            com.baidu.tbadk.core.util.an anVar = this.a;
             writeData = this.c.b;
-            alVar.a("fid", writeData.getForumId());
-            com.baidu.tbadk.core.util.al alVar2 = this.a;
+            anVar.a("fid", writeData.getForumId());
+            com.baidu.tbadk.core.util.an anVar2 = this.a;
             writeData2 = this.c.b;
-            alVar2.a("kw", writeData2.getForumName());
+            anVar2.a("kw", writeData2.getForumName());
             this.a.a("new_vcode", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            com.baidu.tbadk.core.util.al alVar3 = this.a;
+            com.baidu.tbadk.core.util.an anVar3 = this.a;
             writeData3 = this.c.b;
-            alVar3.a("title", writeData3.getTitle());
-            com.baidu.tbadk.core.util.al alVar4 = this.a;
+            anVar3.a("title", writeData3.getTitle());
+            com.baidu.tbadk.core.util.an anVar4 = this.a;
             writeData4 = this.c.b;
-            alVar4.a("content", writeData4.getContent());
+            anVar4.a("content", writeData4.getContent());
             writeData5 = this.c.b;
             if (writeData5.getType() == 0) {
                 this.a.a("pub_type", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             } else {
                 this.a.a("pub_type", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
-                com.baidu.tbadk.core.util.al alVar5 = this.a;
+                com.baidu.tbadk.core.util.an anVar5 = this.a;
                 writeData6 = this.c.b;
-                alVar5.a("tid", writeData6.getThreadId());
+                anVar5.a("tid", writeData6.getThreadId());
             }
             String i = this.a.i();
             if (!this.a.a().b().b()) {
@@ -86,7 +86,7 @@ public class ae extends BdAsyncTask<String, Integer, Bitmap> {
         if (this.d) {
             return null;
         }
-        this.a = new com.baidu.tbadk.core.util.al(str);
+        this.a = new com.baidu.tbadk.core.util.an(str);
         return com.baidu.tbadk.core.util.g.a(this.a.h());
     }
 

@@ -327,7 +327,7 @@ public class bm extends com.baidu.tbadk.core.d {
     private void v() {
         TiebaStatic.eventStat(this.f, "enter_chat", "personclick", 1, new Object[0]);
         try {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new com.baidu.tbadk.core.atomData.au(this.f, Long.parseLong(this.c.h().getUserId()), this.c.h().getUserName(), this.c.h().getPortrait(), this.c.h().getSex())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new com.baidu.tbadk.core.atomData.at(this.f, Long.parseLong(this.c.h().getUserId()), this.c.h().getUserName(), this.c.h().getPortrait(), this.c.h().getSex())));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -401,9 +401,9 @@ public class bm extends com.baidu.tbadk.core.d {
             }
         } else if (i2 == 0) {
             if (i == 12009) {
-                com.baidu.tbadk.core.util.bb.c(getActivity());
+                com.baidu.tbadk.core.util.bd.c(getActivity());
             } else if (i == 12010) {
-                com.baidu.tbadk.core.util.bb.a(getActivity());
+                com.baidu.tbadk.core.util.bd.a(getActivity());
             }
         }
     }

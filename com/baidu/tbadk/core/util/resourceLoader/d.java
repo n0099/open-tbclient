@@ -9,10 +9,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bd;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.util.g;
 import com.baidu.tbadk.core.util.w;
 /* loaded from: classes.dex */
@@ -25,7 +25,7 @@ public class d extends a {
     @Override // com.baidu.tbadk.core.util.resourceLoader.a
     public Object a(String str, com.baidu.adp.lib.e.d dVar, com.baidu.tbadk.core.util.b bVar, com.baidu.tbadk.core.util.e eVar) {
         if (eVar.g) {
-            String f = be.f(str);
+            String f = bg.f(str);
             String str2 = bVar.f != null ? String.valueOf(f) + bVar.f : f;
             String a = bVar.a(str);
             synchronized (g.a) {
@@ -36,17 +36,17 @@ public class d extends a {
                             eVar.e = a2;
                         }
                     } else {
-                        int d = bd.a().d(str2);
+                        int d = bf.a().d(str2);
                         if (d > 0) {
                             com.baidu.tbadk.imageManager.e.a().c(d);
-                            eVar.e = bd.a().b(str2);
+                            eVar.e = bf.a().b(str2);
                             if (eVar.e != null) {
                                 s<String> A = com.baidu.tbadk.core.a.b.a().A();
                                 if (A != null && "gif".equals(A.a(a))) {
                                     eVar.h = true;
                                 }
                                 if (!eVar.h) {
-                                    eVar.h = bd.a().c(str2);
+                                    eVar.h = bf.a().c(str2);
                                 }
                             }
                         }
@@ -90,7 +90,7 @@ public class d extends a {
         int i3 = eVar.d;
         w wVar = new w();
         wVar.a("url", str);
-        String f2 = bVar.f != null ? String.valueOf(f) + bVar.f : be.f(str);
+        String f2 = bVar.f != null ? String.valueOf(f) + bVar.f : bg.f(str);
         wVar.a("name", f2);
         if (bVar.b == 0) {
             i = k.a(bVar.a, 105.0f);
@@ -111,13 +111,13 @@ public class d extends a {
             StringBuilder sb2 = new StringBuilder(100);
             sb2.append(TbConfig.IMAGE_ADDRESS);
             sb2.append("src=");
-            sb2.append(be.d(str));
+            sb2.append(bg.d(str));
             sb2.append("&width=");
             sb2.append(String.valueOf(i));
             sb2.append("&height=");
             sb2.append(String.valueOf(i2));
             sb2.append("&imgtype=0");
-            sb2.append("&qulity=" + bf.a().d());
+            sb2.append("&qulity=" + bh.a().d());
             sb2.append("&first_gif=1");
             if (bVar.e) {
                 sb2.append("&ispv=1");
@@ -199,7 +199,7 @@ public class d extends a {
             if (eVar.n) {
                 return null;
             }
-            if (eVar.p && (a = aw.a().a(eVar.e, eVar.p, true, f2)) != null) {
+            if (eVar.p && (a = ay.a().a(eVar.e, eVar.p, true, f2)) != null) {
                 eVar.e = a;
             }
             eVar.i = new com.baidu.adp.widget.a.a(eVar.e, eVar.h, str);

@@ -9,7 +9,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.v;
@@ -85,9 +85,9 @@ public class k extends com.baidu.adp.base.c {
         }
         if (this.c != null) {
             if (!z) {
-                bc.i(this.c, TbadkApplication.m252getInst().getSkinType());
+                be.i(this.c, TbadkApplication.m252getInst().getSkinType());
             } else {
-                bc.g(this.c, TbadkApplication.m252getInst().getSkinType());
+                be.g(this.c, TbadkApplication.m252getInst().getSkinType());
             }
         }
     }

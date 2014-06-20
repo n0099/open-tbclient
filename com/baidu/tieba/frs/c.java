@@ -34,7 +34,7 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
         String c = eVar.c();
         String b = eVar.b();
         int d2 = eVar.d();
-        if (com.baidu.tbadk.core.util.be.c(a) || com.baidu.tbadk.core.util.be.c(c)) {
+        if (com.baidu.tbadk.core.util.bg.c(a) || com.baidu.tbadk.core.util.bg.c(c)) {
             return null;
         }
         String str = String.valueOf(a.replace(".", "_")) + ".apk";

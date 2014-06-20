@@ -107,7 +107,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
     private boolean E = false;
     private boolean F = true;
     private boolean G = true;
-    private boolean H = true;
+    private final boolean H = true;
     private g I = null;
     private com.baidu.tieba.model.af J = null;
     private com.baidu.tieba.model.bd K = null;
@@ -170,7 +170,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
     }
 
     public static void e() {
-        com.baidu.tbadk.core.util.bi.a().a(new ae());
+        com.baidu.tbadk.core.util.bk.a().a(new ae());
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -291,7 +291,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
         if (str == null || str.length() <= 0) {
             return null;
         }
-        Class<?> intentClass = TbadkApplication.m252getInst().getIntentClass(com.baidu.tbadk.core.atomData.ak.class);
+        Class<?> intentClass = TbadkApplication.m252getInst().getIntentClass(com.baidu.tbadk.core.atomData.aj.class);
         if (intentClass != null) {
             Intent intent = new Intent(context, intentClass);
             intent.addCategory("android.intent.category.LAUNCHER");
@@ -507,7 +507,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
             Intent intent = new Intent();
             intent.putExtra("class", 2);
             intent.putExtra("fname", getIntent().getStringExtra("name"));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ak(this, intent)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.aj(this, intent)));
             finish();
             return true;
         }
@@ -528,7 +528,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
                         intent.putExtra("class", 2);
                         intent.putExtra("fname", getIntent().getStringExtra("name"));
                         intent.putExtra("from", "short_cut");
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ak(this, intent)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.aj(this, intent)));
                         finish();
                         return false;
                     }
@@ -633,7 +633,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
                     b(intent);
                     int size2 = this.Y.size() - 1;
                     if (size2 > -1 && this.Y != null && this.Y.getChosedFiles() != null && (size = this.Y.getChosedFiles().size()) >= 1 && size2 >= 0 && size2 < size) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bk(this, 12012, this.Y, size2)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bj(this, 12012, this.Y, size2)));
                         return;
                     }
                     return;
@@ -869,7 +869,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
             intent.putExtra("android.intent.extra.shortcut.INTENT", a2);
             intent.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(this, com.baidu.tieba.u.icon));
             sendBroadcast(intent);
-            new com.baidu.tbadk.core.util.az(TbConfig.ST_TYPE_ADD_TO_LAUNCHER).start();
+            new com.baidu.tbadk.core.util.bb(TbConfig.ST_TYPE_ADD_TO_LAUNCHER).start();
         }
     }
 
@@ -916,7 +916,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
                     com.baidu.adp.lib.util.k.a((Context) this, j.getForbid_info());
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bi(this, 0, this.I.g().getId(), this.n, null, null, 0, this.I.j(), 13003, false, false, null, false, false, null, null, this.I.g().getPrefixData())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bh(this, 0, this.I.g().getId(), this.n, null, null, 0, this.I.j(), 13003, false, false, null, false, false, null, null, this.I.g().getPrefixData())));
                 return;
             }
             this.w.K();
@@ -940,9 +940,9 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
         boolean a2 = a(nVar);
         if (this.u != null) {
             if (!a2) {
-                sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(this).a(nVar, this.n, null, 18003, true, true, this.v)));
+                sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.ar(this).a(nVar, this.n, null, 18003, true, true, this.v)));
             } else {
-                sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(this).a(nVar, this.n, null, 18003, false, false, this.v)));
+                sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.ar(this).a(nVar, this.n, null, 18003, false, false, this.v)));
             }
         }
     }
@@ -950,7 +950,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.tbadk.core.data.n nVar) {
         if (this.u != null) {
-            sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.as(this).a(nVar, this.n, null, 18003, false, false, this.v)));
+            sendMessage(new CustomMessage(2006001, new com.baidu.tbadk.core.atomData.ar(this).a(nVar, this.n, null, 18003, false, false, this.v)));
         }
     }
 
@@ -989,7 +989,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
             this.I = new g();
         }
         fRSPageRequestMessage.setForumModel(this.I);
-        if (com.baidu.tbadk.core.g.a().f()) {
+        if (com.baidu.tbadk.core.h.a().f()) {
             fRSPageRequestMessage.setRn(35);
         } else {
             fRSPageRequestMessage.setRn(50);
@@ -1002,7 +1002,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
         int b2 = com.baidu.adp.lib.util.k.b(this);
         int c2 = com.baidu.adp.lib.util.k.c(this);
         float f = b2 / 320.0f;
-        int i = com.baidu.tbadk.core.util.bf.a().b() ? 2 : 1;
+        int i = com.baidu.tbadk.core.util.bh.a().b() ? 2 : 1;
         fRSPageRequestMessage.setScrW(b2);
         fRSPageRequestMessage.setScrH(c2);
         fRSPageRequestMessage.setScrDip(f);
@@ -1170,7 +1170,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
         } else if (UtilHelper.isNetOk()) {
             com.baidu.tbadk.f.a().b(bVar.i(), System.currentTimeMillis());
             TiebaStatic.eventStat(this, "frs_dl_app", "frs_recommend_app", 1, "app_name", bVar.i());
-            new com.baidu.tbadk.core.util.az("frs_recommend_app", "frs_dl", bVar.i()).start();
+            new com.baidu.tbadk.core.util.bb("frs_recommend_app", "frs_dl", bVar.i()).start();
             b.a().a(bVar.i(), bVar.j(), bVar.g(), i);
         } else {
             showToast(com.baidu.tieba.y.neterror);
@@ -1268,7 +1268,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
                     TiebaStatic.eventStat(this, "frs_night_mode", "frsclick", 1, new Object[0]);
                     com.baidu.tieba.ai.c().c(1);
                     this.mSkinType = 1;
-                    new com.baidu.tbadk.core.util.az(TbConfig.ST_TYPE_EYESHIELD_MODE).start();
+                    new com.baidu.tbadk.core.util.bb(TbConfig.ST_TYPE_EYESHIELD_MODE).start();
                 } else {
                     return;
                 }
@@ -1497,7 +1497,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
                                     if (status == 3 || status == 0) {
                                         bVar.a(2);
                                     } else if (status == 2 || status == 4) {
-                                        if (!com.baidu.tbadk.core.util.be.c(downloadData.getStatusMsg())) {
+                                        if (!com.baidu.tbadk.core.util.bg.c(downloadData.getStatusMsg())) {
                                             showToast(downloadData.getStatusMsg());
                                         }
                                         bVar.a(0);
@@ -1682,7 +1682,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
     @Override // com.baidu.tieba.util.n
     public void a(WriteData writeData) {
         if (writeData != null && this.aa != null && writeData.getThreadId().equals(this.aa.q())) {
-            if (!com.baidu.tbadk.core.util.be.c(writeData.getContent()) && com.baidu.tbadk.core.util.be.c(this.w.V())) {
+            if (!com.baidu.tbadk.core.util.bg.c(writeData.getContent()) && com.baidu.tbadk.core.util.bg.c(this.w.V())) {
                 this.w.d(writeData.getContent());
             }
             if (writeData.getWriteImagesInfo() != null && this.Y.size() == 0) {
@@ -1708,7 +1708,7 @@ public class FrsActivity extends BaseActivity implements com.baidu.adp.widget.Bd
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, com.baidu.adp.base.g
     public void onPreLoad(BdListView bdListView) {
         if (bdListView != null && this.I != null) {
-            com.baidu.tbadk.core.util.ay.a(bdListView, getUniqueId(), this.I.o() == 1 ? 13 : 14);
+            com.baidu.tbadk.core.util.ba.a(bdListView, getUniqueId(), this.I.o() == 1 ? 13 : 14);
         }
     }
 }

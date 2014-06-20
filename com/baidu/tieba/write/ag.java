@@ -32,10 +32,10 @@ class ag implements com.baidu.tieba.model.as {
                     writeData.setVcodeMD5(fVar.a());
                     writeData.setVcodeUrl(fVar.b());
                     if (fVar.c().equals("4")) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ap(this.a, 12006, writeData, false)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ao(this.a, 12006, writeData, false)));
                         return;
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bh(this.a, writeData, 12006)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bg(this.a, writeData, 12006)));
                         return;
                     }
                 }

@@ -7,7 +7,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.model.al;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -18,7 +19,7 @@ public class u extends BdAsyncTask<Object, Integer, al> {
     private String c;
     private ArrayList<BasicNameValuePair> d;
     private g e;
-    private com.baidu.tbadk.core.util.al b = null;
+    private an b = null;
     private al f = null;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -82,10 +83,10 @@ public class u extends BdAsyncTask<Object, Integer, al> {
         } catch (Exception e) {
             BdLog.e(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
-        if (be.c(str)) {
+        if (bg.c(str)) {
             return null;
         }
-        this.b = new com.baidu.tbadk.core.util.al(this.c);
+        this.b = new an(this.c);
         this.b.a(this.d);
         String i3 = this.b.i();
         if (this.b.a().b().b() && i3 != null) {

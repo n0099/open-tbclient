@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.data.GroupInfoData;
 import java.util.ArrayList;
@@ -183,10 +183,10 @@ public class GroupListAdapter extends BaseAdapter {
         a(pVar.k, groupInfoData.getGrade());
         a(view);
         if (groupInfoData.isMemGroup()) {
-            bc.a(pVar.d, com.baidu.tieba.s.im_group_vip_text, 1);
-            bc.c(pVar.h, com.baidu.tieba.u.icon_vip_grade_big_small_s);
-            bc.c(pVar.i, com.baidu.tieba.u.icon_vip_grade_big_small_s);
-            bc.c(pVar.j, com.baidu.tieba.u.icon_vip_grade_big_small_s);
+            be.a(pVar.d, com.baidu.tieba.s.im_group_vip_text, 1);
+            be.c(pVar.h, com.baidu.tieba.u.icon_vip_grade_big_small_s);
+            be.c(pVar.i, com.baidu.tieba.u.icon_vip_grade_big_small_s);
+            be.c(pVar.j, com.baidu.tieba.u.icon_vip_grade_big_small_s);
             return view;
         }
         return view;

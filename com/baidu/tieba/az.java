@@ -13,14 +13,16 @@ public class az implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean z;
         ac acVar;
-        z = this.a.a;
-        if (z) {
-            this.a.b();
-        }
+        boolean z;
+        boolean z2;
+        boolean z3;
         acVar = this.a.h;
-        acVar.dismiss();
-        this.a.finish();
+        acVar.a();
+        UpdateDialog updateDialog = this.a;
+        z = this.a.b;
+        z2 = this.a.c;
+        z3 = this.a.d;
+        updateDialog.a(z, z2, z3);
     }
 }

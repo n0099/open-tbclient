@@ -87,9 +87,9 @@ public class cc extends com.baidu.adp.base.a<ChatMessage> {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(1000 * j);
         if (this.p != null && this.p.get(1) == calendar.get(1) && this.p.get(6) == calendar.get(6)) {
-            return com.baidu.tbadk.core.util.be.b(calendar.getTime());
+            return com.baidu.tbadk.core.util.bg.b(calendar.getTime());
         }
-        return com.baidu.tbadk.core.util.be.a(calendar.getTime());
+        return com.baidu.tbadk.core.util.bg.a(calendar.getTime());
     }
 
     public void a(View view, ChatMessage chatMessage) {

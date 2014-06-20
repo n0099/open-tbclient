@@ -1,34 +1,24 @@
 package com.baidu.tbadk.a;
 
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 /* loaded from: classes.dex */
-public class c implements com.baidu.adp.framework.c.e {
-    @Override // com.baidu.adp.framework.c.e
-    public void a(String str, String str2, int i, Message<?> message) {
-        int i2;
-        int i3 = 0;
-        if (message == null || !(message instanceof SocketMessage)) {
-            i2 = 0;
-        } else {
-            i2 = message.getCmd();
-            i3 = ((SocketMessage) message).getSquencedId();
-        }
-        TiebaStatic.imLog(i2, i3, str2, "BdSocketLinkService", "result", i, "");
+public class c extends com.baidu.adp.framework.a.c {
+    public c(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.adp.framework.c.e
-    public void a(String str, String str2, int i, ResponsedMessage<?> responsedMessage) {
-        int i2;
-        int i3 = 0;
-        if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage() instanceof SocketMessage)) {
-            i2 = 0;
-        } else {
-            i2 = responsedMessage.getCmd();
-            i3 = ((SocketMessage) responsedMessage.getOrginalMessage()).getSquencedId();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.g
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        if (httpResponsedMessage instanceof JsonHttpResponsedMessage) {
+            ReloginManager a = ReloginManager.a();
+            if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
+                a.a((HttpMessage) httpResponsedMessage.getOrginalMessage());
+            }
         }
-        TiebaStatic.imError(str, i2, i3, str2, i);
+        return httpResponsedMessage;
     }
 }

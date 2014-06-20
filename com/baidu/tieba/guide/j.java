@@ -1,10 +1,10 @@
 package com.baidu.tieba.guide;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.br;
+import com.baidu.tbadk.core.util.bt;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class j implements br {
+class j implements bt {
     final /* synthetic */ i a;
     private final /* synthetic */ String b;
 
@@ -14,7 +14,7 @@ class j implements br {
         this.b = str;
     }
 
-    @Override // com.baidu.tbadk.core.util.br
+    @Override // com.baidu.tbadk.core.util.bt
     public boolean a(View view) {
         if (this.b.equals(view.getTag()) && (view instanceof TbImageView)) {
             ((TbImageView) view).invalidate();

@@ -73,12 +73,12 @@ public class q extends Thread {
                         return;
                     }
                 }
-                this.a.b(new x());
+                this.a.b(new x(2, "cannot connect"));
                 return;
             }
             this.a.b(new v());
         } catch (Throwable th2) {
-            this.a.b(new x());
+            this.a.b(new x(2, th2.getMessage()));
         }
     }
 }

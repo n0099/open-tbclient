@@ -6,12 +6,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bg;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba extends BdAsyncTask<Object, Integer, SignData> {
     final /* synthetic */ az a;
-    private volatile com.baidu.tbadk.core.util.al b;
+    private volatile com.baidu.tbadk.core.util.an b;
 
     private ba(az azVar) {
         this.a = azVar;
@@ -60,13 +61,13 @@ public class ba extends BdAsyncTask<Object, Integer, SignData> {
         str5 = null;
         try {
             TiebaStatic.eventStat(TbadkApplication.m252getInst().getApplicationContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/sign");
-            com.baidu.tbadk.core.util.al alVar = this.b;
+            this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/sign");
+            com.baidu.tbadk.core.util.an anVar = this.b;
             str2 = this.a.a;
-            alVar.a("kw", str2);
-            com.baidu.tbadk.core.util.al alVar2 = this.b;
+            anVar.a("kw", str2);
+            com.baidu.tbadk.core.util.an anVar2 = this.b;
             str3 = this.a.b;
-            alVar2.a("fid", str3);
+            anVar2.a("fid", str3);
             this.b.a().a().a = true;
             i = this.b.i();
         } catch (Exception e2) {
@@ -88,7 +89,7 @@ public class ba extends BdAsyncTask<Object, Integer, SignData> {
                         str = signData;
                         str5 = str4;
                     }
-                } else if (!com.baidu.tbadk.core.util.be.c(i) && (jSONObject = new JSONObject(i)) != null && "199901".equals(jSONObject.optString("error_code"))) {
+                } else if (!bg.c(i) && (jSONObject = new JSONObject(i)) != null && "199901".equals(jSONObject.optString("error_code"))) {
                     SignData signData2 = new SignData();
                     signData2.parserJson(i);
                     signData2.setIsSigned(1);

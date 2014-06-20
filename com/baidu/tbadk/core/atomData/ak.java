@@ -3,36 +3,41 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
 /* loaded from: classes.dex */
 public class ak extends com.baidu.tbadk.core.frameworkData.a {
-    public static boolean a = true;
-    public static boolean b = false;
-
-    public ak(Context context, Intent intent) {
+    public ak(Context context) {
         super(context);
-        a = true;
-        b = true;
-        setIntentAction(IntentAction.Activity);
-        if (!(context instanceof Activity)) {
-            getIntent().setFlags(268435456);
-        }
-        if (intent != null) {
-            getIntent().putExtra("extra_intent", intent);
-        }
-        getIntent().addCategory("android.intent.category.LAUNCHER");
-        getIntent().setAction("android.intent.action.MAIN");
     }
 
-    public ak(Context context, boolean z) {
-        super(context);
-        a = true;
-        b = z;
-        setIntentAction(IntentAction.Activity);
-        if (!(context instanceof Activity)) {
-            getIntent().setFlags(268435456);
+    public ak a(int i) {
+        return a(i, false);
+    }
+
+    public ak a(int i, boolean z) {
+        Intent intent = getIntent();
+        intent.setFlags(603979776);
+        if (!(getContext() instanceof Activity)) {
+            intent.addFlags(268435456);
         }
-        getIntent().addCategory("android.intent.category.LAUNCHER");
-        getIntent().setAction("android.intent.action.MAIN");
+        if (i >= 0) {
+            intent.putExtra("locate_type", i);
+        }
+        intent.putExtra("is_new_user", z);
+        intent.putExtra("close_dialog", true);
+        return this;
+    }
+
+    public ak b(int i, boolean z) {
+        Intent intent = getIntent();
+        intent.setFlags(603979776);
+        intent.putExtra("refresh_all", true);
+        if (i >= 0) {
+            intent.putExtra("locate_type", i);
+        }
+        if (z) {
+            intent.addFlags(268435456);
+        }
+        intent.putExtra("close_dialog", true);
+        return this;
     }
 }

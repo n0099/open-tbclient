@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw extends BdAsyncTask<String, Integer, ax> {
     final /* synthetic */ au a;
-    private com.baidu.tbadk.core.util.al b = null;
+    private com.baidu.tbadk.core.util.an b = null;
     private String c;
     private String d;
     private final boolean e;
@@ -24,7 +24,7 @@ public class aw extends BdAsyncTask<String, Integer, ax> {
         this.c = null;
         this.d = null;
         this.c = str;
-        this.d = be.f(str);
+        this.d = bg.f(str);
         this.e = z;
     }
 
@@ -54,7 +54,7 @@ public class aw extends BdAsyncTask<String, Integer, ax> {
         if (z) {
             str = this.c;
         } else {
-            str = String.valueOf(TbConfig.IMAGE_ADDRESS) + (String.valueOf(String.valueOf(this.c) + "&imgtype=0") + "&qulity=" + bf.a().d());
+            str = String.valueOf(TbConfig.IMAGE_ADDRESS) + (String.valueOf(String.valueOf(this.c) + "&imgtype=0") + "&qulity=" + bh.a().d());
         }
         try {
             byte[] imageData = this.a.b.getImageData();
@@ -79,7 +79,7 @@ public class aw extends BdAsyncTask<String, Integer, ax> {
                 } else {
                     str2 = String.valueOf(str.substring(0, lastIndexOf)) + ".webp" + str.substring(lastIndexOf + 4, str.length());
                 }
-                this.b = new com.baidu.tbadk.core.util.al(str2);
+                this.b = new com.baidu.tbadk.core.util.an(str2);
                 com.baidu.tbadk.core.util.a.b a2 = this.b.a().a();
                 z2 = this.a.f;
                 a2.e = z2;

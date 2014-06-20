@@ -77,7 +77,7 @@ public class d extends com.baidu.adp.framework.listener.b {
                 imMessageCenterPojo.setGroup_name("聊天室");
                 imMessageCenterPojo.setIs_delete(0);
                 imMessageCenterPojo.setIs_hidden(1);
-                com.baidu.tieba.im.f.i.a(imMessageCenterPojo);
+                com.baidu.tieba.im.e.i.a(imMessageCenterPojo);
                 baseFragmentActivity2 = this.a.g;
                 WaittingActivity.a(baseFragmentActivity2, randChatRoomData, 0);
             }

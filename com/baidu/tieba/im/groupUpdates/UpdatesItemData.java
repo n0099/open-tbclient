@@ -109,14 +109,14 @@ public class UpdatesItemData extends com.baidu.tbadk.core.util.a implements Seri
         this.notice_id = str;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getGroupHeadUrl());
         return linkedList;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getGroupHeadUrl());

@@ -18,7 +18,7 @@ import com.baidu.tieba.person.by;
 /* loaded from: classes.dex */
 public class ax extends BdAsyncTask<Boolean, av, av> {
     final /* synthetic */ av a;
-    private com.baidu.tbadk.core.util.al b = null;
+    private com.baidu.tbadk.core.util.an b = null;
     private volatile boolean c = false;
     private boolean d = false;
     private av e;
@@ -47,13 +47,13 @@ public class ax extends BdAsyncTask<Boolean, av, av> {
                 this.d = false;
             }
             if (!this.c && this.a.f() != null) {
-                this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/profile");
+                this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/profile");
                 this.b.a(SapiAccountManager.SESSION_UID, this.a.f());
                 this.b.a("need_post_count", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-                com.baidu.tbadk.core.util.al alVar = this.b;
+                com.baidu.tbadk.core.util.an anVar = this.b;
                 StringBuilder sb = new StringBuilder();
                 i = this.a.m;
-                alVar.a("pn", sb.append(i).toString());
+                anVar.a("pn", sb.append(i).toString());
                 this.b.a("rn", "20");
                 this.b.a("has_plist", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
                 if (this.a.g()) {

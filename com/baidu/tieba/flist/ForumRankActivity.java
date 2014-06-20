@@ -11,7 +11,7 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.ai;
@@ -33,7 +33,7 @@ public class ForumRankActivity extends BaseActivity {
     private String l = null;
     private boolean m = false;
     private final com.baidu.adp.base.e n = new aa(this);
-    private final com.baidu.tbadk.core.util.ad o = new ab(this);
+    private final com.baidu.tbadk.core.util.af o = new ab(this);
     private final AbsListView.OnScrollListener p = new ac(this);
     private final Runnable q = new ad(this);
 
@@ -116,7 +116,7 @@ public class ForumRankActivity extends BaseActivity {
     public void onResume() {
         super.onResume();
         b();
-        com.baidu.tbadk.core.util.ae.a(this.a, this.f, 0, -1);
+        com.baidu.tbadk.core.util.ag.a(this.a, this.f, 0, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -146,7 +146,7 @@ public class ForumRankActivity extends BaseActivity {
             this.a.setBackgroundColor(getResources().getColor(com.baidu.tieba.s.backgroundcolor));
             this.c.a(false);
         }
-        bc.b(findViewById(com.baidu.tieba.v.root_view), i);
+        be.b(findViewById(com.baidu.tieba.v.root_view), i);
         this.i.a(i);
         if (i == 1) {
             this.c.a(com.baidu.tieba.u.btn_add_end_1, com.baidu.tieba.u.btn_add_1);

@@ -10,7 +10,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.q;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bj;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.im.model.be;
 import com.baidu.tieba.v;
@@ -59,7 +59,7 @@ public class NearbyGroupsActivity extends BaseActivity {
             return true;
         }
         try {
-            return bh.a(bh.a(), new Date(j)) >= 1;
+            return bj.a(bj.a(), new Date(j)) >= 1;
         } catch (Exception e) {
             return true;
         }

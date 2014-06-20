@@ -14,11 +14,11 @@ public class m extends BdAsyncTask<Object, Integer, Void> {
         this.a = hVar;
         this.b = null;
         this.b = fVar;
-        bdAsyncTaskParallel = hVar.w;
+        bdAsyncTaskParallel = hVar.x;
         if (bdAsyncTaskParallel == null) {
-            hVar.w = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, com.baidu.adp.lib.asyncTask.l.a());
+            hVar.x = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, com.baidu.adp.lib.asyncTask.l.a());
         }
-        bdAsyncTaskParallel2 = hVar.w;
+        bdAsyncTaskParallel2 = hVar.x;
         setParallel(bdAsyncTaskParallel2);
     }
 
@@ -39,9 +39,9 @@ public class m extends BdAsyncTask<Object, Integer, Void> {
         BdStatSwitchData bdStatSwitchData;
         BdStatSwitchData bdStatSwitchData2;
         super.onPostExecute(r6);
-        bdStatSwitchData = this.a.x;
+        bdStatSwitchData = this.a.y;
         if (!bdStatSwitchData.inSpecStrategy()) {
-            bdStatSwitchData2 = this.a.x;
+            bdStatSwitchData2 = this.a.y;
             if (bdStatSwitchData2.getSpecifiedExpired() > 0) {
                 new k(this.a, false).execute(new Object[0]);
             }

@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.voice.z;
 import com.baidu.tieba.aa;
 import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.f.r;
+import com.baidu.tieba.im.e.r;
 import com.baidu.tieba.im.i;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;

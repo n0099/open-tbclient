@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.im.data.GroupInfoData;
@@ -187,10 +187,10 @@ public class HotGroupAdapter extends BaseAdapter {
             this.a.a().a(TbadkApplication.m252getInst().getSkinType() == 1);
             this.a.a().a(view);
             if (item != null && item.isMemGroup()) {
-                bc.a(aVar.i, s.im_group_vip_text, 1);
-                bc.c(aVar.l, u.icon_vip_grade_big_small_s);
-                bc.c(aVar.m, u.icon_vip_grade_big_small_s);
-                bc.c(aVar.n, u.icon_vip_grade_big_small_s);
+                be.a(aVar.i, s.im_group_vip_text, 1);
+                be.c(aVar.l, u.icon_vip_grade_big_small_s);
+                be.c(aVar.m, u.icon_vip_grade_big_small_s);
+                be.c(aVar.n, u.icon_vip_grade_big_small_s);
             }
         }
         return view;

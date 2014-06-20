@@ -34,13 +34,13 @@ class r implements AdapterView.OnItemClickListener {
                         if (vVar.a.equals(str)) {
                             list3 = this.a.b;
                             if (list3.contains(str)) {
-                                com.baidu.tbadk.core.util.bc.c(xVar.a, com.baidu.tieba.u.btn_expression_choose_n);
+                                com.baidu.tbadk.core.util.be.c(xVar.a, com.baidu.tieba.u.btn_expression_choose_n);
                                 list4 = this.a.b;
                                 list4.remove(str);
                                 this.a.b(str);
                                 vVar.c = false;
                             } else {
-                                com.baidu.tbadk.core.util.bc.c(xVar.a, com.baidu.tieba.u.btn_expression_choose_s);
+                                com.baidu.tbadk.core.util.be.c(xVar.a, com.baidu.tieba.u.btn_expression_choose_s);
                                 this.a.a(str);
                                 vVar.c = true;
                             }

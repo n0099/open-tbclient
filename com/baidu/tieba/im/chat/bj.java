@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.chat;
 
 import android.content.DialogInterface;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* loaded from: classes.dex */
 class bj implements DialogInterface.OnClickListener {
@@ -25,10 +26,9 @@ class bj implements DialogInterface.OnClickListener {
             a.setLast_rid(0L);
         }
         com.baidu.tieba.im.i.a(new bk(this), new bl(this));
-        com.baidu.adp.framework.c.c a2 = com.baidu.adp.framework.c.c.a();
         StringBuilder sb = new StringBuilder("clear cache by group:");
         bnVar2 = this.a.b;
-        a2.a(true, sb.append(bnVar2.a()).toString());
+        BdSocketLinkService.startService(true, sb.append(bnVar2.a()).toString());
         dialogInterface.cancel();
     }
 }

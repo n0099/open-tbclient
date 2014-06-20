@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.s;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
@@ -83,10 +83,10 @@ public class d {
             if (!TextUtils.isEmpty(this.a)) {
                 this.h.setText(this.a);
                 this.h.setVisibility(0);
-                bc.f(this.g, u.bg_unite_popup_share_down);
+                be.f(this.g, u.bg_unite_popup_share_down);
             } else {
                 this.h.setVisibility(8);
-                bc.f(this.g, u.bg_unite_popup);
+                be.f(this.g, u.bg_unite_popup);
             }
             if (this.b != null && this.b.size() > 0) {
                 int size = this.b.size();
@@ -179,8 +179,8 @@ public class d {
                             i3 = intValue2;
                             str = str2;
                             button.setText(str);
-                            bc.f((View) button, i2);
-                            bc.a(button, i3, 3);
+                            be.f((View) button, i2);
+                            be.a(button, i3, 3);
                             if (this.c != null) {
                             }
                             this.g.addView(inflate);
@@ -202,8 +202,8 @@ public class d {
             i3 = intValue2;
         }
         button.setText(str);
-        bc.f((View) button, i2);
-        bc.a(button, i3, 3);
+        be.f((View) button, i2);
+        be.a(button, i3, 3);
         if (this.c != null) {
             button.setOnClickListener(new e(this, i, button));
         }

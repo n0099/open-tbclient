@@ -31,7 +31,7 @@ public class d implements View.OnClickListener {
             textView3 = this.a.g;
             textView3.setText(com.baidu.tieba.y.done);
             textView4 = this.a.g;
-            com.baidu.tbadk.core.util.bc.g(textView4, TbadkApplication.m252getInst().getSkinType());
+            com.baidu.tbadk.core.util.be.g(textView4, TbadkApplication.m252getInst().getSkinType());
             gVar5 = this.a.i;
             gVar5.notifyDataSetChanged();
             return;
@@ -41,7 +41,7 @@ public class d implements View.OnClickListener {
         textView = this.a.g;
         textView.setText(com.baidu.tieba.y.edit);
         textView2 = this.a.g;
-        com.baidu.tbadk.core.util.bc.i(textView2, TbadkApplication.m252getInst().getSkinType());
+        com.baidu.tbadk.core.util.be.i(textView2, TbadkApplication.m252getInst().getSkinType());
         gVar3 = this.a.i;
         gVar3.notifyDataSetChanged();
     }

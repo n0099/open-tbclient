@@ -5,8 +5,8 @@ import android.graphics.Rect;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bd;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.util.g;
 /* loaded from: classes.dex */
 public class c extends a {
@@ -29,17 +29,17 @@ public class c extends a {
     @Override // com.baidu.tbadk.core.util.resourceLoader.a
     public Object a(String str, com.baidu.adp.lib.e.d dVar, com.baidu.tbadk.core.util.b bVar, com.baidu.tbadk.core.util.e eVar) {
         if (eVar.g) {
-            String f = be.f(str);
+            String f = bg.f(str);
             if (bVar.f != null) {
                 f = String.valueOf(f) + bVar.f;
             }
             String a = bVar.a(str);
             synchronized (g.a) {
                 if (f != null) {
-                    int e = bd.a().e(f);
+                    int e = bf.a().e(f);
                     if (e > 0) {
                         com.baidu.tbadk.imageManager.e.a().c(e);
-                        eVar.i = bd.a().a(f, a);
+                        eVar.i = bf.a().a(f, a);
                         eVar.e = eVar.i.h();
                     }
                 }
@@ -75,7 +75,7 @@ public class c extends a {
             TiebaStatic.imgError("", TbErrInfo.ERR_IMG_URL_IS_NULL, "", "");
             return null;
         }
-        String f = be.f(str);
+        String f = bg.f(str);
         if (bVar.f != null) {
             f = String.valueOf(f) + bVar.f;
         }

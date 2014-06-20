@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.ai;
 import java.io.ByteArrayOutputStream;
@@ -63,7 +63,7 @@ public class q implements Thread.UncaughtExceptionHandler {
                     if (g != null && g.length() < 204800 && str2 != null) {
                         FileWriter fileWriter2 = new FileWriter(g, true);
                         try {
-                            a(fileWriter2, be.a(), null);
+                            a(fileWriter2, bg.a(), null);
                             a(fileWriter2, "tieba_crash_new_info", null);
                             a(fileWriter2, "version", TbConfig.getVersion());
                             a(fileWriter2, "model", Build.MODEL);
@@ -75,7 +75,7 @@ public class q implements Thread.UncaughtExceptionHandler {
                             a(fileWriter2, "client_id", TbadkApplication.getClientId());
                             a(fileWriter2, "imei", TbadkApplication.m252getInst().getImei());
                             a(fileWriter2, "uname", TbadkApplication.getCurrentAccountName());
-                            a(fileWriter2, "activity", bg.b());
+                            a(fileWriter2, "activity", bi.b());
                             a(fileWriter2, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
                             a(fileWriter2, "crash_type", th.getClass().getName());
                             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) ai.c().d().getSystemService("activity")).getRunningAppProcesses();
@@ -228,7 +228,7 @@ public class q implements Thread.UncaughtExceptionHandler {
                                 break;
                             }
                         }
-                        if (bg.a() != null && bg.a().indexOf("NewVcode") != -1) {
+                        if (bi.a() != null && bi.a().indexOf("NewVcode") != -1) {
                             ai.c().e(ai.c().z() + 1);
                         }
                     }

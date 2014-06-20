@@ -103,7 +103,7 @@ public class ab implements com.baidu.tbadk.editortool.x {
                     this.a.o = String.valueOf(System.currentTimeMillis());
                     PbActivity pbActivity2 = this.a;
                     str = this.a.o;
-                    com.baidu.tbadk.core.util.bb.a(pbActivity2, str);
+                    com.baidu.tbadk.core.util.bd.a(pbActivity2, str);
                     return;
                 }
                 this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
@@ -133,7 +133,7 @@ public class ab implements com.baidu.tbadk.editortool.x {
                                     MessageManager messageManager = MessageManager.getInstance();
                                     PbActivity pbActivity4 = this.a;
                                     writeImagesInfo4 = this.a.n;
-                                    messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bk(pbActivity4, 12012, writeImagesInfo4, intValue)));
+                                    messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.bj(pbActivity4, 12012, writeImagesInfo4, intValue)));
                                     return;
                                 }
                                 return;

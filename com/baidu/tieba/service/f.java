@@ -4,7 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.x;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -15,7 +15,7 @@ import java.io.FileWriter;
 /* loaded from: classes.dex */
 class f extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ FatalErrorService a;
-    private al b;
+    private an b;
 
     private f(FatalErrorService fatalErrorService) {
         this.a = fatalErrorService;
@@ -57,7 +57,7 @@ class f extends BdAsyncTask<String, Integer, String> {
                         byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         try {
                             if (z) {
-                                com.baidu.tbadk.c.b.a(fileInputStream, byteArrayOutputStream);
+                                com.baidu.tbadk.b.b.a(fileInputStream, byteArrayOutputStream);
                             } else {
                                 byte[] bArr = new byte[1024];
                                 while (true) {
@@ -96,7 +96,7 @@ class f extends BdAsyncTask<String, Integer, String> {
                                 }
                                 return;
                             }
-                            this.b = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
+                            this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + str2);
                             this.b.a("logfile", byteArray);
                             this.b.j();
                             if (byteArrayOutputStream != null) {

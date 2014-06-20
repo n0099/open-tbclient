@@ -21,6 +21,7 @@ public class d implements l {
     @Override // com.baidu.tieba.discover.l
     public void a(n nVar) {
         BdPullRefreshScrollView bdPullRefreshScrollView;
+        BannerView bannerView;
         ViewGroup viewGroup;
         List list;
         BaseFragmentActivity baseFragmentActivity;
@@ -28,16 +29,18 @@ public class d implements l {
         ViewGroup viewGroup2;
         List list2;
         DiscoverItemView discoverItemView;
-        BannerView bannerView;
         BannerView bannerView2;
+        BannerView bannerView3;
         bdPullRefreshScrollView = this.a.p;
         bdPullRefreshScrollView.c();
         this.a.q = true;
+        bannerView = this.a.e;
+        bannerView.b();
         if (nVar.d != null && !TextUtils.isEmpty(nVar.d.b)) {
-            bannerView = this.a.e;
-            bannerView.a("discover_tab_banner_click", "discover_tab_banner_close");
             bannerView2 = this.a.e;
-            bannerView2.a(nVar.d.b, nVar.d.a, "discover_banner_date", 259200000L);
+            bannerView2.a("discover_tab_banner_click", "discover_tab_banner_close");
+            bannerView3 = this.a.e;
+            bannerView3.b(nVar.d.b, nVar.d.a);
         }
         this.a.r = nVar.e;
         if (nVar.c != null) {

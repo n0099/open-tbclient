@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class ab extends com.baidu.adp.base.c {
@@ -157,36 +157,36 @@ public class ab extends com.baidu.adp.base.c {
         }
         this.B.c(i);
         boolean z = i == 1;
-        int a = z ? bc.a(i) : getContext().getResources().getColor(com.baidu.tieba.s.more_color);
+        int a = z ? be.a(i) : getContext().getResources().getColor(com.baidu.tieba.s.more_color);
         int i2 = z ? -11446171 : -5065030;
         int i3 = z ? com.baidu.tieba.u.more_all_1 : com.baidu.tieba.u.more_all;
         BdSwitchView.SwitchStyle switchStyle = z ? BdSwitchView.SwitchStyle.NIGHT : BdSwitchView.SwitchStyle.DAY;
-        bc.e(this.b, i3);
-        bc.e(this.e, i3);
+        be.e(this.b, i3);
+        be.e(this.e, i3);
         this.d.setSwitchStyle(switchStyle);
-        bc.e(this.G, i3);
-        bc.e(this.J, i3);
-        bc.e(this.h, i3);
-        bc.e((View) this.l, i3);
-        bc.e((View) this.m, i3);
-        bc.e((View) this.n, i3);
-        bc.e((View) this.o, i3);
-        bc.e((View) this.p, i3);
-        bc.e((View) this.q, i3);
+        be.e(this.G, i3);
+        be.e(this.J, i3);
+        be.e(this.h, i3);
+        be.e((View) this.l, i3);
+        be.e((View) this.m, i3);
+        be.e((View) this.n, i3);
+        be.e((View) this.o, i3);
+        be.e((View) this.p, i3);
+        be.e((View) this.q, i3);
         this.j.setSwitchStyle(switchStyle);
-        bc.e(this.r, i3);
-        bc.e(this.u, i3);
+        be.e(this.r, i3);
+        be.e(this.u, i3);
         this.t.setSwitchStyle(switchStyle);
         int i4 = z ? com.baidu.tieba.u.icon_arrow_right_1 : com.baidu.tieba.u.icon_arrow_right;
         ((ImageView) this.e.findViewById(com.baidu.tieba.v.no_disturb_mode_time_arrow)).setImageResource(i4);
         ((ImageView) this.u.findViewById(com.baidu.tieba.v.sign_remind_arrow)).setImageResource(i4);
         ((ImageView) this.G.findViewById(com.baidu.tieba.v.no_disturb_start_time_arrow)).setImageResource(i4);
         ((ImageView) this.J.findViewById(com.baidu.tieba.v.no_disturb_end_time_arrow)).setImageResource(i4);
-        bc.e(this.x, i3);
+        be.e(this.x, i3);
         this.z.setSwitchStyle(switchStyle);
-        bc.e(this.M, i3);
+        be.e(this.M, i3);
         this.O.setSwitchStyle(switchStyle);
-        bc.e(this.P, i3);
+        be.e(this.P, i3);
         this.R.setSwitchStyle(switchStyle);
         this.c.setTextColor(a);
         this.f.setTextColor(a);
@@ -416,24 +416,24 @@ public class ab extends com.baidu.adp.base.c {
         if (z) {
             this.e.setVisibility(0);
             c();
-            bc.e(this.b, i);
-            bc.e(this.e, i);
+            be.e(this.b, i);
+            be.e(this.e, i);
             return;
         }
         this.e.setVisibility(8);
-        bc.e(this.b, i);
+        be.e(this.b, i);
     }
 
     public void e(boolean z) {
         int i = TbadkApplication.m252getInst().getSkinType() == 1 ? com.baidu.tieba.u.more_all_1 : com.baidu.tieba.u.more_all;
         if (z) {
             this.u.setVisibility(0);
-            bc.e(this.r, i);
-            bc.e(this.u, i);
+            be.e(this.r, i);
+            be.e(this.u, i);
             return;
         }
         this.u.setVisibility(8);
-        bc.e(this.r, i);
+        be.e(this.r, i);
     }
 
     public void f(boolean z) {
@@ -443,16 +443,16 @@ public class ab extends com.baidu.adp.base.c {
         int i = TbadkApplication.m252getInst().getSkinType() == 1 ? com.baidu.tieba.u.more_all_1 : com.baidu.tieba.u.more_all;
         if (z) {
             this.aj.a();
-            bc.e(this.h, i);
-            bc.e((View) this.l, i);
-            bc.e((View) this.n, i);
-            bc.e((View) this.o, i);
-            bc.e((View) this.p, i);
-            bc.e((View) this.q, i);
+            be.e(this.h, i);
+            be.e((View) this.l, i);
+            be.e((View) this.n, i);
+            be.e((View) this.o, i);
+            be.e((View) this.p, i);
+            be.e((View) this.q, i);
             return;
         }
         this.aj.b();
-        bc.e(this.h, i);
+        be.e(this.h, i);
     }
 
     public void b() {

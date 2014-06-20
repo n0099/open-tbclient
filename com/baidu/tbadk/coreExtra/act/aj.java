@@ -14,7 +14,7 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.i
     ArrayList<BasicNameValuePair> a;
     final /* synthetic */ Login2Activity b;
     private String d;
-    private com.baidu.tbadk.core.util.al c = null;
+    private com.baidu.tbadk.core.util.an c = null;
     private String e = null;
 
     public aj(Login2Activity login2Activity, String str, ArrayList<BasicNameValuePair> arrayList) {
@@ -57,7 +57,7 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.i
         com.baidu.tbadk.core.data.i iVar;
         Exception e;
         try {
-            this.c = new com.baidu.tbadk.core.util.al(this.d);
+            this.c = new com.baidu.tbadk.core.util.an(this.d);
             this.c.a(this.a);
             this.e = this.c.i();
             if (this.e != null) {

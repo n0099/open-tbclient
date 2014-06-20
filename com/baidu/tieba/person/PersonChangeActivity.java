@@ -364,10 +364,10 @@ public class PersonChangeActivity extends BaseActivity {
         } else if (i2 == 0) {
             switch (i) {
                 case 12009:
-                    com.baidu.tbadk.core.util.bb.c(this);
+                    com.baidu.tbadk.core.util.bd.c(this);
                     return;
                 case 12010:
-                    com.baidu.tbadk.core.util.bb.a(this);
+                    com.baidu.tbadk.core.util.bd.a(this);
                     return;
                 default:
                     return;

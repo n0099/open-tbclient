@@ -4,11 +4,11 @@ import android.content.Context;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bm;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements bk {
-    @Override // com.baidu.tbadk.core.util.bk
+public class o implements bm {
+    @Override // com.baidu.tbadk.core.util.bm
     public boolean a(Context context, String[] strArr) {
         if (strArr == null || strArr.length == 0) {
             return false;

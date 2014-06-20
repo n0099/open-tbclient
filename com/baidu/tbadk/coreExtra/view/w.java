@@ -8,7 +8,7 @@ import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public class w extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.data.a> {
     final /* synthetic */ q a;
-    private com.baidu.tbadk.core.util.al b = null;
+    private com.baidu.tbadk.core.util.an b = null;
     private String c;
     private String d;
 
@@ -37,7 +37,7 @@ public class w extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public com.baidu.tbadk.coreExtra.data.a doInBackground(String... strArr) {
-        this.b = new com.baidu.tbadk.core.util.al(this.c);
+        this.b = new com.baidu.tbadk.core.util.an(this.c);
         this.b.a("un", this.d);
         String i = this.b.i();
         if (!this.b.c() || this.b.d() != 36) {

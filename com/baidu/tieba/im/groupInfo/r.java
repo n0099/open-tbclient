@@ -19,7 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.EllipsizingTextView;
@@ -404,24 +404,24 @@ public class r extends com.baidu.adp.base.c {
                 boolean k = fVar.k();
                 boolean j = fVar.j();
                 if (j) {
-                    bc.a(this.ag, com.baidu.tieba.s.im_group_vip_text, 1);
+                    be.a(this.ag, com.baidu.tieba.s.im_group_vip_text, 1);
                 }
                 if (fVar.b().getGrade() > 0) {
                     for (int i = 0; i < fVar.b().getGrade(); i++) {
                         ImageView imageView = new ImageView(this.c);
                         if (j) {
-                            bc.c(imageView, com.baidu.tieba.u.icon_vip_grade_big_middle_s);
+                            be.c(imageView, com.baidu.tieba.u.icon_vip_grade_big_middle_s);
                         } else {
-                            bc.c(imageView, com.baidu.tieba.u.icon_grade_middle_star_s);
+                            be.c(imageView, com.baidu.tieba.u.icon_grade_middle_star_s);
                         }
                         this.v.addView(imageView);
                     }
                 } else {
                     ImageView imageView2 = new ImageView(this.c);
                     if (j) {
-                        bc.c(imageView2, com.baidu.tieba.u.icon_vip_grade_big_middle_n);
+                        be.c(imageView2, com.baidu.tieba.u.icon_vip_grade_big_middle_n);
                     } else {
-                        bc.c(imageView2, com.baidu.tieba.u.icon_grade_middle_star_n);
+                        be.c(imageView2, com.baidu.tieba.u.icon_grade_middle_star_n);
                     }
                     this.v.addView(imageView2);
                 }

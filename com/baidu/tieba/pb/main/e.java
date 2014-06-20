@@ -22,7 +22,7 @@ class e implements View.OnClickListener {
             str = (String) view.getTag();
         }
         if (str != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(this.a, str, null)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this.a, str, null)));
         }
     }
 }

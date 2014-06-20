@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import java.util.ArrayList;
@@ -68,7 +69,7 @@ public class av extends BaseAdapter {
             awVar.c.setText(this.a.getString(com.baidu.tieba.y.official_msg_list_name, new Object[]{imMessageCenterShowItemData.getFriendName()}));
             awVar.d.setText(a(imMessageCenterShowItemData.getMsgContent()));
             if (imMessageCenterShowItemData.getServerTime() != 0) {
-                awVar.e.setText(com.baidu.tbadk.core.util.be.f(new Date(imMessageCenterShowItemData.getServerTime())));
+                awVar.e.setText(bg.f(new Date(imMessageCenterShowItemData.getServerTime())));
             }
             awVar.f.setVisibility(8);
             if (imMessageCenterShowItemData.getUnReadCount() > 0) {

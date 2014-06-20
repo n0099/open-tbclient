@@ -4,12 +4,12 @@ import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.al;
+import com.baidu.tbadk.core.atomData.ak;
 /* loaded from: classes.dex */
 public class ab implements com.baidu.tbadk.core.b.a {
     @Override // com.baidu.tbadk.core.b.a
     public void a(Context context, int i) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2017001, new al(context).a(i)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2017001, new ak(context).a(i)));
     }
 
     @Override // com.baidu.tbadk.core.b.a
@@ -24,7 +24,7 @@ public class ab implements com.baidu.tbadk.core.b.a {
 
     @Override // com.baidu.tbadk.core.b.a
     public void a(Context context, int i, boolean z) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2017001, new al(context).b(i, z)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2017001, new ak(context).b(i, z)));
     }
 
     @Override // com.baidu.tbadk.core.b.a

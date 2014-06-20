@@ -8,7 +8,7 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.adp.widget.BdSwitchView.c;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ay;
+import com.baidu.tbadk.core.atomData.ax;
 import com.baidu.tbadk.core.atomData.t;
 import com.baidu.tieba.im.model.ac;
 /* loaded from: classes.dex */
@@ -18,7 +18,7 @@ public class SecretSettingActivity extends BaseActivity implements View.OnClickL
     private final com.baidu.adp.framework.listener.b c = new a(this, 0);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ay.class, SecretSettingActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(ax.class, SecretSettingActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -112,7 +112,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
             case 2:
                 ChatMessage a3 = this.e.a(i2);
                 if (a3 != null && a3.getUserInfo() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(this, a3.getUserInfo().getUserId(), a3.getUserInfo().getUserName())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(this, a3.getUserInfo().getUserId(), a3.getUserInfo().getUserName())));
                     return;
                 }
                 return;
@@ -120,7 +120,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity {
             default:
                 return;
             case 4:
-                if (t() && (a = this.e.a(i2)) != null && com.baidu.tieba.im.f.r.a(a) && (a2 = com.baidu.tieba.im.f.r.a(a.getContent(), true)) != null && (this.e instanceof CommonPersonalMsglistModel) && ((CommonPersonalMsglistModel) this.e).c() != null) {
+                if (t() && (a = this.e.a(i2)) != null && com.baidu.tieba.im.e.r.a(a) && (a2 = com.baidu.tieba.im.e.r.a(a.getContent(), true)) != null && (this.e instanceof CommonPersonalMsglistModel) && ((CommonPersonalMsglistModel) this.e).c() != null) {
                     PersonalMsgImageActivity.a(this, a2, ((CommonPersonalMsglistModel) this.e).c().getUserIdLong());
                     return;
                 }

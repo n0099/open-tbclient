@@ -10,7 +10,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 /* loaded from: classes.dex */
 public class BlackMembersListActivity extends BaseActivity implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.x {
     private i a;
@@ -94,13 +94,13 @@ public class BlackMembersListActivity extends BaseActivity implements AbsListVie
         if (!e.b()) {
             e.c(true);
             textView.setText(com.baidu.tieba.y.done);
-            bc.g(textView, TbadkApplication.m252getInst().getSkinType());
+            be.g(textView, TbadkApplication.m252getInst().getSkinType());
             e.notifyDataSetChanged();
             return;
         }
         e.c(false);
         textView.setText(com.baidu.tieba.y.edit);
-        bc.i(textView, TbadkApplication.m252getInst().getSkinType());
+        be.i(textView, TbadkApplication.m252getInst().getSkinType());
         e.notifyDataSetChanged();
     }
 

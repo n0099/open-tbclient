@@ -60,7 +60,7 @@ public class j extends com.baidu.adp.framework.listener.b {
                     if (addGroupInfo != null) {
                         imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                         imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                        com.baidu.tieba.im.f.i.a(imMessageCenterPojo);
+                        com.baidu.tieba.im.e.i.a(imMessageCenterPojo);
                     }
                 }
             }

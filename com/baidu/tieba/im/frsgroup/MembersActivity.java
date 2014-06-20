@@ -199,7 +199,7 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void k() {
-        com.baidu.tieba.im.f.b.a((Activity) this, (DialogInterface.OnClickListener) new ac(this));
+        com.baidu.tieba.im.e.b.a((Activity) this, (DialogInterface.OnClickListener) new ac(this));
     }
 
     private void l() {
@@ -221,7 +221,7 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
         if (b.size() > 0) {
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(b);
-            com.baidu.tieba.im.f.b.b((Activity) this, (DialogInterface.OnClickListener) new r(this, arrayList), (DialogInterface.OnClickListener) new s(this));
+            com.baidu.tieba.im.e.b.b((Activity) this, (DialogInterface.OnClickListener) new r(this, arrayList), (DialogInterface.OnClickListener) new s(this));
         }
     }
 

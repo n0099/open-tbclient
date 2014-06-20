@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.m;
 import com.baidu.tbadk.core.frameworkData.a;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.ai;
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -32,7 +32,7 @@ public class TiebaSDK implements Serializable {
 
     public static String getBarData(String str) {
         BasicNameValuePair basicNameValuePair;
-        al alVar;
+        an anVar;
         if (str == null || str.trim().length() == 0) {
             return "";
         }
@@ -50,12 +50,12 @@ public class TiebaSDK implements Serializable {
         arrayList.add(basicNameValuePair);
         arrayList.add(new BasicNameValuePair(a.ST_TYPE, "tb_forumlist"));
         try {
-            alVar = new al(stringBuffer.toString());
-            alVar.a(arrayList);
+            anVar = new an(stringBuffer.toString());
+            anVar.a(arrayList);
         } catch (Exception e) {
             BdLog.e("TiebaSDK.getBarData error = " + e.getMessage());
         }
-        return !alVar.a().b().b() ? "" : alVar.i();
+        return !anVar.a().b().b() ? "" : anVar.i();
     }
 
     public static void setFrom(String str) {

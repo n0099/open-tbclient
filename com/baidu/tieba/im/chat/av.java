@@ -19,7 +19,7 @@ public class av implements com.baidu.tieba.im.a<LinkedList<String>> {
     public void a(LinkedList<String> linkedList) {
         ArrayList<String> arrayList = new ArrayList<>();
         while (!linkedList.isEmpty()) {
-            String a = com.baidu.tieba.im.f.r.a(linkedList.removeLast(), true);
+            String a = com.baidu.tieba.im.e.r.a(linkedList.removeLast(), true);
             if (a != null) {
                 arrayList.add(a);
             }

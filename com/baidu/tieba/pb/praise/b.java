@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.v;
@@ -51,7 +51,7 @@ public class b {
     public void a(String str, String str2, long j, boolean z) {
         this.c.setText(str);
         this.b.setImageBitmap(null);
-        this.d.setText(be.a(j));
+        this.d.setText(bg.a(j));
         com.baidu.adp.widget.a.a c = this.f.c(str2);
         if (c != null) {
             c.a(this.b);

@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.model.am;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -49,7 +49,7 @@ public class ab implements View.OnClickListener {
                     stringBuffer.append("size=");
                     stringBuffer.append(TbConfig.getThreadImageMaxWidth());
                     stringBuffer.append("&src=");
-                    stringBuffer.append(be.d(this.b.get(i).e()));
+                    stringBuffer.append(bg.d(this.b.get(i).e()));
                     arrayList.add(stringBuffer.toString());
                 }
             }

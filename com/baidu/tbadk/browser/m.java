@@ -1,8 +1,10 @@
 package com.baidu.tbadk.browser;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebStorage;
+import android.widget.FrameLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends WebChromeClient {
@@ -21,6 +23,8 @@ public class m extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public View getVideoLoadingProgressView() {
-        return this.a.findViewById(com.baidu.tieba.v.webview_progress);
+        FrameLayout frameLayout = new FrameLayout(this.a);
+        frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        return frameLayout;
     }
 }

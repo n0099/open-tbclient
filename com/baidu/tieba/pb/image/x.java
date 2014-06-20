@@ -11,8 +11,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.data.ai;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -193,7 +193,7 @@ public class x extends BaseAdapter {
             aaVar.b.setVisibility(0);
             aaVar.b.setText(aiVar.o().getUserName());
             aaVar.b.setOnClickListener(new y(this, aiVar.o().getUserId(), aiVar.o().getUserName()));
-            aaVar.c.setText(be.a(aiVar.n()));
+            aaVar.c.setText(bg.a(aiVar.n()));
             aaVar.d.removeAllViews();
             ArrayList<com.baidu.tieba.data.f> r = aiVar.r();
             com.baidu.tieba.util.j jVar = new com.baidu.tieba.util.j(this.c);
@@ -269,9 +269,9 @@ public class x extends BaseAdapter {
     private void a(aa aaVar) {
         try {
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                aaVar.i.setTextColor(bc.a(1));
-                aaVar.k.setTextColor(bc.b(1));
-                aaVar.g.setBackgroundColor(bc.d(1));
+                aaVar.i.setTextColor(be.a(1));
+                aaVar.k.setTextColor(be.b(1));
+                aaVar.g.setBackgroundColor(be.d(1));
             } else {
                 aaVar.i.setTextColor(-13421773);
                 aaVar.k.setTextColor(-6710887);
@@ -285,8 +285,8 @@ public class x extends BaseAdapter {
     private void b(aa aaVar) {
         try {
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                aaVar.a.setTextColor(bc.a(1));
-                aaVar.c.setTextColor(bc.b(1));
+                aaVar.a.setTextColor(be.a(1));
+                aaVar.c.setTextColor(be.b(1));
             } else {
                 aaVar.a.setTextColor(-13421773);
                 aaVar.c.setTextColor(-6710887);
@@ -300,9 +300,9 @@ public class x extends BaseAdapter {
         try {
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                 if (z) {
-                    aaVar.e.setTextColor(bc.a(1));
+                    aaVar.e.setTextColor(be.a(1));
                 } else {
-                    aaVar.e.setTextColor(bc.c(1));
+                    aaVar.e.setTextColor(be.c(1));
                 }
             } else if (z) {
                 aaVar.e.setTextColor(-13421773);

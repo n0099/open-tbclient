@@ -1,73 +1,35 @@
 package com.baidu.android.nebula.cmd;
 
-import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.text.TextUtils;
-import java.io.UnsupportedEncodingException;
-import java.net.URISyntaxException;
-import java.net.URLDecoder;
-import java.util.List;
+import android.content.IntentFilter;
 /* loaded from: classes.dex */
-class j extends BroadcastReceiver {
+class j {
     final /* synthetic */ ScanDownloadFile a;
-    final /* synthetic */ i b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar, ScanDownloadFile scanDownloadFile) {
-        this.b = iVar;
+    public j(ScanDownloadFile scanDownloadFile) {
+        Context context;
+        BroadcastReceiver broadcastReceiver;
+        Context context2;
+        BroadcastReceiver broadcastReceiver2;
         this.a = scanDownloadFile;
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
+        intentFilter.addAction("android.intent.action.PACKAGE_REPLACED");
+        intentFilter.addDataScheme("package");
+        try {
+            context2 = scanDownloadFile.mContext;
+            broadcastReceiver2 = scanDownloadFile.mInstallReceiver;
+            context2.unregisterReceiver(broadcastReceiver2);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        context = scanDownloadFile.mContext;
+        broadcastReceiver = scanDownloadFile.mInstallReceiver;
+        context.registerReceiver(broadcastReceiver, intentFilter);
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String str;
-        Context context2;
-        String str2;
-        String str3;
-        Context context3;
-        Context context4;
-        Context context5;
-        String str4;
-        str = this.b.a.mFilePackageName;
-        if (TextUtils.equals(str, intent.getData().getSchemeSpecificPart())) {
-            try {
-                ScanDownloadFile scanDownloadFile = this.b.a;
-                str4 = this.b.a.mIntentStr;
-                scanDownloadFile.mIntentStr = URLDecoder.decode(str4, "utf-8");
-            } catch (UnsupportedEncodingException e) {
-            }
-            context2 = this.b.a.mContext;
-            PackageManager packageManager = context2.getPackageManager();
-            try {
-                str2 = this.b.a.mIntentStr;
-                Intent parseUri = Intent.parseUri(str2, 0);
-                List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(parseUri, 0);
-                List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(parseUri, 0);
-                if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
-                    context5 = this.b.a.mContext;
-                    context5.sendBroadcast(parseUri);
-                } else if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
-                    Intent intent2 = new Intent("android.intent.action.VIEW");
-                    str3 = this.b.a.mIntentStr;
-                    intent2.setData(Uri.parse(str3));
-                    intent2.addFlags(268435456);
-                    try {
-                        context3 = this.b.a.mContext;
-                        context3.startActivity(intent2);
-                    } catch (ActivityNotFoundException e2) {
-                    }
-                } else {
-                    parseUri.addFlags(268435456);
-                    context4 = this.b.a.mContext;
-                    context4.startActivity(parseUri);
-                }
-            } catch (URISyntaxException e3) {
-            }
-        }
+    public void a() {
+        new h(this.a, "http://wap.baidu.com/static/freeapp/broswer_down_path.cfg?v=1").start();
     }
 }

@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -35,7 +34,7 @@ public class PbEditor extends LinearLayout {
 
     public PbEditor(Context context) {
         super(context);
-        this.f = LocationClientOption.MIN_SCAN_SPAN;
+        this.f = 1000;
         this.i = false;
         this.e = true;
         this.a = context;
@@ -44,7 +43,7 @@ public class PbEditor extends LinearLayout {
 
     public PbEditor(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f = LocationClientOption.MIN_SCAN_SPAN;
+        this.f = 1000;
         this.i = false;
         this.e = true;
         this.a = context;

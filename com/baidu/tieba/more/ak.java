@@ -4,7 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.DatabaseManager;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.model.MoreModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -45,8 +45,8 @@ public class ak extends BdAsyncTask<String, Integer, String> {
         new DatabaseManager(DatabaseManager.DatabaseLocation.SDCARD).b();
         com.baidu.tbadk.core.voice.a.e.a();
         try {
-            bd.a().b();
-            bd.a().c();
+            bf.a().b();
+            bf.a().c();
             return null;
         } catch (Exception e) {
             BdLog.e(getClass().getName(), "doInBackground", e.getMessage());

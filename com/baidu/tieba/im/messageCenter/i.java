@@ -1,25 +1,28 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.tieba.im.chat.w;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
-class i extends com.baidu.tieba.im.b<Integer> {
-    final /* synthetic */ h b;
-    private final /* synthetic */ boolean c;
+class i implements com.baidu.tieba.im.a<Integer> {
+    final /* synthetic */ g a;
+    private final /* synthetic */ boolean b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar, boolean z) {
-        this.b = hVar;
-        this.c = z;
+    public i(g gVar, boolean z) {
+        this.a = gVar;
+        this.b = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Integer a() {
-        if (!this.c) {
-            w.a = com.baidu.tieba.im.db.o.d().a();
-            com.baidu.tieba.im.db.b.a().b();
+    @Override // com.baidu.tieba.im.a
+    public void a(Integer num) {
+        com.baidu.tieba.im.live.b.b().a();
+        if (!this.b) {
+            com.baidu.tieba.im.e.a(null, null);
+            com.baidu.tieba.im.i.b();
+            com.baidu.tieba.im.db.o.d().c();
+            com.baidu.tieba.im.db.n.d().c();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2007014));
         }
-        return 0;
     }
 }

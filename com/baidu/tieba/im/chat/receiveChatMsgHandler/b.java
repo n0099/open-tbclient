@@ -60,7 +60,7 @@ public class b {
         if (commonMsgPojo != null) {
             ChatMessage chatMessage = commonMsgPojo.toChatMessage();
             if (chatMessage != null) {
-                SystemMsgData j = com.baidu.tieba.im.f.r.j(chatMessage);
+                SystemMsgData j = com.baidu.tieba.im.e.r.j(chatMessage);
                 z = j == null || j.getIsSelf();
                 if (TbadkApplication.isLogin()) {
                     if (chatMessage.getUserInfo().getUserId().equals(TbadkApplication.getCurrentAccount()) && chatMessage.getMsgType() != 11) {

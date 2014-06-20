@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
@@ -68,7 +68,7 @@ public class ItemInfoView extends RelativeLayout {
 
     public boolean a(ForumDetailData forumDetailData, BaseActivity baseActivity) {
         boolean z;
-        if (forumDetailData == null || (forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents.length == 0 && be.c(forumDetailData.forumInfo.slogan) && forumDetailData.badges.length == 0 && forumDetailData.forumDir == null)) {
+        if (forumDetailData == null || (forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents.length == 0 && bg.c(forumDetailData.forumInfo.slogan) && forumDetailData.badges.length == 0 && forumDetailData.forumDir == null)) {
             return false;
         }
         boolean equals = baseActivity.getIntent().getStringExtra("from_type").equals(ForumDetailActivity.FromType.BAR_DIR.toString());
@@ -77,7 +77,7 @@ public class ItemInfoView extends RelativeLayout {
             String str2 = forumDetailData.forumDir.levelOneName;
             String valueOf = String.valueOf(forumDetailData.forumDir.levelOneMenuType);
             String valueOf2 = String.valueOf(forumDetailData.forumDir.levelOneMenuID);
-            if (be.c(str)) {
+            if (bg.c(str)) {
                 z = false;
             } else {
                 this.e.setText(str);
@@ -100,7 +100,7 @@ public class ItemInfoView extends RelativeLayout {
         } else {
             z = false;
         }
-        if ((forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents != null && forumDetailData.forumInfo.contents.length > 0) || !be.c(forumDetailData.forumInfo.slogan)) {
+        if ((forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents != null && forumDetailData.forumInfo.contents.length > 0) || !bg.c(forumDetailData.forumInfo.slogan)) {
             this.c.setText(a(forumDetailData.forumInfo.contents, forumDetailData.forumInfo.slogan));
             this.b.setVisibility(0);
             z = true;

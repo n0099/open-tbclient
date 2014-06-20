@@ -7,7 +7,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.be;
+import com.baidu.tbadk.core.atomData.bd;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -59,7 +59,7 @@ public class p {
         if (pushNotifyMessage != null) {
             BdLog.d("cmd: " + pushNotifyMessage.getCmd() + "groupId: " + pushNotifyMessage.getGroupId());
             if (pushNotifyMessage.getType() == 3) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new be(TbadkApplication.m252getInst())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bd(TbadkApplication.m252getInst())));
             } else if (pushNotifyMessage.getType() == 4) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfig.CMD_DEBUGLOG_SPECIFIED, pushNotifyMessage.getContent()));
             } else {

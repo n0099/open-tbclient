@@ -166,6 +166,6 @@ public class CreateGroupActivityActivity extends BaseFragmentActivity implements
     }
 
     private void f() {
-        com.baidu.tieba.im.f.b.a(this, this.e, new b(this), new c(this));
+        com.baidu.tieba.im.e.b.a(this, this.e, new b(this), new c(this));
     }
 }

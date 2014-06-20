@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ax;
+import com.baidu.tbadk.core.atomData.aw;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class SapiFastRegActivity extends BaseActivity {
@@ -15,7 +15,7 @@ public class SapiFastRegActivity extends BaseActivity {
     private final com.baidu.tbadk.core.account.g c = new aa(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ax.class, SapiFastRegActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(aw.class, SapiFastRegActivity.class);
     }
 
     public static void a(Activity activity, int i) {

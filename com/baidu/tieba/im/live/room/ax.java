@@ -43,7 +43,7 @@ class ax extends com.baidu.adp.framework.listener.b {
             LiveRoomEntranceActivity liveRoomEntranceActivity = this.a;
             int intValue = liveGroupInfo.groupId.intValue();
             ayVar = this.a.b;
-            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ae(liveRoomEntranceActivity, intValue, ayVar.a())));
+            messageManager.sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ad(liveRoomEntranceActivity, intValue, ayVar.a())));
             handler = this.a.d;
             handler.sendEmptyMessageDelayed(2001, 300L);
         }

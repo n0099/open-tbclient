@@ -7,7 +7,7 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bf extends BdAsyncTask<Integer, Integer, Integer> {
-    private com.baidu.tbadk.core.util.al a = null;
+    private com.baidu.tbadk.core.util.an a = null;
     private String b;
     private long c;
     private String d;
@@ -31,7 +31,7 @@ public class bf extends BdAsyncTask<Integer, Integer, Integer> {
     public Integer doInBackground(Integer... numArr) {
         try {
             if (this.c != 0 && this.b != null) {
-                this.a = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
+                this.a = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
                 this.a.a("fid", String.valueOf(this.c));
                 this.a.a("kw", this.b);
                 this.a.a("favo_type", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);

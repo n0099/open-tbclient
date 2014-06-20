@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class bf extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchaseRecordsData> {
     final /* synthetic */ be a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
 
     private bf(be beVar) {
         this.a = beVar;
@@ -29,19 +29,19 @@ public class bf extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchas
         int i2;
         float f;
         try {
-            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/getpackhis");
-            com.baidu.tbadk.core.util.al alVar = this.b;
+            this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/getpackhis");
+            com.baidu.tbadk.core.util.an anVar = this.b;
             str = this.a.b;
-            alVar.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str);
-            com.baidu.tbadk.core.util.al alVar2 = this.b;
+            anVar.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str);
+            com.baidu.tbadk.core.util.an anVar2 = this.b;
             i = this.a.c;
-            alVar2.a("scr_w", String.valueOf(i));
-            com.baidu.tbadk.core.util.al alVar3 = this.b;
+            anVar2.a("scr_w", String.valueOf(i));
+            com.baidu.tbadk.core.util.an anVar3 = this.b;
             i2 = this.a.d;
-            alVar3.a("scr_h", String.valueOf(i2));
-            com.baidu.tbadk.core.util.al alVar4 = this.b;
+            anVar3.a("scr_h", String.valueOf(i2));
+            com.baidu.tbadk.core.util.an anVar4 = this.b;
             f = this.a.e;
-            alVar4.a("scr_dip", String.valueOf(f));
+            anVar4.a("scr_dip", String.valueOf(f));
             return (FacePurchaseRecordsData) new GsonBuilder().create().fromJson(this.b.i(), (Class<Object>) FacePurchaseRecordsData.class);
         } catch (Exception e) {
             BdLog.e(getClass().getName(), "doInBackground", e.toString());

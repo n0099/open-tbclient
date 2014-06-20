@@ -1,43 +1,52 @@
 package com.baidu.tbadk.core.util;
 
+import android.net.DhcpInfo;
+import android.net.wifi.WifiManager;
+import android.support.v4.view.MotionEventCompat;
 import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.resourceLoader.BdResourceLoaderNetHelperStatic;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
+import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
+import java.net.URL;
 /* loaded from: classes.dex */
 public class ac {
-    private static int a = 0;
-    private static int b = 0;
-    private static int c = 0;
-    private static int d = 0;
-    private static int e = 0;
-    private static int f = 0;
-    private static int g = 0;
-    private static int h = 0;
-    private static long i = 0;
-    private static long j = 0;
-    private static long k = 0;
-    private static long l = 0;
-    private static int m = 0;
-    private static int n = 0;
-    private static int o = 0;
-    private static int p = 0;
-    private static long q = 0;
-    private static long r = 0;
-    private static int s = 0;
-    private static long t = 0;
-    private static String u = null;
-    private static Object v = new Object();
+    private static long a = 0;
+    private static long b = 0;
+    private static ad c = new ad(null);
+    private static ae d = new ae(null);
+    private static ae e = new ae(null);
+    private static String f = null;
+    private static Object g = new Object();
+
+    private static ae a(boolean z, boolean z2, String str) {
+        if (z) {
+            if (z2) {
+                return c.b;
+            }
+            if (str.startsWith("http://tb.himg")) {
+                return c.c;
+            }
+            if (str.startsWith("http://c.tieba.baidu.com")) {
+                return c.d;
+            }
+            return c.e;
+        }
+        return null;
+    }
 
     public static com.baidu.adp.lib.stats.s a() {
         return com.baidu.adp.lib.stats.h.a().a("dbg");
     }
 
-    public static void a(com.baidu.adp.lib.stats.s sVar, String str, boolean z, long j2) {
-        if (z || j2 > 400) {
-            synchronized (v) {
-                s++;
-                t += j2;
-                if (s >= 100) {
+    public static void a(com.baidu.adp.lib.stats.s sVar, String str, boolean z, long j, boolean z2) {
+        if (z && z2) {
+            synchronized (g) {
+                d.a++;
+                d.c += j;
+                if (d.a >= 100) {
                     b();
                 }
             }
@@ -45,21 +54,22 @@ public class ac {
     }
 
     public static void b() {
-        if (s > 0 && t / s > 400) {
+        if (d.a > 10) {
             com.baidu.adp.lib.stats.s a2 = a();
             a2.a("act", "locStat");
-            a2.a("costTime", String.valueOf(t));
-            a2.a("num", String.valueOf(s));
+            a2.a("costTime", String.valueOf(d.c));
+            a2.a("num", String.valueOf(d.a));
+            a2.a("isWifi", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             com.baidu.adp.lib.stats.h.a().a("img", a2);
-            s = 0;
-            t = 0L;
+            d.a();
         }
     }
 
-    public static void a(com.baidu.adp.lib.stats.s sVar, String str, boolean z, String str2, boolean z2, Boolean bool, com.baidu.adp.lib.network.http.d dVar, String str3, long j2) {
+    public static void a(com.baidu.adp.lib.stats.s sVar, String str, boolean z, String str2, boolean z2, Boolean bool, com.baidu.adp.lib.network.http.d dVar, String str3, long j) {
         boolean z3;
         String str4 = "";
         String str5 = "";
+        String str6 = "";
         int indexOf = str2.indexOf("hiphotos");
         if (indexOf > 0 && indexOf < 20) {
             z3 = true;
@@ -69,7 +79,7 @@ public class ac {
         boolean a2 = BdResourceLoaderNetHelperStatic.a();
         if (z3 && a2) {
             if (z) {
-                h.a().a(j2, str);
+                h.a().a(j, str);
             } else {
                 str4 = e();
                 if (!TextUtils.isEmpty(str4)) {
@@ -78,42 +88,24 @@ public class ac {
             }
         }
         if (z3) {
-            u = str;
+            f = str;
         }
-        synchronized (v) {
-            if (a2) {
-                if (z3) {
-                    a++;
-                    i += j2;
-                    if (!z) {
-                        e++;
-                    }
+        synchronized (g) {
+            ae a3 = a(a2, z3, str2);
+            if (a3 != null) {
+                a3.a++;
+                if (z) {
+                    a3.c += j;
                 } else {
-                    c++;
-                    k += j2;
-                    if (!z) {
-                        g++;
-                    }
-                }
-            } else if (z3) {
-                b++;
-                j += j2;
-                if (!z) {
-                    f++;
-                }
-            } else {
-                d++;
-                l += j2;
-                if (!z) {
-                    h++;
+                    a3.b++;
                 }
             }
-            if (a + b + c + d > 100) {
+            if (c.a() > 100) {
                 c();
             }
         }
         if (a2) {
-            if (!z || !a2 || j2 >= 1500) {
+            if (!z || !a2 || j >= 1500) {
                 if (sVar == null) {
                     sVar = a();
                 }
@@ -121,11 +113,14 @@ public class ac {
                 if (z3 && TextUtils.isEmpty("")) {
                     str5 = a(str);
                 }
+                if (TextUtils.isEmpty("")) {
+                    str6 = f();
+                }
                 sVar.a("url", str);
                 sVar.a("act", "dl");
                 sVar.a("result", z ? "0" : TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
                 sVar.a("fullurl", str2);
-                sVar.a("costTime", String.valueOf(j2));
+                sVar.a("costTime", String.valueOf(j));
                 sVar.a("dnsTime", String.valueOf(dVar.g));
                 sVar.a("connTime", String.valueOf(dVar.c));
                 sVar.a("rspTime", String.valueOf(dVar.d));
@@ -134,6 +129,12 @@ public class ac {
                 sVar.a("localIp", n.a());
                 sVar.a("tiebaIp", e2);
                 sVar.a("cdnIp", str5);
+                sVar.a("dnsIp", str6);
+                if (dVar.c > 1500 || dVar.c < 0) {
+                    sVar.a("connBaidu", String.valueOf(g()));
+                }
+                sVar.a("memory", h());
+                sVar.a("task", i());
                 sVar.a("isWifi", a2 ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
                 sVar.a("status", String.valueOf(dVar.j));
                 sVar.a("up", String.valueOf(dVar.a));
@@ -143,6 +144,9 @@ public class ac {
                 sVar.a("exception", dVar.h);
                 sVar.a("reason", str3);
                 com.baidu.adp.lib.stats.h.a().a("img", sVar);
+                if (z3 && !TextUtils.isEmpty(e2) && TextUtils.isEmpty(str5) && !z) {
+                    c.a++;
+                }
             }
         }
     }
@@ -150,96 +154,51 @@ public class ac {
     public static void c() {
         String str = "";
         String str2 = "";
-        if (a > 0 && (e > 0 || i / a > 1500)) {
+        String str3 = "";
+        if (c.a() > 10) {
             if (TextUtils.isEmpty("")) {
                 str = e();
             }
-            if (u != null && TextUtils.isEmpty("")) {
-                str2 = a(u);
+            if (f != null && TextUtils.isEmpty("")) {
+                str2 = a(f);
+            }
+            if (TextUtils.isEmpty("")) {
+                str3 = f();
             }
             com.baidu.adp.lib.stats.s a2 = a();
             a2.a("act", "dlStat");
-            a2.a("costTime", String.valueOf(i));
-            a2.a("num", String.valueOf(a));
-            a2.a("failnum", String.valueOf(e));
-            a2.a("isCDN", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            a2.a("cdnCostTime", String.valueOf(c.b.c));
+            a2.a("cdnNum", String.valueOf(c.b.a));
+            a2.a("cdnFailnum", String.valueOf(c.b.b));
+            a2.a("portraitCostTime", String.valueOf(c.c.c));
+            a2.a("portraitNum", String.valueOf(c.c.a));
+            a2.a("portraitFailnum", String.valueOf(c.c.b));
+            a2.a("tiebaCostTime", String.valueOf(c.d.c));
+            a2.a("tiebaNum", String.valueOf(c.d.a));
+            a2.a("tiebaFailnum", String.valueOf(c.d.b));
+            a2.a("otherCostTime", String.valueOf(c.e.c));
+            a2.a("otherNum", String.valueOf(c.e.a));
+            a2.a("otherFailnum", String.valueOf(c.e.b));
+            a2.a("dnsFailNum", String.valueOf(c.a));
             a2.a("isWifi", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             a2.a("localIp", n.a());
             a2.a("tbIp", str);
             a2.a("cdnIp", str2);
+            a2.a("dnsIp", str3);
             com.baidu.adp.lib.stats.h.a().a("img", a2);
-            e = 0;
-            a = 0;
-            i = 0L;
-        }
-        if (c > 0 && (g > 0 || k / c > 1500)) {
-            com.baidu.adp.lib.stats.s a3 = a();
-            a3.a("act", "dlStat");
-            a3.a("costTime", String.valueOf(k));
-            a3.a("num", String.valueOf(c));
-            a3.a("failnum", String.valueOf(g));
-            a3.a("isCDN", "0");
-            a3.a("isWifi", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            com.baidu.adp.lib.stats.h.a().a("img", a3);
-            g = 0;
-            c = 0;
-            k = 0L;
-        }
-        if (b > 0 && (f > 0 || j / b > 4000)) {
-            if (TextUtils.isEmpty(str)) {
-                str = e();
-            }
-            if (u != null && TextUtils.isEmpty(str2)) {
-                str2 = a(u);
-            }
-            com.baidu.adp.lib.stats.s a4 = a();
-            a4.a("act", "dlStat");
-            a4.a("costTime", String.valueOf(j));
-            a4.a("num", String.valueOf(b));
-            a4.a("failnum", String.valueOf(f));
-            a4.a("isCDN", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-            a4.a("isWifi", "0");
-            a4.a("localIp", n.a());
-            a4.a("tbIp", str);
-            a4.a("cdnIp", str2);
-            com.baidu.adp.lib.stats.h.a().a("img", a4);
-            f = 0;
-            b = 0;
-            j = 0L;
-        }
-        if (d > 0) {
-            if (h > 0 || l / d > 4000) {
-                com.baidu.adp.lib.stats.s a5 = a();
-                a5.a("act", "dlStat");
-                a5.a("costTime", String.valueOf(l));
-                a5.a("num", String.valueOf(d));
-                a5.a("failnum", String.valueOf(h));
-                a5.a("isCDN", "0");
-                a5.a("isWifi", "0");
-                com.baidu.adp.lib.stats.h.a().a("img", a5);
-                h = 0;
-                d = 0;
-                l = 0L;
-            }
+            c.b();
         }
     }
 
-    public static void a(com.baidu.adp.lib.stats.s sVar, String str, String str2, boolean z, boolean z2, boolean z3, int i2, String str3, long j2) {
-        synchronized (v) {
-            if (z3) {
-                m++;
-                q += j2;
-                if (!z) {
-                    n++;
-                }
+    public static void a(com.baidu.adp.lib.stats.s sVar, String str, String str2, boolean z, boolean z2, boolean z3, int i, String str3, long j) {
+        synchronized (g) {
+            e.a++;
+            if (z) {
+                e.c += j;
             } else {
-                o++;
-                r += j2;
-                if (!z) {
-                    p++;
-                }
+                e.b++;
             }
-            if (m + o >= 100) {
+            if (e.a >= 100) {
                 d();
             }
         }
@@ -248,12 +207,12 @@ public class ac {
                 sVar = a();
             }
             sVar.a("act", "dc");
-            sVar.a("costTime", String.valueOf(j2));
+            sVar.a("costTime", String.valueOf(j));
             sVar.a("url", str);
             sVar.a("fullURL", str2);
             sVar.a("isWebp", z3 ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
             sVar.a("isCDN", z2 ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
-            sVar.a("length", String.valueOf(i2));
+            sVar.a("length", String.valueOf(i));
             sVar.a("reason", str3);
             sVar.a("result", z ? "0" : TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             com.baidu.adp.lib.stats.h.a().a("img", sVar);
@@ -261,31 +220,14 @@ public class ac {
     }
 
     public static void d() {
-        if (m > 0 && (n > 0 || q / m > 300)) {
+        if (e.a > 10) {
             com.baidu.adp.lib.stats.s a2 = a();
             a2.a("act", "dcStat");
-            a2.a("costTime", String.valueOf(q));
-            a2.a("num", String.valueOf(m));
-            a2.a("failnum", String.valueOf(n));
-            a2.a("isWebp", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            a2.a("costTime", String.valueOf(e.c));
+            a2.a("num", String.valueOf(e.a));
+            a2.a("failnum", String.valueOf(e.b));
             com.baidu.adp.lib.stats.h.a().a("img", a2);
-            n = 0;
-            m = 0;
-            q = 0L;
-        }
-        if (o > 0) {
-            if (p > 0 || r / o > 300) {
-                com.baidu.adp.lib.stats.s a3 = a();
-                a3.a("act", "dcStat");
-                a3.a("costTime", String.valueOf(r));
-                a3.a("num", String.valueOf(o));
-                a3.a("failnum", String.valueOf(p));
-                a3.a("isWebp", "0");
-                com.baidu.adp.lib.stats.h.a().a("img", a3);
-                p = 0;
-                o = 0;
-                r = 0L;
-            }
+            e.a();
         }
     }
 
@@ -296,5 +238,84 @@ public class ac {
     private static String a(String str) {
         int indexOf = str.indexOf("hiphotos.baidu.com");
         return indexOf > 0 ? UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com") : "";
+    }
+
+    private static String f() {
+        try {
+            DhcpInfo dhcpInfo = ((WifiManager) BdBaseApplication.getInst().getApp().getSystemService("wifi")).getDhcpInfo();
+            return String.valueOf(a(dhcpInfo.dns1)) + "," + a(dhcpInfo.dns2);
+        } catch (Exception e2) {
+            BdLog.e("Cannot get DNSIP");
+            return "";
+        }
+    }
+
+    private static String a(int i) {
+        return String.valueOf(i & MotionEventCompat.ACTION_MASK) + "." + ((i >> 8) & MotionEventCompat.ACTION_MASK) + "." + ((i >> 16) & MotionEventCompat.ACTION_MASK) + "." + ((i >> 24) & MotionEventCompat.ACTION_MASK);
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [381=4] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0039  */
+    /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private static long g() {
+        HttpURLConnection httpURLConnection;
+        long j;
+        if (a >= 3) {
+            return b;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        HttpURLConnection httpURLConnection2 = null;
+        try {
+            httpURLConnection = (HttpURLConnection) new URL("http://www.baidu.com/").openConnection();
+        } catch (SocketTimeoutException e2) {
+            httpURLConnection = null;
+        } catch (Exception e3) {
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            httpURLConnection.setConnectTimeout(2500);
+            httpURLConnection.connect();
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.adp.lib.f.a.a(httpURLConnection);
+            j = currentTimeMillis2;
+        } catch (SocketTimeoutException e4) {
+            com.baidu.adp.lib.f.a.a(httpURLConnection);
+            j = 2500;
+            if (j > 0) {
+            }
+        } catch (Exception e5) {
+            httpURLConnection2 = httpURLConnection;
+            com.baidu.adp.lib.f.a.a(httpURLConnection2);
+            j = -1;
+            if (j > 0) {
+            }
+        } catch (Throwable th2) {
+            httpURLConnection2 = httpURLConnection;
+            th = th2;
+            com.baidu.adp.lib.f.a.a(httpURLConnection2);
+            throw th;
+        }
+        if (j > 0) {
+            if (a > -1) {
+                b = ((b * a) + j) / (a + 1);
+            } else {
+                b = j;
+            }
+            a++;
+            return j;
+        }
+        return j;
+    }
+
+    private static String h() {
+        return com.baidu.tbadk.imageManager.e.a().d();
+    }
+
+    private static String i() {
+        return com.baidu.adp.lib.asyncTask.f.b().a();
     }
 }

@@ -95,6 +95,6 @@ public class s {
     }
 
     private String a(String str) {
-        return str.replace(" ", "_");
+        return str.replace(" ", "_").replace("[", "(").replace("]", "").replace("&", "|");
     }
 }

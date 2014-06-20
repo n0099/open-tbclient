@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
@@ -290,7 +290,7 @@ public class ad extends BaseAdapter {
             }
             return "";
         }
-        return be.e(new Date(lastReplyTime * 1000));
+        return bg.e(new Date(lastReplyTime * 1000));
     }
 
     public com.baidu.tbadk.editortool.ab e() {

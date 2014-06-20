@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.c.h;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,7 +37,7 @@ public class g extends BdAsyncTask<Object, Integer, Boolean> {
             TiebaPrepareImageService tiebaPrepareImageService = this.d;
             Uri uri = this.b;
             i = this.d.mMaxSize;
-            Bitmap a = h.a(i3, tiebaPrepareImageService, uri, i);
+            Bitmap a = com.baidu.tbadk.b.g.a(i3, tiebaPrepareImageService, uri, i);
             if (a != null) {
                 if (x.a((String) null, TbConfig.IMAGE_RESIZED_FILE, a, 80) != null) {
                     int i4 = 100;

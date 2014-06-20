@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.Gson;
@@ -32,7 +31,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -110,7 +108,7 @@ public abstract class MsglistModel extends com.baidu.adp.base.b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, com.baidu.adp.widget.a.a aVar) {
         com.baidu.tbadk.imageManager.e.a().b(str, aVar);
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, com.baidu.tbadk.core.util.be.f(str), DiskFileOperate.Action.WRITE);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, com.baidu.tbadk.core.util.bg.f(str), DiskFileOperate.Action.WRITE);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         cVar.b(true);
         cVar.a(aVar.l());
@@ -308,7 +306,7 @@ public abstract class MsglistModel extends com.baidu.adp.base.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ChatMessage chatMessage) {
-        VoiceMsgData g = com.baidu.tieba.im.f.r.g(chatMessage);
+        VoiceMsgData g = com.baidu.tieba.im.e.r.g(chatMessage);
         if (g != null) {
             chatMessage.setLogTime(System.currentTimeMillis());
             this.f.a(g.getVoice_md5(), chatMessage.getRecordId());
@@ -481,7 +479,7 @@ public abstract class MsglistModel extends com.baidu.adp.base.b {
             if (i == size - 1 && (a2 = a((com.baidu.tieba.im.db.e) null)) != null) {
                 if (chatMessage2 != null) {
                     a2.setLast_content_time(chatMessage2.getTime() * 1000);
-                    a2.setLast_content(com.baidu.tieba.im.f.r.i(chatMessage2));
+                    a2.setLast_content(com.baidu.tieba.im.e.r.i(chatMessage2));
                     a2.setLast_user_name(chatMessage2.getUserInfo().getUserName());
                     a2.setLast_rid(chatMessage2.getRecordId());
                 } else {
@@ -683,7 +681,6 @@ public abstract class MsglistModel extends com.baidu.adp.base.b {
     }
 
     private void b(List<ChatMessage> list) {
-        boolean z;
         if (list != null && list.size() != 0) {
             BdLog.d("*****start updateMsgStatusTimeOut");
             for (ChatMessage chatMessage : list) {
@@ -692,17 +689,9 @@ public abstract class MsglistModel extends com.baidu.adp.base.b {
                         chatMessage.getLocalData().setStatus((short) 2);
                         BdLog.d("*****create time out");
                     } else {
-                        Iterator<? extends Message> it = MessageManager.getInstance().findMessage(chatMessage.getCmd(), this.t.getUniqueId()).iterator();
-                        while (true) {
-                            if (!it.hasNext()) {
-                                z = false;
-                                break;
-                            }
-                            Message next = it.next();
-                            if ((next instanceof ChatMessage) && ((ChatMessage) next).getSquencedId() == chatMessage.getSquencedId()) {
-                                z = true;
-                                break;
-                            }
+                        boolean z = false;
+                        if (MessageManager.getInstance().getSocketClient() != null) {
+                            z = MessageManager.getInstance().getSocketClient().a(chatMessage);
                         }
                         if (z) {
                             BdLog.d("***** find in queues");

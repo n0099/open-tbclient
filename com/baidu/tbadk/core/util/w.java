@@ -11,7 +11,7 @@ public class w {
     }
 
     public void a(String str, Object obj) {
-        if (!be.c(str) && obj != null) {
+        if (!bg.c(str) && obj != null) {
             try {
                 if (this.a == null) {
                     this.a = new StringBuilder();

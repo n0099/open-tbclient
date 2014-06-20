@@ -5,7 +5,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
@@ -35,7 +35,7 @@ public class j implements View.OnClickListener {
                 return;
             }
             this.a.e = ak.a("forum_browse", String.valueOf(i));
-            bi a = bi.a();
+            bk a = bk.a();
             context = this.a.b;
             String[] strArr = new String[3];
             strArr[0] = asVar.d;

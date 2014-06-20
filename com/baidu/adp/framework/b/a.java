@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class a extends c<CustomMessage<?>, CustomMessageTask, com.baidu.adp.framework.a.c, CustomResponsedMessage<?>> {
+public class a extends c<CustomMessage<?>, CustomMessageTask, com.baidu.adp.framework.a.b, CustomResponsedMessage<?>> {
     private com.baidu.adp.framework.client.b c;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
@@ -34,13 +34,13 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, com.baidu.adp.fram
         return this.a.getController().a(customMessage, customMessageTask);
     }
 
-    public LinkedList<CustomMessage<?>> a(int i) {
-        return this.c.a(i);
+    public void a(int i) {
+        this.c.a(i);
     }
 
     @Override // com.baidu.adp.framework.a
-    public LinkedList<CustomMessage<?>> a(int i, int i2) {
-        return this.c.a(i, i2);
+    public void a(int i, int i2) {
+        this.c.a(i, i2);
     }
 
     public LinkedList<CustomMessage<?>> b(int i) {

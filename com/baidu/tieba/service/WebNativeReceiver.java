@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.atomData.PayActivityConfig;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class WebNativeReceiver extends BroadcastReceiver {
@@ -24,7 +24,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
                     intent2.putExtra("class", 0);
                     intent2.putExtra("url", intent.getStringExtra("url"));
                     intent2.putExtra("from", stringExtra2);
-                    new az(stringExtra2, "url").start();
+                    new bb(stringExtra2, "url").start();
                 } else if (stringExtra.equals("pb")) {
                     intent2.putExtra("class", 1);
                     intent2.putExtra("id", intent.getStringExtra("id"));

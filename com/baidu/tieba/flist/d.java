@@ -4,13 +4,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
     com.baidu.tieba.square.t a;
     final /* synthetic */ c b;
-    private al c;
+    private an c;
 
     private d(c cVar) {
         this.b = cVar;
@@ -65,16 +65,16 @@ public class d extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
             publishProgress(new Integer[0]);
         }
         try {
-            this.c = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/seconddir");
-            al alVar = this.c;
+            this.c = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/seconddir");
+            an anVar = this.c;
             str = this.b.c;
-            alVar.a("menu_name", str);
-            al alVar2 = this.c;
+            anVar.a("menu_name", str);
+            an anVar2 = this.c;
             str2 = this.b.d;
-            alVar2.a("menu_type", str2);
-            al alVar3 = this.c;
+            anVar2.a("menu_type", str2);
+            an anVar3 = this.c;
             str3 = this.b.e;
-            alVar3.a("menu_id", str3);
+            anVar3.a("menu_id", str3);
             i = this.c.i();
         } catch (Exception e) {
             this.a.a(e.getMessage());

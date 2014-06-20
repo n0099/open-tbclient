@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import java.io.File;
@@ -25,7 +24,7 @@ public class b {
     private int c = 0;
     private c d = null;
     private d e = null;
-    private int j = LocationClientOption.MIN_SCAN_SPAN;
+    private int j = 1000;
 
     private b() {
         this.f = null;

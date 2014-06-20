@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.view;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.br;
+import com.baidu.tbadk.core.util.bt;
 /* loaded from: classes.dex */
-class s implements br {
+class s implements bt {
     final /* synthetic */ r a;
     private final /* synthetic */ String b;
 
@@ -13,7 +13,7 @@ class s implements br {
         this.b = str;
     }
 
-    @Override // com.baidu.tbadk.core.util.br
+    @Override // com.baidu.tbadk.core.util.bt
     public boolean a(View view) {
         Object tag = view.getTag();
         if (tag != null && this.b.equals(tag)) {

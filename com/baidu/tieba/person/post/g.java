@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.person.post.PersonPostModel;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -103,7 +103,7 @@ public class g extends BaseAdapter {
                 for (int i3 = 0; i3 < length2; i3++) {
                     stringBuffer.append(a.content[i2].post_content[i3].text);
                 }
-                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(a.thread_id), String.valueOf(a.content[i2].post_id), String.valueOf(a.content[i2].post_type), be.a(a.content[i2].create_time * 1000)});
+                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(a.thread_id), String.valueOf(a.content[i2].post_id), String.valueOf(a.content[i2].post_type), bg.a(a.content[i2].create_time * 1000)});
             }
         }
         jVar.g.setContent(arrayList);

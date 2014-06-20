@@ -8,11 +8,10 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.plugins.Hao123Plugin;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.ai;
-import com.baidu.tieba.bd;
 import com.baidu.tieba.data.VersionData;
 import com.baidu.tieba.model.bc;
 import java.util.Date;
@@ -20,7 +19,7 @@ import java.util.Random;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask<String, Integer, bc> {
-    al a;
+    an a;
     final /* synthetic */ TiebaSyncService b;
 
     private s(TiebaSyncService tiebaSyncService) {
@@ -43,7 +42,7 @@ public class s extends BdAsyncTask<String, Integer, bc> {
         String str;
         String str2;
         try {
-            this.a = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
+            this.a = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
             this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
             stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.k.b(ai.c().d())));
@@ -68,15 +67,15 @@ public class s extends BdAsyncTask<String, Integer, bc> {
             this.a.a("_pic_quality", String.valueOf(TbadkApplication.m252getInst().getViewImageQuality()));
             str = TiebaSyncService.mStatistics;
             if (str != null) {
-                al alVar = this.a;
+                an anVar = this.a;
                 str2 = TiebaSyncService.mStatistics;
-                alVar.a("_msg_type", str2);
+                anVar.a("_msg_type", str2);
             }
             String packageName = TbadkApplication.m252getInst().getPackageName();
             this.a.a("package", packageName);
             this.a.a("versioncode", new StringBuilder(String.valueOf(TbadkApplication.m252getInst().getVersionCode())).toString());
             this.a.a("signmd5", UtilHelper.creatSignInt(TbadkApplication.m252getInst().getPackageManager().getPackageInfo(packageName, 64)));
-            this.a.a("md5", bd.a());
+            this.a.a("md5", com.baidu.tieba.bc.a());
             String i = this.a.i();
             if (this.a.c()) {
                 ai.c().F();
@@ -138,7 +137,7 @@ public class s extends BdAsyncTask<String, Integer, bc> {
         super.onPostExecute(bcVar);
         this.b.mSyncTask = null;
         if (bcVar != null) {
-            com.baidu.tbadk.c.a.a().b();
+            com.baidu.tbadk.b.a.a().b();
             this.b.mModel = bcVar;
             bcVar2 = this.b.mModel;
             if (bcVar2.c().hasNewVer()) {

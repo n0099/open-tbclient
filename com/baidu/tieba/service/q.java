@@ -4,14 +4,14 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.data.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends BdAsyncTask<String, Integer, ab> {
     int b;
     final /* synthetic */ TiebaMessageService c;
-    al a = null;
+    an a = null;
     private final TbadkApplication d = TbadkApplication.m252getInst();
     private final String e = TbadkApplication.getCurrentAccount();
 
@@ -40,7 +40,7 @@ public class q extends BdAsyncTask<String, Integer, ab> {
             e = e2;
         }
         if (this.d.isMsgRemindOn() && this.e != null && this.e.length() > 0) {
-            this.a = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/msg");
+            this.a = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/msg");
             if (this.b == 2) {
                 this.a.a("bookmark", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
             }

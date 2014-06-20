@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 import android.util.Log;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
 public class m implements ad {
     final /* synthetic */ IndicatorView a;
@@ -248,8 +247,8 @@ public class m implements ad {
                 this.g = false;
             } else {
                 this.a.d = this.f;
-                this.h.removeMessages(LocationClientOption.MIN_SCAN_SPAN);
-                this.h.sendEmptyMessageAtTime(LocationClientOption.MIN_SCAN_SPAN, this.d);
+                this.h.removeMessages(1000);
+                this.h.sendEmptyMessageAtTime(1000, this.d);
             }
         } else {
             float f6 = this.f;
@@ -261,8 +260,8 @@ public class m implements ad {
                 this.g = false;
             } else {
                 this.a.d = this.f;
-                this.h.removeMessages(LocationClientOption.MIN_SCAN_SPAN);
-                this.h.sendEmptyMessageAtTime(LocationClientOption.MIN_SCAN_SPAN, this.d);
+                this.h.removeMessages(1000);
+                this.h.sendEmptyMessageAtTime(1000, this.d);
             }
         }
         this.a.invalidate();

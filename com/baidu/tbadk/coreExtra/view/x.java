@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class x extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.data.a> {
     final /* synthetic */ q a;
-    private com.baidu.tbadk.core.util.al b = null;
+    private com.baidu.tbadk.core.util.an b = null;
     private String c;
     private String d;
 
@@ -123,11 +123,11 @@ public class x extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
         str2 = null;
         str2 = null;
         try {
-            this.b = new com.baidu.tbadk.core.util.al(this.c);
+            this.b = new com.baidu.tbadk.core.util.an(this.c);
             this.b.a("un", this.d);
-            com.baidu.tbadk.core.util.al alVar = this.b;
+            com.baidu.tbadk.core.util.an anVar = this.b;
             accountData = this.a.t;
-            alVar.a("BDUSS", accountData.getBDUSS());
+            anVar.a("BDUSS", accountData.getBDUSS());
             this.b.a().a().b = false;
             i = this.b.i();
         } catch (Exception e2) {

@@ -55,7 +55,7 @@ public class PersonPostListData implements Serializable {
             return "PostList{forum_id=" + this.forum_id + ", thread_id=" + this.thread_id + ", post_id=" + this.post_id + ", is_thread=" + this.is_thread + ", create_time=" + this.create_time + ", forum_name='" + this.forum_name + "', title='" + this.title + "', user_name='" + this.user_name + "', user_id=" + this.user_id + ", user_portrait='" + this.user_portrait + "', abs=" + Arrays.toString(this.abs) + ", content='" + this.content + "', quote=" + this.quote + ", reply_num=" + this.reply_num + ", media=" + Arrays.toString(this.media) + ", anchor_info=" + this.anchor_info.toString() + ", lbs_info=" + this.lbs_info + ", is_post_deleted=" + this.is_post_deleted + '}';
         }
 
-        @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+        @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
         public LinkedList<String> getImageUrl() {
             Media[] mediaArr;
             LinkedList<String> linkedList = new LinkedList<>();

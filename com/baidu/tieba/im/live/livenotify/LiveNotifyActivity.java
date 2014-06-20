@@ -13,8 +13,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.ac;
 import com.baidu.tbadk.core.atomData.ad;
-import com.baidu.tbadk.core.atomData.ae;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.editortool.ab;
@@ -38,7 +38,7 @@ public class LiveNotifyActivity extends BaseActivity implements AbsListView.OnSc
     private CustomMessageListener k = new b(this, 0);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ad.class, LiveNotifyActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(ac.class, LiveNotifyActivity.class);
     }
 
     public static void a(Context context) {
@@ -183,7 +183,7 @@ public class LiveNotifyActivity extends BaseActivity implements AbsListView.OnSc
 
     public void a(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
         if (updatesItemData != null && 101 == i && !b() && updatesItemData.getLiveCardData() != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ae(this, updatesItemData.getLiveCardData().getGroupId())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ad(this, updatesItemData.getLiveCardData().getGroupId())));
         }
     }
 

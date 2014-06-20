@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.u;
 import com.baidu.tieba.view.CustomTextView;
@@ -178,7 +178,7 @@ public class j {
         customTextView.setLineSpacing(0.0f, 1.2f);
         customTextView.setTextSize(TbConfig.getContentSize());
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            customTextView.setTextColor(bc.a(1));
+            customTextView.setTextColor(be.a(1));
         } else {
             customTextView.setTextColor(this.g);
         }

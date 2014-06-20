@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<String, Integer, com.baidu.tieba.data.r> {
     final /* synthetic */ AtListActivity a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
 
     private m(AtListActivity atListActivity) {
         this.a = atListActivity;
@@ -47,7 +47,7 @@ public class m extends BdAsyncTask<String, Integer, com.baidu.tieba.data.r> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public com.baidu.tieba.data.r doInBackground(String... strArr) {
-        this.b = new com.baidu.tbadk.core.util.al();
+        this.b = new com.baidu.tbadk.core.util.an();
         this.b.a(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/list");
         String i = this.b.i();
         if (!this.b.a().b().b()) {

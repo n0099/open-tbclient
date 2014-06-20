@@ -6,12 +6,12 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask<String, Integer, AccountData> {
-    private volatile al a = null;
+    private volatile an a = null;
     private final String b;
     private final String c;
     private final String d;
@@ -39,7 +39,7 @@ public class h extends BdAsyncTask<String, Integer, AccountData> {
     /* renamed from: a */
     public AccountData doInBackground(String... strArr) {
         AccountLoginHelper.OurToken a;
-        this.a = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOGIN_ADDRESS);
+        this.a = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOGIN_ADDRESS);
         this.a.a().a().c = false;
         this.a.a("bdusstoken", String.valueOf(this.c) + "|" + this.d);
         this.a.a("channel_id", TbadkApplication.m252getInst().getPushChannelId());

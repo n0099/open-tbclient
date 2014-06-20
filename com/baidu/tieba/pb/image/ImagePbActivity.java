@@ -29,13 +29,12 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.bh;
 import com.baidu.tbadk.core.atomData.bi;
-import com.baidu.tbadk.core.atomData.bj;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.bb;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
@@ -198,10 +197,10 @@ public class ImagePbActivity extends BaseActivity implements com.baidu.tbadk.cor
             this.P.a(i);
         }
         this.f.c(i);
-        bc.d(this.g, i);
-        bc.d(this.h, i);
-        bc.a(this.c, i);
-        bc.a(this.x, i);
+        be.d(this.g, i);
+        be.d(this.h, i);
+        be.a(this.c, i);
+        be.a(this.x, i);
         int childCount = this.x.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = this.x.getChildAt(i2);
@@ -211,8 +210,8 @@ public class ImagePbActivity extends BaseActivity implements com.baidu.tbadk.cor
                 ImageView imageView = (ImageView) childAt.findViewById(com.baidu.tieba.v.image);
                 if (textView != null && textView2 != null && imageView != null) {
                     if (i == 1) {
-                        textView.setTextColor(bc.c(1));
-                        textView2.setTextColor(bc.a(1));
+                        textView.setTextColor(be.c(1));
+                        textView2.setTextColor(be.a(1));
                         imageView.setBackgroundResource(com.baidu.tieba.u.image_pb_next_default_1);
                     } else {
                         textView.setTextColor(-9539986);
@@ -224,9 +223,9 @@ public class ImagePbActivity extends BaseActivity implements com.baidu.tbadk.cor
                 View findViewById = childAt.findViewById(com.baidu.tieba.v.image_pb_listview);
                 if (findViewById != null && (findViewById instanceof ListView)) {
                     ListView listView = (ListView) findViewById;
-                    bc.a(listView, i);
+                    be.a(listView, i);
                     if (childAt.getTag() != null && (childAt.getTag() instanceof x)) {
-                        bc.a(listView, i);
+                        be.a(listView, i);
                         ((x) childAt.getTag()).notifyDataSetChanged();
                     }
                 }
@@ -237,13 +236,13 @@ public class ImagePbActivity extends BaseActivity implements com.baidu.tbadk.cor
             a(this.e, com.baidu.tieba.u.image_pb_bottom_save_1);
             this.d.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.text_blue_selector_color_1));
             this.e.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.text_blue_selector_color_1));
-            bc.e(this.p, com.baidu.tieba.u.sub_pb_reply_bg_1);
+            be.e(this.p, com.baidu.tieba.u.sub_pb_reply_bg_1);
         } else {
             a(this.d, com.baidu.tieba.u.pb_bottom_btn_reply);
             a(this.e, com.baidu.tieba.u.image_pb_bottom_save);
             this.d.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.text_blue_selector_color));
             this.e.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.text_blue_selector_color));
-            bc.e(this.p, com.baidu.tieba.u.sub_pb_reply_bg);
+            be.e(this.p, com.baidu.tieba.u.sub_pb_reply_bg);
         }
         this.n.b(i);
     }
@@ -421,19 +420,19 @@ public class ImagePbActivity extends BaseActivity implements com.baidu.tbadk.cor
                     return;
                 case 12001:
                     if (this.F != null && this.F.h() != null && this.B != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bj(this, 12001, 12010, null, this.F.i(), this.B, null)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bi(this, 12001, 12010, null, this.F.i(), this.B, null)));
                         return;
                     }
                     return;
                 case 12002:
                     if (this.F != null && this.F.h() != null && this.B != null) {
                         if (intent != null && intent.getData() != null) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bj(this, 12002, 12009, intent.getData(), String.valueOf(this.F.i()), this.B, null)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bi(this, 12002, 12009, intent.getData(), String.valueOf(this.F.i()), this.B, null)));
                             return;
                         }
                         return;
                     }
-                    bb.b(this);
+                    bd.b(this);
                     return;
                 case 12006:
                     if (intent.getSerializableExtra("model") != null) {
@@ -445,10 +444,10 @@ public class ImagePbActivity extends BaseActivity implements com.baidu.tbadk.cor
                 case 12010:
                     if (this.F != null) {
                         if (intent == null || intent.getStringExtra("filename") == null) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bi(this, 1, this.F.i(), this.B, this.C, null, 0, null, 13002, false, false, null, false, true, null, null, null)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bh(this, 1, this.F.i(), this.B, this.C, null, 0, null, 13002, false, false, null, false, true, null, null, null)));
                             return;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bi(this, 1, this.F.i(), this.B, this.C, null, 0, null, 13002, false, false, null, false, true, intent.getStringExtra("filename"), null, null)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new bh(this, 1, this.F.i(), this.B, this.C, null, 0, null, 13002, false, false, null, false, true, intent.getStringExtra("filename"), null, null)));
                         return;
                     }
                     return;
@@ -495,7 +494,7 @@ public class ImagePbActivity extends BaseActivity implements com.baidu.tbadk.cor
             int b = com.baidu.adp.lib.util.k.b(this);
             int c = com.baidu.adp.lib.util.k.c(this);
             float f = getResources().getDisplayMetrics().density;
-            int i3 = bf.a().d().equals("80") ? 2 : 1;
+            int i3 = com.baidu.tbadk.core.util.bh.a().d().equals("80") ? 2 : 1;
             arrayList.add(new BasicNameValuePair("scr_w", String.valueOf(b)));
             arrayList.add(new BasicNameValuePair("scr_h", String.valueOf(c)));
             arrayList.add(new BasicNameValuePair("scr_dip", String.valueOf(f)));
@@ -530,7 +529,7 @@ public class ImagePbActivity extends BaseActivity implements com.baidu.tbadk.cor
                     sb.append(String.valueOf(tVar.g()));
                 }
                 sb.append("&src=");
-                sb.append(be.d(tVar.b()));
+                sb.append(bg.d(tVar.b()));
                 arrayList.add(sb.toString());
             } else {
                 arrayList.add(tVar.j());

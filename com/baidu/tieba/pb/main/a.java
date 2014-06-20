@@ -16,10 +16,10 @@ public class a extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tbadk.core.util.al alVar = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/clientcall");
-        alVar.a("tid", this.a);
-        alVar.a("phonenum", this.b);
-        alVar.a("optype", this.c);
-        alVar.i();
+        com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/clientcall");
+        anVar.a("tid", this.a);
+        anVar.a("phonenum", this.b);
+        anVar.a("optype", this.c);
+        anVar.i();
     }
 }

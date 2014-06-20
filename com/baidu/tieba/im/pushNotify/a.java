@@ -61,7 +61,7 @@ public class a {
         if (a2 != null && !a2.isEmpty() && (groupNewsPojo = a2.get(0)) != null) {
             String gid = groupNewsPojo.getGid();
             if (!TextUtils.isEmpty(gid)) {
-                com.baidu.tieba.im.f.i.a(gid);
+                com.baidu.tieba.im.e.i.a(gid);
             }
         }
     }
@@ -218,7 +218,7 @@ public class a {
         if (a2 != null && !a2.isEmpty() && (groupNewsPojo = a2.get(0)) != null) {
             String gid = groupNewsPojo.getGid();
             if (!TextUtils.isEmpty(gid)) {
-                com.baidu.tieba.im.f.i.a(gid);
+                com.baidu.tieba.im.e.i.a(gid);
             }
         }
     }
@@ -606,7 +606,7 @@ public class a {
             String groupId = updatesItemData.getGroupId();
             if (!TextUtils.isEmpty(groupId)) {
                 BdLog.d("update msg group name" + updatesItemData.getGroupName());
-                com.baidu.tieba.im.f.i.a(groupId, updatesItemData.getGroupName());
+                com.baidu.tieba.im.e.i.a(groupId, updatesItemData.getGroupName());
             }
         }
     }

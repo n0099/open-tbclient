@@ -14,7 +14,7 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.aq> {
     final /* synthetic */ AtListActivity a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
     private String c;
 
     private l(AtListActivity atListActivity) {
@@ -54,7 +54,7 @@ public class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.aq> {
     public com.baidu.tieba.data.aq doInBackground(String... strArr) {
         com.baidu.tieba.model.c cVar;
         this.c = strArr[0];
-        this.b = new com.baidu.tbadk.core.util.al();
+        this.b = new com.baidu.tbadk.core.util.an();
         if (this.c == null || this.c.length() <= 0) {
             return null;
         }

@@ -83,7 +83,7 @@ public class bi extends com.baidu.adp.base.c {
         this.e.c(i);
         this.c.getLayoutMode().a(i == 1);
         this.c.getLayoutMode().a(this.d);
-        com.baidu.tbadk.core.util.bc.g(this.g, i);
+        com.baidu.tbadk.core.util.be.g(this.g, i);
         u();
     }
 
@@ -106,17 +106,17 @@ public class bi extends com.baidu.adp.base.c {
     private void u() {
         if (TbadkApplication.m252getInst().getSkinType() == 1) {
             if (this.p) {
-                com.baidu.tbadk.core.util.bc.e((View) this.g, com.baidu.tieba.u.navi_done_text_bg_1);
+                com.baidu.tbadk.core.util.be.e((View) this.g, com.baidu.tieba.u.navi_done_text_bg_1);
                 this.g.setTextColor(this.c.getResources().getColorStateList(com.baidu.tieba.s.navi_done_text_1));
                 return;
             }
-            com.baidu.tbadk.core.util.bc.e((View) this.g, com.baidu.tieba.u.btn_titlebar_finish_d_1);
+            com.baidu.tbadk.core.util.be.e((View) this.g, com.baidu.tieba.u.btn_titlebar_finish_d_1);
             this.g.setTextColor(this.c.getResources().getColor(com.baidu.tieba.s.navi_done_text_d_1));
         } else if (this.p) {
-            com.baidu.tbadk.core.util.bc.e((View) this.g, com.baidu.tieba.u.navi_done_text_bg);
+            com.baidu.tbadk.core.util.be.e((View) this.g, com.baidu.tieba.u.navi_done_text_bg);
             this.g.setTextColor(this.c.getResources().getColorStateList(com.baidu.tieba.s.navi_done_text));
         } else {
-            com.baidu.tbadk.core.util.bc.e((View) this.g, com.baidu.tieba.u.btn_titlebar_finish_d);
+            com.baidu.tbadk.core.util.be.e((View) this.g, com.baidu.tieba.u.btn_titlebar_finish_d);
             this.g.setTextColor(this.c.getResources().getColor(com.baidu.tieba.s.navi_done_text_d));
         }
     }
@@ -226,8 +226,8 @@ public class bi extends com.baidu.adp.base.c {
     }
 
     public boolean i() {
-        com.baidu.tieba.im.f.t.c(this.j);
-        com.baidu.tieba.im.f.t.c(this.k);
+        com.baidu.tieba.im.e.t.c(this.j);
+        com.baidu.tieba.im.e.t.c(this.k);
         if (!this.p || TextUtils.isEmpty(e()) || e().equals(this.s)) {
             return (!this.p || TextUtils.isEmpty(f()) || f().equals(this.t)) ? false : true;
         }
@@ -235,7 +235,7 @@ public class bi extends com.baidu.adp.base.c {
     }
 
     public boolean j() {
-        return com.baidu.tieba.im.f.t.c(this.j) || this.j.getText().length() >= 2;
+        return com.baidu.tieba.im.e.t.c(this.j) || this.j.getText().length() >= 2;
     }
 
     public void k() {

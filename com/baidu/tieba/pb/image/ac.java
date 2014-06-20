@@ -16,8 +16,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
-import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -140,8 +140,8 @@ public class ac extends PagerAdapter {
             TextView textView = (TextView) inflate2.findViewById(com.baidu.tieba.v.next);
             TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.v.thread_name);
             if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                textView.setTextColor(bc.c(1));
-                textView2.setTextColor(bc.a(1));
+                textView.setTextColor(be.c(1));
+                textView2.setTextColor(be.a(1));
                 imageView.setBackgroundResource(com.baidu.tieba.u.image_pb_next_default_1);
             } else {
                 textView.setTextColor(-9539986);
@@ -163,7 +163,7 @@ public class ac extends PagerAdapter {
         this.s.add(inflate);
         BdLog.i(getClass().getName(), "instantiateItem", String.valueOf(this.s.size()));
         ListView listView = (ListView) inflate.findViewById(com.baidu.tieba.v.image_pb_listview);
-        bc.a(listView, TbadkApplication.m252getInst().getSkinType());
+        be.a(listView, TbadkApplication.m252getInst().getSkinType());
         if (tVar == null) {
             if (this.i != null) {
                 this.i.a(i, 0, 0);
@@ -221,7 +221,7 @@ public class ac extends PagerAdapter {
                         stringBuffer.append(String.valueOf(tVar.g()));
                     }
                     stringBuffer.append("&src=");
-                    stringBuffer.append(be.d(tVar.b()));
+                    stringBuffer.append(bg.d(tVar.b()));
                     arrayList.add(stringBuffer.toString());
                 }
             }

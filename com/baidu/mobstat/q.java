@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.v4.app.Fragment;
-import com.baidu.location.LocationClientOption;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import org.json.JSONException;
@@ -90,7 +89,7 @@ public class q {
     }
 
     public void a(int i) {
-        this.m = i * LocationClientOption.MIN_SCAN_SPAN;
+        this.m = i * 1000;
     }
 
     public void a(Context context, long j) {

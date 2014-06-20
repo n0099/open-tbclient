@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.friend;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.br;
+import com.baidu.tbadk.core.util.bt;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class v implements br {
+class v implements bt {
     final /* synthetic */ u a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.adp.widget.a.a c;
@@ -16,7 +16,7 @@ class v implements br {
         this.c = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.br
+    @Override // com.baidu.tbadk.core.util.bt
     public boolean a(View view) {
         if (view instanceof HeadImageView) {
             HeadImageView headImageView = (HeadImageView) view;

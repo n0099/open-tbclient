@@ -18,7 +18,6 @@ import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.f;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -410,7 +409,7 @@ public final class SapiCache {
             iArr[0] = iArr[0] + 1;
             if (iArr[0] == aVar.b().size()) {
                 Message obtainMessage = handler.obtainMessage();
-                obtainMessage.what = MessageTypes.CMD_UPDATE_CLIENT_INFO;
+                obtainMessage.what = 1001;
                 handler.sendMessage(obtainMessage);
             }
         }

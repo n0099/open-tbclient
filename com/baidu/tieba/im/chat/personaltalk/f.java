@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.GroupDeleteMsgResponsedMessage;
 /* loaded from: classes.dex */
@@ -31,10 +32,9 @@ class f implements com.baidu.tieba.im.a<Boolean> {
             a.setLast_user_name(" ");
             a.setLast_rid(0L);
         }
-        com.baidu.adp.framework.c.c a2 = com.baidu.adp.framework.c.c.a();
         StringBuilder sb = new StringBuilder("clear cache by person:");
         personalTalkSettingActivity3 = this.a.a;
         j2 = personalTalkSettingActivity3.c;
-        a2.a(true, sb.append(j2).toString());
+        BdSocketLinkService.startService(true, sb.append(j2).toString());
     }
 }

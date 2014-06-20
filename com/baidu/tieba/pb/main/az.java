@@ -233,7 +233,7 @@ public class az extends BaseAdapter {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(this.z) + " " + aeVar.c() + "【" + aeVar.b() + "】");
         spannableStringBuilder.setSpan(new ImageSpan(this.b, com.baidu.tieba.u.icon_extend), 0, this.z.length(), 17);
         biVar.D.setText(spannableStringBuilder);
-        if (!TextUtils.isEmpty(aeVar.g()) && com.baidu.tbadk.core.g.a().f()) {
+        if (!TextUtils.isEmpty(aeVar.g()) && com.baidu.tbadk.core.h.a().f()) {
             biVar.E.a(aeVar.g(), 17, false);
         } else {
             biVar.E.setVisibility(8);
@@ -284,7 +284,7 @@ public class az extends BaseAdapter {
             com.baidu.tbadk.f.a().b(aeVar.d(), System.currentTimeMillis());
             aeVar.a(1);
             notifyDataSetChanged();
-            new com.baidu.tbadk.core.util.az("", "pb_dl", aeVar.d()).start();
+            new com.baidu.tbadk.core.util.bb("", "pb_dl", aeVar.d()).start();
             com.baidu.tieba.frs.b.a().a(aeVar.d(), aeVar.e(), aeVar.b(), i);
         } else {
             com.baidu.adp.lib.util.k.a(this.b, com.baidu.tieba.y.neterror);
@@ -534,7 +534,7 @@ public class az extends BaseAdapter {
                         biVar.l.setLayoutParams(layoutParams3);
                     }
                 }
-                biVar.i.setText(com.baidu.tbadk.core.util.be.a(aiVar.n()));
+                biVar.i.setText(com.baidu.tbadk.core.util.bg.a(aiVar.n()));
                 if (aiVar.m() == 1) {
                     if (this.t == 1) {
                         biVar.a.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.s.cp_bg_line_d_1));
@@ -845,7 +845,7 @@ public class az extends BaseAdapter {
                         } else {
                             biVar.u.setTextColor(this.b.getResources().getColor(com.baidu.tieba.s.subpb_listitem_time));
                         }
-                        biVar.u.setText(String.format(this.b.getResources().getString(com.baidu.tieba.y.write_addition_update), com.baidu.tbadk.core.util.be.a(aiVar.n())));
+                        biVar.u.setText(String.format(this.b.getResources().getString(com.baidu.tieba.y.write_addition_update), com.baidu.tbadk.core.util.bg.a(aiVar.n())));
                         if (biVar.w.getVisibility() == 0) {
                             if (TbadkApplication.m252getInst().getSkinType() == 1) {
                                 biVar.w.setTextColor(this.b.getResources().getColor(com.baidu.tieba.s.common_link_text_1));

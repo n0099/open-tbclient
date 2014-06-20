@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class c {
     public static void a(String str, String str2, d dVar) {
@@ -15,26 +15,26 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static AccountData b(String str, String str2) {
-        al alVar;
+        an anVar;
         String i;
         try {
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.SERVER_ADDRESS);
             sb.append(TbConfig.LOGIN_ADDRESS);
-            alVar = new al(sb.toString());
-            alVar.a("un", str);
-            alVar.a("passwd", str2);
-            alVar.a("isphone", "0");
-            alVar.a("channel_id", TbadkApplication.m252getInst().getPushChannelId());
-            alVar.a("channel_uid", TbadkApplication.m252getInst().getPushChannelUserId());
-            alVar.a().a().a().d = true;
-            alVar.a().a().d = false;
-            alVar.a().a().c = false;
-            i = alVar.i();
+            anVar = new an(sb.toString());
+            anVar.a("un", str);
+            anVar.a("passwd", str2);
+            anVar.a("isphone", "0");
+            anVar.a("channel_id", TbadkApplication.m252getInst().getPushChannelId());
+            anVar.a("channel_uid", TbadkApplication.m252getInst().getPushChannelUserId());
+            anVar.a().a().a().d = true;
+            anVar.a().a().d = false;
+            anVar.a().a().c = false;
+            i = anVar.i();
         } catch (Exception e) {
             BdLog.e("LoginModel".toString(), TbConfig.ST_TYPE_LOGIN, e.getMessage());
         }
-        if (alVar.a().b().b() && i != null) {
+        if (anVar.a().b().b() && i != null) {
             com.baidu.tbadk.core.data.i iVar = new com.baidu.tbadk.core.data.i();
             iVar.a(i);
             String userId = iVar.a().getUserId();
@@ -58,12 +58,12 @@ public class c {
             }
             return accountData;
         }
-        if (alVar.c()) {
-            switch (alVar.d()) {
+        if (anVar.c()) {
+            switch (anVar.d()) {
                 case 1:
                 case 2:
                 case 5:
-                    alVar.g();
+                    anVar.g();
                     break;
             }
             return null;

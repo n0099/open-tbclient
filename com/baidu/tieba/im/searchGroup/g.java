@@ -8,7 +8,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.data.BaseGroupData;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
 import com.baidu.tieba.u;
@@ -76,7 +76,7 @@ public class g {
     public void a(int i) {
         this.b.getLayoutMode().a(false);
         this.b.getLayoutMode().a(this.c);
-        bc.a(this.c, 0);
+        be.a(this.c, 0);
         this.d.c(0);
         this.h.setCompoundDrawablesWithIntrinsicBounds(0, u.pic_search_fruitless, 0, 0);
     }

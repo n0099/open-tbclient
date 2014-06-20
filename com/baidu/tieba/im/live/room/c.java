@@ -47,7 +47,7 @@ class c {
     public void a(String str, String str2, long j, boolean z) {
         this.d.setText(str);
         this.c.setImageBitmap(null);
-        this.e.setText(com.baidu.tbadk.core.util.be.a(j));
+        this.e.setText(com.baidu.tbadk.core.util.bg.a(j));
         com.baidu.adp.widget.a.a c = this.g.c(str2);
         if (c != null) {
             c.a(this.c);

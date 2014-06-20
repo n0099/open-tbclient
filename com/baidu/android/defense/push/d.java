@@ -1,190 +1,100 @@
 package com.baidu.android.defense.push;
 
-import android.content.BroadcastReceiver;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.pm.PackageManager;
-import android.os.Build;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import com.baidu.android.common.util.CommonParam;
-import com.baidu.android.pushservice.PushConstants;
-import java.io.UnsupportedEncodingException;
+import com.baidu.android.systemmonitor.localapp.AppManager;
 import java.util.ArrayList;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class d {
-    private static final String b = com.baidu.android.moplus.e.a + "/xcloudboss?r=push/register";
-    private static d c = null;
-    protected boolean a = true;
-    private Context d;
-    private int e;
-    private BroadcastReceiver f;
+public class d extends h {
+    private com.baidu.android.a.m e;
+    private ArrayList f;
 
-    private d(Context context) {
-        this.d = null;
-        this.e = 1;
-        this.f = null;
-        this.d = context.getApplicationContext();
-        if (b.k(this.d)) {
-            this.e = 2;
-        } else {
-            this.e = 1;
-        }
-        this.f = new PushMsgReceiver();
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.baidu.android.pushservice.action.internal.RECEIVE");
-        intentFilter.addAction("com.baidu.pushservice.action.supper.MESSAGE");
-        this.d.registerReceiver(this.f, intentFilter);
+    public d() {
     }
 
-    public static synchronized d a(Context context) {
-        d dVar;
-        synchronized (d.class) {
-            if (c == null) {
-                c = new d(context);
-            }
-            dVar = c;
-        }
-        return dVar;
+    public d(String str, Context context) {
+        super(str, context);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if ((jSONObject.has("status") ? jSONObject.getInt("status") : -1) == 0) {
-                b.h(this.d);
-            }
-        } catch (JSONException e) {
+    private boolean c() {
+        com.baidu.android.systemmonitor.localapp.a aVar = (com.baidu.android.systemmonitor.localapp.a) AppManager.a(this.d).a().get(this.e.a());
+        if (aVar == null || (this.e.g() != 0 && aVar.f != this.e.g())) {
+            return false;
         }
+        return true;
     }
 
-    public static synchronized void e() {
-        synchronized (d.class) {
-            if (c != null) {
-                c.d();
-                c = null;
+    @Override // com.baidu.android.defense.push.h
+    public void a() {
+        if (this.b != null) {
+            try {
+                JSONArray jSONArray = this.b.getJSONArray("params");
+                if (jSONArray == null || jSONArray.length() == 0) {
+                    this.c = false;
+                    return;
+                }
+                this.f = new ArrayList();
+                int length = jSONArray.length();
+                new JSONObject();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jSONObject = (JSONObject) jSONArray.get(i);
+                    if (jSONObject != null) {
+                        this.e = new com.baidu.android.a.m();
+                        String string = jSONObject.getString("title");
+                        String string2 = jSONObject.getString("description");
+                        String string3 = jSONObject.getString("url");
+                        this.e.c(string);
+                        this.e.d(string2);
+                        this.e.e(string3);
+                        this.f.add(this.e);
+                    }
+                }
+            } catch (JSONException e) {
+                this.c = false;
+                this.e = null;
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        if (System.currentTimeMillis() - b.i(this.d) < 86400000) {
-            return;
+    public void a(Context context, ArrayList arrayList) {
+        if (this.d == null) {
+            this.d = context;
         }
-        String c2 = b.c(this.d);
-        if (TextUtils.isEmpty(c2)) {
-            if (this.a) {
-                this.a = false;
-                b();
+        this.e = (com.baidu.android.a.m) arrayList.get(0);
+        if (c() && !TextUtils.isEmpty(this.e.f())) {
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(this.e.f()));
+            intent.addFlags(268435456);
+            PendingIntent activity = PendingIntent.getActivity(context, 0, intent, 0);
+            String e = this.e.e();
+            if (TextUtils.isEmpty(e) || TextUtils.isEmpty(this.e.d())) {
                 return;
             }
-            return;
-        }
-        Intent createMethodIntent = PushConstants.createMethodIntent(this.d);
-        createMethodIntent.putExtra("access_token", PushConstants.rsaEncrypt(c2));
-        createMethodIntent.putExtra("method", "method_bind");
-        createMethodIntent.putExtra("bind_name", Build.MODEL);
-        createMethodIntent.putExtra("bind_status", 0);
-        if (this.e == 2) {
-            createMethodIntent.putExtra("method_type", "internal");
-        }
-        this.d.sendBroadcast(createMethodIntent);
-        b.j(this.d);
-    }
-
-    private UrlEncodedFormEntity g() {
-        String str = "";
-        String packageName = this.d.getPackageName();
-        try {
-            str = String.valueOf(this.d.getPackageManager().getPackageInfo(this.d.getPackageName(), 0).versionCode);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        String cuid = CommonParam.getCUID(this.d);
-        String d = b.d(this.d);
-        String e2 = b.e(this.d);
-        String valueOf = String.valueOf(Build.VERSION.SDK_INT);
-        DisplayMetrics displayMetrics = this.d.getResources().getDisplayMetrics();
-        String valueOf2 = String.valueOf(displayMetrics.widthPixels);
-        String valueOf3 = String.valueOf(displayMetrics.heightPixels);
-        String valueOf4 = String.valueOf(displayMetrics.densityDpi);
-        ArrayList arrayList = new ArrayList();
-        if (!TextUtils.isEmpty(cuid)) {
-            arrayList.add(new BasicNameValuePair("cuid", cuid));
-        }
-        if (!TextUtils.isEmpty(e2)) {
-            arrayList.add(new BasicNameValuePair("ch_uid", e2));
-        }
-        if (!TextUtils.isEmpty(d)) {
-            arrayList.add(new BasicNameValuePair("ch_cid", d));
-        }
-        if (!TextUtils.isEmpty(str)) {
-            arrayList.add(new BasicNameValuePair("version_code", str));
-        }
-        if (!TextUtils.isEmpty(packageName)) {
-            arrayList.add(new BasicNameValuePair("packagename", packageName));
-        }
-        arrayList.add(new BasicNameValuePair("sdk_version", valueOf));
-        arrayList.add(new BasicNameValuePair("mobile_width", valueOf2));
-        arrayList.add(new BasicNameValuePair("mobile_height", valueOf3));
-        arrayList.add(new BasicNameValuePair("mobile_density", valueOf4));
-        arrayList.add(new BasicNameValuePair("bindtype", String.valueOf(this.e)));
-        try {
-            return new UrlEncodedFormEntity(arrayList, "utf-8");
-        } catch (UnsupportedEncodingException e3) {
-            return null;
+            Notification notification = new Notification(17301543, e, System.currentTimeMillis());
+            notification.setLatestEventInfo(context, this.e.d(), this.e.e(), activity);
+            notification.sound = RingtoneManager.getDefaultUri(2);
+            notificationManager.notify((int) System.currentTimeMillis(), notification);
         }
     }
 
-    public void a() {
-        long f = b.f(this.d);
-        if (b.b(this.d) != this.e || (b.g(this.d) && System.currentTimeMillis() - f > 259200000)) {
-            b.a(this.d, 0);
-            b.a(this.d, false);
-            this.a = true;
-            f();
+    @Override // com.baidu.android.defense.push.h, com.baidu.android.defense.push.n
+    public boolean b() {
+        if (this.e == null || this.f == null || this.f.size() == 0) {
+            return false;
         }
-        if (!b.a(this.d)) {
-            f();
-        } else if (b.g(this.d)) {
-        } else {
-            a(this.d).c();
+        if (c()) {
+            a(this.d, this.f);
+            return true;
         }
-    }
-
-    public void b() {
-        UrlEncodedFormEntity urlEncodedFormEntity;
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("grant_type", "client_credentials"));
-        arrayList.add(new BasicNameValuePair("client_id", "Zq8wwbvNemxR4qGmWGhE6sva"));
-        arrayList.add(new BasicNameValuePair("client_secret", "iq1WKpTUQYoplQqGUmu6iVtU0vkKN41I"));
-        try {
-            urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, "utf-8");
-        } catch (UnsupportedEncodingException e) {
-            urlEncodedFormEntity = null;
-        }
-        if (urlEncodedFormEntity != null) {
-            new Thread(new e(this, "https://openapi.baidu.com/oauth/2.0/token", urlEncodedFormEntity, 0), "getAccessToken").start();
-        }
-    }
-
-    public void c() {
-        UrlEncodedFormEntity g = g();
-        if (g != null) {
-            new Thread(new e(this, b, g, 1), "registerUserInfo").start();
-        }
-    }
-
-    public void d() {
-        if (this.f != null) {
-            this.d.unregisterReceiver(this.f);
-        }
+        return true;
     }
 }

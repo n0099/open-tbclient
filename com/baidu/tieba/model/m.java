@@ -12,7 +12,7 @@ public class m extends BdAsyncTask<Boolean, String, k> {
     final /* synthetic */ k b;
     private int e;
     private com.baidu.tieba.data.as f;
-    private com.baidu.tbadk.core.util.al c = null;
+    private com.baidu.tbadk.core.util.an c = null;
     private String d = null;
     Boolean a = false;
 
@@ -52,7 +52,7 @@ public class m extends BdAsyncTask<Boolean, String, k> {
             }
             this.b.f = 0;
         }
-        this.c = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/post/threadstore");
+        this.c = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/post/threadstore");
         this.c.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, TbadkApplication.getCurrentAccount());
         this.c.a("offset", String.valueOf(this.e));
         this.c.a("rn", String.valueOf(20));

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.creategroup;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
@@ -72,7 +72,7 @@ public class e extends com.baidu.adp.base.c {
     public void a(int i) {
         this.g.getLayoutMode().a(i == 1);
         this.g.getLayoutMode().a(this.b);
-        bc.a(this.b, i);
+        be.a(this.b, i);
         this.a.c(i);
     }
 }

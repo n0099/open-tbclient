@@ -25,7 +25,7 @@ public class ca extends com.baidu.adp.base.a<ChatMessage> {
             this.b.setText("");
             return;
         }
-        String h = com.baidu.tieba.im.f.r.h(chatMessage);
+        String h = com.baidu.tieba.im.e.r.h(chatMessage);
         if (!TextUtils.isEmpty(h)) {
             this.b.setText(h);
         } else {

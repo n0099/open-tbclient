@@ -22,7 +22,7 @@ public class am implements DialogInterface.OnClickListener {
         if (this.b.d() == 2) {
             String a = this.b.a();
             if (!TextUtils.isEmpty(a)) {
-                com.baidu.tbadk.core.util.bi.a().a(this.a, new String[]{a});
+                com.baidu.tbadk.core.util.bk.a().a(this.a, new String[]{a});
                 return;
             } else {
                 this.a.b(this.b, this.c);

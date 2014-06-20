@@ -21,16 +21,16 @@ public class k extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(Object... objArr) {
-        String i;
-        String i2;
+        String j;
+        String j2;
         if (this.b) {
+            this.a.i();
+            j2 = this.a.j();
             this.a.h();
-            i2 = this.a.i();
-            this.a.g();
-            return i2;
+            return j2;
         }
-        i = this.a.i();
-        return i;
+        j = this.a.j();
+        return j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,8 +42,8 @@ public class k extends BdAsyncTask<Object, Integer, String> {
         Handler handler2;
         super.onPostExecute(str);
         this.a.b(str);
-        handler = this.a.v;
-        handler2 = this.a.v;
+        handler = this.a.w;
+        handler2 = this.a.w;
         handler.sendMessageDelayed(handler2.obtainMessage(2), 10000L);
         try {
             Class.forName(Amrnb.class.getName());

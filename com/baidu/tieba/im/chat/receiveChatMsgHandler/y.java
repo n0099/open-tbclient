@@ -158,14 +158,14 @@ public class y extends CustomMessageListener {
                     String groupId = a2.getGroupId();
                     if (!TextUtils.isEmpty(groupId)) {
                         BdLog.d("update msg group name" + a2.getGroupName());
-                        com.baidu.tieba.im.f.i.a(groupId, a2.getGroupName());
+                        com.baidu.tieba.im.e.i.a(groupId, a2.getGroupName());
                     }
                 }
             } else if (!TextUtils.isEmpty(cmd) && cmd.equals("group_head_change") && (a = com.baidu.tieba.im.groupUpdates.p.a(groupNewsPojo)) != null) {
                 String groupId2 = a.getGroupId();
                 if (!TextUtils.isEmpty(groupId2) && !TextUtils.isEmpty(a.getGroupHeadUrl())) {
                     BdLog.d("update msg group head" + a.getGroupHeadUrl());
-                    com.baidu.tieba.im.f.i.b(groupId2, a.getGroupHeadUrl());
+                    com.baidu.tieba.im.e.i.b(groupId2, a.getGroupHeadUrl());
                 }
             }
             return groupNewsPojo;

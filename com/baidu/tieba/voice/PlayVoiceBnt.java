@@ -14,7 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.k;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
@@ -160,7 +159,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     public void b(int i) {
         String formatVoiceTime;
         if (this.b != null && this.d != null) {
-            int i2 = i / LocationClientOption.MIN_SCAN_SPAN;
+            int i2 = i / 1000;
             if (i2 > 0 && i2 < this.b.duration) {
                 formatVoiceTime = VoiceManager.formatVoiceTime(this.b.duration - i2);
             } else {

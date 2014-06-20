@@ -12,7 +12,7 @@ import com.baidu.tieba.im.db.o;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.db.pojo.OldUserData;
-import com.baidu.tieba.im.f.r;
+import com.baidu.tieba.im.e.r;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;

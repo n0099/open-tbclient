@@ -11,7 +11,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tieba.u;
@@ -328,7 +328,7 @@ public class a {
             e5.printStackTrace();
             notification = t();
         }
-        if (be.c(str) || (i != 16 && i != 18)) {
+        if (bg.c(str) || (i != 16 && i != 18)) {
             notification.setLatestEventInfo(this.b, this.b.getString(y.app_name), str2, service);
         } else {
             notification.setLatestEventInfo(this.b, str, str2, service);

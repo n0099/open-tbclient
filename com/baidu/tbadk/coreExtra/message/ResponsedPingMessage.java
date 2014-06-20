@@ -1,11 +1,10 @@
 package com.baidu.tbadk.coreExtra.message;
 
-import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 /* loaded from: classes.dex */
 public class ResponsedPingMessage extends TbSocketReponsedMessage {
     public ResponsedPingMessage() {
-        super(MessageTypes.CMD_PING);
+        super(1003);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

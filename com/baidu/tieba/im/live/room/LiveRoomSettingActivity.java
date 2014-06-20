@@ -32,7 +32,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
     DialogInterface.OnClickListener b = new bg(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ai.class, LiveRoomSettingActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ah.class, LiveRoomSettingActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -132,10 +132,10 @@ public class LiveRoomSettingActivity extends BaseActivity {
         if (dialogInterface == this.e.g()) {
             switch (i) {
                 case 0:
-                    com.baidu.tbadk.core.util.bb.a(this);
+                    com.baidu.tbadk.core.util.bd.a(this);
                     return;
                 case 1:
-                    com.baidu.tbadk.core.util.bb.c(this);
+                    com.baidu.tbadk.core.util.bd.c(this);
                     return;
                 default:
                     return;
@@ -161,7 +161,7 @@ public class LiveRoomSettingActivity extends BaseActivity {
                 case 12010:
                     PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra(EditHeadActivity.b);
                     if (photoUrlData != null) {
-                        com.baidu.tbadk.core.util.aw.a().b(photoUrlData.getSmallurl(), com.baidu.tbadk.core.util.x.c(TbConfig.GROUP_HEAD_FILE), true, false, true);
+                        com.baidu.tbadk.core.util.ay.a().b(photoUrlData.getSmallurl(), com.baidu.tbadk.core.util.x.c(TbConfig.GROUP_HEAD_FILE), true, false, true);
                         this.f.a(photoUrlData.getPicId());
                         this.f.a(true);
                         this.e.a(photoUrlData.getSmallurl());
@@ -181,9 +181,9 @@ public class LiveRoomSettingActivity extends BaseActivity {
             }
         } else if (i2 == 0) {
             if (i == 12010) {
-                com.baidu.tbadk.core.util.bb.a(this);
+                com.baidu.tbadk.core.util.bd.a(this);
             } else if (i == 12009) {
-                com.baidu.tbadk.core.util.bb.b(this);
+                com.baidu.tbadk.core.util.bd.b(this);
             }
         }
     }

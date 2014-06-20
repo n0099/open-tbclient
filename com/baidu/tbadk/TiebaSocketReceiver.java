@@ -3,6 +3,7 @@ package com.baidu.tbadk;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
@@ -15,12 +16,13 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
             com.baidu.tbadk.core.log.a.a(UtilHelper.getNetStatusInfo(context));
             if (UtilHelper.isNetOk()) {
                 TiebaStatic.imLog("net change", TAG, "succ");
-                com.baidu.adp.framework.c.c.a().a(false, "net succ");
+                BdSocketLinkService.setAvailable(true);
+                BdSocketLinkService.startService(false, "net succ");
                 return;
             }
             TiebaStatic.imLog("net change", TAG, "failed");
             return;
         }
-        com.baidu.adp.framework.c.c.a().a(false, "calling or boot ");
+        BdSocketLinkService.startService(false, "calling or boot ");
     }
 }

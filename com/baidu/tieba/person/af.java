@@ -252,9 +252,9 @@ public class af extends RelativeLayout {
         this.y = false;
         this.e.setVisibility(0);
         if (z) {
-            com.baidu.tbadk.core.util.bc.f(this.e, com.baidu.tieba.u.icon_pop_blacklist_d);
+            com.baidu.tbadk.core.util.be.f(this.e, com.baidu.tieba.u.icon_pop_blacklist_d);
         } else {
-            com.baidu.tbadk.core.util.bc.f(this.e, com.baidu.tieba.u.icon_pop_blacklist);
+            com.baidu.tbadk.core.util.be.f(this.e, com.baidu.tieba.u.icon_pop_blacklist);
         }
     }
 }

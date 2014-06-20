@@ -5,8 +5,8 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.adp.widget.PinnedHeaderListView;
-import com.baidu.tbadk.core.util.ae;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.q;
@@ -61,7 +61,7 @@ public class m extends com.baidu.adp.base.c {
     }
 
     public void a() {
-        ae.a(this.f, this.e.e(), 0, -1);
+        ag.a(this.f, this.e.e(), 0, -1);
     }
 
     public void b() {
@@ -126,7 +126,7 @@ public class m extends com.baidu.adp.base.c {
 
     public void a(int i) {
         this.b.getLayoutMode().a(i == 1);
-        bc.a(this.c, i);
+        be.a(this.c, i);
         this.g.a(i);
         this.a.c(i);
         this.h.a(i);

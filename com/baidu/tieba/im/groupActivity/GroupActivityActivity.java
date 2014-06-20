@@ -125,7 +125,7 @@ public class GroupActivityActivity extends BaseActivity implements View.OnClickL
         if (view == this.a.b()) {
             closeActivity();
         } else if (view == this.a.c()) {
-            com.baidu.tieba.im.f.b.a((Context) this, (DialogInterface.OnClickListener) new p(this));
+            com.baidu.tieba.im.e.b.a((Context) this, (DialogInterface.OnClickListener) new p(this));
         }
     }
 
@@ -136,7 +136,7 @@ public class GroupActivityActivity extends BaseActivity implements View.OnClickL
             if (i == 0) {
                 CreateGroupActivityActivity.a(this, (int) this.b.c(), this.b.g(), 23001);
             } else if (i == 1) {
-                com.baidu.tieba.im.f.b.a((Context) this, (DialogInterface.OnClickListener) new q(this));
+                com.baidu.tieba.im.e.b.a((Context) this, (DialogInterface.OnClickListener) new q(this));
             }
         }
     }

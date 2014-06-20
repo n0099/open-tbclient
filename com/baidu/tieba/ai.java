@@ -15,7 +15,6 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.InvokeOnAccountChangedMessageConfig;
@@ -24,8 +23,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.util.DatabaseManager;
 import com.baidu.tbadk.core.util.NetWorkCore;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.br;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.plugins.Hao123Plugin;
 import com.baidu.tieba.data.BannerData;
@@ -87,18 +86,18 @@ public class ai {
     private Hashtable<String, Integer> G = null;
     private boolean H = false;
     public Handler b = new Handler(new aj(this));
-    com.baidu.adp.lib.c.d c = new am(this);
+    com.baidu.adp.lib.c.d c = new al(this);
     boolean d = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2007005, new an());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2007005, new am());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2007006, new ao());
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2007006, new an());
         customMessageTask2.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        CustomMessageTask customMessageTask3 = new CustomMessageTask(2007007, new aq());
+        CustomMessageTask customMessageTask3 = new CustomMessageTask(2007007, new ap());
         customMessageTask3.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
     }
@@ -113,7 +112,7 @@ public class ai {
 
     private void U() {
         com.baidu.tbadk.tbplugin.m.a(TbadkApplication.m252getInst());
-        new com.baidu.tbadk.plugins.a().a(e(), TbadkApplication.m252getInst().isMainProcess(false), TbadkApplication.m252getInst().getIsFirstUse(), new ar(this));
+        new com.baidu.tbadk.plugins.a().a(e(), TbadkApplication.m252getInst().isMainProcess(false), TbadkApplication.m252getInst().getIsFirstUse(), new aq(this));
     }
 
     public static ai c() {
@@ -121,25 +120,25 @@ public class ai {
     }
 
     private static void V() {
-        DatabaseManager.a(new at());
+        DatabaseManager.a(new as());
     }
 
     public void a(Application application) {
         if (application != null) {
             n.a();
             V();
-            new aw(null).execute(new String[0]);
+            new av(null).execute(new String[0]);
             NetWorkCore.j();
             MessageManager messageManager = MessageManager.getInstance();
-            messageManager.addMessageRule(new com.baidu.tbadk.b.d(0));
-            messageManager.addMessageRule(new com.baidu.tbadk.b.a(0));
-            messageManager.addResponsedMessageRule(new com.baidu.tbadk.b.c(0));
-            messageManager.addRemovedMessageRule(new com.baidu.tbadk.b.b(0));
+            messageManager.addMessageRule(new com.baidu.tbadk.a.d(0));
+            messageManager.addMessageRule(new com.baidu.tbadk.a.a(0));
+            messageManager.addResponsedMessageRule(new com.baidu.tbadk.a.c(0));
+            messageManager.addRemovedMessageRule(new com.baidu.tbadk.a.b(0));
             if (TbadkApplication.m252getInst().isMainProcess(true)) {
                 com.baidu.tbadk.core.sharedPref.b.a().b();
             }
             X();
-            bp.a(TbadkApplication.m252getInst());
+            br.a(TbadkApplication.m252getInst());
             TbConfig.initBigImageWidth(TbadkApplication.m252getInst());
             TbConfig.initFriendPhotoConfig(TbadkApplication.m252getInst());
             try {
@@ -148,7 +147,7 @@ public class ai {
                 BdLog.e(getClass().getName(), "onCreate", e.getMessage());
             }
             U();
-            this.b.postDelayed(new au(this, application), 2000L);
+            this.b.postDelayed(new at(this, application), 2000L);
             if (TbadkApplication.m252getInst().isMainProcess(true)) {
                 TiebaStatic.init(TbadkApplication.m252getInst());
                 if (TbadkApplication.m252getInst().getIsFirstUse()) {
@@ -178,7 +177,7 @@ public class ai {
             } else {
                 TbadkApplication.m252getInst().mRemoteActivity = new ArrayList<>();
             }
-            com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(CmdConfig.DEAL_INTENT, new av(this));
+            com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(CmdConfig.DEAL_INTENT, new au(this));
             aVar.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(aVar);
             W();
@@ -322,7 +321,7 @@ public class ai {
             a = false;
         }
         com.baidu.adp.lib.c.a.a().a(a);
-        com.baidu.tbadk.core.g.a().b();
+        com.baidu.tbadk.core.h.a().b();
         if (com.baidu.adp.lib.a.f.a().b(LogSwitchStatic.LOG) == 0) {
             com.baidu.tbadk.core.log.a.a(true);
         } else {
@@ -557,7 +556,7 @@ public class ai {
             }
             alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(TbadkApplication.m252getInst(), 0, w, 268435456));
             if (BdLog.isDebugMode()) {
-                BdLog.d("sign-alert alarm set to :" + be.a(calendar.getTime()));
+                BdLog.d("sign-alert alarm set to :" + bg.a(calendar.getTime()));
                 return;
             }
             return;
@@ -694,10 +693,10 @@ public class ai {
         if (!TextUtils.isEmpty(b)) {
             com.baidu.tieba.model.ae aeVar = new com.baidu.tieba.model.ae();
             aeVar.a(b);
-            com.baidu.tbadk.coreExtra.d.g a = com.baidu.tbadk.coreExtra.d.g.a();
+            com.baidu.tbadk.coreExtra.websocketBase.h a = com.baidu.tbadk.coreExtra.websocketBase.h.a();
             a.a(aeVar.a() == 1);
             a.d(aeVar.b());
-            a.a(aeVar.c() * LocationClientOption.MIN_SCAN_SPAN);
+            a.a(aeVar.c() * 1000);
             this.L = aeVar.e();
             this.M = aeVar.f();
             this.N = aeVar.g();
@@ -727,7 +726,7 @@ public class ai {
                 sb.append("|");
             }
             com.baidu.tbadk.f.a().a("socket_time_out", sb.toString());
-            this.b.post(new al(this, iArr));
+            com.baidu.adp.framework.c.c.a().a(iArr[0], iArr[1], iArr[2]);
         }
     }
 

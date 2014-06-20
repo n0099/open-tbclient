@@ -69,7 +69,7 @@ public class SingleSquareActivity extends BaseFragmentActivity {
         if ("from_hao123".equals(getIntent().getStringExtra("start_from")) && com.baidu.tieba.util.r.a((Activity) this)) {
             Intent intent = new Intent();
             intent.putExtra("class", 19);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.ak(this, intent)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new com.baidu.tbadk.core.atomData.aj(this, intent)));
             finish();
             return true;
         }

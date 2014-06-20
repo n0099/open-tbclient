@@ -7,7 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends BdAsyncTask<String, Integer, Bitmap> {
-    com.baidu.tbadk.core.util.al a;
+    com.baidu.tbadk.core.util.an a;
     final /* synthetic */ Login2Activity b;
     private volatile boolean c;
 
@@ -50,7 +50,7 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
         if (str == null || str.length() <= 0 || this.c) {
             return null;
         }
-        this.a = new com.baidu.tbadk.core.util.al(str);
+        this.a = new com.baidu.tbadk.core.util.an(str);
         return com.baidu.tbadk.core.util.g.a(this.a.h());
     }
 

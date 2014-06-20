@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextNewDotView;
@@ -88,11 +88,11 @@ public class an extends com.baidu.adp.base.c {
         this.c.a(i);
         this.d.a(i);
         if (i == 1) {
-            bc.e(this.e, com.baidu.tieba.u.more_all_1);
-            bc.e(this.f, com.baidu.tieba.u.more_all_1);
+            be.e(this.e, com.baidu.tieba.u.more_all_1);
+            be.e(this.f, com.baidu.tieba.u.more_all_1);
         } else {
-            bc.e(this.e, com.baidu.tieba.u.more_all);
-            bc.e(this.f, com.baidu.tieba.u.more_all);
+            be.e(this.e, com.baidu.tieba.u.more_all);
+            be.e(this.f, com.baidu.tieba.u.more_all);
         }
         this.a.getLayoutMode().a(i == 1);
         this.a.getLayoutMode().a((View) this.b);

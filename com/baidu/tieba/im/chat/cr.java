@@ -17,12 +17,12 @@ class cr implements com.baidu.tieba.im.a<Void> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Void r6) {
-        ((com.baidu.tbadk.core.atomData.au) this.b.getData()).getIntent().setClass(((com.baidu.tbadk.core.atomData.au) this.b.getData()).getContext(), PersonalChatActivity.class);
-        UserData a = ((com.baidu.tbadk.core.atomData.au) this.b.getData()).a();
+        ((com.baidu.tbadk.core.atomData.at) this.b.getData()).getIntent().setClass(((com.baidu.tbadk.core.atomData.at) this.b.getData()).getContext(), PersonalChatActivity.class);
+        UserData a = ((com.baidu.tbadk.core.atomData.at) this.b.getData()).a();
         if (a.getUserIdLong() == 0) {
             BdLog.d("userid = " + a.getUserId());
         } else {
-            ((com.baidu.tbadk.core.atomData.au) this.b.getData()).startActivity();
+            ((com.baidu.tbadk.core.atomData.at) this.b.getData()).startActivity();
         }
     }
 }

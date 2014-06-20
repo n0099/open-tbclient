@@ -1,23 +1,7 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
 /* loaded from: classes.dex */
-public class bn implements DialogInterface.OnClickListener {
-    private final /* synthetic */ Activity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(Activity activity) {
-        this.a = activity;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        TbadkApplication.m252getInst().notifyAppEnterBackground();
-        com.baidu.tbadk.core.log.a.b();
-        TbadkApplication.m252getInst().clearHasShowAppForums();
-        this.a.finish();
-    }
+public interface bn {
+    void a(Context context, String str, boolean z, bo boVar);
 }

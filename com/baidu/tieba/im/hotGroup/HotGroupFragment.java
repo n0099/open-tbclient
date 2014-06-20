@@ -16,7 +16,7 @@ import com.baidu.adp.widget.ListView.w;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ag;
 import com.baidu.tbadk.core.view.q;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.v;
@@ -116,7 +116,7 @@ public class HotGroupFragment extends com.baidu.tbadk.core.d implements com.baid
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         if (this.b != null && this.f != null) {
-            ae.a(this.b, this.f.a(), 0, -1);
+            ag.a(this.b, this.f.a(), 0, -1);
         }
     }
 

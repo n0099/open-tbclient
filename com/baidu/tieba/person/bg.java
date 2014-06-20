@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class bg extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ PersonChangeActivity a;
-    private com.baidu.tbadk.core.util.al b = null;
+    private com.baidu.tbadk.core.util.an b = null;
     private com.baidu.tieba.model.au c;
 
     public bg(PersonChangeActivity personChangeActivity, com.baidu.tieba.model.au auVar) {
@@ -71,7 +71,7 @@ public class bg extends BdAsyncTask<String, Integer, String> {
     /* renamed from: a */
     public String doInBackground(String... strArr) {
         if (this.c != null) {
-            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/profile/modify");
+            this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/profile/modify");
             this.b.a("sex", String.valueOf(this.c.a().getSex()));
             this.b.a("intro", this.c.a().getIntro());
             this.b.j();

@@ -30,6 +30,6 @@ public class i extends com.baidu.tieba.util.l {
         MessageManager messageManager = MessageManager.getInstance();
         Context a = a();
         str2 = this.a.g;
-        messageManager.sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.at(a, str2, str4)));
+        messageManager.sendMessage(new CustomMessage(2003003, new com.baidu.tbadk.core.atomData.as(a, str2, str4)));
     }
 }

@@ -18,7 +18,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.data.ForumInfoData;
 import com.baidu.tieba.flist.ForumListModel;
 import java.util.ArrayList;
@@ -154,7 +154,7 @@ public class ForumListActivity extends BaseActivity implements ViewPager.OnPageC
 
     private void b(String str, String str2, String str3, String str4) {
         this.e = new Handler();
-        if (be.c(str4)) {
+        if (bg.c(str4)) {
             str4 = str;
         }
         this.c.h.setText(str4);

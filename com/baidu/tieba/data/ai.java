@@ -11,7 +11,7 @@ import android.text.style.ImageSpan;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
@@ -356,7 +356,7 @@ public class ai extends com.baidu.tbadk.core.util.a {
                             sb.append(d);
                             sb.append("]");
                         }
-                    } else if (next.a() == 11 && !be.c(next.c())) {
+                    } else if (next.a() == 11 && !bg.c(next.c())) {
                         sb.append("[").append(next.c()).append("]");
                     }
                 }
@@ -437,12 +437,12 @@ public class ai extends com.baidu.tbadk.core.util.a {
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
     public boolean isSupportImageSize() {
         return true;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
     public LinkedList<String> getImageUrl() {
         ArrayList<com.baidu.tbadk.widget.richText.c> a;
         if (this.n == null || (a = this.n.a()) == null) {
@@ -463,7 +463,7 @@ public class ai extends com.baidu.tbadk.core.util.a {
         return linkedList;
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
     public LinkedList<com.baidu.tbadk.core.util.ab> getImagesWithEmotions() {
         ArrayList<com.baidu.tbadk.widget.richText.c> a;
         if (this.n == null || (a = this.n.a()) == null) {
@@ -523,7 +523,7 @@ public class ai extends com.baidu.tbadk.core.util.a {
         return stringBuffer.toString();
     }
 
-    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ad
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.af
     public LinkedList<String> getPhotoUrl() {
         if (this.f == null) {
             return null;

@@ -19,7 +19,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
@@ -224,7 +224,7 @@ public class j implements com.baidu.tbadk.imageManager.d {
         this.F.invalidate();
         if (i == 1) {
             if (this.Q >= 0 && this.Q < ac.length) {
-                bc.e((View) this.P, ad[this.Q]);
+                be.e((View) this.P, ad[this.Q]);
             }
             this.i.setCompoundDrawablesWithIntrinsicBounds(u.icon_like_1, 0, 0, 0);
             this.l.setCompoundDrawablesWithIntrinsicBounds(u.icon_sign_1, 0, 0, 0);
@@ -237,7 +237,7 @@ public class j implements com.baidu.tbadk.imageManager.d {
         } else {
             this.al.setImageResource(u.icon_arrow_right);
             if (this.Q >= 0 && this.Q < ac.length) {
-                bc.e((View) this.P, ac[this.Q]);
+                be.e((View) this.P, ac[this.Q]);
             }
             this.i.setCompoundDrawablesWithIntrinsicBounds(u.icon_like, 0, 0, 0);
             this.l.setCompoundDrawablesWithIntrinsicBounds(u.icon_sign, 0, 0, 0);
@@ -309,9 +309,9 @@ public class j implements com.baidu.tbadk.imageManager.d {
                 this.Q = Integer.parseInt(this.S);
                 if (this.Q >= 0 && this.Q < ac.length) {
                     if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                        bc.e((View) this.P, ad[this.Q]);
+                        be.e((View) this.P, ad[this.Q]);
                     } else {
-                        bc.e((View) this.P, ac[this.Q]);
+                        be.e((View) this.P, ac[this.Q]);
                     }
                 }
             }

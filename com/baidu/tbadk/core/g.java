@@ -1,111 +1,15 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.TbErrInfo;
 /* loaded from: classes.dex */
 public class g {
-    private static g a;
-    private int b = 1;
-    private int c = 1;
-    private int d = 0;
-    private boolean e = true;
-    private int f = 0;
-
-    public static g a() {
-        g gVar;
-        if (a == null) {
-            synchronized (g.class) {
-                if (a == null) {
-                    a = new g();
-                }
-                gVar = a;
-            }
-            return gVar;
-        }
-        return a;
-    }
-
-    private g() {
-    }
-
-    public void b() {
-        this.d = com.baidu.tbadk.core.sharedPref.b.a().a("image_quality", 0);
-        this.b = com.baidu.tbadk.core.sharedPref.b.a().a("new_display_photo", 1);
-        this.c = com.baidu.tbadk.core.sharedPref.b.a().a("new_abstract_state", 0);
-        this.f = com.baidu.tbadk.core.sharedPref.b.a().a("view_image_quality", 0);
-        this.e = com.baidu.tbadk.core.sharedPref.b.a().a("show_images", true);
-    }
-
-    public void a(int i) {
-        this.b = i;
-        com.baidu.tbadk.core.sharedPref.b.a().b("new_display_photo", i);
-    }
-
-    public int c() {
-        return this.b;
-    }
-
-    public boolean d() {
-        if (this.b == 0) {
-            if (bf.a().c()) {
-                return true;
-            }
-        } else if (this.b == 1) {
-            return true;
-        }
-        return false;
-    }
-
-    public void b(int i) {
-        if (this.d != i) {
-            this.d = i;
-            com.baidu.tbadk.core.sharedPref.b.a().b("image_quality", i);
-        }
-    }
-
-    public int e() {
-        this.d = com.baidu.tbadk.core.sharedPref.b.a().a("image_quality", 0);
-        return this.d;
-    }
-
-    public boolean f() {
-        return this.e;
-    }
-
-    public void a(boolean z) {
-        if (this.e != z) {
-            this.e = z;
-            com.baidu.tbadk.core.sharedPref.b.a().b("show_images", z);
-        }
-    }
-
-    public void c(int i) {
-        if (this.f != i) {
-            this.f = i;
-            com.baidu.tbadk.core.sharedPref.b.a().b("view_image_quality", i);
-            bf.a().f();
-            bf.a().g();
-        }
-    }
-
-    public int g() {
-        return this.f;
-    }
-
-    public void b(boolean z) {
-        if (z) {
-            a(0);
-            b(0);
-            a(true);
-            c(0);
-            return;
-        }
-        a(1);
-        b(1);
-        a(true);
-        c(1);
-    }
-
-    public boolean h() {
-        return this.b == 0 || this.d == 0 || this.f == 0;
-    }
+    private static int i = -100000000;
+    public static final int a = i - 1000;
+    public static final int b = i + TbErrInfo.ERR_IMG_GET_REMOTE;
+    public static final int c = i + TbErrInfo.ERR_IMG_SEND;
+    public static final int d = i - 2000;
+    public static final int e = i - 2001;
+    public static final int f = i - 2002;
+    public static final int g = i - 3000;
+    public static final int h = i - 3001;
 }

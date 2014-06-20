@@ -6,14 +6,15 @@ import android.content.IntentFilter;
 import android.net.LocalServerSocket;
 import android.os.Handler;
 import android.text.TextUtils;
-import com.baidu.android.a.j;
-import com.baidu.android.a.l;
-import com.baidu.android.common.logging.Log;
-import com.baidu.android.common.util.Util;
+import android.util.Log;
+import com.baidu.android.a.r;
+import com.baidu.android.a.s;
+import com.baidu.android.a.t;
 import com.baidu.android.moplus.util.NoProGuard;
-import com.baidu.android.nebula.util.BDLocationManager;
 import com.baidu.android.systemmonitor.devicestatistic.StatisticReceiver;
-import com.baidu.android.systemmonitor.devicestatistic.i;
+import com.baidu.android.systemmonitor.devicestatistic.g;
+import com.baidu.android.systemmonitor.devicestatistic.h;
+import com.baidu.android.systemmonitor.devicestatistic.j;
 import com.baidu.android.systemmonitor.localapp.AppManager;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
@@ -77,7 +78,7 @@ public final class StatisticManager implements NoProGuard {
                 localServerSocket = sLock;
             } else {
                 try {
-                    sLock = new LocalServerSocket(Util.toMd5(("Statistic_" + ((int) com.baidu.android.systemmonitor.c.b.a)).getBytes(), false));
+                    sLock = new LocalServerSocket(com.baidu.android.nebula.a.f.a(("Statistic_" + ((int) com.baidu.android.systemmonitor.util.e.a)).getBytes(), false));
                 } catch (Exception e) {
                 }
                 localServerSocket = sLock;
@@ -87,25 +88,25 @@ public final class StatisticManager implements NoProGuard {
     }
 
     public static int getPriority(Context context) {
-        int m = ((((com.baidu.android.systemmonitor.c.b.a << 1) + com.baidu.android.systemmonitor.c.d.m(context)) << 1) + com.baidu.android.systemmonitor.c.d.t(context)) << 1;
-        return ((((((com.baidu.android.systemmonitor.c.d.n(context) == 1 ? (((m + 1) << 1) + com.baidu.android.systemmonitor.c.d.o(context)) << 1 : m << 2) + com.baidu.android.systemmonitor.c.d.q(context)) << 1) + com.baidu.android.systemmonitor.c.d.s(context)) << 1) + com.baidu.android.systemmonitor.c.d.r(context)) << 1;
+        int m = ((((com.baidu.android.systemmonitor.util.e.a << 1) + com.baidu.android.systemmonitor.util.b.m(context)) << 1) + com.baidu.android.systemmonitor.util.b.t(context)) << 1;
+        return ((((((com.baidu.android.systemmonitor.util.b.n(context) == 1 ? (((m + 1) << 1) + com.baidu.android.systemmonitor.util.b.o(context)) << 1 : m << 2) + com.baidu.android.systemmonitor.util.b.q(context)) << 1) + com.baidu.android.systemmonitor.util.b.s(context)) << 1) + com.baidu.android.systemmonitor.util.b.r(context)) << 1;
     }
 
     public static short getVersion(Context context) {
-        return com.baidu.android.systemmonitor.c.b.a;
+        return com.baidu.android.systemmonitor.util.e.a;
     }
 
     private void handleBootCompletedAction() {
-        if (j.a(this.mContext).a()) {
-            if (com.baidu.android.systemmonitor.c.d.t(this.mContext) == 1) {
-                this.mStartStamp = com.baidu.android.systemmonitor.c.b.a(this.mContext, true);
-                this.mStopStamp = com.baidu.android.systemmonitor.c.b.a(this.mContext, false);
-                com.baidu.android.systemmonitor.c.b.a(this.mContext, System.currentTimeMillis(), true);
-                com.baidu.android.systemmonitor.c.b.a(this.mContext, 0L, false);
+        if (s.a(this.mContext).a()) {
+            if (com.baidu.android.systemmonitor.util.b.t(this.mContext) == 1) {
+                this.mStartStamp = com.baidu.android.systemmonitor.util.e.a(this.mContext, true);
+                this.mStopStamp = com.baidu.android.systemmonitor.util.e.a(this.mContext, false);
+                com.baidu.android.systemmonitor.util.e.a(this.mContext, System.currentTimeMillis(), true);
+                com.baidu.android.systemmonitor.util.e.a(this.mContext, 0L, false);
                 if (this.mStartStamp != 0 && this.mStopStamp != 0 && this.mStartStamp < this.mStopStamp) {
-                    com.baidu.android.systemmonitor.devicestatistic.a.c cVar = new com.baidu.android.systemmonitor.devicestatistic.a.c(this.mStartStamp);
-                    cVar.a = this.mStopStamp;
-                    com.baidu.android.systemmonitor.devicestatistic.d.a(this.mContext).a(cVar);
+                    com.baidu.android.systemmonitor.devicestatistic.a.b bVar = new com.baidu.android.systemmonitor.devicestatistic.a.b(this.mStartStamp);
+                    bVar.a = this.mStopStamp;
+                    g.a(this.mContext).a(bVar);
                 }
             }
             this.mHandler.postDelayed(this.mGetStoreInfoRunnable, TbConfig.NOTIFY_SOUND_INTERVAL);
@@ -113,21 +114,21 @@ public final class StatisticManager implements NoProGuard {
     }
 
     private void handleConnectionChangeAction() {
-        if (j.a(this.mContext).a()) {
+        if (s.a(this.mContext).a()) {
             this.mHandler.postDelayed(this.mGetStoreInfoRunnable, TbConfig.NOTIFY_SOUND_INTERVAL);
             this.mHandler.removeCallbacks(this.mNetFlowTjRunnable);
             this.mHandler.postDelayed(this.mNetFlowTjRunnable, TbConfig.NOTIFY_SOUND_INTERVAL);
         }
         this.mHandler.removeCallbacks(this.mUploadRunnable);
         this.mHandler.postDelayed(this.mUploadRunnable, TbConfig.NOTIFY_SOUND_INTERVAL);
-        if (com.baidu.android.systemmonitor.c.d.n(this.mContext) == 1) {
+        if (com.baidu.android.systemmonitor.util.b.n(this.mContext) == 1) {
             this.mHandler.removeCallbacks(this.mRequestLocationRunnable);
             this.mHandler.postDelayed(this.mRequestLocationRunnable, TbConfig.NOTIFY_SOUND_INTERVAL);
         }
     }
 
     private void handleGetStoreinfoAction() {
-        if (j.a(this.mContext).a()) {
+        if (s.a(this.mContext).a()) {
             this.mHandler.postDelayed(this.mGetStoreInfoRunnable, TbConfig.NOTIFY_SOUND_INTERVAL);
         } else if (this.mHandler == null || this.mGetStoreInfoRunnable == null) {
         } else {
@@ -143,11 +144,11 @@ public final class StatisticManager implements NoProGuard {
     }
 
     private void handlePowerConnectAction(boolean z) {
-        if (j.a(this.mContext).a()) {
+        if (s.a(this.mContext).a()) {
             if (z) {
-                com.baidu.android.systemmonitor.devicestatistic.f.a(this.mContext).a();
+                h.a(this.mContext).a();
             } else {
-                com.baidu.android.systemmonitor.devicestatistic.f.a(this.mContext).b();
+                h.a(this.mContext).b();
             }
         }
     }
@@ -159,10 +160,10 @@ public final class StatisticManager implements NoProGuard {
         this.mUploadRunnable = new d(this);
         this.mConnectReceiver = new StatisticReceiver();
         registerStatisticReceivers();
-        if (com.baidu.android.systemmonitor.c.d.p(this.mContext) == 1 && j.a(this.mContext).a()) {
-            com.baidu.android.systemmonitor.freqstatistic.c.a(this.mContext);
+        if (com.baidu.android.systemmonitor.util.b.p(this.mContext) == 1 && s.a(this.mContext).a()) {
+            com.baidu.android.systemmonitor.freqstatistic.b.a(this.mContext);
         }
-        com.baidu.android.systemmonitor.devicestatistic.a.a(this.mContext).b();
+        com.baidu.android.systemmonitor.devicestatistic.e.a(this.mContext).b();
         this.mHandler.postDelayed(new e(this), 300000L);
     }
 
@@ -186,18 +187,18 @@ public final class StatisticManager implements NoProGuard {
     private void release() {
         unregisterStatisticReceivers();
         AppManager.c();
-        com.baidu.android.systemmonitor.freqstatistic.e.a();
-        com.baidu.android.systemmonitor.devicestatistic.d.b();
-        BDLocationManager.a();
-        i.c();
-        com.baidu.android.systemmonitor.devicestatistic.f.f();
+        com.baidu.android.systemmonitor.freqstatistic.c.a();
+        g.b();
+        com.baidu.android.nebula.a.e.a();
+        j.c();
+        h.f();
         com.baidu.android.systemmonitor.a.a.g();
-        j.k();
-        l.b();
-        com.baidu.android.a.i.c();
-        com.baidu.android.systemmonitor.freqstatistic.c.d();
-        com.baidu.android.systemmonitor.devicestatistic.a.a();
-        com.baidu.android.defense.push.d.e();
+        s.n();
+        t.b();
+        r.c();
+        com.baidu.android.systemmonitor.freqstatistic.b.c();
+        com.baidu.android.systemmonitor.devicestatistic.e.a();
+        com.baidu.android.defense.push.j.d();
     }
 
     private void unregisterStatisticReceivers() {

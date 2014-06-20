@@ -33,7 +33,7 @@ public class cy {
         if (chatMessage != null) {
             MsgCacheData cacheData = chatMessage.getCacheData();
             if (cacheData == null) {
-                cacheData = com.baidu.tieba.im.f.r.f(chatMessage);
+                cacheData = com.baidu.tieba.im.e.r.f(chatMessage);
                 chatMessage.setCacheData(cacheData);
             }
             if (cacheData.getRich_content() == null) {
@@ -78,7 +78,7 @@ public class cy {
         if (chatMessage.getContent() != null && chatMessage.getContent().length() != 0) {
             try {
                 JSONObject jSONObject = new JSONArray(chatMessage.getContent()).getJSONObject(0);
-                String a2 = com.baidu.tieba.im.f.r.a(jSONObject, false);
+                String a2 = com.baidu.tieba.im.e.r.a(jSONObject, false);
                 if (a2 == null) {
                     BdLog.e(str, "showPic", "invalid small pic in content:" + chatMessage.getContent());
                     return;
@@ -91,7 +91,7 @@ public class cy {
                         aVar = com.baidu.tbadk.imageManager.e.a().c(a2);
                         try {
                             if (aVar == null) {
-                                Bitmap a3 = com.baidu.tbadk.core.util.aw.a().a(com.baidu.adp.lib.util.b.a().a(a2));
+                                Bitmap a3 = com.baidu.tbadk.core.util.ay.a().a(com.baidu.adp.lib.util.b.a().a(a2));
                                 if (a3 != null) {
                                     aVar = new com.baidu.adp.widget.a.a(a3, false);
                                     if (chatMessage.getWidth() < 1) {
@@ -118,7 +118,7 @@ public class cy {
                             }
                             LocalViewSize.a();
                             LocalViewSize.ImageSize a4 = LocalViewSize.a().a(LocalViewSize.a().c(), chatMessage.getHeight(), chatMessage.getWidth());
-                            com.baidu.tbadk.core.util.resourceLoader.b a5 = com.baidu.tbadk.core.util.aw.a().a(a4.width, a4.height, true);
+                            com.baidu.tbadk.core.util.resourceLoader.b a5 = com.baidu.tbadk.core.util.ay.a().a(a4.width, a4.height, true);
                             a4.height = a5.c;
                             a4.width = a5.b;
                             ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
@@ -150,7 +150,7 @@ public class cy {
                 }
                 LocalViewSize.a();
                 LocalViewSize.ImageSize a42 = LocalViewSize.a().a(LocalViewSize.a().c(), chatMessage.getHeight(), chatMessage.getWidth());
-                com.baidu.tbadk.core.util.resourceLoader.b a52 = com.baidu.tbadk.core.util.aw.a().a(a42.width, a42.height, true);
+                com.baidu.tbadk.core.util.resourceLoader.b a52 = com.baidu.tbadk.core.util.ay.a().a(a42.width, a42.height, true);
                 a42.height = a52.c;
                 a42.width = a52.b;
                 ViewGroup.LayoutParams layoutParams2 = tbImageView.getLayoutParams();
@@ -218,7 +218,7 @@ public class cy {
                 } else if (cacheData.getVoice_status() == 0) {
                     cacheData.setVoice_status(1);
                 }
-                VoiceMsgData g = com.baidu.tieba.im.f.r.g(chatMessage);
+                VoiceMsgData g = com.baidu.tieba.im.e.r.g(chatMessage);
                 if (g != null && g.getDuring_time() != 0.0f && cacheData.getVoice_model() == null) {
                     cacheData.setVoice_model(new VoiceData.VoiceModel());
                     cacheData.getVoice_model().voiceId = g.getVoice_md5();

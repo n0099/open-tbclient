@@ -134,14 +134,14 @@ public class aq extends Handler {
     }
 
     private boolean a(ab abVar) {
-        byte[] r = abVar.a.r();
-        if (r == null) {
+        byte[] s = abVar.a.s();
+        if (s == null) {
             return false;
         }
-        if (r.length > this.e.c()) {
+        if (s.length > this.e.c()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
-        a(2, true, r);
+        a(2, true, s);
         return true;
     }
 

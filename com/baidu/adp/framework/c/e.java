@@ -1,10 +1,64 @@
 package com.baidu.adp.framework.c;
 
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdNetUtil;
 /* loaded from: classes.dex */
-public interface e {
-    void a(String str, String str2, int i, Message<?> message);
+public class e {
+    private static /* synthetic */ int[] b;
+    private int[] a;
 
-    void a(String str, String str2, int i, ResponsedMessage<?> responsedMessage);
+    static /* synthetic */ int[] c() {
+        int[] iArr = b;
+        if (iArr == null) {
+            iArr = new int[BdNetUtil.NetworkStateInfo.valuesCustom().length];
+            try {
+                iArr[BdNetUtil.NetworkStateInfo.ThreeG.ordinal()] = 4;
+            } catch (NoSuchFieldError e) {
+            }
+            try {
+                iArr[BdNetUtil.NetworkStateInfo.TwoG.ordinal()] = 3;
+            } catch (NoSuchFieldError e2) {
+            }
+            try {
+                iArr[BdNetUtil.NetworkStateInfo.UNAVAIL.ordinal()] = 1;
+            } catch (NoSuchFieldError e3) {
+            }
+            try {
+                iArr[BdNetUtil.NetworkStateInfo.WIFI.ordinal()] = 2;
+            } catch (NoSuchFieldError e4) {
+            }
+            b = iArr;
+        }
+        return iArr;
+    }
+
+    public e(int i, int i2, int i3) {
+        this.a = null;
+        this.a = new int[3];
+        this.a[0] = i;
+        this.a[1] = i2;
+        this.a[2] = i3;
+    }
+
+    public int a() {
+        if (this.a == null || this.a.length != 1) {
+            return 0;
+        }
+        return this.a[0];
+    }
+
+    public int b() {
+        if (this.a == null || this.a.length != 3) {
+            return 0;
+        }
+        switch (c()[BdNetUtil.a().ordinal()]) {
+            case 2:
+                return this.a[2];
+            case 3:
+                return this.a[0];
+            case 4:
+                return this.a[1];
+            default:
+                return this.a[2];
+        }
+    }
 }

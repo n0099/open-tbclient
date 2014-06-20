@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.editortool.ab;
 import com.baidu.tieba.t;
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class g extends BaseAdapter {
     private boolean j = false;
 
     public void a(com.baidu.tieba.data.p pVar) {
-        b(bf.a().b());
+        b(bh.a().b());
         this.d = true;
         this.a = pVar;
     }
@@ -35,7 +35,7 @@ public class g extends BaseAdapter {
         this.b = context;
         this.e = new ab(context);
         this.f = com.baidu.adp.lib.util.k.b(context);
-        b(bf.a().b());
+        b(bh.a().b());
     }
 
     @Override // android.widget.Adapter

@@ -34,7 +34,7 @@ public class ae extends com.baidu.adp.base.e {
                 a = this.a.a(Long.parseLong(name));
                 if (a != null) {
                     if (value != null && value.length() > 0) {
-                        VoiceMsgData g = com.baidu.tieba.im.f.r.g(a);
+                        VoiceMsgData g = com.baidu.tieba.im.e.r.g(a);
                         if (g != null) {
                             g.setVoice_md5(value);
                             a.setContent("[" + new Gson().toJson(g) + "]");

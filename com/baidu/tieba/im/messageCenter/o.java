@@ -1,20 +1,17 @@
 package com.baidu.tieba.im.messageCenter;
 
-import android.support.v4.app.Fragment;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.y;
+import com.baidu.tbadk.core.atomData.InvokeUpdateActivityIsOpenConfig;
+import com.baidu.tieba.im.groupUpdates.UpdatesActivity;
 /* loaded from: classes.dex */
-class o implements CustomMessageTask.CustomRunnable<y> {
+class o implements CustomMessageTask.CustomRunnable<InvokeUpdateActivityIsOpenConfig> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<Fragment> run(CustomMessage<y> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            Fragment a = customMessage.getData().a();
-            if (a instanceof com.baidu.tieba.im.chat.notify.b) {
-                ((com.baidu.tieba.im.chat.notify.b) a).a();
-            }
+    public CustomResponsedMessage<Boolean> run(CustomMessage<InvokeUpdateActivityIsOpenConfig> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
-        return null;
+        return new CustomResponsedMessage<>(2010005, Boolean.valueOf(UpdatesActivity.a));
     }
 }

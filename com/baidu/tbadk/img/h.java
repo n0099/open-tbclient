@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tieba.y;
@@ -27,7 +27,7 @@ public class h {
     private Object l;
     private int a = 102400;
     private String h = TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
-    private al i = null;
+    private an i = null;
 
     public h(String str) {
         this.f = str;
@@ -175,7 +175,7 @@ public class h {
             try {
                 File file = new File(str);
                 long length = file.length();
-                String a = be.a(x.a(file));
+                String a = bg.a(x.a(file));
                 sb.append("path=");
                 sb.append(str);
                 sb.append("|length=");
@@ -250,7 +250,7 @@ public class h {
                                             randomAccessFile.read(bArr2, 0, i4);
                                             bArr = bArr2;
                                         }
-                                        this.i = new al(TbConfig.UPLOAD_IMG_URL);
+                                        this.i = new an(TbConfig.UPLOAD_IMG_URL);
                                         this.i.a("resourceId", str2);
                                         this.i.a("chunkNo", String.valueOf(i3));
                                         if (i3 >= j2) {

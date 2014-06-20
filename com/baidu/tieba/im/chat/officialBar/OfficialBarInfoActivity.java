@@ -46,8 +46,8 @@ public class OfficialBarInfoActivity extends BaseActivity implements View.OnClic
     private void b() {
         this.c = getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, 0);
         this.d = getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
-        if (this.d != null && com.baidu.tieba.im.f.t.a(this.d) > 16) {
-            this.f.b(String.valueOf(com.baidu.tieba.im.f.t.a(this.d, 0, 16)) + "……");
+        if (this.d != null && com.baidu.tieba.im.e.t.a(this.d) > 16) {
+            this.f.b(String.valueOf(com.baidu.tieba.im.e.t.a(this.d, 0, 16)) + "……");
         } else {
             this.f.b(this.d);
         }

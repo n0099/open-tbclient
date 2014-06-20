@@ -6,7 +6,7 @@ import android.widget.AdapterView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ag;
+import com.baidu.tbadk.core.atomData.af;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 /* loaded from: classes.dex */
 public class LiveRoomIntroActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
@@ -15,7 +15,7 @@ public class LiveRoomIntroActivity extends BaseActivity implements View.OnClickL
     private final com.baidu.adp.framework.listener.b c = new a(this, 0);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ag.class, LiveRoomIntroActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(af.class, LiveRoomIntroActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.voice;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -66,7 +65,7 @@ public class ab implements l {
             BdLog.e("VoiceManager", "RecoreCallback.error", "err:" + i + " " + str);
             TiebaStatic.voiceError("", i, "RecoreCallback.err: " + str, "");
         } else if (this.a.mCurRecordVid != null) {
-            this.a.doVoiceFileMd5(this.a.mCurRecordVid, com.baidu.adp.lib.voice.b.a / LocationClientOption.MIN_SCAN_SPAN);
+            this.a.doVoiceFileMd5(this.a.mCurRecordVid, com.baidu.adp.lib.voice.b.a / 1000);
             this.a.mCurRecordVid = null;
             this.a.recordView.a(3, this.a.context.getString(com.baidu.tieba.y.voice_record_timeout_tip));
         } else {
@@ -85,7 +84,7 @@ public class ab implements l {
     @Override // com.baidu.tbadk.core.voice.l
     public void b(int i) {
         if (this.a.recordView != null) {
-            this.a.recordView.b(i / LocationClientOption.MIN_SCAN_SPAN);
+            this.a.recordView.b(i / 1000);
         }
     }
 

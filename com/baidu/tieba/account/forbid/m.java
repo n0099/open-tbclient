@@ -3,8 +3,8 @@ package com.baidu.tieba.account.forbid;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.bg;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -27,11 +27,11 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
     public ForbidTplData doInBackground(String... strArr) {
         String str;
         str = l.a;
-        al alVar = new al(str);
-        alVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
-        alVar.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.b);
-        String i = alVar.i();
-        if (alVar.a().b().b()) {
+        an anVar = new an(str);
+        anVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
+        anVar.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.b);
+        String i = anVar.i();
+        if (anVar.a().b().b()) {
             try {
                 return (ForbidTplData) new GsonBuilder().create().fromJson(i, (Class<Object>) ForbidTplData.class);
             } catch (Exception e) {
@@ -42,8 +42,8 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
             }
         }
         ForbidTplData forbidTplData2 = new ForbidTplData();
-        forbidTplData2.error.a = alVar.d();
-        forbidTplData2.error.b = alVar.f();
+        forbidTplData2.error.a = anVar.d();
+        forbidTplData2.error.b = anVar.f();
         return forbidTplData2;
     }
 
@@ -55,7 +55,7 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
         super.onPostExecute(forbidTplData);
         n nVar = this.c.get();
         if (nVar != null) {
-            if (forbidTplData.error.a == 0 && be.c(forbidTplData.error.b)) {
+            if (forbidTplData.error.a == 0 && bg.c(forbidTplData.error.b)) {
                 nVar.a(forbidTplData);
             } else {
                 nVar.b(forbidTplData);

@@ -71,7 +71,7 @@ public class EmotionManageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.f.c(i);
-        com.baidu.tbadk.core.util.bc.f((View) this.h, com.baidu.tieba.u.navi_del_text_bg);
+        com.baidu.tbadk.core.util.be.f((View) this.h, com.baidu.tieba.u.navi_del_text_bg);
     }
 
     private void a() {

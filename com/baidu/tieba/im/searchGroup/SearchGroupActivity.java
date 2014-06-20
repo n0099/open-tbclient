@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.atomData.q;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ag;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
 import com.baidu.tieba.im.model.bw;
 import com.baidu.tieba.v;
@@ -99,7 +99,7 @@ public class SearchGroupActivity extends BaseActivity implements View.OnClickLis
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
         if (this.b != null && this.b.a() != null) {
-            ae.a(this.b.a, this.b.a().a(), 0, -1);
+            ag.a(this.b.a, this.b.a().a(), 0, -1);
         }
     }
 }

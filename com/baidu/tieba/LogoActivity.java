@@ -36,14 +36,14 @@ public class LogoActivity extends BaseActivity {
     private final d l = new k(this);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.ak.class, LogoActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.aj.class, LogoActivity.class);
     }
 
     private void a(Intent intent) {
         if (intent != null) {
             BdLog.i("intent:" + intent);
             if (intent.getBooleanExtra("from_short_cut", false)) {
-                com.baidu.tbadk.core.atomData.ak.b = true;
+                com.baidu.tbadk.core.atomData.aj.b = true;
                 Intent intent2 = new Intent();
                 intent2.putExtra("class", 2);
                 intent2.putExtra("fname", intent.getStringExtra("fname"));
@@ -61,7 +61,7 @@ public class LogoActivity extends BaseActivity {
         super.onNewIntent(intent);
         a(intent);
         a(getBaseContext());
-        com.baidu.tbadk.core.atomData.ak.a = true;
+        com.baidu.tbadk.core.atomData.aj.a = true;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -78,9 +78,9 @@ public class LogoActivity extends BaseActivity {
         setContentView(w.logo_activity);
         this.c = (ImageView) findViewById(v.logo);
         if (bundle != null) {
-            com.baidu.tbadk.core.atomData.ak.a = bundle.getBoolean("is_first", true);
+            com.baidu.tbadk.core.atomData.aj.a = bundle.getBoolean("is_first", true);
         } else {
-            com.baidu.tbadk.core.atomData.ak.a = true;
+            com.baidu.tbadk.core.atomData.aj.a = true;
         }
         this.e = new AlphaAnimation(1.0f, 1.0f);
         this.e.setDuration(500L);
@@ -104,12 +104,12 @@ public class LogoActivity extends BaseActivity {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putBoolean("is_first", com.baidu.tbadk.core.atomData.ak.a);
+        bundle.putBoolean("is_first", com.baidu.tbadk.core.atomData.aj.a);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && com.baidu.tbadk.core.atomData.ak.a) {
+        if (i == 4 && com.baidu.tbadk.core.atomData.aj.a) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -129,8 +129,8 @@ public class LogoActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!com.baidu.tbadk.core.atomData.ak.a) {
-            com.baidu.tbadk.core.atomData.ak.a = true;
+        if (!com.baidu.tbadk.core.atomData.aj.a) {
+            com.baidu.tbadk.core.atomData.aj.a = true;
             finish();
             return;
         }
@@ -167,7 +167,7 @@ public class LogoActivity extends BaseActivity {
     public void onDestroy() {
         super.onDestroy();
         c();
-        com.baidu.tbadk.core.atomData.ak.a = true;
+        com.baidu.tbadk.core.atomData.aj.a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -182,9 +182,9 @@ public class LogoActivity extends BaseActivity {
     public void a(Context context) {
         this.i.removeCallbacks(this.k);
         b();
-        if (com.baidu.tbadk.core.atomData.ak.b) {
+        if (com.baidu.tbadk.core.atomData.aj.b) {
             a(1);
-            com.baidu.tbadk.core.atomData.ak.b = false;
+            com.baidu.tbadk.core.atomData.aj.b = false;
         } else if (TbadkApplication.isLogin()) {
             if (this.f) {
                 sendMessage(new CustomMessage(2017000, new com.baidu.tbadk.core.atomData.r(this).a("from_logo_page")));
@@ -212,9 +212,9 @@ public class LogoActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
-        com.baidu.tbadk.core.atomData.ak.a = false;
+        com.baidu.tbadk.core.atomData.aj.a = false;
         this.g = true;
-        sendMessage(new CustomMessage(2017001, new com.baidu.tbadk.core.atomData.al(this).a(i)));
+        sendMessage(new CustomMessage(2017001, new com.baidu.tbadk.core.atomData.ak(this).a(i)));
         finish();
     }
 

@@ -1,27 +1,33 @@
 package com.baidu.tbadk.b;
 
-import com.baidu.adp.framework.a.f;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
-public class d extends f {
-    public d(int i) {
-        super(i);
+public class d extends Thread {
+    private int a;
+    private int b;
+    private String c = null;
+
+    public d(int i, int i2) {
+        this.a = 0;
+        this.b = 0;
+        this.a = i;
+        this.b = i2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.h
-    public HttpMessage a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
-            TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
-            if (ReloginManager.a().b() && tbHttpMessageTask.isNeedLogin()) {
-                ReloginManager.a().a(httpMessage);
-                return null;
-            }
-            return httpMessage;
+    public void a(String str) {
+        this.c = str;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        an anVar = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
+        anVar.a("img_num", String.valueOf(this.a));
+        anVar.a("img_total", String.valueOf(this.b));
+        if (this.c != null) {
+            anVar.a("img_type", this.c);
         }
-        return httpMessage;
+        anVar.i();
     }
 }

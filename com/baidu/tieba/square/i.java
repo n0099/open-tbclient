@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.br;
 import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -50,17 +50,17 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.t {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(i, viewGroup, itemViewType);
-            bp.b(view);
+            br.b(view);
         }
         if (itemViewType == 0) {
             if (this.c != null) {
                 ((TextView) view.findViewById(com.baidu.tieba.v.title)).setText(this.c.e());
             }
         } else if (itemViewType == 2) {
-            bp.a(view);
+            br.a(view);
             a(viewGroup, (n) view.getTag(), i, "all");
         } else if (itemViewType == 1) {
-            bp.a(view);
+            br.a(view);
             a(viewGroup, (n) view.getTag(), i, "normal");
         }
         int skinType = TbadkApplication.m252getInst().getSkinType();

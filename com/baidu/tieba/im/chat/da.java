@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat;
 import android.view.View;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class da implements com.baidu.tbadk.core.util.br {
+class da implements com.baidu.tbadk.core.util.bt {
     final /* synthetic */ cz a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.adp.widget.a.a c;
@@ -15,7 +15,7 @@ class da implements com.baidu.tbadk.core.util.br {
         this.c = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.util.br
+    @Override // com.baidu.tbadk.core.util.bt
     public boolean a(View view) {
         if ((view instanceof HeadImageView) && this.b.equals(view.getTag())) {
             view.setTag(null);

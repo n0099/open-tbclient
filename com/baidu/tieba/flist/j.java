@@ -19,11 +19,11 @@ class j implements Runnable {
         if (i == 0) {
             BdListView bdListView = this.a.c.i;
             abVar2 = this.a.r;
-            com.baidu.tbadk.core.util.ae.a(bdListView, abVar2, 1, -1);
+            com.baidu.tbadk.core.util.ag.a(bdListView, abVar2, 1, -1);
             return;
         }
         BdListView bdListView2 = this.a.c.j;
         abVar = this.a.r;
-        com.baidu.tbadk.core.util.ae.a(bdListView2, abVar, 1, -1);
+        com.baidu.tbadk.core.util.ag.a(bdListView2, abVar, 1, -1);
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.message.chat;
 
+import com.baidu.adp.framework.client.socket.a;
+import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.data.IconData;
-import com.baidu.tbadk.gif.a;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
@@ -11,11 +12,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class ChatMessage extends TbSocketMessage {
+public abstract class ChatMessage extends TbSocketMessage implements a {
     private long bornTime;
     private transient MsgCacheData cacheData;
     private String content;
-    private a gifInfo;
+    private com.baidu.tbadk.gif.a gifInfo;
     private String groupId;
     public boolean hasRepeat;
     private int height;
@@ -75,7 +76,7 @@ public abstract class ChatMessage extends TbSocketMessage {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public a getGifInfo() {
+    public com.baidu.tbadk.gif.a getGifInfo() {
         JSONObject jSONObject;
         JSONArray jSONArray;
         if (this.gifInfo != null) {
@@ -101,7 +102,7 @@ public abstract class ChatMessage extends TbSocketMessage {
                 String optString6 = jSONObject.optString("icon");
                 int optInt = jSONObject.optInt("size_width");
                 int optInt2 = jSONObject.optInt("size_height");
-                a aVar = new a();
+                com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
                 aVar.a = false;
                 aVar.b = optString;
                 aVar.c = optString2;
@@ -291,5 +292,14 @@ public abstract class ChatMessage extends TbSocketMessage {
 
     public String toString() {
         return "ChatMessage{msgType=" + this.msgType + ", objContent=" + this.objContent + ", content='" + this.content + "', recordId=" + this.recordId + ", msgId=" + this.msgId + ", time=" + this.time + ", width=" + this.width + ", height=" + this.height + ", userId=" + this.userId + ", userInfo=" + this.userInfo + ", toUserInfo=" + this.toUserInfo + ", localData=" + this.localData + ", cacheData=" + this.cacheData + ", progressValue=" + this.progressValue + ", mToUserId=" + this.mToUserId + ", isGifLoadSuccess=" + this.isGifLoadSuccess + ", isUploading=" + this.isUploading + ", logTime=" + this.logTime + ", mTShowIconInfo=" + this.mTShowIconInfo + '}';
+    }
+
+    @Override // com.baidu.adp.framework.client.socket.a
+    public boolean onFindMessage(SocketMessage socketMessage) {
+        if (socketMessage != null && (socketMessage instanceof ChatMessage)) {
+            ChatMessage chatMessage = (ChatMessage) socketMessage;
+            return chatMessage.getRecordId() == this.recordId && chatMessage.getGroupId().equals(this.groupId) && chatMessage.getToUserId() == this.mToUserId;
+        }
+        return false;
     }
 }

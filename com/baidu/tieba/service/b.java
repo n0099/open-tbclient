@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.tieba.bd;
+import com.baidu.tieba.bc;
 import com.baidu.tieba.data.VersionData;
 /* loaded from: classes.dex */
 class b extends BroadcastReceiver {
@@ -29,7 +29,7 @@ class b extends BroadcastReceiver {
                 versionData = this.this$0.mVersionData;
                 if (versionData != null) {
                     versionData2 = this.this$0.mVersionData;
-                    bd.a(context, versionData2);
+                    bc.a(context, versionData2);
                 }
             }
         }

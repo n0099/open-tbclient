@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<String, Integer, bc> {
-    com.baidu.tbadk.core.util.al a;
+    com.baidu.tbadk.core.util.an a;
     final /* synthetic */ a b;
 
     private b(a aVar) {
@@ -38,7 +38,7 @@ public class b extends BdAsyncTask<String, Integer, bc> {
         Exception e;
         Context context;
         try {
-            this.a = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
+            this.a = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
             this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
             stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.k.b(com.baidu.tieba.ai.c().d())));
@@ -54,7 +54,7 @@ public class b extends BdAsyncTask<String, Integer, bc> {
             this.a.a("package", packageName);
             this.a.a("versioncode", new StringBuilder(String.valueOf(TbadkApplication.m252getInst().getVersionCode())).toString());
             this.a.a("signmd5", UtilHelper.creatSignInt(TbadkApplication.m252getInst().getPackageManager().getPackageInfo(packageName, 64)));
-            this.a.a("md5", com.baidu.tieba.bd.a());
+            this.a.a("md5", com.baidu.tieba.bc.a());
             String i = this.a.i();
             if (!this.a.a().b().b()) {
                 return null;

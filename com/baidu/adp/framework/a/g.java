@@ -1,8 +1,8 @@
 package com.baidu.adp.framework.a;
 
-import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.message.ResponsedMessage;
 /* loaded from: classes.dex */
-public abstract class g<T extends Message<?>> extends j<T> {
+public abstract class g<T extends ResponsedMessage<?>> extends h<T> {
     public abstract T a(T t);
 
     public g(int i) {

@@ -4,12 +4,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.SignData;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac extends BdAsyncTask<Object, Integer, SignData> {
     final /* synthetic */ aa a;
-    private volatile al b;
+    private volatile an b;
 
     private ac(aa aaVar) {
         this.a = aaVar;
@@ -38,13 +38,13 @@ public class ac extends BdAsyncTask<Object, Integer, SignData> {
         String str3;
         String str4;
         try {
-            this.b = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/sign");
-            al alVar = this.b;
+            this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/sign");
+            an anVar = this.b;
             str = this.a.a;
-            alVar.a("kw", str);
-            al alVar2 = this.b;
+            anVar.a("kw", str);
+            an anVar2 = this.b;
             str2 = this.a.b;
-            alVar2.a("fid", str2);
+            anVar2.a("fid", str2);
             this.b.a().a().a = true;
             String i = this.b.i();
             if (!this.b.c() || !this.b.a().b().b()) {

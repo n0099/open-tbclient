@@ -18,7 +18,7 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.plugins.BdSocialShareSdkDelegate;
 import com.baidu.tbadk.tbplugin.m;
 import com.baidu.tieba.s;
@@ -225,7 +225,7 @@ public class d implements View.OnClickListener {
             this.r = true;
             if (this.s != null) {
                 String str = this.s.get(i);
-                if (!be.c(str)) {
+                if (!bg.c(str)) {
                     a(str);
                 }
             }

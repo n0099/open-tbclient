@@ -6,7 +6,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.data.SearchPostModel;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,7 +16,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class ac extends BdAsyncTask<Object, Integer, SearchPostModel> {
     ArrayList<BasicNameValuePair> a;
     final /* synthetic */ SquareSearchActivity b;
-    private al c = null;
+    private an c = null;
     private String d;
 
     public ac(SquareSearchActivity squareSearchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
@@ -55,7 +55,7 @@ public class ac extends BdAsyncTask<Object, Integer, SearchPostModel> {
         Exception e;
         String str;
         try {
-            this.c = new al(this.d);
+            this.c = new an(this.d);
             Iterator<BasicNameValuePair> it = this.a.iterator();
             while (it.hasNext()) {
                 this.c.a(it.next());

@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.share;
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class g {
@@ -105,12 +105,12 @@ public class g {
         if (fVar.d != null) {
             fVar.d = Uri.parse(a(fVar.d.toString(), "sfc=" + str));
         }
-        fVar.c = a(be.c(fVar.c) ? "http://tieba.baidu.com" : fVar.c, "sfc=" + str);
+        fVar.c = a(bg.c(fVar.c) ? "http://tieba.baidu.com" : fVar.c, "sfc=" + str);
         return fVar;
     }
 
     private String a(String str, String str2) {
-        if (be.c(Uri.parse(str).getQuery())) {
+        if (bg.c(Uri.parse(str).getQuery())) {
             str = String.valueOf(str) + "?";
         }
         return String.valueOf(str) + "&" + str2;

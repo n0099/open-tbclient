@@ -25,22 +25,22 @@ public class t extends WebViewClient {
         ImageView imageView5;
         super.onPageFinished(webView, str);
         if (this.a.a.canGoBack()) {
-            imageView5 = this.a.g;
+            imageView5 = this.a.i;
             imageView5.setEnabled(true);
         } else {
-            imageView = this.a.g;
+            imageView = this.a.i;
             imageView.setEnabled(false);
         }
         if (this.a.a.canGoForward()) {
-            imageView4 = this.a.h;
+            imageView4 = this.a.j;
             imageView4.setEnabled(true);
         } else {
-            imageView2 = this.a.h;
+            imageView2 = this.a.j;
             imageView2.setEnabled(false);
         }
-        progressBar = this.a.j;
+        progressBar = this.a.l;
         progressBar.setVisibility(8);
-        imageView3 = this.a.i;
+        imageView3 = this.a.k;
         imageView3.setVisibility(0);
     }
 
@@ -54,28 +54,28 @@ public class t extends WebViewClient {
         ImageView imageView5;
         super.onPageStarted(webView, str, bitmap);
         if (this.a.a.canGoBack()) {
-            imageView5 = this.a.g;
+            imageView5 = this.a.i;
             imageView5.setEnabled(true);
         } else {
-            imageView = this.a.g;
+            imageView = this.a.i;
             imageView.setEnabled(false);
         }
         if (this.a.a.canGoForward()) {
-            imageView4 = this.a.h;
+            imageView4 = this.a.j;
             imageView4.setEnabled(true);
         } else {
-            imageView2 = this.a.h;
+            imageView2 = this.a.j;
             imageView2.setEnabled(false);
         }
-        progressBar = this.a.j;
+        progressBar = this.a.l;
         progressBar.setVisibility(0);
-        imageView3 = this.a.i;
+        imageView3 = this.a.k;
         imageView3.setVisibility(4);
     }
 
     @Override // android.webkit.WebViewClient
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if ((this.a.f == null || !this.a.f.a(str)) && !com.baidu.tbadk.c.f.a(this.a, str)) {
+        if ((this.a.h == null || !this.a.h.a(str)) && !com.baidu.tbadk.b.e.a(this.a, str)) {
             return super.shouldOverrideUrlLoading(webView, str);
         }
         return true;

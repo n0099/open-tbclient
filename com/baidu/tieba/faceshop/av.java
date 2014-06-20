@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class av extends BdAsyncTask<Object, FacePackageDownloadData, FacePackageDownloadData> {
     final /* synthetic */ au a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
     private String c;
 
     public av(au auVar, String str) {
@@ -28,17 +28,17 @@ public class av extends BdAsyncTask<Object, FacePackageDownloadData, FacePackage
         float f;
         try {
             if (this.c != null && this.c.length() > 0) {
-                this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/dpack");
+                this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/dpack");
                 this.b.a("pid", this.c);
-                com.baidu.tbadk.core.util.al alVar = this.b;
+                com.baidu.tbadk.core.util.an anVar = this.b;
                 i = this.a.c;
-                alVar.a("scr_w", String.valueOf(i));
-                com.baidu.tbadk.core.util.al alVar2 = this.b;
+                anVar.a("scr_w", String.valueOf(i));
+                com.baidu.tbadk.core.util.an anVar2 = this.b;
                 i2 = this.a.d;
-                alVar2.a("scr_h", String.valueOf(i2));
-                com.baidu.tbadk.core.util.al alVar3 = this.b;
+                anVar2.a("scr_h", String.valueOf(i2));
+                com.baidu.tbadk.core.util.an anVar3 = this.b;
                 f = this.a.e;
-                alVar3.a("scr_dip", String.valueOf(f));
+                anVar3.a("scr_dip", String.valueOf(f));
                 String i3 = this.b.i();
                 Gson create = new GsonBuilder().create();
                 this.a.b = (FacePackageDownloadData) create.fromJson(i3, (Class<Object>) FacePackageDownloadData.class);

@@ -1,108 +1,32 @@
 package com.baidu.android.nebula.b;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 /* loaded from: classes.dex */
-public class u implements Comparable {
-    private r a;
-    private String b;
-    private String c;
-    private long d;
-    private int e;
+public enum u {
+    OK(Constants.MEDIA_INFO, "OK"),
+    CREATED(201, "Created"),
+    ACCEPTED(202, "Accepted"),
+    NO_CONTENT(204, "No Content"),
+    PARTIAL_CONTENT(206, "Partial Content"),
+    REDIRECT(301, "Moved Permanently"),
+    NOT_MODIFIED(304, "Not Modified"),
+    BAD_REQUEST(400, "Bad Request"),
+    UNAUTHORIZED(401, "Unauthorized"),
+    FORBIDDEN(403, "Forbidden"),
+    NOT_FOUND(404, "Not Found"),
+    METHOD_NOT_ALLOWED(405, "Method Not Allowed"),
+    RANGE_NOT_SATISFIABLE(416, "Requested Range Not Satisfiable"),
+    INTERNAL_ERROR(500, "Internal Server Error");
+    
+    private final int o;
+    private final String p;
 
-    public u() {
-        this.a = r.UNKNOWN;
-        this.d = -1L;
+    u(int i, String str) {
+        this.o = i;
+        this.p = str;
     }
 
-    public u(JSONObject jSONObject) {
-        this.a = r.UNKNOWN;
-        this.d = -1L;
-        try {
-            this.c = jSONObject.getString("PackageName");
-            this.e = jSONObject.getInt("VersionCode");
-            this.d = jSONObject.getLong("Signmd5");
-        } catch (JSONException e) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(u uVar) {
-        boolean z = this.c != null && this.c.equals(uVar.c);
-        boolean z2 = this.e == uVar.e;
-        boolean z3 = this.d == uVar.d;
-        if (z) {
-            return (z2 && z3) ? 0 : 1;
-        }
-        return -1;
-    }
-
-    public long a(Context context) {
-        PackageInfo a;
-        if (this.d == -1 && (a = f.a(context, this.c)) != null) {
-            this.d = f.a(f.a(a.signatures[0].toCharsString().getBytes()));
-        }
-        return this.d;
-    }
-
-    public r a() {
-        return this.a;
-    }
-
-    public void a(int i) {
-        this.e = i;
-    }
-
-    public void a(long j) {
-        this.d = j;
-    }
-
-    public void a(r rVar) {
-        this.a = rVar;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public String b() {
-        return this.c;
-    }
-
-    public JSONObject b(Context context) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("PackageName", b());
-            jSONObject.put("VersionCode", c());
-            if (context != null) {
-                jSONObject.put("Signmd5", a(context));
-            } else {
-                jSONObject.put("Signmd5", this.d);
-            }
-        } catch (JSONException e) {
-        }
-        return jSONObject;
-    }
-
-    public void b(String str) {
-        this.c = str;
-    }
-
-    public int c() {
-        return this.e;
-    }
-
-    public JSONObject d() {
-        return b((Context) null);
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[").append("[key=").append(this.b).append("]packagename=").append(this.c).append("]mOperationCode=").append(this.a).append("]versioncode=").append(this.e).append("]signmd5=").append(this.d).append("]]");
-        return sb.toString();
+    public String a() {
+        return "" + this.o + " " + this.p;
     }
 }

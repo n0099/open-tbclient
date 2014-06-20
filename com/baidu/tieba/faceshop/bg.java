@@ -87,7 +87,7 @@ public class bg {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        com.baidu.tbadk.core.util.ae.a(this.f, this.i.a(), 0, -1);
+        com.baidu.tbadk.core.util.ag.a(this.f, this.i.a(), 0, -1);
     }
 
     private void g() {

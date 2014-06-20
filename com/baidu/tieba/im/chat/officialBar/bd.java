@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bd implements View.OnClickListener {
@@ -18,7 +18,7 @@ public class bd implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        bi a = bi.a();
+        bk a = bk.a();
         context = this.a.a;
         a.a(context, new String[]{this.b.d});
     }

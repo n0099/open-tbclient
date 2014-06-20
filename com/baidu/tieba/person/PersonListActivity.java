@@ -200,7 +200,7 @@ public class PersonListActivity extends BaseActivity {
         if (this.g != null && this.g.getItemViewType(this.a) == 0 && (userData = (UserData) this.g.getItem(this.a)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkApplication.getCurrentAccount())) {
             TiebaStatic.eventStat(this, "enter_chat", "personlistclick", 1, new Object[0]);
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new com.baidu.tbadk.core.atomData.au(this, Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getPortrait(), userData.getSex())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new com.baidu.tbadk.core.atomData.at(this, Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getPortrait(), userData.getSex())));
             } catch (Exception e) {
                 e.printStackTrace();
             }

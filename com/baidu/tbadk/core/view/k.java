@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 /* loaded from: classes.dex */
 public class k {
     private LinearLayout a;
@@ -39,7 +39,7 @@ public class k {
             this.f = i;
             if (i == 1) {
                 this.b.setImageResource(this.e);
-                this.c.setTextColor(bc.a(i));
+                this.c.setTextColor(be.a(i));
                 return;
             }
             this.b.setImageResource(this.d);

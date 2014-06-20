@@ -13,9 +13,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.aq;
+import com.baidu.tbadk.core.atomData.ap;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.plugins.Hao123Plugin;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.data.ac;
@@ -44,7 +44,7 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
                 case 0:
                     if (this.e != null) {
                         String b = this.e.b();
-                        if (be.b(b)) {
+                        if (bg.b(b)) {
                             a(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.h).a(b, "tb_forumlist")));
                             return;
                         }
@@ -128,7 +128,7 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
     public void onResume() {
         super.onResume();
         if (!TbadkApplication.isLogin()) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new aq(getActivity(), aq.c)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new ap(getActivity(), ap.c)));
             getActivity().finish();
         }
         if (!d_()) {
@@ -156,7 +156,7 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
             x xVar = view.getTag() instanceof x ? (x) view.getTag() : null;
             if (xVar != null) {
                 String b = xVar.b();
-                if (be.b(b)) {
+                if (bg.b(b)) {
                     TiebaStatic.eventStat(this.h, "ef_recent", "click", 1, new Object[0]);
                     a(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.h).a(b, "tb_forumlist")));
                 }
@@ -165,7 +165,7 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
             ac acVar = view.getTag() instanceof ac ? (ac) view.getTag() : null;
             if (acVar != null) {
                 String a = acVar.a();
-                if (be.b(a)) {
+                if (bg.b(a)) {
                     a(new CustomMessage(2005000, new com.baidu.tbadk.core.atomData.m(this.h).a(a, "tb_forumlist")));
                 }
             }
@@ -196,7 +196,7 @@ public class e extends com.baidu.tbadk.core.d implements AbsListView.OnScrollLis
                 this.e = xVar;
                 String b = xVar.b();
                 int e = xVar.e();
-                if (be.b(b)) {
+                if (bg.b(b)) {
                     if (e == 1) {
                         this.b.r();
                     } else {

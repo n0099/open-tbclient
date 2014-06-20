@@ -1,66 +1,19 @@
 package com.baidu.android.moplus;
 
-import android.os.Environment;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class e {
-    public static String a = "http://m.baidu.com";
-    public static final String b;
+class e implements Runnable {
+    final /* synthetic */ MoPlusService a;
 
-    static {
-        a();
-        b = a + "/xcloudboss?r=config/publicsrv&type=issuedcode";
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(MoPlusService moPlusService) {
+        this.a = moPlusService;
     }
 
-    private e() {
-    }
-
-    private static void a() {
-        FileInputStream fileInputStream;
-        File file = new File(Environment.getExternalStorageDirectory(), "moplus.cfg");
-        if (file.exists()) {
-            Properties properties = new Properties();
-            FileInputStream fileInputStream2 = null;
-            try {
-                fileInputStream = new FileInputStream(file);
-            } catch (Exception e) {
-                fileInputStream = null;
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                properties.load(fileInputStream);
-                String property = properties.getProperty("server_host");
-                if (property != null && property.length() > 0) {
-                    a = property;
-                }
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e2) {
-                    }
-                }
-            } catch (Exception e3) {
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e4) {
-                    }
-                }
-            } catch (Throwable th2) {
-                fileInputStream2 = fileInputStream;
-                th = th2;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (IOException e5) {
-                    }
-                }
-                throw th;
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(com.baidu.android.a.g.ALL_USER);
+        com.baidu.android.systemmonitor.a.a.a(this.a.getApplicationContext()).a(arrayList);
     }
 }

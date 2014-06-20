@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.br;
 /* loaded from: classes.dex */
 public class q extends BaseAdapter {
     View.OnClickListener a = new r(this);
@@ -41,9 +41,9 @@ public class q extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            bp.b(view);
+            br.b(view);
         }
-        bp.a(view);
+        br.a(view);
         if (itemViewType != 3) {
             int skinType = TbadkApplication.m252getInst().getSkinType();
             View findViewById = view.findViewById(com.baidu.tieba.v.container);
@@ -59,7 +59,7 @@ public class q extends BaseAdapter {
                 findViewById2.setVisibility(8);
                 findViewById3.setVisibility(8);
             }
-            bp.a(findViewById, itemViewType, skinType);
+            br.a(findViewById, itemViewType, skinType);
             a(viewGroup, (s) view.getTag(), i);
         }
         return view;

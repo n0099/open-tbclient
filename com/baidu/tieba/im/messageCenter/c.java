@@ -7,14 +7,14 @@ import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.framework.a.m {
+public class c extends com.baidu.adp.framework.a.j {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(int i) {
         super(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.i
+    @Override // com.baidu.adp.framework.a.g
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage instanceof PushNotifyMessageDecoder) {
             PushNotifyMessageDecoder pushNotifyMessageDecoder = (PushNotifyMessageDecoder) socketResponsedMessage;

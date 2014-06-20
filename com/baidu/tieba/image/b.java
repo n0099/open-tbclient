@@ -2,7 +2,7 @@ package com.baidu.tieba.image;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.data.t;
 import com.baidu.tieba.data.u;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, Integer, u> {
     final /* synthetic */ a a;
-    private al b = null;
+    private an b = null;
     private String c;
     private String d;
     private int e;
@@ -41,10 +41,10 @@ public class b extends BdAsyncTask<Object, Integer, u> {
     public u doInBackground(Object... objArr) {
         String str;
         boolean z;
-        this.b = new al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/picpage");
-        al alVar = this.b;
+        this.b = new an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/picpage");
+        an anVar = this.b;
         str = this.a.e;
-        alVar.a("kw", str);
+        anVar.a("kw", str);
         this.b.a("tid", this.c);
         if (this.d != null) {
             this.b.a("pic_id", this.d);

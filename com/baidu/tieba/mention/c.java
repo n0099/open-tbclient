@@ -19,13 +19,13 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.am;
-import com.baidu.tbadk.core.atomData.au;
+import com.baidu.tbadk.core.atomData.al;
+import com.baidu.tbadk.core.atomData.at;
 import com.baidu.tbadk.core.frameworkData.CmdConfig;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
@@ -76,9 +76,9 @@ public class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageChangeL
     @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onResume() {
         int i = 1;
-        if (am.b != -1) {
-            this.n = am.b;
-            am.b = -1;
+        if (al.b != -1) {
+            this.n = al.b;
+            al.b = -1;
         } else if (getArguments() != null) {
             this.n = getArguments().getInt("NotifiIdKey", this.n);
         }
@@ -90,8 +90,8 @@ public class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageChangeL
             if (this.e == 3 && this.d != -1 && this.c[this.d] == 0) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2010003, new com.baidu.tbadk.core.atomData.y(this.m, this.l.getItem(this.d))));
             }
-            if (am.a) {
-                am.a = false;
+            if (al.a) {
+                al.a = false;
                 if (this.n == 11) {
                     if (com.baidu.tbadk.coreExtra.messageCenter.a.a().k() <= 0) {
                         if (com.baidu.tbadk.coreExtra.messageCenter.a.a().l() > 0) {
@@ -135,7 +135,7 @@ public class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageChangeL
             if (this.l != null) {
                 Fragment item2 = this.l.getItem(i);
                 if (item != null) {
-                    bg.a(item2.getClass().getName());
+                    bi.a(item2.getClass().getName());
                 }
             }
         }
@@ -169,7 +169,7 @@ public class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageChangeL
                     String string3 = extras.getString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
                     if (string2 != null && string != null) {
                         try {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new au(this.m, Long.parseLong(string), string2, string3, 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2003005, new at(this.m, Long.parseLong(string), string2, string3, 0)));
                             return;
                         } catch (Exception e) {
                             e.printStackTrace();

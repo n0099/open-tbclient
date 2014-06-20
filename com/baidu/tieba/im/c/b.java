@@ -6,11 +6,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.webSocket.m;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.util.LocalViewSize;
-import com.baidu.tbadk.coreExtra.d.q;
+import com.baidu.tbadk.coreExtra.websocketBase.w;
 import com.baidu.tieba.im.message.MessageSyncMessage;
 import com.baidu.tieba.im.message.PushCountMessage;
 /* loaded from: classes.dex */
@@ -28,7 +27,7 @@ public class b {
     private long j = 0;
     private final int k = com.baidu.adp.framework.d.a().b();
     private final Handler l = new j(null);
-    private final com.baidu.adp.lib.network.websocket.c m = new d(this);
+    private final com.baidu.adp.framework.client.socket.link.c m = new d(this);
     private final com.baidu.tieba.im.a<com.baidu.tieba.im.db.e> o = new e(this);
     private final com.baidu.adp.framework.listener.b p = new f(this, 0);
     private final CustomMessageListener q = new i(this, MessageTypes.CMD_BACKGROUND_SWTICH);
@@ -66,9 +65,9 @@ public class b {
             throw new IllegalArgumentException("MessageSync init param illegal");
         }
         MessageManager.getInstance().registerListener(this.q);
-        q.a().a(this.m);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_PING, this.p);
-        MessageManager.getInstance().registerListener(MessageTypes.CMD_UPDATE_CLIENT_INFO, this.p);
+        w.a().a(this.m);
+        MessageManager.getInstance().registerListener(1003, this.p);
+        MessageManager.getInstance().registerListener(1001, this.p);
         MessageManager.getInstance().registerListener(MessageTypes.CMD_PUSH_COUNT, this.p);
         b();
     }
@@ -76,8 +75,8 @@ public class b {
     public void b() {
         int[] socketGetMsgStratgy = TbadkApplication.m252getInst().getSocketGetMsgStratgy();
         if (socketGetMsgStratgy.length == 2) {
-            a(socketGetMsgStratgy[0] * LocationClientOption.MIN_SCAN_SPAN);
-            b(socketGetMsgStratgy[1] * LocationClientOption.MIN_SCAN_SPAN);
+            a(socketGetMsgStratgy[0] * 1000);
+            b(socketGetMsgStratgy[1] * 1000);
         }
     }
 

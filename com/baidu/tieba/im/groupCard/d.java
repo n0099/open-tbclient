@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.util.TbErrInfo;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.share.g;
 import com.baidu.tieba.v;
@@ -120,7 +120,7 @@ public class d extends com.baidu.adp.base.c {
     public void a(int i) {
         this.b.getLayoutMode().a(i == 1);
         this.b.getLayoutMode().a(this.a);
-        bc.a(this.a, i);
+        be.a(this.a, i);
         this.h.c(i);
     }
 }

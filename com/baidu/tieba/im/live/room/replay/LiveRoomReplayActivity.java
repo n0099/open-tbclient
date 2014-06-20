@@ -15,7 +15,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ah;
+import com.baidu.tbadk.core.atomData.ag;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.frameworkData.MessageTypes;
 import com.baidu.tbadk.core.view.NavigationBar;
@@ -43,7 +43,7 @@ public class LiveRoomReplayActivity extends BaseActivity {
     private final CustomMessageListener o = new d(this, MessageTypes.CMD_LIVE_STATUS_CHANGE);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(ah.class, LiveRoomReplayActivity.class);
+        TbadkApplication.m252getInst().RegisterIntent(ag.class, LiveRoomReplayActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class e extends BdAsyncTask<Object, String, com.baidu.tieba.model.d> {
     final /* synthetic */ EditBarActivity a;
-    private com.baidu.tbadk.core.util.al b;
+    private com.baidu.tbadk.core.util.an b;
 
     private e(EditBarActivity editBarActivity) {
         this.a = editBarActivity;
@@ -49,12 +49,12 @@ public class e extends BdAsyncTask<Object, String, com.baidu.tieba.model.d> {
             if (str == null && (q = com.baidu.tbadk.core.a.b.a().q()) != null) {
                 publishProgress(q.a(TbadkApplication.getCurrentAccount()));
             }
-            this.b = new com.baidu.tbadk.core.util.al(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like");
+            this.b = new com.baidu.tbadk.core.util.an(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like");
             str2 = this.a.r;
             if (str2 != null) {
-                com.baidu.tbadk.core.util.al alVar = this.b;
+                com.baidu.tbadk.core.util.an anVar = this.b;
                 str4 = this.a.r;
-                alVar.a(SapiAccountManager.SESSION_UID, str4);
+                anVar.a(SapiAccountManager.SESSION_UID, str4);
             }
             String i = this.b.i();
             if (!this.b.a().b().b()) {

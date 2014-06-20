@@ -1,6 +1,7 @@
 package com.baidu.android.defense;
 
 import android.content.Context;
+import com.baidu.android.systemmonitor.util.f;
 import com.baidu.tbadk.core.diskCache.ImagesInvalidReceiver;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -138,7 +139,7 @@ public class b extends Thread {
             e = e11;
         }
         if (z3) {
-            com.baidu.android.systemmonitor.c.c.d(this.b, str);
+            f.d(this.b, str);
         }
     }
 }

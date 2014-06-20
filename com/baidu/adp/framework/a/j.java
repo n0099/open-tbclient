@@ -1,14 +1,14 @@
 package com.baidu.adp.framework.a;
+
+import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
-public abstract class j<T> extends com.baidu.adp.framework.c {
-    private int a;
-
+public abstract class j extends g<SocketResponsedMessage> {
     public j(int i) {
-        this.a = 0;
-        this.a = i;
-    }
-
-    public int a() {
-        return this.a;
+        super(i);
+        if (i != 0 && FrameHelper.a(i) != FrameHelper.TYPE.SOCKET) {
+            throw new InvalidParameterException("cmd invalid");
+        }
     }
 }

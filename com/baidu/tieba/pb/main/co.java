@@ -18,7 +18,7 @@ public class co implements com.baidu.tbadk.imageManager.d {
         BdListView bdListView;
         if (aVar != null && !TextUtils.isEmpty(str)) {
             bdListView = this.a.o;
-            com.baidu.tbadk.core.util.bp.a((ViewGroup) bdListView, false, (com.baidu.tbadk.core.util.br) new cp(this, str, aVar));
+            com.baidu.tbadk.core.util.br.a((ViewGroup) bdListView, false, (com.baidu.tbadk.core.util.bt) new cp(this, str, aVar));
         }
     }
 }
