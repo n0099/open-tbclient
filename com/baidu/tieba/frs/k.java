@@ -1,69 +1,108 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbadkApplication;
+import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.a.e {
-    final /* synthetic */ FrsActivity a;
+public class k extends BdAsyncTask<Object, g, Void> {
+    FRSPageRequestMessage a;
+    final /* synthetic */ g b;
+    private String c;
+    private int d;
+    private final WeakReference<FrsActivity> e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(FrsActivity frsActivity) {
-        this.a = frsActivity;
+    public k(g gVar, FrsActivity frsActivity, FRSPageRequestMessage fRSPageRequestMessage, int i, String str) {
+        this.b = gVar;
+        this.c = null;
+        this.d = 3;
+        this.e = new WeakReference<>(frsActivity);
+        this.a = fRSPageRequestMessage;
+        this.c = str;
+        this.d = i;
+        setSelfExecute(true);
     }
 
-    @Override // com.baidu.adp.a.e
-    public void a(Object obj) {
-        com.baidu.tieba.model.aj ajVar;
-        az azVar;
-        com.baidu.tieba.model.aj ajVar2;
-        String str;
-        String str2;
-        az azVar2;
-        az azVar3;
-        String str3;
-        String str4;
-        az azVar4;
-        az azVar5;
-        az azVar6;
-        boolean z = false;
-        if (obj != null && (obj instanceof com.baidu.tieba.data.ac)) {
-            this.a.a.a((com.baidu.tieba.data.ac) obj);
-            z = true;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        di diVar;
+        di diVar2;
+        diVar = this.b.l;
+        if (diVar != null) {
+            diVar2 = this.b.l;
+            diVar2.a(this.d);
         }
-        if (!z) {
-            ajVar = this.a.w;
-            if (ajVar.getErrorCode() == 22) {
-                str = this.a.A;
-                if (str == "normal_page") {
-                    azVar3 = this.a.m;
-                    azVar3.g(1);
-                } else {
-                    str2 = this.a.A;
-                    if (str2 == "frs_page") {
-                        azVar2 = this.a.m;
-                        azVar2.h(1);
-                    }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Void doInBackground(Object... objArr) {
+        boolean z;
+        try {
+            z = this.b.q;
+            if (z && f.a().a(this.c)) {
+                if (!f.a().c(String.valueOf(TbadkApplication.getCurrentAccount()) + this.c)) {
+                    f.a().b().g().getSignData().setIsSigned(0);
                 }
+                publishProgress(f.a().b());
             }
-            azVar = this.a.m;
-            ajVar2 = this.a.w;
-            azVar.a(ajVar2.getErrorString());
-            return;
+            this.b.t = System.currentTimeMillis();
+            return null;
+        } catch (Exception e) {
+            BdLog.detailException(e);
+            return null;
         }
-        str3 = this.a.A;
-        if (str3 == "normal_page") {
-            azVar6 = this.a.m;
-            azVar6.a(1, this.a.a.a());
-        } else {
-            str4 = this.a.A;
-            if (str4 == "frs_page") {
-                azVar4 = this.a.m;
-                azVar4.a(1, this.a.a.a(), this.a.a.e());
-            }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onProgressUpdate(g... gVarArr) {
+        di diVar;
+        di diVar2;
+        diVar = this.b.l;
+        if (diVar != null) {
+            diVar2 = this.b.l;
+            diVar2.a(gVarArr.length > 0 ? gVarArr[0] : null);
         }
-        azVar5 = this.a.m;
-        azVar5.a(this.a.getString(R.string.like_success));
-        TiebaApplication.f().h(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Void r3) {
+        boolean z;
+        this.a.setUpdateType(this.d);
+        FRSPageRequestMessage fRSPageRequestMessage = this.a;
+        z = this.b.q;
+        fRSPageRequestMessage.setNeedCache(z);
+        if (this.e != null && this.e.get() != null) {
+            this.e.get().sendMessage(this.a);
+        }
+        this.b.o = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onCancelled() {
+        super.onCancelled();
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        di diVar;
+        di diVar2;
+        super.cancel(true);
+        diVar = this.b.l;
+        if (diVar != null) {
+            diVar2 = this.b.l;
+            diVar2.a(this.d, true, null);
+        }
     }
 }

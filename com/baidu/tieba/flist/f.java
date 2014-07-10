@@ -1,143 +1,138 @@
 package com.baidu.tieba.flist;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.model.ForumListModel;
-import com.baidu.tieba.model.aj;
-import com.baidu.tieba.util.x;
-import com.baidu.tieba.view.ImageViewDrawer;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.flist.ForumListModel;
 /* loaded from: classes.dex */
-public class f extends BaseAdapter implements View.OnClickListener {
+class f implements u {
     final /* synthetic */ ForumListActivity a;
-    private int b;
-    private ForumListModel.Forum[] c = new ForumListModel.Forum[0];
 
-    public f(ForumListActivity forumListActivity, int i) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(ForumListActivity forumListActivity) {
         this.a = forumListActivity;
-        this.b = i;
     }
 
-    public ForumListModel.Forum[] a() {
-        return this.c;
-    }
-
-    public void a(ForumListModel.Forum[] forumArr) {
-        this.c = forumArr;
-        notifyDataSetChanged();
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.c == null) {
-            return 0;
-        }
-        return this.c.length;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return this.c[i];
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        com.baidu.tieba.util.a aVar;
+    @Override // com.baidu.tieba.flist.u
+    public void a(boolean z, int i, ForumListModel forumListModel, String str, boolean z2) {
+        ForumListModel.RequestParams requestParams;
+        ForumListModel.RequestParams requestParams2;
         int i2;
+        ForumListModel.RequestParams requestParams3;
         int i3;
-        Context context = viewGroup.getContext();
-        if (view == null) {
-            view = View.inflate(context, R.layout.forum_list_forum_item, null);
-            i iVar = new i(this);
-            iVar.a = (ImageViewDrawer) view.findViewById(R.id.forum_avatar);
-            iVar.b = (TextView) view.findViewById(R.id.name);
-            iVar.c = (TextView) view.findViewById(R.id.member_count);
-            iVar.d = (TextView) view.findViewById(R.id.thread_count);
-            iVar.e = (TextView) view.findViewById(R.id.slogan);
-            iVar.f = (ImageView) view.findViewById(R.id.like);
-            view.setTag(iVar);
-        }
-        i iVar2 = (i) view.getTag();
-        int as = TiebaApplication.f().as();
-        x.c(iVar2.b, as);
-        x.c(iVar2.c, as);
-        x.c(iVar2.d, as);
-        x.c(iVar2.e, as);
-        if (as == 1) {
-            view.setBackgroundColor(this.a.getResources().getColor(R.color.flist_item_color_night));
-        } else {
-            view.setBackgroundColor(this.a.getResources().getColor(R.color.flist_item_color_even_day));
-        }
-        ForumListModel.Forum forum = this.c[i];
-        String str = this.c[i].avatar;
-        ImageViewDrawer imageViewDrawer = iVar2.a;
-        aVar = this.a.n;
-        aVar.e(str, new g(this, str, imageViewDrawer));
-        iVar2.a.setTag(str);
-        iVar2.b.setText(forum.forum_name);
-        iVar2.c.setText(String.valueOf(forum.member_count));
-        iVar2.d.setText(String.valueOf(forum.thread_count));
-        iVar2.e.setText(forum.slogan);
-        if (forum.is_like == 1) {
-            ImageView imageView = iVar2.f;
-            i3 = this.a.g;
-            imageView.setImageResource(i3);
-            iVar2.f.setOnClickListener(null);
-            iVar2.f.setClickable(false);
-        } else {
-            ImageView imageView2 = iVar2.f;
-            i2 = this.a.j;
-            imageView2.setImageResource(i2);
-            iVar2.f.setTag(Integer.valueOf(i));
-            iVar2.f.setOnClickListener(this);
-        }
-        view.setOnClickListener(this);
-        return view;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        aj ajVar;
-        aj ajVar2;
-        aj ajVar3;
-        switch (view.getId()) {
-            case R.id.like /* 2131165548 */:
-                ajVar = this.a.m;
-                if (!ajVar.b()) {
-                    int intValue = ((Integer) view.getTag()).intValue();
-                    String D = TiebaApplication.D();
-                    if (D == null || D.length() <= 0) {
-                        LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_use), true, 1100002);
-                        this.a.l = this.b;
-                        this.a.k = intValue;
-                        return;
-                    }
-                    this.a.findViewById(R.id.loading).setVisibility(0);
-                    this.a.m = new aj();
-                    ajVar2 = this.a.m;
-                    ajVar2.setLoadDataCallBack(new h(this, intValue));
-                    ajVar3 = this.a.m;
-                    ajVar3.a(this.c[intValue].forum_name, String.valueOf(this.c[intValue].forum_id));
-                    return;
+        boolean z3;
+        ForumListModel.RequestParams requestParams4;
+        int i4;
+        r rVar;
+        r rVar2;
+        com.baidu.tieba.model.ae aeVar;
+        r rVar3;
+        r rVar4;
+        r rVar5;
+        com.baidu.tieba.model.ae aeVar2;
+        r rVar6;
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        int i5;
+        int i6;
+        r rVar7;
+        ForumListModel.RequestParams requestParams5;
+        if (!z) {
+            rVar7 = this.a.D;
+            if (rVar7.a() == null) {
+                this.a.showToast(str);
+                this.a.c.d();
+                this.a.c.c();
+                requestParams5 = this.a.A;
+                if (requestParams5.menu_type == 2 && !z2) {
+                    this.a.finish();
                 }
+                this.a.c.B.setVisibility(8);
                 return;
-            default:
-                FrsActivity.a(this.a, ((i) view.getTag()).b.getText().toString(), (String) null);
-                return;
+            }
         }
+        if (forumListModel == null || forumListModel.recommend_list_left == null || forumListModel.recommend_list_right == null || forumListModel.editor_recommend == null || forumListModel.forum_class == null) {
+            requestParams = this.a.A;
+            if (requestParams.menu_type == 2 && !z2) {
+                this.a.showToast(this.a.getString(com.baidu.tieba.y.no_forum_data));
+                this.a.finish();
+            } else {
+                this.a.showToast(str);
+                this.a.c.c();
+                requestParams2 = this.a.A;
+                i2 = this.a.v;
+                requestParams2.recommend_type = i2;
+                requestParams3 = this.a.A;
+                i3 = this.a.w;
+                requestParams3.rn = i3;
+            }
+            this.a.c.B.setVisibility(8);
+            return;
+        }
+        this.a.c.B.setVisibility(8);
+        z3 = this.a.u;
+        if (z3) {
+            this.a.c.n.setText(this.a.getString(com.baidu.tieba.y.flist_expand_list));
+            ImageView imageView = this.a.c.o;
+            i5 = this.a.l;
+            imageView.setImageResource(i5);
+            this.a.c.q.setText(this.a.getString(com.baidu.tieba.y.flist_expand_list));
+            ImageView imageView2 = this.a.c.r;
+            i6 = this.a.l;
+            imageView2.setImageResource(i6);
+            this.a.u = false;
+        }
+        TextView textView = this.a.c.h;
+        requestParams4 = this.a.A;
+        textView.setText(requestParams4.menu_name);
+        a aVar = this.a.c.y;
+        i4 = this.a.t;
+        aVar.a(i4);
+        int min = Math.min(forumListModel.recommend_list_left.forum_list.length, this.a.a.forum_list.length);
+        int min2 = Math.min(forumListModel.recommend_list_right.forum_list.length, this.a.b.forum_list.length);
+        System.arraycopy(forumListModel.recommend_list_left.forum_list, 0, this.a.a.forum_list, 0, min);
+        System.arraycopy(forumListModel.recommend_list_right.forum_list, 0, this.a.b.forum_list, 0, min2);
+        rVar = this.a.D;
+        rVar.a(min);
+        rVar2 = this.a.D;
+        aeVar = this.a.q;
+        rVar2.a(aeVar);
+        rVar3 = this.a.D;
+        rVar3.a(this.a.a.forum_list);
+        this.a.c.i.setSelection(1);
+        if (forumListModel.recommend_list_left.has_more == 1) {
+            this.a.c.b.setVisibility(0);
+        } else {
+            this.a.c.b.setVisibility(8);
+        }
+        this.a.c.k.setText(forumListModel.forum_class[0]);
+        rVar4 = this.a.E;
+        rVar4.a(min2);
+        rVar5 = this.a.E;
+        aeVar2 = this.a.q;
+        rVar5.a(aeVar2);
+        rVar6 = this.a.E;
+        rVar6.a(this.a.b.forum_list);
+        this.a.c.j.setSelection(1);
+        if (forumListModel.recommend_list_right.has_more == 1) {
+            this.a.c.c.setVisibility(0);
+        } else {
+            this.a.c.c.setVisibility(8);
+        }
+        this.a.c.l.setText(forumListModel.forum_class[1]);
+        this.a.findViewById(com.baidu.tieba.v.item_root).setVisibility(0);
+        this.a.c.c();
+        if (this.a.c.y.getCount() > 0) {
+            this.a.c.z.setClickable(true);
+            this.a.c.z.setOnClickListener(this.a);
+        }
+        handler = this.a.e;
+        runnable = this.a.P;
+        handler.removeCallbacks(runnable);
+        handler2 = this.a.e;
+        runnable2 = this.a.P;
+        handler2.post(runnable2);
     }
 }

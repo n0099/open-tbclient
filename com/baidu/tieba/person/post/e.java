@@ -1,0 +1,22 @@
+package com.baidu.tieba.person.post;
+
+import android.view.View;
+import com.baidu.adp.framework.message.HttpMessage;
+/* loaded from: classes.dex */
+class e implements View.OnClickListener {
+    final /* synthetic */ PersonPostActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(PersonPostActivity personPostActivity) {
+        this.a = personPostActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.c = com.baidu.tbadk.core.account.o.a(4) % 3;
+        HttpMessage httpMessage = new HttpMessage(1001506);
+        httpMessage.addParam("opt", "post");
+        httpMessage.addParam("val", String.valueOf(this.a.c + 1));
+        this.a.a(httpMessage);
+    }
+}

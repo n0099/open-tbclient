@@ -1,6 +1,8 @@
 package com.baidu.tieba.data;
 
-import org.json.JSONObject;
+import tbclient.FrsPage.Fans;
+import tbclient.FrsPage.Size;
+import tbclient.FrsPage.StarInfo;
 /* loaded from: classes.dex */
 public class t {
     private int a = 0;
@@ -15,6 +17,10 @@ public class t {
     private int j = 0;
     private long k = 0;
     private long l = 0;
+    private boolean m = false;
+    private long n = 0;
+    private String o = null;
+    private au p = new au();
 
     public int a() {
         return this.a;
@@ -37,14 +43,6 @@ public class t {
     }
 
     public int f() {
-        return this.i;
-    }
-
-    public int g() {
-        return this.j;
-    }
-
-    public int h() {
         return this.b;
     }
 
@@ -52,7 +50,7 @@ public class t {
         this.b = i;
     }
 
-    public long i() {
+    public long g() {
         return this.k;
     }
 
@@ -60,7 +58,7 @@ public class t {
         this.e = i;
     }
 
-    public int j() {
+    public int h() {
         return this.e;
     }
 
@@ -68,32 +66,47 @@ public class t {
         this.f = i;
     }
 
-    public int k() {
+    public int i() {
         return this.f;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("has_frs_star", 0);
-                if (this.a == 1) {
-                    this.c = jSONObject.optString("top", "");
-                    this.d = jSONObject.optString("head", "");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("fans");
-                    this.e = optJSONObject.optInt("is_get", 0);
-                    this.f = optJSONObject.optInt("num", 0);
-                    this.b = optJSONObject.optInt("open", 0);
-                    this.k = optJSONObject.optLong("left_time", 0L);
-                    this.l = this.k;
-                    JSONObject optJSONObject2 = jSONObject.optJSONObject("top_size");
-                    this.g = optJSONObject2.optInt("width", 0);
-                    this.h = optJSONObject2.optInt("height", 0);
-                    JSONObject optJSONObject3 = jSONObject.optJSONObject("head_size");
-                    this.i = optJSONObject3.optInt("width", 0);
-                    this.j = optJSONObject3.optInt("height", 0);
+    public boolean j() {
+        return this.m;
+    }
+
+    public long k() {
+        return this.n;
+    }
+
+    public String l() {
+        return this.o;
+    }
+
+    public void a(StarInfo starInfo) {
+        if (starInfo != null) {
+            this.a = starInfo.has_frs_star.intValue();
+            if (this.a == 1) {
+                this.c = starInfo.top;
+                this.d = starInfo.head;
+                Fans fans = starInfo.fans;
+                this.e = fans.is_get.intValue();
+                this.f = fans.num.intValue();
+                this.b = fans.open.intValue();
+                this.k = fans.left_time.intValue();
+                this.l = this.k;
+                Size size = starInfo.top_size;
+                this.g = size.width.intValue();
+                this.h = size.height.intValue();
+                Size size2 = starInfo.head_size;
+                this.i = size2.width.intValue();
+                this.j = size2.height.intValue();
+            }
+            this.m = starInfo.trade != null;
+            if (this.m) {
+                if (starInfo.trade.time != null) {
+                    this.n = starInfo.trade.time.intValue();
                 }
-            } catch (Exception e) {
-                com.baidu.tieba.util.z.b("FrsStarData", "parserJson", "error = " + e.getMessage());
+                this.o = starInfo.trade.url;
             }
         }
     }

@@ -1,112 +1,36 @@
 package com.baidu.adp.lib.debug.b;
 
+import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
-import com.baidu.adp.lib.debug.a.o;
+import com.baidu.adp.lib.util.BdLog;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends View {
-    View a;
-    View b;
-    TextView c;
-    com.baidu.adp.lib.debug.a.e d;
-    o e;
-    com.baidu.adp.lib.debug.a.h f;
-    com.baidu.adp.lib.debug.a.m g;
-    com.baidu.adp.lib.debug.a.b h;
-    com.baidu.adp.lib.debug.a.j i;
-    Context j;
-    ImageButton k;
-    ImageButton l;
-    TextView m;
-    TextView n;
-    TextView o;
-    TextView p;
-    TextView q;
-    TextView r;
-    boolean s;
+public class j implements View.OnClickListener {
+    final /* synthetic */ c a;
 
-    public j(Context context) {
-        super(context);
-        this.j = null;
-        this.s = true;
-        this.j = context;
-        a();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(c cVar) {
+        this.a = cVar;
     }
 
-    public void a() {
-        this.d = new com.baidu.adp.lib.debug.a.e(this.j);
-        this.e = new o(this.j);
-        this.f = new com.baidu.adp.lib.debug.a.h();
-        this.g = new com.baidu.adp.lib.debug.a.m();
-        this.i = new com.baidu.adp.lib.debug.a.j();
-        this.h = new com.baidu.adp.lib.debug.a.b(this.j);
-        this.a = LayoutInflater.from(this.j).inflate(com.baidu.adp.f.adp_debug_monitor_view, (ViewGroup) null);
-        this.b = this.a.findViewById(com.baidu.adp.e.monitor_view);
-        this.c = (TextView) this.a.findViewById(com.baidu.adp.e.debug_text);
-        this.k = (ImageButton) this.a.findViewById(com.baidu.adp.e.debug_switch);
-        this.l = (ImageButton) this.a.findViewById(com.baidu.adp.e.debug_refresh);
-        this.m = (TextView) this.a.findViewById(com.baidu.adp.e.debug_fps);
-        this.n = (TextView) this.a.findViewById(com.baidu.adp.e.debug_mem);
-        this.o = (TextView) this.a.findViewById(com.baidu.adp.e.debug_cpu);
-        this.p = (TextView) this.a.findViewById(com.baidu.adp.e.debug_gc);
-        this.q = (TextView) this.a.findViewById(com.baidu.adp.e.debug_sm);
-        this.r = (TextView) this.a.findViewById(com.baidu.adp.e.debug_bt);
-        b();
-        this.l.setOnTouchListener(new k(this));
-        this.k.setOnTouchListener(new l(this));
-        i.a(this.j, this.a);
-        this.a.setOnTouchListener(new m(this));
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        this.a.setVisibility(i);
-    }
-
+    @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-    }
-
-    public void b() {
-        if (!this.e.a()) {
-            new Thread(this.e).start();
-        }
-        if (!this.f.a()) {
-            this.f.b();
-        }
-        if (!this.g.a()) {
-            this.g.b();
-        }
-        if (!this.h.a()) {
-            this.h.b();
-        }
-        if (!this.i.a()) {
-            new Thread(this.i).start();
-        }
-        if (!this.d.a()) {
-            this.d.b();
-        }
-        if (!this.h.a()) {
-            this.h.b();
-        }
-        com.baidu.adp.lib.debug.b.a = new n(this);
-    }
-
-    public void c() {
-        if (this.e != null) {
-            this.e.c();
-        }
-        if (this.i != null) {
-            this.i.c();
-        }
-        if (this.d != null) {
-            this.d.c();
-        }
-        if (this.h != null) {
-            this.d.c();
-        }
+        boolean z;
+        TextView textView;
+        Context context;
+        boolean z2;
+        boolean z3;
+        z = c.p;
+        c.p = !z;
+        textView = this.a.o;
+        context = this.a.k;
+        Activity activity = (Activity) context;
+        z2 = c.p;
+        textView.setText(activity.getText(z2 ? com.baidu.adp.f.item_close : com.baidu.adp.f.item_open));
+        StringBuilder sb = new StringBuilder("LCS Blocker: Done: ");
+        z3 = c.p;
+        BdLog.w(sb.append(!z3 ? "unblock " : "block ").append("LCS").toString());
     }
 }

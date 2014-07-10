@@ -1,11 +1,11 @@
 package com.baidu.adp.widget.ListView;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
+import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements AdapterView.OnItemLongClickListener {
+public class l implements Runnable {
     final /* synthetic */ BdListView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,28 +13,30 @@ public class l implements AdapterView.OnItemLongClickListener {
         this.a = bdListView;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
-        e eVar;
-        e eVar2;
-        AdapterView.OnItemLongClickListener onItemLongClickListener;
-        AdapterView.OnItemLongClickListener onItemLongClickListener2;
-        eVar = this.a.a;
-        int c = eVar.c();
-        if (i < c) {
-            return true;
+    @Override // java.lang.Runnable
+    public void run() {
+        int childCount = this.a.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            a(this.a.getChildAt(i));
         }
-        int i2 = i - c;
-        eVar2 = this.a.a;
-        ListAdapter b = eVar2.b();
-        if (b == null || i2 >= b.getCount()) {
-            return true;
+        Context context = this.a.getContext();
+        if (context != null) {
+            ((com.baidu.adp.base.j) context).onPreLoad(this.a);
         }
-        onItemLongClickListener = this.a.c;
-        if (onItemLongClickListener != null) {
-            onItemLongClickListener2 = this.a.c;
-            return onItemLongClickListener2.onItemLongClick(adapterView, view, i2, j);
+    }
+
+    private void a(View view) {
+        if (view != null) {
+            if (view instanceof com.baidu.adp.newwidget.a.h) {
+                ((com.baidu.adp.newwidget.a.h) view).b();
+            }
+            if (view instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view;
+                int childCount = viewGroup.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    a(viewGroup.getChildAt(i));
+                }
+            }
         }
-        return false;
     }
 }

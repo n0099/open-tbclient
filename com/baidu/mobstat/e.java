@@ -1,56 +1,39 @@
 package com.baidu.mobstat;
-
-import android.content.Context;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e {
-    private static e a = new e();
-    private boolean b = false;
+class e implements Runnable {
+    final /* synthetic */ long a;
+    final /* synthetic */ String b;
+    final /* synthetic */ String c;
+    final /* synthetic */ c d;
 
-    private e() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(c cVar, long j, String str, String str2) {
+        this.d = cVar;
+        this.a = j;
+        this.b = str;
+        this.c = str2;
     }
 
-    public static e a() {
-        return a;
-    }
-
-    public void a(Context context) {
-        com.baidu.mobstat.a.b.a("stat", "openExceptonAnalysis");
-        if (this.b) {
-            return;
-        }
-        this.b = true;
-        a.a().a(context);
-    }
-
-    public void b(Context context) {
-        if (context == null) {
-            com.baidu.mobstat.a.b.a("stat", "exceptonAnalysis, context=null");
-            return;
-        }
-        JSONArray b = a.a().b(context);
-        if (b == null) {
-            com.baidu.mobstat.a.b.a("stat", "no exception str");
-            return;
-        }
-        com.baidu.mobstat.a.b.a("stat", "move exception cache to stat cache");
-        int i = 0;
-        while (true) {
-            try {
-                int i2 = i;
-                if (i2 >= b.length()) {
-                    return;
+    @Override // java.lang.Runnable
+    public void run() {
+        if (!j.a().c()) {
+            synchronized (j.a()) {
+                try {
+                    j.a().wait();
+                } catch (InterruptedException e) {
+                    com.baidu.mobstat.a.e.a("statsdk", e);
                 }
-                JSONObject jSONObject = (JSONObject) b.get(i2);
-                b.a().a(jSONObject.getLong("t"), jSONObject.getString("c"));
-                b.a().b(context);
-                i = i2 + 1;
-            } catch (Exception e) {
-                com.baidu.mobstat.a.b.a("stat", e);
-                return;
             }
         }
+        h hVar = new h(this.d);
+        hVar.c = this.a;
+        hVar.a = this.b;
+        hVar.b = this.c;
+        String a = this.d.a(this.b, this.c);
+        if (this.d.a.get(a) != null) {
+            com.baidu.mobstat.a.e.b("statsdk", "EventStat: event_id[" + this.b + "] with label[" + this.c + "] is duplicated, older is removed");
+        }
+        this.d.a.put(a, hVar);
+        com.baidu.mobstat.a.e.a("statsdk", "put a keyword[" + a + "] into durationlist");
     }
 }

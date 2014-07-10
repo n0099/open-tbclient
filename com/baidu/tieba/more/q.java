@@ -1,18 +1,16 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class q implements View.OnClickListener {
-    final /* synthetic */ AppsActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public q(AppsActivity appsActivity) {
-        this.a = appsActivity;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.c();
+class q implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.frameworkData.a> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), MoreActivity.class);
+            customMessage.getData().startActivity();
+        }
+        return null;
     }
 }

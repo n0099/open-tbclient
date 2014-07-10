@@ -1,8 +1,11 @@
 package com.baidu.tieba.square;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import com.baidu.mobstat.StatService;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
@@ -15,17 +18,30 @@ public class h implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        q qVar;
-        Activity activity;
+        an anVar;
+        Context context;
+        String str;
+        Context context2;
+        String str2;
         Object tag = view.getTag();
-        if ((tag instanceof j) && (qVar = ((j) tag).d) != null) {
-            if (qVar.a != null) {
-                activity = this.a.b;
-                StatService.onEvent(activity, "ef_category", "click");
-                BarFolderSecondDirActivity.a(this.a.a(), qVar.b, qVar.a, qVar.c);
+        if ((tag instanceof i) && (anVar = ((i) tag).d) != null) {
+            int i = anVar.a;
+            if (anVar.f.equals(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK)) {
+                context2 = this.a.b;
+                TiebaStatic.eventStat(context2, "sq_all_category", "click", 1, new Object[0]);
+                this.a.d = af.a("forum_browse", "all");
+                str2 = this.a.d;
+                BarFolderFirstDirActivity.a((Activity) this.a.a(), str2);
                 return;
             }
-            BarFolderFirstDirActivity.a(this.a.a());
+            this.a.d = af.a("forum_browse", String.valueOf(i));
+            bq a = bq.a();
+            context = this.a.b;
+            String[] strArr = new String[3];
+            strArr[0] = anVar.d;
+            str = this.a.d;
+            strArr[2] = str;
+            a.a(context, strArr);
         }
     }
 }

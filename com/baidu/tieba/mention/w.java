@@ -1,50 +1,30 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
-import com.baidu.tieba.model.bg;
-import com.baidu.tieba.pb.ImageActivity;
-import java.util.ArrayList;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements View.OnClickListener {
+public class w implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ PostActivity a;
-    private ArrayList b;
-    private int c;
 
-    public w(PostActivity postActivity, ArrayList arrayList, int i) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(PostActivity postActivity) {
         this.a = postActivity;
-        this.b = arrayList;
-        this.c = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bg bgVar;
-        try {
-            ArrayList arrayList = new ArrayList();
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.b.size()) {
-                    if (((com.baidu.tieba.data.i) this.b.get(i2)).a() == 3) {
-                        StringBuffer stringBuffer = new StringBuffer(100);
-                        stringBuffer.append("size=");
-                        stringBuffer.append(com.baidu.tieba.data.g.h());
-                        stringBuffer.append("&src=");
-                        stringBuffer.append(com.baidu.tieba.util.y.d(((com.baidu.tieba.data.i) this.b.get(i2)).f()));
-                        arrayList.add(stringBuffer.toString());
-                    }
-                    i = i2 + 1;
-                } else {
-                    PostActivity postActivity = this.a;
-                    int i3 = this.c;
-                    bgVar = this.a.n;
-                    ImageActivity.a(postActivity, arrayList, i3, bgVar);
-                    return;
-                }
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        linearLayout = this.a.a;
+        ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
+        while (imageView != null) {
+            imageView.setTag(null);
+            if (imageView != null && aVar != null) {
+                aVar.a(imageView);
             }
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
+            linearLayout2 = this.a.a;
+            imageView = (ImageView) linearLayout2.findViewWithTag(str);
         }
     }
 }

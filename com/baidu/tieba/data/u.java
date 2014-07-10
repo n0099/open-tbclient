@@ -1,35 +1,23 @@
 package com.baidu.tieba.data;
 
-import org.json.JSONObject;
+import tbclient.FrsPage.GconAccount;
 /* loaded from: classes.dex */
 public class u {
-    private String a = null;
-    private int b = 0;
+    private boolean a;
+    private String b;
 
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public String a() {
+    public boolean a() {
         return this.a;
     }
 
-    public void a(int i) {
-        this.b = i;
-    }
-
-    public int b() {
+    public String b() {
         return this.b;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.b = jSONObject.optInt("class_id", 0);
-                this.a = jSONObject.optString("class_name");
-            } catch (Exception e) {
-                com.baidu.tieba.util.z.b("GoodData", "parserJson", "error = " + e.getMessage());
-            }
+    public void a(GconAccount gconAccount) {
+        if (gconAccount != null) {
+            this.a = gconAccount.has_account.intValue() == 1;
+            this.b = gconAccount.menu_name;
         }
     }
 }

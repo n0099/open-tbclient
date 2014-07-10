@@ -1,69 +1,43 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
+import android.app.Activity;
+import android.os.Handler;
+import android.text.TextUtils;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
+import com.baidu.kirin.KirinConfig;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class a extends g {
-    protected ViewGroup a = null;
-    protected View b = null;
-    protected ImageView c = null;
-    protected TextView d = null;
-    protected ListView e = null;
-    protected Button f = null;
-    protected ViewGroup g;
+public class a {
+    private d a = null;
+    private Handler b = new Handler();
+    private Object c = null;
+    private final int d = KirinConfig.CONNECT_TIME_OUT;
+    private final int e = 1000;
+    private Runnable f = new b(this);
 
-    @Override // com.baidu.tieba.g, android.app.Activity
-    public void setContentView(int i) {
-        super.setContentView(i);
-        b();
+    public void a(d dVar) {
+        this.a = dVar;
     }
 
-    protected void b() {
-        if (this.a == null) {
-            this.a = (ViewGroup) findViewById(R.id.container);
-            if (this.a == null) {
-                this.a = (ViewGroup) findViewById(R.id.parent);
-            }
-            this.b = findViewById(R.id.title);
-            this.c = (ImageView) findViewById(R.id.back);
-            if (this.c != null) {
-                this.c.setOnClickListener(new b(this));
-            }
-            this.d = (TextView) findViewById(R.id.title_text);
+    public void a(Activity activity, Object obj) {
+        this.c = obj;
+        String g = com.baidu.tbadk.b.a.a().g();
+        long f = com.baidu.tbadk.b.a.a().f();
+        boolean c = com.baidu.tbadk.b.a.a().c();
+        if (TextUtils.isEmpty(g) || !c || f <= 0) {
             if (this.a != null) {
-                this.f = (Button) this.a.findViewWithTag("skin_top_more_button");
+                this.a.a(obj);
+                return;
             }
+            return;
         }
-        if (this.e == null) {
-            this.e = (ListView) findViewById(R.id.list);
-        }
-        this.g = (ViewGroup) findViewById(R.id.body_container);
-        com.baidu.tieba.util.ad.b(this.g);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
-    public void a(int i) {
-        super.a(i);
-        com.baidu.tieba.util.x.a(this.c, i);
-        com.baidu.tieba.util.x.d(this.b, i);
-        com.baidu.tieba.util.x.f(this.d, i);
-        com.baidu.tieba.util.x.b(this.a, i);
-        com.baidu.tieba.util.x.g((TextView) this.f, i);
-        if (this.e != null) {
-            this.e.invalidateViews();
-        }
-        if (this.g != null) {
-            com.baidu.tieba.util.ad.a(this.g, i);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void c() {
-        finish();
+        long j = f >= 1000 ? f : 1000L;
+        long j2 = j <= 3000 ? j : 3000L;
+        TbImageView tbImageView = new TbImageView(activity);
+        tbImageView.setDefaultResource(0);
+        tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        tbImageView.setEvent(new c(this, activity.getWindow().getDecorView().findViewById(16908290), tbImageView, activity));
+        tbImageView.a(g, 10, false);
+        this.b.postDelayed(this.f, j2);
     }
 }

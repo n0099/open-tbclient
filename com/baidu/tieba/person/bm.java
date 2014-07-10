@@ -1,43 +1,38 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.data.UserData;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bm implements Runnable {
-    final /* synthetic */ PersonListActivity a;
+public class bm implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonChangeActivity a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(PersonListActivity personListActivity) {
-        this.a = personListActivity;
+    public bm(PersonChangeActivity personChangeActivity, String str, String str2) {
+        this.a = personChangeActivity;
+        this.b = str;
+        this.c = str2;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        BdListView bdListView;
-        BdListView bdListView2;
-        bu buVar;
-        bu buVar2;
-        bu buVar3;
-        try {
-            bdListView = this.a.c;
-            int firstVisiblePosition = bdListView.getFirstVisiblePosition();
-            bdListView2 = this.a.c;
-            int lastVisiblePosition = bdListView2.getLastVisiblePosition();
-            for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
-                buVar = this.a.f;
-                if (i < buVar.getCount()) {
-                    buVar2 = this.a.f;
-                    UserData userData = (UserData) buVar2.getItem(i);
-                    if (userData != null && userData.getPortrait() != null) {
-                        buVar3 = this.a.f;
-                        buVar3.c().b(userData.getPortrait(), new bn(this));
-                    }
-                } else {
-                    return;
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        TextView textView;
+        Dialog dialog;
+        TextView textView2;
+        if (i == 0) {
+            this.a.E = 1;
+            textView2 = this.a.k;
+            textView2.setText(this.b);
+        } else if (i == 1) {
+            this.a.E = 2;
+            textView = this.a.k;
+            textView.setText(this.c);
         }
+        this.a.c();
+        dialog = this.a.C;
+        dialog.dismiss();
     }
 }

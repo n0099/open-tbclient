@@ -1,102 +1,112 @@
 package com.baidu.tieba.person;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.data.MarkData;
-import com.baidu.tieba.pb.NewPbActivity;
-import com.baidu.tieba.util.DatabaseService;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class EditMarkActivity extends com.baidu.tieba.g {
-    private com.baidu.tieba.model.f a = null;
-    private z b = null;
+public class EditMarkActivity extends BaseActivity implements com.baidu.adp.widget.ListView.d, com.baidu.adp.widget.ListView.x {
+    private com.baidu.tieba.model.i a = null;
+    private h b = null;
     private int c = -1;
+    private ArrayList<MarkData> d = null;
 
-    public static void a(Activity activity, int i) {
-        activity.startActivityForResult(new Intent(activity, EditMarkActivity.class), i);
+    static {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2015005, new e());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new com.baidu.tieba.model.f();
-        this.a.a(new x(this, this));
-        this.b = new z(this);
-        this.b.a(new y(this));
+        this.a = new com.baidu.tieba.model.i();
+        this.a.a(new f(this, this));
+        this.b = new h(this);
+        this.b.a(new g(this));
         b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
-    public void a(int i) {
-        super.a(i);
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
         this.b.b(i);
     }
 
     private void b() {
-        this.b.a(this.a.a());
-        if (this.a.h() < 0) {
-            this.a.f();
-            return;
+        if (this.a.k() < 0) {
+            this.a.a((Boolean) true);
+        } else if (this.a.g() == 0 || this.a.k() < 0) {
+            this.a.a((Boolean) true);
+        } else {
+            this.b.f();
+            this.a.j();
         }
-        c();
-        if (this.a.c() == 0 || this.a.h() < 0) {
-            this.a.f();
-            return;
-        }
-        this.b.e();
-        this.a.g();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.b.h();
-        this.a.i();
+        this.b.i();
+        this.a.l();
     }
 
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.b.a()) {
-            finish();
-        } else if (view == this.b.b()) {
-            this.b.c();
-        } else if (view.getId() == this.b.d()) {
+            this.b.b();
+        } else if (view.getId() == this.b.c()) {
             int intValue = ((Integer) view.getTag()).intValue();
-            this.b.f();
-            this.a.a(intValue);
+            this.b.g();
+            if (!this.a.b(intValue)) {
+                this.b.e();
+            }
         }
         super.onClick(view);
     }
 
-    @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        if (i < 0 || i >= this.a.b().size()) {
-            this.b.a(this.a.a());
-            this.a.f();
-        } else {
+    @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        if (i >= 0 && i < this.a.f().size()) {
             this.c = i;
-            MarkData markData = (MarkData) this.a.b().get(i);
+            MarkData markData = this.a.f().get(i);
+            MarkData markData2 = this.d.get(i);
+            int b = this.a.b();
+            int o = com.baidu.tbadk.coreExtra.messageCenter.a.a().o();
+            if (markData2.getNewCounts() > 0) {
+                if (o > 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.a().e(o - 1);
+                } else {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.a().e(0);
+                }
+                if (b > 0) {
+                    this.a.a(b - 1);
+                } else {
+                    this.a.a(0);
+                }
+            }
+            markData2.setNewCounts(0);
             if (markData != null) {
-                NewPbActivity.a(this, markData, (String) null);
+                sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.aw(this).a(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
             }
         }
         super.onItemClick(adapterView, view, i, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-    }
-
-    private void c() {
-        this.a.a(DatabaseService.u());
-        this.b.a(this.a.b());
+        this.b.a(this.d);
     }
 
     @Override // android.app.Activity
@@ -104,13 +114,13 @@ public class EditMarkActivity extends com.baidu.tieba.g {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             switch (i) {
-                case 1700001:
+                case 17001:
                     MarkData markData = (MarkData) intent.getSerializableExtra("mark");
-                    if (markData != null && this.a.b().size() > this.c && this.c >= 0) {
-                        ((MarkData) this.a.b().get(this.c)).setPostId(markData.getPostId());
-                        ((MarkData) this.a.b().get(this.c)).setHostMode(markData.getHostMode());
-                        ((MarkData) this.a.b().get(this.c)).setSequence(markData.getSequence());
-                        this.b.g();
+                    if (markData != null && this.a.f().size() > this.c && this.c >= 0) {
+                        this.a.f().get(this.c).setPostId(markData.getPostId());
+                        this.a.f().get(this.c).setHostMode(markData.getHostMode());
+                        this.a.f().get(this.c).setSequence(markData.getSequence());
+                        this.b.h();
                         return;
                     }
                     return;
@@ -119,16 +129,33 @@ public class EditMarkActivity extends com.baidu.tieba.g {
             }
         } else if (i2 == 1) {
             switch (i) {
-                case 1700001:
-                    if (this.a.b().size() > this.c && this.c >= 0) {
-                        this.a.b().remove(this.c);
-                        this.b.g();
+                case 17001:
+                    if (this.a.f().size() > this.c && this.c >= 0) {
+                        this.a.f().remove(this.c);
+                        this.b.h();
                         return;
                     }
                     return;
                 default:
                     return;
             }
+        }
+    }
+
+    @Override // com.baidu.adp.widget.ListView.d
+    public void a(boolean z) {
+        if (this.a != null && this.b != null) {
+            this.a.d();
+            this.b.a(true);
+            this.a.a((Boolean) false);
+        }
+    }
+
+    @Override // com.baidu.adp.widget.ListView.x
+    public void g_() {
+        if (this.b != null && this.a != null && this.a.c()) {
+            this.b.a(this.a.a());
+            this.a.a((Boolean) false);
         }
     }
 }

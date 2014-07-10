@@ -1,25 +1,25 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity a;
+public class n extends com.baidu.adp.base.h {
+    final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
+    public n(m mVar) {
+        this.a = mVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        LinearLayout linearLayout;
-        Button button;
-        linearLayout = this.a.t;
-        linearLayout.setVisibility(8);
-        button = this.a.l;
-        button.setVisibility(0);
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        q qVar;
+        q qVar2;
+        o oVar;
+        m.f = true;
+        qVar = this.a.c;
+        if (qVar != null) {
+            qVar2 = this.a.c;
+            oVar = this.a.d;
+            qVar2.a(oVar, ((Boolean) obj).booleanValue());
+        }
     }
 }

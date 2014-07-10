@@ -1,9 +1,12 @@
 package com.baidu.tieba.write;
 
 import android.view.View;
-import android.widget.GridView;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ai implements View.OnClickListener {
+public class ai implements View.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,12 +16,21 @@ class ai implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        GridView gridView;
-        GridView gridView2;
-        gridView = this.a.r;
-        if (gridView.getVisibility() == 0) {
-            gridView2 = this.a.r;
-            gridView2.setVisibility(8);
-        }
+        InputMethodManager inputMethodManager;
+        EditText editText;
+        InputMethodManager inputMethodManager2;
+        EditText editText2;
+        EditorToolComponetContainer editorToolComponetContainer;
+        WriteActivity writeActivity = this.a;
+        inputMethodManager = this.a.c;
+        editText = this.a.e;
+        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        WriteActivity writeActivity2 = this.a;
+        inputMethodManager2 = this.a.c;
+        editText2 = this.a.h;
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
+        editorToolComponetContainer = this.a.A;
+        editorToolComponetContainer.p();
+        this.a.m();
     }
 }

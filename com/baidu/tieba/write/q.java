@@ -1,18 +1,26 @@
 package com.baidu.tieba.write;
 
+import android.content.Context;
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity a;
+    final /* synthetic */ FeedBackTopListView a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(VcodeActivity vcodeActivity) {
-        this.a = vcodeActivity;
+    public q(FeedBackTopListView feedBackTopListView, String str) {
+        this.a = feedBackTopListView;
+        this.b = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.c((String) null);
+        Context context;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.a.a;
+        messageManager.sendMessage(new CustomMessage(2004001, new com.baidu.tbadk.core.atomData.aw(context).a(this.b, null, "feed_back")));
     }
 }

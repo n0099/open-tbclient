@@ -1,28 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-public class am implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+class am extends BdAsyncTask<String, Integer, Void> {
+    final /* synthetic */ ak a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public am(ak akVar) {
+        this.a = akVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.model.bh bhVar;
-        com.baidu.tieba.model.bh bhVar2;
-        bhVar = this.a.z;
-        if (bhVar.a().getPhotoChanged()) {
-            Intent intent = new Intent();
-            bhVar2 = this.a.z;
-            intent.putExtra("data", bhVar2.a());
-            this.a.setResult(-1, intent);
-        }
-        this.a.finish();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Void doInBackground(String... strArr) {
+        com.baidu.tbadk.core.account.a.a(strArr[0], strArr[1]);
+        return null;
     }
 }

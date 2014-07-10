@@ -1,19 +1,15 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class k {
     TextView a;
-    StringBuffer b;
-    TextView c;
-    StringBuffer d;
-    TextView e;
-    ImageButton f;
-    final /* synthetic */ j g;
+    ProgressBar b;
+    final /* synthetic */ j c;
 
     private k(j jVar) {
-        this.g = jVar;
+        this.c = jVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

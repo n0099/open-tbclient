@@ -3,82 +3,120 @@ package com.baidu.tieba.square;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
+import android.view.ViewGroup;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.ProgressBar;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.x;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bx;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class BarFolderFirstDirActivity extends com.baidu.tieba.a {
-    private ProgressBar j;
-    private c k;
-    private b l;
+public class BarFolderFirstDirActivity extends BaseActivity {
+    public static String c = com.baidu.tbadk.core.frameworkData.a.ST_TYPE;
+    protected ViewGroup b;
+    private ProgressBar d;
+    private c e;
+    private b f;
+    private NavigationBar h;
+    protected ListView a = null;
+    private String g = null;
 
-    public static void a(Activity activity) {
-        activity.startActivity(new Intent(activity, BarFolderFirstDirActivity.class));
+    public static void a(Activity activity, String str) {
+        Intent intent = new Intent(activity, BarFolderFirstDirActivity.class);
+        intent.putExtra(c, str);
+        activity.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.bar_folder_dir_activity);
-        d();
-        n();
-        m();
-        StatService.onEvent(this, "category_1", "enter");
-    }
-
-    protected void d() {
-        this.k = new c(this, new f(), true);
-        this.e.setAdapter((ListAdapter) this.k);
-        this.d.setText(getString(R.string.bar_first_dir_name));
-        this.j = (ProgressBar) findViewById(R.id.progress);
-        ImageView imageView = (ImageView) findViewById(R.id.home);
-        x.d(imageView, TiebaApplication.f().as());
-        imageView.setVisibility(4);
+        setContentView(com.baidu.tieba.w.bar_folder_dir_activity);
+        a();
+        a(bundle);
+        b();
+        TiebaStatic.eventStat(this, "category_1", "enter");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.a
-    public void c() {
-        if (this.l != null) {
-            this.l.cancel();
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.e.notifyDataSetChanged();
+    }
+
+    protected void a() {
+        this.h = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.h.a(getResources().getString(com.baidu.tieba.y.bar_first_dir_name));
+        this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.a = (ListView) findViewById(com.baidu.tieba.v.list);
+        this.e = new c(this, new f(), true);
+        this.a.setAdapter((ListAdapter) this.e);
+        this.d = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
+        this.b = (ViewGroup) findViewById(com.baidu.tieba.v.body_container);
+        bx.b(this.b);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.f != null) {
+            this.f.cancel();
         }
         a((f) null, true);
-        super.c();
     }
 
-    protected void m() {
-        this.e.setOnItemClickListener(new a(this));
+    protected void b() {
+        this.a.setOnItemClickListener(new a(this));
     }
 
-    protected void n() {
-        this.j.setVisibility(0);
-        this.e.setEnabled(false);
-        if (this.l != null) {
-            this.l.cancel();
+    protected void a(Bundle bundle) {
+        if (bundle != null) {
+            this.g = bundle.getString(c);
+        } else {
+            this.g = getIntent().getStringExtra(c);
         }
-        this.l = new b(this, null);
-        this.l.setPriority(3);
-        this.l.execute("");
+        this.d.setVisibility(0);
+        this.a.setEnabled(false);
+        if (this.f != null) {
+            this.f.cancel();
+        }
+        this.f = new b(this, null);
+        this.f.setPriority(3);
+        this.f.execute("");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(f fVar, boolean z) {
-        this.j.setVisibility(8);
-        this.e.setEnabled(true);
-        this.l = null;
+        this.d.setVisibility(8);
+        this.a.setEnabled(true);
+        this.f = null;
         if (!z) {
-            if (fVar.a()) {
-                a(fVar.b());
+            if (fVar.b()) {
+                showToast(fVar.c());
                 return;
             }
-            this.e.setVisibility(4);
-            this.k.notifyDataSetChanged();
-            this.e.setVisibility(0);
+            this.e.a(fVar.d());
+            this.a.setVisibility(4);
+            this.e.notifyDataSetChanged();
+            this.a.setVisibility(0);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.h.c(i);
+        if (this.a != null) {
+            this.a.invalidateViews();
+        }
+        if (this.b != null) {
+            bx.a(this.b, i);
+        }
+        bk.b(findViewById(com.baidu.tieba.v.root_view), i);
     }
 }

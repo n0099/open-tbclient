@@ -1,9 +1,9 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements DialogInterface.OnCancelListener {
+public class ag extends com.baidu.adp.base.h {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,15 +11,26 @@ public class ag implements DialogInterface.OnCancelListener {
         this.a = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        ap apVar;
-        ap apVar2;
-        this.a.g();
-        apVar = this.a.v;
-        if (apVar != null) {
-            apVar2 = this.a.v;
-            apVar2.cancel();
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        FeedBackTopListView feedBackTopListView;
+        FeedBackTopListView feedBackTopListView2;
+        FeedBackTopListView feedBackTopListView3;
+        this.a.hideProgressBar();
+        if (obj == null || !(obj instanceof o)) {
+            feedBackTopListView = this.a.k;
+            feedBackTopListView.setVisibility(8);
+            this.a.showToast(com.baidu.tieba.y.neterror);
+            return;
         }
+        o oVar = (o) obj;
+        if (oVar.b() != 0) {
+            feedBackTopListView2 = this.a.k;
+            feedBackTopListView2.setVisibility(8);
+            return;
+        }
+        ArrayList<com.baidu.tbadk.core.data.m> a = oVar.a();
+        feedBackTopListView3 = this.a.k;
+        feedBackTopListView3.setData(a);
     }
 }

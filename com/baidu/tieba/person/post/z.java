@@ -1,0 +1,24 @@
+package com.baidu.tieba.person.post;
+
+import android.view.View;
+import android.widget.ProgressBar;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.coreExtra.view.EnterGuideCenterView;
+/* loaded from: classes.dex */
+public class z {
+    BdListView a;
+    EnterGuideCenterView b;
+    ProgressBar c;
+
+    public BdListView a() {
+        return this.a;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(View view) {
+        this.b = null;
+        this.a = (BdListView) view.findViewById(com.baidu.tieba.v.list);
+        this.b = (EnterGuideCenterView) view.findViewById(com.baidu.tieba.v.post_guid_center_root);
+        this.c = (ProgressBar) view.findViewById(com.baidu.tieba.v.progress);
+    }
+}

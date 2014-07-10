@@ -1,29 +1,23 @@
 package com.baidu.tieba.person;
 
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bh implements AdapterView.OnItemClickListener {
-    final /* synthetic */ PersonLbsActivity a;
+public class bh implements View.OnTouchListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(PersonLbsActivity personLbsActivity) {
-        this.a = personLbsActivity;
+    public bh(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        int i2;
-        int i3;
-        if (j == -1) {
-            PersonLbsActivity personLbsActivity = this.a;
-            i3 = this.a.r;
-            personLbsActivity.b(1, i3 - 1);
-        } else if (j == -2) {
-            PersonLbsActivity personLbsActivity2 = this.a;
-            i2 = this.a.s;
-            personLbsActivity2.b(2, i2 + 1);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.a.t = true;
+            return false;
         }
+        return false;
     }
 }

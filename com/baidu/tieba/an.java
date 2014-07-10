@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.mobstat.StatService;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class an implements View.OnClickListener {
-    final /* synthetic */ am a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar) {
-        this.a = amVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ap apVar;
-        boolean isChecked = this.a.e.isChecked();
-        if (TiebaApplication.f().s()) {
-            StatService.onEvent(this.a.getContext(), "upgrade_channel", isChecked ? "withOtherApp" : "withoutOtherApp", 1);
+public class an implements CustomMessageTask.CustomRunnable<AccountData> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
+        if (com.baidu.adp.lib.util.j.b()) {
+            ai.a(customMessage.getData(), TbadkApplication.m252getInst());
+            return null;
+        } else if (ai.c() != null) {
+            ai.c().b.post(new ao(this, customMessage));
+            return null;
+        } else {
+            return null;
         }
-        apVar = this.a.h;
-        apVar.a(isChecked);
     }
 }

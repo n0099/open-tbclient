@@ -24,17 +24,17 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     private TabInfo mLastTab;
     private TabHost.OnTabChangeListener mOnTabChangeListener;
     private FrameLayout mRealTabContent;
-    private final ArrayList mTabs;
+    private final ArrayList<TabInfo> mTabs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public final class TabInfo {
         private final Bundle args;
-        private final Class clss;
+        private final Class<?> clss;
         private Fragment fragment;
         private final String tag;
 
-        TabInfo(String str, Class cls, Bundle bundle) {
+        TabInfo(String str, Class<?> cls, Bundle bundle) {
             this.tag = str;
             this.clss = cls;
             this.args = bundle;
@@ -61,14 +61,16 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class SavedState extends View.BaseSavedState {
-        public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: android.support.v13.app.FragmentTabHost.SavedState.1
+        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v13.app.FragmentTabHost.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
@@ -98,13 +100,13 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
     public FragmentTabHost(Context context) {
         super(context, null);
-        this.mTabs = new ArrayList();
+        this.mTabs = new ArrayList<>();
         initFragmentTabHost(context, null);
     }
 
     public FragmentTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mTabs = new ArrayList();
+        this.mTabs = new ArrayList<>();
         initFragmentTabHost(context, attributeSet);
     }
 
@@ -170,7 +172,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         this.mOnTabChangeListener = onTabChangeListener;
     }
 
-    public void addTab(TabHost.TabSpec tabSpec, Class cls, Bundle bundle) {
+    public void addTab(TabHost.TabSpec tabSpec, Class<?> cls, Bundle bundle) {
         tabSpec.setContent(new DummyTabFactory(this.mContext));
         String tag = tabSpec.getTag();
         TabInfo tabInfo = new TabInfo(tag, cls, bundle);
@@ -197,7 +199,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             if (i2 >= this.mTabs.size()) {
                 break;
             }
-            TabInfo tabInfo = (TabInfo) this.mTabs.get(i2);
+            TabInfo tabInfo = this.mTabs.get(i2);
             tabInfo.fragment = this.mFragmentManager.findFragmentByTag(tabInfo.tag);
             if (tabInfo.fragment != null && !tabInfo.fragment.isDetached()) {
                 if (tabInfo.tag.equals(currentTabTag)) {
@@ -254,7 +256,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         TabInfo tabInfo = null;
         int i = 0;
         while (i < this.mTabs.size()) {
-            TabInfo tabInfo2 = (TabInfo) this.mTabs.get(i);
+            TabInfo tabInfo2 = this.mTabs.get(i);
             if (!tabInfo2.tag.equals(str)) {
                 tabInfo2 = tabInfo;
             }

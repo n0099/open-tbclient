@@ -1,73 +1,120 @@
 package com.baidu.tieba.square;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.r;
-import com.baidu.tieba.util.z;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.bx;
 /* loaded from: classes.dex */
-public class l extends BdAsyncTask {
-    final /* synthetic */ BarFolderSecondDirActivity a;
-    private r b;
+public class l extends BaseAdapter {
+    View.OnClickListener a = new m(this);
+    private Activity b;
+    private final o c;
+    private final String d;
+    private final String e;
 
-    private l(BarFolderSecondDirActivity barFolderSecondDirActivity) {
-        this.a = barFolderSecondDirActivity;
-        this.b = null;
+    public l(Activity activity, o oVar, String str, String str2) {
+        this.b = activity;
+        this.d = str;
+        this.e = str2;
+        this.c = oVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ l(BarFolderSecondDirActivity barFolderSecondDirActivity, l lVar) {
-        this(barFolderSecondDirActivity);
+    public o a() {
+        return this.c;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public p a(Object... objArr) {
-        m mVar;
-        String str;
-        String str2;
-        String str3;
-        mVar = this.a.k;
-        p a = mVar.a();
-        try {
-            this.b = new r(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/forum/seconddir");
-            r rVar = this.b;
-            str = this.a.n;
-            rVar.a("menu_name", str);
-            r rVar2 = this.b;
-            str2 = this.a.o;
-            rVar2.a("menu_type", str2);
-            r rVar3 = this.b;
-            str3 = this.a.p;
-            rVar3.a("menu_id", str3);
-            String j = this.b.j();
-            if (this.b.c()) {
-                a.b(j);
+    @Override // android.widget.Adapter
+    public int getCount() {
+        w d = this.c.d();
+        if (d == null || d.e == null) {
+            return 0;
+        }
+        return (d.e.size() * 2) - 1;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        int itemViewType = getItemViewType(i);
+        if (view == null) {
+            view = a(viewGroup, itemViewType);
+            bx.b(view);
+        }
+        bx.a(view);
+        if (itemViewType != 3) {
+            int skinType = TbadkApplication.m252getInst().getSkinType();
+            View findViewById = view.findViewById(com.baidu.tieba.v.container);
+            View findViewById2 = view.findViewById(com.baidu.tieba.v.item_up);
+            View findViewById3 = view.findViewById(com.baidu.tieba.v.item_down);
+            if (itemViewType == 0) {
+                findViewById2.setVisibility(0);
+                findViewById3.setVisibility(8);
+            } else if (itemViewType == 2) {
+                findViewById2.setVisibility(8);
+                findViewById3.setVisibility(0);
             } else {
-                a.a(this.b.g());
+                findViewById2.setVisibility(8);
+                findViewById3.setVisibility(8);
             }
-        } catch (Exception e) {
-            a.a(e.getMessage());
-            z.b(getClass().getName(), "doInBackground", e.getMessage());
+            bx.a(findViewById, itemViewType, skinType);
+            a(viewGroup, (n) view.getTag(), i);
         }
-        return a;
+        return view;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    private View a(ViewGroup viewGroup, int i) {
+        LayoutInflater from = LayoutInflater.from(this.b);
+        if (i == 3) {
+            return from.inflate(com.baidu.tieba.w.bar_home_list_line, viewGroup, false);
+        }
+        View inflate = from.inflate(com.baidu.tieba.w.bar_folder_second_dir_item, viewGroup, false);
+        inflate.setOnClickListener(this.a);
+        n nVar = new n();
+        nVar.a = (TextView) inflate.findViewById(com.baidu.tieba.v.name);
+        inflate.setTag(nVar);
+        return inflate;
+    }
+
+    private void a(ViewGroup viewGroup, n nVar, int i) {
+        w wVar = this.c.d().e.get(i / 2);
+        nVar.b = wVar;
+        nVar.a.setText(wVar.b);
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return null;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return 4;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        if (i == 0) {
+            return 0;
+        }
+        if (i == getCount() - 1) {
+            return 2;
+        }
+        if (i % 2 != 0) {
+            return 3;
+        }
+        return 1;
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(p pVar) {
-        this.a.a(pVar, false);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.h();
-            this.b = null;
-        }
-        this.a.a((p) null, true);
+    public Activity b() {
+        return this.b;
     }
 }

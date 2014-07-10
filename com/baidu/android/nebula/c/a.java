@@ -1,9 +1,29 @@
 package com.baidu.android.nebula.c;
+
+import com.baidu.android.common.logging.Log;
 /* loaded from: classes.dex */
-public interface a {
-    void a(c cVar);
+public class a implements Runnable {
+    private d a;
+    private e b;
 
-    void a(c cVar, Exception exc);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public a(e eVar, d dVar) {
+        this.a = null;
+        this.b = null;
+        this.a = dVar;
+        this.b = eVar;
+    }
 
-    void b(c cVar);
+    @Override // java.lang.Runnable
+    public void run() {
+        if (this.a.e()) {
+            return;
+        }
+        try {
+            this.b.b(this.a);
+        } catch (Exception e) {
+            Log.e("HttpServer", "Deal Request Exception", e);
+            this.b.a(this.a, e);
+        }
+    }
 }

@@ -1,59 +1,59 @@
 package com.baidu.tieba.a;
 
-import com.baidu.tieba.util.r;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.recommend.o;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    private static final String a = String.valueOf(com.baidu.tieba.data.g.a) + "c/f/pb/floor";
-    private r b = null;
+    private static final String d = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/threadrecommend";
+    private int a = -1;
+    private aq b = null;
+    private boolean c;
 
-    public String a(String str, String str2, int i, String str3, int i2) {
-        if (str == null || str3 == null) {
-            return null;
+    public f(boolean z) {
+        this.c = z;
+    }
+
+    public String a(String str, String str2) {
+        this.b = new aq();
+        this.b.a(d);
+        this.b.a().a().b = false;
+        if (this.c) {
+            this.b.a("type", "banner");
         }
-        this.b = new r(a);
-        this.b.d(true);
-        this.b.a("kz", str);
+        if (!TextUtils.isEmpty(str)) {
+            this.b.a("date", str);
+        }
         if (str2 != null) {
-            this.b.a("st_type", str2);
+            this.b.a(o.a, str2);
         }
-        switch (i) {
-            case 0:
-            case 2:
-                this.b.a("pid", str3);
-                this.b.a("pn", String.valueOf(i2));
-                break;
-            case 1:
-                this.b.a("spid", str3);
-                break;
+        String i = this.b.i();
+        if (i != null) {
+            try {
+                this.a = new JSONObject(i).optInt("error_code");
+            } catch (JSONException e) {
+            }
         }
-        return this.b.j();
+        return i;
     }
 
-    public boolean a() {
-        if (this.b == null) {
-            return false;
+    public void a() {
+        if (this.b != null) {
+            this.b.g();
         }
-        return this.b.c();
     }
 
-    public String b() {
-        if (this.b == null) {
-            return null;
+    public boolean b() {
+        if (this.b != null) {
+            return this.b.a().b().b();
         }
-        return this.b.g();
+        return false;
     }
 
     public int c() {
-        if (this.b == null) {
-            return 0;
-        }
-        return this.b.e();
-    }
-
-    public void d() {
-        if (this.b != null) {
-            this.b.h();
-        }
-        this.b = null;
+        return this.a;
     }
 }

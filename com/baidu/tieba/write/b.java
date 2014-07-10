@@ -1,43 +1,44 @@
 package com.baidu.tieba.write;
 
-import android.widget.ListView;
-import com.baidu.tieba.data.MetaData;
+import android.widget.ProgressBar;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
-class b implements Runnable {
+class b extends CustomMessageListener {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(AtListActivity atListActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(AtListActivity atListActivity, int i) {
+        super(i);
         this.a = atListActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ListView listView;
-        ListView listView2;
-        k kVar;
-        k kVar2;
-        k kVar3;
-        try {
-            listView = this.a.d;
-            int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.a.d;
-            int lastVisiblePosition = listView2.getLastVisiblePosition();
-            for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
-                kVar = this.a.k;
-                if (i < kVar.getCount()) {
-                    kVar2 = this.a.k;
-                    MetaData metaData = (MetaData) kVar2.getItem(i);
-                    if (metaData != null && metaData.getPortrait() != null) {
-                        kVar3 = this.a.k;
-                        kVar3.b().b(metaData.getPortrait(), new c(this));
-                    }
-                } else {
-                    return;
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        AtomicBoolean atomicBoolean;
+        ProgressBar progressBar;
+        j jVar;
+        if (customResponsedMessage instanceof GetContactListResponsedMessage) {
+            atomicBoolean = this.a.m;
+            atomicBoolean.set(false);
+            progressBar = this.a.k;
+            progressBar.setVisibility(8);
+            List<com.baidu.tbadk.coreExtra.relationship.b> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
+            if (contacts == null) {
+                contacts = new LinkedList<>();
             }
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
+            this.a.a = contacts;
+            jVar = this.a.i;
+            if (jVar != null) {
+                this.a.c();
+            }
         }
     }
 }

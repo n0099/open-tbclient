@@ -1,22 +1,29 @@
 package com.baidu.tbadk.widget.richText;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
+class l extends com.baidu.adp.lib.resourceLoader.c<com.baidu.adp.widget.a.a> {
     final /* synthetic */ TbRichTextView a;
-    private final /* synthetic */ c b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(TbRichTextView tbRichTextView, c cVar) {
+    public l(TbRichTextView tbRichTextView) {
         this.a = tbRichTextView;
-        this.b = cVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if ((this.a.getContext() instanceof h) && this.b.d() != null) {
-            ((h) this.a.getContext()).b(this.a.getContext(), this.b.d().toString());
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.resourceLoader.c
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        this.a.a(aVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.resourceLoader.c
+    public void a(Object... objArr) {
+        super.a(objArr);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.resourceLoader.c
+    public void a(String str) {
+        super.a(str);
     }
 }

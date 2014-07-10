@@ -1,122 +1,188 @@
 package android.support.v4.content;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.v4.util.TimeUtils;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes.dex */
-public abstract class AsyncTaskLoader extends c {
-    volatile a a;
-    volatile a b;
-    long c;
-    long d;
-    Handler e;
+public abstract class AsyncTaskLoader<D> extends Loader<D> {
+    static final boolean DEBUG = false;
+    static final String TAG = "AsyncTaskLoader";
+    volatile AsyncTaskLoader<D>.LoadTask mCancellingTask;
+    Handler mHandler;
+    long mLastLoadCompleteTime;
+    volatile AsyncTaskLoader<D>.LoadTask mTask;
+    long mUpdateThrottle;
 
-    public abstract Object d();
+    public abstract D loadInBackground();
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.content.c
-    public void a() {
-        super.a();
-        b();
-        this.a = new a(this);
-        c();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public final class LoadTask extends ModernAsyncTask<Void, Void, D> implements Runnable {
+        private CountDownLatch done = new CountDownLatch(1);
+        D result;
+        boolean waiting;
+
+        LoadTask() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.support.v4.content.ModernAsyncTask
+        public D doInBackground(Void... voidArr) {
+            this.result = (D) AsyncTaskLoader.this.onLoadInBackground();
+            return this.result;
+        }
+
+        @Override // android.support.v4.content.ModernAsyncTask
+        protected void onPostExecute(D d) {
+            try {
+                AsyncTaskLoader.this.dispatchOnLoadComplete(this, d);
+            } finally {
+                this.done.countDown();
+            }
+        }
+
+        @Override // android.support.v4.content.ModernAsyncTask
+        protected void onCancelled() {
+            try {
+                AsyncTaskLoader.this.dispatchOnCancelled(this, this.result);
+            } finally {
+                this.done.countDown();
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            this.waiting = false;
+            AsyncTaskLoader.this.executePendingTask();
+        }
     }
 
-    public boolean b() {
+    public AsyncTaskLoader(Context context) {
+        super(context);
+        this.mLastLoadCompleteTime = -10000L;
+    }
+
+    public void setUpdateThrottle(long j) {
+        this.mUpdateThrottle = j;
+        if (j != 0) {
+            this.mHandler = new Handler();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v4.content.Loader
+    public void onForceLoad() {
+        super.onForceLoad();
+        cancelLoad();
+        this.mTask = new LoadTask();
+        executePendingTask();
+    }
+
+    public boolean cancelLoad() {
         boolean z = false;
-        if (this.a != null) {
-            if (this.b != null) {
-                if (this.a.b) {
-                    this.a.b = false;
-                    this.e.removeCallbacks(this.a);
+        if (this.mTask != null) {
+            if (this.mCancellingTask != null) {
+                if (this.mTask.waiting) {
+                    this.mTask.waiting = false;
+                    this.mHandler.removeCallbacks(this.mTask);
                 }
-                this.a = null;
-            } else if (this.a.b) {
-                this.a.b = false;
-                this.e.removeCallbacks(this.a);
-                this.a = null;
+                this.mTask = null;
+            } else if (this.mTask.waiting) {
+                this.mTask.waiting = false;
+                this.mHandler.removeCallbacks(this.mTask);
+                this.mTask = null;
             } else {
-                z = this.a.a(false);
+                z = this.mTask.cancel(false);
                 if (z) {
-                    this.b = this.a;
+                    this.mCancellingTask = this.mTask;
                 }
-                this.a = null;
+                this.mTask = null;
             }
         }
         return z;
     }
 
-    public void a(Object obj) {
+    public void onCanceled(D d) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c() {
-        if (this.b == null && this.a != null) {
-            if (this.a.b) {
-                this.a.b = false;
-                this.e.removeCallbacks(this.a);
+    void executePendingTask() {
+        if (this.mCancellingTask == null && this.mTask != null) {
+            if (this.mTask.waiting) {
+                this.mTask.waiting = false;
+                this.mHandler.removeCallbacks(this.mTask);
             }
-            if (this.c > 0 && SystemClock.uptimeMillis() < this.d + this.c) {
-                this.a.b = true;
-                this.e.postAtTime(this.a, this.d + this.c);
+            if (this.mUpdateThrottle > 0 && SystemClock.uptimeMillis() < this.mLastLoadCompleteTime + this.mUpdateThrottle) {
+                this.mTask.waiting = true;
+                this.mHandler.postAtTime(this.mTask, this.mLastLoadCompleteTime + this.mUpdateThrottle);
                 return;
             }
-            this.a.a(ModernAsyncTask.d, (Object[]) null);
+            this.mTask.executeOnExecutor(ModernAsyncTask.THREAD_POOL_EXECUTOR, null);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(a aVar, Object obj) {
-        a(obj);
-        if (this.b == aVar) {
-            this.d = SystemClock.uptimeMillis();
-            this.b = null;
-            c();
+    void dispatchOnCancelled(AsyncTaskLoader<D>.LoadTask loadTask, D d) {
+        onCanceled(d);
+        if (this.mCancellingTask == loadTask) {
+            this.mLastLoadCompleteTime = SystemClock.uptimeMillis();
+            this.mCancellingTask = null;
+            executePendingTask();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(a aVar, Object obj) {
-        if (this.a != aVar) {
-            a(aVar, obj);
-        } else if (l()) {
-            a(obj);
+    void dispatchOnLoadComplete(AsyncTaskLoader<D>.LoadTask loadTask, D d) {
+        if (this.mTask != loadTask) {
+            dispatchOnCancelled(loadTask, d);
+        } else if (isAbandoned()) {
+            onCanceled(d);
         } else {
-            this.d = SystemClock.uptimeMillis();
-            this.a = null;
-            b(obj);
+            this.mLastLoadCompleteTime = SystemClock.uptimeMillis();
+            this.mTask = null;
+            deliverResult(d);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Object e() {
-        return d();
+    protected D onLoadInBackground() {
+        return loadInBackground();
     }
 
-    @Override // android.support.v4.content.c
-    public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        super.a(str, fileDescriptor, printWriter, strArr);
-        if (this.a != null) {
+    public void waitForLoader() {
+        AsyncTaskLoader<D>.LoadTask loadTask = this.mTask;
+        if (loadTask != null) {
+            try {
+                ((LoadTask) loadTask).done.await();
+            } catch (InterruptedException e) {
+            }
+        }
+    }
+
+    @Override // android.support.v4.content.Loader
+    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        super.dump(str, fileDescriptor, printWriter, strArr);
+        if (this.mTask != null) {
             printWriter.print(str);
             printWriter.print("mTask=");
-            printWriter.print(this.a);
+            printWriter.print(this.mTask);
             printWriter.print(" waiting=");
-            printWriter.println(this.a.b);
+            printWriter.println(this.mTask.waiting);
         }
-        if (this.b != null) {
+        if (this.mCancellingTask != null) {
             printWriter.print(str);
             printWriter.print("mCancellingTask=");
-            printWriter.print(this.b);
+            printWriter.print(this.mCancellingTask);
             printWriter.print(" waiting=");
-            printWriter.println(this.b.b);
+            printWriter.println(this.mCancellingTask.waiting);
         }
-        if (this.c != 0) {
+        if (this.mUpdateThrottle != 0) {
             printWriter.print(str);
             printWriter.print("mUpdateThrottle=");
-            android.support.v4.b.d.a(this.c, printWriter);
+            TimeUtils.formatDuration(this.mUpdateThrottle, printWriter);
             printWriter.print(" mLastLoadCompleteTime=");
-            android.support.v4.b.d.a(this.d, SystemClock.uptimeMillis(), printWriter);
+            TimeUtils.formatDuration(this.mLastLoadCompleteTime, SystemClock.uptimeMillis(), printWriter);
             printWriter.println();
         }
     }

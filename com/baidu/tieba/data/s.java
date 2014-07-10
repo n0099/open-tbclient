@@ -1,55 +1,34 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.UserData;
 import java.util.ArrayList;
 import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes.dex */
 public class s {
-    private ArrayList a = new ArrayList();
-    private HashMap b = null;
+    private int c;
+    private HashMap<String, MetaData> a = new HashMap<>();
+    private List<FriendFeedThreadData> b = new ArrayList();
+    private List<UserData> d = new ArrayList();
 
-    public void a(JSONObject jSONObject, boolean z) {
-        if (jSONObject != null) {
-            if (z) {
-                try {
-                    if (this.b == null) {
-                        this.b = new HashMap();
-                    }
-                } catch (Exception e) {
-                    com.baidu.tieba.util.z.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
-                    return;
-                }
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    MetaData metaData = new MetaData();
-                    metaData.parserJson(optJSONArray.getJSONObject(i));
-                    if (metaData.getName_show() != null) {
-                        this.a.add(metaData);
-                        if (z) {
-                            this.b.put(metaData.getName_show(), metaData.getPortrait());
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str), true);
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
-        }
-    }
-
-    public ArrayList a() {
+    public HashMap<String, MetaData> a() {
         return this.a;
     }
 
-    public HashMap b() {
+    public List<FriendFeedThreadData> b() {
         return this.b;
+    }
+
+    public void a(List<FriendFeedThreadData> list) {
+        this.b = list;
+    }
+
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public boolean c() {
+        return this.c == 1;
     }
 }

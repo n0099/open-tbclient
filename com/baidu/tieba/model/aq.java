@@ -1,65 +1,63 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.model.MoreModel;
-import com.baidu.tieba.util.DatabaseService;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
-public class aq extends BdAsyncTask {
-    final /* synthetic */ MoreModel a;
+public class aq extends com.baidu.adp.base.e {
+    public static int a = 10;
+    private as b = null;
+    private WriteData c = null;
+    private ar d = null;
+    private boolean e = false;
 
-    private aq(MoreModel moreModel) {
-        this.a = moreModel;
+    public void a(boolean z) {
+        this.e = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aq(MoreModel moreModel, aq aqVar) {
-        this(moreModel);
+    public void a(ar arVar) {
+        this.d = arVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        super.a((Object) str);
-        this.a.a = null;
-        eVar = this.a.mLoadDataCallBack;
-        if (eVar != null) {
-            eVar2 = this.a.mLoadDataCallBack;
-            eVar2.a(MoreModel.TaskType.DO_CLEAR);
+    public void a(WriteData writeData) {
+        this.c = writeData;
+    }
+
+    public WriteData a() {
+        return this.c;
+    }
+
+    public boolean b() {
+        if (this.c == null) {
+            return false;
         }
+        if (this.b == null) {
+            this.b = new as(this);
+            this.b.execute(new Integer[0]);
+        }
+        return true;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        DatabaseService.z();
-        try {
-            File[] listFiles = new File(com.baidu.tieba.util.m.a + "/tieba/image/").listFiles();
-            if (listFiles != null) {
-                for (File file : listFiles) {
-                    if (!file.delete()) {
-                        com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", "list[i].delete error");
-                    }
-                }
-            }
-            File[] listFiles2 = new File(com.baidu.tieba.util.m.a + "/tieba/hotspot/").listFiles();
-            if (listFiles2 != null) {
-                for (File file2 : listFiles2) {
-                    if (!file2.delete()) {
-                        com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", "list[i].delete error");
-                    }
-                }
-                return null;
-            }
-            return null;
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
-            return null;
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        if (this.b != null && !this.b.isCancelled()) {
+            this.b.cancel();
+            return false;
         }
+        return false;
+    }
+
+    public boolean c() {
+        if (this.c == null) {
+            return true;
+        }
+        int size = (!this.c.getIsBaobao() || this.c.getBaobaoImagesInfo() == null) ? 0 : this.c.getBaobaoImagesInfo().size() + 0;
+        if (this.c.getWriteImagesInfo() != null) {
+            size += this.c.getWriteImagesInfo().size();
+        }
+        return size <= a;
     }
 }

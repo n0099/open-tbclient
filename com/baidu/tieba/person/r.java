@@ -1,36 +1,25 @@
 package com.baidu.tieba.person;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ProgressBar;
-import com.baidu.tieba.view.EditHeadImageView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ int c;
+public class r implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(EditHeadActivity editHeadActivity, String str, int i) {
-        this.a = editHeadActivity;
-        this.b = str;
-        this.c = i;
+    public r(q qVar) {
+        this.a = qVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ProgressBar progressBar;
-        EditHeadImageView editHeadImageView;
-        Bitmap bitmap;
-        progressBar = this.a.n;
-        if (progressBar.getVisibility() != 0) {
-            editHeadImageView = this.a.e;
-            bitmap = this.a.f;
-            editHeadImageView.a(bitmap);
-            this.a.C = false;
-            this.a.d(this.b);
-            this.a.y = this.c;
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        HeadImageView headImageView;
+        HeadImageView headImageView2;
+        if (aVar != null) {
+            headImageView = this.a.j;
+            headImageView.setImageResource(0);
+            headImageView2 = this.a.j;
+            aVar.a(headImageView2);
         }
     }
 }

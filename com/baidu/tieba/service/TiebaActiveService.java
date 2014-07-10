@@ -2,87 +2,90 @@ package com.baidu.tieba.service;
 
 import android.app.Service;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.util.z;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.z;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 public class TiebaActiveService extends Service {
-    private m a = null;
-    private int b = 0;
-    private Handler c = new Handler();
-    private Runnable d = new l(this);
+    private static final int ACTIVE_FAIL = 1;
+    private static final int ACTIVE_SUCC = 2;
+    private p mActiveTask = null;
+    private int mHaveRetry = 0;
+    private Handler mHandler = new Handler();
+    private Runnable mRunnable = new o(this);
 
-    private String a() {
-        return getSharedPreferences("settings", 0).getString("channel_id", null);
+    private String getChannelByShare() {
+        return com.baidu.tbadk.core.sharedPref.b.a().a("channel_id", (String) null);
     }
 
-    private void a(String str) {
+    private void saveChannelToShare(String str) {
         if (str != null && str.length() > 0) {
-            SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
-            edit.putString("channel_id", str);
-            edit.commit();
+            com.baidu.tbadk.core.sharedPref.b.a().b("channel_id", str);
         }
     }
 
-    private String b() {
+    private String getChannelyFile() {
         String str = null;
         try {
-            File c = com.baidu.tieba.util.m.c("channel.dat");
-            if (c != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(c));
+            File d = z.d(TbConfig.CHANNEL_FILE);
+            if (d != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(d));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
                 }
             }
         } catch (Exception e) {
-            z.b(getClass().getName(), "getFromByFile", e.getMessage());
+            BdLog.e(e.getMessage());
+            TiebaStatic.file(e, "TiebaActiveService.getChannelyFile");
         }
         return str;
     }
 
-    private void b(String str) {
+    private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File e = com.baidu.tieba.util.m.e("channel.dat");
-                if (e != null) {
-                    FileWriter fileWriter = new FileWriter(e);
+                File f = z.f(TbConfig.CHANNEL_FILE);
+                if (f != null) {
+                    FileWriter fileWriter = new FileWriter(f);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
                 }
-            } catch (Exception e2) {
-                z.b(getClass().getName(), "saveFromToFile", e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                TiebaStatic.file(e, "TiebaActiveService.saveChannelToFile");
             }
         }
     }
 
-    private boolean c() {
+    private boolean isActived() {
         try {
-            String a = a();
-            if (a == null) {
-                String b = b();
-                if (b != null && b.length() > 0) {
-                    a(b);
+            String channelByShare = getChannelByShare();
+            if (channelByShare == null) {
+                String channelyFile = getChannelyFile();
+                if (channelyFile != null && channelyFile.length() > 0) {
+                    saveChannelToShare(channelyFile);
                 } else {
                     if ("aishide" != 0 && "aishide".length() > 0) {
-                        a("aishide");
-                        b("aishide");
+                        saveChannelToShare("aishide");
+                        saveChannelToFile("aishide");
                     }
                     return false;
                 }
             } else {
-                b(a);
+                saveChannelToFile(channelByShare);
             }
         } catch (Exception e) {
-            z.b(getClass().getName(), "getActiveState", e.getMessage());
+            BdLog.e(e.getMessage());
         }
-        z.a(getClass().getName(), "getActiveState", "channel = ");
         return true;
     }
 
@@ -94,29 +97,29 @@ public class TiebaActiveService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (c() && getSharedPreferences("settings", 0).getInt("active", 2) != 1) {
+        if (isActived() && com.baidu.tbadk.core.sharedPref.b.a().a("active", 2) != 1) {
             stopSelf();
         } else {
-            d();
+            sendActive();
         }
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.a != null) {
-            this.a.cancel();
+        if (this.mActiveTask != null) {
+            this.mActiveTask.cancel();
         }
-        this.b = 11;
-        this.c.removeCallbacks(this.d);
+        this.mHaveRetry = 11;
+        this.mHandler.removeCallbacks(this.mRunnable);
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        if (this.a != null) {
-            this.a.cancel();
+    public void sendActive() {
+        if (this.mActiveTask != null) {
+            this.mActiveTask.cancel();
         }
-        this.a = new m(this, null);
-        this.a.execute(new String[0]);
+        this.mActiveTask = new p(this, null);
+        this.mActiveTask.execute(new String[0]);
     }
 }

@@ -1,19 +1,17 @@
 package com.baidu.tieba.write;
-
-import android.location.Address;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements com.baidu.tieba.av {
-    final /* synthetic */ WriteActivity a;
+class ak implements Runnable {
+    final /* synthetic */ aj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(WriteActivity writeActivity) {
-        this.a = writeActivity;
+    public ak(aj ajVar) {
+        this.a = ajVar;
     }
 
-    @Override // com.baidu.tieba.av
-    public void a(int i, String str, Address address) {
-        this.a.H = address;
-        this.a.d();
+    @Override // java.lang.Runnable
+    public void run() {
+        WriteActivity writeActivity;
+        writeActivity = this.a.a;
+        writeActivity.finish();
     }
 }

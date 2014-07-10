@@ -1,64 +1,32 @@
 package com.baidu.tieba.model;
-
-import com.baidu.tieba.data.AntiData;
-import com.baidu.tieba.data.UserData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class al {
-    private ArrayList c;
-    private int d = 0;
-    private UserData a = new UserData();
-    private AntiData b = new AntiData();
+    private com.baidu.tieba.data.ai a = null;
+    private boolean d = true;
+    private boolean c = true;
+    private boolean e = false;
+    private boolean g = false;
+    private boolean h = false;
+    private boolean i = false;
+    private boolean j = false;
+    private String b = null;
+    private boolean f = false;
+    private String k = null;
+    private String l = null;
+    private String m = null;
+    private int n = 1;
+    private int o = 1;
+    private boolean p = false;
 
-    public al() {
-        this.c = null;
-        this.c = new ArrayList();
-        a(0);
+    public void a(com.baidu.tieba.data.ai aiVar) {
+        this.a = aiVar;
     }
 
-    public UserData a() {
+    public com.baidu.tieba.data.ai a() {
         return this.a;
     }
 
-    public AntiData b() {
-        return this.b;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b("LoginModel", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        try {
-            this.a.parserJson(jSONObject.optJSONObject("user"));
-            this.b.parserJson(jSONObject.optJSONObject("anti"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.c.add(optJSONArray.optString(i, null));
-                }
-            }
-            a(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b("LoginModel", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public ArrayList c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int d() {
+    public boolean b() {
         return this.d;
     }
 }

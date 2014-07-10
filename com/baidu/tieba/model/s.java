@@ -1,11 +1,11 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class s {
-    public boolean a;
-    public String b;
-    final /* synthetic */ o c;
+    public com.baidu.tieba.data.q a;
+    public int b;
+    final /* synthetic */ q c;
 
-    public s(o oVar) {
-        this.c = oVar;
+    public s(q qVar) {
+        this.c = qVar;
     }
 }

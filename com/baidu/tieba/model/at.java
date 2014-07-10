@@ -1,80 +1,29 @@
 package com.baidu.tieba.model;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.tieba.data.PersonChangeData;
 /* loaded from: classes.dex */
-public class at {
-    private ArrayList a = new ArrayList();
+public class at extends com.baidu.adp.base.e {
+    PersonChangeData a;
 
-    public ArrayList a() {
+    public at(PersonChangeData personChangeData) {
+        this.a = null;
+        this.a = personChangeData;
+        if (this.a == null) {
+            this.a = new PersonChangeData();
+        }
+    }
+
+    public PersonChangeData a() {
         return this.a;
     }
 
-    public void a(ArrayList arrayList) {
-        this.a = arrayList;
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
     }
 
-    public void a(String str) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < this.a.size()) {
-                if (((au) this.a.get(i2)).a() == 1 && ((au) this.a.get(i2)).d().equals(str)) {
-                    ((au) this.a.get(i2)).a(true);
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
-    }
-
-    public void b(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b("NearbyForumListModel", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        au auVar = null;
-        try {
-            int size = this.a.size();
-            if (size > 0) {
-                auVar = (au) this.a.get(size - 1);
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                int i = 0;
-                au auVar2 = auVar;
-                while (i < optJSONArray.length()) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    au auVar3 = new au(this);
-                    auVar3.c = optJSONObject.optString("fname");
-                    auVar3.b = optJSONObject.optString("distance");
-                    auVar3.d = optJSONObject.optString("fid");
-                    auVar3.e = optJSONObject.optInt("heat", 0);
-                    auVar3.g = optJSONObject.optInt("member_count", 0);
-                    auVar3.h = optJSONObject.optInt("post_num", 0);
-                    auVar3.f = optJSONObject.optInt("is_like", 0) == 1;
-                    auVar3.a = 1;
-                    if (auVar2 != null && auVar3.b.equals(auVar2.b)) {
-                        this.a.add(auVar3);
-                    } else {
-                        au auVar4 = new au(this);
-                        auVar4.b = auVar3.b;
-                        auVar4.a = 0;
-                        this.a.add(auVar4);
-                        this.a.add(auVar3);
-                    }
-                    i++;
-                    auVar2 = auVar3;
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b("NearbyForumListModel", "parserJson", "error = " + e.getMessage());
-        }
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

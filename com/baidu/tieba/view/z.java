@@ -1,23 +1,31 @@
 package com.baidu.tieba.view;
 
+import android.app.Activity;
 import android.view.View;
-import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class z implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ImagePbPagerAdapter a;
-    private final /* synthetic */ com.baidu.tieba.pb.ah b;
+class z implements View.OnClickListener {
+    final /* synthetic */ SearchBoxView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ah ahVar) {
-        this.a = imagePbPagerAdapter;
-        this.b = ahVar;
+    public z(SearchBoxView searchBoxView) {
+        this.a = searchBoxView;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        if (this.b == null || !this.b.b() || j != this.b.getCount() - 1) {
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        String str;
+        Activity activity2;
+        if (view.getId() == com.baidu.tieba.v.search_bg_layout) {
+            activity = this.a.a;
+            str = this.a.b;
+            TiebaStatic.eventStat(activity, str, "click", 1, new Object[0]);
+            MessageManager messageManager = MessageManager.getInstance();
+            activity2 = this.a.a;
+            messageManager.sendMessage(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(activity2)));
         }
-        this.a.a(this.b.d(), this.b.e().c(), 10, this.b);
     }
 }

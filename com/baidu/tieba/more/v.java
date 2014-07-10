@@ -1,23 +1,23 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tieba.TiebaApplication;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-class v implements com.baidu.adp.widget.BdSwitchView.c {
-    final /* synthetic */ BrowseSettingActivity a;
+class v extends BroadcastReceiver {
+    final /* synthetic */ MoreActivity this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public v(BrowseSettingActivity browseSettingActivity) {
-        this.a = browseSettingActivity;
+    private v(MoreActivity moreActivity) {
+        this.this$0 = moreActivity;
     }
 
-    @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (switchState == BdSwitchView.SwitchState.ON) {
-            TiebaApplication.f().a((Boolean) true);
-        } else {
-            TiebaApplication.f().a((Boolean) false);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ v(MoreActivity moreActivity, v vVar) {
+        this(moreActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        MoreActivity.a(this.this$0).c();
     }
 }

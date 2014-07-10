@@ -1,108 +1,88 @@
 package com.baidu.tieba.square;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.R;
-import com.baidu.tieba.util.x;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.AutoSkinActivity;
 /* loaded from: classes.dex */
-public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
-    private ProgressBar j;
-    private m k;
-    private l l;
-    private ImageView m = null;
-    private String n;
-    private String o;
-    private String p;
+public class BarFolderSecondDirActivity extends AutoSkinActivity {
+    private ProgressBar h;
+    private l i;
+    private k j;
+    private String k;
+    private String l;
+    private String m;
 
-    public static void a(Activity activity, String str, String str2, String str3) {
-        Intent intent = new Intent(activity, BarFolderSecondDirActivity.class);
-        intent.putExtra("menuName", str);
-        intent.putExtra("menuType", str2);
-        intent.putExtra("menuId", str3);
-        activity.startActivity(intent);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(com.baidu.tieba.w.bar_folder_dir_activity);
+        this.k = getIntent().getStringExtra("menuName");
+        this.l = getIntent().getStringExtra("menuType");
+        this.m = getIntent().getStringExtra("menuId");
+        c();
+        e();
+        d();
+        TiebaStatic.eventStat(this, "category_2", "enter");
+    }
+
+    protected void c() {
+        this.i = new l(this, new o(), this.k, this.m);
+        this.e.setAdapter((ListAdapter) this.i);
+        this.d.setText(this.k);
+        this.h = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.bar_folder_dir_activity);
-        this.n = getIntent().getStringExtra("menuName");
-        this.o = getIntent().getStringExtra("menuType");
-        this.p = getIntent().getStringExtra("menuId");
-        d();
-        n();
-        m();
-        StatService.onEvent(this, "category_2", "enter");
+    @Override // com.baidu.tieba.AutoSkinActivity, com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.AutoSkinActivity
+    public void b() {
+        if (this.j != null) {
+            this.j.cancel();
+        }
+        a(null, true);
+        super.b();
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
+    public void onClick(View view) {
     }
 
     protected void d() {
-        this.k = new m(this, new p(), this.n, this.p);
-        this.e.setAdapter((ListAdapter) this.k);
-        this.d.setText(this.n);
-        this.j = (ProgressBar) findViewById(R.id.progress);
-        this.m = (ImageView) findViewById(R.id.home);
+        this.e.setOnItemClickListener(new j(this));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.a, com.baidu.tieba.g
-    public void a(int i) {
-        super.a(i);
-        x.d(this.m, i);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.a
-    public void c() {
-        if (this.l != null) {
-            this.l.cancel();
-        }
-        a((p) null, true);
-        super.c();
-    }
-
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.m) {
-            MainTabActivity.a(this);
-        }
-    }
-
-    protected void m() {
-        this.e.setOnItemClickListener(new k(this));
-        this.m.setOnClickListener(this);
-    }
-
-    protected void n() {
-        this.j.setVisibility(0);
+    protected void e() {
+        this.h.setVisibility(0);
         this.e.setEnabled(false);
-        if (this.l != null) {
-            this.l.cancel();
+        if (this.j != null) {
+            this.j.cancel();
         }
-        this.l = new l(this, null);
-        this.l.setPriority(3);
-        this.l.execute("");
+        this.j = new k(this, null);
+        this.j.setPriority(3);
+        this.j.execute("");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(p pVar, boolean z) {
-        this.j.setVisibility(8);
+    public void a(o oVar, boolean z) {
+        this.h.setVisibility(8);
         this.e.setEnabled(true);
-        this.l = null;
+        this.j = null;
         if (!z) {
-            if (pVar.a()) {
-                a(pVar.b());
+            if (oVar.b()) {
+                showToast(oVar.c());
                 return;
             }
             this.e.setVisibility(4);
-            this.k.notifyDataSetChanged();
+            this.i.notifyDataSetChanged();
             this.e.setVisibility(0);
         }
     }

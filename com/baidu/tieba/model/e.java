@@ -1,99 +1,51 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.pushservice.PushConstants;
-import java.util.List;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.message.ResponseBubbleListMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends BdAsyncTask {
-    final /* synthetic */ c a;
-    private volatile com.baidu.tieba.util.r b;
-
-    private e(c cVar) {
-        this.a = cVar;
-        this.b = null;
-    }
+public class e extends HttpMessageListener {
+    final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(c cVar, e eVar) {
-        this(cVar);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(d dVar, int i) {
+        super(i);
+        this.a = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Boolean a(Object... objArr) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        List list;
-        String str5;
-        List list2;
-        try {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/comlist");
-            this.b.d(true);
-            com.baidu.tieba.util.r rVar = this.b;
-            str = this.a.b;
-            rVar.a(PushConstants.EXTRA_USER_ID, str);
-            com.baidu.tieba.util.r rVar2 = this.b;
-            str2 = this.a.d;
-            rVar2.a("pn", str2);
-            com.baidu.tieba.util.r rVar3 = this.b;
-            str3 = this.a.e;
-            rVar3.a("rn", str3);
-            String j = this.b.j();
-            if (this.b.c() && j != null) {
-                this.a.b(j);
-                if (this.a.c() == 0) {
-                    str4 = this.a.d;
-                    if (str4.equals("1")) {
-                        list = this.a.a;
-                        if (list != null) {
-                            com.baidu.tieba.data.a.f a = com.baidu.tieba.data.a.f.a();
-                            str5 = this.a.b;
-                            list2 = this.a.a;
-                            a.a(str5, list2);
-                        }
-                    }
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        g gVar;
+        g gVar2;
+        g gVar3;
+        g gVar4;
+        g gVar5;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001500) {
+            gVar = this.a.a;
+            if (gVar != null) {
+                int statusCode = httpResponsedMessage.getStatusCode();
+                int error = httpResponsedMessage.getError();
+                if (!(httpResponsedMessage instanceof ResponseBubbleListMessage)) {
+                    gVar5 = this.a.a;
+                    gVar5.b(null);
+                    return;
                 }
-                return true;
+                ResponseBubbleListMessage responseBubbleListMessage = (ResponseBubbleListMessage) httpResponsedMessage;
+                if (statusCode != 200 || error != 0) {
+                    gVar2 = this.a.a;
+                    gVar2.b(responseBubbleListMessage.getBubbleListData());
+                } else if (responseBubbleListMessage.getBubbleListData() == null) {
+                    gVar4 = this.a.a;
+                    gVar4.b(responseBubbleListMessage.getBubbleListData());
+                } else {
+                    gVar3 = this.a.a;
+                    gVar3.a(responseBubbleListMessage.getBubbleListData());
+                }
             }
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
         }
-        return false;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        this.a.i = null;
-        if (bool.booleanValue()) {
-            eVar = this.a.mLoadDataCallBack;
-            eVar.a(true);
-            return;
-        }
-        this.a.mErrorCode = this.b.e();
-        this.a.mErrorString = this.b.g();
-        eVar2 = this.a.mLoadDataCallBack;
-        eVar2.a(false);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.a.e eVar;
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.h();
-            this.b = null;
-        }
-        this.a.a = null;
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(false);
     }
 }

@@ -1,30 +1,23 @@
 package com.baidu.tieba.person;
 
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bf implements View.OnClickListener {
-    final /* synthetic */ PersonLbsActivity a;
+public class bf implements View.OnTouchListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(PersonLbsActivity personLbsActivity) {
-        this.a = personLbsActivity;
+    public bf(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ImageView imageView;
-        ImageView imageView2;
-        imageView = this.a.e;
-        if (view != imageView) {
-            imageView2 = this.a.f;
-            if (view != imageView2) {
-                return;
-            }
-            this.a.b(0, 1);
-            return;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.a.t = true;
+            return false;
         }
-        this.a.finish();
+        return false;
     }
 }

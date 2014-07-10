@@ -1,20 +1,25 @@
 package com.baidu.tieba.person;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba extends com.baidu.adp.a.e {
-    final /* synthetic */ PersonInfoActivity a;
+public class ba implements com.baidu.tbadk.core.view.h {
+    final /* synthetic */ az a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(PersonInfoActivity personInfoActivity) {
-        this.a = personInfoActivity;
+    public ba(az azVar) {
+        this.a = azVar;
     }
 
-    @Override // com.baidu.adp.a.e
-    public void a(Object obj) {
-        if (this.a.b.getLoadDataMode() == 1 || this.a.b.getLoadDataMode() == 2) {
-            this.a.a.a(((Boolean) obj).booleanValue(), this.a.b, this.a.b.getLoadDataMode());
-        } else if (this.a.b.getLoadDataMode() == 3) {
-            this.a.a.a(((Boolean) obj).booleanValue(), this.a.b);
-        }
+    @Override // com.baidu.tbadk.core.view.h
+    public void a() {
+        com.baidu.tbadk.core.view.i iVar;
+        iVar = this.a.n;
+        iVar.dismiss();
+    }
+
+    @Override // com.baidu.tbadk.core.view.h
+    public void b() {
+        com.baidu.tbadk.core.view.i iVar;
+        iVar = this.a.n;
+        iVar.dismiss();
     }
 }

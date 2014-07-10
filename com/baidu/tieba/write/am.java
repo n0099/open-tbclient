@@ -1,10 +1,10 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
-import android.view.View;
+import android.text.Editable;
+import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am implements View.OnClickListener {
+public class am implements TextWatcher {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,11 +12,16 @@ public class am implements View.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Bitmap bitmap;
-        WriteActivity writeActivity = this.a;
-        bitmap = this.a.y;
-        WriteImageActivity.a(writeActivity, bitmap, 1200003);
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.a.z();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

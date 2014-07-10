@@ -1,45 +1,41 @@
 package com.baidu.tieba.square;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.aa;
-import com.baidu.tieba.util.ad;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.bx;
+import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
     View.OnClickListener a = new d(this);
     private Activity b;
-    private final f c;
-    private com.baidu.tieba.util.a d;
-    private final boolean e;
+    private ArrayList<w> c;
 
     public c(Activity activity, f fVar, boolean z) {
         this.b = activity;
-        this.c = fVar;
-        this.e = z;
-        this.d = new com.baidu.tieba.util.a(activity);
-        int a = aa.a(activity, 54.0f);
-        this.d.a(a, a);
+        this.c = fVar.d();
     }
 
-    public f a() {
+    public ArrayList<w> a() {
         return this.c;
+    }
+
+    public void a(ArrayList<w> arrayList) {
+        this.c = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList c = this.c.c();
-        if (c == null) {
+        if (this.c == null) {
             return 0;
         }
-        return (c.size() * 2) - 1;
+        return (this.c.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
@@ -47,26 +43,20 @@ public class c extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            ad.b(view);
+            bx.b(view);
         }
-        ad.a(view);
+        bx.a(view);
         if (itemViewType != 3) {
-            int as = TiebaApplication.f().as();
-            View findViewById = view.findViewById(R.id.container);
-            View findViewById2 = view.findViewById(R.id.item_up);
-            View findViewById3 = view.findViewById(R.id.item_down);
-            if (itemViewType == 0) {
-                findViewById2.setVisibility(0);
-                findViewById3.setVisibility(8);
-            } else if (itemViewType == 2) {
-                findViewById2.setVisibility(8);
-                findViewById3.setVisibility(0);
-            } else {
-                findViewById2.setVisibility(8);
-                findViewById3.setVisibility(8);
+            int skinType = TbadkApplication.m252getInst().getSkinType();
+            View findViewById = view.findViewById(com.baidu.tieba.v.container);
+            bx.a(findViewById, 1, skinType);
+            if (itemViewType == 2) {
+                if (getCount() > 1) {
+                    findViewById.setVisibility(0);
+                }
+            } else if (itemViewType == 1) {
+                a(viewGroup, (e) view.getTag(), i);
             }
-            ad.a(findViewById, itemViewType, as);
-            a(viewGroup, (j) view.getTag(), i);
         }
         return view;
     }
@@ -74,44 +64,41 @@ public class c extends BaseAdapter {
     private View a(ViewGroup viewGroup, int i) {
         LayoutInflater from = LayoutInflater.from(this.b);
         if (i == 3) {
-            return from.inflate(R.layout.bar_home_list_line, viewGroup, false);
+            return from.inflate(com.baidu.tieba.w.bar_home_list_line, viewGroup, false);
         }
-        View inflate = from.inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
+        if (i == 2) {
+            return from.inflate(com.baidu.tieba.w.bar_folder_first_dir_bottom_item, viewGroup, false);
+        }
+        View inflate = from.inflate(com.baidu.tieba.w.bar_folder_first_dir_item, viewGroup, false);
         inflate.setOnClickListener(this.a);
-        j jVar = new j();
-        jVar.a = (ImageView) inflate.findViewById(R.id.portrait);
-        jVar.b = (TextView) inflate.findViewById(R.id.name);
-        jVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
-        inflate.setTag(jVar);
+        e eVar = new e();
+        eVar.a = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.portrait);
+        eVar.b = (TextView) inflate.findViewById(com.baidu.tieba.v.name);
+        eVar.c = (BestStringsFitTextView) inflate.findViewById(com.baidu.tieba.v.description);
+        inflate.setTag(eVar);
         return inflate;
     }
 
-    private void a(ViewGroup viewGroup, j jVar, int i) {
-        q qVar = (q) this.c.c().get(i / 2);
-        jVar.d = qVar;
-        jVar.b.setText(qVar.b);
-        if (qVar.e != null) {
-            String[] strArr = new String[qVar.e.size()];
-            for (int i2 = 0; i2 < qVar.e.size(); i2++) {
-                strArr[i2] = ((q) qVar.e.get(i2)).b;
+    private void a(ViewGroup viewGroup, e eVar, int i) {
+        w wVar = this.c.get(i / 2);
+        eVar.d = wVar;
+        eVar.b.setText(wVar.b);
+        if (wVar.e != null) {
+            eVar.c.setVisibility(0);
+            String[] strArr = new String[wVar.e.size()];
+            for (int i2 = 0; i2 < wVar.e.size(); i2++) {
+                strArr[i2] = wVar.e.get(i2).b;
             }
-            jVar.c.setTextArray(strArr);
-            jVar.c.setVisibility(0);
+            eVar.c.setTextArray(strArr);
         } else {
-            jVar.c.setVisibility(8);
+            eVar.c.setVisibility(8);
         }
-        if (qVar.d != null) {
-            com.baidu.adp.widget.a.b c = this.d.c(qVar.d);
-            if (c != null) {
-                c.b(jVar.a);
-                return;
-            }
-            jVar.a.setImageResource(R.drawable.icon_all_categories);
-            jVar.a.setTag(qVar.d);
-            this.d.a(qVar.d, new e(this, viewGroup));
-            return;
+        if (wVar.d != null) {
+            int a = com.baidu.adp.lib.util.j.a((Context) this.b, 45.0f);
+            eVar.a.setImageBitmap(null);
+            eVar.a.setTag(wVar.d);
+            eVar.a.a(wVar.d, 10, a, a, false);
         }
-        jVar.a.setImageResource(R.drawable.icon_all_categories);
     }
 
     @Override // android.widget.Adapter
@@ -131,11 +118,11 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (i == 0) {
-            return 0;
-        }
         if (i == getCount() - 1) {
             return 2;
+        }
+        if (i < 0) {
+            i *= -1;
         }
         return i % 2 == 1 ? 3 : 1;
     }

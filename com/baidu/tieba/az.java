@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.data.CombineDownload;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az implements ap {
+public class az implements View.OnClickListener {
     final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,21 +11,18 @@ public class az implements ap {
         this.a = updateDialog;
     }
 
-    @Override // com.baidu.tieba.ap
-    public void a(boolean z) {
-        CombineDownload combineDownload;
-        if (z) {
-            UpdateDialog updateDialog = this.a;
-            combineDownload = this.a.b;
-            updateDialog.c(combineDownload.getAppUrl());
-        } else {
-            this.a.b();
-        }
-        this.a.finish();
-    }
-
-    @Override // com.baidu.tieba.ap
-    public void a() {
-        this.a.finish();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ac acVar;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        acVar = this.a.h;
+        acVar.a();
+        UpdateDialog updateDialog = this.a;
+        z = this.a.b;
+        z2 = this.a.c;
+        z3 = this.a.d;
+        updateDialog.a(z, z2, z3);
     }
 }

@@ -1,11 +1,13 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.model.bn;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.util.AntiHelper;
 /* loaded from: classes.dex */
-public class l extends com.baidu.adp.a.e {
+class l implements com.baidu.tieba.model.ar {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,77 +15,64 @@ public class l extends com.baidu.adp.a.e {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.adp.a.e
-    public void a(Object obj) {
-        boolean z;
-        bn bnVar;
-        az azVar;
-        bn bnVar2;
-        String str;
-        String str2;
-        az azVar2;
-        az azVar3;
-        String str3;
-        String str4;
-        az azVar4;
-        az azVar5;
-        az azVar6;
-        az azVar7;
-        az azVar8;
-        if (obj == null || !(obj instanceof com.baidu.tieba.data.av)) {
-            z = false;
-        } else {
-            this.a.a.a((com.baidu.tieba.data.av) obj);
-            TiebaApplication.f().c(this.a.a.a().b());
-            z = true;
-        }
-        if (!z) {
-            bnVar = this.a.x;
-            if (bnVar.getErrorCode() == 160002) {
-                str = this.a.A;
-                if (str == "normal_page") {
-                    azVar3 = this.a.m;
-                    azVar3.f(1);
+    @Override // com.baidu.tieba.model.ar
+    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.f fVar, WriteData writeData, AntiData antiData) {
+        ct ctVar;
+        ct ctVar2;
+        WriteImagesInfo writeImagesInfo;
+        ct ctVar3;
+        com.baidu.tieba.model.aq aqVar;
+        com.baidu.tieba.model.aq aqVar2;
+        com.baidu.tieba.model.aq aqVar3;
+        WriteImagesInfo writeImagesInfo2;
+        WriteData writeData2;
+        com.baidu.tbadk.core.data.m mVar;
+        com.baidu.tbadk.core.data.m mVar2;
+        com.baidu.tbadk.core.data.m mVar3;
+        ct ctVar4;
+        this.a.L();
+        ctVar = this.a.v;
+        ctVar.g(z);
+        ctVar2 = this.a.v;
+        writeImagesInfo = this.a.X;
+        ctVar2.a(writeImagesInfo, true);
+        if (z) {
+            ctVar3 = this.a.v;
+            ctVar3.T();
+            com.baidu.tieba.pb.main.bq.a().f();
+            aqVar = this.a.ac;
+            aqVar.a();
+            aqVar2 = this.a.ac;
+            aqVar2.a((WriteData) null);
+            aqVar3 = this.a.ac;
+            aqVar3.a(false);
+            writeImagesInfo2 = this.a.Y;
+            writeImagesInfo2.clear();
+            writeData2 = this.a.Z;
+            writeData2.setIsBaobao(false);
+            this.a.a(antiData, str);
+            mVar = this.a.ab;
+            com.baidu.tieba.util.m.b(mVar.q(), (WriteData) null);
+            mVar2 = this.a.ab;
+            mVar3 = this.a.ab;
+            mVar2.b(mVar3.s() + 1);
+            ctVar4 = this.a.v;
+            ctVar4.y();
+        } else if (fVar != null && writeData != null && fVar.b() != null) {
+            if (!AntiHelper.c(antiData)) {
+                writeData.setVcodeMD5(fVar.a());
+                writeData.setVcodeUrl(fVar.b());
+                if (fVar.c().equals("4")) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.at(this.a, 12006, writeData, false)));
+                    return;
                 } else {
-                    str2 = this.a.A;
-                    if (str2 == "frs_page") {
-                        azVar2 = this.a.m;
-                        azVar2.e(1);
-                    }
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.bu(this.a, writeData, 12006)));
+                    return;
                 }
             }
-            azVar = this.a.m;
-            bnVar2 = this.a.x;
-            azVar.a(bnVar2.getErrorString());
-            return;
-        }
-        str3 = this.a.A;
-        if (str3 == "normal_page") {
-            azVar8 = this.a.m;
-            azVar8.b(this.a.a.a().g().b(), this.a.a.a().g().f());
+            this.a.a(antiData, str);
         } else {
-            str4 = this.a.A;
-            if (str4 == "frs_page") {
-                azVar4 = this.a.m;
-                azVar4.a(this.a.a.a().g().b(), this.a.a.a().g().f());
-            }
+            this.a.a(antiData, str);
         }
-        StringBuilder sb = new StringBuilder(100);
-        azVar5 = this.a.m;
-        if (!azVar5.p()) {
-            sb.append(this.a.getString(R.string.sign_success));
-            sb.append("!\n");
-            sb.append(String.format(this.a.getString(R.string.sign_user), Integer.valueOf(((com.baidu.tieba.data.av) obj).c())));
-            azVar7 = this.a.m;
-            azVar7.a(sb.toString());
-            return;
-        }
-        sb.append(this.a.getString(R.string.sign_success));
-        sb.append(",");
-        sb.append(String.format(this.a.getString(R.string.sign_point), Integer.valueOf(((com.baidu.tieba.data.av) obj).f())));
-        sb.append("!\n");
-        sb.append(String.format(this.a.getString(R.string.sign_user), Integer.valueOf(((com.baidu.tieba.data.av) obj).c())));
-        azVar6 = this.a.m;
-        azVar6.a(sb.toString());
     }
 }

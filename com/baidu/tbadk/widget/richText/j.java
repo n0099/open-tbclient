@@ -1,44 +1,37 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-class j implements com.baidu.adp.lib.a.c {
-    private final /* synthetic */ Context a;
+public interface j {
+    ListView a();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(Context context) {
-        this.a = context;
-    }
+    void a(Context context, String str);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.a.c
-    /* renamed from: b */
-    public TextView a() {
-        com.baidu.adp.lib.c.b.c("pool make TextView");
-        return new com.baidu.tbadk.widget.a(this.a);
-    }
+    void a(Context context, String str, String str2);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.a.c
-    public void a(TextView textView) {
-        textView.setText((CharSequence) null);
-        textView.setTag(null);
-        textView.setBackgroundResource(0);
-    }
+    void b(Context context, String str);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.a.c
-    public TextView b(TextView textView) {
-        return textView;
-    }
+    void c(Context context, String str);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.a.c
-    public TextView c(TextView textView) {
-        textView.setText((CharSequence) null);
-        textView.setTag(null);
-        textView.setBackgroundResource(0);
-        return textView;
-    }
+    void d(Context context, String str);
+
+    int e();
+
+    void e(Context context, String str);
+
+    com.baidu.adp.lib.d.b<ImageView> f();
+
+    com.baidu.adp.lib.d.b<TextView> g();
+
+    com.baidu.adp.lib.d.b<GifView> h();
+
+    com.baidu.adp.lib.d.b<View> i();
+
+    com.baidu.adp.lib.d.b<LinearLayout> j();
 }

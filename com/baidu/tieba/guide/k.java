@@ -1,0 +1,28 @@
+package com.baidu.tieba.guide;
+
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class k extends Handler {
+    final /* synthetic */ j a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(j jVar) {
+        this.a = jVar;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        switch (message.what) {
+            case 0:
+                this.a.a();
+                return;
+            case 1:
+                this.a.g();
+                return;
+            default:
+                return;
+        }
+    }
+}

@@ -1,24 +1,41 @@
 package com.baidu.tieba.flist;
 
-import android.widget.ImageView;
+import android.os.Handler;
 /* loaded from: classes.dex */
-class g implements com.baidu.tbadk.a.d {
-    final /* synthetic */ f a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ ImageView c;
+class g implements e {
+    final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar, String str, ImageView imageView) {
-        this.a = fVar;
-        this.b = str;
-        this.c = imageView;
+    public g(ForumListActivity forumListActivity) {
+        this.a = forumListActivity;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        if (str.equals(this.b)) {
-            this.c.setTag(this.b);
-            this.c.invalidate();
+    @Override // com.baidu.tieba.flist.e
+    public void a(boolean z, int i, com.baidu.tieba.square.w wVar, String str, boolean z2) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        if (!z || i != 0) {
+            if (!z2) {
+                this.a.c.d();
+                return;
+            }
+            return;
         }
+        wVar.e.add(0, wVar);
+        if (this.a.c.y != null) {
+            this.a.c.y.a(wVar);
+            this.a.a(String.valueOf(this.a.c.h.getText()));
+            this.a.c.y.notifyDataSetChanged();
+        }
+        handler = this.a.e;
+        runnable = this.a.P;
+        handler.removeCallbacks(runnable);
+        handler2 = this.a.e;
+        runnable2 = this.a.P;
+        handler2.post(runnable2);
+        this.a.c.z.setClickable(true);
+        this.a.c.z.setOnClickListener(this.a);
     }
 }

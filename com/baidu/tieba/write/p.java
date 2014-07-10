@@ -1,51 +1,57 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import com.baidu.tieba.R;
-import com.baidu.tieba.model.WriteModel;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity a;
+public class p extends BdAsyncTask<Object, o, o> {
+    final /* synthetic */ o a;
+    private com.baidu.tbadk.core.util.aq b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(VcodeActivity vcodeActivity) {
-        this.a = vcodeActivity;
+    private p(o oVar) {
+        this.a = oVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        InputMethodManager inputMethodManager;
-        EditText editText;
-        DialogInterface.OnCancelListener onCancelListener;
-        s sVar;
-        WriteModel writeModel;
-        s sVar2;
-        s sVar3;
-        s sVar4;
-        VcodeActivity vcodeActivity = this.a;
-        inputMethodManager = this.a.k;
-        editText = this.a.e;
-        vcodeActivity.a(inputMethodManager, editText);
-        VcodeActivity vcodeActivity2 = this.a;
-        String string = this.a.getString(R.string.sending);
-        onCancelListener = this.a.l;
-        vcodeActivity2.a(string, onCancelListener);
-        sVar = this.a.g;
-        if (sVar != null) {
-            sVar4 = this.a.g;
-            sVar4.cancel();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ p(o oVar, p pVar) {
+        this(oVar);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public o doInBackground(Object... objArr) {
+        String obj = objArr[0].toString();
+        this.b = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
+        this.b.a("kw", obj);
+        String i = this.b.i();
+        if (!this.b.a().b().b()) {
+            return null;
         }
-        VcodeActivity vcodeActivity3 = this.a;
-        VcodeActivity vcodeActivity4 = this.a;
-        writeModel = this.a.a;
-        vcodeActivity3.g = new s(vcodeActivity4, writeModel);
-        sVar2 = this.a.g;
-        sVar2.setPriority(3);
-        sVar3 = this.a.g;
-        sVar3.execute(0);
+        o oVar = new o();
+        oVar.b(i);
+        return oVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(o oVar) {
+        com.baidu.adp.base.h hVar;
+        super.onPostExecute(oVar);
+        this.a.a = null;
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(oVar);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        this.a.a = null;
+        if (this.b != null) {
+            this.b.g();
+        }
     }
 }

@@ -1,48 +1,43 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.pb.NewPbActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 /* loaded from: classes.dex */
-public class r implements DialogInterface.OnClickListener {
+class r implements AbsListView.OnScrollListener {
     final /* synthetic */ FrsActivity a;
-    private final /* synthetic */ com.baidu.tieba.data.ba b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(FrsActivity frsActivity, com.baidu.tieba.data.ba baVar) {
+    public r(FrsActivity frsActivity) {
         this.a = frsActivity;
-        this.b = baVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        String str;
-        boolean z;
-        az azVar;
-        switch (i) {
-            case 0:
-                str = this.a.k;
-                if (str != null) {
-                    FrsActivity frsActivity = this.a;
-                    com.baidu.tieba.data.ba baVar = this.b;
-                    z = this.a.l;
-                    NewPbActivity.a(frsActivity, baVar, null, 1800003, true, false, z);
-                    break;
-                }
-                break;
-            case 1:
-                this.a.c(this.b);
-                break;
-            case 2:
-                this.a.d(this.b);
-                break;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        ct ctVar;
+        ct ctVar2;
+        ct ctVar3;
+        ct ctVar4;
+        AdapterView.OnItemLongClickListener onItemLongClickListener;
+        ct ctVar5;
+        if (i == 0) {
+            ctVar4 = this.a.v;
+            onItemLongClickListener = this.a.aq;
+            ctVar4.a(onItemLongClickListener);
+            ctVar5 = this.a.v;
+            ctVar5.e(false);
+            this.a.S = false;
+            return;
         }
-        com.baidu.tieba.util.w ay = TiebaApplication.f().ay();
-        if (ay != null && !ay.b(this.b.a())) {
-            ay.a(this.b.a());
-        }
-        azVar = this.a.m;
-        azVar.k();
+        ctVar = this.a.v;
+        ctVar.a((AdapterView.OnItemLongClickListener) null);
+        ctVar2 = this.a.v;
+        ctVar2.e(true);
+        this.a.S = true;
+        ctVar3 = this.a.v;
+        ctVar3.T();
     }
 }

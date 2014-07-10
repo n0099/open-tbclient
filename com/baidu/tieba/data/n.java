@@ -1,46 +1,53 @@
 package com.baidu.tieba.data;
 
-import com.baidu.android.pushservice.PushConstants;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private int a = -1;
-    private String b = null;
-    private String c = null;
+    private String a;
+    private String b;
+    private String c;
+    private boolean d;
+    private ArrayList<m> e = new ArrayList<>();
 
-    public int a() {
+    public String a() {
         return this.a;
-    }
-
-    public void a(int i) {
-        this.a = i;
     }
 
     public String b() {
         return this.b;
     }
 
-    public void a(String str) {
-        this.b = str;
+    public ArrayList<m> c() {
+        return this.e;
     }
 
-    public void b(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
-        }
+    public boolean d() {
+        return this.d;
+    }
+
+    public void a(boolean z) {
+        this.d = z;
     }
 
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("error_code", 0);
-                this.b = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
-                this.c = jSONObject.optString("error_data");
-            } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
+        try {
+            this.b = jSONObject.optString("publish_time");
+            this.a = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.TOTAL);
+            this.c = jSONObject.optString("update_time");
+            JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    m mVar = new m();
+                    mVar.a(optJSONArray.getJSONObject(i));
+                    this.e.add(mVar);
+                }
             }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

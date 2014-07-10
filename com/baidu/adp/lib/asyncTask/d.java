@@ -18,10 +18,10 @@ public class d extends Handler {
         c cVar = (c) message.obj;
         switch (message.what) {
             case 1:
-                cVar.a.d(cVar.b[0]);
+                cVar.a.finish(cVar.b[0]);
                 return;
             case 2:
-                cVar.a.b(cVar.b);
+                cVar.a.onProgressUpdate(cVar.b);
                 return;
             default:
                 return;

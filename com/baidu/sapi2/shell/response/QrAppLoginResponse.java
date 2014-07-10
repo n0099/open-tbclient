@@ -1,0 +1,7 @@
+package com.baidu.sapi2.shell.response;
+/* loaded from: classes.dex */
+public class QrAppLoginResponse extends SapiResponse {
+    public String city;
+    public String country;
+    public String province;
+}

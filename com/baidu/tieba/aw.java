@@ -1,21 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.mapapi.MKGeneralListener;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aw implements MKGeneralListener {
-    @Override // com.baidu.mapapi.MKGeneralListener
-    public void onGetNetworkState(int i) {
-        if (i == 2) {
-            com.baidu.tieba.util.z.a(getClass().getName(), "onGetNetworkState", "ERROR_NETWORK_CONNECT");
-        } else if (i == 3) {
-            com.baidu.tieba.util.z.a(getClass().getName(), "onGetNetworkState", "ERROR_NETWORK_DATA");
-        }
+public class aw implements DialogInterface.OnCancelListener {
+    final /* synthetic */ UpdateDialog a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aw(UpdateDialog updateDialog) {
+        this.a = updateDialog;
     }
 
-    @Override // com.baidu.mapapi.MKGeneralListener
-    public void onGetPermissionState(int i) {
-        if (i == 300) {
-            com.baidu.tieba.util.z.a(getClass().getName(), "onGetPermissionState", "bd_map key error");
-        }
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        ac acVar;
+        acVar = this.a.h;
+        acVar.dismiss();
+        this.a.finish();
     }
 }

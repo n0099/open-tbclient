@@ -1,23 +1,30 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class av implements com.baidu.adp.widget.ScrollView.n {
-    final /* synthetic */ FrsImageActivity a;
+class av extends CustomMessageListener {
+    final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public av(FrsActivity frsActivity, int i) {
+        super(i);
+        this.a = frsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.n
-    public void a() {
-        if (TiebaApplication.f().s()) {
-            StatService.onEvent(this.a, "frs_pulldown", "frsclick", 1);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ct ctVar;
+        ct ctVar2;
+        if (customResponsedMessage != null) {
+            ctVar = this.a.v;
+            if (ctVar != null) {
+                ctVar2 = this.a.v;
+                ctVar2.R();
+            }
         }
-        this.a.t = null;
-        this.a.s = true;
-        this.a.e(1);
     }
 }

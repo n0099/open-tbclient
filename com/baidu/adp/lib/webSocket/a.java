@@ -1,8 +1,11 @@
 package com.baidu.adp.lib.webSocket;
 
+import android.support.v4.view.MotionEventCompat;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
 public class a {
@@ -54,7 +57,7 @@ public class a {
         return bArr;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [512=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [571=4] */
     private static byte[] a(byte[] bArr, int i, int i2, byte[] bArr2, int i3, int i4) {
         byte[] b2 = b(i4);
         int i5 = (i2 > 2 ? (bArr[i + 2] << 24) >>> 24 : 0) | (i2 > 1 ? (bArr[i + 1] << 24) >>> 16 : 0) | (i2 > 0 ? (bArr[i] << 24) >>> 8 : 0);
@@ -105,7 +108,6 @@ public class a {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [928=4, 929=4, 930=4] */
     public static byte[] b(byte[] bArr, int i, int i2, int i3) {
         b bVar;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -123,7 +125,84 @@ public class a {
         if (i + i2 > bArr.length) {
             throw new IllegalArgumentException(String.format("Cannot have offset of %d and length of %d with array of length %d", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(bArr.length)));
         }
-        if ((i3 & 2) == 0) {
+        if ((i3 & 2) != 0) {
+            try {
+                byteArrayOutputStream = new ByteArrayOutputStream();
+                try {
+                    bVar = new b(byteArrayOutputStream, i3 | 1);
+                    try {
+                        GZIPOutputStream gZIPOutputStream2 = new GZIPOutputStream(bVar);
+                        try {
+                            gZIPOutputStream2.write(bArr, i, i2);
+                            gZIPOutputStream2.close();
+                            try {
+                                gZIPOutputStream2.close();
+                            } catch (Exception e2) {
+                            }
+                            try {
+                                bVar.close();
+                            } catch (Exception e3) {
+                            }
+                            try {
+                                byteArrayOutputStream.close();
+                            } catch (Exception e4) {
+                            }
+                            return byteArrayOutputStream.toByteArray();
+                        } catch (IOException e5) {
+                            e = e5;
+                            gZIPOutputStream = gZIPOutputStream2;
+                            byteArrayOutputStream2 = byteArrayOutputStream;
+                            try {
+                                throw e;
+                            } catch (Throwable th) {
+                                th = th;
+                                byteArrayOutputStream = byteArrayOutputStream2;
+                                try {
+                                    gZIPOutputStream.close();
+                                } catch (Exception e6) {
+                                }
+                                try {
+                                    bVar.close();
+                                } catch (Exception e7) {
+                                }
+                                try {
+                                    byteArrayOutputStream.close();
+                                } catch (Exception e8) {
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            gZIPOutputStream = gZIPOutputStream2;
+                            gZIPOutputStream.close();
+                            bVar.close();
+                            byteArrayOutputStream.close();
+                            throw th;
+                        }
+                    } catch (IOException e9) {
+                        e = e9;
+                        byteArrayOutputStream2 = byteArrayOutputStream;
+                    } catch (Throwable th3) {
+                        th = th3;
+                    }
+                } catch (IOException e10) {
+                    e = e10;
+                    bVar = null;
+                    byteArrayOutputStream2 = byteArrayOutputStream;
+                } catch (Throwable th4) {
+                    th = th4;
+                    bVar = null;
+                }
+            } catch (IOException e11) {
+                e = e11;
+                bVar = null;
+                byteArrayOutputStream2 = null;
+            } catch (Throwable th5) {
+                th = th5;
+                bVar = null;
+                byteArrayOutputStream = null;
+            }
+        } else {
             boolean z = (i3 & 8) != 0;
             int i4 = (i2 % 3 > 0 ? 4 : 0) + ((i2 / 3) * 4);
             if (z) {
@@ -157,85 +236,9 @@ public class a {
             }
             return bArr2;
         }
-        try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                bVar = new b(byteArrayOutputStream, i3 | 1);
-                try {
-                    GZIPOutputStream gZIPOutputStream2 = new GZIPOutputStream(bVar);
-                    try {
-                        gZIPOutputStream2.write(bArr, i, i2);
-                        gZIPOutputStream2.close();
-                        try {
-                            gZIPOutputStream2.close();
-                        } catch (Exception e2) {
-                        }
-                        try {
-                            bVar.close();
-                        } catch (Exception e3) {
-                        }
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (Exception e4) {
-                        }
-                        return byteArrayOutputStream.toByteArray();
-                    } catch (IOException e5) {
-                        e = e5;
-                        gZIPOutputStream = gZIPOutputStream2;
-                        byteArrayOutputStream2 = byteArrayOutputStream;
-                        try {
-                            throw e;
-                        } catch (Throwable th) {
-                            th = th;
-                            byteArrayOutputStream = byteArrayOutputStream2;
-                            try {
-                                gZIPOutputStream.close();
-                            } catch (Exception e6) {
-                            }
-                            try {
-                                bVar.close();
-                            } catch (Exception e7) {
-                            }
-                            try {
-                                byteArrayOutputStream.close();
-                            } catch (Exception e8) {
-                            }
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        gZIPOutputStream = gZIPOutputStream2;
-                        gZIPOutputStream.close();
-                        bVar.close();
-                        byteArrayOutputStream.close();
-                        throw th;
-                    }
-                } catch (IOException e9) {
-                    e = e9;
-                    byteArrayOutputStream2 = byteArrayOutputStream;
-                } catch (Throwable th3) {
-                    th = th3;
-                }
-            } catch (IOException e10) {
-                e = e10;
-                bVar = null;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-            } catch (Throwable th4) {
-                th = th4;
-                bVar = null;
-            }
-        } catch (IOException e11) {
-            e = e11;
-            bVar = null;
-            byteArrayOutputStream2 = null;
-        } catch (Throwable th5) {
-            th = th5;
-            bVar = null;
-            byteArrayOutputStream = null;
-        }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1087=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1201=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public static int b(byte[] bArr, int i, byte[] bArr2, int i2, int i3) {
         if (bArr == null) {
@@ -266,5 +269,189 @@ public class a {
             bArr2[i2 + 2] = (byte) i5;
             return 3;
         }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x006a, code lost:
+        r2 = new byte[r0];
+        java.lang.System.arraycopy(r6, 0, r2, 0, r0);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:42:?, code lost:
+        return r2;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static byte[] c(byte[] bArr, int i, int i2, int i3) {
+        int i4;
+        int i5;
+        int i6;
+        if (bArr == null) {
+            throw new NullPointerException("Cannot decode null source array.");
+        }
+        if (i < 0 || i + i2 > bArr.length) {
+            throw new IllegalArgumentException(String.format("Source array with length %d cannot have offset of %d and process %d bytes.", Integer.valueOf(bArr.length), Integer.valueOf(i), Integer.valueOf(i2)));
+        }
+        if (i2 == 0) {
+            return new byte[0];
+        }
+        if (i2 < 4) {
+            throw new IllegalArgumentException("Base64-encoded string must have at least four characters, but length specified was " + i2);
+        }
+        byte[] c2 = c(i3);
+        byte[] bArr2 = new byte[(i2 * 3) / 4];
+        byte[] bArr3 = new byte[4];
+        int i7 = i;
+        int i8 = 0;
+        int i9 = 0;
+        while (true) {
+            if (i7 >= i + i2) {
+                i4 = i9;
+                break;
+            }
+            byte b2 = c2[bArr[i7] & 255];
+            if (b2 >= -5) {
+                if (b2 >= -1) {
+                    i5 = i8 + 1;
+                    bArr3[i8] = bArr[i7];
+                    if (i5 > 3) {
+                        i4 = b(bArr3, 0, bArr2, i9, i3) + i9;
+                        if (bArr[i7] == 61) {
+                            break;
+                        }
+                        i6 = i4;
+                        i5 = 0;
+                    } else {
+                        i6 = i9;
+                    }
+                } else {
+                    i5 = i8;
+                    i6 = i9;
+                }
+                i7++;
+                i9 = i6;
+                i8 = i5;
+            } else {
+                throw new IOException(String.format("Bad Base64 input character decimal %d in array position %d", Integer.valueOf(bArr[i7] & 255), Integer.valueOf(i7)));
+            }
+        }
+    }
+
+    public static byte[] a(String str) {
+        return a(str, 0);
+    }
+
+    public static byte[] a(String str, int i) {
+        byte[] bytes;
+        ByteArrayOutputStream byteArrayOutputStream;
+        ByteArrayInputStream byteArrayInputStream;
+        ByteArrayInputStream byteArrayInputStream2;
+        GZIPInputStream gZIPInputStream = null;
+        if (str == null) {
+            throw new NullPointerException("Input string was null.");
+        }
+        try {
+            bytes = str.getBytes("US-ASCII");
+        } catch (UnsupportedEncodingException e2) {
+            bytes = str.getBytes();
+        }
+        byte[] c2 = c(bytes, 0, bytes.length, i);
+        boolean z = (i & 4) != 0;
+        if (c2 != null && c2.length >= 4 && !z && 35615 == ((c2[0] & 255) | ((c2[1] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK))) {
+            byte[] bArr = new byte[2048];
+            try {
+                byteArrayOutputStream = new ByteArrayOutputStream();
+                try {
+                    byteArrayInputStream = new ByteArrayInputStream(c2);
+                    try {
+                        GZIPInputStream gZIPInputStream2 = new GZIPInputStream(byteArrayInputStream);
+                        while (true) {
+                            try {
+                                int read = gZIPInputStream2.read(bArr);
+                                if (read < 0) {
+                                    break;
+                                }
+                                byteArrayOutputStream.write(bArr, 0, read);
+                            } catch (IOException e3) {
+                                e = e3;
+                                gZIPInputStream = gZIPInputStream2;
+                                byteArrayInputStream2 = byteArrayInputStream;
+                                try {
+                                    e.printStackTrace();
+                                    try {
+                                        byteArrayOutputStream.close();
+                                    } catch (Exception e4) {
+                                    }
+                                    try {
+                                        gZIPInputStream.close();
+                                    } catch (Exception e5) {
+                                    }
+                                    try {
+                                        byteArrayInputStream2.close();
+                                    } catch (Exception e6) {
+                                    }
+                                    return c2;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    byteArrayInputStream = byteArrayInputStream2;
+                                    try {
+                                        byteArrayOutputStream.close();
+                                    } catch (Exception e7) {
+                                    }
+                                    try {
+                                        gZIPInputStream.close();
+                                    } catch (Exception e8) {
+                                    }
+                                    try {
+                                        byteArrayInputStream.close();
+                                    } catch (Exception e9) {
+                                    }
+                                    throw th;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                gZIPInputStream = gZIPInputStream2;
+                                byteArrayOutputStream.close();
+                                gZIPInputStream.close();
+                                byteArrayInputStream.close();
+                                throw th;
+                            }
+                        }
+                        c2 = byteArrayOutputStream.toByteArray();
+                        try {
+                            byteArrayOutputStream.close();
+                        } catch (Exception e10) {
+                        }
+                        try {
+                            gZIPInputStream2.close();
+                        } catch (Exception e11) {
+                        }
+                        try {
+                            byteArrayInputStream.close();
+                        } catch (Exception e12) {
+                        }
+                    } catch (IOException e13) {
+                        e = e13;
+                        byteArrayInputStream2 = byteArrayInputStream;
+                    } catch (Throwable th3) {
+                        th = th3;
+                    }
+                } catch (IOException e14) {
+                    e = e14;
+                    byteArrayInputStream2 = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    byteArrayInputStream = null;
+                }
+            } catch (IOException e15) {
+                e = e15;
+                byteArrayOutputStream = null;
+                byteArrayInputStream2 = null;
+            } catch (Throwable th5) {
+                th = th5;
+                byteArrayOutputStream = null;
+                byteArrayInputStream = null;
+            }
+        }
+        return c2;
     }
 }

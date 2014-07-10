@@ -1,47 +1,23 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.FrsPage.Group;
 /* loaded from: classes.dex */
 public class c {
-    private UserData a;
-    private ArrayList b;
+    private int a = 0;
+    private int b = 0;
 
-    public c() {
-        this.a = null;
-        this.b = null;
-        this.a = new UserData();
-        this.b = new ArrayList(3);
-    }
-
-    public UserData a() {
+    public int a() {
         return this.a;
     }
 
-    public ArrayList b() {
+    public int b() {
         return this.b;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        try {
-            this.a.parserJson(jSONObject.optJSONObject("user"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.b.add(optJSONArray.optString(i, null));
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
+    public void a(Group group) {
+        if (group != null) {
+            this.a = group.group_count.intValue();
+            this.b = group.hide_recommend_group.intValue();
         }
     }
 }

@@ -1,19 +1,21 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.util.NetWorkCore;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class x implements Runnable {
-    final /* synthetic */ w a;
-    private final /* synthetic */ String b;
-
+class x extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar, String str) {
-        this.a = wVar;
-        this.b = str;
+    public x(int i) {
+        super(i);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        new NetWorkCore(this.b).m();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2012111) {
+            FrsActivity.b = true;
+            FrsActivity.c = true;
+        }
     }
 }

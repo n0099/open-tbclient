@@ -1,25 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.tbadk.coreExtra.view.EllipsizingTextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+public class an implements View.OnClickListener {
+    final /* synthetic */ ak a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public an(ak akVar) {
+        this.a = akVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        Dialog dialog;
-        Dialog dialog2;
-        dialog = this.a.G;
-        if (dialog != null) {
-            dialog2 = this.a.G;
-            dialog2.dismiss();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EllipsizingTextView ellipsizingTextView;
+        ellipsizingTextView = this.a.f;
+        ellipsizingTextView.setMaxLines(1000);
     }
 }

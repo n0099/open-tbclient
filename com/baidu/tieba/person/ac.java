@@ -1,17 +1,20 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
 /* loaded from: classes.dex */
-class ac implements View.OnClickListener {
-    final /* synthetic */ MyPostActivity a;
+class ac implements com.baidu.adp.widget.ListView.d {
+    final /* synthetic */ u a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(MyPostActivity myPostActivity) {
-        this.a = myPostActivity;
+    public ac(u uVar) {
+        this.a = uVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.c();
+    @Override // com.baidu.adp.widget.ListView.d
+    public void a(boolean z) {
+        PersonBarActivity f;
+        f = this.a.f();
+        if (f == null) {
+            return;
+        }
+        this.a.g();
     }
 }

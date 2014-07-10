@@ -1,31 +1,19 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class g implements View.OnFocusChangeListener {
-    final /* synthetic */ ActivationActivity a;
+class g implements DialogInterface.OnCancelListener {
+    final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(ActivationActivity activationActivity) {
-        this.a = activationActivity;
+    public g(f fVar) {
+        this.a = fVar;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        EditText editText;
-        ImageView imageView;
-        ImageView imageView2;
-        editText = this.a.k;
-        if (view == editText) {
-            if (z) {
-                imageView2 = this.a.d;
-                imageView2.setVisibility(0);
-                return;
-            }
-            imageView = this.a.d;
-            imageView.setVisibility(8);
-        }
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        AccountActivity accountActivity;
+        accountActivity = this.a.a;
+        accountActivity.destroyWaitingDialog();
     }
 }

@@ -1,0 +1,46 @@
+package protobuf.GetMaskInfo;
+
+import com.squareup.wire.Message;
+import com.squareup.wire.ProtoField;
+/* loaded from: classes.dex */
+public final class DataReq extends Message {
+    public static final Integer DEFAULT_TYPE = 0;
+    @ProtoField(tag = 1, type = Message.Datatype.UINT32)
+    public final Integer type;
+
+    /* synthetic */ DataReq(Builder builder, boolean z, DataReq dataReq) {
+        this(builder, z);
+    }
+
+    private DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            if (builder.type == null) {
+                this.type = DEFAULT_TYPE;
+                return;
+            } else {
+                this.type = builder.type;
+                return;
+            }
+        }
+        this.type = builder.type;
+    }
+
+    /* loaded from: classes.dex */
+    public final class Builder extends Message.Builder<DataReq> {
+        public Integer type;
+
+        public Builder(DataReq dataReq) {
+            super(dataReq);
+            if (dataReq != null) {
+                this.type = dataReq.type;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.squareup.wire.Message.Builder
+        public DataReq build(boolean z) {
+            return new DataReq(this, z, null);
+        }
+    }
+}

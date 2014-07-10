@@ -1,81 +1,9 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.DatabaseService;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.data.SetBubbleResultData;
 /* loaded from: classes.dex */
-public class h extends BdAsyncTask {
-    final /* synthetic */ f a;
-    private com.baidu.tieba.util.r b = null;
-    private String c = null;
-    private int d;
-    private com.baidu.tieba.data.ay e;
+public interface h {
+    void a(SetBubbleResultData setBubbleResultData);
 
-    public h(f fVar, int i) {
-        this.a = fVar;
-        this.d = 0;
-        this.e = null;
-        this.d = i;
-        this.e = new com.baidu.tieba.data.ay();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public f a(Boolean... boolArr) {
-        this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/post/threadstore");
-        this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.D());
-        this.b.a("offset", String.valueOf(this.d));
-        this.b.a("rn", String.valueOf(20));
-        this.c = this.b.j();
-        this.e.a(this.c);
-        f fVar = new f();
-        if (this.b.c() || this.e.a() == 0) {
-            fVar.a(this.c);
-            if (this.d == 0) {
-                DatabaseService.k(this.c);
-            }
-        } else {
-            this.c = DatabaseService.f();
-            fVar.a(this.c);
-        }
-        return fVar;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.h();
-        }
-        this.a.b = null;
-        if (this.a.a != null) {
-            this.a.a.a(0, null);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(f fVar) {
-        String g;
-        this.a.b = null;
-        this.a.f = fVar.c();
-        this.a.b(fVar.b());
-        if (this.a.a != null) {
-            if (this.b.c()) {
-                g = this.e.b();
-            } else {
-                g = this.b.g();
-            }
-            this.a.a.a(0, g);
-        }
-    }
+    void b(SetBubbleResultData setBubbleResultData);
 }

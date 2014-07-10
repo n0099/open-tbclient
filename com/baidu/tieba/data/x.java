@@ -1,6 +1,8 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.data.AntiData;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -8,16 +10,16 @@ import org.json.JSONObject;
 public class x {
     private int a;
     private int b;
-    private AntiData c;
+    private final AntiData c;
     private Context d;
-    private ArrayList e;
+    private ArrayList<am> e;
 
     public x() {
         this.a = 0;
         this.b = 0;
         this.d = null;
         this.e = null;
-        this.e = new ArrayList();
+        this.e = new ArrayList<>();
         this.c = new AntiData();
     }
 
@@ -26,12 +28,12 @@ public class x {
         this.b = 0;
         this.d = null;
         this.e = null;
-        this.e = new ArrayList();
+        this.e = new ArrayList<>();
         this.c = new AntiData();
         this.d = context;
     }
 
-    public ArrayList a() {
+    public ArrayList<am> a() {
         return this.e;
     }
 
@@ -55,7 +57,7 @@ public class x {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "paserJson", e.toString());
+            BdLog.detailException(e);
         }
     }
 
@@ -66,16 +68,16 @@ public class x {
                 int size = this.e.size() - (this.e.size() % 10);
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                    an anVar = new an();
-                    anVar.a(jSONObject2);
+                    am amVar = new am();
+                    amVar.a(jSONObject2);
                     if (this.d != null) {
-                        anVar.d(this.d);
+                        amVar.b(this.d);
                     }
                     if (size < this.e.size()) {
                         this.e.remove(size);
-                        this.e.add(size, anVar);
+                        this.e.add(size, amVar);
                     } else {
-                        this.e.add(anVar);
+                        this.e.add(amVar);
                     }
                     size++;
                 }
@@ -84,7 +86,7 @@ public class x {
             this.b = jSONObject.optInt("comment_amount", 0);
             this.c.setTbs(jSONObject.getJSONObject("tbs").optString("common"));
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "paserJson", e.toString());
+            BdLog.detailException(e);
         }
     }
 }

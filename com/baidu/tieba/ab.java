@@ -1,75 +1,42 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class ab {
-    final /* synthetic */ LabelActivity a;
-    private float b;
-    private float c;
-    private float d;
-    private float e;
-    private float f;
-    private float g;
-    private int h;
-    private int i;
-    private float j = 0.0f;
-    private long k;
-    private long l;
-
-    public ab(LabelActivity labelActivity, int i, int i2, int i3, int i4, long j) {
-        this.a = labelActivity;
-        this.d = 0.0f;
-        this.e = 0.0f;
-        this.f = 0.0f;
-        this.g = 0.0f;
-        this.h = 0;
-        this.i = 0;
-        this.k = 0L;
-        this.l = 0L;
-        this.d = i;
-        this.e = i2;
-        this.h = i3;
-        this.i = i4;
-        this.f = 0.0f;
-        this.g = 0.0f;
-        this.k = 0L;
-        this.l = j;
-        this.f = (i3 - i) / ((float) j);
-        this.g = ((i4 - i2) << 1) / ((float) (j * j));
+class ab extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ab(int i) {
+        super(i);
     }
 
-    public float a() {
-        if (this.l <= 0) {
-            return 0.0f;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            switch (customResponsedMessage.getCmd()) {
+                case 2005009:
+                    ai.c().J();
+                    return;
+                case 2005010:
+                    ai.c().K();
+                    return;
+                case 2005011:
+                    ai.c().M();
+                    return;
+                case 2005012:
+                    ai.c().N();
+                    return;
+                case 2005013:
+                    ai.c().I();
+                    return;
+                case 2005014:
+                default:
+                    return;
+                case 2005015:
+                    ai.c().L();
+                    return;
+            }
         }
-        return ((float) this.k) / ((float) this.l);
-    }
-
-    public void a(long j) {
-        this.k += j;
-        this.b = this.d + (this.f * ((float) this.k));
-        if (this.b < this.h) {
-            this.b = this.h;
-        }
-        if (this.c == this.i - 1) {
-            this.c = this.i;
-            return;
-        }
-        this.j = this.e + (((float) ((this.k * this.k) >> 1)) * this.g);
-        if (this.j > this.i) {
-            this.c = this.i - 1;
-        } else {
-            this.c = this.j;
-        }
-    }
-
-    public int b() {
-        return (int) this.b;
-    }
-
-    public int c() {
-        return (int) this.c;
-    }
-
-    public int d() {
-        return this.i;
     }
 }

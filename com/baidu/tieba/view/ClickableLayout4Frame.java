@@ -6,39 +6,32 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class ClickableLayout4Frame extends FrameLayout {
-    private long a;
-    private f b;
+    private g a;
 
     public ClickableLayout4Frame(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.b = null;
+        this.a = null;
     }
 
     public ClickableLayout4Frame(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = null;
+        this.a = null;
     }
 
     public ClickableLayout4Frame(Context context) {
         super(context);
-        this.b = null;
+        this.a = null;
     }
 
-    public void setOnkeyUpListener(f fVar) {
-        this.b = fVar;
+    public void setOnkeyUpListener(g gVar) {
+        this.a = gVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-        if (motionEvent.getAction() == 1 && this.b != null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.a < 300) {
-                this.b.b();
-            } else {
-                this.b.a();
-            }
-            this.a = currentTimeMillis;
+        if (motionEvent.getAction() == 1 && this.a != null) {
+            this.a.a();
         }
         return dispatchTouchEvent;
     }

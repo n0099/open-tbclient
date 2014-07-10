@@ -1,113 +1,81 @@
 package com.baidu.tieba.account;
 
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.data.RegistData;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.coreExtra.download.CancelDownloadMessage;
+import java.util.Iterator;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends BdAsyncTask {
-    final /* synthetic */ ActivationActivity a;
-    private com.baidu.tieba.util.r b;
+public class i extends BdAsyncTask<Object, Integer, Boolean> {
+    final /* synthetic */ AccountActivity a;
+    private AccountData b;
 
-    private i(ActivationActivity activationActivity) {
-        this.a = activationActivity;
+    public i(AccountActivity accountActivity, AccountData accountData) {
+        this.a = accountActivity;
         this.b = null;
+        this.b = accountData;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ i(ActivationActivity activationActivity, i iVar) {
-        this(activationActivity);
-    }
-
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        EditText editText;
-        RelativeLayout relativeLayout;
-        this.a.n = null;
-        progressBar = this.a.e;
-        progressBar.setVisibility(8);
-        editText = this.a.k;
-        if (editText.length() == 6) {
-            relativeLayout = this.a.l;
-            relativeLayout.setEnabled(true);
-        }
-        if (this.b != null) {
-            this.b.h();
-        }
-        super.cancel(true);
+    public void onPreExecute() {
+        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.y.account_logining), new j(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0050, code lost:
+        com.baidu.sapi2.SapiAccountManager.getInstance().validate(r0);
+     */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(String... strArr) {
-        RegistData registData;
-        boolean z = false;
+    /* renamed from: a */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Boolean doInBackground(Object... objArr) {
         try {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/getsmscode");
-            com.baidu.tieba.util.r rVar = this.b;
-            registData = this.a.r;
-            rVar.a("phonenum", registData.getPhone());
-            this.b.j();
-            if (this.b.c()) {
-                z = true;
+            Thread.sleep(1000L);
+            this.b.setIsActive(1);
+            com.baidu.tbadk.core.account.a.a(this.b);
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (!TextUtils.isEmpty(this.b.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
+                Iterator<SapiAccount> it = loginAccounts.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    SapiAccount next = it.next();
+                    if (this.b.getID().equals(next.uid)) {
+                        break;
+                    }
+                }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
+            BdLog.detailException(e);
         }
-        return Boolean.valueOf(z);
+        return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        ProgressBar progressBar;
-        EditText editText;
-        TextView textView;
-        TextView textView2;
-        RelativeLayout relativeLayout;
-        super.a((Object) bool);
-        this.a.n = null;
-        progressBar = this.a.e;
-        progressBar.setVisibility(8);
-        editText = this.a.k;
-        if (editText.length() == 6) {
-            relativeLayout = this.a.l;
-            relativeLayout.setEnabled(true);
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        TbadkApplication.setCurrentAccount(this.b, this.a.getBaseContext());
+        if (this.b != null) {
+            new k(this.a, this.b.getBDUSS()).start();
         }
-        if (bool.booleanValue()) {
-            this.a.b();
-            return;
-        }
-        String g = this.b.g();
-        if (g != null && g.length() > 0) {
-            textView = this.a.j;
-            textView.setVisibility(0);
-            textView2 = this.a.j;
-            textView2.setText(g);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        ProgressBar progressBar;
-        TextView textView;
-        TextView textView2;
-        RelativeLayout relativeLayout;
-        progressBar = this.a.e;
-        progressBar.setVisibility(0);
-        textView = this.a.j;
-        textView.setVisibility(4);
-        textView2 = this.a.j;
-        textView2.setText((CharSequence) null);
-        relativeLayout = this.a.l;
-        relativeLayout.setEnabled(false);
-        super.b();
+        this.a.closeLoadingDialog();
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
+        TbadkApplication.m252getInst().onUserChanged();
+        com.baidu.tbadk.core.b.b.a(this.a, 1, false);
+        this.a.h = null;
     }
 }

@@ -1,55 +1,79 @@
 package com.baidu.tieba.model;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.a.c {
-    private com.baidu.tieba.data.m b;
-    private k a = null;
-    private boolean c = true;
-    private l d = null;
+public class j extends BdAsyncTask<Boolean, Integer, Boolean> {
+    final /* synthetic */ i a;
+    private com.baidu.tbadk.core.util.aq b = null;
+    private String c;
+    private int d;
+    private com.baidu.tieba.data.av e;
 
-    public j() {
-        this.b = null;
-        this.b = new com.baidu.tieba.data.m();
+    public j(i iVar, String str, int i) {
+        this.a = iVar;
+        this.c = null;
+        this.d = 0;
+        this.e = null;
+        this.c = str;
+        this.d = i;
+        this.e = new com.baidu.tieba.data.av();
     }
 
-    public com.baidu.tieba.data.m a() {
-        return this.b;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(Boolean... boolArr) {
+        this.b = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/rmstore");
+        this.b.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, TbadkApplication.getCurrentAccount());
+        this.b.a("tid", this.c);
+        this.e.a(this.b.i());
+        return this.b.a().b().b() && this.e.a() == 0;
     }
 
-    public void a(l lVar) {
-        this.d = lVar;
-    }
-
-    @Override // com.baidu.adp.a.c
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.c
-    public boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
-            return false;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.g();
         }
-        return false;
+        this.a.d = null;
+        if (this.a.a != null) {
+            this.a.a.callback(2, false, null);
+        }
     }
 
-    public boolean a(boolean z) {
-        this.c = z;
-        if (this.a != null) {
-            return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Boolean bool) {
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        int i;
+        String str = null;
+        this.a.d = null;
+        if (bool.booleanValue()) {
+            int i2 = this.d;
+            arrayList = this.a.e;
+            if (i2 < arrayList.size()) {
+                arrayList2 = this.a.e;
+                arrayList2.remove(this.d);
+                i iVar = this.a;
+                i = iVar.g;
+                iVar.g = i - 1;
+            }
+        } else if (this.b.a().b().b()) {
+            str = this.e.b();
+        } else {
+            str = this.b.f();
         }
-        this.a = new k(this, 1);
-        this.a.execute(new Object[0]);
-        return true;
-    }
-
-    public boolean b(boolean z) {
-        this.c = z;
-        if (this.a != null) {
-            return false;
+        if (this.a.a != null) {
+            this.a.a.callback(2, bool, str);
         }
-        this.a = new k(this, 0);
-        this.a.execute(new Object[0]);
-        return true;
     }
 }

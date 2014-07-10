@@ -1,20 +1,17 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class av implements View.OnFocusChangeListener {
-    final /* synthetic */ PersonChangeActivity a;
+class av {
+    LinearLayout a;
+    ImageView b;
+    TextView c;
+    final /* synthetic */ as d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
-    }
-
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        if (!z) {
-            this.a.b();
-        }
+    public av(as asVar) {
+        this.d = asVar;
     }
 }

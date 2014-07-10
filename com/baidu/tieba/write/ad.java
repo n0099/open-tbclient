@@ -1,11 +1,12 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.model.WriteModel;
-import com.baidu.tieba.util.DatabaseService;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements DialogInterface.OnClickListener {
+public class ad implements View.OnTouchListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,11 +14,20 @@ public class ad implements DialogInterface.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        WriteModel writeModel;
-        writeModel = this.a.a;
-        DatabaseService.a(writeModel);
-        this.a.finish();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        InputMethodManager inputMethodManager;
+        EditText editText;
+        InputMethodManager inputMethodManager2;
+        EditText editText2;
+        WriteActivity writeActivity = this.a;
+        inputMethodManager = this.a.c;
+        editText = this.a.e;
+        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        WriteActivity writeActivity2 = this.a;
+        inputMethodManager2 = this.a.c;
+        editText2 = this.a.h;
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
+        return false;
     }
 }

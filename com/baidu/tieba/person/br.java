@@ -1,18 +1,17 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity a;
+class br implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(PersonListActivity personListActivity) {
-        this.a = personListActivity;
+    public br(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.a(true);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null) {
+            aVar.a(this.a.a);
+        }
     }
 }

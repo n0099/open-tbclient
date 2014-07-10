@@ -1,119 +1,50 @@
 package com.baidu.tieba.service;
 
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.os.Handler;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.R;
-import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.util.z;
-import java.io.File;
+import android.os.Message;
 /* loaded from: classes.dex */
-class v extends BdAsyncTask {
+class v extends Handler {
     final /* synthetic */ TiebaUpdateService a;
-    private VersionData b;
-    private com.baidu.tieba.util.r c = null;
-    private volatile boolean d = false;
 
-    public v(TiebaUpdateService tiebaUpdateService, VersionData versionData) {
+    private v(TiebaUpdateService tiebaUpdateService) {
         this.a = tiebaUpdateService;
-        this.b = null;
-        this.b = versionData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(String... strArr) {
-        Boolean bool;
-        Exception e;
-        File d;
-        Handler handler;
-        Boolean bool2 = false;
-        while (!this.d) {
-            try {
-                this.c = new com.baidu.tieba.util.r(this.b.getUrl());
-                handler = this.a.j;
-                bool2 = this.c.a(String.valueOf(this.b.getNew_file()) + ".tmp", handler, 900002);
-                if (bool2.booleanValue()) {
-                    break;
-                } else if (this.c.e() == -2) {
-                    bool = bool2;
-                    break;
-                } else if (!this.c.l()) {
-                    try {
-                        Thread.sleep(10000L);
-                    } catch (Exception e2) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ v(TiebaUpdateService tiebaUpdateService, v vVar) {
+        this(tiebaUpdateService);
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        if (message.what == 0) {
+            if (message.arg2 > 0) {
+                TiebaUpdateService.access$34(this.a, message.arg1);
+                TiebaUpdateService.access$35(this.a, message.arg2);
+                if (TiebaUpdateService.access$25(this.a) > TiebaUpdateService.access$26(this.a)) {
+                    TiebaUpdateService.access$16(this.a, System.currentTimeMillis());
+                }
+                TiebaUpdateService.access$27(this.a, (int) (((TiebaUpdateService.access$22(this.a) + TiebaUpdateService.access$26(this.a)) * 100) / (TiebaUpdateService.access$21(this.a) + TiebaUpdateService.access$25(this.a))));
+                if (TiebaUpdateService.access$24(this.a)) {
+                    if ((TiebaUpdateService.access$12(this.a) || TiebaUpdateService.access$13(this.a)) && TiebaUpdateService.access$21(this.a) == TiebaUpdateService.access$22(this.a) && TiebaUpdateService.access$28(this.a) > TiebaUpdateService.access$29(this.a)) {
+                        TiebaUpdateService.access$30(this.a, TiebaUpdateService.access$22(this.a) + TiebaUpdateService.access$26(this.a), TiebaUpdateService.access$21(this.a) + TiebaUpdateService.access$25(this.a));
+                        this.a.sendBroadcast(TiebaUpdateService.access$28(this.a));
+                        TiebaUpdateService.access$31(this.a, TiebaUpdateService.access$28(this.a));
                     }
                 }
-            } catch (Exception e3) {
-                bool = bool2;
-                e = e3;
             }
-        }
-        bool = bool2;
-        try {
-            if (bool.booleanValue()) {
-                com.baidu.tieba.util.m.h(this.b.getNew_file());
-                File c = com.baidu.tieba.util.m.c(String.valueOf(this.b.getNew_file()) + ".tmp");
-                if (c != null && (d = com.baidu.tieba.util.m.d(this.b.getNew_file())) != null && !c.renameTo(d)) {
-                    z.b(getClass().getName(), "doInBackground", "renameTo error");
+        } else if (message.what == 2) {
+            if (TiebaUpdateService.access$12(this.a) || TiebaUpdateService.access$13(this.a)) {
+                if (TiebaUpdateService.access$17(this.a)) {
+                    TiebaUpdateService.access$2(this.a).sendMessageDelayed(TiebaUpdateService.access$2(this.a).obtainMessage(1, null), 100L);
+                    return;
+                } else {
+                    TiebaUpdateService.access$18(this.a, true);
+                    return;
                 }
             }
-        } catch (Exception e4) {
-            e = e4;
-            z.b(getClass().getName(), "doInBackground", e.getMessage());
-            return bool;
+            TiebaUpdateService.access$33(this.a);
         }
-        return bool;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        this.a.e = null;
-        this.d = true;
-        if (this.c != null) {
-            this.c.h();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        Notification notification;
-        Notification notification2;
-        Notification notification3;
-        NotificationManager notificationManager;
-        Notification notification4;
-        NotificationManager notificationManager2;
-        Handler handler;
-        Handler handler2;
-        super.a((Object) bool);
-        this.a.e = null;
-        try {
-        } catch (Exception e) {
-            z.b(getClass().getName(), "onPostExecute", e.getMessage());
-        }
-        if (bool.booleanValue()) {
-            notificationManager2 = this.a.b;
-            notificationManager2.cancel(10);
-            handler = this.a.j;
-            handler2 = this.a.j;
-            handler.sendMessageDelayed(handler2.obtainMessage(1, this.b), 100L);
-            return;
-        }
-        notification = this.a.c;
-        if (notification != null) {
-            notification2 = this.a.c;
-            notification2.contentView.setTextViewText(R.id.info, this.a.getString(R.string.error_sd_error));
-            notification3 = this.a.c;
-            notification3.flags = 16;
-            notificationManager = this.a.b;
-            notification4 = this.a.c;
-            notificationManager.notify(10, notification4);
-        }
-        this.a.stopSelf();
     }
 }

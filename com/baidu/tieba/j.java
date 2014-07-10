@@ -1,11 +1,16 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
-public abstract class j {
-    final /* synthetic */ g a;
+class j implements Runnable {
+    final /* synthetic */ LogoActivity a;
 
-    public abstract void a(Object... objArr);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(LogoActivity logoActivity) {
+        this.a = logoActivity;
+    }
 
-    public j(g gVar) {
-        this.a = gVar;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.a.releaseResouce();
+        this.a.a(this.a.getBaseContext());
     }
 }

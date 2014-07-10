@@ -1,34 +1,39 @@
 package com.baidu.android.nebula.cmd;
 
+import android.content.Context;
+import java.io.File;
 import java.util.Timer;
+import java.util.TimerTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d implements com.baidu.android.nebula.localserver.util.c {
-    final /* synthetic */ c a;
+public class d extends TimerTask {
+    final /* synthetic */ File a;
+    final /* synthetic */ String b;
+    final /* synthetic */ b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar) {
-        this.a = cVar;
+    public d(b bVar, File file, String str) {
+        this.c = bVar;
+        this.a = file;
+        this.b = str;
     }
 
-    @Override // com.baidu.android.nebula.localserver.util.c
-    public void a(com.baidu.android.nebula.localserver.util.b bVar) {
-        com.baidu.android.nebula.localserver.util.b bVar2;
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        String str;
         Timer timer;
-        Timer timer2;
-        synchronized (this.a.a) {
-            this.a.a.mLocInfo = bVar;
-            bVar2 = this.a.a.mLocInfo;
-            if (bVar2 == null) {
-                this.a.a.mErrcode = 2;
-            } else {
-                this.a.a.mErrcode = 0;
-            }
-            timer = this.a.a.mTimeoutTm;
-            if (timer != null) {
-                timer2 = this.a.a.mTimeoutTm;
-                timer2.cancel();
-            }
-            this.a.a.notifyAll();
+        Context context;
+        cancel();
+        long length = this.a.length();
+        str = this.c.a.mFileLength;
+        if (length < Integer.parseInt(str)) {
+            this.c.a(this.b);
+            return;
         }
+        timer = this.c.c;
+        timer.cancel();
+        b bVar = this.c;
+        context = this.c.a.mContext;
+        bVar.a(context, this.a);
     }
 }

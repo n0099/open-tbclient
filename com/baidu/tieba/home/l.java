@@ -1,23 +1,21 @@
 package com.baidu.tieba.home;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class l implements m {
-    final /* synthetic */ k a;
 
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbadkApplication;
+/* loaded from: classes.dex */
+class l extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar) {
-        this.a = kVar;
+    public l(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.tieba.home.m
-    public void a(com.baidu.tieba.data.aa aaVar) {
-        r rVar;
-        r rVar2;
-        rVar = this.a.e;
-        if (rVar != null) {
-            rVar2 = this.a.e;
-            rVar2.a(aaVar);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (TbadkApplication.isLogin()) {
+            new com.baidu.tieba.model.m().a(true);
         }
-        this.a.notifyDataSetChanged();
     }
 }

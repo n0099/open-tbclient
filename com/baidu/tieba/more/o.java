@@ -1,22 +1,29 @@
 package com.baidu.tieba.more;
 
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.content.DialogInterface;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-class o {
-    TextView a;
-    TextView b;
-    ImageView c;
-    Button d;
-    final /* synthetic */ n e;
-
-    private o(n nVar) {
-        this.e = nVar;
-    }
+class o implements DialogInterface.OnClickListener {
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ o(n nVar, o oVar) {
-        this(nVar);
+    public o(j jVar) {
+        this.a = jVar;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        switch (i) {
+            case 0:
+                TbadkApplication.m252getInst().setFontSize(1);
+                break;
+            case 1:
+                TbadkApplication.m252getInst().setFontSize(2);
+                break;
+            case 2:
+                TbadkApplication.m252getInst().setFontSize(3);
+                break;
+        }
+        this.a.p();
     }
 }

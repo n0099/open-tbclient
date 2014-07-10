@@ -1,222 +1,69 @@
 package com.baidu.tieba.person;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
-import java.util.ArrayList;
+import android.view.View;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
-public class z {
-    Context a;
-    private ListView c;
-    private com.baidu.tieba.home.w d;
-    private ImageView e;
-    private Button f;
-    private RelativeLayout g;
-    private LinearLayout h;
-    private TextView i;
-    private ProgressBar j;
-    private Dialog k = null;
-    DialogInterface.OnClickListener b = null;
+class z implements View.OnClickListener {
+    final /* synthetic */ u a;
 
-    public z(EditMarkActivity editMarkActivity) {
-        this.a = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.a = editMarkActivity;
-        editMarkActivity.setContentView(R.layout.edit_mark_activity);
-        this.j = (ProgressBar) editMarkActivity.findViewById(R.id.progress);
-        this.g = (RelativeLayout) editMarkActivity.findViewById(R.id.parent);
-        this.h = (LinearLayout) editMarkActivity.findViewById(R.id.title);
-        this.i = (TextView) editMarkActivity.findViewById(R.id.title_text);
-        this.d = new com.baidu.tieba.home.w(editMarkActivity);
-        this.d.c(false);
-        this.d.b();
-        this.c = (ListView) editMarkActivity.findViewById(R.id.list);
-        this.c.setAdapter((ListAdapter) this.d);
-        this.c.setOnItemClickListener(editMarkActivity);
-        this.e = (ImageView) editMarkActivity.findViewById(R.id.back);
-        this.e.setOnClickListener(editMarkActivity);
-        this.f = (Button) editMarkActivity.findViewById(R.id.edit);
-        this.f.setOnClickListener(editMarkActivity);
-        this.f.setVisibility(4);
-        this.d.a(editMarkActivity);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(u uVar) {
+        this.a = uVar;
     }
 
-    public ImageView a() {
-        return this.e;
-    }
-
-    public Button b() {
-        return this.f;
-    }
-
-    public void a(DialogInterface.OnClickListener onClickListener) {
-        this.b = onClickListener;
-    }
-
-    public void c() {
-        if (!this.d.c()) {
-            this.d.d(true);
-            this.f.setText(R.string.done);
-            com.baidu.tieba.util.x.h((TextView) this.f, TiebaApplication.f().as());
-            this.d.notifyDataSetChanged();
-            return;
-        }
-        this.d.d(false);
-        this.f.setText(R.string.edit);
-        com.baidu.tieba.util.x.g((TextView) this.f, TiebaApplication.f().as());
-        this.d.notifyDataSetChanged();
-    }
-
-    public int d() {
-        return R.id.home_lv_markitem_delete;
-    }
-
-    public void a(int i) {
-        if (i == 0) {
-            this.j.setVisibility(0);
-        }
-        this.d.b(true);
-        this.d.notifyDataSetChanged();
-    }
-
-    public void a(String str, com.baidu.tieba.model.f fVar) {
-        if (str != null) {
-            ((com.baidu.tieba.g) this.a).a(str);
-        }
-        if (fVar.d() == 0) {
-            ((com.baidu.tieba.g) this.a).a(this.a.getString(R.string.no_more_mark));
-        }
-        if (fVar.c() < 20) {
-            this.d.a(false);
-        }
-        this.d.a(fVar.b());
-        this.d.c(true);
-        this.d.b();
-        if (fVar.c() > 0) {
-            this.f.setVisibility(0);
-        } else {
-            this.f.setVisibility(4);
-        }
-        this.j.setVisibility(8);
-        this.d.b(false);
-        this.d.notifyDataSetChanged();
-    }
-
-    public void e() {
-        ((com.baidu.tieba.g) this.a).b(this.a.getString(R.string.syncing));
-    }
-
-    public void a(boolean z, String str, boolean z2) {
-        ((com.baidu.tieba.g) this.a).h();
-        if (z) {
-            this.d.b();
-            this.d.notifyDataSetChanged();
-        }
-        if (str != null) {
-            ((com.baidu.tieba.g) this.a).a(str);
-        }
-        if (z2) {
-            i();
-        }
-    }
-
-    public void f() {
-        this.j.setVisibility(0);
-    }
-
-    public void a(boolean z, String str, ArrayList arrayList) {
-        if (z) {
-            ((com.baidu.tieba.g) this.a).a(this.a.getString(R.string.del_mark_success));
-            this.d.a(arrayList);
-            this.d.c(true);
-            this.d.b();
-            if (arrayList.size() == 0) {
-                this.f.setText(R.string.edit);
-                this.f.setVisibility(4);
-                this.d.d(false);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        int i2;
+        ad adVar;
+        boolean z;
+        ad adVar2;
+        int i3;
+        ForumData forumData;
+        ForumData forumData2;
+        ForumData forumData3;
+        ForumData forumData4;
+        ForumData forumData5;
+        String str;
+        ForumData forumData6;
+        this.a.d = ((Integer) view.getTag()).intValue();
+        i = this.a.d;
+        if (i >= 0) {
+            i2 = this.a.d;
+            adVar = this.a.c;
+            if (i2 < adVar.getCount()) {
+                z = this.a.l;
+                if (!z) {
+                    u uVar = this.a;
+                    adVar2 = this.a.c;
+                    i3 = this.a.d;
+                    uVar.k = (ForumData) adVar2.getItem(i3);
+                    forumData = this.a.k;
+                    if (forumData != null) {
+                        forumData2 = this.a.k;
+                        if (forumData2.getId() != null) {
+                            forumData3 = this.a.k;
+                            if (forumData3.getName() != null) {
+                                u uVar2 = this.a;
+                                forumData4 = this.a.k;
+                                uVar2.e = forumData4.getName();
+                                this.a.l = true;
+                                HttpMessage httpMessage = new HttpMessage(1002002);
+                                forumData5 = this.a.k;
+                                httpMessage.addParam("fid", forumData5.getId());
+                                str = this.a.e;
+                                httpMessage.addParam("kw", str);
+                                forumData6 = this.a.k;
+                                httpMessage.addParam("favo_type", String.valueOf(forumData6.getFavo_type()));
+                                httpMessage.addParam("tbs", TbadkApplication.m252getInst().getTbs());
+                                this.a.a(httpMessage);
+                            }
+                        }
+                    }
+                }
             }
-            this.d.notifyDataSetChanged();
-        } else {
-            ((com.baidu.tieba.g) this.a).a(str);
         }
-        this.j.setVisibility(8);
-    }
-
-    public void a(ArrayList arrayList) {
-        if (arrayList != null) {
-            this.d.a(arrayList);
-            this.d.b();
-            this.d.notifyDataSetChanged();
-            this.f.setVisibility(4);
-        }
-    }
-
-    private void i() {
-        if (this.k == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
-            builder.setTitle(this.a.getString(R.string.sync_mark_fail));
-            builder.setMessage(this.a.getString(R.string.sync_mark_fail_con));
-            if (this.b != null) {
-                builder.setPositiveButton(this.a.getString(R.string.retry_rightnow), this.b);
-            }
-            builder.setNegativeButton(this.a.getString(R.string.confirm), new aa(this));
-            this.k = builder.create();
-            this.k.setCanceledOnTouchOutside(true);
-        }
-        this.k.show();
-    }
-
-    public void b(int i) {
-        com.baidu.tieba.util.x.a(this.g, i);
-        com.baidu.tieba.util.x.d(this.h, i);
-        com.baidu.tieba.util.x.f(this.i, i);
-        com.baidu.tieba.util.x.a(this.e, i);
-        if (this.d.c()) {
-            com.baidu.tieba.util.x.h((TextView) this.f, i);
-        } else {
-            com.baidu.tieba.util.x.g((TextView) this.f, i);
-        }
-        this.d.notifyDataSetChanged();
-        if (i == 1) {
-            this.c.setDivider(this.a.getResources().getDrawable(R.drawable.list_divider_1));
-            this.c.setSelector(R.drawable.list_selector_1);
-            return;
-        }
-        this.c.setDivider(this.a.getResources().getDrawable(R.drawable.list_divider));
-        this.c.setSelector(R.drawable.list_selector);
-    }
-
-    public void g() {
-        this.d.b();
-        this.d.notifyDataSetChanged();
-    }
-
-    public void h() {
-        if (this.k != null) {
-            this.k.dismiss();
-            this.k = null;
-        }
-        if (this.j != null) {
-            this.j.setVisibility(8);
-        }
-        this.d.a();
     }
 }

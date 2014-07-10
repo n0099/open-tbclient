@@ -1,9 +1,6 @@
 package com.baidu.tieba.frs;
-
-import android.view.View;
-import android.widget.AdapterView;
 /* loaded from: classes.dex */
-class y implements AdapterView.OnItemLongClickListener {
+class y implements com.baidu.tbadk.core.view.m {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,38 +8,23 @@ class y implements AdapterView.OnItemLongClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
-        az azVar;
-        az azVar2;
-        com.baidu.tieba.data.ba baVar;
-        com.baidu.tieba.data.ba baVar2;
-        com.baidu.tieba.data.ba baVar3;
-        az azVar3;
-        if (i >= 0) {
-            azVar = this.a.m;
-            long itemId = azVar.g().getItemId(i);
-            if (itemId != -1 && itemId != -2) {
-                FrsActivity frsActivity = this.a;
-                azVar2 = this.a.m;
-                frsActivity.F = (com.baidu.tieba.data.ba) azVar2.g().getItem(i);
-                FrsActivity frsActivity2 = this.a;
-                baVar = this.a.F;
-                frsActivity2.k = baVar.a();
-                baVar2 = this.a.F;
-                String i2 = baVar2.i();
-                if (i2 == null || i2.equals("")) {
-                    this.a.l = false;
-                } else {
-                    this.a.l = true;
+    @Override // com.baidu.tbadk.core.view.m
+    public void a(boolean z) {
+        ct ctVar;
+        g gVar;
+        g gVar2;
+        if (z) {
+            ctVar = this.a.v;
+            if (!ctVar.t()) {
+                gVar = this.a.H;
+                if (gVar != null) {
+                    gVar2 = this.a.H;
+                    if (gVar2.h().size() != 0) {
+                        return;
+                    }
                 }
-                FrsActivity frsActivity3 = this.a;
-                baVar3 = this.a.F;
-                frsActivity3.b(baVar3);
-                azVar3 = this.a.m;
-                azVar3.e();
+                this.a.E();
             }
         }
-        return false;
     }
 }

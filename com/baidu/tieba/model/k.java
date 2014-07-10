@@ -1,92 +1,140 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.data.MarkData;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends BdAsyncTask {
-    final /* synthetic */ j a;
-    private com.baidu.tieba.a.d b = null;
-    private int c;
+public class k extends BdAsyncTask<Boolean, String, i> {
+    final /* synthetic */ i b;
+    private int e;
+    private com.baidu.tieba.data.av f;
+    private com.baidu.tbadk.core.util.aq c = null;
+    private String d = null;
+    Boolean a = false;
 
-    public k(j jVar, int i) {
-        this.a = jVar;
-        this.c = 1;
-        this.c = i;
-        setPriority(3);
+    public k(i iVar, int i) {
+        this.b = iVar;
+        this.e = 0;
+        this.f = null;
+        this.e = i;
+        this.f = new com.baidu.tieba.data.av();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public com.baidu.tieba.data.m a(Object... objArr) {
-        String str;
-        boolean z;
-        boolean z2;
-        String i;
-        com.baidu.tieba.data.m mVar = null;
-        this.b = new com.baidu.tieba.a.d();
-        if (this.c == 0) {
-            z2 = this.a.c;
-            if (z2) {
-                i = DatabaseService.e();
-            } else {
-                i = DatabaseService.i("0");
+    /* renamed from: a */
+    public i doInBackground(Boolean... boolArr) {
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        this.a = boolArr[0];
+        i iVar = new i();
+        if (this.a.booleanValue()) {
+            com.baidu.adp.lib.cache.s<String> o = com.baidu.tbadk.core.a.b.a().o();
+            if (o != null) {
+                publishProgress(o.a(TbadkApplication.getCurrentAccount()));
             }
-            com.baidu.tieba.data.m mVar2 = new com.baidu.tieba.data.m();
-            mVar2.a(i);
-            if (!mVar2.e() || !mVar2.f()) {
-                this.c = 1;
-                str = i;
-                mVar = mVar2;
+            arrayList = this.b.e;
+            if (arrayList == null) {
+                this.b.e = new ArrayList();
             } else {
-                return mVar2;
+                arrayList2 = this.b.e;
+                arrayList2.clear();
+            }
+            this.b.f = 0;
+        }
+        this.c = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/post/threadstore");
+        this.c.a(com.baidu.tbadk.core.frameworkData.a.USER_ID, TbadkApplication.getCurrentAccount());
+        this.c.a("offset", String.valueOf(this.e));
+        this.c.a("rn", String.valueOf(20));
+        this.d = this.c.i();
+        this.f.a(this.d);
+        if (this.c.a().b().b()) {
+            iVar.a(this.d);
+            if (this.e == 0 && this.a.booleanValue()) {
+                a(this.d);
+            }
+        }
+        return iVar;
+    }
+
+    private void a(String str) {
+        com.baidu.adp.lib.cache.s<String> o;
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (currentAccount != null && (o = com.baidu.tbadk.core.a.b.a().o()) != null) {
+            o.a(currentAccount, str, 604800000L);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onProgressUpdate(String... strArr) {
+        ArrayList<MarkData> b;
+        super.onProgressUpdate(strArr);
+        String str = strArr[0];
+        ArrayList<MarkData> arrayList = new ArrayList<>();
+        if (str != null) {
+            b = this.b.b(str);
+            if (this.a.booleanValue()) {
+                this.b.a(b);
+            } else {
+                this.b.b(b);
             }
         } else {
-            str = null;
+            this.b.a(arrayList);
         }
-        if (this.c == 1) {
-            str = this.b.d();
-        }
-        if (this.b.b()) {
-            mVar = new com.baidu.tieba.data.m();
-            mVar.a(str);
-            z = this.a.c;
-            if (z) {
-                DatabaseService.e(str);
-            } else {
-                DatabaseService.b(str, "0");
-            }
-        }
-        return mVar;
+        this.b.a.callback(0, null, true);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        super.cancel();
-        this.a.a = null;
+        super.cancel(true);
+        if (this.c != null) {
+            this.c.g();
+        }
+        this.b.b = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.m mVar) {
-        l lVar;
-        l lVar2;
-        l lVar3;
-        this.a.a = null;
-        this.a.b = mVar;
-        lVar = this.a.d;
-        if (lVar != null) {
-            if (this.c == 0 || this.b.b()) {
-                lVar2 = this.a.d;
-                lVar2.a(true, null, mVar);
-                return;
-            }
-            String c = this.b != null ? this.b.c() : null;
-            lVar3 = this.a.d;
-            lVar3.a(false, c, mVar);
+    /* renamed from: a */
+    public void onPostExecute(i iVar) {
+        this.b.b = null;
+        this.b.f = iVar.g();
+        ArrayList<MarkData> f = iVar.f();
+        if (this.a.booleanValue()) {
+            this.b.a(f);
+        } else {
+            this.b.b(f);
         }
+        Iterator<MarkData> it = f.iterator();
+        int i = 0;
+        while (it.hasNext()) {
+            if (it.next().getNewCounts() > 0) {
+                int i2 = i + 1;
+                this.b.a(i2);
+                i = i2;
+            }
+        }
+        if (this.b.a != null) {
+            if (this.c.a().b().b()) {
+                this.b.a.callback(0, this.f.b(), false);
+            } else {
+                this.b.a.callback(3, this.c.f());
+            }
+        }
+        this.b.h = false;
     }
 }

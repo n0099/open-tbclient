@@ -1,78 +1,57 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ak extends BdAsyncTask {
-    final /* synthetic */ aj a;
-    private volatile com.baidu.tieba.util.r b;
+public class ak {
+    private com.baidu.tieba.data.ad c = new com.baidu.tieba.data.ad();
+    private ArrayList<com.baidu.tieba.data.p> a = new ArrayList<>();
+    private com.baidu.tbadk.core.data.k b = new com.baidu.tbadk.core.data.k();
+    private boolean d = true;
 
-    private ak(aj ajVar) {
-        this.a = ajVar;
-        this.b = null;
+    public boolean a() {
+        return this.d;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ak(aj ajVar, ak akVar) {
-        this(ajVar);
+    public void a(ArrayList<com.baidu.tieba.data.p> arrayList) {
+        this.a = arrayList;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public com.baidu.tieba.data.ac a(Object... objArr) {
-        String str;
-        String str2;
+    public ArrayList<com.baidu.tieba.data.p> b() {
+        return this.a;
+    }
+
+    public com.baidu.tbadk.core.data.k c() {
+        return this.b;
+    }
+
+    public void a(String str) {
         try {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/c/forum/like");
-            com.baidu.tieba.util.r rVar = this.b;
-            str = this.a.a;
-            rVar.a("kw", str);
-            com.baidu.tieba.util.r rVar2 = this.b;
-            str2 = this.a.b;
-            rVar2.a("fid", str2);
-            this.b.d(true);
-            String j = this.b.j();
-            if (this.b.c() && j != null) {
-                com.baidu.tieba.data.ac acVar = new com.baidu.tieba.data.ac();
-                acVar.a(j);
-                return acVar;
-            }
+            a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
-        }
-        return null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.ac acVar) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        this.a.c = null;
-        if (acVar == null && this.b != null) {
-            this.a.mErrorCode = this.b.e();
-            this.a.mErrorString = this.b.g();
-        }
-        eVar = this.a.mLoadDataCallBack;
-        if (eVar != null) {
-            eVar2 = this.a.mLoadDataCallBack;
-            eVar2.a(acVar);
+            this.d = false;
+            BdLog.e(e.getMessage());
         }
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.a.e eVar;
-        if (this.b != null) {
-            this.b.h();
-            this.b = null;
+    public void a(JSONObject jSONObject) {
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
+            JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
+            if (optJSONArray2 != null) {
+                for (int i = 0; i < optJSONArray2.length(); i++) {
+                    com.baidu.tieba.data.p pVar = new com.baidu.tieba.data.p();
+                    pVar.a(optJSONArray2.optJSONObject(i));
+                    this.a.add(pVar);
+                }
+            }
+            this.c.a(jSONObject.optJSONObject("message"));
+            this.b.a(jSONObject.optJSONObject("page"));
+        } catch (Exception e) {
+            this.d = false;
+            BdLog.e(e.getMessage());
         }
-        this.a.c = null;
-        super.cancel(true);
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(null);
     }
 }

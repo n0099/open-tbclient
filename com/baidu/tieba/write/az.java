@@ -1,119 +1,80 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
-import android.os.Build;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import cn.jingling.lib.filters.FilterFactory;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
-public class az extends BdAsyncTask {
-    final /* synthetic */ WriteImageActivity a;
-
-    private az(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
-    }
+class az implements View.OnFocusChangeListener {
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ az(WriteImageActivity writeImageActivity, az azVar) {
-        this(writeImageActivity);
+    public az(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Bitmap a(Object... objArr) {
-        Bitmap c;
-        boolean z;
-        HashMap hashMap;
-        String[] strArr;
-        HashMap hashMap2;
-        Bitmap bitmap = null;
-        try {
-            c = com.baidu.tieba.util.m.c(null, "tieba_resized_image");
-        } catch (Exception e) {
-            e = e;
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
+        if (r3 == r0) goto L22;
+     */
+    @Override // android.view.View.OnFocusChangeListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onFocusChange(View view, boolean z) {
+        EditText editText;
+        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditText editText2;
+        EditText editText3;
+        WriteData writeData;
+        EditText editText4;
+        WriteData writeData2;
+        WriteEditorToolButtonContainer writeEditorToolButtonContainer2;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        EditText editText5;
+        EditText editText6;
+        View view2;
+        TextView textView;
+        editText = this.a.e;
+        if (view != editText) {
+            view2 = this.a.o;
+            if (view != view2) {
+                textView = this.a.p;
+            }
         }
-        try {
-            if (isCancelled() && c != null && !c.isRecycled()) {
-                c.recycle();
-                return null;
-            }
-            int a = com.baidu.tieba.util.aa.a(this.a, 63.5f);
-            if (Build.VERSION.SDK_INT >= 7) {
-                z = this.a.v;
-                if (z) {
-                    Bitmap a2 = com.baidu.tieba.util.d.a(com.baidu.tieba.util.d.b(c, a), com.baidu.tieba.util.aa.a(this.a, 5.0f));
-                    this.a.B = new HashMap();
-                    this.a.C = new HashMap();
-                    hashMap = this.a.B;
-                    hashMap.put("normal", a2);
-                    strArr = WriteImageActivity.a;
-                    for (String str : strArr) {
-                        String substring = str.substring(0, str.indexOf("|"));
-                        if (!substring.equals("normal")) {
-                            Bitmap apply = FilterFactory.createOneKeyFilter(this.a, substring).apply(this.a, a2.copy(a2.getConfig(), true));
-                            hashMap2 = this.a.B;
-                            hashMap2.put(substring, apply);
-                        }
-                    }
-                    return c;
-                }
-            }
-            return c;
-        } catch (Exception e2) {
-            bitmap = c;
-            e = e2;
-            com.baidu.tieba.util.z.b(getClass().getName(), "GetImageTask", e.toString());
-            return bitmap;
+        if (z) {
+            this.a.Z = true;
+            this.a.o();
+            writeEditorToolButtonContainer = this.a.z;
+            writeEditorToolButtonContainer.c();
+            editorToolComponetContainer = this.a.A;
+            editText2 = this.a.e;
+            editorToolComponetContainer.c(editText2);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        ProgressBar progressBar;
-        progressBar = this.a.j;
-        progressBar.setVisibility(0);
-        super.b();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        this.a.k = null;
-        progressBar = this.a.j;
-        progressBar.setVisibility(8);
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        ProgressBar progressBar;
-        ImageView imageView;
-        boolean z;
-        String[] strArr;
-        super.a((Object) bitmap);
-        this.a.k = null;
-        this.a.c = bitmap;
-        progressBar = this.a.j;
-        progressBar.setVisibility(8);
-        if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            imageView = this.a.b;
-            imageView.setImageBitmap(bitmap);
-            if (Build.VERSION.SDK_INT >= 7) {
-                z = this.a.v;
-                if (z) {
-                    WriteImageActivity writeImageActivity = this.a;
-                    strArr = WriteImageActivity.a;
-                    writeImageActivity.a(strArr);
+        editText3 = this.a.h;
+        if (view == editText3) {
+            if (!z) {
+                writeData = this.a.a;
+                if (writeData.getType() == 0) {
+                    editText4 = this.a.h;
+                    editText4.setHint(com.baidu.tieba.y.content);
+                    return;
                 }
+                return;
             }
+            this.a.Z = false;
+            writeData2 = this.a.a;
+            if (writeData2.getType() == 0) {
+                editText6 = this.a.h;
+                editText6.setHint((CharSequence) null);
+            }
+            this.a.o();
+            writeEditorToolButtonContainer2 = this.a.z;
+            writeEditorToolButtonContainer2.c();
+            editorToolComponetContainer2 = this.a.A;
+            editText5 = this.a.h;
+            editorToolComponetContainer2.c(editText5);
         }
     }
 }

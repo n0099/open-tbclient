@@ -1,6 +1,7 @@
 package com.baidu.tieba.square;
 
 import android.view.View;
+import com.baidu.tieba.flist.ForumListActivity;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
     final /* synthetic */ c a;
@@ -12,13 +13,13 @@ class d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        q qVar;
+        w wVar;
         Object tag = view.getTag();
-        if ((tag instanceof j) && (qVar = ((j) tag).d) != null) {
-            if (qVar.a == null) {
-                BarFolderFirstDirActivity.a(this.a.b());
+        if ((tag instanceof e) && (wVar = ((e) tag).d) != null) {
+            if (wVar.a == null) {
+                BarFolderFirstDirActivity.a(this.a.b(), (String) null);
             } else {
-                BarFolderSecondDirActivity.a(this.a.b(), qVar.b, qVar.a, qVar.c);
+                ForumListActivity.a(this.a.b(), wVar.b, wVar.a, wVar.c);
             }
         }
     }

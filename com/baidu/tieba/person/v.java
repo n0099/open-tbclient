@@ -1,28 +1,34 @@
 package com.baidu.tieba.person;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v extends BroadcastReceiver {
-    final /* synthetic */ EditHeadActivity a;
-
-    private v(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
-    }
+public class v extends CustomMessageListener {
+    final /* synthetic */ u a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ v(EditHeadActivity editHeadActivity, v vVar) {
-        this(editHeadActivity);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v(u uVar, int i) {
+        super(i);
+        this.a = uVar;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        this.a.a_();
-        if (intent.getBooleanExtra("result", false)) {
-            EditHeadActivity.h(this.a);
-        } else {
-            this.a.a(intent.getStringExtra("error"));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        PersonBarActivity f;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001187) {
+            z = this.a.n;
+            if (z) {
+                t personBarData = ((ResponsePersonBarByUidLocalMessage) customResponsedMessage).getPersonBarData();
+                f = this.a.f();
+                if (f != null) {
+                    this.a.a(personBarData, true);
+                }
+            }
         }
     }
 }

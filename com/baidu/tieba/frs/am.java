@@ -1,29 +1,34 @@
 package com.baidu.tieba.frs;
+
+import android.content.DialogInterface;
+import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am extends com.baidu.adp.a.e {
-    final /* synthetic */ FrsImageActivity a;
+public class am implements DialogInterface.OnClickListener {
+    final /* synthetic */ FrsActivity a;
+    private final /* synthetic */ com.baidu.tbadk.core.data.b b;
+    private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public am(FrsActivity frsActivity, com.baidu.tbadk.core.data.b bVar, int i) {
+        this.a = frsActivity;
+        this.b = bVar;
+        this.c = i;
     }
 
-    @Override // com.baidu.adp.a.e
-    public void a(Object obj) {
-        com.baidu.tieba.model.m mVar;
-        ax axVar;
-        com.baidu.tieba.model.m mVar2;
-        mVar = this.a.q;
-        if (mVar.getLoadDataMode() == 1) {
-            if (((Boolean) obj).booleanValue()) {
-                this.a.q();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tbadk.i.a().b(this.b.i(), System.currentTimeMillis());
+        if (this.b.d() == 2) {
+            String a = this.b.a();
+            if (!TextUtils.isEmpty(a)) {
+                com.baidu.tbadk.core.util.bq.a().a(this.a, new String[]{a});
+                return;
+            } else {
+                this.a.b(this.b, this.c);
+                return;
             }
-            axVar = this.a.n;
-            bc b = axVar.b();
-            boolean booleanValue = ((Boolean) obj).booleanValue();
-            mVar2 = this.a.q;
-            b.a(booleanValue, mVar2.getErrorString());
         }
+        this.a.b(this.b, this.c);
     }
 }

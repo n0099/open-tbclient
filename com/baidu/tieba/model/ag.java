@@ -1,30 +1,21 @@
 package com.baidu.tieba.model;
+
+import android.text.TextUtils;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ag extends com.baidu.adp.a.c {
-    private ah a = null;
-    private String b = null;
+public class ag {
+    private int a;
+    private String b;
+    private String c;
 
-    public boolean a(String str) {
-        this.b = str;
-        return LoadData();
-    }
-
-    @Override // com.baidu.adp.a.c
-    protected boolean LoadData() {
-        if (this.a != null) {
-            this.a.cancel();
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null && jSONObject != null) {
+            this.a = jSONObject.optInt("offline");
+            this.b = jSONObject.optString("title");
+            this.c = jSONObject.optString("link");
+            if (!TextUtils.isEmpty(this.c)) {
+                this.c = this.c.replaceFirst("webview:", "http://");
+            }
         }
-        this.a = new ah(this, this.b);
-        this.a.execute(new Object[0]);
-        return true;
-    }
-
-    @Override // com.baidu.adp.a.c
-    public boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
-            return true;
-        }
-        return true;
     }
 }

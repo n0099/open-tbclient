@@ -1,6 +1,11 @@
 package com.baidu.tieba.frs;
+
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.slidingmenu.lib.SlidingMenu;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-class v implements com.baidu.adp.widget.ListView.s {
+class v implements SlidingMenu.OnOpenedListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,7 +13,17 @@ class v implements com.baidu.adp.widget.ListView.s {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.s
-    public void a() {
+    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
+    public void onOpened() {
+        g gVar;
+        TiebaStatic.eventStat(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
+        gVar = this.a.H;
+        ArrayList<com.baidu.tbadk.core.data.l> recommendForumData = gVar.g().getRecommendForumData();
+        if (recommendForumData != null) {
+            Iterator<com.baidu.tbadk.core.data.l> it = recommendForumData.iterator();
+            while (it.hasNext()) {
+                TiebaStatic.eventStat(this.a, "sidebar_show", "sidebar_click", 1, "st_param", it.next().d);
+            }
+        }
     }
 }

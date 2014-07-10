@@ -1,84 +1,55 @@
 package com.baidu.tieba.data;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    public aq a;
-    public bc b;
-    private ab c;
-    private com.baidu.tieba.square.f d;
-    private boolean e;
-    private long f = 0;
+    private String a;
+    private String b;
+    private String c;
+    private String d;
+    private String e;
+    private String f;
+    private String g;
+    private String h;
+    private String i;
 
-    public m() {
-        this.e = true;
-        this.e = true;
-    }
-
-    public void a(String str) {
-        if (str == null || str.length() < 1) {
-            this.e = false;
-            return;
-        }
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            this.e = false;
-            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.toString());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("like_forum");
-            JSONObject optJSONObject = jSONObject.optJSONObject("recommend");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("topic");
-            this.a = new aq(optJSONObject);
-            this.b = new bc(optJSONArray2);
-            this.c = new ab();
-            this.c.a(optJSONArray);
-            this.d = new com.baidu.tieba.square.f();
-            this.d.b(jSONObject);
-            this.f = jSONObject.optLong("time");
-        } catch (Exception e) {
-            this.e = false;
-            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.toString());
-        }
-    }
-
-    public ab a() {
-        return this.c;
-    }
-
-    public com.baidu.tieba.square.f b() {
-        return this.d;
-    }
-
-    public aq c() {
+    public String a() {
         return this.a;
     }
 
-    public bc d() {
+    public String b() {
         return this.b;
     }
 
-    public boolean e() {
-        return this.e;
+    public String c() {
+        return this.c;
     }
 
-    public boolean f() {
-        return System.currentTimeMillis() / g.e.longValue() == (this.f * 1000) / g.e.longValue();
+    public String d() {
+        return this.d;
     }
 
-    public boolean g() {
-        boolean z = false;
-        if (this.e) {
-            if (this.a == null || this.b == null || this.c == null || this.d == null) {
-                z = true;
-            }
-            return z;
-        }
-        return true;
+    public String e() {
+        return this.g;
+    }
+
+    public String f() {
+        return this.f;
+    }
+
+    public String g() {
+        return this.h;
+    }
+
+    public void a(JSONObject jSONObject) {
+        this.a = jSONObject.optString("link");
+        this.b = jSONObject.optString("title");
+        this.c = jSONObject.optString("abstract");
+        this.d = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
+        this.e = jSONObject.optString("img");
+        this.f = jSONObject.optString("post_type");
+        this.g = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
+        this.h = jSONObject.optString("reply_num");
+        this.i = jSONObject.optString("proper");
     }
 }

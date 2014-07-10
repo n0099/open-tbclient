@@ -1,25 +1,11 @@
 package com.baidu.tieba.frs;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements com.baidu.tbadk.a.d {
-    final /* synthetic */ FrsActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(FrsActivity frsActivity) {
-        this.a = frsActivity;
-    }
-
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        az azVar;
-        if (bVar != null) {
-            azVar = this.a.m;
-            View d = azVar.d(str);
-            if (d != null) {
-                d.invalidate();
-            }
-        }
-    }
+public class i {
+    public boolean a = false;
+    public boolean b = false;
+    public int c = -1;
+    public int d = -1;
+    public String e = null;
+    public int f = 0;
+    public int g = 0;
 }

@@ -1,0 +1,7 @@
+package com.baidu.gson;
+/* loaded from: classes.dex */
+public interface ExclusionStrategy {
+    boolean shouldSkipClass(Class<?> cls);
+
+    boolean shouldSkipField(FieldAttributes fieldAttributes);
+}

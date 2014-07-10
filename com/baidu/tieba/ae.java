@@ -1,16 +1,21 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes.dex */
-class ae implements Runnable {
-    final /* synthetic */ LogoActivity a;
+class ae implements View.OnClickListener {
+    final /* synthetic */ ac a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    public ae(ac acVar) {
+        this.a = acVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.a_();
-        this.a.d();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ah ahVar;
+        boolean z;
+        ahVar = this.a.u;
+        z = this.a.e;
+        ahVar.b(z);
     }
 }

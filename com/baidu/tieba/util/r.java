@@ -1,397 +1,173 @@
 package com.baidu.tieba.util;
 
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.model.al;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bm;
+import com.baidu.tieba.service.PerformMonitorService;
+import java.io.RandomAccessFile;
 import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
+import java.util.List;
 /* loaded from: classes.dex */
 public class r {
-    public String a;
-    public String b;
-    private NetWorkCore c = null;
-    private NetWorkCore d = null;
-    private boolean e = false;
-    private boolean f = true;
-    private v g = null;
-    private int h = 0;
-
-    private void m() {
-        this.c = new NetWorkCore();
-        this.d = null;
-        this.e = false;
-        this.f = true;
-    }
-
-    public r() {
-        m();
-    }
-
-    public void a(boolean z) {
-        this.c.a(z);
-    }
-
-    public void b(boolean z) {
-        this.f = z;
-    }
-
-    public r(String str) {
-        m();
-        this.c.a(str);
-    }
-
-    public r(Context context, String str) {
-        m();
-        this.c.b(context);
-        this.c.a(str);
-    }
-
-    public void a(String str) {
-        this.c.a(str);
-    }
-
-    public String a() {
-        return this.c.f();
-    }
-
-    public void a(Context context) {
-        this.c.b(context);
-    }
-
-    public void a(ArrayList arrayList) {
-        this.c.a(arrayList);
-    }
-
-    public void a(String str, String str2) {
-        this.c.a(str, str2);
-    }
-
-    public void a(BasicNameValuePair basicNameValuePair) {
-        this.c.a(basicNameValuePair);
-    }
-
-    public void a(String str, byte[] bArr) {
-        this.c.a(str, bArr);
-    }
-
-    public void c(boolean z) {
-        this.c.b(z);
-    }
-
-    private void n() {
-        String E = this.a == null ? TiebaApplication.E() : this.a;
-        if (E != null) {
-            this.c.a("BDUSS", E);
-        }
-    }
-
-    private void o() {
-        String E = this.a == null ? TiebaApplication.E() : this.a;
-        BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", E);
-        BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", this.b == null ? TiebaApplication.f().N() : this.b);
-        z.a("NetWork", "modSessionData", "== BDUSS:" + E);
-        z.a("NetWork", "modSessionData", "== TBS:" + TiebaApplication.f().N());
-        if (E != null) {
-            ArrayList t = this.c.t();
-            int size = t.size();
-            for (int i = 0; i < size; i++) {
-                BasicNameValuePair basicNameValuePair3 = (BasicNameValuePair) t.get(i);
-                if (basicNameValuePair3.getName().equals("BDUSS")) {
-                    t.set(i, basicNameValuePair);
-                } else if (basicNameValuePair3.getName().equals("tbs") && !TiebaApplication.m()) {
-                    t.set(i, basicNameValuePair2);
-                }
-            }
-        }
-    }
-
-    public int b() {
-        return this.c.p();
-    }
-
-    private void p() {
-        this.c.a("_client_type", "2");
-        this.c.a("_client_version", com.baidu.tieba.data.g.i());
-        if (TiebaApplication.f().o() != null) {
-            this.c.a("_phone_imei", TiebaApplication.f().o());
-        }
-        String O = TiebaApplication.O();
-        if (O != null) {
-            this.c.a("_client_id", O);
-        }
-        String x = TiebaApplication.x();
-        if (x != null && x.length() > 0) {
-            this.c.a("from", x);
-        }
-        String b = this.c.b();
-        if (b != null) {
-            this.c.a("net_type", b);
-        }
-        if (this.e) {
-            this.c.a("tbs", this.b == null ? TiebaApplication.f().N() : this.b);
-        }
-        String n = TiebaApplication.f().n();
-        if (n != null) {
-            this.c.a("cuid", n);
-        }
-        this.c.a("timestamp", Long.toString(System.currentTimeMillis()));
-        this.c.a("model", Build.MODEL);
-    }
-
-    private void q() {
-        if (this.g == null) {
-            this.g = NetWorkCore.a();
-        }
-        if (this.g != null) {
-            this.c.a("stTime", String.valueOf(this.g.b));
-            this.c.a("stSize", String.valueOf(this.g.c));
-            this.c.a("stTimesNum", String.valueOf(this.g.d));
-            this.c.a("stMode", String.valueOf(this.g.e));
-            this.c.a("stMethod", String.valueOf(this.g.a));
-        }
-        this.h = NetWorkCore.a(0);
-        this.c.a("stErrorNums", String.valueOf(this.h));
-    }
-
-    public boolean c() {
-        return this.c.g();
-    }
-
-    public boolean d() {
-        return this.c.h();
-    }
-
-    public int e() {
-        return this.c.i();
-    }
-
-    public String f() {
-        return this.c.b();
-    }
-
-    public String g() {
-        return this.c.j();
-    }
-
-    public void h() {
-        if (this.c != null) {
-            this.c.l();
-        }
-        if (this.d != null) {
-            this.d.l();
-        }
-    }
-
-    public al a(String str, String str2, boolean z) {
-        String o;
-        try {
-            z.a(getClass().toString(), "login", "=== need auto login");
-            StringBuilder sb = new StringBuilder(32);
-            sb.append(com.baidu.tieba.data.g.a);
-            sb.append("c/s/login");
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new BasicNameValuePair("un", str));
-            arrayList.add(new BasicNameValuePair("passwd", str2));
-            arrayList.add(new BasicNameValuePair("isphone", "0"));
-            if (this.d == null) {
-                this.d = new NetWorkCore();
+    public static String a(String str) {
+        if (bm.c(str) || str.indexOf("cuid=") <= -1) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            if (str.indexOf("?") > 0) {
+                sb.append("&");
             } else {
-                this.d.l();
+                sb.append("?");
             }
-            this.d.a(sb.toString());
-            this.d.a(arrayList);
-            this.d.a((Boolean) true);
-            this.d.b(this.c.s());
-            o = this.d.o();
-        } catch (Exception e) {
-            z.b(getClass().toString(), "login", e.getMessage());
+            sb.append("cuid=");
+            sb.append(TbadkApplication.m252getInst().getCuid());
+            sb.append("&timestamp=");
+            sb.append(Long.toString(System.currentTimeMillis()));
+            return sb.toString();
         }
-        if (this.d.g() && o != null) {
-            al alVar = new al();
-            alVar.a(o);
-            String id = alVar.a().getId();
-            if (id == null || id.length() <= 0) {
-                this.d.b(this.d.s().getString(R.string.neterror));
-                return null;
-            }
-            AccountData accountData = new AccountData();
-            accountData.setAccount(alVar.a().getName());
-            if (alVar.a().getPassword() != null) {
-                accountData.setPassword(alVar.a().getPassword());
-            } else {
-                accountData.setPassword(str2);
-            }
-            accountData.setID(alVar.a().getId());
-            accountData.setBDUSS(alVar.a().getBDUSS());
-            accountData.setIsActive(1);
-            if (alVar.b() != null) {
-                accountData.setTbs(alVar.b().getTbs());
-            }
-            DatabaseService.a(accountData);
-            TiebaApplication.b(accountData);
-            com.baidu.tieba.account.a.a().b();
-            return alVar;
-        }
-        if (this.d.h()) {
-            switch (this.d.i()) {
-                case 1:
-                case 2:
-                case 5:
-                    if (z) {
-                        Message obtainMessage = TiebaApplication.f().c.obtainMessage(1);
-                        Bundle bundle = new Bundle();
-                        bundle.putString("account", str);
-                        obtainMessage.setData(bundle);
-                        TiebaApplication.f().c.sendMessage(obtainMessage);
-                    }
-                    this.d.k();
-                    break;
-            }
-            return null;
-        }
-        return null;
+        return str;
     }
 
-    public byte[] i() {
-        p();
-        return this.c.m();
+    public static void a(Context context) {
+        context.startService(new Intent(context, PerformMonitorService.class));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void r() {
-        TiebaApplication.a((AccountData) null);
-        TiebaApplication.f().c.sendMessage(TiebaApplication.f().c.obtainMessage(1));
-    }
-
-    private String a(int i) {
-        String q;
-        switch (i) {
-            case 1:
-                p();
-                q();
-                q = this.c.n();
-                break;
-            case 2:
-                n();
-                p();
-                q();
-                q = this.c.o();
-                break;
-            case 3:
-                n();
-                p();
-                q = this.c.q();
-                break;
-            default:
-                return null;
-        }
-        if (!this.c.h()) {
-            NetWorkCore.a(this.g);
-            NetWorkCore.b(this.h);
-            return q;
-        } else if (this.c.g()) {
-            return q;
-        } else {
-            if (this.c.i() == 1 && this.f) {
-                this.c.k();
-                if (TiebaApplication.m()) {
-                    String backgroundReLogin = BaiduAccount.get(TiebaApplication.f()).backgroundReLogin(TiebaApplication.G(), this.a == null ? TiebaApplication.E() : this.a, new s(this), new t(this));
-                    if (backgroundReLogin != null) {
-                        DatabaseService.c(TiebaApplication.G(), backgroundReLogin);
-                        TiebaApplication.i(backgroundReLogin);
-                        q = b(i);
-                    } else {
-                        q = null;
-                    }
-                } else {
-                    AccountData F = TiebaApplication.F();
-                    if (F == null) {
-                        F = DatabaseService.p();
-                    }
-                    if (F == null) {
-                        TiebaApplication.f().c.sendMessage(TiebaApplication.f().c.obtainMessage(1));
-                        return null;
-                    } else if (a(F.getAccount(), F.getPassword(), true) == null) {
-                        if (this.d != null) {
-                            this.c.b(this.d.j());
-                            return null;
-                        }
-                        return null;
-                    } else {
-                        q = b(i);
-                    }
-                }
-            }
-            return q;
-        }
-    }
-
-    private String b(int i) {
-        o();
-        switch (i) {
-            case 1:
-                return this.c.n();
-            case 2:
-                return this.c.o();
-            case 3:
-                return this.c.q();
-            default:
-                return null;
-        }
-    }
-
-    public String j() {
-        return a(2);
-    }
-
-    public String k() {
-        return a(3);
-    }
-
-    public String b(String str) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [278=5] */
+    public static boolean a() {
+        RandomAccessFile randomAccessFile;
         byte[] bArr;
-        z.e("NetWork", "uploadImage", "upload image");
-        try {
-            InputStream g = m.g(str);
-            byte[] bArr2 = new byte[5120];
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(5120);
+        if (Build.CPU_ABI == null || !Build.CPU_ABI.toLowerCase().contains("arm")) {
+            try {
+                bArr = new byte[1024];
+                randomAccessFile = new RandomAccessFile("/proc/cpuinfo", "r");
+                try {
+                    try {
+                    } catch (Exception e) {
+                        e = e;
+                        BdLog.e(e.getMessage());
+                        com.baidu.adp.lib.util.m.a(randomAccessFile);
+                        return false;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    com.baidu.adp.lib.util.m.a(randomAccessFile);
+                    throw th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                randomAccessFile = null;
+            } catch (Throwable th2) {
+                th = th2;
+                randomAccessFile = null;
+                com.baidu.adp.lib.util.m.a(randomAccessFile);
+                throw th;
+            }
+            if (randomAccessFile.read(bArr) < 1) {
+                com.baidu.adp.lib.util.m.a(randomAccessFile);
+                return false;
+            }
+            String str = new String(bArr);
+            int indexOf = str.indexOf(0);
+            if (indexOf != -1) {
+                str = str.substring(0, indexOf);
+            }
+            if (str.toLowerCase().contains("arm")) {
+                com.baidu.adp.lib.util.m.a(randomAccessFile);
+                return true;
+            }
+            com.baidu.adp.lib.util.m.a(randomAccessFile);
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean a(Context context, String str) {
+        int i = 0;
+        List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
+        ArrayList arrayList = new ArrayList();
+        if (installedPackages != null) {
             while (true) {
-                int read = g.read(bArr2);
-                if (read == -1) {
+                int i2 = i;
+                if (i2 >= installedPackages.size()) {
                     break;
                 }
-                byteArrayOutputStream.write(bArr2, 0, read);
+                arrayList.add(installedPackages.get(i2).packageName);
+                i = i2 + 1;
             }
-            bArr = byteArrayOutputStream.toByteArray();
+        }
+        return arrayList.contains(str);
+    }
+
+    public static void b(Context context, String str) {
+        Intent intent = new Intent("android.intent.action.CALL", Uri.parse("tel:" + str));
+        intent.addFlags(268435456);
+        try {
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            BdLog.detailException(e);
+        } catch (SecurityException e2) {
+            BdLog.detailException(e2);
+        }
+    }
+
+    public static void c(Context context, String str) {
+        Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse("smsto:" + str));
+        intent.putExtra("sms_body", "");
+        intent.addFlags(268435456);
+        try {
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            BdLog.detailException(e);
+        } catch (SecurityException e2) {
+            BdLog.detailException(e2);
+        }
+    }
+
+    public static void d(Context context, String str) {
+        try {
+            TiebaStatic.eventStat(context, "search_in_baidu", "searchclick", 1, new Object[0]);
+            Intent intent = new Intent();
+            intent.addCategory("android.intent.category.DEFAULT");
+            if (!TextUtils.isEmpty(str)) {
+                intent.setAction("com.baidu.searchbox.action.SEARCH");
+                intent.putExtra("key_value", str);
+            } else {
+                intent.setAction("com.baidu.searchbox.action.VIEW");
+                intent.setData(Uri.parse("http://www.baidu.com"));
+            }
+            intent.putExtra("BROWSER_RESTART", true);
+            intent.putExtra("EXTRA_URL_NEW_WINDOW", true);
+            intent.putExtra("isBackToLauncher", true);
+            intent.addFlags(268435456);
+            context.startActivity(intent);
         } catch (Exception e) {
-            bArr = null;
+            e(context, str);
         }
-        if (bArr == null || bArr.length <= 0) {
-            return null;
+    }
+
+    private static void e(Context context, String str) {
+        if (str != null && str.length() > 0) {
+            com.baidu.tbadk.browser.a.b(context, "http://m.baidu.com/s?from=1001157a&word=" + str);
+        } else {
+            com.baidu.tbadk.browser.a.b(context, "http://m.baidu.com/?from=1001157a");
         }
-        a("pic", bArr);
-        return k();
     }
 
-    public boolean l() {
-        return this.c.r();
-    }
-
-    public Boolean a(String str, Handler handler, int i) {
-        n();
-        return this.c.a(str, handler, i);
-    }
-
-    public void d(boolean z) {
-        this.e = z;
+    public static boolean a(Activity activity) {
+        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) activity.getSystemService("activity")).getRunningTasks(100)) {
+            if (runningTaskInfo.baseActivity.getClassName().equals(activity.getClass().getName())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

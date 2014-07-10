@@ -1,40 +1,36 @@
 package com.baidu.tieba.data;
+
+import com.baidu.adp.lib.util.BdLog;
+import java.util.ArrayList;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class ar {
-    final /* synthetic */ aq a;
-    private String b;
-    private String c;
-    private int d;
-    private String e;
-    private String f;
-    private String g;
-    private String h;
+    private ArrayList<ae> a;
 
-    public ar(aq aqVar) {
-        this.a = aqVar;
+    public ar() {
+        a(new ArrayList<>());
     }
 
-    public String a() {
-        return this.c;
+    public void a(JSONArray jSONArray) {
+        if (jSONArray != null) {
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    ae aeVar = new ae();
+                    aeVar.a(jSONArray.getJSONObject(i));
+                    this.a.add(aeVar);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                    return;
+                }
+            }
+        }
     }
 
-    public int b() {
-        return this.d;
+    public ArrayList<ae> a() {
+        return this.a;
     }
 
-    public String c() {
-        return this.e;
-    }
-
-    public String d() {
-        return this.f;
-    }
-
-    public String e() {
-        return this.g;
-    }
-
-    public String f() {
-        return this.h;
+    public void a(ArrayList<ae> arrayList) {
+        this.a = arrayList;
     }
 }

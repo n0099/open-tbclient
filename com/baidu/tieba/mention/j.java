@@ -1,33 +1,53 @@
 package com.baidu.tieba.mention;
 
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
-class j implements com.baidu.tbadk.a.d {
-    final /* synthetic */ i a;
+public class j extends FragmentPagerAdapter {
+    private com.baidu.tbadk.core.d[] a;
+    private int[] b;
+    private int c;
+    private CustomMessageListener d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar) {
-        this.a = iVar;
+    public j(FragmentManager fragmentManager, boolean z) {
+        super(fragmentManager);
+        this.d = new k(this, 2008002);
+        if (!z) {
+            a();
+            return;
+        }
+        MessageManager.getInstance().registerListener(this.d);
+        boolean sendMessage = MessageManager.getInstance().sendMessage(new CustomMessage(2008002));
+        MessageManager.getInstance().unRegisterListener(this.d);
+        if (!sendMessage) {
+            a();
+        }
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        h hVar;
-        ListView listView;
-        h hVar2;
-        ListView listView2;
-        hVar = this.a.a;
-        listView = hVar.d;
-        ImageView imageView = (ImageView) listView.findViewWithTag(str);
-        while (imageView != null) {
-            imageView.setTag(null);
-            if (imageView != null && bVar != null) {
-                bVar.b(imageView);
-            }
-            hVar2 = this.a.a;
-            listView2 = hVar2.d;
-            imageView = (ImageView) listView2.findViewWithTag(str);
+    private void a() {
+        this.a = new com.baidu.tbadk.core.d[]{new ac(), new a()};
+        this.b = new int[]{1, 2};
+        this.c = this.a.length;
+    }
+
+    @Override // android.support.v4.app.FragmentPagerAdapter
+    public Fragment getItem(int i) {
+        if (i < 0 || i >= this.c) {
+            return null;
         }
+        return this.a[i];
+    }
+
+    public int a(int i) {
+        return this.b[i];
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        return this.c;
     }
 }

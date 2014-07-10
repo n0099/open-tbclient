@@ -1,22 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements com.baidu.tbadk.a.d {
-    final /* synthetic */ bb a;
+public class bc implements AbsListView.OnScrollListener {
+    final /* synthetic */ az a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(bb bbVar) {
-        this.a = bbVar;
+    public bc(az azVar) {
+        this.a = azVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        ImageView imageView;
-        if (bVar != null) {
-            imageView = this.a.d;
-            bVar.b(imageView);
-        }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 }

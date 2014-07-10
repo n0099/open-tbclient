@@ -20,18 +20,18 @@ public class e implements View.OnClickListener {
         Context context;
         TextView textView2;
         Context context2;
-        if (!com.baidu.adp.lib.debug.b.d) {
-            com.baidu.adp.lib.debug.b.d = true;
-            textView2 = this.a.j;
+        if (!com.baidu.adp.lib.debug.d.d) {
+            com.baidu.adp.lib.debug.d.d = true;
+            textView2 = this.a.i;
             context2 = this.a.k;
-            textView2.setText(((Activity) context2).getText(com.baidu.adp.g.item_open));
+            textView2.setText(((Activity) context2).getText(com.baidu.adp.f.item_open));
             this.a.b();
             return;
         }
-        com.baidu.adp.lib.debug.b.d = false;
-        textView = this.a.j;
+        com.baidu.adp.lib.debug.d.d = false;
+        textView = this.a.i;
         context = this.a.k;
-        textView.setText(((Activity) context).getText(com.baidu.adp.g.item_close));
+        textView.setText(((Activity) context).getText(com.baidu.adp.f.item_close));
         this.a.c();
     }
 }

@@ -1,28 +1,23 @@
 package com.baidu.tieba.write;
-
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 /* loaded from: classes.dex */
-class ba extends BroadcastReceiver {
-    final /* synthetic */ WriteImageActivity a;
-
-    private ba(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
-    }
+class ba implements com.baidu.tieba.bubble.t {
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ba(WriteImageActivity writeImageActivity, ba baVar) {
-        this(writeImageActivity);
+    public ba(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        this.a.a_();
-        if (intent.getBooleanExtra("result", false)) {
-            WriteImageActivity.k(this.a);
-        } else {
-            this.a.a(intent.getStringExtra("error"));
+    @Override // com.baidu.tieba.bubble.t
+    public void a() {
+        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
+        WriteEditorToolButtonContainer writeEditorToolButtonContainer2;
+        this.a.l = null;
+        this.a.a(false);
+        writeEditorToolButtonContainer = this.a.z;
+        if (writeEditorToolButtonContainer != null) {
+            writeEditorToolButtonContainer2 = this.a.z;
+            writeEditorToolButtonContainer2.r();
         }
     }
 }

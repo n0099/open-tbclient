@@ -1,34 +1,28 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.ProgressBar;
+import android.os.Environment;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ int c;
+public class ax extends BdAsyncTask<Void, Integer, Void> {
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(WriteImageActivity writeImageActivity, String str, int i) {
-        this.a = writeImageActivity;
-        this.b = str;
-        this.c = i;
+    public ax(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ProgressBar progressBar;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Void doInBackground(Void... voidArr) {
         String str;
-        progressBar = this.a.j;
-        if (progressBar.getVisibility() != 0) {
-            String str2 = this.b;
-            str = this.a.w;
-            if (!str2.equals(str)) {
-                this.a.c(this.b);
-                this.a.e(this.b);
-                this.a.u = this.c;
-            }
-        }
+        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
+        str = this.a.E;
+        com.baidu.tbadk.core.util.z.c(new File(append.append(str).toString()));
+        return null;
     }
 }

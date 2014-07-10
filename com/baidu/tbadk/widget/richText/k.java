@@ -1,12 +1,11 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class k implements ViewGroup.OnHierarchyChangeListener {
+class k implements View.OnClickListener {
     final /* synthetic */ TbRichTextView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,30 +13,34 @@ public class k implements ViewGroup.OnHierarchyChangeListener {
         this.a = tbRichTextView;
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.a.b bVar;
-        com.baidu.adp.lib.a.b bVar2;
-        com.baidu.adp.lib.a.b bVar3;
-        com.baidu.adp.lib.a.b bVar4;
-        com.baidu.adp.lib.c.b.c("pool return child");
-        if (view2 instanceof ImageView) {
-            bVar3 = this.a.a;
-            if (bVar3 != null) {
-                bVar4 = this.a.a;
-                bVar4.a((ImageView) view2);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        s sVar;
+        String str;
+        s sVar2;
+        sVar = this.a.v;
+        if (sVar != null && (view instanceof ImageView)) {
+            Object tag = view.getTag();
+            if (tag != null && (tag instanceof String)) {
+                str = (String) tag;
+            } else if (!(view instanceof TbImageView)) {
+                str = null;
+            } else {
+                str = ((TbImageView) view).getUrl();
             }
-        }
-        if (view2 instanceof TextView) {
-            bVar = this.a.b;
-            if (bVar != null) {
-                bVar2 = this.a.b;
-                bVar2.a((TextView) view2);
+            int childCount = this.a.getChildCount();
+            int i = -1;
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = this.a.getChildAt(i2);
+                if ((childAt instanceof ImageView) && !(childAt instanceof GifView)) {
+                    i++;
+                }
+                if (view == childAt) {
+                    break;
+                }
             }
+            sVar2 = this.a.v;
+            sVar2.onClick(view, str, i);
         }
-    }
-
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
     }
 }

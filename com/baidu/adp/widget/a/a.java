@@ -1,216 +1,215 @@
 package com.baidu.adp.widget.a;
 
-import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
 import android.graphics.Canvas;
-import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
+import com.baidu.adp.gif.c;
+import java.io.ByteArrayOutputStream;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
-public class a extends ImageView {
-    private static /* synthetic */ int[] h;
-    private int a;
-    private Paint b;
-    private Matrix c;
-    private Matrix d;
-    private String e;
-    private com.baidu.adp.lib.b.b f;
-    private int g;
+public class a {
+    public static final Object a = new Object();
+    public long b;
+    public Rect c;
+    private String d;
+    private Bitmap e;
+    private volatile boolean f;
+    private boolean g;
+    private int h;
+    private int i;
+    private AtomicBoolean j;
+    private c k;
+    private boolean l;
 
-    static /* synthetic */ int[] a() {
-        int[] iArr = h;
-        if (iArr == null) {
-            iArr = new int[ImageView.ScaleType.values().length];
-            try {
-                iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                iArr[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                iArr[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
-            } catch (NoSuchFieldError e3) {
-            }
-            try {
-                iArr[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
-            } catch (NoSuchFieldError e4) {
-            }
-            try {
-                iArr[ImageView.ScaleType.FIT_END.ordinal()] = 5;
-            } catch (NoSuchFieldError e5) {
-            }
-            try {
-                iArr[ImageView.ScaleType.FIT_START.ordinal()] = 6;
-            } catch (NoSuchFieldError e6) {
-            }
-            try {
-                iArr[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
-            } catch (NoSuchFieldError e7) {
-            }
-            try {
-                iArr[ImageView.ScaleType.MATRIX.ordinal()] = 8;
-            } catch (NoSuchFieldError e8) {
-            }
-            h = iArr;
-        }
-        return iArr;
-    }
-
-    public a(Context context) {
-        super(context);
-        this.a = 0;
-        this.b = null;
-        this.c = null;
-        this.d = null;
+    public a(Bitmap bitmap, boolean z) {
         this.e = null;
-        this.f = null;
-        this.g = 0;
-        b();
+        this.f = false;
+        this.g = true;
+        this.h = -1;
+        this.i = -1;
+        this.j = new AtomicBoolean(false);
+        this.l = false;
+        this.b = -1L;
+        this.e = bitmap;
+        this.f = z;
     }
 
-    @Override // android.view.View
-    public void setTag(Object obj) {
-        super.setTag(obj);
-        this.d = null;
-        if ((obj instanceof String) && !obj.equals("")) {
-            this.e = (String) obj;
-        } else {
-            this.e = null;
+    public a(Bitmap bitmap, boolean z, String str) {
+        this.e = null;
+        this.f = false;
+        this.g = true;
+        this.h = -1;
+        this.i = -1;
+        this.j = new AtomicBoolean(false);
+        this.l = false;
+        this.b = -1L;
+        this.e = bitmap;
+        this.f = z;
+        this.d = str;
+    }
+
+    public a(Bitmap bitmap, boolean z, String str, Rect rect) {
+        this.e = null;
+        this.f = false;
+        this.g = true;
+        this.h = -1;
+        this.i = -1;
+        this.j = new AtomicBoolean(false);
+        this.l = false;
+        this.b = -1L;
+        this.e = bitmap;
+        this.f = z;
+        this.d = str;
+        this.c = rect;
+    }
+
+    public a(c cVar) {
+        this.e = null;
+        this.f = false;
+        this.g = true;
+        this.h = -1;
+        this.i = -1;
+        this.j = new AtomicBoolean(false);
+        this.l = false;
+        this.b = -1L;
+        this.k = cVar;
+        this.l = true;
+    }
+
+    public boolean a() {
+        return this.l;
+    }
+
+    public c b() {
+        return this.k;
+    }
+
+    public int c() {
+        if (this.e == null) {
+            return 0;
+        }
+        return this.e.getWidth();
+    }
+
+    public int d() {
+        if (this.e == null) {
+            return 0;
+        }
+        return this.e.getHeight();
+    }
+
+    public void a(Canvas canvas, Matrix matrix, Paint paint) {
+        if (this.e != null) {
+            this.j.set(true);
+            canvas.drawBitmap(this.e, matrix, paint);
+            this.j.set(false);
         }
     }
 
-    private void b() {
-        this.b = new Paint();
+    public void a(Canvas canvas, float f, float f2, Paint paint) {
+        if (this.e != null) {
+            this.j.set(true);
+            canvas.drawBitmap(this.e, f, f2, paint);
+            this.j.set(false);
+        }
     }
 
-    @Override // android.widget.ImageView
-    public void setAlpha(int i) {
-        super.setAlpha(i);
-        this.b.setAlpha(i);
+    public void a(Canvas canvas, Rect rect, RectF rectF, Paint paint) {
+        if (this.e != null) {
+            this.j.set(true);
+            canvas.drawBitmap(this.e, rect, rectF, paint);
+            this.j.set(false);
+        }
     }
 
-    @Override // android.widget.ImageView
-    public void setColorFilter(ColorFilter colorFilter) {
-        super.setColorFilter(colorFilter);
-        this.b.setColorFilter(colorFilter);
+    public void a(ImageView imageView) {
+        if (imageView != null && this.e != null) {
+            this.g = true;
+            imageView.setImageBitmap(this.e);
+        }
     }
 
-    public void setDefaultResource(int i) {
-        this.c = null;
-        this.a = i;
+    public boolean e() {
+        return this.f;
     }
 
-    private Matrix a(Bitmap bitmap) {
-        float f;
-        float f2;
-        float f3 = 0.0f;
-        if (bitmap == null) {
+    public int f() {
+        if (this.e == null) {
+            return 0;
+        }
+        return this.e.getHeight() * this.e.getRowBytes();
+    }
+
+    public boolean g() {
+        if (this.g || this.j.get()) {
+            return false;
+        }
+        if (this.e != null) {
+            Bitmap bitmap = this.e;
+            this.e = null;
+            bitmap.recycle();
+        }
+        if (this.k != null) {
+            c cVar = this.k;
+            this.k = null;
+            cVar.a();
+        }
+        return true;
+    }
+
+    public Bitmap h() {
+        this.g = true;
+        return this.e;
+    }
+
+    public boolean i() {
+        return this.e != null;
+    }
+
+    public BitmapDrawable j() {
+        if (this.e == null) {
             return null;
         }
-        ImageView.ScaleType scaleType = getScaleType();
-        int paddingLeft = getPaddingLeft();
-        int paddingRight = getPaddingRight();
-        int paddingTop = getPaddingTop();
-        int paddingBottom = getPaddingBottom();
-        int height = bitmap.getHeight();
-        int width = bitmap.getWidth();
-        int height2 = (getHeight() - paddingTop) - paddingBottom;
-        int width2 = (getWidth() - paddingLeft) - paddingRight;
-        float f4 = width2 / width;
-        float f5 = height2 / height;
-        switch (a()[scaleType.ordinal()]) {
-            case 1:
-                f3 = (width2 - width) / 2;
-                f = (height2 - height) / 2;
-                f2 = 1.0f;
-                break;
-            case 2:
-                float max = Math.max(f4, f5);
-                r0 = Math.max(max, f5);
-                f3 = (width2 - (width * max)) / 2.0f;
-                f = (height2 - (height * r0)) / 2.0f;
-                f2 = max;
-                break;
-            case 3:
-                float min = Math.min(f4, f5);
-                r0 = min <= 1.0f ? min : 1.0f;
-                f3 = (width2 - (width * r0)) / 2.0f;
-                f = (height2 - (height * r0)) / 2.0f;
-                f2 = r0;
-                break;
-            case 4:
-                r0 = Math.min(f4, f5);
-                f3 = (width2 - (width * r0)) / 2.0f;
-                f = (height2 - (height * r0)) / 2.0f;
-                f2 = r0;
-                break;
-            case 5:
-                r0 = Math.min(f4, f5);
-                f3 = width2 - (width * r0);
-                f = height2 - (height * r0);
-                f2 = r0;
-                break;
-            case 6:
-                r0 = Math.min(f4, f5);
-                f2 = r0;
-                f = 0.0f;
-                break;
-            case 7:
-                r0 = f5;
-                f2 = f4;
-                f = 0.0f;
-                break;
-            default:
-                r0 = f5;
-                f2 = f4;
-                f = 0.0f;
-                break;
-        }
-        Matrix matrix = new Matrix();
-        matrix.setScale(f2, r0);
-        matrix.postTranslate(paddingLeft + f3, paddingTop + f);
-        return matrix;
+        this.g = true;
+        return new b(this, this.e);
     }
 
-    @Override // android.widget.ImageView
-    public void setScaleType(ImageView.ScaleType scaleType) {
-        super.setScaleType(scaleType);
-        invalidate();
+    public String k() {
+        return this.d;
     }
 
-    private Bitmap getImage() {
-        if (this.e != null) {
-            return (Bitmap) com.baidu.adp.lib.b.c.a(this.e, this.g);
+    public byte[] l() {
+        byte[] byteArray;
+        if (this.e == null) {
+            return null;
         }
-        return null;
+        synchronized (a) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            this.e.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            byteArray = byteArrayOutputStream.toByteArray();
+        }
+        return byteArray;
     }
 
-    @Override // android.widget.ImageView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        Matrix matrix;
-        super.onDraw(canvas);
-        Bitmap image = getImage();
-        if (image != null) {
-            if (this.d == null) {
-                this.d = a(image);
-            }
-            matrix = this.d;
-        } else {
-            image = com.baidu.adp.lib.c.a.a().a(this.a);
-            if (this.c == null) {
-                this.c = a(image);
-            }
-            matrix = this.c;
+    public Rect m() {
+        return this.c;
+    }
+
+    public BitmapShader n() {
+        if (this.e == null) {
+            return null;
         }
-        if (image != null) {
-            if (matrix == null) {
-                canvas.drawBitmap(image, 0.0f, 0.0f, this.b);
-            } else {
-                canvas.drawBitmap(image, matrix, this.b);
-            }
-        }
+        return new BitmapShader(this.e, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+    }
+
+    public void a(boolean z) {
+        this.j.set(z);
     }
 }

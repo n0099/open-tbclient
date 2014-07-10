@@ -1,38 +1,40 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.account.AccountProxy;
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-import com.baidu.tieba.account.ReLoginActivity;
-import com.baidu.tieba.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
-public class f implements AccountProxy.TokenCallback {
-    private final /* synthetic */ Activity a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ int c;
-    private final /* synthetic */ boolean d;
+class f extends Handler {
+    final /* synthetic */ FileDownloader a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(Activity activity, String str, int i, boolean z) {
-        this.a = activity;
-        this.b = str;
-        this.c = i;
-        this.d = z;
+    public f(FileDownloader fileDownloader) {
+        this.a = fileDownloader;
     }
 
-    @Override // com.baidu.account.AccountProxy.TokenCallback
-    public void callBack(String str) {
-        com.baidu.tieba.util.z.e("BaiduAccountProxy", "getAccountData", "token = " + str);
-        if (str != null) {
-            BaiduAccount baiduAccount = BaiduAccount.get(this.a);
-            AccountData accountData = new AccountData();
-            accountData.setAccount(baiduAccount.getCurrentAccount());
-            accountData.setBDUSS(str);
-            accountData.setIsActive(1);
-            ReLoginActivity.a(this.a, this.b, this.c, this.d, accountData);
-        } else if ((this.a instanceof GuideActivity) || (this.a instanceof LogoActivity)) {
-            this.a.finish();
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        int i;
+        String str;
+        super.handleMessage(message);
+        if (message.what == 900002) {
+            if (message.arg2 > 0) {
+                this.a.progress = (int) ((message.arg1 * 100) / message.arg2);
+                StringBuffer stringBuffer = new StringBuffer(20);
+                stringBuffer.append(String.valueOf(message.arg1 / 1000));
+                stringBuffer.append("K/");
+                stringBuffer.append(String.valueOf(message.arg2 / 1000));
+                stringBuffer.append("K");
+                this.a.schedule = stringBuffer.toString();
+                Context baseContext = this.a.getBaseContext();
+                i = this.a.progress;
+                str = this.a.schedule;
+                com.baidu.tbadk.core.util.bb.a(baseContext, 10, (String) null, i, str, (String) null, true);
+            }
+        } else if (message.what == 1) {
+            UtilHelper.install_apk(ai.c().d(), (String) message.obj);
+            this.a.stopSelf();
         }
     }
 }

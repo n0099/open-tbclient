@@ -1,22 +1,21 @@
 package com.baidu.tieba.home;
-
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 /* loaded from: classes.dex */
 class u {
-    LinearLayout a;
-    LinearLayout b;
-    TextView c;
-    Button d;
-    final /* synthetic */ r e;
+    private int a = -1;
 
-    private u(r rVar) {
-        this.e = rVar;
+    public void a(int i) {
+        this.a = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ u(r rVar, u uVar) {
-        this(rVar);
+    public int a() {
+        return this.a;
+    }
+
+    public boolean b(int i) {
+        if (i == a()) {
+            return false;
+        }
+        a(i);
+        return true;
     }
 }

@@ -1,57 +1,29 @@
 package com.baidu.tieba.a;
 
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.data.ag;
-import com.baidu.tieba.util.r;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class a {
-    private static final String a = String.valueOf(com.baidu.tieba.data.g.a) + "c/s/addmsg";
-    private r b = null;
-    private ag c = null;
+public class a extends com.baidu.tbadk.core.e {
+    private static final String c = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumrecommend";
 
-    public String a(com.baidu.tieba.data.a.e eVar) {
-        this.b = new r(a);
-        this.b.a(PushConstants.EXTRA_USER_ID, eVar.c());
-        this.b.a("com_id", eVar.b());
-        this.b.a(PushConstants.EXTRA_CONTENT, eVar.a());
-        this.b.a("last_msg_id", String.valueOf(eVar.d()));
-        String j = this.b.j();
-        this.c = new ag();
-        this.c.a(j);
-        return j;
+    public String g() {
+        a("like_forum", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+        a("topic", "0");
+        a("recommend", "0");
+        a(c);
+        return this.a.i();
     }
 
-    public void a() {
-        if (this.b != null) {
-            this.b.h();
+    public long h() {
+        if (this.a != null) {
+            return this.a.a().c().a.d;
         }
+        return 0L;
     }
 
-    public boolean b() {
-        if (this.b != null) {
-            return this.b.c();
+    public long i() {
+        if (this.a != null) {
+            return this.a.a().c().a.c;
         }
-        return false;
-    }
-
-    public String c() {
-        if (this.b != null) {
-            return this.b.g();
-        }
-        return null;
-    }
-
-    public int d() {
-        if (this.c != null) {
-            return this.c.a();
-        }
-        return -1;
-    }
-
-    public String e() {
-        if (this.c != null) {
-            return this.c.b();
-        }
-        return null;
+        return 0L;
     }
 }

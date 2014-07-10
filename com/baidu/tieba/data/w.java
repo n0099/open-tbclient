@@ -1,6 +1,8 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.data.AntiData;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,11 +13,12 @@ public class w {
     private int c;
     private AntiData d;
     private Context e;
-    private LinkedList f;
+    private LinkedList<v> f;
     private String g;
     private String h;
     private String i;
     private String j;
+    private int k;
 
     public w(Context context) {
         this.a = null;
@@ -28,8 +31,9 @@ public class w {
         this.h = null;
         this.i = null;
         this.j = null;
+        this.k = 0;
         this.e = context;
-        this.f = new LinkedList();
+        this.f = new LinkedList<>();
         this.d = new AntiData();
     }
 
@@ -57,15 +61,11 @@ public class w {
         return this.j;
     }
 
-    public AntiData e() {
-        return this.d;
-    }
-
-    public String f() {
+    public String e() {
         return this.g;
     }
 
-    public String g() {
+    public String f() {
         return this.h;
     }
 
@@ -80,7 +80,8 @@ public class w {
         this.h = null;
         this.i = null;
         this.j = null;
-        this.f = new LinkedList();
+        this.k = 0;
+        this.f = new LinkedList<>();
         this.d = new AntiData();
     }
 
@@ -88,11 +89,11 @@ public class w {
         try {
             a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "paserJson", e.toString());
+            BdLog.detailException(e);
         }
     }
 
-    public LinkedList h() {
+    public LinkedList<v> g() {
         return this.f;
     }
 
@@ -100,28 +101,29 @@ public class w {
         this.a = str;
     }
 
-    public String i() {
+    public String h() {
         return this.a;
     }
 
-    public String j() {
+    public String i() {
         return this.b;
     }
 
-    public int k() {
+    public int j() {
         return this.c;
     }
 
-    public String l() {
-        return this.f.size() > 0 ? ((v) this.f.get(this.f.size() - 1)).c() : "";
+    public String k() {
+        return this.f.size() > 0 ? this.f.get(this.f.size() - 1).c() : "";
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
         if (jSONObject != null) {
             try {
+                a(jSONObject.optInt("is_new_url", 0));
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.a = optJSONObject.getString("name");
+                    this.a = optJSONObject.optString("name");
                     this.b = optJSONObject.optString("id");
                 }
                 this.c = jSONObject.optInt("pic_amount", 0);
@@ -130,7 +132,7 @@ public class w {
                     if (bool.booleanValue()) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             v vVar = new v(this.e);
-                            vVar.a(optJSONArray.getJSONObject(i));
+                            vVar.a(optJSONArray.optJSONObject(i));
                             int h = vVar.h();
                             if (h >= 1 && h <= this.c) {
                                 this.f.addLast(vVar);
@@ -147,12 +149,20 @@ public class w {
                         }
                     }
                 }
-                JSONObject jSONObject2 = jSONObject.getJSONArray("album_list").getJSONObject(0);
-                this.g = jSONObject2.optString("tid");
-                this.h = jSONObject2.optString("title");
+                JSONObject optJSONObject2 = jSONObject.optJSONArray("album_list").optJSONObject(0);
+                this.g = optJSONObject2.optString("tid");
+                this.h = optJSONObject2.optString("title");
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "paserJson", e.toString());
+                BdLog.detailException(e);
             }
         }
+    }
+
+    public int l() {
+        return this.k;
+    }
+
+    public void a(int i) {
+        this.k = i;
     }
 }

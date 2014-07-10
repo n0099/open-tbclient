@@ -1,32 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aj extends BroadcastReceiver {
-    final /* synthetic */ MainTabActivity a;
-
-    private aj(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
-    }
+public class aj implements Handler.Callback {
+    final /* synthetic */ ai a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aj(MainTabActivity mainTabActivity, aj ajVar) {
-        this(mainTabActivity);
+    public aj(ai aiVar) {
+        this.a = aiVar;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        if (action.equals(com.baidu.tieba.data.g.k)) {
-            MainTabActivity.a(this.a, intent.getLongExtra("relay", 0L));
-            MainTabActivity.b(this.a, intent.getLongExtra("at_me", 0L));
-            MainTabActivity.c(this.a, intent.getLongExtra("fans", 0L));
-            MainTabActivity.d(this.a, intent.getLongExtra("pletter", 0L));
-            this.a.c();
-        } else if (action.equals(com.baidu.tieba.data.g.l)) {
-            MainTabActivity.a(this.a);
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        switch (message.what) {
+            case 2:
+            case 3:
+            default:
+                return false;
         }
     }
 }

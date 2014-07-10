@@ -1,38 +1,75 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public class m extends com.baidu.adp.a.c {
-    com.baidu.tieba.data.p a;
-    private n b = null;
+public class m extends com.baidu.adp.base.e {
+    private com.baidu.tieba.data.o b;
+    private o a = null;
+    private boolean c = true;
+    private p d = null;
+    private long e = 0;
+    private long f = 0;
+    private long g = 0;
+    private long h = 0;
 
     public m() {
-        this.a = null;
-        this.a = new com.baidu.tieba.data.p();
+        this.b = null;
+        this.b = new com.baidu.tieba.data.o();
     }
 
-    public com.baidu.tieba.data.p a() {
-        return this.a;
+    public long a() {
+        return this.h;
     }
 
-    @Override // com.baidu.adp.a.c
+    public long b() {
+        return this.f;
+    }
+
+    public long c() {
+        return this.g;
+    }
+
+    public long d() {
+        return this.e;
+    }
+
+    public com.baidu.tieba.data.o e() {
+        return this.b;
+    }
+
+    public void a(p pVar) {
+        this.d = pVar;
+    }
+
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.c
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
+        if (this.a != null) {
+            this.a.cancel();
             return false;
         }
         return false;
     }
 
-    public void a(boolean z, boolean z2, boolean z3) {
-        if (this.b == null) {
-            this.b = new n(this, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3));
-            this.b.setPriority(3);
-            this.b.execute(new Object[0]);
+    public boolean a(boolean z) {
+        this.c = z;
+        if (this.a != null) {
+            return false;
         }
+        this.a = new o(this, 1);
+        this.a.execute(new Object[0]);
+        return true;
+    }
+
+    public boolean b(boolean z) {
+        this.c = z;
+        if (this.a != null) {
+            return false;
+        }
+        this.a = new o(this, 0);
+        this.a.execute(new Object[0]);
+        return true;
     }
 }

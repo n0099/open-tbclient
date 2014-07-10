@@ -1,15 +1,13 @@
 package com.baidu.tieba.write;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,270 +18,276 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.AntiData;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsImageActivity;
-import com.baidu.tieba.pb.ImagePbActivity;
-import com.baidu.tieba.service.TiebaPrepareImageService;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.service.TiebaPrepareImageService;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class WriteImageActivity extends com.baidu.tieba.g {
+public class WriteImageActivity extends BaseActivity {
     private static String[] a = null;
     private int A;
-    private HashMap B;
-    private HashMap C;
-    private RadioButton m;
-    private RadioButton n;
+    private String B;
+    private HashMap<String, Bitmap> D;
+    private HashMap<String, ImageView> E;
+    private RadioButton j;
+    private RadioButton k;
+    private View o;
     private LinearLayout x;
     private ImageView b = null;
     private Bitmap c = null;
-    private Button d = null;
-    private Button e = null;
-    private LinearLayout f = null;
-    private HorizontalScrollView g = null;
-    private ProgressBar j = null;
-    private az k = null;
-    private ay l = null;
-    private LinearLayout o = null;
-    private LinearLayout p = null;
-    private TextView q = null;
-    private Bitmap r = null;
-    private ba s = null;
+    private TextView d = null;
+    private View e = null;
+    private HorizontalScrollView f = null;
+    private ProgressBar g = null;
+    private bt h = null;
+    private bn i = null;
+    private LinearLayout l = null;
+    private LinearLayout m = null;
+    private TextView n = null;
+    private NavigationBar p = null;
+    private Bitmap q = null;
+    private bu r = null;
+    private int s = 0;
     private int t = 0;
     private int u = 0;
     private boolean v = true;
     private String w = null;
     private boolean y = false;
     private boolean z = false;
-    private View.OnClickListener D = new aq(this);
+    private final Handler C = new Handler();
+    private final Object F = new Object();
+    private final View.OnClickListener G = new bf(this);
 
-    public static void a(Activity activity, Bitmap bitmap, int i) {
-        Intent intent = new Intent(activity, WriteImageActivity.class);
-        if (bitmap != null) {
-            intent.putExtra("request", i);
-            activity.startActivityForResult(intent, 1200003);
-        }
+    static {
+        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.bw.class, WriteImageActivity.class);
     }
 
-    public static void a(Activity activity, int i, int i2, Uri uri, String str, String str2, AntiData antiData) {
-        if (antiData != null && antiData.getIfpost() == 0) {
-            com.baidu.tieba.util.aa.a((Context) activity, antiData.getForbid_info());
-            return;
-        }
-        Intent intent = new Intent(activity, WriteImageActivity.class);
-        intent.putExtra("request", i);
-        if ((activity instanceof FrsActivity) || (activity instanceof ImagePbActivity) || (activity instanceof FrsImageActivity)) {
-            intent.putExtra("from", "frs");
-        }
-        intent.putExtra("forumid", str);
-        intent.putExtra("foruimname", str2);
-        intent.setData(uri);
-        activity.startActivityForResult(intent, i2);
-    }
-
-    public static void a(Activity activity, int i, int i2, Uri uri) {
-        Intent intent = new Intent(activity, WriteImageActivity.class);
-        intent.putExtra("request", i);
-        if ((activity instanceof FrsActivity) || (activity instanceof ImagePbActivity) || (activity instanceof FrsImageActivity)) {
-            intent.putExtra("from", "frs");
-        }
-        intent.setData(uri);
-        activity.startActivityForResult(intent, i2);
-    }
-
-    public static void b(Activity activity, int i, int i2, Uri uri) {
-        Intent intent = new Intent(activity, WriteImageActivity.class);
-        intent.putExtra("request", i);
-        intent.putExtra("from", "frs");
-        intent.setData(uri);
-        activity.startActivityForResult(intent, i2);
-    }
-
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.f().a((com.baidu.tieba.g) this);
-        setContentView(R.layout.write_image_activity);
+        if (com.baidu.adp.lib.a.f.a().b("motu_sdk") == 1 || com.baidu.tbadk.tbplugin.m.a().d("motusdk") == null) {
+            this.v = false;
+        } else {
+            this.v = true;
+        }
+        TbadkApplication.m252getInst().addRemoteActivity(this);
+        setContentView(com.baidu.tieba.w.write_image_activity);
         Intent intent = getIntent();
         this.A = intent.getIntExtra("request", 0);
-        if (intent.getStringExtra("from") != null && intent.getStringExtra("from").equals("frs")) {
+        this.u = intent.getIntExtra("display_size", 0);
+        this.B = intent.getStringExtra("finish_text");
+        if (this.v) {
+            TbadkApplication.m252getInst().sendImagePv(1, 1, "motu_pic");
+        }
+        if (intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.FROM) != null && intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.FROM).equals("frs")) {
             this.z = true;
         }
-        if (this.A == 1200002 || this.A == 1200001) {
-            m();
-            if (intent.getData() != null) {
-                TiebaPrepareImageService.a(this.A, intent.getData(), TiebaApplication.f().az());
-            } else {
-                TiebaPrepareImageService.a(this.A, null, TiebaApplication.f().az());
-            }
-            n();
-        } else {
-            m();
+        if (this.A == 12002 || this.A == 12001) {
             d();
+            if (intent.getData() != null) {
+                TiebaPrepareImageService.StartService(this.A, intent.getData(), com.baidu.tbadk.core.util.bn.a().e(), this.u);
+            } else {
+                TiebaPrepareImageService.StartService(this.A, null, com.baidu.tbadk.core.util.bn.a().e(), this.u);
+            }
+            e();
+        } else {
+            d();
+            c();
         }
-        a = getResources().getStringArray(R.array.fiter_name);
-        this.v = TiebaApplication.f().u();
+        a = getResources().getStringArray(com.baidu.tieba.q.fiter_name);
     }
 
-    @Override // com.baidu.tieba.g, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        Drawable drawable = this.b.getDrawable();
-        if (drawable != null && (drawable instanceof BitmapDrawable) && ((BitmapDrawable) drawable).getBitmap() == null && this.k == null) {
-            this.k = new az(this, null);
-            this.k.execute(new Object[0]);
-        }
-    }
-
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a
-    public void a_() {
-        if (this.k != null) {
-            this.k.cancel();
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
+    public void releaseResouce() {
+        if (this.h != null) {
+            this.h.cancel();
         }
         this.b.setImageBitmap(null);
-        c();
+        b();
     }
 
-    private void c() {
-        if (this.C != null) {
-            for (Map.Entry entry : this.C.entrySet()) {
-                ImageView imageView = (ImageView) entry.getValue();
-                if (imageView != null) {
-                    imageView.setImageBitmap(null);
+    private void b() {
+        synchronized (this.F) {
+            if (this.E != null) {
+                for (Map.Entry<String, ImageView> entry : this.E.entrySet()) {
+                    ImageView value = entry.getValue();
+                    if (value != null) {
+                        value.setImageBitmap(null);
+                    }
                 }
+                this.E.clear();
+                this.E = null;
             }
-            this.C.clear();
-            this.C = null;
-        }
-        if (this.B != null) {
-            for (Map.Entry entry2 : this.B.entrySet()) {
-                Bitmap bitmap = (Bitmap) entry2.getValue();
-                if (bitmap != null && !bitmap.isRecycled()) {
-                    bitmap.recycle();
+            if (this.D != null) {
+                for (Map.Entry<String, Bitmap> entry2 : this.D.entrySet()) {
+                    Bitmap value2 = entry2.getValue();
+                    if (value2 != null && !value2.isRecycled()) {
+                        value2.recycle();
+                    }
                 }
+                this.D.clear();
+                this.D = null;
             }
-            this.B.clear();
-            this.B = null;
         }
     }
 
-    public void d() {
-        if (this.k != null) {
-            this.k.cancel();
+    public void c() {
+        if (this.h != null) {
+            this.h.cancel();
         }
-        this.k = new az(this, null);
-        this.k.execute(new Object[0]);
+        this.h = new bt(this, null);
+        this.h.execute(new Object[0]);
     }
 
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        a_();
+        TiebaPrepareImageService.StopService();
+        releaseResouce();
         super.onDestroy();
         if (this.c != null && !this.c.isRecycled()) {
             this.c.recycle();
             this.c = null;
         }
-        if (this.r != null && !this.r.isRecycled()) {
-            this.r.recycle();
-            this.r = null;
+        if (this.q != null && !this.q.isRecycled()) {
+            this.q.recycle();
+            this.q = null;
         }
-        if (this.k != null) {
-            this.k.cancel();
-            this.k = null;
+        if (this.h != null) {
+            this.h.cancel();
+            this.h = null;
         }
-        this.j.setVisibility(8);
-        if (this.A == 1200002 || this.A == 1200001) {
-            unregisterReceiver(this.s);
+        this.g.setVisibility(8);
+        if (this.A == 12002 || this.A == 12001) {
+            unregisterReceiver(this.r);
         }
-        TiebaApplication.f().b((com.baidu.tieba.g) this);
+        TbadkApplication.m252getInst().delRemoteActivity(this);
     }
 
-    @Override // com.baidu.tieba.g, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.D.onClick(null);
+            this.G.onClick(null);
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void m() {
-        this.j = (ProgressBar) findViewById(R.id.progress);
-        this.j.setVisibility(8);
-        this.b = (ImageView) findViewById(R.id.image);
-        this.b.setOnClickListener(new ar(this));
-        this.b.setImageBitmap(this.c);
-        this.f = (LinearLayout) findViewById(R.id.title);
-        this.g = (HorizontalScrollView) findViewById(R.id.filters_layout);
-        this.d = (Button) findViewById(R.id.back);
-        this.d.setOnClickListener(new as(this));
-        this.e = (Button) findViewById(R.id.delete);
-        if (this.z || this.A != 1200003) {
-            this.e.setText(getString(R.string.done));
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        getLayoutMode().a(i == 1);
+        getLayoutMode().a(this.e);
+        this.p.c(i);
+        if (i == 1) {
+            if (this.d.isEnabled()) {
+                com.baidu.tbadk.core.util.bk.e((View) this.d, com.baidu.tieba.u.navi_done_text_bg_1);
+                this.d.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.navi_done_text_1));
+                return;
+            }
+            com.baidu.tbadk.core.util.bk.e((View) this.d, com.baidu.tieba.u.btn_titlebar_finish_d_1);
+            this.d.setTextColor(getResources().getColor(com.baidu.tieba.s.navi_done_text_d_1));
+        } else if (this.d.isEnabled()) {
+            com.baidu.tbadk.core.util.bk.e((View) this.d, com.baidu.tieba.u.navi_done_text_bg);
+            this.d.setTextColor(getResources().getColorStateList(com.baidu.tieba.s.navi_done_text));
+        } else {
+            com.baidu.tbadk.core.util.bk.e((View) this.d, com.baidu.tieba.u.btn_titlebar_finish_d);
+            this.d.setTextColor(getResources().getColor(com.baidu.tieba.s.navi_done_text_d));
         }
-        this.e.setOnClickListener(new at(this));
-        this.x = (LinearLayout) findViewById(R.id.filters);
-        this.t = com.baidu.tieba.util.aa.a(this, 2.0f);
-        this.q = (TextView) findViewById(R.id.editimage_title);
-        this.p = (LinearLayout) findViewById(R.id.beautify_rotate);
-        this.o = (LinearLayout) findViewById(R.id.rotate);
-        this.m = (RadioButton) findViewById(R.id.beautify_btn);
-        this.n = (RadioButton) findViewById(R.id.rotate_btn);
-        au auVar = new au(this);
-        this.m.setOnCheckedChangeListener(auVar);
-        this.n.setOnCheckedChangeListener(auVar);
-        this.m.setChecked(true);
-        Button button = (Button) findViewById(R.id.rotate_left);
-        Button button2 = (Button) findViewById(R.id.rotate_right);
-        Button button3 = (Button) findViewById(R.id.rotate_left_right);
-        Button button4 = (Button) findViewById(R.id.rotate_up_down);
+    }
+
+    private void d() {
+        this.e = findViewById(com.baidu.tieba.v.write_image_root_layout);
+        this.g = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
+        this.g.setVisibility(8);
+        this.b = (ImageView) findViewById(com.baidu.tieba.v.image);
+        this.b.setOnClickListener(new bg(this));
+        this.b.setImageBitmap(this.c);
+        this.f = (HorizontalScrollView) findViewById(com.baidu.tieba.v.filters_layout);
+        this.p = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.p.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new bh(this));
+        this.d = this.p.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.B, new bi(this));
+        if (TextUtils.isEmpty(this.B)) {
+            if (this.z || this.A != 12003) {
+                this.d.setText(getString(com.baidu.tieba.y.done));
+                com.baidu.tbadk.core.util.bk.g(this.d, TbadkApplication.m252getInst().getSkinType());
+            } else {
+                this.d.setText(getString(com.baidu.tieba.y.delete));
+                com.baidu.tbadk.core.util.bk.k(this.d, TbadkApplication.m252getInst().getSkinType());
+            }
+        } else {
+            this.d.setText(this.B);
+        }
+        this.x = (LinearLayout) findViewById(com.baidu.tieba.v.filters);
+        this.s = com.baidu.adp.lib.util.j.a((Context) this, 2.0f);
+        this.n = this.p.a(getString(com.baidu.tieba.y.beautify));
+        this.m = (LinearLayout) findViewById(com.baidu.tieba.v.beautify_rotate);
+        this.l = (LinearLayout) findViewById(com.baidu.tieba.v.rotate);
+        this.j = (RadioButton) findViewById(com.baidu.tieba.v.beautify_btn);
+        this.k = (RadioButton) findViewById(com.baidu.tieba.v.rotate_btn);
+        bj bjVar = new bj(this);
+        this.j.setOnCheckedChangeListener(bjVar);
+        this.k.setOnCheckedChangeListener(bjVar);
+        this.j.setChecked(true);
+        Button button = (Button) findViewById(com.baidu.tieba.v.rotate_left);
+        Button button2 = (Button) findViewById(com.baidu.tieba.v.rotate_right);
+        Button button3 = (Button) findViewById(com.baidu.tieba.v.rotate_left_right);
+        Button button4 = (Button) findViewById(com.baidu.tieba.v.rotate_up_down);
         button.setTag(0);
         button2.setTag(1);
         button3.setTag(2);
         button4.setTag(3);
-        av avVar = new av(this);
-        button.setOnClickListener(avVar);
-        button2.setOnClickListener(avVar);
-        button3.setOnClickListener(avVar);
-        button4.setOnClickListener(avVar);
+        bk bkVar = new bk(this);
+        button.setOnClickListener(bkVar);
+        button2.setOnClickListener(bkVar);
+        button3.setOnClickListener(bkVar);
+        button4.setOnClickListener(bkVar);
+        this.m.setVisibility(0);
         if (Build.VERSION.SDK_INT < 7 || !this.v) {
-            this.p.setVisibility(8);
+            this.k.setPadding(0, this.k.getPaddingTop(), this.k.getPaddingRight(), this.k.getPaddingBottom());
+            this.k.setChecked(true);
+            this.f.setVisibility(8);
+            this.j.setVisibility(8);
         }
     }
 
-    public void c(String str) {
-        if (this.l != null) {
-            this.l.cancel();
+    public void a(String str) {
+        if (this.i != null) {
+            this.i.cancel();
         }
-        this.l = new ay(this, null);
-        this.l.execute(str);
+        this.i = new bn(this, null);
+        this.i.execute(str);
     }
 
-    public boolean d(String str) {
+    public boolean b(String str) {
         try {
-            com.baidu.tieba.util.m.a("photos", str, this.r, 90);
+            com.baidu.tbadk.core.util.z.a(TbConfig.LOCAL_PIC_DIR, str, this.q, 90);
             this.b.setImageBitmap(null);
-            Bitmap a2 = com.baidu.tieba.util.d.a(this.r, 100);
-            if (a2 != null && com.baidu.tieba.util.m.a(null, "tieba_resized_image_display", a2, 80) != null) {
-                new com.baidu.tieba.account.af("motu_pic", String.valueOf(this.u)).start();
+            int i = 100;
+            if (this.u > 0) {
+                i = this.u;
+            }
+            Bitmap a2 = com.baidu.tbadk.core.util.h.a(this.q, i);
+            if (a2 != null && com.baidu.tbadk.core.util.z.a((String) null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, a2, 80) != null) {
+                TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp(), "motu_pic", null, 1, "st_param", String.valueOf(this.t));
                 return true;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "saveFile", e.toString());
+            BdLog.e(e.toString());
         }
         return false;
     }
 
     public void a(String[] strArr) {
-        if (this.B != null && strArr != null) {
+        if (this.D != null && strArr != null) {
             this.x.removeAllViews();
-            this.p.setVisibility(0);
-            View inflate = getLayoutInflater().inflate(R.layout.filter_item, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.filter_immage);
-            TextView textView = (TextView) inflate.findViewById(R.id.filter_text);
+            this.m.setVisibility(0);
+            View inflate = getLayoutInflater().inflate(com.baidu.tieba.w.filter_item, (ViewGroup) null);
+            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.v.filter_immage);
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.v.filter_text);
             int length = strArr.length;
             int i = 0;
             int i2 = 0;
@@ -291,45 +295,60 @@ public class WriteImageActivity extends com.baidu.tieba.g {
                 String str = strArr[i];
                 String substring = str.substring(0, str.indexOf("|"));
                 String substring2 = str.substring(str.indexOf("|") + 1);
-                View inflate2 = getLayoutInflater().inflate(R.layout.filter_item, (ViewGroup) null);
-                ImageView imageView2 = (ImageView) inflate2.findViewById(R.id.filter_immage);
-                ((TextView) inflate2.findViewById(R.id.filter_text)).setText(substring2);
-                imageView2.setImageBitmap((Bitmap) this.B.get(substring));
+                View inflate2 = getLayoutInflater().inflate(com.baidu.tieba.w.filter_item, (ViewGroup) null);
+                ImageView imageView2 = (ImageView) inflate2.findViewById(com.baidu.tieba.v.filter_immage);
+                TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.v.filter_text);
+                textView2.setText(substring2);
+                imageView2.setImageResource(com.baidu.tbadk.coreExtra.view.k.a(substring));
+                imageView2.setTag(textView2);
                 int i3 = i2 + 1;
                 if (substring.equals("normal")) {
-                    imageView2.setOnClickListener(new aw(this, substring, i2));
+                    imageView2.setOnClickListener(new bl(this, substring, i2));
+                    this.o = imageView2;
                 } else {
-                    imageView2.setOnClickListener(new ax(this, substring, i2));
+                    imageView2.setOnClickListener(new bm(this, substring, i2));
                 }
                 this.x.addView(inflate2);
-                this.C.put(substring, imageView2);
+                synchronized (this.F) {
+                    this.E.put(substring, imageView2);
+                }
                 i++;
                 i2 = i3;
             }
-            e("normal");
+            c("normal");
         }
     }
 
-    public void e(String str) {
+    public void c(String str) {
         ImageView imageView;
         if (str != null) {
-            if (this.w != null && (imageView = (ImageView) this.C.get(this.w)) != null) {
+            if (this.w != null && (imageView = this.E.get(this.w)) != null) {
                 imageView.setBackgroundDrawable(null);
-                imageView.setPadding(this.t, this.t, this.t, this.t);
+                imageView.setPadding(this.s, this.s, this.s, this.s);
+                Object tag = imageView.getTag();
+                if (tag instanceof TextView) {
+                    ((TextView) tag).setSelected(false);
+                }
             }
-            ImageView imageView2 = (ImageView) this.C.get(str);
-            if (imageView2 != null) {
-                imageView2.setBackgroundResource(R.drawable.round_corner);
-                imageView2.setPadding(this.t, this.t, this.t, this.t);
+            if (this.E != null) {
+                ImageView imageView2 = this.E.get(str);
+                if (imageView2 != null) {
+                    imageView2.setBackgroundResource(com.baidu.tieba.u.bg_choose_filter);
+                    imageView2.setPadding(this.s, this.s, this.s, this.s);
+                    Object tag2 = imageView2.getTag();
+                    if (tag2 instanceof TextView) {
+                        ((TextView) tag2).setSelected(true);
+                    }
+                }
+                this.w = str;
             }
-            this.w = str;
         }
     }
 
-    private void n() {
-        this.s = new ba(this, null);
+    private void e() {
+        this.r = new bu(this, null);
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.baidu.tieba.broadcast.image.resized");
-        registerReceiver(this.s, intentFilter);
+        intentFilter.addAction(TbConfig.getBroadcastActionImageResized());
+        registerReceiver(this.r, intentFilter);
     }
 }

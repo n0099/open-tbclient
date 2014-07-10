@@ -1,12 +1,11 @@
 package com.baidu.tieba.frs;
 
-import android.view.MotionEvent;
+import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba implements View.OnTouchListener {
+public class ba implements View.OnClickListener {
     final /* synthetic */ az a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,38 +13,34 @@ public class ba implements View.OnTouchListener {
         this.a = azVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        int i;
-        ImageView imageView;
-        ImageView imageView2;
-        int i2;
-        ImageView imageView3;
-        ImageView imageView4;
-        if (view.getId() == R.id.refresh_layout) {
-            if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
-                i = this.a.A;
-                if (i == 1) {
-                    imageView2 = this.a.m;
-                    imageView2.setImageResource(R.drawable.pic_fresh_n_1);
-                } else {
-                    imageView = this.a.m;
-                    imageView.setImageResource(R.drawable.pic_fresh_n);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        Context context3;
+        Context context4;
+        Context context5;
+        int intValue = ((Integer) view.getTag()).intValue();
+        Object item = this.a.getItem(intValue);
+        if (item instanceof com.baidu.tbadk.core.data.b) {
+            com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) item;
+            com.baidu.tbadk.i.a().b(bVar.i(), System.currentTimeMillis());
+            int k = bVar.k();
+            if (k == 0) {
+                context4 = this.a.b;
+                if (context4 instanceof FrsActivity) {
+                    context5 = this.a.b;
+                    ((FrsActivity) context5).b((com.baidu.tbadk.core.data.b) item, intValue);
+                }
+            } else if (k == 2) {
+                context = this.a.b;
+                if (context instanceof FrsActivity) {
+                    context2 = this.a.b;
+                    ((FrsActivity) context2).a(bVar);
                 }
             }
-            if (motionEvent.getAction() == 0) {
-                i2 = this.a.A;
-                if (i2 == 1) {
-                    imageView4 = this.a.m;
-                    imageView4.setImageResource(R.drawable.pic_fresh_s_1);
-                    return false;
-                }
-                imageView3 = this.a.m;
-                imageView3.setImageResource(R.drawable.pic_fresh_s);
-                return false;
-            }
-            return false;
+            context3 = this.a.b;
+            TiebaStatic.eventStat(context3, "frs_tb_btc", "");
         }
-        return false;
     }
 }

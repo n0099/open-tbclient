@@ -1,92 +1,51 @@
 package com.baidu.tieba.account;
 
-import android.widget.Button;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-public class p extends BdAsyncTask {
-    final /* synthetic */ j a;
-    private com.baidu.tieba.util.r b = null;
-    private String c;
-    private String d;
+class p implements TextWatcher {
+    final /* synthetic */ ActivationActivity a;
 
-    public p(j jVar, String str, String str2) {
-        this.a = jVar;
-        this.c = null;
-        this.d = null;
-        this.c = str;
-        this.d = str2;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public p(ActivationActivity activationActivity) {
+        this.a = activationActivity;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        Button button;
-        super.cancel(true);
-        progressBar = this.a.p;
-        progressBar.setVisibility(8);
-        button = this.a.k;
-        button.setEnabled(true);
-        this.a.m = null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.tieba.data.c a(String... strArr) {
-        this.b = new com.baidu.tieba.util.r(this.c);
-        this.b.a("un", this.d);
-        String j = this.b.j();
-        if (!this.b.d() || this.b.e() != 36) {
-            return null;
-        }
-        com.baidu.tieba.data.c cVar = new com.baidu.tieba.data.c();
-        cVar.a(j);
-        return cVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.c cVar) {
-        ProgressBar progressBar;
-        Button button;
-        com.baidu.tieba.g gVar;
-        super.a((Object) cVar);
-        this.a.m = null;
-        progressBar = this.a.p;
-        progressBar.setVisibility(8);
-        button = this.a.k;
-        button.setEnabled(true);
-        if (!this.b.d()) {
-            this.a.b(this.b.g());
-        } else if (this.b.e() == 0) {
-            j jVar = this.a;
-            gVar = this.a.j;
-            jVar.b(gVar.getString(R.string.name_not_use));
-        } else if (this.b.e() == 36) {
-            this.a.b(this.b.g());
-            if (cVar != null) {
-                this.a.a(cVar.b());
-            }
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        RelativeLayout relativeLayout;
+        int i;
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        int i2;
+        int i3;
+        RelativeLayout relativeLayout2;
+        if (editable.length() == 6) {
+            relativeLayout2 = this.a.k;
+            relativeLayout2.setEnabled(true);
         } else {
-            this.a.b(this.b.g());
+            relativeLayout = this.a.k;
+            relativeLayout.setEnabled(false);
+        }
+        i = this.a.y;
+        if (i != 0) {
+            this.a.y = 0;
+            linearLayout = this.a.d;
+            linearLayout.setBackgroundResource(com.baidu.tieba.u.pass_input);
+            linearLayout2 = this.a.d;
+            i2 = this.a.w;
+            i3 = this.a.x;
+            linearLayout2.setPadding(i2, 0, i3, 0);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        ProgressBar progressBar;
-        Button button;
-        progressBar = this.a.p;
-        progressBar.setVisibility(0);
-        button = this.a.k;
-        button.setEnabled(false);
-        this.a.b((String) null);
-        this.a.d();
-        super.b();
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

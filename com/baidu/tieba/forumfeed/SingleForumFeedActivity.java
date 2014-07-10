@@ -1,0 +1,116 @@
+package com.baidu.tieba.forumfeed;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tbadk.core.voice.aa;
+import com.baidu.tbadk.core.voice.y;
+/* loaded from: classes.dex */
+public class SingleForumFeedActivity extends BaseFragmentActivity implements aa {
+    private a c;
+    private VoiceManager d;
+
+    static {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2010011, new p());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.d = new VoiceManager();
+        this.d.onCreate(this);
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        this.c = new a();
+        FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
+        beginTransaction.add(16908290, this.c);
+        beginTransaction.commitAllowingStateLoss();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onStart() {
+        super.onStart();
+        this.d.onStart(this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.d.onResume(this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onStop() {
+        super.onStop();
+        this.d.onStop(this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        this.d.onSaveInstanceState(this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        this.d.onDestory(this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v4.app.FragmentActivity
+    public void onResumeFragments() {
+        super.onResumeFragments();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        if (this.c != null) {
+            this.c.onActivityResult(i, i2, intent);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    protected void b(int i) {
+    }
+
+    @Override // com.baidu.tbadk.core.voice.aa
+    public VoiceManager d() {
+        return this.d;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.aa
+    public y a(VoiceData.VoiceModel voiceModel) {
+        return null;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity
+    public BdListView h_() {
+        j f;
+        if (this.c == null || (f = this.c.f()) == null) {
+            return null;
+        }
+        return f.h();
+    }
+}

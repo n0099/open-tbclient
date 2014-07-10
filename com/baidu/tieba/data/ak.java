@@ -34,16 +34,16 @@ public class ak {
         this.c = 0;
     }
 
-    public void a(com.baidu.tieba.util.r rVar) {
-        if (rVar != null) {
+    public void a(com.baidu.tbadk.core.util.aq aqVar) {
+        if (aqVar != null) {
             if (this.a != 0) {
-                rVar.a("ctime", String.valueOf(this.a));
+                aqVar.a("ctime", String.valueOf(this.a));
             }
             if (this.b != 0) {
-                rVar.a("data_size", String.valueOf(this.b));
+                aqVar.a("data_size", String.valueOf(this.b));
             }
             if (this.c != 0) {
-                rVar.a("net_error", String.valueOf(this.c));
+                aqVar.a("net_error", String.valueOf(this.c));
             }
         }
     }

@@ -1,79 +1,115 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.pushservice.PushConstants;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.data.BubbleListData;
+import com.baidu.tieba.message.ResponseBubbleListMessage;
+import com.baidu.tieba.message.ResponseSetBubbleMessage;
+import java.util.List;
 /* loaded from: classes.dex */
-public class d extends BdAsyncTask {
-    final /* synthetic */ c a;
-    private volatile com.baidu.tieba.util.r b;
+public class d extends com.baidu.adp.base.e {
+    private g a;
+    private h b;
+    private int c;
+    private int d;
+    private HttpMessageListener e = new e(this, 1001500);
+    private HttpMessageListener f = new f(this, 1001501);
 
-    private d(c cVar) {
-        this.a = cVar;
-        this.b = null;
+    public void a(g gVar) {
+        this.a = gVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(c cVar, d dVar) {
-        this(cVar);
+    public void a(h hVar) {
+        this.b = hVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Boolean a(Object... objArr) {
-        String str;
-        String str2;
-        JSONObject jSONObject;
-        try {
-            this.b = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/s/delcom");
-            this.b.d(true);
-            com.baidu.tieba.util.r rVar = this.b;
-            str = this.a.b;
-            rVar.a(PushConstants.EXTRA_USER_ID, str);
-            com.baidu.tieba.util.r rVar2 = this.b;
-            str2 = this.a.c;
-            rVar2.a("com_id", str2);
-            String j = this.b.j();
-            if (this.b.c() && j != null && (jSONObject = new JSONObject(j)) != null && jSONObject.optJSONObject("error").optInt("errno") == 0) {
-                return true;
+    public int a() {
+        return this.c;
+    }
+
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public int b() {
+        return this.d;
+    }
+
+    public void b(int i) {
+        this.d = i;
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public static boolean a(List<BubbleListData.BubbleData> list) {
+        if (list != null && list.size() > 0) {
+            for (BubbleListData.BubbleData bubbleData : list) {
+                if (bubbleData.getBcode() != 0 && bubbleData.isDef()) {
+                    return false;
+                }
             }
-            return false;
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
-            return false;
         }
+        return true;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        this.a.j = null;
-        if (bool.booleanValue()) {
-            eVar = this.a.mLoadDataCallBack;
-            eVar.a(true);
-            return;
-        }
-        this.a.mErrorCode = this.b.e();
-        this.a.mErrorString = this.b.g();
-        eVar2 = this.a.mLoadDataCallBack;
-        eVar2.a(false);
+    public void a(CustomMessageListener customMessageListener) {
+        MessageManager.getInstance().registerListener(customMessageListener);
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.a.e eVar;
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.h();
-            this.b = null;
-        }
-        eVar = this.a.mLoadDataCallBack;
-        eVar.a(false);
+    public void c() {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001500, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/bu/getbubblelist");
+        tbHttpMessageTask.setResponsedClass(ResponseBubbleListMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
+        messageManager.registerListener(this.e);
+    }
+
+    public void a(int i, int i2, int i3, int i4) {
+        HttpMessage httpMessage = new HttpMessage(1001500);
+        httpMessage.setTag(1001500);
+        httpMessage.addParam("pn", String.valueOf(i));
+        httpMessage.addParam("rn", String.valueOf(i2));
+        httpMessage.addParam("scr_w", String.valueOf(i3));
+        httpMessage.addParam("scr_h", String.valueOf(i4));
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public void a(int i, int i2, int i3) {
+        HttpMessage httpMessage = new HttpMessage(1001501);
+        httpMessage.setTag(1001501);
+        httpMessage.addParam("bcode", String.valueOf(i));
+        httpMessage.addParam("scr_w", String.valueOf(i2));
+        httpMessage.addParam("scr_h", String.valueOf(i3));
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public void d() {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001501, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/bu/setbubble");
+        tbHttpMessageTask.setResponsedClass(ResponseSetBubbleMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
+        messageManager.registerListener(this.f);
+    }
+
+    public void e() {
+        MessageManager messageManager = MessageManager.getInstance();
+        messageManager.unRegisterListener(this.f);
+        messageManager.unRegisterListener(this.e);
+    }
+
+    public void b(CustomMessageListener customMessageListener) {
+        MessageManager.getInstance().unRegisterListener(customMessageListener);
     }
 }

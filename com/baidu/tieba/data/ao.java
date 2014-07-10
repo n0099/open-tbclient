@@ -1,39 +1,35 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.tieba.person.PersonInfoActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
+import com.baidu.tieba.pb.main.PbActivity;
 /* loaded from: classes.dex */
-public class ao extends ClickableSpan {
+class ao implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ an a;
-    private String b;
-    private String c;
-    private Context d;
+    private final /* synthetic */ com.baidu.adp.widget.r b;
+    private final /* synthetic */ Context c;
 
-    public ao(an anVar, Context context, String str, String str2) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ao(an anVar, com.baidu.adp.widget.r rVar, Context context) {
         this.a = anVar;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.b = str;
-        this.c = str2;
-        this.d = context;
+        this.b = rVar;
+        this.c = context;
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
-        textPaint.setColor(-9989158);
-        textPaint.setUnderlineText(false);
-        textPaint.setFakeBoldText(false);
-    }
-
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-        if (this.b != null && this.c != null && this.d != null) {
-            PersonInfoActivity.a(this.d, this.c, this.b);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        am amVar;
+        ListAdapter adapter;
+        if (aVar != null && aVar.i()) {
+            amVar = this.a.a;
+            this.b.a(amVar.a(aVar));
+            if (this.c instanceof PbActivity) {
+                PbActivity pbActivity = (PbActivity) this.c;
+                if (!pbActivity.isFinishing() && (adapter = pbActivity.a().getAdapter()) != null && (adapter instanceof BaseAdapter)) {
+                    ((BaseAdapter) adapter).notifyDataSetChanged();
+                }
+            }
         }
     }
 }

@@ -6,34 +6,35 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class j extends a implements Runnable {
     public static String a = "logcat ";
-    private static Map f = new HashMap();
+    private static Map<String, com.baidu.adp.lib.debug.b> f = new HashMap();
     private Process b;
     private InputStream c;
     private OutputStream d;
     private k e;
 
-    public static void a(String str, com.baidu.adp.lib.debug.a aVar) {
-        f.put(str, aVar);
+    public static void a(String str, com.baidu.adp.lib.debug.b bVar) {
+        f.put(str, bVar);
         a = String.valueOf(a) + " -s " + str;
     }
 
     public void a(String str) {
-        String[] split = str.split("\n");
+        String[] split = str.split(IOUtils.LINE_SEPARATOR_UNIX);
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < split.length) {
-                Iterator it = f.entrySet().iterator();
+                Iterator<Map.Entry<String, com.baidu.adp.lib.debug.b>> it = f.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    Map.Entry entry = (Map.Entry) it.next();
-                    if (split[i2].contains(entry.getKey().toString())) {
-                        ((com.baidu.adp.lib.debug.a) entry.getValue()).a(split[i2]);
+                    Map.Entry<String, com.baidu.adp.lib.debug.b> next = it.next();
+                    if (split[i2].contains(next.getKey().toString())) {
+                        next.getValue().a(split[i2]);
                         break;
                     }
                 }
@@ -73,9 +74,15 @@ public class j extends a implements Runnable {
             if (this.b != null) {
                 this.b.destroy();
             }
-            this.e.a();
-            this.c.close();
-            this.d.close();
+            if (this.e != null) {
+                this.e.a();
+            }
+            if (this.c != null) {
+                this.c.close();
+            }
+            if (this.d != null) {
+                this.d.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

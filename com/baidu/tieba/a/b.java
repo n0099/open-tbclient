@@ -1,68 +1,65 @@
 package com.baidu.tieba.a;
 
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.data.ag;
-import com.baidu.tieba.util.r;
-import com.baidu.tieba.util.z;
+import com.baidu.adp.lib.util.j;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.NewErrorData;
+import com.baidu.tbadk.core.util.bn;
+import com.baidu.tieba.ai;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class b {
-    private static final String c = String.valueOf(com.baidu.tieba.data.g.a) + "c/s/recentmsg";
-    private static final String d = String.valueOf(com.baidu.tieba.data.g.a) + "c/s/historymsg";
-    private r a = null;
-    private ag b = null;
+public class b extends com.baidu.tbadk.core.e {
+    private static final String e = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/feed/forum";
+    private int c = 0;
+    private String d;
 
-    public String a(int i, String str, String str2, long j) {
-        this.a = new r();
-        this.a.a(PushConstants.EXTRA_USER_ID, str);
-        this.a.a("com_id", str2);
-        switch (i) {
-            case 0:
-                this.a.a(c);
-                this.a.a("msg_id", String.valueOf(j));
-                break;
-            case 1:
-                this.a.a(d);
-                this.a.a("msg_id", String.valueOf(j));
-                break;
+    public String b(String str) {
+        a("pn", str);
+        a("rn", String.valueOf(20));
+        this.a.a().a().a = true;
+        a(e);
+        int b = j.b(ai.c().d());
+        int c = j.c(ai.c().d());
+        float f = b / 320.0f;
+        int i = bn.a().b() ? 2 : 1;
+        this.a.a("scr_w", String.valueOf(b));
+        this.a.a("scr_h", String.valueOf(c));
+        this.a.a("scr_dip", String.valueOf(f));
+        this.a.a("q_type", String.valueOf(i));
+        String i2 = this.a.i();
+        if (this.a.a().b().b()) {
+            this.b = new NewErrorData();
+            this.b.parserJson(i2);
+            return i2;
+        } else if (this.a.c()) {
+            this.c = this.a.d();
+            this.d = this.a.f();
+            return null;
+        } else {
+            this.c = -1;
+            this.d = ai.c().d().getResources().getString(y.neterror);
+            return null;
         }
-        String j2 = this.a.j();
-        z.a(getClass().getName(), "msg=" + j, j2);
-        this.b = new ag();
-        this.b.a(j2);
-        return j2;
     }
 
-    public void a() {
-        if (this.a != null) {
-            this.a.h();
-        }
-    }
-
-    public boolean b() {
-        if (this.a != null) {
-            return this.a.c();
-        }
-        return false;
-    }
-
-    public String c() {
-        if (this.a != null) {
-            return this.a.g();
-        }
-        return null;
-    }
-
-    public int d() {
+    @Override // com.baidu.tbadk.core.e
+    public int e() {
         if (this.b != null) {
-            return this.b.a();
+            return this.b.getErrorNumber();
+        }
+        if (this.c == 0) {
+            return this.c;
         }
         return -1;
     }
 
-    public String e() {
+    @Override // com.baidu.tbadk.core.e
+    public String f() {
         if (this.b != null) {
-            return this.b.b();
+            return this.b.getErrorMsg();
         }
-        return null;
+        if (this.d != null) {
+            return this.d;
+        }
+        return "";
     }
 }

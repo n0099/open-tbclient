@@ -1,25 +1,33 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.model.MoreModel;
 /* loaded from: classes.dex */
-class af implements com.baidu.adp.widget.BdSwitchView.c {
-    final /* synthetic */ MsgRemindActivity a;
+class af extends BaseActivity.LoadDataCallBack {
+    final /* synthetic */ SystemHelpSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(MsgRemindActivity msgRemindActivity) {
-        this.a = msgRemindActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public af(SystemHelpSettingActivity systemHelpSettingActivity, BaseActivity baseActivity) {
+        super();
+        this.a = systemHelpSettingActivity;
     }
 
-    @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (switchState == BdSwitchView.SwitchState.ON) {
-            TiebaApplication.f().k(true);
-        } else {
-            TiebaApplication.f().k(false);
+    @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
+    public void callback(Object... objArr) {
+        at atVar;
+        at atVar2;
+        Object obj = objArr[0];
+        if (objArr != null && (obj instanceof MoreModel.TaskType)) {
+            if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
+                this.a.closeLoadingDialog();
+                atVar2 = this.a.a;
+                atVar2.e().setTip("");
+                this.a.showToast(com.baidu.tieba.y.systemhelpsetting_clear_cache_success);
+            } else if (obj == MoreModel.TaskType.GET_SIZE) {
+                atVar = this.a.a;
+                atVar.e().setTip((String) objArr[1]);
+            }
         }
-        DatabaseService.w();
     }
 }

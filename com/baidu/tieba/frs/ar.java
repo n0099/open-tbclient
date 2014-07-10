@@ -1,25 +1,56 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tieba.pb.ImagePbActivity;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.img.WriteImagesInfo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ar implements View.OnClickListener {
-    final /* synthetic */ FrsImageActivity a;
+public class ar implements DialogInterface.OnClickListener {
+    final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public ar(FrsActivity frsActivity) {
+        this.a = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteImagesInfo writeImagesInfo;
+        WriteImagesInfo writeImagesInfo2;
+        WriteImagesInfo writeImagesInfo3;
+        WriteImagesInfo writeImagesInfo4;
         String str;
-        if (view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.data.bb)) {
-            com.baidu.tieba.data.bb bbVar = (com.baidu.tieba.data.bb) view.getTag();
-            FrsImageActivity frsImageActivity = this.a;
-            String d = bbVar.d();
-            str = this.a.b;
-            ImagePbActivity.a(frsImageActivity, d, str, bbVar.c());
+        WriteImagesInfo writeImagesInfo5;
+        WriteImagesInfo writeImagesInfo6;
+        if (i == 0) {
+            writeImagesInfo4 = this.a.X;
+            if (writeImagesInfo4.getChosedFiles() != null) {
+                writeImagesInfo5 = this.a.X;
+                int size = writeImagesInfo5.getChosedFiles().size();
+                writeImagesInfo6 = this.a.X;
+                if (size >= writeImagesInfo6.getMaxImagesAllowed()) {
+                    this.a.showToast(String.format(this.a.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
+                    return;
+                }
+            }
+            this.a.aa = String.valueOf(System.currentTimeMillis());
+            FrsActivity frsActivity = this.a;
+            str = this.a.aa;
+            com.baidu.tbadk.core.util.bj.a(frsActivity, str);
+        } else if (i == 1) {
+            writeImagesInfo = this.a.X;
+            if (writeImagesInfo != null) {
+                writeImagesInfo2 = this.a.X;
+                if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
+                    FrsActivity frsActivity2 = this.a;
+                    writeImagesInfo3 = this.a.X;
+                    com.baidu.tbadk.core.atomData.b bVar = new com.baidu.tbadk.core.atomData.b(frsActivity2, writeImagesInfo3.toJsonString());
+                    bVar.setRequestCode(12002);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, bVar));
+                }
+            }
         }
     }
 }

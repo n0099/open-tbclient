@@ -1,67 +1,142 @@
 package com.baidu.tieba.service;
 
-import android.app.Notification;
-import android.app.NotificationManager;
+import android.app.Application;
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.location.LocationClientOption;
-import com.baidu.tieba.R;
-import com.baidu.tieba.data.VersionData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.ai;
 /* loaded from: classes.dex */
 class u extends Handler {
     final /* synthetic */ TiebaUpdateService a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(TiebaUpdateService tiebaUpdateService) {
+    private u(TiebaUpdateService tiebaUpdateService) {
         this.a = tiebaUpdateService;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ u(TiebaUpdateService tiebaUpdateService, u uVar) {
+        this(tiebaUpdateService);
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        String str;
-        String str2;
         boolean z;
-        Handler handler;
-        Handler handler2;
-        VersionData versionData;
-        Notification notification;
-        Notification notification2;
-        Notification notification3;
-        NotificationManager notificationManager;
-        Notification notification4;
+        boolean z2;
+        String str;
+        long j;
+        long j2;
+        long j3;
+        long j4;
+        long j5;
+        long j6;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        long j7;
+        long j8;
+        long j9;
+        long j10;
+        long j11;
+        long j12;
+        long j13;
+        long j14;
+        long j15;
+        long j16;
+        int i;
+        int i2;
+        long j17;
+        long j18;
+        long j19;
+        long j20;
+        int i3;
+        int i4;
         super.handleMessage(message);
-        if (message.what == 900003) {
-            notification = this.a.d;
-            if (notification != null && message.arg2 > 0) {
-                notification2 = this.a.d;
-                notification2.contentView.setProgressBar(R.id.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
-                StringBuffer stringBuffer = new StringBuffer(20);
-                stringBuffer.append(String.valueOf(message.arg1 / LocationClientOption.MIN_SCAN_SPAN));
-                stringBuffer.append("K/");
-                stringBuffer.append(String.valueOf(message.arg2 / LocationClientOption.MIN_SCAN_SPAN));
-                stringBuffer.append("K");
-                notification3 = this.a.d;
-                notification3.contentView.setTextViewText(R.id.schedule, stringBuffer);
-                notificationManager = this.a.b;
-                notification4 = this.a.d;
-                notificationManager.notify(14, notification4);
-            }
-        } else if (message.what == 2) {
-            str = this.a.h;
-            if (str != null) {
-                str2 = this.a.h;
-                if (str2.length() > 0) {
-                    z = this.a.i;
-                    if (!z) {
-                        this.a.i = true;
+        if (message.what == 0) {
+            if (message.arg2 > 0) {
+                this.a.mMainApkCurSize = message.arg1;
+                this.a.mMainApkSize = message.arg2;
+                j = this.a.mMainApkSize;
+                j2 = this.a.mMainApkCurSize;
+                if (j > j2) {
+                    this.a.mMainTaskWaitingTimestamp = System.currentTimeMillis();
+                }
+                j3 = this.a.mMainApkSize;
+                j4 = this.a.mMainApkCurSize;
+                if (j3 <= j4) {
+                    this.a.mIsMainApkDone = true;
+                }
+                j5 = this.a.mMainApkCurSize;
+                j6 = this.a.mMainApkSize;
+                int i5 = (int) ((j5 * 100) / j6);
+                z3 = this.a.mHasOther;
+                if (z3) {
+                    j12 = this.a.mOtherApkSize;
+                    if (j12 != 0) {
+                        TiebaUpdateService tiebaUpdateService = this.a;
+                        j13 = this.a.mMainApkCurSize;
+                        j14 = this.a.mOtherApkCurSize;
+                        j15 = this.a.mMainApkSize;
+                        j16 = this.a.mOtherApkSize;
+                        tiebaUpdateService.mProgressAfter = (int) (((j13 + j14) * 100) / (j15 + j16));
+                        i = this.a.mProgressAfter;
+                        i2 = this.a.mProgressBefore;
+                        if (i > i2) {
+                            TiebaUpdateService tiebaUpdateService2 = this.a;
+                            j17 = this.a.mMainApkCurSize;
+                            j18 = this.a.mOtherApkCurSize;
+                            long j21 = j17 + j18;
+                            j19 = this.a.mMainApkSize;
+                            j20 = this.a.mOtherApkSize;
+                            tiebaUpdateService2.updateProgress(j21, j19 + j20);
+                            TiebaUpdateService tiebaUpdateService3 = this.a;
+                            i3 = this.a.mProgressAfter;
+                            tiebaUpdateService3.sendBroadcast(i3);
+                            TiebaUpdateService tiebaUpdateService4 = this.a;
+                            i4 = this.a.mProgressAfter;
+                            tiebaUpdateService4.mProgressBefore = i4;
+                            return;
+                        }
                         return;
                     }
-                    handler = this.a.j;
-                    handler2 = this.a.j;
-                    versionData = this.a.f;
-                    handler.sendMessageDelayed(handler2.obtainMessage(1, versionData), 100L);
+                }
+                z4 = this.a.mHasOther;
+                if (z4) {
+                    j9 = this.a.mOtherApkSize;
+                    if (j9 == 0) {
+                        if (i5 < 70) {
+                            TiebaUpdateService tiebaUpdateService5 = this.a;
+                            j10 = this.a.mMainApkCurSize;
+                            j11 = this.a.mMainApkSize;
+                            tiebaUpdateService5.updateProgress(j10, j11);
+                            this.a.sendBroadcast(i5);
+                            return;
+                        }
+                        return;
+                    }
+                }
+                z5 = this.a.mHasOther;
+                if (!z5) {
+                    TiebaUpdateService tiebaUpdateService6 = this.a;
+                    j7 = this.a.mMainApkCurSize;
+                    j8 = this.a.mMainApkSize;
+                    tiebaUpdateService6.updateProgress(j7, j8);
+                    this.a.sendBroadcast(i5);
                 }
             }
+        } else if (message.what == 1) {
+            z = this.a.mMainApkInstallEnable;
+            if (z) {
+                z2 = this.a.mHasAs;
+                if (z2) {
+                    this.a.startAsInstallService();
+                }
+                Application d = ai.c().d();
+                str = this.a.mMainApkFileName;
+                UtilHelper.install_apk(d, str);
+                this.a.finishDownload();
+                return;
+            }
+            this.a.mMainApkInstallEnable = true;
         }
     }
 }

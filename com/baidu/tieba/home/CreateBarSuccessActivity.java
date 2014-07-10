@@ -2,23 +2,23 @@ package com.baidu.tieba.home;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class CreateBarSuccessActivity extends com.baidu.tieba.g {
-    private String d = null;
-    private ImageView e = null;
-    private TextView f = null;
+public class CreateBarSuccessActivity extends BaseActivity {
+    public NavigationBar b;
+    private String c = null;
+    private TextView d = null;
     LinearLayout a = null;
-    View b = null;
-    TextView c = null;
 
     public static void a(Context context, String str) {
         if (str != null && str.length() > 0) {
@@ -29,46 +29,45 @@ public class CreateBarSuccessActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.create_bar_success_activity);
+        setContentView(w.create_bar_success_activity);
+        a();
         b();
-        c();
+    }
+
+    private void a() {
+        this.c = getIntent().getStringExtra("barname");
+        if (this.c == null) {
+            this.c = "";
+        }
     }
 
     private void b() {
-        this.d = getIntent().getStringExtra("barname");
-        if (this.d == null) {
-            this.d = "";
-        }
-    }
-
-    private void c() {
-        this.a = (LinearLayout) findViewById(R.id.container);
-        this.b = findViewById(R.id.title);
-        this.c = (TextView) findViewById(R.id.title_text);
-        this.e = (ImageView) findViewById(R.id.back);
-        this.e.setOnClickListener(new e(this));
-        this.f = (TextView) findViewById(R.id.text);
+        this.a = (LinearLayout) findViewById(v.container);
+        this.b = (NavigationBar) findViewById(v.view_navigation_bar);
+        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.b.a(getString(y.create_bar));
+        this.d = (TextView) findViewById(v.text);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
-    public void a(int i) {
-        String string;
-        super.a(i);
-        com.baidu.tieba.util.x.a(this.e, i);
-        com.baidu.tieba.util.x.a(this.a, i);
-        com.baidu.tieba.util.x.d(this.b, i);
-        int length = getString(R.string.create_bar_info1).length();
-        String str = String.valueOf(string) + this.d + getString(R.string.create_bar_info2);
-        SpannableString spannableString = new SpannableString(str);
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        getLayoutMode().a(i == 1);
+        getLayoutMode().a((View) this.a);
+        String string = getString(y.create_bar_info1);
+        int length = string.length();
+        SpannableString spannableString = new SpannableString(String.valueOf(string) + this.c + getString(y.create_bar_info2));
         if (i == 1) {
-            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);
-            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), this.d.length() + length, str.length(), 33);
+            this.d.setTextColor(getResources().getColor(com.baidu.tieba.s.skin_1_common_color));
+            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.s.noexit_create_bar_name_text_1)), length, this.c.length() + length, 33);
+        } else {
+            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.s.noexit_create_bar_name_text)), length, this.c.length() + length, 33);
         }
-        spannableString.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), length, this.d.length() + length, 33);
-        this.f.setText(spannableString);
+        this.d.setText(spannableString);
+        this.b.c(i);
     }
 }

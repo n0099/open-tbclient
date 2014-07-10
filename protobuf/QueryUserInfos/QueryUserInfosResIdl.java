@@ -1,0 +1,47 @@
+package protobuf.QueryUserInfos;
+
+import com.squareup.wire.Message;
+import com.squareup.wire.ProtoField;
+import protobuf.Error;
+/* loaded from: classes.dex */
+public final class QueryUserInfosResIdl extends Message {
+    @ProtoField(tag = 2)
+    public final DataRes data;
+    @ProtoField(tag = 1)
+    public final Error error;
+
+    /* synthetic */ QueryUserInfosResIdl(Builder builder, boolean z, QueryUserInfosResIdl queryUserInfosResIdl) {
+        this(builder, z);
+    }
+
+    private QueryUserInfosResIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            this.error = builder.error;
+            this.data = builder.data;
+            return;
+        }
+        this.error = builder.error;
+        this.data = builder.data;
+    }
+
+    /* loaded from: classes.dex */
+    public final class Builder extends Message.Builder<QueryUserInfosResIdl> {
+        public DataRes data;
+        public Error error;
+
+        public Builder(QueryUserInfosResIdl queryUserInfosResIdl) {
+            super(queryUserInfosResIdl);
+            if (queryUserInfosResIdl != null) {
+                this.error = queryUserInfosResIdl.error;
+                this.data = queryUserInfosResIdl.data;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.squareup.wire.Message.Builder
+        public QueryUserInfosResIdl build(boolean z) {
+            return new QueryUserInfosResIdl(this, z, null);
+        }
+    }
+}

@@ -2,14 +2,14 @@ package com.baidu.tieba.model;
 
 import com.baidu.tieba.data.PersonChangeData;
 /* loaded from: classes.dex */
-public class MoreModel extends com.baidu.adp.a.c {
-    private PersonChangeData b;
-    private aq a = null;
-    private boolean c = false;
+public class MoreModel extends com.baidu.adp.base.e {
+    private PersonChangeData a;
+    private boolean b = false;
 
     /* loaded from: classes.dex */
     public enum TaskType {
-        DO_CLEAR;
+        DO_CACHE_CLEAR,
+        GET_SIZE;
 
         /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
@@ -23,43 +23,36 @@ public class MoreModel extends com.baidu.adp.a.c {
     }
 
     public MoreModel(PersonChangeData personChangeData) {
-        this.b = null;
-        this.b = personChangeData;
-        if (this.b == null) {
-            this.b = new PersonChangeData();
+        this.a = null;
+        this.a = personChangeData;
+        if (this.a == null) {
+            this.a = new PersonChangeData();
         }
     }
 
     public void a(PersonChangeData personChangeData) {
-        this.b = personChangeData;
+        this.a = personChangeData;
     }
 
     public void a(boolean z) {
-        this.c = z;
+        this.b = z;
     }
 
     public boolean a() {
-        return this.c;
+        return this.b;
     }
 
-    @Override // com.baidu.adp.a.c
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.c
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         return false;
     }
 
-    public void b() {
-        if (this.a == null) {
-            this.a = new aq(this, null);
-            this.a.execute(new String[0]);
-        }
-    }
-
-    public PersonChangeData c() {
-        return this.b;
+    public PersonChangeData b() {
+        return this.a;
     }
 }

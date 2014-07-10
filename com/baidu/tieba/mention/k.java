@@ -1,39 +1,41 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.support.v4.app.Fragment;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements AdapterView.OnItemClickListener {
-    final /* synthetic */ h a;
+public class k extends CustomMessageListener {
+    final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(h hVar) {
-        this.a = hVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(j jVar, int i) {
+        super(i);
+        this.a = jVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        o oVar;
-        int i2;
-        e eVar = (e) ((ListView) adapterView).getAdapter();
-        long itemId = eVar.getItemId(i);
-        if (itemId == -1) {
-            this.a.b();
-        } else if (itemId == -2) {
-            h hVar = this.a;
-            i2 = hVar.g;
-            hVar.g = i2 + 1;
-            this.a.o = 4;
-            this.a.d();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Fragment fragment;
+        com.baidu.tbadk.core.d[] dVarArr;
+        Object data;
+        if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof Fragment)) {
+            fragment = null;
         } else {
-            com.baidu.tieba.data.q qVar = (com.baidu.tieba.data.q) eVar.getItem(i);
-            if (qVar != null) {
-                oVar = this.a.q;
-                oVar.a(qVar);
-                this.a.a(qVar);
-            }
+            fragment = (Fragment) data;
         }
+        if (fragment != null) {
+            this.a.a = new com.baidu.tbadk.core.d[]{(com.baidu.tbadk.core.d) fragment, new ac(), new a()};
+            this.a.b = new int[]{0, 1, 2};
+        } else {
+            this.a.a = new com.baidu.tbadk.core.d[]{new ac(), new a()};
+            this.a.b = new int[]{1, 2};
+        }
+        j jVar = this.a;
+        dVarArr = this.a.a;
+        jVar.c = dVarArr.length;
     }
 }

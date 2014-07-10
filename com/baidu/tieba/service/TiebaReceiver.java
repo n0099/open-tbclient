@@ -3,26 +3,15 @@ package com.baidu.tieba.service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.z;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class TiebaReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        try {
-            String action = intent.getAction();
-            if (action.equals("com.baidu.tieba.broadcast.service")) {
-                long longExtra = intent.getLongExtra("relay", 0L);
-                long longExtra2 = intent.getLongExtra("at_me", 0L);
-                long longExtra3 = intent.getLongExtra("fans", 0L);
-                long longExtra4 = intent.getLongExtra("pletter", 0L);
-                z.a(getClass().getName(), "broadcastNotify ", "receiveData: " + String.format("%d %d %d %d", Long.valueOf(longExtra), Long.valueOf(longExtra2), Long.valueOf(longExtra3), Long.valueOf(longExtra4)));
-                TiebaApplication.f().a(longExtra, longExtra2, longExtra3, longExtra4);
-            } else if (action.equals("com.baidu.tieba.broadcast.sync")) {
-                z.a(getClass().getName(), "broadcastNewVersion ", "receiveData");
-                TiebaApplication.f().u(true);
-            }
-        } catch (Throwable th) {
+        String action = intent.getAction();
+        TbadkApplication.getCurrentAccount();
+        if (!action.equals(com.baidu.tieba.data.e.b()) && action.equals(com.baidu.tieba.data.e.d())) {
+            TbadkApplication.m252getInst().refreshNewVersion(true);
         }
     }
 }

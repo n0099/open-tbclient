@@ -1,30 +1,26 @@
 package com.baidu.tieba.mention;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g {
-    TextView a;
-    ProgressBar b;
-    f c;
-    LinearLayout d;
-    ImageView e;
-    TextView f;
-    TextView g;
-    TextView h;
-    TextView i;
-    TextView j;
-    TextView k;
-    final /* synthetic */ e l;
-
-    private g(e eVar) {
-        this.l = eVar;
-    }
+public class g extends CustomMessageListener {
+    final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ g(e eVar, g gVar) {
-        this(eVar);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(f fVar, int i) {
+        super(i);
+        this.a = fVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001124) {
+            return;
+        }
+        this.a.a(customResponsedMessage);
     }
 }

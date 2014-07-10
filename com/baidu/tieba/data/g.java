@@ -1,209 +1,188 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.webkit.URLUtil;
-import com.baidu.browser.explorer.BdWebErrorView;
-import com.baidu.mapapi.MKEvent;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.zeus.NotificationProxy;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import java.util.regex.Pattern;
+import org.apache.commons.io.IOUtils;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    public static String a = "http://c.tieba.baidu.com/";
-    public static final Long b = 3600000L;
-    public static final Long c = 36000000L;
-    public static final Long d = 36000000L;
-    public static final Long e = 86400000L;
-    public static final String f = String.valueOf(a) + "c/s/apprecommend";
-    public static final String g = String.valueOf(a) + "c/s/recommend/";
-    public static final String h = String.valueOf(a) + "c/s/classic";
-    public static String i = "http://tb.himg.baidu.com/sys/portrait/item/";
-    public static final String j = String.valueOf(a) + "c/p/img?";
-    public static String k = "com.baidu.tieba.broadcast.notify";
-    public static String l = "com.baidu.tieba.broadcast.newversion";
-    public static int m = 80;
-    public static final Bitmap.Config n = Bitmap.Config.RGB_565;
-    private static String o = null;
-    private static int p = MKEvent.ERROR_PERMISSION_DENIED;
-    private static String q = "http://tb.himg.baidu.com/sys/portraitn/item/";
-    private static String r = q;
-    private static int s = 80;
-    private static int t = 1048576;
-    private static int u = NotificationProxy.MAX_URL_LENGTH;
-    private static int v = 1;
-    private static String w = "贴吧客户端反馈";
-    private static String x = "2631903";
-    private static int y = 640;
-    private static String z = "";
-    private static boolean A = false;
+    private static final Pattern j = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
+    private static final Pattern k = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private String c;
+    private int d;
+    private int e;
+    private int a = 0;
+    private String b = null;
+    private String g = null;
+    private String h = null;
+    private SpannableStringBuilder i = null;
+    private boolean f = false;
 
-    public static String a() {
-        return o;
+    public static boolean a(int i, int i2) {
+        return i == 0 && i2 != 3;
     }
 
-    public static void a(String str) {
-        o = str;
+    public static boolean b(int i, int i2) {
+        return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
-    public static int b() {
-        return p;
+    public void a(int i) {
+        this.a = i;
     }
 
-    public static String c() {
-        return q;
+    public int a() {
+        return this.a;
     }
 
-    public static int d() {
-        return t;
+    public String b() {
+        return this.b;
     }
 
-    public static int e() {
-        return u;
+    public String c() {
+        return this.c;
     }
 
-    public static String f() {
-        return w;
+    public void a(SpannableStringBuilder spannableStringBuilder) {
+        this.i = spannableStringBuilder;
     }
 
-    public static String g() {
-        return x;
+    public SpannableStringBuilder d() {
+        return this.i;
     }
 
-    public static int h() {
-        return y;
-    }
-
-    public static String i() {
-        return z;
-    }
-
-    public static void b(String str) {
-        z = str;
-    }
-
-    public static void c(String str) {
-        if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
-            q = str;
+    public SpannableStringBuilder a(SpannableString spannableString) {
+        if (this.i == null) {
+            this.i = new SpannableStringBuilder();
         }
+        this.i.append((CharSequence) spannableString);
+        return this.i;
     }
 
-    public static int a(Context context) {
-        int i2 = BdWebErrorView.ERROR_CODE_400;
-        int a2 = com.baidu.tieba.util.aa.a(context, 267.0f);
-        if (a2 <= 400) {
-            i2 = a2;
-        }
-        u = (int) (i2 * i2 * 1.62f * 2.0f);
-        com.baidu.adp.lib.c.b.c("BIG_IMAGE_SIZE = " + u);
-        return u;
-    }
-
-    public static int j() {
-        return u;
-    }
-
-    public static void b(Context context) {
-        t = a(context) * 13;
-        if (t < com.baidu.tieba.util.aa.c(context) * 0.28d) {
-            t = (int) (com.baidu.tieba.util.aa.c(context) * 0.28d);
-        }
-        com.baidu.adp.lib.c.b.c("BIG_IMAGE_MAX_USED_MEMORY = " + t);
-    }
-
-    public static void c(Context context) {
-        if (context.getResources().getDisplayMetrics().density < 1.0f) {
-            r = q;
-            s = 80;
-            return;
-        }
-        r = i;
-        s = 110;
-    }
-
-    public static String k() {
-        return r;
-    }
-
-    public static int l() {
-        return s;
-    }
-
-    public static void d(String str) {
-        if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
-            i = str;
-        }
-    }
-
-    public static void a(int i2) {
-        if (i2 >= 60 && i2 <= 1000) {
-            p = i2;
-        }
-    }
-
-    public static void d(Context context) {
-        int sqrt = (int) Math.sqrt(com.baidu.tieba.util.aa.a(context) * com.baidu.tieba.util.aa.b(context));
-        if (sqrt > y) {
-            y = sqrt;
-        }
-        if (Runtime.getRuntime().maxMemory() <= 16777216) {
-            y = (int) (y * 0.8d);
-        }
-    }
-
-    public static void a(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0) {
-            w = str;
-            x = str2;
-        }
-    }
-
-    public static void b(int i2) {
-        v = i2;
-    }
-
-    public static int m() {
-        return v;
-    }
-
-    public static int n() {
-        switch (TiebaApplication.f().ap()) {
+    public SpannableString a(Context context) {
+        String str;
+        switch (this.a) {
+            case 0:
+                return new SpannableString(this.b);
             case 1:
-                return 18;
+                if (!this.b.endsWith(" ")) {
+                    this.b = String.valueOf(this.b) + " ";
+                }
+                SpannableString spannableString = new SpannableString(this.b);
+                spannableString.setSpan(new i(this, context), 0, this.b.length() - 1, 33);
+                return spannableString;
             case 2:
-                return 17;
+                SpannableString spannableString2 = new SpannableString(String.valueOf(this.b) + " ");
+                com.baidu.adp.widget.a.a g = com.baidu.tieba.ai.c().g(this.b);
+                if (g != null) {
+                    BitmapDrawable j2 = g.j();
+                    j2.setBounds(0, 0, g.c(), g.d());
+                    spannableString2.setSpan(new ImageSpan(j2, 1), 0, this.b.length(), 33);
+                    return spannableString2;
+                }
+                return spannableString2;
+            case 3:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
             default:
-                return 16;
+                return null;
+            case 4:
+                if (!this.b.endsWith(" ")) {
+                    this.b = String.valueOf(this.b) + " ";
+                }
+                SpannableString spannableString3 = new SpannableString(this.b);
+                spannableString3.setSpan(new j(this, context), 0, this.b.length() - 1, 33);
+                return spannableString3;
+            case 5:
+                if (!this.b.endsWith(" ")) {
+                    this.b = String.valueOf(this.b) + " ";
+                }
+                String string = context.getString(com.baidu.tieba.y.video);
+                SpannableString spannableString4 = new SpannableString(String.valueOf(string) + this.b);
+                spannableString4.setSpan(new h(this, context), string.length(), str.length() - 1, 33);
+                return spannableString4;
         }
     }
 
-    public static int o() {
-        return n() + 1;
-    }
-
-    public static int p() {
-        return 14;
-    }
-
-    public static int q() {
-        switch (TiebaApplication.f().ap()) {
-            case 1:
-                return 13;
-            case 2:
-                return 12;
-            default:
-                return 11;
+    public SpannableString a(Context context, int i, int i2) {
+        int d;
+        if (this.a != 2) {
+            return null;
         }
-    }
-
-    public static void r() {
-        if ((TiebaApplication.f().getApplicationInfo().flags & 2) == 0) {
-            A = false;
-        } else {
-            A = true;
+        SpannableString spannableString = new SpannableString(String.valueOf(this.b) + " ");
+        com.baidu.adp.widget.a.a g = com.baidu.tieba.ai.c().g(this.b);
+        if (g != null) {
+            BitmapDrawable j2 = g.j();
+            if (i - i2 > 0) {
+                d = g.d() + ((i - i2) >> 1);
+            } else {
+                d = g.d();
+            }
+            j2.setBounds(0, 0, g.c(), d);
+            spannableString.setSpan(new ImageSpan(j2, 1), 0, this.b.length(), 33);
         }
+        return spannableString;
     }
 
-    public static boolean s() {
-        return A;
+    public String e() {
+        return this.g;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optInt("type", 0);
+                if (this.a == 3) {
+                    this.g = jSONObject.optString("src");
+                    this.b = jSONObject.optString("bsize");
+                    this.h = jSONObject.optString("cdn_src", null);
+                    try {
+                        String[] split = this.b.split(",");
+                        if (split.length > 1) {
+                            this.d = Integer.valueOf(split[0]).intValue();
+                            this.e = Integer.valueOf(split[1]).intValue();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if (this.d <= 0) {
+                        this.d = 1;
+                    }
+                    if (this.e <= 0) {
+                        this.e = 1;
+                    }
+                    if (this.g != null && this.g.indexOf(".baidu.com") != -1) {
+                        this.f = true;
+                    }
+                } else if (this.a == 4) {
+                    this.b = jSONObject.optString("text");
+                    this.g = jSONObject.optString(SapiAccountManager.SESSION_UID);
+                } else if (this.a == 11) {
+                    this.c = jSONObject.optString("c");
+                } else {
+                    this.b = jSONObject.optString("text");
+                    this.g = jSONObject.optString("link");
+                    if (this.a == 2 && TbFaceManager.a().b(this.b) == 0) {
+                        this.a = 0;
+                        this.b = "[" + jSONObject.optString("c") + "]";
+                    }
+                }
+                if (this.a != 0) {
+                    this.b = this.b.replaceAll(IOUtils.LINE_SEPARATOR_UNIX, "");
+                    this.g = this.g.replaceAll(IOUtils.LINE_SEPARATOR_UNIX, "");
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
 }

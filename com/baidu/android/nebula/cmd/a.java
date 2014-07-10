@@ -1,45 +1,46 @@
 package com.baidu.android.nebula.cmd;
-
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static final Map a = new HashMap();
-    private static final String b = GeoLocation.class.getPackage().getName() + ".";
+    private String a = "";
+    private long b = 0;
+    private String c = "";
+    private String d = "";
+    private int e = -1;
+    private String f = "web";
 
-    static {
-        a.put("geolocation", b + "GeoLocation");
-        a.put("getsearchboxinfo", b + "GetSearchboxInfo");
-        a.put("getapn", b + "GetApn");
-        a.put("getserviceinfo", b + "GetServiceInfo");
-        a.put("getpackageinfo", b + "GetPackageInfo");
-        a.put("sendintent", b + "SendIntent");
-        a.put("getcuid", b + "GetCuid");
+    public void a() {
+        this.a = "";
+        this.c = "";
+        this.d = "";
+        this.e = -1;
+        this.b = 0L;
     }
 
-    public String a(String str) {
-        return (String) a.get(str);
+    public void a(int i) {
+        this.e = i;
     }
 
-    public void a(String str, com.baidu.android.nebula.b.a aVar, com.baidu.android.nebula.b.b bVar) {
-        e eVar;
-        String a2 = a(str);
-        if (a2 == null) {
-            return;
-        }
-        try {
-            eVar = (e) Class.forName(a2).newInstance();
-        } catch (ClassCastException e) {
-            eVar = null;
-        } catch (ClassNotFoundException e2) {
-            eVar = null;
-        } catch (IllegalAccessException e3) {
-            eVar = null;
-        } catch (InstantiationException e4) {
-            eVar = null;
-        }
-        if (eVar != null) {
-            eVar.execute(aVar, bVar);
-        }
+    public void a(long j) {
+        this.b = j;
+    }
+
+    public void a(String str) {
+        this.a = str;
+    }
+
+    public void b(String str) {
+        this.c = str;
+    }
+
+    public void c(String str) {
+        this.d = str;
+    }
+
+    public void d(String str) {
+        this.f = str;
+    }
+
+    public String toString() {
+        return "{cmd:" + this.a + ",time:" + this.b + ",cmdpackage:" + this.c + ",execpackage:" + this.d + ",status:" + this.e + ",from:" + this.f + "}";
     }
 }

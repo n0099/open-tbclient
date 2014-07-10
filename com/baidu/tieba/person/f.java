@@ -1,34 +1,76 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.frs.FrsActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
-public class f implements AdapterView.OnItemClickListener {
-    final /* synthetic */ EditBarActivity a;
+class f extends BaseActivity.LoadDataCallBack {
+    final /* synthetic */ EditMarkActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(EditBarActivity editBarActivity) {
-        this.a = editBarActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(EditMarkActivity editMarkActivity, BaseActivity baseActivity) {
+        super();
+        this.a = editMarkActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        j jVar;
-        i iVar;
-        j jVar2;
-        jVar = this.a.e;
-        if (jVar.getItem(i) != null) {
-            iVar = this.a.k;
-            if (iVar == null) {
-                this.a.j = i;
-                jVar2 = this.a.e;
-                com.baidu.tieba.data.r rVar = (com.baidu.tieba.data.r) jVar2.getItem(i);
-                if (rVar != null) {
-                    FrsActivity.a(this.a, rVar.b(), "tb_mytieba");
+    @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
+    public void callback(Object... objArr) {
+        boolean booleanValue;
+        h hVar;
+        com.baidu.tieba.model.i iVar;
+        h hVar2;
+        h hVar3;
+        com.baidu.tieba.model.i iVar2;
+        com.baidu.tieba.model.i iVar3;
+        h hVar4;
+        h hVar5;
+        h hVar6;
+        h hVar7;
+        com.baidu.tieba.model.i iVar4;
+        com.baidu.tieba.model.i iVar5;
+        try {
+            if (((Integer) objArr[0]).intValue() == 0) {
+                hVar6 = this.a.b;
+                hVar6.j();
+                if (objArr[1] != null && (objArr[1] instanceof String)) {
+                    r1 = (String) objArr[1];
                 }
+                hVar7 = this.a.b;
+                iVar4 = this.a.a;
+                hVar7.a(r1, iVar4, ((Boolean) objArr[2]).booleanValue());
+                EditMarkActivity editMarkActivity = this.a;
+                iVar5 = this.a.a;
+                editMarkActivity.d = iVar5.f();
+            } else if (((Integer) objArr[0]).intValue() == 3) {
+                hVar4 = this.a.b;
+                hVar4.j();
+                if (objArr[1] != null && (objArr[1] instanceof String)) {
+                    r1 = (String) objArr[1];
+                }
+                hVar5 = this.a.b;
+                hVar5.a(r1, (com.baidu.tieba.model.i) null, false);
+            } else if (((Integer) objArr[0]).intValue() == 1) {
+                boolean booleanValue2 = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
+                r1 = objArr[2] != null ? (String) objArr[2] : null;
+                booleanValue = objArr[3] != null ? ((Boolean) objArr[3]).booleanValue() : false;
+                hVar2 = this.a.b;
+                hVar2.a(booleanValue2, r1, booleanValue);
+                if (booleanValue2) {
+                    hVar3 = this.a.b;
+                    iVar2 = this.a.a;
+                    hVar3.a(iVar2.a());
+                    iVar3 = this.a.a;
+                    iVar3.a((Boolean) true);
+                }
+            } else if (((Integer) objArr[0]).intValue() == 2) {
+                booleanValue = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
+                String str = objArr[2] != null ? (String) objArr[2] : null;
+                hVar = this.a.b;
+                iVar = this.a.a;
+                hVar.a(booleanValue, str, iVar.f());
             }
+        } catch (Exception e) {
+            BdLog.d(e.getMessage());
         }
     }
 }

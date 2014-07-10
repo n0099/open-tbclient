@@ -1,10 +1,12 @@
 package com.baidu.tieba.write;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements AbsListView.OnScrollListener {
+public class h implements View.OnClickListener {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,21 +14,19 @@ public class h implements AbsListView.OnScrollListener {
         this.a = atListActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.a.e;
-        runnable = this.a.r;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.e;
-        runnable2 = this.a.r;
-        handler2.postDelayed(runnable2, 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        AtSelectFriendList atSelectFriendList;
+        EditText editText;
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        atSelectFriendList = this.a.e;
+        bundle.putStringArrayList(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW, atSelectFriendList.getDataList());
+        intent.putExtras(bundle);
+        AtListActivity atListActivity = this.a;
+        editText = this.a.b;
+        com.baidu.adp.lib.util.j.a(atListActivity, editText);
+        this.a.setResult(-1, intent);
+        this.a.finish();
     }
 }

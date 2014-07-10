@@ -1,26 +1,23 @@
 package com.baidu.tieba.write;
 
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.view.View;
+import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements com.baidu.tbadk.a.d {
-    final /* synthetic */ b a;
+public class c implements View.OnClickListener {
+    final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.a = bVar;
+    public c(AtListActivity atListActivity) {
+        this.a = atListActivity;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        AtListActivity atListActivity;
-        ListView listView;
-        atListActivity = this.a.a;
-        listView = atListActivity.d;
-        ImageView imageView = (ImageView) listView.findViewWithTag(str);
-        if (imageView != null && bVar != null) {
-            bVar.b(imageView);
-            imageView.setTag(null);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditText editText;
+        AtListActivity atListActivity = this.a;
+        editText = this.a.b;
+        com.baidu.adp.lib.util.j.a(atListActivity, editText);
+        this.a.finish();
     }
 }

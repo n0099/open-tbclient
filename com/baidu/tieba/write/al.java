@@ -1,7 +1,7 @@
 package com.baidu.tieba.write;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.model.WriteModel;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements DialogInterface.OnClickListener {
@@ -14,16 +14,18 @@ public class al implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        WriteModel writeModel;
-        WriteModel writeModel2;
-        if (i == 0) {
-            bb.a(this.a);
-            writeModel2 = this.a.a;
-            writeModel2.setPicType(2);
-        } else if (i == 1) {
-            bb.b(this.a);
-            writeModel = this.a.a;
-            writeModel.setPicType(1);
+        WriteData writeData;
+        WriteData writeData2;
+        WriteData writeData3;
+        writeData = this.a.a;
+        int type = writeData.getType();
+        if (type == 0) {
+            writeData3 = this.a.a;
+            com.baidu.tieba.util.m.a(writeData3.getForumId(), (WriteData) null);
+        } else if (type == 1) {
+            writeData2 = this.a.a;
+            com.baidu.tieba.util.m.b(writeData2.getThreadId(), (WriteData) null);
         }
+        this.a.finish();
     }
 }

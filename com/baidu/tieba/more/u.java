@@ -1,31 +1,23 @@
 package com.baidu.tieba.more;
 
-import android.widget.RadioGroup;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.model.MoreModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u implements RadioGroup.OnCheckedChangeListener {
-    final /* synthetic */ BrowseSettingActivity a;
+public class u extends com.baidu.adp.base.h {
+    final /* synthetic */ MoreActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(BrowseSettingActivity browseSettingActivity) {
-        this.a = browseSettingActivity;
+    public u(MoreActivity moreActivity) {
+        this.a = moreActivity;
     }
 
-    @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        switch (i) {
-            case R.id.font_size_big /* 2131165395 */:
-                TiebaApplication.f().i(1);
-                return;
-            case R.id.font_size_mid /* 2131165396 */:
-                TiebaApplication.f().i(2);
-                return;
-            case R.id.font_size_small /* 2131165397 */:
-                TiebaApplication.f().i(3);
-                return;
-            default:
-                return;
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        if (obj != null && (obj instanceof MoreModel.TaskType)) {
+            if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
+                this.a.showToast(this.a.getString(com.baidu.tieba.y.image_cash_del_suc));
+            }
+            this.a.closeLoadingDialog();
         }
     }
 }

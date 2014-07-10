@@ -13,7 +13,7 @@ public class d extends a implements Runnable {
         this.a = context.getPackageName();
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0091 -> B:5:0x001e). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0098 -> B:5:0x001f). Please submit an issue!!! */
     public String d() {
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("top -n 1").getInputStream()));
@@ -45,7 +45,7 @@ public class d extends a implements Runnable {
         super.b();
         while (true) {
             try {
-                com.baidu.adp.lib.debug.b.b(d());
+                com.baidu.adp.lib.debug.d.b(d());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {

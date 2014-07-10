@@ -1,39 +1,44 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class y extends z {
-    private List a = new ArrayList();
-    private boolean b;
+public class y {
+    private String a = "";
+    private String b = "";
+    private String c = "";
+    private String d = "";
+    private int e = 0;
+    private int f = 0;
 
-    public boolean a() {
-        return this.b;
-    }
-
-    public List b() {
-        return this.a;
-    }
-
-    @Override // com.baidu.tieba.data.z
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.b = jSONObject.optInt("is_selected", 0) == 1;
-                super.a(jSONObject);
-                JSONArray optJSONArray = jSONObject.optJSONArray("level2_info");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        z zVar = new z();
-                        zVar.a(optJSONArray.getJSONObject(i));
-                        this.a.add(zVar);
-                    }
-                }
+                this.a = jSONObject.optString("id");
+                this.e = jSONObject.optInt("user_type");
+                this.f = jSONObject.optInt("is_verify");
+                this.b = jSONObject.optString("name");
+                this.c = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+                this.d = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b("LabelBigBallData", "parserJson", "error = " + e.getMessage());
+                BdLog.detailException(e);
             }
         }
+    }
+
+    public String a() {
+        return this.a;
+    }
+
+    public String b() {
+        return this.b;
+    }
+
+    public String c() {
+        return this.c;
+    }
+
+    public String d() {
+        return this.d;
     }
 }

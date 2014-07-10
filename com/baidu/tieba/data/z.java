@@ -1,81 +1,60 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class z {
-    private int a = 0;
-    private int b = 0;
+    private String a = null;
+    private String b = null;
     private int c = 0;
     private int d = 0;
-    private int e = 0;
     private int f = 0;
-    private String g = null;
-    private String h = null;
+    private String e = null;
 
-    public void a(int i) {
-        this.f = i;
-    }
-
-    public int c() {
-        return this.f;
-    }
-
-    public void b(int i) {
-        this.a = i;
-    }
-
-    public int d() {
+    public String a() {
         return this.a;
     }
 
-    public void c(int i) {
-        this.b = i;
-    }
-
-    public int e() {
+    public String b() {
         return this.b;
     }
 
-    public void d(int i) {
-        this.c = i;
-    }
-
-    public int f() {
-        return this.c;
-    }
-
-    public void e(int i) {
+    public void a(int i) {
         this.d = i;
     }
 
-    public int g() {
+    public int c() {
         return this.d;
     }
 
-    public void f(int i) {
-        this.e = i;
+    public void b(int i) {
+        this.c = i;
     }
 
-    public int h() {
-        return this.e;
-    }
-
-    public String i() {
-        return this.g;
-    }
-
-    public String j() {
-        return this.h;
+    public int d() {
+        return this.c;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.g = jSONObject.optString("tag_name");
-                this.h = jSONObject.optString("tag_id");
+                this.a = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
+                this.b = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
+                c(jSONObject.optInt("is_like", 0));
+                this.d = jSONObject.optInt("is_sign", 0);
+                this.c = jSONObject.optInt("level_id", 0);
+                this.e = jSONObject.optString("avatar", "");
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b("LabelSmallBallData", "parserJson", "error = " + e.getMessage());
+                BdLog.detailException(e);
             }
         }
+    }
+
+    public void c(int i) {
+        this.f = i;
+    }
+
+    public int e() {
+        return this.f;
     }
 }

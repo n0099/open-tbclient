@@ -1,55 +1,28 @@
 package com.baidu.tieba.write;
 
-import android.widget.CompoundButton;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import com.baidu.tieba.R;
+import android.text.SpannableStringBuilder;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ WriteImageActivity a;
+public class au implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ WriteActivity a;
+    private final /* synthetic */ SpannableStringBuilder b;
+    private final /* synthetic */ int c;
+    private final /* synthetic */ EmotionGroupType d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
+    public au(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
+        this.a = writeActivity;
+        this.b = spannableStringBuilder;
+        this.c = i;
+        this.d = emotionGroupType;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        HorizontalScrollView horizontalScrollView;
-        LinearLayout linearLayout;
-        TextView textView;
-        HorizontalScrollView horizontalScrollView2;
-        LinearLayout linearLayout2;
-        TextView textView2;
-        if (z) {
-            compoundButton.setTextColor(this.a.getResources().getColor(R.color.white));
-            radioButton = this.a.m;
-            if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.a.g;
-                horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.a.o;
-                linearLayout2.setVisibility(4);
-                textView2 = this.a.q;
-                textView2.setText(this.a.getString(R.string.beautify));
-                return;
-            }
-            radioButton2 = this.a.n;
-            if (compoundButton == radioButton2) {
-                horizontalScrollView = this.a.g;
-                horizontalScrollView.setVisibility(4);
-                linearLayout = this.a.o;
-                linearLayout.setVisibility(0);
-                textView = this.a.q;
-                textView.setText(this.a.getString(R.string.rotate));
-                return;
-            }
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar == null) {
             return;
         }
-        compoundButton.setTextColor(this.a.getResources().getColor(R.color.beautify_rotate_tab_unchecked_color));
+        this.a.a(this.b, this.c, aVar, this.d);
     }
 }

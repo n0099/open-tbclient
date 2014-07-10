@@ -1,19 +1,28 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
-    final /* synthetic */ j a;
+class k extends Thread {
+    final /* synthetic */ AccountActivity a;
+    private String b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar) {
-        this.a = jVar;
+    public k(AccountActivity accountActivity, String str) {
+        this.a = accountActivity;
+        this.b = null;
+        this.b = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.e();
-        this.a.f();
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        aq aqVar = new aq(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.REGISTER_ADDRESS);
+        aqVar.a().a().b = false;
+        aqVar.a().a().c = false;
+        aqVar.a("BDUSS", this.b);
+        aqVar.a("channel_id", TbadkApplication.m252getInst().getPushChannelId());
+        aqVar.a("channel_uid", TbadkApplication.m252getInst().getPushChannelUserId());
+        aqVar.i();
     }
 }

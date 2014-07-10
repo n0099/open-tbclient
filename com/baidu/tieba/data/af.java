@@ -1,60 +1,31 @@
 package com.baidu.tieba.data;
-
-import com.baidu.android.pushservice.PushConstants;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class af {
-    private long a = 0;
-    private long b = 0;
-    private long c = 0;
-    private long d = 0;
+public class af extends com.baidu.tbadk.core.data.m {
+    private boolean c;
+    private String d;
+    private u e;
 
-    public void a(long j) {
-        this.a = j;
-    }
-
-    public long a() {
-        return this.a;
-    }
-
-    public void b(long j) {
-        this.b = j;
-    }
-
-    public long b() {
-        return this.b;
-    }
-
-    public void c(long j) {
-        this.c = j;
-    }
-
-    public long c() {
+    public boolean a() {
         return this.c;
     }
 
-    public long d() {
+    public void a(boolean z) {
+        this.c = z;
+    }
+
+    public String b() {
         return this.d;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str).optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b("MessageData", "parserJson", "error = " + e.getMessage());
-        }
+    public void e(String str) {
+        this.d = str;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optLong("replyme", 0L);
-                this.b = jSONObject.optLong("atme", 0L);
-                this.c = jSONObject.optLong("fans", 0L);
-                this.d = jSONObject.optLong("pletter", 0L);
-            } catch (Exception e) {
-                com.baidu.tieba.util.z.b("MessageData", "parserJson", "error = " + e.getMessage());
-            }
-        }
+    public u c() {
+        return this.e;
+    }
+
+    public void a(u uVar) {
+        this.e = uVar;
     }
 }

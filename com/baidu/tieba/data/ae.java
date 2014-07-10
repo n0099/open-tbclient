@@ -1,44 +1,35 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ae {
-    private int a = -1;
-    private String b = null;
-    private String c = null;
+    private int a;
+    private String b;
+    private int c;
+    private String d;
 
-    public int a() {
-        return this.a;
-    }
-
-    public String b() {
+    public String a() {
         return this.b;
     }
 
-    public String c() {
+    public int b() {
         return this.c;
     }
 
-    public void a(int i) {
-        this.a = i;
-    }
-
-    public void a(String str) {
-        this.b = str;
+    public String c() {
+        return this.d;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("type");
-                if (this.a == 3) {
-                    this.b = jSONObject.optString("big_pic");
-                } else if (this.a == 5) {
-                    this.b = jSONObject.optString("vpic");
-                    this.c = jSONObject.optString("vsrc");
-                }
+                this.a = jSONObject.optInt(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
+                this.b = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
+                this.c = jSONObject.optInt("member_count");
+                this.d = jSONObject.optString("avatar");
             } catch (Exception e) {
-                com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", "error=" + e.toString());
+                BdLog.detailException(e);
             }
         }
     }

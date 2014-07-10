@@ -1,86 +1,73 @@
 package com.baidu.tieba.model;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import java.lang.ref.WeakReference;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg {
-    private int q;
-    private int r;
-    private com.baidu.tieba.data.aj a = null;
-    private boolean d = true;
-    private boolean c = true;
-    private boolean e = false;
-    private boolean g = false;
-    private boolean h = false;
-    private boolean i = false;
-    private boolean j = false;
-    private String b = null;
-    private boolean f = false;
-    private String k = null;
-    private String l = null;
-    private String m = null;
-    private int n = 1;
-    private int o = 1;
-    private boolean p = false;
+public class bg extends BdAsyncTask<Integer, Integer, Integer> {
+    private com.baidu.tbadk.core.util.aq a = null;
+    private String b;
+    private long c;
+    private String d;
+    private WeakReference<bf> e;
 
-    public void a(com.baidu.tieba.data.aj ajVar) {
-        this.a = ajVar;
+    public bg(String str, long j, String str2, bf bfVar) {
+        this.b = null;
+        this.c = 0L;
+        this.e = null;
+        this.b = str;
+        this.c = j;
+        this.e = new WeakReference<>(bfVar);
+        this.d = str2;
+        setPriority(3);
     }
 
-    public com.baidu.tieba.data.aj a() {
-        return this.a;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public Integer doInBackground(Integer... numArr) {
+        try {
+            if (this.c != 0 && this.b != null) {
+                this.a = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
+                this.a.a("fid", String.valueOf(this.c));
+                this.a.a("kw", this.b);
+                this.a.a("favo_type", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+                this.a.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.d);
+                this.a.a().a().a = true;
+                this.a.i();
+            }
+            return 1;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return 0;
+        }
     }
 
-    public void a(boolean z) {
-        this.d = z;
-    }
-
-    public boolean b() {
-        return this.d;
-    }
-
-    public void b(boolean z) {
-        this.c = z;
-    }
-
-    public void c(boolean z) {
-        this.e = z;
-    }
-
-    public void d(boolean z) {
-        this.g = z;
-    }
-
-    public void a(int i) {
-        this.n = i;
-    }
-
-    public int c() {
-        return this.n;
-    }
-
-    public void b(int i) {
-        this.o = i;
-    }
-
-    public int d() {
-        return this.o;
-    }
-
-    public void e(boolean z) {
-        this.p = z;
-    }
-
-    public boolean e() {
-        return this.p;
-    }
-
-    public void c(int i) {
-        this.q = i;
-    }
-
-    public void d(int i) {
-        this.r = i;
-    }
-
-    public int f() {
-        return com.baidu.tieba.data.g.b() / 30;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Integer num) {
+        bf bfVar;
+        super.onPostExecute(num);
+        if (this.e != null && (bfVar = this.e.get()) != null) {
+            if (this.a != null) {
+                if (this.a.a().b().b()) {
+                    if (num.intValue() == 1) {
+                        com.baidu.tieba.ai.c().f(this.b);
+                        bfVar.a(this.b, this.c);
+                        return;
+                    }
+                    bfVar.b(this.b, this.c);
+                    return;
+                }
+                bfVar.b(this.b, this.c);
+                return;
+            }
+            bfVar.b(this.b, this.c);
+        }
     }
 }

@@ -1,62 +1,74 @@
 package com.baidu.tieba.model;
 
-import android.graphics.Bitmap;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.data.MarkData;
 /* loaded from: classes.dex */
-public class ah extends BdAsyncTask {
-    final /* synthetic */ ag a;
-    private String b;
+public class ah extends com.baidu.adp.base.e {
+    private MarkData b;
+    private boolean a = false;
+    private ai c = null;
+    private aj d = null;
 
-    public ah(ag agVar, String str) {
-        this.a = agVar;
+    public ah() {
         this.b = null;
-        this.b = str;
+        this.b = new MarkData();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Bitmap a(Object... objArr) {
-        if (this.b != null && !this.b.equals("tieba_resized_image")) {
-            com.baidu.tieba.util.m.e("photos/" + this.b, "tieba_resized_image");
+    public boolean a() {
+        return this.a;
+    }
+
+    public MarkData b() {
+        return this.b;
+    }
+
+    public void a(aj ajVar) {
+        this.d = ajVar;
+    }
+
+    public void a(MarkData markData) {
+        this.b = markData;
+    }
+
+    public void a(boolean z) {
+        this.a = z;
+    }
+
+    public String c() {
+        if (this.b != null) {
+            return this.b.getPostId();
         }
-        return com.baidu.tieba.util.d.a(com.baidu.tieba.util.d.b(com.baidu.tieba.util.m.c(null, "tieba_resized_image_display")), 5.0f);
+        return null;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        this.a.a = null;
-        eVar = this.a.mLoadDataCallBack;
-        if (eVar != null) {
-            eVar2 = this.a.mLoadDataCallBack;
-            eVar2.a(null);
+    public void d() {
+        if (this.c != null) {
+            this.c.cancel();
         }
-        super.cancel(true);
+        this.c = new ai(this, true);
+        this.c.setPriority(3);
+        this.c.execute(new Boolean[0]);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        super.c();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        super.a((Object) bitmap);
-        this.a.a = null;
-        com.baidu.tieba.util.z.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
-        eVar = this.a.mLoadDataCallBack;
-        if (eVar != null) {
-            eVar2 = this.a.mLoadDataCallBack;
-            eVar2.a(bitmap);
+    public void e() {
+        if (this.c != null) {
+            this.c.cancel();
         }
+        this.c = new ai(this, false);
+        this.c.setPriority(3);
+        this.c.execute(new Boolean[0]);
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        if (this.c != null) {
+            this.c.cancel();
+            return false;
+        }
+        return false;
     }
 }

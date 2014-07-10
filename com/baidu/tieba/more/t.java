@@ -1,33 +1,35 @@
 package com.baidu.tieba.more;
 
-import android.widget.RadioGroup;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.PersonChangeData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements RadioGroup.OnCheckedChangeListener {
-    final /* synthetic */ BrowseSettingActivity a;
+public class t extends com.baidu.adp.base.h {
+    final /* synthetic */ MoreActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(BrowseSettingActivity browseSettingActivity) {
-        this.a = browseSettingActivity;
+    public t(MoreActivity moreActivity) {
+        this.a = moreActivity;
     }
 
-    @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        switch (i) {
-            case R.id.image_quality_high /* 2131165390 */:
-                TiebaApplication.f().p(true);
-                TiebaApplication.f().h(1);
-                return;
-            case R.id.image_quality_low /* 2131165391 */:
-                TiebaApplication.f().p(true);
-                TiebaApplication.f().h(2);
-                return;
-            case R.id.image_quality_close /* 2131165392 */:
-                TiebaApplication.f().p(false);
-                return;
-            default:
-                return;
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        com.baidu.tieba.person.o oVar;
+        com.baidu.tieba.person.o oVar2;
+        com.baidu.tieba.person.o oVar3;
+        com.baidu.tieba.person.o oVar4;
+        com.baidu.tieba.person.o oVar5;
+        PersonChangeData personChangeData = new PersonChangeData();
+        oVar = this.a.c;
+        if (oVar.a() != null) {
+            oVar2 = this.a.c;
+            personChangeData.setName(oVar2.a().getName_show());
+            oVar3 = this.a.c;
+            personChangeData.setIntro(oVar3.a().getIntro());
+            oVar4 = this.a.c;
+            personChangeData.setPortrait(oVar4.a().getPortrait());
+            oVar5 = this.a.c;
+            personChangeData.setSex(oVar5.a().getSex());
+            this.a.a(personChangeData);
         }
     }
 }

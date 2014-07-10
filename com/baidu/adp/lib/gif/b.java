@@ -1,7 +1,8 @@
 package com.baidu.adp.lib.gif;
 
 import android.graphics.Bitmap;
-import com.baidu.zeus.bouncycastle.DERTags;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.MotionEventCompat;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -45,7 +46,7 @@ public class b extends Thread {
     private int g = 1;
     private c B = null;
     private boolean C = false;
-    private byte[] D = new byte[256];
+    private final byte[] D = new byte[256];
     private int E = 0;
     private int F = 0;
     private int G = 0;
@@ -117,7 +118,6 @@ public class b extends Thread {
 
     private void a(Bitmap bitmap, String str) {
         try {
-            new File(String.valueOf(this.S) + File.separator + str + ".png");
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(String.valueOf(this.S) + File.separator + e() + ".png"));
         } catch (Exception e) {
         }
@@ -341,7 +341,7 @@ public class b extends Thread {
             this.L = new byte[4096];
         }
         if (this.M == null) {
-            this.M = new byte[4097];
+            this.M = new byte[FragmentTransaction.TRANSIT_FRAGMENT_OPEN];
         }
         int l = l();
         int i11 = 1 << l;
@@ -535,7 +535,7 @@ public class b extends Thread {
                         case 249:
                             o();
                             continue;
-                        case 255:
+                        case MotionEventCompat.ACTION_MASK /* 255 */:
                             m();
                             String str = "";
                             for (int i = 0; i < 11; i++) {
@@ -601,7 +601,7 @@ public class b extends Thread {
         this.t = t();
         this.u = t();
         int l = l();
-        this.o = (l & DERTags.TAGGED) != 0;
+        this.o = (l & 128) != 0;
         this.p = (l & 64) != 0;
         this.q = 2 << (l & 7);
         if (this.o) {
@@ -663,7 +663,7 @@ public class b extends Thread {
         this.a = t();
         this.b = t();
         int l = l();
-        this.e = (l & DERTags.TAGGED) != 0;
+        this.e = (l & 128) != 0;
         this.f = 2 << (l & 7);
         this.k = l();
         this.n = l();

@@ -2,14 +2,36 @@ package com.baidu.tieba.data;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class b {
-    public abstract void parserJson(JSONObject jSONObject);
+public class b {
+    private int a;
+    private String b;
+    private String c;
+    private String d;
 
-    public void parserJson(String str) {
+    public void a(JSONObject jSONObject) {
         try {
-            parserJson(new JSONObject(str));
+            this.b = jSONObject.optString("icon_url");
+            this.c = jSONObject.optString("icon_link");
+            this.d = jSONObject.optString("content");
+            this.a = jSONObject.optInt("tail_type");
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "parserJson", e.getMessage());
+            e.printStackTrace();
         }
+    }
+
+    public String a() {
+        return this.b;
+    }
+
+    public String b() {
+        return this.c;
+    }
+
+    public String c() {
+        return this.d;
+    }
+
+    public int d() {
+        return this.a;
     }
 }

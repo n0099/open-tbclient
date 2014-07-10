@@ -1,10 +1,9 @@
 package com.baidu.tieba.flist;
 
-import android.support.v4.view.ae;
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.util.aj;
 /* loaded from: classes.dex */
-class j extends ae {
+class j implements Runnable {
     final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,32 +11,20 @@ class j extends ae {
         this.a = forumListActivity;
     }
 
-    @Override // android.support.v4.view.ae
-    public int getCount() {
-        return 2;
-    }
-
-    @Override // android.support.v4.view.ae
-    public boolean isViewFromObject(View view, Object obj) {
-        return view.equals(obj);
-    }
-
-    @Override // android.support.v4.view.ae
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        switch (i) {
-            case 0:
-                viewGroup.addView(this.a.a.j);
-                return this.a.a.j;
-            case 1:
-                viewGroup.addView(this.a.a.k);
-                return this.a.a.k;
-            default:
-                return null;
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        com.baidu.tbadk.editortool.aa aaVar;
+        com.baidu.tbadk.editortool.aa aaVar2;
+        i = this.a.z;
+        if (i == 0) {
+            BdListView bdListView = this.a.c.i;
+            aaVar2 = this.a.r;
+            aj.a(bdListView, aaVar2, 1, -1);
+            return;
         }
-    }
-
-    @Override // android.support.v4.view.ae
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView((View) obj);
+        BdListView bdListView2 = this.a.c.j;
+        aaVar = this.a.r;
+        aj.a(bdListView2, aaVar, 1, -1);
     }
 }

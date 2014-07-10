@@ -1,20 +1,15 @@
 package com.baidu.tieba.service;
-
-import android.os.Handler;
-import android.os.Message;
 /* loaded from: classes.dex */
-class a extends Handler {
-    final /* synthetic */ ClearTempService a;
+class a implements Runnable {
+    final /* synthetic */ AsInstallService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a(ClearTempService clearTempService) {
-        this.a = clearTempService;
+    public a(AsInstallService asInstallService) {
+        this.a = asInstallService;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
+    @Override // java.lang.Runnable
+    public void run() {
         this.a.stopSelf();
-        this.a.b = null;
     }
 }

@@ -1,52 +1,36 @@
 package com.baidu.tieba.more;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.R;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.util.DatabaseService;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends BdAsyncTask {
-    final /* synthetic */ AccountActivity a;
-    private AccountData b;
+public class l implements DialogInterface.OnClickListener {
+    final /* synthetic */ j a;
 
-    public l(AccountActivity accountActivity, AccountData accountData) {
-        this.a = accountActivity;
-        this.b = null;
-        this.b = accountData;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(j jVar) {
+        this.a = jVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        this.a.a(this.a.getString(R.string.account_logining), new m(this));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Boolean a(Object... objArr) {
-        try {
-            Thread.sleep(1000L);
-            this.b.setIsActive(1);
-            DatabaseService.a(this.b);
-            TiebaApplication.b(this.b);
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        switch (i) {
+            case 0:
+                com.baidu.tbadk.core.h.a().a(true);
+                com.baidu.tbadk.core.h.a().c(0);
+                break;
+            case 1:
+                com.baidu.tbadk.core.h.a().a(true);
+                com.baidu.tbadk.core.h.a().c(1);
+                break;
+            case 2:
+                com.baidu.tbadk.core.h.a().a(true);
+                com.baidu.tbadk.core.h.a().c(2);
+                break;
+            case 3:
+                com.baidu.tbadk.core.h.a().a(false);
+                break;
         }
-        return true;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        this.a.h();
-        MainTabActivity.b(this.a, "goto_home");
-        com.baidu.tieba.account.a.a().b();
-        this.a.k = null;
+        this.a.x();
+        this.a.n();
     }
 }

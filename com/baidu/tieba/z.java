@@ -1,114 +1,86 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.DatabaseService;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends BdAsyncTask {
-    ArrayList a;
-    final /* synthetic */ LabelActivity b;
-    private String d;
-    private boolean f;
-    private com.baidu.tieba.util.r c = null;
-    private int e = 1;
-
-    public z(LabelActivity labelActivity, String str, boolean z, ArrayList arrayList) {
-        this.b = labelActivity;
-        this.d = null;
-        this.a = null;
-        this.d = str;
-        this.a = arrayList;
-        this.f = z;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        this.b.b(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Boolean a(Object... objArr) {
-        com.baidu.tieba.model.ai aiVar;
-        com.baidu.tieba.model.ai aiVar2;
-        com.baidu.tieba.model.ai aiVar3;
-        com.baidu.tieba.model.ai aiVar4;
-        com.baidu.tieba.model.ai aiVar5;
-        com.baidu.tieba.model.ai aiVar6;
-        try {
-            this.c = new com.baidu.tieba.util.r(this.d);
-            this.c.a(this.a);
-            aiVar = this.b.q;
-            if (aiVar != null) {
-                aiVar5 = this.b.q;
-                if (aiVar5.h().size() != 0) {
-                    aiVar6 = this.b.q;
-                    this.c.a("tag_info", aiVar6.g());
-                }
-            }
-            com.baidu.tieba.util.z.b("begin to get label data...url is " + this.d);
-            String j = this.c.j();
-            com.baidu.tieba.util.z.b("end to get label data...");
-            if (this.c.c()) {
-                aiVar2 = this.b.q;
-                if (aiVar2 == null) {
-                    this.b.q = new com.baidu.tieba.model.ai();
-                }
-                aiVar3 = this.b.q;
-                aiVar3.a(j);
-                if (this.f) {
-                    aiVar4 = this.b.q;
-                    aiVar4.b(DatabaseService.b(12));
-                }
-                com.baidu.tieba.util.z.a(getClass().getName(), "doInBackground", j);
-                System.gc();
-            }
-            if (this.c.d()) {
-                this.e = 0;
-            } else {
-                this.e = 1;
-            }
-            return true;
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "", "LabelAsyncTask.doInBackground error = " + e.getMessage());
-            return false;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        this.b.b(false);
-        if (bool.booleanValue() && this.e != 1) {
-            this.b.o();
-            this.b.c(false);
-        } else {
-            e();
-        }
-        this.b.M = null;
-        System.gc();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        super.c();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        if (this.c != null) {
-            this.c.h();
-        }
-        super.cancel(true);
-    }
-
-    private void e() {
-        this.b.a(this.c.g());
-    }
+public final class z {
+    public static final int AlertDialog = 2131296258;
+    public static final int AnimBottom = 2131296263;
+    public static final int AppBaseTheme = 2131296256;
+    public static final int AppTheme = 2131296257;
+    public static final int BeautyDialog = 2131296262;
+    public static final int CustomizedWindowTitleBg = 2131296286;
+    public static final int DQLoadingDialog = 2131296259;
+    public static final int Dialog_global = 2131296327;
+    public static final int FullHeightDialog = 2131296261;
+    public static final int NewUserDialog = 2131296270;
+    public static final int NobackDialog = 2131296269;
+    public static final int NotificationText = 2131296312;
+    public static final int SapiImagePicker = 2131296264;
+    public static final int SapiTheme = 2131296260;
+    public static final int Transparent = 2131296328;
+    public static final int UpdateStyle = 2131296292;
+    public static final int address_bg_arrow = 2131296310;
+    public static final int auto_skin_list = 2131296268;
+    public static final int big_image_dialog = 2131296295;
+    public static final int big_image_dialog_anim = 2131296296;
+    public static final int browser_BdDialogTheme = 2131296324;
+    public static final int browser_BdNoMaskDialogTheme = 2131296325;
+    public static final int browser_BdWaitingDialog = 2131296326;
+    public static final int comm_controls = 2131296272;
+    public static final int common_alert_dialog = 2131296294;
+    public static final int common_image_btn_style = 2131296311;
+    public static final int custom_animate = 2131296290;
+    public static final int dialog_ani_b2t = 2131296316;
+    public static final int dialog_ani_l2r = 2131296318;
+    public static final int dialog_ani_r2l = 2131296319;
+    public static final int dialog_ani_t2b = 2131296317;
+    public static final int forbid_day_item = 2131296271;
+    public static final int frs_pb_bottom_bar = 2131296330;
+    public static final int input_username_dialog = 2131296293;
+    public static final int main_tab_bottom = 2131296329;
+    public static final int navi_btn_bg_comm = 2131296273;
+    public static final int navi_btn_bg_more = 2131296274;
+    public static final int navi_logo_bg_comm = 2131296275;
+    public static final int navi_textbtn_bg_comm = 2131296276;
+    public static final int pb_drawable_text_button = 2131296321;
+    public static final int pb_drawable_text_button_1 = 2131296322;
+    public static final int personal_big_button = 2131296298;
+    public static final int personal_big_button_icon = 2131296299;
+    public static final int personal_big_button_panel = 2131296297;
+    public static final int personal_big_button_text = 2131296300;
+    public static final int personal_big_button_text_new_number = 2131296302;
+    public static final int personal_big_button_text_number = 2131296301;
+    public static final int pop_window_anim = 2131296323;
+    public static final int search_dialog = 2131296291;
+    public static final int setting_bg_arrow = 2131296267;
+    public static final int setting_bg_layout = 2131296266;
+    public static final int setting_bg_text = 2131296265;
+    public static final int setting_single_text = 2131296309;
+    public static final int setting_version_prompt_text = 2131296332;
+    public static final int setting_version_prompt_text_1 = 2131296333;
+    public static final int setting_version_text = 2131296334;
+    public static final int setting_version_text_1 = 2131296335;
+    public static final int share_dialog_style = 2131296315;
+    public static final int sidebar_content = 2131296306;
+    public static final int sidebar_content_1 = 2131296308;
+    public static final int sidebar_title = 2131296305;
+    public static final int sidebar_title_1 = 2131296307;
+    public static final int sub_pb_anim = 2131296331;
+    public static final int subtext = 2131296336;
+    public static final int subtext_1 = 2131296337;
+    public static final int text_info = 2131296285;
+    public static final int text_shadow_style = 2131296303;
+    public static final int text_shadow_style_1 = 2131296304;
+    public static final int tieba_app = 2131296288;
+    public static final int tieba_app_fullscreen = 2131296289;
+    public static final int title = 2131296287;
+    public static final int title_3_info = 2131296283;
+    public static final int title_back_info = 2131296282;
+    public static final int title_comm = 2131296277;
+    public static final int title_info = 2131296278;
+    public static final int title_info_shadow = 2131296279;
+    public static final int title_margin = 2131296284;
+    public static final int title_multi_textview = 2131296280;
+    public static final int title_multi_textview_msg_num = 2131296281;
+    public static final int top_dark_txt = 2131296320;
+    public static final int voic_play_bnt_type_normal = 2131296313;
+    public static final int voic_play_bnt_type_reply = 2131296314;
 }

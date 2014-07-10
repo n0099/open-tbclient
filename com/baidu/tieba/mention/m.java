@@ -1,32 +1,31 @@
 package com.baidu.tieba.mention;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements AbsListView.OnScrollListener {
-    final /* synthetic */ h a;
+public class m implements AdapterView.OnItemClickListener {
+    final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(h hVar) {
-        this.a = hVar;
+    public m(l lVar) {
+        this.a = lVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.a.r;
-        runnable = this.a.s;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.r;
-        runnable2 = this.a.s;
-        handler2.postDelayed(runnable2, 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        c cVar = (c) ((BdListView) adapterView).getWrappedAdapter();
+        long itemId = cVar.getItemId(i);
+        if (itemId == -1) {
+            this.a.b();
+        } else if (itemId != -2) {
+            com.baidu.tieba.data.p pVar = (com.baidu.tieba.data.p) cVar.getItem(i);
+            if (pVar != null) {
+                this.a.a(pVar);
+            }
+        } else {
+            this.a.g();
+        }
     }
 }

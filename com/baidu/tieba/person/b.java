@@ -1,33 +1,17 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements AdapterView.OnItemClickListener {
-    final /* synthetic */ AllPostActivity a;
+class b implements View.OnClickListener {
+    final /* synthetic */ BasePersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(AllPostActivity allPostActivity) {
-        this.a = allPostActivity;
+    public b(BasePersonInfoActivity basePersonInfoActivity) {
+        this.a = basePersonInfoActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        switch (this.a.e.getItemViewType(i)) {
-            case 0:
-            case 1:
-            default:
-                return;
-            case 2:
-                if (this.a.f.f()) {
-                    this.a.b(1);
-                    return;
-                } else {
-                    this.a.a(this.a.getString(R.string.no_more_to_load));
-                    return;
-                }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.finish();
     }
 }

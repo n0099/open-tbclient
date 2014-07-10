@@ -1,0 +1,47 @@
+package protobuf.QueryHistoryMsg;
+
+import com.squareup.wire.Message;
+import com.squareup.wire.ProtoField;
+import protobuf.Error;
+/* loaded from: classes.dex */
+public final class QueryHistoryMsgResIdl extends Message {
+    @ProtoField(tag = 2)
+    public final DataRes data;
+    @ProtoField(tag = 1)
+    public final Error error;
+
+    /* synthetic */ QueryHistoryMsgResIdl(Builder builder, boolean z, QueryHistoryMsgResIdl queryHistoryMsgResIdl) {
+        this(builder, z);
+    }
+
+    private QueryHistoryMsgResIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            this.error = builder.error;
+            this.data = builder.data;
+            return;
+        }
+        this.error = builder.error;
+        this.data = builder.data;
+    }
+
+    /* loaded from: classes.dex */
+    public final class Builder extends Message.Builder<QueryHistoryMsgResIdl> {
+        public DataRes data;
+        public Error error;
+
+        public Builder(QueryHistoryMsgResIdl queryHistoryMsgResIdl) {
+            super(queryHistoryMsgResIdl);
+            if (queryHistoryMsgResIdl != null) {
+                this.error = queryHistoryMsgResIdl.error;
+                this.data = queryHistoryMsgResIdl.data;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.squareup.wire.Message.Builder
+        public QueryHistoryMsgResIdl build(boolean z) {
+            return new QueryHistoryMsgResIdl(this, z, null);
+        }
+    }
+}

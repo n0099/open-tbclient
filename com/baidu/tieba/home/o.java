@@ -1,15 +1,26 @@
 package com.baidu.tieba.home;
-/* loaded from: classes.dex */
-class o implements Runnable {
-    final /* synthetic */ ForumTopicActivity a;
 
+import android.os.Bundle;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* loaded from: classes.dex */
+class o extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(ForumTopicActivity forumTopicActivity) {
-        this.a = forumTopicActivity;
+    public o(int i) {
+        super(i);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.c();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: a */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tbadk.mainTab.d b;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
+            EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
+            ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).a(enterForumDelegateStatic);
+            if (((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).b() != null && (b = enterForumDelegateStatic.b()) != null) {
+                b.a.setArguments(new Bundle());
+            }
+        }
     }
 }

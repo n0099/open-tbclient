@@ -2,6 +2,7 @@ package com.baidu.tieba.square;
 
 import android.view.View;
 import android.widget.AdapterView;
+import com.baidu.tieba.flist.ForumListActivity;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -14,13 +15,13 @@ public class a implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         c cVar;
-        q qVar;
-        cVar = this.a.k;
-        ArrayList c = cVar.a().c();
-        if (c != null && i < c.size() && (qVar = (q) c.get(i)) != null) {
-            BarFolderSecondDirActivity.a(this.a, qVar.b, qVar.a, qVar.c);
+        w wVar;
+        cVar = this.a.e;
+        ArrayList<w> a = cVar.a();
+        if (a != null && i < a.size() && (wVar = a.get(i)) != null) {
+            ForumListActivity.a(this.a, wVar.b, wVar.a, wVar.c);
         }
     }
 }

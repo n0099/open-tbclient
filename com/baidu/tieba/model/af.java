@@ -1,95 +1,102 @@
 package com.baidu.tieba.model;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import org.json.JSONObject;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af extends BdAsyncTask {
-    final /* synthetic */ ac a;
-    private int b;
-    private com.baidu.tieba.util.r c = null;
+public class af extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ab> {
+    final /* synthetic */ ae a;
+    private volatile com.baidu.tbadk.core.util.aq b;
 
-    public af(ac acVar, int i) {
-        this.a = acVar;
-        this.b = 0;
-        this.b = i;
-        if (this.b < 0) {
-            this.b = 0;
-        }
+    private af(ae aeVar) {
+        this.a = aeVar;
+        this.b = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ af(ae aeVar, af afVar) {
+        this(aeVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public JSONObject a(Object... objArr) {
+    /* renamed from: a */
+    public com.baidu.tieba.data.ab doInBackground(Object... objArr) {
         String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
         try {
-            this.c = new com.baidu.tieba.util.r(String.valueOf(com.baidu.tieba.data.g.a) + "c/f/frs/photo");
-            StringBuilder sb = new StringBuilder();
-            int size = this.a.c().size();
-            for (int i = this.b; i < size && i < this.b + 30; i++) {
-                sb.append((String) this.a.c().get(i));
-                sb.append(",");
+            this.b = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/like");
+            com.baidu.tbadk.core.util.aq aqVar = this.b;
+            str = this.a.a;
+            aqVar.a("kw", str);
+            com.baidu.tbadk.core.util.aq aqVar2 = this.b;
+            str2 = this.a.b;
+            aqVar2.a("fid", str2);
+            com.baidu.tbadk.core.util.aq aqVar3 = this.b;
+            str3 = this.a.e;
+            aqVar3.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str3);
+            str4 = this.a.c;
+            if (!TextUtils.isEmpty(str4)) {
+                com.baidu.tbadk.core.util.aq aqVar4 = this.b;
+                str8 = this.a.c;
+                aqVar4.a("pagefrom", str8);
             }
-            int length = sb.length();
-            if (length > 1 && sb.charAt(length - 1) == ',') {
-                sb.deleteCharAt(length - 1);
+            this.b.a().a().a = true;
+            String i = this.b.i();
+            if (this.b.a().b().b() && i != null) {
+                com.baidu.tieba.data.ab abVar = new com.baidu.tieba.data.ab();
+                abVar.b(i);
+                str5 = this.a.b;
+                abVar.a(str5);
+                str6 = this.a.b;
+                str7 = this.a.a;
+                Hao123Model.addLikeData(str6, str7, abVar.b());
+                return abVar;
             }
-            this.c.a("alb_ids", sb.toString());
-            com.baidu.tieba.util.r rVar = this.c;
-            str = this.a.j;
-            rVar.a("kw", str);
-            return new JSONObject(this.c.j());
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.getMessage());
-            return null;
+            BdLog.e(e.getMessage());
         }
+        return null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(JSONObject jSONObject) {
-        com.baidu.tieba.frs.aw awVar;
-        com.baidu.tieba.frs.aw awVar2;
-        super.a((Object) jSONObject);
-        this.a.l = null;
-        awVar = this.a.n;
-        if (awVar != null) {
-            ae aeVar = new ae(this.a);
-            if (this.c != null) {
-                aeVar.a = true;
-                aeVar.b = this.c.d();
-                aeVar.c = this.c.e();
-                aeVar.d = this.c.g();
-                aeVar.e = this.c.b();
-            }
-            awVar2 = this.a.n;
-            awVar2.a(this.b, jSONObject, aeVar);
+    /* renamed from: a */
+    public void onPostExecute(com.baidu.tieba.data.ab abVar) {
+        com.baidu.adp.base.h hVar;
+        com.baidu.adp.base.h hVar2;
+        this.a.d = null;
+        if (abVar == null && this.b != null) {
+            this.a.mErrorCode = this.b.d();
+            this.a.mErrorString = this.b.f();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        com.baidu.tieba.frs.aw awVar;
-        com.baidu.tieba.frs.aw awVar2;
-        super.b();
-        awVar = this.a.n;
-        if (awVar != null) {
-            awVar2 = this.a.n;
-            awVar2.a(0);
+        hVar = this.a.mLoadDataCallBack;
+        if (hVar != null) {
+            hVar2 = this.a.mLoadDataCallBack;
+            hVar2.a(abVar);
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        super.cancel(true);
-        if (this.c != null) {
-            this.c.h();
-            this.c = null;
+        com.baidu.adp.base.h hVar;
+        if (this.b != null) {
+            this.b.g();
+            this.b = null;
         }
-        this.a.l = null;
+        this.a.d = null;
+        super.cancel(true);
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(null);
     }
 }

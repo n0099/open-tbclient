@@ -1,13 +1,13 @@
 package com.baidu.adp.lib.asyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c {
+public class c<Data> {
     final BdAsyncTask a;
-    final Object[] b;
+    final Data[] b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(BdAsyncTask bdAsyncTask, Object... objArr) {
+    public c(BdAsyncTask bdAsyncTask, Data... dataArr) {
         this.a = bdAsyncTask;
-        this.b = objArr;
+        this.b = dataArr;
     }
 }

@@ -1,27 +1,56 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.app.Dialog;
+import android.content.Intent;
+import android.view.View;
 /* loaded from: classes.dex */
-class be implements com.baidu.tbadk.a.d {
-    final /* synthetic */ bd a;
+class be implements View.OnClickListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(bd bdVar) {
-        this.a = bdVar;
+    public be(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        PersonLbsActivity personLbsActivity;
-        ListView listView;
-        if (bVar != null) {
-            personLbsActivity = this.a.a;
-            listView = personLbsActivity.a;
-            ImageView imageView = (ImageView) listView.findViewWithTag(str);
-            if (imageView != null) {
-                imageView.invalidate();
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.model.at atVar;
+        int i;
+        boolean z;
+        com.baidu.tieba.model.at atVar2;
+        com.baidu.tieba.model.at atVar3;
+        Boolean bool;
+        com.baidu.tieba.model.at atVar4;
+        com.baidu.tieba.model.at atVar5;
+        Dialog dialog;
+        atVar = this.a.u;
+        int sex = atVar.a().getSex();
+        i = this.a.E;
+        if (sex != i) {
+            this.a.D = true;
         }
+        z = this.a.D;
+        if (!z) {
+            atVar2 = this.a.u;
+            if (atVar2 != null) {
+                atVar3 = this.a.u;
+                if (atVar3.a().getPhotoChanged()) {
+                    Intent intent = new Intent();
+                    bool = this.a.b;
+                    if (bool.booleanValue()) {
+                        atVar5 = this.a.u;
+                        intent.putExtra("person_change_data", atVar5.a());
+                    } else {
+                        atVar4 = this.a.u;
+                        intent.putExtra("data", atVar4.a());
+                    }
+                    this.a.setResult(-1, intent);
+                }
+            }
+            this.a.finish();
+            return;
+        }
+        dialog = this.a.B;
+        dialog.show();
     }
 }

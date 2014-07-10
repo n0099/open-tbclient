@@ -1,23 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.view.MotionEvent;
-import android.view.View;
+import android.view.ViewTreeObserver;
+import com.baidu.tbadk.core.view.UserIconBox;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements View.OnTouchListener {
-    final /* synthetic */ PersonChangeActivity a;
+public class al implements ViewTreeObserver.OnGlobalLayoutListener {
+    final /* synthetic */ ak a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public al(ak akVar) {
+        this.a = akVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1) {
-            this.a.y = true;
-            return false;
-        }
-        return false;
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        UserIconBox userIconBox;
+        UserIconBox userIconBox2;
+        userIconBox = this.a.v;
+        userIconBox.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+        ak akVar = this.a;
+        userIconBox2 = this.a.v;
+        akVar.z = userIconBox2.getMeasuredWidth();
+        this.a.g();
     }
 }

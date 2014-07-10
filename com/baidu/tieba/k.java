@@ -1,38 +1,23 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 /* loaded from: classes.dex */
-public class k {
-    private com.baidu.tieba.util.r a;
-    private com.baidu.tieba.data.ag b = null;
+class k implements d {
+    final /* synthetic */ LogoActivity a;
 
-    public k() {
-        this.a = null;
-        this.a = new com.baidu.tieba.util.r();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(String str) {
-        this.a.a(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String a() {
-        String j = this.a.j();
-        this.b = new com.baidu.tieba.data.ag();
-        this.b.a(j);
-        return j;
-    }
-
-    public boolean b() {
-        if (this.a != null) {
-            return this.a.c();
+    @Override // com.baidu.tieba.d
+    public void a(Object obj) {
+        if (obj != null) {
+            this.a.b(com.baidu.adp.lib.f.b.a(String.valueOf(obj), 0));
+            return;
         }
-        return false;
-    }
-
-    public String c() {
-        if (this.a != null) {
-            return this.a.g();
-        }
-        return null;
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.au(this.a, com.baidu.tbadk.core.atomData.au.c)));
+        this.a.finish();
     }
 }

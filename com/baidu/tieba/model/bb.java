@@ -1,130 +1,140 @@
 package com.baidu.tieba.model;
 
-import android.content.Context;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.SignData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bm;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb extends BdAsyncTask {
+public class bb extends BdAsyncTask<Object, Integer, SignData> {
     final /* synthetic */ ba a;
-    private com.baidu.tieba.a.f b = null;
-    private int c;
+    private volatile com.baidu.tbadk.core.util.aq b;
 
-    public bb(ba baVar, int i) {
+    private bb(ba baVar) {
         this.a = baVar;
-        this.c = 0;
-        this.c = i;
+        this.b = null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bb(ba baVar, bb bbVar) {
+        this(baVar);
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public com.baidu.tieba.data.aw a(Object... objArr) {
-        com.baidu.tieba.data.aw awVar;
-        com.baidu.tieba.data.aw awVar2;
-        com.baidu.tieba.data.aw awVar3;
+    public void onPreExecute() {
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x00f3 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0021 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x00c0 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:? */
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v17 */
+    /* JADX WARN: Type inference failed for: r0v18 */
+    /* JADX WARN: Type inference failed for: r0v19 */
+    /* JADX WARN: Type inference failed for: r0v23, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r0v30 */
+    /* JADX WARN: Type inference failed for: r0v31 */
+    /* JADX WARN: Type inference failed for: r0v32 */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    /* JADX WARN: Type inference failed for: r0v5, types: [com.baidu.tbadk.core.data.SignData] */
+    /* JADX WARN: Type inference failed for: r1v15 */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public SignData doInBackground(Object... objArr) {
         String str;
+        Exception e;
         String str2;
         String str3;
-        Context context;
-        Context context2;
-        this.b = new com.baidu.tieba.a.f();
+        String i;
+        JSONObject jSONObject;
+        String str4;
+        TiebaStatic.eventStat(TbadkApplication.m252getInst().getApplicationContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
+        String str5 = null;
+        str5 = null;
         try {
-            awVar = this.a.e;
-            int f = awVar.f();
-            if (f == 0) {
-                f++;
-            } else if (this.c == 0) {
-                f++;
-            } else if (this.c == 2) {
-                awVar2 = this.a.e;
-                int size = awVar2.b().size();
-                awVar3 = this.a.e;
-                if (size % awVar3.e() == 0) {
-                    f++;
-                }
-            }
-            com.baidu.tieba.a.f fVar = this.b;
-            str = this.a.a;
-            str2 = this.a.c;
-            int i = this.c;
+            TiebaStatic.eventStat(TbadkApplication.m252getInst().getApplicationContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
+            this.b = new com.baidu.tbadk.core.util.aq(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/sign");
+            com.baidu.tbadk.core.util.aq aqVar = this.b;
+            str2 = this.a.a;
+            aqVar.a("kw", str2);
+            com.baidu.tbadk.core.util.aq aqVar2 = this.b;
             str3 = this.a.b;
-            String a = fVar.a(str, str2, i, str3, f);
-            if (!this.b.a()) {
-                return null;
-            }
-            com.baidu.tieba.data.aw awVar4 = new com.baidu.tieba.data.aw();
-            context = this.a.d;
-            awVar4.a(a, context);
-            int i2 = 0;
-            while (true) {
-                int i3 = i2;
-                if (i3 >= awVar4.b().size()) {
-                    return awVar4;
-                }
-                context2 = this.a.d;
-                ((com.baidu.tieba.data.an) awVar4.b().get(i3)).a(context2);
-                i2 = i3 + 1;
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "doInBackground", e.toString());
-            return null;
+            aqVar2.a("fid", str3);
+            this.b.a().a().a = true;
+            i = this.b.i();
+        } catch (Exception e2) {
+            str = str5;
+            e = e2;
         }
+        if (this.b.c()) {
+            str = this.b.a().b().b();
+            try {
+                if (str != 0) {
+                    SignData signData = new SignData();
+                    signData.parserJson(i);
+                    int signed = signData.getSigned();
+                    str = signData;
+                    str5 = signed;
+                    if (signed == 1) {
+                        str4 = this.a.b;
+                        Hao123Model.updateSign(str4, true, signData.getCountSignNum());
+                        str = signData;
+                        str5 = str4;
+                    }
+                } else if (!bm.c(i) && (jSONObject = new JSONObject(i)) != null && "199901".equals(jSONObject.optString("error_code"))) {
+                    SignData signData2 = new SignData();
+                    signData2.parserJson(i);
+                    signData2.setIsSigned(1);
+                    signData2.setCountSignNum(1);
+                    str5 = null;
+                    signData2.setBonusPoint(0);
+                    str = signData2;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                BdLog.e(e.getMessage());
+                return str;
+            }
+            return str;
+        }
+        str = 0;
+        return str;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        super.cancel(true);
-        this.a.f = null;
+        com.baidu.adp.base.h hVar;
         if (this.b != null) {
-            this.b.d();
+            this.b.g();
         }
+        this.a.c = null;
+        super.cancel(true);
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.aw awVar) {
-        com.baidu.tieba.data.aw awVar2;
-        com.baidu.tieba.data.aw awVar3;
-        bc bcVar;
-        bc bcVar2;
-        com.baidu.tieba.data.aw awVar4;
-        bc bcVar3;
-        bc bcVar4;
-        this.a.f = null;
-        if (awVar == null) {
-            bcVar3 = this.a.g;
-            if (bcVar3 != null) {
-                bcVar4 = this.a.g;
-                bcVar4.a(false, this.b.c(), this.b.b(), null);
-                return;
-            }
-            return;
+    /* renamed from: a */
+    public void onPostExecute(SignData signData) {
+        com.baidu.adp.base.h hVar;
+        TiebaStatic.eventStat(TbadkApplication.m252getInst().getApplicationContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
+        this.a.c = null;
+        TiebaStatic.eventStat(TbadkApplication.m252getInst().getApplicationContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
+        if (signData == null && this.b != null) {
+            this.a.mErrorCode = this.b.d();
+            this.a.mErrorString = this.b.f();
         }
-        if (awVar.a() != null) {
-            this.a.b = awVar.a().d();
-        }
-        if (awVar.l() != null) {
-            this.a.a = awVar.l().a();
-        }
-        if (this.c == 1) {
-            this.a.e = awVar;
-        } else if (this.c == 2) {
-            awVar3 = this.a.e;
-            awVar3.a(awVar, true);
-        } else {
-            awVar2 = this.a.e;
-            awVar2.a(awVar, false);
-        }
-        bcVar = this.a.g;
-        if (bcVar != null) {
-            bcVar2 = this.a.g;
-            int c = this.b.c();
-            String b = this.b.b();
-            awVar4 = this.a.e;
-            bcVar2.a(true, c, b, awVar4);
-        }
-        this.b = null;
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(signData);
     }
 }

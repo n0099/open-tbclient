@@ -1,5 +1,6 @@
 package com.baidu.tbadk.widget.richText;
 
+import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
@@ -40,10 +41,10 @@ public class b {
 
     public void c() {
         if (this.a != null) {
-            this.a = this.a.replaceAll("\n", "");
+            this.a = this.a.replaceAll(IOUtils.LINE_SEPARATOR_UNIX, "");
         }
         if (this.b != null) {
-            this.b = this.b.replaceAll("\n", "");
+            this.b = this.b.replaceAll(IOUtils.LINE_SEPARATOR_UNIX, "");
         }
     }
 }

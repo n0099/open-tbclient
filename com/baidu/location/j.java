@@ -7,10 +7,10 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.account.AccountProxy;
+import com.baidu.kirin.KirinConfig;
 import com.baidu.location.c;
 import com.baidu.location.e;
-import com.baidu.mapapi.MKEvent;
+import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -21,23 +21,23 @@ import java.util.UUID;
 public class j {
 
     /* renamed from: try  reason: not valid java name */
-    public static boolean f241try = false;
+    public static boolean f205try = false;
     public static boolean v = false;
     public static boolean I = false;
     public static boolean b = false;
 
     /* renamed from: else  reason: not valid java name */
-    public static boolean f234else = false;
+    public static boolean f198else = false;
 
     /* renamed from: void  reason: not valid java name */
-    public static int f242void = 0;
+    public static int f206void = 0;
 
     /* renamed from: for  reason: not valid java name */
-    private static String f235for = f.v;
+    private static String f199for = f.v;
     private static String x = "http://loc.map.baidu.com/sdk.php";
 
     /* renamed from: do  reason: not valid java name */
-    public static String f233do = "http://loc.map.baidu.com/sdk_ep.php";
+    public static String f197do = "http://loc.map.baidu.com/sdk_ep.php";
     private static boolean r = false;
     private static boolean n = false;
     private static boolean p = true;
@@ -53,32 +53,32 @@ public class j {
     public static double s = 0.0d;
 
     /* renamed from: byte  reason: not valid java name */
-    public static double f230byte = 0.0d;
+    public static double f194byte = 0.0d;
 
     /* renamed from: long  reason: not valid java name */
-    public static int f239long = 0;
+    public static int f203long = 0;
     public static byte[] o = null;
     public static boolean e = false;
 
     /* renamed from: goto  reason: not valid java name */
-    public static int f236goto = 0;
+    public static int f200goto = 0;
 
     /* renamed from: case  reason: not valid java name */
-    public static float f231case = 1.1f;
+    public static float f195case = 1.1f;
     public static float A = 2.2f;
 
     /* renamed from: char  reason: not valid java name */
-    public static float f232char = 2.3f;
+    public static float f196char = 2.3f;
     public static float C = 3.8f;
     public static int t = 3;
     public static int a = 10;
     public static int u = 2;
 
     /* renamed from: if  reason: not valid java name */
-    public static int f237if = 7;
+    public static int f201if = 7;
 
     /* renamed from: int  reason: not valid java name */
-    public static int f238int = 20;
+    public static int f202int = 20;
     public static int k = 70;
     public static int K = 120;
     public static float T = 2.0f;
@@ -88,8 +88,8 @@ public class j {
     public static int F = 16;
 
     /* renamed from: new  reason: not valid java name */
-    public static float f240new = 0.9f;
-    public static int h = 5000;
+    public static float f204new = 0.9f;
+    public static int h = KirinConfig.READ_TIME_OUT;
     public static float D = 0.5f;
     public static float S = 0.0f;
     public static float P = 0.1f;
@@ -98,8 +98,8 @@ public class j {
     public static boolean m = true;
     public static boolean G = true;
     public static int i = 20;
-    public static int g = MKEvent.ERROR_PERMISSION_DENIED;
-    public static int l = LocationClientOption.MIN_SCAN_SPAN;
+    public static int g = TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI;
+    public static int l = 1000;
     public static long z = 1200000;
     public static long B = 20;
     public static long q = 300000;
@@ -110,20 +110,20 @@ public class j {
         private static final boolean a = false;
 
         /* renamed from: if  reason: not valid java name */
-        private static final String f243if = a.class.getSimpleName();
+        private static final String f207if = a.class.getSimpleName();
 
         private static String a(Context context) {
             return b.a(context);
         }
 
         /* renamed from: if  reason: not valid java name */
-        public static String m258if(Context context) {
+        public static String m245if(Context context) {
             String a2 = a(context);
-            String m259do = b.m259do(context);
-            if (TextUtils.isEmpty(m259do)) {
-                m259do = "0";
+            String m246do = b.m246do(context);
+            if (TextUtils.isEmpty(m246do)) {
+                m246do = "0";
             }
-            return a2 + "|" + new StringBuffer(m259do).reverse().toString();
+            return a2 + "|" + new StringBuffer(m246do).reverse().toString();
         }
     }
 
@@ -132,34 +132,34 @@ public class j {
         private static final String a = "a";
 
         /* renamed from: do  reason: not valid java name */
-        private static final String f244do = "bids";
+        private static final String f208do = "bids";
 
         /* renamed from: for  reason: not valid java name */
-        private static final String f245for = "i";
+        private static final String f209for = "i";
 
         /* renamed from: if  reason: not valid java name */
-        private static final String f246if = "DeviceId";
+        private static final String f210if = "DeviceId";
 
         private b() {
         }
 
         public static String a(Context context) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences(f244do, 0);
-            String string = sharedPreferences.getString(f245for, null);
+            SharedPreferences sharedPreferences = context.getSharedPreferences(f208do, 0);
+            String string = sharedPreferences.getString(f209for, null);
             if (string == null) {
-                string = m259do(context);
+                string = m246do(context);
                 SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putString(f245for, string);
+                edit.putString(f209for, string);
                 edit.commit();
             }
             String string2 = sharedPreferences.getString(a, null);
             if (string2 == null) {
-                string2 = m260if(context);
+                string2 = m247if(context);
                 SharedPreferences.Editor edit2 = sharedPreferences.edit();
                 edit2.putString(a, string2);
                 edit2.commit();
             }
-            String a2 = j.a((AccountProxy.BAIDUACCOUNT_TYPE + string + string2).getBytes(), true);
+            String a2 = j.a(("com.baidu" + string + string2).getBytes(), true);
             String string3 = Settings.System.getString(context.getContentResolver(), a2);
             if (TextUtils.isEmpty(string3)) {
                 String a3 = j.a((string + string2 + UUID.randomUUID().toString()).getBytes(), true);
@@ -170,7 +170,7 @@ public class j {
         }
 
         /* renamed from: do  reason: not valid java name */
-        public static String m259do(Context context) {
+        public static String m246do(Context context) {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager != null) {
                 String deviceId = telephonyManager.getDeviceId();
@@ -180,7 +180,7 @@ public class j {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public static String m260if(Context context) {
+        public static String m247if(Context context) {
             String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
             return TextUtils.isEmpty(string) ? "" : string;
         }
@@ -201,7 +201,7 @@ public class j {
         try {
             return Float.parseFloat(substring);
         } catch (NumberFormatException e2) {
-            a(f235for, "util numberFormatException, intStr : " + substring);
+            a(f199for, "util numberFormatException, intStr : " + substring);
             e2.printStackTrace();
             return Float.MIN_VALUE;
         }
@@ -214,7 +214,7 @@ public class j {
     }
 
     public static String a(c.a aVar, e.c cVar, Location location, String str, int i2) {
-        String m131int;
+        String m118int;
         String aVar2;
         StringBuffer stringBuffer = new StringBuffer();
         if (i2 != 0) {
@@ -225,15 +225,15 @@ public class j {
             stringBuffer.append(aVar2);
         }
         if (cVar != null) {
-            String m147byte = i2 == 0 ? cVar.m147byte() : cVar.m157try();
-            if (m147byte != null) {
-                stringBuffer.append(m147byte);
+            String m134byte = i2 == 0 ? cVar.m134byte() : cVar.m144try();
+            if (m134byte != null) {
+                stringBuffer.append(m134byte);
             }
         }
         if (location != null) {
-            String m80if = (f242void == 0 || i2 == 0) ? com.baidu.location.b.m80if(location) : com.baidu.location.b.k();
-            if (m80if != null) {
-                stringBuffer.append(m80if);
+            String m67if = (f206void == 0 || i2 == 0) ? com.baidu.location.b.m67if(location) : com.baidu.location.b.k();
+            if (m67if != null) {
+                stringBuffer.append(m67if);
             }
         }
         String a2 = c.a(i2 == 0);
@@ -243,11 +243,11 @@ public class j {
         if (str != null) {
             stringBuffer.append(str);
         }
-        if (aVar != null && (m131int = aVar.m131int()) != null && m131int.length() + stringBuffer.length() < 750) {
-            stringBuffer.append(m131int);
+        if (aVar != null && (m118int = aVar.m118int()) != null && m118int.length() + stringBuffer.length() < 750) {
+            stringBuffer.append(m118int);
         }
         String stringBuffer2 = stringBuffer.toString();
-        a(f235for, "util format : " + stringBuffer2);
+        a(f199for, "util format : " + stringBuffer2);
         return stringBuffer2;
     }
 
@@ -260,7 +260,7 @@ public class j {
             return null;
         }
         String str4 = str.substring(0, length) + String.format("%.7f", Double.valueOf(d2)) + str.substring(indexOf2);
-        a(f235for, "NEW:" + str4);
+        a(f199for, "NEW:" + str4);
         return str4;
     }
 
@@ -297,13 +297,13 @@ public class j {
     }
 
     public static boolean a(String str) {
-        int m253if = m253if(str, "error\":\"", "\"");
-        return m253if > 100 && m253if < 200;
+        int m240if = m240if(str, "error\":\"", "\"");
+        return m240if > 100 && m240if < 200;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: do  reason: not valid java name */
-    public static double m249do(String str, String str2, String str3) {
+    public static double m236do(String str, String str2, String str3) {
         int indexOf;
         int length;
         int indexOf2;
@@ -314,26 +314,26 @@ public class j {
         try {
             return Double.parseDouble(substring);
         } catch (NumberFormatException e2) {
-            a(f235for, "util numberFormatException, doubleStr : " + substring);
+            a(f199for, "util numberFormatException, doubleStr : " + substring);
             e2.printStackTrace();
             return Double.MIN_VALUE;
         }
     }
 
     /* renamed from: do  reason: not valid java name */
-    public static String m250do() {
+    public static String m237do() {
         return x;
     }
 
     /* renamed from: do  reason: not valid java name */
-    public static void m251do(String str) {
+    public static void m238do(String str) {
         if ((r || n) && str != null) {
             x = str;
         }
     }
 
     /* renamed from: for  reason: not valid java name */
-    public static void m252for() {
+    public static void m239for() {
         if (r || n) {
             try {
                 if (y != null) {
@@ -347,7 +347,7 @@ public class j {
                     file.mkdirs();
                     a("sdkdemo_applocation", "directory not exists, make dirs...");
                 }
-                a(f235for, "logcat start ...");
+                a(f199for, "logcat start ...");
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -356,7 +356,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: if  reason: not valid java name */
-    public static int m253if(String str, String str2, String str3) {
+    public static int m240if(String str, String str2, String str3) {
         int indexOf;
         int length;
         int indexOf2;
@@ -367,37 +367,37 @@ public class j {
         try {
             return Integer.parseInt(substring);
         } catch (NumberFormatException e2) {
-            a(f235for, "util numberFormatException, intStr : " + substring);
+            a(f199for, "util numberFormatException, intStr : " + substring);
             e2.printStackTrace();
             return Integer.MIN_VALUE;
         }
     }
 
     /* renamed from: if  reason: not valid java name */
-    static String m254if() {
+    static String m241if() {
         Calendar calendar = Calendar.getInstance();
         return String.format("%d_%d_%d_%d_%d_%d", Integer.valueOf(calendar.get(1)), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)), Integer.valueOf(calendar.get(11)), Integer.valueOf(calendar.get(12)), Integer.valueOf(calendar.get(13)));
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static void m255if(String str) {
+    public static void m242if(String str) {
         if (p) {
             Log.d(w, str);
         }
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static void m256if(String str, String str2) {
+    public static void m243if(String str, String str2) {
         if (n) {
             Log.d(str, str2);
         }
     }
 
     /* renamed from: int  reason: not valid java name */
-    public static void m257int() {
+    public static void m244int() {
         if (y != null) {
             try {
-                a(f235for, "logcat stop...");
+                a(f199for, "logcat stop...");
                 y.destroy();
             } catch (Exception e2) {
                 e2.printStackTrace();

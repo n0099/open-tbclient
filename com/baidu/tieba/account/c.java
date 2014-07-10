@@ -1,42 +1,71 @@
 package com.baidu.tieba.account;
 
-import com.baidu.loginshare.ILoginShareListener;
-import com.baidu.loginshare.LoginShareEvent;
-import com.baidu.loginshare.Token;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class c implements ILoginShareListener {
-    final /* synthetic */ a a;
-
-    private c(a aVar) {
-        this.a = aVar;
-    }
+class c implements DialogInterface.OnClickListener {
+    final /* synthetic */ b a;
+    private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ c(a aVar, c cVar) {
-        this(aVar);
+    public c(b bVar, View view) {
+        this.a = bVar;
+        this.b = view;
     }
 
-    @Override // com.baidu.loginshare.ILoginShareListener
-    public void onLoginShareEvent(Token token) {
-        if (token != null) {
-            LoginShareEvent loginShareEvent = token.mEvent;
-            String str = token.mUsername;
-            String str2 = token.mBduss;
-            String str3 = token.mPtoken;
-            com.baidu.tieba.util.z.e(getClass().getName(), "onLoginShareEvent", "bduss = " + str2);
-            com.baidu.tieba.util.z.e(getClass().getName(), "onLoginShareEvent", "username = " + str);
-            com.baidu.tieba.util.z.e(getClass().getName(), "onLoginShareEvent", "ptoken = " + str3);
-            if (loginShareEvent == LoginShareEvent.VALID) {
-                if (str2 != null && str3 != null) {
-                    com.baidu.tieba.util.z.e(getClass().getName(), "onLoginShareEvent", "login");
-                    this.a.a(true, str2, str3, str);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AccountActivity accountActivity;
+        AccountActivity accountActivity2;
+        AccountActivity accountActivity3;
+        f fVar;
+        AccountActivity accountActivity4;
+        f fVar2;
+        AccountActivity accountActivity5;
+        AccountActivity accountActivity6;
+        AccountActivity accountActivity7;
+        f fVar3;
+        AccountActivity accountActivity8;
+        f fVar4;
+        if (this.b != null) {
+            AccountData accountData = (AccountData) this.b.getTag();
+            switch (i) {
+                case 0:
+                    if (accountData != null) {
+                        accountActivity5 = this.a.a;
+                        accountActivity6 = this.a.a;
+                        accountActivity5.i = new f(accountActivity6, false, accountData);
+                        accountActivity7 = this.a.a;
+                        fVar3 = accountActivity7.i;
+                        fVar3.setPriority(3);
+                        accountActivity8 = this.a.a;
+                        fVar4 = accountActivity8.i;
+                        fVar4.execute(new Object[0]);
+                    }
+                    dialogInterface.cancel();
                     return;
-                }
-                return;
+                case 1:
+                    if (accountData != null) {
+                        accountActivity = this.a.a;
+                        accountActivity2 = this.a.a;
+                        accountActivity.i = new f(accountActivity2, true, accountData);
+                        accountActivity3 = this.a.a;
+                        fVar = accountActivity3.i;
+                        fVar.setPriority(3);
+                        accountActivity4 = this.a.a;
+                        fVar2 = accountActivity4.i;
+                        fVar2.execute(new Object[0]);
+                    }
+                    dialogInterface.cancel();
+                    return;
+                case 2:
+                    dialogInterface.cancel();
+                    return;
+                default:
+                    dialogInterface.cancel();
+                    return;
             }
-            com.baidu.tieba.util.z.e(getClass().getName(), "onLoginShareEvent", "logout");
-            this.a.a(false, null, null, null);
         }
     }
 }

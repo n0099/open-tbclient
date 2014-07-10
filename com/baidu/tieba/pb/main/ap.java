@@ -1,0 +1,18 @@
+package com.baidu.tieba.pb.main;
+
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class ap implements DialogInterface.OnClickListener {
+    final /* synthetic */ PbActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ap(PbActivity pbActivity) {
+        this.a = pbActivity;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
+    }
+}

@@ -1,28 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ay extends BdAsyncTask {
-    private ay() {
-    }
+public class ay implements View.OnClickListener {
+    final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ay(ay ayVar) {
-        this();
+    public ay(UpdateDialog updateDialog) {
+        this.a = updateDialog;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        byte[] bArr;
-        byte[] bArr2;
-        bArr = TiebaApplication.aB;
-        synchronized (bArr) {
-            TiebaApplication.aC = Boolean.valueOf(com.baidu.tieba.util.aa.a());
-            bArr2 = TiebaApplication.aB;
-            bArr2.notifyAll();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        ac acVar;
+        z = this.a.a;
+        if (z) {
+            this.a.b();
         }
-        return null;
+        acVar = this.a.h;
+        acVar.dismiss();
+        this.a.finish();
     }
 }

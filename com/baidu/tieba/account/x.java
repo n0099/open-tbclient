@@ -1,31 +1,26 @@
 package com.baidu.tieba.account;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
-    final /* synthetic */ LoginActivity a;
+public class x extends com.baidu.tieba.util.l {
+    final /* synthetic */ Register2Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(LoginActivity loginActivity) {
-        this.a = loginActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(Register2Activity register2Activity, Context context) {
+        super(context);
+        this.a = register2Activity;
     }
 
-    @Override // android.view.View.OnClickListener
+    @Override // com.baidu.tieba.util.l, android.text.style.ClickableSpan
     public void onClick(View view) {
-        EditText editText;
-        EditText editText2;
-        this.a.x();
-        LoginActivity loginActivity = this.a;
-        InputMethodManager inputMethodManager = this.a.d;
-        editText = this.a.s;
-        loginActivity.a(inputMethodManager, editText);
-        LoginActivity loginActivity2 = this.a;
-        InputMethodManager inputMethodManager2 = this.a.d;
-        editText2 = this.a.t;
-        loginActivity2.a(inputMethodManager2, editText2);
-        Register2Activity.a(this.a, 1200007);
+        z zVar;
+        zVar = this.a.O;
+        if (zVar == null) {
+            a().startActivity(new Intent(a(), ProtocolActivity.class));
+        }
     }
 }

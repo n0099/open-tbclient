@@ -1,36 +1,38 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
-import com.baidu.android.pushservice.PushConstants;
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class v {
-    private an c;
-    private ArrayList d;
-    private Context l;
+    private am e;
+    private ArrayList<g> f;
+    private Context n;
     private String a = null;
     private String b = null;
-    private int e = 0;
-    private int f = 0;
-    private String g = null;
-    private String h = null;
+    private String c = null;
+    private String d = null;
+    private int g = 0;
+    private int h = 0;
     private String i = null;
     private String j = null;
-    private int k = -1;
+    private String k = null;
+    private String l = null;
+    private int m = -1;
 
     public v(Context context) {
-        this.c = null;
-        this.d = null;
-        this.l = null;
-        this.l = context;
-        this.c = new an();
-        this.d = new ArrayList();
+        this.e = null;
+        this.f = null;
+        this.n = null;
+        this.n = context;
+        this.e = new am();
+        this.f = new ArrayList<>();
     }
 
-    public an a() {
-        return this.c;
+    public am a() {
+        return this.e;
     }
 
     public String b() {
@@ -42,58 +44,67 @@ public class v {
     }
 
     public String d() {
-        return this.g;
-    }
-
-    public String e() {
         return this.i;
     }
 
-    public int f() {
-        return this.e;
-    }
-
-    public int g() {
-        return this.f;
-    }
-
-    public int h() {
+    public String e() {
         return this.k;
     }
 
+    public int f() {
+        return this.g;
+    }
+
+    public int g() {
+        return this.h;
+    }
+
+    public int h() {
+        return this.m;
+    }
+
     public String i() {
-        return this.j;
+        return this.l;
+    }
+
+    public String j() {
+        return this.d;
     }
 
     public void a(JSONObject jSONObject) {
         JSONObject optJSONObject;
         try {
-            this.g = jSONObject.getString("post_id");
-            this.i = jSONObject.getString("user_name");
-            this.j = jSONObject.getString(PushConstants.EXTRA_USER_ID);
-            this.h = jSONObject.getString("comment_amount");
+            this.i = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.POST_ID);
+            this.k = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
+            this.l = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_ID);
+            this.j = jSONObject.optString("comment_amount");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
-            this.k = jSONObject.optInt("index", -1);
+            this.m = jSONObject.optInt("index", -1);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
                 this.a = optJSONObject.optString("id");
                 this.b = optJSONObject.optString("url");
-                this.e = optJSONObject.optInt("width", 0);
-                this.f = optJSONObject.optInt("height", 0);
+                this.g = optJSONObject.optInt("width", 0);
+                this.h = optJSONObject.optInt("height", 0);
+                this.c = optJSONObject.optString("cdn_src", "");
+                if (this.c == null || this.c.length() == 0) {
+                    this.c = this.b;
+                }
+                this.d = optJSONObject.optString("big_cdn_src", null);
             }
-            JSONArray jSONArray = jSONObject.getJSONArray("descr");
-            if (jSONArray != null) {
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    i iVar = new i();
-                    iVar.a(jSONArray.getJSONObject(i));
-                    this.d.add(iVar);
+            JSONArray optJSONArray = jSONObject.optJSONArray("descr");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    g gVar = new g();
+                    gVar.a(optJSONArray.optJSONObject(i));
+                    this.f.add(gVar);
                 }
             }
-            this.c.a(this.d);
-            if (this.l != null) {
-                this.c.d(this.l);
+            this.e.a(this.f);
+            if (this.n != null) {
+                this.e.b(this.n);
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.z.b(getClass().getName(), "paserJson", e.toString());
+            BdLog.detailException(e);
         }
     }
 }

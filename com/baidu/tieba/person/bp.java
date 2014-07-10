@@ -1,33 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.tieba.data.UserData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class bp implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity a;
+class bp implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(PersonListActivity personListActivity) {
-        this.a = personListActivity;
+    public bp(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bu buVar;
-        bu buVar2;
-        bu buVar3;
-        int intValue = ((Integer) view.getTag()).intValue();
-        buVar = this.a.f;
-        if (buVar != null) {
-            buVar2 = this.a.f;
-            if (buVar2.getItemViewType(intValue) == 0) {
-                buVar3 = this.a.f;
-                UserData userData = (UserData) buVar3.getItem(intValue);
-                if (userData != null && userData.getId() != null) {
-                    PersonInfoActivity.a(this.a, userData.getId(), userData.getName_show());
-                }
-            }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (i == 0) {
+            com.baidu.tbadk.core.util.bj.a(this.a);
+        } else if (i == 1) {
+            com.baidu.tbadk.core.util.bj.c(this.a);
         }
     }
 }

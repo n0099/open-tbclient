@@ -1,171 +1,49 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aw {
-    private r a;
-    private int e;
-    private int g;
-    private AntiData h;
-    private ba i;
-    private int f = 10;
-    private boolean j = false;
-    private an b = null;
-    private ArrayList c = new ArrayList();
-    private int d = 1;
+    private String a = null;
+    private String d = null;
+    private String b = null;
+    private int c = 0;
+    private ax e = new ax();
 
-    public an a() {
-        return this.b;
-    }
-
-    public void a(an anVar) {
-        this.b = anVar;
-    }
-
-    public void a(aw awVar, boolean z) {
-        if (awVar != null) {
-            a(awVar.h());
-            d(awVar.f());
-            a(awVar.g());
-            c(awVar.e());
-            a(awVar.l());
-            b(awVar.d());
-            a(awVar.c());
-            int size = this.c.size();
-            if (z && size % this.f != 0) {
-                for (int i = 0; i < size % this.f; i++) {
-                    this.c.remove(this.c.size() - 1);
-                }
-            }
-            this.c.addAll(awVar.b());
-        }
-    }
-
-    public ArrayList b() {
-        return this.c;
-    }
-
-    public void a(ArrayList arrayList) {
-        this.c = arrayList;
-    }
-
-    public int c() {
+    public String a() {
         return this.d;
     }
 
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int d() {
+    public ax b() {
         return this.e;
     }
 
-    public void b(int i) {
-        this.e = i;
+    public String c() {
+        return this.b;
     }
 
-    public int e() {
-        return this.f;
-    }
-
-    public void c(int i) {
-        if (i != 0) {
-            this.f = i;
-        }
-    }
-
-    public int f() {
-        return this.g;
-    }
-
-    public void d(int i) {
-        this.g = i;
-    }
-
-    public void a(r rVar) {
-        this.a = rVar;
-    }
-
-    public r g() {
+    public String d() {
         return this.a;
     }
 
-    public void a(AntiData antiData) {
-        this.h = antiData;
+    public int e() {
+        return this.c;
     }
 
-    public AntiData h() {
-        return this.h;
-    }
-
-    public void a(ba baVar) {
-        this.i = baVar;
-    }
-
-    public boolean i() {
-        return (this.i == null || this.b == null || this.i.g() == null || this.i.g().getId() == null || this.b.h() == null || this.b.h().getId() == null || !this.i.g().getId().equals(this.b.h().getId())) ? false : true;
-    }
-
-    public boolean j() {
-        return this.j;
-    }
-
-    public boolean k() {
-        return this.g < this.d && this.g * this.f < 200;
-    }
-
-    public ba l() {
-        return this.i;
-    }
-
-    public void a(String str, Context context) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("post");
-            JSONArray optJSONArray = jSONObject.optJSONArray("subpost_list");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("thread");
-            JSONObject optJSONObject4 = jSONObject.optJSONObject("anti");
-            AntiData antiData = new AntiData();
-            antiData.parserJson(optJSONObject4);
-            a(antiData);
-            ba baVar = new ba();
-            baVar.a(optJSONObject3);
-            a(baVar);
-            r rVar = new r();
-            rVar.a(optJSONObject2);
-            a(rVar);
-            an anVar = new an();
-            anVar.a(optJSONObject, context);
-            a(anVar);
-            int length = optJSONArray.length();
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                an anVar2 = new an();
-                anVar2.a(jSONObject2, context);
-                arrayList.add(anVar2);
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optString("tid");
+                this.b = jSONObject.optString("title");
+                this.c = jSONObject.optInt("reply_amount", 0);
+                JSONObject optJSONObject = jSONObject.optJSONObject("user");
+                if (optJSONObject != null) {
+                    this.d = optJSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+                }
+                this.e.a(jSONObject.optJSONObject("photo"));
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
-            a(arrayList);
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("page");
-            int optInt = optJSONObject5.optInt("total_page");
-            int optInt2 = optJSONObject5.optInt("page_size", 10);
-            int optInt3 = optJSONObject5.optInt("current_page");
-            int optInt4 = optJSONObject5.optInt("total_count");
-            d(optInt3);
-            c(optInt2);
-            b(optInt4);
-            a(optInt);
-        } catch (Exception e) {
-            com.baidu.tieba.util.z.b("SubPbModel", "parseJson", "error = " + e.getMessage());
         }
-    }
-
-    public void a(boolean z) {
-        this.j = z;
     }
 }

@@ -1,173 +1,107 @@
 package com.baidu.tieba.person;
 
-import android.graphics.Bitmap;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import cn.jingling.lib.filters.FilterFactory;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.view.EditHeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.data.ForumData;
+import java.util.ArrayList;
+import java.util.Date;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class t extends BdAsyncTask {
-    final /* synthetic */ EditHeadActivity a;
-    private String b;
-    private Bitmap c;
-    private Boolean d;
-    private Boolean e;
+public class t {
+    private int f = 0;
+    private ArrayList<ForumData> a = new ArrayList<>();
+    private ArrayList<ForumData> b = new ArrayList<>();
+    private com.baidu.tbadk.core.data.k c = new com.baidu.tbadk.core.data.k();
+    private Date d = null;
+    private boolean e = true;
 
-    private t(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
-        this.d = false;
-        this.e = false;
+    public int a() {
+        return this.f;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ t(EditHeadActivity editHeadActivity, t tVar) {
-        this(editHeadActivity);
+    public void a(int i) {
+        this.f = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        ProgressBar progressBar;
-        Button button;
-        progressBar = this.a.n;
-        progressBar.setVisibility(0);
-        button = this.a.j;
-        button.setClickable(false);
+    public ArrayList<ForumData> b() {
+        return this.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Bitmap a(String... strArr) {
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        Bitmap bitmap5;
-        Bitmap bitmap6;
-        Bitmap bitmap7;
-        Bitmap bitmap8;
-        Bitmap bitmap9;
-        this.b = strArr[0];
-        bitmap = this.a.f;
-        if (bitmap == null) {
-            bitmap9 = this.a.v;
-            if (bitmap9 == null) {
-                return null;
+    public void a(ArrayList<ForumData> arrayList) {
+        this.a = arrayList;
+    }
+
+    public ArrayList<ForumData> c() {
+        return this.b;
+    }
+
+    public void b(ArrayList<ForumData> arrayList) {
+        this.b = arrayList;
+    }
+
+    public void a(String str) {
+        if (str != null) {
+            try {
+                a(new JSONObject(str));
+            } catch (Exception e) {
+                this.e = false;
+                BdLog.e(e.getMessage());
             }
         }
-        if (this.b.equals("0") || this.b.equals("1")) {
-            this.d = true;
-        } else if (this.b.equals("2") || this.b.equals("3")) {
-            this.e = true;
-        }
-        if (!this.d.booleanValue() && !this.e.booleanValue()) {
-            bitmap7 = this.a.f;
-            bitmap8 = this.a.f;
-            this.c = bitmap7.copy(bitmap8.getConfig(), true);
-        } else {
-            bitmap2 = this.a.v;
-            if (bitmap2 == null) {
-                bitmap3 = this.a.f;
-                bitmap4 = this.a.f;
-                this.c = bitmap3.copy(bitmap4.getConfig(), true);
-            } else {
-                bitmap5 = this.a.v;
-                bitmap6 = this.a.v;
-                this.c = bitmap5.copy(bitmap6.getConfig(), true);
-            }
-        }
-        if (this.d.booleanValue()) {
-            this.c = com.baidu.tieba.util.d.d(this.c, Integer.parseInt(this.b));
-        } else if (this.e.booleanValue()) {
-            this.c = com.baidu.tieba.util.d.e(this.c, Integer.parseInt(this.b));
-        } else {
-            this.c = FilterFactory.createOneKeyFilter(this.a, this.b).apply(this.a, this.c);
-        }
-        return this.c;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        Button button;
-        Bitmap bitmap;
-        if (this.c != null && !this.c.isRecycled()) {
-            bitmap = this.a.v;
-            if (bitmap != this.c) {
-                this.c.recycle();
-            }
-        }
-        this.c = null;
-        progressBar = this.a.n;
-        progressBar.setVisibility(8);
-        button = this.a.j;
-        button.setClickable(true);
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0053, code lost:
-        if (r0.getHeight() > 600) goto L28;
-     */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(Bitmap bitmap) {
-        ProgressBar progressBar;
-        Button button;
-        EditHeadImageView editHeadImageView;
-        Bitmap bitmap2;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        Bitmap bitmap5;
-        Bitmap bitmap6;
-        Bitmap bitmap7;
-        Bitmap bitmap8;
-        Bitmap bitmap9;
-        EditHeadImageView editHeadImageView2;
-        progressBar = this.a.n;
-        progressBar.setVisibility(8);
-        button = this.a.j;
-        button.setClickable(true);
-        if (bitmap != null && !bitmap.isRecycled()) {
-            this.a.C = true;
-            if (this.d.booleanValue() || this.e.booleanValue()) {
-                editHeadImageView = this.a.e;
-                editHeadImageView.setImageBitmap(bitmap);
-                bitmap2 = this.a.f;
-                if (bitmap2.getWidth() <= 600) {
-                    bitmap6 = this.a.f;
+    public void a(JSONObject jSONObject) {
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
+            if (optJSONObject != null) {
+                JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
+                if (optJSONArray != null) {
+                    this.f = optJSONArray.length();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        ForumData forumData = new ForumData();
+                        forumData.parserJson(optJSONArray.getJSONObject(i));
+                        this.a.add(forumData);
+                    }
                 }
-                EditHeadActivity editHeadActivity = this.a;
-                bitmap3 = this.a.f;
-                editHeadActivity.f = com.baidu.tieba.util.d.a(bitmap3, 600);
-                if (this.d.booleanValue()) {
-                    EditHeadActivity editHeadActivity2 = this.a;
-                    bitmap5 = this.a.f;
-                    editHeadActivity2.f = com.baidu.tieba.util.d.d(bitmap5, Integer.parseInt(this.b));
-                } else if (this.e.booleanValue()) {
-                    EditHeadActivity editHeadActivity3 = this.a;
-                    bitmap4 = this.a.f;
-                    editHeadActivity3.f = com.baidu.tieba.util.d.e(bitmap4, Integer.parseInt(this.b));
+                JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        ForumData forumData2 = new ForumData();
+                        forumData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        this.a.add(forumData2);
+                    }
                 }
-            } else {
-                editHeadImageView2 = this.a.e;
-                editHeadImageView2.a(bitmap);
-            }
-            bitmap7 = this.a.v;
-            if (bitmap7 != null) {
-                bitmap8 = this.a.v;
-                if (!bitmap8.isRecycled()) {
-                    bitmap9 = this.a.v;
-                    bitmap9.recycle();
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("common_forum_list");
+                if (optJSONObject2 != null) {
+                    JSONArray optJSONArray3 = optJSONObject2.optJSONArray("gconforum");
+                    if (optJSONArray3 != null) {
+                        this.f = optJSONArray3.length();
+                        for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                            ForumData forumData3 = new ForumData();
+                            forumData3.parserJson(optJSONArray3.getJSONObject(i3));
+                            this.b.add(forumData3);
+                        }
+                    }
+                    JSONArray optJSONArray4 = optJSONObject2.optJSONArray("non-gconforum");
+                    if (optJSONArray4 != null) {
+                        for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                            ForumData forumData4 = new ForumData();
+                            forumData4.parserJson(optJSONArray4.getJSONObject(i4));
+                            this.b.add(forumData4);
+                        }
+                    }
+                    this.c.a(jSONObject.optJSONObject("page"));
+                    long optLong = jSONObject.optLong("ctime", 0L);
+                    if (optLong > 0) {
+                        this.d = new Date(optLong);
+                    } else {
+                        this.d = new Date();
+                    }
                 }
             }
-            this.a.v = bitmap;
+        } catch (Exception e) {
+            this.e = false;
+            BdLog.e(e.getMessage());
         }
     }
 }
